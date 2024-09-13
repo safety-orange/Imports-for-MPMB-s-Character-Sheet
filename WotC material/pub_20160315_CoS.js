@@ -708,12 +708,12 @@ MagicItemsList["lost sword"] = {
 		modifiers : [1, 1],
 		selectNow : true
 	}],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["crusader's mantle"],
 		selection : ["protection from evil and good"],
 		firstCol : "oncelr"
-	},
+	}],
 	toNotesPage : [{
 		name : "Features",
 		note : desc([

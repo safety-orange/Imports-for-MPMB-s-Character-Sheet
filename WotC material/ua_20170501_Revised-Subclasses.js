@@ -38,19 +38,19 @@ AddSubClass("barbarian", "ancestral guardian2-ua", {
 				"My guardian spirits reduce the damage by an amount equal to the roll of the dice"
 			]),
 			additional : levels.map(function (n) { return n < 6 ? "" : (n < 10 ? 2 : n < 14 ? 3 : 4) + "d8 damage reduced"; }),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature10" : {
 			name : "Consult the Spirits",
 			source : [["UA:RS", 1]],
 			minlevel : 10,
 			description : "\n   " + "Through consulting my ancestral spirits, I can cast Clairvoyance without a spell slot",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Consult the Spirits",
 				spells : ["clairvoyance"],
 				selection : ["clairvoyance"],
 				firstCol : 'oncesr'
-			},
+			}],
 			usages : 1,
 			recovery : "short rest"
 		},
@@ -103,7 +103,7 @@ AddSubClass("bard", "college of swords2-ua", {
 				"    If the attack hits, I can use a die to push the target back 5 + the die result in feet",
 				"    After this, I can use my reaction to move my speed to a space next to the target"
 			]),
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Cunning Flourish",
@@ -254,7 +254,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 				"When I miss with a magic arrow, I can use a bonus action to redirect the attack",
 				"I reroll the attack against a different target within 60 ft of the original target"
 			]),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature15" : {
 			name : "Ever-Ready Shot",
@@ -280,7 +280,7 @@ AddSubClass("monk", "way of the kensei2-ua", {
 				" - If I do an unarmed strike during an Attack action, +2 AC until my next turn starts",
 				" - As a bonus action, ranged kensei weapon attacks deal +1d4 damage in current turn"
 			]),
-			action : ["bonus action", " (with ranged)"],
+			action : [["bonus action", " (with ranged)"]],
 			additional : levels.map( function(n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
 			calcChanges : {
 				atkAdd : [
@@ -329,7 +329,7 @@ AddSubClass("monk", "way of the kensei2-ua", {
 					"This bonus is equal to the number of ki points I spend; It lasts for 1 minute"
 				]),
 				additional : "1 to 3 ki points",
-				action : ["bonus action", ""]
+				action : [["bonus action", ""]]
 			},
 			autoSelectExtrachoices : [{
 				extrachoice : "precise strike"
@@ -364,11 +364,11 @@ AddSubClass("sorcerer", "favoured soul-uars", {
 				"These cleric spells count as sorcerer spells for me",
 				"I also learn Cure Wounds, which doesn't count against my number of spells known"
 			]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Divine Magic",
 				spells : ["cure wounds"],
 				selection : ["cure wounds"]
-			}
+			}]
 		},
 		"subclassfeature1.2" : {
 			name : "Favored by the Gods",
@@ -429,7 +429,7 @@ AddSubClass("sorcerer", "favoured soul-uars", {
 					"These wings last until I become incapacitated or I dismiss them as a bonus action"
 				])
 			},
-			action : ["bonus action", " Wings"],
+			action : [["bonus action", " Wings"]],
 			speed : { fly : { spd : 30, enc : 20 } }
 		},
 		"subclassfeature18" : {
@@ -440,7 +440,7 @@ AddSubClass("sorcerer", "favoured soul-uars", {
 				"As a bonus action when I have less than half of my max HP remaining, I can heal myself",
 				"I regain a number of HP equal to half my hit point maximum"
 			]),
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			recovery : "long rest",
 			usages : 1
 		}

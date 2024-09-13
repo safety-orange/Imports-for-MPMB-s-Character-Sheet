@@ -26,12 +26,12 @@ AddSubClass("druid", "circle of spores-ua", {
 				"These are always prepared, but don't count against the number of spells I can prepare",
 				"In addition, I learn the Chill Touch cantrip"
 			]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Circle Spells",
 				spells : ["chill touch"],
 				selection : ["chill touch"],
 				firstCol : 'atwill'
-			},
+			}],
 			spellcastingExtra : ["gentle repose", "ray of enfeeblement", "animate dead", "gaseous form", "blight", "confusion", "cloudkill", "contagion"]
 		},
 		"subclassfeature2.1" : {
@@ -40,7 +40,7 @@ AddSubClass("druid", "circle of spores-ua", {
 			minlevel : 2,
 			description : "\n   " + "As a reaction on my turn, I can do poison damage to one creature I can see within 10 ft",
 			additional : levels.map(function (n) { return n < 2 ? "" : (n < 6 ? 3 : n < 10 ? 6 : n < 14 ? 9 : 12) + " poison damage"; }),
-			action : ["reaction", " (on my turn)"]
+			action : [["reaction", " (on my turn)"]]
 		},
 		"subclassfeature2.2" : {
 			name : "Symbiotic Entity",
@@ -55,7 +55,7 @@ AddSubClass("druid", "circle of spores-ua", {
 			additional : levels.map(function (n) {
 				return n < 2 ? "" : Math.floor(n*3) + " temp HP; Halo of Spores: " + (n < 6 ? 6 : n < 10 ? 12 : n < 14 ? 18 : 24) + " damage";
 			}),
-			action : ["action", ""],
+			action : [["action", ""]],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -86,7 +86,7 @@ AddSubClass("druid", "circle of spores-ua", {
 				"Any creature starting its turn in the cube takes the damage of my Halo of Spores",
 				"The cube ends if I use this again; While the cube persists, I can't use my Halo of Spores"
 			]),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature14" : {
 			name : "Fungal Body",
@@ -265,7 +265,7 @@ AddSubClass("wizard", "school of invention-ua", {
 			description : "\n   " + "As a bonus action, I can replace a prepared spell with another from my spellbook",
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature14" : {
 			name : "Controlled Chaos",

@@ -50,7 +50,7 @@ RunFunctionAtEnd(function() {
 				source : [["UA:MC", 8]],
 				minlevel : 14,
 				description : "\n   " + "As a bonus action, I sprout feathered or bat wings from my back unless blocked by armor" + "\n   " + "I gain a fly speed equal to my current speed until I dismiss the wings as a bonus action",
-				action : ["bonus action", " (start/stop)"],
+				action : [["bonus action", " (start/stop)"]],
 				speed : { fly : { spd : "walk", enc : "walk" } }
 			},
 			"subclassfeature18" : {
@@ -146,7 +146,7 @@ ClassList["spell-less ranger"] = {
 				name : "Commander's Strike",
 				source : [["P", 74]],
 				description : "\n   " + "I forgo one attack of my Attack action to use a bonus action to direct an ally I see/hear" + "\n   " + "The ally can use a reaction to make an attack, adding the superiority die to damage",
-				action : ["bonus action", " (with Attack action)"]
+				action : [["bonus action", " (with Attack action)"]]
 			},
 			"disarming attack" : {
 				name : "Disarming Attack",
@@ -167,7 +167,7 @@ ClassList["spell-less ranger"] = {
 				name : "Feinting Attack",
 				source : [["P", 74]],
 				description : "\n   " + "As a bonus action, I can feint to gain adv. on my next attack against a target within 5 ft" + "\n   " + "If the attack hits, I add the superiority die to my attack's damage",
-				action : ["bonus action", ""]
+				action : [["bonus action", ""]]
 			},
 			"goading attack" : {
 				name : "Goading Attack",
@@ -193,7 +193,7 @@ ClassList["spell-less ranger"] = {
 				name : "Parry",
 				source : [["P", 74]],
 				description : "\n   " + "When damaged in melee, I can use a reaction to reduce it by superiority die + Dex mod",
-				action : ["reaction", " (when damaged in melee)"]
+				action : [["reaction", " (when damaged in melee)"]]
 			},
 			"precision attack" : {
 				name : "Precision Attack",
@@ -209,13 +209,13 @@ ClassList["spell-less ranger"] = {
 				name : "Rally",
 				source : [["P", 74]],
 				description : "\n   " + "Ally that can see/hear me gets temporary HP equal to superiority die + Charisma mod",
-				action : ["bonus action", ""]
+				action : [["bonus action", ""]]
 			},
 			"riposte" : {
 				name : "Riposte",
 				source : [["P", 74]],
 				description : "\n   " + "When missed in melee, I can use my reaction to make one melee attack vs. the attacker" + "\n   " + "If the attack hits, I add the superiority die to my attack's damage",
-				action : ["reaction", " (after missed in melee)"]
+				action : [["reaction", " (after missed in melee)"]]
 			},
 			"sweeping attack" : {
 				name : "Sweeping Attack",
@@ -252,7 +252,7 @@ ClassList["spell-less ranger"] = {
 				"Out to 1 mile (6 in favored terrain), I sense if certain types of creatures are present",
 				"These types are: aberration, celestial, dragon, elemental, fey, fiend, and undead"
 			]),
-			action : ["action", ""],
+			action : [["action", ""]],
 			usages : 1,
 			recovery : "short rest"
 		},

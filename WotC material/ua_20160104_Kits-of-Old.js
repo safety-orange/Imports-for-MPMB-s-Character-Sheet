@@ -37,14 +37,14 @@ AddSubClass("bard", "college of swords-ua", {
 			source : [["UA:KoO", 1]],
 			minlevel : 3,
 			description : "\n   " + "When I take the Attack action on my turn, I can do one of the following flourishes:" + "\n   " + "I have to use a dagger, longsword, rapier, scimitar, or shortsword while doing this" + "\n    - " + "Defensive Flourish [one Bardic Inspiration die]" + "\n       " + "As a bonus action, I add the die to my AC until the start of my next turn" + "\n    - " + "Trick Shooter's Flourish [one Bardic Inspiration die]" + "\n       " + "As a bonus action with a dagger ranged attack, I add the die to the attack roll" + "\n       " + "If the target is an unattended, inanimate object, the result of the die is doubled" + "\n    - " + "Unnerving Flourish [one Bardic Inspiration die]" + "\n       " + "As a bonus action when reducing a foe to 0 HP with a melee attack, I leave it alive" + "\n       " + "The target stays at 1 HP and is frightened of me for my Cha modifier in minutes" + "\n       " + "It must also make a Cha save at a DC of my spell save + the bardic inspiration die" + "\n       " + "If failed, it answers truthfully any questions I ask and obeys me while frightened",
-			action : ["bonus action", " (one inspiration die)"]
+			action : [["bonus action", " (one inspiration die)"]]
 		},
 		"subclassfeature14" : {
 			name : "Battle Magic",
 			source : [["UA:KoO", 2]],
 			minlevel : 14,
 			description : "\n   " + "When I use my action to cast a Bard spell, I can make one bonus action weapon attack",
-			action : ["bonus action", " (with Bard spell)"]
+			action : [["bonus action", " (with Bard spell)"]]
 		}
 	}
 });
@@ -67,7 +67,7 @@ AddSubClass("bard", "college of satire-ua", { // Still valid 2021-09-21
 			source : [["UA:KoO", 2]],
 			minlevel : 3,
 			description : "\n   " + "As a bonus action, I tumble which gives the benefits of the Dash and Disengage actions" + "\n   " + "I also gain a climbing speed at my current speed and half damage from falling",
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			speed : { climb : { spd : "walk", enc : "walk" } }
 		},
 		"subclassfeature6" : {
@@ -78,12 +78,12 @@ AddSubClass("bard", "college of satire-ua", { // Still valid 2021-09-21
 			usages : "Charisma modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Cha Mod'));",
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Fool's Insight",
 				spells : ["detect thoughts"],
 				selection : ["detect thoughts"],
 				firstCol : "(S)"
-			},
+			}],
 			spellChanges : {
 				"detect thoughts" : {
 					description : "1 a read thoughts of visible Int>3 crea or detect invisible in 30 ft; save for probing, social gaffe on save",
@@ -141,7 +141,7 @@ AddSubClass("fighter", "cavalier-ua", {
 			additional : ["", "", "d8", "d8", "d8", "d8", "d8", "d8", "d8", "d10", "d10", "d10", "d10", "d10", "d10", "d10", "d10", "d12", "d12", "d12"],
 			usages : [0, 0, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6],
 			recovery : "short rest",
-			action : ["reaction", " (if hit/mount hit)"]
+			action : [["reaction", " (if hit/mount hit)"]]
 		},
 		"subclassfeature7" : {
 			name : "Ferocious Charger",
@@ -150,7 +150,7 @@ AddSubClass("fighter", "cavalier-ua", {
 			usages : 1,
 			recovery : "long rest",
 			description : "\n   " + "I can use two superiority dice, instead of just one, to increase the damage of my lance" + "\n   " + "If doing so, the target has disadvantage on its Str save to avoid being knocked prone",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature10" : {
 			name : "Improved Combat Superiority",
@@ -203,7 +203,7 @@ AddSubClass("fighter", "scout-ua", { // Still valid 2021-09-21
 			additional : ["", "", "d8", "d8", "d8", "d8", "d8", "d8", "d8", "d10", "d10", "d10", "d10", "d10", "d10", "d10", "d10", "d12", "d12", "d12"],
 			usages : [0, 0, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6],
 			recovery : "short rest",
-			action : ["reaction", " (if hit)"]
+			action : [["reaction", " (if hit)"]]
 		},
 		"subclassfeature3.2" : function () {
 			var NEfea = newObj(ClassList.ranger.features["natural explorer"]);

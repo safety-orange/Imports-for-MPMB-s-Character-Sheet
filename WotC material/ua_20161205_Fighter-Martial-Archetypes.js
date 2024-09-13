@@ -86,7 +86,7 @@ AddSubClass("fighter", "arcane archer-ua", {
 				name : "Seeking Arrow",
 				source : [["UA:FMA", 2]],
 				description : " [Divination]" + "\n   " + "As an action, I can make a ranged attack against a creature I have seen in the last minute" + "\n   " + "The seeking arrow moves around corners and obstacles to hit the target" + "\n   " + "The attack ignores 1/2 and 3/4 cover and disadvantage from range or being out of sight" + "\n   " + "The attack misses if the target is too far away or there is no path for the arrow to travel" + "\n   " + "I know if the arrow hits the target, but don't learn the location unless it's in line of sight",
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			"shadow arrow" : {
 				name : "Shadow Arrow",
@@ -106,7 +106,7 @@ AddSubClass("fighter", "arcane archer-ua", {
 			source : [["UA:FMA", 1]],
 			minlevel : 7,
 			description : "\n   " + "As an action, I can create up to 20 nonmagical arrows that remain for 10 minutes" + "\n   " + "The arrows vanish if I use this feature again with 10 minutes",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature15" : {
 			name : "Ever-Ready Arrow",
@@ -139,7 +139,7 @@ AddSubClass("fighter", "knight-ua", { // Still valid 2021-09-21
 			additional : levels.map(function (n) {
 				return n < 3 ? "" : "+" + n + " damage";
 			}),
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
@@ -176,7 +176,7 @@ AddSubClass("fighter", "knight-ua", { // Still valid 2021-09-21
 			additional : levels.map(function (n) {
 				return n < 10 ? "" : "+" + Math.floor(n / 2) + " damage";
 			}),
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
@@ -193,7 +193,7 @@ AddSubClass("fighter", "knight-ua", { // Still valid 2021-09-21
 			source : [["UA:FMA", 3]],
 			minlevel : 15,
 			description : "\n   " + "If I have adv. on an attack, I can forgo it to make an extra attack as a bonus action" + "\n   " + "This attack has to be with the same weapon against the same target",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature18" : {
 			name : "Defender's Blade",
@@ -221,7 +221,7 @@ AddSubClass("fighter", "samurai-ua", {
 			description : "\n   " + "As a bonus action, I can give myself benefits that last until the end of my next turn" + "\n   " + "I then gain adv. on my attacks and resistance to bludgeoning/piercing/slashing damage",
 			recovery : "short rest",
 			usages : 3,
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature7" : {
 			name : "Elegant Courtier",
@@ -252,7 +252,7 @@ AddSubClass("fighter", "samurai-ua", {
 			source : [["UA:FMA", 3]],
 			minlevel : 15,
 			description : "\n   " + "If I have adv. on an attack, I can forgo it to make an extra attack as a bonus action" + "\n   " + "This attack has to be with the same weapon against the same target",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature18" : {
 			name : "Strength Before Death",
@@ -280,7 +280,7 @@ AddSubClass("fighter", "sharpshooter-ua", { // Still valid 2021-09-21
 			additional : levels.map(function (n) {
 				return n < 3 ? "" : "+" + (2 + Math.floor(n / 2)) + " damage";
 			}),
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -302,7 +302,7 @@ AddSubClass("fighter", "sharpshooter-ua", { // Still valid 2021-09-21
 			minlevel : 7,
 			description : "\n   " + "As a bonus action, I can take the Search action" + "\n   " + "I gain proficiency with one skill, Perception, Investigation, or Survival",
 			skillstxt : "Choose one from: Perception, Investigation, or Survival",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature10" : {
 			name : "Close-Quarters Shooting",
@@ -315,7 +315,7 @@ AddSubClass("fighter", "sharpshooter-ua", { // Still valid 2021-09-21
 			source : [["UA:FMA", 4]],
 			minlevel : 15,
 			description : "\n   " + "If I have adv. on an attack, I can forgo it to make an extra attack as a bonus action" + "\n   " + "This attack has to be with the same weapon against the same target",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature18" : {
 			name : "Snap Shot",

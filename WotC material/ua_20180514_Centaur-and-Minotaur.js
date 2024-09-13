@@ -100,12 +100,12 @@ RaceList["minotaur-uacnm"] = {
 		"goring rush" : {
 			name : "Goring Rush",
 			minlevel : 1,
-			action : ["bonus action", " (with Dash)"]
+			action : [["bonus action", " (with Dash)"]]
 		},
 		"hammering horns" : {
 			name : "Hammering Horns",
 			minlevel : 1,
-			action : ["reaction", " (after hit)"]
+			action : [["reaction", " (after hit)"]]
 		}
 	}
 };

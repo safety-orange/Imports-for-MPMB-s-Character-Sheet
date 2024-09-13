@@ -23,7 +23,7 @@ AddSubClass("bard", "college of glamour-ua", {
 			minlevel : 3,
 			description : "\n   " + "As a bonus action, I expend one bardic inspiration die to aid those within 60 ft of me" + "\n   " + "A number of allies equal to my Cha mod gain twice the die roll in temporary HP" + "\n   " + "They can use a reaction to move their speed toward me, without opportunity attacks",
 			additional : "1 bardic inspiration die",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature3.1" : {
 			name : "Enthralling Performance",
@@ -39,7 +39,7 @@ AddSubClass("bard", "college of glamour-ua", {
 			minlevel : 6,
 			recovery : "long rest",
 			usages : 1,
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			description : "\n   " + "As a bonus action, I take on an appearance of unearthly beauty for 1 minute" + "\n   " + "As a bonus action during this time, I can cast Command without using a spell slot" + "\n   " + "Creatures charmed by me automatically fail their saves against these Command spells",
 			spellcastingBonus : [{
 				name : "Mantle of Majesty",
@@ -61,7 +61,7 @@ AddSubClass("bard", "college of glamour-ua", {
 			minlevel : 14,
 			recovery : "short rest",
 			usages : 1,
-			action : ["action", ""],
+			action : [["action", ""]],
 			description : "\n   " + "As an action, I can cast Sanctuary on myself without using a spell slot" + "\n   " + "If a creature fails its save to this, I gain adv. on all Cha checks against it for 1 min" + "\n   " + "In addition, the target has disadv. on saves it makes against my spells on my next turn",
 			spellcastingBonus : [{
 				name : "Unbreakable Majesty",
@@ -103,7 +103,7 @@ AddSubClass("bard", "college of whispers-ua", {
 			name : "Mantle of Whispers",
 			source : [["UA:BC", 2]],
 			minlevel : 6,
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 			description : "\n   " + "As a reaction when a creature dies within 5 ft or by my hand, I can capture its shadow" + "\n   " + "I can use shadows of those with the same type and size as me (or Medium if I'm Small)" + "\n   " + "I can have only one captured shadow at a time and I can don it as a shadow disguise",
 			"shadow disguise" : {
 				name : "Shadow Disguise",
@@ -120,7 +120,7 @@ AddSubClass("bard", "college of whispers-ua", {
 			minlevel : 14,
 			recovery : "long rest",
 			usages : 1,
-			action : ["action", ""],
+			action : [["action", ""]],
 			description : "\n   " + "As an action, I whisper to a creature within 30 ft that can hear and understand me" + "\n   " + "Only the target can hear me; It must make a Wisdom save or be charmed by me" + "\n   " + "If failed, it thinks I know its most mortifying secret, otherwise it only hears mumbling" + "\n   " + "While charmed, the target obeys my commands, but won't risk its life or fight for me" + "\n   " + "This lasts for 8 hours or until I or my allies attack or damage it" + "\n   " + "When the effect ends, the target has no idea why it was so afraid of me"
 		}
 	}

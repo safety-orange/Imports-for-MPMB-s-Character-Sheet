@@ -90,7 +90,7 @@ AddSubClass("sorcerer", "favored soul-ua2", {
 			source : [["UA:SO", 1]],
 			minlevel : 18,
 			description : "\n   " + "As a bonus action when I have less than half of my max HP, I can heal myself" + "\n   " + "I regain a number of HP equal to half my maximum hit points",
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			recovery : "long rest",
 			usages : 1
 		}
@@ -108,7 +108,7 @@ AddSubClass("sorcerer", "phoenix sorcery-ua", { // Still valid 2021-09-21
 			source : [["UA:SO", 2]],
 			minlevel : 1,
 			description : "\n   " + "As an action, I can magically ignite a flammable object by touching it with my hand",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature1.1" : {
 			name : "Mantle of Flame",
@@ -121,7 +121,7 @@ AddSubClass("sorcerer", "phoenix sorcery-ua", { // Still valid 2021-09-21
 				" - I also deal this damage to all that hit me with a melee attack from within 5 ft",
 				" - When I roll for fire damage on my turn, I add my Charisma damage to the result"
 			]),
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			recovery : "long rest",
 			usages : 1
 		},
@@ -139,7 +139,7 @@ AddSubClass("sorcerer", "phoenix sorcery-ua", { // Still valid 2021-09-21
 				if (n < 6) return "";
 				return Math.floor(n / 2) + "+Cha \u007Cor\u007C " + n + "+2\xD7Cha";
 			}),
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 			recovery : "long rest",
 			usages : 1
 		},
@@ -209,7 +209,7 @@ AddSubClass("sorcerer", "sea sorcery-ua", { // Still valid 2021-09-21
 				if (n < 6) return "";
 				return n + " + Charisma score";
 			}),
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 			recovery : "short rest",
 			usages : 1,
 			dmgres : ["Fire"]

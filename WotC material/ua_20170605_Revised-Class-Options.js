@@ -43,7 +43,7 @@ AddSubClass("druid", "circle of the shepherd2-ua", {
 			]),
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Mighty Summoner",
@@ -88,12 +88,12 @@ AddSubClass("druid", "circle of the shepherd2-ua", {
 			]),
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Faithful Summons",
 				spells : ["conjure animals"],
 				selection : ["conjure animals"],
 				firstCol : "oncelr"
-			},
+			}],
 			spellChanges : {
 				"conjure animals" : {
 					nameShort : "Conjure Animals (level 9)",
@@ -203,7 +203,7 @@ AddSubClass("paladin", "oath of conquest2-ua", {
 				"As an action, all creatures of my choice within 30-ft radius must make a Wisdom save",
 				"If failed, a target is frightened for 1 minute; It can save again at the end of each turn"
 			]),
-			action : ["action", ""],
+			action : [["action", ""]],
 			spellcastingExtra : ["armor of agathys", "command", "hold person", "spiritual weapon", "bestow curse", "fear", "dominate beast", "stoneskin", "cloudkill", "dominate person"]
 		},
 		"subclassfeature3.1" : {
@@ -246,7 +246,7 @@ AddSubClass("paladin", "oath of conquest2-ua", {
 			]),
 			recovery : "long rest",
 			usages : 1,
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -285,7 +285,7 @@ AddSubClass("warlock", "the celestial-ua", {
 			}),
 			usagescalc : "event.value = !classes.known.warlock ? '' : (1 + classes.known.warlock.level) + 'd6';",
 			recovery : "long rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Radiant Soul",
@@ -367,7 +367,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 		recovery : "short rest",
 		usages : 1,
-		action : ["bonus action", " (start/stop)"]
+		action : [["bonus action", " (start/stop)"]]
 	});
 	AddWarlockInvocation("Gift of the Depths (prereq: level 5 warlock)", {
 		name : "Gift of the Depths",
@@ -377,12 +377,12 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		]),
 		source : [["X", 57], ["UA:RCO", 6]],
 		submenu : "[warlock level  5+]",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Gift of the Depths",
 			spells : ["water breathing"],
 			selection : ["water breathing"],
 			firstCol : 'oncelr'
-		},
+		}],
 		prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 		speed : { swim : { spd : "walk", enc : "walk" } }
 	});
@@ -413,12 +413,12 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		description : "\n   " + "I can cast Invisibility at will, without using spell slots (PHB 254)",
 		source : [["X", 57], ["UA:RCO", 6]],
 		submenu : "[warlock level 15+]",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Shroud of Shadow",
 			spells : ["invisibility"],
 			selection : ["invisibility"],
 			firstCol : 'atwill'
-		},
+		}],
 		prereqeval : function(v) { return classes.known.warlock.level >= 15; },
 		spellChanges : {
 			"invisibility" : {
@@ -439,7 +439,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 		recovery : "short rest",
 		usages : 1,
-		action : ["reaction", ""],
+		action : [["reaction", ""]],
 		additional : levels.map( function(n) { return (n * 10) + " temp HP"; })
 	});
 	AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
@@ -447,12 +447,12 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		description : "\n   " + "Once per long rest, I can cast Freedom of Movement on myself without using a spell slot",
 		source : [["X", 57], ["UA:RCO", 7]],
 		submenu : "[warlock level  7+]",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Trickster's Escape",
 			spells : ["freedom of movement"],
 			selection : ["freedom of movement"],
 			firstCol : 'oncelr'
-		},
+		}],
 		prereqeval : function(v) { return classes.known.warlock.level >= 7; },
 		spellChanges : {
 			"freedom of movement" : {
@@ -504,7 +504,7 @@ AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
 	recovery : "short rest",
 	usages : 1,
-	action : ["action", ""]
+	action : [["action", ""]]
 });
 AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	name : "Improved Pact Weapon",
@@ -556,7 +556,7 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, Eldritch 
 	source : [["UA:RCO", 6]],
 	submenu : "[improves Eldritch Blast]",
 	prereqeval : function(v) { return v.hasEldritchBlast && classes.known.warlock.level >= 5; },
-	action : ["bonus action", ""]
+	action : [["bonus action", ""]]
 });
 AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
 	name : "Maddening Hex",
@@ -567,7 +567,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
 	source : [["UA:RCO", 6]],
 	submenu : "[warlock level  5+]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 5; },
-	action : ["bonus action", ""]
+	action : [["bonus action", ""]]
 });
 AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
 	name : "Relentless Hex",
@@ -578,5 +578,5 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
 	source : [["UA:RCO", 6]],
 	submenu : "[warlock level  7+]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
-	action : ["bonus action", ""]
+	action : [["bonus action", ""]]
 });

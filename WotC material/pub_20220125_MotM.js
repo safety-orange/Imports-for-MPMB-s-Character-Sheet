@@ -37,13 +37,13 @@ RaceList["multiverse aarakocra"] = {
 		"wind caller" : {
 			name : "Wind Caller",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Wind Caller",
 				spells : ["gust of wind"],
 				selection : ["gust of wind"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Gust of Wind",
 				usages : 1,
@@ -91,12 +91,12 @@ RaceList["multiverse aasimar"] = {
 	trait : "Aasimar" + MotM_Aasimar_trait +
 		"\n \u2022 Celestial Revelation: At 3rd level, I choose one option from Necrotic Shroud, Radiant Consumption, or Radiant Soul. As a bonus action once per long rest, I can transform and gain its benefits. This transformation lasts for 1 minute or until I end it as a bonus action.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Light Bearer",
 		spells : ["light"],
 		selection : ["light"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"healing hands" : MotM_Aasimar_HealingHands
 	}
@@ -258,13 +258,13 @@ RaceList["multiverse deep gnome"] = {
 		"gift of the svirfneblin (level 3)" : {
 			name : "Gift of the Svirfneblin (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Gift of the Svirfneblin",
 				spells : ["disguise self"],
 				selection : ["disguise self"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Disguise Self",
 				usages : 1,
@@ -275,13 +275,13 @@ RaceList["multiverse deep gnome"] = {
 		"gift of the svirfneblin (level 5)" : {
 			name : "Gift of the Svirfneblin (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Gift of the Svirfneblin",
 				spells : ["nondetection"],
 				selection : ["nondetection"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			spellChanges : {
 				"nondetection" : {
 					components : "V,S,M*",
@@ -321,13 +321,13 @@ RaceList["multiverse duergar"] = {
 		"duergar magic (level 3)" : {
 			name : "Duergar Magic (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Duergar Magic",
 				spells : ["enlarge/reduce"],
 				selection : ["enlarge/reduce"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			spellChanges : {
 				"enlarge/reduce" : {
 					range : "Self/" + SpellsList["enlarge/reduce"].range,
@@ -346,13 +346,13 @@ RaceList["multiverse duergar"] = {
 		"duergar magic (level 5)" : {
 			name : "Duergar Magic (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Duergar Magic",
 				spells : ["invisibility"],
 				selection : ["invisibility"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			spellChanges : {
 				"invisibility" : {
 					range : "Self/" + SpellsList["invisibility"].range,
@@ -440,23 +440,23 @@ if (!RaceList["fairy"]) {
 		},
 		scoresGeneric : true,
 		spellcastingAbility : [4, 5, 6],
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Fairy Magic",
 			spells : ["druidcraft"],
 			selection : ["druidcraft"],
 			firstCol : "atwill"
-		},
+		}],
 		features : {
 			"fairy magic (level 3)" : {
 				name : "Fairy Magic (level 3)",
 				minlevel : 3,
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Fairy Magic (level 3)",
 					spells : ["faerie fire"],
 					selection : ["faerie fire"],
 					firstCol : 'oncelr',
 					allowUpCasting : true
-				},
+				}],
 				extraLimitedFeatures : [{
 					name : "Faerie Fire",
 					usages : 1,
@@ -467,13 +467,13 @@ if (!RaceList["fairy"]) {
 			"fairy magic (level 5)" : {
 				name : "Fairy Magic (level 5)",
 				minlevel : 5,
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Fairy Magic (level 5)",
 					spells : ["enlarge/reduce"],
 					selection : ["enlarge/reduce"],
 					firstCol : 'oncelr',
 					allowUpCasting : true
-				},
+				}],
 				extraLimitedFeatures : [{
 					name : "Enlarge/Reduce",
 					usages : 1,
@@ -544,14 +544,14 @@ RaceList["multiverse firbolg"] = {
 	features : {
 		"firbolg magic " : {
 			name : "Firbolg Magic",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Firbolg Magic",
 				spells : ["detect magic", "disguise self"],
 				selection : ["detect magic", "disguise self"],
 				firstCol : 'oncelr',
 				times : 2,
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Detect Magic",
 				usages : 1,
@@ -600,23 +600,23 @@ RaceList["multiverse air genasi"] = {
 	"\n \u2022 Lightning Resistance: I have resistance to lightning damage."+
 	"\n \u2022 Mingle with the Wind: I know the Shocking Grasp cantrip. At 3rd level, I learn Feather Fall. At 5th level, I learn Levitate. I can cast each spell without using a spell slot or material components once per long rest, and by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Mingle with the Wind",
 		spells : ["shocking grasp"],
 		selection : ["shocking grasp"],
 		firstCol : "atwill"
-	},
+	}],
 	features : {
 		"mingle with the wind (level 3)" : {
 			name : "Mingle with the Wind (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Mingle with the Wind",
 				spells : ["feather fall"],
 				selection : ["feather fall"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Feather Fall",
 				usages : 1,
@@ -634,13 +634,13 @@ RaceList["multiverse air genasi"] = {
 		"mingle with the wind (level 5)" : {
 			name : "Mingle with the Wind (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Mingle with the Wind",
 				spells : ["levitate"],
 				selection : ["levitate"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Levitate",
 				usages : 1,
@@ -678,12 +678,12 @@ RaceList["multiverse earth genasi"] = {
 		"Merge with Stone (level 1)" : {
 			name : "Merge with Stone",
 			minlevel : 1,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Merge with Stone",
 				spells : ["blade ward"],
 				selection : ["blade ward"],
 				firstCol : "atwill"
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Blade Ward (as bonus action)",
 				usages : "Proficiency bonus per ",
@@ -701,13 +701,13 @@ RaceList["multiverse earth genasi"] = {
 		"merge with stone (level 5)" : {
 			name : "Merge with Stone (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Merge with Stone",
 				spells : ["pass without trace"],
 				selection : ["pass without trace"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Pass Without Trace",
 				usages : 1,
@@ -742,23 +742,23 @@ RaceList["multiverse fire genasi"] = {
 	"\n \u2022 Fire Resistance: I have resistance to fire damage."+
 	"\n \u2022 Reach to the Blaze: I know the Produce Flame cantrip. At 3rd level, I learn Burning Hands. At 5th level, I learn Flame Blade. I can cast each spell without using a spell slot or material components once per long rest, or by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Reach to the Blaze",
 		spells : ["produce flame"],
 		selection : ["produce flame"],
 		firstCol : "atwill"
-	},
+	}],
 	features : {
 		"reach to the blaze (level 3)" : {
 			name : "Reach to the Blaze (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Reach to the Blaze",
 				spells : ["burning hands"],
 				selection : ["burning hands"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Burning Hands",
 				usages : 1,
@@ -769,13 +769,13 @@ RaceList["multiverse fire genasi"] = {
 		"reach to the blaze (level 5)" : {
 			name : "Reach to the Blaze (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Reach to the Blaze",
 				spells : ["flame blade"],
 				selection : ["flame blade"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Flame Blade",
 				usages : 1,
@@ -812,23 +812,23 @@ RaceList["multiverse water genasi"] = {
 	"\n \u2022 Acid Resistance: I have resistance to acid damage."+
 	"\n \u2022 Call to the Wave: I know the Acid Splash cantrip. At 3rd level, I can cast Create or Destroy Water without using a spell slot once per long rest. At 5th level, I can cast Water Walk without using a spell slot or material components once per long rest. I can also cast each spell using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these" + (typePF ? " (one-time choice)." : "."),
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Call to the Wave",
 		spells : ["acid splash"],
 		selection : ["acid splash"],
 		firstCol : "atwill"
-	},
+	}],
 	features : {
 		"call to the wave (level 3)" : {
 			name : "Call to the Wave (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Call to the Wave",
 				spells : ["create or destroy water"],
 				selection : ["create or destroy water"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Create or Destroy Water",
 				usages : 1,
@@ -839,13 +839,13 @@ RaceList["multiverse water genasi"] = {
 		"call to the wave (level 5)" : {
 			name : "Call to the Wave (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Call to the Wave",
 				spells : ["water walk"],
 				selection : ["water walk"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Water Walk",
 				usages : 1,
@@ -881,12 +881,12 @@ RaceList["multiverse githyanki"] = {
 		"\n \u2022 Astral Knowledge: When I finish a long rest, I gain proficiency with 1 skill and with 1 weapon or tool from the PHB until the end of my next long rest."+
 		"\n \u2022 Githyanki Psionics: I know the Mage Hand cantrip, but require no components to cast it and the hand is invisible. At 3rd level, I learn Jump. At 5th level, I learn Misty Step. I can cast each without using components or a spell slot once per long rest, as well as by using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these (one-time choice).",
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Githyanki Psionics (1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		firstCol : "atwill"
-	},
+	}],
 	spellChanges : {
 		"mage hand" : {
 			components : "",
@@ -898,13 +898,13 @@ RaceList["multiverse githyanki"] = {
 		"githyanki psionics (level 3)" : {
 			name : "Githyanki Psionics (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Githyanki Psionics (3)",
 				spells : ["jump"],
 				selection : ["jump"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Jump",
 				usages : 1,
@@ -922,13 +922,13 @@ RaceList["multiverse githyanki"] = {
 		"githyanki psionics (level 5)" : {
 			name : "Githyanki Psionics (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Githyanki Psionics (5)",
 				spells : ["misty step"],
 				selection : ["misty step"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Misty Step",
 				usages : 1,
@@ -963,12 +963,12 @@ RaceList["multiverse githzerai"] = {
 		"\n \u2022 Githzerai Psionics: I know the Mage Hand cantrip, but require no components to cast it and the hand is invisible. At 3rd level, I learn Shield. At 5th level, I learn Detect Thoughts. I can cast each without using components or a spell slot once per long rest, or by using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these (one-time choice)."+
 		"\n \u2022 Mental Discipline: I have advantage on saving throws to avoid or end the charmed and frightened conditions on myself.",
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Githzerai Psionics (1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		firstCol : "atwill"
-	},
+	}],
 	spellChanges : {
 		"mage hand" : {
 			components : "",
@@ -980,13 +980,13 @@ RaceList["multiverse githzerai"] = {
 		"githzerai psionics (level 3)" : {
 			name : "Githzerai Psionics (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Githzerai Psionics (3)",
 				spells : ["shield"],
 				selection : ["shield"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Shield",
 				usages : 1,
@@ -1003,13 +1003,13 @@ RaceList["multiverse githzerai"] = {
 		"githzerai psionics (level 5)" : {
 			name : "Githzerai Psionics (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Githzerai Psionics (5)",
 				spells : ["detect thoughts"],
 				selection : ["detect thoughts"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Detect Thoughts",
 				usages : 1,
@@ -1213,13 +1213,13 @@ AddRacialVariant("multiverse kobold", "draconic sorcery", {
 	name : "Draconic Sorcery Multiverse Kobold",
 	source : [["MotM", 25]],
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Kobold Legacy",
 		"class" : "sorcerer",
 		level : [0, 0],
 		firstCol : 'atwill',
 		allowUpCasting : true
-	},
+	}],
 	trait : "Kobold"+
 		'\n \u2022 Kobold Legacy (Draconic Sorcery): I know one cantrip from the sorcerer spell list. Intelligence, Wisdom, or Charisma is my spellcasting ability for it (one-time choice).'+
 		MotM_Kobold_Draconic_Cry,
@@ -1261,7 +1261,7 @@ RaceList["multiverse lizardfolk"] = {
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest",
 			additional : ProficiencyBonusList.map(function(n) { return n + " temp HP"; }),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		}
 	},
 	trait : "Lizardfolk"+
@@ -1613,13 +1613,13 @@ RaceList["multiverse triton"] = {
 		"control air and water (level 1)" : {
 			name : "Control Air and Water (level 1)",
 			minlevel : 1,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Control Air and Water",
 				spells : ["fog cloud"],
 				selection : ["fog cloud"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Fog Cloud",
 				usages : 1,
@@ -1630,13 +1630,13 @@ RaceList["multiverse triton"] = {
 		"control air and water (level 3)" : {
 			name : "Control Air and Water (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Control Air and Water",
 				spells : ["gust of wind"],
 				selection : ["gust of wind"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Gust of Wind",
 				usages : 1,
@@ -1647,13 +1647,13 @@ RaceList["multiverse triton"] = {
 		"control air and water (level 5)" : {
 			name : "Control Air and Water (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Control Air and Water",
 				spells : ["water walk"],
 				selection : ["water walk"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Water Walk",
 				usages : 1,
@@ -1683,13 +1683,13 @@ RaceList["multiverse yuan-ti"] = {
 		"\n \u2022 Serpentine Spellcasting: I know the Poison Spray cantrip and I can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest, and by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these spells (one-time choice)."+
 		"\n \u2022 Magic and Poison Resistance: I have advantage on saving throws against spells and on saving throws to avoid or end being poisoned. I also have resistance to poison damage.",
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Serpentine Spellcasting (level 1)",
 		spells : ["poison spray", "animal friendship"],
 		selection : ["poison spray", "animal friendship"],
 		firstCol : 'atwill',
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"animal friendship" : {
 			description : "One snake with Intelligence 3 or less save or charmed for the duration",
@@ -1700,13 +1700,13 @@ RaceList["multiverse yuan-ti"] = {
 		"serpentine spellcasting (level 3)" : {
 			name : "Serpentine Spellcasting (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Serpentine Spellcasting (level 3)",
 				spells : ["suggestion"],
 				selection : ["suggestion"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Suggestion",
 				usages : 1,

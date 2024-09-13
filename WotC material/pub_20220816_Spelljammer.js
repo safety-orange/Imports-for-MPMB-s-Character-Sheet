@@ -121,11 +121,11 @@ RaceList["astral elf"] = {
 	skillstxt : "Perception and choose any one skill which lasts until the end of my next Astral Trance",
 	toolProfs : [["Astral Trance: tool or weapon", 1]],
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Astral Fire",
 		spells : ["dancing lights", "light", "sacred flame"],
 		firstCol : "atwill"
-	},
+	}],
 	features : {
 		"starlight step" : {
 			name : "Starlight Step",

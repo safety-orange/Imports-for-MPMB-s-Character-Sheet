@@ -32,12 +32,12 @@ RaceList["aasimar"] = {
 	scores : [0, 0, 0, 0, 1, 2],
 	trait : "Aasimar (+1 Wisdom, +2 Charisma)\n\nCelestial Legacy:\n   I know the Light cantrip.\n   Once I reach 3rd level, I can cast the Lesser Restoration spell once per long rest.\n   Once I reach 5th level, I can cast the Daylight spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Celestial Legacy (level 1)",
 		spells : ["light"],
 		selection : ["light"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"lesser restoration" : {
 			name : "Celestial Legacy (level 3)",
@@ -45,12 +45,12 @@ RaceList["aasimar"] = {
 			usages : 1,
 			minlevel : 3,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Celestial Legacy (level 3)",
 				spells : ["lesser restoration"],
 				selection : ["lesser restoration"],
 				firstCol : 'oncelr'
-			}
+			}]
 		},
 		"daylight" : {
 			name : "Celestial Legacy (level 5)",
@@ -58,12 +58,12 @@ RaceList["aasimar"] = {
 			usages : 1,
 			minlevel : 5,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Celestial Legacy (level 5)",
 				spells : ["daylight"],
 				selection : ["daylight"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };
@@ -100,12 +100,12 @@ RaceList["eladrin"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Fey Step",
 				spells : ["misty step"],
 				selection : ["misty step"],
 				firstCol : 'oncesr'
-			}
+			}]
 		}
 	}
 };
@@ -129,12 +129,12 @@ AddSubClass("cleric", "death domain", {
 			source : [["D", 96]],
 			minlevel : 1,
 			description : "\n   " + "I learn one necromancy cantrip of my choice from any spell list" + "\n   " + "My necromancy, single-target cantrips can affect two targets within 5 ft of each other",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Reaper",
 				"class" : "any",
 				school : ["Necro"],
 				level : [0, 0]
-			},
+			}],
 			calcChanges : {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
@@ -257,7 +257,7 @@ AddSubClass("paladin", "oathbreaker", {
 			source : [["D", 97]],
 			minlevel : 3,
 			description : "\n   " + "As an action, one undead (CR < paladin level) I can see in 30 ft must make a Wis save" + "\n   " + "If failed, it must obey my commands for 24 hours or until I use this on another",
-			action : ["action", ""],
+			action : [["action", ""]],
 			spellcastingExtra : ["hellish rebuke", "inflict wounds", "crown of madness", "darkness", "animate dead", "bestow curse", "blight", "confusion", "contagion", "dominate person"]
 		},
 		"subclassfeature3.1" : {
@@ -265,7 +265,7 @@ AddSubClass("paladin", "oathbreaker", {
 			source : [["D", 97]],
 			minlevel : 3,
 			description : "\n   " + "As an action, anyone I choose within 30 ft that can see me must make a Wisdom save" + "\n   " + "If failed, it is frightened for 1 min or until it succeeds a save at the end of its turns" + "\n   " + "It can't save at the end of its turn if it's still within 30 ft of me",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature7" : {
 			name : "Aura of Hate",
@@ -305,7 +305,7 @@ AddSubClass("paladin", "oathbreaker", {
 			description : "\n   " + "As an action, I gain a 30-ft aura of gloom that reduces bright light to dim for 1 min" + "\n   " + "If frightened of me, foes starting their turn in the aura take 4d10 psychic damage" + "\n   " + "Attacks vs. my allies and me inside the aura have disadvantage if attackers need sight" + "\n   " + "As a bonus action, I can make a melee spell attack vs. a target inside the aura" + "\n   " + "If this attack hits, it does 3d10 + Charisma modifier necrotic damage",
 			recovery : "long rest",
 			usages : 1,
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -452,14 +452,14 @@ MagicItemsList["instrument of the bards"] = {
 		rarity : "very rare",
 		magicItemTable : "H",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Anstruth harp can be used to cast Control Weather, Cure Wounds (5th level), and Wall of Thorns.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per long rest",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "control weather", "cure wounds", "wall of thorns"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "control weather", "cure wounds", "wall of thorns"],
 			firstCol : "oncelr",
 			times : 7,
 			spellcastingAbility : "class"
-		},
+		}],
 		spellChanges : {
 			"cure wounds" : {
 				description : "1 living creature heals 5d8+spellcasting ability modifier HP",
@@ -477,14 +477,14 @@ MagicItemsList["instrument of the bards"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Canaith mandolin can be used to cast Cure Wounds (3rd level), Dispel Magic, and Protection from Energy (lightning only).",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per long rest",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "cure wounds", "dispel magic", "protection from energy"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "cure wounds", "dispel magic", "protection from energy"],
 			firstCol : "oncelr",
 			times : 7,
 			spellcastingAbility : "class"
-		},
+		}],
 		spellChanges : {
 			"cure wounds" : {
 				description : "1 living creature heals 3d8+spellcasting ability modifier HP",
@@ -502,14 +502,14 @@ MagicItemsList["instrument of the bards"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Cli lyre can be used to cast Stone Shape, Wall of Fire, and Wind Wall.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per long rest",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "stone shape", "wall of fire", "wind wall"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "stone shape", "wall of fire", "wind wall"],
 			firstCol : "oncelr",
 			times : 7,
 			spellcastingAbility : "class"
-		}
+		}]
 	},
 	"doss lute (uncommon)" : {
 		name : "Doss Lute [Instrument of the Bards]",
@@ -517,14 +517,14 @@ MagicItemsList["instrument of the bards"] = {
 		rarity : "uncommon",
 		magicItemTable : "F",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Doss lute can be used to cast Animal Friendship, Protection from Energy (fire only), and Protection from Poison.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per long rest",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "animal friendship", "protection from energy", "protection from poison"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "animal friendship", "protection from energy", "protection from poison"],
 			firstCol : "oncelr",
 			times : 7,
 			spellcastingAbility : "class"
-		},
+		}],
 		spellChanges : {
 			"protection from energy" : {
 				description : "1 creature gains resistance to Fire damage for the duration",
@@ -538,14 +538,14 @@ MagicItemsList["instrument of the bards"] = {
 		rarity : "uncommon",
 		magicItemTable : "F",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Fochlucan bandore can be used to cast Entangle, Faerie Fire, Shillelagh, and Speak with Animals.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per long rest",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "entangle", "faerie fire", "shillelagh", "speak with animals"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "entangle", "faerie fire", "shillelagh", "speak with animals"],
 			firstCol : "oncelr",
 			times : 8,
 			spellcastingAbility : "class"
-		}
+		}]
 	},
 	"mac-fuirmidh cittern (uncommon)" : {
 		name : "Mac-Fuirmidh Cittern [Instrument of the Bards]",
@@ -553,14 +553,14 @@ MagicItemsList["instrument of the bards"] = {
 		rarity : "uncommon",
 		magicItemTable : "F",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Mac-Fuirmidh cittern can be used to cast Barkskin, Cure Wounds, and Fog Cloud.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per long rest",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "barkskin", "cure wounds", "fog cloud"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "barkskin", "cure wounds", "fog cloud"],
 			firstCol : "oncelr",
 			times : 7,
 			spellcastingAbility : "class"
-		}
+		}]
 	},
 	"ollamh harp (legendary)" : {
 		name : "Ollamh Harp [Instrument of the Bards]",
@@ -568,14 +568,14 @@ MagicItemsList["instrument of the bards"] = {
 		rarity : "legendary",
 		magicItemTable : "I",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Ollamh harp can be used to cast Confusion, Control Weather, and Fire Storm.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per long rest",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "confusion", "control weather", "fire storm"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "confusion", "control weather", "fire storm"],
 			firstCol : "oncelr",
 			times : 7,
 			spellcastingAbility : "class"
-		},
+		}],
 		spellChanges : {
 			"control weather" : {
 				time : "1 a",
@@ -801,12 +801,12 @@ MagicItemsList["sending stones"] = {
 	magicItemTable : "C",
 	description : "While I touch one of this pair of stones, I can use an action to cast Sending, targeting the bearer of the other stone. If no creature has the other stone, the spell won't cast. Once it is cast, neither stone can be used again until the next dawn. Sending allows each bearer to communicate up to 25 words.",
 	descriptionFull : "Sending stones come in pairs, with each smooth stone carved to match the other so the pairing is easily recognized. While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of the other stone. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a pair is destroyed, the other one becomes nonmagical.",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "To other stone bearer only",
 		spells : ["sending"],
 		selection : ["sending"],
 		firstCol : "oncelr"
-	},
+	}],
 	usages : 1, 
 	recovery : "dawn",
 	spellChanges : {
@@ -1176,12 +1176,12 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 		}],
 		fixedDC : 15,
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["dominate beast"],
 			selection : ["dominate beast"],
 			firstCol : 1
-		},
+		}],
 		spellChanges : {
 			"dominate beast" : {
 				description : "1 beast with swim speed save or charmed, follows telepathic commands, 1 a for complete control",
@@ -1243,12 +1243,12 @@ MagicItemsList["whelm"] = {
 		recovery : "dawn"
 	}],
 	vision : [["Know location of secret doors", 30]],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["detect evil and good", "locate object"],
 		selection : ["detect evil and good", "locate object"],
 		firstCol : "oncelr"
-	}
+	}]
 }
 
 // Firearms [weapons and ammunition] (includes contributions by grungydan)

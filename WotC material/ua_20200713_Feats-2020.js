@@ -323,12 +323,12 @@ FeatsList["tracker-ua"] = {
 	descriptionFull : "You have spent time hunting creatures and honed your skills, gaining the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You learn the hunter's mark spell. You can cast it once without expending a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have. Wisdom is your spellcasting ability for this spell.\n \u2022 You have advantage on Wisdom (Survival) checks to track creatures.",
 	description : "I can cast Hunter's Mark once per long rest at its lowest level without expending a spell slot, and can cast it by expending a spell slot as normal. Wisdom is my spellcasting ability for this. I have advantage on Wisdom (Survival) checks to track creatures. [+1 Wisdom]",
 	scores : [0, 0, 0, 0, 1, 0],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1\xD7/LR \u0026 spell slot",
 		spellcastingAbility : 5,
 		allowUpCasting : true,
 		spells : ["hunter's mark"],
 		selection : ["hunter's mark"],
 		firstCol : "oncelr"
-	}
+	}]
 };

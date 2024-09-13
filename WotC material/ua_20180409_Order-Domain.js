@@ -44,7 +44,7 @@ AddSubClass("cleric", "order domain-ua", {
 				"If failed, it is charmed by me until the end of my next turn or it takes any damage",
 				"Also, I can choose to have any of the charmed targets to fall prone on a failed save"
 			]),
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Order's Dominion",

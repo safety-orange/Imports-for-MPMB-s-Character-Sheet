@@ -214,12 +214,12 @@ AddRacialVariant("draconic kobold-ua", "cantrip", {
 	source : [["UA:DO", 4]],
 	spellcastingAbility : [4, 5, 6],
 	allowUpCasting : true,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Draconic Legacy",
 		"class" : "sorcerer",
 		level : [0, 0],
 		firstCol : 'atwill'
-	},
+	}],
 	trait : "Draconic Kobold"+
 	'\n \u2022 Draconic Legacy (Cantrip). I know one cantrip from the sorcerer spell list. Intelligence, Wisdom, or Charisma is my spellcasting ability for it (chosen when I select this race).'+
 	"\n \u2022 Draconic Roar: As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest."

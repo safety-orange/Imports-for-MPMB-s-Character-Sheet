@@ -347,12 +347,12 @@ MagicItemsList["gurt's greataxe"] = {
 		selectNow : true
 	}],
 	fixedDC : 13,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Deals cold damage",
 		spells : ["heat metal"],
 		selection : ["heat metal"],
 		firstCol : "oncelr"
-	},
+	}],
 	spellChanges : {
 		"heat metal" : {
 			description : "1 metal obj on touch 2d8 Cold dmg; save or drop obj; if held: dis. atk/chk; bns a cool obj again",
@@ -532,12 +532,12 @@ MagicItemsList["orb of the stein rune"] = {
 		attunement : true,
 		savetxt : { immune : ["petrified"] },
 		action : [["action", ""]],
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per short rest",
 			spells : ["meld into stone"],
 			selection : ["meld into stone"],
 			firstCol : "oncesr"
-		},
+		}],
 		spellChanges : {
 			"meld into stone" : {
 				time : "1 bns",
@@ -593,12 +593,12 @@ MagicItemsList["pennant of the vind rune"] = {
 			usages : 1,
 			recovery : "short rest"
 		}],
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per short rest",
 			spells : ["levitate"],
 			selection : ["levitate"],
 			firstCol : "oncesr"
-		},
+		}],
 		spellChanges : {
 			"levitate" : {
 				time : "1 bns",
@@ -631,12 +631,12 @@ MagicItemsList["pennant of the vind rune"] = {
 		attunement : true,
 		usages : 1,
 		recovery : "short rest",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per short rest",
 			spells : ["feather fall"],
 			selection : ["feather fall"],
 			firstCol : "oncesr"
-		}
+		}]
 	}
 }
 MagicItemsList["potion of giant size"] = {
@@ -675,12 +675,12 @@ MagicItemsList["rod of the vonindod"] = {
 	recovery : "dawn",
 	additional : "regains 1d6+4",
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["locate object"],
 		selection : ["locate object"],
 		firstCol : 1
-	},
+	}],
 	spellChanges : {
 		"locate object" : {
 			description : "Learn direction to closest described kind or specific obj in 1000 ft (10 miles if adamantine); see book",
@@ -720,12 +720,12 @@ MagicItemsList["shard of the ise rune"] = {
 			recovery : "short rest"
 		}],
 		fixedDC : 17,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per short rest",
 			spells : ["sleet storm"],
 			selection : ["sleet storm"],
 			firstCol : "oncesr"
-		}
+		}]
 	},
 	"transferred to a cloak" : {
 		name : "Ise Rune Cloak",
@@ -752,13 +752,13 @@ MagicItemsList["ring of hardened magma"] = {
 	recovery : "Never",
 	spellcastingAbility : "class", // https://www.sageadvice.eu/2015/11/27/hat-of-disguise-dc/
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["conjure minor elementals", "fire shield"],
 		selection : ["conjure minor elementals", "fire shield"],
 		firstCol : 1,
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"conjure minor elementals" : {
 			description : "Summon 4 magma mephits or 4 magmins that obey my verbal commands",
@@ -809,12 +809,12 @@ MagicItemsList["ancient relic boulder"] = {
 		usages : 1,
 		recovery : "24 h"
 	}],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "",
 		spells : ["control weather", "divination"],
 		selection : ["control weather", "divination"],
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"control weather" : {
 			time : "1 a",

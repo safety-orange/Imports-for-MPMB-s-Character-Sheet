@@ -33,12 +33,12 @@ RaceList["green merfolk"] = {
 	scores : [0, 0, 0, 0, 2, 1],
 	trait : "Green Merfolk (+2 Wisdom, +1 Charisma)\nAmphibious: I can breathe air and water.\nMask of the Wild: I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.\nCantrip: I know one cantrip of my choice from the druid spell list. Wisdom is my spellcasting ability for it.",
 	spellcastingAbility : 5,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Cantrip",
 		"class" : "druid",
 		level : [0, 0],
 		firstCol : 'atwill'
-	}
+	}]
 };
 RaceList["blue merfolk"] = {
 	regExpSearch : /^(?=.*blue)(?=.*(merfolk|mermaid|merman)\b).*$/i,
@@ -61,12 +61,12 @@ RaceList["blue merfolk"] = {
 	scores : [0, 0, 0, 2, 0, 1],
 	trait : "Blue Merfolk (+2 Intelligence, +1 Charisma)\nAmphibious: I can breathe air and water.\nLore of the Waters: I have proficiency with the History and Nature skills.\nCantrip: I know one cantrip of my choice from the wizard spell list. Intelligence is my spellcasting ability for it.",
 	spellcastingAbility : 4,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Ula Creed Cantrip",
 		"class" : "wizard",
 		level : [0, 0],
 		firstCol : 'atwill'
-	}
+	}]
 };
 
 RaceList["ixalan vampire"] = {
@@ -186,12 +186,12 @@ RaceList["siren"] = {
 	heightMetric : " range from 1,5 to 1,8 metres tall (145 + 5d8 cm)",
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Siren (+2 Charisma)\n\nFlight: I have a flying speed of 30 ft, but can't use this while encumbered or wearing medium or heavy armor.\n\nSiren's Song: I know the friends cantrip and can cast it without material components.",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Siren's Song",
 		spells : ["friends"],
 		selection : ["friends"],
 		firstCol : 'atwill'
-	}
+	}]
 };
 
 FeatsList["vampiric exultation"] = {
@@ -201,7 +201,7 @@ FeatsList["vampiric exultation"] = {
 	prereqeval : function () { return CurrentRace.known == 'ixalan vampire' },
 	descriptionFull : "As an action, you can transform the lower half of your body into an inky black vapor, allowing you to float through the air. While transformed, you have a flying speed of 30 feet. You can maintain this form for up to 10 minutes. Once you use this ability, you can't use it again until you finish a short or long rest.",
 	description : "As an action, I can transform the lower half of my body into an inky black vapor for up to 10 minutes. While transformed, I have a flying speed of 30 ft. Once I use this ability, I can't use it again until I finish a short or long rest.",
-	action : ["action", ""],
+	action : [["action", ""]],
 	usages : 1,
 	recovery : "short rest"
 };

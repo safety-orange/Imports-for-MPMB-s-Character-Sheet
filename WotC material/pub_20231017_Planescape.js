@@ -239,12 +239,12 @@ FeatsList["scion of the outer planes"] = {
 		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. My connection to a chaotic outer plane gives me resistance to poison damage and I know the Minor Illusion cantrip, which requires no material components. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility : [4,5,6],
 		allowUpCasting : true,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Chaotic Outer Plane",
 			spells : ["minor illusion"],
 			selection : ["minor illusion"],
 			firstCol : "atwill"
-		},
+		}],
 		dmgres : ["Poison"],
 		spellChanges : {
 			"minor illusion" : {
@@ -259,12 +259,12 @@ FeatsList["scion of the outer planes"] = {
 		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from an evil outer plane. This connection gives me resistance to necrotic damage and I know the Chill Touch cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility : [4,5,6],
 		allowUpCasting : true,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Evil Outer Plane",
 			spells : ["chill touch"],
 			selection : ["chill touch"],
 			firstCol : "atwill"
-		},
+		}],
 		dmgres : ["Necrotic"]
 	},
 	'good outer plane (radiant, sacred flame)' : {
@@ -272,12 +272,12 @@ FeatsList["scion of the outer planes"] = {
 		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from an good outer plane. This connection gives me resistance to radiant damage and I know the Sacred Flame cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility : [4,5,6],
 		allowUpCasting : true,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Good Outer Plane",
 			spells : ["sacred flame"],
 			selection : ["sacred flame"],
 			firstCol : "atwill"
-		},
+		}],
 		dmgres : ["Radiant"]
 	},
 	'lawful outer plane (force, guidance)' : {
@@ -285,12 +285,12 @@ FeatsList["scion of the outer planes"] = {
 		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from an lawful outer plane. This connection gives me resistance to force damage and I know the Guidance cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility : [4,5,6],
 		allowUpCasting : true,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Lawful Outer Plane",
 			spells : ["guidance"],
 			selection : ["guidance"],
 			firstCol : "atwill"
-		},
+		}],
 		dmgres : ["Force"]
 	},
 	'the outlands (psychic, mage hand)' : {
@@ -298,12 +298,12 @@ FeatsList["scion of the outer planes"] = {
 		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from a plane of the outlands. This gives me resistance to psychic damage and I know the Mage Hand cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility : [4,5,6],
 		allowUpCasting : true,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "The Outlands",
 			spells : ["mage hand"],
 			selection : ["mage hand"],
 			firstCol : "atwill"
-		},
+		}],
 		dmgres : ["Psychic"]
 	}
 };
@@ -393,13 +393,13 @@ FeatsList["outlands envoy"] = {
 	},
 	scorestxt : "+1 to one ability score of your choice",
 	spellcastingAbility : "scion of the outer planes",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Crossroads Emissary",
 		spells : ["misty step", "tongues"],
 		selection : ["misty step", "tongues"],
 		firstCol : "oncelr",
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"tongues" : {
 			components : SpellsList.tongues.components.replace("M", "M*"),

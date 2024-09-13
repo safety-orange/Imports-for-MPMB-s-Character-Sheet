@@ -711,12 +711,12 @@ if (!SourceList["E:RLW"]) {
 				usagescalc : "event.value = Math.max(1, What('Int Mod'));",
 				recovery : "long rest",
 				limfeaname : "Restorative Reagents: Lesser Restoration",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Restorative Reagents",
 					spells : ["lesser restoration"],
 					selection : ["lesser restoration"],
 					firstCol : "Sp"
-				},
+				}],
 				spellChanges : {
 					"lesser restoration" : {
 						components : "V,S,M\u0192",
@@ -745,13 +745,13 @@ if (!SourceList["E:RLW"]) {
 					usages : 1,
 					recovery : "long rest"
 				}],
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Chemical Mastery",
 					spells : ["greater restoration", "heal"],
 					selection : ["greater restoration", "heal"],
 					firstCol : "oncelr",
 					times : 2
-				},
+				}],
 				spellChanges : {
 					"greater restoration" : {
 						components : "V,S,M\u0192",
@@ -2498,12 +2498,12 @@ var TCoE_Wild_Companion = {
 	additional : levels.map(function (n) {
 		return n < 2 ? "" : Math.floor(n/2) + " hours";
 	}),
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Wild Companion",
 		spells : ["find familiar"],
 		selection : ["find familiar"],
 		firstCol : "Sp"
-	},
+	}],
 	spellChanges : {
 		"find familiar" : {
 			components : "V,S",
@@ -2542,11 +2542,11 @@ if (!SourceList.G) {
 					"I learn the Chill Touch cantrip and gain the ability to cast certain spells",
 					"These are always prepared, but don't count against the number of spells I can prepare"
 				]),
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Circle Spells",
 					spells : ["chill touch"],
 					selection : ["chill touch"]
-				},
+				}],
 				spellcastingExtra : ["blindness/deafness", "gentle repose", "animate dead", "gaseous form", "blight", "confusion", "cloudkill", "contagion"]
 			},
 			"subclassfeature2.1" : {
@@ -2558,7 +2558,7 @@ if (!SourceList.G) {
 					"It must succeed on a Constitution save or take necrotic damage from my cloud of spores"
 				]),
 				additional : levels.map(function (n) { return n < 2 ? "" : 'Con save or 1d' + (n < 6 ? 4 : n < 10 ? 6 : n < 14 ? 8 : 10) + " necrotic damage"; }),
-				action : ["reaction", ""]
+				action : [["reaction", ""]]
 			},
 			"subclassfeature2.2" : { // changed from poison to necrotic damage in TCoE
 				name : "Symbiotic Entity",
@@ -2573,7 +2573,7 @@ if (!SourceList.G) {
 				additional : levels.map(function (n) {
 					return n < 2 ? "" : Math.floor(n*4) + " temp HP; Halo of Spores: 2d" + (n < 6 ? 4 : n < 10 ? 6 : n < 14 ? 8 : 10);
 				}),
-				action : ["action", ""],
+				action : [["action", ""]],
 				calcChanges : {
 					atkAdd : [
 						function (fields, v) {
@@ -2597,7 +2597,7 @@ if (!SourceList.G) {
 				usages : "Wisdom modifier per ",
 				usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 				recovery : "long rest",
-				action : ["reaction", ""]
+				action : [["reaction", ""]]
 			},
 			"subclassfeature10" : {
 				name : "Spreading Spores",
@@ -2608,7 +2608,7 @@ if (!SourceList.G) {
 					"Any creature moving into or starting its turn in it must save against my Halo of Spores",
 					"The cube ends if I use this feature again; While it persists, I can't use my Halo of Spores"
 				]),
-				action : ["bonus action", " (start/end)"]
+				action : [["bonus action", " (start/end)"]]
 			},
 			"subclassfeature14" : {
 				name : "Fungal Body",
@@ -3187,12 +3187,12 @@ AddSubClass("fighter", "psi warrior", {
 				"As a bonus action while concentrating on this spell, I can make one weapon attack",
 				"I can cast Telekinesis once per long rest, or by expending a psionic energy die (PsiD)"
 			]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Telekinetic Master",
 				spells : ["telekinesis"],
 				selection : ["telekinesis"],
 				firstCol : "Sp"
-			},
+			}],
 			spellChanges : {
 				"telekinesis" : {
 					components : "",
@@ -3718,12 +3718,12 @@ AddFightingStyle(["paladin"], "Blessed Warrior", {
 		"I learn two cleric cantrips that count as paladin spells for me and use Cha for spellcasting",
 		"Whenever I gain a paladin level, I can swap one of these for another cleric cantrip"
 	]),
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Blessed Warrior",
 		"class" : "cleric",
 		level : [0, 0],
 		times : 2
-	}
+	}]
 });
 AddFeatureChoice(ClassList.paladin.features["subclassfeature3.0-channel divinity"], true, "Harness Divine Power", {
 	name : "Channel Divinity: Harness Divine Power",
@@ -4004,12 +4004,12 @@ AddFightingStyle(["ranger"], "Druidic Warrior", {
 		"I learn two druid cantrips that count as ranger spells for me and use Wis for spellcasting",
 		"Whenever I gain a ranger level, I can swap one of these for another druid cantrip"
 	]),
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Druidic Warrior",
 		"class" : "druid",
 		level : [0, 0],
 		times : 2
-	}
+	}]
 });
 var TCoE_Ranger_Spellcasting_Focus = {
 	name : "Spellcasting Focus",
@@ -4038,7 +4038,7 @@ var TCoE_Primal_Awareness = {
 			"I know the following spells, without them counting towards the maximum number of spells I can know: Speak with Animals, Beast Sense, Speak with Plants, Locate Creature, and Commune with Nature."
 		]
 	},
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Primal Awareness",
 		spells : ["speak with animals", "beast sense", "speak with plants", "locate creature", "commune with nature"],
 		selection : ["speak with animals", "beast sense", "speak with plants", "locate creature", "commune with nature"],
@@ -4046,7 +4046,7 @@ var TCoE_Primal_Awareness = {
 		times : levels.map(function (n) {
 			return n < 5 ? 1 : n < 9 ? 2 : n < 13 ? 3 : n < 17 ? 4 : 5;
 		})
-	}
+	}]
 };
 CreateClassFeatureVariant("ranger", "primeval awareness", "Primal Awareness", TCoE_Primal_Awareness);
 var TCoE_Ranger_Martial_Versatility = {
@@ -4404,12 +4404,12 @@ var TCoE_Ranger_Subclass_Fey_Wanderer = AddSubClass("ranger", "fey wanderer", {
 			]),
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Fey Reinforcements",
 				spells : ["summon fey"],
 				selection : ["summon fey"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"summon fey" : {
 					components : "V,S",
@@ -4477,12 +4477,12 @@ var TCoE_Ranger_Subclass_Swarmkeeper = AddSubClass("ranger", "swarmkeeper", {
 				"I learn Mage Hand; When cast, its hand takes the form of my swarming nature spirits",
 				"I get bonus spells known, which do not count against the number of spells I can know"
 			]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Swarmkeeper Magic",
 				spells : ["mage hand"],
 				selection : ["mage hand"],
 				firstCol : "atwill"
-			},
+			}],
 			spellcastingExtra : ["faerie fire", "web", "gaseous form", "arcane eye", "insect plague"],
 			spellcastingExtraApplyNonconform : true
 		},
@@ -5171,12 +5171,12 @@ AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome)", {
 		return classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome';
 	},
 	action : [["action", " (erase name)"]],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Far Scribe",
 		spells : ["sending"],
 		selection : ["sending"],
 		firstCol : "atwill"
-	},
+	}],
 	spellChanges : {
 		"sending" : {
 			components : "V,S",
@@ -5279,12 +5279,12 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 	usages : 1,
 	additional : "no spell slot",
 	recovery : "long rest",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Undying Servitude",
 		spells : ["animate dead"],
 		selection : ["animate dead"],
 		firstCol : "oncelr"
-	},
+	}],
 	prereqeval : function(v) { return classes.known.warlock.level >= 5; }
 });
 
@@ -5388,12 +5388,12 @@ AddSubClass("warlock", "the fathomless", {
 			additional : levels.map(function (n) {
 				return n < 10 ? "" : n + " temp HP; 1\xD7 per long rest no SS";
 			}),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Grasping Tentacles",
 				spells : ["evard's black tentacles"],
 				selection : ["evard's black tentacles"],
 				firstCol : "oncelr"
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Evard's Black Tentacles (no spell slot)",
 				usages : 1,
@@ -5837,12 +5837,12 @@ AddSubClass("wizard","order of scribes", {
 			action : [["action", " (cast scroll)"]],
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Master Scrivener scoll",
 				"class" : "wizard",
 				level : [1, 2],
 				firstCol : "MS"
-			},
+			}],
 			calcChanges : {
 				spellAdd : [
 					function (spellKey, spellObj, spName, isDuplicate) {
@@ -6206,12 +6206,12 @@ FeatsList["telekinetic"] = {
 	descriptionFull : "You learn to move things with your mind, granting you the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20.\n \u2022 You learn the mage hand cantrip. You can cast it without verbal or somatic components, and you can make the spectral hand invisible. If you already know this spell, its range increases by 30 feet when you cast it. Its spellcasting ability is the ability increased by this feat.\n \u2022 As a bonus action, you can try to telekinetically shove one creature you can see within 30 feet of you. When you do so, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + the ability modifier of the score increased by this feat) or be moved 5 feet toward you or away from you. A creature can willingly fail this save.",
 	description : "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str save vs. this feat's spell save DC or be moved 5 ft from or towards me. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Int, Wis, or Cha]",
 	action : [["bonus action", " Shove"]],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Mage Hand",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		firstCol : "atwill"
-	},
+	}],
 	spellcastingAbility : 4,
 	calcChanges : {
 		spellAdd : [
@@ -6252,12 +6252,12 @@ FeatsList["telepathic"] = {
 	source : [["T", 81]],
 	descriptionFull : "You awaken the ability to mentally connect with others, granting you the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20.\n \u2022 You can speak telepathically to any creature you can see within 60 feet of you. Your telepathic utterances are in a language you know, and the creature understands you only if it knows that language. Your communication doesn't give the creature the ability to respond to you telepathically.\n \u2022 You can cast the detect thoughts spell, requiring no spell slot or components, and you must finish a long rest before you can cast it this way again. Your spellcasting ability for the spell is the ability increased by this feat. If you have spell slots of 2nd level or higher, you can cast this spell with them.",
 	description : "I can telepathically speak to a creature I can see within 60 ft in a language I know, but it can't respond telepathically. I can cast Detect Thoughts once per long rest at its lowest level, requiring no spell slot or components, and can cast it using a spell slot as normal. My spellcasting ability is the ability I increase with this feat. [+1 Int, Wis, or Cha]",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Detect Thoughts",
 		spells : ["detect thoughts"],
 		selection : ["detect thoughts"],
 		firstCol : "oncelr"
-	},
+	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
 	spellChanges : {
@@ -6951,12 +6951,12 @@ MagicItemsList["masquerade tattoo"] = {
 	additional : "Disguise Self",
 	action : [["bonus action", " (change)"]],
 	fixedDC : 13,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Disguise Self",
 		spells : ["disguise self"],
 		selection : ["disguise self"],
 		firstCol : "oncelr"
-	}
+	}]
 }
 MagicItemsList["shadowfell brand tattoo"] = { // contains contributions by lizrdgizrd
 	name : "Shadowfell Brand Tattoo",
@@ -6970,7 +6970,7 @@ MagicItemsList["shadowfell brand tattoo"] = { // contains contributions by lizrd
 	"\n   " + toUni("Shadowy Defense") + ". When you take damage, you can use your reaction to become insubstantial for a moment, halving the damage you take. Then the reaction can't be used again until the next sunset." + magicTattoosTxt.unicode,
 	usages : 1,
 	recovery : "sunset",
-	action : ["reaction", " (halve damage)"],
+	action : [["reaction", " (halve damage)"]],
 	advantages : ["Stealth", true],
 	vision : [["Darkvision", 60]]
 }
@@ -7016,13 +7016,13 @@ MagicItemsList["spellwrought tattoo"] = {
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its cantrip, requiring no material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC : 13,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,0],
 			psionic : false,
 			times : 20,
 			firstCol : "checkbox",
 			magicItemComponents : false
-		}
+		}]
 	},
 	"1st-level (common)" : {
 		name : "Spellwrought Tattoo (1st-level)",
@@ -7030,13 +7030,13 @@ MagicItemsList["spellwrought tattoo"] = {
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 1st-level spell, requiring no material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC : 13,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [1,1],
 			psionic : false,
 			times : 20,
 			firstCol : "checkbox",
 			magicItemComponents : false
-		}
+		}]
 	},
 	"2nd-level (uncommon)" : {
 		name : "Spellwrought Tattoo (2nd-level)",
@@ -7044,13 +7044,13 @@ MagicItemsList["spellwrought tattoo"] = {
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 2nd-level spell, requiring no material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC : 13,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [2,2],
 			psionic : false,
 			times : 20,
 			firstCol : "checkbox",
 			magicItemComponents : false
-		}
+		}]
 	},
 	"3rd-level (uncommon)" : {
 		name : "Spellwrought Tattoo (3rd-level)",
@@ -7058,13 +7058,13 @@ MagicItemsList["spellwrought tattoo"] = {
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 3rd-level spell, requiring no material components, with DC 15, +7 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC : 15,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [3,3],
 			psionic : false,
 			times : 20,
 			firstCol : "checkbox",
 			magicItemComponents : false
-		}
+		}]
 	},
 	"4th-level (rare)" : {
 		name : "Spellwrought Tattoo (4th-level)",
@@ -7072,13 +7072,13 @@ MagicItemsList["spellwrought tattoo"] = {
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 4th-level spell, requiring no material components, with DC 15, +7 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC : 15,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [4,4],
 			psionic : false,
 			times : 20,
 			firstCol : "checkbox",
 			magicItemComponents : false
-		}
+		}]
 	},
 	"5th-level (rare)" : {
 		name : "Spellwrought Tattoo (5th-level)",
@@ -7086,13 +7086,13 @@ MagicItemsList["spellwrought tattoo"] = {
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 5th-level spell, requiring no material components, with DC 17, +9 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC : 17,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [5,5],
 			psionic : false,
 			times : 20,
 			firstCol : "checkbox",
 			magicItemComponents : false
-		}
+		}]
 	}
 }
 // Bonus to spell attack rolls and saving throw DCs
@@ -7549,12 +7549,12 @@ MagicItemsList["astromancy archive"] = {
 	additional : "regains 1d3",
 	spellcastingBonusElsewhere : {
 		addTo : "wizard",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Astromancy Archive",
 			spells : ["augury", "divination", "find the path"], // not wizard spells!
 			selection : ["augury", "divination", "find the path"],
 			times : 3
-		},
+		}],
 		addToKnown : ["foresight", "locate creature", "locate object"]
 	},
 	action : [
@@ -7583,11 +7583,11 @@ MagicItemsList["atlas of endless horizons"] = {
 	additional : "regains 1d3",
 	spellcastingBonusElsewhere : {
 		addTo : "wizard",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Atlas of Endless Horizons",
 			spells : ["word of recall"], // not a wizard spell!
 			selection : ["word of recall"]
-		},
+		}],
 		addToKnown : ["arcane gate", "dimension door", "gate", "misty step", "plane shift", "teleportation circle"]
 	},
 	action : [["reaction", "Teleport 10ft (1 charge)"]]
@@ -7691,11 +7691,11 @@ MagicItemsList["heart weaver's primer"] = {
 	additional : "regains 1d3",
 	spellcastingBonusElsewhere : {
 		addTo : "wizard",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Heart Weaver's Primer",
 			spells : ["enthrall"], // not a wizard spell!
 			selection : ["enthrall"]
-		},
+		}],
 		addToKnown : ["antipathy/sympathy", "charm person", "dominate person", "hypnotic pattern", "modify memory", "suggestion"]
 	}
 }
@@ -7720,11 +7720,11 @@ MagicItemsList["libram of souls and flesh"] = {
 	additional : "regains 1d3",
 	spellcastingBonusElsewhere : {
 		addTo : "wizard",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Libram of Souls and Flesh",
 			spells : ["speak with dead"], // not a wizard spell!
 			selection : ["speak with dead"]
-		},
+		}],
 		addToKnown : ["animate dead", "circle of death", "false life", "finger of death", "summon undead", "vampiric touch"]
 	},
 	action : [["action", "Semblance of Undeath"]]
@@ -7960,12 +7960,12 @@ MagicItemsList["reveler's concertina"] = {
 	recovery : "dawn",
 	additional : "Irresistible Dance",
 	spellcastingAbility : "class", // https://www.sageadvice.eu/2015/11/27/hat-of-disguise-dc/
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Otto's Irresistible Dance",
 		spells : ["otto's irresistible dance"],
 		selection : ["otto's irresistible dance"],
 		firstCol : "oncelr"
-	},
+	}],
 	calcChanges : {
 		spellCalc : [
 			function (type, spellcasters, ability) {
@@ -8034,12 +8034,12 @@ MagicItemsList["bell branch"] = {
 	action : [["bonus action", " (detect)"]],
 	spellFirstColTitle : "Ch",
 	spellcastingAbility : "class",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Protection from Evil/Good",
 		spells : ["protection from evil and good"],
 		selection : ["protection from evil and good"],
 		firstCol : 1
-	}
+	}]
 }
 MagicItemsList["cauldron of rebirth"] = {
 	name : "Cauldron of Rebirth",

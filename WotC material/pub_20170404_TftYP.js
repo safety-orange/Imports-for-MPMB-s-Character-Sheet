@@ -227,12 +227,12 @@ MagicItemsList["balance of harmony"] = {
 	description : "I can use the scale to cast Detect Evil and Good as a ritual by placing a gem of 100 gp or more or holy water on both pans. It then tips to the side it detected, good or evil, or fluctuates slightly if what it detected is neutral. After this, I can touch it to learn the rest of the information the spell normally conveys.",
 	descriptionFull : "This scale bears celestial symbols on one pan and fiendish symbols on the other. You can use the scale to cast Detect Evil and Good as a ritual. Doing so requires you to place the scale on a solid surface, then sprinkle the pans with holy water or place a transparent gem worth 100 gp in each pan. The scale remains motionless if it detects nothing, tips to one side or the other for good (consecrated) or evil (desecrated), and fluctuates slightly if it detects a creature appropriate to the spell but neither good nor evil. By touching the scales after casting the ritual, you instantly learn any information the spell can normally convey, and then the effect ends.",
 	weight : 1,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Only as ritual",
 		spells : ["detect evil and good"],
 		selection : ["detect evil and good"],
 		firstCol : "(R)"
-	},
+	}],
 	spellChanges : {
 		"detect evil and good" : {
 			time : "10 min",
@@ -257,12 +257,12 @@ MagicItemsList["bracelet of rock magic"] = {
 	savetxt : { immune : ["petrified"] },
 	fixedDC : 15,
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["flesh to stone"],
 		selection : ["flesh to stone"],
 		firstCol : 1
-	}
+	}]
 }
 MagicItemsList["eagle whistle"] = {
 	name : "Eagle Whistle",
@@ -347,12 +347,12 @@ MagicItemsList["night caller"] = {
 	usages : 1,
 	recovery : "7 days",
 	spellFirstColTitle : "Us",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per 7 days",
 		spells : ["animate dead"],
 		selection : ["animate dead"],
 		firstCol : "checkbox"
-	},
+	}],
 	spellChanges : {
 		"animate dead" : {
 			description : "In darkness, turn (buried) corpse into Skeleton/Zombie; control for 24h; bns a command within 60 ft",
@@ -470,12 +470,12 @@ MagicItemsList["wand of entangle"] = {
 	additional : "regains 1d6+1",
 	fixedDC : 13,
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["entangle"],
 		selection : ["entangle"],
 		firstCol : 1
-	}
+	}]
 }
 MagicItemsList["waythe"] = {
 	name : "Waythe",

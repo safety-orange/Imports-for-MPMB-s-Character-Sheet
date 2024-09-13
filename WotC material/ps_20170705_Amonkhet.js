@@ -341,7 +341,7 @@ AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juj
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
-			action : ["bonus action", " (with Help action)"]
+			action : [["bonus action", " (with Help action)"]]
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Preserve Life",
@@ -352,7 +352,7 @@ AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juj
 				"I can heal five times my cleric level in HP, which I have to divide over the subjects."
 			]),
 			additional : levels.map(function (n) { return n < 2 ? "" : Math.floor(n*5) + " HP to divide"; }),
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Channel Divinity: Oketra's Blessing",
@@ -362,7 +362,7 @@ AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juj
 				"As a reaction, when a creature within 30 ft makes an attack roll, I can grant a bonus",
 				"The creature then adds a +10 bonus to the roll; I can do this after seeing the d20 roll"
 			]),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
@@ -404,12 +404,12 @@ AddSubClass("cleric", "strength domain", { // Includes contributions by /u/juju2
 				"I gain proficiency with one skill: Animal Handling, Athletics, Nature, or Survival"
 			]),
 			skillstxt : "Choose one from: Animal Handling, Athletics, Nature, or Survival",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Acolyte of Strength",
 				"class" : "druid",
 				level : [0, 0],
 				firstCol : 'atwill'
-			}
+			}]
 		},
 		"subclassfeature1.1" : {
 			name : "Bonus Proficiency",
@@ -435,7 +435,7 @@ AddSubClass("cleric", "strength domain", { // Includes contributions by /u/juju2
 				"As a reaction if any within 30 ft do an attack, check, or save using Str, I can bless it",
 				"The subject adds a +10 bonus to the roll; I can do this after seeing the d20 roll"
 			]),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
@@ -480,7 +480,7 @@ AddSubClass("cleric", "ambition domain", { // Includes contributions by /u/juju2
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Invoke Duplicity",
@@ -500,7 +500,7 @@ AddSubClass("cleric", "ambition domain", { // Includes contributions by /u/juju2
 			source : [["PS:A", 27]],
 			minlevel : 6,
 			description : "\n   " + "As an action, I become invisible until the end of my next turn or I attack/cast a spell",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature8" : {
 			name : "Potent Spellcasting",
@@ -542,7 +542,7 @@ AddSubClass("cleric", "zeal domain", { // Includes contributions by /u/MILKB0T
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
-			action : ["bonus action", " (with Attack action)"]
+			action : [["bonus action", " (with Attack action)"]]
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Consuming Fervor",
@@ -585,7 +585,7 @@ AddSubClass("cleric", "zeal domain", { // Includes contributions by /u/MILKB0T
 			]),
 			usages : 1,
 			recovery : "long rest",
-			action : ["reaction"]
+			action : [["reaction"]]
 		}
 	}
 });

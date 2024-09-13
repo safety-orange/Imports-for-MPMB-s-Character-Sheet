@@ -109,14 +109,14 @@ RaceList["hexblood"] = {
 		"hex magic" : {
 			name : "Hex Magic",
 			minlevel : 1,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Hex Magic",
 				spells : ["disguise self", "hex"],
 				selection : ["disguise self", "hex"],
 				firstCol : 'oncelr',
 				times : 2,
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Disguise Self",
 				usages : 1,
@@ -204,12 +204,12 @@ AddSubClass("bard", "college of spirits",{
 			description : desc([
 				"I learn the Guidance cantrip and can cast it with a range of 60 ft"
 			]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Guiding Whispers",
 				spells : ["guidance"],
 				selection : ["guidance"],
 				firstCol : "atwill"
-			},
+			}],
 			spellChanges : {
 				"guidance" : {
 					range : "60 ft",
@@ -333,11 +333,11 @@ AddSubClass("bard", "college of spirits",{
 			]),
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Spirit Session",
 				school : ["Div", "Necro"],
 				firstCol : "SS"
-			}
+			}]
 		},
 		"subclassfeature14" : {
 			name : "Mystical Connection",
@@ -773,12 +773,12 @@ MagicItemsList["living shadow"] = {
 		recovery : "short rest"
 	}],
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Grasping Shadow",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		firstCol : "atwill"
-	},
+	}],
 	spellChanges : {
 		"mage hand" : {
 			components : "",

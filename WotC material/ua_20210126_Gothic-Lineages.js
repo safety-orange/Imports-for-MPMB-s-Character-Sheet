@@ -88,14 +88,14 @@ RaceList["hexblood-ua"] = {
 		"hex magic" : {
 			name : "Hex Magic",
 			minlevel : 1,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Hex Magic",
 				spells : ["disguise self", "hex"],
 				selection : ["disguise self", "hex"],
 				firstCol : 'oncelr',
 				times : 2,
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Disguise Self",
 				usages : 1,

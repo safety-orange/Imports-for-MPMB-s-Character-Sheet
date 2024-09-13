@@ -351,12 +351,12 @@ AddSubClass("warlock", "the noble genie-ua", {
 			action : [["action", ""]],
 			recovery : "long rest",
 			usages : 1,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Collector's Call",
 				spells : ["legend lore"],
 				selection : ["legend lore"],
 				firstCol : 'Sp'
-			},
+			}],
 			spellChanges : {
 				"legend lore" : {
 					components : "V,S",

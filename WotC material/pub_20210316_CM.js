@@ -42,12 +42,12 @@ MagicItemsList["radiance (wand)"] = {
 		usages : 1,
 		recovery : "dawn"
 	}],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn, self only",
 		spells : ["enhance ability"],
 		selection : ["enhance ability"],
 		firstCol : "oncelr"
-	},
+	}],
 	spellChanges : {
 		"enhance ability" : {
 			description : "I gain adv. on checks with 1 ability score; choosing Str, Dex, or Con gives secondary benefits",
@@ -180,12 +180,12 @@ MagicItemsList["watchful helm"] = {
 		recovery : "dawn"
 	}],
 	vision : [["Adv. on Perception checks that rely on sight", 0]],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["see invisibility"],
 		selection : ["see invisibility"],
 		firstCol : "oncelr"
-	},
+	}],
 	spellChanges : {
 		"see invisibility" : {
 			time : "1 bns",

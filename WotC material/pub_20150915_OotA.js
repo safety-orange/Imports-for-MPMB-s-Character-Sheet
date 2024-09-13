@@ -187,12 +187,12 @@ MagicItemsList["dawnbringer"] = {
 	usages : 1,
 	recovery : "dawn",
 	additional : "Lesser Restoration",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["lesser restoration"],
 		selection : ["lesser restoration"],
 		firstCol : "oncelr"
-	},
+	}],
 	toNotesPage : [{
 		name : "Features",
 		note : desc([
@@ -307,12 +307,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		description : "This gem can store one cantrip. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 13 and +5 spell attack.",
 		fixedDC : 13,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,0],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	},
 	"lapis lazuli (1st-level, uncommon)" : {
 		name : "Spell Gem [Lapis Lazuli]",
@@ -321,12 +321,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		description : "This gem can store one spell up to 1st-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 13 and +5 spell attack. If the spell's level is higher than I can cast, I need to make a DC 11 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 13,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,1],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	},
 	"quartz (2nd-level, rare)" : {
 		name : "Spell Gem [Quartz]",
@@ -335,12 +335,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		description : "This gem can store one spell up to 2nd-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 13 and +5 spell attack. If the spell's level is higher than I can cast, I need to make a DC 12 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 13,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,2],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	},
 	"bloodstone (3rd-level, rare)" : {
 		name : "Spell Gem [Bloodstone]",
@@ -349,12 +349,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		description : "This gem can store one spell up to 3rd-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 15 and +7 spell attack. If the spell's level is higher than I can cast, I need to make a DC 13 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 15,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,3],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	},
 	"amber (4th-level, very rare)" : {
 		name : "Spell Gem [Amber]",
@@ -364,12 +364,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		fixedDC : 15,
 		fixedSpAttack : 9,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,4],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	},
 	"jade (5th-level, very rare)" : {
 		name : "Spell Gem [Jade]",
@@ -378,12 +378,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		description : "This gem can store one spell up to 5th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 17 and +9 spell attack. If the spell's level is higher than I can cast, I need to make a DC 15 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 17,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,5],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	},
 	"topaz (6th-level, very rare)" : {
 		name : "Spell Gem [Topaz]",
@@ -393,12 +393,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		fixedDC : 17,
 		fixedSpAttack : 10,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,6],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	},
 	"star ruby (7th-level, legendary)" : {
 		name : "Spell Gem [Star Ruby]",
@@ -407,12 +407,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		description : "This gem can store one spell up to 7th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 18, +10 spell attack. If the spell's level is higher than I can cast, I need to make a DC 17 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 18,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,7],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	},
 	"ruby (8th-level, legendary)" : {
 		name : "Spell Gem [Ruby]",
@@ -421,12 +421,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		description : "This gem can store one spell up to 8th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 18, +10 spell attack. If the spell's level is higher than I can cast, I need to make a DC 18 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 18,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,8],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	},
 	"diamond (9th-level, legendary)" : {
 		name : "Spell Gem [Diamond]",
@@ -435,12 +435,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		description : "This gem can store one spell up to 9th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 19, +11 spell attack. If the spell's level is higher than I can cast, I need to make a DC 19 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 19,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,9],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	}
 }
 MagicItemsList["stonespeaker crystal"] = {

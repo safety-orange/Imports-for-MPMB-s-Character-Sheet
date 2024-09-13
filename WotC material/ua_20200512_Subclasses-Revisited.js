@@ -427,7 +427,7 @@ AddSubClass("wizard","order of scribes-ua", {
 				"find them on a scroll or in another spellbook. I can only restore my ability to cast",
 				"one of these spells with the wish spell, which will restore one spell per casting."
 			]),
-			action : ["action","Swap places with spellbook"],
+			action : [["action","Swap places with spellbook"]],
 			usages : "Prof Bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest"

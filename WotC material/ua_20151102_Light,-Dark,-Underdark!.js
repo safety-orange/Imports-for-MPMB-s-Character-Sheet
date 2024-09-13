@@ -29,7 +29,7 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Tunnel Fighter", { // Still 
 	name : "Tunnel Fighting Style",
 	source : [["UA:LDU", 1]],
 	description : "\n   " + "As a bonus action, I enter a defensive stance that lasts until the start of my next turn" + "\n   " + "While I'm in this defensive stance I gain the following two benefits:" + "\n    - " + "I can make opportunity attacks without using my reaction" + "\n    - " + "I can make a melee attack as a reaction if a hostile moves >5 ft while in my reach",
-	action : ["bonus action", ""]
+	action : [["bonus action", ""]]
 });
 
 // A subclass for the Ranger, called "Deep Stalker"
@@ -44,7 +44,7 @@ AddSubClass("ranger", "deep stalker-ua", {
 			source : [["UA:LDU", 1]],
 			minlevel : 3,
 			description : "\n   " + "In the first turn of combat I have +10 ft speed and +1 attack with the Attack action" + "\n   " + "All turns after that, I can take the Hide action as a bonus action at the end of my turn",
-			action : ["bonus action", " (Hide at end of turn)"]
+			action : [["bonus action", " (Hide at end of turn)"]]
 		},
 		"subclassfeature3.1" : {
 			name : "Deep Stalker Magic",
@@ -73,7 +73,7 @@ AddSubClass("ranger", "deep stalker-ua", {
 			source : [["UA:LDU", 2]],
 			minlevel : 15,
 			description : "\n   " + "As a reaction when I'm attacked without adv., I can impose disadv. on the attack roll",
-			action : ["reaction", " (when attacked)"]
+			action : [["reaction", " (when attacked)"]]
 		}
 	}
 });
@@ -92,13 +92,13 @@ AddSubClass("sorcerer", "shadow sorcerer-ua", {
 			description : "\n   " + "I have 60 ft darkvision and can cast Darkness by spending 1 sorcery point" + "\n   " + "I can see through any darkness spell I cast using this ability",
 			additional : "1 sorcery point",
 			vision : [["Darkvision", 60]],
-			action : ["action", " (1 sorcery point)"],
-			spellcastingBonus : {
+			action : [["action", " (1 sorcery point)"]],
+			spellcastingBonus : [{
 				name : "Eyes of the Dark",
 				spells : ["darkness"],
 				selection : ["darkness"],
 				firstCol : 1
-			},
+			}],
 			spellChanges : {
 				"darkness" : {
 					description : "15-ft rad darkness on point/obj; I see normally; darkvision doesn't work; only magical light of SL 3+",
@@ -118,14 +118,14 @@ AddSubClass("sorcerer", "shadow sorcerer-ua", {
 			minlevel : 6,
 			additional : "3 sorcery points",
 			description : "\n   " + "As a bonus action, I target a creature I can see and summon a hound within 30 ft of it" + "\n   " + "The hound has all the stats of a medium sized dire wolf with the following exceptions:" + "\n    - " + "At the start of its turn, it automatically knows where the target is" + "\n    - " + "It can only move towards and make (opportunity) attack against the target" + "\n    - " + "It can move through other creatures and objects as if they were difficult terrain" + "\n    - " + "It takes 5 force damage if it ends its turn inside an object" + "\n   " + "The target has disadvantage on saves vs. my spells while the hound is within 5 ft of it",
-			action : ["bonus action", " (3 sorcery points)"]
+			action : [["bonus action", " (3 sorcery points)"]]
 		},
 		"subclassfeature14" : {
 			name : "Shadow Walk",
 			source : [["UA:LDU", 3]],
 			minlevel : 14,
 			description : "\n   " + "As a bonus action when I'm in dim light or darkness, I can teleport up to 120 ft" + "\n   " + "The destination has to be unoccupied, within line of sight, and in dim light or darkness",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature18" : {
 			name : "Shadow Form",
@@ -133,7 +133,7 @@ AddSubClass("sorcerer", "shadow sorcerer-ua", {
 			minlevel : 18,
 			additional : "3 sorcery points",
 			description : "\n   " + "As a bonus action, I transform into a shadow form for 1 minute" + "\n   " + "While transformed, I have resistance to all damage types except force damage" + "\n   " + "Also, I can move through other creatures and objects as if they were difficult terrain" + "\n   " + "I take 5 force damage if I end my turn inside an object",
-			action : ["bonus action", " (3 sorcery points)"]
+			action : [["bonus action", " (3 sorcery points)"]]
 		}
 	}
 });
@@ -197,7 +197,7 @@ AddSubClass("warlock", "the undying light-ua", {
 			usages : "15d6 per ",
 			usagescalc : "event.value = '15d6';",
 			recovery : "long rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		}
 	}
 });

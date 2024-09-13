@@ -349,7 +349,7 @@ MagicItemsList["powered armor"] = {
 SpellsList["flock of familiars"] = {
 	name : "Flock of Familiars",
 	classes : ["warlock", "wizard"],
-	source : ["LLoK", 57],
+	source : [["LLoK", 57]],
 	level : 2,
 	school : "Conj",
 	time : "1 min",
@@ -362,7 +362,7 @@ SpellsList["flock of familiars"] = {
 SpellsList["galder's speedy courier"] = {
 	name : "Galder's Speedy Courier",
 	classes : ["warlock", "wizard"],
-	source : ["LLoK", 57],
+	source : [["LLoK", 57]],
 	level : 4,
 	school : "Conj",
 	time : "1 a",
@@ -377,7 +377,7 @@ SpellsList["galder's speedy courier"] = {
 SpellsList["galder's tower"] = {
 	name : "Galder's Tower",
 	classes : ["wizard"],
-	source : ["LLoK", 57],
+	source : [["LLoK", 57]],
 	level : 3,
 	school : "Conj",
 	time : "10 min",

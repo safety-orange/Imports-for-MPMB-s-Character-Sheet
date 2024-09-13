@@ -25,14 +25,14 @@ AddSubClass("warlock", "the seeker-ua", { // Still valid 2021-09-21
 			description : "\n   " + "As a bonus action, I create a whirling aurora of brilliant energy around me" + "\n   " + "It lasts until the end of my next turn and grants me resistance to all damage" + "\n   " + "Any hostile ending its turn in 10 ft of me get Warlock level + Cha mod radiant damage",
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Astral Refuge",
 			source : [["UA:TF", 2]],
 			minlevel : 6,
 			description : "\n   " + "As an action, I can step into an astral refuge, coming back at the end of the turn" + "\n   " + "While in the astral refuge, I can take two actions to cast spells targeting just me",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature10" : {
 			name : "Far Wanderer",
@@ -64,12 +64,12 @@ AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the St
 	]),
 	usages : 1,
 	recovery : "short rest",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Pact of the Star Chain",
 		spells : ["augury"],
 		selection : ["augury"],
 		firstCol : "(R)"
-	},
+	}],
 	spellChanges : {
 		"augury" : {
 			time : "11 min",
@@ -133,7 +133,7 @@ RunFunctionAtEnd(function() {
 				source : [["UA:TF", 2], ["UA:WR", 1]],
 				minlevel : 2,
 				description : "\n   " + "As a bonus action, I speak a prayer to control the flow of magic around me" + "\n   " + "The next spell I cast gains a +2 bonus to its attack roll or saving throw DC",
-				action : ["bonus action", ""]
+				action : [["bonus action", ""]]
 			},
 			"subclassfeature2.3" : {
 				name : "Channel Arcana: Domain",

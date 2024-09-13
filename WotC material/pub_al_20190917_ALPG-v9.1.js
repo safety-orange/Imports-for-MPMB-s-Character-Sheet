@@ -44,7 +44,7 @@ SourceList["ALPGs9"] = {
 					minlevel : 1,
 					recovery : "long rest",
 					additional : levels.map(function (n) { return n + " HP"; }),
-					action : ["action", ""]
+					action : [["action", ""]]
 				}
 			},
 			abilitySave : "",

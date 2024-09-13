@@ -757,12 +757,12 @@ MagicItemsList["amethyst lodestone"] = {
 	additional : "regains 1d6",
 	spellFirstColTitle : "Ch",
 	fixedDC : 18,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "3 charges",
 		spells : ["reverse gravity"],
 		selection : ["reverse gravity"],
 		firstCol : 3
-	},
+	}],
 	advantages : [["Strength", true]],
 	savetxt : { text : ["Adv. on Str saves"] },
 	action : [["bonus action", " (Flight)"], ["action", " (Grav. Thrust)"]]
@@ -985,12 +985,12 @@ MagicItemsList["emerald pen"] = {
 	description : "This pen is tipped with an emerald nib and requires no ink to write. While holding this pen, I can cast Illusory Script at will, requiring no material components.",
 	descriptionFull : "This pen is tipped with an emerald nib and requires no ink to write. While holding this pen, you can cast illusory script at will, requiring no material components.",
 	spellcastingAbility : "class",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "At will",
 		spells : ["illusory script"],
 		selection : ["illusory script"],
 		firstCol : "atwill"
-	},
+	}],
 	spellChanges : {
 		"illusory script" : {
 			ritual : false,
@@ -1166,12 +1166,12 @@ MagicItemsList["topaz annihilator"] = {
 	recovery : "dawn",
 	additional : "Disintegrate",
 	fixedDC : 18,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["disintegrate"],
 		selection : ["disintegrate"],
 		firstCol : "oncelr"
-	},
+	}],
 }
 var FToD_HoardItems = {
 	"dragon's wrath weapon" : [
@@ -1450,13 +1450,13 @@ var FToD_HoardItems = {
 			usages : 1,
 			recovery : "dawn"
 		}],
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["hold monster", "rime's binding ice"],
 			selection : ["hold monster", "rime's binding ice"],
 			firstCol : "oncelr",
 			times : 2
-		}
+		}]
 	},
 	dtf_gem : {
 		extraLimitedFeatures : [{
@@ -1468,13 +1468,13 @@ var FToD_HoardItems = {
 			usages : 1,
 			recovery : "dawn"
 		}],
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["rary's telepathic bond", "raulothim's psychic lance"],
 			selection : ["rary's telepathic bond", "raulothim's psychic lance"],
 			firstCol : "oncelr",
 			times : 2
-		}
+		}]
 	},
 	dtf_metallic : {
 		extraLimitedFeatures : [{
@@ -1486,13 +1486,13 @@ var FToD_HoardItems = {
 			usages : 1,
 			recovery : "dawn"
 		}],
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["fizban's platinum shield", "legend lore"],
 			selection : ["fizban's platinum shield", "legend lore"],
 			firstCol : "oncelr",
 			times : 2
-		}
+		}]
 	},
 	dtf_ascendant : {
 		extraLimitedFeatures : [{

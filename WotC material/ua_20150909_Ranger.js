@@ -68,7 +68,7 @@ ClassList["ua-playtest-ranger"] = {
 				"During that turn, I remain hidden from it, regardless of my actions",
 				"As a bonus action at the end of my turn, I can use the Hide action"
 			]),
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 		},
 		"subclassfeature3" : {
 			name : "Ranger Path",
@@ -99,7 +99,7 @@ AddSubClass("ua-playtest-ranger", "guardian-ua", {
 			]),
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature3.1" : {
 			name : "Guardian's Shroud",
@@ -126,7 +126,7 @@ AddSubClass("ua-playtest-ranger", "seeker-ua", {
 			]),
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature3.1" : {
 			name : "Seeker's Eye",
@@ -156,7 +156,7 @@ AddSubClass("ua-playtest-ranger", "stalker-ua", {
 			]),
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature3.1" : {
 			name : "Stalker's Fangs",

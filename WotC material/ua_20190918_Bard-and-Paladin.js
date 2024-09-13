@@ -34,12 +34,12 @@ AddSubClass("bard", "college of eloquence-ua", {
 			source : [["UA:BnP", 1]],
 			minlevel : 3,
 			description : "\n   I can cast Calm Emotions without expending a spell slot",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Soothing Words",
 				spells : ["calm emotions"],
 				selection : ["calm emotions"],
 				firstCol : 'Sp'
-			},
+			}],
 			usages : "Charisma modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Cha Mod'));",
 			recovery : "long rest"

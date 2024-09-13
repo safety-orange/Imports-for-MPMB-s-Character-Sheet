@@ -39,20 +39,20 @@ RaceList["eladrin-uaeng"] = {
 	scores : [0, 2, 0, 0, 0, 0],
 	trait : "Eladrin (+2 Dexterity, +1 Intelligence or Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nFey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see." + (typePF ? "\n" : " ") + "Shifting Seasons: After a short or long rest, I can align myself with a season, granting me access to a cantrip until my next rest: Friends, Chill Touch, Minor Illusion, or Fire Bolt. My spellcasting ability for this is Int or Cha, whichever is higher.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Shifting Seasons",
 		spells : ["friends", "chill touch", "minor illusion", "fire bolt"],
 		selection : ["friends", "chill touch", "minor illusion", "fire bolt"],
 		firstCol : "checkbox",
 		times : 4
-	},
+	}],
 	features : {
 		"fey step" : {
 			name : "Fey Step",
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		}
 	}
 };
@@ -83,12 +83,12 @@ RaceList["githyanki-ua"] = {
 		"I don't require components to cast these spells."
 	]),
 	spellcastingAbility : 4,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Githyanki Psionics (1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"jump" : {
 			name : "Githyanki Psionics (level 3)",
@@ -96,12 +96,12 @@ RaceList["githyanki-ua"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Githyanki Psionics (3)",
 				spells : ["jump"],
 				selection : ["jump"],
 				firstCol : 'oncelr'
-			}
+			}]
 		},
 		"misty step" : {
 			name : "Githyanki Psionics (level 5)",
@@ -109,12 +109,12 @@ RaceList["githyanki-ua"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Githyanki Psionics (5)",
 				spells : ["misty step"],
 				selection : ["misty step"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };
@@ -145,12 +145,12 @@ RaceList["githzerai-ua"] = {
 	scores : [0, 0, 0, 1, 2, 0],
 	trait : "Githzerai (+1 Intelligence, +2 Wisdom)\n" + (typePF ? "\n" : "") + "Monastic Training: I gain a +1 bonus to AC while I'm not wearing medium or heavy armor and not using a shield.\n\nGithzerai Psionics: I know the Mage Hand cantrip. At 3rd level, I can cast the Shield spell once per long rest. At 5th level, I can also cast the Detect Thoughts spell once per long rest. Wisdom is my spellcasting ability for these spells.",
 	spellcastingAbility : 5,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Githzerai Psionics (1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"shield" : {
 			name : "Githzerai Psionics (level 3)",
@@ -158,12 +158,12 @@ RaceList["githzerai-ua"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Githzerai Psionics (3)",
 				spells : ["shield"],
 				selection : ["shield"],
 				firstCol : 'oncelr'
-			}
+			}]
 		},
 		"detect thoughts" : {
 			name : "Githzerai Psionics (level 5)",
@@ -171,12 +171,12 @@ RaceList["githzerai-ua"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Githzerai Psionics (5)",
 				spells : ["detect thoughts"],
 				selection : ["detect thoughts"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	},
 	extraAC : {

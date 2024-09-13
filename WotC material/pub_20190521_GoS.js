@@ -286,12 +286,12 @@ MagicItemsList["charm of plant command"] = {
 	usages : 3,
 	recovery : "dawn",
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["speak with plants"],
 		selection : ["speak with plants"],
 		firstCol : 1
-	},
+	}],
 	spellChanges : {
 		"speak with plants" : {
 			description : "Talk with plants about previous 24h; plants to difficult terrain or vice versa; adv. Cha checks vs. plants",

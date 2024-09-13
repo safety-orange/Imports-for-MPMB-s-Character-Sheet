@@ -71,12 +71,12 @@ AddSubClass("cleric", "fate-ua", {
 			usages : 1,
 			recovery : "long rest",
 			additional : "Augury",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Omens and Portents",
 				spells : ["augury"],
 				selection : ["augury"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"augury" : {
 					components : "",
@@ -140,12 +140,12 @@ AddSubClass("cleric", "fate-ua", {
 			usages : 1,
 			recovery : "long rest",
 			limfeaname : "Visions of the Future (Foresight)",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Visions of the Future",
 				spells : ["foresight"],
 				selection : ["foresight"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"foresight" : {
 					duration : "1 min",
@@ -382,12 +382,12 @@ FeatsList["scion of the outer planes-ua"] = {
 		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. My connection to the astral plane gives me resistance to psychic damage and I know the Message cantrip, which I can cast without material components. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility : [4,5,6],
 		allowUpCasting : true,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Astral Plane",
 			spell : ["message"],
 			selection : ["message"],
 			firstCol : "atwill"
-		},
+		}],
 		dmgres : ["Psychic"],
 		spellChanges : {
 			"message" : {
@@ -402,12 +402,12 @@ FeatsList["scion of the outer planes-ua"] = {
 		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. My connection to a chaotic outer plane gives me resistance to necrotic damage and I know the Minor Illusion cantrip, which requires no material components. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility : [4,5,6],
 		allowUpCasting : true,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Chaotic Outer Plane",
 			spells : ["minor illusion"],
 			selection : ["minor illusion"],
 			firstCol : "atwill"
-		},
+		}],
 		dmgres : ["Necrotic"],
 		spellChanges : {
 			"minor illusion" : {
@@ -422,12 +422,12 @@ FeatsList["scion of the outer planes-ua"] = {
 		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from an evil outer plane. This connection gives me resistance to necrotic damage and I know the Chill Touch cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility : [4,5,6],
 		allowUpCasting : true,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Evil Outer Plane",
 			spells : ["chill touch"],
 			selection : ["chill touch"],
 			firstCol : "atwill"
-		},
+		}],
 		dmgres : ["Necrotic"]
 	},
 	'good outer plane (radiant, sacred flame)' : {
@@ -435,12 +435,12 @@ FeatsList["scion of the outer planes-ua"] = {
 		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from an good outer plane. This connection gives me resistance to radiant damage and I know the Sacred Flame cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility : [4,5,6],
 		allowUpCasting : true,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Good Outer Plane",
 			spells : ["sacred flame"],
 			selection : ["sacred flame"],
 			firstCol : "atwill"
-		},
+		}],
 		dmgres : ["Radiant"]
 	},
 	'lawful outer plane (radiant, guidance)' : {
@@ -448,12 +448,12 @@ FeatsList["scion of the outer planes-ua"] = {
 		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from an lawful outer plane. This connection gives me resistance to radiant damage and I know the Guidance cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility : [4,5,6],
 		allowUpCasting : true,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Lawful Outer Plane",
 			spells : ["guidance"],
 			selection : ["guidance"],
 			firstCol : "atwill"
-		},
+		}],
 		dmgres : ["Radiant"]
 	},
 	'the outlands (psychic, mage hand)' : {
@@ -461,12 +461,12 @@ FeatsList["scion of the outer planes-ua"] = {
 		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from a plane of the outlands. This gives me resistance to psychic damage and I know the Mage Hand cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility : [4,5,6],
 		allowUpCasting : true,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "The Outlands",
 			spells : ["mage hand"],
 			selection : ["mage hand"],
 			firstCol : "atwill"
-		},
+		}],
 		dmgres : ["Psychic"]
 	}
 };
@@ -578,13 +578,13 @@ FeatsList["outlands envoy-ua"] = {
 	},
 	scorestxt : "+1 to one ability score of your choice",
 	spellcastingAbility : "scion of the outer planes-ua",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Crossroads Emissary",
 		spells : ["misty step", "tongues"],
 		selection : ["misty step", "tongues"],
 		firstCol : "oncelr",
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"tongues" : {
 			components : SpellsList.tongues.components.replace("M", "M*"),
@@ -1049,12 +1049,12 @@ FeatsList["scion of elemental air-ua"] = {
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest",
 	spellcastingAbility : [4,5,6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Elemental Magic",
 		spell : ["minor illusion"],
 		selection : ["minor illusion"],
 		firstCol : "atwill"
-	},
+	}],
 	action : [["bonus action", ""]]
 };
 FeatsList["scion of elemental earth-ua"] = {
@@ -1068,12 +1068,12 @@ FeatsList["scion of elemental earth-ua"] = {
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest",
 	spellcastingAbility : [4,5,6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Elemental Magic",
 		spell : ["druidcraft"],
 		selection : ["druidcraft"],
 		firstCol : "atwill"
-	},
+	}],
 	action : [["bonus action", ""]]
 };
 FeatsList["scion of elemental fire-ua"] = {
@@ -1128,42 +1128,42 @@ FeatsList["scion of elemental water-ua"] = {
 	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Elemental Magic",
 		spell : ["thaumaturgy"],
 		selection : ["thaumaturgy"],
 		firstCol : "atwill"
-	},
+	}],
 	action : [["bonus action", ""]],
 	choices : ["Intelligence", "Wisdom", "Charisma"],
 	"intelligence" : {
 		calculate : "event.value = 'I know the Thaumaturgy cantrip using Int as spellcasting ability. As a bonus action my Proficiency Bonus per long rest, I can have a creature within 15 ft that I can see make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Int Mod'))) + ' (8 + Prof Bonus + Int mod) or be pushed away from me or pulled towards me for up to 10 ft (my choice). The target can opt to fail.';",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Elemental Magic",
 			spell : ["thaumaturgy"],
 			selection : ["thaumaturgy"],
 			firstCol : "atwill"
-		},
+		}],
 		spellcastingAbility : 4
 	},
 	"wisdom" : {
 		calculate : "event.value = 'I know the Thaumaturgy cantrip using Wis as spellcasting ability. As a bonus action my Proficiency Bonus per long rest, I can have a creature within 15 ft that I can see make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof Bonus + Wis mod) or be pushed away from me or pulled towards me for up to 10 ft (my choice). The target can opt to fail.';",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Elemental Magic",
 			spell : ["thaumaturgy"],
 			selection : ["thaumaturgy"],
 			firstCol : "atwill"
-		},
+		}],
 		spellcastingAbility : 5
 	},
 	"charisma" : {
 		calculate : "event.value = 'I know the Thaumaturgy cantrip using Cha as spellcasting ability. As a bonus action my Proficiency Bonus per long rest, I can have a creature within 15 ft that I can see make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Cha Mod'))) + ' (8 + Prof Bonus + Cha mod) or be pushed away from me or pulled towards me for up to 10 ft (my choice). The target can opt to fail.';",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Elemental Magic",
 			spell : ["thaumaturgy"],
 			selection : ["thaumaturgy"],
 			firstCol : "atwill"
-		},
+		}],
 		spellcastingAbility : 6
 	}
 };

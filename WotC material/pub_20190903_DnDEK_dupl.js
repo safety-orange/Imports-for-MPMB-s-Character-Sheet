@@ -122,14 +122,14 @@ ClassList["sidekick-expert"] = {
 			source : [["DnDEK", 63]],
 			minlevel : 1,
 			description : "\n   I can use a bonus action to take the Help action",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"cunning action" : {
 			name : "Cunning Action",
 			source : [["DnDEK", 64]],
 			minlevel : 2,
 			description : "\n   I can use a bonus action to take the Dash, Disengage, or Hide action",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"expertise" : function() {
 			var a = {
@@ -237,7 +237,7 @@ ClassList["sidekick-warrior"] = {
 					"As a reaction, I can give disadv. on an attack made vs. someone within 5 ft of me",
 					"I need to be able to see the attacker to do this"
 				]),
-				action : ["reaction", ""]
+				action : [["reaction", ""]]
 			}
 		},
 		"second wind" : {
@@ -250,7 +250,7 @@ ClassList["sidekick-warrior"] = {
 			}),
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"improved critical" : {
 			name : "Improved Critical",

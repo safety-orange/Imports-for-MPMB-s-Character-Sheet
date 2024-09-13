@@ -213,12 +213,12 @@ RaceList["dark elf"] = {
 	scores : [0, 2, 0, 0, 0, 1],
 	trait : "Drow (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nDrow Magic: 1st level: Dancing Lights cantrip; 3rd level: Faerie Fire; 5th level: Darkness. Both spells can be used once per long rest. Charisma is my spellcasting ability for these.", // errata to specify once per day is long rest
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Drow Magic (level 1)",
 		spells : ["dancing lights"],
 		selection : ["dancing lights"],
 		firstCol : "atwill"
-	},
+	}],
 	features : {
 		"faerie fire" : {
 			name : "Drow Magic (level 3)",
@@ -226,12 +226,12 @@ RaceList["dark elf"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Drow Magic (level 3)",
 				spells : ["faerie fire"],
 				selection : ["faerie fire"],
 				firstCol : "oncelr"
-			}
+			}]
 		},
 		"darkness" : {
 			name : "Drow Magic (level 5)",
@@ -239,12 +239,12 @@ RaceList["dark elf"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Drow Magic (level 5)",
 				spells : ["darkness"],
 				selection : ["darkness"],
 				firstCol : "oncelr"
-			}
+			}]
 		}
 	}
 };
@@ -295,12 +295,12 @@ RaceList["forest gnome"] = {
 	scores : [0, 1, 0, 2, 0, 0],
 	trait : "Forest Gnome (+1 Dexterity, +2 Intelligence)" + (typePF ? "\n" : " ") + "\nNatural Illusionist:\n   I know the Minor Illusion cantrip. Intelligence is my spellcasting ability for it.\n\nSpeak with Small Beasts:\n   Through sounds and gestures, I can communicate simple ideas with Small or smaller beasts.",
 	spellcastingAbility : 4,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Natural Illusionist",
 		spells : ["minor illusion"],
 		selection : ["minor illusion"],
 		firstCol : "atwill"
-	}
+	}]
 };
 RaceList["stout halfling"] = {
 	regExpSearch : /^(?=.*\b(halflings?|hobbits?)\b)(?=.*stout).*$/i,
@@ -348,13 +348,13 @@ AddSubClass("barbarian", "totem warrior", {
 			source : [["P", 50]],
 			minlevel : 3,
 			description : "\n   " + "I can cast Beast Sense and Speak with Animals as rituals (PHB 217 \u0026 277)",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Spirit Seeker",
 				spells : ["beast sense", "speak with animals"],
 				selection : ["beast sense", "speak with animals"],
 				firstCol : "(R)",
 				times : 2
-			},
+			}],
 			spellChanges : {
 				"beast sense" : {
 					time : "10 min",
@@ -386,7 +386,7 @@ AddSubClass("barbarian", "totem warrior", {
 			"eagle" : {
 				name : "Eagle Spirit",
 				description : "\n   " + "While raging without heavy armor, others have disadv. on opportunity attacks vs. me" + "\n   " + "I can use the Dash action as a bonus action",
-				action : ["bonus action", " (Dash)"]
+				action : [["bonus action", " (Dash)"]]
 			},
 			"wolf" : {
 				name : "Wolf Spirit",
@@ -418,12 +418,12 @@ AddSubClass("barbarian", "totem warrior", {
 			source : [["P", 50]],
 			minlevel : 10,
 			description : "\n   " + "I can cast Commune with Nature as a ritual",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Spirit Walker",
 				spells : ["commune with nature"],
 				selection : ["commune with nature"],
 				firstCol : "(R)"
-			},
+			}],
 			spellChanges : {
 				"commune with nature" : {
 					time : "11 min",
@@ -448,7 +448,7 @@ AddSubClass("barbarian", "totem warrior", {
 			"wolf" : {
 				name : "Wolf Attunement",
 				description : "\n   " + "If my melee attack hits while raging, I can knock prone as a bonus action (up to Large)",
-				action : ["bonus action", " (raging: knock prone)"]
+				action : [["bonus action", " (raging: knock prone)"]]
 			}
 		}
 	}
@@ -478,7 +478,7 @@ AddSubClass("bard", "college of valor", {
 			source : [["P", 55]],
 			minlevel : 14,
 			description : "\n   " + "As a bonus action when I use my action to cast a bard spell, I can make a weapon attack",
-			action : ["bonus action", " (with Bard spell)"]
+			action : [["bonus action", " (with Bard spell)"]]
 		}
 	}
 });
@@ -501,14 +501,14 @@ AddSubClass("cleric", "knowledge domain", {
 			source : [["P", 59]],
 			minlevel : 2,
 			description : "\n   " + "As an action, I gain proficiency with a chosen skill or tool for 10 minutes",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Channel Divinity: Read Thoughts",
 			source : [["P", 59]],
 			minlevel : 6,
 			description : "\n   " + "As an action, one creature within 60 ft I can see must make a Wisdom save" + "\n   " + "If it fails, I can read its surface thoughts for 1 min, as long as it's within 60 ft of me" + "\n   " + "As an action, I can end this and cast Suggestion on it (it fails its save automatically)" + "\n   " + "If it succeeded on its save, I can't use this feature again on it until I finish a long rest",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature8" : {
 			name : "Potent Spellcasting",
@@ -547,11 +547,11 @@ AddSubClass("cleric", "light domain", {
 			source : [["P", 61]],
 			minlevel : 1,
 			description : "\n   " + "I learn the Light cantrip if I didn't already know it",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Bonus Cantrip (Light)",
 				spells : ["light"],
 				selection : ["light"]
-			}
+			}]
 		},
 		"subclassfeature1.1" : {
 			name : "Warding Flare",
@@ -564,7 +564,7 @@ AddSubClass("cleric", "light domain", {
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Radiance of the Dawn",
@@ -572,7 +572,7 @@ AddSubClass("cleric", "light domain", {
 			minlevel : 2,
 			description : "\n   " + "As an action, in 30 ft, magical darkness is dispelled and hostiles must make a Con save" + "\n   " + "Each takes radiant damage, saves for half, and negates with total cover",
 			additional : ["", "2d10 + 2 damage", "2d10 + 3 damage", "2d10 + 4 damage", "2d10 + 5 damage", "2d10 + 6 damage", "2d10 + 7 damage", "2d10 + 8 damage", "2d10 + 9 damage", "2d10 + 10 dmg", "2d10 + 11 dmg", "2d10 + 12 dmg", "2d10 + 13 dmg", "2d10 + 14 dmg", "2d10 + 15 dmg", "2d10 + 16 dmg", "2d10 + 17 dmg", "2d10 + 18 dmg", "2d10 + 19 dmg", "2d10 + 20 dmg"],
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Improved Flare",
@@ -592,7 +592,7 @@ AddSubClass("cleric", "light domain", {
 			source : [["P", 61]],
 			minlevel : 17,
 			description : "\n   " + "As an action, I have an aura of 60 ft sunlight and 30 ft dim light for 1 min" + "\n   " + "Enemies in the sunlight have disadv. on saves vs. spells that deal fire or radiant damage",
-			action : ["action", " (start/stop)"]
+			action : [["action", " (start/stop)"]]
 		}
 	}
 });
@@ -615,25 +615,25 @@ AddSubClass("cleric", "nature domain", {
 			minlevel : 1,
 			description : "\n   " + "I learn a druid cantrip and proficiency with a skill: Animal Handling, Nature, Survival",
 			skillstxt : "Choose one from Animal Handling, Nature, or Survival",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Acolyte of Nature",
 				"class" : "druid",
 				level : [0, 0]
-			}
+			}]
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Charm Animals and Plants",
 			source : [["P", 62]],
 			minlevel : 2,
 			description : "\n   " + "As an action, all beasts and plants within 30 ft that I can see must make a Wis save" + "\n   " + "If failed, each is charmed and friendly to allies and me for 1 min or until damaged",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Dampen Elements",
 			source : [["P", 62]],
 			minlevel : 6,
 			description : "\n   " + "As a reaction, if an ally in 30 ft or I takes acid/cold/fire/lightning/thunder damage," + "\n   " + "I can grant resistance against that instance of damage",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
@@ -659,7 +659,7 @@ AddSubClass("cleric", "nature domain", {
 			source : [["P", 62]],
 			minlevel : 17,
 			description : "\n   " + "As a bonus action, I can command creatures that are charmed by my Channel Divinity",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		}
 	}
 });
@@ -685,7 +685,7 @@ AddSubClass("cleric", "tempest domain", {
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Destructive Wrath",
@@ -739,7 +739,7 @@ AddSubClass("cleric", "trickery domain", {
 			source : [["P", 63]],
 			minlevel : 1,
 			description : "\n   " + "As an action, a willing creature I touch (not me) has adv. on Dex (Stealth) checks" + "\n   " + "This lasts for 1 hour or until I use it again",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Invoke Duplicity",
@@ -759,7 +759,7 @@ AddSubClass("cleric", "trickery domain", {
 			source : [["P", 63]],
 			minlevel : 6,
 			description : "\n   " + "As an action, I become invisible until the end of my next turn or I attack/cast a spell",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
@@ -811,7 +811,7 @@ AddSubClass("cleric", "war domain", {
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
-			action : ["bonus action", " (with Attack action)"]
+			action : [["bonus action", " (with Attack action)"]]
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Guided Strike",
@@ -827,7 +827,7 @@ AddSubClass("cleric", "war domain", {
 				"As a reaction, when a creature within 30 ft makes an attack roll, I can bless its attack",
 				"The creature then adds a +10 bonus to the roll; I can do this after seeing the d20 roll"
 			]),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
@@ -892,7 +892,7 @@ AddSubClass("druid", "circle of the moon", {
 				var restr = n < 4 ? ", no fly/swim" : n < 8 ? ", no fly" : "";
 				return "CR " + cr + restr + "; " + hr + (restr.length ? " h" : " hours");
 			}),
-			action : ["bonus action", " (start/stop)"],
+			action : [["bonus action", " (start/stop)"]],
 			eval : function() {
 				processActions(false, "Druid: Wild Shape", ClassList.druid.features["subclassfeature2.wild shape"].action, "Wild Shape");
 			}
@@ -902,7 +902,7 @@ AddSubClass("druid", "circle of the moon", {
 			source : [["P", 69]],
 			minlevel : 2,
 			description : "\n   " + "As a bonus action while in Wild Shape, I can expend spell slots to heal myself" + "\n   " + "I regain 1d8 HP per expended spell slot level; I can use Wild Shape as a bonus action",
-			action : ["bonus action", " (heal)"],
+			action : [["bonus action", " (heal)"]],
 			removeeval : function() {
 				processActions(true, "Druid: Wild Shape", ClassList.druid.features["subclassfeature2.wild shape"].action, "Wild Shape");
 			}
@@ -924,12 +924,12 @@ AddSubClass("druid", "circle of the moon", {
 			source : [["P", 69]],
 			minlevel : 14,
 			description : "\n   " + "I can cast Alter Self at will without using a spell slot",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Thousand Forms",
 				spells : ["alter self"],
 				selection : ["alter self"],
 				firstCol : "atwill"
-			}
+			}]
 		}
 	}
 });
@@ -967,7 +967,7 @@ AddSubClass("fighter", "battle master", {
 				name : "Commander's Strike",
 				source : [["P", 74]],
 				description : "\n   " + "I forgo one attack of my Attack action to use a bonus action to direct an ally I see/hear" + "\n   " + "The ally can use a reaction to make an attack, adding the superiority die to damage",
-				action : ["bonus action", " (with Attack action)"]
+				action : [["bonus action", " (with Attack action)"]]
 			},
 			"disarming attack" : {
 				name : "Disarming Attack",
@@ -988,7 +988,7 @@ AddSubClass("fighter", "battle master", {
 				name : "Feinting Attack",
 				source : [["P", 74]],
 				description : "\n   " + "As a bonus action, I can feint to gain adv. on my next attack this turn vs. a target in 5 ft" + "\n   " + "If the attack hits, I add the superiority die to my attack's damage",
-				action : ["bonus action", ""]
+				action : [["bonus action", ""]]
 			},
 			"goading attack" : {
 				name : "Goading Attack",
@@ -1015,7 +1015,7 @@ AddSubClass("fighter", "battle master", {
 				name : "Parry",
 				source : [["P", 74]],
 				description : "\n   " + "When damaged in melee, I can use a reaction to reduce it by superiority die + Dex mod",
-				action : ["reaction", " (when damaged in melee)"]
+				action : [["reaction", " (when damaged in melee)"]]
 			},
 			"precision attack" : {
 				name : "Precision Attack",
@@ -1031,13 +1031,13 @@ AddSubClass("fighter", "battle master", {
 				name : "Rally",
 				source : [["P", 74]],
 				description : "\n   " + "Ally that can see/hear me gets temporary HP equal to superiority die + Charisma mod",
-				action : ["bonus action", ""]
+				action : [["bonus action", ""]]
 			},
 			"riposte" : {
 				name : "Riposte",
 				source : [["P", 74]],
 				description : "\n   " + "When missed in melee, I can use my reaction to make one melee attack vs. the attacker" + "\n   " + "If the attack hits, I add the superiority die to my attack's damage",
-				action : ["reaction", " (after missed in melee)"]
+				action : [["reaction", " (after missed in melee)"]]
 			},
 			"sweeping attack" : {
 				name : "Sweeping Attack",
@@ -1109,26 +1109,26 @@ AddSubClass("fighter", "eldritch knight", {
 			minlevel : 3,
 			description : "\n   " + "I can cast known wizard cantrips/spells, using Intelligence as my spellcasting ability",
 			additional : ["", "", "2 cantrips \u0026 3 spells known", "2 cantrips \u0026 4 spells known", "2 cantrips \u0026 4 spells known", "2 cantrips \u0026 4 spells known", "2 cantrips \u0026 5 spells known", "2 cantrips \u0026 6 spells known", "2 cantrips \u0026 6 spells known", "3 cantrips \u0026 7 spells known", "3 cantrips \u0026 8 spells known", "3 cantrips \u0026 8 spells known", "3 cantrips \u0026 9 spells known", "3 cantrips \u0026 10 spells known", "3 cantrips \u0026 10 spells known", "3 cantrips \u0026 11 spells known", "3 cantrips \u0026 11 spells known", "3 cantrips \u0026 11 spells known", "3 cantrips \u0026 12 spells known", "3 cantrips \u0026 13 spells known"],
-			spellcastingBonus : { // the spells gained at level 3, 8, 14, 20
+			spellcastingBonus : [{ // the spells gained at level 3, 8, 14, 20
 				name : "From any school",
 				"class" : "wizard",
 				times : [0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4],
 				level : [1, 4]
-			}
+			}]
 		},
 		"subclassfeature3.1" : {
 			name : "Weapon Bond",
 			source : [["P", 75]],
 			minlevel : 3,
 			description : "\n   " + "I can bond with up to two weapons by spending a short rest with each" + "\n   " + "I can't be disarmed of a bonded weapon and I can summon one as a bonus action",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature7" : {
 			name : "War Magic",
 			source : [["P", 75]],
 			minlevel : 7,
 			description : "\n   " + "When I use my action to cast a cantrip, I can make a weapon attack as a bonus action",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature10" : {
 			name : "Eldritch Strike",
@@ -1147,7 +1147,7 @@ AddSubClass("fighter", "eldritch knight", {
 			source : [["P", 75]],
 			minlevel : 18,
 			description : "\n   " + "When I use my action to cast a spell, I can make a weapon attack as a bonus action",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		}
 	}
 });
@@ -1174,18 +1174,18 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Elemental Attunement",
 				source : [["P", 81]],
 				description : "\n   " + "As an action, I can briefly control elemental forces within 30 ft of me" + "\n   " + "I can make a harmless sensory effect, light/snuff light, chill/warm 1 lb for 1 hour," + "\n   " + "or I cause earth/fire/water/mist in a 1 ft cube to shape itself into a form for 1 minute",
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			"breath of winter (prereq: level 17 monk)" : {
 				name : "Breath of Winter",
 				source : [["P", 81]],
 				description : " [6 ki points]" + "\n   " + "As an action, I can cast Cone of Cold without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Breath of Winter",
 					spells : ["cone of cold"],
 					selection : ["cone of cold"],
 					firstCol : 6
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				prereqeval : function(v) { return classes.known.monk.level >= 17; },
 				spellChanges : {
@@ -1201,12 +1201,12 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Clench of the North Wind",
 				source : [["P", 81]],
 				description : " [3 ki points]" + "\n   " + "As an action, I can cast Hold Person without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Clench of the North Wind",
 					spells : ["hold person"],
 					selection : ["hold person"],
 					firstCol : 3
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				prereqeval : function(v) { return classes.known.monk.level >= 6; },
 				spellChanges : {
@@ -1222,12 +1222,12 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Eternal Mountain Defense",
 				source : [["P", 81]],
 				description : " [5 ki points]" + "\n   " + "As an action, I can cast Stoneskin on myself without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Eternal Mountain Defense",
 					spells : ["stoneskin"],
 					selection : ["stoneskin"],
 					firstCol : 5
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				prereqeval : function(v) { return classes.known.monk.level >= 17; },
 				spellChanges : {
@@ -1261,12 +1261,12 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Fist of Four Thunders",
 				source : [["P", 81]],
 				description : " [2 ki points]" + "\n   " + "As an action, I can cast Thunderwave",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Fist of Four Thunders",
 					spells : ["thunderwave"],
 					selection : ["thunderwave"],
 					firstCol : 2
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				spellChanges : {
 					"thunderwave" : {
@@ -1279,18 +1279,18 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Fist of Unbroken Air",
 				source : [["P", 81]],
 				description : " [2 ki points; +1d10/extra ki point]" + "\n   " + "As an action, target within 30 ft takes 3d10 bludgeoning damage (spend ki for more)" + "\n   " + "It is also pushed up to 20 ft away from me and knocked prone" + "\n   " + "It can make a Strength save to halve damage and avoid being pushed and knocked prone",
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			"flames of the phoenix (prereq: level 11 monk)" : {
 				name : "Flames of the Phoenix",
 				source : [["P", 81]],
 				description : " [4 ki points]" + "\n   " + "As an action, I can cast Fireball without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Flames of the Phoenix",
 					spells : ["fireball"],
 					selection : ["fireball"],
 					firstCol : 4
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				prereqeval : function(v) { return classes.known.monk.level >= 11; },
 				spellChanges : {
@@ -1306,12 +1306,12 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Gong of the Summit",
 				source : [["P", 81]],
 				description : " [3 ki points]" + "\n   " + "As an action, I can cast Shatter without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Gong of the Summit",
 					spells : ["shatter"],
 					selection : ["shatter"],
 					firstCol : 3
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				prereqeval : function(v) { return classes.known.monk.level >= 6; },
 				spellChanges : {
@@ -1327,12 +1327,12 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Mist Stance",
 				source : [["P", 81]],
 				description : " [4 ki points]" + "\n   " + "As an action, I can cast Gaseous Form on myself without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Mist Stance",
 					spells : ["gaseous form"],
 					selection : ["gaseous form"],
 					firstCol : 4
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				prereqeval : function(v) { return classes.known.monk.level >= 11; },
 				spellChanges : {
@@ -1349,12 +1349,12 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Ride the Wind",
 				source : [["P", 81]],
 				description : " [4 ki points]" + "\n   " + "As an action, I can cast Fly on myself without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Ride the Wind",
 					spells : ["fly"],
 					selection : ["fly"],
 					firstCol : 4
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				prereqeval : function(v) { return classes.known.monk.level >= 11; },
 				spellChanges : {
@@ -1371,12 +1371,12 @@ AddSubClass("monk", "way of the four elements", {
 				name : "River of Hungry Flame",
 				source : [["P", 81]],
 				description : " [5 ki points]" + "\n   " + "As an action, I can cast Wall of Fire without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "River of Hungry Flame",
 					spells : ["wall of fire"],
 					selection : ["wall of fire"],
 					firstCol : 5
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				prereqeval : function(v) { return classes.known.monk.level >= 17; },
 				spellChanges : {
@@ -1392,12 +1392,12 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Rush of the Gale Spirits",
 				source : [["P", 81]],
 				description : " [2 ki points]" + "\n   " + "As an action, I can cast Gust of Wind without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Rush of the Gale Spirits",
 					spells : ["gust of wind"],
 					selection : ["gust of wind"],
 					firstCol : 2
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				spellChanges : {
 					"gust of wind" : {
@@ -1411,18 +1411,18 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Shape the Flowing River",
 				source : [["P", 81]],
 				description : " [1 ki point]" + "\n   " + "As an action, I can affect ice/water up to a 30-foot cube within 120 ft" + "\n   " + "I can switch it between water/ice states and reshape ice up to half its largest dimension",
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			"sweeping cinder strike" : {
 				name : "Sweeping Cinder Strike",
 				source : [["P", 81]],
 				description : " [2 ki points]" + "\n   " + "As an action, I can cast Burning Hands",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Sweeping Cinder Strike",
 					spells : ["burning hands"],
 					selection : ["burning hands"],
 					firstCol : 2
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				spellChanges : {
 					"burning hands" : {
@@ -1437,18 +1437,18 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Water Whip",
 				source : [["P", 81]],
 				description : " [2 ki points; +1d10/extra ki point]" + "\n   " + "As an action, a creature within 30 ft takes 3d10 bludgeoning damage (spend ki for more)" + "\n   " + "It is also knocked prone or pulled up to 25 ft closer to me (my choice)" + "\n   " + "It can make a Dexterity save to halve damage and avoid being pulled or knocked prone",
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			"wave of rolling earth (prereq: level 17 monk)" : {
 				name : "Wave of Rolling Earth",
 				source : [["P", 81]],
 				description : " [6 ki points]" + "\n   " + "As an action, I can cast Wall of Stone without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Wave of Rolling Earth",
 					spells : ["wall of stone"],
 					selection : ["wall of stone"],
 					firstCol : 6
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				prereqeval : function(v) { return classes.known.monk.level >= 17; },
 				spellChanges : {
@@ -1472,26 +1472,26 @@ AddSubClass("monk", "way of shadow", {
 			source : [["P", 80]],
 			minlevel : 3,
 			description : "\n   " + "I know the Minor Illusion cantrip and can cast certain spells by using ki (see page 3)",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Shadow Arts",
 				spells : ["minor illusion"],
 				selection : ["minor illusion"],
 				firstCol : "atwill"
-			},
+			}],
 			spellFirstColTitle : "Ki",
 			"shadow spells" : {
 				name : "Shadow Spells",
 				extraname : "Shadow Arts",
 				source : [["P", 80]],
 				description : " [2 ki points]" + "\n   " + "As an action, I can cast Darkness, Darkvision, Pass Without Trace, or Silence" + "\n   " + "I don't require spell slots or material components to cast these spells like this, just ki points",
-				action : ["action", ""],
-				spellcastingBonus : {
+				action : [["action", ""]],
+				spellcastingBonus : [{
 					name : "Shadow Arts",
 					spells : ["darkness", "darkvision", "pass without trace", "silence"],
 					selection : ["darkness", "darkvision", "pass without trace", "silence"],
 					firstCol : 2,
 					times : 4
-				}
+				}]
 			},
 			autoSelectExtrachoices : [{ extrachoice : "shadow spells" }],
 			spellChanges : {
@@ -1517,21 +1517,21 @@ AddSubClass("monk", "way of shadow", {
 			source : [["P", 80]],
 			minlevel : 6,
 			description : "\n   " + "As a bonus action, I can teleport from and into dim light or darkness within 60 ft" + "\n   " + "After I do this, I have adv. on the next melee attack I make before the end of my turn",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature11" : {
 			name : "Cloak of Shadows",
 			source : [["P", 80]],
 			minlevel : 11,
 			description : "\n   " + "As an action, I can become invisible in dim light or darkness until I attack/cast",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature17" : {
 			name : "Opportunist",
 			source : [["P", 80]],
 			minlevel : 17,
 			description : "\n   " + "As a reaction, if a creature in 5 ft is hit by another, I can make a melee attack vs. it",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		}
 	}
 });
@@ -1545,7 +1545,7 @@ AddSubClass("paladin", "oath of the ancients", {
 			source : [["P", 87]],
 			minlevel : 3,
 			description : "\n   " + "As an action, a creature I can see within 10 ft must make a Str/Dex save (its choice)" + "\n   " + "If it fails this save, it is restrained until it succeeds on a save at the end of its turn",
-			action : ["action", ""],
+			action : [["action", ""]],
 			spellcastingExtra : ["ensnaring strike", "speak with animals", "moonbeam", "misty step", "plant growth", "protection from energy", "ice storm", "stoneskin", "commune with nature", "tree stride"]
 		},
 		"subclassfeature3.1" : {
@@ -1553,7 +1553,7 @@ AddSubClass("paladin", "oath of the ancients", {
 			source : [["P", 87]],
 			minlevel : 3,
 			description : "\n   " + "As an action, all fey/fiends within 30 ft that can hear me must make a Wisdom save" + "\n   " + "If one fails, it is turned for 1 minute or until it takes damage and must show true form" + "\n   " + "Turned: move away, never within 30 ft of me, no reactions or actions other than Dash" + "\n   " + "Turned: may Dodge instead of Dash when nowhere to move and unable to escape bonds",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature7" : {
 			name : "Aura of Warding",
@@ -1583,7 +1583,7 @@ AddSubClass("paladin", "oath of the ancients", {
 			]),
 			recovery : "long rest",
 			usages : 1,
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -1597,7 +1597,7 @@ AddSubClass("paladin", "oath of vengeance", {
 			source : [["P", 88]],
 			minlevel : 3,
 			description : "\n   " + "As an action, one creature within 60 ft that I can see me must make a Wisdom save" + "\n   " + "If failed, it is frightened and its speed is 0 despite bonuses; if success, its speed is halved" + "\n   " + "This lasts for 1 minute or until it takes damage; Undead/fiends have disadv. on save",
-			action : ["action", ""],
+			action : [["action", ""]],
 			spellcastingExtra : ["bane", "hunter's mark", "hold person", "misty step", "haste", "protection from energy", "banishment", "dimension door", "hold monster", "scrying"]
 		},
 		"subclassfeature3.1" : {
@@ -1605,7 +1605,7 @@ AddSubClass("paladin", "oath of vengeance", {
 			source : [["P", 88]],
 			minlevel : 3,
 			description : "\n   " + "As a bonus action, I utter a vow against a creature I can see within 10 ft" + "\n   " + "I get adv. on attacks against it for 1 minute or until it drops to 0 HP or falls unconscious",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature7" : {
 			name : "Relentless Avenger",
@@ -1618,7 +1618,7 @@ AddSubClass("paladin", "oath of vengeance", {
 			source : [["P", 88]],
 			minlevel : 15,
 			description : "\n   " + "When an enemy I have an active Vow of Enmity against makes an attack, I can react" + "\n   " + "As a reaction, I can make a melee weapon attack against it if it is within range",
-			action : ["reaction", " (with Vow of Enmity)"]
+			action : [["reaction", " (with Vow of Enmity)"]]
 		},
 		"subclassfeature20" : {
 			name : "Avenging Angel",
@@ -1631,7 +1631,7 @@ AddSubClass("paladin", "oath of vengeance", {
 			]),
 			recovery : "long rest",
 			usages : 1,
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -1733,7 +1733,7 @@ AddSubClass("rogue", "arcane trickster", {
 				" \u2022 Stow/retrieve an object the hand is holding in a container worn/carried by another",
 				" \u2022 Use thieves' tools to pick locks and disarm traps at range"
 			]),
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			spellChanges : {
 				"mage hand" : {
 					description : "Invisible hand, carries 10 lb; 1 bns to control, use thieves' tools, or stow/retrieve obj; only 1 instance",
@@ -1752,14 +1752,14 @@ AddSubClass("rogue", "arcane trickster", {
 			source : [["P", 98]],
 			minlevel : 13,
 			description : "\n   " + "As a bonus action, gain adv. on attacks this turn on creature within 5 ft of Mage Hand",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature17" : {
 			name : "Spell Thief",
 			source : [["P", 98]],
 			minlevel : 17,
 			description : "\n   " + "As a reaction, after a spell is cast at me, I can try to negate and steal it" + "\n   " + "The caster makes a save against my spell DC with his/her spellcasting ability" + "\n   " + "On failure, the caster forgets how to cast that spell for eight hours" + "\n   " + "If I have a spell slot of a high enough level for it, I learn how to cast it during this time",
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 			recovery : "long rest",
 			usages : 1
 		}
@@ -1905,7 +1905,7 @@ AddSubClass("sorcerer", "wild magic", {
 			source : [["P", 103]],
 			minlevel : 6,
 			description : "\n   " + "As a reaction, I can add/subtract 1d4 from another's attack roll, ability check, or save",
-			action : ["reaction", " (2 sorcery points)"],
+			action : [["reaction", " (2 sorcery points)"]],
 			additional : "2 sorcery points"
 		},
 		"subclassfeature14" : {
@@ -1935,14 +1935,14 @@ AddSubClass("warlock", "the archfey", {
 			description : "\n   " + "As an action, all creatures in a 10-ft cube around me must make a Wisdom save" + "\n   " + "If failed, they're all charmed or frightened (my choice) until the end of my next turn",
 			recovery : "short rest",
 			usages : 1,
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Misty Escape",
 			source : [["P", 109]],
 			minlevel : 6,
 			description : "\n   " + "As a reaction, when I take damage, I can turn invisible and teleport up to 60 ft" + "\n   " + "I stay invisible until the start of my next turn or until I attack or cast a spell",
-			action : ["reaction", " (taking damage)"],
+			action : [["reaction", " (taking damage)"]],
 			recovery : "short rest",
 			usages : 1
 		},
@@ -1951,7 +1951,7 @@ AddSubClass("warlock", "the archfey", {
 			source : [["P", 109]],
 			minlevel : 10,
 			description : "\n   " + "As a reaction, when a creature tries to charm me, I can turn the charm back on it" + "\n   " + "It must make a Wis save or be charmed by me for 1 minute or until taking damage" + "\n   " + "I am immune to being charmed",
-			action : ["reaction", " (when charmed)"],
+			action : [["reaction", " (when charmed)"]],
 			savetxt : { immune : ["charmed"] }
 		},
 		"subclassfeature14" : {
@@ -1961,7 +1961,7 @@ AddSubClass("warlock", "the archfey", {
 			description : "\n   " + "As an action, a creature within 60 ft must make a Wis save or be charmed/frightened" + "\n   " + "This lasts for 1 minute or until my concentration is broken or it takes damage" + "\n   " + "During this time, it can't see or hear anything but the illusion, me, and itself",
 			recovery : "short rest",
 			usages : 1,
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -1982,7 +1982,7 @@ AddSubClass("warlock", "the great old one", {
 			source : [["P", 110]],
 			minlevel : 6,
 			description : "\n   " + "As a reaction, when I'm attacked, I can impose disadvantage to that attack roll" + "\n   " + "If it misses me, I have adv. on my next attack vs. the attacker during my next turn",
-			action : ["reaction", " (when attacked)"],
+			action : [["reaction", " (when attacked)"]],
 			recovery : "short rest",
 			usages : 1
 		},
@@ -1998,7 +1998,7 @@ AddSubClass("warlock", "the great old one", {
 			source : [["P", 110]],
 			minlevel : 14,
 			description : "\n   " + "As an action, I can charm an incapacitated humanoid by touch" + "\n   " + "While it is charmed, I can communicate with it telepathically if it is on the same plane" + "\n   " + "This lasts until the charm is removed (can be by Remove Curse) or I use this again",
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -2030,7 +2030,7 @@ AddSubClass("wizard", "abjuration", {
 			source : [["P", 115]],
 			minlevel : 6,
 			description : "\n   " + "As a reaction, my Arcane Ward can absorb damage done to a creature within 30 ft",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature10" : {
 			name : "Improved Abjuration",
@@ -2091,7 +2091,7 @@ AddSubClass("wizard", "conjuration", {
 			source : [["P", 116]],
 			minlevel : 2,
 			description : "\n   " + "As an action, I can conjure an object up to 3 ft on each side and no more than 10 lbs" + "\n   " + "It must be of a form of a nonmagical object I have seen and is created within 10 ft" + "\n   " + "The object disappears after 1 hour, if it takes or deals damage, or when I use this again",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Benign Transposition",
@@ -2100,7 +2100,7 @@ AddSubClass("wizard", "conjuration", {
 			description : "\n   " + "As an action, I can teleport to a place within 30 ft that I can see" + "\n   " + "Instead, I can swap places with a willing Small/Medium creature in 30 ft that I can see" + "\n   " + "I can do this again after a long rest or casting a 1st-level or higher conjuration spell",
 			usages : 1,
 			recovery : "long rest",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature10" : {
 			name : "Focused Conjuration",
@@ -2169,7 +2169,7 @@ AddSubClass("wizard", "divination", {
 			description : "\n   " + "As an action, I gain one of the following until my next short or long rest:" + "\n   " + "Darkvision 60ft, see the Ethereal Plane 60ft, read any language, or see invisibility 10ft",
 			recovery : "short rest",
 			usages : 1,
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature14" : {
 			name : "Greater Portent",
@@ -2196,7 +2196,7 @@ AddSubClass("wizard", "enchantment", {
 			source : [["P", 117]],
 			minlevel : 2,
 			description : "\n   " + "As an action, a seen enemy within 5 ft must make a Wis save or be charmed" + "\n   " + "This doesn't work if it can't see/hear me; It's also incapacitated and reduced to 0 speed" + "\n   " + "This lasts until the end of my next turn, but I can use an action to extend the duration" + "\n   " + "It also ends if it takes damage, can't see or hear me, or is more than 5 ft from me" + "\n   " + "On success or once it ends, I can't use this on it again until after a long rest",
-			action : ["action", ""],
+			action : [["action", ""]],
 			usages : 1,
 			recovery : "long rest"
 		},
@@ -2205,7 +2205,7 @@ AddSubClass("wizard", "enchantment", {
 			source : [["P", 117]],
 			minlevel : 6,
 			description : "\n   " + "As a reaction, when someone I can see in 30 ft attacks me, it must make a Wis save" + "\n   " + "If failed, it must instead attack the closest creature within range (not me or self)" + "\n   " + "On a success, the target is immune to this until after my long rest; This is a charm effect",
-			action : ["reaction", " (when attacked)"]
+			action : [["reaction", " (when attacked)"]]
 		},
 		"subclassfeature10" : {
 			name : "Split Enchantment",
@@ -2261,11 +2261,11 @@ AddSubClass("wizard", "illusion", {
 			source : [["P", 118]],
 			minlevel : 2,
 			description : "\n   " + "I gain the knowledge of the Minor Illusion cantrip (or another if I already knew it)" + "\n   " + "When I cast it, I can create both a sound and an image with a single casting",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Minor Illusion cantrip",
 				spells : ["minor illusion"],
 				selection : ["minor illusion"]
-			},
+			}],
 			spellChanges : {
 				"minor illusion" : {
 					description : "5-ft cube illusion includes visible and audible; Int(Investigation) check vs. Spell DC; see book",
@@ -2278,14 +2278,14 @@ AddSubClass("wizard", "illusion", {
 			source : [["P", 118]],
 			minlevel : 6,
 			description : "\n   " + "After I cast an illusion spell that lasts 1 min or longer, I can use an action to change it",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature10" : {
 			name : "Illusory Self",
 			source : [["P", 118]],
 			minlevel : 10,
 			description : "\n   " + "As a reaction, when I'm attacked, I can impose an illusion that makes the attack miss",
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 			recovery : "short rest",
 			usages : 1
 		},
@@ -2294,7 +2294,7 @@ AddSubClass("wizard", "illusion", {
 			source : [["P", 118]],
 			minlevel : 14,
 			description : "\n   " + "As a bonus action, after I cast a 1st-level or higher illusion spell, I can make it real" + "\n   " + "One inanimate, nonmagical object that is part of the illusion becomes real for 1 minute" + "\n   " + "The object can't be something that directly harms someone",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		}
 	}
 });
@@ -2321,11 +2321,11 @@ AddSubClass("wizard", "necromancy", {
 			source : [["P", 119]],
 			minlevel : 6,
 			description : "\n   " + "I add Animate Dead to my spellbook and can have an additional target when casting it" + "\n   " + "Undead created by my necromancy spells have the following benefits:" + "\n   " + "They add my proficiency bonus to damage and my wizard level to their HP maximums",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Undead Thralls",
 				spells : ["animate dead"],
 				selection : ["animate dead"]
-			},
+			}],
 			spellChanges : {
 				"animate dead" : {
 					description : "Turn corpses into 2+2/SL Skeletons or Zombies; control for 24h; bns a command within 60 ft",
@@ -2345,7 +2345,7 @@ AddSubClass("wizard", "necromancy", {
 			source : [["P", 11]],
 			minlevel : 14,
 			description : "\n   " + "As an action, an undead within 60 ft that I can see must make a Charisma save" + "\n   " + "If its Int is > 7, it has adv. on the save; If its Int is > 11, it repeats the save every hour" + "\n   " + "If failed, it becomes friendly to me and obeys my commands until I use this on another" + "\n   " + "On success, it becomes permanently immune to my further attempts",
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -2412,7 +2412,7 @@ AddSubClass("wizard", "transmutation", {
 			source : [["P", 119]],
 			minlevel : 14,
 			description : "\n   " + "As an action, I can destroy my transmuter's stone and do one of the four following:" + "\n    " + "1) Major Transformation" + "\n      " + "In 10 minutes, I transmute one nonmagical object up to 5 cubic foot into another" + "\n      " + "This new, nonmagical object must be of similar size and mass and equal or less value" + "\n    " + "2) Panacea" + "\n      " + "One touched has all curses, diseases, and poisons removed and is healed to max HP" + "\n    " + "3) Restore Life" + "\n      " + "I cast Raise Dead without using spell slots or needing to have it in my spellbook" + "\n    " + "4) Restore Youth" + "\n      " + "A touched creature's apparent age is reduced by 3d10 years (to a minimum of 13)",
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -3453,7 +3453,7 @@ FeatsList["crossbow expert"] = {
 	source : [["P", 165]],
 	descriptionFull : "Thanks to extensive practice with the crossbow, you gain the following benefits:\n \u2022 You ignore the loading quality of crossbows with which you are proficient.\n \u2022 Being within 5 feet of a hostile creature doesn't impose disadvantage on your ranged attack rolls.\n \u2022 When you use the Attack action and attack with a one-handed weapon, you can use a bonus action to attack with a hand crossbow you are holding.",
 	description : "I ignore the loading quality of crossbows I'm proficient with. I don't suffer disadv. on ranged attack rolls for being within 5 ft of a hostile. When I attack with a one-handed weapon in my Attack action, I can use a bonus action to attack with a hand crossbow I'm holding.",
-	action : ["bonus action", " (with Attack action)"],
+	action : [["bonus action", " (with Attack action)"]],
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -3472,7 +3472,7 @@ FeatsList["defensive duelist"] = {
 	description : "When wielding a finesse weapon with which I am proficient and another creature hits me with a melee attack, I can use my reaction to add my proficiency bonus to my AC for that attack, potentially causing the attack to miss me.",
 	prerequisite : "Dexterity 13 or higher",
 	prereqeval : function(v) { return What('Dex') >= 13; },
-	action : ["reaction", " (when hit in melee)"]
+	action : [["reaction", " (when hit in melee)"]]
 };
 FeatsList["dual wielder"] = {
 	name : "Dual Wielder",
@@ -3531,7 +3531,7 @@ FeatsList["great weapon master"] = {
 	source : [["P", 167]],
 	descriptionFull : "You've learned to put the weight of a weapon to your advantage, letting its momentum empower your strikes. You gain the following benefits:\n \u2022 On your turn, when you score a critical hit with a melee weapon or reduce a creature to 0 hit points with one, you can make one melee weapon attack as a bonus action.\n \u2022 Before you make a melee attack with a heavy weapon that you are proficient with, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage.",
 	description : "If I score a critical hit or reduce a creature to 0 hit points with a melee weapon in my turn, I can make one melee weapon attack as a bonus action. With a heavy melee weapon, I can choose to take a -5 penalty on the attack roll for +10 on the attack's damage.",
-	action : ["bonus action", " (after crit or take-down)"],
+	action : [["bonus action", " (after crit or take-down)"]],
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
@@ -3549,7 +3549,7 @@ FeatsList["healer"] = {
 	source : [["P", 167]],
 	descriptionFull : "You are an able physician, allowing you to mend wounds quickly and get your allies back in the fight. You gain the following benefits:\n \u2022 When you use a healer's kit to stabilize a dying creature, that creature also regains 1 hit point.\n \u2022 As an action, you can spend one use of a healer's kit to tend to a creature and restore 1d6+4 hit points to it, plus additional hit points equal to the creature's maximum number of Hit Dice. The creature can't regain hit points from this feat again until it finishes a short or long rest.",
 	description : "Using a healer's kit to stabilize someone gives them 1 hit point as well. As an action, I can spend one use of a healer's kit to restore 1d6 + 4 + (creature's HD) hit points. After that, the creature can't gain hit points from this feat again until it finishes a short rest.",
-	action : ["action", " (1d6+4+HD with healing kit)"]
+	action : [["action", " (1d6+4+HD with healing kit)"]]
 };
 FeatsList["heavily armored"] = {
 	name : "Heavily Armored",
@@ -3616,7 +3616,7 @@ FeatsList["mage slayer"] = {
 	descriptionFull : "You have practiced techniques useful in melee combat against spellcasters, gaining the following benefits:\n \u2022 When a creature within 5 feet of you casts a spell, you can use your reaction to make a melee weapon attack against that creature.\n \u2022 When you damage a creature that is concentrating on a spell, that creature has disadvantage on the saving throw it makes to maintain its concentration.\n \u2022 You have advantage on saving throws against spells cast by creatures within 5 feet of you.",
 	description : "As a reaction, I can make a melee weapon attack on a creature within 5 ft of me that casts a spell. Concentration checks from damage from me are made with disadvantage. I have advantage on saving throws against spells cast by creatures within 5 feet of me.",
 	savetxt : { adv_vs : ["spells cast within 5 ft"] },
-	action : ["reaction", "Melee weapon attack (if spell cast in 5 ft)"]
+	action : [["reaction", "Melee weapon attack (if spell cast in 5 ft)"]]
 };
 FeatsList["magic initiate"] = {
 	name : "Magic Initiate",
@@ -3928,7 +3928,7 @@ FeatsList["sentinel"] = {
 	source : [["P", 169]],
 	descriptionFull : "You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:\n \u2022 When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.\n \u2022 Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.\n \u2022 When a creature within 5 feet of you makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.",
 	description : "Creatures I hit with opportunity attacks have 0 speed for this turn. The Disengage action doesn't work on me. When a creature within 5 ft makes an attack against a target other than me, I can use my reaction to make a melee weapon attack against the attacker.",
-	action : ["reaction", " (after attack on ally)"]
+	action : [["reaction", " (after attack on ally)"]]
 };
 FeatsList["sharpshooter"] = {
 	name : "Sharpshooter",
@@ -4036,69 +4036,69 @@ FeatsList["spell sniper"] = {
 	choices : ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
 	"bard" : {
 		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one bard cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 6,
 			'class' : 'bard',
 			level : [0, 0],
 			attackOnly : true,
 			firstCol : "atwill"
-		}
+		}]
 	},
 	"cleric" : {
 		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one cleric cantrip that requires an attack roll. Wisdom is my spellcasting ability for this.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 5,
 			'class' : 'cleric',
 			level : [0, 0],
 			attackOnly : true,
 			firstCol : "atwill"
-		}
+		}]
 	},
 	"druid" : {
 		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one druid cantrip that requires an attack roll. Wisdom is my spellcasting ability for this.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 5,
 			'class' : 'druid',
 			level : [0, 0],
 			attackOnly : true,
 			firstCol : "atwill"
-		}
+		}]
 	},
 	"sorcerer" : {
 		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one sorcerer cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 6,
 			'class' : 'sorcerer',
 			level : [0, 0],
 			attackOnly : true,
 			firstCol : "atwill"
-		}
+		}]
 	},
 	"warlock" : {
 		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one warlock cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 6,
 			'class' : 'warlock',
 			level : [0, 0],
 			attackOnly : true,
 			firstCol : "atwill"
-		}
+		}]
 	},
 	"wizard" : {
 		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one wizard cantrip that requires an attack roll. Intelligence is my spellcasting ability for this.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 4,
 			'class' : 'wizard',
 			level : [0, 0],
 			attackOnly : true,
 			firstCol : "atwill"
-		}
+		}]
 	}
 };
 FeatsList["tavern brawler"] = {
@@ -4142,7 +4142,7 @@ FeatsList["war caster"] = {
 	prereqeval : function(v) { return v.isSpellcaster; },
 	descriptionFull : "You have practiced casting spells in the midst of combat, learning techniques that grant you the following benefits:\n \u2022 You have advantage on Constitution saving throws that you make to maintain your concentration on a spell when you take damage.\n \u2022 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.\n \u2022 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a spell at the creature, rather than making an opportunity attack. The spell must have a casting time of 1 action and must target only that creature.",
 	description : "Advantage on Con saves to maintain concentration on spells when damaged. Perform somatic components even when holding weapons or shield in one or both hands. Cast spell of 1 action casting time that targets only one creature instead of an opportunity attack.",
-	action : ["reaction", " - Opportunity Spell"],
+	action : [["reaction", " - Opportunity Spell"]],
 	savetxt : { text : "Adv. on Con (Concentration) saves when damaged" }
 };
 FeatsList["weapon master"] = {
@@ -4842,12 +4842,12 @@ MagicItemsList["dragongleam"] = {
 	usages : 10,
 	recovery : "Never",
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["daylight"],
 		selection : ["daylight"],
 		firstCol : 1
-	},
+	}],
 	spellChanges : {
 		"daylight" : {
 			component : "V,M\u0192"
@@ -6164,12 +6164,12 @@ RaceList["aasimar"] = {
 	scores : [0, 0, 0, 0, 1, 2],
 	trait : "Aasimar (+1 Wisdom, +2 Charisma)\n\nCelestial Legacy:\n   I know the Light cantrip.\n   Once I reach 3rd level, I can cast the Lesser Restoration spell once per long rest.\n   Once I reach 5th level, I can cast the Daylight spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Celestial Legacy (level 1)",
 		spells : ["light"],
 		selection : ["light"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"lesser restoration" : {
 			name : "Celestial Legacy (level 3)",
@@ -6177,12 +6177,12 @@ RaceList["aasimar"] = {
 			usages : 1,
 			minlevel : 3,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Celestial Legacy (level 3)",
 				spells : ["lesser restoration"],
 				selection : ["lesser restoration"],
 				firstCol : 'oncelr'
-			}
+			}]
 		},
 		"daylight" : {
 			name : "Celestial Legacy (level 5)",
@@ -6190,12 +6190,12 @@ RaceList["aasimar"] = {
 			usages : 1,
 			minlevel : 5,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Celestial Legacy (level 5)",
 				spells : ["daylight"],
 				selection : ["daylight"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };
@@ -6232,12 +6232,12 @@ RaceList["eladrin"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Fey Step",
 				spells : ["misty step"],
 				selection : ["misty step"],
 				firstCol : 'oncesr'
-			}
+			}]
 		}
 	}
 };
@@ -6261,12 +6261,12 @@ AddSubClass("cleric", "death domain", {
 			source : [["D", 96]],
 			minlevel : 1,
 			description : "\n   " + "I learn one necromancy cantrip of my choice from any spell list" + "\n   " + "My necromancy, single-target cantrips can affect two targets within 5 ft of each other",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Reaper",
 				"class" : "any",
 				school : ["Necro"],
 				level : [0, 0]
-			},
+			}],
 			calcChanges : {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
@@ -6389,7 +6389,7 @@ AddSubClass("paladin", "oathbreaker", {
 			source : [["D", 97]],
 			minlevel : 3,
 			description : "\n   " + "As an action, one undead (CR < paladin level) I can see in 30 ft must make a Wis save" + "\n   " + "If failed, it must obey my commands for 24 hours or until I use this on another",
-			action : ["action", ""],
+			action : [["action", ""]],
 			spellcastingExtra : ["hellish rebuke", "inflict wounds", "crown of madness", "darkness", "animate dead", "bestow curse", "blight", "confusion", "contagion", "dominate person"]
 		},
 		"subclassfeature3.1" : {
@@ -6397,7 +6397,7 @@ AddSubClass("paladin", "oathbreaker", {
 			source : [["D", 97]],
 			minlevel : 3,
 			description : "\n   " + "As an action, anyone I choose within 30 ft that can see me must make a Wisdom save" + "\n   " + "If failed, it is frightened for 1 min or until it succeeds a save at the end of its turns" + "\n   " + "It can't save at the end of its turn if it's still within 30 ft of me",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature7" : {
 			name : "Aura of Hate",
@@ -6437,7 +6437,7 @@ AddSubClass("paladin", "oathbreaker", {
 			description : "\n   " + "As an action, I gain a 30-ft aura of gloom that reduces bright light to dim for 1 min" + "\n   " + "If frightened of me, foes starting their turn in the aura take 4d10 psychic damage" + "\n   " + "Attacks vs. my allies and me inside the aura have disadvantage if attackers need sight" + "\n   " + "As a bonus action, I can make a melee spell attack vs. a target inside the aura" + "\n   " + "If this attack hits, it does 3d10 + Charisma modifier necrotic damage",
 			recovery : "long rest",
 			usages : 1,
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -6584,14 +6584,14 @@ MagicItemsList["instrument of the bards"] = {
 		rarity : "very rare",
 		magicItemTable : "H",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Anstruth harp can be used to cast Control Weather, Cure Wounds (5th level), and Wall of Thorns.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per long rest",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "control weather", "cure wounds", "wall of thorns"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "control weather", "cure wounds", "wall of thorns"],
 			firstCol : "oncelr",
 			times : 7,
 			spellcastingAbility : "class"
-		},
+		}],
 		spellChanges : {
 			"cure wounds" : {
 				description : "1 living creature heals 5d8+spellcasting ability modifier HP",
@@ -6609,14 +6609,14 @@ MagicItemsList["instrument of the bards"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Canaith mandolin can be used to cast Cure Wounds (3rd level), Dispel Magic, and Protection from Energy (lightning only).",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per long rest",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "cure wounds", "dispel magic", "protection from energy"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "cure wounds", "dispel magic", "protection from energy"],
 			firstCol : "oncelr",
 			times : 7,
 			spellcastingAbility : "class"
-		},
+		}],
 		spellChanges : {
 			"cure wounds" : {
 				description : "1 living creature heals 3d8+spellcasting ability modifier HP",
@@ -6634,14 +6634,14 @@ MagicItemsList["instrument of the bards"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Cli lyre can be used to cast Stone Shape, Wall of Fire, and Wind Wall.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per long rest",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "stone shape", "wall of fire", "wind wall"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "stone shape", "wall of fire", "wind wall"],
 			firstCol : "oncelr",
 			times : 7,
 			spellcastingAbility : "class"
-		}
+		}]
 	},
 	"doss lute (uncommon)" : {
 		name : "Doss Lute [Instrument of the Bards]",
@@ -6649,14 +6649,14 @@ MagicItemsList["instrument of the bards"] = {
 		rarity : "uncommon",
 		magicItemTable : "F",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Doss lute can be used to cast Animal Friendship, Protection from Energy (fire only), and Protection from Poison.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per long rest",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "animal friendship", "protection from energy", "protection from poison"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "animal friendship", "protection from energy", "protection from poison"],
 			firstCol : "oncelr",
 			times : 7,
 			spellcastingAbility : "class"
-		},
+		}],
 		spellChanges : {
 			"protection from energy" : {
 				description : "1 creature gains resistance to Fire damage for the duration",
@@ -6670,14 +6670,14 @@ MagicItemsList["instrument of the bards"] = {
 		rarity : "uncommon",
 		magicItemTable : "F",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Fochlucan bandore can be used to cast Entangle, Faerie Fire, Shillelagh, and Speak with Animals.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per long rest",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "entangle", "faerie fire", "shillelagh", "speak with animals"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "entangle", "faerie fire", "shillelagh", "speak with animals"],
 			firstCol : "oncelr",
 			times : 8,
 			spellcastingAbility : "class"
-		}
+		}]
 	},
 	"mac-fuirmidh cittern (uncommon)" : {
 		name : "Mac-Fuirmidh Cittern [Instrument of the Bards]",
@@ -6685,14 +6685,14 @@ MagicItemsList["instrument of the bards"] = {
 		rarity : "uncommon",
 		magicItemTable : "F",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Mac-Fuirmidh cittern can be used to cast Barkskin, Cure Wounds, and Fog Cloud.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per long rest",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "barkskin", "cure wounds", "fog cloud"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "barkskin", "cure wounds", "fog cloud"],
 			firstCol : "oncelr",
 			times : 7,
 			spellcastingAbility : "class"
-		}
+		}]
 	},
 	"ollamh harp (legendary)" : {
 		name : "Ollamh Harp [Instrument of the Bards]",
@@ -6700,14 +6700,14 @@ MagicItemsList["instrument of the bards"] = {
 		rarity : "legendary",
 		magicItemTable : "I",
 		descriptionFull : "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Ollamh harp can be used to cast Confusion, Control Weather, and Fire Storm.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per long rest",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "confusion", "control weather", "fire storm"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "confusion", "control weather", "fire storm"],
 			firstCol : "oncelr",
 			times : 7,
 			spellcastingAbility : "class"
-		},
+		}],
 		spellChanges : {
 			"control weather" : {
 				time : "1 a",
@@ -6933,12 +6933,12 @@ MagicItemsList["sending stones"] = {
 	magicItemTable : "C",
 	description : "While I touch one of this pair of stones, I can use an action to cast Sending, targeting the bearer of the other stone. If no creature has the other stone, the spell won't cast. Once it is cast, neither stone can be used again until the next dawn. Sending allows each bearer to communicate up to 25 words.",
 	descriptionFull : "Sending stones come in pairs, with each smooth stone carved to match the other so the pairing is easily recognized. While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of the other stone. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a pair is destroyed, the other one becomes nonmagical.",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "To other stone bearer only",
 		spells : ["sending"],
 		selection : ["sending"],
 		firstCol : "oncelr"
-	},
+	}],
 	usages : 1, 
 	recovery : "dawn",
 	spellChanges : {
@@ -7308,12 +7308,12 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 		}],
 		fixedDC : 15,
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["dominate beast"],
 			selection : ["dominate beast"],
 			firstCol : 1
-		},
+		}],
 		spellChanges : {
 			"dominate beast" : {
 				description : "1 beast with swim speed save or charmed, follows telepathic commands, 1 a for complete control",
@@ -7375,12 +7375,12 @@ MagicItemsList["whelm"] = {
 		recovery : "dawn"
 	}],
 	vision : [["Know location of secret doors", 30]],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["detect evil and good", "locate object"],
 		selection : ["detect evil and good", "locate object"],
 		firstCol : "oncelr"
-	}
+	}]
 }
 
 // Firearms [weapons and ammunition] (includes contributions by grungydan)
@@ -7779,13 +7779,13 @@ MagicItemsList["balloon pack"] = {
 	additional : "recharge: 1 h in air node",
 	action : [["action", " (Levitate)"], ["reaction", " (Feather Fall)"]],
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["feather fall", "levitate"],
 		selection : ["feather fall", "levitate"],
 		firstCol : 1,
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"feather fall" : {
 			range : "Self",
@@ -7914,12 +7914,12 @@ MagicItemsList["drown"] = {
 	usages : 1,
 	recovery : "dawn",
 	fixedDC : 17,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["dominate monster"],
 		selection : ["dominate monster"],
 		firstCol : "oncelr"
-	},
+	}],
 	spellChanges : {
 		"dominate monster" : {
 			description : "Water elemental save or charmed, follows telepathic commands, 1 a for complete control; save on dmg",
@@ -8130,12 +8130,12 @@ MagicItemsList["tinderstrike"] = {
 	usages : 1,
 	recovery : "dawn",
 	fixedDC : 17,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["dominate monster"],
 		selection : ["dominate monster"],
 		firstCol : "oncelr"
-	},
+	}],
 	spellChanges : {
 		"dominate monster" : {
 			description : "Fire elemental save or charmed, follows telepathic commands, 1 a for complete control; save on dmg",
@@ -8190,12 +8190,12 @@ MagicItemsList["windvane"] = {
 	usages : 1,
 	recovery : "dawn",
 	fixedDC : 17,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["dominate monster"],
 		selection : ["dominate monster"],
 		firstCol : "oncelr"
-	},
+	}],
 	spellChanges : {
 		"dominate monster" : {
 			description : "Air elemental save or charmed, follows telepathic commands, 1 a for complete control; save on dmg",
@@ -8684,12 +8684,12 @@ RaceList["air genasi"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Mingle with the Wind",
 				spells : ["levitate"],
 				selection : ["levitate"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"levitate" : {
 					components : "V,S",
@@ -8726,12 +8726,12 @@ RaceList["earth genasi"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Merge with Stone",
 				spells : ["pass without trace"],
 				selection : ["pass without trace"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"pass without trace" : {
 					components : "V,S",
@@ -8763,12 +8763,12 @@ RaceList["fire genasi"] = {
 	scores : [0, 0, 2, 1, 0, 0],
 	trait : "Fire Genasi (+2 Constitution, +1 Intelligence)\n\nReach to the Blaze:\n   I know the Produce Flame cantrip.\n   Once I reach 3rd level, I can cast the Burning Hands spell once as a 1st-level spell.\n   I regain the ability to cast it this way when I finish a long rest.\n   Constitution is my spellcasting ability for these spells.",
 	spellcastingAbility : 3,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Reach to the Blaze (level 1)",
 		spells : ["produce flame"],
 		selection : ["produce flame"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"burning hands" : {
 			name : "Reach to the Blaze (level 3)",
@@ -8776,12 +8776,12 @@ RaceList["fire genasi"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Reach to the Blaze (level 3)",
 				spells : ["burning hands"],
 				selection : ["burning hands"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };
@@ -8806,12 +8806,12 @@ RaceList["water genasi"] = {
 	scores : [0, 0, 2, 0, 1, 0],
 	trait : "Water Genasi (+2 Constitution, +1 Wisdom)\nAmphibious: I can breathe air and water.\nSwim: I have a swimming speed of 30 feet.\nCall to the Wave: I know the Shape Water cantrip.\n   When I reach 3rd level, I can cast the Create or Destroy Water spell as a 2nd-level spell once with this trait, and I regain the ability to cast it this way when I finish a long rest.\n   Constitution is my spellcasting ability for these spells.",
 	spellcastingAbility : 3,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Call to the Wave (level 1)",
 		spells : ["shape water"],
 		selection : ["shape water"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"create or destroy water" : {
 			name : "Call to the Wave (level 3)",
@@ -8819,12 +8819,12 @@ RaceList["water genasi"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Call to the Wave (level 3)",
 				spells : ["create or destroy water"],
 				selection : ["create or destroy water"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };
@@ -10292,12 +10292,12 @@ MagicItemsList["dawnbringer"] = {
 	usages : 1,
 	recovery : "dawn",
 	additional : "Lesser Restoration",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["lesser restoration"],
 		selection : ["lesser restoration"],
 		firstCol : "oncelr"
-	},
+	}],
 	toNotesPage : [{
 		name : "Features",
 		note : desc([
@@ -10412,12 +10412,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		description : "This gem can store one cantrip. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 13 and +5 spell attack.",
 		fixedDC : 13,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,0],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	},
 	"lapis lazuli (1st-level, uncommon)" : {
 		name : "Spell Gem [Lapis Lazuli]",
@@ -10426,12 +10426,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		description : "This gem can store one spell up to 1st-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 13 and +5 spell attack. If the spell's level is higher than I can cast, I need to make a DC 11 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 13,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,1],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	},
 	"quartz (2nd-level, rare)" : {
 		name : "Spell Gem [Quartz]",
@@ -10440,12 +10440,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		description : "This gem can store one spell up to 2nd-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 13 and +5 spell attack. If the spell's level is higher than I can cast, I need to make a DC 12 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 13,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,2],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	},
 	"bloodstone (3rd-level, rare)" : {
 		name : "Spell Gem [Bloodstone]",
@@ -10454,12 +10454,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		description : "This gem can store one spell up to 3rd-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 15 and +7 spell attack. If the spell's level is higher than I can cast, I need to make a DC 13 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 15,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,3],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	},
 	"amber (4th-level, very rare)" : {
 		name : "Spell Gem [Amber]",
@@ -10469,12 +10469,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		fixedDC : 15,
 		fixedSpAttack : 9,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,4],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	},
 	"jade (5th-level, very rare)" : {
 		name : "Spell Gem [Jade]",
@@ -10483,12 +10483,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		description : "This gem can store one spell up to 5th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 17 and +9 spell attack. If the spell's level is higher than I can cast, I need to make a DC 15 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 17,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,5],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	},
 	"topaz (6th-level, very rare)" : {
 		name : "Spell Gem [Topaz]",
@@ -10498,12 +10498,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		fixedDC : 17,
 		fixedSpAttack : 10,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,6],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	},
 	"star ruby (7th-level, legendary)" : {
 		name : "Spell Gem [Star Ruby]",
@@ -10512,12 +10512,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		description : "This gem can store one spell up to 7th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 18, +10 spell attack. If the spell's level is higher than I can cast, I need to make a DC 17 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 18,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,7],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	},
 	"ruby (8th-level, legendary)" : {
 		name : "Spell Gem [Ruby]",
@@ -10526,12 +10526,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		description : "This gem can store one spell up to 8th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 18, +10 spell attack. If the spell's level is higher than I can cast, I need to make a DC 18 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 18,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,8],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	},
 	"diamond (9th-level, legendary)" : {
 		name : "Spell Gem [Diamond]",
@@ -10540,12 +10540,12 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		description : "This gem can store one spell up to 9th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 19, +11 spell attack. If the spell's level is higher than I can cast, I need to make a DC 19 check with my spellcasting ability or the spell has no effect.",
 		fixedDC : 19,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,9],
 			psionic : false,
 			firstCol : "checkbox",
 			times : 20
-		}
+		}]
 	}
 }
 MagicItemsList["stonespeaker crystal"] = {
@@ -10674,12 +10674,12 @@ RaceList["gray dwarf"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Duergar Magic (level 3)",
 				spells : ["enlarge/reduce"],
 				selection : ["enlarge/reduce"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"enlarge/reduce" : {
 					name : "Enlarge",
@@ -10697,12 +10697,12 @@ RaceList["gray dwarf"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Duergar Magic (level 5)",
 				spells : ["invisibility"],
 				selection : ["invisibility"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"invisibility" : {
 					range : "Self",
@@ -10736,12 +10736,12 @@ AddRacialVariant("half-elf", "cantrip", {
 	skillstxt : "",
 	trait : "Half-High Elf (+2 Charisma and +1 to two other ability scores of my choice)\n\nCantrip:\n   I know one cantrip of my choice from the wizard spell list.\n   Intelligence is my spellcasting ability for it.",
 	spellcastingAbility : 4,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "High Elf Cantrip",
 		"class" : "wizard",
 		level : [0, 0],
 		firstCol : 'atwill'
-	}
+	}]
 });
 AddRacialVariant("half-elf", "drow magic", {
 	regExpSearch : /^(?=.*drow)(?=.*magic).*$/i,
@@ -10751,12 +10751,12 @@ AddRacialVariant("half-elf", "drow magic", {
 	skillstxt : "",
 	trait : "Half-drow (+2 Charisma and +1 to two other ability scores of my choice)\n\nDrow Magic:\n   I know the Dancing Lights cantrip.\n   Once I reach 3rd level, I can cast the Faerie Fire spell once per long rest.\n   Once I reach 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Drow Magic (level 1)",
 		spells : ["dancing lights"],
 		selection : ["dancing lights"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"faerie fire" : {
 			name : "Drow Magic (level 3)",
@@ -10764,12 +10764,12 @@ AddRacialVariant("half-elf", "drow magic", {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Drow Magic (level 3)",
 				spells : ["faerie fire"],
 				selection : ["faerie fire"],
 				firstCol : 'oncelr'
-			}
+			}]
 		},
 		"darkness" : {
 			name : "Drow Magic (level 5)",
@@ -10777,12 +10777,12 @@ AddRacialVariant("half-elf", "drow magic", {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Drow Magic (level 5)",
 				spells : ["darkness"],
 				selection : ["darkness"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 });
@@ -10818,12 +10818,12 @@ AddRacialVariant("tiefling", "devil's tongue", {
 	source : [["S", 118]],
 	plural : "Devil's tongue tieflings",
 	trait : "Devil's Tongue Tiefling (+1 Intelligence, +2 Charisma)\n\nDevil's Tongue:\n   I know the Vicious Mockery cantrip.\n   At 3rd level, I can cast the Charm Person spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Enthrall spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Devil's Tongue (level 1)",
 		spells : ["vicious mockery"],
 		selection : ["vicious mockery"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"charm person" : {
 			name : "Devil's Tongue (level 3)",
@@ -10831,12 +10831,12 @@ AddRacialVariant("tiefling", "devil's tongue", {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Devil's Tongue (level 3)",
 				spells : ["charm person"],
 				selection : ["charm person"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"charm person" : {
 					description : "2 humanoids, max 30 ft apart, save or charmed; advantage on save if I or my allies are fighting it",
@@ -10850,12 +10850,12 @@ AddRacialVariant("tiefling", "devil's tongue", {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Devil's Tongue (level 5)",
 				spells : ["enthrall"],
 				selection : ["enthrall"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 });
@@ -10872,12 +10872,12 @@ AddRacialVariant("tiefling", "hellfire", {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Hellfire Legacy (level 3)",
 				spells : ["burning hands"],
 				selection : ["burning hands"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"burning hands" : {
 					description : "4d6 Fire damage; save halves; unattended flammable objects ignite",
@@ -10891,12 +10891,12 @@ AddRacialVariant("tiefling", "hellfire", {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Infernal Legacy (level 5)",
 				spells : ["darkness"],
 				selection : ["darkness"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 });
@@ -10962,7 +10962,7 @@ AddSubClass("barbarian", "battlerager", {
 				"As a bonus action while raging, I can attack once with my armor spikes",
 				"With my spiked armor I do 3 piercing damage when I use my Attack action to grapple"
 			]),
-			action : ["bonus action", "Armor Spikes attack (in rage)"],
+			action : [["bonus action", "Armor Spikes attack (in rage)"]],
 			armorOptions : [{
 				regExpSearch : /^(?!.*(dragon|draconic|beast))(?=.*spike(d|s))(?=.*armou?r).*$/i,
 				name : "Spiked armor",
@@ -11003,7 +11003,7 @@ AddSubClass("barbarian", "battlerager", {
 			source : [["S", 121]],
 			minlevel : 10,
 			description : "\n   " + "As a bonus action while raging, I can use the Dash action",
-			action : ["bonus action", " (in rage)"]
+			action : [["bonus action", " (in rage)"]]
 		},
 		"subclassfeature14" : {
 			name : "Spiked Retribution",
@@ -11025,12 +11025,12 @@ AddSubClass("cleric", "arcana domain", {
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with Arcana and two wizard cantrips that count as cleric cantrips",
 			skills : ["Arcana"],
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Arcane Initiate",
 				"class" : "wizard",
 				level : [0, 0],
 				times : 2
-			}
+			}]
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Arcane Abjuration",
@@ -11038,7 +11038,7 @@ AddSubClass("cleric", "arcana domain", {
 			minlevel : 2,
 			description : "\n   " + "As an action, one celestial, elemental, fey, or fiend within 30 ft must make a Wis save" + "\n   " + "If it fails and is able to see/hear me, it is turned for 1 min or until it takes damage" + "\n   " + "Turned: move away, never within 30 ft of me, no reactions or actions other than Dash" + "\n   " + "Turned: may Dodge instead of Dash when nowhere to move and unable to escape bonds" + "\n   " + "If its CR is low enough and it is not on its home plane, it is banished for 1 min instead" + "\n   " + "Banished: sent to home plane, reappearing where it was if the effect ends before 1 min",
 			additional : ["", "", "", "", "CR 1/2 or lower", "CR 1/2 or lower", "CR 1/2 or lower", "CR 1 or lower", "CR 1 or lower", "CR 1 or lower", "CR 2 or lower", "CR 2 or lower", "CR 2 or lower", "CR 3 or lower", "CR 3 or lower", "CR 3 or lower", "CR 4 or lower", "CR 4 or lower", "CR 4 or lower", "CR 4 or lower"],
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Spell Breaker",
@@ -11169,7 +11169,7 @@ AddSubClass("monk", "way of the long death", {
 			source : [["S", 130]],
 			minlevel : 6,
 			description : "\n   " + "As an action, all creatures within 30 feet of me must make a Wisdom saving throw" + "\n   " + "On a failed save the creature is frightened until the end of my next turn",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature11" : {
 			name : "Mastery of Death",
@@ -11182,7 +11182,7 @@ AddSubClass("monk", "way of the long death", {
 				extraname : "Way of the Long Death 17",
 				source : [["S", 131]],
 				description : " [1-10 ki points]" + "\n   " + "As an action, a target within 5 ft takes 2d10 necrotic damage per ki point I spent" + "\n   " + "It can make a Constitution saving throw to half the damage",
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			autoSelectExtrachoices : [{
 				extrachoice : "touch of the long death",
@@ -11205,7 +11205,7 @@ AddSubClass("monk", "way of the sun soul", {
 				"I gain a ranged spell attack that I can use as an attack in the Attack action",
 				"If I do this and spend 1 ki point, I can make 2 of these attacks as a bonus action"
 			]),
-			action : ["bonus action", " (2\xD7 with Attack action)"],
+			action : [["bonus action", " (2\xD7 with Attack action)"]],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*radiant)(?=.*(sun|light))(?=.*bolt).*$/i,
 				name : "Radiant Sun Bolt",
@@ -11233,13 +11233,13 @@ AddSubClass("monk", "way of the sun soul", {
 					var xtrKi = Math.max(0,Math.floor(n/2) - 2);
 					return "2 ki points + max " + xtrKi + " ki point" + (xtrKi == 1 ? "" : "s");
 				}),
-				action : ["bonus action", " (after Attack action)"],
-				spellcastingBonus : {
+				action : [["bonus action", " (after Attack action)"]],
+				spellcastingBonus : [{
 					name : "Searing Arc Strike",
 					spells : ["burning hands"],
 					selection : ["burning hands"],
 					firstCol : 2
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				spellChanges : {
 					"burning hands" : {
@@ -11262,7 +11262,7 @@ AddSubClass("monk", "way of the sun soul", {
 				"As an action, anyone in a 20-ft radius light on a point within 150 ft makes a Con save",
 				"If failed and not behind opaque total cover, take 2d6 (+ 2d6/ki point) radiant damage"
 			]),
-			action : ["action", ""],
+			action : [["action", ""]],
 			additional : "0 ki points + max 3 ki points",
 			weaponOptions : [{
 				regExpSearch : /^(?=.*searing)(?=.*sunburst).*$/i,
@@ -11314,14 +11314,14 @@ AddSubClass("paladin", "oath of the crown", {
 			source : [["S", 133]],
 			minlevel : 3,
 			description : "\n   " + "As a bonus action, any chosen creatures within 30 ft that can hear me regains HP" + "\n   " + "Each regain 1d6 + my Charisma modifier HP, up to half of its total HP",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature7" : {
 			name : "Divine Allegiance",
 			source : [["S", 133]],
 			minlevel : 7,
 			description : "\n   " + "When a creature within 5 feet of me takes damage, I can substitute my HP for it" + "\n   " + "The creature takes no damage and I take all of it; this damage can't be prevented",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature15" : {
 			name : "Unyielding Spirit",
@@ -11341,7 +11341,7 @@ AddSubClass("paladin", "oath of the crown", {
 			]),
 			recovery : "long rest",
 			usages : 1,
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -11370,7 +11370,7 @@ AddSubClass("rogue", "mastermind", {
 				"I can use the Help action as a bonus action",
 				"This even works if the ally attacks a target within 30 ft of me that can see or hear me"
 			]),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature9" : {
 			name : "Insightful Manipulator",
@@ -11390,7 +11390,7 @@ AddSubClass("rogue", "mastermind", {
 				"As a reaction, I can redirect an attack meant for me to a creature within 5 ft of me",
 				"This only works if the creature is providing me with cover against the attack"
 			]),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature17" : {
 			name : "Soul of Deceit",
@@ -11441,14 +11441,14 @@ AddSubClass("rogue", "swashbuckler", {
 				"\u2022 Targets that are not hostile are charmed and regard me as a friendly acquaintance",
 				"  This effect ends if me or an ally do anything harmful to it"
 			]),
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature13" : {
 			name : "Elegant Maneuver",
 			source : [["S", 136], ["X", 47]],
 			minlevel : 13,
 			description : "\n   " + "As a bonus action, I can gain adv. on my next Dex (Acrobatics) or Str (Athletics) check",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature17" : {
 			name : "Master Duelist",
@@ -11481,7 +11481,7 @@ AddSubClass("sorcerer", "storm sorcery", {
 				"As a bonus action, before or after casting a 1st-level or higher spell, I can fly 10 ft",
 				"This movement doesn't provoke opportunity attacks as whirling gust of air surround me"
 			]),
-			action : ["bonus action", " (with casting)"]
+			action : [["bonus action", " (with casting)"]]
 		},
 		"subclassfeature6" : {
 			name : "Heart of the Storm",
@@ -11504,7 +11504,7 @@ AddSubClass("sorcerer", "storm sorcery", {
 				"As a bonus action, I can choose the direction of wind around me in a 100-ft radius",
 				"This lasts until the end of my next turn and doesn't alter the wind's speed"
 			]),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature14" : {
 			name : "Storm's Fury",
@@ -11514,7 +11514,7 @@ AddSubClass("sorcerer", "storm sorcery", {
 				"As a reaction when hit by a melee attack, I can deal lightning damage to the attacker",
 				"The attacker must also make a Strength save or be pushed up to 20 ft away from me"
 			]),
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 			additional : levels.map(function (n) { return n < 14 ? "" : n + " lightning damage"; })
 		},
 		"subclassfeature18" : {
@@ -11526,7 +11526,7 @@ AddSubClass("sorcerer", "storm sorcery", {
 				"As an action, I reduce my fly speed to 30 ft and give allies 30 ft fly speed for 1 hour",
 				"I can do this once per short rest for up to 3 + my Charisma modifier allies within 30 ft"
 			]),
-			action : ["action", ""],
+			action : [["action", ""]],
 			savetxt : { immune : ["lightning", "thunder"] },
 			speed : { fly : { spd : "fixed 60", enc : "fixed 60" } },
 			usages : 1,
@@ -11546,11 +11546,11 @@ AddSubClass("warlock", "the undying", {
 			minlevel : 1,
 			description : "\n   " + "I learn the Spare the Dying cantrip and gain advantage on saving throws vs. diseases" + "\n   " + "If an undead targets me directly with an attack or spell, it must make a Wisdom save" + "\n   " + "On a fail, it must choose a new target or forfeit its attack or harmful spell" + "\n   " + "On a success or if I attack or cast a harmful spell on it, it is immune for 24 hours",
 			savetxt : { adv_vs : ["disease"] },
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Among the Dead",
 				spells : ["spare the dying"],
 				selection : ["spare the dying"]
-			}
+			}]
 		},
 		"subclassfeature6" : {
 			name : "Defy Death",
@@ -11571,7 +11571,7 @@ AddSubClass("warlock", "the undying", {
 			source : [["S", 140]],
 			minlevel : 14,
 			description : "\n   " + "As a bonus action, I can regain HP and reattach severed body parts",
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			recovery : "short rest",
 			usages : 1,
 			additional : levels.map(function (n) { return n < 14 ? "" : "1d8 + " + n + " HP"; })
@@ -12895,12 +12895,12 @@ MagicItemsList["lost sword"] = {
 		modifiers : [1, 1],
 		selectNow : true
 	}],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["crusader's mantle"],
 		selection : ["protection from evil and good"],
 		firstCol : "oncelr"
-	},
+	}],
 	toNotesPage : [{
 		name : "Features",
 		note : desc([
@@ -13344,12 +13344,12 @@ MagicItemsList["gurt's greataxe"] = {
 		selectNow : true
 	}],
 	fixedDC : 13,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Deals cold damage",
 		spells : ["heat metal"],
 		selection : ["heat metal"],
 		firstCol : "oncelr"
-	},
+	}],
 	spellChanges : {
 		"heat metal" : {
 			description : "1 metal obj on touch 2d8 Cold dmg; save or drop obj; if held: dis. atk/chk; bns a cool obj again",
@@ -13529,12 +13529,12 @@ MagicItemsList["orb of the stein rune"] = {
 		attunement : true,
 		savetxt : { immune : ["petrified"] },
 		action : [["action", ""]],
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per short rest",
 			spells : ["meld into stone"],
 			selection : ["meld into stone"],
 			firstCol : "oncesr"
-		},
+		}],
 		spellChanges : {
 			"meld into stone" : {
 				time : "1 bns",
@@ -13590,12 +13590,12 @@ MagicItemsList["pennant of the vind rune"] = {
 			usages : 1,
 			recovery : "short rest"
 		}],
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per short rest",
 			spells : ["levitate"],
 			selection : ["levitate"],
 			firstCol : "oncesr"
-		},
+		}],
 		spellChanges : {
 			"levitate" : {
 				time : "1 bns",
@@ -13628,12 +13628,12 @@ MagicItemsList["pennant of the vind rune"] = {
 		attunement : true,
 		usages : 1,
 		recovery : "short rest",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per short rest",
 			spells : ["feather fall"],
 			selection : ["feather fall"],
 			firstCol : "oncesr"
-		}
+		}]
 	}
 }
 MagicItemsList["potion of giant size"] = {
@@ -13672,12 +13672,12 @@ MagicItemsList["rod of the vonindod"] = {
 	recovery : "dawn",
 	additional : "regains 1d6+4",
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["locate object"],
 		selection : ["locate object"],
 		firstCol : 1
-	},
+	}],
 	spellChanges : {
 		"locate object" : {
 			description : "Learn direction to closest described kind or specific obj in 1000 ft (10 miles if adamantine); see book",
@@ -13717,12 +13717,12 @@ MagicItemsList["shard of the ise rune"] = {
 			recovery : "short rest"
 		}],
 		fixedDC : 17,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per short rest",
 			spells : ["sleet storm"],
 			selection : ["sleet storm"],
 			firstCol : "oncesr"
-		}
+		}]
 	},
 	"transferred to a cloak" : {
 		name : "Ise Rune Cloak",
@@ -13749,13 +13749,13 @@ MagicItemsList["ring of hardened magma"] = {
 	recovery : "Never",
 	spellcastingAbility : "class", // https://www.sageadvice.eu/2015/11/27/hat-of-disguise-dc/
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["conjure minor elementals", "fire shield"],
 		selection : ["conjure minor elementals", "fire shield"],
 		firstCol : 1,
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"conjure minor elementals" : {
 			description : "Summon 4 magma mephits or 4 magmins that obey my verbal commands",
@@ -13806,12 +13806,12 @@ MagicItemsList["ancient relic boulder"] = {
 		usages : 1,
 		recovery : "24 h"
 	}],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "",
 		spells : ["control weather", "divination"],
 		selection : ["control weather", "divination"],
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"control weather" : {
 			time : "1 a",
@@ -13855,12 +13855,12 @@ RaceList["fallen aasimar"] = {
 	trait : "Fallen Aasimar (+1 Strength, +2 Charisma)" + (typePF ? "\n" : " ") + "Light Bearer: I know the Light cantrip.\nHealing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nNecrotic Shroud: Once per long rest when I'm 3rd level, I can use an action to transform, causing all within 10 ft of me to make a Cha" + (typePF ? "" : "risma") + " saving throw (DC 8 + Cha mod + Prof Bonus) or be frightened of me until the end of my next turn. This lasts for 1 minute or until I end it as a bonus action. Once on my turn I can have one of my attacks or spells deals my level in extra necrotic damage to one target.",
 	abilitySave : 6,
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Light Bearer",
 		spells : ["light"],
 		selection : ["light"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"healing hands" : {
 			name : "Healing Hands",
@@ -13868,7 +13868,7 @@ RaceList["fallen aasimar"] = {
 			minlevel : 1,
 			recovery : "long rest",
 			additional : levels.map(function (n) { return n + " HP"; }),
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"necrotic shroud" : {
 			name : "Necrotic Shroud",
@@ -13901,12 +13901,12 @@ RaceList["protector aasimar"] = {
 	scores : [0, 0, 0, 0, 1, 2],
 	trait : "Protector Aasimar (+1 Wisdom, +2 Charisma)\nLight Bearer: I know the Light cantrip.\nHealing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nRadiant Soul: Once per long rest when I'm 3rd level, I can use an action to transform, gaining glimmer in my eyes and two incorporeal wings. For 1 minute or until I end it as a bonus action, I have 30 feet fly speed; once on my turn I can have one of my attacks or spells deal my level in extra radiant damage to one target.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Light Bearer",
 		spells : ["light"],
 		selection : ["light"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"healing hands" : {
 			name : "Healing Hands",
@@ -13914,7 +13914,7 @@ RaceList["protector aasimar"] = {
 			minlevel : 1,
 			recovery : "long rest",
 			additional : levels.map(function (n) { return n + " HP"; }),
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"radiant soul" : {
 			name : "Radiant Soul",
@@ -13947,12 +13947,12 @@ RaceList["scourge aasimar"] = {
 	scores : [0, 0, 1, 0, 0, 2],
 	trait : "Scourge Aasimar (+1 Constitution, +2 Charisma)" + (typePF ? "\n" : " ") + "Light Bearer: I know the Light cantrip.\nHealing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nRadiant Consumption: Once per long rest when I'm 3rd level, I can use an action to radiate bright light in 10-ft radius and dim light for another 10-ft, for 1 minute or until I end it as a bonus action. Once on my turn my attack or spell deals my level in extra radiant damage to one target, and at the end of my turns all creatures within 10 ft of me, including myself, take half my level in radiant damage.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Light Bearer",
 		spells : ["light"],
 		selection : ["light"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"healing hands" : {
 			name : "Healing Hands",
@@ -13960,7 +13960,7 @@ RaceList["scourge aasimar"] = {
 			minlevel : 1,
 			recovery : "long rest",
 			additional : levels.map(function (n) { return n + " HP"; }),
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"radiant consumption" : {
 			name : "Radiant Consumption",
@@ -14027,13 +14027,13 @@ RaceList["firbolg"] = {
 		"firbolg magic (detect magic)" : {
 			name : "Firbolg Magic",
 			minlevel : 1,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Firbolg Magic",
 				spells : ["detect magic", "disguise self"],
 				selection : ["detect magic", "disguise self"],
 				firstCol : 'oncesr',
 				times : 2
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Detect Magic (Firbolg Magic)",
 				usages : 1,
@@ -14163,7 +14163,7 @@ RaceList["kobold"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	},
 	trait : "Kobold (+2 Dexterity)\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nGrovel, Cower, and Beg: As an action, I can distract all foes within 10 feet of me that can see me so that my allies gain advantage on attack rolls against them.\nPack Tactics: I have advantage on attack rolls against creatures when at least one of my allies is within 5 feet of that creature and that ally is not incapacitated."
@@ -14213,7 +14213,7 @@ RaceList["lizardfolk"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		}
 	},
 	trait : "Lizardfolk (+2 Constitution, +1 Wisdom) Bite: I can use my fanged maw to make unarmed strikes dealing 1d6 piercing damage." + (typePF ? "\n" : " ") + "Cunning Artisan: As part of a short rest I can harvest parts of a slain creature to make a shield, club, javelin, or 1d4 darts/blowgun needles. This requires a suitable corpse and appropriate tools." + (typePF ? "\n" : " ") + "Hold Breath: I can hold my breath for up to 15 minutes at a time." + (typePF ? "\n" : " ") + "Natural Armor: I have an AC of 13 + Dexterity modifier + shield." + (typePF ? "\n" : " ") + "Hungry Jaws: As a bonus action, once per short rest, I can make a special bite attack and if it hits I gain temporary HP equal to my Con modifier (min 1)."
@@ -14310,12 +14310,12 @@ RaceList["triton"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Control Air and Water (1)",
 				spells : ["fog cloud"],
 				selection : ["fog cloud"],
 				firstCol : 'oncelr'
-			}
+			}]
 		},
 		"gust of wind" : {
 			name : "Control Air and Water (level 3)",
@@ -14323,12 +14323,12 @@ RaceList["triton"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Control Air and Water (3)",
 				spells : ["gust of wind"],
 				selection : ["gust of wind"],
 				firstCol : 'oncelr'
-			}
+			}]
 		},
 		"wall of water" : {
 			name : "Control Air and Water (level 5)",
@@ -14336,12 +14336,12 @@ RaceList["triton"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Control Air and Water (5)",
 				spells : ["wall of water"],
 				selection : ["wall of water"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };
@@ -14371,13 +14371,13 @@ RaceList["yuan-ti pureblood"] = {
 		"\n \u2022 Magic Resistance: I have advantage on saving throws against spells and other magical effects."+
 		"\n \u2022 Poison Immunity: I am immune to poison damage and the poisoned condition.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Innate Spellcasting (level 1)",
 		spells : ["poison spray", "animal friendship"],
 		selection : ["poison spray", "animal friendship"],
 		firstCol : 'atwill',
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"animal friendship" : {
 			description : "One snake with Intelligence 3 or less save or charmed for the duration",
@@ -14391,12 +14391,12 @@ RaceList["yuan-ti pureblood"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Innate Spellcasting (level 3)",
 				spells : ["suggestion"],
 				selection : ["suggestion"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };
@@ -15277,12 +15277,12 @@ MagicItemsList["balance of harmony"] = {
 	description : "I can use the scale to cast Detect Evil and Good as a ritual by placing a gem of 100 gp or more or holy water on both pans. It then tips to the side it detected, good or evil, or fluctuates slightly if what it detected is neutral. After this, I can touch it to learn the rest of the information the spell normally conveys.",
 	descriptionFull : "This scale bears celestial symbols on one pan and fiendish symbols on the other. You can use the scale to cast Detect Evil and Good as a ritual. Doing so requires you to place the scale on a solid surface, then sprinkle the pans with holy water or place a transparent gem worth 100 gp in each pan. The scale remains motionless if it detects nothing, tips to one side or the other for good (consecrated) or evil (desecrated), and fluctuates slightly if it detects a creature appropriate to the spell but neither good nor evil. By touching the scales after casting the ritual, you instantly learn any information the spell can normally convey, and then the effect ends.",
 	weight : 1,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Only as ritual",
 		spells : ["detect evil and good"],
 		selection : ["detect evil and good"],
 		firstCol : "(R)"
-	},
+	}],
 	spellChanges : {
 		"detect evil and good" : {
 			time : "10 min",
@@ -15307,12 +15307,12 @@ MagicItemsList["bracelet of rock magic"] = {
 	savetxt : { immune : ["petrified"] },
 	fixedDC : 15,
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["flesh to stone"],
 		selection : ["flesh to stone"],
 		firstCol : 1
-	}
+	}]
 }
 MagicItemsList["eagle whistle"] = {
 	name : "Eagle Whistle",
@@ -15397,12 +15397,12 @@ MagicItemsList["night caller"] = {
 	usages : 1,
 	recovery : "7 days",
 	spellFirstColTitle : "Us",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per 7 days",
 		spells : ["animate dead"],
 		selection : ["animate dead"],
 		firstCol : "checkbox"
-	},
+	}],
 	spellChanges : {
 		"animate dead" : {
 			description : "In darkness, turn (buried) corpse into Skeleton/Zombie; control for 24h; bns a command within 60 ft",
@@ -15520,12 +15520,12 @@ MagicItemsList["wand of entangle"] = {
 	additional : "regains 1d6+1",
 	fixedDC : 13,
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["entangle"],
 		selection : ["entangle"],
 		firstCol : 1
-	}
+	}]
 }
 MagicItemsList["waythe"] = {
 	name : "Waythe",
@@ -15748,13 +15748,13 @@ AddRacialVariant("human", "yuan-ti transformed", {
 		adv_vs : ["magic"]
 	},
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Innate Spellcasting (level 1)",
 		spells : ["poison spray", "animal friendship"],
 		selection : ["poison spray", "animal friendship"],
 		firstCol : 'atwill',
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"animal friendship" : {
 			description : "1 snake (beast) with less than 4 Int save or charmed for the duration",
@@ -15768,12 +15768,12 @@ AddRacialVariant("human", "yuan-ti transformed", {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Innate Spellcasting (level 3)",
 				spells : ["suggestion"],
 				selection : ["suggestion"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	},
 	trait : "Yuan-ti Human (+1 to all ability scores)\n   Madness: I suffer from an indefinite madness (DMG 258).\n   Innate Spellcasting: I know the Poison Spray cantrip and can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest. Charisma is my spellcasting ability for these spells.\n   Magic Resistance: I have advantage on saves against spells and other magical effects."
@@ -15791,13 +15791,13 @@ AddRacialVariant("human", "yuan-ti transformed variant", {
 		adv_vs : ["magic"]
 	},
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Innate Spellcasting (level 1)",
 		spells : ["poison spray", "animal friendship"],
 		selection : ["poison spray", "animal friendship"],
 		firstCol : 'atwill',
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"animal friendship" : {
 			description : "1 snake (beast) with less than 4 Int save or charmed for the duration",
@@ -15811,12 +15811,12 @@ AddRacialVariant("human", "yuan-ti transformed variant", {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Innate Spellcasting (level 3)",
 				spells : ["suggestion"],
 				selection : ["suggestion"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	},
 	trait : "Yuan-ti Human (+1 to two different ability scores of my choice)\n   Skill & Feat: I gain proficiency in one skill of my choice and I gain one feat of my choice.\n   Madness: I suffer from an indefinite madness (DMG 258).\n   Innate Spellcasting: I know the Poison Spray cantrip and can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest. Charisma is my spellcasting ability for these spells.\n   Magic Resistance: I have advantage on saves against spells and other magical effects.",
@@ -16260,13 +16260,13 @@ MagicItemsList["bookmark"] = {
 		recovery : "dawn"
 	}],
 	fixedDC : 15,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["compulsion", "dimension door"],
 		selection : ["compulsion", "dimension door"],
 		firstCol : "oncelr",
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"compulsion" : {
 			time : "1 bns",
@@ -16287,12 +16287,12 @@ MagicItemsList["ghost lantern"] = {
 	attunement : true,
 	weight : 1,
 	action : [["bonus action", ""]],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "At will",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		firstCol : "atwill"
-	}
+	}]
 }
 MagicItemsList["mask of the beast"] = {
 	name : "Mask of the Beast",
@@ -16306,12 +16306,12 @@ MagicItemsList["mask of the beast"] = {
 	usages : 3,
 	recovery : "dawn",
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["animal friendship"],
 		selection : ["animal friendship"],
 		firstCol : 1
-	}
+	}]
 }
 MagicItemsList["scorpion armor"] = {
 	name : "Scorpion Armor",
@@ -16412,7 +16412,7 @@ AddSubClass("barbarian", "ancestral guardian", {
 				"My guardian spirits reduce the damage by an amount equal to the roll of the dice"
 			]),
 			additional : levels.map(function (n) { return n < 6 ? "" : (n < 10 ? 2 : n < 14 ? 3 : 4) + "d6 damage reduced"; }),
-			action : ["reaction", " (in Rage)"]
+			action : [["reaction", " (in Rage)"]]
 		},
 		"subclassfeature10" : {
 			name : "Consult the Spirits",
@@ -16476,7 +16476,7 @@ AddSubClass("barbarian", "storm herald", {
 				'Use the "Choose Feature" button above to select the type of aura'
 			]),
 			choices : ["Desert", "Sea", "Tundra"],
-			action : ["bonus action", " (reactivate)"],
+			action : [["bonus action", " (reactivate)"]],
 			"desert" : {
 				name : "Storm Aura: Desert",
 				description : desc([
@@ -16527,7 +16527,7 @@ AddSubClass("barbarian", "storm herald", {
 					"I have resistance to fire damage and don't suffer the effects of extreme heat",
 					"As an action, I can set fire to an unattended flammable object I touch"
 				]),
-				action : ["action", " (ignite)"],
+				action : [["action", " (ignite)"]],
 				dmgres : ["Fire"],
 				savetxt : { immune : ["effects of extreme heat"] }
 			},
@@ -16547,7 +16547,7 @@ AddSubClass("barbarian", "storm herald", {
 					"As an action, I can turn a 5-ft cube of water to ice, which melts after 1 minute",
 					"This action fails if there are any creatures within the cube of water"
 				]),
-				action : ["action", " (freeze)"],
+				action : [["action", " (freeze)"]],
 				dmgres : ["Cold"],
 				savetxt : { immune : ["effects of extreme cold"] }
 			}
@@ -16586,7 +16586,7 @@ AddSubClass("barbarian", "storm herald", {
 					"On a failed save, the attacker takes fire damage equal to half my barbarian level",
 					"My Storm Herald features have DC 8 + my Proficiency Bonus + my Constitution modifier"
 				]),
-				action : ["reaction", " (if hit)"],
+				action : [["reaction", " (if hit)"]],
 				additional : levels.map(function (n) { return n < 14 ? "" : Math.floor(n/2) + " fire damage"; })
 			},
 			"sea" : {
@@ -16595,7 +16595,7 @@ AddSubClass("barbarian", "storm herald", {
 					"As a reaction when I hit a creature in my Storm Aura, I can have it make a Str save",
 					"On a failed save, the creature is knocked prone, as if struck by a wave"
 				]),
-				action : ["reaction", " (with attack)"]
+				action : [["reaction", " (with attack)"]]
 			},
 			"tundra" : {
 				name : "Raging Storm: Tundra",
@@ -16681,7 +16681,7 @@ AddSubClass("barbarian", "zealot", {
 			]),
 			usages : 1,
 			recovery : "long rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature14" : {
 			name : "Rage Beyond Death",
@@ -16712,7 +16712,7 @@ AddSubClass("bard", "college of glamour", {
 				"They can immediately use a reaction to move their speed, without opportunity attacks"
 			]),
 			additional : levels.map(function (n) { return n < 3 ? "" : "1 inspiration die; " + (n < 5 ? 5 : n < 10 ? 8 : n < 15 ? 11 : 14) + " temp HP"; }),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature3.1" : {
 			name : "Enthralling Performance",
@@ -16734,7 +16734,7 @@ AddSubClass("bard", "college of glamour", {
 			minlevel : 6,
 			recovery : "long rest",
 			usages : 1,
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			description : desc([
 				"As a bonus action, I appear unearthly beautiful while I concentrate, up to 1 minute",
 				"At the same time, and as a bonus action during, I can cast Command without a spell slot",
@@ -16760,7 +16760,7 @@ AddSubClass("bard", "college of glamour", {
 			minlevel : 14,
 			recovery : "short rest",
 			usages : 1,
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			description : desc([
 				"As a bonus action, I gain a magically majestic presence for 1 min or until incapacitated",
 				"During this, the first time a creature attacks me each turn they must make a Cha save",
@@ -16853,7 +16853,7 @@ AddSubClass("bard", "college of whispers", {
 			minlevel : 6,
 			recovery : "short rest",
 			usages : 1,
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 			description : desc([
 				"As a reaction when a humanoid dies within 30 ft of me, I can capture its shadow",
 				"As an action, I can use it to make me look just like the dead person did while it was alive",
@@ -16869,7 +16869,7 @@ AddSubClass("bard", "college of whispers", {
 			minlevel : 14,
 			recovery : "long rest",
 			usages : 1,
-			action : ["action", ""],
+			action : [["action", ""]],
 			description : desc([
 				"As an action, I whisper to a creature within 30 ft that can hear and understand me",
 				"Only the target can hear me; It must make a Wis save or be charmed by me for 8 hours",
@@ -16901,7 +16901,7 @@ AddSubClass("cleric", "forge domain", {
 			name : "Blessing of the Forge",
 			source : [["X", 19]],
 			minlevel : 1,
-			action : ["action", ""],
+			action : [["action", ""]],
 			usages : 1,
 			recovery : "long rest",
 			description : desc([
@@ -16978,17 +16978,17 @@ AddSubClass("cleric", "grave domain", {
 			name : "Circle of Mortality",
 			source : [["X", 20]],
 			minlevel : 1,
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			description : desc([
 				"Spells I cast to heal a living creature at 0 HP have their dice count as their max result",
 				"I learn Spare the Dying, which I can cast as a bonus action with a range of 30 ft"
 			]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Circle of Mortality",
 				spells : ["spare the dying"],
 				selection : ["spare the dying"],
 				firstCol : 'atwill'
-			},
+			}],
 			spellChanges : {
 				"spare the dying" : {
 					time : "1 bns",
@@ -17013,7 +17013,7 @@ AddSubClass("cleric", "grave domain", {
 			name : "Channel Divinity: Path to the Grave",
 			source : [["X", 20]],
 			minlevel : 2,
-			action : ["action", ""],
+			action : [["action", ""]],
 			description : desc([
 				"As an action, I can curse a creature within 30 ft until the end of my next turn",
 				"It is vulnerable to all the damage from the next attack by me or my allies that hits it"
@@ -17026,7 +17026,7 @@ AddSubClass("cleric", "grave domain", {
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 			description : "\n   " + "As a reaction, I turn a critical hit to me or an ally I see within 30 ft to a normal hit"
 		},
 		"subclassfeature8" : {
@@ -17067,7 +17067,7 @@ AddSubClass("druid", "circle of dreams", {
 			]),
 			usages : levels.map(function (n) { return n < 2 ? "" : n + "d6 per "; }),
 			recovery : "long rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Hearth of Moonlight and Shadow",
@@ -17176,7 +17176,7 @@ AddSubClass("druid", "circle of the shepherd", {
 			]),
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Mighty Summoner",
@@ -17218,12 +17218,12 @@ AddSubClass("druid", "circle of the shepherd", {
 			]),
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Faithful Summons",
 				spells : ["conjure animals"],
 				selection : ["conjure animals"],
 				firstCol : "oncelr"
-			},
+			}],
 			spellChanges : {
 				"conjure animals" : {
 					nameShort : "Conjure Animals (level 9)",
@@ -17254,10 +17254,10 @@ AddSubClass("fighter", "arcane archer", {
 				"I also learn either the Prestidigitation or the Druidcraft cantrip"
 			]),
 			skillstxt : "Arcana or Nature",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Arcane Archer's Lore",
 				spells : ["druidcraft", "prestidigitation"]
-			},
+			}]
 		},
 		"subclassfeature3.1" : {
 			name : "Arcane Shot",
@@ -17369,7 +17369,7 @@ AddSubClass("fighter", "arcane archer", {
 				"Once per turn when I miss with a magic arrow, I can use a bonus action to redirect it",
 				"I reroll the attack against a different target within 60 ft of the original target"
 			]),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature15" : {
 			name : "Ever-Ready Shot",
@@ -17456,7 +17456,7 @@ AddSubClass("fighter", "cavalier", {
 			usages : "Constitution modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Con Mod'));",
 			recovery : "long rest",
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 		},
 		"subclassfeature10" : {
 			name : "Hold the Line",
@@ -17525,7 +17525,7 @@ AddSubClass("fighter", "samurai", {
 			recovery : "long rest",
 			usages : 3,
 			additional : levels.map(function (n) { return n < 3 ? "" : (n < 10 ? 5 : n < 15 ? 10 : 15) + " temporary HP"; }),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature7" : {
 			name : "Elegant Courtier",
@@ -17596,7 +17596,7 @@ AddSubClass("monk", "way of the drunken master", {
 			minlevel : 6,
 			description : "\n   " + "1 ki point: as a reaction if missed in melee, attacker instead hits other I see within 5 ft",
 			additional : "Standing up from prone costs only 5 ft",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature11" : {
 			name : "Drunkard's Luck",
@@ -17633,7 +17633,7 @@ RunFunctionAtEnd(function () {
 					"\u2022 Melee: if I do unarmed strike during an Attack action, +2 AC until my next turn starts",
 					"\u2022 Ranged: as a bonus action, ranged weapon attacks deal +1d4 damage in current turn"
 				]),
-				action : ["bonus action", " (with ranged)"],
+				action : [["bonus action", " (with ranged)"]],
 				additional : levels.map( function(n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
 				toolProfs : ["calligrapher's or painter's supplies"],
 				extraname : "Kensei Weapon",
@@ -17689,7 +17689,7 @@ RunFunctionAtEnd(function () {
 						"This lasts for 1 minute or until I use this feature again"
 					]),
 					additional : "1 to 3 ki points",
-					action : ["bonus action", ""]
+					action : [["bonus action", ""]]
 				},
 				autoSelectExtrachoices : [{
 					extrachoice : "deft strike"
@@ -17737,7 +17737,7 @@ AddSubClass("paladin", "oath of conquest", {
 				"As an action, all creatures of my choice within a 30-ft radius must make a Wisdom save",
 				"If failed, a target is frightened for 1 minute; It can save again at the end of each turn"
 			]),
-			action : ["action", ""],
+			action : [["action", ""]],
 			spellcastingExtra : ["armor of agathys", "command", "hold person", "spiritual weapon", "bestow curse", "fear", "dominate beast", "stoneskin", "cloudkill", "dominate person"]
 		},
 		"subclassfeature3.1" : {
@@ -17780,7 +17780,7 @@ AddSubClass("paladin", "oath of conquest", {
 			]),
 			recovery : "long rest",
 			usages : 1,
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -17794,7 +17794,7 @@ AddSubClass("paladin", "oath of redemption", {
 			source : [["X", 39]],
 			minlevel : 3,
 			description : "\n   " + "As a bonus action, I grant myself +5 on Charisma (Persuasion) checks for 10 minutes",
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			spellcastingExtra : ["sanctuary", "sleep", "calm emotions", "hold person", "counterspell", "hypnotic pattern", "otiluke's resilient sphere", "stoneskin", "hold monster", "wall of force"]
 		},
 		"subclassfeature3.1" : {
@@ -17805,7 +17805,7 @@ AddSubClass("paladin", "oath of redemption", {
 				"As a reaction after a creature within 30 ft attacks and damages another, I can rebuke it",
 				"It takes the same damage as it dealt but as radiant damage, with a Wis save to halve it"
 			]),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature7" : {
 			name : "Aura of the Guardian",
@@ -17816,7 +17816,7 @@ AddSubClass("paladin", "oath of redemption", {
 				"This damage can't be reduced in any way; Other effects might still apply to my ally"
 			]),
 			additional : levels.map(function (n) { return n < 7 ? "" : (n < 18 ? 10 : 30) + "-foot aura"; }),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature15" : {
 			name : "Protective Spirit",
@@ -17895,7 +17895,7 @@ var XGtE_Ranger_Subclass_Gloom_Stalker = AddSubClass("ranger", "gloom stalker", 
 			source : [["X", 42]],
 			minlevel : 15,
 			description : "\n   " + "As a reaction when I'm attacked without adv., I can impose disadv. on the attack roll",
-			action : ["reaction", " (when attacked)"]
+			action : [["reaction", " (when attacked)"]]
 		}
 	}
 });
@@ -17912,7 +17912,7 @@ var XGtE_Ranger_Subclass_Horizon_Walker = AddSubClass("ranger", "horizon walker"
 			description : "\n   " + "As an action, I sense the distance and direction to the closest planar portal within 1 mile",
 			usages : 1,
 			recovery : "short rest",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature3.1" : {
 			name : "Horizon Walker Magic",
@@ -17935,7 +17935,7 @@ var XGtE_Ranger_Subclass_Horizon_Walker = AddSubClass("ranger", "horizon walker"
 				"In addition, that first hit does extra damage"
 			]),
 			additional : levels.map(function (n) { return n < 3 ? "" : "+" + (n < 11 ? 1 : 2) + "d8 force damage"; }),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature7" : {
 			name : "Ethereal Step",
@@ -17944,12 +17944,12 @@ var XGtE_Ranger_Subclass_Horizon_Walker = AddSubClass("ranger", "horizon walker"
 			description : "\n   " + "As a bonus action, I can cast the Etherealness spell, which lasts until the end of my turn",
 			usages : 1,
 			recovery : "short rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Ethereal Step",
 				spells : ["etherealness"],
 				selection : ["etherealness"],
 				firstCol : 'oncesr'
-			},
+			}],
 			spellChanges : {
 				"etherealness" : {
 					time : "1 bns",
@@ -17973,7 +17973,7 @@ var XGtE_Ranger_Subclass_Horizon_Walker = AddSubClass("ranger", "horizon walker"
 			source : [["X", 43]],
 			minlevel : 15,
 			description : "\n   " + "As a reaction when an attack damages me, I can give myself resistance vs. that attack",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		}
 	}
 });
@@ -17991,7 +17991,7 @@ var XGtE_Ranger_Subclass_Monster_Slayer = AddSubClass("ranger", "monster slayer"
 				"As an action, I learn vulnerabilities/immunities/resistances of a target I see within 60 ft",
 				"If it is protected from divination magic, I sense it has none of these"
 			]),
-			action : ["action", ""],
+			action : [["action", ""]],
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest"
@@ -18012,7 +18012,7 @@ var XGtE_Ranger_Subclass_Monster_Slayer = AddSubClass("ranger", "monster slayer"
 				"As a bonus action, I designate a creature I see within 60 ft; This lasts until I do this again",
 				"My first hit to the target with a weapon attack on each of my turns does +1d6 damage"
 			]),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature7" : {
 			name : "Supernatural Defense",
@@ -18031,7 +18031,7 @@ var XGtE_Ranger_Subclass_Monster_Slayer = AddSubClass("ranger", "monster slayer"
 				"As a reaction when I see someone within 60 ft casting a spell or teleporting, I can foil it",
 				"The target must make a Wisdom save or have its spell or teleport fail and be wasted"
 			]),
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 			usages : 1,
 			recovery : "short rest"
 		},
@@ -18043,7 +18043,7 @@ var XGtE_Ranger_Subclass_Monster_Slayer = AddSubClass("ranger", "monster slayer"
 				"As a reaction when the target of my Slayer's Prey has me make a save, I can attack it",
 				"I can make one weapon attack; If this hits, I automatically succeed on the saving throw"
 			]),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		}
 	}
 });
@@ -18073,7 +18073,7 @@ AddSubClass("rogue", "inquisitive", {
 				"\u2022 Make a Wisdom (Perception) check to spot a hidden creature or object",
 				"\u2022 Make an Intelligence (Investigation) check to uncover or decipher clues"
 			]),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature3.2" : {
 			name : "Insightful Fighting",
@@ -18085,7 +18085,7 @@ AddSubClass("rogue", "inquisitive", {
 				"If I succeed, I can use my sneak attack on it even if I don't have adv. (but not if disadv.)",
 				"This benefit lasts for 1 minute or until I successfully use Insightful Fighting again"
 			]),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature9" : {
 			name : "Steady Eye",
@@ -18104,7 +18104,7 @@ AddSubClass("rogue", "inquisitive", {
 				"As an action, I can sense magical deceptions within 30 feet of me, but not what it does",
 				"I learn the presence of illusions, shapechanged creatures, or magic designed to deceive"
 			]),
-			action : ["action", ""],
+			action : [["action", ""]],
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest"
@@ -18168,7 +18168,7 @@ AddSubClass("rogue", "scout", {
 				"This attack can benefit from my Sneak Attack even if I already used it this turn",
 				"However, I still can't use Sneak Attack on a single target more than once per turn"
 			]),
-			action : ["bonus action", " (with Attack action)"]
+			action : [["bonus action", " (with Attack action)"]]
 		}
 	}
 });
@@ -18199,12 +18199,12 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 					"I also learn Cure Wounds, which doesn't count against my number of spells known",
 					"These count as sorcerer spells for me; I can only replace the bonus spell with a cleric spell"
 				]),
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Divine Magic (Good)",
 					"class" : "cleric",
 					level : [1,9],
 					selection : ["cure wounds"]
-				},
+				}],
 				dependentChoices : "eagle"
 			},
 			"evil" : {
@@ -18214,12 +18214,12 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 					"I also learn Inflict Wounds, which doesn't count against my number of spells known",
 					"These count as sorcerer spells for me; I can only replace the bonus spell with a cleric spell"
 				]),
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Divine Magic (Evil)",
 					"class" : "cleric",
 					level : [1,9],
 					selection : ["inflict wounds"]
-				},
+				}],
 				dependentChoices : "bat"
 			},
 			"law" : {
@@ -18229,12 +18229,12 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 					"I also learn Bless, which doesn't count against my number of spells known",
 					"These count as sorcerer spells for me; I can only replace the bonus spell with a cleric spell"
 				]),
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Divine Magic (Law)",
 					"class" : "cleric",
 					level : [1,9],
 					selection : ["bless"]
-				},
+				}],
 				dependentChoices : "eagle"
 			},
 			"chaos" : {
@@ -18244,12 +18244,12 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 					"I also learn Bane, which doesn't count against my number of spells known",
 					"These count as sorcerer spells for me; I can only replace the bonus spell with a cleric spell"
 				]),
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Divine Magic (Chaos)",
 					"class" : "cleric",
 					level : [1,9],
 					selection : ["bane"]
-				},
+				}],
 				dependentChoices : "bat"
 			},
 			"neutrality" : {
@@ -18259,12 +18259,12 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 					"I learn Protection from Evil \xD7 Good; It doesn't count against my number of spells known",
 					"These count as sorcerer spells for me; I can only replace the bonus spell with a cleric spell"
 				]),
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Divine Magic (Neutrality)",
 					"class" : "cleric",
 					level : [1,9],
 					selection : ["protection from evil and good"]
-				},
+				}],
 				dependentChoices : "dragonfly"
 			},
 			choiceDependencies : [{
@@ -18321,7 +18321,7 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 					"These wings last until I become incapacitated or I dismiss them as a bonus action"
 				])
 			},
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			speed : { fly : { spd : 30, enc : 20 } }
 		},
 		"subclassfeature18" : {
@@ -18332,7 +18332,7 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 				"As a bonus action when I have less than half of my max HP remaining, I can heal myself",
 				"I regain a number of HP equal to half my hit point maximum"
 			]),
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			recovery : "long rest",
 			usages : 1
 		}
@@ -18371,12 +18371,12 @@ AddSubClass("sorcerer", "shadow magic", {
 				"I can also cast it by spending 2 sorcery points and then I can see through it normally"
 			]),
 			additional : "2 sorcery points",
-			action : ["action", " (2 sorcery points)"],
-			spellcastingBonus : {
+			action : [["action", " (2 sorcery points)"]],
+			spellcastingBonus : [{
 				name : "Eyes of the Dark",
 				spells : ["darkness"],
 				selection : ["darkness"]
-			}
+			}]
 		},
 		"subclassfeature6" : {
 			name : "Hound of Ill Omen",
@@ -18465,7 +18465,7 @@ AddSubClass("sorcerer", "shadow magic", {
 				"As a bonus action when I'm in dim light or darkness, I can teleport up to 120 ft",
 				"The destination has to be unoccupied, within line of sight, and in dim light or darkness"
 			]),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature18" : {
 			name : "Umbral Form",
@@ -18479,7 +18479,7 @@ AddSubClass("sorcerer", "shadow magic", {
 				"I take 5 force damage if I end my turn inside an object",
 				"This ends early if I end it as a bonus action, I die, or I'm incapacitated"
 			]),
-			action : ["bonus action", " (6 sorcery points)"]
+			action : [["bonus action", " (6 sorcery points)"]]
 		}
 	}
 });
@@ -18517,7 +18517,7 @@ AddSubClass("warlock", "the celestial", {
 			usages : levels.map(function (n) { return (n + 1) + "d6 per "; }),
 			usagescalc : "event.value = !classes.known.warlock ? '' : (1 + classes.known.warlock.level) + 'd6';",
 			recovery : "long rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Radiant Soul",
@@ -18589,7 +18589,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 			]),
 			recovery : "short rest",
 			usages : 1,
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -18747,7 +18747,7 @@ AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
 	prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 	recovery : "short rest",
 	usages : 1,
-	action : ["bonus action", " (start/stop)"]
+	action : [["bonus action", " (start/stop)"]]
 });
 AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade)", {
 	name : "Eldritch Smite",
@@ -18772,7 +18772,7 @@ AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
 	recovery : "short rest",
 	usages : 1,
-	action : ["action", ""]
+	action : [["action", ""]]
 });
 AddWarlockInvocation("Gift of the Depths (prereq: level 5 warlock)", {
 	name : "Gift of the Depths",
@@ -18782,12 +18782,12 @@ AddWarlockInvocation("Gift of the Depths (prereq: level 5 warlock)", {
 	]),
 	source : [["X", 57], ["UA:RCO", 6]],
 	submenu : "[warlock level  5+]",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Gift of the Depths",
 		spells : ["water breathing"],
 		selection : ["water breathing"],
 		firstCol : 'oncelr'
-	},
+	}],
 	prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 	speed : { swim : { spd : "walk", enc : "walk" } }
 });
@@ -18893,7 +18893,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock, Hex spell or warlo
 	source : [["X", 57]],
 	submenu : "[improves Hex spell or warlock feature that curses]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 5 && (isSpellUsed('hex', true) || (/hexblade/).test(classes.known.warlock.subclass)); },
-	action : ["bonus action", ""]
+	action : [["bonus action", ""]]
 });
 AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock, Hex spell or warlock feature that curses)", {
 	name : "Relentless Hex",
@@ -18904,19 +18904,19 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock, Hex spell or warl
 	source : [["X", 57]],
 	submenu : "[improves Hex spell or warlock feature that curses]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 7 && (isSpellUsed('hex', true) || (/hexblade/).test(classes.known.warlock.subclass)); },
-	action : ["bonus action", ""]
+	action : [["bonus action", ""]]
 });
 AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
 	name : "Shroud of Shadow",
 	description : "\n   " + "I can cast Invisibility at will, without using spell slots (PHB 254)",
 	source : [["X", 57], ["UA:RCO", 6]],
 	submenu : "[warlock level 15+]",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Shroud of Shadow",
 		spells : ["invisibility"],
 		selection : ["invisibility"],
 		firstCol : 'atwill'
-	},
+	}],
 	prereqeval : function(v) { return classes.known.warlock.level >= 15; },
 	spellChanges : {
 		"invisibility" : {
@@ -18937,7 +18937,7 @@ AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
 	prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 	recovery : "short rest",
 	usages : 1,
-	action : ["reaction", ""],
+	action : [["reaction", ""]],
 	additional : levels.map( function(n) { return (n * 10) + " temp HP"; })
 });
 AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
@@ -18945,12 +18945,12 @@ AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 	description : "\n   " + "Once per long rest, I can cast Freedom of Movement on myself without using a spell slot",
 	source : [["X", 57], ["UA:RCO", 7]],
 	submenu : "[warlock level  7+]",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Trickster's Escape",
 		spells : ["freedom of movement"],
 		selection : ["freedom of movement"],
 		firstCol : 'oncelr'
-	},
+	}],
 	prereqeval : function(v) { return classes.known.warlock.level >= 7; },
 	spellChanges : {
 		"freedom of movement" : {
@@ -18977,7 +18977,7 @@ AddSubClass("wizard", "war magic", {
 				"As a reaction when I fail a save, I can gain +4 bonus to that saving throw",
 				"After I do either, I can't cast spells other than cantrips until the end of my next turn"
 			]),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature2.1" : {
 			name : "Tactical Wit",
@@ -19030,7 +19030,7 @@ FeatsList["bountiful luck"] = {
 	prereqeval : function(v) { return CurrentRace.known.indexOf('halfling') !== -1; },
 	descriptionFull : "Your people have extraordinary luck, which you have learned to mystically lend to your companions when you see them falter. You're not sure how you do it; you just wish it, and it happens. Surely a sign of fortune's favor!\n   When an ally you can see within 30 feet of you rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, you can use your reaction to let the ally reroll the die. The ally must use the new roll\n   When you use this ability, you can't use your Lucky racial trait before the end of your next turn.",
 	description : "When an ally I can see within 30 ft of me rolls a 1 on an attack roll, an ability check, or a saving throw, I can use my reaction to let the ally reroll the die. The ally must use the new roll. When I use this, I can't use my racial Lucky trait until the end of my next turn.",
-	action : ["reaction", ""]
+	action : [["reaction", ""]]
 };
 FeatsList["dragon fear"] = {
 	name : "Dragon Fear",
@@ -19117,7 +19117,7 @@ FeatsList["fade away"] = {
 	descriptionFull : "Your people are clever, with a knack for illusion magic. You have learned a magical trick for fading away when you suffer harm. You gain the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.",
 	description : "As a reaction when I take damage, I can magically become invisible until the end of my next turn or until I attack, deal damage, or force someone to make a saving throw. Once I do this, I can't do so again until I finish a short rest. [+1 Dexterity or Intelligence]",
 	scorestxt : "+1 Dexterity or Intelligence",
-	action : ["reaction", ""],
+	action : [["reaction", ""]],
 	usages : 1,
 	recovery : "short rest"
 };
@@ -19129,13 +19129,13 @@ FeatsList["fey teleportation"] = { // this code includes contributions by Soilen
 	descriptionFull : "Your study of high elven lore has unlocked fey power that few other elves possess, except your eladrin cousins. Drawing on your fey ancestry, you can momentarily stride through the Feywild to shorten your path from one place to another. You gain the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 You learn to speak, read, and write Sylvan.\n \u2022 You learn the Misty Step spell and can cast it once without expending a spell slot. You regain the ability to cast it in this way when you finish a short or long rest. Intelligence is your spellcasting ability for this spell.",
 	description : "I can cast Misty Step without using a spell slot. I can do so once per short rest. Intelligence is my spellcasting ability for this spell. I also learn to speak, read, and write Sylvan. [+1 Intelligence or Charisma]",
 	scorestxt : "+1 Intelligence or Charisma",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per short rest",
 		spellcastingAbility : 4,
 		spells : ["misty step"],
 		selection : ["misty step"],
 		firstCol : 'oncesr'
-	},
+	}],
 	languageProfs : ["Sylvan"],
 	usages : 1,
 	recovery : "short rest"
@@ -19168,7 +19168,7 @@ FeatsList["orcish fury"] = {
 	descriptionFull : "Your fury burns tirelessly. You gain the following benefits:\n \u2022 Increase your Strength or Constitution score by 1, to a maximum of 20.\n \u2022 When you hit with an attack using a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.\n \u2022 Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.",
 	description : "Once per short rest, I can roll an extra damage die for an attack with a simple or martial weapon. In addition, Immediately after I use my Relentless Endurance trait, I can use my reaction to make one weapon attack. [+1 Strength or Constitution]",
 	scorestxt : "+1 Strength or Constitution",
-	action : ["reaction", " (after Relentless Endurance)"],
+	action : [["reaction", " (after Relentless Endurance)"]],
 	usages : 1,
 	recovery : "short rest",
 	additional : "extra damage"
@@ -19192,7 +19192,7 @@ FeatsList["second chance"] = {
 	descriptionFull : "Fortune favors you when someone tries to strike you. You gain the following benefits:\n \u2022 Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't use it again until you roll initiative at the start of combat or until you finish a short or long rest.",
 	description : "When a creature I can see hits me with an attack roll, I can use my reaction to force that creature to reroll. Once I use this ability, I can't do so again until I roll initiative at the start of combat or I finish a short rest. [+1 Dexterity, Constitution, or Charisma]",
 	scorestxt : "+1 Dexterity, Constitution, or Charisma",
-	action : ["reaction", ""],
+	action : [["reaction", ""]],
 	usages : 1,
 	recovery : "Combat"
 };
@@ -20233,7 +20233,7 @@ MagicItemsList["adamantine weapon"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.theWea.list == "melee" && (/adamantine/i).test(v.WeaponTextName)) {
+				if (v.theWea.list == "melee" && /adamantine/i.test(v.WeaponTextName)) {
 					fields.Description += (fields.Description ? '; ' : '') + 'Always critical hits on objects';
 				}
 			},
@@ -20630,7 +20630,7 @@ MagicItemsList["moon-touched sword"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/moon.touched/i).test(v.WeaponTextName)) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && /sword|scimitar|rapier/i.test(v.baseWeaponName) && /moon.touched/i.test(v.WeaponTextName)) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
 				}
@@ -20931,12 +20931,12 @@ RaceList["baalzebul tiefling"] = {
 	scores : [0, 0, 0, 1, 0, 2],
 	trait : "Baalzebul Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Maladomini:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast Ray of Sickness once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Crown of Madness once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Legacy of Maladomini (1)",
 		spells : ["thaumaturgy"],
 		selection : ["thaumaturgy"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"ray of sickness" : {
 			name : "Legacy of Maladomini (level 3)",
@@ -20944,12 +20944,12 @@ RaceList["baalzebul tiefling"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Maladomini (3)",
 				spells : ["ray of sickness"],
 				selection : ["ray of sickness"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"ray of sickness" : {
 					description : "Spell attack for 3d8 Poison dmg; save or also poisoned until end of my next turn",
@@ -20963,12 +20963,12 @@ RaceList["baalzebul tiefling"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Maladomini (5)",
 				spells : ["crown of madness"],
 				selection : ["crown of madness"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };
@@ -20993,12 +20993,12 @@ RaceList["dispater tiefling"] = {
 	scores : [0, 1, 0, 0, 0, 2],
 	trait : "Dispater Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Dis:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast Disguise Self once per long rest.\n   At 5th level, I can also cast Detect Thoughts once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Legacy of Dis (level 1)",
 		spells : ["thaumaturgy"],
 		selection : ["thaumaturgy"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"disguise self" : {
 			name : "Legacy of Dis (level 3)",
@@ -21006,12 +21006,12 @@ RaceList["dispater tiefling"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Dis (level 3)",
 				spells : ["disguise self"],
 				selection : ["disguise self"],
 				firstCol : 'oncelr'
-			}
+			}]
 		},
 		"detect thoughts" : {
 			name : "Legacy of Dis (level 5)",
@@ -21019,12 +21019,12 @@ RaceList["dispater tiefling"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Dis (level 5)",
 				spells : ["detect thoughts"],
 				selection : ["detect thoughts"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };
@@ -21049,12 +21049,12 @@ RaceList["fierna tiefling"] = {
 	scores : [0, 0, 0, 0, 1, 2],
 	trait : "Fierna Tiefling (+1 Wisdom, +2 Charisma)\n\nLegacy of Phlegethos:\n   I know the Friends cantrip.\n   At 3rd level, I can cast Charm Person once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Suggestion once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Legacy of Phlegethos (1)",
 		spells : ["friends"],
 		selection : ["friends"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"charm person" : {
 			name : "Legacy of Phlegethos (level 3)",
@@ -21062,12 +21062,12 @@ RaceList["fierna tiefling"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Phlegethos (3)",
 				spells : ["charm person"],
 				selection : ["charm person"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"charm person" : {
 					description : "2 humanoids, max 30 ft apart, save or charmed; adv. on save if me/ally is fighting it",
@@ -21081,12 +21081,12 @@ RaceList["fierna tiefling"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Phlegethos (5)",
 				spells : ["suggestion"],
 				selection : ["suggestion"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };
@@ -21111,12 +21111,12 @@ RaceList["glasya tiefling"] = {
 	scores : [0, 1, 0, 0, 0, 2],
 	trait : "Glasya Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Malbolge:\n   I know the Minor Illusion cantrip.\n   At 3rd level, I can cast Disguise Self once per long rest.\n   At 5th level, I can also cast Invisibility once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Legacy of Malbolge (1)",
 		spells : ["minor illusion"],
 		selection : ["minor illusion"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"disguise self" : {
 			name : "Legacy of Malbolge (level 3)",
@@ -21124,12 +21124,12 @@ RaceList["glasya tiefling"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Malbolge (3)",
 				spells : ["disguise self"],
 				selection : ["disguise self"],
 				firstCol : 'oncelr'
-			}
+			}]
 		},
 		"invisibility" : {
 			name : "Legacy of Malbolge (level 5)",
@@ -21137,12 +21137,12 @@ RaceList["glasya tiefling"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Malbolge (5)",
 				spells : ["invisibility"],
 				selection : ["invisibility"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };
@@ -21167,12 +21167,12 @@ RaceList["levistus tiefling"] = {
 	scores : [0, 0, 1, 0, 0, 2],
 	trait : "Levistus Tiefling (+1 Constitution, +2 Charisma)\n\nLegacy of Stygia:\n   I know the Ray of Frost cantrip.\n   At 3rd level, I can cast Armor of Agathys once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Darkness once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Legacy of Stygia (1)",
 		spells : ["ray of frost"],
 		selection : ["ray of frost"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"armor of agathys" : {
 			name : "Legacy of Stygia (level 3)",
@@ -21180,12 +21180,12 @@ RaceList["levistus tiefling"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Stygia (3)",
 				spells : ["armor of agathys"],
 				selection : ["armor of agathys"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"armor of agathys" : {
 					description : "10 temp HP; as long as temp HP last any crea that hits in melee takes 10 Cold dmg",
@@ -21199,12 +21199,12 @@ RaceList["levistus tiefling"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Stygia (5)",
 				spells : ["darkness"],
 				selection : ["darkness"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };
@@ -21229,12 +21229,12 @@ RaceList["mammon tiefling"] = {
 	scores : [0, 0, 0, 1, 0, 2],
 	trait : "Mammon Tiefling (+1 Intelligence, +2 Charisma)\nLegacy of Minauros:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast Tenser's Floating Disk once per short rest.\n   At 5th level, I can also cast Arcane Lock without a material component once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Legacy of Minauros (1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"tenser's floating disk" : {
 			name : "Legacy of Minauros (level 3)",
@@ -21242,12 +21242,12 @@ RaceList["mammon tiefling"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Minauros (3)",
 				spells : ["tenser's floating disk"],
 				selection : ["tenser's floating disk"],
 				firstCol : 'oncesr'
-			}
+			}]
 		},
 		"arcane lock" : {
 			name : "Legacy of Minauros (level 5)",
@@ -21255,12 +21255,12 @@ RaceList["mammon tiefling"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Minauros (5)",
 				spells : ["arcane lock"],
 				selection : ["arcane lock"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"arcane lock" : {
 					components : "V,S",
@@ -21292,12 +21292,12 @@ RaceList["mephistopheles tiefling"] = {
 	scores : [0, 0, 0, 1, 0, 2],
 	trait : "Mephistopheles Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Cania:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast Burning Hands once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Flame Blade once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Legacy of Cania (level 1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"burning hands" : {
 			name : "Legacy of Cania (level 3)",
@@ -21305,12 +21305,12 @@ RaceList["mephistopheles tiefling"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Cania (level 3)",
 				spells : ["burning hands"],
 				selection : ["burning hands"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"burning hands" : {
 					description : "All in area 4d6 Fire dmg; save halves; unattended flammable objects ignite",
@@ -21324,12 +21324,12 @@ RaceList["mephistopheles tiefling"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Cania (level 5)",
 				spells : ["flame blade"],
 				selection : ["flame blade"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };
@@ -21354,12 +21354,12 @@ RaceList["zariel tiefling"] = {
 	scores : [1, 0, 0, 0, 0, 2],
 	trait : "Zariel Tiefling (+1 Strength, +2 Charisma)\n\nLegacy of Avernus:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast Searing Smite once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Branding Smite once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Legacy of Avernus (1)",
 		spells : ["thaumaturgy"],
 		selection : ["thaumaturgy"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"searing smite" : {
 			name : "Legacy of Avernus (level 3)",
@@ -21367,12 +21367,12 @@ RaceList["zariel tiefling"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Avernus (3)",
 				spells : ["searing smite"],
 				selection : ["searing smite"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"searing smite" : {
 					description : "Next melee weapon hit +2d6 Fire dmg and target ignites; save to end spell or 1d6 Fire dmg",
@@ -21386,12 +21386,12 @@ RaceList["zariel tiefling"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Avernus (5)",
 				spells : ["branding smite"],
 				selection : ["branding smite"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };
@@ -21432,7 +21432,7 @@ RaceList["eladrin-mtof"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		}
 	},
 	toNotesPage : [{
@@ -21522,7 +21522,7 @@ RaceList["shadar-kai elf"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		}
 	}
 };
@@ -21555,12 +21555,12 @@ RaceList["githyanki-mtof"] = {
 		"I don't require components to cast these spells."
 	]),
 	spellcastingAbility : 4,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Githyanki Psionics (1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		firstCol : 'atwill'
-	},
+	}],
 	spellChanges : {
 		"mage hand" : {
 			components : "",
@@ -21575,12 +21575,12 @@ RaceList["githyanki-mtof"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Githyanki Psionics (3)",
 				spells : ["jump"],
 				selection : ["jump"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"jump" : {
 					components : "",
@@ -21595,12 +21595,12 @@ RaceList["githyanki-mtof"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Githyanki Psionics (5)",
 				spells : ["misty step"],
 				selection : ["misty step"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"misty step" : {
 					components : SpellsList["misty step"].components + "*",
@@ -21644,12 +21644,12 @@ RaceList["githzerai-mtof"] = {
 	]),
 	savetxt : { adv_vs : ["charmed", "frightened"] },
 	spellcastingAbility : 5,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Githzerai Psionics (1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		firstCol : 'atwill'
-	},
+	}],
 	spellChanges : {
 		"mage hand" : {
 			components : "",
@@ -21664,12 +21664,12 @@ RaceList["githzerai-mtof"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Githzerai Psionics (3)",
 				spells : ["shield"],
 				selection : ["shield"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"shield" : {
 					components : "",
@@ -21683,12 +21683,12 @@ RaceList["githzerai-mtof"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Githzerai Psionics (5)",
 				spells : ["detect thoughts"],
 				selection : ["detect thoughts"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"detect thoughts" : {
 					components : "",
@@ -21844,12 +21844,12 @@ MagicItemsList["azuredge"] = {
 		modifiers : [3, 3],
 		selectNow : true
 	}],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["crusader's mantle"],
 		selection : ["protection from evil and good"],
 		firstCol : "oncelr"
-	},
+	}],
 	toNotesPage : [{
 		name : "Features",
 		note : "\n   " + WDH_azuredgeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt
@@ -22434,7 +22434,7 @@ MagicItemsList["powered armor"] = {
 SpellsList["flock of familiars"] = {
 	name : "Flock of Familiars",
 	classes : ["warlock", "wizard"],
-	source : ["LLoK", 57],
+	source : [["LLoK", 57]],
 	level : 2,
 	school : "Conj",
 	time : "1 min",
@@ -22447,7 +22447,7 @@ SpellsList["flock of familiars"] = {
 SpellsList["galder's speedy courier"] = {
 	name : "Galder's Speedy Courier",
 	classes : ["warlock", "wizard"],
-	source : ["LLoK", 57],
+	source : [["LLoK", 57]],
 	level : 4,
 	school : "Conj",
 	time : "1 a",
@@ -22462,7 +22462,7 @@ SpellsList["galder's speedy courier"] = {
 SpellsList["galder's tower"] = {
 	name : "Galder's Tower",
 	classes : ["wizard"],
-	source : ["LLoK", 57],
+	source : [["LLoK", 57]],
 	level : 3,
 	school : "Conj",
 	time : "10 min",
@@ -22606,12 +22606,12 @@ RaceList["minotaur"] = {
 		"goring rush" : {
 			name : "Goring Rush",
 			minlevel : 1,
-			action : ["bonus action", " (with Dash)"]
+			action : [["bonus action", " (with Dash)"]]
 		},
 		"hammering horns" : {
 			name : "Hammering Horns",
 			minlevel : 1,
-			action : ["bonus action", " (after hit)"]
+			action : [["bonus action", " (after hit)"]]
 		}
 	}
 };
@@ -22904,11 +22904,11 @@ AddSubClass("druid", "circle of spores", {
 				"I learn the Chill Touch cantrip and gain the ability to cast certain spells",
 				"These are always prepared, but don't count against the number of spells I can prepare"
 			]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Circle Spells",
 				spells : ["chill touch"],
 				selection : ["chill touch"]
-			},
+			}],
 			spellcastingExtra : ["blindness/deafness", "gentle repose", "animate dead", "gaseous form", "blight", "confusion", "cloudkill", "contagion"]
 		},
 		"subclassfeature2.1" : {
@@ -22920,7 +22920,7 @@ AddSubClass("druid", "circle of spores", {
 				"It must succeed on a Constitution save or take necrotic damage from my cloud of spores"
 			]),
 			additional : levels.map(function (n) { return n < 2 ? "" : 'Con save or 1d' + (n < 6 ? 4 : n < 10 ? 6 : n < 14 ? 8 : 10) + " necrotic damage"; }),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature2.2" : { // changed from poison to necrotic damage in TCoE
 			name : "Symbiotic Entity",
@@ -22935,7 +22935,7 @@ AddSubClass("druid", "circle of spores", {
 			additional : levels.map(function (n) {
 				return n < 2 ? "" : Math.floor(n*4) + " temp HP; Halo of Spores: 2d" + (n < 6 ? 4 : n < 10 ? 6 : n < 14 ? 8 : 10);
 			}),
-			action : ["action", ""],
+			action : [["action", ""]],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -22959,7 +22959,7 @@ AddSubClass("druid", "circle of spores", {
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature10" : {
 			name : "Spreading Spores",
@@ -22970,7 +22970,7 @@ AddSubClass("druid", "circle of spores", {
 				"Any creature moving into or starting its turn in it must save against my Halo of Spores",
 				"The cube ends if I use this feature again; While it persists, I can't use my Halo of Spores"
 			]),
-			action : ["bonus action", " (start/end)"]
+			action : [["bonus action", " (start/end)"]]
 		},
 		"subclassfeature14" : {
 			name : "Fungal Body",
@@ -23913,111 +23913,111 @@ MagicItemsList["guild signet"] = {
 		description : "This signet ring bears a symbol of Azorius. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Ensnaring Strike (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["ensnaring strike"],
 			selection : ["ensnaring strike"],
 			firstCol : 1
-		}
+		}]
 	},
 	"boros" : {
 		description : "This signet ring bears a symbol of Boros. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Heroism (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["heroism"],
 			selection : ["heroism"],
 			firstCol : 1
-		}
+		}]
 	},
 	"dimir" : {
 		description : "This signet ring bears a symbol of Dimir. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Disguise Self (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["disguise self"],
 			selection : ["disguise self"],
 			firstCol : 1
-		}
+		}]
 	},
 	"golgari" : {
 		description : "This signet ring bears a symbol of Golgari. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Entangle (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["entangle"],
 			selection : ["entangle"],
 			firstCol : 1
-		}
+		}]
 	},
 	"gruul" : {
 		description : "This signet ring bears a symbol of Gruul. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Compelled Duel (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["compelled duel"],
 			selection : ["compelled duel"],
 			firstCol : 1
-		}
+		}]
 	},
 	"izzet" : {
 		description : "This signet ring bears a symbol of lzzet. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Chaos Bolt (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["chaos bolt"],
 			selection : ["chaos bolt"],
 			firstCol : 1
-		}
+		}]
 	},
 	"orzhov" : {
 		description : "This signet ring bears a symbol of Orzhov. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Command (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["command"],
 			selection : ["command"],
 			firstCol : 1
-		}
+		}]
 	},
 	"rakdos" : {
 		description : "This signet ring bears a symbol of Rakdos. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Hellish Rebuke (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["hellish rebuke"],
 			selection : ["hellish rebuke"],
 			firstCol : 1
-		}
+		}]
 	},
 	"selesnya" : {
 		description : "This signet ring bears a symbol of Selesnya. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Charm Person (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["charm person"],
 			selection : ["charm person"],
 			firstCol : 1
-		}
+		}]
 	},
 	"simic" : {
 		description : "This signet ring bears a symbol of Simic. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Expeditious Retreat (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["expeditious retreat"],
 			selection : ["expeditious retreat"],
 			firstCol : 1
-		}
+		}]
 	}
 }
 MagicItemsList["illusionist's bracers"] = {
@@ -24471,13 +24471,13 @@ MagicItemsList["black crystal tablet"] = { // contains contributions by Pengslot
 	usages : 1,
 	recovery : "dawn",
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["eyebite", "gate"],
 		selection : ["eyebite", "gate"],
 		firstCol : 1,
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"gate" : {
 			description : "Create a portal to a precise location in the far realm; can transport named crea to me",
@@ -24532,12 +24532,12 @@ MagicItemsList["shield of the uven rune"] = { // contains contributions by Pengs
 		action : [["reaction", ""]],
 		savetxt : {	immune : ["cold"] },
 		fixedDC : 17,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per short rest",
 			spells : ["bane"],
 			selection : ["bane"],
 			firstCol : "oncesr"
-		},
+		}],
 		spellChanges : {
 			"bane" : {
 				duration : "1 min",
@@ -24588,12 +24588,12 @@ MagicItemsList["blast scepter"] = { // contains contributions by Pengsloth
 	attunement : true,
 	dmgres : ["Fire", "Lightning"],
 	fixedDC : 16,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "At will (4th level)",
 		spells : ["thunderwave"],
 		selection : ["thunderwave"],
 		firstCol : "atwill"
-	},
+	}],
 	spellChanges : {
 		"thunderwave" : {
 			nameShort : "Thunderwave (4th level)",
@@ -24633,12 +24633,12 @@ MagicItemsList["propeller helm"] = { // contains contributions by Pengsloth
 	description : "While worn, the helm allows me to use an action to cast Levitate, requiring no components. Each time the spell ends, there is a 50 percent chance that the helm loses its magic and becomes nonmagical.",
 	descriptionFull : "While worn, the helm allows its wearer to use an action to cast the Levitate spell, requiring no components. The helm's propeller spins and whirs loudly until the spell ends. Each time the spell ends, there is a 50 percent chance that the helm loses its magic and becomes nonmagical.",
 	attunement : true,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "At will",
 		spells : ["levitate"],
 		selection : ["levitate"],
 		firstCol : "atwill"
-	}
+	}]
 }
 MagicItemsList["tearulai"] = { // contains contributions by Pengsloth
 	name : "Tearulai",
@@ -25000,12 +25000,12 @@ MagicItemsList["charm of plant command"] = {
 	usages : 3,
 	recovery : "dawn",
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["speak with plants"],
 		selection : ["speak with plants"],
 		firstCol : 1
-	},
+	}],
 	spellChanges : {
 		"speak with plants" : {
 			description : "Talk with plants about previous 24h; plants to difficult terrain or vice versa; adv. Cha checks vs. plants",
@@ -25961,12 +25961,12 @@ MagicItemsList["helm of devil command"] = {
 	recovery : "Special",
 	fixedDC : 21,
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["dominate monster"],
 		selection : ["dominate monster"],
 		firstCol : 1
-	},
+	}],
 	spellChanges : {
 		"dominate monster" : {
 			description : "Devil save or charmed, follows telepathic commands, 1 a for complete control; save on dmg",
@@ -26316,7 +26316,7 @@ RaceList["beasthide shifter"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", " (start/end)"],
+			action : [["bonus action", " (start/end)"]],
 			additional : levels.map(function (n) { return "1d6 + " + n + " + Con mod temp HP"; })
 		}
 	}
@@ -26357,7 +26357,7 @@ RaceList["longtooth shifter"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", " (start/end)"],
+			action : [["bonus action", " (start/end)"]],
 			additional : levels.map(function (n) { return n + " + Con mod temp HP"; })
 		}
 	}
@@ -26389,7 +26389,7 @@ RaceList["swiftstride shifter"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", " (start/end)"],
+			action : [["bonus action", " (start/end)"]],
 			additional : levels.map(function (n) { return n + " + Con mod temp HP"; })
 		}
 	}
@@ -26420,7 +26420,7 @@ RaceList["wildhunt shifter"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", " (start/end)"],
+			action : [["bonus action", " (start/end)"]],
 			additional : levels.map(function (n) { return n + " + Con mod temp HP"; })
 		}
 	}
@@ -26493,13 +26493,13 @@ RaceList["dragonmark detection half-elf"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Magical Detection (level 1)",
 				spells : ["detect magic", "detect poison and disease"],
 				selection : ["detect magic", "detect poison and disease"],
 				firstCol : "oncelr",
 				times : 2
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Detect Poison and Disease",
 				usages : 1,
@@ -26519,12 +26519,12 @@ RaceList["dragonmark detection half-elf"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Magical Detection (level 3)",
 				spells : ["see invisibility"],
 				selection : ["see invisibility"],
 				firstCol : "oncelr"
-			},
+			}],
 			spellChanges : {
 				"see invisibility" : {
 					components : "V,S",
@@ -26574,12 +26574,12 @@ RaceList["dragonmark finding half-orc"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Finder's Magic (level 1)",
 				spells : ["hunter's mark"],
 				selection : ["hunter's mark"],
 				firstCol : "oncelr"
-			}
+			}]
 		},
 		"locate object" : {
 			name : "Finder's Magic (level 3)",
@@ -26587,12 +26587,12 @@ RaceList["dragonmark finding half-orc"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Finder's Magic (level 3)",
 				spells : ["locate object"],
 				selection : ["locate object"],
 				firstCol : "oncelr"
-			}
+			}]
 		}
 	},
 	calcChanges : {
@@ -26635,12 +26635,12 @@ RaceList["dragonmark finding human"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Finder's Magic (level 1)",
 				spells : ["hunter's mark"],
 				selection : ["hunter's mark"],
 				firstCol : "oncelr"
-			}
+			}]
 		},
 		"locate object" : {
 			name : "Finder's Magic (level 3)",
@@ -26648,12 +26648,12 @@ RaceList["dragonmark finding human"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Finder's Magic (level 3)",
 				spells : ["locate object"],
 				selection : ["locate object"],
 				firstCol : "oncelr"
-			}
+			}]
 		}
 	},
 	calcChanges : {
@@ -26701,13 +26701,13 @@ RaceList["dragonmark handling human"] = {
 				usages : 1,
 				recovery : "short rest"
 			}],
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Primal Connection",
 				spells : ["animal friendship", "speak with animals"],
 				selection : ["animal friendship", "speak with animals"],
 				firstCol : 'oncesr',
 				times : 2
-			},
+			}],
 		}
 	},
 	calcChanges : {
@@ -26763,12 +26763,12 @@ RaceList["dragonmark healing halfling"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Healing Touch (level 1)",
 				spells : ["cure wounds"],
 				selection : ["cure wounds"],
 				firstCol : "oncelr"
-			}
+			}]
 		},
 		"lesser restoration" : {
 			name : "Healing Touch (level 3)",
@@ -26776,12 +26776,12 @@ RaceList["dragonmark healing halfling"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Healing Touch (level 3)",
 				spells : ["lesser restoration"],
 				selection : ["lesser restoration"],
 				firstCol : "oncelr"
-			}
+			}]
 		}
 	},
 	calcChanges : {
@@ -26944,12 +26944,12 @@ RaceList["dragonmark passage human"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Magical Passage",
 				spells : ["misty step"],
 				selection : ["misty step"],
 				firstCol : "oncelr"
-			}
+			}]
 		}
 	},
 	calcChanges : {
@@ -27011,12 +27011,12 @@ RaceList["dragonmark scribing gnome"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Scribe's Insight (level 3)",
 				spells : ["magic mouth"],
 				selection : ["magic mouth"],
 				firstCol : "oncelr"
-			}
+			}]
 		}
 	},
 	calcChanges : {
@@ -27065,12 +27065,12 @@ RaceList["dragonmark sentinel human"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Guardian's Shield",
 				spells : ["shield"],
 				selection : ["shield"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	},
 	calcChanges : {
@@ -27111,12 +27111,12 @@ RaceList["dragonmark shadow elf"] = {
 	scores : [0, 2, 0, 0, 0, 1],
 	trait : "Elf, Dragonmark of Shadow (+2 Dexterity, +1 Charisma)\n   Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\n   Cunning Intuition: I can add +1d4 to my Cha" + (typePF ? "risma" : "") + " (Performance) and Dex" + (typePF ? "terity" : "") + " (Stealth) checks.\n   Shape Shadows: I know the Minor Illusion cantrip. At 3rd level, I can cast Invisibility once per long rest. Charisma is my spellcasting ability for these.\n   Spells of the Mark: I add several spells to " + (typePF ? "my class' spell list." : "the spell list of my spellcasting class(es)."),
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Shape Shadows (level 1)",
 		spells : ["minor illusion"],
 		selection : ["minor illusion"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"shape shadows" : {
 			name : "Shape Shadows (level 3)",
@@ -27124,12 +27124,12 @@ RaceList["dragonmark shadow elf"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Shape Shadows (level 3)",
 				spells : ["invisibility"],
 				selection : ["invisibility"],
 				firstCol : "oncelr"
-			}
+			}]
 		}
 	},
 	calcChanges : {
@@ -27170,12 +27170,12 @@ RaceList["dragonmark storm half-elf"] = {
 	scores : [0, 1, 0, 0, 0, 2],
 	trait : "Half-Elf, Dragonmark of Storm (+1 Dexterity, +2 Charisma)\n   Windwright's Intuition: I can add +1d4 to my Dexterity (Acrobatics) checks and any ability checks involving operating or maintaining a water or air vehicle.\n   Headwinds: I know the Gust cantrip. Once I reach 3rd level, I can cast Gust of Wind once per long rest. Charisma is my spellcasting ability for these spells.\n   Spells of the Mark: I add several spells to the spell list of my spellcasting class(es).",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Headwinds (level 1)",
 		spells : ["gust"],
 		selection : ["gust"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"gust of wind" : {
 			name : "Headwinds (level 3)",
@@ -27183,12 +27183,12 @@ RaceList["dragonmark storm half-elf"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Headwinds (level 3)",
 				spells : ["gust of wind"],
 				selection : ["gust of wind"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	},
 	calcChanges : {
@@ -27235,13 +27235,13 @@ RaceList["dragonmark warding dwarf"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Wards and Seals (level 1)",
 				spells : ["alarm", "mage armor"],
 				selection : ["alarm", "mage armor"],
 				firstCol : "oncelr",
 				times : 2
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Mage Armor",
 				usages : 1,
@@ -27266,12 +27266,12 @@ RaceList["dragonmark warding dwarf"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Wards and Seals (level 3)",
 				spells : ["arcane lock"],
 				selection : ["arcane lock"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	},
 	calcChanges : {
@@ -28090,12 +28090,12 @@ AddSubClass("artificer", "alchemist", {
 			usagescalc : "event.value = Math.max(1, What('Int Mod'));",
 			recovery : "long rest",
 			limfeaname : "Restorative Reagents: Lesser Restoration",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Restorative Reagents",
 				spells : ["lesser restoration"],
 				selection : ["lesser restoration"],
 				firstCol : "Sp"
-			},
+			}],
 			spellChanges : {
 				"lesser restoration" : {
 					components : "V,S,M\u0192",
@@ -28124,13 +28124,13 @@ AddSubClass("artificer", "alchemist", {
 				usages : 1,
 				recovery : "long rest"
 			}],
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Chemical Mastery",
 				spells : ["greater restoration", "heal"],
 				selection : ["greater restoration", "heal"],
 				firstCol : "oncelr",
 				times : 2
-			},
+			}],
 			spellChanges : {
 				"greater restoration" : {
 					components : "V,S,M\u0192",
@@ -28920,12 +28920,12 @@ MagicItemsList["finder's goggles"] = {
 	usages : 1,
 	recovery : "dawn",
 	additional : "examine object",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "After examining object",
 		spells : ["locate creature"],
 		selection : ["locate creature"],
 		firstCol : "Sp"
-	}
+	}]
 }
 MagicItemsList["glamerweave"] = {
 	name : "Glamerweave",
@@ -29328,12 +29328,12 @@ MagicItemsList["speaking stone"] = {
 	prereqeval : function (v) {
 		return (/^(?=.*dragonmark)(?=.*scribing).*$/i).test(CurrentRace.known);
 	},
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "At will",
 		spells : ["sending"],
 		selection : ["sending"],
 		firstCol : "atwill"
-	}
+	}]
 }
 MagicItemsList["spellshard"] = {
 	name : "Spellshard",
@@ -29356,12 +29356,12 @@ MagicItemsList["ventilating lungs"] = {
 	recovery : "dawn",
 	additional : "Gust of Wind",
 	fixedDC : 15,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["gust of wind"],
 		selection : ["gust of wind"],
 		firstCol : "oncelr"
-	},
+	}],
 	savetxt : { adv_vs : ["gases", "vapors"] }
 }
 MagicItemsList["wand sheath"] = {
@@ -29642,12 +29642,12 @@ RaceList["pallid elf"] = { // contains contributions by Smashman
 	scores : [0, 2, 0, 0, 1, 0],
 	trait : "Pallid Elf (+2 Dexterity, +1 Wisdom)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nIncisive Sense: I have advantage on Intelligence (Investigation) and Wisdom (Insight) checks.\nBlessing of the Moonweaver: I know the Light cantrip. At 3rd level, I can cast Sleep once per long rest. At 5th level, I can also cast Invisibility on myself once per long rest. Spells cast using this trait require no material components and use Wisdom as spellcasting ability.",
 	spellcastingAbility : 5,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Blessing of the Moonweaver (level 1)",
 		spells : ["light"],
 		selection : ["light"],
 		firstCol : 'atwill'
-	},
+	}],
 	spellChanges : {
 		"light" : {
 			components : "V",
@@ -29662,12 +29662,12 @@ RaceList["pallid elf"] = { // contains contributions by Smashman
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Blessing of the Moonweaver (level 3)",
 				spells : ["sleep"],
 				selection : ["sleep"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"sleep" : {
 					components : "V,S",
@@ -29682,12 +29682,12 @@ RaceList["pallid elf"] = { // contains contributions by Smashman
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Blessing of the Moonweaver (level 5)",
 				spells : ["invisibility"],
 				selection : ["invisibility"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"invisibility" : {
 					range : "Self",
@@ -29728,12 +29728,12 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		"|Halfling Nimbleness: I can move through the space of any creature that is of a size larger than me. "+
 		"|Timberwalk: Disadv. on checks to track me. I require no extra movement for difficult terrain of nonmagical plants."),
 	spellcastingAbility : 5,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Child of the Wood (level 1)",
 		spells : ["druidcraft"],
 		selection : ["druidcraft"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"entangle" : {
 			name : "Child of the Wood (level 3)",
@@ -29741,12 +29741,12 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Child of the Wood (level 3)",
 				spells : ["entangle"],
 				selection : ["entangle"],
 				firstCol : 'oncelr'
-			}
+			}]
 		},
 		"spike growth" : {
 			name : "Child of the Wood (level 5)",
@@ -29754,12 +29754,12 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Child of the Wood (level 5)",
 				spells : ["spike growth"],
 				selection : ["spike growth"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"spike growth" : {
 					components : "V,S",
@@ -31295,12 +31295,12 @@ MagicItemsList["duskcrusher"] = {
 	}],
 	weight : 2,
 	fixedDC : 15,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["sunbeam"],
 		selection : ["sunbeam"],
 		firstCol : 'oncelr'
-	}
+	}]
 };
 MagicItemsList["dust of deliciousness"] = {
 	name : "Dust of Deliciousness",
@@ -31325,12 +31325,12 @@ MagicItemsList["goggles of object reading"] = {
 	additional : "Identify",
 	usages : 1,
 	recovery : "dawn",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["identify"],
 		selection : ["identify"],
 		firstCol : 'oncelr'
-	}
+	}]
 };
 MagicItemsList["hunter's coat"] = {
 	name : "Hunter's Coat",
@@ -31419,12 +31419,12 @@ MagicItemsList["needle of mending"] = {
 		modifiers : [1, 1],
 		selectNow : true
 	}],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "At will",
 		spells : ["mending"],
 		selection : ["mending"],
 		firstCol : 'atwill'
-	},
+	}],
 	spellChanges : {
 		"mending" : {
 			time : "1 a",
@@ -31493,11 +31493,11 @@ MagicItemsList["reincarnation dust"] = {
 	recovery : "Never",
 	description : "Once I can sprinkle the purple dust in this small pouch on a dead humanoid or a piece of a dead humanoid. The dust is absorbed by the remains. If willing, the dead creature returns to life with a new body as if the reincarnate spell had been cast on the remains.",
 	descriptionFull : "When this small pouch of purple dust is sprinkled on a dead humanoid or a piece of a dead humanoid, the dust is absorbed by the remains. If willing, the dead creature returns to life with a new body as if the reincarnate spell had been cast on the remains.",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Use once",
 		spells : ["reincarnate"],
 		selection : ["reincarnate"]
-	}
+	}]
 };
 MagicItemsList["ring of obscuring"] = {
 	name : "Ring of Obscuring",
@@ -31515,12 +31515,12 @@ MagicItemsList["ring of obscuring"] = {
 	}],
 	spellcastingAbility : "class",
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["fog cloud"],
 		selection : ["fog cloud"],
 		firstCol : '1'
-	},
+	}],
 	spellChanges : {
 		"fog cloud" : {
 			range : "Self",
@@ -31791,12 +31791,12 @@ MagicItemsList["danoth's visor"] = {
 			recovery : "dawn"
 		}],
 		spellcastingAbility : "class",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["antimagic field"],
 			selection : ["antimagic field"],
 			firstCol : 'oncelr'
-		},
+		}],
 		savetxt : { immune : ["illusions"] },
 	}
 };
@@ -31913,12 +31913,12 @@ MagicItemsList["hide of the feral guardian"] = {
 		recovery : "dawn"
 	}],
 	spellcastingAbility : "class",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["polymorph"],
 		selection : ["polymorph"],
 		firstCol : "oncelr"
-	},
+	}],
 	choices : ["Dormant", "Awakened", "Exalted"],
 	choicesNotInMenu : true,
 	"dormant" : {
@@ -32076,13 +32076,13 @@ MagicItemsList["infiltrator's key"] = {
 			selectNow : true
 		}],
 		spellcastingAbility : "class",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["alter self", "invisibility", "knock", "pass without trace"],
 			selection : ["alter self", "invisibility", "knock", "pass without trace"],
 			firstCol : 'oncelr',
 			times : 4
-		}
+		}]
 	},
 	"exalted" : {
 		name : "Infiltrator's Key [exalted]",
@@ -32101,13 +32101,13 @@ MagicItemsList["infiltrator's key"] = {
 			selectNow : true
 		}],
 		spellcastingAbility : "class",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["alter self", "invisibility", "knock", "pass without trace", "dimension door", "gaseous form", "mislead"],
 			selection : ["alter self", "invisibility", "knock", "pass without trace", "dimension door", "gaseous form", "mislead"],
 			firstCol : 'oncelr',
 			times : 7
-		},
+		}],
 		extraLimitedFeatures : [{
 			name : "Infiltrator's Key (create opening)",
 			usages : 1,
@@ -32193,12 +32193,12 @@ MagicItemsList["stormgirdle"] = {
 		description : "This wide belt of thick leather branded with the symbol of Kord grants me resistance to lightning and thunder damage and increases my Strength to 25. As an action once per dawn, I can use it to become a Storm Avatar for 1 minute. Once per dawn, I can cast Control Weather. See Notes page for more information.",
 		scoresOverride : [25, 0, 0, 0, 0, 0],
 		spellcastingAbility : "class",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["control weather"],
 			selection : ["control weather"],
 			firstCol : 'oncelr'
-		}
+		}]
 	}
 };
 var EGtW_VerminshroudFullDescription = [
@@ -32241,12 +32241,12 @@ MagicItemsList["verminshroud"] = {
 		name : "Verminshroud [dormant]",
 		description : "This patchy cloak of rat pelts grants me immunity to disease, darkvision out to 60 ft, or extends it by 60 ft, and advantage on Perception checks that rely on smell. Once per dawn, I can use it to cast Polymorph on myself to become a rat or a giant rat, but I retain my Int, Wis, and Cha, as well as the benefits of this cloak.",
 		spellcastingAbility : "class",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["polymorph"],
 			selection : ["polymorph"],
 			firstCol : "oncelr"
-		},
+		}],
 		spellChanges : {
 			"polymorph" : {
 				name : "Polymorph (special)",
@@ -32292,13 +32292,13 @@ MagicItemsList["verminshroud"] = {
 			recovery : "dawn"
 		}],
 		fixedDC : 15,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["polymorph", "insect plague"],
 			selection : ["polymorph", "insect plague"],
 			firstCol : "oncelr",
 			times : 2
-		},
+		}],
 		spellChanges : {
 			"polymorph" : {
 				name : "Polymorph (special)",
@@ -32352,11 +32352,11 @@ MagicItemsList["wreath of the prism"] = {
 		name : "Wreath of the Prism [dormant]",
 		description : "This loop of golden thorns is inset with dozens of gems that represent the five colors of Tiamat. I gain darkvision out to 60 ft, or extend it by 60 ft. When I hit a beast, dragon, or monstrosity of CR 5 or lower with an attack, I can cast dominate monster on that creature (save DC 13). See notes page for more information.",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "CR 5 or lower, DC 13",
 			spells : ["dominate monster"],
 			selection : ["dominate monster"]
-		},
+		}],
 		spellChanges : {
 			"dominate monster" : {
 				name : "Dominate Monster (special)",
@@ -32369,11 +32369,11 @@ MagicItemsList["wreath of the prism"] = {
 		name : "Wreath of the Prism [awakened]",
 		description : "This loop of golden thorns is inset with dozens of gems that represent the five colors of Tiamat. I gain darkvision out to 60 ft, or extend it by 60 ft. When I hit a beast, dragon, or monstrosity of CR 10 or lower with an attack, I can cast dominate monster on that creature (save DC 15). See notes page for more information.",
 		fixedDC : 15,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "CR 10 or lower, DC 15",
 			spells : ["dominate monster"],
 			selection : ["dominate monster"]
-		},
+		}],
 		spellChanges : {
 			"dominate monster" : {
 				name : "Dominate Monster (special)",
@@ -32386,11 +32386,11 @@ MagicItemsList["wreath of the prism"] = {
 		name : "Wreath of the Prism [exalted]",
 		description : "This loop of golden thorns is inset with dozens of gems that represent the five colors of Tiamat. I gain darkvision out to 60 ft, or extend it by 60 ft. When I hit a beast, dragon, or monstrosity of CR 15 or lower with an attack, I can cast dominate monster on that creature (save DC 17). See notes page for more information.",
 		fixedDC : 17,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "CR 15 or lower, DC 17",
 			spells : ["dominate monster"],
 			selection : ["dominate monster"]
-		},
+		}],
 		spellChanges : {
 			"dominate monster" : {
 				name : "Dominate Monster (special)",
@@ -33062,13 +33062,13 @@ MagicItemsList["siren song lyre"] = {
 		usages : 1,
 		recovery : "dawn"
 	}],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["animal friendship", "charm person", "enthrall", "suggestion"],
 		selection : ["animal friendship", "charm person", "enthrall", "suggestion"],
 		firstCol : "oncelr",
 		times : 4
-	}
+	}]
 };
 var MOT_SlingBulletsOfAlthemoneFullDescription = [
 	"The sling bullets come in a pouch, which contains 1d4 + 4 bullets. Roll on the Magic Sling Bullets table for each bullet to determine its magical property.",
@@ -35965,12 +35965,12 @@ var TCoE_Wild_Companion = {
 	additional : levels.map(function (n) {
 		return n < 2 ? "" : Math.floor(n/2) + " hours";
 	}),
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Wild Companion",
 		spells : ["find familiar"],
 		selection : ["find familiar"],
 		firstCol : "Sp"
-	},
+	}],
 	spellChanges : {
 		"find familiar" : {
 			components : "V,S",
@@ -36559,12 +36559,12 @@ AddSubClass("fighter", "psi warrior", {
 				"As a bonus action while concentrating on this spell, I can make one weapon attack",
 				"I can cast Telekinesis once per long rest, or by expending a psionic energy die (PsiD)"
 			]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Telekinetic Master",
 				spells : ["telekinesis"],
 				selection : ["telekinesis"],
 				firstCol : "Sp"
-			},
+			}],
 			spellChanges : {
 				"telekinesis" : {
 					components : "",
@@ -37090,12 +37090,12 @@ AddFightingStyle(["paladin"], "Blessed Warrior", {
 		"I learn two cleric cantrips that count as paladin spells for me and use Cha for spellcasting",
 		"Whenever I gain a paladin level, I can swap one of these for another cleric cantrip"
 	]),
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Blessed Warrior",
 		"class" : "cleric",
 		level : [0, 0],
 		times : 2
-	}
+	}]
 });
 AddFeatureChoice(ClassList.paladin.features["subclassfeature3.0-channel divinity"], true, "Harness Divine Power", {
 	name : "Channel Divinity: Harness Divine Power",
@@ -37302,12 +37302,12 @@ AddFightingStyle(["ranger"], "Druidic Warrior", {
 		"I learn two druid cantrips that count as ranger spells for me and use Wis for spellcasting",
 		"Whenever I gain a ranger level, I can swap one of these for another druid cantrip"
 	]),
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Druidic Warrior",
 		"class" : "druid",
 		level : [0, 0],
 		times : 2
-	}
+	}]
 });
 var TCoE_Ranger_Spellcasting_Focus = {
 	name : "Spellcasting Focus",
@@ -37336,7 +37336,7 @@ var TCoE_Primal_Awareness = {
 			"I know the following spells, without them counting towards the maximum number of spells I can know: Speak with Animals, Beast Sense, Speak with Plants, Locate Creature, and Commune with Nature."
 		]
 	},
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Primal Awareness",
 		spells : ["speak with animals", "beast sense", "speak with plants", "locate creature", "commune with nature"],
 		selection : ["speak with animals", "beast sense", "speak with plants", "locate creature", "commune with nature"],
@@ -37344,7 +37344,7 @@ var TCoE_Primal_Awareness = {
 		times : levels.map(function (n) {
 			return n < 5 ? 1 : n < 9 ? 2 : n < 13 ? 3 : n < 17 ? 4 : 5;
 		})
-	}
+	}]
 };
 CreateClassFeatureVariant("ranger", "primeval awareness", "Primal Awareness", TCoE_Primal_Awareness);
 var TCoE_Ranger_Martial_Versatility = {
@@ -37702,12 +37702,12 @@ var TCoE_Ranger_Subclass_Fey_Wanderer = AddSubClass("ranger", "fey wanderer", {
 			]),
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Fey Reinforcements",
 				spells : ["summon fey"],
 				selection : ["summon fey"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"summon fey" : {
 					components : "V,S",
@@ -37775,12 +37775,12 @@ var TCoE_Ranger_Subclass_Swarmkeeper = AddSubClass("ranger", "swarmkeeper", {
 				"I learn Mage Hand; When cast, its hand takes the form of my swarming nature spirits",
 				"I get bonus spells known, which do not count against the number of spells I can know"
 			]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Swarmkeeper Magic",
 				spells : ["mage hand"],
 				selection : ["mage hand"],
 				firstCol : "atwill"
-			},
+			}],
 			spellcastingExtra : ["faerie fire", "web", "gaseous form", "arcane eye", "insect plague"],
 			spellcastingExtraApplyNonconform : true
 		},
@@ -38469,12 +38469,12 @@ AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome)", {
 		return classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome';
 	},
 	action : [["action", " (erase name)"]],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Far Scribe",
 		spells : ["sending"],
 		selection : ["sending"],
 		firstCol : "atwill"
-	},
+	}],
 	spellChanges : {
 		"sending" : {
 			components : "V,S",
@@ -38577,12 +38577,12 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 	usages : 1,
 	additional : "no spell slot",
 	recovery : "long rest",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Undying Servitude",
 		spells : ["animate dead"],
 		selection : ["animate dead"],
 		firstCol : "oncelr"
-	},
+	}],
 	prereqeval : function(v) { return classes.known.warlock.level >= 5; }
 });
 
@@ -38686,12 +38686,12 @@ AddSubClass("warlock", "the fathomless", {
 			additional : levels.map(function (n) {
 				return n < 10 ? "" : n + " temp HP; 1\xD7 per long rest no SS";
 			}),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Grasping Tentacles",
 				spells : ["evard's black tentacles"],
 				selection : ["evard's black tentacles"],
 				firstCol : "oncelr"
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Evard's Black Tentacles (no spell slot)",
 				usages : 1,
@@ -39061,12 +39061,12 @@ AddSubClass("wizard","order of scribes", {
 			action : [["action", " (cast scroll)"]],
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Master Scrivener scoll",
 				"class" : "wizard",
 				level : [1, 2],
 				firstCol : "MS"
-			},
+			}],
 			calcChanges : {
 				spellAdd : [
 					function (spellKey, spellObj, spName, isDuplicate) {
@@ -39430,12 +39430,12 @@ FeatsList["telekinetic"] = {
 	descriptionFull : "You learn to move things with your mind, granting you the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20.\n \u2022 You learn the mage hand cantrip. You can cast it without verbal or somatic components, and you can make the spectral hand invisible. If you already know this spell, its range increases by 30 feet when you cast it. Its spellcasting ability is the ability increased by this feat.\n \u2022 As a bonus action, you can try to telekinetically shove one creature you can see within 30 feet of you. When you do so, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + the ability modifier of the score increased by this feat) or be moved 5 feet toward you or away from you. A creature can willingly fail this save.",
 	description : "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str save vs. this feat's spell save DC or be moved 5 ft from or towards me. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Int, Wis, or Cha]",
 	action : [["bonus action", " Shove"]],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Mage Hand",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		firstCol : "atwill"
-	},
+	}],
 	spellcastingAbility : 4,
 	calcChanges : {
 		spellAdd : [
@@ -39476,12 +39476,12 @@ FeatsList["telepathic"] = {
 	source : [["T", 81]],
 	descriptionFull : "You awaken the ability to mentally connect with others, granting you the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20.\n \u2022 You can speak telepathically to any creature you can see within 60 feet of you. Your telepathic utterances are in a language you know, and the creature understands you only if it knows that language. Your communication doesn't give the creature the ability to respond to you telepathically.\n \u2022 You can cast the detect thoughts spell, requiring no spell slot or components, and you must finish a long rest before you can cast it this way again. Your spellcasting ability for the spell is the ability increased by this feat. If you have spell slots of 2nd level or higher, you can cast this spell with them.",
 	description : "I can telepathically speak to a creature I can see within 60 ft in a language I know, but it can't respond telepathically. I can cast Detect Thoughts once per long rest at its lowest level, requiring no spell slot or components, and can cast it using a spell slot as normal. My spellcasting ability is the ability I increase with this feat. [+1 Int, Wis, or Cha]",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Detect Thoughts",
 		spells : ["detect thoughts"],
 		selection : ["detect thoughts"],
 		firstCol : "oncelr"
-	},
+	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
 	spellChanges : {
@@ -40037,12 +40037,12 @@ MagicItemsList["masquerade tattoo"] = {
 	additional : "Disguise Self",
 	action : [["bonus action", " (change)"]],
 	fixedDC : 13,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Disguise Self",
 		spells : ["disguise self"],
 		selection : ["disguise self"],
 		firstCol : "oncelr"
-	}
+	}]
 }
 MagicItemsList["shadowfell brand tattoo"] = { // contains contributions by lizrdgizrd
 	name : "Shadowfell Brand Tattoo",
@@ -40056,7 +40056,7 @@ MagicItemsList["shadowfell brand tattoo"] = { // contains contributions by lizrd
 	"\n   " + toUni("Shadowy Defense") + ". When you take damage, you can use your reaction to become insubstantial for a moment, halving the damage you take. Then the reaction can't be used again until the next sunset." + magicTattoosTxt.unicode,
 	usages : 1,
 	recovery : "sunset",
-	action : ["reaction", " (halve damage)"],
+	action : [["reaction", " (halve damage)"]],
 	advantages : ["Stealth", true],
 	vision : [["Darkvision", 60]]
 }
@@ -40102,13 +40102,13 @@ MagicItemsList["spellwrought tattoo"] = {
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its cantrip, requiring no material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC : 13,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [0,0],
 			psionic : false,
 			times : 20,
 			firstCol : "checkbox",
 			magicItemComponents : false
-		}
+		}]
 	},
 	"1st-level (common)" : {
 		name : "Spellwrought Tattoo (1st-level)",
@@ -40116,13 +40116,13 @@ MagicItemsList["spellwrought tattoo"] = {
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 1st-level spell, requiring no material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC : 13,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [1,1],
 			psionic : false,
 			times : 20,
 			firstCol : "checkbox",
 			magicItemComponents : false
-		}
+		}]
 	},
 	"2nd-level (uncommon)" : {
 		name : "Spellwrought Tattoo (2nd-level)",
@@ -40130,13 +40130,13 @@ MagicItemsList["spellwrought tattoo"] = {
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 2nd-level spell, requiring no material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC : 13,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [2,2],
 			psionic : false,
 			times : 20,
 			firstCol : "checkbox",
 			magicItemComponents : false
-		}
+		}]
 	},
 	"3rd-level (uncommon)" : {
 		name : "Spellwrought Tattoo (3rd-level)",
@@ -40144,13 +40144,13 @@ MagicItemsList["spellwrought tattoo"] = {
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 3rd-level spell, requiring no material components, with DC 15, +7 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC : 15,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [3,3],
 			psionic : false,
 			times : 20,
 			firstCol : "checkbox",
 			magicItemComponents : false
-		}
+		}]
 	},
 	"4th-level (rare)" : {
 		name : "Spellwrought Tattoo (4th-level)",
@@ -40158,13 +40158,13 @@ MagicItemsList["spellwrought tattoo"] = {
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 4th-level spell, requiring no material components, with DC 15, +7 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC : 15,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [4,4],
 			psionic : false,
 			times : 20,
 			firstCol : "checkbox",
 			magicItemComponents : false
-		}
+		}]
 	},
 	"5th-level (rare)" : {
 		name : "Spellwrought Tattoo (5th-level)",
@@ -40172,13 +40172,13 @@ MagicItemsList["spellwrought tattoo"] = {
 		description : "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 5th-level spell, requiring no material components, with DC 17, +9 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC : 17,
 		spellFirstColTitle : "Us", // used
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			level : [5,5],
 			psionic : false,
 			times : 20,
 			firstCol : "checkbox",
 			magicItemComponents : false
-		}
+		}]
 	}
 }
 // Bonus to spell attack rolls and saving throw DCs
@@ -40635,12 +40635,12 @@ MagicItemsList["astromancy archive"] = {
 	additional : "regains 1d3",
 	spellcastingBonusElsewhere : {
 		addTo : "wizard",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Astromancy Archive",
 			spells : ["augury", "divination", "find the path"], // not wizard spells!
 			selection : ["augury", "divination", "find the path"],
 			times : 3
-		},
+		}],
 		addToKnown : ["foresight", "locate creature", "locate object"]
 	},
 	action : [
@@ -40669,11 +40669,11 @@ MagicItemsList["atlas of endless horizons"] = {
 	additional : "regains 1d3",
 	spellcastingBonusElsewhere : {
 		addTo : "wizard",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Atlas of Endless Horizons",
 			spells : ["word of recall"], // not a wizard spell!
 			selection : ["word of recall"]
-		},
+		}],
 		addToKnown : ["arcane gate", "dimension door", "gate", "misty step", "plane shift", "teleportation circle"]
 	},
 	action : [["reaction", "Teleport 10ft (1 charge)"]]
@@ -40777,11 +40777,11 @@ MagicItemsList["heart weaver's primer"] = {
 	additional : "regains 1d3",
 	spellcastingBonusElsewhere : {
 		addTo : "wizard",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Heart Weaver's Primer",
 			spells : ["enthrall"], // not a wizard spell!
 			selection : ["enthrall"]
-		},
+		}],
 		addToKnown : ["antipathy/sympathy", "charm person", "dominate person", "hypnotic pattern", "modify memory", "suggestion"]
 	}
 }
@@ -40806,11 +40806,11 @@ MagicItemsList["libram of souls and flesh"] = {
 	additional : "regains 1d3",
 	spellcastingBonusElsewhere : {
 		addTo : "wizard",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Libram of Souls and Flesh",
 			spells : ["speak with dead"], // not a wizard spell!
 			selection : ["speak with dead"]
-		},
+		}],
 		addToKnown : ["animate dead", "circle of death", "false life", "finger of death", "summon undead", "vampiric touch"]
 	},
 	action : [["action", "Semblance of Undeath"]]
@@ -41046,12 +41046,12 @@ MagicItemsList["reveler's concertina"] = {
 	recovery : "dawn",
 	additional : "Irresistible Dance",
 	spellcastingAbility : "class", // https://www.sageadvice.eu/2015/11/27/hat-of-disguise-dc/
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Otto's Irresistible Dance",
 		spells : ["otto's irresistible dance"],
 		selection : ["otto's irresistible dance"],
 		firstCol : "oncelr"
-	},
+	}],
 	calcChanges : {
 		spellCalc : [
 			function (type, spellcasters, ability) {
@@ -41120,12 +41120,12 @@ MagicItemsList["bell branch"] = {
 	action : [["bonus action", " (detect)"]],
 	spellFirstColTitle : "Ch",
 	spellcastingAbility : "class",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Protection from Evil/Good",
 		spells : ["protection from evil and good"],
 		selection : ["protection from evil and good"],
 		firstCol : 1
-	}
+	}]
 }
 MagicItemsList["cauldron of rebirth"] = {
 	name : "Cauldron of Rebirth",
@@ -41253,12 +41253,12 @@ MagicItemsList["radiance (wand)"] = {
 		usages : 1,
 		recovery : "dawn"
 	}],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn, self only",
 		spells : ["enhance ability"],
 		selection : ["enhance ability"],
 		firstCol : "oncelr"
-	},
+	}],
 	spellChanges : {
 		"enhance ability" : {
 			description : "I gain adv. on checks with 1 ability score; choosing Str, Dex, or Con gives secondary benefits",
@@ -41391,12 +41391,12 @@ MagicItemsList["watchful helm"] = {
 		recovery : "dawn"
 	}],
 	vision : [["Adv. on Perception checks that rely on sight", 0]],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["see invisibility"],
 		selection : ["see invisibility"],
 		firstCol : "oncelr"
-	},
+	}],
 	spellChanges : {
 		"see invisibility" : {
 			time : "1 bns",
@@ -41569,14 +41569,14 @@ RaceList["hexblood"] = {
 		"hex magic" : {
 			name : "Hex Magic",
 			minlevel : 1,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Hex Magic",
 				spells : ["disguise self", "hex"],
 				selection : ["disguise self", "hex"],
 				firstCol : 'oncelr',
 				times : 2,
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Disguise Self",
 				usages : 1,
@@ -41664,12 +41664,12 @@ AddSubClass("bard", "college of spirits",{
 			description : desc([
 				"I learn the Guidance cantrip and can cast it with a range of 60 ft"
 			]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Guiding Whispers",
 				spells : ["guidance"],
 				selection : ["guidance"],
 				firstCol : "atwill"
-			},
+			}],
 			spellChanges : {
 				"guidance" : {
 					range : "60 ft",
@@ -41793,11 +41793,11 @@ AddSubClass("bard", "college of spirits",{
 			]),
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Spirit Session",
 				school : ["Div", "Necro"],
 				firstCol : "SS"
-			}
+			}]
 		},
 		"subclassfeature14" : {
 			name : "Mystical Connection",
@@ -42209,12 +42209,12 @@ MagicItemsList["living shadow"] = {
 		recovery : "short rest"
 	}],
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Grasping Shadow",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		firstCol : "atwill"
-	},
+	}],
 	spellChanges : {
 		"mage hand" : {
 			components : "",
@@ -42379,23 +42379,23 @@ RaceList["fairy"] = {
 	},
 	scoresGeneric : true,
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Fairy Magic",
 		spells : ["druidcraft"],
 		selection : ["druidcraft"],
 		firstCol : "atwill"
-	},
+	}],
 	features : {
 		"fairy magic (level 3)" : {
 			name : "Fairy Magic (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Fairy Magic (level 3)",
 				spells : ["faerie fire"],
 				selection : ["faerie fire"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Faerie Fire",
 				usages : 1,
@@ -42406,13 +42406,13 @@ RaceList["fairy"] = {
 		"fairy magic (level 5)" : {
 			name : "Fairy Magic (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Fairy Magic (level 5)",
 				spells : ["enlarge/reduce"],
 				selection : ["enlarge/reduce"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Enlarge/Reduce",
 				usages : 1,
@@ -43671,12 +43671,12 @@ MagicItemsList["amethyst lodestone"] = {
 	additional : "regains 1d6",
 	spellFirstColTitle : "Ch",
 	fixedDC : 18,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "3 charges",
 		spells : ["reverse gravity"],
 		selection : ["reverse gravity"],
 		firstCol : 3
-	},
+	}],
 	advantages : [["Strength", true]],
 	savetxt : { text : ["Adv. on Str saves"] },
 	action : [["bonus action", " (Flight)"], ["action", " (Grav. Thrust)"]]
@@ -43899,12 +43899,12 @@ MagicItemsList["emerald pen"] = {
 	description : "This pen is tipped with an emerald nib and requires no ink to write. While holding this pen, I can cast Illusory Script at will, requiring no material components.",
 	descriptionFull : "This pen is tipped with an emerald nib and requires no ink to write. While holding this pen, you can cast illusory script at will, requiring no material components.",
 	spellcastingAbility : "class",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "At will",
 		spells : ["illusory script"],
 		selection : ["illusory script"],
 		firstCol : "atwill"
-	},
+	}],
 	spellChanges : {
 		"illusory script" : {
 			ritual : false,
@@ -44080,12 +44080,12 @@ MagicItemsList["topaz annihilator"] = {
 	recovery : "dawn",
 	additional : "Disintegrate",
 	fixedDC : 18,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["disintegrate"],
 		selection : ["disintegrate"],
 		firstCol : "oncelr"
-	},
+	}],
 }
 var FToD_HoardItems = {
 	"dragon's wrath weapon" : [
@@ -44364,13 +44364,13 @@ var FToD_HoardItems = {
 			usages : 1,
 			recovery : "dawn"
 		}],
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["hold monster", "rime's binding ice"],
 			selection : ["hold monster", "rime's binding ice"],
 			firstCol : "oncelr",
 			times : 2
-		}
+		}]
 	},
 	dtf_gem : {
 		extraLimitedFeatures : [{
@@ -44382,13 +44382,13 @@ var FToD_HoardItems = {
 			usages : 1,
 			recovery : "dawn"
 		}],
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["rary's telepathic bond", "raulothim's psychic lance"],
 			selection : ["rary's telepathic bond", "raulothim's psychic lance"],
 			firstCol : "oncelr",
 			times : 2
-		}
+		}]
 	},
 	dtf_metallic : {
 		extraLimitedFeatures : [{
@@ -44400,13 +44400,13 @@ var FToD_HoardItems = {
 			usages : 1,
 			recovery : "dawn"
 		}],
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["fizban's platinum shield", "legend lore"],
 			selection : ["fizban's platinum shield", "legend lore"],
 			firstCol : "oncelr",
 			times : 2
-		}
+		}]
 	},
 	dtf_ascendant : {
 		extraLimitedFeatures : [{
@@ -45105,12 +45105,12 @@ FeatsList["strixhaven mascot"] = {
 		usages : 1,
 		altResource : "SS 2+"
 	}],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Strixhaven Mascot",
 		spells : ["find familiar"],
 		selection : ["find familiar"],
 		firstCol : "(R)"
-	},
+	}],
 	choices : ["Lorehold", "Prismari", "Quandrix", "Silverquill", "Witherbloom"],
 	selfChoosing : function () {
 		var iStrixInit = CurrentFeats.known.indexOf("strixhaven initiate");
@@ -45750,13 +45750,13 @@ RaceList["multiverse aarakocra"] = {
 		"wind caller" : {
 			name : "Wind Caller",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Wind Caller",
 				spells : ["gust of wind"],
 				selection : ["gust of wind"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Gust of Wind",
 				usages : 1,
@@ -45804,12 +45804,12 @@ RaceList["multiverse aasimar"] = {
 	trait : "Aasimar" + MotM_Aasimar_trait +
 		"\n \u2022 Celestial Revelation: At 3rd level, I choose one option from Necrotic Shroud, Radiant Consumption, or Radiant Soul. As a bonus action once per long rest, I can transform and gain its benefits. This transformation lasts for 1 minute or until I end it as a bonus action.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Light Bearer",
 		spells : ["light"],
 		selection : ["light"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"healing hands" : MotM_Aasimar_HealingHands
 	}
@@ -45971,13 +45971,13 @@ RaceList["multiverse deep gnome"] = {
 		"gift of the svirfneblin (level 3)" : {
 			name : "Gift of the Svirfneblin (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Gift of the Svirfneblin",
 				spells : ["disguise self"],
 				selection : ["disguise self"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Disguise Self",
 				usages : 1,
@@ -45988,13 +45988,13 @@ RaceList["multiverse deep gnome"] = {
 		"gift of the svirfneblin (level 5)" : {
 			name : "Gift of the Svirfneblin (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Gift of the Svirfneblin",
 				spells : ["nondetection"],
 				selection : ["nondetection"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			spellChanges : {
 				"nondetection" : {
 					components : "V,S,M*",
@@ -46034,13 +46034,13 @@ RaceList["multiverse duergar"] = {
 		"duergar magic (level 3)" : {
 			name : "Duergar Magic (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Duergar Magic",
 				spells : ["enlarge/reduce"],
 				selection : ["enlarge/reduce"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			spellChanges : {
 				"enlarge/reduce" : {
 					range : "Self/" + SpellsList["enlarge/reduce"].range,
@@ -46059,13 +46059,13 @@ RaceList["multiverse duergar"] = {
 		"duergar magic (level 5)" : {
 			name : "Duergar Magic (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Duergar Magic",
 				spells : ["invisibility"],
 				selection : ["invisibility"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			spellChanges : {
 				"invisibility" : {
 					range : "Self/" + SpellsList["invisibility"].range,
@@ -46161,14 +46161,14 @@ RaceList["multiverse firbolg"] = {
 	features : {
 		"firbolg magic " : {
 			name : "Firbolg Magic",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Firbolg Magic",
 				spells : ["detect magic", "disguise self"],
 				selection : ["detect magic", "disguise self"],
 				firstCol : 'oncelr',
 				times : 2,
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Detect Magic",
 				usages : 1,
@@ -46217,23 +46217,23 @@ RaceList["multiverse air genasi"] = {
 	"\n \u2022 Lightning Resistance: I have resistance to lightning damage."+
 	"\n \u2022 Mingle with the Wind: I know the Shocking Grasp cantrip. At 3rd level, I learn Feather Fall. At 5th level, I learn Levitate. I can cast each spell without using a spell slot or material components once per long rest, and by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Mingle with the Wind",
 		spells : ["shocking grasp"],
 		selection : ["shocking grasp"],
 		firstCol : "atwill"
-	},
+	}],
 	features : {
 		"mingle with the wind (level 3)" : {
 			name : "Mingle with the Wind (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Mingle with the Wind",
 				spells : ["feather fall"],
 				selection : ["feather fall"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Feather Fall",
 				usages : 1,
@@ -46251,13 +46251,13 @@ RaceList["multiverse air genasi"] = {
 		"mingle with the wind (level 5)" : {
 			name : "Mingle with the Wind (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Mingle with the Wind",
 				spells : ["levitate"],
 				selection : ["levitate"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Levitate",
 				usages : 1,
@@ -46295,12 +46295,12 @@ RaceList["multiverse earth genasi"] = {
 		"Merge with Stone (level 1)" : {
 			name : "Merge with Stone",
 			minlevel : 1,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Merge with Stone",
 				spells : ["blade ward"],
 				selection : ["blade ward"],
 				firstCol : "atwill"
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Blade Ward (as bonus action)",
 				usages : "Proficiency bonus per ",
@@ -46318,13 +46318,13 @@ RaceList["multiverse earth genasi"] = {
 		"merge with stone (level 5)" : {
 			name : "Merge with Stone (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Merge with Stone",
 				spells : ["pass without trace"],
 				selection : ["pass without trace"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Pass Without Trace",
 				usages : 1,
@@ -46359,23 +46359,23 @@ RaceList["multiverse fire genasi"] = {
 	"\n \u2022 Fire Resistance: I have resistance to fire damage."+
 	"\n \u2022 Reach to the Blaze: I know the Produce Flame cantrip. At 3rd level, I learn Burning Hands. At 5th level, I learn Flame Blade. I can cast each spell without using a spell slot or material components once per long rest, or by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Reach to the Blaze",
 		spells : ["produce flame"],
 		selection : ["produce flame"],
 		firstCol : "atwill"
-	},
+	}],
 	features : {
 		"reach to the blaze (level 3)" : {
 			name : "Reach to the Blaze (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Reach to the Blaze",
 				spells : ["burning hands"],
 				selection : ["burning hands"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Burning Hands",
 				usages : 1,
@@ -46386,13 +46386,13 @@ RaceList["multiverse fire genasi"] = {
 		"reach to the blaze (level 5)" : {
 			name : "Reach to the Blaze (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Reach to the Blaze",
 				spells : ["flame blade"],
 				selection : ["flame blade"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Flame Blade",
 				usages : 1,
@@ -46429,23 +46429,23 @@ RaceList["multiverse water genasi"] = {
 	"\n \u2022 Acid Resistance: I have resistance to acid damage."+
 	"\n \u2022 Call to the Wave: I know the Acid Splash cantrip. At 3rd level, I can cast Create or Destroy Water without using a spell slot once per long rest. At 5th level, I can cast Water Walk without using a spell slot or material components once per long rest. I can also cast each spell using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these" + (typePF ? " (one-time choice)." : "."),
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Call to the Wave",
 		spells : ["acid splash"],
 		selection : ["acid splash"],
 		firstCol : "atwill"
-	},
+	}],
 	features : {
 		"call to the wave (level 3)" : {
 			name : "Call to the Wave (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Call to the Wave",
 				spells : ["create or destroy water"],
 				selection : ["create or destroy water"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Create or Destroy Water",
 				usages : 1,
@@ -46456,13 +46456,13 @@ RaceList["multiverse water genasi"] = {
 		"call to the wave (level 5)" : {
 			name : "Call to the Wave (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Call to the Wave",
 				spells : ["water walk"],
 				selection : ["water walk"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Water Walk",
 				usages : 1,
@@ -46498,12 +46498,12 @@ RaceList["multiverse githyanki"] = {
 		"\n \u2022 Astral Knowledge: When I finish a long rest, I gain proficiency with 1 skill and with 1 weapon or tool from the PHB until the end of my next long rest."+
 		"\n \u2022 Githyanki Psionics: I know the Mage Hand cantrip, but require no components to cast it and the hand is invisible. At 3rd level, I learn Jump. At 5th level, I learn Misty Step. I can cast each without using components or a spell slot once per long rest, as well as by using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these (one-time choice).",
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Githyanki Psionics (1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		firstCol : "atwill"
-	},
+	}],
 	spellChanges : {
 		"mage hand" : {
 			components : "",
@@ -46515,13 +46515,13 @@ RaceList["multiverse githyanki"] = {
 		"githyanki psionics (level 3)" : {
 			name : "Githyanki Psionics (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Githyanki Psionics (3)",
 				spells : ["jump"],
 				selection : ["jump"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Jump",
 				usages : 1,
@@ -46539,13 +46539,13 @@ RaceList["multiverse githyanki"] = {
 		"githyanki psionics (level 5)" : {
 			name : "Githyanki Psionics (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Githyanki Psionics (5)",
 				spells : ["misty step"],
 				selection : ["misty step"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Misty Step",
 				usages : 1,
@@ -46580,12 +46580,12 @@ RaceList["multiverse githzerai"] = {
 		"\n \u2022 Githzerai Psionics: I know the Mage Hand cantrip, but require no components to cast it and the hand is invisible. At 3rd level, I learn Shield. At 5th level, I learn Detect Thoughts. I can cast each without using components or a spell slot once per long rest, or by using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these (one-time choice)."+
 		"\n \u2022 Mental Discipline: I have advantage on saving throws to avoid or end the charmed and frightened conditions on myself.",
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Githzerai Psionics (1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		firstCol : "atwill"
-	},
+	}],
 	spellChanges : {
 		"mage hand" : {
 			components : "",
@@ -46597,13 +46597,13 @@ RaceList["multiverse githzerai"] = {
 		"githzerai psionics (level 3)" : {
 			name : "Githzerai Psionics (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Githzerai Psionics (3)",
 				spells : ["shield"],
 				selection : ["shield"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Shield",
 				usages : 1,
@@ -46620,13 +46620,13 @@ RaceList["multiverse githzerai"] = {
 		"githzerai psionics (level 5)" : {
 			name : "Githzerai Psionics (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Githzerai Psionics (5)",
 				spells : ["detect thoughts"],
 				selection : ["detect thoughts"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Detect Thoughts",
 				usages : 1,
@@ -46830,13 +46830,13 @@ AddRacialVariant("multiverse kobold", "draconic sorcery", {
 	name : "Draconic Sorcery Multiverse Kobold",
 	source : [["MotM", 25]],
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Kobold Legacy",
 		"class" : "sorcerer",
 		level : [0, 0],
 		firstCol : 'atwill',
 		allowUpCasting : true
-	},
+	}],
 	trait : "Kobold"+
 		'\n \u2022 Kobold Legacy (Draconic Sorcery): I know one cantrip from the sorcerer spell list. Intelligence, Wisdom, or Charisma is my spellcasting ability for it (one-time choice).'+
 		MotM_Kobold_Draconic_Cry,
@@ -46878,7 +46878,7 @@ RaceList["multiverse lizardfolk"] = {
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "long rest",
 			additional : ProficiencyBonusList.map(function(n) { return n + " temp HP"; }),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		}
 	},
 	trait : "Lizardfolk"+
@@ -47230,13 +47230,13 @@ RaceList["multiverse triton"] = {
 		"control air and water (level 1)" : {
 			name : "Control Air and Water (level 1)",
 			minlevel : 1,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Control Air and Water",
 				spells : ["fog cloud"],
 				selection : ["fog cloud"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Fog Cloud",
 				usages : 1,
@@ -47247,13 +47247,13 @@ RaceList["multiverse triton"] = {
 		"control air and water (level 3)" : {
 			name : "Control Air and Water (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Control Air and Water",
 				spells : ["gust of wind"],
 				selection : ["gust of wind"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Gust of Wind",
 				usages : 1,
@@ -47264,13 +47264,13 @@ RaceList["multiverse triton"] = {
 		"control air and water (level 5)" : {
 			name : "Control Air and Water (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Control Air and Water",
 				spells : ["water walk"],
 				selection : ["water walk"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Water Walk",
 				usages : 1,
@@ -47300,13 +47300,13 @@ RaceList["multiverse yuan-ti"] = {
 		"\n \u2022 Serpentine Spellcasting: I know the Poison Spray cantrip and I can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest, and by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these spells (one-time choice)."+
 		"\n \u2022 Magic and Poison Resistance: I have advantage on saving throws against spells and on saving throws to avoid or end being poisoned. I also have resistance to poison damage.",
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Serpentine Spellcasting (level 1)",
 		spells : ["poison spray", "animal friendship"],
 		selection : ["poison spray", "animal friendship"],
 		firstCol : 'atwill',
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"animal friendship" : {
 			description : "One snake with Intelligence 3 or less save or charmed for the duration",
@@ -47317,13 +47317,13 @@ RaceList["multiverse yuan-ti"] = {
 		"serpentine spellcasting (level 3)" : {
 			name : "Serpentine Spellcasting (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Serpentine Spellcasting (level 3)",
 				spells : ["suggestion"],
 				selection : ["suggestion"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Suggestion",
 				usages : 1,
@@ -47405,12 +47405,12 @@ MagicItemsList["earring of message"] = {
 	additional : "regains 1d4+1",
 	spellcastingAbility : "class",
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["message"],
 		selection : ["message"],
 		firstCol : '1'
-	}
+	}]
 };
 MagicItemsList["medal of muscle"] = {
 	name : "Medal of Muscle",
@@ -47647,12 +47647,12 @@ MagicItemsList["jewel of three prayers"] = {
 	choicesNotInMenu : true,
 	spellcastingAbility : "class",
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["invisibility"],
 		selection : ["invisibility"],
 		firstCol : "1"
-	},
+	}],
 	action : [["action", " (shed light)"]],
 	"dormant" : {
 		name : "Jewel of Three Prayers [dormant]",
@@ -47802,11 +47802,11 @@ RaceList["astral elf"] = {
 	skillstxt : "Perception and choose any one skill which lasts until the end of my next Astral Trance",
 	toolProfs : [["Astral Trance: tool or weapon", 1]],
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Astral Fire",
 		spells : ["dancing lights", "light", "sacred flame"],
 		firstCol : "atwill"
-	},
+	}],
 	features : {
 		"starlight step" : {
 			name : "Starlight Step",
@@ -48462,13 +48462,13 @@ FeatsList["adept of the black robes"] = {
 		var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery");
 		return v.characterLevel >= 4 && iHghSrcyInit !== -1 && CurrentFeats.choices[iHghSrcyInit] === 'nuitari';
 	},
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "2nd-level Evoc/Necro spell",
 		"class" : "any",
 		school : ["Evoc", "Necro"],
 		level : [2, 2],
 		firstCol : "oncelr"
-	},
+	}],
 	spellcastingAbility : 'initiate of high sorcery_-_nuitari',
 	allowUpCasting : true
 };
@@ -48487,13 +48487,13 @@ FeatsList["adept of the red robes"] = {
 	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "2nd-level Illus/Trans spell",
 		"class" : "any",
 		school : ["Illus", "Trans"],
 		level : [2, 2],
 		firstCol : "oncelr"
-	},
+	}],
 	spellcastingAbility : 'initiate of high sorcery_-_lunitari',
 	allowUpCasting : true
 };
@@ -48510,13 +48510,13 @@ FeatsList["adept of the white robes"] = {
 		return v.characterLevel >= 4 && iHghSrcyInit !== -1 && CurrentFeats.choices[iHghSrcyInit] === 'solinari';
 	},
 	action : [["reaction", ""]],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "2nd-level Abjur/Div spell",
 		"class" : "any",
 		school : ["Abjur", "Div"],
 		level : [2, 2],
 		firstCol : "oncelr"
-	},
+	}],
 	spellcastingAbility : 'initiate of high sorcery_-_solinari',
 	allowUpCasting : true
 };
@@ -48775,11 +48775,11 @@ AddSubClass("sorcerer", "lunar sorcery", {
 			source : [["D:SotDQ", 0]],
 			minlevel : 1,
 			description : desc("I know the Sacred Flame cantrip and can use it on 2 creatures within 5 ft of each other"),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Moon Fire",
 				spells : ["sacred flame"],
 				selection : ["sacred flame"]
-			},
+			}],
 			weaponsAdd : { select : ["Sacred Flame"] },
 			spellChanges : {
 				"sacred flame" : {
@@ -49017,12 +49017,12 @@ MagicItemsList["constantori's portrait"] = {
 	usages : 3,
 	recovery : "dawn",
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["magic missile"],
 		selection : ["magic missile"],
 		firstCol : 1
-	}
+	}]
 };
 
 MagicItemsList["shard of xeluan"] = {
@@ -51230,12 +51230,12 @@ FeatsList["scion of the outer planes"] = {
 		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. My connection to a chaotic outer plane gives me resistance to poison damage and I know the Minor Illusion cantrip, which requires no material components. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility : [4,5,6],
 		allowUpCasting : true,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Chaotic Outer Plane",
 			spells : ["minor illusion"],
 			selection : ["minor illusion"],
 			firstCol : "atwill"
-		},
+		}],
 		dmgres : ["Poison"],
 		spellChanges : {
 			"minor illusion" : {
@@ -51250,12 +51250,12 @@ FeatsList["scion of the outer planes"] = {
 		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from an evil outer plane. This connection gives me resistance to necrotic damage and I know the Chill Touch cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility : [4,5,6],
 		allowUpCasting : true,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Evil Outer Plane",
 			spells : ["chill touch"],
 			selection : ["chill touch"],
 			firstCol : "atwill"
-		},
+		}],
 		dmgres : ["Necrotic"]
 	},
 	'good outer plane (radiant, sacred flame)' : {
@@ -51263,12 +51263,12 @@ FeatsList["scion of the outer planes"] = {
 		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from an good outer plane. This connection gives me resistance to radiant damage and I know the Sacred Flame cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility : [4,5,6],
 		allowUpCasting : true,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Good Outer Plane",
 			spells : ["sacred flame"],
 			selection : ["sacred flame"],
 			firstCol : "atwill"
-		},
+		}],
 		dmgres : ["Radiant"]
 	},
 	'lawful outer plane (force, guidance)' : {
@@ -51276,12 +51276,12 @@ FeatsList["scion of the outer planes"] = {
 		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from an lawful outer plane. This connection gives me resistance to force damage and I know the Guidance cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility : [4,5,6],
 		allowUpCasting : true,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Lawful Outer Plane",
 			spells : ["guidance"],
 			selection : ["guidance"],
 			firstCol : "atwill"
-		},
+		}],
 		dmgres : ["Force"]
 	},
 	'the outlands (psychic, mage hand)' : {
@@ -51289,12 +51289,12 @@ FeatsList["scion of the outer planes"] = {
 		description : "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from a plane of the outlands. This gives me resistance to psychic damage and I know the Mage Hand cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility : [4,5,6],
 		allowUpCasting : true,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "The Outlands",
 			spells : ["mage hand"],
 			selection : ["mage hand"],
 			firstCol : "atwill"
-		},
+		}],
 		dmgres : ["Psychic"]
 	}
 };
@@ -51384,13 +51384,13 @@ FeatsList["outlands envoy"] = {
 	},
 	scorestxt : "+1 to one ability score of your choice",
 	spellcastingAbility : "scion of the outer planes",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Crossroads Emissary",
 		spells : ["misty step", "tongues"],
 		selection : ["misty step", "tongues"],
 		firstCol : "oncelr",
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"tongues" : {
 			components : SpellsList.tongues.components.replace("M", "M*"),
@@ -54798,7 +54798,7 @@ SourceList["ALPGs9"] = {
 					minlevel : 1,
 					recovery : "long rest",
 					additional : levels.map(function (n) { return n + " HP"; }),
-					action : ["action", ""]
+					action : [["action", ""]]
 				}
 			},
 			abilitySave : "",

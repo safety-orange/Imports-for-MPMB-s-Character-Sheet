@@ -29,7 +29,7 @@ AddSubClass("cleric", "forge domain-ua", {
 			name : "Blessing of the Forge",
 			source : [["UA:CDD", 1]],
 			minlevel : 1,
-			action : ["action", ""],
+			action : [["action", ""]],
 			usages : 1,
 			recovery : "long rest",
 			description : "\n   " + "At the end of a long rest, I can imbue magic into a nonmagical weapon or armor" + "\n   " + "It becomes magical: +1 AC if armor, or +1 to attack and damage rolls if a weapon" + "\n   " + "This lasts until the end of my next long rest"
@@ -100,7 +100,7 @@ AddSubClass("cleric", "grave domain-ua", {
 			name : "Circle of Mortality",
 			source : [["UA:CDD", 2]],
 			minlevel : 1,
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			description : "\n   " + "Spells I cast to heal a living creature at 0 HP have their dice count as their max result" + "\n   " + "As a bonus action, I can cast the Spare the Dying cantrip, if I know it",
 			spellChanges : {
 				"spare the dying" : {
@@ -122,7 +122,7 @@ AddSubClass("cleric", "grave domain-ua", {
 			name : "Channel Divinity: Path to the Grave",
 			source : [["UA:CDD", 2]],
 			minlevel : 2,
-			action : ["action", ""],
+			action : [["action", ""]],
 			description : "\n   " + "As an action, I can touch a creature to make it take extra damage from one attack" + "\n   " + "It is vulnerable to all the damage from the next spell or attack from me or an ally" + "\n   " + "This only applies to the first time that source inflicts damage, and then ends" + "\n   " + "If the creature has resistance or is immune to the damage, it instead loses it"
 		},
 		"subclassfeature6" : {
@@ -131,7 +131,7 @@ AddSubClass("cleric", "grave domain-ua", {
 			minlevel : 6,
 			usages : 1,
 			recovery : "short rest",
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 			description : "\n   " + "As a reaction, I turn a critical hit to me or an ally I see within 30 ft to a normal hit"
 		},
 		"subclassfeature8" : {
@@ -179,14 +179,14 @@ AddSubClass("cleric", "protection domain-ua", { // Still valid 2021-09-21
 			name : "Shield of the Faithful",
 			source : [["UA:CDD", 3]],
 			minlevel : 1,
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 			description : "\n   " + "As a reaction, when someone within 5 ft of me is attacked, I impose disadv. on the roll" + "\n   " + "To do this, I must be able to see both the attacker and the target"
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Radiant Defense",
 			source : [["UA:CDD", 3]],
 			minlevel : 2,
-			action : ["action", ""],
+			action : [["action", ""]],
 			description : "\n   " + "As an action, I channel blessed energy into an ally that I can see within 30 ft of me" + "\n   " + "The first time the ally is hit within the next minute, the attacker takes radiant damage",
 			additional : ["", "2d10+2", "2d10+3", "2d10+4", "2d10+5", "2d10+6", "2d10+7", "2d10+8", "2d10+9", "2d10+10", "2d10+11", "2d10+12", "2d10+13", "2d10+14", "2d10+15", "2d10+16", "2d10+17", "2d10+18", "2d10+19", "2d10+20"]
 		},

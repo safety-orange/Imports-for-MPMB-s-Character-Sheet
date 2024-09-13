@@ -363,13 +363,13 @@ AddSubClass("druid", "circle of the stars-ua", {
 				"If I lose it, I can perform a 1-hour ceremony during a rest to create a replacement",
 				"I can use it to cast Augury or Guiding Bolt, even unprepared, without using a spell slot"
 			]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Star Map",
 				spells : ["guiding bolt", "augury"],
 				selection : ["guiding bolt", "augury"],
 				firstCol : "Sp",
 				times : 2
-			},
+			}],
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest"

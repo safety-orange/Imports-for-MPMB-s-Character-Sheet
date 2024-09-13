@@ -511,12 +511,12 @@ AddSubClass("artificer-ua3", "alchemist", {
 			usages : "Int mod per ",
 			recovery : "long rest",
 			usagescalc : "event.value = Math.max(1, What('Int Mod'));",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Alchemical Mastery",
 				spells : ["lesser restoration"],
 				selection : ["lesser restoration"],
 				firstCol : "Sp"
-			},
+			}],
 			spellChanges : {
 				"lesser restoration" : {
 					components : "V,S,M\u0192",
@@ -539,12 +539,12 @@ AddSubClass("artificer-ua3", "alchemist", {
 			usages : 1,
 			recovery : "long rest",
 			additional : "Greater Restoration",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Chemical Savant",
 				spells : ["greater restoration"],
 				selection : ["greater restoration"],
 				firstCol : "oncelr"
-			},
+			}],
 			spellChanges : {
 				"greater restoration" : {
 					components : "V,S,M\u0192",
@@ -812,7 +812,7 @@ AddSubClass("artificer-ua3", "artillerist", {
 			additional : levels.map(function(n) {
 				return n < 6 ? "" : "infuse wand with " + (n < 14 ? "1 cantrip" : "2 cantrips");
 			}),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Wand Prototype",
 				"class" : "artificer-ua3",
 				notspells : ["magic stone", "mending", "shillelagh"], // all cantrips with a casting time that is not 1 action
@@ -821,7 +821,7 @@ AddSubClass("artificer-ua3", "artillerist", {
 					return n < 14 ? 1 : 2;
 				}),
 				firstCol : "W"
-			},
+			}],
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {

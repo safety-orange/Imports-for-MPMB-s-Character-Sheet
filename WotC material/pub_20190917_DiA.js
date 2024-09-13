@@ -322,12 +322,12 @@ MagicItemsList["helm of devil command"] = {
 	recovery : "Special",
 	fixedDC : 21,
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["dominate monster"],
 		selection : ["dominate monster"],
 		firstCol : 1
-	},
+	}],
 	spellChanges : {
 		"dominate monster" : {
 			description : "Devil save or charmed, follows telepathic commands, 1 a for complete control; save on dmg",

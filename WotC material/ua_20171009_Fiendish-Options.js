@@ -36,12 +36,12 @@ if (!RaceList["baalzebul tiefling"]) {
 		scores : [0, 0, 0, 1, 0, 2],
 		trait : "Baalzebul Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Maladomini:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Ray of Sickness spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Crown of Madness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 		spellcastingAbility : 6,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Legacy of Maladomini (1)",
 			spells : ["thaumaturgy"],
 			selection : ["thaumaturgy"],
 			firstCol : 'atwill'
-		},
+		}],
 		features : {
 			"ray of sickness" : {
 				name : "Legacy of Maladomini (level 3)",
@@ -49,12 +49,12 @@ if (!RaceList["baalzebul tiefling"]) {
 				minlevel : 3,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Legacy of Maladomini (3)",
 					spells : ["ray of sickness"],
 					selection : ["ray of sickness"],
 					firstCol : 'oncelr'
-				},
+				}],
 				spellChanges : {
 					"ray of sickness" : {
 						description : "Spell attack for 3d8 Poison dmg; save or also poisoned until end of my next turn",
@@ -68,12 +68,12 @@ if (!RaceList["baalzebul tiefling"]) {
 				minlevel : 5,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Legacy of Maladomini (5)",
 					spells : ["crown of madness"],
 					selection : ["crown of madness"],
 					firstCol : 'oncelr'
-				}
+				}]
 			}
 		}
 	};
@@ -101,12 +101,12 @@ if (!RaceList["fierna tiefling"]) {
 		trait : "Fierna Tiefling (+1 Wisdom, +2 Charisma)\n\nLegacy of Phlegethos:\n   I know the Friends cantrip.\n   At 3rd level, I can cast the Charm Person spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Suggestion spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 		abilitySave : 6,
 		spellcastingAbility : 6,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Legacy of Phlegethos (1)",
 			spells : ["friends"],
 			selection : ["friends"],
 			firstCol : 'atwill'
-		},
+		}],
 		features : {
 			"charm person" : {
 				name : "Legacy of Phlegethos (level 3)",
@@ -114,12 +114,12 @@ if (!RaceList["fierna tiefling"]) {
 				minlevel : 3,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Legacy of Phlegethos (3)",
 					spells : ["charm person"],
 					selection : ["charm person"],
 					firstCol : 'oncelr'
-				},
+				}],
 				spellChanges : {
 					"charm person" : {
 						description : "2 humanoids, max 30 ft apart, save or charmed; adv. on save if me/ally is fighting it",
@@ -133,12 +133,12 @@ if (!RaceList["fierna tiefling"]) {
 				minlevel : 5,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Legacy of Phlegethos (5)",
 					spells : ["suggestion"],
 					selection : ["suggestion"],
 					firstCol : 'oncelr'
-				}
+				}]
 			}
 		}
 	};
@@ -165,12 +165,12 @@ if (!RaceList["glasya tiefling"]) {
 		scores : [0, 1, 0, 0, 0, 2],
 		trait : "Glasya Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Malbolge:\n   I know the Minor Illusion cantrip.\n   At 3rd level, I can cast the Disguise Self spell once per long rest.\n   At 5th level, I can also cast the Invisibility spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 		spellcastingAbility : 6,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Legacy of Malbolge (1)",
 			spells : ["minor illusion"],
 			selection : ["minor illusion"],
 			firstCol : 'atwill'
-		},
+		}],
 		features : {
 			"disguise self" : {
 				name : "Legacy of Malbolge (level 3)",
@@ -178,12 +178,12 @@ if (!RaceList["glasya tiefling"]) {
 				minlevel : 3,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Legacy of Malbolge (3)",
 					spells : ["disguise self"],
 					selection : ["disguise self"],
 					firstCol : 'oncelr'
-				}
+				}]
 			},
 			"invisibility" : {
 				name : "Legacy of Malbolge (level 5)",
@@ -191,12 +191,12 @@ if (!RaceList["glasya tiefling"]) {
 				minlevel : 5,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Legacy of Malbolge (5)",
 					spells : ["invisibility"],
 					selection : ["invisibility"],
 					firstCol : 'oncelr'
-				}
+				}]
 			}
 		}
 	};
@@ -223,12 +223,12 @@ if (!RaceList["levistus tiefling"]) {
 		scores : [0, 0, 1, 0, 0, 2],
 		trait : "Levistus Tiefling (+1 Constitution, +2 Charisma)\n\nLegacy of Stygia:\n   I know the Ray of Frost cantrip.\n   At 3rd level, I can cast the Armor of Agathys spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 		spellcastingAbility : 6,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Legacy of Stygia (1)",
 			spells : ["ray of frost"],
 			selection : ["ray of frost"],
 			firstCol : 'atwill'
-		},
+		}],
 		features : {
 			"armor of agathys" : {
 				name : "Legacy of Stygia (level 3)",
@@ -236,12 +236,12 @@ if (!RaceList["levistus tiefling"]) {
 				minlevel : 3,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Legacy of Stygia (3)",
 					spells : ["armor of agathys"],
 					selection : ["armor of agathys"],
 					firstCol : 'oncelr'
-				},
+				}],
 				spellChanges : {
 					"armor of agathys" : {
 						description : "10 temp HP; as long as temp HP last any crea that hits in melee takes 10 Cold dmg",
@@ -255,12 +255,12 @@ if (!RaceList["levistus tiefling"]) {
 				minlevel : 5,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Legacy of Stygia (5)",
 					spells : ["darkness"],
 					selection : ["darkness"],
 					firstCol : 'oncelr'
-				}
+				}]
 			}
 		}
 	};
@@ -287,12 +287,12 @@ if (!RaceList["mammon tiefling"]) {
 		scores : [0, 0, 0, 1, 0, 2],
 		trait : "Mammon Tiefling (+1 Intelligence, +2 Charisma)\nLegacy of Minauros:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast the Tenser's Floating Disk spell once per short rest.\n   At 5th level, I can also cast the Arcane Lock spell without a material component once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 		spellcastingAbility : 6,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Legacy of Minauros (1)",
 			spells : ["mage hand"],
 			selection : ["mage hand"],
 			firstCol : 'atwill'
-		},
+		}],
 		features : {
 			"tenser's floating disk" : {
 				name : "Legacy of Minauros (level 3)",
@@ -300,12 +300,12 @@ if (!RaceList["mammon tiefling"]) {
 				minlevel : 3,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Legacy of Minauros (3)",
 					spells : ["tenser's floating disk"],
 					selection : ["tenser's floating disk"],
 					firstCol : 'oncesr'
-				}
+				}]
 			},
 			"arcane lock" : {
 				name : "Legacy of Minauros (level 5)",
@@ -313,12 +313,12 @@ if (!RaceList["mammon tiefling"]) {
 				minlevel : 5,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Legacy of Minauros (5)",
 					spells : ["arcane lock"],
 					selection : ["arcane lock"],
 					firstCol : 'oncelr'
-				},
+				}],
 				spellChanges : {
 					"arcane lock" : {
 						components : "V,S",
@@ -353,12 +353,12 @@ if (!RaceList["zariel tiefling"]) {
 		scores : [1, 0, 0, 0, 0, 2],
 		trait : "Zariel Tiefling (+1 Strength, +2 Charisma)\n\nLegacy of Avernus:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Searing Smite spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Branding Smite spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 		spellcastingAbility : 6,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Legacy of Avernus (1)",
 			spells : ["thaumaturgy"],
 			selection : ["thaumaturgy"],
 			firstCol : 'atwill'
-		},
+		}],
 		features : {
 			"searing smite" : {
 				name : "Legacy of Avernus (level 3)",
@@ -366,12 +366,12 @@ if (!RaceList["zariel tiefling"]) {
 				minlevel : 3,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Legacy of Avernus (3)",
 					spells : ["searing smite"],
 					selection : ["searing smite"],
 					firstCol : 'oncelr'
-				},
+				}],
 				spellChanges : {
 					"searing smite" : {
 						description : "Next melee weapon hit +2d6 Fire dmg and target ignites; save to end spell or 1d6 Fire dmg",
@@ -385,12 +385,12 @@ if (!RaceList["zariel tiefling"]) {
 				minlevel : 5,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Legacy of Avernus (5)",
 					spells : ["branding smite"],
 					selection : ["branding smite"],
 					firstCol : 'oncelr'
-				}
+				}]
 			}
 		}
 	};
@@ -416,12 +416,12 @@ RaceList["dispater tiefling-ua"] = {
 	scores : [0, 1, 0, 0, 0, 2],
 	trait : "Dispater Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Dis:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Disguise Self spell once per long rest.\n   At 5th level, I can also cast the Invisibility spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Legacy of Dis (level 1)",
 		spells : ["thaumaturgy"],
 		selection : ["thaumaturgy"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"disguise self" : {
 			name : "Legacy of Dis (level 3)",
@@ -429,12 +429,12 @@ RaceList["dispater tiefling-ua"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Dis (level 3)",
 				spells : ["disguise self"],
 				selection : ["disguise self"],
 				firstCol : 'oncelr'
-			}
+			}]
 		},
 		"invisibility" : {
 			name : "Legacy of Dis (level 5)",
@@ -442,12 +442,12 @@ RaceList["dispater tiefling-ua"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Dis (level 5)",
 				spells : ["invisibility"],
 				selection : ["invisibility"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };
@@ -472,12 +472,12 @@ RaceList["mephistopheles tiefling-ua"] = {
 	scores : [0, 0, 0, 1, 0, 2],
 	trait : "Mephistopheles Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Cania:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast the Magic Missile spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Web spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Legacy of Cania (level 1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"magic missile" : {
 			name : "Legacy of Cania (level 3)",
@@ -485,12 +485,12 @@ RaceList["mephistopheles tiefling-ua"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Cania (level 3)",
 				spells : ["magic missile"],
 				selection : ["magic missile"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"magic missile" : {
 					description : "4 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
@@ -504,12 +504,12 @@ RaceList["mephistopheles tiefling-ua"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Legacy of Cania (level 5)",
 				spells : ["web"],
 				selection : ["web"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };

@@ -54,12 +54,12 @@ RaceList["emeria merfolk"] = {
 	scores : [0, 0, 0, 0, 2, 1],
 	trait : "Emeria Creed Merfolk (+2 Wisdom, +1 Charisma)\nAmphibious: I can breathe air and water.\nWind Creed Manipulation: I have proficiency in the Deception and Persuasion skills.\nCantrip: I know one cantrip of my choice from the druid spell list. Wisdom is my spellcasting ability for it.",
 	spellcastingAbility : 5,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Emeria Creed Cantrip",
 		"class" : "druid",
 		level : [0, 0],
 		firstCol : 'atwill'
-	}
+	}]
 };
 RaceList["ula merfolk"] = {
 	regExpSearch : /^(?=.*\b(ula|water))(?=.*(merfolk|mermaid|merman)\b).*$/i,
@@ -82,12 +82,12 @@ RaceList["ula merfolk"] = {
 	scores : [0, 0, 0, 2, 0, 1],
 	trait : "Ula Creed Merfolk (+2 Intelligence, +1 Charisma)\nAmphibious: I can breathe air and water.\nWater Creed Navigation: I have proficiency with navigator's tools and in the Survival skill.\nCantrip: I know one cantrip of my choice from the wizard spell list. Intelligence is my spellcasting ability for it.",
 	spellcastingAbility : 4,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Ula Creed Cantrip",
 		"class" : "wizard",
 		level : [0, 0],
 		firstCol : 'atwill'
-	}
+	}]
 };
 RaceList["cosi merfolk"] = {
 	regExpSearch : /^(?=.*\b(cosi|trickster))(?=.*(merfolk|mermaid|merman)\b).*$/i,
@@ -109,12 +109,12 @@ RaceList["cosi merfolk"] = {
 	scores : [0, 0, 0, 1, 0, 2],
 	trait : "Ula Creed Merfolk (+1 Intelligence, +2 Charisma)\nAmphibious: I can breathe air and water.\nCreed of the Trickster: I have proficiency in the Sleight of Hand and Stealth skills.\nCantrip: I know one cantrip of my choice from the bard spell list. Charisma is my spellcasting ability for it.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Cosi Creed Cantrip",
 		"class" : "bard",
 		level : [0, 0],
 		firstCol : 'atwill'
-	}
+	}]
 };
 
 RaceList["zendikar vampire"] = {
@@ -313,12 +313,12 @@ RaceList["mul daya elf"] = {
 	scores : [1, 0, 0, 0, 2, 0],
 	trait : "Mul Daya Elf (+1 Strength, +2 Wisdom)\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nMul Daya Magic: 1st level: Chill Touch cantrip; 3rd level: Hex; 5th level: Darkness. Both spells can be used once per long rest. Wisdom is my spellcasting ability for these.",
 	spellcastingAbility : 5,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Mul Daya Magic (level 1)",
 		spells : ["chill touch"],
 		selection : ["chill touch"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"faerie fire" : {
 			name : "Mul Daya Magic (level 3)",
@@ -326,12 +326,12 @@ RaceList["mul daya elf"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Mul Daya Magic (level 3)",
 				spells : ["hex"],
 				selection : ["hex"],
 				firstCol : 'oncelr'
-			}
+			}]
 		},
 		"darkness" : {
 			name : "Mul Daya Magic (level 5)",
@@ -339,12 +339,12 @@ RaceList["mul daya elf"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Mul Daya Magic (level 5)",
 				spells : ["darkness"],
 				selection : ["darkness"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };

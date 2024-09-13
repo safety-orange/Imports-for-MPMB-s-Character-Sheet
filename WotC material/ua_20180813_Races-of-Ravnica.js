@@ -253,6 +253,6 @@ RaceList["viashino-ua"] = {
 	height : " stand about as tall as humans",
 	weight : " have lithe, wiry frames and are thus lighter than a human of the same height",
 	scores : [1, 2, 0, 0, 0, 0],
-	action : ["reaction", "Lashing Tail (after being hit)"],
+	action : [["reaction", "Lashing Tail (after being hit)"]],
 	trait : "Viashino (+1 Strength, +2 Dexterity)\n\nBite: I can use my fanged maw to make unarmed strikes dealing 1d4 piercing damage.\n\nLashing Tail: I have semi-prehensile tail that is tipped with a bony blade. As a reaction when a creature I can see within 5 ft damages me with a melee attack, I can use my tail to make an unarmed strike against it dealing 1d4 slashing damage."
 };

@@ -190,7 +190,7 @@ if (!SourceList.V) {
 		weightMetric : " weigh between 100 and 125 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
 		scores : [2, 0, 1, 0, 0, 0],
 		trait : "Orc (+2 Strength, +1 Constitution)\n\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\n\nAggressive: As a bonus action, I can move up to my speed toward an enemy that I can see or hear. I must end my move closer to this enemy than I started.",
-		action : ["bonus action", "Aggressive (dash to enemy)"],
+		action : [["bonus action", "Aggressive (dash to enemy)"]],
 		carryingCapacity : 2
 	};
 } // dupl_end
@@ -246,7 +246,7 @@ RaceList["beasthide shifter"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", " (start/end)"],
+			action : [["bonus action", " (start/end)"]],
 			additional : levels.map(function (n) { return "1d6 + " + n + " + Con mod temp HP"; })
 		}
 	}
@@ -287,7 +287,7 @@ RaceList["longtooth shifter"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", " (start/end)"],
+			action : [["bonus action", " (start/end)"]],
 			additional : levels.map(function (n) { return n + " + Con mod temp HP"; })
 		}
 	}
@@ -319,7 +319,7 @@ RaceList["swiftstride shifter"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", " (start/end)"],
+			action : [["bonus action", " (start/end)"]],
 			additional : levels.map(function (n) { return n + " + Con mod temp HP"; })
 		}
 	}
@@ -350,7 +350,7 @@ RaceList["wildhunt shifter"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", " (start/end)"],
+			action : [["bonus action", " (start/end)"]],
 			additional : levels.map(function (n) { return n + " + Con mod temp HP"; })
 		}
 	}
@@ -423,13 +423,13 @@ RaceList["dragonmark detection half-elf"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Magical Detection (level 1)",
 				spells : ["detect magic", "detect poison and disease"],
 				selection : ["detect magic", "detect poison and disease"],
 				firstCol : "oncelr",
 				times : 2
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Detect Poison and Disease",
 				usages : 1,
@@ -449,12 +449,12 @@ RaceList["dragonmark detection half-elf"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Magical Detection (level 3)",
 				spells : ["see invisibility"],
 				selection : ["see invisibility"],
 				firstCol : "oncelr"
-			},
+			}],
 			spellChanges : {
 				"see invisibility" : {
 					components : "V,S",
@@ -504,12 +504,12 @@ RaceList["dragonmark finding half-orc"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Finder's Magic (level 1)",
 				spells : ["hunter's mark"],
 				selection : ["hunter's mark"],
 				firstCol : "oncelr"
-			}
+			}]
 		},
 		"locate object" : {
 			name : "Finder's Magic (level 3)",
@@ -517,12 +517,12 @@ RaceList["dragonmark finding half-orc"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Finder's Magic (level 3)",
 				spells : ["locate object"],
 				selection : ["locate object"],
 				firstCol : "oncelr"
-			}
+			}]
 		}
 	},
 	calcChanges : {
@@ -565,12 +565,12 @@ RaceList["dragonmark finding human"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Finder's Magic (level 1)",
 				spells : ["hunter's mark"],
 				selection : ["hunter's mark"],
 				firstCol : "oncelr"
-			}
+			}]
 		},
 		"locate object" : {
 			name : "Finder's Magic (level 3)",
@@ -578,12 +578,12 @@ RaceList["dragonmark finding human"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Finder's Magic (level 3)",
 				spells : ["locate object"],
 				selection : ["locate object"],
 				firstCol : "oncelr"
-			}
+			}]
 		}
 	},
 	calcChanges : {
@@ -631,13 +631,13 @@ RaceList["dragonmark handling human"] = {
 				usages : 1,
 				recovery : "short rest"
 			}],
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Primal Connection",
 				spells : ["animal friendship", "speak with animals"],
 				selection : ["animal friendship", "speak with animals"],
 				firstCol : 'oncesr',
 				times : 2
-			},
+			}],
 		}
 	},
 	calcChanges : {
@@ -693,12 +693,12 @@ RaceList["dragonmark healing halfling"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Healing Touch (level 1)",
 				spells : ["cure wounds"],
 				selection : ["cure wounds"],
 				firstCol : "oncelr"
-			}
+			}]
 		},
 		"lesser restoration" : {
 			name : "Healing Touch (level 3)",
@@ -706,12 +706,12 @@ RaceList["dragonmark healing halfling"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Healing Touch (level 3)",
 				spells : ["lesser restoration"],
 				selection : ["lesser restoration"],
 				firstCol : "oncelr"
-			}
+			}]
 		}
 	},
 	calcChanges : {
@@ -874,12 +874,12 @@ RaceList["dragonmark passage human"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Magical Passage",
 				spells : ["misty step"],
 				selection : ["misty step"],
 				firstCol : "oncelr"
-			}
+			}]
 		}
 	},
 	calcChanges : {
@@ -941,12 +941,12 @@ RaceList["dragonmark scribing gnome"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Scribe's Insight (level 3)",
 				spells : ["magic mouth"],
 				selection : ["magic mouth"],
 				firstCol : "oncelr"
-			}
+			}]
 		}
 	},
 	calcChanges : {
@@ -995,12 +995,12 @@ RaceList["dragonmark sentinel human"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Guardian's Shield",
 				spells : ["shield"],
 				selection : ["shield"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	},
 	calcChanges : {
@@ -1041,12 +1041,12 @@ RaceList["dragonmark shadow elf"] = {
 	scores : [0, 2, 0, 0, 0, 1],
 	trait : "Elf, Dragonmark of Shadow (+2 Dexterity, +1 Charisma)\n   Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\n   Cunning Intuition: I can add +1d4 to my Cha" + (typePF ? "risma" : "") + " (Performance) and Dex" + (typePF ? "terity" : "") + " (Stealth) checks.\n   Shape Shadows: I know the Minor Illusion cantrip. At 3rd level, I can cast Invisibility once per long rest. Charisma is my spellcasting ability for these.\n   Spells of the Mark: I add several spells to " + (typePF ? "my class' spell list." : "the spell list of my spellcasting class(es)."),
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Shape Shadows (level 1)",
 		spells : ["minor illusion"],
 		selection : ["minor illusion"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"shape shadows" : {
 			name : "Shape Shadows (level 3)",
@@ -1054,12 +1054,12 @@ RaceList["dragonmark shadow elf"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Shape Shadows (level 3)",
 				spells : ["invisibility"],
 				selection : ["invisibility"],
 				firstCol : "oncelr"
-			}
+			}]
 		}
 	},
 	calcChanges : {
@@ -1100,12 +1100,12 @@ RaceList["dragonmark storm half-elf"] = {
 	scores : [0, 1, 0, 0, 0, 2],
 	trait : "Half-Elf, Dragonmark of Storm (+1 Dexterity, +2 Charisma)\n   Windwright's Intuition: I can add +1d4 to my Dexterity (Acrobatics) checks and any ability checks involving operating or maintaining a water or air vehicle.\n   Headwinds: I know the Gust cantrip. Once I reach 3rd level, I can cast Gust of Wind once per long rest. Charisma is my spellcasting ability for these spells.\n   Spells of the Mark: I add several spells to the spell list of my spellcasting class(es).",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Headwinds (level 1)",
 		spells : ["gust"],
 		selection : ["gust"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"gust of wind" : {
 			name : "Headwinds (level 3)",
@@ -1113,12 +1113,12 @@ RaceList["dragonmark storm half-elf"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Headwinds (level 3)",
 				spells : ["gust of wind"],
 				selection : ["gust of wind"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	},
 	calcChanges : {
@@ -1165,13 +1165,13 @@ RaceList["dragonmark warding dwarf"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Wards and Seals (level 1)",
 				spells : ["alarm", "mage armor"],
 				selection : ["alarm", "mage armor"],
 				firstCol : "oncelr",
 				times : 2
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Mage Armor",
 				usages : 1,
@@ -1196,12 +1196,12 @@ RaceList["dragonmark warding dwarf"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Wards and Seals (level 3)",
 				spells : ["arcane lock"],
 				selection : ["arcane lock"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	},
 	calcChanges : {
@@ -2038,12 +2038,12 @@ AddSubClass("artificer", "alchemist", {
 			usagescalc : "event.value = Math.max(1, What('Int Mod'));",
 			recovery : "long rest",
 			limfeaname : "Restorative Reagents: Lesser Restoration",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Restorative Reagents",
 				spells : ["lesser restoration"],
 				selection : ["lesser restoration"],
 				firstCol : "Sp"
-			},
+			}],
 			spellChanges : {
 				"lesser restoration" : {
 					components : "V,S,M\u0192",
@@ -2072,13 +2072,13 @@ AddSubClass("artificer", "alchemist", {
 				usages : 1,
 				recovery : "long rest"
 			}],
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Chemical Mastery",
 				spells : ["greater restoration", "heal"],
 				selection : ["greater restoration", "heal"],
 				firstCol : "oncelr",
 				times : 2
-			},
+			}],
 			spellChanges : {
 				"greater restoration" : {
 					components : "V,S,M\u0192",
@@ -2868,12 +2868,12 @@ MagicItemsList["finder's goggles"] = {
 	usages : 1,
 	recovery : "dawn",
 	additional : "examine object",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "After examining object",
 		spells : ["locate creature"],
 		selection : ["locate creature"],
 		firstCol : "Sp"
-	}
+	}]
 }
 MagicItemsList["glamerweave"] = {
 	name : "Glamerweave",
@@ -3276,12 +3276,12 @@ MagicItemsList["speaking stone"] = {
 	prereqeval : function (v) {
 		return (/^(?=.*dragonmark)(?=.*scribing).*$/i).test(CurrentRace.known);
 	},
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "At will",
 		spells : ["sending"],
 		selection : ["sending"],
 		firstCol : "atwill"
-	}
+	}]
 }
 MagicItemsList["spellshard"] = {
 	name : "Spellshard",
@@ -3304,12 +3304,12 @@ MagicItemsList["ventilating lungs"] = {
 	recovery : "dawn",
 	additional : "Gust of Wind",
 	fixedDC : 15,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["gust of wind"],
 		selection : ["gust of wind"],
 		firstCol : "oncelr"
-	},
+	}],
 	savetxt : { adv_vs : ["gases", "vapors"] }
 }
 MagicItemsList["wand sheath"] = {

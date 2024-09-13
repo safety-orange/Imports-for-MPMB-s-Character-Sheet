@@ -35,14 +35,14 @@ if (!SourceList["UA:RoE"]) {
 		scorestxt : "+2 Charisma, and +1 Dexterity or +1 Intelligence",
 		scores : [0, 0, 0, 0, 0, 2],
 		trait : "Changeling (+2 Charisma, and +1 Dexterity or +1 Intelligence)\nChange Appearance: As an action, I can polymorph to or from a humanoid form of my size I have seen, not changing my equipment. I revert back if I die and have adv. on Deception.\nUnsettling Visage: As a reaction once per short rest when I'm attacked by a seen attacker, I can impose disadv. Doing this reveals my shapeshifting nature to all within 30 ft.\nDivergent Persona: I have proficiency with one tool, and an alternate persona. While in the alternate form, my proficiency bonus with that tool is doubled.",
-		action : ["action", "Change Appearance"],
+		action : [["action", "Change Appearance"]],
 		features : {
 			"unsettling visage" : {
 				name : "Unsettling Visage",
 				minlevel : 1,
 				usages : 1,
 				recovery : "short rest",
-				action : ["reaction", ""]
+				action : [["reaction", ""]]
 			}
 		}
 	};
@@ -99,7 +99,7 @@ if (!SourceList["UA:RoE"]) {
 				minlevel : 1,
 				usages : 1,
 				recovery : "short rest",
-				action : ["bonus action", " (start/end)"]
+				action : [["bonus action", " (start/end)"]]
 			}
 		}
 	};
@@ -139,7 +139,7 @@ if (!SourceList["UA:RoE"]) {
 				minlevel : 1,
 				usages : 1,
 				recovery : "short rest",
-				action : ["bonus action", " (start/end)"]
+				action : [["bonus action", " (start/end)"]]
 			}
 		}
 	};
@@ -170,7 +170,7 @@ if (!SourceList["UA:RoE"]) {
 				minlevel : 1,
 				usages : 1,
 				recovery : "short rest",
-				action : ["bonus action", " (start/end)"]
+				action : [["bonus action", " (start/end)"]]
 			}
 		}
 	};
@@ -200,14 +200,14 @@ if (!SourceList["UA:RoE"]) {
 				minlevel : 1,
 				usages : 1,
 				recovery : "short rest",
-				action : ["bonus action", " (start/end)"]
+				action : [["bonus action", " (start/end)"]]
 			},
 			"mark the scent" : {
 				name : "Mark the Scent",
 				minlevel : 1,
 				usages : 1,
 				recovery : "short rest",
-				action : ["bonus action", ""]
+				action : [["bonus action", ""]]
 			}
 		}
 	};
@@ -490,7 +490,7 @@ FeatsList["revenant blade-wgte"] = {
 	descriptionFull : "You are descended from a master of the double blade and their skills have passed on to you. You gain the following benefits:\n \u2022 Increase your Dexterity or Strength score by 1, to a maximum of 20.\n \u2022 While wielding a double-bladed weapon with two hands, the weapon has the finesse trait for your attacks with it, and you gain +1 AC.\n \u2022 On your turn, when you use a bonus action to make a melee attack with the blade at the opposite end of the weapon, the weapon's damage die for this attack increases to 2d4, instead of 1d4.",
 	description : "As a bonus action with the Attack action, I can make an extra with a double-bladed weapon for 2d4 slashing damage. I treat double-bladed weapons as having the finesse trait. +1 AC while wielding a double-bladed weapon with two hands. [+1 Strength or Dexterity]",
 	scorestxt : "+1 Strength or Dexterity",
-	action : ["bonus action", " (with Attack action)"],
+	action : [["bonus action", " (with Attack action)"]],
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -740,7 +740,7 @@ RaceList["dragonmark passage human-wgte"] = { // different than UA: Dragonmarks
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		}
 	}
 };
@@ -770,13 +770,13 @@ if (!SourceList["UA:D"]) {
 		scores : [0, 0, 0, 1, 0, 1],
 		trait : "Half-Elf, Dragonmark of Detection (+1 Intelligence, +1 Charisma, and +1 to any one ability score of my choice)\n" + (typePF ? "\n" : "   ") + "Deductive Intuition: I can add my Intuition Die (1d4) to my Intelligence (Investigation) and Wisdom (Insight) checks.\n" + (typePF ? "\n" : "   ") + "Sense Threats: I can cast Detect Magic and Detect Poison and Disease as rituals using Intelligence as my spellcasting ability.",
 		spellcastingAbility : 4,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Sense Threats",
 			spells : ["detect magic", "detect poison and disease"],
 			selection : ["detect magic", "detect poison and disease"],
 			firstCol : "(R)",
 			times : 2
-		},
+		}],
 		spellChanges : {
 			"detect magic" : {
 				time : "10 min",
@@ -814,17 +814,17 @@ if (!SourceList["UA:D"]) {
 				minlevel : 1,
 				usages : 1,
 				recovery : "short rest",
-				action : ["bonus action", ""]
+				action : [["bonus action", ""]]
 			},
 			"locate animals or plants" : {
 				name : "Locate Animals or Plants",
 				minlevel : 3,
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Nature's Voice",
 					spells : ["locate animals or plants"],
 					selection : ["locate animals or plants"],
 					firstCol : "(R)"
-				},
+				}],
 				spellChanges : {
 					"locate animals or plants" : {
 						time : "10 min",
@@ -861,12 +861,12 @@ if (!SourceList["UA:D"]) {
 				minlevel : 1,
 				usages : 1,
 				recovery : "short rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Primal Connection",
 					spells : ["animal friendship"],
 					selection : ["animal friendship"],
 					firstCol : 'oncesr'
-				}
+				}]
 			}
 		},
 		calcChanges : {
@@ -925,16 +925,16 @@ if (!SourceList["UA:D"]) {
 				minlevel : 1,
 				usages : 1,
 				recovery : "short rest",
-				action : ["action", ""]
+				action : [["action", ""]]
 			}
 		},
 		spellcastingAbility : 6,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Jorasco's Blessing",
 			spells : ["spare the dying"],
 			selection : ["spare the dying"],
 			firstCol : 'atwill'
-		}
+		}]
 	};
 	RaceList["dragonmark hospitality halfling-ua"] = {
 		regExpSearch : /^((?=.*mark)(?=.*hospitality)|(?=.*house)(?=.*ghallanda)).*$/i,
@@ -956,13 +956,13 @@ if (!SourceList["UA:D"]) {
 		scores : [0, 2, 0, 0, 0, 1],
 		trait : "Halfling, Dragonmark of Hospitality (+2 Dexterity, +1 Charisma)\nLucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.\nHalfling Nimbleness: I can move through the space of Medium and larger creatures.\nEver Hospitable: I can add my Intuition Die (1d4) to my Charisma (Persuasion) checks and ability checks involving brewer's supplies or cook's utensils.\nInnkeeper's Charms: I know Friends and Prestidigitation with Cha as my spellcasting ability.",
 		spellcastingAbility : 6,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Innkeeper's Charms",
 			spells : ["friends", "prestidigitation"],
 			selection : ["friends", "prestidigitation"],
 			firstCol : 'atwill',
 			times : 2
-		}
+		}]
 	};
 	RaceList["dragonmark making human-ua"] = {
 		regExpSearch : /^((?=.*mark)(?=.*making)|(?=.*house)(?=.*cannith)).*$/i,
@@ -1038,12 +1038,12 @@ if (!SourceList["UA:D"]) {
 		scores : [0, 0, 0, 2, 0, 1],
 		trait : "Gnome, Dragonmark of Scribing (+2 Intelligence, +1 Charisma)\n   Gifted Scribe: I can add my Intuition Die (1d4) to ability checks involving calligrapher's supplies or forgery kits. I am proficient with both of these tools.\n   Whispering Wind: I know the Message cantrip.\n   Scribe's Insight: I can cast Comprehend Languages once per long rest.\nIntelligence is my spellcasting ability for the spells gained from being a gnome, dragonmark of scribing.",
 		spellcastingAbility : 4,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Whispering Wind",
 			spells : ["message"],
 			selection : ["message"],
 			firstCol : 'atwill'
-		},
+		}],
 		features : {
 			"comprehend languages" : {
 				name : "Scribe's Insight",
@@ -1051,12 +1051,12 @@ if (!SourceList["UA:D"]) {
 				minlevel : 1,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Scribe's Insight",
 					spells : ["comprehend languages"],
 					selection : ["comprehend languages"],
 					firstCol : 'oncelr'
-				}
+				}]
 			}
 		}
 	};
@@ -1087,7 +1087,7 @@ if (!SourceList["UA:D"]) {
 				minlevel : 1,
 				usages : 1,
 				recovery : "short rest",
-				action : ["reaction", ""],
+				action : [["reaction", ""]],
 				spellcastingBonus : [{
 					name : "Sentinel's Shield",
 					spells : ["blade ward"],
@@ -1128,19 +1128,19 @@ if (!SourceList["UA:D"]) {
 		scores : [0, 2, 0, 0, 0, 1],
 		trait : "Elf, Dragonmark of Shadow (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nGift of the Shadows: I can add my Intuition Die (1d4) to Performance and Stealth checks.\nShape Shadows: I know the Minor Illusion cantrip using Charisma as my spellcasting ability.\nSlip Into Shadow: As a bonus action once per short rest, I can use the Hide action even while I have no cover or if I'm being observed.",
 		spellcastingAbility : 6,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Shape Shadows",
 			spells : ["minor illusion"],
 			selection : ["minor illusion"],
 			firstCol : 'atwill'
-		},
+		}],
 		features : {
 			"slip into shadow" : {
 				name : "Slip Into Shadow",
 				minlevel : 1,
 				usages : 1,
 				recovery : "short rest",
-				action : ["bonus action", ""]
+				action : [["bonus action", ""]]
 			}
 		}
 	};
@@ -1183,12 +1183,12 @@ if (!SourceList["UA:D"]) {
 		scores : [0, 1, 0, 0, 0, 1],
 		trait : "Half-Elf, Dragonmark of Storm (+1 Dexterity, +1 Charisma, and +1 to any one ability score of my choice)\n" + (typePF ? "\n" : "   ") + "Windwright's Intuition: I can add my Intuition Die (1d4) to my Dexterity (Acrobatics) checks and any ability checks involving operating or maintaining a water or air vehicle.\n" + (typePF ? "\n" : "   ") + "Headwinds: I know the Gust cantrip. Once I reach 3rd level, I can cast Gust of Wind once per long rest. Charisma is my spellcasting ability for these spells.",
 		spellcastingAbility : 6, // Not mentioned in WGtE, but essential!
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Headwinds (level 1)",
 			spells : ["gust"],
 			selection : ["gust"],
 			firstCol : 'atwill'
-		},
+		}],
 		features : {
 			"gust of wind" : {
 				name : "Headwinds (level 3)",
@@ -1196,12 +1196,12 @@ if (!SourceList["UA:D"]) {
 				minlevel : 3,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Headwinds (level 3)",
 					spells : ["gust of wind"],
 					selection : ["gust of wind"],
 					firstCol : 'oncelr'
-				}
+				}]
 			}
 		}
 	};
@@ -1229,12 +1229,12 @@ if (!SourceList["UA:D"]) {
 		scores : [0, 1, 2, 1, 0, 0],
 		trait : "Dwarf, Dragonmark of Warding (+1 Dex" + (typePF ? ", +2 Con, +1 Int" : "terity, +2 Constitution, +1 Intelligence") + ")\n   Stonecunning: When I make an Intelligence (History) check related to the origin of stonework, I am considered having expertise in the History skill.\n   Master of Locks: I can add my Intuition Die (1d4) to Intelligence (History), Intelligence (Investigation), and ability checks with thieves' tools, if it involves lock or trap mechanisms.\n   Wards and Seals: I can cast Alarm as a ritual. Once I reach 3rd level, I can cast Arcane Lock once per long rest. Intelligence is my spellcasting ability for these.",
 		spellcastingAbility : 4,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Wards and Seals (level 1)",
 			spells : ["alarm"],
 			selection : ["alarm"],
 			firstCol : "(R)"
-		},
+		}],
 		spellChanges : {
 			"alarm" : {
 				time : "11 min",
@@ -1248,12 +1248,12 @@ if (!SourceList["UA:D"]) {
 				minlevel : 3,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Wards and Seals (level 3)",
 					spells : ["arcane lock"],
 					selection : ["arcane lock"],
 					firstCol : 'oncelr'
-				}
+				}]
 			}
 		}
 	};
@@ -1283,14 +1283,14 @@ if (!SourceList["UA:D"]) {
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Charisma or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells See Invisibility and True Seeing, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast See Invisibility and True Seeing each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Charisma or Intelligence]",
 			scorestxt : "+1 Charisma or Intelligence",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "1\xD7 per long",
 				spells : ["see invisibility", "true seeing"],
 				selection : ["see invisibility", "true seeing"],
 				spellcastingAbility : 4,
 				firstCol : 'oncelr',
 				times : 2
-			},
+			}],
 			spellChanges : {
 				"see invisibility" : {
 					components : "V,S",
@@ -1311,14 +1311,14 @@ if (!SourceList["UA:D"]) {
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity, Strength, or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Locate Creature and Find the Path, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Locate Creature and Find the Path each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 " + (typePF ? "Strength, Dexterity, or Wisdom]" : "Str, Dex, or Wis]"),
 			scorestxt : "+1 Strength, Dexterity, or Wisdom",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "1\xD7 per long",
 				spells : ["locate creature", "find the path"],
 				selection : ["locate creature", "find the path"],
 				spellcastingAbility : 5,
 				firstCol : 'oncelr',
 				times : 2
-			},
+			}],
 			spellChanges : {
 				"locate creature" : {
 					components : "V,S",
@@ -1339,14 +1339,14 @@ if (!SourceList["UA:D"]) {
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Beast Sense and Dominate Beast, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Beast Sense and Dominate Beast each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 			scorestxt : "+1 Dexterity or Wisdom",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "1\xD7 per long",
 				spells : ["beast sense", "dominate beast"],
 				selection : ["beast sense", "dominate beast"],
 				spellcastingAbility : 5,
 				firstCol : 'oncelr',
 				times : 2
-			}
+			}]
 		},
 		"healing" : {
 			prerequisite : "Being level 8 or higher and possessing the Dragonmark of Healing",
@@ -1354,14 +1354,14 @@ if (!SourceList["UA:D"]) {
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Mass Healing Word and Greater Restoration, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Mass Healing Word and Greater Restoration each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 			scorestxt : "+1 Dexterity or Wisdom",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "1\xD7 per long",
 				spells : ["mass healing word", "greater restoration"],
 				selection : ["mass healing word", "greater restoration"],
 				spellcastingAbility : 5,
 				firstCol : 'oncelr',
 				times : 2
-			},
+			}],
 			spellChanges : {
 				"greater restoration" : {
 					components : "V,S",
@@ -1377,14 +1377,14 @@ if (!SourceList["UA:D"]) {
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Sanctuary and Mordenkainen's Magnificent Mansion, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sanctuary and " + (typePF ? "Mordenkainen's " : "") + "Magnificent Mansion each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 			scorestxt : "+1 Dexterity or Charisma",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "1\xD7 per long",
 				spells : ["sanctuary", "mordenkainen's magnificent mansion"],
 				selection : ["sanctuary", "mordenkainen's magnificent mansion"],
 				spellcastingAbility : 6,
 				firstCol : 'oncelr',
 				times : 2
-			},
+			}],
 			spellChanges : {
 				"sanctuary" : {
 					components : "V,S",
@@ -1405,14 +1405,14 @@ if (!SourceList["UA:D"]) {
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Fabricate and Creation, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Fabricate and Creation each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Dexterity or Intelligence]",
 			scorestxt : "+1 Dexterity or Intelligence",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "1\xD7 per long",
 				spells : ["fabricate", "creation"],
 				selection : ["fabricate", "creation"],
 				spellcastingAbility : 4,
 				firstCol : 'oncelr',
 				times : 2
-			},
+			}],
 			spellChanges : {
 				"creation" : {
 					components : "V,S",
@@ -1427,14 +1427,14 @@ if (!SourceList["UA:D"]) {
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Constitution score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Blink and Teleportation Circle, each of which you can cast once without expending a spell slot or using a material component. Constitution is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Blink and Teleportation Circle each once per long rest without using spell slots or requiring material components. Constitution is my spellcasting ability for these. [+1 Dexterity or Constitution]",
 			scorestxt : "+1 Dexterity or Constitution",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "1\xD7 per long",
 				spells : ["blink", "teleportation circle"],
 				selection : ["blink", "teleportation circle"],
 				spellcastingAbility : 3,
 				firstCol : 'oncelr',
 				times : 2
-			},
+			}],
 			spellChanges : {
 				"teleportation circle" : {
 					components : "V,S",
@@ -1450,14 +1450,14 @@ if (!SourceList["UA:D"]) {
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Sending and Tongues, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sending and Tongues each once per short rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Intelligence or Charisma]",
 			scorestxt : "+1 Intelligence or Charisma",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "1\xD7 per short",
 				spells : ["sending", "tongues"],
 				selection : ["sending", "tongues"],
 				spellcastingAbility : 4,
 				firstCol : 'oncesr',
 				times : 2
-			},
+			}],
 			spellChanges : {
 				"sending" : {
 					components : "V,S",
@@ -1477,14 +1477,14 @@ if (!SourceList["UA:D"]) {
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Strength or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Compelled Duel, Warding Bond, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Compelled Duel and Warding Bond each once per short rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Strength or Wisdom]",
 			scorestxt : "+1 Strength or Wisdom",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "1\xD7 per short",
 				spells : ["compelled duel", "warding bond"],
 				selection : ["compelled duel", "warding bond"],
 				spellcastingAbility : 5,
 				firstCol : 'oncesr',
 				times : 2
-			},
+			}],
 			spellChanges : {
 				"warding bond" : {
 					components : "V,S",
@@ -1500,14 +1500,14 @@ if (!SourceList["UA:D"]) {
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Nondetection and Mislead, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Nondetection and Mislead each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 			scorestxt : "+1 Dexterity or Charisma",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "1\xD7 per long",
 				spells : ["nondetection", "mislead"],
 				selection : ["nondetection", "mislead"],
 				spellcastingAbility : 6,
 				firstCol : 'oncelr',
 				times : 2
-			},
+			}],
 			spellChanges : {
 				"nondetection" : {
 					components : "V,S",
@@ -1523,14 +1523,14 @@ if (!SourceList["UA:D"]) {
 			descriptionFull : "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Control Water and Control Winds, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description : "My Intuition Die increases with one step (d4 to d6, for example). I can cast Control Water and Control Winds each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 			scorestxt : "+1 Dexterity or Charisma",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "1\xD7 per long",
 				spells : ["control water", "control winds"],
 				selection : ["control water", "control winds"],
 				spellcastingAbility : 6,
 				firstCol : 'oncelr',
 				times : 2
-			},
+			}],
 			spellChanges : {
 				"control water" : {
 					components : "V,S",
@@ -2035,12 +2035,12 @@ MagicItemsList["bag of bounty-ua"] = {
 		return (/^(?=.*dragonmark)(?=.*hospitality).*$/i).test(CurrentRace.known);
 	},
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "3 times per long rest",
 		spells : ["create food and water"],
 		selection : ["create food and water"],
 		firstCol : 1
-	},
+	}],
 	spellChanges : {
 		"create food and water" : {
 			description : "Create 45 lb food and 30 gal water; feeds 15 humanoids or 5 steeds for 24h; Cha check for quality",

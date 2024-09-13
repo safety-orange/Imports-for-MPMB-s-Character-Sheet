@@ -24,12 +24,12 @@ AddSubClass("bard", "college of spirits-ua",{
 			description : desc([
 				"I learn the Guidance cantrip and can cast it with a range of 60 ft"
 			]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Guiding Whispers",
 				spells : ["guidance"],
 				selection : ["guidance"],
 				firstCol : "atwill"
-			},
+			}],
 			spellChanges : {
 				"guidance" : {
 					range : "60 ft",
@@ -152,11 +152,11 @@ AddSubClass("bard", "college of spirits-ua",{
 			]),
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Spirit Session",
 				school : ["Div", "Necro"],
 				firstCol : "SS"
-			}
+			}]
 		},
 		"subclassfeature14" : {
 			name : "Mystical Connection",

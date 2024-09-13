@@ -112,13 +112,13 @@ MagicItemsList["black crystal tablet"] = { // contains contributions by Pengslot
 	usages : 1,
 	recovery : "dawn",
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["eyebite", "gate"],
 		selection : ["eyebite", "gate"],
 		firstCol : 1,
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"gate" : {
 			description : "Create a portal to a precise location in the far realm; can transport named crea to me",
@@ -173,12 +173,12 @@ MagicItemsList["shield of the uven rune"] = { // contains contributions by Pengs
 		action : [["reaction", ""]],
 		savetxt : {	immune : ["cold"] },
 		fixedDC : 17,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per short rest",
 			spells : ["bane"],
 			selection : ["bane"],
 			firstCol : "oncesr"
-		},
+		}],
 		spellChanges : {
 			"bane" : {
 				duration : "1 min",
@@ -229,12 +229,12 @@ MagicItemsList["blast scepter"] = { // contains contributions by Pengsloth
 	attunement : true,
 	dmgres : ["Fire", "Lightning"],
 	fixedDC : 16,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "At will (4th level)",
 		spells : ["thunderwave"],
 		selection : ["thunderwave"],
 		firstCol : "atwill"
-	},
+	}],
 	spellChanges : {
 		"thunderwave" : {
 			nameShort : "Thunderwave (4th level)",
@@ -274,12 +274,12 @@ MagicItemsList["propeller helm"] = { // contains contributions by Pengsloth
 	description : "While worn, the helm allows me to use an action to cast Levitate, requiring no components. Each time the spell ends, there is a 50 percent chance that the helm loses its magic and becomes nonmagical.",
 	descriptionFull : "While worn, the helm allows its wearer to use an action to cast the Levitate spell, requiring no components. The helm's propeller spins and whirs loudly until the spell ends. Each time the spell ends, there is a 50 percent chance that the helm loses its magic and becomes nonmagical.",
 	attunement : true,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "At will",
 		spells : ["levitate"],
 		selection : ["levitate"],
 		firstCol : "atwill"
-	}
+	}]
 }
 MagicItemsList["tearulai"] = { // contains contributions by Pengsloth
 	name : "Tearulai",

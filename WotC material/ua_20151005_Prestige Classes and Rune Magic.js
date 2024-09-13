@@ -79,12 +79,12 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 				]),
 				action : [['action', 'Stein Rune (Indomitable Stand, Secrets, Bolt)']],
 				savetxt : { immune : ["petrified"] },
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Orb of the Stein Rune",
 					spells : ["meld into stone"],
 					selection : ["meld into stone"], 
 					firstCol : 'oncesr'
-				},
+				}],
 				spellChanges : {
 					"levitate" : {
 						time : "1 bns",
@@ -115,12 +115,12 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 				]),
 				action : [['action', 'Vind Rune (Wind Step, Shrieking Bolt)'], ['reaction', "Vind Rune (Wind's Grasp)"]],
 				savetxt : { adv_vs : ["inhaled poison"] },
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Pennant of the Vind Rune",
 					spells : ["levitate"],
 					selection : ["levitate"], 
 					firstCol : 'oncesr'
-				},
+				}],
 				spellChanges : {
 					"levitate" : {
 						time : "1 bns",
@@ -151,12 +151,12 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 				]),
 				dmgres : ["Fire"],
 				action : ['action', 'Kalt Rune (Touch, Mantle, Bolt, Howl)'],
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Shard of the Kalt Rune",
 					spells : ["sleet storm"],
 					selection : ["sleet storm"],
 					firstCol : 'oncesr'
-				},
+				}],
 				extraLimitedFeatures : [{
 					name : "Winter's Howl (Shard of the Kalt Rune)",
 					usages : 1,

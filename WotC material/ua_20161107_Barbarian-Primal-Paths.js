@@ -23,14 +23,14 @@ AddSubClass("barbarian", "ancestral guardian-ua", {
 			source : [["UA:BPP", 1]],
 			minlevel : 3,
 			description : "\n   " + "As a bonus action while raging, I can choose a creature within 5 ft of me that I can see" + "\n   " + "The creature has disadvantage on attack rolls that don't target me" + "\n   " + "If it takes the Disengage action within 5 feet of me, its speed is halved for its turn" + "\n   " + "This lasts until the start of my next turn or my rage ends, whichever comes ",
-			action : ["bonus action", " (in Rage)"]
+			action : [["bonus action", " (in Rage)"]]
 		},
 		"subclassfeature6" : {
 			name : "Ancestral Shield",
 			source : [["UA:BPP", 1]],
 			minlevel : 6,
 			description : "\n   " + "While I'm raging, I can transfer my resistance to an ally I can see within 30 ft of me" + "\n   " + "As a reaction when an ally takes bludgeoning, piercing, or slashing damage" + "\n   " + "My ally keeps the resistance, and I lose it, until the start of my next turn",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature10" : {
 			name : "Consult the Spirits",
@@ -45,7 +45,7 @@ AddSubClass("barbarian", "ancestral guardian-ua", {
 			source : [["UA:BPP", 1]],
 			minlevel : 14,
 			description : "\n   " + "While I'm raging, I can have my vengeful ancestors attack for 2d8 force damage" + "\n   " + "As a reaction when I or an ally I can see within 30 feet of me is damaged in melee",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		}
 	}
 });
@@ -185,7 +185,7 @@ AddSubClass("barbarian", "zealot-ua", {
 			description : "\n   " + "As a reaction when I fail a saving throw while raging, I can instead succeed on it" + "\n   " + "Doing so immediately ends my rage and I can't rage again until I finish a short rest",
 			usages : 1,
 			recovery : "short rest",
-			action : ["reaction", " (in Rage)"]
+			action : [["reaction", " (in Rage)"]]
 		},
 		"subclassfeature10" : {
 			name : "Zealous Presence",
@@ -194,7 +194,7 @@ AddSubClass("barbarian", "zealot-ua", {
 			description : "\n   " + "As an action, I howl in fury and unleash a battle cry infused with divine energy" + "\n   " + "Allies within 60 ft of me gain adv. on attacks and saves until the start of my next turn",
 			usages : 1,
 			recovery : "long rest",
-			action : ["action", " (allies within 60 feet)"]
+			action : [["action", " (allies within 60 feet)"]]
 		},
 		"subclassfeature14" : {
 			name : "Rage Beyond Death",

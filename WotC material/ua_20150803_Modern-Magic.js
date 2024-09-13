@@ -24,11 +24,11 @@ AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 			source : [["UA:MM", 1]],
 			minlevel : 1,
 			description : "\n   " + "I learn the On/Off cantrip if I didn't already know it",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Bonus Cantrip (On/Off)",
 				spells : ["on/off-ua"],
 				selection : ["on/off-ua"]
-			}
+			}]
 		},
 		"subclassfeature1.1" : {
 			name : "Bonus Proficiency",
@@ -60,7 +60,7 @@ AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 				"If failed, it is either knocked prone or restrained (my choice) by city hazards",
 				"A restrained target can escape with an Athletics or Acrobatics check vs. my spell DC"
 			]),
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Block Watch",
@@ -98,7 +98,7 @@ AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 			]),
 			usages : 1,
 			recovery : "short rest",
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -116,11 +116,11 @@ AddSubClass("warlock", "ghost in the machine-ua", { // Still valid 2021-09-21
 			minlevel : 1,
 			description : "\n   " + "I am proficient with hacking tools and know the On/Off cantrip",
 			toolProfs : ["Hacking tools"],
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Bonus Cantrip (On/Off)",
 				spells : ["on/off-ua"],
 				selection : ["on/off-ua"]
-			}
+			}]
 		},
 		"subclassfeature1.1" : {
 			name : "Information Surge",
@@ -134,7 +134,7 @@ AddSubClass("warlock", "ghost in the machine-ua", { // Still valid 2021-09-21
 			]),
 			usages : 1,
 			recovery : "short rest",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Wire Walk",
@@ -146,7 +146,7 @@ AddSubClass("warlock", "ghost in the machine-ua", { // Still valid 2021-09-21
 			]),
 			usages : 1,
 			recovery : "long rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature10" : {
 			name : "Personal Encryption",
@@ -170,7 +170,7 @@ AddSubClass("warlock", "ghost in the machine-ua", { // Still valid 2021-09-21
 			]),
 			usages : 1,
 			recovery : "long rest",
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });

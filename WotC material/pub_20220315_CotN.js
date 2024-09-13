@@ -68,12 +68,12 @@ MagicItemsList["earring of message"] = {
 	additional : "regains 1d4+1",
 	spellcastingAbility : "class",
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["message"],
 		selection : ["message"],
 		firstCol : '1'
-	}
+	}]
 };
 MagicItemsList["medal of muscle"] = {
 	name : "Medal of Muscle",
@@ -310,12 +310,12 @@ MagicItemsList["jewel of three prayers"] = {
 	choicesNotInMenu : true,
 	spellcastingAbility : "class",
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["invisibility"],
 		selection : ["invisibility"],
 		firstCol : "1"
-	},
+	}],
 	action : [["action", " (shed light)"]],
 	"dormant" : {
 		name : "Jewel of Three Prayers [dormant]",

@@ -30,11 +30,11 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 			usages : "Con mod (min 1) per ",
 			usagescalc : "event.value = Math.max(1, What('Con Mod'));",
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Lingering Magic",
 				spells : ["detect magic"],
 				selection : ["detect magic"]
-			},
+			}],
 			spellChanges : {
 				"detect magic" : {
 					components : "",
@@ -99,7 +99,7 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 				"As a bonus action while raging, I can reroll the effect on the Wild Surge table",
 				"This replaces the current wild surge effect with a new one"
 			]),
-			action : ["bonus action", " (in Rage)"]
+			action : [["bonus action", " (in Rage)"]]
 		}
 	}
 });

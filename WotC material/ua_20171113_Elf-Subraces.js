@@ -64,12 +64,12 @@ RaceList["grugach elf-ua"] = {
 	scores : [1, 2, 0, 0, 0, 0],
 	trait : "Grugach (+1 Strength, +2 Dexterity)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nCantrip: I know one cantrip of my choice from the druid spell list. Wisdom is my spellcasting ability for it.",
 	spellcastingAbility : 5,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Grugach Cantrip",
 		"class" : "druid",
 		level : [0, 0],
 		firstCol : 'atwill'
-	},
+	}],
 	eval : function () {
 		RemoveLangTool('language', 'Common');
 	}
@@ -137,18 +137,18 @@ RaceList["shadar-kai elf-ua"] = {
 	scores : [0, 2, 0, 0, 0, 1],
 	trait : "Shadar-kai (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nBlessing of the Raven Queen: Once per short rest, as a bonus action, I can magically teleport up to 15 ft to an unoccupied space I can see, and, until the start of my next turn, I have resistance to all damage and appear translucent." + (typePF ? "\n" : " ") + "Cantrip: I know one cantrip: Chill Touch, Spare the Dying, or Thaumaturgy. Charisma is my spellcasting ability for it.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Shadar-kai Cantrip",
 		spells : ["chill touch", "spare the dying", "thaumaturgy"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"blessing of the raven queen" : {
 			name : "Blessing of the Raven Queen",
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		}
 	}
 };

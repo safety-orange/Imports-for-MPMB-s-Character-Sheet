@@ -35,7 +35,7 @@ AddSubClass("monk", "way of the drunken master-ua", {
 			description : "\n   " + "As a reaction when missed in melee, attacker instead hits another I can see within 5 ft",
 			usages : 1,
 			recovery : "short rest",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature11" : {
 			name : "Drunkard's Luck",
@@ -76,7 +76,7 @@ AddSubClass("paladin", "oath of redemption-ua", {
 			source : [["UA:AToS", 2]],
 			minlevel : 3,
 			description : "\n   " + "As a bonus action, I gain +5 to my next Charisma (Persuasion) check in the next min",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature3.2" : {
 			name : "Channel Divinity: Rebuke the Violent",
@@ -86,7 +86,7 @@ AddSubClass("paladin", "oath of redemption-ua", {
 				"As a reaction when a hostile within 10 ft damages another in melee, I can rebuke it",
 				"It takes the same damage as it dealt but as radiant damage, with a Wis save to halve it"
 			]),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature3.3" : {
 			name : "Warrior of Reconciliation",
@@ -106,7 +106,7 @@ AddSubClass("paladin", "oath of redemption-ua", {
 				"As a reaction when an ally within 10 ft takes damage, I instead take the damage",
 				"This damage can't be reduced in any way; Other effects might still apply to my ally"
 			]),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature15" : {
 			name : "Protective Spirit",
@@ -151,7 +151,7 @@ var UAAToS_rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer
 				"I learn its vulnerabilities, immunities, resistances, and the effects damaging it can have",
 				"My first weapon hit on it each turn does +1d6 damage, until I study another or rest"
 			]),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature7" : {
 			name : "Supernatural Defense",
@@ -169,7 +169,7 @@ var UAAToS_rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer
 				"As a reaction, I can stop the target of my Slayer's Eye from escaping, if within 30 ft",
 				"If I win a contested Wis check, it wastes it action to teleport/transform/plane shift"
 			]),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature15" : {
 			name : "Slayer's Counter",
@@ -179,7 +179,7 @@ var UAAToS_rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer
 				"As a reaction when the target of my Slayer's Eye has me make a save, I can attack it",
 				"I can make one weapon attack; If this hits, I automatically succeed on the saving throw"
 			]),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		}
 	}
 });

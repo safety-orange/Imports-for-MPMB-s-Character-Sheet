@@ -153,23 +153,23 @@ RaceList["fairy"] = {
 	},
 	scoresGeneric : true,
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Fairy Magic",
 		spells : ["druidcraft"],
 		selection : ["druidcraft"],
 		firstCol : "atwill"
-	},
+	}],
 	features : {
 		"fairy magic (level 3)" : {
 			name : "Fairy Magic (level 3)",
 			minlevel : 3,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Fairy Magic (level 3)",
 				spells : ["faerie fire"],
 				selection : ["faerie fire"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Faerie Fire",
 				usages : 1,
@@ -180,13 +180,13 @@ RaceList["fairy"] = {
 		"fairy magic (level 5)" : {
 			name : "Fairy Magic (level 5)",
 			minlevel : 5,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Fairy Magic (level 5)",
 				spells : ["enlarge/reduce"],
 				selection : ["enlarge/reduce"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Enlarge/Reduce",
 				usages : 1,

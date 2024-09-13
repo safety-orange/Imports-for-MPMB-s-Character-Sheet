@@ -27,7 +27,7 @@ AddSubClass("wizard", "war magic-ua", {
 				"As a reaction when I fail a Con save, I can gain +4 bonus to that saving throw",
 				"After I do either, I can't cast spells other than cantrips until the end of my next turn"
 			]),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature2.1" : {
 			name : "Tactical Wit",
@@ -124,7 +124,7 @@ RunFunctionAtEnd(function() {
 				source : [["UA:TF", 2], ["UA:WR", 1]],
 				minlevel : 2,
 				description : "\n   " + "As a bonus action, I speak a prayer to control the flow of magic around me" + "\n   " + "The next spell I cast gains a +2 bonus to its attack roll or saving throw DC",
-				action : ["bonus action", ""]
+				action : [["bonus action", ""]]
 			},
 			"subclassfeature2.3" : {
 				name : "Channel Arcana: Domain",

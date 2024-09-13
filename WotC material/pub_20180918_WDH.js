@@ -75,12 +75,12 @@ MagicItemsList["azuredge"] = {
 		modifiers : [3, 3],
 		selectNow : true
 	}],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["crusader's mantle"],
 		selection : ["protection from evil and good"],
 		firstCol : "oncelr"
-	},
+	}],
 	toNotesPage : [{
 		name : "Features",
 		note : "\n   " + WDH_azuredgeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt

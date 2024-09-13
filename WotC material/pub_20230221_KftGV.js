@@ -37,12 +37,12 @@ MagicItemsList["constantori's portrait"] = {
 	usages : 3,
 	recovery : "dawn",
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["magic missile"],
 		selection : ["magic missile"],
 		firstCol : 1
-	}
+	}]
 };
 
 MagicItemsList["shard of xeluan"] = {

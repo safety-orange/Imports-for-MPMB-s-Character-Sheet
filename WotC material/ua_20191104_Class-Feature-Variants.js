@@ -158,12 +158,12 @@ if (!SourceList.T) {
 		additional : levels.map(function (n) {
 			return n < 2 ? "" : Math.floor(n/2) + " hours";
 		}),
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Wild Companion",
 			spells : ["find familiar"],
 			selection : ["find familiar"],
 			firstCol : "Sp"
-		},
+		}],
 		spellChanges : {
 			"find familiar" : {
 				components : "V,S",
@@ -454,12 +454,12 @@ if (!SourceList.T) {
 			"I learn two cleric cantrips that count as paladin spells for me and use Cha for spellcasting",
 			"Whenever I gain a paladin level, I can swap one of these for another cleric cantrip"
 		]),
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Blessed Warrior",
 			"class" : "cleric",
 			level : [0, 0],
 			times : 2
-		}
+		}]
 	});
 } // dupl_end
 // The enhancement option for fighting styles has to be added to each class separately
@@ -550,12 +550,12 @@ var UACFV_Favored_Foe = {
 		"I can cast it a number of times without using a spell slot or requiring concentration",
 		"I can also use a spell slot to cast it as normal, but then it does require concentration"
 	]),
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Favored Foe",
 		spells : ["hunter's mark"],
 		selection : ["hunter's mark"],
 		firstCol : "Sp"
-	},
+	}],
 	usages : "Wisdom modifier per ",
 	usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 	recovery : "long rest",
@@ -581,12 +581,12 @@ if (!SourceList.T) {
 			"I learn two druid cantrips that count as ranger spells for me and use Wis for spellcasting",
 			"Whenever I gain a ranger level, I can swap one of these for another druid cantrip"
 		]),
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Druidic Warrior",
 			"class" : "druid",
 			level : [0, 0],
 			times : 2
-		}
+		}]
 	});
 } // dupl_end
 // The enhancement option for fighting styles has to be added to each class separately
@@ -650,7 +650,7 @@ var UACFV_Primal_Awareness = {
 			"I know the following spells, without them counting towards the maximum number of spells I can know: Detect Magic, Speak with Animals, Beast Sense, Locate Animals or Plants, Speak with Plants, Locate Creature, and Commune with Nature."
 		]
 	},
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Primal Awareness",
 		spells : ["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"],
 		selection : ["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"],
@@ -658,7 +658,7 @@ var UACFV_Primal_Awareness = {
 		times : levels.map(function (n) {
 			return n < 5 ? 2 : n < 9 ? 4 : n < 13 ? 5 : n < 17 ? 6 : 7;
 		})
-	}
+	}]
 };
 CreateClassFeatureVariant("ranger", "primeval awareness", "Primal Awareness (ua)", UACFV_Primal_Awareness);
 var UACFV_Fade_Away = {
@@ -1002,12 +1002,12 @@ AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome) (ua
 		return classes.known.warlock.level >= 5 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome';
 	},
 	action : [["action", " (erase name)"]],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Far Scribe",
 		spells : ["sending"],
 		selection : ["sending"],
 		firstCol : "atwill"
-	},
+	}],
 	spellChanges : {
 		"sending" : {
 			components : "V,S",

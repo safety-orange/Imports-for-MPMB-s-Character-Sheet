@@ -45,12 +45,12 @@ AddSubClass("sorcerer", "giant soul-ua", {
 					"I add Minor Illusion, Fog Cloud and Invisibility to my known sorcerer spells",
 					"These do not count against the number of cantrips/spells I can know"
 				]),
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Mark of Ordning",
 					spells : ["minor illusion", "fog cloud", "invisibility"],
 					selection : ["minor illusion", "fog cloud", "invisibility"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				}
+				}]
 			},
 			"fire giant" : {
 				name : "Mark of Ordning: Fire Giant",
@@ -58,12 +58,12 @@ AddSubClass("sorcerer", "giant soul-ua", {
 					"I add Fire Bolt, Burning Hands, and Flaming Sphere to my known sorcerer spells",
 					"These do not count against the number of cantrips/spells I can know"
 				]),
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Mark of Ordning",
 					spells : ["fire bolt", "burning hands", "flaming sphere"],
 					selection : ["fire bolt", "burning hands", "flaming sphere"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				}
+				}]
 			},
 			"frost giant" : {
 				name : "Mark of Ordning: Frost Giant",
@@ -71,12 +71,12 @@ AddSubClass("sorcerer", "giant soul-ua", {
 					"I add Ray of Frost, Armor of Agathys, and Hold Person to my known sorcerer spells",
 					"These do not count against the number of cantrips/spells I can know"
 				]),
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Mark of Ordning",
 					spells : ["ray of frost", "armor of agathys", "hold person"],
 					selection : ["ray of frost", "armor of agathys", "hold person"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				}
+				}]
 			},
 			"hill giant" : {
 				name : "Mark of Ordning: Hill Giant",
@@ -84,12 +84,12 @@ AddSubClass("sorcerer", "giant soul-ua", {
 					"I add Shillelagh, Heroism, and Enlarge/Reduce to my known sorcerer spells",
 					"These do not count against the number of cantrips/spells I can know"
 				]),
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Mark of Ordning",
 					spells : ["shillelagh", "heroism", "enlarge/reduce"],
 					selection : ["shillelagh", "heroism", "enlarge/reduce"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				}
+				}]
 			},
 			"stone giant" : {
 				name : "Mark of Ordning: Stone Giant",
@@ -97,12 +97,12 @@ AddSubClass("sorcerer", "giant soul-ua", {
 					"I add Resistance, Entangle, and Spike Growth to my known sorcerer spells",
 					"These do not count against the number of cantrips/spells I can know"
 				]),
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Mark of Ordning",
 					spells : ["resistance", "entangle", "spike growth"],
 					selection : ["resistance", "entangle", "spike growth"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				}
+				}]
 			},
 			"storm giant" : {
 				name : "Mark of Ordning: Storm Giant",
@@ -110,12 +110,12 @@ AddSubClass("sorcerer", "giant soul-ua", {
 					"I add Thunderwave, Shocking Grasp, and Gust of Wind to my known sorcerer spells",
 					"These do not count against the number of cantrips/spells I can know"
 				]),
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Mark of Ordning",
 					spells : ["thunderwave", "shocking grasp", "gust of wind"],
 					selection : ["thunderwave", "shocking grasp", "gust of wind"],
 					times : [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-				}
+				}]
 			},
 			choiceDependencies : [{ feature : "subclassfeature6" }]
 		},
@@ -132,7 +132,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 					"As a bonus action after casting any of my Mark of Ordning spells, I can teleport",
 					"I teleport to an unoccupied space that I can see up to my Con mod + 10 ft away"
 				]),
-				action : ["bonus action", ""]
+				action : [["bonus action", ""]]
 			},
 			"fire giant" : {
 				name : "Soul of Lost Ostoria: Fire Giant",

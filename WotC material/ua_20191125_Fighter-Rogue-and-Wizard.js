@@ -44,12 +44,12 @@ AddSubClass("fighter", "psychic warrior-ua", {
 			source : [["UA:FRnW", 1]],
 			minlevel : 3,
 			description : "\n   I learn the Mage Hand cantrip, can cast it without components, and can make it invisible",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Telekinetic Hand",
 				spells : ["mage hand"],
 				selection : ["mage hand"],
 				firstCol : "atwill"
-			},
+			}],
 			spellChanges : {
 				"mage hand" : {
 					components : "",
@@ -241,12 +241,12 @@ AddSubClass("wizard", "psionics-ua", {
 					"I learn the Friends cantrip and while my psionic focus in on me, I am better at casting it",
 					"I can cast it as a bonus action without components and the target doesn't become hostile"
 				]),
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Psionic Devotion",
 					spells : ["friends"],
 					selection : ["friends"],
 					firstCol : "atwill"
-				},
+				}],
 				spellChanges : {
 					"friends" : {
 						time : "1 bns",
@@ -264,12 +264,12 @@ AddSubClass("wizard", "psionics-ua", {
 					"I can then cast it as a bonus action without components and can make the hand invisible",
 					"Also, I can control the hand as a bonus action instead of an action"
 				]),
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Psionic Devotion",
 					spells : ["mage hand"],
 					selection : ["mage hand"],
 					firstCol : "atwill"
-				},
+				}],
 				spellChanges : {
 					"mage hand" : {
 						time : "1 bns",
@@ -286,12 +286,12 @@ AddSubClass("wizard", "psionics-ua", {
 					"I can then cast it as a bonus action without components",
 					"Also, I don't need to point at the target or whisper the message out loud"
 				]),
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Psionic Devotion",
 					spells : ["message"],
 					selection : ["message"],
 					firstCol : "atwill"
-				},
+				}],
 				spellChanges : {
 					"message" : {
 						time : "1 bns",
@@ -338,11 +338,11 @@ AddSubClass("wizard", "psionics-ua", {
 					"Once per long rest, I can cast it without using a spell slot; I can also prepare it as normal"
 				]),
 				limfeaname : "Dominate Person (without spell slot)",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Mental Discipline",
 					spells : ["dominate person"],
 					selection : ["dominate person"]
-				},
+				}],
 				spellChanges : {
 					"dominate person" : {
 						components : "",
@@ -357,11 +357,11 @@ AddSubClass("wizard", "psionics-ua", {
 					"Once per long rest, I can cast it without using a spell slot; I can also prepare it as normal"
 				]),
 				limfeaname : "Scrying (without spell slot)",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Mental Discipline",
 					spells : ["scrying"],
 					selection : ["scrying"]
-				},
+				}],
 				spellChanges : {
 					"scrying" : {
 						components : "",
@@ -377,11 +377,11 @@ AddSubClass("wizard", "psionics-ua", {
 					"Once per long rest, I can cast it without using a spell slot; I can also prepare it as normal"
 				]),
 				limfeaname : "Telekinesis (without spell slot)",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Mental Discipline",
 					spells : ["telekinesis"],
 					selection : ["telekinesis"]
-				},
+				}],
 				spellChanges : {
 					"telekinesis" : {
 						components : "",
@@ -576,13 +576,13 @@ FeatsList["telekinetic-ua"] = {
 	descriptionFull : "You learn to move things with your mind. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You learn the mage hand cantrip. You can cast it without verbal or somatic components, and you can make the spectral hand invisible.\n \u2022 As a bonus action, you can try to shove one creature you can see within 5 feet of the spectral hand created by your mage hand spell. When you do so, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Intelligence modifier) or be pushed 5 feet away from you.",
 	description : "I learn the Mage Hand cantrip, can cast it without components, and can make it invisible. As a bonus action, I can use it to try and shove a creature I can see within 5 ft of it. The target must make a Str save (Int based) or be shoved 5 ft away from me. [+1 Intelligence]",
 	scores : [0, 0, 0, 1, 0, 0],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Telekinetic",
 		spellcastingAbility : 4,
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		firstCol : "atwill"
-	},
+	}],
 	spellChanges : {
 		"mage hand" : {
 			components : "",

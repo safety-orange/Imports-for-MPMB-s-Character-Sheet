@@ -76,11 +76,11 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 			source : [["UA:HoK", 2]],
 			minlevel : 1,
 			description : desc("I know the Sacred Flame cantrip and can use it on 2 creatures within 5 ft of each other"),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Moon Fire",
 				spells : ["sacred flame"],
 				selection : ["sacred flame"]
-			},
+			}],
 			weaponsAdd : { select : ["Sacred Flame"] },
 			spellChanges : {
 				"sacred flame" : {
@@ -146,14 +146,14 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 				]
 			},
 			spellFirstColTitle : "Ph",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				// Because Death Ward is a 4th-level spell, but gained at 5th level, we need to manually add it at sorcerer level 5 and 6
 				name : "Death Ward",
 				spells : ["death ward"],
 				selection : ["death ward"],
 				firstCol : "F",
 				times : levels.map(function(n){ return n === 5 || n === 6 ? 1 : 0; })
-			}
+			}]
 		},
 		"subclassfeature6" : {
 			name : "Lunar Boons",
@@ -461,13 +461,13 @@ FeatsList["adept of the black robes-ua"] = {
 	descriptionFull : "Your ambition and loyalty to the Order of the Black Robes has been recognized, granting you these benefits:\n" + toUni("Ambitious Magic.") + " You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.\n" + toUni("Life Channel.") + " You can channel your lifeforce into the power of your magic. When a creature you can see within 60 feet fails on a saving throw against a spell you cast, you can expend a number of Hit Dice equal to the level of the spell. Roll a number of Hit Die equal to half the number of Hit Dice expended (rounded up) and the damage the triggering creature takes increases by an amount equal to the total rolled of those dice.",
 	prerequisite : "4th-level, Initiate of High Sorcery feat, Any Non-Good Alignment",
 	prereqeval : function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("initiate of high sorcery-ua") !== -1 && !(/good/i).test(What("Alignment")); },
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "2nd-level Evoc/Necro spell",
 		"class" : "any",
 		school : ["Evoc", "Necro"],
 		level : [2, 2],
 		firstCol : "oncelr"
-	},
+	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
 	choices : ["Intelligence", "Wisdom", "Charisma"],
@@ -497,13 +497,13 @@ FeatsList["adept of the red robes-ua"] = {
 	descriptionFull : "Your pursuit of truth and dedication to maintaining the balance between all things has been recognized by the Order of the Red Robes, granting you these benefits:\n" + toUni("Insightful Magic.") + " You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the divination or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.\n" + toUni("Magical Balance.") + " When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. you can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite : "4th level, Initiate of High Sorcery feat",
 	prereqeval : function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("initiate of high sorcery-ua") !== -1; },
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "2nd-level Div/Trans spell",
 		"class" : "any",
 		school : ["Div", "Trans"],
 		level : [2, 2],
 		firstCol : "oncelr"
-	},
+	}],
 	action : [["reaction", "Magical Balance"]],
 	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
@@ -537,13 +537,13 @@ FeatsList["adept of the white robes-ua"] = {
 	descriptionFull : "Your oath to use magic to make the world a better place has been recognized by the Order of the White Robes, granting you these benefits:\n" + toUni("Protective Magic.") + " You learn one 2nd-level spell of you choice. The 2nd-level spell must be from the abjuration or conjuration school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.\n" + toUni("Protective Ward.") + " When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d4s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier.",
 	prerequisite : "4th level, Initiate of High Sorcery feat, Any Non-Evil Alignment",
 	prereqeval : function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("initiate of high sorcery-ua") !== -1 && !(/evil/i).test(What("Alignment")); },
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "2nd-level Abjur/Conj spell",
 		"class" : "any",
 		school : ["Abjur", "Conj"],
 		level : [2, 2],
 		firstCol : "oncelr"
-	},
+	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
 	choices : ["Intelligence", "Wisdom", "Charisma"],
@@ -728,12 +728,12 @@ FeatsList["divine communications-ua"] = {
 	prerequisite : "4th level, Divinely Favored feat",
 	prereqeval : function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("divinely favored-ua") !== -1; },
 	languageProfs : ["Celestial", 2],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Augury and Commune",
 		spells : ["augury", "commune"],
 		selection : ["augury", "commune"],
 		times : 2
-	},
+	}],
 	choices : ["Intelligence", "Wisdom", "Charisma"],
 	selfChoosing : function () {
 		// extract just the ability from the divinely favored choices

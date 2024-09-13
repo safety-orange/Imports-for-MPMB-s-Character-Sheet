@@ -24,23 +24,23 @@ RaceList["fairy-ua"] = {
 	languageProfs : ["Common", 1],
 	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Fairy Magic",
 		spells : ["druidcraft"],
 		selection : ["druidcraft"],
 		firstCol : "atwill"
-	},
+	}],
 	features : {
 		"fairy magic" : {
 			name : "Fairy Magic",
 			minlevel : 1,
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Fairy Magic",
 				spells : ["faerie fire"],
 				selection : ["faerie fire"],
 				firstCol : 'oncelr',
 				allowUpCasting : true
-			},
+			}],
 			extraLimitedFeatures : [{
 				name : "Faerie Fire",
 				usages : 1,
@@ -125,11 +125,11 @@ RaceList["owlfolk-ua"] = {
 	languageProfs : ["Common", 1],
 	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Magic Sight",
 		spells : ["detect magic"],
 		selection : ["detect magic"]
-	},
+	}],
 	action : [["reaction", "Nimble Flight"]],
 	trait : "Owlfolk"+
 	"\n \u2022 Magic Sight: I know the spell Detect Magic and can cast as a ritual or by using spell slots as normal."+

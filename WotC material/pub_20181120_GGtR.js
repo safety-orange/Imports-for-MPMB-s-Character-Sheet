@@ -157,12 +157,12 @@ RaceList["minotaur"] = {
 		"goring rush" : {
 			name : "Goring Rush",
 			minlevel : 1,
-			action : ["bonus action", " (with Dash)"]
+			action : [["bonus action", " (with Dash)"]]
 		},
 		"hammering horns" : {
 			name : "Hammering Horns",
 			minlevel : 1,
-			action : ["bonus action", " (after hit)"]
+			action : [["bonus action", " (after hit)"]]
 		}
 	}
 };
@@ -455,11 +455,11 @@ AddSubClass("druid", "circle of spores", {
 				"I learn the Chill Touch cantrip and gain the ability to cast certain spells",
 				"These are always prepared, but don't count against the number of spells I can prepare"
 			]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Circle Spells",
 				spells : ["chill touch"],
 				selection : ["chill touch"]
-			},
+			}],
 			spellcastingExtra : ["blindness/deafness", "gentle repose", "animate dead", "gaseous form", "blight", "confusion", "cloudkill", "contagion"]
 		},
 		"subclassfeature2.1" : {
@@ -471,7 +471,7 @@ AddSubClass("druid", "circle of spores", {
 				"It must succeed on a Constitution save or take necrotic damage from my cloud of spores"
 			]),
 			additional : levels.map(function (n) { return n < 2 ? "" : 'Con save or 1d' + (n < 6 ? 4 : n < 10 ? 6 : n < 14 ? 8 : 10) + " necrotic damage"; }),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature2.2" : { // changed from poison to necrotic damage in TCoE
 			name : "Symbiotic Entity",
@@ -486,7 +486,7 @@ AddSubClass("druid", "circle of spores", {
 			additional : levels.map(function (n) {
 				return n < 2 ? "" : Math.floor(n*4) + " temp HP; Halo of Spores: 2d" + (n < 6 ? 4 : n < 10 ? 6 : n < 14 ? 8 : 10);
 			}),
-			action : ["action", ""],
+			action : [["action", ""]],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -510,7 +510,7 @@ AddSubClass("druid", "circle of spores", {
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature10" : {
 			name : "Spreading Spores",
@@ -521,7 +521,7 @@ AddSubClass("druid", "circle of spores", {
 				"Any creature moving into or starting its turn in it must save against my Halo of Spores",
 				"The cube ends if I use this feature again; While it persists, I can't use my Halo of Spores"
 			]),
-			action : ["bonus action", " (start/end)"]
+			action : [["bonus action", " (start/end)"]]
 		},
 		"subclassfeature14" : {
 			name : "Fungal Body",
@@ -1488,111 +1488,111 @@ MagicItemsList["guild signet"] = {
 		description : "This signet ring bears a symbol of Azorius. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Ensnaring Strike (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["ensnaring strike"],
 			selection : ["ensnaring strike"],
 			firstCol : 1
-		}
+		}]
 	},
 	"boros" : {
 		description : "This signet ring bears a symbol of Boros. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Heroism (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["heroism"],
 			selection : ["heroism"],
 			firstCol : 1
-		}
+		}]
 	},
 	"dimir" : {
 		description : "This signet ring bears a symbol of Dimir. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Disguise Self (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["disguise self"],
 			selection : ["disguise self"],
 			firstCol : 1
-		}
+		}]
 	},
 	"golgari" : {
 		description : "This signet ring bears a symbol of Golgari. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Entangle (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["entangle"],
 			selection : ["entangle"],
 			firstCol : 1
-		}
+		}]
 	},
 	"gruul" : {
 		description : "This signet ring bears a symbol of Gruul. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Compelled Duel (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["compelled duel"],
 			selection : ["compelled duel"],
 			firstCol : 1
-		}
+		}]
 	},
 	"izzet" : {
 		description : "This signet ring bears a symbol of lzzet. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Chaos Bolt (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["chaos bolt"],
 			selection : ["chaos bolt"],
 			firstCol : 1
-		}
+		}]
 	},
 	"orzhov" : {
 		description : "This signet ring bears a symbol of Orzhov. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Command (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["command"],
 			selection : ["command"],
 			firstCol : 1
-		}
+		}]
 	},
 	"rakdos" : {
 		description : "This signet ring bears a symbol of Rakdos. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Hellish Rebuke (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["hellish rebuke"],
 			selection : ["hellish rebuke"],
 			firstCol : 1
-		}
+		}]
 	},
 	"selesnya" : {
 		description : "This signet ring bears a symbol of Selesnya. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Charm Person (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["charm person"],
 			selection : ["charm person"],
 			firstCol : 1
-		}
+		}]
 	},
 	"simic" : {
 		description : "This signet ring bears a symbol of Simic. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast Expeditious Retreat (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle : "Ch",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["expeditious retreat"],
 			selection : ["expeditious retreat"],
 			firstCol : 1
-		}
+		}]
 	}
 }
 MagicItemsList["illusionist's bracers"] = {

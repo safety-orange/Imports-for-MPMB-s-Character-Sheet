@@ -266,7 +266,7 @@
 { // pub_20200915_IDRotF.js
 	MagicItemsList["chwinga charms"] = { // contains contributions by Nod_Hero on Discord
 		name : "Chwinga Charms",
-		source : ["F"],
+		source : [["F"]],
 		type : "wondrous item",
 		rarity : "rare",
 		descriptionFull : "This tiny object looks like a snowflake. Different types of chwinga charms exist, each with a different effect.",
@@ -414,7 +414,7 @@
 		attunement : true,
 		usages : 6,
 		recovery : "dawn",
-		action : ["action", "Absolute Banishment"],
+		action : [["action", "Absolute Banishment"]],
 		spellcastingBonus : [{
 			name : "Aura of Life",
 			spells : ["aura of life"],
@@ -475,7 +475,7 @@
 		}],
 		usages : 8,
 		recovery : "dawn",
-		action : ["action", "Containment"],
+		action : [["action", "Containment"]],
 		spellcastingBonus : [{
 			name : "Magic Circle",
 			spells : ["magic circle"],
@@ -551,7 +551,7 @@
 			]
 		}],
 		attunement : true,
-		action : ["reaction", "Destructive Fist Attack"],
+		action : [["reaction", "Destructive Fist Attack"]],
 	}
 	MagicItemsList["luba's tarokka of souls"] = { // contains contributions by lizrdgizrd
 		name : "Luba's Tarokka of Souls",
@@ -597,7 +597,7 @@
 		attunement : true,
 		usages : 1,
 		recovery : "dawn",
-		action : ["action", "Cast Spell from Tarokka"],
+		action : [["action", "Cast Spell from Tarokka"]],
 		extraLimitedFeatures : [{
 			name : "Twist of Fate",
 			usages : "2",
@@ -723,7 +723,7 @@
 			descriptionFull : "When you are hit by an attack and an ally is within 5 feet of you, you can use your reaction to cause them to be hit instead. You can't use this reaction again until you finish a short or long rest.",
 			usages : 1,
 			recovery : "short/long rest",
-			action : ["reaction", "Redirect Attack to Ally"],
+			action : [["reaction", "Redirect Attack to Ally"]],
 			attunement : false,
 			source : [["T", 136]]
 		},
@@ -759,7 +759,7 @@
 			descriptionFull : "The tooth has 3 charges. As an action, you can expend 1 charge to touch a creature. The target regains 2d8 + 2 hit points, and all diseases and poisons affecting it are removed. When you use this action, a shimmering image of a unicorn's horn appears until the end of your turn, sprouting from your forehead. The tooth regains all expended charges daily at dawn. You gain the following flaw: \"When I see wickedness in action, I must oppose it.\"",
 			attunement : false,
 			source : [["T", 136]],
-			action : ["action", "Add Temp HP & Cure"],
+			action : [["action", "Add Temp HP & Cure"]],
 			usages : 3,
 			recovery : "dawn"
 		},
@@ -792,7 +792,7 @@
 			source : [["T", 137]],
 			usages : 1,
 			recovery : "dawn",
-			action : ["action", "Cast Evard's black tentacles"],
+			action : [["action", "Cast Evard's black tentacles"]],
 			spellcastingBonus : [{
 				name : "Implanted Tooth d20 = 10",
 				spells : ["evard's black tentacles"],
@@ -823,7 +823,7 @@
 			source : [["T", 137]],
 			usages : 1,
 			recovery : "dawn",
-			action : ["action", "Cast eyebite"],
+			action : [["action", "Cast eyebite"]],
 			spellcastingBonus : [{
 				name : "Implanted Tooth d20 = 12",
 				spells : ["eyebite"],
@@ -911,7 +911,7 @@
 			description : "I have implanted the ruby-veined red dragon fang from the Teeth of Dahlver-Nar. I gain immunity to fire damage and I can exhale fire in a 90-foot cone. Creatures in my cone must make a DC 24 Dexterity save or take 26d6 fire damage or half on success.",
 			descriptionFull : "You gain immunity to fire damage, and as an action, you can exhale fire in a 90-foot cone. Each creature in that area must make a DC 24 Dexterity saving throw, taking 26d6 fire damage on a failed save, or half as much damage on a successful one. After using the breath weapon, you gain 2 levels of exhaustion.",
 			attunement : false,
-			action : ["action", "Red Dragon fang (ToD-N)"],
+			action : [["action", "Red Dragon fang (ToD-N)"]],
 			savetxt : {
 				immune : ["fire"]
 			},

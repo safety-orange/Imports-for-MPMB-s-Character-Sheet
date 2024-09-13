@@ -164,12 +164,12 @@ if (!SourceList.G) {
 			"goring rush" : {
 				name : "Goring Rush",
 				minlevel : 1,
-				action : ["bonus action", " (with Dash)"]
+				action : [["bonus action", " (with Dash)"]]
 			},
 			"hammering horns" : {
 				name : "Hammering Horns",
 				minlevel : 1,
-				action : ["bonus action", " (after hit)"]
+				action : [["bonus action", " (after hit)"]]
 			}
 		}
 	};
@@ -204,12 +204,12 @@ if (!RaceList["triton"]) {
 				minlevel : 1,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Control Air and Water (1)",
 					spells : ["fog cloud"],
 					selection : ["fog cloud"],
 					firstCol : 'oncelr'
-				}
+				}]
 			},
 			"gust of wind" : {
 				name : "Control Air and Water (level 3)",
@@ -217,12 +217,12 @@ if (!RaceList["triton"]) {
 				minlevel : 3,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Control Air and Water (3)",
 					spells : ["gust of wind"],
 					selection : ["gust of wind"],
 					firstCol : 'oncelr'
-				}
+				}]
 			},
 			"wall of water" : {
 				name : "Control Air and Water (level 5)",
@@ -230,12 +230,12 @@ if (!RaceList["triton"]) {
 				minlevel : 5,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Control Air and Water (5)",
 					spells : ["wall of water"],
 					selection : ["wall of water"],
 					firstCol : 'oncelr'
-				}
+				}]
 			}
 		}
 	};
@@ -804,13 +804,13 @@ MagicItemsList["siren song lyre"] = {
 		usages : 1,
 		recovery : "dawn"
 	}],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["animal friendship", "charm person", "enthrall", "suggestion"],
 		selection : ["animal friendship", "charm person", "enthrall", "suggestion"],
 		firstCol : "oncelr",
 		times : 4
-	}
+	}]
 };
 var MOT_SlingBulletsOfAlthemoneFullDescription = [
 	"The sling bullets come in a pouch, which contains 1d4 + 4 bullets. Roll on the Magic Sling Bullets table for each bullet to determine its magical property.",

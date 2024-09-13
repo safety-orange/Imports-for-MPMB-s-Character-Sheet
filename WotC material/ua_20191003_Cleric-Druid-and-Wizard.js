@@ -133,12 +133,12 @@ AddSubClass("druid", "circle of wildfire-ua", {
 				"These are always prepared, but don't count against the number of spells I can prepare",
 				"In addition, I learn the Fire Bolt cantrip"
 			]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Circle Spells",
 				spells : ["fire bolt"],
 				selection : ["fire bolt"],
 				firstCol : "atwill"
-			},
+			}],
 			spellcastingExtra : ["locate animals or plants", "scorching ray", "fireball", "plant growth", "aura of life", "fire shield", "flame strike", "raise dead"]
 		},
 		"subclassfeature2.1" : {
@@ -305,13 +305,13 @@ AddSubClass("wizard", "onomancy-ua", {
 				"These are always prepared, but don't count against the number of spells I can prepare",
 				"I can cast either spell without using a spell slot by speaking the true name of a target"
 			]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Fateful Naming",
 				spells : ["bane", "bless"],
 				selection : ["bane", "bless"],
 				times : 2,
 				firstCol : "markedbox"
-			},
+			}],
 			additional : "with true name",
 			usages : "Int mod per ",
 			usagescalc : "event.value = Math.max(1, What('Int Mod'));",

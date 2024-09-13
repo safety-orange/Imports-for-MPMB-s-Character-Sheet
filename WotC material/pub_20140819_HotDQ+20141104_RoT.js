@@ -44,12 +44,12 @@ MagicItemsList["dragongleam"] = {
 	usages : 10,
 	recovery : "Never",
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["daylight"],
 		selection : ["daylight"],
 		firstCol : 1
-	},
+	}],
 	spellChanges : {
 		"daylight" : {
 			component : "V,M\u0192"

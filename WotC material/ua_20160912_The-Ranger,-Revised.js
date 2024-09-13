@@ -123,7 +123,7 @@ ClassList.rangerua = {
 			source : [["UA:RR", 4]],
 			minlevel : 3,
 			description : "\n   " + "If I haven't attacked a beast within the last 10 min, I can communicate with it" + "\n   " + "As an action, I convey simple ideas, and read mood, intent, emotions, needs, etc." + "\n   " + "By concentrating for 1 min, I know if any of my favored enemies are within 5 miles" + "\n   " + "Per group, I sense the number, general direction, distance, and type of favored enemy",
-			action : ["action", " (communicate)"]
+			action : [["action", " (communicate)"]]
 		},
 		"subclassfeature3" : {
 			name : "Ranger Conclave",
@@ -180,7 +180,7 @@ ClassList.rangerua = {
 			source : [["UA:RR", 4]],
 			minlevel : 8,
 			description : "\n   " + "I can take the Dash action as a bonus action",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"hide in plain sight" : {
 			name : "Hide in Plain Sight",
@@ -193,7 +193,7 @@ ClassList.rangerua = {
 			source : [["UA:RR", 5]],
 			minlevel : 14,
 			description : "\n   " + "I can't be nonmagically tracked if I don't want to be and can Hide as a bonus action",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"feral senses" : {
 			name : "Feral Senses",
@@ -445,7 +445,7 @@ AddSubClass("rangerua", "hunter-ua", {
 			"giant killer" : {
 				name : "Hunter's Prey: Giant Killer",
 				description : "\n   " + "As a reaction, when a Large or larger enemy in 5 ft attacks me, I can attack it once",
-				action : ["reaction", ""]
+				action : [["reaction", ""]]
 			},
 			"horde breaker" : {
 				name : "Hunter's Prey: Horde Breaker",
@@ -481,12 +481,12 @@ AddSubClass("rangerua", "hunter-ua", {
 			"volley" : {
 				name : "Multiattack: Volley",
 				description : "\n   " + "As an action, I can make ranged attacks vs. all within a 10-ft radius of a point in range",
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			"whirlwind attack" : {
 				name : "Multiattack: Whirlwind Attack",
 				description : "\n   " + "As an action, I can make melee attacks vs. all creatures within 5 ft of me",
-				action : ["action", ""]
+				action : [["action", ""]]
 			}
 		},
 		"subclassfeature15" : {
@@ -503,12 +503,12 @@ AddSubClass("rangerua", "hunter-ua", {
 			"stand against the tide" : {
 				name : "Stand Against the Tide",
 				description : "\n   " + "When a creature misses me with a melee attack, I can use my reaction on the attack" + "\n   " + "I force the attacker to repeat it vs. another (not attacker) of my choice within range",
-				action : ["reaction", ""]
+				action : [["reaction", ""]]
 			},
 			"uncanny dodge" : {
 				name : "Uncanny Dodge",
 				description : "\n   " + "As a reaction, I halve the damage of an attack from an attacker that I can see",
-				action : ["reaction", ""]
+				action : [["reaction", ""]]
 			}
 		}
 	}
@@ -552,7 +552,7 @@ AddSubClass("rangerua", "deep stalker-ua", {
 			source : [["UA:RR", 8]],
 			minlevel : 15,
 			description : "\n   " + "As a reaction when I'm attacked without adv., I can impose disadv. on the attack roll",
-			action : ["reaction", " (when attacked)"]
+			action : [["reaction", " (when attacked)"]]
 		}
 	}
 });

@@ -45,7 +45,7 @@ AddSubClass("sorcerer", "pyromancer", { // Includes contributions by userZynx_na
 				"As a reaction when hit by a melee attack, I can deal fire damage to the attacker",
 				"The damage is equal to my sorcerer level and ignores resistance to fire damage"
 			]),
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 			additional : levels.map( function(n) { return n < 14 ? "" : n + " fire damage"; })
 		},
 		"subclassfeature18" : {
@@ -91,13 +91,13 @@ FeatsList["servo crafting"] = { // Includes contributions by userZynx_name
 	description : "I can cast Find Familiar as a ritual, creating a servo instead of an animal. I can telepathically communicate with it, perceive its senses, and speak through it in my own voice. When I use the Attack action, I can forfeit one attack for it to attack.",
 	prerequisite : "Intelligence 13 or higher",
 	prereqeval : function (v) { return What('Int') >= 13; },
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Servo Crafting",
 		spellcastingAbility : 4,
 		spells : ["find familiar"],
 		selection : ["find familiar"],
 		firstCol : "(R)"
-	}
+	}]
 };
 
 // Adds 4 races
@@ -175,12 +175,12 @@ RaceList["vahadar elf"] = { // Includes contributions by SoilentBrad
 	scores : [0, 2, 0, 0, 1, 0],
 	trait : "Vahadar (+2 Dexterity, +1 Wisdom)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, but I still need 8 hours for a long rest.\nCantrip: I know one cantrip of my choice from the druid spell list. Wisdom is my spellcasting ability for it.",
 	spellcastingAbility : 5,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Vahadar Cantrip",
 		"class" : "druid",
 		level : [0, 0],
 		firstCol : 'atwill'
-	}
+	}]
 };
 RaceList["bishtahar elf"] = {
 	regExpSearch : /^(?!.*half)(?=.*\bbishtahar\b).*$/i,

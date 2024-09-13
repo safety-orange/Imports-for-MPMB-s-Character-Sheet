@@ -43,12 +43,12 @@ RaceList["pallid elf"] = { // contains contributions by Smashman
 	scores : [0, 2, 0, 0, 1, 0],
 	trait : "Pallid Elf (+2 Dexterity, +1 Wisdom)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nIncisive Sense: I have advantage on Intelligence (Investigation) and Wisdom (Insight) checks.\nBlessing of the Moonweaver: I know the Light cantrip. At 3rd level, I can cast Sleep once per long rest. At 5th level, I can also cast Invisibility on myself once per long rest. Spells cast using this trait require no material components and use Wisdom as spellcasting ability.",
 	spellcastingAbility : 5,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Blessing of the Moonweaver (level 1)",
 		spells : ["light"],
 		selection : ["light"],
 		firstCol : 'atwill'
-	},
+	}],
 	spellChanges : {
 		"light" : {
 			components : "V",
@@ -63,12 +63,12 @@ RaceList["pallid elf"] = { // contains contributions by Smashman
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Blessing of the Moonweaver (level 3)",
 				spells : ["sleep"],
 				selection : ["sleep"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"sleep" : {
 					components : "V,S",
@@ -83,12 +83,12 @@ RaceList["pallid elf"] = { // contains contributions by Smashman
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Blessing of the Moonweaver (level 5)",
 				spells : ["invisibility"],
 				selection : ["invisibility"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"invisibility" : {
 					range : "Self",
@@ -129,12 +129,12 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		"|Halfling Nimbleness: I can move through the space of any creature that is of a size larger than me. "+
 		"|Timberwalk: Disadv. on checks to track me. I require no extra movement for difficult terrain of nonmagical plants."),
 	spellcastingAbility : 5,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Child of the Wood (level 1)",
 		spells : ["druidcraft"],
 		selection : ["druidcraft"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"entangle" : {
 			name : "Child of the Wood (level 3)",
@@ -142,12 +142,12 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Child of the Wood (level 3)",
 				spells : ["entangle"],
 				selection : ["entangle"],
 				firstCol : 'oncelr'
-			}
+			}]
 		},
 		"spike growth" : {
 			name : "Child of the Wood (level 5)",
@@ -155,12 +155,12 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Child of the Wood (level 5)",
 				spells : ["spike growth"],
 				selection : ["spike growth"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"spike growth" : {
 					components : "V,S",
@@ -508,12 +508,12 @@ if (!SourceList.V) {
 		trait : "Fallen Aasimar (+1 Strength, +2 Charisma)" + (typePF ? "\n" : " ") + "Light Bearer: I know the Light cantrip.\nHealing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nNecrotic Shroud: Once per long rest when I'm 3rd level, I can use an action to transform, causing all within 10 ft of me to make a Cha" + (typePF ? "" : "risma") + " saving throw (DC 8 + Cha mod + Prof Bonus) or be frightened of me until the end of my next turn. This lasts for 1 minute or until I end it as a bonus action. Once on my turn I can have one of my attacks or spells deals my level in extra necrotic damage to one target.",
 		abilitySave : 6,
 		spellcastingAbility : 6,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Light Bearer",
 			spells : ["light"],
 			selection : ["light"],
 			firstCol : 'atwill'
-		},
+		}],
 		features : {
 			"healing hands" : {
 				name : "Healing Hands",
@@ -521,7 +521,7 @@ if (!SourceList.V) {
 				minlevel : 1,
 				recovery : "long rest",
 				additional : levels.map(function (n) { return n + " HP"; }),
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			"necrotic shroud" : {
 				name : "Necrotic Shroud",
@@ -554,12 +554,12 @@ if (!SourceList.V) {
 		scores : [0, 0, 0, 0, 1, 2],
 		trait : "Protector Aasimar (+1 Wisdom, +2 Charisma)\nLight Bearer: I know the Light cantrip.\nHealing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nRadiant Soul: Once per long rest when I'm 3rd level, I can use an action to transform, gaining glimmer in my eyes and two incorporeal wings. For 1 minute or until I end it as a bonus action, I have 30 feet fly speed; once on my turn I can have one of my attacks or spells deal my level in extra radiant damage to one target.",
 		spellcastingAbility : 6,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Light Bearer",
 			spells : ["light"],
 			selection : ["light"],
 			firstCol : 'atwill'
-		},
+		}],
 		features : {
 			"healing hands" : {
 				name : "Healing Hands",
@@ -567,7 +567,7 @@ if (!SourceList.V) {
 				minlevel : 1,
 				recovery : "long rest",
 				additional : levels.map(function (n) { return n + " HP"; }),
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			"radiant soul" : {
 				name : "Radiant Soul",
@@ -600,12 +600,12 @@ if (!SourceList.V) {
 		scores : [0, 0, 1, 0, 0, 2],
 		trait : "Scourge Aasimar (+1 Constitution, +2 Charisma)" + (typePF ? "\n" : " ") + "Light Bearer: I know the Light cantrip.\nHealing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nRadiant Consumption: Once per long rest when I'm 3rd level, I can use an action to radiate bright light in 10-ft radius and dim light for another 10-ft, for 1 minute or until I end it as a bonus action. Once on my turn my attack or spell deals my level in extra radiant damage to one target, and at the end of my turns all creatures within 10 ft of me, including myself, take half my level in radiant damage.",
 		spellcastingAbility : 6,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Light Bearer",
 			spells : ["light"],
 			selection : ["light"],
 			firstCol : 'atwill'
-		},
+		}],
 		features : {
 			"healing hands" : {
 				name : "Healing Hands",
@@ -613,7 +613,7 @@ if (!SourceList.V) {
 				minlevel : 1,
 				recovery : "long rest",
 				additional : levels.map(function (n) { return n + " HP"; }),
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			"radiant consumption" : {
 				name : "Radiant Consumption",
@@ -682,13 +682,13 @@ if (!SourceList.V) {
 			"firbolg magic (detect magic)" : {
 				name : "Firbolg Magic",
 				minlevel : 1,
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Firbolg Magic",
 					spells : ["detect magic", "disguise self"],
 					selection : ["detect magic", "disguise self"],
 					firstCol : 'oncesr',
 					times : 2
-				},
+				}],
 				extraLimitedFeatures : [{
 					name : "Detect Magic",
 					usages : 1,
@@ -891,12 +891,12 @@ if (!SourceList.E) {
 				minlevel : 1,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Mingle with the Wind",
 					spells : ["levitate"],
 					selection : ["levitate"],
 					firstCol : 'oncelr'
-				},
+				}],
 				spellChanges : {
 					"levitate" : {
 						components : "V,S",
@@ -933,12 +933,12 @@ if (!SourceList.E) {
 				minlevel : 1,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Merge with Stone",
 					spells : ["pass without trace"],
 					selection : ["pass without trace"],
 					firstCol : 'oncelr'
-				},
+				}],
 				spellChanges : {
 					"pass without trace" : {
 						components : "V,S",
@@ -970,12 +970,12 @@ if (!SourceList.E) {
 		scores : [0, 0, 2, 1, 0, 0],
 		trait : "Fire Genasi (+2 Constitution, +1 Intelligence)\n\nReach to the Blaze:\n   I know the Produce Flame cantrip.\n   Once I reach 3rd level, I can cast the Burning Hands spell once as a 1st-level spell.\n   I regain the ability to cast it this way when I finish a long rest.\n   Constitution is my spellcasting ability for these spells.",
 		spellcastingAbility : 3,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Reach to the Blaze (level 1)",
 			spells : ["produce flame"],
 			selection : ["produce flame"],
 			firstCol : 'atwill'
-		},
+		}],
 		features : {
 			"burning hands" : {
 				name : "Reach to the Blaze (level 3)",
@@ -983,12 +983,12 @@ if (!SourceList.E) {
 				minlevel : 3,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Reach to the Blaze (level 3)",
 					spells : ["burning hands"],
 					selection : ["burning hands"],
 					firstCol : 'oncelr'
-				}
+				}]
 			}
 		}
 	};
@@ -1013,12 +1013,12 @@ if (!SourceList.E) {
 		scores : [0, 0, 2, 0, 1, 0],
 		trait : "Water Genasi (+2 Constitution, +1 Wisdom)\nAmphibious: I can breathe air and water.\nSwim: I have a swimming speed of 30 feet.\nCall to the Wave: I know the Shape Water cantrip.\n   When I reach 3rd level, I can cast the Create or Destroy Water spell as a 2nd-level spell once with this trait, and I regain the ability to cast it this way when I finish a long rest.\n   Constitution is my spellcasting ability for these spells.",
 		spellcastingAbility : 3,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Call to the Wave (level 1)",
 			spells : ["shape water"],
 			selection : ["shape water"],
 			firstCol : 'atwill'
-		},
+		}],
 		features : {
 			"create or destroy water" : {
 				name : "Call to the Wave (level 3)",
@@ -1026,12 +1026,12 @@ if (!SourceList.E) {
 				minlevel : 3,
 				usages : 1,
 				recovery : "long rest",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Call to the Wave (level 3)",
 					spells : ["create or destroy water"],
 					selection : ["create or destroy water"],
 					firstCol : 'oncelr'
-				}
+				}]
 			}
 		}
 	};
@@ -2339,12 +2339,12 @@ MagicItemsList["duskcrusher"] = {
 	}],
 	weight : 2,
 	fixedDC : 15,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["sunbeam"],
 		selection : ["sunbeam"],
 		firstCol : 'oncelr'
-	}
+	}]
 };
 MagicItemsList["dust of deliciousness"] = {
 	name : "Dust of Deliciousness",
@@ -2382,12 +2382,12 @@ MagicItemsList["goggles of object reading"] = {
 	additional : "Identify",
 	usages : 1,
 	recovery : "dawn",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["identify"],
 		selection : ["identify"],
 		firstCol : 'oncelr'
-	}
+	}]
 };
 MagicItemsList["hunter's coat"] = {
 	name : "Hunter's Coat",
@@ -2476,12 +2476,12 @@ MagicItemsList["needle of mending"] = {
 		modifiers : [1, 1],
 		selectNow : true
 	}],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "At will",
 		spells : ["mending"],
 		selection : ["mending"],
 		firstCol : 'atwill'
-	},
+	}],
 	spellChanges : {
 		"mending" : {
 			time : "1 a",
@@ -2563,11 +2563,11 @@ MagicItemsList["reincarnation dust"] = {
 	recovery : "Never",
 	description : "Once I can sprinkle the purple dust in this small pouch on a dead humanoid or a piece of a dead humanoid. The dust is absorbed by the remains. If willing, the dead creature returns to life with a new body as if the reincarnate spell had been cast on the remains.",
 	descriptionFull : "When this small pouch of purple dust is sprinkled on a dead humanoid or a piece of a dead humanoid, the dust is absorbed by the remains. If willing, the dead creature returns to life with a new body as if the reincarnate spell had been cast on the remains.",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Use once",
 		spells : ["reincarnate"],
 		selection : ["reincarnate"]
-	}
+	}]
 };
 MagicItemsList["ring of obscuring"] = {
 	name : "Ring of Obscuring",
@@ -2585,12 +2585,12 @@ MagicItemsList["ring of obscuring"] = {
 	}],
 	spellcastingAbility : "class",
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["fog cloud"],
 		selection : ["fog cloud"],
 		firstCol : '1'
-	},
+	}],
 	spellChanges : {
 		"fog cloud" : {
 			range : "Self",
@@ -2861,12 +2861,12 @@ MagicItemsList["danoth's visor"] = {
 			recovery : "dawn"
 		}],
 		spellcastingAbility : "class",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["antimagic field"],
 			selection : ["antimagic field"],
 			firstCol : 'oncelr'
-		},
+		}],
 		savetxt : { immune : ["illusions"] },
 	}
 };
@@ -2983,12 +2983,12 @@ MagicItemsList["hide of the feral guardian"] = {
 		recovery : "dawn"
 	}],
 	spellcastingAbility : "class",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["polymorph"],
 		selection : ["polymorph"],
 		firstCol : "oncelr"
-	},
+	}],
 	choices : ["Dormant", "Awakened", "Exalted"],
 	choicesNotInMenu : true,
 	"dormant" : {
@@ -3146,13 +3146,13 @@ MagicItemsList["infiltrator's key"] = {
 			selectNow : true
 		}],
 		spellcastingAbility : "class",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["alter self", "invisibility", "knock", "pass without trace"],
 			selection : ["alter self", "invisibility", "knock", "pass without trace"],
 			firstCol : 'oncelr',
 			times : 4
-		}
+		}]
 	},
 	"exalted" : {
 		name : "Infiltrator's Key [exalted]",
@@ -3171,13 +3171,13 @@ MagicItemsList["infiltrator's key"] = {
 			selectNow : true
 		}],
 		spellcastingAbility : "class",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["alter self", "invisibility", "knock", "pass without trace", "dimension door", "gaseous form", "mislead"],
 			selection : ["alter self", "invisibility", "knock", "pass without trace", "dimension door", "gaseous form", "mislead"],
 			firstCol : 'oncelr',
 			times : 7
-		},
+		}],
 		extraLimitedFeatures : [{
 			name : "Infiltrator's Key (create opening)",
 			usages : 1,
@@ -3263,12 +3263,12 @@ MagicItemsList["stormgirdle"] = {
 		description : "This wide belt of thick leather branded with the symbol of Kord grants me resistance to lightning and thunder damage and increases my Strength to 25. As an action once per dawn, I can use it to become a Storm Avatar for 1 minute. Once per dawn, I can cast Control Weather. See Notes page for more information.",
 		scoresOverride : [25, 0, 0, 0, 0, 0],
 		spellcastingAbility : "class",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["control weather"],
 			selection : ["control weather"],
 			firstCol : 'oncelr'
-		}
+		}]
 	}
 };
 var EGtW_VerminshroudFullDescription = [
@@ -3311,12 +3311,12 @@ MagicItemsList["verminshroud"] = {
 		name : "Verminshroud [dormant]",
 		description : "This patchy cloak of rat pelts grants me immunity to disease, darkvision out to 60 ft, or extends it by 60 ft, and advantage on Perception checks that rely on smell. Once per dawn, I can use it to cast Polymorph on myself to become a rat or a giant rat, but I retain my Int, Wis, and Cha, as well as the benefits of this cloak.",
 		spellcastingAbility : "class",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["polymorph"],
 			selection : ["polymorph"],
 			firstCol : "oncelr"
-		},
+		}],
 		spellChanges : {
 			"polymorph" : {
 				name : "Polymorph (special)",
@@ -3362,13 +3362,13 @@ MagicItemsList["verminshroud"] = {
 			recovery : "dawn"
 		}],
 		fixedDC : 15,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["polymorph", "insect plague"],
 			selection : ["polymorph", "insect plague"],
 			firstCol : "oncelr",
 			times : 2
-		},
+		}],
 		spellChanges : {
 			"polymorph" : {
 				name : "Polymorph (special)",
@@ -3422,11 +3422,11 @@ MagicItemsList["wreath of the prism"] = {
 		name : "Wreath of the Prism [dormant]",
 		description : "This loop of golden thorns is inset with dozens of gems that represent the five colors of Tiamat. I gain darkvision out to 60 ft, or extend it by 60 ft. When I hit a beast, dragon, or monstrosity of CR 5 or lower with an attack, I can cast dominate monster on that creature (save DC 13). See notes page for more information.",
 		fixedDC : 13,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "CR 5 or lower, DC 13",
 			spells : ["dominate monster"],
 			selection : ["dominate monster"]
-		},
+		}],
 		spellChanges : {
 			"dominate monster" : {
 				name : "Dominate Monster (special)",
@@ -3439,11 +3439,11 @@ MagicItemsList["wreath of the prism"] = {
 		name : "Wreath of the Prism [awakened]",
 		description : "This loop of golden thorns is inset with dozens of gems that represent the five colors of Tiamat. I gain darkvision out to 60 ft, or extend it by 60 ft. When I hit a beast, dragon, or monstrosity of CR 10 or lower with an attack, I can cast dominate monster on that creature (save DC 15). See notes page for more information.",
 		fixedDC : 15,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "CR 10 or lower, DC 15",
 			spells : ["dominate monster"],
 			selection : ["dominate monster"]
-		},
+		}],
 		spellChanges : {
 			"dominate monster" : {
 				name : "Dominate Monster (special)",
@@ -3456,11 +3456,11 @@ MagicItemsList["wreath of the prism"] = {
 		name : "Wreath of the Prism [exalted]",
 		description : "This loop of golden thorns is inset with dozens of gems that represent the five colors of Tiamat. I gain darkvision out to 60 ft, or extend it by 60 ft. When I hit a beast, dragon, or monstrosity of CR 15 or lower with an attack, I can cast dominate monster on that creature (save DC 17). See notes page for more information.",
 		fixedDC : 17,
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "CR 15 or lower, DC 17",
 			spells : ["dominate monster"],
 			selection : ["dominate monster"]
-		},
+		}],
 		spellChanges : {
 			"dominate monster" : {
 				name : "Dominate Monster (special)",

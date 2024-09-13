@@ -30,7 +30,7 @@ AddSubClass("druid", "circle of dreams-ua", {
 			]),
 			usages : levels.map(function (n) { return n < 2 ? "" : n + "d6 per "; }),
 			recovery : "long rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Hearth of Moonlight and Shadow",
@@ -54,7 +54,7 @@ AddSubClass("druid", "circle of dreams-ua", {
 			]),
 			usages : 1,
 			recovery : "1d4 rounds",
-			action : ["action", " (on ally)"]
+			action : [["action", " (on ally)"]]
 		},
 		"subclassfeature14" : {
 			name : "Purifying Light",
@@ -88,7 +88,7 @@ AddSubClass("druid", "circle of the shepherd-ua", {
 			description : "\n   " + "As a bonus action, I can summon a spirit to an empty space within 60 ft that I can see" + "\n   " + "The Bear, Hawk, or Wolf spirit, creates a 30-ft radius aura and persist for 1 minute" + "\n   " + "It doesn't occupy space, is immobile, and counts as neither a creature nor an object" + "\n    - " + "Bear: my allies in the area and I instantly gain 5 + my druid level in temp HP" + "\n       " + "While in the aura, my allies and I gain advantage on Strength checks and saves" + "\n    - " + "Hawk: my allies and I gain advantage on attacks against targets in the aura" + "\n    - " + "Wolf: my allies and I gain advantage on ability checks to detect targets in the aura" + "\n       " + "If I cast a healing spell with a spell slot, allies in the aura heal my druid level in HP",
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Mighty Summoner",
@@ -117,12 +117,12 @@ AddSubClass("druid", "circle of the shepherd-ua", {
 			source : [["UA:DC", 2]],
 			minlevel : 10,
 			description : "\n   " + "Whenever I finish a long rest, I gain the benefits of a Death Ward spell for 24 hours",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Guardian Spirit",
 				spells : ["death ward"],
 				selection : ["death ward"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"death ward" : {
 					range : "Self",
@@ -164,12 +164,12 @@ AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 			description : "\n   " + "Once per short rest, I can cast Speak with Dead without spell slots or material comp." + "\n   " + "The target and I can understand each other, regardless of language or intelligence",
 			usages : 1,
 			recovery : "short rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Speech Beyond the Grave",
 				spells : ["speak with dead"],
 				selection : ["speak with dead"],
 				firstCol : 'oncesr'
-			},
+			}],
 			spellChanges : {
 				"speak with dead" : {
 					components : "V,S",
@@ -192,12 +192,12 @@ AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 			description : "\n   " + "Once per short rest, I can cast Etherealness without needing a spell slot",
 			usages : 1,
 			recovery : "short rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Paths of the Dead",
 				spells : ["etherealness"],
 				selection : ["etherealness"],
 				firstCol : 'oncesr'
-			},
+			}],
 			spellChanges : {
 				"etherealness" : {
 					description : "I go to Ethereal Plane; move there, but able to perceive 60 ft into the normal plane",

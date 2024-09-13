@@ -370,12 +370,12 @@ FeatsList["strixhaven mascot"] = {
 		usages : 1,
 		altResource : "SS 2+"
 	}],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Strixhaven Mascot",
 		spells : ["find familiar"],
 		selection : ["find familiar"],
 		firstCol : "(R)"
-	},
+	}],
 	choices : ["Lorehold", "Prismari", "Quandrix", "Silverquill", "Witherbloom"],
 	selfChoosing : function () {
 		var iStrixInit = CurrentFeats.known.indexOf("strixhaven initiate");

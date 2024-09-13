@@ -208,13 +208,13 @@ if (!SourceList["D:SotDQ"]) {
 			var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery");
 			return v.characterLevel >= 4 && iHghSrcyInit !== -1 && CurrentFeats.choices[iHghSrcyInit] === 'nuitari';
 		},
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "2nd-level Evoc/Necro spell",
 			"class" : "any",
 			school : ["Evoc", "Necro"],
 			level : [2, 2],
 			firstCol : "oncelr"
-		},
+		}],
 		spellcastingAbility : 'initiate of high sorcery_-_nuitari',
 		allowUpCasting : true
 	};
@@ -233,13 +233,13 @@ if (!SourceList["D:SotDQ"]) {
 		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus');",
 		recovery : "long rest",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "2nd-level Illus/Trans spell",
 			"class" : "any",
 			school : ["Illus", "Trans"],
 			level : [2, 2],
 			firstCol : "oncelr"
-		},
+		}],
 		spellcastingAbility : 'initiate of high sorcery_-_lunitari',
 		allowUpCasting : true
 	};
@@ -256,13 +256,13 @@ if (!SourceList["D:SotDQ"]) {
 			return v.characterLevel >= 4 && iHghSrcyInit !== -1 && CurrentFeats.choices[iHghSrcyInit] === 'solinari';
 		},
 		action : [["reaction", ""]],
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "2nd-level Abjur/Div spell",
 			"class" : "any",
 			school : ["Abjur", "Div"],
 			level : [2, 2],
 			firstCol : "oncelr"
-		},
+		}],
 		spellcastingAbility : 'initiate of high sorcery_-_solinari',
 		allowUpCasting : true
 	};

@@ -38,7 +38,7 @@ var UARnR_theHorizonWalkerSubclass = {
 				"Until the end of this turn, my attack against that enemy ignore damage resistances",
 				"In addition, the first time I hit it this turn, it takes an extra 1d6 force damage"
 			]),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature3.2" : {
 			name : "Portal Lore",
@@ -51,7 +51,7 @@ var UARnR_theHorizonWalkerSubclass = {
 			]),
 			usages : 1,
 			recovery : "short rest",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature7" : {
 			name : "Ethereal Step",
@@ -60,13 +60,13 @@ var UARnR_theHorizonWalkerSubclass = {
 			description : "\n   " + "As a bonus action, I can cast the Etherealness spell, which lasts until the end of the turn",
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""],
-			spellcastingBonus : {
+			action : [["bonus action", ""]],
+			spellcastingBonus : [{
 				name : "Ethereal Step",
 				spells : ["etherealness"],
 				selection : ["etherealness"],
 				firstCol : 'oncesr'
-			},
+			}],
 			spellChanges : {
 				"etherealness" : {
 					time : "1 bns",
@@ -90,7 +90,7 @@ var UARnR_theHorizonWalkerSubclass = {
 			source : [["UA:RnR", 1]],
 			minlevel : 15,
 			description : "\n   " + "As a reaction when I take damage, I can halve that damage against me",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		}
 	}
 };
@@ -114,7 +114,7 @@ var UARnR_thePrimevalGuardianSubclass = { // Still valid 2021-09-21
 			minlevel : 3,
 			description : "\n   " + "As a bonus action, I transform to or from a guardian form, changing me as follows:" + "\n    - " + "I grow to Large size, all my movement is reduced to 5 ft, and I get +5 ft reach" + "\n    - " + "I gain half my ranger level in temporary HP at the start of each of my turns" + "\n   " + "This ends when I'm incapacitated; When it ends, I lose all temporary HP I got from it",
 			additional : ["", "", "1 temp HP per round", "2 temp HP per round", "2 temp HP per round", "3 temp HP per round", "3 temp HP per round", "4 temp HP per round", "4 temp HP per round", "5 temp HP per round", "5 temp HP per round", "6 temp HP per round", "6 temp HP per round", "7 temp HP per round", "7 temp HP per round", "8 temp HP per round", "8 temp HP per round", "9 temp HP per round", "9 temp HP per round", "10 temp HP per round"],
-			action : ["bonus action", " (start/end)"]
+			action : [["bonus action", " (start/end)"]]
 		},
 		"subclassfeature3.2" : {
 			name : "Piercing Thorns",
@@ -200,14 +200,14 @@ AddSubClass("rogue", "scout-ua", {
 			source : [["UA:RnR", 3]],
 			minlevel : 13,
 			description : "\n   " + "As a bonus action in the first combat round with a surprised foe, I can lead the ambush" + "\n   " + "If I do so, allies who can see me gets +5 to their initiative roll, up to my initiative value" + "\n   " + "Also, each ally gains +10 ft to its speed that lasts until the end their next turn",
-			action : ["bonus action", " (first round)"]
+			action : [["bonus action", " (first round)"]]
 		},
 		"subclassfeature17" : {
 			name : "Sudden Strike",
 			source : [["UA:RnR", 3]],
 			minlevel : 17,
 			description : "\n   " + "With the Attack action, I can make one additional attack as a bonus action" + "\n   " + "This attack can benefit from my Sneak Attack even if I already used it this turn" + "\n   " + "However, I still can't use Sneak Attack on a single target more than once per turn",
-			action : ["bonus action", " (with Attack action)"]
+			action : [["bonus action", " (with Attack action)"]]
 		}
 	}
 });

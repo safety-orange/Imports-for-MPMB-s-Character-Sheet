@@ -226,7 +226,7 @@ AddSubClass("artificer-ua", "alchemist", {
 					"After being healed this way, a creature can't do so again until it finishes a long rest",
 					"While a Healing Draught exists, I can't use this formula to create another one"
 				]),
-				action : ["action", ""],
+				action : [["action", ""]],
 				additional : levels.map(function (n) {
 					return "Heals " + Math.ceil(n / 2) + "d8";
 				})
@@ -239,7 +239,7 @@ AddSubClass("artificer-ua", "alchemist", {
 					"The stick produces smoke in a 10-ft radius around it, blocking vision, incl. darkvision",
 					"It disappears after 1 minute; After creating one, I can't create a new one for 1 minute"
 				]),
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			"swift step draught" : {
 				name : "Swift Step Draught",
@@ -249,7 +249,7 @@ AddSubClass("artificer-ua", "alchemist", {
 					"Any creature can drink this vial as an action, gaining +20 ft speed for 1 minute",
 					"After use, the vial disappears; After creating one, I can't create a new one for 1 minute"
 				]),
-				action : ["bonus action", ""]
+				action : [["bonus action", ""]]
 			},
 			"tanglefoot bag" : {
 				name : "Tanglefoot Bag",
@@ -260,7 +260,7 @@ AddSubClass("artificer-ua", "alchemist", {
 					"It is difficult terrain and anyone starting its turn in it has its speed halved for that turn",
 					"After creating one, I can't create a new one for 1 minute"
 				]),
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			"thunderstone" : {
 				name : "Thunderstone",
@@ -270,7 +270,7 @@ AddSubClass("artificer-ua", "alchemist", {
 					"It shatters on impact and any creature within 10 ft must make a Constitution save",
 					"If failed, a creature is knocked prone and pushed 10 ft away from the point of impact"
 				]),
-				action : ["action", ""]
+				action : [["action", ""]]
 			}
 		},
 		"subclassfeature1.2" : {
@@ -285,7 +285,7 @@ AddSubClass("artificer-ua", "alchemist", {
 			additional : levels.map(function (n) {
 				return Math.ceil(n / 2) + "d6 acid damage";
 			}),
-			action : ["action", ""],
+			action : [["action", ""]],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*alchemical)(?=.*acid).*$/i,
 				name : "Alchemical Acid",
@@ -322,7 +322,7 @@ AddSubClass("artificer-ua", "alchemist", {
 			additional : levels.map(function (n) {
 				return Math.ceil(n / 3) + "d6 fire damage";
 			}),
-			action : ["action", ""],
+			action : [["action", ""]],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*alchemical)(?=.*fire).*$/i,
 				name : "Alchemical Fire",
@@ -364,11 +364,11 @@ AddSubClass("artificer-ua", "gunsmith", {
 			source : [["UA:A", 6]],
 			minlevel : 1,
 			description : desc(["I gain proficiency with smith's tools and I learn the mending cantrip"]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Master Smith",
 				spells : ["mending"],
 				selection : ["mending"]
-			},
+			}],
 			toolProfs : ["Smith's tools"]
 		},
 		"subclassfeature1.1" : {
@@ -380,7 +380,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 				"If lost, I craft another by spending 8 hours a day for 3 days and 100 gp of materials"
 			]),
 			weaponProfs : [false, false, ["thunder cannon"]],
-			action : ["bonus action", " (reload)"],
+			action : [["bonus action", " (reload)"]],
 			weaponOptions : [{
 				regExpSearch : /^(?!.*(blast|monger|piercing|explosive|round))(?=.*\bthunder)(?=.*cannon\b).*$/i,
 				name : "Thunder Cannon",
@@ -423,7 +423,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 				if (n < 3) return "";
 				return "+" + Math.floor((n - 1) / 2) + "d6 thunder damage";
 			}),
-			action : ["action", ""],
+			action : [["action", ""]],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*\bthunder)(?=.*monger\b).*$/i,
 				name : "Thunder Cannon (Monger)",
@@ -461,7 +461,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 				n < 17 ? "3d6 force damage" :
 				"4d6 force damage";
 			}),
-			action : ["action", ""],
+			action : [["action", ""]],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bblast)(?=.*wave\b).*$/i,
 				name : "Thunder Cannon (Blast Wave)",
@@ -499,7 +499,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 				n < 19 ? "4d6 lightning damage" :
 				"6d6 lightning damage";
 			}),
-			action : ["action", ""],
+			action : [["action", ""]],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bpiercing)(?=.*round\b).*$/i,
 				name : "Thunder Cannon (Piercing Round)",
@@ -534,7 +534,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 				"Creatures in the area must make a Dexterity saving throw or take 4d8 fire damage"
 			]),
 			additional : "4d8 fire damage",
-			action : ["action", ""],
+			action : [["action", ""]],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*\bthunder)(?=.*cannon\b)(?=.*\bexplosive)(?=.*round\b).*$/i,
 				name : "Thunder Cannon (Explosive Round)",

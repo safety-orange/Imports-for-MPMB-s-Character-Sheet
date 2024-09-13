@@ -24,11 +24,11 @@ AddSubClass("barbarian", "giant-ua", {
 			minlevel : 3,
 			description : desc("I learn Giant, and the Druidcraft or Thaumaturgy cantrip with Wis as spellcasting ability"),
 			languageProfs : ["Giant"],
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Giant Power",
 				spells : ["druidcraft", "thaumaturgy"],
 				firstCol : "atwill"
-			}
+			}]
 		},
 		"subclassfeature3.1" : {
 			name : "Giant's Havoc",
@@ -391,7 +391,7 @@ FeatsList["ember of the fire giant-ua"] = {
 	"\n\n" + toUni("Born of Flame") + ". You have resistance to fire damage."+
 	"\n" + toUni("Searing Ignition") + ". When you take the Attack action on your turn, you can replace one of your attacks with a magical burst of flame. Each creature of your choice within 15 feet of you that can see you must make a Dexterity saving throw (DC equals 8 + your proficiency bonus + your Constitution modifier). On a failed save, a creature takes fire damage equal to 2d6 + your proficiency bonus and is blinded until the start of your next turn; on a successful save, the creature takes half as much damage with no additional effects. You can use your Searing Ignition a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	description : "I gain resistance to fire damage. When I take the Attack action on my turn I can use an attack to instead make each creature I choose within 15 ft roll a Dex save DC 8 + Prof + Con mod. On a fail they take 2d6 + Prof Fire dmg, blinded until the start of my next turn. Success halves and no other effect. Prof Uses / LR.",
-	action : ["action", "Searing Ignition (as Attack action)"],
+	action : [["action", "Searing Ignition (as Attack action)"]],
 	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest",
@@ -406,7 +406,7 @@ FeatsList["fury of the frost giant-ua"] = {
 	"\n\n" + toUni("Born of Ice") + ". You have resistance to cold damage."+
 	"\n" + toUni("Frigid Vengeance") + ". When a creature hits you with an attack roll, you can use your reaction to retaliate with a burst of magical ire. The creature must succeed on a Wisdom saving throw (DC equals 8 + your proficiency bonus + your Consitution modifier) or be frightened of you until the start of its next turn. You can use your reaction in this way a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	description : "I gain resistance to cold damage. When I am hit with an attack roll I can use my reaction to make them roll a Wis save DC 8 + Prof + Con mod. On a failure they are frightened until the start of their next turn. Prof Uses / LR.",
-	action : ["reaction", "Frigid Vengeance"],
+	action : [["reaction", "Frigid Vengeance"]],
 	usages : "Proficiency bonus per ",
 	usagescalc : "event.value = How('Proficiency Bonus');",
 	recovery : "long rest",
@@ -468,16 +468,16 @@ FeatsList["soul of the storm giant-ua"] = {
 	"\n\n" + toUni("Maelstrom Aura") + ". As a bonus action, you surround yourself in an aura of magical wind and lightning that extends 10 feet from you in every direction but not through total cover. The aura lasts for 1 minute or until you are incapacitated. While the aura is active, attack rolls against you have disadvantage, and whenever a creature starts its turn within the sphere, you can force the creature's speed to be halved until the start of its next turn. Once you use this bonus action, you can't do so again until you finish a long rest."+
 	"\n" + toUni("Storm's Oracle") + ". You can cast the divination spell as a ritual, without needing amterial components.\n Intelligence, Wisdom, or Charisma is your spellcasting ability for this feature (choose when you gain this feat). Once you cast the spell in this way, you can't do so again until you finish a long rest.",
 	description : "I learn Divination and can cast it once per long rest as a ritual without using a spell slot or materials. Once per long rest as a bonus action I create a 10 ft rad that lasts for 1 min or until I am incapacitated. Atks against me have disadv, when creas start their turn in the area I can halve their spd until their next turn.",
-	action : ["bonus action", "Maelstrom Aura"],
+	action : [["bonus action", "Maelstrom Aura"]],
 	usages : 1,
 	recovery : "long rest",
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Storm's Oracle",
 		spells : ["divination"],
 		selection : ["divination"],
 		firstCol : "oncelr"
-	},
+	}],
 	spellChanges : {
 		"divination" : {
 			components : "V,S",
@@ -527,14 +527,14 @@ FeatsList["rune carver apprentice-ua"] = {
 	"\n   Your spellcasting ability for this feat is Intelligence, Wisdom, or Charisma (choose when you gain this feat).",
 	description : "At the end of a long rest, I can mark a nonmagical object I can touch with a rune. I learn a 1st-level spell until I finish a long rest when the rune fades. While wearing or carrying the object I can cast the spell once without using a spell slot or material components, or as normal.",
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Rune Carver",
 		spells : ["false life", "fog cloud", "ray of sickness", "chromatic orb", "bane", "burning hands", "bless", "armor of agathys", "goodberry", "longstrider", "command", "guiding bolt", "cure wounds", "jump", "shield", "sanctuary", "thunderwave", "heroism", "feather fall"],
 		selection : ["false life", "fog cloud", "ray of sickness", "chromatic orb", "bane", "burning hands", "bless", "armor of agathys", "goodberry", "longstrider", "command", "guiding bolt", "cure wounds", "jump", "shield", "sanctuary", "thunderwave", "heroism", "feather fall"],
 		times : 19,
 		firstCol : "R",
 		allowUpCasting : true
-	}
+	}]
 };
 FeatsList["rune carver adept-ua"] = {
 	name : "Rune Carver Adept",

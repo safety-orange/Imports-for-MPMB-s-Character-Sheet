@@ -88,12 +88,12 @@ RaceList["air genasi"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Mingle with the Wind",
 				spells : ["levitate"],
 				selection : ["levitate"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"levitate" : {
 					components : "V,S",
@@ -130,12 +130,12 @@ RaceList["earth genasi"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Merge with Stone",
 				spells : ["pass without trace"],
 				selection : ["pass without trace"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"pass without trace" : {
 					components : "V,S",
@@ -167,12 +167,12 @@ RaceList["fire genasi"] = {
 	scores : [0, 0, 2, 1, 0, 0],
 	trait : "Fire Genasi (+2 Constitution, +1 Intelligence)\n\nReach to the Blaze:\n   I know the Produce Flame cantrip.\n   Once I reach 3rd level, I can cast the Burning Hands spell once as a 1st-level spell.\n   I regain the ability to cast it this way when I finish a long rest.\n   Constitution is my spellcasting ability for these spells.",
 	spellcastingAbility : 3,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Reach to the Blaze (level 1)",
 		spells : ["produce flame"],
 		selection : ["produce flame"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"burning hands" : {
 			name : "Reach to the Blaze (level 3)",
@@ -180,12 +180,12 @@ RaceList["fire genasi"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Reach to the Blaze (level 3)",
 				spells : ["burning hands"],
 				selection : ["burning hands"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };
@@ -210,12 +210,12 @@ RaceList["water genasi"] = {
 	scores : [0, 0, 2, 0, 1, 0],
 	trait : "Water Genasi (+2 Constitution, +1 Wisdom)\nAmphibious: I can breathe air and water.\nSwim: I have a swimming speed of 30 feet.\nCall to the Wave: I know the Shape Water cantrip.\n   When I reach 3rd level, I can cast the Create or Destroy Water spell as a 2nd-level spell once with this trait, and I regain the ability to cast it this way when I finish a long rest.\n   Constitution is my spellcasting ability for these spells.",
 	spellcastingAbility : 3,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Call to the Wave (level 1)",
 		spells : ["shape water"],
 		selection : ["shape water"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"create or destroy water" : {
 			name : "Call to the Wave (level 3)",
@@ -223,12 +223,12 @@ RaceList["water genasi"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Call to the Wave (level 3)",
 				spells : ["create or destroy water"],
 				selection : ["create or destroy water"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 };

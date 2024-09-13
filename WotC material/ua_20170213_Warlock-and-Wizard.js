@@ -52,7 +52,7 @@ AddSubClass("warlock", "the hexblade-ua", {
 			]),
 			recovery : "short rest",
 			usages : levels.map( function(n) { return n < 14 ? 1 : ""; }),
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -194,12 +194,12 @@ AddSubClass("warlock", "the raven queen-ua", { // Still valid 2021-09-21
 			description : "\n   " + "I can cast Finger of Death once per long rest",
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Queen's Right Hand",
 				spells : ["finger of death"],
 				selection : ["finger of death"],
 				firstCol : "oncelr"
-			}
+			}]
 		}
 	}
 });
@@ -256,7 +256,7 @@ AddSubClass("wizard", "lore mastery-ua", { // Still valid 2021-09-21
 			description : "\n   " + "As a bonus action, I can replace one of my prepared spells with another from my book",
 			recovery : "short rest",
 			usages : 1,
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature14" : {
 			name : "Master of Magic",
@@ -270,7 +270,7 @@ AddSubClass("wizard", "lore mastery-ua", { // Still valid 2021-09-21
 			]),
 			usages : 1,
 			recovery : "long rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		}
 	}
 });
@@ -292,7 +292,7 @@ AddWarlockInvocation("Burning Hex (prereq: the Hexblade patron)", {
 	]),
 	source : [["UA:WnW", 3]],
 	prereqeval : function(v) { return (/hexblade/).test(classes.known.warlock.subclass); },
-	action : ["bonus action", ""]
+	action : [["bonus action", ""]]
 });
 AddWarlockInvocation("Caiphon's Beacon (prereq: the Great Old One patron)", {
 	name : "Caiphon's Beacon",
@@ -312,7 +312,7 @@ AddWarlockInvocation("Chilling Hex (prereq: the Hexblade patron)", {
 	]),
 	source : [["UA:WnW", 3]],
 	prereqeval : function(v) { return (/hexblade/).test(classes.known.warlock.subclass); },
-	action : ["bonus action", ""]
+	action : [["bonus action", ""]]
 });
 AddWarlockInvocation("Chronicle of the Raven Queen (prereq: the Raven Queen patron, Pact of the Tome)", {
 	name : "Chronicle of the Raven Queen",
@@ -324,7 +324,7 @@ AddWarlockInvocation("Chronicle of the Raven Queen (prereq: the Raven Queen patr
 	source : [["UA:WnW", 3]],
 	submenu : "[improves Pact of the Tome]",
 	prereqeval : function(v) { return (/raven queen/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome'; },
-	action : ["bonus action", ""]
+	action : [["bonus action", ""]]
 });
 AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of the Blade)", {
 	name : "Claw of Acamar",
@@ -355,7 +355,7 @@ AddWarlockInvocation("Cloak of Baalzebul (prereq: the Fiend patron)", {
 	]),
 	source : [["UA:WnW", 3]],
 	prereqeval : function(v) { return (/\bfiend\b/).test(classes.known.warlock.subclass); },
-	action : ["bonus action", " (start/end)"]
+	action : [["bonus action", " (start/end)"]]
 });
 AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Blade)", {
 	name : "Curse Bringer",
@@ -387,7 +387,7 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, the Fiend
 	source : [["UA:WnW", 4]],
 	submenu : "[improves Eldritch Blast]",
 	prereqeval : function(v) { return v.hasEldritchBlast && classes.known.warlock.level >= 5 && (/\bfiend\b/).test(classes.known.warlock.subclass); },
-	action : ["bonus action", ""]
+	action : [["bonus action", ""]]
 });
 AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast cantrip)", {
 	name : "Frost Lance",
@@ -415,7 +415,7 @@ AddWarlockInvocation("Gaze of Khirad (prereq: level 7 warlock, the Great Old One
 	source : [["UA:WnW", 4]],
 	submenu : "[warlock level  7+]",
 	prereqeval : function(v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 7; },
-	action : ["action", ""]
+	action : [["action", ""]]
 });
 AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch Blast cantrip)", {
 	name : "Grasp of Hadar",
@@ -530,7 +530,7 @@ AddWarlockInvocation("Relentless Hex (prereq: level 5 warlock, the Hexblade patr
 	source : [["UA:WnW", 5]],
 	submenu : "[warlock level  5+]",
 	prereqeval : function(v) { return (/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 5; },
-	action : ["bonus action", ""]
+	action : [["bonus action", ""]]
 });
 AddWarlockInvocation("Sea Twins' Gift (prereq: the Archfey patron)", {
 	name : "Sea Twins' Gift",
@@ -538,12 +538,12 @@ AddWarlockInvocation("Sea Twins' Gift (prereq: the Archfey patron)", {
 		"I can breathe underwater and I have a swim speed equal to my walking speed",
 		"Once per long rest, I can cast Water Breathing using a warlock spell slot (PHB 287)"
 	]),
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Sea Twins' Gift",
 		spells : ["water breathing"],
 		selection : ["water breathing"],
 		firstCol : "oncelr"
-	},
+	}],
 	source : [["UA:WnW", 5]],
 	prereqeval : function(v) { return (/\barchfey\b/).test(classes.known.warlock.subclass); },
 	speed : { swim : { spd : "walk", enc : "walk" } }
@@ -566,7 +566,7 @@ AddWarlockInvocation("Shroud of Ulban (prereq: level 18 warlock, the Great Old O
 	source : [["UA:WnW", 4]],
 	submenu : "[warlock level 18+]",
 	prereqeval : function(v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 18; },
-	action : ["action", ""]
+	action : [["action", ""]]
 });
 AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the Blade)", {
 	name : "Superior Pact Weapon",
@@ -602,7 +602,7 @@ AddWarlockInvocation("Tomb of Levistus (prereq: the Fiend patron)", {
 	prereqeval : function(v) { return (/\bfiend\b/).test(classes.known.warlock.subclass); },
 	recovery : "short rest",
 	usages : 1,
-	action : ["reaction", ""]
+	action : [["reaction", ""]]
 });
 AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of the Blade)", {
 	name : "Ultimate Pact Weapon",

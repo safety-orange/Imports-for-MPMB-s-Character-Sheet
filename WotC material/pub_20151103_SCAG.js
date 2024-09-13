@@ -64,12 +64,12 @@ RaceList["gray dwarf"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Duergar Magic (level 3)",
 				spells : ["enlarge/reduce"],
 				selection : ["enlarge/reduce"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"enlarge/reduce" : {
 					name : "Enlarge",
@@ -87,12 +87,12 @@ RaceList["gray dwarf"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Duergar Magic (level 5)",
 				spells : ["invisibility"],
 				selection : ["invisibility"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"invisibility" : {
 					range : "Self",
@@ -151,12 +151,12 @@ AddRacialVariant("half-elf", "cantrip", {
 	skillstxt : "",
 	trait : "Half-High Elf (+2 Charisma and +1 to two other ability scores of my choice)\n\nCantrip:\n   I know one cantrip of my choice from the wizard spell list.\n   Intelligence is my spellcasting ability for it.",
 	spellcastingAbility : 4,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "High Elf Cantrip",
 		"class" : "wizard",
 		level : [0, 0],
 		firstCol : 'atwill'
-	}
+	}]
 });
 AddRacialVariant("half-elf", "drow magic", {
 	regExpSearch : /^(?=.*drow)(?=.*magic).*$/i,
@@ -166,12 +166,12 @@ AddRacialVariant("half-elf", "drow magic", {
 	skillstxt : "",
 	trait : "Half-drow (+2 Charisma and +1 to two other ability scores of my choice)\n\nDrow Magic:\n   I know the Dancing Lights cantrip.\n   Once I reach 3rd level, I can cast the Faerie Fire spell once per long rest.\n   Once I reach 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Drow Magic (level 1)",
 		spells : ["dancing lights"],
 		selection : ["dancing lights"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"faerie fire" : {
 			name : "Drow Magic (level 3)",
@@ -179,12 +179,12 @@ AddRacialVariant("half-elf", "drow magic", {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Drow Magic (level 3)",
 				spells : ["faerie fire"],
 				selection : ["faerie fire"],
 				firstCol : 'oncelr'
-			}
+			}]
 		},
 		"darkness" : {
 			name : "Drow Magic (level 5)",
@@ -192,12 +192,12 @@ AddRacialVariant("half-elf", "drow magic", {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Drow Magic (level 5)",
 				spells : ["darkness"],
 				selection : ["darkness"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 });
@@ -233,12 +233,12 @@ AddRacialVariant("tiefling", "devil's tongue", {
 	source : [["S", 118]],
 	plural : "Devil's tongue tieflings",
 	trait : "Devil's Tongue Tiefling (+1 Intelligence, +2 Charisma)\n\nDevil's Tongue:\n   I know the Vicious Mockery cantrip.\n   At 3rd level, I can cast the Charm Person spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Enthrall spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Devil's Tongue (level 1)",
 		spells : ["vicious mockery"],
 		selection : ["vicious mockery"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"charm person" : {
 			name : "Devil's Tongue (level 3)",
@@ -246,12 +246,12 @@ AddRacialVariant("tiefling", "devil's tongue", {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Devil's Tongue (level 3)",
 				spells : ["charm person"],
 				selection : ["charm person"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"charm person" : {
 					description : "2 humanoids, max 30 ft apart, save or charmed; advantage on save if I or my allies are fighting it",
@@ -265,12 +265,12 @@ AddRacialVariant("tiefling", "devil's tongue", {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Devil's Tongue (level 5)",
 				spells : ["enthrall"],
 				selection : ["enthrall"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 });
@@ -287,12 +287,12 @@ AddRacialVariant("tiefling", "hellfire", {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Hellfire Legacy (level 3)",
 				spells : ["burning hands"],
 				selection : ["burning hands"],
 				firstCol : 'oncelr'
-			},
+			}],
 			spellChanges : {
 				"burning hands" : {
 					description : "4d6 Fire damage; save halves; unattended flammable objects ignite",
@@ -306,12 +306,12 @@ AddRacialVariant("tiefling", "hellfire", {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Infernal Legacy (level 5)",
 				spells : ["darkness"],
 				selection : ["darkness"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	}
 });
@@ -377,7 +377,7 @@ AddSubClass("barbarian", "battlerager", {
 				"As a bonus action while raging, I can attack once with my armor spikes",
 				"With my spiked armor I do 3 piercing damage when I use my Attack action to grapple"
 			]),
-			action : ["bonus action", "Armor Spikes attack (in rage)"],
+			action : [["bonus action", "Armor Spikes attack (in rage)"]],
 			armorOptions : [{
 				regExpSearch : /^(?!.*(dragon|draconic|beast))(?=.*spike(d|s))(?=.*armou?r).*$/i,
 				name : "Spiked armor",
@@ -418,7 +418,7 @@ AddSubClass("barbarian", "battlerager", {
 			source : [["S", 121]],
 			minlevel : 10,
 			description : "\n   " + "As a bonus action while raging, I can use the Dash action",
-			action : ["bonus action", " (in rage)"]
+			action : [["bonus action", " (in rage)"]]
 		},
 		"subclassfeature14" : {
 			name : "Spiked Retribution",
@@ -440,12 +440,12 @@ AddSubClass("cleric", "arcana domain", {
 			minlevel : 1,
 			description : "\n   " + "I gain proficiency with Arcana and two wizard cantrips that count as cleric cantrips",
 			skills : ["Arcana"],
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Arcane Initiate",
 				"class" : "wizard",
 				level : [0, 0],
 				times : 2
-			}
+			}]
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Arcane Abjuration",
@@ -453,7 +453,7 @@ AddSubClass("cleric", "arcana domain", {
 			minlevel : 2,
 			description : "\n   " + "As an action, one celestial, elemental, fey, or fiend within 30 ft must make a Wis save" + "\n   " + "If it fails and is able to see/hear me, it is turned for 1 min or until it takes damage" + "\n   " + "Turned: move away, never within 30 ft of me, no reactions or actions other than Dash" + "\n   " + "Turned: may Dodge instead of Dash when nowhere to move and unable to escape bonds" + "\n   " + "If its CR is low enough and it is not on its home plane, it is banished for 1 min instead" + "\n   " + "Banished: sent to home plane, reappearing where it was if the effect ends before 1 min",
 			additional : ["", "", "", "", "CR 1/2 or lower", "CR 1/2 or lower", "CR 1/2 or lower", "CR 1 or lower", "CR 1 or lower", "CR 1 or lower", "CR 2 or lower", "CR 2 or lower", "CR 2 or lower", "CR 3 or lower", "CR 3 or lower", "CR 3 or lower", "CR 4 or lower", "CR 4 or lower", "CR 4 or lower", "CR 4 or lower"],
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Spell Breaker",
@@ -584,7 +584,7 @@ AddSubClass("monk", "way of the long death", {
 			source : [["S", 130]],
 			minlevel : 6,
 			description : "\n   " + "As an action, all creatures within 30 feet of me must make a Wisdom saving throw" + "\n   " + "On a failed save the creature is frightened until the end of my next turn",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature11" : {
 			name : "Mastery of Death",
@@ -597,7 +597,7 @@ AddSubClass("monk", "way of the long death", {
 				extraname : "Way of the Long Death 17",
 				source : [["S", 131]],
 				description : " [1-10 ki points]" + "\n   " + "As an action, a target within 5 ft takes 2d10 necrotic damage per ki point I spent" + "\n   " + "It can make a Constitution saving throw to half the damage",
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			autoSelectExtrachoices : [{
 				extrachoice : "touch of the long death",
@@ -620,7 +620,7 @@ AddSubClass("monk", "way of the sun soul", {
 				"I gain a ranged spell attack that I can use as an attack in the Attack action",
 				"If I do this and spend 1 ki point, I can make 2 of these attacks as a bonus action"
 			]),
-			action : ["bonus action", " (2\xD7 with Attack action)"],
+			action : [["bonus action", " (2\xD7 with Attack action)"]],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*radiant)(?=.*(sun|light))(?=.*bolt).*$/i,
 				name : "Radiant Sun Bolt",
@@ -648,13 +648,13 @@ AddSubClass("monk", "way of the sun soul", {
 					var xtrKi = Math.max(0,Math.floor(n/2) - 2);
 					return "2 ki points + max " + xtrKi + " ki point" + (xtrKi == 1 ? "" : "s");
 				}),
-				action : ["bonus action", " (after Attack action)"],
-				spellcastingBonus : {
+				action : [["bonus action", " (after Attack action)"]],
+				spellcastingBonus : [{
 					name : "Searing Arc Strike",
 					spells : ["burning hands"],
 					selection : ["burning hands"],
 					firstCol : 2
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				spellChanges : {
 					"burning hands" : {
@@ -677,7 +677,7 @@ AddSubClass("monk", "way of the sun soul", {
 				"As an action, anyone in a 20-ft radius light on a point within 150 ft makes a Con save",
 				"If failed and not behind opaque total cover, take 2d6 (+ 2d6/ki point) radiant damage"
 			]),
-			action : ["action", ""],
+			action : [["action", ""]],
 			additional : "0 ki points + max 3 ki points",
 			weaponOptions : [{
 				regExpSearch : /^(?=.*searing)(?=.*sunburst).*$/i,
@@ -729,14 +729,14 @@ AddSubClass("paladin", "oath of the crown", {
 			source : [["S", 133]],
 			minlevel : 3,
 			description : "\n   " + "As a bonus action, any chosen creatures within 30 ft that can hear me regains HP" + "\n   " + "Each regain 1d6 + my Charisma modifier HP, up to half of its total HP",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature7" : {
 			name : "Divine Allegiance",
 			source : [["S", 133]],
 			minlevel : 7,
 			description : "\n   " + "When a creature within 5 feet of me takes damage, I can substitute my HP for it" + "\n   " + "The creature takes no damage and I take all of it; this damage can't be prevented",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature15" : {
 			name : "Unyielding Spirit",
@@ -756,7 +756,7 @@ AddSubClass("paladin", "oath of the crown", {
 			]),
 			recovery : "long rest",
 			usages : 1,
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -785,7 +785,7 @@ AddSubClass("rogue", "mastermind", {
 				"I can use the Help action as a bonus action",
 				"This even works if the ally attacks a target within 30 ft of me that can see or hear me"
 			]),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature9" : {
 			name : "Insightful Manipulator",
@@ -805,7 +805,7 @@ AddSubClass("rogue", "mastermind", {
 				"As a reaction, I can redirect an attack meant for me to a creature within 5 ft of me",
 				"This only works if the creature is providing me with cover against the attack"
 			]),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature17" : {
 			name : "Soul of Deceit",
@@ -856,14 +856,14 @@ AddSubClass("rogue", "swashbuckler", {
 				"\u2022 Targets that are not hostile are charmed and regard me as a friendly acquaintance",
 				"  This effect ends if me or an ally do anything harmful to it"
 			]),
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature13" : {
 			name : "Elegant Maneuver",
 			source : [["S", 136], ["X", 47]],
 			minlevel : 13,
 			description : "\n   " + "As a bonus action, I can gain adv. on my next Dex (Acrobatics) or Str (Athletics) check",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature17" : {
 			name : "Master Duelist",
@@ -896,7 +896,7 @@ AddSubClass("sorcerer", "storm sorcery", {
 				"As a bonus action, before or after casting a 1st-level or higher spell, I can fly 10 ft",
 				"This movement doesn't provoke opportunity attacks as whirling gust of air surround me"
 			]),
-			action : ["bonus action", " (with casting)"]
+			action : [["bonus action", " (with casting)"]]
 		},
 		"subclassfeature6" : {
 			name : "Heart of the Storm",
@@ -919,7 +919,7 @@ AddSubClass("sorcerer", "storm sorcery", {
 				"As a bonus action, I can choose the direction of wind around me in a 100-ft radius",
 				"This lasts until the end of my next turn and doesn't alter the wind's speed"
 			]),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature14" : {
 			name : "Storm's Fury",
@@ -929,7 +929,7 @@ AddSubClass("sorcerer", "storm sorcery", {
 				"As a reaction when hit by a melee attack, I can deal lightning damage to the attacker",
 				"The attacker must also make a Strength save or be pushed up to 20 ft away from me"
 			]),
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 			additional : levels.map(function (n) { return n < 14 ? "" : n + " lightning damage"; })
 		},
 		"subclassfeature18" : {
@@ -941,7 +941,7 @@ AddSubClass("sorcerer", "storm sorcery", {
 				"As an action, I reduce my fly speed to 30 ft and give allies 30 ft fly speed for 1 hour",
 				"I can do this once per short rest for up to 3 + my Charisma modifier allies within 30 ft"
 			]),
-			action : ["action", ""],
+			action : [["action", ""]],
 			savetxt : { immune : ["lightning", "thunder"] },
 			speed : { fly : { spd : "fixed 60", enc : "fixed 60" } },
 			usages : 1,
@@ -961,11 +961,11 @@ AddSubClass("warlock", "the undying", {
 			minlevel : 1,
 			description : "\n   " + "I learn the Spare the Dying cantrip and gain advantage on saving throws vs. diseases" + "\n   " + "If an undead targets me directly with an attack or spell, it must make a Wisdom save" + "\n   " + "On a fail, it must choose a new target or forfeit its attack or harmful spell" + "\n   " + "On a success or if I attack or cast a harmful spell on it, it is immune for 24 hours",
 			savetxt : { adv_vs : ["disease"] },
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Among the Dead",
 				spells : ["spare the dying"],
 				selection : ["spare the dying"]
-			}
+			}]
 		},
 		"subclassfeature6" : {
 			name : "Defy Death",
@@ -986,7 +986,7 @@ AddSubClass("warlock", "the undying", {
 			source : [["S", 140]],
 			minlevel : 14,
 			description : "\n   " + "As a bonus action, I can regain HP and reattach severed body parts",
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			recovery : "short rest",
 			usages : 1,
 			additional : levels.map(function (n) { return n < 14 ? "" : "1d8 + " + n + " HP"; })

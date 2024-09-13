@@ -21,7 +21,7 @@ FeatsList["barbed hide-ua"] = {
 	description : "I gain expertise with Intimidation, or proficiency if not so already. As a bonus action, I can protrude/retract small barbs from my skin. With them out, at the start of each of my turns I deal 1d6 piercing damage to any I'm grappling or are grappling me. [+1 Cha]",
 	scores : [0, 0, 0, 0, 0, 1],
 	skills : [["Intimidation", "increment"]],
-	action : ["bonus action", ""]
+	action : [["bonus action", ""]]
 };
 FeatsList["bountiful luck-ua"] = {
 	name : "Bountiful Luck",
@@ -30,7 +30,7 @@ FeatsList["bountiful luck-ua"] = {
 	prereqeval : function(v) { return CurrentRace.known.indexOf('halfling') !== -1; },
 	descriptionFull : "Whenever an ally you can see within 30 feet of you rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, you can use your reaction to let the ally reroll the die. The ally must use the new roll.",
 	description : "Whenever an ally I can see within 30 feet of me rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, I can use my reaction to let the ally reroll the die. The ally must use the new roll.",
-	action : ["reaction", ""]
+	action : [["reaction", ""]]
 };
 FeatsList["critter friend-ua"] = {
 	name : "Critter Friend",
@@ -155,7 +155,7 @@ FeatsList["fade away-ua"] = {
 	descriptionFull : "You can draw on your magical heritage to escape danger. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 When you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.",
 	description : "As a reaction when I take damage, I can magically become invisible until the end of my next turn or until I attack, deal damage, or force someone to make a saving throw. Once I do this, I can't do so again until I finish a short rest. [+1 Intelligence]",
 	scores : [0, 0, 0, 1, 0, 0],
-	action : ["reaction", ""],
+	action : [["reaction", ""]],
 	usages : 1,
 	recovery : "short rest"
 };
@@ -167,13 +167,13 @@ FeatsList["fey teleportation-ua"] = {
 	descriptionFull : "Drawing on your fey ancestry, you have learned how to teleport. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You learn the Misty Step spell and can cast it once without expending a spell slot. You regain the ability to cast it in this way when you finish a short or long rest. Intelligence is your spellcasting ability for this spell.",
 	description : "I can cast Misty Step without using a spell slot. I can do so once per short rest. Intelligence is my spellcasting ability for this spell. [+1 Intelligence]",
 	scores : [0, 0, 0, 1, 0, 0],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per short rest",
 		spellcastingAbility : 4,
 		spells : ["misty step"],
 		selection : ["misty step"],
 		firstCol : 'oncesr'
-	},
+	}],
 	usages : 1,
 	recovery : "short rest"
 };
@@ -268,7 +268,7 @@ FeatsList["orcish aggression-ua"] = {
 	prereqeval : function(v) { return (/^(?=.*half)(?=.*orc).*$/i).test(CurrentRace.known); },
 	descriptionFull : "As a bonus action, you can move up to your speed toward an enemy of your choice that you can see or hear. You must end this move closer to the enemy than you started.",
 	description : "As a bonus action, I can move up to my speed toward an enemy of my choice that I can see or hear. I must end this move closer to the enemy than I started.",
-	action : ["bonus action", ""]
+	action : [["bonus action", ""]]
 };
 FeatsList["orcish fury-ua"] = {
 	name : "Orcish Fury",
@@ -278,7 +278,7 @@ FeatsList["orcish fury-ua"] = {
 	descriptionFull : "Your fury burns tirelessly. You gain the following benefits:\n \u2022 Increase your Strength or Constitution score by 1, to a maximum of 20.\n \u2022 When you hit with an attack made with a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.\n \u2022 Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.",
 	description : "Once per short rest, I can roll an extra damage die for an attack with a simple or martial weapon. In addition, Immediately after I use my Relentless Endurance trait, I can use my reaction to make one weapon attack. [+1 Strength or Constitution]",
 	scorestxt : "+1 Strength or Constitution",
-	action : ["reaction", " (after Relentless Endurance)"],
+	action : [["reaction", " (after Relentless Endurance)"]],
 	usages : 1,
 	recovery : "short rest",
 	additional : "extra damage"
@@ -303,7 +303,7 @@ FeatsList["second chance-ua"] = {
 	descriptionFull : "You have a knack for learning new things. You gain the following benefits:\n \u2022 Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't do so again until you finish a short or long rest.",
 	description : "When a creature I can see hits me with an attack roll, I can use my reaction to force that creature to reroll. Once I use this ability, I can't do so again until I finish a short rest.\n[+1 Dexterity, Constitution, or Charisma]",
 	scorestxt : "+1 Dexterity, Constitution, or Charisma",
-	action : ["reaction", ""],
+	action : [["reaction", ""]],
 	usages : 1,
 	recovery : "short rest"
 };

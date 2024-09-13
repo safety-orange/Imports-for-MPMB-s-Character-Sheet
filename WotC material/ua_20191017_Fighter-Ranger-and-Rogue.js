@@ -217,12 +217,12 @@ var UAFRnR_rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua",
 				"I learn Mage Hand; When I cast it, the hand takes the form of swarming nature spirits",
 				"I get bonus spells known, which do not count against the number of spells I can know"
 			]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Swarmkeeper Magic",
 				spells : ["mage hand"],
 				selection : ["mage hand"],
 				firstCol : "atwill"
-			},
+			}],
 			spellcastingExtra : ["faerie fire", "web", "gaseous form", "giant insect", "insect plague"],
 			spellcastingExtraApplyNonconform : true
 		},
@@ -368,13 +368,13 @@ AddSubClass("rogue", "the revived-ua", {
 				"Doing this gives me a random proficiency (roll 1d3) that lasts until I finish my next rest:",
 				"[1] language of my choice; [2] skill or tool of my choice; [3] saving throw of my choice"
 			]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Connect with the Dead",
 				spells : ["speak with dead"],
 				selection : ["speak with dead"],
 				firstCol : "oncesr",
 				spellcastingAbility : 4
-			},
+			}],
 			spellChanges : {
 				"speak with dead" : {
 					components : "V,S",

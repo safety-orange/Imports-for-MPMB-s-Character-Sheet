@@ -19,7 +19,7 @@ FeatsList["acrobat-ua"] = {
 	description : "I gain expertise with Acrobatics, or proficiency if not so already. As a bonus action, I can make a DC 15 Dexterity (Acrobatics) check to have difficult terrain not cost me extra movement for this turn. [+1 Dexterity]",
 	scores : [0, 1, 0, 0, 0, 0],
 	skills : [["Acrobatics", "increment"]],
-	action : ["bonus action", ""]
+	action : [["bonus action", ""]]
 };
 FeatsList["animal handler-ua"] = {
 	name : "Animal Handler",
@@ -28,7 +28,7 @@ FeatsList["animal handler-ua"] = {
 	description : "I gain expertise with Animal Handling, or proficiency if not so already. As a bonus action, I can command a friendly beast not under another's command within 60 ft. If it hears me, I decide its next turn or give a general command lasting for 1 minute. [+1 Wisdom]",
 	scores : [0, 0, 0, 0, 1, 0],
 	skills : [["Animal Handling", "increment"]],
-	action : ["bonus action", ""]
+	action : [["bonus action", ""]]
 };
 FeatsList["arcanist-ua"] = {
 	name : "Arcanist",
@@ -82,7 +82,7 @@ FeatsList["historian-ua"] = {
 	description : "I gain expertise with History, or proficiency if not so already. When I use the Help action to help a creature that can understand me with an ability check, I can make a DC 15 Int (History) check to give a bonus equal to my proficiency bonus. [+1 Intelligence]",
 	scores : [0, 0, 0, 1, 0, 0],
 	skills : [["History", "increment"]],
-	action : ["action", ""]
+	action : [["action", ""]]
 };
 FeatsList["investigator-ua"] = {
 	name : "Investigator",
@@ -91,7 +91,7 @@ FeatsList["investigator-ua"] = {
 	description : "I gain expertise with Investigation, or proficiency if not so already. As a bonus action, I can take the Search action. [+1 Intelligence]",
 	scores : [0, 0, 0, 1, 0, 0],
 	skills : [["Investigation", "increment"]],
-	action : ["bonus action", " (Search)"]
+	action : [["bonus action", " (Search)"]]
 };
 FeatsList["medic-ua"] = {
 	name : "Medic",
@@ -153,7 +153,7 @@ FeatsList["quick-fingered-ua"] = {
 	description : "I gain expertise with Sleight of Hand, or proficiency if not so already. As a bonus action, I can make a Dexterity (Sleight of Hand) check to plant something on someone else, conceal an object on a creature, lift a purse, or take something from a pocket. [+1 Dexterity]",
 	scores : [0, 1, 0, 0, 0, 0],
 	skills : [["Sleight of Hand", "increment"]],
-	action : ["bonus action", ""]
+	action : [["bonus action", ""]]
 };
 FeatsList["silver-tongued-ua"] = {
 	name : "Silver-Tongued",
@@ -178,13 +178,13 @@ FeatsList["survivalist-ua"] = {
 	description : "I gain expertise with Survival, or proficiency if not so already. I can cast Alarm without using a spell slot. Once I do so, I can't do it again until I finish a long rest. [+1 Wisdom]",
 	scores : [0, 0, 0, 0, 1, 0],
 	skills : [["Survival", "increment"]],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1x long rest",
 		spellcastingAbility : 5,
 		spells : ["alarm"],
 		selection : ["alarm"],
 		firstCol : "oncelr"
-	}
+	}]
 };
 FeatsList["theologian-ua"] = {
 	name : "Theologian",

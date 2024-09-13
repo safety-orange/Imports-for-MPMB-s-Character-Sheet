@@ -64,12 +64,12 @@ RaceList["dark elf"] = {
 	scores : [0, 2, 0, 0, 0, 1],
 	trait : "Drow (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nDrow Magic: 1st level: Dancing Lights cantrip; 3rd level: Faerie Fire; 5th level: Darkness. Both spells can be used once per long rest. Charisma is my spellcasting ability for these.", // errata to specify once per day is long rest
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Drow Magic (level 1)",
 		spells : ["dancing lights"],
 		selection : ["dancing lights"],
 		firstCol : "atwill"
-	},
+	}],
 	features : {
 		"faerie fire" : {
 			name : "Drow Magic (level 3)",
@@ -77,12 +77,12 @@ RaceList["dark elf"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Drow Magic (level 3)",
 				spells : ["faerie fire"],
 				selection : ["faerie fire"],
 				firstCol : "oncelr"
-			}
+			}]
 		},
 		"darkness" : {
 			name : "Drow Magic (level 5)",
@@ -90,12 +90,12 @@ RaceList["dark elf"] = {
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Drow Magic (level 5)",
 				spells : ["darkness"],
 				selection : ["darkness"],
 				firstCol : "oncelr"
-			}
+			}]
 		}
 	}
 };
@@ -146,12 +146,12 @@ RaceList["forest gnome"] = {
 	scores : [0, 1, 0, 2, 0, 0],
 	trait : "Forest Gnome (+1 Dexterity, +2 Intelligence)" + (typePF ? "\n" : " ") + "\nNatural Illusionist:\n   I know the Minor Illusion cantrip. Intelligence is my spellcasting ability for it.\n\nSpeak with Small Beasts:\n   Through sounds and gestures, I can communicate simple ideas with Small or smaller beasts.",
 	spellcastingAbility : 4,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Natural Illusionist",
 		spells : ["minor illusion"],
 		selection : ["minor illusion"],
 		firstCol : "atwill"
-	}
+	}]
 };
 RaceList["stout halfling"] = {
 	regExpSearch : /^(?=.*\b(halflings?|hobbits?)\b)(?=.*stout).*$/i,
@@ -199,13 +199,13 @@ AddSubClass("barbarian", "totem warrior", {
 			source : [["P", 50]],
 			minlevel : 3,
 			description : "\n   " + "I can cast Beast Sense and Speak with Animals as rituals (PHB 217 \u0026 277)",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Spirit Seeker",
 				spells : ["beast sense", "speak with animals"],
 				selection : ["beast sense", "speak with animals"],
 				firstCol : "(R)",
 				times : 2
-			},
+			}],
 			spellChanges : {
 				"beast sense" : {
 					time : "10 min",
@@ -237,7 +237,7 @@ AddSubClass("barbarian", "totem warrior", {
 			"eagle" : {
 				name : "Eagle Spirit",
 				description : "\n   " + "While raging without heavy armor, others have disadv. on opportunity attacks vs. me" + "\n   " + "I can use the Dash action as a bonus action",
-				action : ["bonus action", " (Dash)"]
+				action : [["bonus action", " (Dash)"]]
 			},
 			"wolf" : {
 				name : "Wolf Spirit",
@@ -269,12 +269,12 @@ AddSubClass("barbarian", "totem warrior", {
 			source : [["P", 50]],
 			minlevel : 10,
 			description : "\n   " + "I can cast Commune with Nature as a ritual",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Spirit Walker",
 				spells : ["commune with nature"],
 				selection : ["commune with nature"],
 				firstCol : "(R)"
-			},
+			}],
 			spellChanges : {
 				"commune with nature" : {
 					time : "11 min",
@@ -299,7 +299,7 @@ AddSubClass("barbarian", "totem warrior", {
 			"wolf" : {
 				name : "Wolf Attunement",
 				description : "\n   " + "If my melee attack hits while raging, I can knock prone as a bonus action (up to Large)",
-				action : ["bonus action", " (raging: knock prone)"]
+				action : [["bonus action", " (raging: knock prone)"]]
 			}
 		}
 	}
@@ -329,7 +329,7 @@ AddSubClass("bard", "college of valor", {
 			source : [["P", 55]],
 			minlevel : 14,
 			description : "\n   " + "As a bonus action when I use my action to cast a bard spell, I can make a weapon attack",
-			action : ["bonus action", " (with Bard spell)"]
+			action : [["bonus action", " (with Bard spell)"]]
 		}
 	}
 });
@@ -352,14 +352,14 @@ AddSubClass("cleric", "knowledge domain", {
 			source : [["P", 59]],
 			minlevel : 2,
 			description : "\n   " + "As an action, I gain proficiency with a chosen skill or tool for 10 minutes",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Channel Divinity: Read Thoughts",
 			source : [["P", 59]],
 			minlevel : 6,
 			description : "\n   " + "As an action, one creature within 60 ft I can see must make a Wisdom save" + "\n   " + "If it fails, I can read its surface thoughts for 1 min, as long as it's within 60 ft of me" + "\n   " + "As an action, I can end this and cast Suggestion on it (it fails its save automatically)" + "\n   " + "If it succeeded on its save, I can't use this feature again on it until I finish a long rest",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature8" : {
 			name : "Potent Spellcasting",
@@ -398,11 +398,11 @@ AddSubClass("cleric", "light domain", {
 			source : [["P", 61]],
 			minlevel : 1,
 			description : "\n   " + "I learn the Light cantrip if I didn't already know it",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Bonus Cantrip (Light)",
 				spells : ["light"],
 				selection : ["light"]
-			}
+			}]
 		},
 		"subclassfeature1.1" : {
 			name : "Warding Flare",
@@ -415,7 +415,7 @@ AddSubClass("cleric", "light domain", {
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Radiance of the Dawn",
@@ -423,7 +423,7 @@ AddSubClass("cleric", "light domain", {
 			minlevel : 2,
 			description : "\n   " + "As an action, in 30 ft, magical darkness is dispelled and hostiles must make a Con save" + "\n   " + "Each takes radiant damage, saves for half, and negates with total cover",
 			additional : ["", "2d10 + 2 damage", "2d10 + 3 damage", "2d10 + 4 damage", "2d10 + 5 damage", "2d10 + 6 damage", "2d10 + 7 damage", "2d10 + 8 damage", "2d10 + 9 damage", "2d10 + 10 dmg", "2d10 + 11 dmg", "2d10 + 12 dmg", "2d10 + 13 dmg", "2d10 + 14 dmg", "2d10 + 15 dmg", "2d10 + 16 dmg", "2d10 + 17 dmg", "2d10 + 18 dmg", "2d10 + 19 dmg", "2d10 + 20 dmg"],
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Improved Flare",
@@ -443,7 +443,7 @@ AddSubClass("cleric", "light domain", {
 			source : [["P", 61]],
 			minlevel : 17,
 			description : "\n   " + "As an action, I have an aura of 60 ft sunlight and 30 ft dim light for 1 min" + "\n   " + "Enemies in the sunlight have disadv. on saves vs. spells that deal fire or radiant damage",
-			action : ["action", " (start/stop)"]
+			action : [["action", " (start/stop)"]]
 		}
 	}
 });
@@ -466,25 +466,25 @@ AddSubClass("cleric", "nature domain", {
 			minlevel : 1,
 			description : "\n   " + "I learn a druid cantrip and proficiency with a skill: Animal Handling, Nature, Survival",
 			skillstxt : "Choose one from Animal Handling, Nature, or Survival",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Acolyte of Nature",
 				"class" : "druid",
 				level : [0, 0]
-			}
+			}]
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Charm Animals and Plants",
 			source : [["P", 62]],
 			minlevel : 2,
 			description : "\n   " + "As an action, all beasts and plants within 30 ft that I can see must make a Wis save" + "\n   " + "If failed, each is charmed and friendly to allies and me for 1 min or until damaged",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Dampen Elements",
 			source : [["P", 62]],
 			minlevel : 6,
 			description : "\n   " + "As a reaction, if an ally in 30 ft or I takes acid/cold/fire/lightning/thunder damage," + "\n   " + "I can grant resistance against that instance of damage",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
@@ -510,7 +510,7 @@ AddSubClass("cleric", "nature domain", {
 			source : [["P", 62]],
 			minlevel : 17,
 			description : "\n   " + "As a bonus action, I can command creatures that are charmed by my Channel Divinity",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		}
 	}
 });
@@ -536,7 +536,7 @@ AddSubClass("cleric", "tempest domain", {
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Destructive Wrath",
@@ -590,7 +590,7 @@ AddSubClass("cleric", "trickery domain", {
 			source : [["P", 63]],
 			minlevel : 1,
 			description : "\n   " + "As an action, a willing creature I touch (not me) has adv. on Dex (Stealth) checks" + "\n   " + "This lasts for 1 hour or until I use it again",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Invoke Duplicity",
@@ -610,7 +610,7 @@ AddSubClass("cleric", "trickery domain", {
 			source : [["P", 63]],
 			minlevel : 6,
 			description : "\n   " + "As an action, I become invisible until the end of my next turn or I attack/cast a spell",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
@@ -662,7 +662,7 @@ AddSubClass("cleric", "war domain", {
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
-			action : ["bonus action", " (with Attack action)"]
+			action : [["bonus action", " (with Attack action)"]]
 		},
 		"subclassfeature2" : {
 			name : "Channel Divinity: Guided Strike",
@@ -678,7 +678,7 @@ AddSubClass("cleric", "war domain", {
 				"As a reaction, when a creature within 30 ft makes an attack roll, I can bless its attack",
 				"The creature then adds a +10 bonus to the roll; I can do this after seeing the d20 roll"
 			]),
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
@@ -743,7 +743,7 @@ AddSubClass("druid", "circle of the moon", {
 				var restr = n < 4 ? ", no fly/swim" : n < 8 ? ", no fly" : "";
 				return "CR " + cr + restr + "; " + hr + (restr.length ? " h" : " hours");
 			}),
-			action : ["bonus action", " (start/stop)"],
+			action : [["bonus action", " (start/stop)"]],
 			eval : function() {
 				processActions(false, "Druid: Wild Shape", ClassList.druid.features["subclassfeature2.wild shape"].action, "Wild Shape");
 			}
@@ -753,7 +753,7 @@ AddSubClass("druid", "circle of the moon", {
 			source : [["P", 69]],
 			minlevel : 2,
 			description : "\n   " + "As a bonus action while in Wild Shape, I can expend spell slots to heal myself" + "\n   " + "I regain 1d8 HP per expended spell slot level; I can use Wild Shape as a bonus action",
-			action : ["bonus action", " (heal)"],
+			action : [["bonus action", " (heal)"]],
 			removeeval : function() {
 				processActions(true, "Druid: Wild Shape", ClassList.druid.features["subclassfeature2.wild shape"].action, "Wild Shape");
 			}
@@ -775,12 +775,12 @@ AddSubClass("druid", "circle of the moon", {
 			source : [["P", 69]],
 			minlevel : 14,
 			description : "\n   " + "I can cast Alter Self at will without using a spell slot",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Thousand Forms",
 				spells : ["alter self"],
 				selection : ["alter self"],
 				firstCol : "atwill"
-			}
+			}]
 		}
 	}
 });
@@ -818,7 +818,7 @@ AddSubClass("fighter", "battle master", {
 				name : "Commander's Strike",
 				source : [["P", 74]],
 				description : "\n   " + "I forgo one attack of my Attack action to use a bonus action to direct an ally I see/hear" + "\n   " + "The ally can use a reaction to make an attack, adding the superiority die to damage",
-				action : ["bonus action", " (with Attack action)"]
+				action : [["bonus action", " (with Attack action)"]]
 			},
 			"disarming attack" : {
 				name : "Disarming Attack",
@@ -839,7 +839,7 @@ AddSubClass("fighter", "battle master", {
 				name : "Feinting Attack",
 				source : [["P", 74]],
 				description : "\n   " + "As a bonus action, I can feint to gain adv. on my next attack this turn vs. a target in 5 ft" + "\n   " + "If the attack hits, I add the superiority die to my attack's damage",
-				action : ["bonus action", ""]
+				action : [["bonus action", ""]]
 			},
 			"goading attack" : {
 				name : "Goading Attack",
@@ -866,7 +866,7 @@ AddSubClass("fighter", "battle master", {
 				name : "Parry",
 				source : [["P", 74]],
 				description : "\n   " + "When damaged in melee, I can use a reaction to reduce it by superiority die + Dex mod",
-				action : ["reaction", " (when damaged in melee)"]
+				action : [["reaction", " (when damaged in melee)"]]
 			},
 			"precision attack" : {
 				name : "Precision Attack",
@@ -882,13 +882,13 @@ AddSubClass("fighter", "battle master", {
 				name : "Rally",
 				source : [["P", 74]],
 				description : "\n   " + "Ally that can see/hear me gets temporary HP equal to superiority die + Charisma mod",
-				action : ["bonus action", ""]
+				action : [["bonus action", ""]]
 			},
 			"riposte" : {
 				name : "Riposte",
 				source : [["P", 74]],
 				description : "\n   " + "When missed in melee, I can use my reaction to make one melee attack vs. the attacker" + "\n   " + "If the attack hits, I add the superiority die to my attack's damage",
-				action : ["reaction", " (after missed in melee)"]
+				action : [["reaction", " (after missed in melee)"]]
 			},
 			"sweeping attack" : {
 				name : "Sweeping Attack",
@@ -960,26 +960,26 @@ AddSubClass("fighter", "eldritch knight", {
 			minlevel : 3,
 			description : "\n   " + "I can cast known wizard cantrips/spells, using Intelligence as my spellcasting ability",
 			additional : ["", "", "2 cantrips \u0026 3 spells known", "2 cantrips \u0026 4 spells known", "2 cantrips \u0026 4 spells known", "2 cantrips \u0026 4 spells known", "2 cantrips \u0026 5 spells known", "2 cantrips \u0026 6 spells known", "2 cantrips \u0026 6 spells known", "3 cantrips \u0026 7 spells known", "3 cantrips \u0026 8 spells known", "3 cantrips \u0026 8 spells known", "3 cantrips \u0026 9 spells known", "3 cantrips \u0026 10 spells known", "3 cantrips \u0026 10 spells known", "3 cantrips \u0026 11 spells known", "3 cantrips \u0026 11 spells known", "3 cantrips \u0026 11 spells known", "3 cantrips \u0026 12 spells known", "3 cantrips \u0026 13 spells known"],
-			spellcastingBonus : { // the spells gained at level 3, 8, 14, 20
+			spellcastingBonus : [{ // the spells gained at level 3, 8, 14, 20
 				name : "From any school",
 				"class" : "wizard",
 				times : [0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4],
 				level : [1, 4]
-			}
+			}]
 		},
 		"subclassfeature3.1" : {
 			name : "Weapon Bond",
 			source : [["P", 75]],
 			minlevel : 3,
 			description : "\n   " + "I can bond with up to two weapons by spending a short rest with each" + "\n   " + "I can't be disarmed of a bonded weapon and I can summon one as a bonus action",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature7" : {
 			name : "War Magic",
 			source : [["P", 75]],
 			minlevel : 7,
 			description : "\n   " + "When I use my action to cast a cantrip, I can make a weapon attack as a bonus action",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature10" : {
 			name : "Eldritch Strike",
@@ -998,7 +998,7 @@ AddSubClass("fighter", "eldritch knight", {
 			source : [["P", 75]],
 			minlevel : 18,
 			description : "\n   " + "When I use my action to cast a spell, I can make a weapon attack as a bonus action",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		}
 	}
 });
@@ -1025,18 +1025,18 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Elemental Attunement",
 				source : [["P", 81]],
 				description : "\n   " + "As an action, I can briefly control elemental forces within 30 ft of me" + "\n   " + "I can make a harmless sensory effect, light/snuff light, chill/warm 1 lb for 1 hour," + "\n   " + "or I cause earth/fire/water/mist in a 1 ft cube to shape itself into a form for 1 minute",
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			"breath of winter (prereq: level 17 monk)" : {
 				name : "Breath of Winter",
 				source : [["P", 81]],
 				description : " [6 ki points]" + "\n   " + "As an action, I can cast Cone of Cold without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Breath of Winter",
 					spells : ["cone of cold"],
 					selection : ["cone of cold"],
 					firstCol : 6
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				prereqeval : function(v) { return classes.known.monk.level >= 17; },
 				spellChanges : {
@@ -1052,12 +1052,12 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Clench of the North Wind",
 				source : [["P", 81]],
 				description : " [3 ki points]" + "\n   " + "As an action, I can cast Hold Person without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Clench of the North Wind",
 					spells : ["hold person"],
 					selection : ["hold person"],
 					firstCol : 3
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				prereqeval : function(v) { return classes.known.monk.level >= 6; },
 				spellChanges : {
@@ -1073,12 +1073,12 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Eternal Mountain Defense",
 				source : [["P", 81]],
 				description : " [5 ki points]" + "\n   " + "As an action, I can cast Stoneskin on myself without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Eternal Mountain Defense",
 					spells : ["stoneskin"],
 					selection : ["stoneskin"],
 					firstCol : 5
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				prereqeval : function(v) { return classes.known.monk.level >= 17; },
 				spellChanges : {
@@ -1112,12 +1112,12 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Fist of Four Thunders",
 				source : [["P", 81]],
 				description : " [2 ki points]" + "\n   " + "As an action, I can cast Thunderwave",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Fist of Four Thunders",
 					spells : ["thunderwave"],
 					selection : ["thunderwave"],
 					firstCol : 2
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				spellChanges : {
 					"thunderwave" : {
@@ -1130,18 +1130,18 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Fist of Unbroken Air",
 				source : [["P", 81]],
 				description : " [2 ki points; +1d10/extra ki point]" + "\n   " + "As an action, target within 30 ft takes 3d10 bludgeoning damage (spend ki for more)" + "\n   " + "It is also pushed up to 20 ft away from me and knocked prone" + "\n   " + "It can make a Strength save to halve damage and avoid being pushed and knocked prone",
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			"flames of the phoenix (prereq: level 11 monk)" : {
 				name : "Flames of the Phoenix",
 				source : [["P", 81]],
 				description : " [4 ki points]" + "\n   " + "As an action, I can cast Fireball without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Flames of the Phoenix",
 					spells : ["fireball"],
 					selection : ["fireball"],
 					firstCol : 4
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				prereqeval : function(v) { return classes.known.monk.level >= 11; },
 				spellChanges : {
@@ -1157,12 +1157,12 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Gong of the Summit",
 				source : [["P", 81]],
 				description : " [3 ki points]" + "\n   " + "As an action, I can cast Shatter without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Gong of the Summit",
 					spells : ["shatter"],
 					selection : ["shatter"],
 					firstCol : 3
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				prereqeval : function(v) { return classes.known.monk.level >= 6; },
 				spellChanges : {
@@ -1178,12 +1178,12 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Mist Stance",
 				source : [["P", 81]],
 				description : " [4 ki points]" + "\n   " + "As an action, I can cast Gaseous Form on myself without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Mist Stance",
 					spells : ["gaseous form"],
 					selection : ["gaseous form"],
 					firstCol : 4
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				prereqeval : function(v) { return classes.known.monk.level >= 11; },
 				spellChanges : {
@@ -1200,12 +1200,12 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Ride the Wind",
 				source : [["P", 81]],
 				description : " [4 ki points]" + "\n   " + "As an action, I can cast Fly on myself without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Ride the Wind",
 					spells : ["fly"],
 					selection : ["fly"],
 					firstCol : 4
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				prereqeval : function(v) { return classes.known.monk.level >= 11; },
 				spellChanges : {
@@ -1222,12 +1222,12 @@ AddSubClass("monk", "way of the four elements", {
 				name : "River of Hungry Flame",
 				source : [["P", 81]],
 				description : " [5 ki points]" + "\n   " + "As an action, I can cast Wall of Fire without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "River of Hungry Flame",
 					spells : ["wall of fire"],
 					selection : ["wall of fire"],
 					firstCol : 5
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				prereqeval : function(v) { return classes.known.monk.level >= 17; },
 				spellChanges : {
@@ -1243,12 +1243,12 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Rush of the Gale Spirits",
 				source : [["P", 81]],
 				description : " [2 ki points]" + "\n   " + "As an action, I can cast Gust of Wind without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Rush of the Gale Spirits",
 					spells : ["gust of wind"],
 					selection : ["gust of wind"],
 					firstCol : 2
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				spellChanges : {
 					"gust of wind" : {
@@ -1262,18 +1262,18 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Shape the Flowing River",
 				source : [["P", 81]],
 				description : " [1 ki point]" + "\n   " + "As an action, I can affect ice/water up to a 30-foot cube within 120 ft" + "\n   " + "I can switch it between water/ice states and reshape ice up to half its largest dimension",
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			"sweeping cinder strike" : {
 				name : "Sweeping Cinder Strike",
 				source : [["P", 81]],
 				description : " [2 ki points]" + "\n   " + "As an action, I can cast Burning Hands",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Sweeping Cinder Strike",
 					spells : ["burning hands"],
 					selection : ["burning hands"],
 					firstCol : 2
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				spellChanges : {
 					"burning hands" : {
@@ -1288,18 +1288,18 @@ AddSubClass("monk", "way of the four elements", {
 				name : "Water Whip",
 				source : [["P", 81]],
 				description : " [2 ki points; +1d10/extra ki point]" + "\n   " + "As an action, a creature within 30 ft takes 3d10 bludgeoning damage (spend ki for more)" + "\n   " + "It is also knocked prone or pulled up to 25 ft closer to me (my choice)" + "\n   " + "It can make a Dexterity save to halve damage and avoid being pulled or knocked prone",
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			"wave of rolling earth (prereq: level 17 monk)" : {
 				name : "Wave of Rolling Earth",
 				source : [["P", 81]],
 				description : " [6 ki points]" + "\n   " + "As an action, I can cast Wall of Stone without material components",
-				spellcastingBonus : {
+				spellcastingBonus : [{
 					name : "Wave of Rolling Earth",
 					spells : ["wall of stone"],
 					selection : ["wall of stone"],
 					firstCol : 6
-				},
+				}],
 				spellFirstColTitle : "Ki",
 				prereqeval : function(v) { return classes.known.monk.level >= 17; },
 				spellChanges : {
@@ -1323,26 +1323,26 @@ AddSubClass("monk", "way of shadow", {
 			source : [["P", 80]],
 			minlevel : 3,
 			description : "\n   " + "I know the Minor Illusion cantrip and can cast certain spells by using ki (see page 3)",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Shadow Arts",
 				spells : ["minor illusion"],
 				selection : ["minor illusion"],
 				firstCol : "atwill"
-			},
+			}],
 			spellFirstColTitle : "Ki",
 			"shadow spells" : {
 				name : "Shadow Spells",
 				extraname : "Shadow Arts",
 				source : [["P", 80]],
 				description : " [2 ki points]" + "\n   " + "As an action, I can cast Darkness, Darkvision, Pass Without Trace, or Silence" + "\n   " + "I don't require spell slots or material components to cast these spells like this, just ki points",
-				action : ["action", ""],
-				spellcastingBonus : {
+				action : [["action", ""]],
+				spellcastingBonus : [{
 					name : "Shadow Arts",
 					spells : ["darkness", "darkvision", "pass without trace", "silence"],
 					selection : ["darkness", "darkvision", "pass without trace", "silence"],
 					firstCol : 2,
 					times : 4
-				}
+				}]
 			},
 			autoSelectExtrachoices : [{ extrachoice : "shadow spells" }],
 			spellChanges : {
@@ -1368,21 +1368,21 @@ AddSubClass("monk", "way of shadow", {
 			source : [["P", 80]],
 			minlevel : 6,
 			description : "\n   " + "As a bonus action, I can teleport from and into dim light or darkness within 60 ft" + "\n   " + "After I do this, I have adv. on the next melee attack I make before the end of my turn",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature11" : {
 			name : "Cloak of Shadows",
 			source : [["P", 80]],
 			minlevel : 11,
 			description : "\n   " + "As an action, I can become invisible in dim light or darkness until I attack/cast",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature17" : {
 			name : "Opportunist",
 			source : [["P", 80]],
 			minlevel : 17,
 			description : "\n   " + "As a reaction, if a creature in 5 ft is hit by another, I can make a melee attack vs. it",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		}
 	}
 });
@@ -1396,7 +1396,7 @@ AddSubClass("paladin", "oath of the ancients", {
 			source : [["P", 87]],
 			minlevel : 3,
 			description : "\n   " + "As an action, a creature I can see within 10 ft must make a Str/Dex save (its choice)" + "\n   " + "If it fails this save, it is restrained until it succeeds on a save at the end of its turn",
-			action : ["action", ""],
+			action : [["action", ""]],
 			spellcastingExtra : ["ensnaring strike", "speak with animals", "moonbeam", "misty step", "plant growth", "protection from energy", "ice storm", "stoneskin", "commune with nature", "tree stride"]
 		},
 		"subclassfeature3.1" : {
@@ -1404,7 +1404,7 @@ AddSubClass("paladin", "oath of the ancients", {
 			source : [["P", 87]],
 			minlevel : 3,
 			description : "\n   " + "As an action, all fey/fiends within 30 ft that can hear me must make a Wisdom save" + "\n   " + "If one fails, it is turned for 1 minute or until it takes damage and must show true form" + "\n   " + "Turned: move away, never within 30 ft of me, no reactions or actions other than Dash" + "\n   " + "Turned: may Dodge instead of Dash when nowhere to move and unable to escape bonds",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature7" : {
 			name : "Aura of Warding",
@@ -1434,7 +1434,7 @@ AddSubClass("paladin", "oath of the ancients", {
 			]),
 			recovery : "long rest",
 			usages : 1,
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -1448,7 +1448,7 @@ AddSubClass("paladin", "oath of vengeance", {
 			source : [["P", 88]],
 			minlevel : 3,
 			description : "\n   " + "As an action, one creature within 60 ft that I can see me must make a Wisdom save" + "\n   " + "If failed, it is frightened and its speed is 0 despite bonuses; if success, its speed is halved" + "\n   " + "This lasts for 1 minute or until it takes damage; Undead/fiends have disadv. on save",
-			action : ["action", ""],
+			action : [["action", ""]],
 			spellcastingExtra : ["bane", "hunter's mark", "hold person", "misty step", "haste", "protection from energy", "banishment", "dimension door", "hold monster", "scrying"]
 		},
 		"subclassfeature3.1" : {
@@ -1456,7 +1456,7 @@ AddSubClass("paladin", "oath of vengeance", {
 			source : [["P", 88]],
 			minlevel : 3,
 			description : "\n   " + "As a bonus action, I utter a vow against a creature I can see within 10 ft" + "\n   " + "I get adv. on attacks against it for 1 minute or until it drops to 0 HP or falls unconscious",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature7" : {
 			name : "Relentless Avenger",
@@ -1469,7 +1469,7 @@ AddSubClass("paladin", "oath of vengeance", {
 			source : [["P", 88]],
 			minlevel : 15,
 			description : "\n   " + "When an enemy I have an active Vow of Enmity against makes an attack, I can react" + "\n   " + "As a reaction, I can make a melee weapon attack against it if it is within range",
-			action : ["reaction", " (with Vow of Enmity)"]
+			action : [["reaction", " (with Vow of Enmity)"]]
 		},
 		"subclassfeature20" : {
 			name : "Avenging Angel",
@@ -1482,7 +1482,7 @@ AddSubClass("paladin", "oath of vengeance", {
 			]),
 			recovery : "long rest",
 			usages : 1,
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -1584,7 +1584,7 @@ AddSubClass("rogue", "arcane trickster", {
 				" \u2022 Stow/retrieve an object the hand is holding in a container worn/carried by another",
 				" \u2022 Use thieves' tools to pick locks and disarm traps at range"
 			]),
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			spellChanges : {
 				"mage hand" : {
 					description : "Invisible hand, carries 10 lb; 1 bns to control, use thieves' tools, or stow/retrieve obj; only 1 instance",
@@ -1603,14 +1603,14 @@ AddSubClass("rogue", "arcane trickster", {
 			source : [["P", 98]],
 			minlevel : 13,
 			description : "\n   " + "As a bonus action, gain adv. on attacks this turn on creature within 5 ft of Mage Hand",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature17" : {
 			name : "Spell Thief",
 			source : [["P", 98]],
 			minlevel : 17,
 			description : "\n   " + "As a reaction, after a spell is cast at me, I can try to negate and steal it" + "\n   " + "The caster makes a save against my spell DC with his/her spellcasting ability" + "\n   " + "On failure, the caster forgets how to cast that spell for eight hours" + "\n   " + "If I have a spell slot of a high enough level for it, I learn how to cast it during this time",
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 			recovery : "long rest",
 			usages : 1
 		}
@@ -1756,7 +1756,7 @@ AddSubClass("sorcerer", "wild magic", {
 			source : [["P", 103]],
 			minlevel : 6,
 			description : "\n   " + "As a reaction, I can add/subtract 1d4 from another's attack roll, ability check, or save",
-			action : ["reaction", " (2 sorcery points)"],
+			action : [["reaction", " (2 sorcery points)"]],
 			additional : "2 sorcery points"
 		},
 		"subclassfeature14" : {
@@ -1786,14 +1786,14 @@ AddSubClass("warlock", "the archfey", {
 			description : "\n   " + "As an action, all creatures in a 10-ft cube around me must make a Wisdom save" + "\n   " + "If failed, they're all charmed or frightened (my choice) until the end of my next turn",
 			recovery : "short rest",
 			usages : 1,
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Misty Escape",
 			source : [["P", 109]],
 			minlevel : 6,
 			description : "\n   " + "As a reaction, when I take damage, I can turn invisible and teleport up to 60 ft" + "\n   " + "I stay invisible until the start of my next turn or until I attack or cast a spell",
-			action : ["reaction", " (taking damage)"],
+			action : [["reaction", " (taking damage)"]],
 			recovery : "short rest",
 			usages : 1
 		},
@@ -1802,7 +1802,7 @@ AddSubClass("warlock", "the archfey", {
 			source : [["P", 109]],
 			minlevel : 10,
 			description : "\n   " + "As a reaction, when a creature tries to charm me, I can turn the charm back on it" + "\n   " + "It must make a Wis save or be charmed by me for 1 minute or until taking damage" + "\n   " + "I am immune to being charmed",
-			action : ["reaction", " (when charmed)"],
+			action : [["reaction", " (when charmed)"]],
 			savetxt : { immune : ["charmed"] }
 		},
 		"subclassfeature14" : {
@@ -1812,7 +1812,7 @@ AddSubClass("warlock", "the archfey", {
 			description : "\n   " + "As an action, a creature within 60 ft must make a Wis save or be charmed/frightened" + "\n   " + "This lasts for 1 minute or until my concentration is broken or it takes damage" + "\n   " + "During this time, it can't see or hear anything but the illusion, me, and itself",
 			recovery : "short rest",
 			usages : 1,
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -1833,7 +1833,7 @@ AddSubClass("warlock", "the great old one", {
 			source : [["P", 110]],
 			minlevel : 6,
 			description : "\n   " + "As a reaction, when I'm attacked, I can impose disadvantage to that attack roll" + "\n   " + "If it misses me, I have adv. on my next attack vs. the attacker during my next turn",
-			action : ["reaction", " (when attacked)"],
+			action : [["reaction", " (when attacked)"]],
 			recovery : "short rest",
 			usages : 1
 		},
@@ -1849,7 +1849,7 @@ AddSubClass("warlock", "the great old one", {
 			source : [["P", 110]],
 			minlevel : 14,
 			description : "\n   " + "As an action, I can charm an incapacitated humanoid by touch" + "\n   " + "While it is charmed, I can communicate with it telepathically if it is on the same plane" + "\n   " + "This lasts until the charm is removed (can be by Remove Curse) or I use this again",
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -1881,7 +1881,7 @@ AddSubClass("wizard", "abjuration", {
 			source : [["P", 115]],
 			minlevel : 6,
 			description : "\n   " + "As a reaction, my Arcane Ward can absorb damage done to a creature within 30 ft",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature10" : {
 			name : "Improved Abjuration",
@@ -1942,7 +1942,7 @@ AddSubClass("wizard", "conjuration", {
 			source : [["P", 116]],
 			minlevel : 2,
 			description : "\n   " + "As an action, I can conjure an object up to 3 ft on each side and no more than 10 lbs" + "\n   " + "It must be of a form of a nonmagical object I have seen and is created within 10 ft" + "\n   " + "The object disappears after 1 hour, if it takes or deals damage, or when I use this again",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Benign Transposition",
@@ -1951,7 +1951,7 @@ AddSubClass("wizard", "conjuration", {
 			description : "\n   " + "As an action, I can teleport to a place within 30 ft that I can see" + "\n   " + "Instead, I can swap places with a willing Small/Medium creature in 30 ft that I can see" + "\n   " + "I can do this again after a long rest or casting a 1st-level or higher conjuration spell",
 			usages : 1,
 			recovery : "long rest",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature10" : {
 			name : "Focused Conjuration",
@@ -2020,7 +2020,7 @@ AddSubClass("wizard", "divination", {
 			description : "\n   " + "As an action, I gain one of the following until my next short or long rest:" + "\n   " + "Darkvision 60ft, see the Ethereal Plane 60ft, read any language, or see invisibility 10ft",
 			recovery : "short rest",
 			usages : 1,
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature14" : {
 			name : "Greater Portent",
@@ -2047,7 +2047,7 @@ AddSubClass("wizard", "enchantment", {
 			source : [["P", 117]],
 			minlevel : 2,
 			description : "\n   " + "As an action, a seen enemy within 5 ft must make a Wis save or be charmed" + "\n   " + "This doesn't work if it can't see/hear me; It's also incapacitated and reduced to 0 speed" + "\n   " + "This lasts until the end of my next turn, but I can use an action to extend the duration" + "\n   " + "It also ends if it takes damage, can't see or hear me, or is more than 5 ft from me" + "\n   " + "On success or once it ends, I can't use this on it again until after a long rest",
-			action : ["action", ""],
+			action : [["action", ""]],
 			usages : 1,
 			recovery : "long rest"
 		},
@@ -2056,7 +2056,7 @@ AddSubClass("wizard", "enchantment", {
 			source : [["P", 117]],
 			minlevel : 6,
 			description : "\n   " + "As a reaction, when someone I can see in 30 ft attacks me, it must make a Wis save" + "\n   " + "If failed, it must instead attack the closest creature within range (not me or self)" + "\n   " + "On a success, the target is immune to this until after my long rest; This is a charm effect",
-			action : ["reaction", " (when attacked)"]
+			action : [["reaction", " (when attacked)"]]
 		},
 		"subclassfeature10" : {
 			name : "Split Enchantment",
@@ -2112,11 +2112,11 @@ AddSubClass("wizard", "illusion", {
 			source : [["P", 118]],
 			minlevel : 2,
 			description : "\n   " + "I gain the knowledge of the Minor Illusion cantrip (or another if I already knew it)" + "\n   " + "When I cast it, I can create both a sound and an image with a single casting",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Minor Illusion cantrip",
 				spells : ["minor illusion"],
 				selection : ["minor illusion"]
-			},
+			}],
 			spellChanges : {
 				"minor illusion" : {
 					description : "5-ft cube illusion includes visible and audible; Int(Investigation) check vs. Spell DC; see book",
@@ -2129,14 +2129,14 @@ AddSubClass("wizard", "illusion", {
 			source : [["P", 118]],
 			minlevel : 6,
 			description : "\n   " + "After I cast an illusion spell that lasts 1 min or longer, I can use an action to change it",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature10" : {
 			name : "Illusory Self",
 			source : [["P", 118]],
 			minlevel : 10,
 			description : "\n   " + "As a reaction, when I'm attacked, I can impose an illusion that makes the attack miss",
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 			recovery : "short rest",
 			usages : 1
 		},
@@ -2145,7 +2145,7 @@ AddSubClass("wizard", "illusion", {
 			source : [["P", 118]],
 			minlevel : 14,
 			description : "\n   " + "As a bonus action, after I cast a 1st-level or higher illusion spell, I can make it real" + "\n   " + "One inanimate, nonmagical object that is part of the illusion becomes real for 1 minute" + "\n   " + "The object can't be something that directly harms someone",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		}
 	}
 });
@@ -2172,11 +2172,11 @@ AddSubClass("wizard", "necromancy", {
 			source : [["P", 119]],
 			minlevel : 6,
 			description : "\n   " + "I add Animate Dead to my spellbook and can have an additional target when casting it" + "\n   " + "Undead created by my necromancy spells have the following benefits:" + "\n   " + "They add my proficiency bonus to damage and my wizard level to their HP maximums",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Undead Thralls",
 				spells : ["animate dead"],
 				selection : ["animate dead"]
-			},
+			}],
 			spellChanges : {
 				"animate dead" : {
 					description : "Turn corpses into 2+2/SL Skeletons or Zombies; control for 24h; bns a command within 60 ft",
@@ -2196,7 +2196,7 @@ AddSubClass("wizard", "necromancy", {
 			source : [["P", 11]],
 			minlevel : 14,
 			description : "\n   " + "As an action, an undead within 60 ft that I can see must make a Charisma save" + "\n   " + "If its Int is > 7, it has adv. on the save; If its Int is > 11, it repeats the save every hour" + "\n   " + "If failed, it becomes friendly to me and obeys my commands until I use this on another" + "\n   " + "On success, it becomes permanently immune to my further attempts",
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -2263,7 +2263,7 @@ AddSubClass("wizard", "transmutation", {
 			source : [["P", 119]],
 			minlevel : 14,
 			description : "\n   " + "As an action, I can destroy my transmuter's stone and do one of the four following:" + "\n    " + "1) Major Transformation" + "\n      " + "In 10 minutes, I transmute one nonmagical object up to 5 cubic foot into another" + "\n      " + "This new, nonmagical object must be of similar size and mass and equal or less value" + "\n    " + "2) Panacea" + "\n      " + "One touched has all curses, diseases, and poisons removed and is healed to max HP" + "\n    " + "3) Restore Life" + "\n      " + "I cast Raise Dead without using spell slots or needing to have it in my spellbook" + "\n    " + "4) Restore Youth" + "\n      " + "A touched creature's apparent age is reduced by 3d10 years (to a minimum of 13)",
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -3304,7 +3304,7 @@ FeatsList["crossbow expert"] = {
 	source : [["P", 165]],
 	descriptionFull : "Thanks to extensive practice with the crossbow, you gain the following benefits:\n \u2022 You ignore the loading quality of crossbows with which you are proficient.\n \u2022 Being within 5 feet of a hostile creature doesn't impose disadvantage on your ranged attack rolls.\n \u2022 When you use the Attack action and attack with a one-handed weapon, you can use a bonus action to attack with a hand crossbow you are holding.",
 	description : "I ignore the loading quality of crossbows I'm proficient with. I don't suffer disadv. on ranged attack rolls for being within 5 ft of a hostile. When I attack with a one-handed weapon in my Attack action, I can use a bonus action to attack with a hand crossbow I'm holding.",
-	action : ["bonus action", " (with Attack action)"],
+	action : [["bonus action", " (with Attack action)"]],
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -3323,7 +3323,7 @@ FeatsList["defensive duelist"] = {
 	description : "When wielding a finesse weapon with which I am proficient and another creature hits me with a melee attack, I can use my reaction to add my proficiency bonus to my AC for that attack, potentially causing the attack to miss me.",
 	prerequisite : "Dexterity 13 or higher",
 	prereqeval : function(v) { return What('Dex') >= 13; },
-	action : ["reaction", " (when hit in melee)"]
+	action : [["reaction", " (when hit in melee)"]]
 };
 FeatsList["dual wielder"] = {
 	name : "Dual Wielder",
@@ -3382,7 +3382,7 @@ FeatsList["great weapon master"] = {
 	source : [["P", 167]],
 	descriptionFull : "You've learned to put the weight of a weapon to your advantage, letting its momentum empower your strikes. You gain the following benefits:\n \u2022 On your turn, when you score a critical hit with a melee weapon or reduce a creature to 0 hit points with one, you can make one melee weapon attack as a bonus action.\n \u2022 Before you make a melee attack with a heavy weapon that you are proficient with, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage.",
 	description : "If I score a critical hit or reduce a creature to 0 hit points with a melee weapon in my turn, I can make one melee weapon attack as a bonus action. With a heavy melee weapon, I can choose to take a -5 penalty on the attack roll for +10 on the attack's damage.",
-	action : ["bonus action", " (after crit or take-down)"],
+	action : [["bonus action", " (after crit or take-down)"]],
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
@@ -3400,7 +3400,7 @@ FeatsList["healer"] = {
 	source : [["P", 167]],
 	descriptionFull : "You are an able physician, allowing you to mend wounds quickly and get your allies back in the fight. You gain the following benefits:\n \u2022 When you use a healer's kit to stabilize a dying creature, that creature also regains 1 hit point.\n \u2022 As an action, you can spend one use of a healer's kit to tend to a creature and restore 1d6+4 hit points to it, plus additional hit points equal to the creature's maximum number of Hit Dice. The creature can't regain hit points from this feat again until it finishes a short or long rest.",
 	description : "Using a healer's kit to stabilize someone gives them 1 hit point as well. As an action, I can spend one use of a healer's kit to restore 1d6 + 4 + (creature's HD) hit points. After that, the creature can't gain hit points from this feat again until it finishes a short rest.",
-	action : ["action", " (1d6+4+HD with healing kit)"]
+	action : [["action", " (1d6+4+HD with healing kit)"]]
 };
 FeatsList["heavily armored"] = {
 	name : "Heavily Armored",
@@ -3467,7 +3467,7 @@ FeatsList["mage slayer"] = {
 	descriptionFull : "You have practiced techniques useful in melee combat against spellcasters, gaining the following benefits:\n \u2022 When a creature within 5 feet of you casts a spell, you can use your reaction to make a melee weapon attack against that creature.\n \u2022 When you damage a creature that is concentrating on a spell, that creature has disadvantage on the saving throw it makes to maintain its concentration.\n \u2022 You have advantage on saving throws against spells cast by creatures within 5 feet of you.",
 	description : "As a reaction, I can make a melee weapon attack on a creature within 5 ft of me that casts a spell. Concentration checks from damage from me are made with disadvantage. I have advantage on saving throws against spells cast by creatures within 5 feet of me.",
 	savetxt : { adv_vs : ["spells cast within 5 ft"] },
-	action : ["reaction", "Melee weapon attack (if spell cast in 5 ft)"]
+	action : [["reaction", "Melee weapon attack (if spell cast in 5 ft)"]]
 };
 FeatsList["magic initiate"] = {
 	name : "Magic Initiate",
@@ -3779,7 +3779,7 @@ FeatsList["sentinel"] = {
 	source : [["P", 169]],
 	descriptionFull : "You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:\n \u2022 When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.\n \u2022 Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.\n \u2022 When a creature within 5 feet of you makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.",
 	description : "Creatures I hit with opportunity attacks have 0 speed for this turn. The Disengage action doesn't work on me. When a creature within 5 ft makes an attack against a target other than me, I can use my reaction to make a melee weapon attack against the attacker.",
-	action : ["reaction", " (after attack on ally)"]
+	action : [["reaction", " (after attack on ally)"]]
 };
 FeatsList["sharpshooter"] = {
 	name : "Sharpshooter",
@@ -3887,69 +3887,69 @@ FeatsList["spell sniper"] = {
 	choices : ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
 	"bard" : {
 		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one bard cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 6,
 			'class' : 'bard',
 			level : [0, 0],
 			attackOnly : true,
 			firstCol : "atwill"
-		}
+		}]
 	},
 	"cleric" : {
 		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one cleric cantrip that requires an attack roll. Wisdom is my spellcasting ability for this.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 5,
 			'class' : 'cleric',
 			level : [0, 0],
 			attackOnly : true,
 			firstCol : "atwill"
-		}
+		}]
 	},
 	"druid" : {
 		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one druid cantrip that requires an attack roll. Wisdom is my spellcasting ability for this.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 5,
 			'class' : 'druid',
 			level : [0, 0],
 			attackOnly : true,
 			firstCol : "atwill"
-		}
+		}]
 	},
 	"sorcerer" : {
 		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one sorcerer cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 6,
 			'class' : 'sorcerer',
 			level : [0, 0],
 			attackOnly : true,
 			firstCol : "atwill"
-		}
+		}]
 	},
 	"warlock" : {
 		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one warlock cantrip that requires an attack roll. Charisma is my spellcasting ability for this.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 6,
 			'class' : 'warlock',
 			level : [0, 0],
 			attackOnly : true,
 			firstCol : "atwill"
-		}
+		}]
 	},
 	"wizard" : {
 		description : "Any spell that I cast that requires an attack roll has its range doubled. My ranged spell attacks ignore half cover and three-quarters cover. I learn one wizard cantrip that requires an attack roll. Intelligence is my spellcasting ability for this.",
-		spellcastingBonus : {
+		spellcastingBonus : [{
 			name : "Spell Attack Cantrip",
 			spellcastingAbility : 4,
 			'class' : 'wizard',
 			level : [0, 0],
 			attackOnly : true,
 			firstCol : "atwill"
-		}
+		}]
 	}
 };
 FeatsList["tavern brawler"] = {
@@ -3993,7 +3993,7 @@ FeatsList["war caster"] = {
 	prereqeval : function(v) { return v.isSpellcaster; },
 	descriptionFull : "You have practiced casting spells in the midst of combat, learning techniques that grant you the following benefits:\n \u2022 You have advantage on Constitution saving throws that you make to maintain your concentration on a spell when you take damage.\n \u2022 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.\n \u2022 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a spell at the creature, rather than making an opportunity attack. The spell must have a casting time of 1 action and must target only that creature.",
 	description : "Advantage on Con saves to maintain concentration on spells when damaged. Perform somatic components even when holding weapons or shield in one or both hands. Cast spell of 1 action casting time that targets only one creature instead of an opportunity attack.",
-	action : ["reaction", " - Opportunity Spell"],
+	action : [["reaction", " - Opportunity Spell"]],
 	savetxt : { text : "Adv. on Con (Concentration) saves when damaged" }
 };
 FeatsList["weapon master"] = {

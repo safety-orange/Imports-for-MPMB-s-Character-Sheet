@@ -27,13 +27,13 @@ MagicItemsList["balloon pack"] = {
 	additional : "recharge: 1 h in air node",
 	action : [["action", " (Levitate)"], ["reaction", " (Feather Fall)"]],
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["feather fall", "levitate"],
 		selection : ["feather fall", "levitate"],
 		firstCol : 1,
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"feather fall" : {
 			range : "Self",
@@ -162,12 +162,12 @@ MagicItemsList["drown"] = {
 	usages : 1,
 	recovery : "dawn",
 	fixedDC : 17,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["dominate monster"],
 		selection : ["dominate monster"],
 		firstCol : "oncelr"
-	},
+	}],
 	spellChanges : {
 		"dominate monster" : {
 			description : "Water elemental save or charmed, follows telepathic commands, 1 a for complete control; save on dmg",
@@ -378,12 +378,12 @@ MagicItemsList["tinderstrike"] = {
 	usages : 1,
 	recovery : "dawn",
 	fixedDC : 17,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["dominate monster"],
 		selection : ["dominate monster"],
 		firstCol : "oncelr"
-	},
+	}],
 	spellChanges : {
 		"dominate monster" : {
 			description : "Fire elemental save or charmed, follows telepathic commands, 1 a for complete control; save on dmg",
@@ -438,12 +438,12 @@ MagicItemsList["windvane"] = {
 	usages : 1,
 	recovery : "dawn",
 	fixedDC : 17,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["dominate monster"],
 		selection : ["dominate monster"],
 		firstCol : "oncelr"
-	},
+	}],
 	spellChanges : {
 		"dominate monster" : {
 			description : "Air elemental save or charmed, follows telepathic commands, 1 a for complete control; save on dmg",

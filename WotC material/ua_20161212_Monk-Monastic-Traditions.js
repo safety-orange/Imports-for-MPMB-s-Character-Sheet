@@ -22,7 +22,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 			source : [["UA:MMT", 1]],
 			minlevel : 3,
 			description : " [3 martial weapons proficiencies]" + "\n   " + "Martial weapons I am proficient with count as kensei weapons for me" + "\n   " + "With these, I can use Dex instead of Str and use the Martial Arts damage die" + "\n   " + "As a bonus action, my kensei weapon deal +1d4 bludg. damage for an Attack action",
-			action : ["bonus action", " (after hit)"],
+			action : [["bonus action", " (after hit)"]],
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -74,7 +74,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 			description : "As a bonus action, I can focus my attention on one creature I can see within 30 ft" + "\n   " + "This turn, I double my proficiency bonus on my next weapon attack against that mark",
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
@@ -90,7 +90,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 				extraname : "Way of the Kensei 11",
 				source : [["UA:MMT", 1]],
 				description : " [1 to 3 ki points]" + "\n   " + "As a bonus action, I can grant my weapon a bonus to attack and damage rolls" + "\n   " + "This bonus is equal to the number of ki points I spend; It lasts for 1 minute",
-				action : ["bonus action", ""]
+				action : [["bonus action", ""]]
 			},
 			autoSelectExtrachoices : [{
 				extrachoice : "sharpen the blade",
@@ -117,11 +117,11 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 			description : "\n   " + "I cast Sanctuary on me, no material comp., lasts 8 hours, hostiles must save every hour",
 			usages : 1,
 			recovery : "1 min",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Way of Tranquility",
 				spells : ["sanctuary"],
 				selection : ["sanctuary"]
-			},
+			}],
 			spellChanges : {
 				"sanctuary" : {
 					components : "V,S",
@@ -139,7 +139,7 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 			description : "\n   " + "As an action, I use points to heal living creature; or 5 points to cure one poison/disease" + "\n   " + "With Flurry of Blows, I can replace one unarmed strike with a use of this feature",
 			usages : [0, 0, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200],
 			recovery : "long rest",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Emissary of Peace",
@@ -152,7 +152,7 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 				extraname : "Way of Tranquility 11",
 				source : [["UA:MMT", 1]],
 				description : "\n   " + "As an action, a creature I touch must make a Wisdom save or have no violent impulses" + "\n   " + "If the target is missing any HP it succeeds on the save; The effect lasts for 1 minute" + "\n   " + "During this time, it can't attack or cast spells that deal damage or force a saving throw" + "\n   " + "This effect ends if the target is attacked, takes damage, or is forced to make a saving throw" + "\n   " + "It also ends if the target witnesses any of those things happening to its allies",
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			autoSelectExtrachoices : [{
 				extrachoice : "douse the flames of war",
@@ -167,7 +167,7 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 			usages : 1,
 			recovery : "short rest",
 			additional : ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "+17", "+18", "+19", "+20"],
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		}
 	}
 });

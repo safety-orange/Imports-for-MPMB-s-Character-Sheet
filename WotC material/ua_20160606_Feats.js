@@ -52,7 +52,7 @@ FeatsList["blade mastery-ua"] = {
 				if ((/shortsword|longsword|greatsword|scimitar|rapier/).test(v.baseWeaponName)) output.extraHit += 1;
 			}, ""]
 	},
-	action : ["reaction", " Parrying Stance"]
+	action : [["reaction", " Parrying Stance"]]
 };
 FeatsList["flail mastery-ua"] = {
 	name : "Flail Mastery",
@@ -73,7 +73,7 @@ FeatsList["flail mastery-ua"] = {
 				if (v.baseWeaponName == 'flail') output.extraHit += 1;
 			}, ""]
 	},
-	action : ["bonus action", ""]
+	action : [["bonus action", ""]]
 };
 FeatsList["spear mastery-ua"] = {
 	name : "Spear Mastery",
@@ -104,7 +104,7 @@ FeatsList["alchemist-ua"] = {
 	descriptionFull : "You have studied the secrets of alchemy and are an expert in its practice, gaining the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency with alchemist's supplies. If you are already proficient with them, you add double your proficiency bonus to checks you make with them.\n \u2022 As an action, you can identify one potion within 5 feet of you, as if you had tasted it. You must see the liquid for this benefit to work.\n \u2022 Over the course of any short rest, you can temporarily improve the potency of one potion of healing of any rarity. To use this benefit, you must have alchemist's supplies with you, and the potion must be within reach. If the potion is drunk no more than 1 hour after the short rest ends, the creature drinking the potion can forgo the potion's die roll and regains the maximum number of hit points that the potion can restore.",
 	description : "I gain proficiency with alchemist's supplies, or expertise if already proficient. As an action, I can identify a potion within 5 ft. During a rest with alchemist's supplies, I can enhance a potion of healing, to heal its max. Consuming it within 1 hour maximizes its effects [+1 Int]",
 	scores : [0, 0, 0, 1, 0, 0],
-	action : ["action", " (identify potion)"],
+	action : [["action", " (identify potion)"]],
 	toolProfs : [["Alchemist's supplies", "Int"]],
 	eval : function () {
 		if ((/(alchemist|alchemy).*(supplies|kit)/i).test(What('Too Text'))) {
@@ -141,7 +141,7 @@ FeatsList["gourmand-ua"] = {
 	descriptionFull : "You have mastered a variety of special recipes, allowing you to prepare exotic dishes with useful effects. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You gain proficiency with cook's utensils. If you are already proficient with them, you add double your proficiency bonus to checks you make with them.\n \u2022 As an action, you can inspect a drink or plate of food within 5 feet of you and determine whether it is poisoned, provided that you can see and smell it.\n \u2022 During a long rest, you can prepare and serve a meal that helps you and your allies recover from the rigors of adventuring, provided you have suitable food, cook's utensils, and other supplies on hand. The meal serves up to six people, and each person who eats it regains two additional Hit Dice at the end of the long rest. In addition, those who partake of the meal have advantage on Constitution saving throws against disease for the next 24 hours.",
 	description : "I gain proficiency with cook's utensils, or expertise if already proficient. As an action, I can detect poison in food within 5 ft. In a long rest with food/supplies, I can have 6 creatures regain 2 extra HD and give them adv. on Con saves vs. disease for 24 hours. [+1 Con]",
 	scores : [0, 0, 1, 0, 0, 0],
-	action : ["action", " (inspect food)"],
+	action : [["action", " (inspect food)"]],
 	toolProfs : [["Cook's utensils", "Int"]],
 	eval : function () {
 		if ((/cook.*utensils/i).test(What('Too Text'))) {
@@ -160,7 +160,7 @@ FeatsList["master of disguise-ua"] = {
 	descriptionFull : "You have honed your ability to shape your personality and to read the personalities of others. You gain the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You gain proficiency with the disguise kit. If you are already proficient with it, you add double your proficiency bonus to checks you make with it.\n \u2022 If you spend 1 hour observing a creature, you can then spend 8 hours crafting a disguise you can quickly don to mimic that creature. Making the disguise requires a disguise kit. You must make checks as normal to disguise yourself, but you can assume the disguise as an action.",
 	description : "I gain proficiency with the disguise kit, or expertise with it if I'm already proficient. After observing a creature for 1 hour, I can craft a disguise to mimic it in 8 hours with a disguise kit. Once finished, I can don this disguise as an action. [+1 Charisma]",
 	scores : [0, 0, 0, 0, 0, 1],
-	action : ["action", " (don disguise)"],
+	action : [["action", " (don disguise)"]],
 	toolProfs : [["Disguise kit", "Cha"]],
 	eval : function () {
 		if ((/disguise.*kit/i).test(What('Too Text'))) {

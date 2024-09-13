@@ -51,7 +51,7 @@ AddSubClass("paladin", "oath of conquest-ua", {
 			description : "\n   " + "As an action, I can gain the following benefits for 1 minute:" + "\n    - " + "I have resistance all damage" + "\n    - " + "I can make an additional attack as part of my Attack action" + "\n    - " + "My melee weapons score critical hits on a roll of 19 or 20",
 			recovery : "long rest",
 			usages : 1,
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -73,7 +73,7 @@ AddSubClass("paladin", "oath of treachery-ua", { // Still valid 2021-09-21
 			source : [["UA:PSO", 2]],
 			minlevel : 3,
 			description : "\n   " + "As a bonus action, I imbue one weapon or piece of ammunition with poison upon touch" + "\n   " + "This poison lasts for 1 minute and will affect the next time I hit a target with it" + "\n   " + "The target takes 2d10 + my paladin level poison damage immediately after the hit" + "\n   " + "I automatically roll 20 on the 2d10 if I have advantage on the attack roll",
-			action : ["bonus action", ""],
+			action : [["bonus action", ""]],
 			additional : levels.map(function (n) {
 				return n < 3 ? "" : "2d10+" + n + " damage";
 			}),
@@ -101,7 +101,7 @@ AddSubClass("paladin", "oath of treachery-ua", { // Still valid 2021-09-21
 			description : "\n   " + "As a reaction when a creature within 5 ft misses me, I can redirect the attack" + "\n   " + "If it can be charmed, it rerolls the attack on a target of my choice within 5 ft of it",
 			recovery : "short rest",
 			usages : 3,
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature15" : {
 			name : "Blackguard's Escape",
@@ -110,7 +110,7 @@ AddSubClass("paladin", "oath of treachery-ua", { // Still valid 2021-09-21
 			description : "\n   " + "As a reaction after I am hit by an attack, I can teleport up to 60 ft to a spot I can see" + "\n   " + "In doing this, I also become invisible (as the spell) until the end of my next turn",
 			recovery : "short rest",
 			usages : 1,
-			action : ["reaction", ""],
+			action : [["reaction", ""]],
 			"icon of deceit" : {
 				name : "Icon of Deceit",
 				extraname : "Oath of Treachery 20",
@@ -118,7 +118,7 @@ AddSubClass("paladin", "oath of treachery-ua", { // Still valid 2021-09-21
 				description : "\n   " + "As an action, I can gain the following benefits for 1 minute:" + "\n    - " + "I become invisible" + "\n    - " + "If I have adv. on an attack, I do 20 extra damage with it if it hits" + "\n    - " + "If a creature hits me on its turn, it must make a Wis save or I control its next action" + "\n       " + "Provided it can be charmed and I am not incapacitated when it takes the action",
 				recovery : "long rest",
 				usages : 1,
-				action : ["action", ""]
+				action : [["action", ""]]
 			},
 			autoSelectExtrachoices : [{
 				extrachoice : "icon of deceit",

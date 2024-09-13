@@ -23,13 +23,13 @@ AddRacialVariant("human", "yuan-ti transformed", {
 		adv_vs : ["magic"]
 	},
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Innate Spellcasting (level 1)",
 		spells : ["poison spray", "animal friendship"],
 		selection : ["poison spray", "animal friendship"],
 		firstCol : 'atwill',
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"animal friendship" : {
 			description : "1 snake (beast) with less than 4 Int save or charmed for the duration",
@@ -43,12 +43,12 @@ AddRacialVariant("human", "yuan-ti transformed", {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Innate Spellcasting (level 3)",
 				spells : ["suggestion"],
 				selection : ["suggestion"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	},
 	trait : "Yuan-ti Human (+1 to all ability scores)\n   Madness: I suffer from an indefinite madness (DMG 258).\n   Innate Spellcasting: I know the Poison Spray cantrip and can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest. Charisma is my spellcasting ability for these spells.\n   Magic Resistance: I have advantage on saves against spells and other magical effects."
@@ -66,13 +66,13 @@ AddRacialVariant("human", "yuan-ti transformed variant", {
 		adv_vs : ["magic"]
 	},
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Innate Spellcasting (level 1)",
 		spells : ["poison spray", "animal friendship"],
 		selection : ["poison spray", "animal friendship"],
 		firstCol : 'atwill',
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"animal friendship" : {
 			description : "1 snake (beast) with less than 4 Int save or charmed for the duration",
@@ -86,12 +86,12 @@ AddRacialVariant("human", "yuan-ti transformed variant", {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Innate Spellcasting (level 3)",
 				spells : ["suggestion"],
 				selection : ["suggestion"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	},
 	trait : "Yuan-ti Human (+1 to two different ability scores of my choice)\n   Skill & Feat: I gain proficiency in one skill of my choice and I gain one feat of my choice.\n   Madness: I suffer from an indefinite madness (DMG 258).\n   Innate Spellcasting: I know the Poison Spray cantrip and can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest. Charisma is my spellcasting ability for these spells.\n   Magic Resistance: I have advantage on saves against spells and other magical effects.",
@@ -769,13 +769,13 @@ MagicItemsList["bookmark"] = {
 		recovery : "dawn"
 	}],
 	fixedDC : 15,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Once per dawn",
 		spells : ["compulsion", "dimension door"],
 		selection : ["compulsion", "dimension door"],
 		firstCol : "oncelr",
 		times : 2
-	},
+	}],
 	spellChanges : {
 		"compulsion" : {
 			time : "1 bns",
@@ -796,12 +796,12 @@ MagicItemsList["ghost lantern"] = {
 	attunement : true,
 	weight : 1,
 	action : [["bonus action", ""]],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "At will",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
 		firstCol : "atwill"
-	}
+	}]
 }
 MagicItemsList["mask of the beast"] = {
 	name : "Mask of the Beast",
@@ -815,12 +815,12 @@ MagicItemsList["mask of the beast"] = {
 	usages : 3,
 	recovery : "dawn",
 	spellFirstColTitle : "Ch",
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "1 charge",
 		spells : ["animal friendship"],
 		selection : ["animal friendship"],
 		firstCol : 1
-	}
+	}]
 }
 MagicItemsList["scorpion armor"] = {
 	name : "Scorpion Armor",

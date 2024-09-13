@@ -83,7 +83,7 @@ ClassList.mystic = {
 				"As a bonus action, I can choose one of my psionic disciplines and gain its focus benefit",
 				"I can only focus on one at a time; It stays until I focus on another, or I'm incapacitated"
 			]),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"subclassfeature1" : {
 			name : "Mystic Order",
@@ -100,7 +100,7 @@ ClassList.mystic = {
 			description : desc([
 				"As a bonus action after using psi points on a discipline, I can regain HP per point spent"
 			]),
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		},
 		"telepathy" : {
 			name : "Telepathy",
@@ -188,7 +188,7 @@ ClassList.mystic = {
 				if (n < 11) return "";
 				return "pool of " + (n < 15 ? 9 : 11) + " psi points";
 			}),
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"psionic body" : {
 			name : "Psionic Body",
@@ -215,14 +215,14 @@ AddSubClass("mystic", "avatar-ua", {
 			source : [["UA:TMC", 5]],
 			minlevel : 1,
 			description : "\n   " + "I know two additional psionic disciplines, chosen from the avatar disciplines",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Bonus Disciplines",
 				"class" : "mystic",
 				school : ["Avatar"],
 				level : [1, 9],
 				times : 2,
 				psionic : true
-			}
+			}]
 		},
 		"subclassfeature1.1" : {
 			name : "Armor Training",
@@ -281,14 +281,14 @@ AddSubClass("mystic", "awakened-ua", {
 			source : [["UA:TMC", 6]],
 			minlevel : 1,
 			description : " [+2 awakened disciplines]",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Bonus Disciplines",
 				"class" : "mystic",
 				school : ["Awake"],
 				level : [1, 9],
 				times : 2,
 				psionic : true
-			}
+			}]
 		},
 		"subclassfeature1.1" : {
 			name : "Awakened Talent",
@@ -333,7 +333,7 @@ AddSubClass("mystic", "awakened-ua", {
 			]),
 			usages : 1,
 			recovery : "long rest",
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -348,14 +348,14 @@ AddSubClass("mystic", "immortal-ua", {
 			source : [["UA:TMC", 7]],
 			minlevel : 1,
 			description : "\n   " + "I know two additional psionic disciplines, taken from the immortal disciplines",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Bonus Disciplines",
 				"class" : "mystic",
 				school : ["Immor"],
 				level : [1, 9],
 				times : 2,
 				psionic : true
-			}
+			}]
 		},
 		"subclassfeature1.1" : {
 			name : "Immortal Durability",
@@ -399,7 +399,7 @@ AddSubClass("mystic", "immortal-ua", {
 			]),
 			usages : 1,
 			recovery : "short rest",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature14" : {
 			name : "Immortal Will",
@@ -426,14 +426,14 @@ AddSubClass("mystic", "nomad-ua", {
 			source : [["UA:TMC", 7]],
 			minlevel : 1,
 			description : "\n   " + "I know two additional psionic disciplines, taken from the nomad disciplines",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Bonus Disciplines",
 				"class" : "mystic",
 				school : ["Nomad"],
 				level : [1, 9],
 				times : 2,
 				psionic : true
-			}
+			}]
 		},
 		"subclassfeature1.1" : {
 			name : "Breadth of Knowledge",
@@ -454,7 +454,7 @@ AddSubClass("mystic", "nomad-ua", {
 			]),
 			usages : 1,
 			recovery : "short rest",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		},
 		"subclassfeature6" : {
 			name : "Superior Teleportation",
@@ -555,7 +555,7 @@ AddSubClass("mystic", "soul knife-ua", {
 			description : desc([
 				"As an action, I can make one attack with my soul knife, treating the target's AC as 10"
 			]),
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 });
@@ -571,14 +571,14 @@ AddSubClass("mystic", "wu jen-ua", {
 			source : [["UA:TMC", 8]],
 			minlevel : 1,
 			description : " [+2 wu jen disciplines]",
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Bonus Disciplines",
 				"class" : "mystic",
 				school : ["Wu Jen"],
 				level : [1, 9],
 				times : 2,
 				psionic : true
-			}
+			}]
 		},
 		"subclassfeature1.1" : {
 			name : "Hermit's Study",
@@ -608,12 +608,12 @@ AddSubClass("mystic", "wu jen-ua", {
 				"As a bonus action, I can use psi points to make spell slots; Last until my next long rest",
 				"2 PP: 1st-level; 3 PP: 2nd-level; 5 PP: 3rd-level; 6 PP: 4th-level; 7 PP: 5th-level"
 			]),
-			spellcastingBonus : {
+			spellcastingBonus : [{
 				name : "Arcane Dabbler",
 				"class" : "wizard",
 				level : [1, 3],
 				times : 3
-			}
+			}]
 		},
 		"subclassfeature14" : {
 			name : "Elemental Mastery",

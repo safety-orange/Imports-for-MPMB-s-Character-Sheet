@@ -34,12 +34,12 @@ RaceList["aasimar revenant-ua"] = { // Based on the VGtM Aasimar, made with /u/R
 	scores : [0, 0, 1, 0, 0, 2],
 	trait : "Aasimar Revenant (+1 Constitution, +2 Charisma)" + (typePF ? "\n" : " ") + "Light Bearer: I know the Light cantrip. Healing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Light Bearer",
 		spells : ["light"],
 		selection : ["light"],
 		firstCol : 'atwill'
-	},
+	}],
 	features : {
 		"healing hands" : {
 			name : "Healing Hands",
@@ -47,7 +47,7 @@ RaceList["aasimar revenant-ua"] = { // Based on the VGtM Aasimar, made with /u/R
 			minlevel : 1,
 			recovery : "long rest",
 			additional : ["1 HP", "2 HP", "3 HP", "4 HP", "5 HP", "6 HP", "7 HP", "8 HP", "9 HP", "10 HP", "11 HP", "12 HP", "13 HP", "14 HP", "15 HP", "16 HP", "17 HP", "18 HP", "19 HP", "20 HP"],
-			action : ["action", ""]
+			action : [["action", ""]]
 		}
 	}
 };
@@ -184,7 +184,7 @@ RaceList["dragonborn revenant-ua"] = {
 				return (n < 6 ? 2 : n < 11 ? 3 : n < 16 ? 4 : 5) + 'd6';
 			}),
 			recovery : "short rest",
-			action : ["action", ""],
+			action : [["action", ""]],
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
@@ -279,7 +279,7 @@ AddSubClass("fighter", "monster hunter-ua", { // Still valid 2021-09-21
 			usages : 1,
 			recovery : "long rest",			
 			description : "\n   " + "I can cast Detect Magic as a ritual and Protection from Evil & Good once per long rest" + "\n   " + "I gain the ability to speak one of the following languages: Abyssal, Celestial, or Infernal",
-			action : ["action", " (Prot vs. Evil/Good)"],
+			action : [["action", " (Prot vs. Evil/Good)"]],
 			languageProfs : [["Abyssal, Celestial, or Infernal", 1]],
 			spellcastingBonus : [{
 				name : "Spirit Seeker",
@@ -307,7 +307,7 @@ AddSubClass("fighter", "monster hunter-ua", { // Still valid 2021-09-21
 			usages : 1,
 			recovery : "long rest",
 			description : "\n   " + "Whenever I use a superiority die, I can choose to expend two, adding both to the roll" + "\n   " + "If the target is an aberration, fey, fiend, or undead, both dice deal maximum damage",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature10" : {
 			name : "Improved Combat Superiority",
@@ -345,7 +345,7 @@ AddSubClass("rogue", "inquisitive-ua", {
 			source : [["UA:GH", 3]],
 			minlevel : 3,
 			description : "\n   " + "As an action or bonus action, I can decipher the tactics of an active opponent I can see" + "\n   " + "I have to make a Wisdom (Insight) check vs. the target's Charisma (Deception) check" + "\n   " + "If I succeed, I can use sneak attack on the target regardless of advantage/disadvantage" + "\n   " + "This benefit lasts for 1 minute or until I successfully use Insightful Fighting again",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature9" : {
 			name : "Steady Eye",
@@ -360,7 +360,7 @@ AddSubClass("rogue", "inquisitive-ua", {
 			source : [["UA:GH", 3]],
 			minlevel : 13,
 			description : "\n   " + "As an action, I can sense magical deceptions within 30 feet of me, but not what it does" + "\n   " + "I learn the presence of illusions, shapechanged creatures, or magic designed to deceive",
-			action : ["action", ""]
+			action : [["action", ""]]
 		},
 		"subclassfeature17" : {
 			name : "Eye for Weakness",

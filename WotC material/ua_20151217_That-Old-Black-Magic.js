@@ -34,11 +34,11 @@ RaceList["abyssal tiefling-ua"] = {
 	trait : "Abyssal Tiefling (+1 Constitution, +2 Charisma)\nAbyssal Fortitude: My HP maximum increases with half the levels I have (min 1). Abyssal Arcana: After each long rest I gain randomly determined spellcasting ability (d6). This is a cantrip, and on both 3rd and 5th level a spell that I can cast once, at 2nd-level.\n1: (Dancing Lights, Burning Hands, Alter Self); 2: (True Strike, Charm Person, Darkness)" + (!typePF ? ";" : " ") + " 3: (Light, Magic Missile, Invisibility); 4: (Spare the Dying, Hideous Laughter, Mirror Image)" + (!typePF ? ";" : " ") + " 5: (Message, Cure Wounds, Levitate); 6: (Prestidigitation, Thunderwave, Spider Climb)",
 	abilitySave : 6,
 	spellcastingAbility : 6,
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Abyssal Arcana (level 1)",
 		spells : ["dancing lights", "true strike", "light", "message", "spare the dying", "prestidigitation"],
 		firstCol : 'atwill'
-	},
+	}],
 	calcChanges : {
 		hp : function (totalHD) { return [Math.max(1, Math.floor(totalHD / 2)), "Abyssal Fortitude"]; }
 	},
@@ -48,24 +48,24 @@ RaceList["abyssal tiefling-ua"] = {
 			minlevel : 3,
 			usages : 1,
 			recovery : "long rest",
-			action : ["action", ""],
-			spellcastingBonus : {
+			action : [["action", ""]],
+			spellcastingBonus : [{
 				name : "Abyssal Arcana (level 3)",
 				spells : ["burning hands", "charm person", "magic missile", "cure wounds", "tasha's hideous laughter", "thunderwave"],
 				firstCol : 'oncelr'
-			}
+			}]
 		},
 		"abyssal arcana (level 5)" : {
 			name : "Abyssal Arcana (level 5)",
 			minlevel : 5,
 			usages : 1,
 			recovery : "long rest",
-			action : ["action", ""],
-			spellcastingBonus : {
+			action : [["action", ""]],
+			spellcastingBonus : [{
 				name : "Abyssal Arcana (level 5)",
 				spells : ["alter self", "darkness", "invisibility", "levitate", "mirror image", "spider climb"],
 				firstCol : 'oncelr'
-			}
+			}]
 		}
 	},
 	variants : RaceList.tiefling && RaceList.tiefling.variants ? RaceList.tiefling.variants : []

@@ -33,11 +33,11 @@ RaceList["astral elf-ua"] = {
 	},
 	skills : ["Perception"],
 	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : {
+	spellcastingBonus : [{
 		name : "Astral Fire",
 		spells : ["dancing lights", "light", "sacred flame"],
 		firstCol : "atwill"
-	},
+	}],
 	extraLimitedFeatures : [{
 		name : "Radiant Soul",
 		usages : 1,

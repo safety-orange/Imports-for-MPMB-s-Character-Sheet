@@ -34,14 +34,14 @@ RaceList["changeling-ua2"] = {
 	scorestxt : "+2 Charisma, and +1 Dexterity or +1 Intelligence",
 	scores : [0, 0, 0, 0, 0, 2],
 	trait : "Changeling (+2 Charisma, and +1 Dexterity or +1 Intelligence)\nChange Appearance: As an action, I can polymorph to or from a humanoid form of my size I have seen, not changing my equipment. I revert back if I die and have adv. on Deception.\nUnsettling Visage: As a reaction once per short rest when I'm attacked by a seen attacker, I can impose disadv. Doing this reveals my shapeshifting nature to all within 30 ft.\nDivergent Persona: I have proficiency with one tool, and an alternate persona. While in the alternate form, my proficiency bonus with that tool is doubled.",
-	action : ["action", "Change Appearance"],
+	action : [["action", "Change Appearance"]],
 	features : {
 		"unsettling visage" : {
 			name : "Unsettling Visage",
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["reaction", ""]
+			action : [["reaction", ""]]
 		}
 	}
 };
@@ -98,7 +98,7 @@ RaceList["beasthide shifter-ua"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", " (start/end)"]
+			action : [["bonus action", " (start/end)"]]
 		}
 	}
 };
@@ -138,7 +138,7 @@ RaceList["longtooth shifter-ua"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", " (start/end)"]
+			action : [["bonus action", " (start/end)"]]
 		}
 	}
 };
@@ -169,7 +169,7 @@ RaceList["swiftstride shifter-ua"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", " (start/end)"]
+			action : [["bonus action", " (start/end)"]]
 		}
 	}
 };
@@ -199,14 +199,14 @@ RaceList["wildhunt shifter-ua"] = {
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", " (start/end)"]
+			action : [["bonus action", " (start/end)"]]
 		},
 		"mark the scent" : {
 			name : "Mark the Scent",
 			minlevel : 1,
 			usages : 1,
 			recovery : "short rest",
-			action : ["bonus action", ""]
+			action : [["bonus action", ""]]
 		}
 	}
 };
