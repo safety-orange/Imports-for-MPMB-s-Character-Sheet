@@ -299,8 +299,8 @@ var LLoK_poweredArmorFullDescription = [
 	"u2022 Gain darkvision to a range of 60 feet for up to 1 hour (1 charge or 5 hit points).",
 	"The armor can accept only one energy cell at a time. It is found with one energy cell attached, containing 2d10 charges."
 ];
-MagicItemsList["powered armor"] = {
-	name : "Powered Armor",
+MagicItemsList["powered armor-llk"] = {
+	name : "Powered Armor (LLK)", // add source to name so it won't conflict with Powered Armor from QftIS
 	source : [["LLoK", 56]],
 	type : "armor (plate)",
 	rarity : "legendary",

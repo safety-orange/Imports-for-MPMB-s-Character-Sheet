@@ -4124,7 +4124,7 @@ SpellsList["beast sense"] = {
 	components : "S",
 	duration : "Conc, 1 h",
 	description : "Use 1 willing beast's senses; I'm blinded and deafened while doing so",
-	descriptionFull : "You touch a willing beast. For the duration of the spell, you can use your action to see through the beast's eyes and hear what it hears, and continue to do so until you use your action to return to your normal senses."
+	descriptionFull : "You touch a willing beast. For the duration of the spell, you can use your action to see through the beast's eyes and hear what it hears, and continue to do so until you use your action to return to your normal senses. While perceiving through the beast's senses, you gain the benefits of any special senses possessed by that creature, though you are blinded and deafened to your own surroundings."
 };
 SpellsList["blade ward"] = {
 	name : "Blade Ward",
@@ -4456,8 +4456,8 @@ SpellsList["lightning arrow"] = {
 	components : "V,S",
 	duration : "Conc, 1 min",
 	save : "Dex",
-	description : "Next rngd wea atk +4d8+1d8/SL Lightn. dmg, miss half; 10 ft all 2d8+1d8/SL Lightn. dmg, save half",
-	descriptionShorter : "Next atk +4d8+1d8/SL Lightn. dmg, miss h" + (typePF ? "a" : "") + "lf; 10 ft all 2d8+1d8/SL Lightn. dmg, save half",
+	description : "Next rngd wea atk 4d8+1d8/SL Lightn. dmg, miss half; 10 ft all 2d8+1d8/SL Lightn. dmg, save half",
+	descriptionShorter : "Next atk 4d8+1d8/SL Lightn. dmg, miss h" + (typePF ? "a" : "") + "lf; 10 ft all 2d8+1d8/SL Lightn. dmg, save half",
 	descriptionFull : "The next time you make a ranged weapon attack during the spell's duration, the weapon's ammunition, or the weapon itself if it's a thrown weapon, transforms into a bolt of lightning. Make the attack roll as normal. The target takes 4d8 lightning damage on a hit, or half as much damage on a miss, instead of the weapon's normal damage." + "\n   " + "Whether you hit or miss, each creature within 10 feet of the target must make a Dexterity saving throw. Each of these creatures takes 2d8 lightning damage on a failed save, or half as much damage on a successful one." + "\n   " + "The piece of ammunition or weapon then returns to its normal form." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage for both effects of the spell increases by 1d8 for each slot level above 3rd.",
 	dynamicDamageBonus : {
 		multipleDmgMoments : false,

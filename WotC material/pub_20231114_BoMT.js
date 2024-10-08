@@ -239,7 +239,7 @@ var BoMT = {
 		"  [8\u2666] Eight of diamonds  \tWindow (up to 5 feet wide and 5 feet high), which you can place on a vertical surface up to 5 feet thick and which allows you to look through the surface",
 		"  [9\u2666] Nine of diamonds  \tManacles",
 		"[10\u2666] Ten of diamonds  \tTen sheets of parchment",
-		"  [3\u2665] Three of hearts\t\tThree dagger",
+		"  [3\u2665] Three of hearts\t\tThree daggers",
 		"  [4\u2665] Four of hearts\t\tFour flasks of oil",
 		"  [5\u2665] Five of hearts\t\tFive silk robes",
 		"  [6\u2665] Six of hearts\t\tForgery kit",

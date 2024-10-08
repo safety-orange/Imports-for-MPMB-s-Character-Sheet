@@ -4273,7 +4273,7 @@ SpellsList["beast sense"] = {
 	components : "S",
 	duration : "Conc, 1 h",
 	description : "Use 1 willing beast's senses; I'm blinded and deafened while doing so",
-	descriptionFull : "You touch a willing beast. For the duration of the spell, you can use your action to see through the beast's eyes and hear what it hears, and continue to do so until you use your action to return to your normal senses."
+	descriptionFull : "You touch a willing beast. For the duration of the spell, you can use your action to see through the beast's eyes and hear what it hears, and continue to do so until you use your action to return to your normal senses. While perceiving through the beast's senses, you gain the benefits of any special senses possessed by that creature, though you are blinded and deafened to your own surroundings."
 };
 SpellsList["blade ward"] = {
 	name : "Blade Ward",
@@ -4605,8 +4605,8 @@ SpellsList["lightning arrow"] = {
 	components : "V,S",
 	duration : "Conc, 1 min",
 	save : "Dex",
-	description : "Next rngd wea atk +4d8+1d8/SL Lightn. dmg, miss half; 10 ft all 2d8+1d8/SL Lightn. dmg, save half",
-	descriptionShorter : "Next atk +4d8+1d8/SL Lightn. dmg, miss h" + (typePF ? "a" : "") + "lf; 10 ft all 2d8+1d8/SL Lightn. dmg, save half",
+	description : "Next rngd wea atk 4d8+1d8/SL Lightn. dmg, miss half; 10 ft all 2d8+1d8/SL Lightn. dmg, save half",
+	descriptionShorter : "Next atk 4d8+1d8/SL Lightn. dmg, miss h" + (typePF ? "a" : "") + "lf; 10 ft all 2d8+1d8/SL Lightn. dmg, save half",
 	descriptionFull : "The next time you make a ranged weapon attack during the spell's duration, the weapon's ammunition, or the weapon itself if it's a thrown weapon, transforms into a bolt of lightning. Make the attack roll as normal. The target takes 4d8 lightning damage on a hit, or half as much damage on a miss, instead of the weapon's normal damage." + "\n   " + "Whether you hit or miss, each creature within 10 feet of the target must make a Dexterity saving throw. Each of these creatures takes 2d8 lightning damage on a failed save, or half as much damage on a successful one." + "\n   " + "The piece of ammunition or weapon then returns to its normal form." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage for both effects of the spell increases by 1d8 for each slot level above 3rd.",
 	dynamicDamageBonus : {
 		multipleDmgMoments : false,
@@ -22384,8 +22384,8 @@ var LLoK_poweredArmorFullDescription = [
 	"u2022 Gain darkvision to a range of 60 feet for up to 1 hour (1 charge or 5 hit points).",
 	"The armor can accept only one energy cell at a time. It is found with one energy cell attached, containing 2d10 charges."
 ];
-MagicItemsList["powered armor"] = {
-	name : "Powered Armor",
+MagicItemsList["powered armor-llk"] = {
+	name : "Powered Armor (LLK)", // add source to name so it won't conflict with Powered Armor from QftIS
 	source : [["LLoK", 56]],
 	type : "armor (plate)",
 	rarity : "legendary",
@@ -39605,7 +39605,7 @@ SpellsList["summon aberration"] = {
 	components : "V,S,M\u0192",
 	compMaterial : "A pickled tentacle and an eyeball in a platinum-inlaid vial worth at least 400 gp",
 	duration : "Conc, 1 h",
-	description : "Summon choice of Abberant Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (300gp)",
+	description : "Summon choice of Abberant Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (400gp)",
 	descriptionFull : "You call forth an aberrant spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Aberrant Spirit stat block. When you cast the spell, choose Beholderkin, Slaad, or Star Spawn. The creature resembles an aberration of that kind, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block."
 };
 SpellsList["summon beast"] = {
@@ -39689,7 +39689,7 @@ SpellsList["summon fiend"] = {
 	components : "V,S,M\u0192",
 	compMaterial : "Humanoid blood inside a ruby vial worth at least 600 gp",
 	duration : "Conc, 1 h",
-	description : "Summon choice of Fiendish Spirit; obeys commands; takes turn after mine; disappears at 0 hp (500gp)",
+	description : "Summon choice of Fiendish Spirit; obeys commands; takes turn after mine; disappears at 0 hp (600gp)",
 	descriptionFull : "You call forth a fiendish spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Fiendish Spirit stat block. When you cast the spell, choose Demon, Devil, or Yugoloth. The creature resembles a fiend of the chosen type, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block."
 };
 SpellsList["summon shadowspawn"] = {
@@ -52351,7 +52351,7 @@ var BoMT = {
 		"  [8\u2666] Eight of diamonds  \tWindow (up to 5 feet wide and 5 feet high), which you can place on a vertical surface up to 5 feet thick and which allows you to look through the surface",
 		"  [9\u2666] Nine of diamonds  \tManacles",
 		"[10\u2666] Ten of diamonds  \tTen sheets of parchment",
-		"  [3\u2665] Three of hearts\t\tThree dagger",
+		"  [3\u2665] Three of hearts\t\tThree daggers",
 		"  [4\u2665] Four of hearts\t\tFour flasks of oil",
 		"  [5\u2665] Five of hearts\t\tFive silk robes",
 		"  [6\u2665] Six of hearts\t\tForgery kit",
