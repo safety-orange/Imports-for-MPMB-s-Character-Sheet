@@ -26,7 +26,7 @@ BackgroundList["haunted one"] = {
 	source : [["CoS", 209], ["VRGtR", 34], ["ALbackground", 0]],
 	skillstxt : "Choose two from Arcana, Investigation, Religion, and Survival",
 	languageProfs : [2], // was 1 in book, fixed in errata
-	gold : 0.01,
+	gold : 0.1, // added in VRGtR reprint
 	equipleft : [
 		["Chest, with:", "", 25],
 		["Crowbar", "", 5],
@@ -41,7 +41,7 @@ BackgroundList["haunted one"] = {
 		["Torch", 3, 1]
 	],
 	equipright : [
-		["Common clothes", "", 3],
+		["Common clothes", "", 3], // added in VRGtR reprint
 		["Trinket of special significance", "", ""]
 	],
 	feature : "Heart of Darkness",

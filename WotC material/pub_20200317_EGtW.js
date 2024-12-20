@@ -1,5 +1,5 @@
 var iFileName = "pub_20200317_EGtW.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("13.2.3");
 // This file adds the content from Explorer's Guide to Wildemount to MPMB's Character Record Sheet
 
 // Define the source
@@ -2274,7 +2274,7 @@ MagicItemsList["corpse slayer"] = {
 	descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   When you hit an undead creature with an attack using this weapon, the attack deals an extra 1d8 damage of the weapon's type, and the creature has disadvantage on saving throws against effects that turn undead until the start of your next turn.",
 	chooseGear : {
 		type : "weapon",
-		prefixOrSuffix : "brackets",
+		prefixOrSuffix : ["between", "Corpse Slaying", ""],
 		itemName1stPage : ["suffix", "Corpse Slaying"],
 		descriptionChange : ["replace", "weapon"]
 	},
@@ -2414,6 +2414,7 @@ MagicItemsList["hunter's coat"] = {
 };
 MagicItemsList["last stand armor"] = {
 	name : "Last Stand Armor",
+	nameTest : /last.stand.*armou?r/i,
 	source : [["W", 267]],
 	type : "armor (any)",
 	rarity : "very rare",
@@ -2422,9 +2423,9 @@ MagicItemsList["last stand armor"] = {
 	descriptionFull : "You have a +1 bonus to AC while wearing this armor, which shimmers softly. If you die while wearing the armor, it is destroyed, and each celestial, fey, and fiend with 30 feet of you must succeed on a DC 15 Charisma saving throw or be banished to its home plane of existence, unless it is already there.",
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "brackets",
+		prefixOrSuffix : ["between", "Last Stand", "Armor"],
 		descriptionChange : ["prefix", "armor"],
-		itemName1stPage : ["suffix", "+1 Last Stand"]
+		itemName1stPage : ["between", "Last Stand", "(+1)"]
 	},
 	extraLimitedFeatures : [{
 		name : "Last Stand Armor",

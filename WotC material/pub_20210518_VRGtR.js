@@ -458,7 +458,7 @@ BackgroundList["haunted one"] = { // Reprint from Curse of Strahd, but re-define
 	source : [["CoS", 209], ["VRGtR", 34], ["ALbackground", 0]],
 	skillstxt : "Choose two from Arcana, Investigation, Religion, and Survival",
 	languageProfs : [2],
-	gold : 0.01,
+	gold : 0.1,
 	equipleft : [
 		["Chest, with:", "", 25],
 		["Crowbar", "", 5],

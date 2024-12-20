@@ -1351,7 +1351,7 @@ var FToD_HoardItems = {
 		var sNotesDescription = FToD_HoardItems.to1stPerson(FToD_HoardItems["dragon's wrath weapon"]);
 		for (var t = 0; t < aTypes.length; t++) {
 			var sItemType = aTypes[t][0];
-			var sItemTypeLC = aTypes[t][0].toLowerCase();
+			var sItemTypeLC = sItemType.toLowerCase();
 			var sItemName = "Dragon's Wrath Weapon (" + sItemTypeLC + ")";
 			var sItemNameLC = sItemName.toLowerCase();
 			var oDwwObj = FToD_HoardItems["dww-"+sItemTypeLC];
@@ -1399,9 +1399,9 @@ var FToD_HoardItems = {
 					MagicItemsList[sItemNameLC][sNameChoiceLC].limfeaname = [oDwwObj.limfeaname.replace(/>>dragon<</ig, sDragon)]
 				}
 				if (oDwwObj.weaponOptions) {
-					MagicItemsList[sItemNameLC][sNameChoiceLC].weaponOptions = {};
-					for (var sAttr in oDwwObj.weaponOptions) {
-						var toSet = oDwwObj.weaponOptions[sAttr];
+					MagicItemsList[sItemNameLC][sNameChoiceLC].weaponOptions = [{}];
+					for (var sAttr in oDwwObj.weaponOptions[0]) {
+						var toSet = oDwwObj.weaponOptions[0][sAttr];
 						switch (sAttr) {
 							case "regExpSearch":
 								toSet = RegExp(toSet.replace(/>>dragon<</ig, sDragonLC), "i");
@@ -1413,7 +1413,7 @@ var FToD_HoardItems = {
 								toSet = [toSet[0], toSet[1], sDmg];
 								break;
 						}
-						MagicItemsList[sItemNameLC][sNameChoiceLC].weaponOptions[sAttr] = toSet;
+						MagicItemsList[sItemNameLC][sNameChoiceLC].weaponOptions[0][sAttr] = toSet;
 					}
 				}
 			}
@@ -1517,7 +1517,7 @@ var FToD_HoardItems = {
 	],
 	hoardMagicItems : [
 		"\n\n\u25C6 Hoard Magic Items (FToD 25)",
-		"Certain magic items can absorb the ambient magic of a dragon's hoard. The mightier the dragon, the more powerful the item becomes when it is steeped in the dragon's hoard. These items, called hoard items, have four states A hoard item in its Slumbering state has certain base properties, and it gains additional properties when it enters the Stirring (young dragon), Wakened (adult dragon), or Ascendant (ancient dragon) state.",
+		"Certain magic items can absorb the ambient magic of a dragon's hoard. The mightier the dragon, the more powerful the item becomes when it is steeped in the dragon's hoard. These items, called hoard items, have four states. A hoard item in its Slumbering state has certain base properties, and it gains additional properties when it enters the Stirring (young dragon), Wakened (adult dragon), or Ascendant (ancient dragon) state.",
 		"Ordinarily, a hoard item must steep in a dragon's hoard for 1 year to reach the maximum possible state allowed by the age of the hoard's dragon. For example, a hoard item that steeps in an adult dragon's hoard for 1 year enters its Wakened state.",
 		"When a dragon is slain, the magic surrounding its hoard becomes volatile. This allows a hoard item to steep more quickly in the hoard. A hoard item steeped in a dragon's hoard for 8 hours rises one state, as long as the steeping begins within 1 hour of the dragon's death and occurs within the dragon's lair. Steeping in this way can't raise the state of the item beyond the state associated with the dragon's age.",
 		"Just as hoard items can grow in power by absorbing the ambient magic of a dragon's hoard, so too can these treasures fall back into slumber. If no creature is attuned to a hoard item and that item isn't in a dragon's hoard, the item decreases in power by one state every 30 days until it is Slumbering."

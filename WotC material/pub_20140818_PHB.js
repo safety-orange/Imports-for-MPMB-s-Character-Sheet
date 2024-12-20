@@ -599,7 +599,7 @@ AddSubClass("cleric", "trickery domain", {
 			description : desc([
 				"As an action, I create illusory duplicates of myself within 30 ft of me for 1 min (conc)",
 				"As a bonus action, I can move them 30 ft to space(s) I can see within 120 ft of me",
-				"I can cast spells as though I was in an duplicate's space, using my own senses",
+				"I can cast spells as though I were in a duplicate's space, using my own senses",
 				"I have advantage on attacks if the target is within 5 ft of a duplicate and me"
 			]),
 			additional : levels.map(function (n) { return n < 2 ? "" : (n < 17 ? 1 : 2) + " illusory duplicate" + (n < 17 ? "" : "s"); }),

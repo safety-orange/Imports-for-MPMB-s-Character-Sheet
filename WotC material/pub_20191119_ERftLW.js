@@ -1,5 +1,5 @@
 var iFileName = "pub_20191119_ERftLW.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("13.2.3");
 // This file adds the content from Eberron: Rising from the Last War to MPMB's Character Record Sheet
 
 // Define the source
@@ -3134,6 +3134,7 @@ MagicItemsList["kyrzin's ooze"] = {
 }
 MagicItemsList["living armor"] = {
 	name : "Living Armor",
+	nameTest : /living.*armou?r/i,
 	source : [["E:RLW", 278]],
 	type : "armor (any)",
 	rarity : "very rare",
@@ -3143,7 +3144,7 @@ MagicItemsList["living armor"] = {
 	dmgres : ["Necrotic", "Poison", "Psychic"],
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "brackets",
+		prefixOrSuffix : ["between", "Living", "Armor"],
 		descriptionChange : ["prefix", "armor"],
 		itemName1stPage : ["suffix", "+1 Living"]
 	}

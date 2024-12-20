@@ -1,5 +1,5 @@
 var iFileName = "pub_20231114_BoMT.js";
-RequiredSheetVersion("13.2.0");
+RequiredSheetVersion("13.2.3");
 // This file adds the Character Options content from the "The Book of Many Things" book (from the "The Deck of Many Things" set) to MPMB's Character Record Sheet
 
 // Define the source
@@ -11,7 +11,6 @@ SourceList["BoMT"] = {
 	url : "https://dndstore.wizards.com/us/en/product/865604/the-deck-of-many-things-digital-plus-physical-bundle",
 	date : "2023/11/14"
 };
-
 
 BackgroundList["rewarded"] = {
 	regExpSearch : /rewarded/i,
@@ -428,6 +427,7 @@ var BoMT = {
 
 MagicItemsList["antimagic armor"] = {
 	name : "Antimagic Armor",
+	nameTest : /antimagic.*armou?r/i,
 	source : [["BoMT", 65]], // Chapter 9: Knight
 	type : "armor (light, medium, or heavy)",
 	rarity : "very rare",
@@ -437,7 +437,7 @@ MagicItemsList["antimagic armor"] = {
 	"\n   In addition, while you wear this armor, you can use it to cast Antimagic Field, requiring no spell components. Once this property is used, it can't be used again until the next dawn.",
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "brackets",
+		prefixOrSuffix : ["between", "Antimagic", "Armor"],
 		descriptionChange : ["prefix", "armor"],
 		itemName1stPage : ["suffix", "Antimagic"]
 	},
@@ -815,6 +815,7 @@ MagicItemsList["card sharp's deck"] = {
 };
 MagicItemsList["clockwork armor"] = {
 	name : "Clockwork Armor",
+	nameTest : /clockwork.*armou?r/i,
 	source : [["BoMT", 67]], // Chapter 9: Knight
 	type : "armor (heavy)",
 	rarity : "very rare",
@@ -824,7 +825,7 @@ MagicItemsList["clockwork armor"] = {
 	"\n   The armor has 4 charges. If you make a d20 roll while wearing this armor, you can expend 1 charge to change the number rolled to a 10. The armor regains 1d4 expended charges daily at dawn.",
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "brackets",
+		prefixOrSuffix : ["between", "Clockwork", "Armor"],
 		descriptionChange : ["prefix", "armor"],
 		itemName1stPage : ["suffix", "Clockwork"],
 		excludeCheck : function (inObjKey, inObj) {
@@ -1178,6 +1179,7 @@ MagicItemsList["fate dealer's deck"] = {
 };
 MagicItemsList["feywrought armor"] = {
 	name : "Feywrought Armor",
+	name : /feywrought.*armou?r/i,
 	source : [["BoMT", 67]], // Chapter 9: Knight
 	type : "armor (light, medium, or heavy)",
 	rarity : "rare",
@@ -1188,7 +1190,7 @@ MagicItemsList["feywrought armor"] = {
 	"\n   This armor has 3 charges. You can use an action to expend a charge to cast the Compulsion spell (save DC 15) from this armor. The armor regains 1d3 expended charges daily at dawn.",
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "brackets",
+		prefixOrSuffix : ["between", "Feywrought", "Armor"],
 		descriptionChange : ["prefix", "armor"],
 		itemName1stPage : ["suffix", "Feywrought"]
 	},
@@ -1326,6 +1328,7 @@ MagicItemsList["glimmering moonbow"] = {
 };
 MagicItemsList["gloomwrought armor"] = {
 	name : "Gloomwrought Armor",
+	name : /gloomwrought.*armou?r/i,
 	source : [["BoMT", 67]], // Chapter 9: Knight
 	type : "armor (light, medium, or heavy)",
 	rarity : "rare",
@@ -1336,7 +1339,7 @@ MagicItemsList["gloomwrought armor"] = {
 	"\n   This armor has 3 charges. You can expend a charge to cast the Calm Emotions spell (save DC 15) from the armor. This armor regains 1d3 expended charges daily at dawn.",
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "brackets",
+		prefixOrSuffix : ["between", "Gloomwrought", "Armor"], 
 		descriptionChange : ["prefix", "armor"],
 		itemName1stPage : ["suffix", "Gloomwrought"]
 	},

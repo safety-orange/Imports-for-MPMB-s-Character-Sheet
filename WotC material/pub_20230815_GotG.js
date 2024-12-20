@@ -1,5 +1,5 @@
 var iFileName = "pub_20230815_GotG.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("13.2.3");
 // This file adds the player-material from Bigby Presents: Glory of the Giants to MPMB's Character Record Sheet
 
 SourceList["GotG"] = {
@@ -980,7 +980,7 @@ MagicItemsList["lash of immolation"] = {
 	weight : 3,
 	weaponOptions : [{
 		baseWeapon : "whip",
-		regExpSearch : /^(?=.*last)(?=.*immolation).*$/i,
+		regExpSearch : /^(?=.*lash)(?=.*immolation).*$/i,
 		name : "Lash of Immolation",
 		source : [["GotG", 113]],
 		description : "Finesse, reach; +1d6 fire damage (1/dawn +2d6); Critical hit: restrained until my next turn starts",
@@ -1484,6 +1484,7 @@ MagicItemsList["wyrmreaver gauntlets"] = {
 };
 MagicItemsList["zephyr armor"] = {
 	name : "Zephyr Armor",
+	nameTest : /zephyr.*armou?r/i,
 	source : [["GotG", 117]],
 	type : "armor (light)",
 	rarity : "rare",
@@ -1494,9 +1495,9 @@ MagicItemsList["zephyr armor"] = {
 	description : "While wearing this white-and-silver armor with the wind rune on its chest, I have advantage on Dex (Acrobatics) checks and Dexterity saves as my movements are bolstered by gentle currents of wind. As an action once per dawn, I can invoke the armor's rune to cast Wind Wall (DC 15) with it.",
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "brackets",
+		prefixOrSuffix : ["between", "Zephyr", "Armor"],
 		descriptionChange : ["prefix", "armor"],
-		itemName1stPage : ["between", "Zephyr", "Armor"],
+		itemName1stPage : ["suffix", "Zephyr"],
 		excludeCheck : function (inObjKey, inObj) {
 			return !/light/i.test(inObj.type);
 		}

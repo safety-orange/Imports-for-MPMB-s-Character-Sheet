@@ -1,6 +1,6 @@
-if (sheetVersion < 13002000) { throw "This script was made for a newer version of the sheet (v13.2.0). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
+if (sheetVersion < 13002003) { throw "This script was made for a newer version of the sheet (v13.2.3). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
 var iFileName = "all_WotC_published.js";
-RequiredSheetVersion("13.2.0");
+RequiredSheetVersion("13.2.3");
 // pub_20140715_LMoP.js
 // This file adds the magic items from the Lost Mines of Phandelver adventure from the D&D 5e starter set to MPMB's Character Record Sheet
 
@@ -42,7 +42,7 @@ MagicItemsList["hew"] = {
 	rarity : "uncommon",
 	magicItemTable : "F",
 	description : 'Dwarvish runes on the head of this rusty battleaxe read "Hew". It adds a +1 bonus to attack and damage rolls made with it and deals maximum damage against plant creatures or objects made of wood. While carrying it, I feel uneasy when I travel through a forest, as its creator was a dwarf smith who feuded with dryads.',
-	descriptionFull : 'This rusty old battleaxe of dwarven manufacture has has runes in Dwarvish on the axe head which read "Hew". Hew is a +1 battleaxe deals maximum damage when the wielder hits a plant creature or an object made of wood. The axe\'s creator was a dwarf smith who feuded with the dryads of a forest where he used it for protection while he cut firewood. Whoever carries the axe feels uneasy whenever he or she travels through a forest.',
+	descriptionFull : 'This rusty old battleaxe of dwarven manufacture has runes in Dwarvish on the axe head which read "Hew". Hew is a +1 battleaxe that deals maximum damage when the wielder hits a plant creature or an object made of wood. The axe\'s creator was a dwarf smith who feuded with the dryads of a forest where he used it for protection while he cut firewood. Whoever carries the axe feels uneasy whenever he or she travels through a forest.',
 	weight : 4,
 	weaponOptions : [{
 		baseWeapon : "battleaxe",
@@ -60,7 +60,7 @@ MagicItemsList["lightbringer"] = {
 	type : "weapon (mace)",
 	rarity : "uncommon",
 	magicItemTable : "F",
-	description : "This mace adds a +1 bonus to attack and damage rolls made with it. It is made for a cleric of the god of dawn, with its head of shaped like a sunburst and made of solid brass. I can command it to glow as bright as a torch. While glowing, the mace deals an extra 1d6 radiant damage to undead creatures.",
+	description : "This mace adds a +1 bonus to attack and damage rolls made with it. It is made for a cleric of the god of dawn, with its head shaped like a sunburst and made of solid brass. I can command it to glow as bright as a torch. While glowing, the mace deals an extra 1d6 radiant damage to undead creatures.",
 	descriptionFull : "This +1 mace was made for a cleric of Lathander, the god of dawn. The head of the mace is shaped like a sunburst and is made of solid brass. Named Lightbringer, this weapon glows as bright as a torch when its wielder commands. While glowing, the mace deals an extra 1d6 radiant damage to undead creatures.",
 	weight : 4,
 	weaponOptions : [{
@@ -748,7 +748,7 @@ AddSubClass("cleric", "trickery domain", {
 			description : desc([
 				"As an action, I create illusory duplicates of myself within 30 ft of me for 1 min (conc)",
 				"As a bonus action, I can move them 30 ft to space(s) I can see within 120 ft of me",
-				"I can cast spells as though I was in an duplicate's space, using my own senses",
+				"I can cast spells as though I were in a duplicate's space, using my own senses",
 				"I have advantage on attacks if the target is within 5 ft of a duplicate and me"
 			]),
 			additional : levels.map(function (n) { return n < 2 ? "" : (n < 17 ? 1 : 2) + " illusory duplicate" + (n < 17 ? "" : "s"); }),
@@ -12213,7 +12213,7 @@ BackgroundList["haunted one"] = {
 	source : [["CoS", 209], ["VRGtR", 34], ["ALbackground", 0]],
 	skillstxt : "Choose two from Arcana, Investigation, Religion, and Survival",
 	languageProfs : [2], // was 1 in book, fixed in errata
-	gold : 0.01,
+	gold : 0.1, // added in VRGtR reprint
 	equipleft : [
 		["Chest, with:", "", 25],
 		["Crowbar", "", 5],
@@ -12228,7 +12228,7 @@ BackgroundList["haunted one"] = {
 		["Torch", 3, 1]
 	],
 	equipright : [
-		["Common clothes", "", 3],
+		["Common clothes", "", 3], // added in VRGtR reprint
 		["Trinket of special significance", "", ""]
 	],
 	feature : "Heart of Darkness",
@@ -13615,7 +13615,8 @@ MagicItemsList["pennant of the vind rune"] = {
 			type : "armor",
 			prefixOrSuffix : "brackets",
 			descriptionChange : ["prefix", "armor"],
-			itemName1stPage : ["suffix", "Ild Rune"]
+			itemName1stPage : ["suffix", "Vind Rune"],
+			noStealthDis : /^(?=.*\bvind)(?=.*rune\b).*$/i
 		}
 	},
 	"transferred to a pair of boots or cloak" : {
@@ -14977,6 +14978,7 @@ MagicItemsList["mind blade"] = {
 }
 MagicItemsList["mind carapace armor"] = {
 	name : "Mind Carapace Armor",
+	nameTest : /mind.carapace.*armou?r/i,
 	source : [["V", 81]],
 	type : "armor (heavy)",
 	rarity : "uncommon",
@@ -14990,7 +14992,7 @@ MagicItemsList["mind carapace armor"] = {
 	allowDuplicates : true,
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "brackets",
+		prefixOrSuffix : ["between", "Mind Carapace", "Armor"],
 		descriptionChange : ["prefix", "armor"],
 		itemName1stPage : ["suffix", "Mind Carapace"],
 		excludeCheck : function (inObjKey, inObj) {
@@ -20542,7 +20544,8 @@ MagicItemsList["heward's handy spice pouch"] = {
 	weight : 1,
 	usages : 10,
 	recovery : "dawn",
-	additional : "regains 1d6+4"
+	additional : "regains 1d6+4",
+	action : [["action", ""]]
 }
 MagicItemsList["horn of silent alarm"] = {
 	name : "Horn of Silent Alarm",
@@ -20868,7 +20871,7 @@ MagicItemsList["wand of pyrotechnics"] = {
 	descriptionFull : "This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges and create a harmless burst of multicolored light at a point you can see up to 60 feet away. The burst of light is accompanied by a crackling noise that can be heard up to 300 feet away. The light is as bright as a torch flame but lasts only a second.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand erupts in a harmless pyrotechnic display and is destroyed.",
 	weight : 1,
 	action : [["action", ""]],
-	usages : 3,
+	usages : 7,
 	recovery : "dawn",
 	additional : "regains 1d6+1"
 }
@@ -29186,6 +29189,7 @@ MagicItemsList["kyrzin's ooze"] = {
 }
 MagicItemsList["living armor"] = {
 	name : "Living Armor",
+	nameTest : /living.*armou?r/i,
 	source : [["E:RLW", 278]],
 	type : "armor (any)",
 	rarity : "very rare",
@@ -29195,7 +29199,7 @@ MagicItemsList["living armor"] = {
 	dmgres : ["Necrotic", "Poison", "Psychic"],
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "brackets",
+		prefixOrSuffix : ["between", "Living", "Armor"],
 		descriptionChange : ["prefix", "armor"],
 		itemName1stPage : ["suffix", "+1 Living"]
 	}
@@ -31230,7 +31234,7 @@ MagicItemsList["corpse slayer"] = {
 	descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   When you hit an undead creature with an attack using this weapon, the attack deals an extra 1d8 damage of the weapon's type, and the creature has disadvantage on saving throws against effects that turn undead until the start of your next turn.",
 	chooseGear : {
 		type : "weapon",
-		prefixOrSuffix : "brackets",
+		prefixOrSuffix : ["between", "Corpse Slaying", ""],
 		itemName1stPage : ["suffix", "Corpse Slaying"],
 		descriptionChange : ["replace", "weapon"]
 	},
@@ -31357,6 +31361,7 @@ MagicItemsList["hunter's coat"] = {
 };
 MagicItemsList["last stand armor"] = {
 	name : "Last Stand Armor",
+	nameTest : /last.stand.*armou?r/i,
 	source : [["W", 267]],
 	type : "armor (any)",
 	rarity : "very rare",
@@ -31365,9 +31370,9 @@ MagicItemsList["last stand armor"] = {
 	descriptionFull : "You have a +1 bonus to AC while wearing this armor, which shimmers softly. If you die while wearing the armor, it is destroyed, and each celestial, fey, and fiend with 30 feet of you must succeed on a DC 15 Charisma saving throw or be banished to its home plane of existence, unless it is already there.",
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "brackets",
+		prefixOrSuffix : ["between", "Last Stand", "Armor"],
 		descriptionChange : ["prefix", "armor"],
-		itemName1stPage : ["suffix", "+1 Last Stand"]
+		itemName1stPage : ["between", "Last Stand", "(+1)"]
 	},
 	extraLimitedFeatures : [{
 		name : "Last Stand Armor",
@@ -34965,6 +34970,7 @@ AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Arcane Prop
 });
 MagicItemsList["arcane propulsion armor"] = {
 	name : "Arcane Propulsion Armor",
+	nameTest : /arcane.propulsion.*armou?r/i,
 	source : [["T", 20]],
 	type : "armor (light, medium, or heavy)",
 	descriptionFull : "The wearer of this armor gains these benefits:\n \u2022 The wearer's walking speed increases by 5 feet.\n \u2022 The armor includes gauntlets, each of which is a magic melee weapon that can be wielded only when the hand is holding nothing. The wearer is proficient with the gauntlets, and each one deals 1d8 force damage on a hit and has the thrown property, with a normal range of 20 feet and a long range of 60 feet. When thrown, the gauntlet detaches and flies at the attack's target, then immediately returns to the wearer and reattaches.\n \u2022 The armor can't be removed against the wearer's will.\n \u2022 If the wearer is missing any limbs, the armor replaces those limbs\u2014hands, arms, feet, legs, or similar appendages. The replacements function identically to the body parts they replace.",
@@ -34972,8 +34978,9 @@ MagicItemsList["arcane propulsion armor"] = {
 	attunement : true,
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "brackets",
-		descriptionChange : ["prefix", "armor"]
+		prefixOrSuffix : ["between", "Arcane Propulsion", "Armor"],
+		descriptionChange : ["prefix", "armor"],
+		itemName1stPage : ["suffix", "Arcane Propulsion"]
 	},
 	speed : { walk : { spd : "+5", enc : "+5" } },
 	weaponOptions : [{
@@ -39847,7 +39854,7 @@ MagicItemsList["barrier tattoo"] = {
 	name : "Barrier Tattoo",
 	source : [["T", 122]],
 	type : "wondrous item (tattoo)",
-	description : "This magic tattoo depicts protective imagery and uses ink that resembles liquid metal. While not wearing armor, this tatoo grants me an Armor Class related to the rarity of the tattoo.",
+	description : "This magic tattoo depicts protective imagery and uses ink that resembles liquid metal. While not wearing armor, this tattoo grants me an Armor Class related to the rarity of the tattoo.",
 	descriptionFull : "Produced by a special needle, this magic tattoo depicts protective imagery and uses ink that resembles liquid metal."+
 	"\n   " + toUni("Protection") + ". While you aren't wearing armor, the tattoo grants you an Armor Class depending on the tattoo's rarity, as shown below. You can use a shield and still gain this benefit."+
 	toUni("\nTattoo Rarity\tAC")+
@@ -41918,7 +41925,7 @@ BackgroundList["haunted one"] = { // Reprint from Curse of Strahd, but re-define
 	source : [["CoS", 209], ["VRGtR", 34], ["ALbackground", 0]],
 	skillstxt : "Choose two from Arcana, Investigation, Religion, and Survival",
 	languageProfs : [2],
-	gold : 0.01,
+	gold : 0.1,
 	equipleft : [
 		["Chest, with:", "", 25],
 		["Crowbar", "", 5],
@@ -44265,7 +44272,7 @@ var FToD_HoardItems = {
 		var sNotesDescription = FToD_HoardItems.to1stPerson(FToD_HoardItems["dragon's wrath weapon"]);
 		for (var t = 0; t < aTypes.length; t++) {
 			var sItemType = aTypes[t][0];
-			var sItemTypeLC = aTypes[t][0].toLowerCase();
+			var sItemTypeLC = sItemType.toLowerCase();
 			var sItemName = "Dragon's Wrath Weapon (" + sItemTypeLC + ")";
 			var sItemNameLC = sItemName.toLowerCase();
 			var oDwwObj = FToD_HoardItems["dww-"+sItemTypeLC];
@@ -44313,9 +44320,9 @@ var FToD_HoardItems = {
 					MagicItemsList[sItemNameLC][sNameChoiceLC].limfeaname = [oDwwObj.limfeaname.replace(/>>dragon<</ig, sDragon)]
 				}
 				if (oDwwObj.weaponOptions) {
-					MagicItemsList[sItemNameLC][sNameChoiceLC].weaponOptions = {};
-					for (var sAttr in oDwwObj.weaponOptions) {
-						var toSet = oDwwObj.weaponOptions[sAttr];
+					MagicItemsList[sItemNameLC][sNameChoiceLC].weaponOptions = [{}];
+					for (var sAttr in oDwwObj.weaponOptions[0]) {
+						var toSet = oDwwObj.weaponOptions[0][sAttr];
 						switch (sAttr) {
 							case "regExpSearch":
 								toSet = RegExp(toSet.replace(/>>dragon<</ig, sDragonLC), "i");
@@ -44327,7 +44334,7 @@ var FToD_HoardItems = {
 								toSet = [toSet[0], toSet[1], sDmg];
 								break;
 						}
-						MagicItemsList[sItemNameLC][sNameChoiceLC].weaponOptions[sAttr] = toSet;
+						MagicItemsList[sItemNameLC][sNameChoiceLC].weaponOptions[0][sAttr] = toSet;
 					}
 				}
 			}
@@ -44431,7 +44438,7 @@ var FToD_HoardItems = {
 	],
 	hoardMagicItems : [
 		"\n\n\u25C6 Hoard Magic Items (FToD 25)",
-		"Certain magic items can absorb the ambient magic of a dragon's hoard. The mightier the dragon, the more powerful the item becomes when it is steeped in the dragon's hoard. These items, called hoard items, have four states A hoard item in its Slumbering state has certain base properties, and it gains additional properties when it enters the Stirring (young dragon), Wakened (adult dragon), or Ascendant (ancient dragon) state.",
+		"Certain magic items can absorb the ambient magic of a dragon's hoard. The mightier the dragon, the more powerful the item becomes when it is steeped in the dragon's hoard. These items, called hoard items, have four states. A hoard item in its Slumbering state has certain base properties, and it gains additional properties when it enters the Stirring (young dragon), Wakened (adult dragon), or Ascendant (ancient dragon) state.",
 		"Ordinarily, a hoard item must steep in a dragon's hoard for 1 year to reach the maximum possible state allowed by the age of the hoard's dragon. For example, a hoard item that steeps in an adult dragon's hoard for 1 year enters its Wakened state.",
 		"When a dragon is slain, the magic surrounding its hoard becomes volatile. This allows a hoard item to steep more quickly in the hoard. A hoard item steeped in a dragon's hoard for 8 hours rises one state, as long as the steeping begins within 1 hour of the dragon's death and occurs within the dragon's lair. Steeping in this way can't raise the state of the item beyond the state associated with the dragon's age.",
 		"Just as hoard items can grow in power by absorbing the ambient magic of a dragon's hoard, so too can these treasures fall back into slumber. If no creature is attuned to a hoard item and that item isn't in a dragon's hoard, the item decreases in power by one state every 30 days until it is Slumbering."
@@ -47502,7 +47509,7 @@ MagicItemsList["ring of red fury"] = {
 };
 MagicItemsList["ruidium armor"] = {
 	name : "Ruidium Armor",
-	nameTest : "Ruidium",
+	nameTest : /ruidium.*armou?r/i,
 	source : [["CotN", 215]],
 	type : "armor (medium or heavy)",
 	rarity : "very rare",
@@ -47520,7 +47527,8 @@ MagicItemsList["ruidium armor"] = {
 	allowDuplicates : true,
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "suffix",
+		prefixOrSuffix : ["between", "Ruidium", "Armor"],
+		itemName1stPage : ["suffix", "Ruidium"],
 		excludeCheck : function (inObjKey, inObj) {
 			return !(/medium|heavy/i).test(inObj.type) || (/hide/i).test(inObj.name);
 		},
@@ -47554,6 +47562,7 @@ MagicItemsList["ruidium shield"] = {
 }
 MagicItemsList["ruidium weapon"] = {
 	name : "Ruidium Weapon",
+	nameTest : "Ruidium",
 	source : [["CotN", 216]],
 	type : "weapon (any)",
 	rarity : "very rare",
@@ -47571,8 +47580,7 @@ MagicItemsList["ruidium weapon"] = {
 	allowDuplicates : true,
 	chooseGear : {
 		type : "weapon",
-		prefixOrSuffix : "brackets",
-		itemName1stPage : ["suffix", "Ruidium"],
+		prefixOrSuffix : "suffix",
 		descriptionChange : ["replace", "weapon"]
 	},
 	calcChanges : {
@@ -50198,7 +50206,7 @@ MagicItemsList["lash of immolation"] = {
 	weight : 3,
 	weaponOptions : [{
 		baseWeapon : "whip",
-		regExpSearch : /^(?=.*last)(?=.*immolation).*$/i,
+		regExpSearch : /^(?=.*lash)(?=.*immolation).*$/i,
 		name : "Lash of Immolation",
 		source : [["GotG", 113]],
 		description : "Finesse, reach; +1d6 fire damage (1/dawn +2d6); Critical hit: restrained until my next turn starts",
@@ -50702,6 +50710,7 @@ MagicItemsList["wyrmreaver gauntlets"] = {
 };
 MagicItemsList["zephyr armor"] = {
 	name : "Zephyr Armor",
+	nameTest : /zephyr.*armou?r/i,
 	source : [["GotG", 117]],
 	type : "armor (light)",
 	rarity : "rare",
@@ -50712,9 +50721,9 @@ MagicItemsList["zephyr armor"] = {
 	description : "While wearing this white-and-silver armor with the wind rune on its chest, I have advantage on Dex (Acrobatics) checks and Dexterity saves as my movements are bolstered by gentle currents of wind. As an action once per dawn, I can invoke the armor's rune to cast Wind Wall (DC 15) with it.",
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "brackets",
+		prefixOrSuffix : ["between", "Zephyr", "Armor"],
 		descriptionChange : ["prefix", "armor"],
-		itemName1stPage : ["between", "Zephyr", "Armor"],
+		itemName1stPage : ["suffix", "Zephyr"],
 		excludeCheck : function (inObjKey, inObj) {
 			return !/light/i.test(inObj.type);
 		}
@@ -51543,574 +51552,6 @@ SpellsList["warp sense"] = {
 // Beast from Turn of Fortune's Wheel
 // Whirlwyrm is just a giant crocodile under a different name, it has been added to the SRD code as a `nameAlt`
 
-// pub_20231030_CoA.js
-// This file adds the magic items from the Chains of Asmodeus adventure from Extra Life to MPMB's Character Record Sheet
-
-SourceList["CoA"] = {
-	name : "Chains of Asmodeus",
-	abbreviation : "CoA",
-	group : "Extra Life",
-	campaignSetting : "Forgotten Realms",
-	url : "https://www.dmsguild.com/product/457996/Chains-of-Asmodeus",
-	date : "2023/10/30",
-	defaultExcluded : true
-};
-
-CoA_Corruption = {
-	process : function(bAddRemove, sItem) {
-		// Make a variable to remember the settings for this
-		if (!CurrentVars.CoA_Corruption) {
-			CurrentVars.CoA_Corruption = {
-				items : [],
-				present : false,
-				savedAlert : false
-			};
-		}
-		var bProcessIt = false;
-		var bItemPresent = CurrentVars.CoA_Corruption.items.indexOf(sItem) !== -1;
-		// If removing, test if present and the triggering item is in the list
-		if (!bAddRemove && bItemPresent) {
-			CurrentVars.CoA_Corruption.items.eject(sItem);
-			if (CurrentVars.CoA_Corruption.items.length !== 0) {
-				// Still items present, so don't change anything
-				return;
-			} else {
-				// Removing note in final step if present 
-				bProcessIt = CurrentVars.CoA_Corruption.present ? true : false;
-				// Make pop-up appear at next corrupting item addition
-				CurrentVars.CoA_Corruption.savedAlert = false;
-			}
-		} else if (bAddRemove) { // Adding
-			// Add the item to the list of items processed
-			if (!bItemPresent) CurrentVars.CoA_Corruption.items.push(sItem);
-			if (CurrentVars.CoA_Corruption.savedAlert) {
-				// The state of the alert was saved, so don't prompt and do nothing
-				return;
-			} else if (!CurrentVars.CoA_Corruption.present) {
-				// If not present and dialog state was not saved, ask the user if the rules should be added to a notes page
-				var oMsg = {
-					cTitle : "Show Infernal Item Corruption (DM-only) Rules?",
-					cMsg : 'The cursed infernal item "' + MagicItemsList[sItem].name + '" can cause corruption.\nDo you want to add the Infernal Item Corruption rules intended for the DM to a Notes page on your character sheet for reference?\n\nIMPORTANT: these rules are not intended to be read by players, only by the DM.\n\nThese notes will be automatically removed when you remove all corrupting items.',
-					nIcon : 2, // Question
-					nType : 2, // Yes,No
-					oCheckbox : {
-						cMsg : "Don't ask me again next time I add a corrupting item (unless I have removed all corrupting items)",
-						bInitialValue : true,
-						bAfterValue : false
-					}
-				};
-				// Add the note if "Yes" was clicked
-				bProcessIt = app.alert(oMsg) === 4;
-				// Save the checkbox state
-				CurrentVars.CoA_Corruption.savedAlert = oMsg.oCheckbox.bAfterValue;
-			}
-		}
-		if (bProcessIt) {
-			CurrentVars.CoA_Corruption.present = bAddRemove;
-			processToNotesPage(bAddRemove, CoA_Corruption.toNotesPage, "items", {}, false, ["Chains of Asmodeus, page 271"]);
-		}
-		SetStringifieds("vars"); // Save the global variable to a field
-	},
-	toNotesPage : [{ // intentionally doesn't include a source
-		name : "INFERNAL ITEM CORRUPTION",
-		popupName : 'The "Infernal Item Corruption" rules from Chains of Asmodeus (page 271)',
-		note : [
-			"",
-			"Cursed infernal items can be used by mortals, but they always require attunement. Once attuned, the mortal risks an increasing chance of being corrupted by the item., eventually transforming into a devil.",
-			"   Mortals that receive express permission from Asmodeus, or that make an infernal contract to acquire a magic item, don't suffer these corrupting effects.",
-			"",
-			"1. STAGE ONE CORRUPTION: BEGINNINGS",
-			"Once a character has attuned to a cursed infernal magic item or artifact, it begins the infernal corruption process. Each time that character finishes a long rest, they must make a DC 10 Wisdom save (tieflings have advantage on this save). On a success, the character suffers no effects, but the DC increases by 1 the next time they must make this save. On a failure, the character progresses to Stage Two unless Dispel Evil and Good is cast on them before their next long rest.",
-			"   While in Stage One, the infernal corruption can be prevented by breaking attunement to the corrupting item. This prevents further Wisdom saves and resets the DC of the save, if the character were to attune to the item again.",
-			"",
-			"2. STAGE TWO CORRUPTION: SUFFERINGS",
-			"While in Stage Two, the character becomes delusional, seeing plots against them where there are none. Additionally, each time they rest, they experience terrifying visions and infernal whispers. Whenever they finish a long rest, they take 1d12 necrotic damage, which ignores resistances and immunities and can't be healed until a Dispel Evil and Good or Remove Curse spell is cast on them. Once the character has taken this damage six times, they progress to Stage Three.",
-			"   While in Stage Two, the infernal corruption can be removed with one of the following spells: Divine Word, Heal, Mass Heal, True Polymorph, True Resurrection, or Wish.",
-			"\n3. STAGE THREE CORRUPTION: DEPARTINGS",
-			"While in Stage Three, the character begins to suffer physical transformation, and slowly embraces evil. After they finish their first long rest upon entering Stage Three they must roll on the table below to determine how the infernal curse starts shaping them into a devil. In addition, a part-devil character is rendered infertile and detects as a Fiend to Detect Evil and Good spells and similar magic.",
-			"",
-			"   d10\tTransformation",
-			"     1\tTheir fingertips elongate into claws",
-			"     2\tNon-functional leathery wings sprout from their back",
-			"     3\tDevilish horns grow upon their head",
-			"     4\tEach night more and more of their skin burns, leaving charred patches",
-			"     5\tOne eye turns milky white, the other turns yellow",
-			"     6\tTheir spine painfully elongates into a skeletal tail",
-			"     7\tTheir skin starts to calcify, turning portions into bone",
-			"     8\tTheir feet painfully twist to resemble cloven hooves",
-			"     9\tAll their hair falls out, replaced by tiny spikes",
-			"   10\tAll their teeth fall out, with new jagged teeth tearing through the gums each morning",
-			"",
-			"The character begins to experience waking whispers pushing them towards evil and they suffer terrifying visions whenever they rest, breaking their spirit and pushing them further to evil. Each time they finish a short or long rest, they must make a DC 10 Wisdom save. If they performed at least one evil act, such as making a decision that increased the suffering of others, they make the save with disadvantage. When they fail the save, they progress to Stage Four.",
-			"   While in Stage Three, the infernal corruption can be ended with one of the following spells: True Polymorph, True Resurrection or Wish.",
-			"",
-			"4. STAGE FOUR CORRUPTION: FINALITIES",
-			"When the character finishes their first long rest after reaching Stage Four, the character's alignment shifts to lawful evil. They're now bound by the devil's code, requiring them to honor any pact made and acquire souls in service of Asmodeus. Lastly, their physical form changes, morphing to resemble a devil (DM's choice).",
-			"   Once the character reaches Stage Four, the only two cures are the Wish spell, which counts as beyond the scope of the spell, or by signing an infernal contract with Asmodeus to reclaim their soul."
-		].join("\n")
-	}],
-	description : "\n   " + toUni("Corrupting") + '. This item corrupts. See the "Infernal Item Corruption" rules (CoA 271).'
-}
-
-MagicItemsList["amulet of appearance"] = {
-	name : "Amulet of Appearance",
-	source : [["CoA", 267]],
-	type : "wondrous item",
-	rarity : "rare",
-	attunement : true,
-	description : "My equipment always shines as if just polished and my wounds do not appear to others. I'm immune to being frightened and poisoned. However, whenever I would otherwise be affected by these conditions, a random non-evil humanoid on the material plane whom I have met is affected instead. I know this.",
-	descriptionFull : "Your armor, weapons, and other equipment always shine as if just polished. Even if you're wounded, your wounds do not appear to others. You're immune to the frightened and poisoned conditions, as these would otherwise ruin your elegant appearance. However, whenever you would otherwise have been affected by one of these conditions, a random non-evil Humanoid on the Material Plane whom you have previously met gets the condition instead. You know this.",
-	savetxt : { immune : ["frightened", "poisoned"] }
-}
-MagicItemsList["amulet of betrayal"] = {
-	name : "Amulet of Betrayal",
-	source : [["CoA", 267]],
-	type : "wondrous item",
-	rarity : "very rare",
-	attunement : true,
-	description : "As a bonus action, I can move one of the following conditions from myself to an ally within 60 ft: blinded, deafened, frightened, poisoned, stunned, exhaustion. When transferring exhaustion, all my exhaustion levels are moved. If the chosen ally is immune to a transferred condition, the transfer fails.",
-	descriptionFull : "You can use a bonus action to move one of the following conditions from yourself to an ally within 60 feet of you: blinded, deafened, frightened, poisoned, stunned, exhaustion. When transferring exhaustion, move all your exhaustion levels. If the chosen ally is immune to a transferred condition, the transfer fails.",
-	action : [["bonus action", ""]]
-}
-MagicItemsList["amulet of duplicity"] = {
-	name : "Amulet of Duplicity",
-	source : [["CoA", 267]],
-	type : "wondrous item",
-	rarity : "very rare",
-	attunement : true,
-	cursed: true,
-	description : "When I die, a copy of my naked corpse is left in my place while I'm brought to an extradimensional space. After 24 hours, I heal 1 hp and am brought back to the place I left, but with a different face. I have disadv. on Persuasion checks to reveal who I am. I can't relay this information and forget it when unattuning.",
-	descriptionLong : "When I die, the amulet leaves a copy of my naked corpse in my place while I'm transported to an extradimensional space, stable at 0 hp. After 24 hours, I regain 1 hp and am returned to the place I left with different facial features. Only a Wish spell can restore my true identity. I have disadvantage on Charisma (Persuasion) checks to reveal myself. The amulet is cursed. Identifying it only shows it prevents death and one can't explain its power once attuned. When unattuned, one immediately forgets what the amulet does. A Remove Curse spell reveals the details of the curse but doesn't lift it from the amulet.",
-	descriptionFull : "When you die, you're transported to an extradimensional space where you're stabilized at 0 hit points and kept in that state. The amulet creates a perfect copy of your corpse and places it where you were just before you died, but without any of your worn or carried items. After 24 hours, you regain 1 hit point and are returned to the location of your near-death. Everything about you is the same, except that your facial features are entirely different from before. Only a Wish spell can restore your true identity."+
-	"\n   Until then, you have disadvantage on any Charisma (Persuasion) checks to attempt to reveal who you really are."+
-	"\n   " + toUni("Curse") + ". An Identify spell or similar reveals only that the amulet can prevent death. Once you attune to the amulet, you can't describe its ability to any other creature, and if unattuned, you immediately forget what the amulet does. A Remove Curse spell reveals the details of the curse but does not remove it from the amulet."
-}
-MagicItemsList["bracers of asmodeus"] = {
-	name : "Bracers of Asmodeus",
-	source : [["CoA", 267]],
-	type : "wondrous item",
-	rarity : "rare",
-	attunement : true,
-	cursed: true,
-	description : "These are cursed, corrupting, and give +2 AC while not wearing armor or using a shield. I can't unattune to them. They make me obsessed with scheming, manipulation, and always bartering for better deals, often using blackmail. If I decline an opportunity to make money at another's expense, I take 3d10 necrotic damage.",
-	descriptionFull : "You have a +2 bonus to AC while wearing these bracers, if you do not wear armor or use a shield at the same time."+
-	"\n   " + toUni("Curse") + ". While attuned to the bracers, you become obsessed with plotting, scheming, and manipulation. You always barter for better deals, often using secrets or leveraging other offers in the process. If you ever decline an opportunity to better yourself financially at another's expense, you immediately take 3d10 necrotic damage. Only the Remove Curse spell allows you to end attunement to this item."+
-	CoA_Corruption.description,
-	eval :       function() { CoA_Corruption.process(true,  "bracers of asmodeus") },
-	removeeval : function() { CoA_Corruption.process(false, "bracers of asmodeus") },
-	extraAC : [{
-		mod : 2,
-		magic : true,
-		text : "I gain a +2 bonus to AC while I'm not wearing armor or using a shield.",
-		stopeval : function (v) { return v.wearingArmor || v.usingShield; }
-	}]
-}
-MagicItemsList["canian fork"] = {
-	name : "Canian Fork",
-	source : [["CoA", 267]],
-	type : "weapon (trident)",
-	rarity : "rare",
-	attunement : true,
-	cursed: true,
-	description : "This magic, cursed, corrupting trident gives me +3 bonus to attack and damage rolls made with. I can't willing to part with it and can't unattune to it without Remove Curse. I'm vulnerable to radiant damage. When I receive magical healing I have to succeed on a DC 15 Con save or the healing has no effect.",
-	descriptionFull : "You have a +3 bonus to attack and damage rolls made with this magic weapon. In addition, you can make one additional attack with it as a bonus action on each of your turns."+
-	"\n   " + toUni("Curse") + ". You're unwilling to part with this weapon while attuned to it. You're also vulnerable to radiant damage and each time you receive magical healing, you must make a DC 15 Constitution saving throw."+
-	"\n   On a failed save, the healing has no effect. Only the Remove Curse spell allows you to end attunement to this item."+
-	CoA_Corruption.description,
-	eval :       function() { CoA_Corruption.process(true,  "canian fork") },
-	removeeval : function() { CoA_Corruption.process(false, "canian fork") },
-	weight : 4,
-	savetxt : { text : ["Vulnerable to radiant damage"] },
-	action : [["bonus action", " attack"]],
-	weaponOptions : [{
-		baseWeapon : "trident",
-		regExpSearch : /^(?=.*canian)(?=.*fork).*$/i,
-		name : "Canian Fork",
-		source : [["CoA", 267]],
-		description : "Thrown, versatile (1d8); Bonus action: 1 attack",
-		modifiers : [3, 3],
-		selectNow : true
-	}]
-}
-MagicItemsList["condensed order"] = {
-	name : "Condensed Order",
-	source : [["CoA", 267]],
-	type : "wondrous item",
-	rarity : "uncommon",
-	description : "Once as an action, I can snuff this silvery powder extracted from those of a lawful persuasion, or administer it to another. The consumer is immune to the flesh warping feature of demonic ichor and gains advantage on saves against effects from a demonic source. These benefits last for 8 hours.",
-	descriptionFull : "Condensed Order is a silvery powder that can be extracted from those of a lawful persuasion. Devils bound for the warfronts of Avernus take flasks and snuff boxes of the stuff to fortify themselves against exposure to the raw chaos of demons. Taking the substance requires an action and makes you immune to the flesh warping feature of demonic ichor. It also gives you advantage on saving throws against any effect from a demonic source. These benefits last for 8 hours."
-}
-MagicItemsList["demonbone polearm"] = {
-	name : "Demonbone Polearm",
-	nameTest : "Demonbone",
-	source : [["CoA", 268]],
-	type : "weapon (polearm)",
-	rarity : "very rare",
-	attunement : true,
-	cursed: true,
-	description : "As a reaction when damaged by a creature in reach, I can attack it once with this +2 polearm. It is cursed, I can't unattune to it and have disadv. with other weapons. If I take damage, I must make a DC 15 Wis save or go berserk: I attack those near to me until none remain in 60 ft or I'm calmed with a DC 15 Persuasion" + (typePF ? "." : "check."),
-	descriptionLong : "I have a +2 bonus on attack and damage rolls made with this magic quarterstaff. As a reaction when I'm damaged by a creature in this weapon's reach, I can make one melee attack against it. This weapon is cursed, I'm unwilling to part with it, can't unattune to it without Remove Curse, and have disadvantage with other weapons. When I take damage, I must make a DC 15 Wisdom save or go berserk: I attack the nearest creature using this weapon with all my attacks, moving to the next nearest until none remain that I can sea or hear within 60 ft of me. I can also be calmed with a DC 15 Charisma (Persuasion) check.",
-	descriptionFull : "You have a +2 bonus to attack and damage rolls made with this magic weapon. In addition, when you're damaged by a creature in reach, you may use your reaction to make one melee attack against it with this weapon."+
-	"\n   " + toUni("Curse") + ". You're unwilling to part with this weapon while attuned to it. While attuned, you have disadvantage on attack rolls with weapons other than this one."+
-	"\n   Whenever a hostile creature damages you, you must succeed on a DC 15 Wisdom saving throw or go berserk. While berserk, you must use your action on each of your turns to attack the creature nearest to you with the weapon. If you can make extra attacks as part of the Attack action, you use those extra attacks, moving to attack the next nearest creature after you fell your current target. If you have multiple possible targets, you attack one at random."+
-	"\n   You're berserk until you start your turn with no creatures within 60 feet of you that you can see or hear. Alternatively, an ally can use an action to make a DC 15 Charisma (Persuasion) check and if successful, you're no longer berserk. Only the Remove Curse spell allows you to end attunement to this item."+
-	CoA_Corruption.description,
-	eval :       function() { CoA_Corruption.process(true,  "demonbone polearm") },
-	removeeval : function() { CoA_Corruption.process(false, "demonbone polearm") },
-	chooseGear : {
-		type : "weapon",
-		prefixOrSuffix : "suffix",
-		descriptionChange : ["replace", "polearm"],
-		excludeCheck : function (inObjKey, inObj) {
-			var testRegex = /\b(polearm|glaive|halberd|lance|pike|quarterstaff|spear)\b/i;
-			return !testRegex.test(inObjKey) && (!inObj.baseWeapon || !testRegex.test(inObj.baseWeapon));
-		}
-	},
-	calcChanges : {
-		atkCalc : [
-			function (fields, v, output) {
-				var testRegex = /\b(polearm|glaive|halberd|lance|pike|quarterstaff|spear)\b/i;
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/demonbone/i).test(v.WeaponTextName) && (testRegex.test(v.thisWeapon[0]) || ( v.theWea.baseWeapon && testRegex.test(v.theWea.baseWeapon) ))) {
-					output.magic = v.thisWeapon[1] + 2;
-				}
-			},
-			'If I include the word "Demonbone" in a the name of a polearm, it will be treated as the magic weapon Demonbone Polearm. It adds +2 to hit and damage, can be used as a reaction when I\'m damaged by a creature within reach to attack them, an is cursed causing me to go beserk when I\'m damaged.'
-		]
-	},
-	action : [["reaction", " (when damaged)"]]
-}
-MagicItemsList["gauntlets of rage"] = {
-	name : "Gauntlets of Rage",
-	source : [["CoA", 268]],
-	type : "wondrous item",
-	rarity : "rare",
-	attunement : true,
-	prerequisite : "Requires attunement by a bard, sorcerer, warlock, or wizard",
-	prereqeval : function(v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
-	description : "The first melee weapon attack I make after a short rest sends me into a fury for 1 minute. I can't cast spells or speak, am immune to charmed and frightened, and when I deal damage, I heal 2d8 hp and end this fury or one condition. Also, I can use a spell slot before a melee attack for +1d6 necrotic damage per spell level.",
-	descriptionLong : "I gain the power of never-ending fury. The first melee weapon attack I make after I finish a short or long rest automatically send me into a special fury for 1 minute. While furious, I can't cast spells, can't verbally communicate, and am immune to the charmed and frightened conditions. Each time I deal damage, I regain 2d8 hit points and may immediately remove a condition I currently suffer from or end this fury. Also, while in this fury, I may spend a spell slot before I make a melee attack. Doing so causes the attack to deal an extra 1d6 necrotic damage per level of spell slot expended, if it hits.",
-	descriptionFull : "You gain the power of never-ending fury. After you make a melee weapon attack, you automatically enter a special fury for 1 minute. While furious, you can't cast spells, can't verbally communicate, and are immune to the charmed and frightened conditions. Each time you deal damage, you regain 2d8 hit points and may immediately remove a condition you currently suffer from or end this fury. Additionally, while in this fury, you may spend a spell slot before you make a melee attack. Doing so causes the attack to deal an extra 3 (1d6) necrotic damage per level of spell slot expended, if the attack hits. Once used you may not use this fury again until you finish a short or long rest.",
-	usages : 1,
-	recovery : "short rest",
-	savetxt : { text : ["Immune to charmed and frightened in fury"] }
-}
-MagicItemsList["infernal amulet"] = {
-	name : "Infernal Amulet",
-	source : [["CoA", 268]],
-	type : "wondrous item",
-	rarity : "rare",
-	attunement : true,
-	cursed: true,
-	description : "While wearing this amulet, I can use it as a spellcasting focus for my spells, and it grants a +2 bonus to my spell save DC and spell attack bonus. It is cursed and corrupting. I'm unwilling to part with it and require Remove Curse to unattune to it. It gives me disadvantage on Strength saving throws and Strenght checks.",
-	descriptionFull : "While wearing this amulet, you can use it as a spellcasting focus for your spells, and it grants a +2 bonus to your spell save DC and spell attack bonus."+
-	"\n   " + toUni("Curse") + ". You're unwilling to part with this amulet while attuned to it and you wear it always. While wearing the amulet you have disadvantage on Strength saving throws and Strength checks. Only the Remove Curse spell allows you to remove the item and end attunement."+
-	CoA_Corruption.description,
-	eval :       function() { CoA_Corruption.process(true,  "infernal amulet") },
-	removeeval : function() { CoA_Corruption.process(false, "infernal amulet") },
-	calcChanges : {
-		spellCalc : [
-			function (type, spellcasters, ability) {
-				if (type != "prepare") return 2;
-			},
-			"While wearing the Infernal Amulet my spell save DC and spell attack bonus each increase by 2."
-		]
-	},
-	advantages : [["Athletics", false], ["Strength", false]]
-}
-if (typePF) MagicItemsList["infernal amulet"].savetxt = { text : ["Disadv. on Str saves/checks"] }
-MagicItemsList["infernal plate armor"] = {
-	name : "Infernal Plate Armor",
-	source : [["CoA", 268]],
-	type : "armor (plate)",
-	rarity : "very rare",
-	attunement : true,
-	cursed: true,
-	description : "While wearing this armor, I gain a +2 bonus to AC. This armor is cursed and corrupting. I can't take it off or unattune to it without Remove Curse. It makes me vulnerable to the following damage types: force, lightning, psychic, radiant, and thunder.",
-	descriptionFull : "While wearing this armor, you gain a +2 bonus to AC."+
-	"\n   " + toUni("Curse") + ". Once you wear this armor, and are attuned to it, you can't remove it. Only the Remove Curse spell allows you to end the attunement and finally doff it. While wearing the armor, you're vulnerable to the following damage types: force, lightning, psychic, radiant, and thunder."+
-	CoA_Corruption.description,
-	eval :       function() { CoA_Corruption.process(true,  "infernal plate armor") },
-	removeeval : function() { CoA_Corruption.process(false, "infernal plate armor") },
-	weight : 65,
-	armorOptions : [{
-		regExpSearch : /^(?=.*infernal)(?=.*plate).*$/i,
-		name : "Infernal Plate Armor",
-		source : [["CoA", 268]],
-		type : "heavy",
-		ac : "18+2",
-		stealthdis : true,
-		weight : 65,
-		strReq : 15,
-		selectNow : true
-	}],
-	savetxt : { text : ["Vulnerable to force, lightning, psychic, radiant, and thunder damage"] },
-}
-MagicItemsList["knife of stolen resistance"] = {
-	name : "Knife of Stolen Resistance",
-	source : [["CoA", 268]],
-	type : "weapon (dagger)",
-	rarity : "rare",
-	description : "As an action once per long rest, I can use this knife to carve a single infernal rune into the flesh of an unconscious Beast, Celestial, Dragon, Fey, or Giant. Over the next 10 minutes the creature dies in agony, only Wish can stop this. If the creature has any resistances or immunities, I gain those while its dying.",
-	descriptionFull : "Using an action, you carve a single infernal rune into the flesh of an unconscious Beast, Celestial, Dragon, Fey, or Giant with this knife. Over the next 10 minutes the creature dies an agonizing death that can't be prevented short of the Wish spell. If the creature has any resistances or immunities, you gain those resistances and immunities until the creature dies or a Wish spell is used to save the creature. The knife's power can't be used again until you finish a long rest.",
-	weight : 1,
-	action : [["action", ""]],
-	usages : 1,
-	recovery : "long rest",
-	weaponOptions : [{
-		baseWeapon : "dagger",
-		regExpSearch : /^(?=.*knife)(?=.*stolen)(?=.*resistance).*$/i,
-		name : "Knife of Stolen Resistance",
-		source : [["CoA", 268]],
-		selectNow : true
-	}]
-}
-MagicItemsList["ring of collecting"] = {
-	name : "Ring of Collecting",
-	source : [["CoA", 268]],
-	type : "ring",
-	rarity : "very rare",
-	attunement : true,
-	description : "As an action once per dawn, I can use this ring to cast Tiny Hut. As a bonus action, I can disintegrate an up to Medium sized, nonmagical piece of art within 60 ft. That art now appears inside the tiny hut, vanishing forever if removed from it. For every 1000 gp of art added, the tiny hut get +1 ft radius and lasts +1 hour.",
-	descriptionLong : "As an action once per dawn, I can use this ring to cast Leomund's Tiny Hut. As a bonus action, I can use this ring to disintegrate an up to Medium sized, nonmagical piece of art (drawing, painting, or sculpture) within 60 ft. That art now appears inside the tiny hut, for me to appreciate whenever I desire. If I try to remove this art from the tiny hut, it vanishes forever. I can steadily improve this space, but only by denying such beauty from the rest of the world. For every 1000 gp of art acquired, the tiny hut increases in size by adding +1 ft to its radius and lasts +1 hour.",
-	descriptionFull : "While wearing this ring you can use it to cast the Leomund's Tiny Hut spell as an action. Once this property is used, it can't be used again until the next dawn. Additionally, as a bonus action, you can use the ring to disintegrate any nonmagical piece of art (drawing, painting, or sculpture) within 60 feet that is no larger than Medium-sized. That art now appears inside the tiny hut, for you to appreciate whenever you desire. If you try to remove this art from the tiny hut, it vanishes forever. You can steadily improve this space, but only by denying such beauty to the rest of the world. For every 1,000 gp of art acquired, the tiny hut increases in size by adding another foot to its radius and lasts one additional hour.",
-	spellcastingBonus : [{
-		name : "Once per dawn",
-		spells : ["leomund's tiny hut"],
-		selection : ["leomund's tiny hut"],
-		firstCol : "oncelr"
-	}],
-	spellChanges : {
-		"leomund's tiny hut" : {
-			time : "1 a",
-			duration : "8h+1h/1k gp",
-			description : "10ft+1ft/1000 gp rad immobile dome of force; 9 Medium crea; blocks magic; ends if I leave; see book",
-			changes : "Using the Ring of Collecting, I can cast Leomund's Tiny Hut as an action instead of taking 1 minute. Once this property is used, it can't be used again until the next dawn. For every 1000 gp of art acquired, the tiny hut increases in size by adding +1 ft to its radius and lasts +1 hour."
-		}
-	},
-	usages : 1,
-	recovery : "dawn",
-	additional : "Leomund's Tiny Hut",
-	action : [["bonus action", " (steal art)"]]
-}
-MagicItemsList["ring of the copycat"] = {
-	name : "Ring of the Copycat",
-	source : [["CoA", 268]],
-	type : "ring",
-	rarity : "legendary",
-	attunement : true,
-	description : "As a reaction when an ally within 60 ft casts a spell, I can cast it as well as long as I can't normally cast it and it requires 10 gp or less material components. The cloned spell uses the original caster's abilities, originates from me and I choose its targets, but my ally can't cast this spell again until they finish a long rest.",
-	descriptionFull : "You gain the ability to channel energy from allies to cast spells, even if you normally can't. When an ally within 60 feet of you casts a spell that you normally can't cast and that requires 10 gp or fewer in material components, you may use a reaction to cast that spell. When cast in this way, the spell is cast using your ally's spellcasting ability, spell save DC, and spell attack bonus, as needed. You decide this cloned spell's target, as specified in the spell's description, and the spell originates from you. After you use this ability, your ally can't cast this spell again until they finish a long rest.",
-	action : [["reaction", ""]]
-}
-MagicItemsList["ring of treachery"] = {
-	name : "Ring of Treachery",
-	source : [["CoA", 269]],
-	type : "ring",
-	rarity : "very rare",
-	attunement : true,
-	description : "This ring has 3 charges, which are restored whenever I finish a long rest. As a reaction when I am damaged, I can expend one charge to transfer that damage to a random creature (allies included) within 60 ft of me.",
-	descriptionFull : "This ring has 3 charges. While wearing this ring, when you're damaged, you may use a reaction to expend a charge and transfer that damage to a random creature (which could include an ally) within 60 feet. All charges are restored when you finish a long rest.",
-	action : [["reaction", " (when damaged)"]],
-	usages : 3
-}
-MagicItemsList["sage's mirror"] = {
-	name : "Sage's Mirror",
-	source : [["CoA", 269]],
-	type : "wondrous item",
-	rarity : "rare",
-	description : "This mirror has 3 charges, regaining all at dusk. As an action, I can expend 1 charge to cast either Find the Path or Legend Lore. With each use, it is apparent that the information gleaned from the mirror comes from a chamber in the Nine Hells where sages and scholars are tortured for the answers to each question.",
-	descriptionFull : "This item has 3 charges and regains all charges at dusk. You can use an action and expend 1 of the mirror's charges to cast one of the following spells:"+
-	"\n \u2022 Find the Path"+
-	"\n \u2022 Legend Lore"+
-	"\n   With each use, it is apparent that the information gleaned from the mirror comes from a chamber in the Nine Hells where sages and scholars are tortured for the answers to each question.",
-	usages : 3,
-	recovery : "Dusk",
-	spellFirstColTitle : "Ch",
-	spellcastingBonus : [{
-		name : "1 charge",
-		spells : ["find the path", "legend lore"],
-		selection : ["find the path", "legend lore"],
-		firstCol : 1,
-		times : 2
-	}],
-	spellChanges : {
-		"find the path" : {
-			time : "1 a",
-			changes : "Using the Sage's Mirror, I can cast Find the Path as an action when I expend one of its charges."
-		},
-		"legend lore" : {
-			time : "1 a",
-			changes : "Using the Sage's Mirror, I can cast Legend Lore as an action when I expend one of its charges."
-		}
-	}
-}
-MagicItemsList["skull of selfish knowledge"] = {
-	name : "Skull of Selfish Knowledge",
-	source : [["CoA", 269]],
-	type : "wondrous item",
-	rarity : "rare",
-	attunement : true,
-	description : "As an action, I can make this magical skull devour a nonmagical book, map, or scroll. Once devoured, the learning is forever available to me, but I can never write the information down or communicate it to others. It is for me alone.",
-	descriptionFull : "You may use an action to make the magical skull devour a nonmagical book, map, or scroll. Once devoured the learning is forever available to you, but you can never write the information down or communicate it to others. It is for you alone.",
-	action : [["action", ""]]
-}
-MagicItemsList["stygian spear"] = {
-	name : "Stygian Spear",
-	source : [["CoA", 270]],
-	type : "weapon (spear or javelin)",
-	rarity : "very rare",
-	attunement : true,
-	cursed: true,
-	description : "This +2 weapon deals +1d6 damage when thrown. It returns to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune, and have disadv. with other weapons. On a 1 to hit, I attack the closest ally with adv. and deal +2d6 poison damage.",
-	descriptionFull : "You have a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately."+
-	"\n   " + toUni("Curse") + ". You're unwilling to part with this weapon while attuned to it. In addition, you have disadvantage on attack rolls made with weapons other than this one."+
-	"\n   Whenever you roll a 1 on an attack roll using this weapon, your target changes to your closest ally."+
-	"\n   If there are multiple allies, randomly determine which is the target. Make a new attack roll with advantage against your ally. If the attack hits, in addition to the standard damage you deal an extra 2d6 poison damage. Only the Remove Curse spell allows you to end attunement to this item."+
-	CoA_Corruption.description,
-	eval :       function() { CoA_Corruption.process(true,  "stygian spear") },
-	removeeval : function() { CoA_Corruption.process(false, "stygian spear") },
-	choices : ["Javelin", "Spear"],
-	"javelin" : {
-		name : "Stygian Javelin",
-		description : "This +2 javelin deals +1d6 damage when thrown. It returns to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune, and have disadv. with other weapons. On a 1 to hit, I attack the closest ally with adv. and deal +2d6 poison damage.",
-		descriptionLong : "I have a +2 bonus to attack and damage rolls made with this magic javelin. When I throw it, it deals one extra die of damage on a hit and it flies back to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune to it, and gives me disadvantage on attacks with other weapons. Whenever I roll a 1 on an attack roll using this weapon, I instead attack my closest ally. I make a new attack roll with advantage against my ally and if it hits, this weapon deals an extra +2d6 poison damage. If there are multiple allies, randomly determine the target.",
-		weaponOptions : [{
-			baseWeapon : "javelin",
-			regExpSearch : /^(?=.*stygian)(?=.*javelin).*$/i,
-			name : "Stygian Javelin",
-			source : [["CoA", 270]],
-			description : "Returning, thrown; Thrown: +1d6 damage; On 1: adv. attack ally \u0026 +2d6 poison damage",
-			modifiers : [2, 2],
-			selectNow : true
-		}],
-		weight : 2
-	},
-	"spear" : {
-		name : "Stygian\u200A Spear",
-		description : "This +2 spear deals +1d6 damage when thrown. It returns to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune, and have disadv. with other weapons. On a 1 to hit, I attack the closest ally with adv. and deal +2d6 poison damage.",
-		descriptionLong : "I have a +2 bonus to attack and damage rolls made with this magic spear. When I throw it, it deals one extra die of damage on a hit and it flies back to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune to it, and gives me disadvantage on attacks with other weapons. Whenever I roll a 1 on an attack roll using this weapon, I instead attack my closest ally. I make a new attack roll with advantage against my ally and if it hits, this weapon deals an extra +2d6 poison damage. If there are multiple allies, randomly determine the target.",
-		weaponOptions : [{
-			baseWeapon : "spear",
-			regExpSearch : /^(?=.*stygian)(?=.*spear).*$/i,
-			name : "Stygian Spear",
-			source : [["CoA", 270]],
-			description : "Returning, thrown, versatile (1d8); Thrown: +1d6 damage; On 1: adv. attack ally \u0026 +2d6 poison damage",
-			modifiers : [2, 2],
-			selectNow : true
-		}],
-		weight : 3
-	}
-}
-MagicItemsList["sword of retribution"] = {
-	name : "Sword of Retribution",
-	nameTest : "of Retribution",
-	source : [["CoA", 270]],
-	type : "weapon (any sword)",
-	rarity : "very rare",
-	attunement : true,
-	cursed: true,
-	description : "Damage from this +3 sword can be regained only through resting. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune, and have disadv. with other weapons. After a long rest, I must make a DC 11 Con save or only get the benefits of a short rest due to nightmares.",
-	descriptionLong : "I gain a +3 bonus to attack and damage rolls made with this sword. Hit points lost to this weapon's damage can be regained only through a short or long rest, rather than by regeneration, magic, or any other means. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune to it, and gives me disadvantage on attacks with other weapons. When I sleep, I experience nightmares of the past of the vengeful spirit possessing the sword, culminating in its death. After a long rest, I must make a DC 11 Constitution saving throw or only gain the benefits of a short rest.",
-	descriptionFull : "You gain a +3 bonus to attack and damage rolls made with this sword. Hit points lost to this weapon's damage can be regained only through a short or long rest, rather than by regeneration, magic, or any other means."+
-	"\n   " + toUni("Curse") + ". You're unwilling to part with this weapon while attuned to it. While attuned to this weapon, you also have disadvantage on attack rolls made with weapons other than this one."+
-	"\n   The vengeful spirit possessing the sword shares its history and lust for vengeance with the wielder. After each successful long rest, you experience nightmares of the spirit's past, culminating in its death. When you wake, you must make a DC 11 Constitution saving throw. On a failed save, you only gain the benefits of a short rest. Only the Remove Curse spell allows you to end attunement to this item."+
-	CoA_Corruption.description,
-	eval :       function() { CoA_Corruption.process(true,  "sword of retribution") },
-	removeeval : function() { CoA_Corruption.process(false, "sword of retribution") },
-	chooseGear : {
-		type : "weapon",
-		prefixOrSuffix : "prefix",
-		descriptionChange : ["replace", "sword"],
-		excludeCheck : function (inObjKey, inObj) {
-			var testRegex = /sword|scimitar|rapier/i;
-			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
-		}
-	},
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/of retribution/i).test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'Only rest heals this damage; Cursed';
-				}
-			},
-			'If I include the words "of Retribution" in the name of a sword, it will be treated as the magic weapon Sword of Retribution. It gives a +3 bonus to attack and damage. Damage it deals can\'t be healed except by resting, and it also bears a curse.'
-		],
-		atkCalc : [
-			function (fields, v, output) {
-				if (v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/of retribution/i).test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					output.magic = v.thisWeapon[1] + 3;
-				}
-			}, ''
-		]
-	}
-}
-var CoA_VialOfGreed = [
-	"This small glass vial can stockpile resources for use in the future. Once stored, resources last for 1 century before vanishing. As an action you make the vial store any number of the following resources, which are magically consumed and converted into a violet-colored liquid:",
-	"\u2022 Up to 31 days of food and/or drink. The flavors are lost, instead becoming tasteless.",
-	"\u2022 Up to 7 days of alcohol. The flavors are lost, instead becoming tasteless.",
-	"\u2022 Up to 5 magic scrolls that affect a single creature. The target of the spell is you, and if the spell requires concentration, you can concentrate.",
-	"\u2022 Up to 5 magic potions. No more than 2 duplicate potions can be stored at a time.",
-	"You may have more than one kind of resource in the vial, up to the limits expressed above. You can use a bonus action to consume one day of food (or alcohol) or activate one scroll or magic potion. If activating a magic scroll, the effects of that scroll must end before you can activate another scroll from the Vial of Greed."
-];
-MagicItemsList["vial of greed"] = {
-	name : "Vial of Greed",
-	source : [["CoA", 270]],
-	type : "wondrous item",
-	rarity : "rare",
-	attunement : true,
-	description : "As an action, I can have this small glass vial magically store: food and drink (up to 31 days), alcohol (up to 7 days), magic scrolls that affect 1 creature (up to 5), and magic potions (up to 5, no 3 can be the same). As a bonus action, I can use or consume one of those stored, but the food, drink and alcohol is tasteless.",
-	descriptionFull : CoA_VialOfGreed.join("\n   "),
-	toNotesPage : [{
-		name : "Vial of Greed Features",
-		note : desc(CoA_VialOfGreed).replace(/is you/ig, "is me").replace(/you /ig, "I ")
-	}],
-	action : [
-		["action", "Store in Vial of Greed"],
-		["bonus action", "Use from Vial of Greed"]
-	]
-}
-MagicItemsList["weapon of agonizing paralysis"] = {
-	name : "Weapon of Agonizing Paralysis",
-	nameTest : "of Agonizing Paralysis",
-	source : [["CoA", 271]],
-	type : "weapon (any melee)",
-	rarity : "very rare",
-	attunement : true,
-	description : "This magic weapon has a +3 bonus to hit and damage. When it reduces a creature to 0 hp, they don't die but are instead healed to 1 hp and paralyzed. While paralyzed, infernal runes appear as if carved into their flesh and at the start of each of their turns they suffer immense pain and gain a level of exhaustion.",
-	descriptionFull : "You have a +3 bonus to attack and damage rolls made with this magic weapon. When this weapon reduces a creature to 0 hit points, the creature doesn't die. Instead, infernal runes appear as if carved into their flesh and they're healed to 1 hit point. They now have the paralyzed condition until the condition is removed by a Lesser Restoration spell or similar magic. When the condition is removed, the runes disappear. At the start of each of their turns while they're paralyzed, the creature suffers immense pain and gains a level of exhaustion.",
-	allowDuplicates : true,
-	chooseGear : {
-		type : "weapon",
-		prefixOrSuffix : "prefix",
-		excludeCheck : function (inObjKey, inObj) {
-			return /melee/i.test(inObj.range);
-		}
-	},
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && /^(?=.*agonizing)(?=.*paralysis).*$/i.test(v.baseWeaponName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'At 0 hp: paralyzed not dead';
-				}
-			},
-			'If I include the words "of Agonizing Paralysis" in a the name of a melee weapon, it will be treated as the magic weapon Weapon of Agonizing Paralysis. It has +3 to hit and damage and when it brings a target to 0 hp, they are healed to 1 hp and paralyzed.'
-		],
-		atkCalc : [
-			function (fields, v, output) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && /^(?=.*agonizing)(?=.*paralysis).*$/i.test(v.baseWeaponName)) {
-					v.theWea.isMagicWeapon = true;
-					output.magic = v.thisWeapon[1] + 3;
-				}
-			}, ''
-		]
-	}
-}
-
 // pub_20231114_BoMT.js
 // This file adds the Character Options content from the "The Book of Many Things" book (from the "The Deck of Many Things" set) to MPMB's Character Record Sheet
 
@@ -52123,7 +51564,6 @@ SourceList["BoMT"] = {
 	url : "https://dndstore.wizards.com/us/en/product/865604/the-deck-of-many-things-digital-plus-physical-bundle",
 	date : "2023/11/14"
 };
-
 
 BackgroundList["rewarded"] = {
 	regExpSearch : /rewarded/i,
@@ -52540,6 +51980,7 @@ var BoMT = {
 
 MagicItemsList["antimagic armor"] = {
 	name : "Antimagic Armor",
+	nameTest : /antimagic.*armou?r/i,
 	source : [["BoMT", 65]], // Chapter 9: Knight
 	type : "armor (light, medium, or heavy)",
 	rarity : "very rare",
@@ -52549,7 +51990,7 @@ MagicItemsList["antimagic armor"] = {
 	"\n   In addition, while you wear this armor, you can use it to cast Antimagic Field, requiring no spell components. Once this property is used, it can't be used again until the next dawn.",
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "brackets",
+		prefixOrSuffix : ["between", "Antimagic", "Armor"],
 		descriptionChange : ["prefix", "armor"],
 		itemName1stPage : ["suffix", "Antimagic"]
 	},
@@ -52927,6 +52368,7 @@ MagicItemsList["card sharp's deck"] = {
 };
 MagicItemsList["clockwork armor"] = {
 	name : "Clockwork Armor",
+	nameTest : /clockwork.*armou?r/i,
 	source : [["BoMT", 67]], // Chapter 9: Knight
 	type : "armor (heavy)",
 	rarity : "very rare",
@@ -52936,7 +52378,7 @@ MagicItemsList["clockwork armor"] = {
 	"\n   The armor has 4 charges. If you make a d20 roll while wearing this armor, you can expend 1 charge to change the number rolled to a 10. The armor regains 1d4 expended charges daily at dawn.",
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "brackets",
+		prefixOrSuffix : ["between", "Clockwork", "Armor"],
 		descriptionChange : ["prefix", "armor"],
 		itemName1stPage : ["suffix", "Clockwork"],
 		excludeCheck : function (inObjKey, inObj) {
@@ -53290,6 +52732,7 @@ MagicItemsList["fate dealer's deck"] = {
 };
 MagicItemsList["feywrought armor"] = {
 	name : "Feywrought Armor",
+	name : /feywrought.*armou?r/i,
 	source : [["BoMT", 67]], // Chapter 9: Knight
 	type : "armor (light, medium, or heavy)",
 	rarity : "rare",
@@ -53300,7 +52743,7 @@ MagicItemsList["feywrought armor"] = {
 	"\n   This armor has 3 charges. You can use an action to expend a charge to cast the Compulsion spell (save DC 15) from this armor. The armor regains 1d3 expended charges daily at dawn.",
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "brackets",
+		prefixOrSuffix : ["between", "Feywrought", "Armor"],
 		descriptionChange : ["prefix", "armor"],
 		itemName1stPage : ["suffix", "Feywrought"]
 	},
@@ -53438,6 +52881,7 @@ MagicItemsList["glimmering moonbow"] = {
 };
 MagicItemsList["gloomwrought armor"] = {
 	name : "Gloomwrought Armor",
+	name : /gloomwrought.*armou?r/i,
 	source : [["BoMT", 67]], // Chapter 9: Knight
 	type : "armor (light, medium, or heavy)",
 	rarity : "rare",
@@ -53448,7 +52892,7 @@ MagicItemsList["gloomwrought armor"] = {
 	"\n   This armor has 3 charges. You can expend a charge to cast the Calm Emotions spell (save DC 15) from the armor. This armor regains 1d3 expended charges daily at dawn.",
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "brackets",
+		prefixOrSuffix : ["between", "Gloomwrought", "Armor"], 
 		descriptionChange : ["prefix", "armor"],
 		itemName1stPage : ["suffix", "Gloomwrought"]
 	},
@@ -54400,6 +53844,629 @@ SpellsList["spray of cards"] = {
 		AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d10 for each slot level above 2nd."
 };
 
+// pub_al_20190917_ALPG-v9.1.js
+// This file adds the winged aasimar/tiefling from the Adventurers League Player's Guide v9.1: Inglorious Redemption to MPMB's Character Record Sheet
+
+// Define the source
+SourceList["ALPGs9"] = {
+	name : "AL Player's Guide v9.1: Inglorious Redemption",
+	abbreviation : "ALPGs9",
+	group : "Adventurers League",
+	url : "https://www.dropbox.com/s/8r1cwjrk6n2rzyo/AL-Players-Guide-v9.1-Forgotten-Realms.pdf?dl=1", // used to be https://www.dmsguild.com/product/208178
+	date : "2019/09/17",
+	defaultExcluded : true
+};
+
+/*
+	Add this source to the Aasimar from VGtM and the Winged Tiefling variant from SCAG
+	Also, add a winged variant to the three Aasimar subraces from VGtM
+*/
+[
+	["fallen aasimar", false],
+	["protector aasimar", false],
+	["scourge aasimar", false],
+	["tiefling-winged", true],
+	["feral tiefling-winged", true]
+].forEach(function (rac) {
+	var rObj = rac[1] ? RaceSubList[rac[0]] : RaceList[rac[0]];
+	if (!rObj) return;
+	rObj.source = (isArray(rObj.source[0]) ? rObj.source : [rObj.source]).concat([["ALPGs9", 6]]);
+	if (rac[0].indexOf("aasimar") !== -1) {
+		AddRacialVariant(rac[0], "winged", {
+			regExpSearch : /wing/i,
+			name : "Winged " + rObj.name,
+			source : [["ALPGs9", 6]],
+			plural : "Winged " + rObj.plural,
+			speed : {
+				walk : { spd : 30, enc : 20 },
+				fly : { spd : 30, enc : 0 }
+			},
+			trait : "Winged " + rObj.trait.replace(/\)(\r|\n|.)+/, ")\n\nHealing Hands:\n   As an action, once per long rest, I can touch to heal for my level in HP.\nWings:\n   Once I'm 5th level, I sprout feathered wings from my shoulder blades that give me a flying speed of 30 feet when I'm not wearing heavy armor."),
+			features : {
+				"healing hands" : {
+					name : "Healing Hands",
+					usages : 1,
+					minlevel : 1,
+					recovery : "long rest",
+					additional : levels.map(function (n) { return n + " HP"; }),
+					action : [["action", ""]]
+				}
+			},
+			abilitySave : "",
+			spellcastingAbility : "",
+			spellcastingBonus : ""
+		});
+	}
+});
+
+// pub_20231030_CoA.js
+// This file adds the magic items from the Chains of Asmodeus adventure from Extra Life to MPMB's Character Record Sheet
+
+SourceList["CoA"] = {
+	name : "Chains of Asmodeus",
+	abbreviation : "CoA",
+	group : "Extra Life",
+	campaignSetting : "Forgotten Realms",
+	url : "https://www.dmsguild.com/product/457996/Chains-of-Asmodeus",
+	date : "2023/10/30",
+	defaultExcluded : true
+};
+
+CoA_Corruption = {
+	process : function(bAddRemove, sItem) {
+		// Make a variable to remember the settings for this
+		if (!CurrentVars.CoA_Corruption) {
+			CurrentVars.CoA_Corruption = {
+				items : [],
+				present : false,
+				savedAlert : false
+			};
+		}
+		var bProcessIt = false;
+		var bItemPresent = CurrentVars.CoA_Corruption.items.indexOf(sItem) !== -1;
+		// If removing, test if present and the triggering item is in the list
+		if (!bAddRemove && bItemPresent) {
+			CurrentVars.CoA_Corruption.items.eject(sItem);
+			if (CurrentVars.CoA_Corruption.items.length !== 0) {
+				// Still items present, so don't change anything
+				return;
+			} else {
+				// Removing note in final step if present 
+				bProcessIt = CurrentVars.CoA_Corruption.present ? true : false;
+				// Make pop-up appear at next corrupting item addition
+				CurrentVars.CoA_Corruption.savedAlert = false;
+			}
+		} else if (bAddRemove) { // Adding
+			// Add the item to the list of items processed
+			if (!bItemPresent) CurrentVars.CoA_Corruption.items.push(sItem);
+			if (CurrentVars.CoA_Corruption.savedAlert) {
+				// The state of the alert was saved, so don't prompt and do nothing
+				return;
+			} else if (!CurrentVars.CoA_Corruption.present) {
+				// If not present and dialog state was not saved, ask the user if the rules should be added to a notes page
+				var oMsg = {
+					cTitle : "Show Infernal Item Corruption (DM-only) Rules?",
+					cMsg : 'The cursed infernal item "' + MagicItemsList[sItem].name + '" can cause corruption.\nDo you want to add the Infernal Item Corruption rules intended for the DM to a Notes page on your character sheet for reference?\n\nIMPORTANT: these rules are not intended to be read by players, only by the DM.\n\nThese notes will be automatically removed when you remove all corrupting items.',
+					nIcon : 2, // Question
+					nType : 2, // Yes,No
+					oCheckbox : {
+						cMsg : "Don't ask me again next time I add a corrupting item (unless I have removed all corrupting items)",
+						bInitialValue : true,
+						bAfterValue : false
+					}
+				};
+				// Add the note if "Yes" was clicked
+				bProcessIt = app.alert(oMsg) === 4;
+				// Save the checkbox state
+				CurrentVars.CoA_Corruption.savedAlert = oMsg.oCheckbox.bAfterValue;
+			}
+		}
+		if (bProcessIt) {
+			CurrentVars.CoA_Corruption.present = bAddRemove;
+			processToNotesPage(bAddRemove, CoA_Corruption.toNotesPage, "items", {}, false, ["Chains of Asmodeus, page 271"]);
+		}
+		SetStringifieds("vars"); // Save the global variable to a field
+	},
+	toNotesPage : [{ // intentionally doesn't include a source
+		name : "INFERNAL ITEM CORRUPTION",
+		popupName : 'The "Infernal Item Corruption" rules from Chains of Asmodeus (page 271)',
+		note : [
+			"",
+			"Cursed infernal items can be used by mortals, but they always require attunement. Once attuned, the mortal risks an increasing chance of being corrupted by the item., eventually transforming into a devil.",
+			"   Mortals that receive express permission from Asmodeus, or that make an infernal contract to acquire a magic item, don't suffer these corrupting effects.",
+			"",
+			"1. STAGE ONE CORRUPTION: BEGINNINGS",
+			"Once a character has attuned to a cursed infernal magic item or artifact, it begins the infernal corruption process. Each time that character finishes a long rest, they must make a DC 10 Wisdom save (tieflings have advantage on this save). On a success, the character suffers no effects, but the DC increases by 1 the next time they must make this save. On a failure, the character progresses to Stage Two unless Dispel Evil and Good is cast on them before their next long rest.",
+			"   While in Stage One, the infernal corruption can be prevented by breaking attunement to the corrupting item. This prevents further Wisdom saves and resets the DC of the save, if the character were to attune to the item again.",
+			"",
+			"2. STAGE TWO CORRUPTION: SUFFERINGS",
+			"While in Stage Two, the character becomes delusional, seeing plots against them where there are none. Additionally, each time they rest, they experience terrifying visions and infernal whispers. Whenever they finish a long rest, they take 1d12 necrotic damage, which ignores resistances and immunities and can't be healed until a Dispel Evil and Good or Remove Curse spell is cast on them. Once the character has taken this damage six times, they progress to Stage Three.",
+			"   While in Stage Two, the infernal corruption can be removed with one of the following spells: Divine Word, Heal, Mass Heal, True Polymorph, True Resurrection, or Wish.",
+			"\n3. STAGE THREE CORRUPTION: DEPARTINGS",
+			"While in Stage Three, the character begins to suffer physical transformation, and slowly embraces evil. After they finish their first long rest upon entering Stage Three they must roll on the table below to determine how the infernal curse starts shaping them into a devil. In addition, a part-devil character is rendered infertile and detects as a Fiend to Detect Evil and Good spells and similar magic.",
+			"",
+			"   d10\tTransformation",
+			"     1\tTheir fingertips elongate into claws",
+			"     2\tNon-functional leathery wings sprout from their back",
+			"     3\tDevilish horns grow upon their head",
+			"     4\tEach night more and more of their skin burns, leaving charred patches",
+			"     5\tOne eye turns milky white, the other turns yellow",
+			"     6\tTheir spine painfully elongates into a skeletal tail",
+			"     7\tTheir skin starts to calcify, turning portions into bone",
+			"     8\tTheir feet painfully twist to resemble cloven hooves",
+			"     9\tAll their hair falls out, replaced by tiny spikes",
+			"   10\tAll their teeth fall out, with new jagged teeth tearing through the gums each morning",
+			"",
+			"The character begins to experience waking whispers pushing them towards evil and they suffer terrifying visions whenever they rest, breaking their spirit and pushing them further to evil. Each time they finish a short or long rest, they must make a DC 10 Wisdom save. If they performed at least one evil act, such as making a decision that increased the suffering of others, they make the save with disadvantage. When they fail the save, they progress to Stage Four.",
+			"   While in Stage Three, the infernal corruption can be ended with one of the following spells: True Polymorph, True Resurrection or Wish.",
+			"",
+			"4. STAGE FOUR CORRUPTION: FINALITIES",
+			"When the character finishes their first long rest after reaching Stage Four, the character's alignment shifts to lawful evil. They're now bound by the devil's code, requiring them to honor any pact made and acquire souls in service of Asmodeus. Lastly, their physical form changes, morphing to resemble a devil (DM's choice).",
+			"   Once the character reaches Stage Four, the only two cures are the Wish spell, which counts as beyond the scope of the spell, or by signing an infernal contract with Asmodeus to reclaim their soul."
+		].join("\n")
+	}],
+	description : "\n   " + toUni("Corrupting") + '. This item corrupts. See the "Infernal Item Corruption" rules (CoA 271).'
+}
+
+MagicItemsList["amulet of appearance"] = {
+	name : "Amulet of Appearance",
+	source : [["CoA", 267]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	description : "My equipment always shines as if just polished and my wounds do not appear to others. I'm immune to being frightened and poisoned. However, whenever I would otherwise be affected by these conditions, a random non-evil humanoid on the material plane whom I have met is affected instead. I know this.",
+	descriptionFull : "Your armor, weapons, and other equipment always shine as if just polished. Even if you're wounded, your wounds do not appear to others. You're immune to the frightened and poisoned conditions, as these would otherwise ruin your elegant appearance. However, whenever you would otherwise have been affected by one of these conditions, a random non-evil Humanoid on the Material Plane whom you have previously met gets the condition instead. You know this.",
+	savetxt : { immune : ["frightened", "poisoned"] }
+}
+MagicItemsList["amulet of betrayal"] = {
+	name : "Amulet of Betrayal",
+	source : [["CoA", 267]],
+	type : "wondrous item",
+	rarity : "very rare",
+	attunement : true,
+	description : "As a bonus action, I can move one of the following conditions from myself to an ally within 60 ft: blinded, deafened, frightened, poisoned, stunned, exhaustion. When transferring exhaustion, all my exhaustion levels are moved. If the chosen ally is immune to a transferred condition, the transfer fails.",
+	descriptionFull : "You can use a bonus action to move one of the following conditions from yourself to an ally within 60 feet of you: blinded, deafened, frightened, poisoned, stunned, exhaustion. When transferring exhaustion, move all your exhaustion levels. If the chosen ally is immune to a transferred condition, the transfer fails.",
+	action : [["bonus action", ""]]
+}
+MagicItemsList["amulet of duplicity"] = {
+	name : "Amulet of Duplicity",
+	source : [["CoA", 267]],
+	type : "wondrous item",
+	rarity : "very rare",
+	attunement : true,
+	cursed: true,
+	description : "When I die, a copy of my naked corpse is left in my place while I'm brought to an extradimensional space. After 24 hours, I heal 1 hp and am brought back to the place I left, but with a different face. I have disadv. on Persuasion checks to reveal who I am. I can't relay this information and forget it when unattuning.",
+	descriptionLong : "When I die, the amulet leaves a copy of my naked corpse in my place while I'm transported to an extradimensional space, stable at 0 hp. After 24 hours, I regain 1 hp and am returned to the place I left with different facial features. Only a Wish spell can restore my true identity. I have disadvantage on Charisma (Persuasion) checks to reveal myself. The amulet is cursed. Identifying it only shows it prevents death and one can't explain its power once attuned. When unattuned, one immediately forgets what the amulet does. A Remove Curse spell reveals the details of the curse but doesn't lift it from the amulet.",
+	descriptionFull : "When you die, you're transported to an extradimensional space where you're stabilized at 0 hit points and kept in that state. The amulet creates a perfect copy of your corpse and places it where you were just before you died, but without any of your worn or carried items. After 24 hours, you regain 1 hit point and are returned to the location of your near-death. Everything about you is the same, except that your facial features are entirely different from before. Only a Wish spell can restore your true identity."+
+	"\n   Until then, you have disadvantage on any Charisma (Persuasion) checks to attempt to reveal who you really are."+
+	"\n   " + toUni("Curse") + ". An Identify spell or similar reveals only that the amulet can prevent death. Once you attune to the amulet, you can't describe its ability to any other creature, and if unattuned, you immediately forget what the amulet does. A Remove Curse spell reveals the details of the curse but does not remove it from the amulet."
+}
+MagicItemsList["bracers of asmodeus"] = {
+	name : "Bracers of Asmodeus",
+	source : [["CoA", 267]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	cursed: true,
+	description : "These are cursed, corrupting, and give +2 AC while not wearing armor or using a shield. I can't unattune to them. They make me obsessed with scheming, manipulation, and always bartering for better deals, often using blackmail. If I decline an opportunity to make money at another's expense, I take 3d10 necrotic damage.",
+	descriptionFull : "You have a +2 bonus to AC while wearing these bracers, if you do not wear armor or use a shield at the same time."+
+	"\n   " + toUni("Curse") + ". While attuned to the bracers, you become obsessed with plotting, scheming, and manipulation. You always barter for better deals, often using secrets or leveraging other offers in the process. If you ever decline an opportunity to better yourself financially at another's expense, you immediately take 3d10 necrotic damage. Only the Remove Curse spell allows you to end attunement to this item."+
+	CoA_Corruption.description,
+	eval :       function() { CoA_Corruption.process(true,  "bracers of asmodeus") },
+	removeeval : function() { CoA_Corruption.process(false, "bracers of asmodeus") },
+	extraAC : [{
+		mod : 2,
+		magic : true,
+		text : "I gain a +2 bonus to AC while I'm not wearing armor or using a shield.",
+		stopeval : function (v) { return v.wearingArmor || v.usingShield; }
+	}]
+}
+MagicItemsList["canian fork"] = {
+	name : "Canian Fork",
+	source : [["CoA", 267]],
+	type : "weapon (trident)",
+	rarity : "rare",
+	attunement : true,
+	cursed: true,
+	description : "This magic, cursed, corrupting trident gives me +3 bonus to attack and damage rolls made with. I can't willing to part with it and can't unattune to it without Remove Curse. I'm vulnerable to radiant damage. When I receive magical healing I have to succeed on a DC 15 Con save or the healing has no effect.",
+	descriptionFull : "You have a +3 bonus to attack and damage rolls made with this magic weapon. In addition, you can make one additional attack with it as a bonus action on each of your turns."+
+	"\n   " + toUni("Curse") + ". You're unwilling to part with this weapon while attuned to it. You're also vulnerable to radiant damage and each time you receive magical healing, you must make a DC 15 Constitution saving throw."+
+	"\n   On a failed save, the healing has no effect. Only the Remove Curse spell allows you to end attunement to this item."+
+	CoA_Corruption.description,
+	eval :       function() { CoA_Corruption.process(true,  "canian fork") },
+	removeeval : function() { CoA_Corruption.process(false, "canian fork") },
+	weight : 4,
+	savetxt : { text : ["Vulnerable to radiant damage"] },
+	action : [["bonus action", " attack"]],
+	weaponOptions : [{
+		baseWeapon : "trident",
+		regExpSearch : /^(?=.*canian)(?=.*fork).*$/i,
+		name : "Canian Fork",
+		source : [["CoA", 267]],
+		description : "Thrown, versatile (1d8); Bonus action: 1 attack",
+		modifiers : [3, 3],
+		selectNow : true
+	}]
+}
+MagicItemsList["condensed order"] = {
+	name : "Condensed Order",
+	source : [["CoA", 267]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	description : "Once as an action, I can snuff this silvery powder extracted from those of a lawful persuasion, or administer it to another. The consumer is immune to the flesh warping feature of demonic ichor and gains advantage on saves against effects from a demonic source. These benefits last for 8 hours.",
+	descriptionFull : "Condensed Order is a silvery powder that can be extracted from those of a lawful persuasion. Devils bound for the warfronts of Avernus take flasks and snuff boxes of the stuff to fortify themselves against exposure to the raw chaos of demons. Taking the substance requires an action and makes you immune to the flesh warping feature of demonic ichor. It also gives you advantage on saving throws against any effect from a demonic source. These benefits last for 8 hours."
+}
+MagicItemsList["demonbone polearm"] = {
+	name : "Demonbone Polearm",
+	nameTest : "Demonbone",
+	source : [["CoA", 268]],
+	type : "weapon (polearm)",
+	rarity : "very rare",
+	attunement : true,
+	cursed: true,
+	description : "As a reaction when damaged by a creature in reach, I can attack it once with this +2 polearm. It is cursed, I can't unattune to it and have disadv. with other weapons. If I take damage, I must make a DC 15 Wis save or go berserk: I attack those near to me until none remain in 60 ft or I'm calmed with a DC 15 Persuasion" + (typePF ? "." : "check."),
+	descriptionLong : "I have a +2 bonus on attack and damage rolls made with this magic quarterstaff. As a reaction when I'm damaged by a creature in this weapon's reach, I can make one melee attack against it. This weapon is cursed, I'm unwilling to part with it, can't unattune to it without Remove Curse, and have disadvantage with other weapons. When I take damage, I must make a DC 15 Wisdom save or go berserk: I attack the nearest creature using this weapon with all my attacks, moving to the next nearest until none remain that I can sea or hear within 60 ft of me. I can also be calmed with a DC 15 Charisma (Persuasion) check.",
+	descriptionFull : "You have a +2 bonus to attack and damage rolls made with this magic weapon. In addition, when you're damaged by a creature in reach, you may use your reaction to make one melee attack against it with this weapon."+
+	"\n   " + toUni("Curse") + ". You're unwilling to part with this weapon while attuned to it. While attuned, you have disadvantage on attack rolls with weapons other than this one."+
+	"\n   Whenever a hostile creature damages you, you must succeed on a DC 15 Wisdom saving throw or go berserk. While berserk, you must use your action on each of your turns to attack the creature nearest to you with the weapon. If you can make extra attacks as part of the Attack action, you use those extra attacks, moving to attack the next nearest creature after you fell your current target. If you have multiple possible targets, you attack one at random."+
+	"\n   You're berserk until you start your turn with no creatures within 60 feet of you that you can see or hear. Alternatively, an ally can use an action to make a DC 15 Charisma (Persuasion) check and if successful, you're no longer berserk. Only the Remove Curse spell allows you to end attunement to this item."+
+	CoA_Corruption.description,
+	eval :       function() { CoA_Corruption.process(true,  "demonbone polearm") },
+	removeeval : function() { CoA_Corruption.process(false, "demonbone polearm") },
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "suffix",
+		descriptionChange : ["replace", "polearm"],
+		excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /\b(polearm|glaive|halberd|lance|pike|quarterstaff|spear)\b/i;
+			return !testRegex.test(inObjKey) && (!inObj.baseWeapon || !testRegex.test(inObj.baseWeapon));
+		}
+	},
+	calcChanges : {
+		atkCalc : [
+			function (fields, v, output) {
+				var testRegex = /\b(polearm|glaive|halberd|lance|pike|quarterstaff|spear)\b/i;
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/demonbone/i).test(v.WeaponTextName) && (testRegex.test(v.thisWeapon[0]) || ( v.theWea.baseWeapon && testRegex.test(v.theWea.baseWeapon) ))) {
+					output.magic = v.thisWeapon[1] + 2;
+				}
+			},
+			'If I include the word "Demonbone" in a the name of a polearm, it will be treated as the magic weapon Demonbone Polearm. It adds +2 to hit and damage, can be used as a reaction when I\'m damaged by a creature within reach to attack them, an is cursed causing me to go beserk when I\'m damaged.'
+		]
+	},
+	action : [["reaction", " (when damaged)"]]
+}
+MagicItemsList["gauntlets of rage"] = {
+	name : "Gauntlets of Rage",
+	source : [["CoA", 268]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	prerequisite : "Requires attunement by a bard, sorcerer, warlock, or wizard",
+	prereqeval : function(v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
+	description : "The first melee weapon attack I make after a short rest sends me into a fury for 1 minute. I can't cast spells or speak, am immune to charmed and frightened, and when I deal damage, I heal 2d8 hp and end this fury or one condition. Also, I can use a spell slot before a melee attack for +1d6 necrotic damage per spell level.",
+	descriptionLong : "I gain the power of never-ending fury. The first melee weapon attack I make after I finish a short or long rest automatically send me into a special fury for 1 minute. While furious, I can't cast spells, can't verbally communicate, and am immune to the charmed and frightened conditions. Each time I deal damage, I regain 2d8 hit points and may immediately remove a condition I currently suffer from or end this fury. Also, while in this fury, I may spend a spell slot before I make a melee attack. Doing so causes the attack to deal an extra 1d6 necrotic damage per level of spell slot expended, if it hits.",
+	descriptionFull : "You gain the power of never-ending fury. After you make a melee weapon attack, you automatically enter a special fury for 1 minute. While furious, you can't cast spells, can't verbally communicate, and are immune to the charmed and frightened conditions. Each time you deal damage, you regain 2d8 hit points and may immediately remove a condition you currently suffer from or end this fury. Additionally, while in this fury, you may spend a spell slot before you make a melee attack. Doing so causes the attack to deal an extra 3 (1d6) necrotic damage per level of spell slot expended, if the attack hits. Once used you may not use this fury again until you finish a short or long rest.",
+	usages : 1,
+	recovery : "short rest",
+	savetxt : { text : ["Immune to charmed and frightened in fury"] }
+}
+MagicItemsList["infernal amulet"] = {
+	name : "Infernal Amulet",
+	source : [["CoA", 268]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	cursed: true,
+	description : "While wearing this amulet, I can use it as a spellcasting focus for my spells, and it grants a +2 bonus to my spell save DC and spell attack bonus. It is cursed and corrupting. I'm unwilling to part with it and require Remove Curse to unattune to it. It gives me disadvantage on Strength saving throws and Strenght checks.",
+	descriptionFull : "While wearing this amulet, you can use it as a spellcasting focus for your spells, and it grants a +2 bonus to your spell save DC and spell attack bonus."+
+	"\n   " + toUni("Curse") + ". You're unwilling to part with this amulet while attuned to it and you wear it always. While wearing the amulet you have disadvantage on Strength saving throws and Strength checks. Only the Remove Curse spell allows you to remove the item and end attunement."+
+	CoA_Corruption.description,
+	eval :       function() { CoA_Corruption.process(true,  "infernal amulet") },
+	removeeval : function() { CoA_Corruption.process(false, "infernal amulet") },
+	calcChanges : {
+		spellCalc : [
+			function (type, spellcasters, ability) {
+				if (type != "prepare") return 2;
+			},
+			"While wearing the Infernal Amulet my spell save DC and spell attack bonus each increase by 2."
+		]
+	},
+	advantages : [["Athletics", false], ["Strength", false]]
+}
+if (typePF) MagicItemsList["infernal amulet"].savetxt = { text : ["Disadv. on Str saves/checks"] }
+MagicItemsList["infernal plate armor"] = {
+	name : "Infernal Plate Armor",
+	source : [["CoA", 268]],
+	type : "armor (plate)",
+	rarity : "very rare",
+	attunement : true,
+	cursed: true,
+	description : "While wearing this armor, I gain a +2 bonus to AC. This armor is cursed and corrupting. I can't take it off or unattune to it without Remove Curse. It makes me vulnerable to the following damage types: force, lightning, psychic, radiant, and thunder.",
+	descriptionFull : "While wearing this armor, you gain a +2 bonus to AC."+
+	"\n   " + toUni("Curse") + ". Once you wear this armor, and are attuned to it, you can't remove it. Only the Remove Curse spell allows you to end the attunement and finally doff it. While wearing the armor, you're vulnerable to the following damage types: force, lightning, psychic, radiant, and thunder."+
+	CoA_Corruption.description,
+	eval :       function() { CoA_Corruption.process(true,  "infernal plate armor") },
+	removeeval : function() { CoA_Corruption.process(false, "infernal plate armor") },
+	weight : 65,
+	armorOptions : [{
+		regExpSearch : /^(?=.*infernal)(?=.*plate).*$/i,
+		name : "Infernal Plate Armor",
+		source : [["CoA", 268]],
+		type : "heavy",
+		ac : "18+2",
+		stealthdis : true,
+		weight : 65,
+		strReq : 15,
+		selectNow : true
+	}],
+	savetxt : { text : ["Vulnerable to force, lightning, psychic, radiant, and thunder damage"] },
+}
+MagicItemsList["knife of stolen resistance"] = {
+	name : "Knife of Stolen Resistance",
+	source : [["CoA", 268]],
+	type : "weapon (dagger)",
+	rarity : "rare",
+	description : "As an action once per long rest, I can use this knife to carve a single infernal rune into the flesh of an unconscious Beast, Celestial, Dragon, Fey, or Giant. Over the next 10 minutes the creature dies in agony, only Wish can stop this. If the creature has any resistances or immunities, I gain those while its dying.",
+	descriptionFull : "Using an action, you carve a single infernal rune into the flesh of an unconscious Beast, Celestial, Dragon, Fey, or Giant with this knife. Over the next 10 minutes the creature dies an agonizing death that can't be prevented short of the Wish spell. If the creature has any resistances or immunities, you gain those resistances and immunities until the creature dies or a Wish spell is used to save the creature. The knife's power can't be used again until you finish a long rest.",
+	weight : 1,
+	action : [["action", ""]],
+	usages : 1,
+	recovery : "long rest",
+	weaponOptions : [{
+		baseWeapon : "dagger",
+		regExpSearch : /^(?=.*knife)(?=.*stolen)(?=.*resistance).*$/i,
+		name : "Knife of Stolen Resistance",
+		source : [["CoA", 268]],
+		selectNow : true
+	}]
+}
+MagicItemsList["ring of collecting"] = {
+	name : "Ring of Collecting",
+	source : [["CoA", 268]],
+	type : "ring",
+	rarity : "very rare",
+	attunement : true,
+	description : "As an action once per dawn, I can use this ring to cast Tiny Hut. As a bonus action, I can disintegrate an up to Medium sized, nonmagical piece of art within 60 ft. That art now appears inside the tiny hut, vanishing forever if removed from it. For every 1000 gp of art added, the tiny hut get +1 ft radius and lasts +1 hour.",
+	descriptionLong : "As an action once per dawn, I can use this ring to cast Leomund's Tiny Hut. As a bonus action, I can use this ring to disintegrate an up to Medium sized, nonmagical piece of art (drawing, painting, or sculpture) within 60 ft. That art now appears inside the tiny hut, for me to appreciate whenever I desire. If I try to remove this art from the tiny hut, it vanishes forever. I can steadily improve this space, but only by denying such beauty from the rest of the world. For every 1000 gp of art acquired, the tiny hut increases in size by adding +1 ft to its radius and lasts +1 hour.",
+	descriptionFull : "While wearing this ring you can use it to cast the Leomund's Tiny Hut spell as an action. Once this property is used, it can't be used again until the next dawn. Additionally, as a bonus action, you can use the ring to disintegrate any nonmagical piece of art (drawing, painting, or sculpture) within 60 feet that is no larger than Medium-sized. That art now appears inside the tiny hut, for you to appreciate whenever you desire. If you try to remove this art from the tiny hut, it vanishes forever. You can steadily improve this space, but only by denying such beauty to the rest of the world. For every 1,000 gp of art acquired, the tiny hut increases in size by adding another foot to its radius and lasts one additional hour.",
+	spellcastingBonus : [{
+		name : "Once per dawn",
+		spells : ["leomund's tiny hut"],
+		selection : ["leomund's tiny hut"],
+		firstCol : "oncelr"
+	}],
+	spellChanges : {
+		"leomund's tiny hut" : {
+			time : "1 a",
+			duration : "8h+1h/1k gp",
+			description : "10ft+1ft/1000 gp rad immobile dome of force; 9 Medium crea; blocks magic; ends if I leave; see book",
+			changes : "Using the Ring of Collecting, I can cast Leomund's Tiny Hut as an action instead of taking 1 minute. Once this property is used, it can't be used again until the next dawn. For every 1000 gp of art acquired, the tiny hut increases in size by adding +1 ft to its radius and lasts +1 hour."
+		}
+	},
+	usages : 1,
+	recovery : "dawn",
+	additional : "Leomund's Tiny Hut",
+	action : [["bonus action", " (steal art)"]]
+}
+MagicItemsList["ring of the copycat"] = {
+	name : "Ring of the Copycat",
+	source : [["CoA", 268]],
+	type : "ring",
+	rarity : "legendary",
+	attunement : true,
+	description : "As a reaction when an ally within 60 ft casts a spell, I can cast it as well as long as I can't normally cast it and it requires 10 gp or less material components. The cloned spell uses the original caster's abilities, originates from me and I choose its targets, but my ally can't cast this spell again until they finish a long rest.",
+	descriptionFull : "You gain the ability to channel energy from allies to cast spells, even if you normally can't. When an ally within 60 feet of you casts a spell that you normally can't cast and that requires 10 gp or fewer in material components, you may use a reaction to cast that spell. When cast in this way, the spell is cast using your ally's spellcasting ability, spell save DC, and spell attack bonus, as needed. You decide this cloned spell's target, as specified in the spell's description, and the spell originates from you. After you use this ability, your ally can't cast this spell again until they finish a long rest.",
+	action : [["reaction", ""]]
+}
+MagicItemsList["ring of treachery"] = {
+	name : "Ring of Treachery",
+	source : [["CoA", 269]],
+	type : "ring",
+	rarity : "very rare",
+	attunement : true,
+	description : "This ring has 3 charges, which are restored whenever I finish a long rest. As a reaction when I am damaged, I can expend one charge to transfer that damage to a random creature (allies included) within 60 ft of me.",
+	descriptionFull : "This ring has 3 charges. While wearing this ring, when you're damaged, you may use a reaction to expend a charge and transfer that damage to a random creature (which could include an ally) within 60 feet. All charges are restored when you finish a long rest.",
+	action : [["reaction", " (when damaged)"]],
+	usages : 3
+}
+MagicItemsList["sage's mirror"] = {
+	name : "Sage's Mirror",
+	source : [["CoA", 269]],
+	type : "wondrous item",
+	rarity : "rare",
+	description : "This mirror has 3 charges, regaining all at dusk. As an action, I can expend 1 charge to cast either Find the Path or Legend Lore. With each use, it is apparent that the information gleaned from the mirror comes from a chamber in the Nine Hells where sages and scholars are tortured for the answers to each question.",
+	descriptionFull : "This item has 3 charges and regains all charges at dusk. You can use an action and expend 1 of the mirror's charges to cast one of the following spells:"+
+	"\n \u2022 Find the Path"+
+	"\n \u2022 Legend Lore"+
+	"\n   With each use, it is apparent that the information gleaned from the mirror comes from a chamber in the Nine Hells where sages and scholars are tortured for the answers to each question.",
+	usages : 3,
+	recovery : "Dusk",
+	spellFirstColTitle : "Ch",
+	spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["find the path", "legend lore"],
+		selection : ["find the path", "legend lore"],
+		firstCol : 1,
+		times : 2
+	}],
+	spellChanges : {
+		"find the path" : {
+			time : "1 a",
+			changes : "Using the Sage's Mirror, I can cast Find the Path as an action when I expend one of its charges."
+		},
+		"legend lore" : {
+			time : "1 a",
+			changes : "Using the Sage's Mirror, I can cast Legend Lore as an action when I expend one of its charges."
+		}
+	}
+}
+MagicItemsList["skull of selfish knowledge"] = {
+	name : "Skull of Selfish Knowledge",
+	source : [["CoA", 269]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	description : "As an action, I can make this magical skull devour a nonmagical book, map, or scroll. Once devoured, the learning is forever available to me, but I can never write the information down or communicate it to others. It is for me alone.",
+	descriptionFull : "You may use an action to make the magical skull devour a nonmagical book, map, or scroll. Once devoured the learning is forever available to you, but you can never write the information down or communicate it to others. It is for you alone.",
+	action : [["action", ""]]
+}
+MagicItemsList["stygian spear"] = {
+	name : "Stygian Spear",
+	source : [["CoA", 270]],
+	type : "weapon (spear or javelin)",
+	rarity : "very rare",
+	attunement : true,
+	cursed: true,
+	description : "This +2 weapon deals +1d6 damage when thrown. It returns to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune, and have disadv. with other weapons. On a 1 to hit, I attack the closest ally with adv. and deal +2d6 poison damage.",
+	descriptionFull : "You have a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately."+
+	"\n   " + toUni("Curse") + ". You're unwilling to part with this weapon while attuned to it. In addition, you have disadvantage on attack rolls made with weapons other than this one."+
+	"\n   Whenever you roll a 1 on an attack roll using this weapon, your target changes to your closest ally."+
+	"\n   If there are multiple allies, randomly determine which is the target. Make a new attack roll with advantage against your ally. If the attack hits, in addition to the standard damage you deal an extra 2d6 poison damage. Only the Remove Curse spell allows you to end attunement to this item."+
+	CoA_Corruption.description,
+	eval :       function() { CoA_Corruption.process(true,  "stygian spear") },
+	removeeval : function() { CoA_Corruption.process(false, "stygian spear") },
+	choices : ["Javelin", "Spear"],
+	"javelin" : {
+		name : "Stygian Javelin",
+		description : "This +2 javelin deals +1d6 damage when thrown. It returns to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune, and have disadv. with other weapons. On a 1 to hit, I attack the closest ally with adv. and deal +2d6 poison damage.",
+		descriptionLong : "I have a +2 bonus to attack and damage rolls made with this magic javelin. When I throw it, it deals one extra die of damage on a hit and it flies back to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune to it, and gives me disadvantage on attacks with other weapons. Whenever I roll a 1 on an attack roll using this weapon, I instead attack my closest ally. I make a new attack roll with advantage against my ally and if it hits, this weapon deals an extra +2d6 poison damage. If there are multiple allies, randomly determine the target.",
+		weaponOptions : [{
+			baseWeapon : "javelin",
+			regExpSearch : /^(?=.*stygian)(?=.*javelin).*$/i,
+			name : "Stygian Javelin",
+			source : [["CoA", 270]],
+			description : "Returning, thrown; Thrown: +1d6 damage; On 1: adv. attack ally \u0026 +2d6 poison damage",
+			modifiers : [2, 2],
+			selectNow : true
+		}],
+		weight : 2
+	},
+	"spear" : {
+		name : "Stygian\u200A Spear",
+		description : "This +2 spear deals +1d6 damage when thrown. It returns to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune, and have disadv. with other weapons. On a 1 to hit, I attack the closest ally with adv. and deal +2d6 poison damage.",
+		descriptionLong : "I have a +2 bonus to attack and damage rolls made with this magic spear. When I throw it, it deals one extra die of damage on a hit and it flies back to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune to it, and gives me disadvantage on attacks with other weapons. Whenever I roll a 1 on an attack roll using this weapon, I instead attack my closest ally. I make a new attack roll with advantage against my ally and if it hits, this weapon deals an extra +2d6 poison damage. If there are multiple allies, randomly determine the target.",
+		weaponOptions : [{
+			baseWeapon : "spear",
+			regExpSearch : /^(?=.*stygian)(?=.*spear).*$/i,
+			name : "Stygian Spear",
+			source : [["CoA", 270]],
+			description : "Returning, thrown, versatile (1d8); Thrown: +1d6 damage; On 1: adv. attack ally \u0026 +2d6 poison damage",
+			modifiers : [2, 2],
+			selectNow : true
+		}],
+		weight : 3
+	}
+}
+MagicItemsList["sword of retribution"] = {
+	name : "Sword of Retribution",
+	nameTest : "of Retribution",
+	source : [["CoA", 270]],
+	type : "weapon (any sword)",
+	rarity : "very rare",
+	attunement : true,
+	cursed: true,
+	description : "Damage from this +3 sword can be regained only through resting. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune, and have disadv. with other weapons. After a long rest, I must make a DC 11 Con save or only get the benefits of a short rest due to nightmares.",
+	descriptionLong : "I gain a +3 bonus to attack and damage rolls made with this sword. Hit points lost to this weapon's damage can be regained only through a short or long rest, rather than by regeneration, magic, or any other means. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune to it, and gives me disadvantage on attacks with other weapons. When I sleep, I experience nightmares of the past of the vengeful spirit possessing the sword, culminating in its death. After a long rest, I must make a DC 11 Constitution saving throw or only gain the benefits of a short rest.",
+	descriptionFull : "You gain a +3 bonus to attack and damage rolls made with this sword. Hit points lost to this weapon's damage can be regained only through a short or long rest, rather than by regeneration, magic, or any other means."+
+	"\n   " + toUni("Curse") + ". You're unwilling to part with this weapon while attuned to it. While attuned to this weapon, you also have disadvantage on attack rolls made with weapons other than this one."+
+	"\n   The vengeful spirit possessing the sword shares its history and lust for vengeance with the wielder. After each successful long rest, you experience nightmares of the spirit's past, culminating in its death. When you wake, you must make a DC 11 Constitution saving throw. On a failed save, you only gain the benefits of a short rest. Only the Remove Curse spell allows you to end attunement to this item."+
+	CoA_Corruption.description,
+	eval :       function() { CoA_Corruption.process(true,  "sword of retribution") },
+	removeeval : function() { CoA_Corruption.process(false, "sword of retribution") },
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "prefix",
+		descriptionChange : ["replace", "sword"],
+		excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /sword|scimitar|rapier/i;
+			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
+		}
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/of retribution/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + 'Only rest heals this damage; Cursed';
+				}
+			},
+			'If I include the words "of Retribution" in the name of a sword, it will be treated as the magic weapon Sword of Retribution. It gives a +3 bonus to attack and damage. Damage it deals can\'t be healed except by resting, and it also bears a curse.'
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/of retribution/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					output.magic = v.thisWeapon[1] + 3;
+				}
+			}, ''
+		]
+	}
+}
+var CoA_VialOfGreed = [
+	"This small glass vial can stockpile resources for use in the future. Once stored, resources last for 1 century before vanishing. As an action you make the vial store any number of the following resources, which are magically consumed and converted into a violet-colored liquid:",
+	"\u2022 Up to 31 days of food and/or drink. The flavors are lost, instead becoming tasteless.",
+	"\u2022 Up to 7 days of alcohol. The flavors are lost, instead becoming tasteless.",
+	"\u2022 Up to 5 magic scrolls that affect a single creature. The target of the spell is you, and if the spell requires concentration, you can concentrate.",
+	"\u2022 Up to 5 magic potions. No more than 2 duplicate potions can be stored at a time.",
+	"You may have more than one kind of resource in the vial, up to the limits expressed above. You can use a bonus action to consume one day of food (or alcohol) or activate one scroll or magic potion. If activating a magic scroll, the effects of that scroll must end before you can activate another scroll from the Vial of Greed."
+];
+MagicItemsList["vial of greed"] = {
+	name : "Vial of Greed",
+	source : [["CoA", 270]],
+	type : "wondrous item",
+	rarity : "rare",
+	attunement : true,
+	description : "As an action, I can have this small glass vial magically store: food and drink (up to 31 days), alcohol (up to 7 days), magic scrolls that affect 1 creature (up to 5), and magic potions (up to 5, no 3 can be the same). As a bonus action, I can use or consume one of those stored, but the food, drink and alcohol is tasteless.",
+	descriptionFull : CoA_VialOfGreed.join("\n   "),
+	toNotesPage : [{
+		name : "Vial of Greed Features",
+		note : desc(CoA_VialOfGreed).replace(/is you/ig, "is me").replace(/you /ig, "I ")
+	}],
+	action : [
+		["action", "Store in Vial of Greed"],
+		["bonus action", "Use from Vial of Greed"]
+	]
+}
+MagicItemsList["weapon of agonizing paralysis"] = {
+	name : "Weapon of Agonizing Paralysis",
+	nameTest : "of Agonizing Paralysis",
+	source : [["CoA", 271]],
+	type : "weapon (any melee)",
+	rarity : "very rare",
+	attunement : true,
+	description : "This magic weapon has a +3 bonus to hit and damage. When it reduces a creature to 0 hp, they don't die but are instead healed to 1 hp and paralyzed. While paralyzed, infernal runes appear as if carved into their flesh and at the start of each of their turns they suffer immense pain and gain a level of exhaustion.",
+	descriptionFull : "You have a +3 bonus to attack and damage rolls made with this magic weapon. When this weapon reduces a creature to 0 hit points, the creature doesn't die. Instead, infernal runes appear as if carved into their flesh and they're healed to 1 hit point. They now have the paralyzed condition until the condition is removed by a Lesser Restoration spell or similar magic. When the condition is removed, the runes disappear. At the start of each of their turns while they're paralyzed, the creature suffers immense pain and gains a level of exhaustion.",
+	allowDuplicates : true,
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "prefix",
+		excludeCheck : function (inObjKey, inObj) {
+			return /melee/i.test(inObj.range);
+		}
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && /^(?=.*agonizing)(?=.*paralysis).*$/i.test(v.baseWeaponName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + 'At 0 hp: paralyzed not dead';
+				}
+			},
+			'If I include the words "of Agonizing Paralysis" in a the name of a melee weapon, it will be treated as the magic weapon Weapon of Agonizing Paralysis. It has +3 to hit and damage and when it brings a target to 0 hp, they are healed to 1 hp and paralyzed.'
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && /^(?=.*agonizing)(?=.*paralysis).*$/i.test(v.baseWeaponName)) {
+					v.theWea.isMagicWeapon = true;
+					output.magic = v.thisWeapon[1] + 3;
+				}
+			}, ''
+		]
+	}
+}
+
 // pub_20240521_VEoR.js
 // This file adds the magic item from the Vecna: Eve of Ruin adventure to MPMB's Character Record Sheet
 
@@ -54753,57 +54820,3 @@ MagicItemsList["staff of ruling"] = {
 		recovery : "dawn"
 	}]
 }
-// pub_al_20190917_ALPG-v9.1.js
-// This file adds the winged aasimar/tiefling from the Adventurers League Player's Guide v9.1: Inglorious Redemption to MPMB's Character Record Sheet
-
-// Define the source
-SourceList["ALPGs9"] = {
-	name : "AL Player's Guide v9.1: Inglorious Redemption",
-	abbreviation : "ALPGs9",
-	group : "Adventurers League",
-	url : "https://www.dropbox.com/s/8r1cwjrk6n2rzyo/AL-Players-Guide-v9.1-Forgotten-Realms.pdf?dl=1", // used to be https://www.dmsguild.com/product/208178
-	date : "2019/09/17",
-	defaultExcluded : true
-};
-
-/*
-	Add this source to the Aasimar from VGtM and the Winged Tiefling variant from SCAG
-	Also, add a winged variant to the three Aasimar subraces from VGtM
-*/
-[
-	["fallen aasimar", false],
-	["protector aasimar", false],
-	["scourge aasimar", false],
-	["tiefling-winged", true],
-	["feral tiefling-winged", true]
-].forEach(function (rac) {
-	var rObj = rac[1] ? RaceSubList[rac[0]] : RaceList[rac[0]];
-	if (!rObj) return;
-	rObj.source = (isArray(rObj.source[0]) ? rObj.source : [rObj.source]).concat([["ALPGs9", 6]]);
-	if (rac[0].indexOf("aasimar") !== -1) {
-		AddRacialVariant(rac[0], "winged", {
-			regExpSearch : /wing/i,
-			name : "Winged " + rObj.name,
-			source : [["ALPGs9", 6]],
-			plural : "Winged " + rObj.plural,
-			speed : {
-				walk : { spd : 30, enc : 20 },
-				fly : { spd : 30, enc : 0 }
-			},
-			trait : "Winged " + rObj.trait.replace(/\)(\r|\n|.)+/, ")\n\nHealing Hands:\n   As an action, once per long rest, I can touch to heal for my level in HP.\nWings:\n   Once I'm 5th level, I sprout feathered wings from my shoulder blades that give me a flying speed of 30 feet when I'm not wearing heavy armor."),
-			features : {
-				"healing hands" : {
-					name : "Healing Hands",
-					usages : 1,
-					minlevel : 1,
-					recovery : "long rest",
-					additional : levels.map(function (n) { return n + " HP"; }),
-					action : [["action", ""]]
-				}
-			},
-			abilitySave : "",
-			spellcastingAbility : "",
-			spellcastingBonus : ""
-		});
-	}
-});

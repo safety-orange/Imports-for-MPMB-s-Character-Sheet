@@ -9,7 +9,7 @@ const rename  = require('gulp-rename');
 const replace = require('gulp-replace');
 const uglify  = require('gulp-uglify');
 
-const stableVersion = '"13.2.0"';
+const stableVersion = '"13.2.3"';
 const betaVersion   = '"13.3.0-beta1"';
 const betaFolder    = "/v13.3";
 const parentFolder  = "WotC material";

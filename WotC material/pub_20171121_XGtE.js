@@ -5137,7 +5137,8 @@ MagicItemsList["heward's handy spice pouch"] = {
 	weight : 1,
 	usages : 10,
 	recovery : "dawn",
-	additional : "regains 1d6+4"
+	additional : "regains 1d6+4",
+	action : [["action", ""]]
 }
 MagicItemsList["horn of silent alarm"] = {
 	name : "Horn of Silent Alarm",
@@ -5463,7 +5464,7 @@ MagicItemsList["wand of pyrotechnics"] = {
 	descriptionFull : "This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges and create a harmless burst of multicolored light at a point you can see up to 60 feet away. The burst of light is accompanied by a crackling noise that can be heard up to 300 feet away. The light is as bright as a torch flame but lasts only a second.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand erupts in a harmless pyrotechnic display and is destroyed.",
 	weight : 1,
 	action : [["action", ""]],
-	usages : 3,
+	usages : 7,
 	recovery : "dawn",
 	additional : "regains 1d6+1"
 }

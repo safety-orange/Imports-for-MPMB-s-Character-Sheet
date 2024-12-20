@@ -1,5 +1,5 @@
 var iFileName = "pub_20201117_TCoE.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("13.2.3");
 // This file adds the content from Tasha's Cauldron of Everything to MPMB's Character Record Sheet
 
 /*	ACKNOWLEDGEMENTS
@@ -1345,6 +1345,7 @@ AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Arcane Prop
 });
 MagicItemsList["arcane propulsion armor"] = {
 	name : "Arcane Propulsion Armor",
+	nameTest : /arcane.propulsion.*armou?r/i,
 	source : [["T", 20]],
 	type : "armor (light, medium, or heavy)",
 	descriptionFull : "The wearer of this armor gains these benefits:\n \u2022 The wearer's walking speed increases by 5 feet.\n \u2022 The armor includes gauntlets, each of which is a magic melee weapon that can be wielded only when the hand is holding nothing. The wearer is proficient with the gauntlets, and each one deals 1d8 force damage on a hit and has the thrown property, with a normal range of 20 feet and a long range of 60 feet. When thrown, the gauntlet detaches and flies at the attack's target, then immediately returns to the wearer and reattaches.\n \u2022 The armor can't be removed against the wearer's will.\n \u2022 If the wearer is missing any limbs, the armor replaces those limbs\u2014hands, arms, feet, legs, or similar appendages. The replacements function identically to the body parts they replace.",
@@ -1352,8 +1353,9 @@ MagicItemsList["arcane propulsion armor"] = {
 	attunement : true,
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "brackets",
-		descriptionChange : ["prefix", "armor"]
+		prefixOrSuffix : ["between", "Arcane Propulsion", "Armor"],
+		descriptionChange : ["prefix", "armor"],
+		itemName1stPage : ["suffix", "Arcane Propulsion"]
 	},
 	speed : { walk : { spd : "+5", enc : "+5" } },
 	weaponOptions : [{
@@ -6761,7 +6763,7 @@ MagicItemsList["barrier tattoo"] = {
 	name : "Barrier Tattoo",
 	source : [["T", 122]],
 	type : "wondrous item (tattoo)",
-	description : "This magic tattoo depicts protective imagery and uses ink that resembles liquid metal. While not wearing armor, this tatoo grants me an Armor Class related to the rarity of the tattoo.",
+	description : "This magic tattoo depicts protective imagery and uses ink that resembles liquid metal. While not wearing armor, this tattoo grants me an Armor Class related to the rarity of the tattoo.",
 	descriptionFull : "Produced by a special needle, this magic tattoo depicts protective imagery and uses ink that resembles liquid metal."+
 	"\n   " + toUni("Protection") + ". While you aren't wearing armor, the tattoo grants you an Armor Class depending on the tattoo's rarity, as shown below. You can use a shield and still gain this benefit."+
 	toUni("\nTattoo Rarity\tAC")+

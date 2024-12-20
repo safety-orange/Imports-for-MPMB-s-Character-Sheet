@@ -1,5 +1,5 @@
 var iFileName = "pub_20161115_VGtM.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("13.2.3");
 // This file adds all the player-material from Volo's Guide to Monsters to MPMB's Character Record Sheet
 
 // Define the source
@@ -1211,6 +1211,7 @@ MagicItemsList["mind blade"] = {
 }
 MagicItemsList["mind carapace armor"] = {
 	name : "Mind Carapace Armor",
+	nameTest : /mind.carapace.*armou?r/i,
 	source : [["V", 81]],
 	type : "armor (heavy)",
 	rarity : "uncommon",
@@ -1224,7 +1225,7 @@ MagicItemsList["mind carapace armor"] = {
 	allowDuplicates : true,
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "brackets",
+		prefixOrSuffix : ["between", "Mind Carapace", "Armor"],
 		descriptionChange : ["prefix", "armor"],
 		itemName1stPage : ["suffix", "Mind Carapace"],
 		excludeCheck : function (inObjKey, inObj) {

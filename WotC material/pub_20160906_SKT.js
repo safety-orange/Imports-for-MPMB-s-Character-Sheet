@@ -1,5 +1,5 @@
 var iFileName = "pub_20160906_SKT.js";
-RequiredSheetVersion("13.2.0");
+RequiredSheetVersion("13.2.2");
 // This file adds the beasts from the Storm King's Thunder adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -618,7 +618,8 @@ MagicItemsList["pennant of the vind rune"] = {
 			type : "armor",
 			prefixOrSuffix : "brackets",
 			descriptionChange : ["prefix", "armor"],
-			itemName1stPage : ["suffix", "Ild Rune"]
+			itemName1stPage : ["suffix", "Vind Rune"],
+			noStealthDis : /^(?=.*\bvind)(?=.*rune\b).*$/i
 		}
 	},
 	"transferred to a pair of boots or cloak" : {

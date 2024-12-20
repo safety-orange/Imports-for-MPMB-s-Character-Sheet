@@ -1,5 +1,5 @@
 var iFileName = "pub_20220315_CotN.js";
-RequiredSheetVersion("13.1.1");
+RequiredSheetVersion("13.2.3");
 // This file adds all the magic items from Critical Role: Call of the Netherdeep to MPMB's Character Record Sheet
 
 SourceList.CotN = {
@@ -165,7 +165,7 @@ MagicItemsList["ring of red fury"] = {
 };
 MagicItemsList["ruidium armor"] = {
 	name : "Ruidium Armor",
-	nameTest : "Ruidium",
+	nameTest : /ruidium.*armou?r/i,
 	source : [["CotN", 215]],
 	type : "armor (medium or heavy)",
 	rarity : "very rare",
@@ -183,7 +183,8 @@ MagicItemsList["ruidium armor"] = {
 	allowDuplicates : true,
 	chooseGear : {
 		type : "armor",
-		prefixOrSuffix : "suffix",
+		prefixOrSuffix : ["between", "Ruidium", "Armor"],
+		itemName1stPage : ["suffix", "Ruidium"],
 		excludeCheck : function (inObjKey, inObj) {
 			return !(/medium|heavy/i).test(inObj.type) || (/hide/i).test(inObj.name);
 		},
@@ -217,6 +218,7 @@ MagicItemsList["ruidium shield"] = {
 }
 MagicItemsList["ruidium weapon"] = {
 	name : "Ruidium Weapon",
+	nameTest : "Ruidium",
 	source : [["CotN", 216]],
 	type : "weapon (any)",
 	rarity : "very rare",
@@ -234,8 +236,7 @@ MagicItemsList["ruidium weapon"] = {
 	allowDuplicates : true,
 	chooseGear : {
 		type : "weapon",
-		prefixOrSuffix : "brackets",
-		itemName1stPage : ["suffix", "Ruidium"],
+		prefixOrSuffix : "suffix",
 		descriptionChange : ["replace", "weapon"]
 	},
 	calcChanges : {

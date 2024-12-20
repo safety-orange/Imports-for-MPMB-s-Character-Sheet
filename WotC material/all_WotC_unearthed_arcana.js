@@ -1,6 +1,6 @@
-if (sheetVersion < 13002000) { throw "This script was made for a newer version of the sheet (v13.2.0). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
+if (sheetVersion < 13002003) { throw "This script was made for a newer version of the sheet (v13.2.3). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
 var iFileName = "all_WotC_unearthed_arcana.js";
-RequiredSheetVersion("13.2.0");
+RequiredSheetVersion("13.2.3");
 // ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
