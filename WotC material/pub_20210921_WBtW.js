@@ -458,6 +458,14 @@ MagicItemsList["steel"] = {
 		source : [["WBtW", 214]],
 		modifiers : [2, 2],
 		selectNow : true
+	}],
+	usages : 1,
+	recovery : "dawn",
+	spellcastingBonus : [{
+		name : "Once per dawn",
+		spells : ["revivify"],
+		selection : ["revivify"],
+		firstCol : "oncelr"
 	}]
 }
 MagicItemsList["woodcutter's axe"] = {

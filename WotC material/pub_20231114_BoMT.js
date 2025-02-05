@@ -1179,7 +1179,7 @@ MagicItemsList["fate dealer's deck"] = {
 };
 MagicItemsList["feywrought armor"] = {
 	name : "Feywrought Armor",
-	name : /feywrought.*armou?r/i,
+	nameTest : /feywrought.*armou?r/i,
 	source : [["BoMT", 67]], // Chapter 9: Knight
 	type : "armor (light, medium, or heavy)",
 	rarity : "rare",
@@ -1328,7 +1328,7 @@ MagicItemsList["glimmering moonbow"] = {
 };
 MagicItemsList["gloomwrought armor"] = {
 	name : "Gloomwrought Armor",
-	name : /gloomwrought.*armou?r/i,
+	nameTest : /gloomwrought.*armou?r/i,
 	source : [["BoMT", 67]], // Chapter 9: Knight
 	type : "armor (light, medium, or heavy)",
 	rarity : "rare",
