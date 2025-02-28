@@ -12,6 +12,13 @@ SourceList["UA:TMC"] = {
 	date : "2017/03/13"
 };
 
+// Add spell schools
+spellSchoolList["Avatar"] = "avatar";
+spellSchoolList["Awake"]  = "awakened";
+spellSchoolList["Immor"]  = "immortal";
+spellSchoolList["Nomad"]  = "nomad";
+spellSchoolList["Wu Jen"] = "wu jen";
+
 // Adds a new class, the Mystic, with 6 subclasses
 ClassList.mystic = {
 	regExpSearch : /psion\b|mystic/i,

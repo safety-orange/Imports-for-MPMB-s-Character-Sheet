@@ -132,13 +132,13 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 					usages : "Proficiency bonus per ",
 					usagescalc : "event.value = How('Proficiency Bonus');",
 					recovery : "long rest",
-					additional : levels.map(function (n) {
-						return (n < 5 ? 1 : n < 11 ? 2 : n < 17 ? 3 : 4) + 'd10';
+					additional : cantripDie.map(function (n) {
+						return n + 'd10';
 					}),
 					calcChanges : {
 						atkAdd : [
 							function (fields, v) {
-								if (v.theWea.dbBreathWeapon && (/dragonborn/i).test(CurrentRace.known) && CurrentRace.variant) {
+								if (v.theWea.dbBreathWeapon && /dragonborn/i.test(CurrentRace.known) && CurrentRace.dmgres) {
 									fields.Damage_Type = CurrentRace.dmgres[0];
 								}
 							},
