@@ -1,5 +1,5 @@
 var iFileName = "ua_20200713_Feats-2020.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds the content from the Unearthed Arcana 2020: Feats article to MPMB's Character Record Sheet
 // All content in this file contains contributions by AelarTheElfRogue
 
@@ -65,13 +65,13 @@ if (!SourceList.T) {
 			name : "Misty Step",
 			spells : ["misty step"],
 			selection : ["misty step"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}, {
 			name : "1st-level Ench/Div spell",
 			'class': "any",
 			school : ["Ench", "Div"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}],
 		spellcastingAbility : 4,
 		choices : ["Intelligence", "Wisdom", "Charisma"],
@@ -275,13 +275,13 @@ FeatsList["shadow touched-ua"] = {
 		name : "Darkness",
 		spells : ["darkness"],
 		selection : ["darkness"],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}, {
 		name : "1st-level Illus/Necro spell",
 		'class' : "any",
 		school : ["Illus", "Necro"],
 		level : [1, 1],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
@@ -329,6 +329,6 @@ FeatsList["tracker-ua"] = {
 		allowUpCasting : true,
 		spells : ["hunter's mark"],
 		selection : ["hunter's mark"],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}]
 };

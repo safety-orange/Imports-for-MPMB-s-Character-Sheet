@@ -1,5 +1,5 @@
 var iFileName = "pub_20221206_Dragonlance.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds the Character Options content from Dragonlance: Shadow of the Dragon Queen to MPMB's Character Record Sheet
 
 SourceList["D:SotDQ"] = {
@@ -164,7 +164,7 @@ FeatsList["initiate of high sorcery"] = {
 		}, {
 			name : "Nuitari 1st-level spell",
 			spells : ["dissonant whispers", "false life", "hex", "ray of sickness"],
-			firstCol : "oncelr",
+			firstCol : "oncelr+markedbox",
 			times : 2
 		}]
 	},
@@ -180,7 +180,7 @@ FeatsList["initiate of high sorcery"] = {
 		}, {
 			name : "Lunitari 1st-level spell",
 			spells : ["color spray", "disguise self", "feather fall", "longstrider"],
-			firstCol : "oncelr",
+			firstCol : "oncelr+markedbox",
 			times : 2
 		}]
 	},
@@ -196,7 +196,7 @@ FeatsList["initiate of high sorcery"] = {
 		}, {
 			name : "Solinari 1st-level spell",
 			spells : ["comprehend languages", "detect evil and good", "protection from evil and good", "shield"],
-			firstCol : "oncelr",
+			firstCol : "oncelr+markedbox",
 			times : 2
 		}]
 	}
@@ -218,7 +218,7 @@ FeatsList["adept of the black robes"] = {
 		"class" : "any",
 		school : ["Evoc", "Necro"],
 		level : [2, 2],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	spellcastingAbility : 'initiate of high sorcery_-_nuitari',
 	allowUpCasting : true
@@ -243,7 +243,7 @@ FeatsList["adept of the red robes"] = {
 		"class" : "any",
 		school : ["Illus", "Trans"],
 		level : [2, 2],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	spellcastingAbility : 'initiate of high sorcery_-_lunitari',
 	allowUpCasting : true
@@ -266,7 +266,7 @@ FeatsList["adept of the white robes"] = {
 		"class" : "any",
 		school : ["Abjur", "Div"],
 		level : [2, 2],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	spellcastingAbility : 'initiate of high sorcery_-_solinari',
 	allowUpCasting : true
@@ -301,12 +301,12 @@ FeatsList["divinely favored"] = {
 			name : "1st-level Warlock Spell",
 			"class" : ["warlock"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}, {
 			name : "Augury",
 			spells : ["augury"],
 			selection : ["augury"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"good (cleric spell)" : {
@@ -323,12 +323,12 @@ FeatsList["divinely favored"] = {
 			name : "1st-level Cleric Spell",
 			"class" : ["cleric"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}, {
 			name : "Augury",
 			spells : ["augury"],
 			selection : ["augury"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"neutral (druid spell)" : {
@@ -345,12 +345,12 @@ FeatsList["divinely favored"] = {
 			name : "1st-level Druid Spell",
 			"class" : ["druid"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}, {
 			name : "Augury",
 			spells : ["augury"],
 			selection : ["augury"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	}
 };
@@ -683,7 +683,7 @@ MagicItemsList["flying citadel helm"] = {
 	attunement : true,
 	prerequisite : "Requires attunement by a spellcaster",
 	prereqeval : function(v) { return v.isSpellcaster; },
-	description : "This ornate chair allows me to maneuver a flying citadel while concentrating (as if a spell). I can move the citadel through the air 80 ft/round or 8 miles/h, steer it, and see and hear from its highest point as though I were at that location. As an action or bonus action, I can transfer attunement to a willing spellcaster.",
+	description : "This ornate chair allows me to maneuver a flying citadel while concentrating (as if a spell). I can move the citadel through the air 80 ft/round or 8 miles/h, steer it, and see and hear from its highest point as though I was at that location. As an action or bonus action, I can transfer attunement to a willing spellcaster.",
 	descriptionFull : "The function of this ornate chair is to propel and maneuver a flying citadel on which it has been installed. The chair has AC 15, 18 hit points, and immunity to poison and psychic damage. It is destroyed if reduced to 0 hit points."+
 	"\n   The sensation of being attuned to a flying citadel helm is akin to the pins-and-needles effect one experiences after one's arm or leg falls asleep, but not as intense."+
 	"\n   While attuned to a flying citadel helm and sitting in it, you gain the following abilities for as long as you maintain concentration (as if concentrating on a spell):"+

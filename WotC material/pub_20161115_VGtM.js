@@ -213,15 +213,6 @@ RaceList["firbolg"] = {
 				firstCol : 'oncesr',
 				times : 2
 			}],
-			extraLimitedFeatures : [{
-				name : "Detect Magic (Firbolg Magic)",
-				usages : 1,
-				recovery : "short rest"
-			}, {
-				name : "Disguise Self (Firbolg Magic)",
-				usages : 1,
-				recovery : "short rest"
-			}],
 			spellChanges : {
 				"disguise self" : {
 					description : "Alter appearance, up to 3ft shorter/taller; Int(Investigation) check vs. spell DC to determine disguise",
@@ -522,10 +513,7 @@ RaceList["triton"] = {
 	features : {
 		"fog cloud" : {
 			name : "Control Air and Water (level 1)",
-			limfeaname : "Fog Cloud",
 			minlevel : 1,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Control Air and Water (1)",
 				spells : ["fog cloud"],
@@ -535,10 +523,7 @@ RaceList["triton"] = {
 		},
 		"gust of wind" : {
 			name : "Control Air and Water (level 3)",
-			limfeaname : "Gust of Wind",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Control Air and Water (3)",
 				spells : ["gust of wind"],
@@ -548,10 +533,7 @@ RaceList["triton"] = {
 		},
 		"wall of water" : {
 			name : "Control Air and Water (level 5)",
-			limfeaname : "Wall of Water",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Control Air and Water (5)",
 				spells : ["wall of water"],
@@ -621,10 +603,7 @@ RaceList["yuan-ti pureblood"] = {
 	features : {
 		"suggestion" : {
 			name : "Innate Spellcasting (level 3)",
-			limfeaname : "Suggestion",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Innate Spellcasting (level 3)",
 				spells : ["suggestion"],

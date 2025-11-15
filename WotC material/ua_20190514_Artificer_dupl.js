@@ -1,5 +1,5 @@
 var iFileName = "ua_20190514_Artificer.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.0-beta");
 // This file adds the content from the second Unearthed Arcana: Artificer article of 2019 to MPMB's Character Record Sheet
 // It doesn't change anything compared to the UA article of 2019/02/28, but adds additional options: more spells, subclasses, and magic items
 
@@ -47,9 +47,6 @@ ClassList['artificer-ua3'] = {
 	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	spellcastingFactor : 2,
 	spellcastingFactorRoundupMulti : true, // 2019v2
-	spellcastingTable : [[0, 0, 0, 0, 0, 0, 0, 0, 0]].concat(levels.map(function (n) {
-		return defaultSpellTable[Math.ceil(n / 2)];
-	})),
 	spellcastingKnown : {
 		cantrips : [2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4],
 		spells : "list",

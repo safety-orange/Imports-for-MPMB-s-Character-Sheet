@@ -322,10 +322,7 @@ RaceList["mul daya elf"] = {
 	features : {
 		"faerie fire" : {
 			name : "Mul Daya Magic (level 3)",
-			limfeaname : "Faerie Fire",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Mul Daya Magic (level 3)",
 				spells : ["hex"],
@@ -335,10 +332,7 @@ RaceList["mul daya elf"] = {
 		},
 		"darkness" : {
 			name : "Mul Daya Magic (level 5)",
-			limfeaname : "Darkness",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Mul Daya Magic (level 5)",
 				spells : ["darkness"],

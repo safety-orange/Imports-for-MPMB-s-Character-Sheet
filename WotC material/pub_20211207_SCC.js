@@ -1,5 +1,5 @@
 var iFileName = "pub_20211207_SCC.js";
-RequiredSheetVersion("13.1.0");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds all the player-material from Strixhaven: A Curriculum of Chaos to MPMB's Character Record Sheet
 
 // Define the source
@@ -286,7 +286,7 @@ FeatsList["strixhaven initiate"] = {
 			name : "1st-level spell",
 			"class" : ["cleric", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"prismari" : {
@@ -302,7 +302,7 @@ FeatsList["strixhaven initiate"] = {
 			name : "1st-level spell",
 			"class" : ["bard", "sorcerer"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"quandrix" : {
@@ -318,7 +318,7 @@ FeatsList["strixhaven initiate"] = {
 			name : "1st-level spell",
 			"class" : ["druid", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"silverquill" : {
@@ -334,7 +334,7 @@ FeatsList["strixhaven initiate"] = {
 			name : "1st-level spell",
 			"class" : ["bard", "cleric"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"witherbloom" : {
@@ -350,7 +350,7 @@ FeatsList["strixhaven initiate"] = {
 			name : "1st-level spell",
 			"class" : ["druid", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	}
 };
@@ -374,7 +374,7 @@ FeatsList["strixhaven mascot"] = {
 		name : "Strixhaven Mascot",
 		spells : ["find familiar"],
 		selection : ["find familiar"],
-		firstCol : "(R)"
+		firstCol : SpellRitualTag,
 	}],
 	choices : ["Lorehold", "Prismari", "Quandrix", "Silverquill", "Witherbloom"],
 	selfChoosing : function () {

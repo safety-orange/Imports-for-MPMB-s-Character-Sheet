@@ -200,10 +200,7 @@ if (!RaceList["triton"]) {
 		features : {
 			"fog cloud" : {
 				name : "Control Air and Water (level 1)",
-				limfeaname : "Fog Cloud",
 				minlevel : 1,
-				usages : 1,
-				recovery : "long rest",
 				spellcastingBonus : [{
 					name : "Control Air and Water (1)",
 					spells : ["fog cloud"],
@@ -213,10 +210,7 @@ if (!RaceList["triton"]) {
 			},
 			"gust of wind" : {
 				name : "Control Air and Water (level 3)",
-				limfeaname : "Gust of Wind",
 				minlevel : 3,
-				usages : 1,
-				recovery : "long rest",
 				spellcastingBonus : [{
 					name : "Control Air and Water (3)",
 					spells : ["gust of wind"],
@@ -226,10 +220,7 @@ if (!RaceList["triton"]) {
 			},
 			"wall of water" : {
 				name : "Control Air and Water (level 5)",
-				limfeaname : "Wall of Water",
 				minlevel : 5,
-				usages : 1,
-				recovery : "long rest",
 				spellcastingBonus : [{
 					name : "Control Air and Water (5)",
 					spells : ["wall of water"],

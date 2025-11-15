@@ -379,14 +379,10 @@ FeatsList["gift of the metallic dragon-ua"] = {
 		name : "Cure Wounds",
 		spells : ["cure wounds"],
 		selection : ["cure wounds"],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	action : [["reaction", "Metallic Gift (Spectral Wings)"]],
 	extraLimitedFeatures : [{
-		name : "Metallic Gift (Cure Wounds)",
-		usages : 1,
-		recovery : "long rest"
-	}, {
 		name : "Metallic Gift (Spectral Wings)",
 		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus');",

@@ -1,5 +1,5 @@
 var iFileName = "pub_20170404_TftYP.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds the beasts from the Tales from the Yawning Portal adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -231,7 +231,7 @@ MagicItemsList["balance of harmony"] = {
 		name : "Only as ritual",
 		spells : ["detect evil and good"],
 		selection : ["detect evil and good"],
-		firstCol : "(R)"
+		firstCol : SpellRitualTag,
 	}],
 	spellChanges : {
 		"detect evil and good" : {

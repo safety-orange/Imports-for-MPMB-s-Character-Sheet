@@ -1,5 +1,5 @@
 var iFileName = "pub_20191119_ERftLW.js";
-RequiredSheetVersion("13.2.3");
+RequiredSheetVersion("14.0.0-beta");
 // This file adds the content from Eberron: Rising from the Last War to MPMB's Character Record Sheet
 
 // Define the source
@@ -1456,9 +1456,6 @@ ClassList.artificer = {
 	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 	spellcastingFactor : 2,
 	spellcastingFactorRoundupMulti : true,
-	spellcastingTable : [[0, 0, 0, 0, 0, 0, 0, 0, 0]].concat(levels.map(function (n) {
-		return defaultSpellTable[Math.ceil(n / 2)];
-	})),
 	spellcastingKnown : {
 		cantrips : [2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4],
 		spells : "list",
@@ -2063,15 +2060,6 @@ AddSubClass("artificer", "alchemist", {
 			]),
 			dmgres : ["Acid", "Poison"],
 			savetxt : { immune : ["poisoned condition"] },
-			extraLimitedFeatures : [{
-				name : "Chemical Mastery: Greater Restoration",
-				usages : 1,
-				recovery : "long rest"
-			}, {
-				name : "Chemical Mastery: Heal",
-				usages : 1,
-				recovery : "long rest"
-			}],
 			spellcastingBonus : [{
 				name : "Chemical Mastery",
 				spells : ["greater restoration", "heal"],

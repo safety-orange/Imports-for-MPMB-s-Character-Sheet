@@ -1,5 +1,5 @@
 var iFileName = "ua_20201026_Subclasses-Part-5.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.0-beta");
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 5 article to MPMB's Character Record Sheet
 // This file contains contributions by WondrousLittleWizard
 
@@ -308,7 +308,7 @@ var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden-ua", 
 				description : "Hits all in area; Dex save for half damage; Damage type: acid, cold, fire, lightning, or poison",
 				abilitytodamage : false,
 				dc : true,
-				useSpellMod : "ranger",
+				useSpellMod : ["ranger", "rangerua"],
 				DrakewardenDrakeBreath : true,
 				selectNow : true
 			}],
@@ -322,13 +322,6 @@ var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden-ua", 
 					},
 					"",
 					1
-				],
-				atkCalc : [
-					function (fields, v, output) {
-						if (v.theWea.DrakewardenDrakeBreath && classes.known.rangerua) {
-							v.theWea.useSpellMod = "rangerua";
-						}
-					}
 				]
 			}
 		},

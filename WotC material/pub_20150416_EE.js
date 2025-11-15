@@ -84,10 +84,7 @@ RaceList["air genasi"] = {
 	features : {
 		"levitate" : {
 			name : "Mingle with the Wind",
-			limfeaname : "Levitate",
 			minlevel : 1,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Mingle with the Wind",
 				spells : ["levitate"],
@@ -126,10 +123,7 @@ RaceList["earth genasi"] = {
 	features : {
 		"pass without trace" : {
 			name : "Merge with Stone",
-			limfeaname : "Pass without Trace",
 			minlevel : 1,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Merge with Stone",
 				spells : ["pass without trace"],
@@ -176,10 +170,7 @@ RaceList["fire genasi"] = {
 	features : {
 		"burning hands" : {
 			name : "Reach to the Blaze (level 3)",
-			limfeaname : "Burning Hands",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Reach to the Blaze (level 3)",
 				spells : ["burning hands"],
@@ -219,10 +210,7 @@ RaceList["water genasi"] = {
 	features : {
 		"create or destroy water" : {
 			name : "Call to the Wave (level 3)",
-			limfeaname : "Create/Destroy Water (level 2)",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Call to the Wave (level 3)",
 				spells : ["create or destroy water"],
@@ -282,7 +270,7 @@ FeatsList["svirfneblin magic"] = {
 		selection : ["nondetection"],
 		firstCol : 'atwill'
 	}, {
-		name : "1x long rest (self only)",
+		name : "1\xD7 long rest (self only)",
 		spells : ["blindness/deafness", "blur", "disguise self"],
 		selection : ["blindness/deafness", "blur", "disguise self"],
 		firstCol : 'oncelr',

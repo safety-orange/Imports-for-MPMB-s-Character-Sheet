@@ -1,6 +1,6 @@
-if (sheetVersion < 13002003) { throw "This script was made for a newer version of the sheet (v13.2.3). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
+if (sheetVersion < 14000001) { throw "This script was made for a newer version of the sheet (v14.0.1-beta). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
 var iFileName = "all_WotC_unearthed_arcana.js";
-RequiredSheetVersion("13.2.3");
+RequiredSheetVersion("14.0.1-beta");
 // ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
@@ -2487,7 +2487,7 @@ AddSubClass("fighter", "monster hunter-ua", { // Still valid 2021-09-21
 				name : "Spirit Seeker",
 				spells : ["detect magic"],
 				selection : ["detect magic"],
-				firstCol : "(R)",
+				firstCol : SpellRitualTag,
 				spellcastingAbility : 5
 			}, {
 				name : "Spirit Seeker",
@@ -2817,7 +2817,7 @@ AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the St
 		name : "Pact of the Star Chain",
 		spells : ["augury"],
 		selection : ["augury"],
-		firstCol : "(R)"
+		firstCol : SpellRitualTag,
 	}],
 	spellChanges : {
 		"augury" : {
@@ -6174,6 +6174,13 @@ SourceList["UA:TMC"] = {
 	url : "https://media.wizards.com/2017/dnd/downloads/UAMystic3.pdf",
 	date : "2017/03/13"
 };
+
+// Add spell schools
+spellSchoolList["Avatar"] = "avatar";
+spellSchoolList["Awake"]  = "awakened";
+spellSchoolList["Immor"]  = "immortal";
+spellSchoolList["Nomad"]  = "nomad";
+spellSchoolList["Wu Jen"] = "wu jen";
 
 // Adds a new class, the Mystic, with 6 subclasses
 ClassList.mystic = {
@@ -14129,7 +14136,7 @@ RaceList["dragonmark detection half-elf-ua"] = {
 		name : "Sense Threats",
 		spells : ["detect magic", "detect poison and disease"],
 		selection : ["detect magic", "detect poison and disease"],
-		firstCol : "(R)",
+		firstCol : SpellRitualTag,
 		times : 2
 	}],
 	spellChanges : {
@@ -14178,7 +14185,7 @@ RaceList["dragonmark finding half-orc-ua"] = {
 				name : "Nature's Voice",
 				spells : ["locate animals or plants"],
 				selection : ["locate animals or plants"],
-				firstCol : "(R)"
+				firstCol : SpellRitualTag,
 			}],
 			spellChanges : {
 				"locate animals or plants" : {
@@ -14617,7 +14624,7 @@ RaceList["dragonmark warding dwarf-ua"] = {
 		name : "Wards and Seals (level 1)",
 		spells : ["alarm"],
 		selection : ["alarm"],
-		firstCol : "(R)"
+		firstCol : SpellRitualTag,
 	}],
 	spellChanges : {
 		"alarm" : {
@@ -16915,7 +16922,7 @@ var UACFV_Primal_Awareness = {
 		name : "Primal Awareness",
 		spells : ["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"],
 		selection : ["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"],
-		firstCol : "oncelr",
+		firstCol : "oncelr+markedbox",
 		times : levels.map(function (n) {
 			return n < 5 ? 2 : n < 9 ? 4 : n < 13 ? 5 : n < 17 ? 6 : 7;
 		})
@@ -19381,13 +19388,13 @@ FeatsList["shadow touched-ua"] = {
 		name : "Darkness",
 		spells : ["darkness"],
 		selection : ["darkness"],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}, {
 		name : "1st-level Illus/Necro spell",
 		'class' : "any",
 		school : ["Illus", "Necro"],
 		level : [1, 1],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
@@ -19435,7 +19442,7 @@ FeatsList["tracker-ua"] = {
 		allowUpCasting : true,
 		spells : ["hunter's mark"],
 		selection : ["hunter's mark"],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}]
 };
 // ua_20200805_Subclasses-Part-4.js
@@ -19997,7 +20004,7 @@ var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden-ua", 
 				description : "Hits all in area; Dex save for half damage; Damage type: acid, cold, fire, lightning, or poison",
 				abilitytodamage : false,
 				dc : true,
-				useSpellMod : "ranger",
+				useSpellMod : ["ranger", "rangerua"],
 				DrakewardenDrakeBreath : true,
 				selectNow : true
 			}],
@@ -20011,13 +20018,6 @@ var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden-ua", 
 					},
 					"",
 					1
-				],
-				atkCalc : [
-					function (fields, v, output) {
-						if (v.theWea.DrakewardenDrakeBreath && classes.known.rangerua) {
-							v.theWea.useSpellMod = "rangerua";
-						}
-					}
 				]
 			}
 		},
@@ -20108,7 +20108,7 @@ RaceList["hexblood-ua"] = {
 		name : "Hexblood's Magic Token",
 		note : ["As an action, I can harmlessly pull out one of my nails, a tooth, or a lock of hair. This token is imbued with magic until I finish a long rest.",
 		"While the token is imbued in this way, I can use an action to send a telepathic message to the creature holding or carrying the token, as long as I'm on the same plane of existence and are within 10 miles of it. The message can contain up to twenty-five words.",
-		"In addition, while I'm within 10 miles of the token, I can use an action to enter a trance for 1 minute, during which I can see and hear from the token as if I were located where it is. While I'm using my senses at the token's location, I'm blinded and deafened in regard to my own surroundings. Afterward, the token is harmlessly destroyed.",
+		"In addition, while I'm within 10 miles of the token, I can use an action to enter a trance for 1 minute, during which I can see and hear from the token as if I was located where it is. While I'm using my senses at the token's location, I'm blinded and deafened in regard to my own surroundings. Afterward, the token is harmlessly destroyed.",
 		"Once I create a token using this feature, I can't do so again until I finish a long rest, at which point my missing part regrows."]
 	}],
 	savetxt : {
@@ -20131,21 +20131,10 @@ RaceList["hexblood-ua"] = {
 				name : "Hex Magic",
 				spells : ["disguise self", "hex"],
 				selection : ["disguise self", "hex"],
-				firstCol : 'oncelr',
+				firstCol : 'oncelr+markedbox',
 				times : 2,
 				allowUpCasting : true
 			}],
-			extraLimitedFeatures : [{
-				name : "Disguise Self",
-				usages : 1,
-				recovery : "long rest",
-				altResource : "SS 1+"
-			}, {
-				name : "Hex",
-				usages : 1,
-				recovery : "long rest",
-				altResource : "SS 1+"
-			}]
 		}
 	}
 };
@@ -20618,14 +20607,10 @@ FeatsList["gift of the metallic dragon-ua"] = {
 		name : "Cure Wounds",
 		spells : ["cure wounds"],
 		selection : ["cure wounds"],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	action : [["reaction", "Metallic Gift (Spectral Wings)"]],
 	extraLimitedFeatures : [{
-		name : "Metallic Gift (Cure Wounds)",
-		usages : 1,
-		recovery : "long rest"
-	}, {
 		name : "Metallic Gift (Spectral Wings)",
 		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus');",
@@ -21160,7 +21145,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 			name : "Nuitari 1st-level Spell",
 			"class" : "wizard",
 			school : ["Evoc", "Necro"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"intelligence - lunitari" : {
@@ -21175,7 +21160,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 			name : "Lunitari 1st-level Spell",
 			"class" : "wizard",
 			school : ["Div", "Trans"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"intelligence - solinari" : {
@@ -21190,7 +21175,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 			name : "Solinari 1st-level Spell",
 			"class" : "wizard",
 			school : ["Abjur", "Conj"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"wisdom - nuitari" : {
@@ -21205,7 +21190,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 			name : "Nuitari 1st-level Spell",
 			"class" : "wizard",
 			school : ["Evoc", "Necro"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"wisdom - lunitari" : {
@@ -21220,7 +21205,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 			name : "Lunitari 1st-level Spell",
 			"class" : "wizard",
 			school : ["Div", "Trans"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"wisdom - solinari" : {
@@ -21235,7 +21220,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 			name : "Solinari 1st-level Spell",
 			"class" : "wizard",
 			school : ["Abjur", "Conj"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"charisma - nuitari" : {
@@ -21250,7 +21235,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 			name : "Nuitari 1st-level Spell",
 			"class" : "wizard",
 			school : ["Evoc", "Necro"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"charisma - lunitari" : {
@@ -21265,7 +21250,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 			name : "Lunitari 1st-level Spell",
 			"class" : "wizard",
 			school : ["Div", "Trans"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"charisma - solinari" : {
@@ -21280,7 +21265,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 			name : "Solinari 1st-level Spell",
 			"class" : "wizard",
 			school : ["Abjur", "Conj"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 };
@@ -21296,7 +21281,7 @@ FeatsList["adept of the black robes-ua"] = {
 		"class" : "any",
 		school : ["Evoc", "Necro"],
 		level : [2, 2],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
@@ -21332,7 +21317,7 @@ FeatsList["adept of the red robes-ua"] = {
 		"class" : "any",
 		school : ["Div", "Trans"],
 		level : [2, 2],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	action : [["reaction", "Magical Balance"]],
 	usages : "Proficiency bonus per ",
@@ -21372,7 +21357,7 @@ FeatsList["adept of the white robes-ua"] = {
 		"class" : "any",
 		school : ["Abjur", "Conj"],
 		level : [2, 2],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
@@ -21418,7 +21403,7 @@ FeatsList["divinely favored-ua"] = {
 			name : "1st-level Cleric/Wizard Spell",
 			"class" : ["cleric", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"intelligence - neutral" : {
@@ -21434,7 +21419,7 @@ FeatsList["divinely favored-ua"] = {
 			name : "1st-level Druid/Wizard Spell",
 			"class" : ["druid", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"intelligence - evil" : {
@@ -21450,7 +21435,7 @@ FeatsList["divinely favored-ua"] = {
 			name : "1st-level Warlock/Wizard Spell",
 			"class" : ["warlock", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"wisdom - good" : {
@@ -21466,7 +21451,7 @@ FeatsList["divinely favored-ua"] = {
 			name : "1st-level Cleric/Wizard Spell",
 			"class" : ["cleric", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"wisdom - neutral" : {
@@ -21482,7 +21467,7 @@ FeatsList["divinely favored-ua"] = {
 			name : "1st-level Druid/Wizard Spell",
 			"class" : ["druid", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"wisdom - evil" : {
@@ -21498,7 +21483,7 @@ FeatsList["divinely favored-ua"] = {
 			name : "1st-level Warlock/Wizard Spell",
 			"class" : ["warlock", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"charisma - good" : {
@@ -21514,7 +21499,7 @@ FeatsList["divinely favored-ua"] = {
 			name : "1st-level Cleric/Wizard Spell",
 			"class" : ["cleric", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"charisma - neutral" : {
@@ -21530,7 +21515,7 @@ FeatsList["divinely favored-ua"] = {
 			name : "1st-level Druid/Wizard Spell",
 			"class" : ["druid", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"charisma - evil" : {
@@ -21546,7 +21531,7 @@ FeatsList["divinely favored-ua"] = {
 			name : "1st-level Warlock/Wizard Spell",
 			"class" : ["warlock", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	}
 };
@@ -22230,7 +22215,7 @@ FeatsList["guile of the cloud giant-ua"] = {
 		name : "Guile of the Cloud Giant",
 		spells : ["blur"],
 		selection : ["blur"],
-		firstCol : "oncelr",
+		firstCol : "oncelr+markedbox",
 		allowUpCasting : true
 	}]
 };
@@ -22249,14 +22234,14 @@ FeatsList["keenness of the stone giant-ua"] = {
 		name : "Keenness of the Stone Giant",
 		spells : ["detect thoughts"],
 		selection : ["detect thoughts"],
-		firstCol : "oncelr",
+		firstCol : "oncelr+markedbox",
 		allowUpCasting : true
 	}, {
 		name : "1st-level Abjur/Div spell",
 		"class" : "any",
 		school : ["Abjur", "Div"],
 		level : [1, 1],
-		firstCol : "oncelr",
+		firstCol : "oncelr+markedbox",
 		allowUpCasting : true
 	}],
 	vision : [["Darkvision", "fixed 60"], ["Darkvision", "+30"]]
@@ -22861,7 +22846,7 @@ FeatsList["outlands envoy-ua"] = {
 		name : "Crossroads Emissary",
 		spells : ["misty step", "tongues"],
 		selection : ["misty step", "tongues"],
-		firstCol : "oncelr",
+		firstCol : "oncelr+markedbox",
 		times : 2
 	}],
 	spellChanges : {
@@ -23233,11 +23218,11 @@ FeatsList["rune carver apprentice-ua2"] = {
 		name : "Once per long rest",
 		spells : ["comprehend languages"],
 		selection : ["comprehend languages"],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}, {
 		name : "Select Rune Spell",
 		spells : ["ray of sickness", "chromatic orb", "disguise self", "speak with animals", "longstrider", "command", "entangle", "sanctuary"],
-		firstCol : "oncelr",
+		firstCol : "oncelr+markedbox",
 		times : 2,
 		allowUpCasting : true
 	}],

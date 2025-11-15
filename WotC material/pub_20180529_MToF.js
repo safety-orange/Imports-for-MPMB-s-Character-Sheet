@@ -42,10 +42,7 @@ RaceList["baalzebul tiefling"] = {
 	features : {
 		"ray of sickness" : {
 			name : "Legacy of Maladomini (level 3)",
-			limfeaname : "Ray of Sickness (3d8)",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Maladomini (3)",
 				spells : ["ray of sickness"],
@@ -61,10 +58,7 @@ RaceList["baalzebul tiefling"] = {
 		},
 		"crown of madness" : {
 			name : "Legacy of Maladomini (level 5)",
-			limfeaname : "Crown of Madness",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Maladomini (5)",
 				spells : ["crown of madness"],
@@ -104,10 +98,7 @@ RaceList["dispater tiefling"] = {
 	features : {
 		"disguise self" : {
 			name : "Legacy of Dis (level 3)",
-			limfeaname : "Disguise Self",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Dis (level 3)",
 				spells : ["disguise self"],
@@ -117,10 +108,7 @@ RaceList["dispater tiefling"] = {
 		},
 		"detect thoughts" : {
 			name : "Legacy of Dis (level 5)",
-			limfeaname : "Detect Thoughts",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Dis (level 5)",
 				spells : ["detect thoughts"],
@@ -160,10 +148,7 @@ RaceList["fierna tiefling"] = {
 	features : {
 		"charm person" : {
 			name : "Legacy of Phlegethos (level 3)",
-			limfeaname : "Charm Person (2 targets)",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Phlegethos (3)",
 				spells : ["charm person"],
@@ -179,10 +164,7 @@ RaceList["fierna tiefling"] = {
 		},
 		"suggestion" : {
 			name : "Legacy of Phlegethos (level 5)",
-			limfeaname : "Suggestion",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Phlegethos (5)",
 				spells : ["suggestion"],
@@ -222,10 +204,7 @@ RaceList["glasya tiefling"] = {
 	features : {
 		"disguise self" : {
 			name : "Legacy of Malbolge (level 3)",
-			limfeaname : "Disguise Self",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Malbolge (3)",
 				spells : ["disguise self"],
@@ -235,10 +214,7 @@ RaceList["glasya tiefling"] = {
 		},
 		"invisibility" : {
 			name : "Legacy of Malbolge (level 5)",
-			limfeaname : "Invisibility",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Malbolge (5)",
 				spells : ["invisibility"],
@@ -278,10 +254,7 @@ RaceList["levistus tiefling"] = {
 	features : {
 		"armor of agathys" : {
 			name : "Legacy of Stygia (level 3)",
-			limfeaname : "Armor of Agathys (2nd-level)",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Stygia (3)",
 				spells : ["armor of agathys"],
@@ -297,10 +270,7 @@ RaceList["levistus tiefling"] = {
 		},
 		"darkness" : {
 			name : "Legacy of Stygia (level 5)",
-			limfeaname : "Darkness",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Stygia (5)",
 				spells : ["darkness"],
@@ -340,10 +310,7 @@ RaceList["mammon tiefling"] = {
 	features : {
 		"tenser's floating disk" : {
 			name : "Legacy of Minauros (level 3)",
-			limfeaname : "Tenser's Floating Disk",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Minauros (3)",
 				spells : ["tenser's floating disk"],
@@ -353,10 +320,7 @@ RaceList["mammon tiefling"] = {
 		},
 		"arcane lock" : {
 			name : "Legacy of Minauros (level 5)",
-			limfeaname : "Arcane Lock",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Minauros (5)",
 				spells : ["arcane lock"],
@@ -403,10 +367,7 @@ RaceList["mephistopheles tiefling"] = {
 	features : {
 		"burning hands" : {
 			name : "Legacy of Cania (level 3)",
-			limfeaname : "Burning Hands (4d6)",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Cania (level 3)",
 				spells : ["burning hands"],
@@ -422,10 +383,7 @@ RaceList["mephistopheles tiefling"] = {
 		},
 		"flame blade" : {
 			name : "Legacy of Cania (level 5)",
-			limfeaname : "Flame Blade",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Cania (level 5)",
 				spells : ["flame blade"],
@@ -465,10 +423,7 @@ RaceList["zariel tiefling"] = {
 	features : {
 		"searing smite" : {
 			name : "Legacy of Avernus (level 3)",
-			limfeaname : "Searing Smite (2d6)",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Avernus (3)",
 				spells : ["searing smite"],
@@ -484,10 +439,7 @@ RaceList["zariel tiefling"] = {
 		},
 		"branding smite" : {
 			name : "Legacy of Avernus (level 5)",
-			limfeaname : "Branding Smite",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Avernus (5)",
 				spells : ["branding smite"],
@@ -673,10 +625,7 @@ RaceList["githyanki-mtof"] = {
 	features : {
 		"jump" : {
 			name : "Githyanki Psionics (level 3)",
-			limfeaname : "Jump",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Githyanki Psionics (3)",
 				spells : ["jump"],
@@ -693,10 +642,7 @@ RaceList["githyanki-mtof"] = {
 		},
 		"misty step" : {
 			name : "Githyanki Psionics (level 5)",
-			limfeaname : "Misty Step",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Githyanki Psionics (5)",
 				spells : ["misty step"],
@@ -762,10 +708,7 @@ RaceList["githzerai-mtof"] = {
 	features : {
 		"shield" : {
 			name : "Githzerai Psionics (level 3)",
-			limfeaname : "Shield",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Githzerai Psionics (3)",
 				spells : ["shield"],
@@ -781,10 +724,7 @@ RaceList["githzerai-mtof"] = {
 		},
 		"detect thoughts" : {
 			name : "Githzerai Psionics (level 5)",
-			limfeaname : "Detect Thoughts",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Githzerai Psionics (5)",
 				spells : ["detect thoughts"],
@@ -831,10 +771,7 @@ if (!RaceList["gray dwarf"]) {
 		features : {
 			"enlarge" : {
 				name : "Duergar Magic (level 3)",
-				limfeaname : "Enlarge (self only)",
 				minlevel : 3,
-				usages : 1,
-				recovery : "long rest",
 				spellcastingBonus : [{
 					name : "Duergar Magic (level 3)",
 					spells : ["enlarge/reduce"],
@@ -854,10 +791,7 @@ if (!RaceList["gray dwarf"]) {
 			},
 			"invisibility" : {
 				name : "Duergar Magic (level 5)",
-				limfeaname : "Invisibility (self only)",
 				minlevel : 5,
-				usages : 1,
-				recovery : "long rest",
 				spellcastingBonus : [{
 					name : "Duergar Magic (level 5)",
 					spells : ["invisibility"],
@@ -917,7 +851,7 @@ if (!FeatsList["svirfneblin magic"]) {
 			selection : ["nondetection"],
 			firstCol : 'atwill'
 		}, {
-			name : "1x long rest (self only)",
+			name : "1\xD7 long rest (self only)",
 			spells : ["blindness/deafness", "blur", "disguise self"],
 			selection : ["blindness/deafness", "blur", "disguise self"],
 			firstCol : 'oncelr',

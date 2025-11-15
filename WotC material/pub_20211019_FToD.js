@@ -1,5 +1,5 @@
 var iFileName = "pub_20211019_FToD.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds all the player-material from Fizban's Treasury of Dragons to MPMB's Character Record Sheet
 
 // Define the source
@@ -481,7 +481,7 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 				description : "Hits all in area; Dex save for half damage; Damage type: acid, cold, fire, lightning, or poison",
 				abilitytodamage : false,
 				dc : true,
-				useSpellMod : "ranger",
+				useSpellMod : ["ranger", "rangerua"],
 				DrakewardenDrakeBreath : true,
 				selectNow : true
 			}],
@@ -495,13 +495,6 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 					},
 					"",
 					1
-				],
-				atkCalc : [
-					function (fields, v, output) {
-						if (v.theWea.DrakewardenDrakeBreath && classes.known.rangerua) {
-							v.theWea.useSpellMod = "rangerua";
-						}
-					}
 				]
 			}
 		},
@@ -588,14 +581,10 @@ FeatsList["gift of the metallic dragon"] = {
 		name : "Cure Wounds",
 		spells : ["cure wounds"],
 		selection : ["cure wounds"],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	action : [["reaction", "Metallic Gift (Protective Wings)"]],
 	extraLimitedFeatures : [{
-		name : "Metallic Gift (Cure Wounds)",
-		usages : 1,
-		recovery : "long rest"
-	}, {
 		name : "Metallic Gift (Protective Wings)",
 		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus');",

@@ -1,5 +1,5 @@
 var iFileName = "ua_20170109_Artificer.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds the content from the Unearthed Arcana: Artificer article to MPMB's Character Record Sheet
 // WARNING: there are no published multiclassing rules for Artificer; the ones provided here are extrapolated from other classes
 
@@ -64,12 +64,12 @@ ClassList['artificer-ua'] = {
 				name : "Magic Item Analysis",
 				spells : ["detect magic"],
 				selection : ["detect magic"],
-				firstCol : "(R)"
+				firstCol : SpellRitualTag,
 			}, {
 				name : "Magic Item Analysis",
 				spells : ["identify"],
 				selection : ["identify"],
-				firstCol : "(R)"
+				firstCol : SpellRitualTag,
 			}],
 			spellChanges : {
 				"detect magic" : {

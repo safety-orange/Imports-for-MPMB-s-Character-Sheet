@@ -1,5 +1,5 @@
 var iFileName = "ua_20191104_Class-Feature-Variants.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds the content from the Unearthed Arcana: Class Feature Variants article to MPMB's Character Record Sheet
 
 // Define the source
@@ -654,7 +654,7 @@ var UACFV_Primal_Awareness = {
 		name : "Primal Awareness",
 		spells : ["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"],
 		selection : ["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"],
-		firstCol : "oncelr",
+		firstCol : "oncelr+markedbox",
 		times : levels.map(function (n) {
 			return n < 5 ? 2 : n < 9 ? 4 : n < 13 ? 5 : n < 17 ? 6 : 7;
 		})

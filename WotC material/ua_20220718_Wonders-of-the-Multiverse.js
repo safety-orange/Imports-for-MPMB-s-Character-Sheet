@@ -1,6 +1,6 @@
 // This file adds the content from the Unearthed Arcana 2022: Wonders of the Multiverse article to MPMB's Character Record Sheet
 var iFileName = "ua_20220718_Wonders-of-the-Multiverse.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.1-beta");
 
 SourceList["UA:WotM"] = {
 	name : "Unearthed Arcana: Wonders of the Multiverse",
@@ -582,7 +582,7 @@ FeatsList["outlands envoy-ua"] = {
 		name : "Crossroads Emissary",
 		spells : ["misty step", "tongues"],
 		selection : ["misty step", "tongues"],
-		firstCol : "oncelr",
+		firstCol : "oncelr+markedbox",
 		times : 2
 	}],
 	spellChanges : {
@@ -954,11 +954,11 @@ FeatsList["rune carver apprentice-ua2"] = {
 		name : "Once per long rest",
 		spells : ["comprehend languages"],
 		selection : ["comprehend languages"],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}, {
 		name : "Select Rune Spell",
 		spells : ["ray of sickness", "chromatic orb", "disguise self", "speak with animals", "longstrider", "command", "entangle", "sanctuary"],
-		firstCol : "oncelr",
+		firstCol : "oncelr+markedbox",
 		times : 2,
 		allowUpCasting : true
 	}],

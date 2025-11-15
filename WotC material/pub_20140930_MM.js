@@ -447,8 +447,8 @@ var MM_lycanthrope = {
 		"\nThe " + sLycanName + "'s features added to the base race are:"+
 		desc(aGained, "\n   \u2022 ")+
 		"\n\nThe possible alignment change and moon-related limitations of lycanthrope are not mentioned in this race. Discuss with your DM how they want to handle lycanthrope."
-	}
-}
+	},
+};
 RaceList["lycanthrope-werebear"] = {
 	regExpSearch : /were.?bear|^(?=.*lycanthrope)(?=.*bear).*$/i,
 	name : "Werebear",

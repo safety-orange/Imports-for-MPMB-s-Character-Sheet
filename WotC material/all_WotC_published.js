@@ -1,6 +1,6 @@
-if (sheetVersion < 13002003) { throw "This script was made for a newer version of the sheet (v13.2.3). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
+if (sheetVersion < 14000001) { throw "This script was made for a newer version of the sheet (v14.0.1-beta). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
 var iFileName = "all_WotC_published.js";
-RequiredSheetVersion("13.2.3");
+RequiredSheetVersion("14.0.1-beta");
 // pub_20140715_LMoP.js
 // This file adds the magic items from the Lost Mines of Phandelver adventure from the D&D 5e starter set to MPMB's Character Record Sheet
 
@@ -332,8 +332,45 @@ AddRacialVariant("human", "variant", {
 	scorestxt : "+1 to two different ability scores of my choice",
 	scores : [0, 0, 0, 0, 0, 0],
 	trait : "Human (+1 to two different ability scores of my choice)\n\nSkills: I gain proficiency in one skill of my choice.\n\nFeat: I gain one feat of my choice.",
-	eval : function() { AddString('Feat Note 1', 'Human bonus feat', '; '); },
-	removeeval : function() { RemoveString('Feat Note 1', 'Human bonus feat'); }
+	eval : function() {
+		// Get a list of all eligible feats
+		var eligibleFeats = [];
+		var gatherVars = gatherPrereqevalVars();
+		for (var key in FeatsList) {
+			var oFeat = FeatsList[key];
+			// Skip excluded feats and known feats that don't allow duplicates
+			if ( testSource(key, oFeat, "featsExcl") || !oFeat.allowDuplicates && CurrentFeats.known.indexOf(key) !== -1 ) continue;
+			// Skip if prerequisite is not met
+			if (oFeat.prereqeval) {
+				var meetsPrereq = true;
+				try {
+					if (typeof oFeat.prereqeval == 'string') {
+						meetsPrereq = eval(oFeat.prereqeval);
+					} else if (typeof oFeat.prereqeval == 'function') {
+						meetsPrereq = oFeat.prereqeval(gatherVars);
+					}
+				} catch (error) {}
+				if (!meetsPrereq) continue;
+			}
+			// Add to list
+			eligibleFeats.push(oFeat.name);
+		}
+		// Ask the user to select a feat
+		var sFeatName = AskUserOptions("Select Human Bonus Feat", "The Human (Variant) race grants a bonus feat. Pick one of the feats below. This list excludes feats that are already known and feats for which the prerequisites have not been met.", eligibleFeats, "radio", true, false);
+		// Remember the selection
+		SetFeatureChoice("race", "human", "bonus feat", sFeatName);
+		// Add the feat to the sheet
+		AddFeat(sFeatName);
+	},
+	removeeval : function() {
+		// Get the user selected human bonus feat
+		var sFeatName = GetFeatureChoice("race", "human", "bonus feat");
+		if (!sFeatName) return;
+		// Remove the feat from the sheet
+		RemoveFeat(sFeatName);
+		// Remove the remembered choice
+		SetFeatureChoice("race", "human", "bonus feat", false);
+	}
 });
 
 // Add the subclasses that are not in the SRD
@@ -352,7 +389,7 @@ AddSubClass("barbarian", "totem warrior", {
 				name : "Spirit Seeker",
 				spells : ["beast sense", "speak with animals"],
 				selection : ["beast sense", "speak with animals"],
-				firstCol : "(R)",
+				firstCol : SpellRitualTag,
 				times : 2
 			}],
 			spellChanges : {
@@ -422,7 +459,7 @@ AddSubClass("barbarian", "totem warrior", {
 				name : "Spirit Walker",
 				spells : ["commune with nature"],
 				selection : ["commune with nature"],
-				firstCol : "(R)"
+				firstCol : SpellRitualTag,
 			}],
 			spellChanges : {
 				"commune with nature" : {
@@ -3457,7 +3494,7 @@ FeatsList["crossbow expert"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if ((/crossbow/i).test(v.baseWeaponName) && fields.Proficiency) {
+				if (/crossbow/i.test(v.baseWeaponName) && fields.Proficiency) {
 					fields.Description = fields.Description.replace(/(,? ?loading|loading,? ?)/i, '');
 				};
 			},
@@ -3623,6 +3660,19 @@ FeatsList["magic initiate"] = {
 	source : [["P", 168]],
 	descriptionFull : "Choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You learn two cantrips of your choice from that class's spell list.\n   In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.\n   Your spellcasting ability for these spells depends on the class you chose: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid: or Intelligence for wizard.",
 	description : "Select a spellcasting class using the square button on this feat line. I learn two cantrips and one 1st-level spell of my choice from that class' spell list. I can cast the 1st-level spell at its lowest level once per long rest without using a spell slot.",
+	calcChanges : {
+		spellAdd : [
+			function (spellKey, spellObj, spName) {
+				if (spName.indexOf("magic initiate") === 0 && spellObj.level > 0) {
+					// test if levels in same class
+					var casterClass = spName.replace(/magic initiate[_-]*/i, '');
+					if (classes.known[casterClass]) {
+						spellObj.firstCol = "oncelr+markedbox";
+					}
+				}
+			}
+		]
+	},
 	choices : ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
 	"bard" : {
 		description : "I learn two cantrips and one 1st-level spell of my choice from the bard's spell list. I can cast the 1st-level spell at its lowest level once per long rest without using a spell slot. If I'm a bard, I can also cast the 1st-level spell by expending a spell slot as normal. Charisma is my spellcasting ability for these spells.",
@@ -3873,7 +3923,7 @@ FeatsList["ritual caster"] = {
 			function (spellKey, spellObj, spName) {
 				if (!spellObj.ritualCasterFeatChange && spName.indexOf("ritual caster ") !== -1) {
 					spellObj.ritualCasterFeatChange = true;
-					spellObj.firstCol = "(R)";
+					spellObj.firstCol = SpellRitualTag;
 					if (!(/.*(\d+ ?h\b|special|see b).*/i).test(spellObj.time)) {
 						var numMinutes = Number(spellObj.time.replace(/(\d+) ?min.*/, "$1"));
 						if (isNaN(numMinutes)) numMinutes = 0;
@@ -4112,7 +4162,7 @@ FeatsList["tavern brawler"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.baseWeaponName == "unarmed strike" || (/improvised/i).test(v.WeaponName + v.baseWeaponName) || (/improvised weapon/i).test(v.theWea.type)) {
+				if (v.baseWeaponName == "unarmed strike" || v.baseWeaponName == "improvised weapon" || /improvised/i.test(v.WeaponName + v.baseWeaponName) || /improvised weapon/i.test(v.theWea.type)) {
 					fields.Proficiency = true;
 					if (v.isMeleeWeapon) fields.Description += (fields.Description ? '; ' : '') + 'After hit, can attempt to grapple as a bonus action';
 				};
@@ -5641,8 +5691,8 @@ var MM_lycanthrope = {
 		"\nThe " + sLycanName + "'s features added to the base race are:"+
 		desc(aGained, "\n   \u2022 ")+
 		"\n\nThe possible alignment change and moon-related limitations of lycanthrope are not mentioned in this race. Discuss with your DM how they want to handle lycanthrope."
-	}
-}
+	},
+};
 RaceList["lycanthrope-werebear"] = {
 	regExpSearch : /were.?bear|^(?=.*lycanthrope)(?=.*bear).*$/i,
 	name : "Werebear",
@@ -8680,10 +8730,7 @@ RaceList["air genasi"] = {
 	features : {
 		"levitate" : {
 			name : "Mingle with the Wind",
-			limfeaname : "Levitate",
 			minlevel : 1,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Mingle with the Wind",
 				spells : ["levitate"],
@@ -8722,10 +8769,7 @@ RaceList["earth genasi"] = {
 	features : {
 		"pass without trace" : {
 			name : "Merge with Stone",
-			limfeaname : "Pass without Trace",
 			minlevel : 1,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Merge with Stone",
 				spells : ["pass without trace"],
@@ -8772,10 +8816,7 @@ RaceList["fire genasi"] = {
 	features : {
 		"burning hands" : {
 			name : "Reach to the Blaze (level 3)",
-			limfeaname : "Burning Hands",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Reach to the Blaze (level 3)",
 				spells : ["burning hands"],
@@ -8815,10 +8856,7 @@ RaceList["water genasi"] = {
 	features : {
 		"create or destroy water" : {
 			name : "Call to the Wave (level 3)",
-			limfeaname : "Create/Destroy Water (level 2)",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Call to the Wave (level 3)",
 				spells : ["create or destroy water"],
@@ -8878,7 +8916,7 @@ FeatsList["svirfneblin magic"] = {
 		selection : ["nondetection"],
 		firstCol : 'atwill'
 	}, {
-		name : "1x long rest (self only)",
+		name : "1\xD7 long rest (self only)",
 		spells : ["blindness/deafness", "blur", "disguise self"],
 		selection : ["blindness/deafness", "blur", "disguise self"],
 		firstCol : 'oncelr',
@@ -10670,10 +10708,7 @@ RaceList["gray dwarf"] = {
 	features : {
 		"enlarge" : {
 			name : "Duergar Magic (level 3)",
-			limfeaname : "Enlarge (self only)",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Duergar Magic (level 3)",
 				spells : ["enlarge/reduce"],
@@ -10693,10 +10728,7 @@ RaceList["gray dwarf"] = {
 		},
 		"invisibility" : {
 			name : "Duergar Magic (level 5)",
-			limfeaname : "Invisibility (self only)",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Duergar Magic (level 5)",
 				spells : ["invisibility"],
@@ -10760,10 +10792,7 @@ AddRacialVariant("half-elf", "drow magic", {
 	features : {
 		"faerie fire" : {
 			name : "Drow Magic (level 3)",
-			limfeaname : "Faerie Fire",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Drow Magic (level 3)",
 				spells : ["faerie fire"],
@@ -10773,10 +10802,7 @@ AddRacialVariant("half-elf", "drow magic", {
 		},
 		"darkness" : {
 			name : "Drow Magic (level 5)",
-			limfeaname : "Darkness",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Drow Magic (level 5)",
 				spells : ["darkness"],
@@ -10827,10 +10853,7 @@ AddRacialVariant("tiefling", "devil's tongue", {
 	features : {
 		"charm person" : {
 			name : "Devil's Tongue (level 3)",
-			limfeaname : "Charm Person (2 targets)",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Devil's Tongue (level 3)",
 				spells : ["charm person"],
@@ -10846,10 +10869,7 @@ AddRacialVariant("tiefling", "devil's tongue", {
 		},
 		"enthrall" : {
 			name : "Devil's Tongue (level 5)",
-			limfeaname : "Enthrall",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Devil's Tongue (level 5)",
 				spells : ["enthrall"],
@@ -10868,10 +10888,7 @@ AddRacialVariant("tiefling", "hellfire", {
 	features : {
 		"burning hands" : {
 			name : "Hellfire Legacy (level 3)",
-			limfeaname : "Burning Hands (4d6)",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Hellfire Legacy (level 3)",
 				spells : ["burning hands"],
@@ -10889,8 +10906,6 @@ AddRacialVariant("tiefling", "hellfire", {
 			name : "Hellfire Legacy (level 5)",
 			limfeaname : "Darkness",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Infernal Legacy (level 5)",
 				spells : ["darkness"],
@@ -14035,15 +14050,6 @@ RaceList["firbolg"] = {
 				firstCol : 'oncesr',
 				times : 2
 			}],
-			extraLimitedFeatures : [{
-				name : "Detect Magic (Firbolg Magic)",
-				usages : 1,
-				recovery : "short rest"
-			}, {
-				name : "Disguise Self (Firbolg Magic)",
-				usages : 1,
-				recovery : "short rest"
-			}],
 			spellChanges : {
 				"disguise self" : {
 					description : "Alter appearance, up to 3ft shorter/taller; Int(Investigation) check vs. spell DC to determine disguise",
@@ -14307,10 +14313,7 @@ RaceList["triton"] = {
 	features : {
 		"fog cloud" : {
 			name : "Control Air and Water (level 1)",
-			limfeaname : "Fog Cloud",
 			minlevel : 1,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Control Air and Water (1)",
 				spells : ["fog cloud"],
@@ -14320,10 +14323,7 @@ RaceList["triton"] = {
 		},
 		"gust of wind" : {
 			name : "Control Air and Water (level 3)",
-			limfeaname : "Gust of Wind",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Control Air and Water (3)",
 				spells : ["gust of wind"],
@@ -14333,10 +14333,7 @@ RaceList["triton"] = {
 		},
 		"wall of water" : {
 			name : "Control Air and Water (level 5)",
-			limfeaname : "Wall of Water",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Control Air and Water (5)",
 				spells : ["wall of water"],
@@ -14388,10 +14385,7 @@ RaceList["yuan-ti pureblood"] = {
 	features : {
 		"suggestion" : {
 			name : "Innate Spellcasting (level 3)",
-			limfeaname : "Suggestion",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Innate Spellcasting (level 3)",
 				spells : ["suggestion"],
@@ -15283,7 +15277,7 @@ MagicItemsList["balance of harmony"] = {
 		name : "Only as ritual",
 		spells : ["detect evil and good"],
 		selection : ["detect evil and good"],
-		firstCol : "(R)"
+		firstCol : SpellRitualTag,
 	}],
 	spellChanges : {
 		"detect evil and good" : {
@@ -15766,10 +15760,7 @@ AddRacialVariant("human", "yuan-ti transformed", {
 	features : {
 		"suggestion" : {
 			name : "Innate Spellcasting (level 3)",
-			limfeaname : "Suggestion",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Innate Spellcasting (level 3)",
 				spells : ["suggestion"],
@@ -15780,51 +15771,50 @@ AddRacialVariant("human", "yuan-ti transformed", {
 	},
 	trait : "Yuan-ti Human (+1 to all ability scores)\n   Madness: I suffer from an indefinite madness (DMG 258).\n   Innate Spellcasting: I know the Poison Spray cantrip and can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest. Charisma is my spellcasting ability for these spells.\n   Magic Resistance: I have advantage on saves against spells and other magical effects."
 });
-AddRacialVariant("human", "yuan-ti transformed variant", {
-	defaultExcluded : true,
-	regExpSearch : /^(?=.*variant)(?=.*yuan.ti)(?=.*transformed)?.*$/i,
-	source : [["ToA", 119]],
-	skillstxt : "Choose any one skill",
-	scorestxt : "+1 to two different ability scores of my choice",
-	scores : [0, 0, 0, 0, 0, 0],
-	vision : [["Darkvision", 60]],
-	savetxt : {
-		immune : ["poison"],
-		adv_vs : ["magic"]
-	},
-	spellcastingAbility : 6,
-	spellcastingBonus : [{
-		name : "Innate Spellcasting (level 1)",
-		spells : ["poison spray", "animal friendship"],
-		selection : ["poison spray", "animal friendship"],
-		firstCol : 'atwill',
-		times : 2
-	}],
-	spellChanges : {
-		"animal friendship" : {
-			description : "1 snake (beast) with less than 4 Int save or charmed for the duration",
-			changes : "Using Innate Spellcasting, I can cast Animal Friendship at will, but only to target snakes."
-		}
-	},
-	features : {
-		"suggestion" : {
-			name : "Innate Spellcasting (level 3)",
-			limfeaname : "Suggestion",
-			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
-			spellcastingBonus : [{
+if (RaceSubList['human-variant']) {
+	AddRacialVariant("human", "yuan-ti transformed variant", {
+		defaultExcluded : true,
+		regExpSearch : /^(?=.*variant)(?=.*yuan.ti)(?=.*transformed)?.*$/i,
+		source : [["ToA", 119]],
+		skillstxt : "Choose any one skill",
+		scorestxt : "+1 to two different ability scores of my choice",
+		scores : [0, 0, 0, 0, 0, 0],
+		vision : [["Darkvision", 60]],
+		savetxt : {
+			immune : ["poison"],
+			adv_vs : ["magic"]
+		},
+		spellcastingAbility : 6,
+		spellcastingBonus : [{
+			name : "Innate Spellcasting (level 1)",
+			spells : ["poison spray", "animal friendship"],
+			selection : ["poison spray", "animal friendship"],
+			firstCol : 'atwill',
+			times : 2
+		}],
+		spellChanges : {
+			"animal friendship" : {
+				description : "1 snake (beast) with less than 4 Int save or charmed for the duration",
+				changes : "Using Innate Spellcasting, I can cast Animal Friendship at will, but only to target snakes."
+			}
+		},
+		features : {
+			"suggestion" : {
 				name : "Innate Spellcasting (level 3)",
-				spells : ["suggestion"],
-				selection : ["suggestion"],
-				firstCol : 'oncelr'
-			}]
-		}
-	},
-	trait : "Yuan-ti Human (+1 to two different ability scores of my choice)\n   Skill & Feat: I gain proficiency in one skill of my choice and I gain one feat of my choice.\n   Madness: I suffer from an indefinite madness (DMG 258).\n   Innate Spellcasting: I know the Poison Spray cantrip and can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest. Charisma is my spellcasting ability for these spells.\n   Magic Resistance: I have advantage on saves against spells and other magical effects.",
-	eval : function() { AddString('Feat Note 1', 'Human bonus feat', '; '); },
-	removeeval : function() { RemoveString('Feat Note 1', 'Human bonus feat'); }
-});
+				minlevel : 3,
+				spellcastingBonus : [{
+					name : "Innate Spellcasting (level 3)",
+					spells : ["suggestion"],
+					selection : ["suggestion"],
+					firstCol : 'oncelr'
+				}]
+			}
+		},
+		trait : "Yuan-ti Human (+1 to two different ability scores of my choice)\n   Skill & Feat: I gain proficiency in one skill of my choice and I gain one feat of my choice.\n   Madness: I suffer from an indefinite madness (DMG 258).\n   Innate Spellcasting: I know the Poison Spray cantrip and can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest. Charisma is my spellcasting ability for these spells.\n   Magic Resistance: I have advantage on saves against spells and other magical effects.",
+		eval : RaceSubList['human-variant'].eval,
+		removeeval : RaceSubList['human-variant'].removeeval
+	});
+}
 
 // Backgrounds (with contributions by SoilentBrad and @lowbrr)
 BackgroundList["anthropologist"] = {
@@ -17712,7 +17702,7 @@ RunFunctionAtEnd(function () {
 	for (var weapon in WeaponsList) {
 		var aWea = WeaponsList[weapon];
 		// skip attacks that are not simple or martial weapons, that have the heavy or special property, are magic weapons, or those that are spells or cantrips
-		if (weapon !== "longbow" && (aWea.isMagicWeapon || !(/simple|martial/i).test(aWea.type) || (/heavy|special/i).test(aWea.description) || aWea.special || (/spell|cantrip/i).test(aWea.list))) continue;
+		if (weapon !== "longbow" && (aWea.isMagicWeapon || !(/simple|martial/i).test(aWea.type) || (/heavy|special/i).test(aWea.description) || aWea.special || (/improvised|gear|spell|cantrip/i).test(aWea.list))) continue;
 		itsFea.extrachoices.push(aWea.name);
 		itsFea[aWea.name.toLowerCase()] = {
 			name : aWea.name,
@@ -20366,11 +20356,26 @@ MagicItemsList["dark shard amulet"] = {
 	prereqeval : function (v) { return classes.known.warlock ? true : false; },
 	usages : 1,
 	recovery : "long rest",
+	spellcastingAbility: "warlock",
+	spellFirstColTitle: "",
+	spellcastingPreparedCantrips: { 'class': 'warlock' },
+	allowUpCasting: true,
+	spellcastingBonus: [{
+		name: 'Select 1 cantrip or enable',
+		'class': 'warlock',
+		level: [0, 0],
+	}, {
+		name: '"Prepare cantrips just like',
+		spells: [],
+	}, {
+		name: 'spells" on the bottom left.',
+		spells: [],
+	}],
 	calcChanges : {
 		spellList : [
 			function(spList, spName, spType) {
 				// Remove the already known cantrips, from any source except magic items
-				if (spName === 'dark shard amulet') {
+				if (spName.indexOf('dark shard amulet') !== -1) {
 					var allSpellsKnown = [];
 					for (var sCast in CurrentSpells) {
 						if (sCast.refType === "item") continue;
@@ -20382,43 +20387,16 @@ MagicItemsList["dark shard amulet"] = {
 					if (!spList.notspells) spList.notspells = [];
 					spList.notspells = spList.notspells.concat(knownCantrips);
 				}
-			}
+			},
 		],
 		spellAdd : [
 			function (spellKey, spellObj, spName, isDuplicate) {
-				if (spName == 'warlock-dark shard amulet') {
+				if (spName.indexOf('dark shard amulet') !== -1) {
 					spellObj.firstCol = "";
 				};
-			}
-		]
-	},
-	eval : function () {
-		CurrentSpells['warlock-dark shard amulet'] = {
-			name : 'Dark Shard Amulet (item)',
-			ability : "warlock",
-			list : { 'class' : 'warlock', level : [0, 0] },
-			known : { cantrips : 0, spells : 'list' },
-			bonus : {
-				bon1 : {
-					name : 'Just select "Full List"',
-					spells : []
-				},
-				bon2 : {
-					name : 'on the bottom left',
-					spells : []
-				}
 			},
-			typeList : 4,
-			refType : "item",
-			allowUpCasting : true,
-			firstCol : ""
-		};
-		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+		],
 	},
-	removeeval : function () {
-		delete CurrentSpells['dark shard amulet'];
-		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
-	}
 }
 MagicItemsList["dread helm"] = {
 	name : "Dread Helm",
@@ -20480,38 +20458,26 @@ MagicItemsList["hat of wizardry"] = {
 	prereqeval : function (v) { return classes.known.wizard ? true : false; },
 	usages : 1,
 	recovery : "long rest",
-	eval : function () {
-		CurrentSpells['hat of wizardry'] = {
-			name : 'Hat of Wizardry (item)',
-			ability : "wizard",
-			list : { 'class' : 'wizard', level : [0, 0] },
-			known : { cantrips : 0, spells : 'list' },
-			bonus : {
-				bon1 : {
-					name : 'Just select "Full List"',
-					spells : []
-				},
-				bon2 : {
-					name : 'on the bottom left',
-					spells : []
-				}
-			},
-			typeList : 4,
-			refType : "item",
-			allowUpCasting : true,
-			firstCol : ""
-		};
-		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
-	},
-	removeeval : function () {
-		delete CurrentSpells['hat of wizardry'];
-		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
-	},
+	spellcastingAbility: "wizard",
+	spellFirstColTitle: "",
+	spellcastingPreparedCantrips: { 'class': 'wizard' },
+	allowUpCasting: true,
+	spellcastingBonus: [{
+		name: 'Select 1 cantrip or enable',
+		'class': 'wizard',
+		level: [0, 0],
+	}, {
+		name: '"Prepare cantrips just like',
+		spells: [],
+	}, {
+		name: 'spells" on the bottom left.',
+		spells: [],
+	}],
 	calcChanges : {
 		spellList : [
 			function(spList, spName, spType) {
 				// Remove the already known cantrips, from any source except magic items
-				if (spName === 'hat of wizardry') {
+				if (spName.indexOf('hat of wizardry') !== -1) {
 					var allSpellsKnown = [];
 					for (var sCast in CurrentSpells) {
 						if (sCast.refType === "item") continue;
@@ -20527,7 +20493,7 @@ MagicItemsList["hat of wizardry"] = {
 		],
 		spellAdd : [
 			function (spellKey, spellObj, spName, isDuplicate) {
-				if (spName === 'hat of wizardry') {
+				if (spName.indexOf('hat of wizardry') !== -1) {
 					spellObj.firstCol = "";
 				};
 			}
@@ -20943,10 +20909,7 @@ RaceList["baalzebul tiefling"] = {
 	features : {
 		"ray of sickness" : {
 			name : "Legacy of Maladomini (level 3)",
-			limfeaname : "Ray of Sickness (3d8)",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Maladomini (3)",
 				spells : ["ray of sickness"],
@@ -20962,10 +20925,7 @@ RaceList["baalzebul tiefling"] = {
 		},
 		"crown of madness" : {
 			name : "Legacy of Maladomini (level 5)",
-			limfeaname : "Crown of Madness",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Maladomini (5)",
 				spells : ["crown of madness"],
@@ -21005,10 +20965,7 @@ RaceList["dispater tiefling"] = {
 	features : {
 		"disguise self" : {
 			name : "Legacy of Dis (level 3)",
-			limfeaname : "Disguise Self",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Dis (level 3)",
 				spells : ["disguise self"],
@@ -21018,10 +20975,7 @@ RaceList["dispater tiefling"] = {
 		},
 		"detect thoughts" : {
 			name : "Legacy of Dis (level 5)",
-			limfeaname : "Detect Thoughts",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Dis (level 5)",
 				spells : ["detect thoughts"],
@@ -21061,10 +21015,7 @@ RaceList["fierna tiefling"] = {
 	features : {
 		"charm person" : {
 			name : "Legacy of Phlegethos (level 3)",
-			limfeaname : "Charm Person (2 targets)",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Phlegethos (3)",
 				spells : ["charm person"],
@@ -21080,10 +21031,7 @@ RaceList["fierna tiefling"] = {
 		},
 		"suggestion" : {
 			name : "Legacy of Phlegethos (level 5)",
-			limfeaname : "Suggestion",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Phlegethos (5)",
 				spells : ["suggestion"],
@@ -21123,10 +21071,7 @@ RaceList["glasya tiefling"] = {
 	features : {
 		"disguise self" : {
 			name : "Legacy of Malbolge (level 3)",
-			limfeaname : "Disguise Self",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Malbolge (3)",
 				spells : ["disguise self"],
@@ -21136,10 +21081,7 @@ RaceList["glasya tiefling"] = {
 		},
 		"invisibility" : {
 			name : "Legacy of Malbolge (level 5)",
-			limfeaname : "Invisibility",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Malbolge (5)",
 				spells : ["invisibility"],
@@ -21179,10 +21121,7 @@ RaceList["levistus tiefling"] = {
 	features : {
 		"armor of agathys" : {
 			name : "Legacy of Stygia (level 3)",
-			limfeaname : "Armor of Agathys (2nd-level)",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Stygia (3)",
 				spells : ["armor of agathys"],
@@ -21198,10 +21137,7 @@ RaceList["levistus tiefling"] = {
 		},
 		"darkness" : {
 			name : "Legacy of Stygia (level 5)",
-			limfeaname : "Darkness",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Stygia (5)",
 				spells : ["darkness"],
@@ -21241,10 +21177,7 @@ RaceList["mammon tiefling"] = {
 	features : {
 		"tenser's floating disk" : {
 			name : "Legacy of Minauros (level 3)",
-			limfeaname : "Tenser's Floating Disk",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Minauros (3)",
 				spells : ["tenser's floating disk"],
@@ -21254,10 +21187,7 @@ RaceList["mammon tiefling"] = {
 		},
 		"arcane lock" : {
 			name : "Legacy of Minauros (level 5)",
-			limfeaname : "Arcane Lock",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Minauros (5)",
 				spells : ["arcane lock"],
@@ -21304,10 +21234,7 @@ RaceList["mephistopheles tiefling"] = {
 	features : {
 		"burning hands" : {
 			name : "Legacy of Cania (level 3)",
-			limfeaname : "Burning Hands (4d6)",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Cania (level 3)",
 				spells : ["burning hands"],
@@ -21323,10 +21250,7 @@ RaceList["mephistopheles tiefling"] = {
 		},
 		"flame blade" : {
 			name : "Legacy of Cania (level 5)",
-			limfeaname : "Flame Blade",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Cania (level 5)",
 				spells : ["flame blade"],
@@ -21366,10 +21290,7 @@ RaceList["zariel tiefling"] = {
 	features : {
 		"searing smite" : {
 			name : "Legacy of Avernus (level 3)",
-			limfeaname : "Searing Smite (2d6)",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Avernus (3)",
 				spells : ["searing smite"],
@@ -21385,10 +21306,7 @@ RaceList["zariel tiefling"] = {
 		},
 		"branding smite" : {
 			name : "Legacy of Avernus (level 5)",
-			limfeaname : "Branding Smite",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Legacy of Avernus (5)",
 				spells : ["branding smite"],
@@ -21574,10 +21492,7 @@ RaceList["githyanki-mtof"] = {
 	features : {
 		"jump" : {
 			name : "Githyanki Psionics (level 3)",
-			limfeaname : "Jump",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Githyanki Psionics (3)",
 				spells : ["jump"],
@@ -21594,10 +21509,7 @@ RaceList["githyanki-mtof"] = {
 		},
 		"misty step" : {
 			name : "Githyanki Psionics (level 5)",
-			limfeaname : "Misty Step",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Githyanki Psionics (5)",
 				spells : ["misty step"],
@@ -21663,10 +21575,7 @@ RaceList["githzerai-mtof"] = {
 	features : {
 		"shield" : {
 			name : "Githzerai Psionics (level 3)",
-			limfeaname : "Shield",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Githzerai Psionics (3)",
 				spells : ["shield"],
@@ -21682,10 +21591,7 @@ RaceList["githzerai-mtof"] = {
 		},
 		"detect thoughts" : {
 			name : "Githzerai Psionics (level 5)",
-			limfeaname : "Detect Thoughts",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Githzerai Psionics (5)",
 				spells : ["detect thoughts"],
@@ -27511,9 +27417,6 @@ ClassList.artificer = {
 	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 	spellcastingFactor : 2,
 	spellcastingFactorRoundupMulti : true,
-	spellcastingTable : [[0, 0, 0, 0, 0, 0, 0, 0, 0]].concat(levels.map(function (n) {
-		return defaultSpellTable[Math.ceil(n / 2)];
-	})),
 	spellcastingKnown : {
 		cantrips : [2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4],
 		spells : "list",
@@ -28118,15 +28021,6 @@ AddSubClass("artificer", "alchemist", {
 			]),
 			dmgres : ["Acid", "Poison"],
 			savetxt : { immune : ["poisoned condition"] },
-			extraLimitedFeatures : [{
-				name : "Chemical Mastery: Greater Restoration",
-				usages : 1,
-				recovery : "long rest"
-			}, {
-				name : "Chemical Mastery: Heal",
-				usages : 1,
-				recovery : "long rest"
-			}],
 			spellcastingBonus : [{
 				name : "Chemical Mastery",
 				spells : ["greater restoration", "heal"],
@@ -36026,7 +35920,7 @@ AddSubClass("druid", "circle of the stars", {
 				name : "Star Map",
 				spells : ["guiding bolt"],
 				selection : ["guiding bolt"],
-				firstCol : "Sp"
+				firstCol : "oncelr"
 			}],
 			additional : "Guiding Bolt",
 			usages : "Proficiency bonus per ",
@@ -36570,7 +36464,7 @@ AddSubClass("fighter", "psi warrior", {
 				name : "Telekinetic Master",
 				spells : ["telekinesis"],
 				selection : ["telekinesis"],
-				firstCol : "Sp"
+				firstCol : "oncelr"
 			}],
 			spellChanges : {
 				"telekinesis" : {
@@ -37347,7 +37241,7 @@ var TCoE_Primal_Awareness = {
 		name : "Primal Awareness",
 		spells : ["speak with animals", "beast sense", "speak with plants", "locate creature", "commune with nature"],
 		selection : ["speak with animals", "beast sense", "speak with plants", "locate creature", "commune with nature"],
-		firstCol : "oncelr",
+		firstCol : "oncelr+markedbox",
 		times : levels.map(function (n) {
 			return n < 5 ? 1 : n < 9 ? 2 : n < 13 ? 3 : n < 17 ? 4 : 5;
 		})
@@ -37713,7 +37607,7 @@ var TCoE_Ranger_Subclass_Fey_Wanderer = AddSubClass("ranger", "fey wanderer", {
 				name : "Fey Reinforcements",
 				spells : ["summon fey"],
 				selection : ["summon fey"],
-				firstCol : 'oncelr'
+				firstCol : 'oncelr+markedbox'
 			}],
 			spellChanges : {
 				"summon fey" : {
@@ -37738,7 +37632,7 @@ var TCoE_Ranger_Subclass_Fey_Wanderer = AddSubClass("ranger", "fey wanderer", {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
 						if (spellKey === "misty step") {
-							spellObj.firstCol = "Sp";
+							spellObj.firstCol = "oncelr+markedbox";
 							spellObj.description = "I and one willing creature I can see within 5 ft of me teleport 30 ft to a unoccupied space I can see";
 							return true;
 						}
@@ -38697,7 +38591,7 @@ AddSubClass("warlock", "the fathomless", {
 				name : "Grasping Tentacles",
 				spells : ["evard's black tentacles"],
 				selection : ["evard's black tentacles"],
-				firstCol : "oncelr"
+				firstCol : "oncelr+markedbox"
 			}],
 			extraLimitedFeatures : [{
 				name : "Evard's Black Tentacles (no spell slot)",
@@ -39200,13 +39094,13 @@ FeatsList["fey touched"] = {
 		name : "Misty Step",
 		spells : ["misty step"],
 		selection : ["misty step"],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}, {
 		name : "1st-level Ench/Div spell",
 		'class': "any",
 		school : ["Ench", "Div"],
 		level : [1, 1],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
@@ -39389,13 +39283,13 @@ FeatsList["shadow touched"] = {
 		name : "Invisibility",
 		spells : ["invisibility"],
 		selection : ["invisibility"],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}, {
 		name : "1st-level Illus/Necro spell",
 		'class' : "any",
 		school : ["Illus", "Necro"],
 		level : [1, 1],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
@@ -39487,7 +39381,7 @@ FeatsList["telepathic"] = {
 		name : "Detect Thoughts",
 		spells : ["detect thoughts"],
 		selection : ["detect thoughts"],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
@@ -39560,7 +39454,7 @@ SpellsList["mind sliver"] = {
 	duration : "1 rnd",
 	save : "Int",
 	description : "1 crea save or 1d6 Psychic dmg, -1d4 on first save before my next turn ends; +1d6 at CL 5, 11, and 17",
-	description : "1 crea save or 1d6 Psychic dmg, -1d4 on 1st save before my next turn end; +1d6 at CL 5/11/17",
+	descriptionShorter : "1 crea save or 1d6 Psychic dmg, -1d4 on 1st save before my next turn end; +1d6 at CL 5/11/17",
 	descriptionCantripDie : "1 crea save or `CD`d6 Psychic dmg and subtract 1d4 from first saving throw before my next turn ends",
 	descriptionFull : "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must succeed on an Intelligence saving throw or take 1d6 psychic damage and subtract 1d4 from the next saving throw it makes before the end of your next turn." +
 	"\n   This spell's damage increases by 1d6 when you reach certain levels: 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
@@ -40203,38 +40097,26 @@ MagicItemsList["all-purpose tool"] = {
 	usages : 1,
 	recovery : "dawn",
 	additional : "choose cantrip",
-	eval : function () {
-		CurrentSpells['all-purpose tool'] = {
-			name : 'All-Purpose Tool (item)',
-			ability : "artificer",
-			list : { 'class' : 'any', level : [0, 0] },
-			known : { cantrips : 0, spells : 'list' },
-			bonus : {
-				bon1 : {
-					name : 'Just select "Full List"',
-					spells : []
-				},
-				bon2 : {
-					name : 'on the bottom left',
-					spells : []
-				}
-			},
-			typeList : 4,
-			refType : "item",
-			allowUpCasting : true,
-			firstCol : "8h"
-		};
-		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
-	},
-	removeeval : function () {
-		delete CurrentSpells['all-purpose tool'];
-		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
-	},
+	spellcastingAbility: "artificer",
+	spellFirstColTitle: "8h",
+	spellcastingPreparedCantrips: { 'class': 'any' },
+	allowUpCasting: true,
+	spellcastingBonus: [{
+		name: 'Select 1 cantrip or enable',
+		'class': 'any',
+		level: [0, 0],
+	}, {
+		name: '"Prepare cantrips just like',
+		spells: [],
+	}, {
+		name: 'spells" on the bottom left.',
+		spells: [],
+	}],
 	calcChanges : {
 		spellList : [
 			function(spList, spName, spType) {
 				// Remove the already known cantrips, from any source except magic items
-				if (spName === 'all-purpose tool') {
+				if (spName.indexOf('all-purpose tool') !== -1) {
 					var allSpellsKnown = [];
 					for (var sCast in CurrentSpells) {
 						if (sCast.refType === "item") continue;
@@ -40248,13 +40130,6 @@ MagicItemsList["all-purpose tool"] = {
 				}
 			},
 		],
-		spellAdd : [
-			function (spellKey, spellObj, spName, isDuplicate) {
-				if (spName === 'all-purpose tool') {
-					spellObj.firstCol = "checkbox";
-				};
-			}
-		]
 	},
 	action : [["action", " (transform tool)"], ["action", " (choose cantrip)"]],
 	choices : ["+1 to spell attacks and DCs (uncommon)", "+2 to spell attacks and DCs (rare)", "+3 to spell attacks and DCs (very rare)"],
@@ -41580,21 +41455,10 @@ RaceList["hexblood"] = {
 				name : "Hex Magic",
 				spells : ["disguise self", "hex"],
 				selection : ["disguise self", "hex"],
-				firstCol : 'oncelr',
+				firstCol : 'oncelr+markedbox',
 				times : 2,
-				allowUpCasting : true
+				allowUpCasting : true,
 			}],
-			extraLimitedFeatures : [{
-				name : "Disguise Self",
-				usages : 1,
-				recovery : "long rest",
-				altResource : "SS 1+"
-			}, {
-				name : "Hex",
-				usages : 1,
-				recovery : "long rest",
-				altResource : "SS 1+"
-			}]
 		}
 	},
 	useFromPreviousRace : {
@@ -43061,13 +42925,13 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 					usages : "Proficiency bonus per ",
 					usagescalc : "event.value = How('Proficiency Bonus');",
 					recovery : "long rest",
-					additional : levels.map(function (n) {
-						return (n < 5 ? 1 : n < 11 ? 2 : n < 17 ? 3 : 4) + 'd10';
+					additional : cantripDie.map(function (n) {
+						return n + 'd10';
 					}),
 					calcChanges : {
 						atkAdd : [
 							function (fields, v) {
-								if (v.theWea.dbBreathWeapon && (/dragonborn/i).test(CurrentRace.known) && CurrentRace.variant) {
+								if (v.theWea.dbBreathWeapon && /dragonborn/i.test(CurrentRace.known) && CurrentRace.dmgres) {
 									fields.Damage_Type = CurrentRace.dmgres[0];
 								}
 							},
@@ -43410,7 +43274,7 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 				description : "Hits all in area; Dex save for half damage; Damage type: acid, cold, fire, lightning, or poison",
 				abilitytodamage : false,
 				dc : true,
-				useSpellMod : "ranger",
+				useSpellMod : ["ranger", "rangerua"],
 				DrakewardenDrakeBreath : true,
 				selectNow : true
 			}],
@@ -43424,13 +43288,6 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 					},
 					"",
 					1
-				],
-				atkCalc : [
-					function (fields, v, output) {
-						if (v.theWea.DrakewardenDrakeBreath && classes.known.rangerua) {
-							v.theWea.useSpellMod = "rangerua";
-						}
-					}
 				]
 			}
 		},
@@ -43517,14 +43374,10 @@ FeatsList["gift of the metallic dragon"] = {
 		name : "Cure Wounds",
 		spells : ["cure wounds"],
 		selection : ["cure wounds"],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	action : [["reaction", "Metallic Gift (Protective Wings)"]],
 	extraLimitedFeatures : [{
-		name : "Metallic Gift (Cure Wounds)",
-		usages : 1,
-		recovery : "long rest"
-	}, {
 		name : "Metallic Gift (Protective Wings)",
 		usages : "Proficiency bonus per ",
 		usagescalc : "event.value = How('Proficiency Bonus');",
@@ -45036,7 +44889,7 @@ FeatsList["strixhaven initiate"] = {
 			name : "1st-level spell",
 			"class" : ["cleric", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"prismari" : {
@@ -45052,7 +44905,7 @@ FeatsList["strixhaven initiate"] = {
 			name : "1st-level spell",
 			"class" : ["bard", "sorcerer"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"quandrix" : {
@@ -45068,7 +44921,7 @@ FeatsList["strixhaven initiate"] = {
 			name : "1st-level spell",
 			"class" : ["druid", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"silverquill" : {
@@ -45084,7 +44937,7 @@ FeatsList["strixhaven initiate"] = {
 			name : "1st-level spell",
 			"class" : ["bard", "cleric"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"witherbloom" : {
@@ -45100,7 +44953,7 @@ FeatsList["strixhaven initiate"] = {
 			name : "1st-level spell",
 			"class" : ["druid", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	}
 };
@@ -45124,7 +44977,7 @@ FeatsList["strixhaven mascot"] = {
 		name : "Strixhaven Mascot",
 		spells : ["find familiar"],
 		selection : ["find familiar"],
-		firstCol : "(R)"
+		firstCol : SpellRitualTag,
 	}],
 	choices : ["Lorehold", "Prismari", "Quandrix", "Silverquill", "Witherbloom"],
 	selfChoosing : function () {
@@ -48429,7 +48282,7 @@ FeatsList["initiate of high sorcery"] = {
 		}, {
 			name : "Nuitari 1st-level spell",
 			spells : ["dissonant whispers", "false life", "hex", "ray of sickness"],
-			firstCol : "oncelr",
+			firstCol : "oncelr+markedbox",
 			times : 2
 		}]
 	},
@@ -48445,7 +48298,7 @@ FeatsList["initiate of high sorcery"] = {
 		}, {
 			name : "Lunitari 1st-level spell",
 			spells : ["color spray", "disguise self", "feather fall", "longstrider"],
-			firstCol : "oncelr",
+			firstCol : "oncelr+markedbox",
 			times : 2
 		}]
 	},
@@ -48461,7 +48314,7 @@ FeatsList["initiate of high sorcery"] = {
 		}, {
 			name : "Solinari 1st-level spell",
 			spells : ["comprehend languages", "detect evil and good", "protection from evil and good", "shield"],
-			firstCol : "oncelr",
+			firstCol : "oncelr+markedbox",
 			times : 2
 		}]
 	}
@@ -48483,7 +48336,7 @@ FeatsList["adept of the black robes"] = {
 		"class" : "any",
 		school : ["Evoc", "Necro"],
 		level : [2, 2],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	spellcastingAbility : 'initiate of high sorcery_-_nuitari',
 	allowUpCasting : true
@@ -48508,7 +48361,7 @@ FeatsList["adept of the red robes"] = {
 		"class" : "any",
 		school : ["Illus", "Trans"],
 		level : [2, 2],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	spellcastingAbility : 'initiate of high sorcery_-_lunitari',
 	allowUpCasting : true
@@ -48531,7 +48384,7 @@ FeatsList["adept of the white robes"] = {
 		"class" : "any",
 		school : ["Abjur", "Div"],
 		level : [2, 2],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	spellcastingAbility : 'initiate of high sorcery_-_solinari',
 	allowUpCasting : true
@@ -48566,12 +48419,12 @@ FeatsList["divinely favored"] = {
 			name : "1st-level Warlock Spell",
 			"class" : ["warlock"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}, {
 			name : "Augury",
 			spells : ["augury"],
 			selection : ["augury"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"good (cleric spell)" : {
@@ -48588,12 +48441,12 @@ FeatsList["divinely favored"] = {
 			name : "1st-level Cleric Spell",
 			"class" : ["cleric"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}, {
 			name : "Augury",
 			spells : ["augury"],
 			selection : ["augury"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"neutral (druid spell)" : {
@@ -48610,12 +48463,12 @@ FeatsList["divinely favored"] = {
 			name : "1st-level Druid Spell",
 			"class" : ["druid"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}, {
 			name : "Augury",
 			spells : ["augury"],
 			selection : ["augury"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	}
 };
@@ -48948,7 +48801,7 @@ MagicItemsList["flying citadel helm"] = {
 	attunement : true,
 	prerequisite : "Requires attunement by a spellcaster",
 	prereqeval : function(v) { return v.isSpellcaster; },
-	description : "This ornate chair allows me to maneuver a flying citadel while concentrating (as if a spell). I can move the citadel through the air 80 ft/round or 8 miles/h, steer it, and see and hear from its highest point as though I were at that location. As an action or bonus action, I can transfer attunement to a willing spellcaster.",
+	description : "This ornate chair allows me to maneuver a flying citadel while concentrating (as if a spell). I can move the citadel through the air 80 ft/round or 8 miles/h, steer it, and see and hear from its highest point as though I was at that location. As an action or bonus action, I can transfer attunement to a willing spellcaster.",
 	descriptionFull : "The function of this ornate chair is to propel and maneuver a flying citadel on which it has been installed. The chair has AC 15, 18 hit points, and immunity to poison and psychic damage. It is destroyed if reduced to 0 hit points."+
 	"\n   The sensation of being attuned to a flying citadel helm is akin to the pins-and-needles effect one experiences after one's arm or leg falls asleep, but not as intense."+
 	"\n   While attuned to a flying citadel helm and sitting in it, you gain the following abilities for as long as you maintain concentration (as if concentrating on a spell):"+
@@ -49848,21 +49701,17 @@ FeatsList["rune shaper"] = {
 	descriptionFull : GotG_RuneShaper.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 	description : "I know half my Prof Bonus, rounded down, in runes. After a long rest, I can inscribe each rune on a nonmagical objects I touch. It lasts until my next long rest. I can cast Comprehend Languages and each inscribed rune's spell once per long rest without a spell slot or material components, or by using spell slots. See Notes.",
 	spellcastingAbility : [4, 5, 6],
+	spellFirstColTitle : "PR",
+	allowUpCasting : true,
 	spellcastingBonus : [{
 		name : "Comprehend languages",
 		spells : ["comprehend languages"],
 		selection : ["comprehend languages"],
-		allowUpCasting : true,
-		// checkbox first column to check of when used once per long rest without a spell slot
-		spellFirstColTitle : "1\xD7",
-		firstCol : "checkbox"
+		firstCol : "oncelr+markedbox"
 	}, {
 		name : "Runes",
 		spells : ["fog cloud", "inflict wounds", "chromatic orb", "disguise self", "burning hands", "speak with animals", "armor of agathys", "goodberry", "longstrider", "command", "entangle", "sanctuary", "thunderwave"],
-		allowUpCasting : true,
-		// checkbox first column to check of when used once per long rest without a spell slot
-		spellFirstColTitle : "1\xD7",
-		firstCol : "checkbox",
+		firstCol : "oncelr+markedbox",
 		linkTimesToHalfProf : true, // custom attribute, for use in calcChanges.spellList
 		times : 1 // half proficiency bonus, so always minimum of 1
 	}],
@@ -49882,10 +49731,11 @@ FeatsList["rune shaper"] = {
 				// Change the times attribute to be half proficiency, rounded down
 				// Do it this way, so it is updated even if a bonus to proficiency was manually applied
 				if (spName === 'rune shaper' && spType === 'feat-bonus' && spList.name === "Comprehend languages") {
+					var oCast = CurrentSpells['rune shaper'];
 					var halfProf = Math.floor( Number(How('Proficiency Bonus')) / 2 );
-					CurrentSpells['rune shaper'].halfProf = halfProf;
-					for (var key in CurrentSpells[spName].bonus) {
-						var aBonus = CurrentSpells['rune shaper'].bonus[key];
+					oCast.halfProf = halfProf;
+					for (var key in oCast.bonus) {
+						var aBonus = oCast.bonus[key];
 						if (!isArray(aBonus)) aBonus = [aBonus];
 						for (var i = 0; i < aBonus.length; i++) {
 							if (aBonus[i].linkTimesToHalfProf) {
@@ -51405,7 +51255,7 @@ FeatsList["outlands envoy"] = {
 		name : "Crossroads Emissary",
 		spells : ["misty step", "tongues"],
 		selection : ["misty step", "tongues"],
-		firstCol : "oncelr",
+		firstCol : "oncelr+markedbox",
 		times : 2
 	}],
 	spellChanges : {

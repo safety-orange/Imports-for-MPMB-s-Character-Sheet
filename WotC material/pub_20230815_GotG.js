@@ -1,5 +1,5 @@
 var iFileName = "pub_20230815_GotG.js";
-RequiredSheetVersion("13.2.3");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds the player-material from Bigby Presents: Glory of the Giants to MPMB's Character Record Sheet
 
 SourceList["GotG"] = {
@@ -614,21 +614,17 @@ FeatsList["rune shaper"] = {
 	descriptionFull : GotG_RuneShaper.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
 	description : "I know half my Prof Bonus, rounded down, in runes. After a long rest, I can inscribe each rune on a nonmagical objects I touch. It lasts until my next long rest. I can cast Comprehend Languages and each inscribed rune's spell once per long rest without a spell slot or material components, or by using spell slots. See Notes.",
 	spellcastingAbility : [4, 5, 6],
+	spellFirstColTitle : "PR",
+	allowUpCasting : true,
 	spellcastingBonus : [{
 		name : "Comprehend languages",
 		spells : ["comprehend languages"],
 		selection : ["comprehend languages"],
-		allowUpCasting : true,
-		// checkbox first column to check of when used once per long rest without a spell slot
-		spellFirstColTitle : "1\xD7",
-		firstCol : "checkbox"
+		firstCol : "oncelr+markedbox"
 	}, {
 		name : "Runes",
 		spells : ["fog cloud", "inflict wounds", "chromatic orb", "disguise self", "burning hands", "speak with animals", "armor of agathys", "goodberry", "longstrider", "command", "entangle", "sanctuary", "thunderwave"],
-		allowUpCasting : true,
-		// checkbox first column to check of when used once per long rest without a spell slot
-		spellFirstColTitle : "1\xD7",
-		firstCol : "checkbox",
+		firstCol : "oncelr+markedbox",
 		linkTimesToHalfProf : true, // custom attribute, for use in calcChanges.spellList
 		times : 1 // half proficiency bonus, so always minimum of 1
 	}],
@@ -648,10 +644,11 @@ FeatsList["rune shaper"] = {
 				// Change the times attribute to be half proficiency, rounded down
 				// Do it this way, so it is updated even if a bonus to proficiency was manually applied
 				if (spName === 'rune shaper' && spType === 'feat-bonus' && spList.name === "Comprehend languages") {
+					var oCast = CurrentSpells['rune shaper'];
 					var halfProf = Math.floor( Number(How('Proficiency Bonus')) / 2 );
-					CurrentSpells['rune shaper'].halfProf = halfProf;
-					for (var key in CurrentSpells[spName].bonus) {
-						var aBonus = CurrentSpells['rune shaper'].bonus[key];
+					oCast.halfProf = halfProf;
+					for (var key in oCast.bonus) {
+						var aBonus = oCast.bonus[key];
 						if (!isArray(aBonus)) aBonus = [aBonus];
 						for (var i = 0; i < aBonus.length; i++) {
 							if (aBonus[i].linkTimesToHalfProf) {

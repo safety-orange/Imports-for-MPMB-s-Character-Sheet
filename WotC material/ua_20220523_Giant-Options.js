@@ -1,7 +1,7 @@
 // This file adds the content from the Unearthed Arcana 2022: Giant Options article to MPMB's Character Record Sheet
 // Contains contributions by Thravieus Windhelm / PoetOfGod (GitHub) / @PoetOfGod#6077 (Discord)
 var iFileName = "ua_20220523_Giant-Options.js";
-RequiredSheetVersion("13.1.9");
+RequiredSheetVersion("14.0.1-beta");
 
 SourceList["UA:GO"] = {
 	name : "Unearthed Arcana: Giant Options",
@@ -428,7 +428,7 @@ FeatsList["guile of the cloud giant-ua"] = {
 		name : "Guile of the Cloud Giant",
 		spells : ["blur"],
 		selection : ["blur"],
-		firstCol : "oncelr",
+		firstCol : "oncelr+markedbox",
 		allowUpCasting : true
 	}]
 };
@@ -447,14 +447,14 @@ FeatsList["keenness of the stone giant-ua"] = {
 		name : "Keenness of the Stone Giant",
 		spells : ["detect thoughts"],
 		selection : ["detect thoughts"],
-		firstCol : "oncelr",
+		firstCol : "oncelr+markedbox",
 		allowUpCasting : true
 	}, {
 		name : "1st-level Abjur/Div spell",
 		"class" : "any",
 		school : ["Abjur", "Div"],
 		level : [1, 1],
-		firstCol : "oncelr",
+		firstCol : "oncelr+markedbox",
 		allowUpCasting : true
 	}],
 	vision : [["Darkvision", "fixed 60"], ["Darkvision", "+30"]]

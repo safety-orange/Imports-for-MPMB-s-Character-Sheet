@@ -1,5 +1,5 @@
 var iFileName = "pub_20210518_VRGtR.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds all the player-material from Van Richten's Guide to Ravenloft to MPMB's Character Record Sheet
 
 // Define the source
@@ -113,21 +113,10 @@ RaceList["hexblood"] = {
 				name : "Hex Magic",
 				spells : ["disguise self", "hex"],
 				selection : ["disguise self", "hex"],
-				firstCol : 'oncelr',
+				firstCol : 'oncelr+markedbox',
 				times : 2,
-				allowUpCasting : true
+				allowUpCasting : true,
 			}],
-			extraLimitedFeatures : [{
-				name : "Disguise Self",
-				usages : 1,
-				recovery : "long rest",
-				altResource : "SS 1+"
-			}, {
-				name : "Hex",
-				usages : 1,
-				recovery : "long rest",
-				altResource : "SS 1+"
-			}]
 		}
 	},
 	useFromPreviousRace : {

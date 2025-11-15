@@ -1,5 +1,5 @@
 var iFileName = "ua_20210126_Gothic-Lineages.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds the content from the Unearthed Arcana 2021: Gothic Lineages article to MPMB's Character Record Sheet
 // This file contains contributions by Metacomet10, MarvinTheParanoidAndroid, and CountVladmir
 
@@ -69,7 +69,7 @@ RaceList["hexblood-ua"] = {
 		name : "Hexblood's Magic Token",
 		note : ["As an action, I can harmlessly pull out one of my nails, a tooth, or a lock of hair. This token is imbued with magic until I finish a long rest.",
 		"While the token is imbued in this way, I can use an action to send a telepathic message to the creature holding or carrying the token, as long as I'm on the same plane of existence and are within 10 miles of it. The message can contain up to twenty-five words.",
-		"In addition, while I'm within 10 miles of the token, I can use an action to enter a trance for 1 minute, during which I can see and hear from the token as if I were located where it is. While I'm using my senses at the token's location, I'm blinded and deafened in regard to my own surroundings. Afterward, the token is harmlessly destroyed.",
+		"In addition, while I'm within 10 miles of the token, I can use an action to enter a trance for 1 minute, during which I can see and hear from the token as if I was located where it is. While I'm using my senses at the token's location, I'm blinded and deafened in regard to my own surroundings. Afterward, the token is harmlessly destroyed.",
 		"Once I create a token using this feature, I can't do so again until I finish a long rest, at which point my missing part regrows."]
 	}],
 	savetxt : {
@@ -92,21 +92,10 @@ RaceList["hexblood-ua"] = {
 				name : "Hex Magic",
 				spells : ["disguise self", "hex"],
 				selection : ["disguise self", "hex"],
-				firstCol : 'oncelr',
+				firstCol : 'oncelr+markedbox',
 				times : 2,
 				allowUpCasting : true
 			}],
-			extraLimitedFeatures : [{
-				name : "Disguise Self",
-				usages : 1,
-				recovery : "long rest",
-				altResource : "SS 1+"
-			}, {
-				name : "Hex",
-				usages : 1,
-				recovery : "long rest",
-				altResource : "SS 1+"
-			}]
 		}
 	}
 };

@@ -1,5 +1,5 @@
 var iFileName = "ua_20160801_The-Faithful.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds the content from the Unearthed Arcana: The Faithful article to MPMB's Character Record Sheet
 
 // Define the source
@@ -68,7 +68,7 @@ AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the St
 		name : "Pact of the Star Chain",
 		spells : ["augury"],
 		selection : ["augury"],
-		firstCol : "(R)"
+		firstCol : SpellRitualTag,
 	}],
 	spellChanges : {
 		"augury" : {

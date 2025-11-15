@@ -2,7 +2,7 @@
 // Contains contributions by Thravieus Windhelm / PoetOfGod (GitHub) / @PoetOfGod#6077 (Discord)
 
 var iFileName = "ua_20220308_Heroes-of-Krynn.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.1-beta");
 
 SourceList["UA:HoK"] = {
 	name : "Unearthed Arcana: Heroes of Krynn",
@@ -330,7 +330,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 			name : "Nuitari 1st-level Spell",
 			"class" : "wizard",
 			school : ["Evoc", "Necro"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"intelligence - lunitari" : {
@@ -345,7 +345,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 			name : "Lunitari 1st-level Spell",
 			"class" : "wizard",
 			school : ["Div", "Trans"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"intelligence - solinari" : {
@@ -360,7 +360,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 			name : "Solinari 1st-level Spell",
 			"class" : "wizard",
 			school : ["Abjur", "Conj"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"wisdom - nuitari" : {
@@ -375,7 +375,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 			name : "Nuitari 1st-level Spell",
 			"class" : "wizard",
 			school : ["Evoc", "Necro"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"wisdom - lunitari" : {
@@ -390,7 +390,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 			name : "Lunitari 1st-level Spell",
 			"class" : "wizard",
 			school : ["Div", "Trans"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"wisdom - solinari" : {
@@ -405,7 +405,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 			name : "Solinari 1st-level Spell",
 			"class" : "wizard",
 			school : ["Abjur", "Conj"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"charisma - nuitari" : {
@@ -420,7 +420,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 			name : "Nuitari 1st-level Spell",
 			"class" : "wizard",
 			school : ["Evoc", "Necro"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"charisma - lunitari" : {
@@ -435,7 +435,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 			name : "Lunitari 1st-level Spell",
 			"class" : "wizard",
 			school : ["Div", "Trans"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"charisma - solinari" : {
@@ -450,7 +450,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 			name : "Solinari 1st-level Spell",
 			"class" : "wizard",
 			school : ["Abjur", "Conj"],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 };
@@ -466,7 +466,7 @@ FeatsList["adept of the black robes-ua"] = {
 		"class" : "any",
 		school : ["Evoc", "Necro"],
 		level : [2, 2],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
@@ -502,7 +502,7 @@ FeatsList["adept of the red robes-ua"] = {
 		"class" : "any",
 		school : ["Div", "Trans"],
 		level : [2, 2],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	action : [["reaction", "Magical Balance"]],
 	usages : "Proficiency bonus per ",
@@ -542,7 +542,7 @@ FeatsList["adept of the white robes-ua"] = {
 		"class" : "any",
 		school : ["Abjur", "Conj"],
 		level : [2, 2],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
@@ -588,7 +588,7 @@ FeatsList["divinely favored-ua"] = {
 			name : "1st-level Cleric/Wizard Spell",
 			"class" : ["cleric", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"intelligence - neutral" : {
@@ -604,7 +604,7 @@ FeatsList["divinely favored-ua"] = {
 			name : "1st-level Druid/Wizard Spell",
 			"class" : ["druid", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"intelligence - evil" : {
@@ -620,7 +620,7 @@ FeatsList["divinely favored-ua"] = {
 			name : "1st-level Warlock/Wizard Spell",
 			"class" : ["warlock", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"wisdom - good" : {
@@ -636,7 +636,7 @@ FeatsList["divinely favored-ua"] = {
 			name : "1st-level Cleric/Wizard Spell",
 			"class" : ["cleric", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"wisdom - neutral" : {
@@ -652,7 +652,7 @@ FeatsList["divinely favored-ua"] = {
 			name : "1st-level Druid/Wizard Spell",
 			"class" : ["druid", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"wisdom - evil" : {
@@ -668,7 +668,7 @@ FeatsList["divinely favored-ua"] = {
 			name : "1st-level Warlock/Wizard Spell",
 			"class" : ["warlock", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"charisma - good" : {
@@ -684,7 +684,7 @@ FeatsList["divinely favored-ua"] = {
 			name : "1st-level Cleric/Wizard Spell",
 			"class" : ["cleric", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"charisma - neutral" : {
@@ -700,7 +700,7 @@ FeatsList["divinely favored-ua"] = {
 			name : "1st-level Druid/Wizard Spell",
 			"class" : ["druid", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	},
 	"charisma - evil" : {
@@ -716,7 +716,7 @@ FeatsList["divinely favored-ua"] = {
 			name : "1st-level Warlock/Wizard Spell",
 			"class" : ["warlock", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}]
 	}
 };

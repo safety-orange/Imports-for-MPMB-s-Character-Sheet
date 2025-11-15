@@ -1,5 +1,5 @@
 var iFileName = "ua_20180910_Dragonmarks.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds the content from the Unearthed Arcana: Dragonmarks article to MPMB's Character Record Sheet
 // Note that this content also appears in the script for Wayfinder's Guide to Eberron and thus both sources are included for all things here
 
@@ -43,7 +43,7 @@ RaceList["dragonmark detection half-elf-ua"] = {
 		name : "Sense Threats",
 		spells : ["detect magic", "detect poison and disease"],
 		selection : ["detect magic", "detect poison and disease"],
-		firstCol : "(R)",
+		firstCol : SpellRitualTag,
 		times : 2
 	}],
 	spellChanges : {
@@ -92,7 +92,7 @@ RaceList["dragonmark finding half-orc-ua"] = {
 				name : "Nature's Voice",
 				spells : ["locate animals or plants"],
 				selection : ["locate animals or plants"],
-				firstCol : "(R)"
+				firstCol : SpellRitualTag,
 			}],
 			spellChanges : {
 				"locate animals or plants" : {
@@ -531,7 +531,7 @@ RaceList["dragonmark warding dwarf-ua"] = {
 		name : "Wards and Seals (level 1)",
 		spells : ["alarm"],
 		selection : ["alarm"],
-		firstCol : "(R)"
+		firstCol : SpellRitualTag,
 	}],
 	spellChanges : {
 		"alarm" : {

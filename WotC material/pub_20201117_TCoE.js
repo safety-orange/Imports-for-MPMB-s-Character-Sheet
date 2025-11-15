@@ -1,5 +1,5 @@
 var iFileName = "pub_20201117_TCoE.js";
-RequiredSheetVersion("13.2.3");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds the content from Tasha's Cauldron of Everything to MPMB's Character Record Sheet
 
 /*	ACKNOWLEDGEMENTS
@@ -129,9 +129,6 @@ if (!SourceList["E:RLW"]) {
 		attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 		spellcastingFactor : 2,
 		spellcastingFactorRoundupMulti : true,
-		spellcastingTable : [[0, 0, 0, 0, 0, 0, 0, 0, 0]].concat(levels.map(function (n) {
-			return defaultSpellTable[Math.ceil(n / 2)];
-		})),
 		spellcastingKnown : {
 			cantrips : [2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4],
 			spells : "list",
@@ -736,15 +733,6 @@ if (!SourceList["E:RLW"]) {
 				]),
 				dmgres : ["Acid", "Poison"],
 				savetxt : { immune : ["poisoned condition"] },
-				extraLimitedFeatures : [{
-					name : "Chemical Mastery: Greater Restoration",
-					usages : 1,
-					recovery : "long rest"
-				}, {
-					name : "Chemical Mastery: Heal",
-					usages : 1,
-					recovery : "long rest"
-				}],
 				spellcastingBonus : [{
 					name : "Chemical Mastery",
 					spells : ["greater restoration", "heal"],
@@ -2649,7 +2637,7 @@ AddSubClass("druid", "circle of the stars", {
 				name : "Star Map",
 				spells : ["guiding bolt"],
 				selection : ["guiding bolt"],
-				firstCol : "Sp"
+				firstCol : "oncelr"
 			}],
 			additional : "Guiding Bolt",
 			usages : "Proficiency bonus per ",
@@ -3193,7 +3181,7 @@ AddSubClass("fighter", "psi warrior", {
 				name : "Telekinetic Master",
 				spells : ["telekinesis"],
 				selection : ["telekinesis"],
-				firstCol : "Sp"
+				firstCol : "oncelr"
 			}],
 			spellChanges : {
 				"telekinesis" : {
@@ -4044,7 +4032,7 @@ var TCoE_Primal_Awareness = {
 		name : "Primal Awareness",
 		spells : ["speak with animals", "beast sense", "speak with plants", "locate creature", "commune with nature"],
 		selection : ["speak with animals", "beast sense", "speak with plants", "locate creature", "commune with nature"],
-		firstCol : "oncelr",
+		firstCol : "oncelr+markedbox",
 		times : levels.map(function (n) {
 			return n < 5 ? 1 : n < 9 ? 2 : n < 13 ? 3 : n < 17 ? 4 : 5;
 		})
@@ -4410,7 +4398,7 @@ var TCoE_Ranger_Subclass_Fey_Wanderer = AddSubClass("ranger", "fey wanderer", {
 				name : "Fey Reinforcements",
 				spells : ["summon fey"],
 				selection : ["summon fey"],
-				firstCol : 'oncelr'
+				firstCol : 'oncelr+markedbox'
 			}],
 			spellChanges : {
 				"summon fey" : {
@@ -4435,7 +4423,7 @@ var TCoE_Ranger_Subclass_Fey_Wanderer = AddSubClass("ranger", "fey wanderer", {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
 						if (spellKey === "misty step") {
-							spellObj.firstCol = "Sp";
+							spellObj.firstCol = "oncelr+markedbox";
 							spellObj.description = "I and one willing creature I can see within 5 ft of me teleport 30 ft to a unoccupied space I can see";
 							return true;
 						}
@@ -5394,7 +5382,7 @@ AddSubClass("warlock", "the fathomless", {
 				name : "Grasping Tentacles",
 				spells : ["evard's black tentacles"],
 				selection : ["evard's black tentacles"],
-				firstCol : "oncelr"
+				firstCol : "oncelr+markedbox"
 			}],
 			extraLimitedFeatures : [{
 				name : "Evard's Black Tentacles (no spell slot)",
@@ -5971,13 +5959,13 @@ FeatsList["fey touched"] = {
 		name : "Misty Step",
 		spells : ["misty step"],
 		selection : ["misty step"],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}, {
 		name : "1st-level Ench/Div spell",
 		'class': "any",
 		school : ["Ench", "Div"],
 		level : [1, 1],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
@@ -6160,13 +6148,13 @@ FeatsList["shadow touched"] = {
 		name : "Invisibility",
 		spells : ["invisibility"],
 		selection : ["invisibility"],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}, {
 		name : "1st-level Illus/Necro spell",
 		'class' : "any",
 		school : ["Illus", "Necro"],
 		level : [1, 1],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
@@ -6258,7 +6246,7 @@ FeatsList["telepathic"] = {
 		name : "Detect Thoughts",
 		spells : ["detect thoughts"],
 		selection : ["detect thoughts"],
-		firstCol : "oncelr"
+		firstCol : "oncelr+markedbox"
 	}],
 	spellcastingAbility : 4,
 	allowUpCasting : true,
@@ -7112,38 +7100,26 @@ MagicItemsList["all-purpose tool"] = {
 	usages : 1,
 	recovery : "dawn",
 	additional : "choose cantrip",
-	eval : function () {
-		CurrentSpells['all-purpose tool'] = {
-			name : 'All-Purpose Tool (item)',
-			ability : "artificer",
-			list : { 'class' : 'any', level : [0, 0] },
-			known : { cantrips : 0, spells : 'list' },
-			bonus : {
-				bon1 : {
-					name : 'Just select "Full List"',
-					spells : []
-				},
-				bon2 : {
-					name : 'on the bottom left',
-					spells : []
-				}
-			},
-			typeList : 4,
-			refType : "item",
-			allowUpCasting : true,
-			firstCol : "8h"
-		};
-		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
-	},
-	removeeval : function () {
-		delete CurrentSpells['all-purpose tool'];
-		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
-	},
+	spellcastingAbility: "artificer",
+	spellFirstColTitle: "8h",
+	spellcastingPreparedCantrips: { 'class': 'any' },
+	allowUpCasting: true,
+	spellcastingBonus: [{
+		name: 'Select 1 cantrip or enable',
+		'class': 'any',
+		level: [0, 0],
+	}, {
+		name: '"Prepare cantrips just like',
+		spells: [],
+	}, {
+		name: 'spells" on the bottom left.',
+		spells: [],
+	}],
 	calcChanges : {
 		spellList : [
 			function(spList, spName, spType) {
 				// Remove the already known cantrips, from any source except magic items
-				if (spName === 'all-purpose tool') {
+				if (spName.indexOf('all-purpose tool') !== -1) {
 					var allSpellsKnown = [];
 					for (var sCast in CurrentSpells) {
 						if (sCast.refType === "item") continue;
@@ -7157,13 +7133,6 @@ MagicItemsList["all-purpose tool"] = {
 				}
 			},
 		],
-		spellAdd : [
-			function (spellKey, spellObj, spName, isDuplicate) {
-				if (spName === 'all-purpose tool') {
-					spellObj.firstCol = "checkbox";
-				};
-			}
-		]
 	},
 	action : [["action", " (transform tool)"], ["action", " (choose cantrip)"]],
 	choices : ["+1 to spell attacks and DCs (uncommon)", "+2 to spell attacks and DCs (rare)", "+3 to spell attacks and DCs (very rare)"],

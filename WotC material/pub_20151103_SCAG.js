@@ -60,10 +60,7 @@ RaceList["gray dwarf"] = {
 	features : {
 		"enlarge" : {
 			name : "Duergar Magic (level 3)",
-			limfeaname : "Enlarge (self only)",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Duergar Magic (level 3)",
 				spells : ["enlarge/reduce"],
@@ -83,10 +80,7 @@ RaceList["gray dwarf"] = {
 		},
 		"invisibility" : {
 			name : "Duergar Magic (level 5)",
-			limfeaname : "Invisibility (self only)",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Duergar Magic (level 5)",
 				spells : ["invisibility"],
@@ -175,10 +169,7 @@ AddRacialVariant("half-elf", "drow magic", {
 	features : {
 		"faerie fire" : {
 			name : "Drow Magic (level 3)",
-			limfeaname : "Faerie Fire",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Drow Magic (level 3)",
 				spells : ["faerie fire"],
@@ -188,10 +179,7 @@ AddRacialVariant("half-elf", "drow magic", {
 		},
 		"darkness" : {
 			name : "Drow Magic (level 5)",
-			limfeaname : "Darkness",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Drow Magic (level 5)",
 				spells : ["darkness"],
@@ -242,10 +230,7 @@ AddRacialVariant("tiefling", "devil's tongue", {
 	features : {
 		"charm person" : {
 			name : "Devil's Tongue (level 3)",
-			limfeaname : "Charm Person (2 targets)",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Devil's Tongue (level 3)",
 				spells : ["charm person"],
@@ -261,10 +246,7 @@ AddRacialVariant("tiefling", "devil's tongue", {
 		},
 		"enthrall" : {
 			name : "Devil's Tongue (level 5)",
-			limfeaname : "Enthrall",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Devil's Tongue (level 5)",
 				spells : ["enthrall"],
@@ -283,10 +265,7 @@ AddRacialVariant("tiefling", "hellfire", {
 	features : {
 		"burning hands" : {
 			name : "Hellfire Legacy (level 3)",
-			limfeaname : "Burning Hands (4d6)",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Hellfire Legacy (level 3)",
 				spells : ["burning hands"],
@@ -304,8 +283,6 @@ AddRacialVariant("tiefling", "hellfire", {
 			name : "Hellfire Legacy (level 5)",
 			limfeaname : "Darkness",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Infernal Legacy (level 5)",
 				spells : ["darkness"],
@@ -1498,7 +1475,7 @@ if (!FeatsList["svirfneblin magic"]) {
 			selection : ["nondetection"],
 			firstCol : 'atwill'
 		}, {
-			name : "1x long rest (self only)",
+			name : "1\xD7 long rest (self only)",
 			spells : ["blindness/deafness", "blur", "disguise self"],
 			selection : ["blindness/deafness", "blur", "disguise self"],
 			firstCol : 'oncelr',

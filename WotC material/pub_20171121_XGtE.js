@@ -1,5 +1,5 @@
 var iFileName = "pub_20171121_XGtE.js";
-RequiredSheetVersion("13.2.0");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds the backgrounds and beasts from Xanathar's Guide to Everything to MPMB's Character Record Sheet
 
 // Define the source
@@ -4959,11 +4959,26 @@ MagicItemsList["dark shard amulet"] = {
 	prereqeval : function (v) { return classes.known.warlock ? true : false; },
 	usages : 1,
 	recovery : "long rest",
+	spellcastingAbility: "warlock",
+	spellFirstColTitle: "",
+	spellcastingPreparedCantrips: { 'class': 'warlock' },
+	allowUpCasting: true,
+	spellcastingBonus: [{
+		name: 'Select 1 cantrip or enable',
+		'class': 'warlock',
+		level: [0, 0],
+	}, {
+		name: '"Prepare cantrips just like',
+		spells: [],
+	}, {
+		name: 'spells" on the bottom left.',
+		spells: [],
+	}],
 	calcChanges : {
 		spellList : [
 			function(spList, spName, spType) {
 				// Remove the already known cantrips, from any source except magic items
-				if (spName === 'dark shard amulet') {
+				if (spName.indexOf('dark shard amulet') !== -1) {
 					var allSpellsKnown = [];
 					for (var sCast in CurrentSpells) {
 						if (sCast.refType === "item") continue;
@@ -4975,43 +4990,16 @@ MagicItemsList["dark shard amulet"] = {
 					if (!spList.notspells) spList.notspells = [];
 					spList.notspells = spList.notspells.concat(knownCantrips);
 				}
-			}
+			},
 		],
 		spellAdd : [
 			function (spellKey, spellObj, spName, isDuplicate) {
-				if (spName == 'warlock-dark shard amulet') {
+				if (spName.indexOf('dark shard amulet') !== -1) {
 					spellObj.firstCol = "";
 				};
-			}
-		]
-	},
-	eval : function () {
-		CurrentSpells['warlock-dark shard amulet'] = {
-			name : 'Dark Shard Amulet (item)',
-			ability : "warlock",
-			list : { 'class' : 'warlock', level : [0, 0] },
-			known : { cantrips : 0, spells : 'list' },
-			bonus : {
-				bon1 : {
-					name : 'Just select "Full List"',
-					spells : []
-				},
-				bon2 : {
-					name : 'on the bottom left',
-					spells : []
-				}
 			},
-			typeList : 4,
-			refType : "item",
-			allowUpCasting : true,
-			firstCol : ""
-		};
-		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+		],
 	},
-	removeeval : function () {
-		delete CurrentSpells['dark shard amulet'];
-		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
-	}
 }
 MagicItemsList["dread helm"] = {
 	name : "Dread Helm",
@@ -5073,38 +5061,26 @@ MagicItemsList["hat of wizardry"] = {
 	prereqeval : function (v) { return classes.known.wizard ? true : false; },
 	usages : 1,
 	recovery : "long rest",
-	eval : function () {
-		CurrentSpells['hat of wizardry'] = {
-			name : 'Hat of Wizardry (item)',
-			ability : "wizard",
-			list : { 'class' : 'wizard', level : [0, 0] },
-			known : { cantrips : 0, spells : 'list' },
-			bonus : {
-				bon1 : {
-					name : 'Just select "Full List"',
-					spells : []
-				},
-				bon2 : {
-					name : 'on the bottom left',
-					spells : []
-				}
-			},
-			typeList : 4,
-			refType : "item",
-			allowUpCasting : true,
-			firstCol : ""
-		};
-		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
-	},
-	removeeval : function () {
-		delete CurrentSpells['hat of wizardry'];
-		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
-	},
+	spellcastingAbility: "wizard",
+	spellFirstColTitle: "",
+	spellcastingPreparedCantrips: { 'class': 'wizard' },
+	allowUpCasting: true,
+	spellcastingBonus: [{
+		name: 'Select 1 cantrip or enable',
+		'class': 'wizard',
+		level: [0, 0],
+	}, {
+		name: '"Prepare cantrips just like',
+		spells: [],
+	}, {
+		name: 'spells" on the bottom left.',
+		spells: [],
+	}],
 	calcChanges : {
 		spellList : [
 			function(spList, spName, spType) {
 				// Remove the already known cantrips, from any source except magic items
-				if (spName === 'hat of wizardry') {
+				if (spName.indexOf('hat of wizardry') !== -1) {
 					var allSpellsKnown = [];
 					for (var sCast in CurrentSpells) {
 						if (sCast.refType === "item") continue;
@@ -5120,7 +5096,7 @@ MagicItemsList["hat of wizardry"] = {
 		],
 		spellAdd : [
 			function (spellKey, spellObj, spName, isDuplicate) {
-				if (spName === 'hat of wizardry') {
+				if (spName.indexOf('hat of wizardry') !== -1) {
 					spellObj.firstCol = "";
 				};
 			}

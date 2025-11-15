@@ -2,7 +2,7 @@
 // Contains contributions by Thravieus Windhelm / PoetOfGod (GitHub) / @PoetOfGod#6077 (Discord)
 
 var iFileName = "ua_20220425_Heroes-of-Krynn-Revisited.js";
-RequiredSheetVersion("13.1.2");
+RequiredSheetVersion("14.0.1-beta");
 
 SourceList["UA:HoKR"] = {
 	name : "Unearthed Arcana: Heroes of Krynn Revisited",
@@ -159,7 +159,7 @@ if (!SourceList["D:SotDQ"]) {
 			}, {
 				name : "Nuitari 1st-level spell",
 				spells : ["dissonant whispers", "false life", "hex", "ray of sickness"],
-				firstCol : "oncelr",
+				firstCol : "oncelr+markedbox",
 				times : 2
 			}]
 		},
@@ -175,7 +175,7 @@ if (!SourceList["D:SotDQ"]) {
 			}, {
 				name : "Lunitari 1st-level spell",
 				spells : ["color spray", "disguise self", "feather fall", "longstrider"],
-				firstCol : "oncelr",
+				firstCol : "oncelr+markedbox",
 				times : 2
 			}]
 		},
@@ -191,7 +191,7 @@ if (!SourceList["D:SotDQ"]) {
 			}, {
 				name : "Solinari 1st-level spell",
 				spells : ["comprehend languages", "detect evil and good", "protection from evil and good", "shield"],
-				firstCol : "oncelr",
+				firstCol : "oncelr+markedbox",
 				times : 2
 			}]
 		}
@@ -213,7 +213,7 @@ if (!SourceList["D:SotDQ"]) {
 			"class" : "any",
 			school : ["Evoc", "Necro"],
 			level : [2, 2],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}],
 		spellcastingAbility : 'initiate of high sorcery_-_nuitari',
 		allowUpCasting : true
@@ -238,7 +238,7 @@ if (!SourceList["D:SotDQ"]) {
 			"class" : "any",
 			school : ["Illus", "Trans"],
 			level : [2, 2],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}],
 		spellcastingAbility : 'initiate of high sorcery_-_lunitari',
 		allowUpCasting : true
@@ -261,7 +261,7 @@ if (!SourceList["D:SotDQ"]) {
 			"class" : "any",
 			school : ["Abjur", "Div"],
 			level : [2, 2],
-			firstCol : "oncelr"
+			firstCol : "oncelr+markedbox"
 		}],
 		spellcastingAbility : 'initiate of high sorcery_-_solinari',
 		allowUpCasting : true
@@ -296,12 +296,12 @@ if (!SourceList["D:SotDQ"]) {
 				name : "1st-level Warlock Spell",
 				"class" : ["warlock"],
 				level : [1, 1],
-				firstCol : "oncelr"
+				firstCol : "oncelr+markedbox"
 			}, {
 				name : "Augury",
 				spells : ["augury"],
 				selection : ["augury"],
-				firstCol : "oncelr"
+				firstCol : "oncelr+markedbox"
 			}]
 		},
 		"good (cleric spell)" : {
@@ -318,12 +318,12 @@ if (!SourceList["D:SotDQ"]) {
 				name : "1st-level Cleric Spell",
 				"class" : ["cleric"],
 				level : [1, 1],
-				firstCol : "oncelr"
+				firstCol : "oncelr+markedbox"
 			}, {
 				name : "Augury",
 				spells : ["augury"],
 				selection : ["augury"],
-				firstCol : "oncelr"
+				firstCol : "oncelr+markedbox"
 			}]
 		},
 		"neutral (druid spell)" : {
@@ -340,12 +340,12 @@ if (!SourceList["D:SotDQ"]) {
 				name : "1st-level Druid Spell",
 				"class" : ["druid"],
 				level : [1, 1],
-				firstCol : "oncelr"
+				firstCol : "oncelr+markedbox"
 			}, {
 				name : "Augury",
 				spells : ["augury"],
 				selection : ["augury"],
-				firstCol : "oncelr"
+				firstCol : "oncelr+markedbox"
 			}]
 		}
 	};

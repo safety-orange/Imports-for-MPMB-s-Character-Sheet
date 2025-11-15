@@ -1,5 +1,5 @@
 var iFileName = "pub_20180723_WGtE.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds the content from Wayfinder's Guide to Eberron to MPMB's Character Record Sheet
 // Be aware that this script is for the version from 9th of October 2018, not the original version, 
 // nor the updated version of November 2019 that uses the identical rules to Eberron: Rising from the Last War.
@@ -774,7 +774,7 @@ if (!SourceList["UA:D"]) {
 			name : "Sense Threats",
 			spells : ["detect magic", "detect poison and disease"],
 			selection : ["detect magic", "detect poison and disease"],
-			firstCol : "(R)",
+			firstCol : SpellRitualTag,
 			times : 2
 		}],
 		spellChanges : {
@@ -823,7 +823,7 @@ if (!SourceList["UA:D"]) {
 					name : "Nature's Voice",
 					spells : ["locate animals or plants"],
 					selection : ["locate animals or plants"],
-					firstCol : "(R)"
+					firstCol : SpellRitualTag,
 				}],
 				spellChanges : {
 					"locate animals or plants" : {
@@ -1233,7 +1233,7 @@ if (!SourceList["UA:D"]) {
 			name : "Wards and Seals (level 1)",
 			spells : ["alarm"],
 			selection : ["alarm"],
-			firstCol : "(R)"
+			firstCol : SpellRitualTag,
 		}],
 		spellChanges : {
 			"alarm" : {

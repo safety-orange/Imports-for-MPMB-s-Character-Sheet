@@ -217,7 +217,7 @@ RaceList["khenra"] = { // Includes contributions by /u/juju2569
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores : [1, 2, 0, 0, 0, 0],
-	trait : "Khenra (+2 Dexterity, +1 Strength)\n\nKhenra Twins: If my twin is alive and I can see my twin, I can reroll the die once whenever I roll a 1 on an attack roll, ability check, or saving throw. I must then use the new roll. If my twin is dead (or if I were born without a twin), I can't be frightened."
+	trait : "Khenra (+2 Dexterity, +1 Strength)\n\nKhenra Twins: If my twin is alive and I can see my twin, I can reroll the die once whenever I roll a 1 on an attack roll, ability check, or saving throw. I must then use the new roll. If my twin is dead (or if I was born without a twin), I can't be frightened."
 };
 RaceList["amonkhet minotaur"] = { // Includes contributions by /u/juju2569
 	regExpSearch : /^(?=.*amonkhet)(?=.*minotaur).*$/i,

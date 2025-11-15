@@ -39,10 +39,7 @@ AddRacialVariant("human", "yuan-ti transformed", {
 	features : {
 		"suggestion" : {
 			name : "Innate Spellcasting (level 3)",
-			limfeaname : "Suggestion",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Innate Spellcasting (level 3)",
 				spells : ["suggestion"],
@@ -53,51 +50,50 @@ AddRacialVariant("human", "yuan-ti transformed", {
 	},
 	trait : "Yuan-ti Human (+1 to all ability scores)\n   Madness: I suffer from an indefinite madness (DMG 258).\n   Innate Spellcasting: I know the Poison Spray cantrip and can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest. Charisma is my spellcasting ability for these spells.\n   Magic Resistance: I have advantage on saves against spells and other magical effects."
 });
-AddRacialVariant("human", "yuan-ti transformed variant", {
-	defaultExcluded : true,
-	regExpSearch : /^(?=.*variant)(?=.*yuan.ti)(?=.*transformed)?.*$/i,
-	source : [["ToA", 119]],
-	skillstxt : "Choose any one skill",
-	scorestxt : "+1 to two different ability scores of my choice",
-	scores : [0, 0, 0, 0, 0, 0],
-	vision : [["Darkvision", 60]],
-	savetxt : {
-		immune : ["poison"],
-		adv_vs : ["magic"]
-	},
-	spellcastingAbility : 6,
-	spellcastingBonus : [{
-		name : "Innate Spellcasting (level 1)",
-		spells : ["poison spray", "animal friendship"],
-		selection : ["poison spray", "animal friendship"],
-		firstCol : 'atwill',
-		times : 2
-	}],
-	spellChanges : {
-		"animal friendship" : {
-			description : "1 snake (beast) with less than 4 Int save or charmed for the duration",
-			changes : "Using Innate Spellcasting, I can cast Animal Friendship at will, but only to target snakes."
-		}
-	},
-	features : {
-		"suggestion" : {
-			name : "Innate Spellcasting (level 3)",
-			limfeaname : "Suggestion",
-			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
-			spellcastingBonus : [{
+if (RaceSubList['human-variant']) {
+	AddRacialVariant("human", "yuan-ti transformed variant", {
+		defaultExcluded : true,
+		regExpSearch : /^(?=.*variant)(?=.*yuan.ti)(?=.*transformed)?.*$/i,
+		source : [["ToA", 119]],
+		skillstxt : "Choose any one skill",
+		scorestxt : "+1 to two different ability scores of my choice",
+		scores : [0, 0, 0, 0, 0, 0],
+		vision : [["Darkvision", 60]],
+		savetxt : {
+			immune : ["poison"],
+			adv_vs : ["magic"]
+		},
+		spellcastingAbility : 6,
+		spellcastingBonus : [{
+			name : "Innate Spellcasting (level 1)",
+			spells : ["poison spray", "animal friendship"],
+			selection : ["poison spray", "animal friendship"],
+			firstCol : 'atwill',
+			times : 2
+		}],
+		spellChanges : {
+			"animal friendship" : {
+				description : "1 snake (beast) with less than 4 Int save or charmed for the duration",
+				changes : "Using Innate Spellcasting, I can cast Animal Friendship at will, but only to target snakes."
+			}
+		},
+		features : {
+			"suggestion" : {
 				name : "Innate Spellcasting (level 3)",
-				spells : ["suggestion"],
-				selection : ["suggestion"],
-				firstCol : 'oncelr'
-			}]
-		}
-	},
-	trait : "Yuan-ti Human (+1 to two different ability scores of my choice)\n   Skill & Feat: I gain proficiency in one skill of my choice and I gain one feat of my choice.\n   Madness: I suffer from an indefinite madness (DMG 258).\n   Innate Spellcasting: I know the Poison Spray cantrip and can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest. Charisma is my spellcasting ability for these spells.\n   Magic Resistance: I have advantage on saves against spells and other magical effects.",
-	eval : function() { AddString('Feat Note 1', 'Human bonus feat', '; '); },
-	removeeval : function() { RemoveString('Feat Note 1', 'Human bonus feat'); }
-});
+				minlevel : 3,
+				spellcastingBonus : [{
+					name : "Innate Spellcasting (level 3)",
+					spells : ["suggestion"],
+					selection : ["suggestion"],
+					firstCol : 'oncelr'
+				}]
+			}
+		},
+		trait : "Yuan-ti Human (+1 to two different ability scores of my choice)\n   Skill & Feat: I gain proficiency in one skill of my choice and I gain one feat of my choice.\n   Madness: I suffer from an indefinite madness (DMG 258).\n   Innate Spellcasting: I know the Poison Spray cantrip and can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest. Charisma is my spellcasting ability for these spells.\n   Magic Resistance: I have advantage on saves against spells and other magical effects.",
+		eval : RaceSubList['human-variant'].eval,
+		removeeval : RaceSubList['human-variant'].removeeval
+	});
+}
 
 // Backgrounds (with contributions by SoilentBrad and @lowbrr)
 BackgroundList["anthropologist"] = {

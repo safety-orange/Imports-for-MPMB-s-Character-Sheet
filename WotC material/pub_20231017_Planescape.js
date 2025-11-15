@@ -1,5 +1,5 @@
 var iFileName = "pub_20231017_Planescape.js";
-RequiredSheetVersion("13.1.9");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds the Character Options content from the "Planescape: Adventures in the Multiverse" set (the "Sigil and the Outlands" book) to MPMB's Character Record Sheet
 
 // Define the source
@@ -397,7 +397,7 @@ FeatsList["outlands envoy"] = {
 		name : "Crossroads Emissary",
 		spells : ["misty step", "tongues"],
 		selection : ["misty step", "tongues"],
-		firstCol : "oncelr",
+		firstCol : "oncelr+markedbox",
 		times : 2
 	}],
 	spellChanges : {

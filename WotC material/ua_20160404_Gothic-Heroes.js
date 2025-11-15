@@ -1,5 +1,5 @@
 var iFileName = "ua_20160404_Gothic-Heroes.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds the content from the Unearthed Arcana: Gothic Heroes article to MPMB's Character Record Sheet
 
 // Define the source
@@ -285,7 +285,7 @@ AddSubClass("fighter", "monster hunter-ua", { // Still valid 2021-09-21
 				name : "Spirit Seeker",
 				spells : ["detect magic"],
 				selection : ["detect magic"],
-				firstCol : "(R)",
+				firstCol : SpellRitualTag,
 				spellcastingAbility : 5
 			}, {
 				name : "Spirit Seeker",
