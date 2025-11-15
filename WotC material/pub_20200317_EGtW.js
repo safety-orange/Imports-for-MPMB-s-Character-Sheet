@@ -59,10 +59,7 @@ RaceList["pallid elf"] = { // contains contributions by Smashman
 	features : {
 		"sleep" : {
 			name : "Blessing of the Moonweaver (level 3)",
-			limfeaname : "Sleep",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Blessing of the Moonweaver (level 3)",
 				spells : ["sleep"],
@@ -79,10 +76,7 @@ RaceList["pallid elf"] = { // contains contributions by Smashman
 		},
 		"invisibility" : {
 			name : "Blessing of the Moonweaver (level 5)",
-			limfeaname : "Invisibility (self only)",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Blessing of the Moonweaver (level 5)",
 				spells : ["invisibility"],
@@ -138,10 +132,7 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 	features : {
 		"entangle" : {
 			name : "Child of the Wood (level 3)",
-			limfeaname : "Entangle",
 			minlevel : 3,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Child of the Wood (level 3)",
 				spells : ["entangle"],
@@ -151,10 +142,7 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		},
 		"spike growth" : {
 			name : "Child of the Wood (level 5)",
-			limfeaname : "Spike Growth",
 			minlevel : 5,
-			usages : 1,
-			recovery : "long rest",
 			spellcastingBonus : [{
 				name : "Child of the Wood (level 5)",
 				spells : ["spike growth"],
@@ -689,15 +677,6 @@ if (!SourceList.V) {
 					firstCol : 'oncesr',
 					times : 2
 				}],
-				extraLimitedFeatures : [{
-					name : "Detect Magic",
-					usages : 1,
-					recovery : "short rest"
-				}, {
-					name : "Disguise Self",
-					usages : 1,
-					recovery : "short rest"
-				}],
 				spellChanges : {
 					"disguise self" : {
 						description : "Alter appearance, up to 3ft shorter/taller; Int(Investigation) check vs. spell DC to determine disguise",
@@ -887,10 +866,7 @@ if (!SourceList.E) {
 		features : {
 			"levitate" : {
 				name : "Mingle with the Wind",
-				limfeaname : "Levitate",
 				minlevel : 1,
-				usages : 1,
-				recovery : "long rest",
 				spellcastingBonus : [{
 					name : "Mingle with the Wind",
 					spells : ["levitate"],
@@ -929,10 +905,7 @@ if (!SourceList.E) {
 		features : {
 			"pass without trace" : {
 				name : "Merge with Stone",
-				limfeaname : "Pass without Trace",
 				minlevel : 1,
-				usages : 1,
-				recovery : "long rest",
 				spellcastingBonus : [{
 					name : "Merge with Stone",
 					spells : ["pass without trace"],
@@ -979,10 +952,7 @@ if (!SourceList.E) {
 		features : {
 			"burning hands" : {
 				name : "Reach to the Blaze (level 3)",
-				limfeaname : "Burning Hands",
 				minlevel : 3,
-				usages : 1,
-				recovery : "long rest",
 				spellcastingBonus : [{
 					name : "Reach to the Blaze (level 3)",
 					spells : ["burning hands"],
@@ -1022,10 +992,7 @@ if (!SourceList.E) {
 		features : {
 			"create or destroy water" : {
 				name : "Call to the Wave (level 3)",
-				limfeaname : "Create/Destroy Water (level 2)",
 				minlevel : 3,
-				usages : 1,
-				recovery : "long rest",
 				spellcastingBonus : [{
 					name : "Call to the Wave (level 3)",
 					spells : ["create or destroy water"],
