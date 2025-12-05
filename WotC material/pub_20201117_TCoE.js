@@ -5212,7 +5212,7 @@ AddWarlockInvocation("Investment of the Chain Master (prereq: Pact of the Chain)
 	calcChanges : {
 		companionCallback : [function(prefix, oCrea, bAdd, sCompType) {
 			if (sCompType !== "pact_of_the_chain") return;
-			var strFea = "\u25C6 Investment of the Chain Master (TCoE 71): The familiar gains 40 ft fly or swim speed (my choice), its attacks are considered magical, and it can use my spell save DC instead of its own DC's (if any).";
+			var strFea = "##\u25C6 Investment of the Chain Master (TCoE 71)##. The familiar gains 40 ft fly or swim speed (my choice), its attacks are considered magical, and it can use my spell save DC instead of its own DC's (if any).";
 			var strSpd = "fly or swim 40 ft";
 			if (What("Unit System") === "metric") {
 				strFea = ConvertToMetric(strFea, 0.5);
@@ -6211,7 +6211,7 @@ FeatsList["telekinetic"] = {
 				if (spellObj.description === SpellsList["mage hand"].description) spellObj.description = "Create (in)visible spectral hand for simple tasks or carry up to 10 lb; 1 a to control; can't have multiple";
 				var rangeRx = /(\d+)( ?ft| ?m)/i;
 				if (!/^(?=.*telekinetic)(?=.*feat).*$/i.test(CurrentSpells[spName].name) && rangeRx.test(spellObj.range)) {
-					// add the +30 ft rang only if not the entry for the feat itself
+					// add the +30 ft range only if not the entry for the feat itself
 					var spRangeM = spellObj.range.match(rangeRx);
 					spellObj.range = spellObj.range.replace(rangeRx, Number(spRangeM[1]) + (What("Unit System") === "metric" ? 9 : 30) + spRangeM[2]);
 				}

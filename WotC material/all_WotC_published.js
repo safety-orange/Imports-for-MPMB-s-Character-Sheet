@@ -332,45 +332,7 @@ AddRacialVariant("human", "variant", {
 	scorestxt : "+1 to two different ability scores of my choice",
 	scores : [0, 0, 0, 0, 0, 0],
 	trait : "Human (+1 to two different ability scores of my choice)\n\nSkills: I gain proficiency in one skill of my choice.\n\nFeat: I gain one feat of my choice.",
-	eval : function() {
-		// Get a list of all eligible feats
-		var eligibleFeats = [];
-		var gatherVars = gatherPrereqevalVars();
-		for (var key in FeatsList) {
-			var oFeat = FeatsList[key];
-			// Skip excluded feats and known feats that don't allow duplicates
-			if ( testSource(key, oFeat, "featsExcl") || !oFeat.allowDuplicates && CurrentFeats.known.indexOf(key) !== -1 ) continue;
-			// Skip if prerequisite is not met
-			if (oFeat.prereqeval) {
-				var meetsPrereq = true;
-				try {
-					if (typeof oFeat.prereqeval == 'string') {
-						meetsPrereq = eval(oFeat.prereqeval);
-					} else if (typeof oFeat.prereqeval == 'function') {
-						meetsPrereq = oFeat.prereqeval(gatherVars);
-					}
-				} catch (error) {}
-				if (!meetsPrereq) continue;
-			}
-			// Add to list
-			eligibleFeats.push(oFeat.name);
-		}
-		// Ask the user to select a feat
-		var sFeatName = AskUserOptions("Select Human Bonus Feat", "The Human (Variant) race grants a bonus feat. Pick one of the feats below. This list excludes feats that are already known and feats for which the prerequisites have not been met.", eligibleFeats, "radio", true, false);
-		// Remember the selection
-		SetFeatureChoice("race", "human", "bonus feat", sFeatName);
-		// Add the feat to the sheet
-		AddFeat(sFeatName);
-	},
-	removeeval : function() {
-		// Get the user selected human bonus feat
-		var sFeatName = GetFeatureChoice("race", "human", "bonus feat");
-		if (!sFeatName) return;
-		// Remove the feat from the sheet
-		RemoveFeat(sFeatName);
-		// Remove the remembered choice
-		SetFeatureChoice("race", "human", "bonus feat", false);
-	}
+	featsAdd: [{ type: /^(?!.*(blessing|boon|gift|fighting style)).*$/i }],
 });
 
 // Add the subclasses that are not in the SRD
@@ -5389,7 +5351,7 @@ CreatureList["faerie dragon"] = { // With contributions by Patrick O.
 		description : "For 1 min, target rolls d6 at turn start: 1-4 move random (no actions), 5-6 save again (no actions/move)",
 		dc : true,
 		abilitytodamage : false,
-		tooltip : "The dragon exhales a puff of euphoria gas at one creature within 5 feet of it. The target must succeed on a DC 11 Wisdom saving throw, or for 1 minute, the target can't take reactions and must roll a d6 at the start of each of its turns to determine its behavior during the turn: 1-4 - the target takes no action or bonus action and uses all its movment to move in a random direction. 5-6 - the target doesn't move, and the only thing it can do on its turn is make a DC 11 Wisdom saving throw, ending the effect on itself on a success."
+		tooltip : "The dragon exhales a puff of euphoria gas at one creature within 5 feet of it. The target must succeed on a DC 11 Wisdom saving throw, or for 1 minute, the target can't take reactions and must roll a d6 at the start of each of its turns to determine its behavior during the turn: 1-4 - the target takes no action or bonus action and uses all its movement to move in a random direction. 5-6 - the target doesn't move, and the only thing it can do on its turn is make a DC 11 Wisdom saving throw, ending the effect on itself on a success."
 	}],
 	traits : [{
 		name : "Superior Invisibility",
@@ -19421,12 +19383,9 @@ SpellsList["enervation"] = {
 	components : "V,S",
 	duration : "Conc, 1 min",
 	save : "Dex",
-	description : "1 crea 4d8+1d8/SL Necrotic dmg, action to repeat, I heal half; on save 2d8+1d8/SL dmg once; see B",
-	descriptionShorter : "1 crea 4d8+1d8/SL Necro dmg, 1 a repeat, I heal half; saved 2d8+1d8/SL dmg once; see B",
+	description : "1 crea 2d8+1d8/SL Necrotic dmg, saved: ends; fail: +2d8 dmg and Act to repeat; I heal half; see B",
+	descriptionShorter : "1 crea 2d8+1d8/SL Necro. dmg, save: ends; fail: +2d8 dmg & Act repeat; I heal half; see B",
 	descriptionFull : "A tendril of inky darkness reaches out from you, touching a creature you can see within range to drain life from it. The target must make a Dexterity saving throw. On a successful save, the target takes 2d8 necrotic damage, and the spell ends. On a failed save, the target takes 4d8 necrotic damage, and until the spell ends, you can use your action on each of your turns to automatically deal 4d8 necrotic damage to the target. The spell ends if you use your action to do anything else, if the target is ever outside the spell's range, or if the target has total cover from you." + "\n   " + "Whenever the spell deals damage to a target, you regain hit points equal to half the amount of necrotic damage the target takes." + AtHigherLevels + "When you cast this spell using a spell slot of 6th level or higher, the damage increases by 1d8 for each slot level above 5th.",
-	dynamicDamageBonus : {
-		extraDmgGroupsSameType : /(saved? )((?:\+?\d+d?\d*)+)(\+1d8\/SL)/i
-	}
 };
 SpellsList["far step"] = {
 	name : "Far Step",
@@ -38409,7 +38368,7 @@ AddWarlockInvocation("Investment of the Chain Master (prereq: Pact of the Chain)
 	calcChanges : {
 		companionCallback : [function(prefix, oCrea, bAdd, sCompType) {
 			if (sCompType !== "pact_of_the_chain") return;
-			var strFea = "\u25C6 Investment of the Chain Master (TCoE 71): The familiar gains 40 ft fly or swim speed (my choice), its attacks are considered magical, and it can use my spell save DC instead of its own DC's (if any).";
+			var strFea = "##\u25C6 Investment of the Chain Master (TCoE 71)##. The familiar gains 40 ft fly or swim speed (my choice), its attacks are considered magical, and it can use my spell save DC instead of its own DC's (if any).";
 			var strSpd = "fly or swim 40 ft";
 			if (What("Unit System") === "metric") {
 				strFea = ConvertToMetric(strFea, 0.5);
@@ -39334,7 +39293,7 @@ FeatsList["telekinetic"] = {
 				if (spellObj.description === SpellsList["mage hand"].description) spellObj.description = "Create (in)visible spectral hand for simple tasks or carry up to 10 lb; 1 a to control; can't have multiple";
 				var rangeRx = /(\d+)( ?ft| ?m)/i;
 				if (!/^(?=.*telekinetic)(?=.*feat).*$/i.test(CurrentSpells[spName].name) && rangeRx.test(spellObj.range)) {
-					// add the +30 ft rang only if not the entry for the feat itself
+					// add the +30 ft range only if not the entry for the feat itself
 					var spRangeM = spellObj.range.match(rangeRx);
 					spellObj.range = spellObj.range.replace(rangeRx, Number(spRangeM[1]) + (What("Unit System") === "metric" ? 9 : 30) + spRangeM[2]);
 				}
@@ -44668,8 +44627,7 @@ BackgroundFeatureList["lorehold initiate"] = {
 			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): Comprehend Languages, Identify, Borrowed Knowledge, Locate Object, Speak with Dead, Spirit Guardians, Arcane Eye, Stone Shape, Flame Strike, and Legend Lore."
 		]
 	},
-	eval : function() { AddFeat("Strixhaven Initiate"); },
-	removeeval : function() { RemoveFeat("Strixhaven Initiate"); }
+	featsAdd: [{ key: "strixhaven initiate", choice: "lorehold" }],
 };
 BackgroundList["prismari student"] = {
 	regExpSearch : /^(?=.*prismari)(?=.*student).*$/i,
@@ -44713,8 +44671,7 @@ BackgroundFeatureList["prismari initiate"] = {
 			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): Chromatic Orb, Thunderwave, Flaming Sphere, Kinetic Jaunt, Haste, Water Walk, Freedom of Movement, Wall of Fire, Cone of Cold, and Conjure Elemental."
 		]
 	},
-	eval : function() { AddFeat("Strixhaven Initiate [Prismari]"); },
-	removeeval : function() { RemoveFeat("Strixhaven Initiate [Prismari]"); }
+	featsAdd: [{ key: "strixhaven initiate", choice: "prismari" }],
 };
 BackgroundList["quandrix student"] = {
 	regExpSearch : /^(?=.*quandrix)(?=.*student).*$/i,
@@ -44759,8 +44716,7 @@ BackgroundFeatureList["quandrix initiate"] = {
 			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): Entangle, Guiding Bolt, Enlarge/Reduce, Vortex Warp, Aura of Vitality, Haste, Control Water, Freedom of Movement, Circle of Power, and Passwall."
 		]
 	},
-	eval : function() { AddFeat("Strixhaven Initiate [Quandrix]"); },
-	removeeval : function() { RemoveFeat("Strixhaven Initiate [Quandrix]"); }
+	featsAdd: [{ key: "strixhaven initiate", choice: "quandrix" }],
 };
 BackgroundList["silverquill student"] = {
 	regExpSearch : /^(?=.*silverquill)(?=.*student).*$/i,
@@ -44803,8 +44759,7 @@ BackgroundFeatureList["silverquill initiate"] = {
 			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): Dissonant Whispers, Silvery Barbs, Calm Emotions, Darkness, Beacon of Hope, Daylight, Compulsion, Confusion, Dominate Person, and Rary's Telepathic Bond."
 		]
 	},
-	eval : function() { AddFeat("Strixhaven Initiate [Silverquill]"); },
-	removeeval : function() { RemoveFeat("Strixhaven Initiate [Silverquill]"); }
+	featsAdd: [{ key: "strixhaven initiate", choice: "silverquill" }],
 };
 BackgroundList["witherbloom student"] = {
 	regExpSearch : /^(?=.*witherbloom)(?=.*student).*$/i,
@@ -44850,8 +44805,7 @@ BackgroundFeatureList["witherbloom initiate"] = {
 			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): Cure Wounds, Inflict Wounds, Lesser Restoration, Wither and Bloom, Revivify, Vampiric Touch, Blight, Death Ward, Antilife Shell, and Greater Restoration."
 		]
 	},
-	eval : function() { AddFeat("Strixhaven Initiate [Witherbloom]"); },
-	removeeval : function() { RemoveFeat("Strixhaven Initiate [Witherbloom]"); }
+	featsAdd: [{ key: "strixhaven initiate", choice: "witherbloom" }],
 };
 
 // Feats
@@ -47596,8 +47550,7 @@ BackgroundList["astral drifter"] = {
 BackgroundFeatureList["divine contact"] = {
 	description : "I am 20d6 years older than I look, thanks to time spent in the Astral Sea without aging. While in the Astral Sea, I crossed paths with a wandering deity. The encounter was brief and nonviolent, yet it made a lasting impression on me. This deity saw fit to share one secret or obscure bit of cosmic lore with me. I gain the Magic Initiate [Cleric] feat.",
 	source : [["S:AiS", 7]],
-	eval : function() { AddFeat("Magic Initiate [Cleric]"); },
-	removeeval : function() { RemoveFeat("Magic Initiate [Cleric]"); }
+	featsAdd: [{ key: "magic initiate", choice: "cleric" }],
 };
 
 BackgroundList["wildspacer"] = {
@@ -47633,8 +47586,7 @@ BackgroundList["wildspacer"] = {
 BackgroundFeatureList["wildspace adaptation"] = {
 	description : "I was raised in the void of Wildspace, home to asteroid miners, moon farmers, and other hardy folk. Life in Wildspace has toughened me to face the terrors and other challenges of the airless night and I've learned how to adapt to zero gravity. Being weightless doesn't give me disadvantage on any of my melee attack rolls and I gain the Tough feat.",
 	source : [["S:AiS", 8]],
-	eval : function() { AddFeat("Tough"); },
-	removeeval : function() { RemoveFeat("Tough"); }
+	featsAdd: ["Tough"],
 };
 
 // Races from Astral Adventurer's Guide
@@ -48188,8 +48140,7 @@ BackgroundList["knight of solamnia"] = {
 BackgroundFeatureList["squire of solamnia"] = {
 	description : "I gain the Squire of Solamnia feat. In addition, the Knights of Solamnia provide me free, modest lodging and food at any of their fortresses or encampments.",
 	source : [["D:SotDQ", 0], ["UA:HoKR", 2], ["UA:HoK", 3]],
-	eval : function() { AddFeat("Squire of Solamnia"); },
-	removeeval : function() { RemoveFeat("Squire of Solamnia"); }
+	featsAdd: ["Squire of Solamnia"],
 };
 
 BackgroundList["mage of high sorcery"] = {
@@ -48230,8 +48181,7 @@ BackgroundList["mage of high sorcery"] = {
 BackgroundFeatureList["initiate of high sorcery"] = {
 	description : "I gain the Initiate of High Sorcery feat. In addition, the Mages of High Sorcery provide me with free, modest lodging and food indefinitely at any occupied Tower of High Sorcery and for one night at the home of an organization member.",
 	source : [["D:SotDQ", 0], ["UA:HoKR", 3], ["UA:HoK", 4]],
-	eval : function() { AddFeat("Initiate of High Sorcery"); },
-	removeeval : function() { RemoveFeat("Initiate of High Sorcery"); }
+	featsAdd: ["Initiate of High Sorcery"],
 };
 
 
@@ -49230,8 +49180,7 @@ BackgroundList["giant foundling"] = {
 BackgroundFeatureList["strike of the giants"] = {
 	description : "I grew up among giants or where they lived. Something about this environment\u2014the food, water, elemental magic, or some blessing\u2014caused me to grow to a remarkable size for my kind. I'm used to moving through a world much bigger than I, and that is reflected in my skills, attitude, and perspective on life. I gain the Strike of the Giants feat.",
 	source : [["GotG", 13], ["UA:WotM", 4]],
-	eval : function() { AddFeat("Strike of the Giants"); },
-	removeeval : function() { RemoveFeat("Strike of the Giants"); }
+	featsAdd: ["Strike of the Giants"],
 };
 
 BackgroundList["rune carver"] = {
@@ -49273,8 +49222,7 @@ BackgroundList["rune carver"] = {
 BackgroundFeatureList["rune shaper"] = {
 	description : "I've dedicated my life to studying runecraft, taught by a master rune carver or learned by poring over ancient engravings. I can tap into the supernatural power held within runes. The art of runecraft has been adopted by many outside of giant society and those often incorporate their native language among the Giant runes. I gain the Rune Shaper feat.",
 	source : [["GotG", 14]],
-	eval : function() { AddFeat("Rune Shaper"); },
-	removeeval : function() { RemoveFeat("Rune Shaper"); }
+	featsAdd: ["Rune Shaper"],
 };
 
 // Feats - first the Strike of the Giants tree
@@ -50899,8 +50847,7 @@ BackgroundList["gate warden"] = {
 BackgroundFeatureList["planar infusion"] = {
 	description : "I spent a good amount of time somewhere influenced by planar forces. I'm accustomed to experiences that would leave others reeling in terror or captivated by beauty, and I'm comfortable dealing with fiends and celestials. I know where to find free, modest lodging and food in the community I grew up in. Also, I gain the Scion of the Outer Planes feat.",
 	source : [["P:AitM", 7], ["UA:WotM", 3]],
-	eval : function() { AddFeat("Scion of the Outer Planes"); },
-	removeeval : function() { RemoveFeat("Scion of the Outer Planes"); }
+	featsAdd: ["Scion of the Outer Planes"],
 };
 
 BackgroundList["planar philosopher"] = {
@@ -51061,8 +51008,7 @@ AddBackgroundVariant("planar philosopher", "planar philosopher of transcendent o
 BackgroundFeatureList["conviction"] = {
 	description : "I subscribe to a distinct philosophy that seeks to understand the nature of the planes or a hidden truth of the multiverse and spread my philosophy. I am part of a network of like-minded believers who provide me free, modest lodging and food at any of their holding or the homes of other faction members. Also, I gain the Scion of the Outer Planes feat.",
 	source : [["P:AitM", 8], ["UA:WotM", 4]],
-	eval : function() { AddFeat("Scion of the Outer Planes"); },
-	removeeval : function() { RemoveFeat("Scion of the Outer Planes"); }
+	featsAdd: ["Scion of the Outer Planes"],
 };
 
 // Feats from Sigil and the Outlands
@@ -51452,24 +51398,13 @@ BackgroundList["rewarded"] = {
 BackgroundFeatureList["fortune's favor"] = {
 	description : "I have unexpected good fortune in life, caused by something like a genie who granted me wishes, extraordinary luck during a game, me honing my skills to endure a supernatural trial, or some other force that transformed my life. This boon is reflected in my choice of one free feat: Lucky, Magic Initiate, or Skilled.",
 	source : [["BoMT", 57]],
-	eval : function() {
-		if (!IsNotImport) return;
-		var featOptions = ['lucky', 'magic initiate', 'skilled'].filter(feat => CurrentFeats.known.indexOf(feat) === -1);
-		if (!featOptions.length) {
-			return;
-		} else if (featOptions.length === 1) {
-			var selectedFeat = featOptions[0];
-		} else {
-			var featNames = featOptions.map(feat => FeatsList[feat].name);
-			var selectedFeat = featOptions[AskUserOptions("Fortune's Favor bonus feat", "The Fortune's Favor background feature offers a choice of a bonus feat.", featNames, 'radio', true, 'You can change what you select here by changing the feat selection in the corresponding section of the sheet.\nBe aware that if you change the selected feat and remove this background feature, the changed feat will not automatically be removed.', true)];
-		}
-		AddFeat(FeatsList[selectedFeat].name);
-		SetFeatureChoice("background feature", "fortune's favor", false, selectedFeat);
-	},
-	removeeval : function() {
-		var selectedFeat = GetFeatureChoice("background feature", "fortune's favor");
-		if (selectedFeat) RemoveFeat(selectedFeat);
-	}
+	featsAdd: [{
+		options: [
+			{ key: 'lucky' },
+			{ key: 'magic initiate' },
+			{ key: 'skilled' },
+		],
+	}],
 };
 
 BackgroundList["ruined"] = {
@@ -51513,24 +51448,13 @@ BackgroundList["ruined"] = {
 BackgroundFeatureList["still standing"] = {
 	description : "I have weathered ruinous misfortune in my life and I possess hidden reserves because of this. Possibly I've had to keep my senses sharp, had to redouble my efforts to reclaim what is mine, had to stoically persevered through it, or experienced something else transformative. How I've dealt with this is reflected in my choice of one free feat: Alert, Skilled, or Tough.",
 	source : [["BoMT", 58]],
-	eval : function() {
-		if (!IsNotImport) return;
-		var featOptions = ['alert', 'skilled', 'tough'].filter(feat => CurrentFeats.known.indexOf(feat) === -1);
-		if (!featOptions.length) {
-			return;
-		} else if (featOptions.length === 1) {
-			var selectedFeat = featOptions[0];
-		} else {
-			var featNames = featOptions.map(feat => FeatsList[feat].name);
-			var selectedFeat = featOptions[AskUserOptions("Still Standing bonus feat", "The Still Standing background feature offers a choice of a bonus feat.", featNames, 'radio', true, 'You can change what you select here by changing the feat selection in the corresponding section of the sheet.\nBe aware that if you change the selected feat and remove this background feature, the changed feat will not automatically be removed.', true)];
-		}
-		AddFeat(FeatsList[selectedFeat].name);
-		SetFeatureChoice("background feature", "still standing", false, selectedFeat);
-	},
-	removeeval : function() {
-		var selectedFeat = GetFeatureChoice("background feature", "still standing");
-		if (selectedFeat) RemoveFeat(selectedFeat);
-	}
+	featsAdd: [{
+		options: [
+			{ key: 'alert' },
+			{ key: 'skilled' },
+			{ key: 'tough' },
+		],
+	}],
 };
 
 

@@ -82,8 +82,7 @@ BackgroundList["knight of solamnia"] = {
 BackgroundFeatureList["squire of solamnia"] = {
 	description : "I gain the Squire of Solamnia feat. In addition, the Knights of Solamnia provide me free, modest lodging and food at any of their fortresses or encampments.",
 	source : [["D:SotDQ", 0], ["UA:HoKR", 2], ["UA:HoK", 3]],
-	eval : function() { AddFeat("Squire of Solamnia"); },
-	removeeval : function() { RemoveFeat("Squire of Solamnia"); }
+	featsAdd: ["Squire of Solamnia"],
 };
 
 BackgroundList["mage of high sorcery"] = {
@@ -124,8 +123,7 @@ BackgroundList["mage of high sorcery"] = {
 BackgroundFeatureList["initiate of high sorcery"] = {
 	description : "I gain the Initiate of High Sorcery feat. In addition, the Mages of High Sorcery provide me with free, modest lodging and food indefinitely at any occupied Tower of High Sorcery and for one night at the home of an organization member.",
 	source : [["D:SotDQ", 0], ["UA:HoKR", 3], ["UA:HoK", 4]],
-	eval : function() { AddFeat("Initiate of High Sorcery"); },
-	removeeval : function() { RemoveFeat("Initiate of High Sorcery"); }
+	featsAdd: ["Initiate of High Sorcery"],
 };
 
 

@@ -53,8 +53,7 @@ BackgroundList["gate warden"] = {
 BackgroundFeatureList["planar infusion"] = {
 	description : "I spent a good amount of time somewhere influenced by planar forces. I'm accustomed to experiences that would leave others reeling in terror or captivated by beauty, and I'm comfortable dealing with fiends and celestials. I know where to find free, modest lodging and food in the community I grew up in. Also, I gain the Scion of the Outer Planes feat.",
 	source : [["P:AitM", 7], ["UA:WotM", 3]],
-	eval : function() { AddFeat("Scion of the Outer Planes"); },
-	removeeval : function() { RemoveFeat("Scion of the Outer Planes"); }
+	featsAdd: ["Scion of the Outer Planes"],
 };
 
 BackgroundList["planar philosopher"] = {
@@ -215,8 +214,7 @@ AddBackgroundVariant("planar philosopher", "planar philosopher of transcendent o
 BackgroundFeatureList["conviction"] = {
 	description : "I subscribe to a distinct philosophy that seeks to understand the nature of the planes or a hidden truth of the multiverse and spread my philosophy. I am part of a network of like-minded believers who provide me free, modest lodging and food at any of their holding or the homes of other faction members. Also, I gain the Scion of the Outer Planes feat.",
 	source : [["P:AitM", 8], ["UA:WotM", 4]],
-	eval : function() { AddFeat("Scion of the Outer Planes"); },
-	removeeval : function() { RemoveFeat("Scion of the Outer Planes"); }
+	featsAdd: ["Scion of the Outer Planes"],
 };
 
 // Feats from Sigil and the Outlands

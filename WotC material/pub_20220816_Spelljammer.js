@@ -1,5 +1,5 @@
 var iFileName = "pub_20220816_Spelljammer.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.1-beta");
 /*
 	This file adds the Character Options content from the "Spelljammer: Adventures in Space" set
 	(the "Astral Adventurer's Guide" book and the "Boo's Astral Menagerie" book)
@@ -58,8 +58,7 @@ BackgroundList["astral drifter"] = {
 BackgroundFeatureList["divine contact"] = {
 	description : "I am 20d6 years older than I look, thanks to time spent in the Astral Sea without aging. While in the Astral Sea, I crossed paths with a wandering deity. The encounter was brief and nonviolent, yet it made a lasting impression on me. This deity saw fit to share one secret or obscure bit of cosmic lore with me. I gain the Magic Initiate [Cleric] feat.",
 	source : [["S:AiS", 7]],
-	eval : function() { AddFeat("Magic Initiate [Cleric]"); },
-	removeeval : function() { RemoveFeat("Magic Initiate [Cleric]"); }
+	featsAdd: [{ key: "magic initiate", choice: "cleric" }],
 };
 
 BackgroundList["wildspacer"] = {
@@ -95,8 +94,7 @@ BackgroundList["wildspacer"] = {
 BackgroundFeatureList["wildspace adaptation"] = {
 	description : "I was raised in the void of Wildspace, home to asteroid miners, moon farmers, and other hardy folk. Life in Wildspace has toughened me to face the terrors and other challenges of the airless night and I've learned how to adapt to zero gravity. Being weightless doesn't give me disadvantage on any of my melee attack rolls and I gain the Tough feat.",
 	source : [["S:AiS", 8]],
-	eval : function() { AddFeat("Tough"); },
-	removeeval : function() { RemoveFeat("Tough"); }
+	featsAdd: ["Tough"],
 };
 
 // Races from Astral Adventurer's Guide

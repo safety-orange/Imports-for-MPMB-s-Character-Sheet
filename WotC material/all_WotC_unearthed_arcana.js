@@ -2852,7 +2852,7 @@ RunFunctionAtEnd(function() {
 								if (knownSpells.indexOf(domainSpells[i]) == -1) return;
 							}
 							// get all the cleric spells, level 1-9
-							var clericSpells = CreateSpellList({"class" : "cleric", level : [1,9]}, false, false, false);
+							var clericSpells = CreateSpellList({"class" : "cleric", level : [1,9]});
 							spList.extraspells = spList.extraspells.concat(clericSpells);
 						},
 						"When I gain a wizard level after my spellbook already has all the spells of my chosen domain, I can instead select any cleric spell of a level I can cast as one of the spells I gain from levelling up."
@@ -2935,7 +2935,7 @@ RunFunctionAtEnd(function() {
 			name : "Arcane Initiate: " + aDomain.subname,
 			source : dSource,
 			spellcastingExtra : aDomain.spellcastingExtra,
-			description : "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the " + aDomain.subname.toLowerCase() + " spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks"
+			description : "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the " + aDomain.subname.toLowerCase() + " spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks"
 		};
 		var AIdomain = MTfeat["subclassfeature2"][entryDoNm.toLowerCase()];
 		for (var aFea in aDomain.features) {
@@ -17315,7 +17315,7 @@ AddWarlockInvocation("Investment of the Chain Master (prereq: Pact of the Chain)
 	calcChanges : {
 		companionCallback : [function(prefix, oCrea, bAdd, sCompType) {
 			if (sCompType !== "pact_of_the_chain") return;
-			var strFea = "\u25C6 Investment of the Chain Master (TCoE 71): The familiar gains 40 ft fly or swim speed (my choice), doesn't need to breathe, its attacks are considered magical, and it can use my spell save DC instead of its own DC's (if any).";
+			var strFea = "##\u25C6 Investment of the Chain Master (UA:CFV 11)##.: The familiar gains 40 ft fly or swim speed (my choice), doesn't need to breathe, its attacks are considered magical, and it can use my spell save DC instead of its own DC's (if any).";
 			var strSpd = "fly or swim 40 ft";
 			if (What("Unit System") === "metric") {
 				strFea = ConvertToMetric(strFea, 0.5);
@@ -22589,8 +22589,7 @@ BackgroundList["rune carver-ua"] = {
 BackgroundFeatureList["rune carver apprentice"] = {
 	description : "I've dedicated my life to studying the practice of runecraft. Whether I was personally taught by a master rune carver or learned by poring over engravings in ancient ruins, I understand how to tap into the supernatural power held within runes. Also, I gain the Rune Carver Apprentice feat.",
 	source : [["UA:WotM", 5]],
-	eval : function() { AddFeat("Rune Carver Apprentice"); },
-	removeeval : function() { RemoveFeat("Rune Carver Apprentice"); }
+	featsAdd: ["Rune Carver Apprentice"],
 };
 
 // Then the backgrounds that haven't been altered in the book

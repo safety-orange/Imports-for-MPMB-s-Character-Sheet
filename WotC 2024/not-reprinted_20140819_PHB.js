@@ -1,5 +1,5 @@
 var iFileName = "not-reprinted_20140819_PHB.js";
-RequiredSheetVersion("24.0.0-beta");
+RequiredSheetVersion("24.0.1-beta");
 // This file adds options from the 2014 Player's Handbook to MPMB's Character Record Sheet that have not been replaced with new options in the 2024 Player's Handbook
 
 // Define the source
@@ -78,19 +78,235 @@ RaceList["half-orc"] = {
 							} else {
 								v.extraCritM = 1;
 								fields.Description += (fields.Description ? '; ' : '') + v.extraCritM + fields.Damage_Die.replace(/.*(d\d+).*/, '$1') + ' extra on a crit in melee';
-							}
-						}
+							};
+						};
 					},
 					"My melee weapon attacks roll 1 additional dice on a critical hit.",
-					900
+					900,
 				],
-			}
-		}
+			},
+		},
 	},
 	trait: "Half-Orc"+
-	"\n##\u25C6 Relentless Endurance##. When I am reduced to 0 hit points but not killed outright, I can drop to 1 hit point instead. I can't use this feature again until I finish a long rest."+
+	"\n##\u25C6 Relentless Endurance##. When I am reduced to 0 hit points but not killed outright, I can drop to 1 hit point instead. I can't use this feature again until I finish a Long Rest."+
 	"\n##\u25C6 Savage Attacks##. When I score a critical hit with a melee weapon attack, I can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.",
 };
+
+// Eldritch Invocations
+AddWarlockInvocation("Beast Speech", {
+	name: "Beast Speech",
+	source: [["SRD", 48], ["P", 110]],
+	description: "\nI can cast Speak with Animals without using a spell slot.",
+	spellcastingBonus: [{
+		name: "Beast Speech",
+		spells: ["speak with animals"],
+		selection: ["speak with animals"],
+		firstCol: "atwill",
+	}],
+});
+AddWarlockInvocation("Beguiling Influence", {
+	name: "Beguiling Influence",
+	source: [["SRD", 48], ["P", 110]],
+	description: "\nI gain proficiencies with the Deception and Persuasion skills.",
+	skills: ["Deception", "Persuasion"],
+});
+AddWarlockInvocation("Bewitching Whispers (req: lvl 7+)", {
+	name: "Bewitching Whispers",
+	source: [["SRD", 48], ["P", 110]],
+	minlevel: 7,
+	submenu: "[Warlock level  7+]",
+	description: "\nOnce per Long Rest, I can cast Compulsion using a Pact Magic spell slot.",
+	spellcastingBonus : [{
+		name: "Bewitching Whispers",
+		spells: ["compulsion"],
+		selection: ["compulsion"],
+		firstCol: "oncelr",
+	}],
+});
+AddWarlockInvocation("Book of Ancient Secrets (req: Pact of the Tome)", {
+	name: "Book of Ancient Secrets",
+	description: "\nMy Book of Shadows is inscribed with two 1st-level Ritual spells of my choice. When I come across other Ritual spell, I can inscribe them as well. I can cast these inscribed spells as Rituals, they are not automatically prepared. (Select only these inscribed spells in the 'Spells' column.)",
+	source: [["SRD", 48], ["P", 110]],
+	submenu: "[improves Pact of the Tome]",
+	prereqeval: function(v) { return v.choiceActive.indexOf('pact of the tome') !== -1; },
+	eval: function() {
+		var oSpells = CurrentSpells['warlock-book of shadows'];
+		if (!oSpells) return;
+		// Change into a "book" caster that has access to ritual spells from any level
+		oSpells.known.spells = "book";
+		oSpells.typeSp = "book";
+		oSpells.typeList = 2;
+		oSpells.list.level = [0, 9];
+		// Make it so that all cantrips are always displayed
+		oSpells.known.cantripsPrepare = true;
+		oSpells.preparedCantrips = true;
+		// Add it so that all 1st-level ritual spells are always displayed
+		oSpells.extra = CreateSpellList({ritual: true, level : [1, 1]});
+		oSpells.extraSpecial = true;
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+		// cleanup old versions of this invocation
+		if (CurrentSpells['warlock-book of ancient secrets'] || CurrentSpells['book of ancient secrets']) {
+			var oSpellsOld = CurrentSpells['book of ancient secrets'] ? CurrentSpells['book of ancient secrets'] : CurrentSpells['warlock-book of ancient secrets'];
+			if (oSpellsOld.selectSp) oSpells.selectSp = oSpellsOld.selectSp;
+			if (oSpellsOld.offsetBo) oSpells.offsetBo = oSpellsOld.offsetBo;
+			if (oSpellsOld.selectBo) oSpells.selectBo = oSpellsOld.selectBo;
+			delete CurrentSpells['warlock-book of ancient secrets'];
+			delete CurrentSpells['book of ancient secrets'];
+		};
+	},
+	removeeval: function() {
+		if (CurrentSpells['book of ancient secrets']) delete CurrentSpells['book of ancient secrets'];
+		var oSpells = CurrentSpells['warlock-book of shadows'];
+		if (!oSpells) return;
+		oSpells.known.spells = "list";
+		oSpells.typeSp = "list";
+		oSpells.list.level = [0, 1];
+		delete oSpells.known.cantripsPrepare;
+		delete oSpells.preparedCantrips;
+		delete oSpells.extra;
+		delete oSpells.extraSpecial;
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+	},
+	calcChanges: {
+		spellAdd: [
+			function (spellKey, spellObj, spName) {
+				if (spName !== "warlock-book of shadows") return;
+				var oSpells = CurrentSpells[spName];
+				if (oSpells.selectSp.indexOf(spellKey)) {
+					spellObj.firstCol = SpellRitualTag;
+					if (!(/.*(\d+ ?h\b|special|see b).*/i).test(spellObj.time)) {
+						var numMinutes = Number(spellObj.time.replace(/(\d+) ?min.*/, "$1"));
+						if (isNaN(numMinutes)) numMinutes = 0;
+						spellObj.time = (numMinutes + 10) + " min";
+					};
+					return true;
+				};
+			},
+			"By the Book of Ancient Secrets invocation, I can cast any Ritual spells I've added to my Book of Shadows, but only as a Ritual. Ritual spell always have a casting time of 10 minutes or more. The sheet assumes any Ritual spells above 1st-level are manual additions.",
+		],
+	},
+});
+AddWarlockInvocation("Chains of Carceri (req: lvl 15+, Pact of the Chain)", {
+	name : "Chains of Carceri",
+	source : [["SRD", 49], ["P", 110]],
+	minlevel: 15,
+	submenu: ["[Warlock level 15+]", "[improves Pact of the Chain]"],
+	prereqeval: function(v) { return v.choiceActive.indexOf('pact of the chain') !== -1; },
+	description: "\nI can cast Hold Monster without expending a spell slot or material components, but only on a Celestial, Fiend, or Elemental. I can only target a specific individual once per Long Rest.",
+	spellcastingBonus: [{
+		name: "Chains of Carceri",
+		spells: ["hold monster"],
+		selection: ["hold monster"],
+		firstCol: "atwill",
+	}],
+	spellChanges: {
+		"hold monster": {
+			components: "V,S",
+			compMaterial: "",
+			description: "1 Celestial, Fiend, or Elemental, save or paralyzed; extra save at end of each turn",
+			changes: "With the Chains of Carceri invocation I can cast Hold Monster without a material component, but only on a Celestial, Fiend, or Elemental.",
+		},
+	},
+});
+AddWarlockInvocation("Dreadful Word (req: lvl 7+)", {
+	name: "Dreadful Word",
+	source: [["SRD", 49], ["P", 110]],
+	minlevel: 7,
+	submenu: "[Warlock level  7+]",
+	description: "\nOnce per Long Rest, I can cast Confusion using a Pact Magic spell slot.",
+	spellcastingBonus: [{
+		name: "Dreadful Word",
+		spells: ["confusion"],
+		selection: ["confusion"],
+		firstCol: "oncelr",
+	}],
+});
+AddWarlockInvocation("Eldritch Sight", {
+	name: "Eldritch Sight",
+	source: [["SRD", 49], ["P", 110]],
+	description: "\nI can cast Detect Magic without expending a spell slot.",
+	spellcastingBonus: [{
+		name: "Eldritch Sight",
+		spells: ["detect magic"],
+		selection: ["detect magic"],
+		firstCol: "atwill",
+	}],
+});
+AddWarlockInvocation("Eyes of the Rune Keeper", {
+	name: "Eyes of the Rune Keeper",
+	source: [["SRD", 49], ["P", 111]],
+	description: " [I can read all writing]",
+});
+AddWarlockInvocation("Minions of Chaos", {
+	name: "Minions of Chaos",
+	source: [["SRD", 49], ["P", 111]],
+	minlevel: 9,
+	submenu: "[Warlock level  9+]",
+	description: "\nOnce per Long Rest, I can cast Conjure Elemental using a Pact Magic spell slot.",
+	spellcastingBonus: [{
+		name: "Minions of Chaos",
+		spells: ["conjure elemental"],
+		selection: ["conjure elemental"],
+		firstCol: "oncelr",
+	}],
+});
+AddWarlockInvocation("Mire the Mind", {
+	name: "Mire the Mind",
+	source: [["SRD", 49], ["P", 111]],
+	minlevel: 5,
+	submenu: "[Warlock level  5+]",
+	description: "\nOnce per Long Rest, I can cast Slow using a Pact Magic spell slot.",
+	spellcastingBonus: [{
+		name: "Mire the Mind",
+		spells: ["slow"],
+		selection: ["slow"],
+		firstCol: "oncelr",
+	}],
+});
+AddWarlockInvocation("Sculptor of Flesh", {
+	name: "Sculptor of Flesh",
+	source: [["SRD", 50], ["P", 111]],
+	minlevel: 7,
+	submenu: "[Warlock level  7+]",
+	description: "\nOnce per Long Rest, I can cast Polymorph using a Pact Magic spell slot.",
+	spellcastingBonus: [{
+		name: "Sculptor of Flesh",
+		spells: ["polymorph"],
+		selection: ["polymorph"],
+		firstCol: "oncelr",
+	}],
+});
+AddWarlockInvocation("Sign of Ill Omen", {
+	name: "Sign of Ill Omen",
+	source: [["SRD", 50], ["P", 111]],
+	minlevel: 5,
+	submenu: "[Warlock level  5+]",
+	description: "\nOnce per Long Rest, I can cast Bestow Curse using a Pact Magic spell slot.",
+	spellcastingBonus: [{
+		name: "Sign of Ill Omen",
+		spells: ["bestow curse"],
+		selection: ["bestow curse"],
+		firstCol: "oncelr",
+	}],
+});
+AddWarlockInvocation("Thief of Five Fates", {
+	name: "Thief of Five Fates",
+	source: [["SRD", 50], ["P", 111]],
+	description: "\nOnce per Long Rest, I can cast Bane using a Pact Magic spell slot.",
+	spellcastingBonus: [{
+		name: "Thief of Five Fates",
+		spells: ["bane"],
+		selection: ["bane"],
+		firstCol: "oncelr",
+	}],
+});
+AddWarlockInvocation("Voice of the Chain Master", {
+	name : "Voice of the Chain Master",
+	source: [["SRD", 50], ["P", 111]],
+	submenu: "[improves Pact of the Chain]",
+	prereqeval: function(v) { return v.choiceActive.indexOf('pact of the chain') !== -1; },
+	description: "\nWhile on the same plane as my familiar, I can communicate telepathically with it and I can perceive through its senses. While doing the latter, I can speak through it with my voice.",
+});
 
 // Background Features
 BackgroundFeatureList["shelter of the faithful"] = { // from Acolyte
@@ -168,7 +384,7 @@ FeatsList["dungeon delver"] = {
 		" \u2022 You have advantage on Wisdom (Perception) and Intelligence (Investigation) checks made to detect the presence of secret doors.",
 		" \u2022 You have advantage on saving throws made to avoid or resist traps.",
 		" \u2022 You have resistance to the damage dealt by traps.",
-		" \u2022 Traveling at a fast pace doesn't impose the normal -5 penalty on your passive Wisdom (Perception) score."
+		" \u2022 Traveling at a fast pace doesn't impose the normal -5 penalty on your passive Wisdom (Perception) score.",
 	],
 	dmgres: ["Traps"],
 	savetxt: { adv_vs: ["traps"] },
@@ -186,7 +402,7 @@ FeatsList["linguist"] = {
 		"You have studied languages and codes, gaining the following benefits:",
 		" \u2022 Increase your Intelligence score by 1, to a maximum of 20.",
 		" \u2022 You learn three languages of your choice.",
-		" \u2022 You can ably create written ciphers. Others can't decipher a code you create unless you teach them, they succeed on an Intelligence check (DC equal to your Intelligence score + your proficiency bonus), or they use magic to decipher it."
+		" \u2022 You can ably create written ciphers. Others can't decipher a code you create unless you teach them, they succeed on an Intelligence check (DC equal to your Intelligence score + your proficiency bonus), or they use magic to decipher it.",
 	],
 	scores: [0, 0, 0, 1, 0, 0],
 	languageProfs: [3],
@@ -199,7 +415,7 @@ FeatsList["martial adept"] = {
 	descriptionFull: [
 		"You have martial training that allows you to perform special combat maneuvers. You gain the following benefits:",
 		" \u2022 You learn two maneuvers of your choice from among those available to the Battle Master archetype in the fighter class. If a maneuver you use requires your target to make a saving throw to resist the maneuver's effects, the saving throw DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice).",
-		" \u2022 You gain one superiority die, which is a d6 (this die is added to any superiority dice you have from another source). This die is used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest."
+		" \u2022 You gain one superiority die, which is a d6 (this die is added to any superiority dice you have from another source). This die is used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest.",
 	],
 	bonusClassExtrachoices: [{
 		"class": "fighter",

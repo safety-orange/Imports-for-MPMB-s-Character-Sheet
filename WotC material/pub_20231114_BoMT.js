@@ -1,5 +1,5 @@
 var iFileName = "pub_20231114_BoMT.js";
-RequiredSheetVersion("13.2.3");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds the Character Options content from the "The Book of Many Things" book (from the "The Deck of Many Things" set) to MPMB's Character Record Sheet
 
 // Define the source
@@ -53,24 +53,13 @@ BackgroundList["rewarded"] = {
 BackgroundFeatureList["fortune's favor"] = {
 	description : "I have unexpected good fortune in life, caused by something like a genie who granted me wishes, extraordinary luck during a game, me honing my skills to endure a supernatural trial, or some other force that transformed my life. This boon is reflected in my choice of one free feat: Lucky, Magic Initiate, or Skilled.",
 	source : [["BoMT", 57]],
-	eval : function() {
-		if (!IsNotImport) return;
-		var featOptions = ['lucky', 'magic initiate', 'skilled'].filter(feat => CurrentFeats.known.indexOf(feat) === -1);
-		if (!featOptions.length) {
-			return;
-		} else if (featOptions.length === 1) {
-			var selectedFeat = featOptions[0];
-		} else {
-			var featNames = featOptions.map(feat => FeatsList[feat].name);
-			var selectedFeat = featOptions[AskUserOptions("Fortune's Favor bonus feat", "The Fortune's Favor background feature offers a choice of a bonus feat.", featNames, 'radio', true, 'You can change what you select here by changing the feat selection in the corresponding section of the sheet.\nBe aware that if you change the selected feat and remove this background feature, the changed feat will not automatically be removed.', true)];
-		}
-		AddFeat(FeatsList[selectedFeat].name);
-		SetFeatureChoice("background feature", "fortune's favor", false, selectedFeat);
-	},
-	removeeval : function() {
-		var selectedFeat = GetFeatureChoice("background feature", "fortune's favor");
-		if (selectedFeat) RemoveFeat(selectedFeat);
-	}
+	featsAdd: [{
+		options: [
+			{ key: 'lucky' },
+			{ key: 'magic initiate' },
+			{ key: 'skilled' },
+		],
+	}],
 };
 
 BackgroundList["ruined"] = {
@@ -114,24 +103,13 @@ BackgroundList["ruined"] = {
 BackgroundFeatureList["still standing"] = {
 	description : "I have weathered ruinous misfortune in my life and I possess hidden reserves because of this. Possibly I've had to keep my senses sharp, had to redouble my efforts to reclaim what is mine, had to stoically persevered through it, or experienced something else transformative. How I've dealt with this is reflected in my choice of one free feat: Alert, Skilled, or Tough.",
 	source : [["BoMT", 58]],
-	eval : function() {
-		if (!IsNotImport) return;
-		var featOptions = ['alert', 'skilled', 'tough'].filter(feat => CurrentFeats.known.indexOf(feat) === -1);
-		if (!featOptions.length) {
-			return;
-		} else if (featOptions.length === 1) {
-			var selectedFeat = featOptions[0];
-		} else {
-			var featNames = featOptions.map(feat => FeatsList[feat].name);
-			var selectedFeat = featOptions[AskUserOptions("Still Standing bonus feat", "The Still Standing background feature offers a choice of a bonus feat.", featNames, 'radio', true, 'You can change what you select here by changing the feat selection in the corresponding section of the sheet.\nBe aware that if you change the selected feat and remove this background feature, the changed feat will not automatically be removed.', true)];
-		}
-		AddFeat(FeatsList[selectedFeat].name);
-		SetFeatureChoice("background feature", "still standing", false, selectedFeat);
-	},
-	removeeval : function() {
-		var selectedFeat = GetFeatureChoice("background feature", "still standing");
-		if (selectedFeat) RemoveFeat(selectedFeat);
-	}
+	featsAdd: [{
+		options: [
+			{ key: 'alert' },
+			{ key: 'skilled' },
+			{ key: 'tough' },
+		],
+	}],
 };
 
 

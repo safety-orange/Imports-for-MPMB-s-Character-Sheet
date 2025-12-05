@@ -183,45 +183,7 @@ AddRacialVariant("human", "variant", {
 	scorestxt : "+1 to two different ability scores of my choice",
 	scores : [0, 0, 0, 0, 0, 0],
 	trait : "Human (+1 to two different ability scores of my choice)\n\nSkills: I gain proficiency in one skill of my choice.\n\nFeat: I gain one feat of my choice.",
-	eval : function() {
-		// Get a list of all eligible feats
-		var eligibleFeats = [];
-		var gatherVars = gatherPrereqevalVars();
-		for (var key in FeatsList) {
-			var oFeat = FeatsList[key];
-			// Skip excluded feats and known feats that don't allow duplicates
-			if ( testSource(key, oFeat, "featsExcl") || !oFeat.allowDuplicates && CurrentFeats.known.indexOf(key) !== -1 ) continue;
-			// Skip if prerequisite is not met
-			if (oFeat.prereqeval) {
-				var meetsPrereq = true;
-				try {
-					if (typeof oFeat.prereqeval == 'string') {
-						meetsPrereq = eval(oFeat.prereqeval);
-					} else if (typeof oFeat.prereqeval == 'function') {
-						meetsPrereq = oFeat.prereqeval(gatherVars);
-					}
-				} catch (error) {}
-				if (!meetsPrereq) continue;
-			}
-			// Add to list
-			eligibleFeats.push(oFeat.name);
-		}
-		// Ask the user to select a feat
-		var sFeatName = AskUserOptions("Select Human Bonus Feat", "The Human (Variant) race grants a bonus feat. Pick one of the feats below. This list excludes feats that are already known and feats for which the prerequisites have not been met.", eligibleFeats, "radio", true, false);
-		// Remember the selection
-		SetFeatureChoice("race", "human", "bonus feat", sFeatName);
-		// Add the feat to the sheet
-		AddFeat(sFeatName);
-	},
-	removeeval : function() {
-		// Get the user selected human bonus feat
-		var sFeatName = GetFeatureChoice("race", "human", "bonus feat");
-		if (!sFeatName) return;
-		// Remove the feat from the sheet
-		RemoveFeat(sFeatName);
-		// Remove the remembered choice
-		SetFeatureChoice("race", "human", "bonus feat", false);
-	}
+	featsAdd: [{ type: /^(?!.*(blessing|boon|gift|fighting style)).*$/i }],
 });
 
 // Add the subclasses that are not in the SRD

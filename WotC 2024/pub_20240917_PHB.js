@@ -22,7 +22,7 @@ BackgroundList["artisan"] = {
 	toolProfs: [["Artisan's tools", 1]],
 	gold: 32,
 	equipleft: [
-		["Artisan's tools (same as proficiency)", "", 5]
+		["Artisan's tools (same as proficiency)", "", 5],
 	],
 	equipright: [
 		["Traveler's clothes", "", 4],
@@ -41,7 +41,7 @@ BackgroundList["artisan"] = {
 		"I'm rude to people who lack my commitment to hard work and fair play.",
 		"I like to talk at length about my profession.",
 		"I don't part with my money easily and will haggle tirelessly to get the best deal possible.",
-		"I'm well known for my work, and I want to make sure everyone appreciates it. I'm always taken aback when people haven't heard of me."
+		"I'm well known for my work, and I want to make sure everyone appreciates it. I'm always taken aback when people haven't heard of me.",
 	],
 	ideal: [
 		"**Community**. It is the duty of all civilized people to strengthen the bonds of community and the security of civilization. (Lawful)",
@@ -49,7 +49,7 @@ BackgroundList["artisan"] = {
 		"**Freedom**. Everyone should be free to pursue his or her own livelihood. (Chaotic)",
 		"**Greed**. I'm only in it for the money. (Evil)",
 		"**People**. I'm committed to the people I care about, not to ideals. (Neutral)",
-		"**Aspiration**. I work hard to be the best there is at my craft. (Any)"
+		"**Aspiration**. I work hard to be the best there is at my craft. (Any)",
 	],
 	bond: [
 		"The workshop where I learned my trade is the most important place in the world to me.",
@@ -57,7 +57,7 @@ BackgroundList["artisan"] = {
 		"I owe my guild a great debt for forging me into the person I am today.",
 		"I pursue wealth to secure someone's love.",
 		"One day I will return to my guild and prove that I am the greatest artisan of them all.",
-		"I will get revenge on the evil forces that destroyed my place of business and ruined my livelihood."
+		"I will get revenge on the evil forces that destroyed my place of business and ruined my livelihood.",
 	],
 	flaw: [
 		"I'll do anything to get my hands on something rare or priceless.",
@@ -65,7 +65,7 @@ BackgroundList["artisan"] = {
 		"No one must ever learn that I once stole money from guild coffers.",
 		"I'm never satisfied with what I have\u2015 I always want more.",
 		"I would kill to acquire a noble title.",
-		"I'm horribly jealous of anyone who can outshine my handiwork. Everywhere I go, I'm surrounded by rivals."
+		"I'm horribly jealous of anyone who can outshine my handiwork. Everywhere I go, I'm surrounded by rivals.",
 	],
 	extra: [
 		"Select a Artisan Business",
@@ -88,7 +88,7 @@ BackgroundList["artisan"] = {
 		"Tinkers, pewterers, and casters",
 		"Wagon-makers and wheelwrights",
 		"Weavers and dyers",
-		"Woodcarvers, coopers, and bowyers"
+		"Woodcarvers, coopers, and bowyers",
 	],
 };
 BackgroundFeatureList["artisan"] = {
@@ -106,11 +106,11 @@ BackgroundList["charlatan"] = {
 	gold: 15,
 	equipleft: [
 		["Forgery kit", "", 5],
-		["Costume clothes", "", 1]
+		["Costume clothes", "", 1],
 	],
 	equipright: [
 		["Fine clothes", "", 6],
-		["Belt pouch (with coins)", "", 1]
+		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Charlatan",
 	// from PHB'14:
@@ -123,7 +123,7 @@ BackgroundList["charlatan"] = {
 		"I lie about almost everything, even when there's no good reason to.",
 		"Sarcasm and insults are my weapons of choice.",
 		"I keep multiple holy symbols on me and invoke whatever deity might come in useful at any given moment.",
-		"I pocket anything I see that might have some value."
+		"I pocket anything I see that might have some value.",
 	],
 	ideal: [
 		"**Independence**. I am a free spirit \u2015 no one tells me what to do. (Chaotic)",
@@ -131,7 +131,7 @@ BackgroundList["charlatan"] = {
 		"**Charity**. I distribute the money I acquire to the people who really need it. (Good)",
 		"**Creativity**. I never run the same con twice. (Chaotic)",
 		"**Friendship**. Material goods come and go. Bonds of friendship last forever. (Good)",
-		"**Aspiration**. I'm determined to make something of myself. (Any)"
+		"**Aspiration**. I'm determined to make something of myself. (Any)",
 	],
 	bond: [
 		"I fleeced the wrong person and must work to ensure that this individual never crosses paths with me or those I care about.",
@@ -139,7 +139,7 @@ BackgroundList["charlatan"] = {
 		"Somewhere out there, I have a child who doesn't know me. I'm making the world better for him or her.",
 		"I come from a noble family, and one day I'll reclaim my lands and title from those who stole them from me.",
 		"A powerful person killed someone I love. Someday soon, I'll have my revenge.",
-		"I swindled and ruined a person who didn't deserve it. I seek to atone for my misdeeds but might never be able to forgive myself."
+		"I swindled and ruined a person who didn't deserve it. I seek to atone for my misdeeds but might never be able to forgive myself.",
 	],
 	flaw: [
 		"I can't resist a pretty face.",
@@ -147,7 +147,7 @@ BackgroundList["charlatan"] = {
 		"I'm convinced that no one could ever fool me the way I fool others.",
 		"I'm too greedy for my own good. I can't resist taking a risk if there's money involved.",
 		"I can't resist swindling people who are more powerful than me.",
-		"I hate to admit it and will hate myself for it, but I'll run and preserve my own hide if the going gets tough."
+		"I hate to admit it and will hate myself for it, but I'll run and preserve my own hide if the going gets tough.",
 	],
 	extra: [
 		"Select a Favorite Scheme",
@@ -156,7 +156,7 @@ BackgroundList["charlatan"] = {
 		"User/manipulator",
 		"Change identity",
 		"Sleight-of-hand cons",
-		"Sell junk as expensive necessities"
+		"Sell junk as expensive necessities",
 	],
 };
 BackgroundFeatureList["charlatan"] = {
@@ -175,12 +175,12 @@ BackgroundList["entertainer"] = {
 	equipleft: [
 		["Costume clothes", 2, 1],
 		["Mirror", "", 0.5],
-		["Perfume", "", ""]
+		["Perfume", "", ""],
 	],
 	equipright: [
 		["Traveler's clothes", "", 4],
 		["Musical instrument (choose one)", "", 1],
-		["Belt pouch (with coins)", "", 1]
+		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Entertainer",
 	// from PHB'14:
@@ -193,7 +193,7 @@ BackgroundList["entertainer"] = {
 		"I love a good insult, even one directed at me.",
 		"I get bitter if I'm not the center of attention.",
 		"I'll settle for nothing less than perfection.",
-		"I change my mood or my mind as quickly as I change key in a song."
+		"I change my mood or my mind as quickly as I change key in a song.",
 	],
 	ideal: [
 		"**Beauty**. When I perform, I make the world better than it was. (Good)",
@@ -201,7 +201,7 @@ BackgroundList["entertainer"] = {
 		"**Creativity**. The world is in need of new ideas and bold action. (Chaotic)",
 		"**Greed**. I'm only in it for the money and fame. [Evil]",
 		"**People**. I like seeing the smiles on people's faces when I perform. That's all that matters. (Neutral)",
-		"**Honesty**. Art should reflect the soul; it should come from within and reveal who we really are. (Any)"
+		"**Honesty**. Art should reflect the soul; it should come from within and reveal who we really are. (Any)",
 	],
 	bond: [
 		"My instrument is my most treasured possession, and it reminds me of someone I love.",
@@ -209,7 +209,7 @@ BackgroundList["entertainer"] = {
 		"I want to be famous, whatever it takes.",
 		"I idolize a hero of the old tales and measure my deeds against that person's.",
 		"I will do anything to prove myself superior to my hated rival.",
-		"I would do anything for the other members of my old troupe."
+		"I would do anything for the other members of my old troupe.",
 	],
 	flaw: [
 		"I'll do anything to win fame and renown.",
@@ -217,7 +217,7 @@ BackgroundList["entertainer"] = {
 		"A scandal prevents me from ever going home again. That kind of trouble seems to follow me around.",
 		"I once satirized a noble who still wants my head. It was a mistake that I will likely repeat.",
 		"I have trouble keeping my true feelings hidden. My sharp tongue lands me in trouble.",
-		"Despite my best efforts, I am unreliable to my friends."
+		"Despite my best efforts, I am unreliable to my friends.",
 	],
 	extra: [
 		"Select an Entertainer Routine",
@@ -230,7 +230,7 @@ BackgroundList["entertainer"] = {
 		"Poet",
 		"Singer",
 		"Storyteller",
-		"Tumbler"
+		"Tumbler",
 	],
 };
 BackgroundFeatureList["entertainer"] = {
@@ -250,15 +250,15 @@ BackgroundList["farmer"] = {
 		["Iron pot", "", 10],
 		["Shovel", "", 5],
 		["Healer's kit", "", 3],
-		["Carpenter's tools", "", 6]
+		["Carpenter's tools", "", 6],
 	],
 	equipright: [
 		["Traveler's clothes", "", 4],
 		["Belt pouch (with coins)", "", 1],
-		["Sickle", "", 2]
+		["Sickle", "", 2],
 	],
 	equip1stPage: {
-		weapons: ["Sickle"]
+		weapons: ["Sickle"],
 	},
 	feature: "Farmer",
 	// from PHB'14 (Folk Hero):
@@ -272,7 +272,7 @@ BackgroundList["farmer"] = {
 		"I'm confident in my own abilities and do what I can to instill confidence in others.",
 		"Thinking is for other people. I prefer action.",
 		"I misuse long words in an attempt to sound smarter.",
-		"I get bored easily. When am I going to get on with my destiny?"
+		"I get bored easily. When am I going to get on with my destiny?",
 	],
 	ideal: [
 		"**Respect**. People deserve to be treated with dignity and respect. (Good)",
@@ -280,7 +280,7 @@ BackgroundList["farmer"] = {
 		"**Freedom**. Tyrants must not be allowed to oppress the people. (Chaotic)",
 		"**Might**. If I become strong, I can take what I want\u2015 what I deserve. (Evil)",
 		"**Sincerity**. There's no good in pretending to be something I'm not. (Neutral)",
-		"**Destiny**. Nothing and no one can steer me away from my higher calling. (Any)"
+		"**Destiny**. Nothing and no one can steer me away from my higher calling. (Any)",
 	],
 	bond: [
 		"I have a family, but I have no idea where they are. One day, I hope to see them again.",
@@ -288,7 +288,7 @@ BackgroundList["farmer"] = {
 		"A proud noble once gave me a horrible beating, and I will take my revenge on any bully I encounter.",
 		"My tools are symbols of my past life, and I carry them so that I will never forget my roots.",
 		"I protect those who cannot protect themselves.",
-		"I wish my childhood sweetheart had come with me to pursue my destiny."
+		"I wish my childhood sweetheart had come with me to pursue my destiny.",
 	],
 	flaw: [
 		"The tyrant who rules my land will stop at nothing to see me killed.",
@@ -296,7 +296,7 @@ BackgroundList["farmer"] = {
 		"The people who knew me when I was young know my shameful secret, so I can never go home again.",
 		"I have a weakness for the vices of the city, especially hard drink.",
 		"Secretly, I believe that things would be better if I were a tyrant lording over the land.",
-		"I have trouble trusting in my allies."
+		"I have trouble trusting in my allies.",
 	],
 	extra: [
 		"Select a Defining Event",
@@ -309,7 +309,7 @@ BackgroundList["farmer"] = {
 		"I trained peasantry to fight a tyrant with farm tools",
 		"A decree was rescinded after I led a protest against it",
 		"A magical creature gave me a blessing or insight",
-		"I rose to leadership in a lord's army"
+		"I rose to leadership in a lord's army",
 	],
 };
 BackgroundFeatureList["farmer"] = {
@@ -327,7 +327,7 @@ BackgroundList["guard"] = {
 	equipleft: [
 		["Manacles", "", 6],
 		["Hooded lantern", "", 2],
-		["Gaming set (same as proficiency)", "", ""]
+		["Gaming set (same as proficiency)", "", ""],
 	],
 	equipright: [
 		["Traveler's clothes", "", 4],
@@ -335,11 +335,11 @@ BackgroundList["guard"] = {
 		["Spear", "", 3],
 		["Light crossbow", "", 5],
 		["Crossbow bolt case, with:", "", 1],
-		["- Crossbow bolts", 20, 0.075]
+		["- Crossbow bolts", 20, 0.075],
 	],
 	equip1stPage: {
 		weapons: ["Spear", "Light Crossbow"],
-		ammo: [["Bolts", 20]]
+		ammo: [["Bolts", 20]],
 	},
 	feature: "Guard",
 };
@@ -359,18 +359,18 @@ BackgroundList["guide"] = {
 	equipleft: [
 		["Bedroll", "", 7],
 		["Cartographer's tools", "", 6],
-		["Two-person tent", "", 20]
+		["Two-person tent", "", 20],
 	],
 	equipright: [
 		["Traveler's clothes", "", 4],
 		["Belt pouch (with coins)", "", 1],
 		["Shortbow", "", 2],
 		["Quiver, with:", "", 1],
-		["- Arrows", 20, 0.05]
+		["- Arrows", 20, 0.05],
 	],
 	equip1stPage: {
 		weapons: ["Shortbow"],
-		ammo: [["Arrows", 20]]
+		ammo: [["Arrows", 20]],
 	},
 	feature: "Guide",
 	// from PHB'14 (Outlander):
@@ -384,7 +384,7 @@ BackgroundList["guide"] = {
 		"I place no stock in wealthy or well-mannered folk. Money and manners won't save you from a hungry owlbear.",
 		"I'm always picking things up, absently fiddling with them, and sometimes accidentally breaking them.",
 		"I feel far more comfortable around animals than people.",
-		"I was, in fact, raised by wolves."
+		"I was, in fact, raised by wolves.",
 	],
 	ideal: [
 		"**Change**. Life is like the seasons, in constant change, and we must change with it. (Chaotic)",
@@ -392,7 +392,7 @@ BackgroundList["guide"] = {
 		"**Honor**. If I dishonor myself, I dishonor my whole clan. (Lawful)",
 		"**Might**. The strongest are meant to rule. (Evil)",
 		"**Nature**. The natural world is more important than all the constructs of civilization. (Neutral)",
-		"**Glory**. I must earn glory in battle, for myself and my clan. (Any)"
+		"**Glory**. I must earn glory in battle, for myself and my clan. (Any)",
 	],
 	bond: [
 		"My family, clan, or tribe is the most important thing in my life, even when they are far from me.",
@@ -400,7 +400,7 @@ BackgroundList["guide"] = {
 		"I will bring terrible wrath down on the evildoers who destroyed my homeland.",
 		"I am the last of my tribe, and it is up to me to ensure their names enter legend.",
 		"I suffer awful visions of a coming disaster and will do anything to prevent it.",
-		"It is my duty to provide children to sustain my tribe."
+		"It is my duty to provide children to sustain my tribe.",
 	],
 	flaw: [
 		"I am too enamored of ale, wine, and other intoxicants.",
@@ -408,7 +408,7 @@ BackgroundList["guide"] = {
 		"I remember every insult I've received and nurse a silent resentment toward anyone who's ever wronged me.",
 		"I am slow to trust members of other races, tribes, and societies.",
 		"Violence is my answer to almost any challenge.",
-		"Don't expect me to save those who can't save themselves. It is nature's way that the strong thrive and the weak perish."
+		"Don't expect me to save those who can't save themselves. It is nature's way that the strong thrive and the weak perish.",
 	],
 	extra: ["Select an Origin",
 		"Forester",
@@ -420,7 +420,7 @@ BackgroundList["guide"] = {
 		"Pilgrim",
 		"Tribal nomad",
 		"Hunter-gatherer",
-		"Tribal marauder"
+		"Tribal marauder",
 	],
 };
 BackgroundFeatureList["guide"] = {
@@ -441,15 +441,15 @@ BackgroundList["hermit"] = {
 		["Book (philosophy)", "", 5],
 		["Herbalism kit", "", 3],
 		["Lamp", "", 1],
-		["Oil, flasks of", 3, 1]
+		["Oil, flasks of", 3, 1],
 	],
 	equipright: [
 		["Traveler's clothes", "", 4],
 		["Belt pouch (with coins)", "", 1],
-		["Quarterstaff", "", 4]
+		["Quarterstaff", "", 4],
 	],
 	equip1stPage: {
-		weapons: ["Quarterstaff"]
+		weapons: ["Quarterstaff"],
 	},
 	feature: "Hermit",
 	// from PHB'14:
@@ -462,7 +462,7 @@ BackgroundList["hermit"] = {
 		"I'm oblivious to etiquette and social expectations.",
 		"I connect everything that happens to me to a grand, cosmic plan.",
 		"I often get lost in my own thoughts and contemplation, becoming oblivious to my surroundings.",
-		"I am working on a grand philosophical theory and love sharing my ideas."
+		"I am working on a grand philosophical theory and love sharing my ideas.",
 	],
 	ideal: [
 		"**Greater Good**. My gifts are meant to be shared with all, not used for my own benefit. (Good)",
@@ -470,7 +470,7 @@ BackgroundList["hermit"] = {
 		"**Free Thinking**. Inquiry and curiosity are the pillars of progress. (Chaotic)",
 		"**Power**. Solitude and contemplation are paths toward mystical or magical power. (Evil)",
 		"**Live and Let Live**. Meddling in the affairs of others only causes trouble. (Neutral)",
-		"**Self-Knowledge**. If you know yourself, there's nothing left to know. (Any)"
+		"**Self-Knowledge**. If you know yourself, there's nothing left to know. (Any)",
 	],
 	bond: [
 		"Nothing is more important than the other members of my hermitage, order, or association.",
@@ -478,7 +478,7 @@ BackgroundList["hermit"] = {
 		"I'm still seeking the enlightenment I pursued in my seclusion, and it still eludes me.",
 		"I entered seclusion because I loved someone I could not have.",
 		"Should my discovery come to light, it could bring ruin to the world.",
-		"My isolation gave me great insight into a great evil that only I can destroy."
+		"My isolation gave me great insight into a great evil that only I can destroy.",
 	],
 	flaw: [
 		"Now that I've returned to the world, I enjoy its delights a little too much.",
@@ -486,7 +486,7 @@ BackgroundList["hermit"] = {
 		"I am dogmatic in my thoughts and philosophy.",
 		"I let my need to win arguments overshadow friendships and harmony.",
 		"I'd risk too much to uncover a lost bit of knowledge.",
-		"I like keeping secrets and won't share them with anyone."
+		"I like keeping secrets and won't share them with anyone.",
 	],
 	extra: [
 		"Select a Life of Seclusion",
@@ -497,7 +497,7 @@ BackgroundList["hermit"] = {
 		"Worked on my art, literature, music, or manifesto",
 		"Commune with nature, far from civilization",
 		"Caretaker of an ancient ruin or relic",
-		"Pilgrim in search of a thing of spiritual significance"
+		"Pilgrim in search of a thing of spiritual significance",
 	],
 };
 BackgroundFeatureList["hermit"] = {
@@ -519,7 +519,7 @@ BackgroundList["merchant"] = {
 	equipright: [
 		["Traveler's clothes", "", 4],
 		["Pouch", "", 1],
-		["Belt pouch (with coins)", "", 1]
+		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Merchant",
 	// from PHB'14 (Guild Merchant variant for the Guild Artisan):
@@ -529,7 +529,7 @@ BackgroundList["merchant"] = {
 		"Select a Business",
 		"Trader",
 		"Caravan master",
-		"Shopkeeper"
+		"Shopkeeper",
 	],
 };
 BackgroundFeatureList["merchant"] = {
@@ -547,11 +547,11 @@ BackgroundList["noble"] = {
 	gold: 25,
 	equipleft: [
 		["Gaming set (same as proficiency)", "", ""],
-		["Perfume", "", ""]
+		["Perfume", "", ""],
 	],
 	equipright: [
 		["Fine clothes", "", 6],
-		["Purse (with coins)", "", 1]
+		["Purse (with coins)", "", 1],
 	],
 	feature: "Noble",
 	// from PHB'14:
@@ -564,7 +564,7 @@ BackgroundList["noble"] = {
 		"I don't like to get my hands dirty, and I won't be caught dead in unsuitable accommodations.",
 		"Despite my noble birth, I do not place myself above other folk. We all have the same blood.",
 		"My favor, once lost, is lost forever.",
-		"If you do me an injury, I will crush you, ruin your name, and salt your fields."
+		"If you do me an injury, I will crush you, ruin your name, and salt your fields.",
 	],
 	ideal: [
 		"**Respect**. Respect is due to me because of my position, but all people regardless of station deserve to be treated with dignity. (Good)",
@@ -572,7 +572,7 @@ BackgroundList["noble"] = {
 		"**Independence**. I must prove that I can handle myself without the coddling of my family. (Chaotic)",
 		"**Power**. If I can attain more power, no one will tell me what to do. (Evil)",
 		"**Family**. Blood runs thicker than water. (Any)",
-		"**Noble Obligation**. It is my duty to protect and care for the people beneath me. (Good)"
+		"**Noble Obligation**. It is my duty to protect and care for the people beneath me. (Good)",
 	],
 	bond: [
 		"I will face any challenge to win the approval of my family.",
@@ -580,7 +580,7 @@ BackgroundList["noble"] = {
 		"Nothing is more important than the other members of my family.",
 		"I am in love with the heir of a family that my family despises.",
 		"My loyalty to my sovereign is unwavering.",
-		"The common folk must see me as a hero of the people."
+		"The common folk must see me as a hero of the people.",
 	],
 	flaw: [
 		"I secretly believe that everyone is beneath me.",
@@ -588,7 +588,7 @@ BackgroundList["noble"] = {
 		"I too often hear veiled insults and threats in every word addressed to me, and I'm quick to anger.",
 		"I have an insatiable desire for carnal pleasures.",
 		"In fact, the world does revolve around me.",
-		"By my words and actions, I often bring shame to my family."
+		"By my words and actions, I often bring shame to my family.",
 	],
 };
 BackgroundFeatureList["noble"] = {
@@ -606,15 +606,15 @@ BackgroundList["sailor"] = {
 	gold: 20,
 	equipleft: [
 	  ["Navigator's tools", "", 2],
-	  ["Rope", "", 5]
+	  ["Rope", "", 5],
 	],
 	equipright: [
 	  ["Traveler's clothes", "", 4],
 	  ["Belt pouch (with coins)", "", 1],
-	  ["Dagger", "", 1]
+	  ["Dagger", "", 1],
 	],
 	equip1stPage: {
-		weapons: ["Dagger"]
+		weapons: ["Dagger"],
 	},
 	feature: "Sailor",
 	// from PHB'14:
@@ -627,7 +627,7 @@ BackgroundList["sailor"] = {
 		"To me, a tavern brawl is a nice way to get to know a new city.",
 		"I never pass up a friendly wager.",
 		"My language is as foul as an otyugh nest.",
-		"I like a job well done, especially if I can convince someone else to do it."
+		"I like a job well done, especially if I can convince someone else to do it.",
 	],
 	ideal: [
 		"**Respect**. The thing that keeps a ship together is mutual respect between captain and crew. (Good)",
@@ -635,7 +635,7 @@ BackgroundList["sailor"] = {
 		"**Freedom**. The sea is freedom\u2015 the freedom to go anywhere and do anything. (Chaotic)",
 		"**Mastery**. I'm a predator, and the other ships on the sea are my prey. (Evil)",
 		"**People**. I'm committed to my crewmates, not to ideals. (Neutral)",
-		"**Aspiration**. Someday I'll own my own ship and chart my own destiny. (Any)"
+		"**Aspiration**. Someday I'll own my own ship and chart my own destiny. (Any)",
 	],
 	bond: [
 		"I'm loyal to my captain first, everything else second.",
@@ -643,7 +643,7 @@ BackgroundList["sailor"] = {
 		"I'll always remember my first ship.",
 		"In a harbor town, I have a paramour whose eyes nearly stole me from the sea.",
 		"I was cheated out of my fair share of the profits, and I want to get my due.",
-		"Ruthless pirates murdered my captain and crewmates, plundered our ship, and left me to die. Vengeance will be mine."
+		"Ruthless pirates murdered my captain and crewmates, plundered our ship, and left me to die. Vengeance will be mine.",
 	],
 	flaw: [
 		"I follow orders, even if I think they're wrong.",
@@ -651,7 +651,7 @@ BackgroundList["sailor"] = {
 		"Once someone questions my courage, I never back down no matter how dangerous the situation.",
 		"Once I start drinking, it's hard for me to stop.",
 		"I can't help but pocket loose coins and other trinkets I come across.",
-		"My pride will probably lead to my destruction."
+		"My pride will probably lead to my destruction.",
 	],
 };
 BackgroundFeatureList["sailor"] = {
@@ -670,11 +670,11 @@ BackgroundList["scribe"] = {
 		["Calligrapher's supplies", "", 5],
 		["Lamp", "", 1],
 		["Oil, flasks of", 3, 1],
-		["Parchment, sheets of", 12, ""]
+		["Parchment, sheets of", 12, ""],
 	],
 	equipright: [
 		["Fine clothes", "", 6],
-		["Belt pouch (with coins)", "", 1]
+		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Scribe",
 };
@@ -694,16 +694,16 @@ BackgroundList["wayfarer"] = {
 	equipleft: [
 		["Bedroll", "", 7],
 		["Gaming set (choose one)", "", ""],
-		["Thieves' tools", "", 1]
+		["Thieves' tools", "", 1],
 	],
 	equipright: [
 		["Traveler's clothes", "", 4],
 		["Pouch", "", 1],
 		["Belt pouch (with coins)", "", 1],
-		["Dagger", 2, 1]
+		["Dagger", 2, 1],
 	],
 	equip1stPage: {
-		weapons: ["Dagger", "Dagger (off-hand)"]
+		weapons: ["Dagger", "Dagger (off-hand)"],
 	},
 	feature: "Wayfarer",
 	// from PHB'14 (Urchin):
@@ -717,7 +717,7 @@ BackgroundList["wayfarer"] = {
 		"I have bad manners and eat like a pig.",
 		"I expect that anybody who's nice to me is hiding malicious intent.",
 		"I eschew bathing.",
-		"I say, without reserve, what other people are implying or masking."
+		"I say, without reserve, what other people are implying or masking.",
 	],
 	ideal: [
 		"**Respect**. Everybody, no matter their riches, deserves respect. (Good)",
@@ -725,7 +725,7 @@ BackgroundList["wayfarer"] = {
 		"**Change**. The low rise up, and the high and mighty come down. Change is natural. (Chaotic)",
 		"**Retribution**. The rich need to be shown how it is to live and die in the poor quarters. (Evil)",
 		"**People**. I help those who help me\u2015 that is what lets us stay alive. (Neutral)",
-		"**Aspiration**. I'm going to prove that I'm worthy of a better life. (Any)"
+		"**Aspiration**. I'm going to prove that I'm worthy of a better life. (Any)",
 	],
 	bond: [
 		"My town or city is my home, and I'll battle those that threaten it.",
@@ -733,7 +733,7 @@ BackgroundList["wayfarer"] = {
 		"I owe my life to another urchin who taught me the ways of living in the gutters.",
 		"I owe a debt I can never repay to the person who showed me sympathy.",
 		"I got away from my life of poverty by robbing an influential person, and I'm wanted for it.",
-		"No one else should have to suffer the difficulties I've been through."
+		"No one else should have to suffer the difficulties I've been through.",
 	],
 	flaw: [
 		"I will run away from a fight if I'm outnumbered.",
@@ -741,7 +741,7 @@ BackgroundList["wayfarer"] = {
 		"I will never completely trust another. I only trust myself.",
 		"I would rather use an unfair advantage than fight honorably.",
 		"It's not theft if I have more use for it than someone else.",
-		"People who are incapable of taking care of themselves get what they deserve."
+		"People who are incapable of taking care of themselves get what they deserve.",
 	],
 };
 BackgroundFeatureList["wayfarer"] = {
@@ -775,7 +775,7 @@ RaceList["aasimar"] = {
 			usages: 1,
 			recovery: "long rest",
 			action: [["action", ""]],
-			additional: ProficiencyBonusList.map(function(n) { return n + "d4 healing"; })
+			additional: ProficiencyBonusList.map(function(n) { return n + "d4 healing"; }),
 		},
 		"celestial revelation": {
 			name: "Celestial Revelation",
@@ -788,23 +788,25 @@ RaceList["aasimar"] = {
 			toNotesPage: [{
 				name: "Celestial Revelation",
 				note: [
-					"As a Bonus Action once per Long Rest, I can transform using one of the options below (choose the option each time). This lasts for 1 min or until I end it (no action).",
+					"As a Bonus Actio	n once per Long Rest, I can transform using one of the options below (choose the option each time). This lasts for 1 min or until I end it (no action).",
 					"While transformed, once on each of my turns when I deal damage with an attack or spell, I can deal my Proficiency Bonus in extra damage to one target. This extra damage's type is Necrotic for Necrotic Shroud, or Radiant for Heavenly Wings and Inner Radiance.",
 					" **\u2022 Heavenly Wings**. Two spectral wings sprout from my back temporarily. Until the transformation ends, I have a Fly Speed equal to my Speed.",
 					"While transformed like this, the extra damage on attacks/spells mentioned above is Radiant.",
 					" **\u2022 Inner Radiance**. Searing light temporarily radiates from my eyes and mouth. For the duration, I shed Bright Light in a 10-ft radius and Dim Light for an additional 10 ft, and at the end of each of my turns, each creature within 10 ft of me takes Radiant damage equal to my Proficiency Bonus",
 					"While transformed like this, the extra damage on attacks/spells mentioned above is Radiant.",
 					" **\u2022 Necrotic Shroud**. My eyes briefly become pools of darkness, and flightless wings sprout from my back temporarily. Creatures other than my allies within 10 ft of me must succeed on a Charisma saving throw (DC 8 + Cha mod + Prof. Bonus) or have the Frightened condition until the end of my next turn.",
-					"While transformed like this, the extra damage on attacks/spells mentioned above is Necrotic."
+					"While transformed like this, the extra damage on attacks/spells mentioned above is Necrotic.",
 				],
 				additional: "1\xD7 per long rest",
 			}],
 		},
 	},
-	trait: "**Aasimar**"+
-		"\n##\u25C6 Healing Hands##. As a Magic action once per Long Rest, I can touch a creature and restore HP to it for a number of d4s equal to my Proficiency Bonus."+
-		"\n##\u25C6 Light Bearer##. I know the Light cantrip. Charisma is my spellcasting ability for it."+
-		"\n##\u25C6 Celestial Revelation## (level 3). As a Bonus Action once per Long Rest, I can transform for 1 min or until I end it (no action). Once on each of my turns while transformed, I can deal my Prof. Bonus in extra damage. I choose how I transform each time. See Notes page.",
+	trait: [
+		"**Aasimar**",
+		"##\u25C6 Healing Hands##. As a Magic action once per Long Rest, I can touch a creature and restore HP to it for a number of d4s equal to my Proficiency Bonus.",
+		"##\u25C6 Light Bearer##. I know the Light cantrip. Charisma is my spellcasting ability for it.",
+		"##\u25C6 Celestial Revelation## (level 3). As a Bonus Action once per Long Rest, I can transform for 1 min or until I end it (no action). Once on each of my turns while transformed, I can deal my Prof. Bonus in extra damage. I choose how I transform each time. See Notes page.",
+	].join("\n"),
 	// from VGM:
 	age : " reach adulthood in their late teens and live around 160 years",
 	height: " are about 2-4 ft (small) or 4-7 ft (medium) tall (4'8\" + 2d10\")",
@@ -873,9 +875,11 @@ FeatsList["lucky"] = {
 	name: "Lucky",
 	source: [["P24", 201]],
 	type: "origin",
-	description: "I gain a number of ##Luck Points## equal to my Proficiency Bonus that I regain "+ (typePF ? "after" : "when") + " I finish a Long Rest. I can expend 1 of them to:"+
-	"\n \u2022 Give myself Advantage on a D20 Test."+
-	"\n \u2022 Impose Disadvantage on an attack roll against me.",
+	description: [
+		"I gain a number of ##Luck Points## equal to my Proficiency Bonus that I regain "+ (typePF ? "after" : "when") + " I finish a Long Rest. I can expend 1 of them to:",
+		" \u2022 Give myself Advantage on a D20 Test.",
+		" \u2022 Impose Disadvantage on an attack roll against me.",
+	].join("\n"),
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Luck Points***. You have a number of Luck Points equal to your Proficiency Bonus and can spend the points on the benefits below. You regain your expended Luck Points when you finish a Long Rest.",
@@ -891,8 +895,10 @@ FeatsList["musician"] = {
 	name: "Musician",
 	source: [["P24", 201]],
 	type: "origin",
-	description: "At the end of a Short or Long Rest, I can play an instrument I'm proficient with to give Heroic Inspiration to a number of allies up to my Proficiency Bonus, if they hear the song."+
-	"\nI gain proficiency with three Musical Instruments of my choice.",
+	description: [
+		"At the end of a Short or Long Rest, I can play an instrument I'm proficient with to give Heroic Inspiration to a number of allies up to my Proficiency Bonus, if they hear the song.",
+		"I gain proficiency with three Musical Instruments of my choice.",
+	].join("\n"),
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Instrument Training***. You gain proficiency with three Musical Instruments of your choice.",
@@ -918,11 +924,11 @@ FeatsList["tavern brawler"] = {
 			function (fields, v) {
 				if (v.baseWeaponName == "improvised weapon" || /improvised/i.test(v.WeaponName + v.baseWeaponName) || /improvised weapon/i.test(v.theWea.type)) {
 					fields.Proficiency = true;
-				}
+				};
 				if (v.baseWeaponName == "unarmed strike") {
 					fields.Description += (fields.Description ? "; " : "") + "1/turn also push 5 ft; reroll 1 on damage";
 					if (fields.Damage_Die == 1) fields.Damage_Die = "1d4";
-				}
+				};
 			},
 			"My Unarmed Strike deals 1d4 damage instead of 1.\n \u2022 Whenever I roll a 1 on the damage die of an Unarmed Strike, I can reroll it but must use the new roll.\n \u2022 Once per turn as part of the Attack action on my turn, I can deal damage and push the target 5 ft away from me.",
 		],
@@ -952,7 +958,7 @@ FeatsList["actor"] = {
 		return v.characterLevel >= 4 && What("Cha") >= 13;
 	},
 	description: "While disguised as a specific person, I have Advantage on Charisma (Deception or Performance) checks to convince others that I am that person. I am able to mimic the sounds and speech of others. Wisdom (Insight) check (DC 8 + Cha mod + Prof Bonus) to determine the effect is faked. [+1 Charisma]",
-	calculate: 'var dc = 8 + Number(How("Proficiency Bonus")) + Number(What("Cha Mod"); event.value = "While disguised as a specific person, I have Advantage on Charisma (Deception or Performance) checks to convince others that I am that person. I am able to mimic the sounds and speech of others. DC " + dc + " (8 + Cha mod + Prof Bonus) Wisdom (Insight) check to determine the effect is faked. [+1 Charisma]"',
+	calculate: 'var dc = 8 + Number(How("Proficiency Bonus")) + Number(What("Cha Mod")); event.value = "While disguised as a specific person, I have Advantage on Charisma (Deception or Performance) checks to convince others that I am that person. I am able to mimic the sounds and speech of others. DC " + dc + " (8 + Cha mod + Prof Bonus) Wisdom (Insight) check to determine the effect is faked. [+1 Charisma]"',
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Charisma score by 1, to a maximum of 20.",
@@ -969,9 +975,11 @@ FeatsList["athlete"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && (What("Str") >= 13 || What("Dex") >= 13);
 	},
-	description: "I gain a Climb Speed equal to my Speed."+
-		"\nI can make a running Long or High Jump after moving only 5 ft."+
-		"\nI can right myself from the Prone condition with only 5 ft of movement. [+1 Str or Dex]",
+	description: [
+		"I gain a Climb Speed equal to my Speed.",
+		"I can make a running Long or High Jump after moving only 5 ft.",
+		"I can right myself from the Prone condition with only 5 ft of movement. [+1 Str or Dex]",
+	].join("\n"),
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20.",
@@ -981,16 +989,21 @@ FeatsList["athlete"] = {
 	],
 	speed: { climb: { spd: "walk", enc: "walk" } },
 	choices: ["Strength", "Dexterity"],
+	choicesNotInMenu: true,
 	"strength": {
-		description: "I gain a Climb Speed equal to my Speed."+
-		"\nI can make a running Long or High Jump after moving only 5 ft."+
-		"\nI can right myself from the Prone condition with only 5 ft of movement. [+1 Strength]",
+		description: [
+			"I gain a Climb Speed equal to my Speed.",
+			"I can make a running Long or High Jump after moving only 5 ft.",
+			"I can right myself from the Prone condition with only 5 ft of movement. [+1 Strength]",
+		].join("\n"),
 		scores: [1, 0, 0, 0, 0, 0],
 	},
 	"dexterity": {
-		description: "I gain a Climb Speed equal to my Speed."+
-		"\nI can make a running Long or High Jump after moving only 5 ft."+
-		"\nI can right myself from the Prone condition with only 5 ft of movement. [+1 Dexterity]",
+		description: [
+			"I gain a Climb Speed equal to my Speed.",
+			"I can make a running Long or High Jump after moving only 5 ft.",
+			"I can right myself from the Prone condition with only 5 ft of movement. [+1 Dexterity]",
+		].join("\n"),
 		scores: [0, 1, 0, 0, 0, 0],
 	},
 };
@@ -1010,6 +1023,7 @@ FeatsList["charger"] = {
 		"***Charge Attack***. If you move at least 10 feet in a straight line toward a target immediately before hitting it with a melee attack roll as part of the Attack action, choose one of the following effects: gain a 1d8 bonus to the attack's damage roll, or push the target up to 10 feet away if it is no more than one size larger than you. You can use this benefit only once on each of your turns.",
 	],
 	choices: ["Strength", "Dexterity"],
+	choicesNotInMenu: true,
 	"strength": {
 		description: "When I take the Dash action, my Speed increases by 10 ft for that action. If I move at least 10 ft in a straight line towards an enemy and hit it with a melee attack as part of the Attack action, once per turn I may either deal +1d8 damage or push the target 10 ft away from me if it's no more than 1 size larger. [+1 Str" + (typePF ? "]" : "ength]"),
 		scores: [1, 0, 0, 0, 0, 0],
@@ -1035,8 +1049,20 @@ FeatsList["chef"] = {
 		"***Replenishing Meal***. As part of a Short Rest, you can cook special food if you have ingredients and Cook's Utensils on hand. You can prepare enough of this food for a number of creatures equal to 4 plus your Proficiency Bonus. At the end of the Short Rest, any creature who eats the food and spends one or more Hit Dice to regain Hit Points regains an extra 1d8 Hit Points.",
 		"***Bolstering Treats***. With 1 hour of work or when you finish a Long Rest, you can cook a number of treats equal to your Proficiency Bonus if you have ingredients and Cook's Utensils on hand. These special treats last 8 hours after being made. A creature can use a Bonus Action to eat one of those treats to gain a number of Temporary Hit Points equal to your Proficiency Bonus.",
 	],
-	choices: ["Constitution", "Wisdom"],
 	toolProfs: ["Cook's Utensils"],
+	toNotesPage: [{
+		name: "Replenishing Meal",
+		note: ["As part of a Short Rest, I can cook special food if I have ingredients and Cook's Utensils on hand. I can prepare enough of this food for a number of creatures equal to 4 plus my Proficiency Bonus. At the end of the Short Rest, any creature who eats the food and spends one or more Hit Dice to regain Hit Points regains an extra 1d8 Hit Points."],
+	}, {
+		name: "Bolstering Treats",
+		note: [
+			"With 1 hour of work or when I finish a Long Rest, I can cook a number of treats equal to my Proficiency Bonus if I have ingredients and Cook's Utensils on hand. These special treats last 8 hours after being made.",
+			"As a Bonus Action, a creature can eat one of those treats to gain a number of Temporary Hit Points equal to my Proficiency Bonus.",
+		],
+		amendTo: "Replenishing Meal",
+	}],
+	choices: ["Constitution", "Wisdom"],
+	choicesNotInMenu: true,
 	"constitution": {
 		description: "I'm proficient with Cook's Utensils. In a Short Rest I can cook for 4+Prof Bonus creatures. If they eat and spend 1+ HD in that rest, they heal +1d8 HP. In 1 hour or after a Long Rest, I can cook Prof Bonus of special treats that last for 8 hours. As a Bonus Action, one can eat a treat to gain my Prof Bonus of Temp HP." + (typePF ? "" : " [+1 Constitution]"),
 		scores: [0, 0, 1, 0, 0, 0],
@@ -1045,14 +1071,6 @@ FeatsList["chef"] = {
 		description: "I'm proficient with Cook's Utensils. In a Short Rest I can cook for 4+Prof Bonus creatures. If they eat and spend 1+ HD in that rest, they heal +1d8 HP. In 1 hour or after a Long Rest, I can cook Prof Bonus of special treats that last for 8 hours. As a Bonus Action, one can eat a treat to gain my Prof Bonus of Temp HP." + (typePF ? "" : " [+1 Wisdom]"),
 		scores: [0, 0, 0, 0, 1, 0],
 	},
-	toNotesPage: [{
-		name: "Replenishing Meal",
-		note: "\nAs part of a Short Rest, I can cook special food if I have ingredients and Cook's Utensils on hand. I can prepare enough of this food for a number of creatures equal to 4 plus my Proficiency Bonus. At the end of the Short Rest, any creature who eats the food and spends one or more Hit Dice to regain Hit Points regains an extra 1d8 Hit Points.",
-	}, {
-		name: "Bolstering Treats",
-		note: "\nWith 1 hour of work or when I finish a Long Rest, I can cook a number of treats equal to my Proficiency Bonus if I have ingredients and Cook's Utensils on hand. These special treats last 8 hours after being made. A creature can use a Bonus Action to eat one of those treats to gain a number of Temporary Hit Points equal to my Proficiency Bonus.",
-		amendTo: "Replenishing Meal",
-	}]
 };
 FeatsList["crossbow expert"] = {
 	name: "Crossbow Expert",
@@ -1078,12 +1096,12 @@ FeatsList["crossbow expert"] = {
 					fields.Description = fields.Description.replace(/([,;]? ?loading|loading[,;]? ?)/i, '');
 					if (v.isOffHand && /\blight\b/i.test(fields.Description))  {
 						output.modToDmg = true;
-					}
+					};
 				};
 			},
-			"I ignore the Loading property of the Hand Crossbow, Heavy Crossbow, and Light Crossbow."
-		]
-	}
+			"I ignore the Loading property of the Hand Crossbow, Heavy Crossbow, and Light Crossbow.",
+		],
+	},
 };
 FeatsList["crusher"] = {
 	name: "Crusher",
@@ -1101,6 +1119,7 @@ FeatsList["crusher"] = {
 		"***Enhanced Critical***. When you score a Critical Hit that deals Bludgeoning damage to a creature, attack rolls against that creature have Advantage until the start of your next turn.",
 	],
 	choices: ["Strength", "Constitution"],
+	choicesNotInMenu: true,
 	"strength": {
 		description: "Once per turn when my attack deals Bludgeoning damage to a creature up to one size larger than me, I can move it 5 ft to an empty space. When I score a Critical Hit that deals Bludgeoning damage to a creature, attack rolls against that creature have Advantage until the start of my next turn. [+1 Strength]",
 		scores: [1, 0, 0, 0, 0, 0],
@@ -1118,7 +1137,7 @@ FeatsList["defensive duelist"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && What("Dex") >= 13;
 	},
-	description: "As a reaction when I'm holding a Finesse weapon and another creature hits me with a melee attack, I can add my Proficiency Bonus to my Armor Class, potentially causing the attack to miss me. I gain this bonus to my AC against melee attacks until the start of my next turn. [+1 Dexterity]",
+	description: "##Parry##. As a reaction when I'm holding a Finesse weapon and another creature hits me with a melee attack, I can add my Proficiency Bonus to my Armor Class, potentially causing the attack to miss me. I gain this bonus to my AC against melee attacks until the start of my next turn. [+1 Dexterity]",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Dexterity score by 1, to a maximum of 20.",
@@ -1143,6 +1162,7 @@ FeatsList["dual wielder"] = {
 		"***Quick Draw***. You can draw or stow two weapons that lack the Two-Handed property when you would normally be able to draw or stow only one.",
 	],
 	choices: ["Strength", "Dexterity"],
+	choicesNotInMenu: true,
 	"strength": {
 		description: "I can draw and stow 2 non-Two-Handed weapons at a time. If I take the Attack action on my turn to attack with a Light weapon, I can make an off-hand attack with another non-Two-Handed weapon as a Bonus Action. I don't add my ability modifier to this attack's damage unless it is negative. [+1 Strength]",
 		scores: [1, 0, 0, 0, 0, 0],
@@ -1160,8 +1180,10 @@ FeatsList["durable"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4;
 	},
-	description: "##Defy Death##. I have Advantage on Death Saving Throws."+
-		"\n##Speedy Recovery##. As a Bonus Action, I can expend and roll one of my Hit Dice to regain a number of Hit Points equal to the roll. [+1 Constitution]",
+	description: [
+		"##Defy Death##. I have Advantage on Death Saving Throws.",
+		"##Speedy Recovery##. As a Bonus Action, I can expend and roll one of my Hit Dice to regain a number of Hit Points equal to the roll. [+1 Constitution]",
+	].join("\n"),
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Constitution score by 1, to a maximum of 20.",
@@ -1172,7 +1194,7 @@ FeatsList["durable"] = {
 	savetxt: {
 		text: ["Adv. on Death Saves"],
 	},
-	action: [["bonus action", "Speedy Recovery"]],
+	action: [["bonus action", "Speedy Recovery (1 HD)"]],
 };
 FeatsList["elemental adept"] = {
 	name: "Elemental Adept",
@@ -1194,33 +1216,43 @@ FeatsList["elemental adept"] = {
 	choices: ["Acid Energy Mastery", "Cold Energy Mastery", "Fire Energy Mastery", "Lightning Energy Mastery", "Thunder Energy Mastery"],
 	"acid energy mastery": {
 		name: "Elemental Adept [Acid]",
-		description: "Spells cast by me ignore Resistance to Acid damage."+
-			"\nWhen I roll damage for a spell casted by me that deals Acid damage, I can treat any 1 on a damage die as a 2."+
-			"\n[+1 Intelligence, Wisdom, or Charisma]",
+		description: [
+			"Spells cast by me ignore Resistance to Acid damage.",
+			"When I roll damage for a spell casted by me that deals Acid damage, I can treat any 1 on a damage die as a 2.",
+			"[+1 Intelligence, Wisdom, or Charisma]",
+		].join("\n"),
 	},
 	"cold energy mastery": {
 		name: "Elemental Adept [Cold]",
-		description: "Spells cast by me ignore Resistance to Cold damage."+
-			"\nWhen I roll damage for a spell casted by me that deals Cold damage, I can treat any 1 on a damage die as a 2."+
-			"\n[+1 Intelligence, Wisdom, or Charisma]",
+		description: [
+			"Spells cast by me ignore Resistance to Cold damage.",
+			"When I roll damage for a spell casted by me that deals Cold damage, I can treat any 1 on a damage die as a 2.",
+			"[+1 Intelligence, Wisdom, or Charisma]",
+		].join("\n"),
 	},
 	"fire energy mastery": {
 		name: "Elemental Adept [Fire]",
-		description: "Spells cast by me ignore Resistance to Fire damage."+
-			"\nWhen I roll damage for a spell casted by me that deals Fire damage, I can treat any 1 on a damage die as a 2."+
-			"\n[+1 Intelligence, Wisdom, or Charisma]",
+		description: [
+			"Spells cast by me ignore Resistance to Fire damage.",
+			"When I roll damage for a spell casted by me that deals Fire damage, I can treat any 1 on a damage die as a 2.",
+			"[+1 Intelligence, Wisdom, or Charisma]",
+		].join("\n"),
 	},
 	"lightning energy mastery": {
 		name: "Elemental Adept [Lightning]",
-		description: "Spells cast by me ignore Resistance to Lightning damage."+
-			"\nWhen I roll damage for a spell casted by me that deals Lightning damage, I can treat any 1 on a damage die as a 2."+
-			"\n[+1 Intelligence, Wisdom, or Charisma]",
+		description: [
+			"Spells cast by me ignore Resistance to Lightning damage.",
+			"When I roll damage for a spell casted by me that deals Lightning damage, I can treat any 1 on a damage die as a 2.",
+			"[+1 Intelligence, Wisdom, or Charisma]",
+		].join("\n"),
 	},
 	"thunder energy mastery": {
 		name: "Elemental Adept [Thunder]",
-		description: "Spells cast by me ignore Resistance to Thunder damage."+
-			"\nWhen I roll damage for a spell casted by me that deals Thunder damage, I can treat any 1 on a damage die as a 2."+
-			"\n[+1 Intelligence, Wisdom, or Charisma]",
+		description: [
+			"Spells cast by me ignore Resistance to Thunder damage.",
+			"When I roll damage for a spell casted by me that deals Thunder damage, I can treat any 1 on a damage die as a 2.",
+			"[+1 Intelligence, Wisdom, or Charisma]",
+		].join("\n"),
 	},
 };
 FeatsList["fey-touched"] = {
@@ -1250,6 +1282,7 @@ FeatsList["fey-touched"] = {
 		firstCol: "oncelr+markedbox",
 	}],
 	choices: ["Intelligence", "Wisdom", "Charisma"],
+	choicesNotInMenu: true,
 	"intelligence": {
 		description: "I learn Misty Step and one 1st-level Divination or Enchantment spell. I always have these spell prepared. I can cast each once per Long Rest at their lowest level without expending a spell slot and can cast them by expending a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Int" + (typePF ? "]" : "elligence]"),
 		spellcastingAbility: 4,
@@ -1266,8 +1299,706 @@ FeatsList["fey-touched"] = {
 		scores: [0, 0, 0, 0, 0, 1],
 	},
 };
-
-
+FeatsList["great weapon master"] = {
+	name: "Great Weapon Master",
+	source: [["P24", 204]],
+	type: "general",
+	prerequisite: "Level 4+, Strength 13+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4 && What("Str") >= 13;
+	},
+	description: [
+		"##Heavy Weapon Mastery##. During the Attack action on my turn, I can add my Proficiency Bonus to the damage of " + (typePF ? "Heavy weapons. " : "weapons with the Heavy property."),
+		"##Hew##. Immediately after I reduce a creature to 0 HP with a melee weapon or score a Critical Hit with one, I can make another attack with that weapon as a Bonus Action. [+1 Str]",
+	].join("\n"),
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Strength score by 1, to a maximum of 20.",
+		"***Heavy Weapon Mastery***. When you hit a creature with a weapon that has the Heavy property as part of the Attack action on your turn, you can cause the weapon to deal extra damage to the target. The extra damage equals your Proficiency Bonus.",
+		"***Hew***. Immediately after you score a Critical Hit with a Melee weapon or reduce a creature to 0 Hit Points with one, you can make one attack with the same weapon as a Bonus Action.",
+	],
+	scores: [1, 0, 0, 0, 0, 0],
+	action: [["bonus action", "Hew (Great Weapon Master)"]],
+	calcChanges: {
+		atkCalc: [
+			function (fields, v, output) {
+				if (v.isWeapon && /heavy/i.test(fields.Description) && /\bgwm\b|power.{0,3}attack|great.{0,3}weapon.{0,3}master/i.test(v.WeaponTextName)) {
+					output.extraDmg += Number(How("Proficiency Bonus"));
+				};
+			},
+			"If I include the words 'Power Attack', 'Great Weapon Master', or 'GWM' in the name of a weapon with the Heavy property, my Proficiency Bonus is added to its damage.",
+		],
+	},
+};
+FeatsList["heavily armored"] = {
+	name: "Heavily Armored",
+	source: [["P24", 204]],
+	type: "general",
+	prerequisite: "Level 4+, Medium Armor Training",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4 && v.mediumArmorProf;
+	},
+	description: "I gain training with Heavy armor. [+1 Strength or Constitution]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Constitution or Strength score by 1, to a maximum of 20.",
+		"***Armor Training***. You gain training with Heavy armor.",
+	],
+	armorProfs: [false, false, true, false],
+	choices: ["Constitution", "Strength"],
+	choicesNotInMenu: true,
+	"strength": {
+		description: "I gain training with Heavy armor. [+1 Strength]",
+		scores: [1, 0, 0, 0, 0, 0],
+	},
+	"constitution": {
+		description: "I gain training with Heavy armor. [+1 Constitution]",
+		scores: [0, 0, 1, 0, 0, 0],
+	},
+};
+FeatsList["heavy armor master"] = {
+	name: "Heavy Armor Master",
+	source: [["P24", 204]],
+	type: "general",
+	prerequisite: "Level 4+, Heavy Armor Training",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4 && v.heavyArmorProf;
+	},
+	description: "When I'm hit by an attack while I'm wearing Heavy armor, any Bludgeoning, Piercing, and Slashing damage dealt to me by that attack is reduced by an amount equal to my Proficiency Bonus. [+1 Strength or Constitution]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Constitution or Strength score by 1, to a maximum of 20.",
+		"***Damage Reduction***. When you're hit by an attack while you're wearing Heavy armor, any Bludgeoning, Piercing, and Slashing damage dealt to you by that attack is reduced by an amount equal to your Proficiency Bonus.",
+	],
+	choices: ["Constitution", "Strength"],
+	choicesNotInMenu: true,
+	"strength": {
+		description: "When I'm hit by an attack while I'm wearing Heavy armor, any Bludgeoning, Piercing, and Slashing damage dealt to me by that attack is reduced by an amount equal to my Proficiency Bonus. [+1 Strength]",
+		scores: [1, 0, 0, 0, 0, 0],
+	},
+	"constitution": {
+		description: "When I'm hit by an attack while I'm wearing Heavy armor, any Bludgeoning, Piercing, and Slashing damage dealt to me by that attack is reduced by an amount equal to my Proficiency Bonus. [+1 Constitution]",
+		scores: [0, 0, 1, 0, 0, 0],
+	},
+};
+FeatsList["inspiring leader"] = {
+	name: "Inspiring Leader",
+	source: [["P24", 204]],
+	type: "general",
+	prerequisite: "Level 4+, Wisdom or Charisma 13+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4 && (What("Wis") >= 13 || What("Cha") >= 13);
+	},
+	description: "When I finish a Short or Long Rest, I can give an inspiring performance. Up to six allies (which can include myself) within 30 ft who witness this performance each gain Temporary Hit Points equal to my character level plus the modifier of the ability increased by this feat. [+1 Wisdom or Charisma]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Wisdom or Charisma score by 1, to a maximum of 20.",
+		"***Bolstering Performance***. When you finish a Short or Long Rest, you can give an inspiring performance: a speech, song, or dance. When you do so, choose up to six allies (which can include yourself) within 30 feet of yourself who witness the performance. The chosen creatures each gain Temporary Hit Points equal to your character level plus the modifier of the ability you increased with this feat.",
+	],
+	choices: ["Wisdom", "Charisma"],
+	choicesNotInMenu: true,
+	"wisdom": {
+		calculate: 'event.value = "When I finish a Short or Long Rest, I can give an inspiring performance. I can choose up to six allies (or five and myself) within 30 ft of myself who witness this performance to each gain " + ( Number(What("Character Level")) + Number(What("Wis Mod")) ) + " Temporary Hit Points (= character level + Wisdom modifier). [+1 Wisdom]";',
+		scores: [0, 0, 0, 0, 1, 0],
+	},
+	"charisma": {
+		calculate: 'event.value = "When I finish a Short or Long Rest, I can give an inspiring performance. I can choose up to six allies (or five and myself) within 30 ft of myself who witness this performance to each gain " + ( Number(What("Character Level")) + Number(What("Cha Mod")) ) + " Temporary Hit Points (= character level + Charisma modifier). [+1 Charisma]";',
+		scores: [0, 0, 0, 0, 0, 1],
+	},
+};
+FeatsList["keen mind"] = {
+	name: "Keen Mind",
+	source: [["P24", 205]],
+	type: "general",
+	prerequisite: "Level 4+, Intelligence 13+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4 && What("Int") >= 13;
+	},
+	description: "##Quick Study##. I can take the Study action as a Bonus Action. ##Lore Knowledge##. I gain proficiency in one Intelligence skill of my choice. If I already have proficiency in it, I gain Expertise in it. [+1 Intelligence]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Intelligence score by 1, to a maximum of 20.",
+		"***Lore Knowledge***. Choose one of the following skills: Arcana, History, Investigation, Nature, or Religion. If you lack proficiency in the chosen skill, you gain proficiency in it, and if you already have proficiency in it, you gain Expertise in it.",
+		"***Quick Study***. You can take the Study action as a Bonus Action.",
+	],
+	scores: [0, 0, 0, 1, 0, 0],
+	action: [["bonus action", "Study"]],
+	choices: ["Arcana", "History", "Investigation", "Nature", "Religion"],
+	choicesNotInMenu: true,
+	"arcana": {
+		description: [
+			"##Quick Study##. I can take the Study action as a Bonus Action.",
+			"##Lore Knowledge##. I gain proficiency in the Arcana skill. If I already have proficiency in it, I gain Expertise in it.",
+			"[+1 Intelligence]",
+		].join("\n"),
+		skills: [["Arcana", "increment"]],
+	},
+	"history": {
+		description: [
+			"##Quick Study##. I can take the Study action as a Bonus Action.",
+			"##Lore Knowledge##. I gain proficiency in the History skill. If I already have proficiency in it, I gain Expertise in it.",
+			"[+1 Intelligence]",
+		].join("\n"),
+		skills: [["History", "increment"]],
+	},
+	"investigation": {
+		description: [
+			"##Quick Study##. I can take the Study action as a Bonus Action.",
+			"##Lore Knowledge##. I gain proficiency in the Investigation skill. If I already have proficiency in it, I gain Expertise in it.",
+			"[+1 Intelligence]",
+		].join("\n"),
+		skills: [["Investigation", "increment"]],
+	},
+	"nature": {
+		description: [
+			"##Quick Study##. I can take the Study action as a Bonus Action.",
+			"##Lore Knowledge##. I gain proficiency in the Nature skill. If I already have proficiency in it, I gain Expertise in it.",
+			"[+1 Intelligence]",
+		].join("\n"),
+		skills: [["Nature", "increment"]],
+	},
+	"religion": {
+		description: [
+			"##Quick Study##. I can take the Study action as a Bonus Action.",
+			"##Lore Knowledge##. I gain proficiency in the Religion skill. If I already have proficiency in it, I gain Expertise in it.",
+			"[+1 Intelligence]",
+		].join("\n"),
+		skills: [["Religion", "increment"]],
+	},
+};
+FeatsList["lightly armored"] = {
+	name: "Lightly Armored",
+	source: [["P24", 205]],
+	type: "general",
+	prerequisite: "Level 4+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4;
+	},
+	description: "I gain training with Light armor and Shields. [+1 Strength or Dexterity]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+		"***Armor Training***. You gain training with Light armor and Shields.",
+	],
+	armorProfs: [true, false, false, true],
+	choices: ["Strength", "Dexterity"],
+	choicesNotInMenu: true,
+	"strength": {
+		description: "I gain training with Light armor and Shields. [+1 Strength]",
+		scores: [1, 0, 0, 0, 0, 0],
+	},
+	"dexterity": {
+		description: "I gain training with Light armor and Shields. [+1 Dexterity]",
+		scores: [0, 1, 0, 0, 0, 0],
+	},
+};
+FeatsList["mage slayer"] = {
+	name: "Mage Slayer",
+	source: [["P24", 205]],
+	type: "general",
+	prerequisite: "Level 4+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4;
+	},
+	description: "##Concentration Breaker##. When I damage a creature that is Concentrating, they have Disadvantage on their save to maintain it." + (typePF ? " " : "\n") + "##Guarded Mind##. Once per Short or Long Rest when I fail an Intelligence, Wisdom, or Charisma saving throw, I can cause myself to succeed instead. [+1 Strength or Dexterity]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+		"***Concentration Breaker***. When you damage a creature that is Concentrating, it has Disadvantage on the saving throw it makes to maintain Concentration.",
+		"***Guarded Mind***. If you fail an Intelligence, a Wisdom, or a Charisma saving throw, you can cause yourself to succeed instead. Once you use this benefit, you can't use it again until you finish a Short or Long Rest.",
+	],
+	extraLimitedFeatures: [{
+		name: "Guarded Mind (Mage Slayer)",
+		usages: 1,
+		recovery: "short rest",
+	}],
+	choices: ["Strength", "Dexterity"],
+	choicesNotInMenu: true,
+	"strength": {
+		description: "##Concentration Breaker##. When I damage a creature that is Concentrating, they have Disadvantage on their save to maintain it." + (typePF ? " " : "\n") + "##Guarded Mind##. Once per Short or Long Rest when I fail an Intelligence, Wisdom, or Charisma saving throw, I can cause myself to succeed instead. [+1 Strength]",
+		scores: [1, 0, 0, 0, 0, 0],
+	},
+	"dexterity": {
+		description: "##Concentration Breaker##. When I damage a creature that is Concentrating, they have Disadvantage on their save to maintain it." + (typePF ? " " : "\n") + "##Guarded Mind##. Once per Short or Long Rest when I fail an Intelligence, Wisdom, or Charisma saving throw, I can cause myself to succeed instead. [+1 Dexterity]",
+		scores: [0, 1, 0, 0, 0, 0],
+	},
+};
+FeatsList["martial weapon training"] = {
+	name: "Martial Weapon Training",
+	source: [["P24", 205]],
+	type: "general",
+	prerequisite: "Level 4+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4;
+	},
+	description: "I gain proficiency with Martial weapons. [+1 Strength or Dexterity]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+		"***Weapon Proficiency***. You gain proficiency with Martial weapons.",
+	],
+	weaponProfs: [false, true],
+	choices: ["Strength", "Dexterity"],
+	choicesNotInMenu: true,
+	"strength": {
+		description: "I gain proficiency with Martial weapons. [+1 Strength]",
+		scores: [1, 0, 0, 0, 0, 0],
+	},
+	"dexterity": {
+		description: "I gain proficiency with Martial weapons. [+1 Dexterity]",
+		scores: [0, 1, 0, 0, 0, 0],
+	},
+};
+FeatsList["medium armor master"] = {
+	name: "Medium Armor Master",
+	source: [["P24", 205]],
+	type: "general",
+	prerequisite: "Level 4+, Medium Armor Training",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4 && v.mediumArmorProf;
+	},
+	description: "While I'm wearing Medium armor, I can add 3, rather than 2 to my AC if I have a Dexterity score of 16 or higher. [+1 Strength or Dexterity]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+		"***Dexterous Wearer***. While you're wearing Medium armor, you can add 3, rather than 2 to your AC if you have a Dexterity score of 16 or higher.",
+	],
+	eval: function () {
+		Value("Medium Armor Max Mod", 3);
+		ApplyArmor(What("AC Armor Description"));
+	},
+	removeeval: function () {
+		tDoc.resetForm(["Medium Armor Max Mod"]);
+		ApplyArmor(What("AC Armor Description"));
+	},
+	choices: ["Strength", "Dexterity"],
+	choicesNotInMenu: true,
+	"strength": {
+		description: "While I'm wearing Medium armor, I can add 3, rather than 2 to my AC if I have a Dexterity score of 16 or higher. [+1 Strength]",
+		scores: [1, 0, 0, 0, 0, 0],
+	},
+	"dexterity": {
+		description: "While I'm wearing Medium armor, I can add 3, rather than 2 to my AC if I have a Dexterity score of 16 or higher. [+1 Dexterity]",
+		scores: [0, 1, 0, 0, 0, 0],
+	},
+};
+FeatsList["moderately armored"] = {
+	name: "Moderately Armored",
+	source: [["P24", 205]],
+	type: "general",
+	prerequisite: "Level 4+, Light Armor Training",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4 && v.lightArmorProf;
+	},
+	description: "I gain training with Medium armor. [+1 Strength or Dexterity]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+		"***Armor Training***. You gain training with Medium armor.",
+	],
+	armorProfs: [false, true, false, false],
+	choices: ["Strength", "Dexterity"],
+	choicesNotInMenu: true,
+	"strength": {
+		description: "I gain training with Medium armor. [+1 Strength]",
+		scores: [1, 0, 0, 0, 0, 0],
+	},
+	"dexterity": {
+		description: "I gain training with Medium armor. [+1 Dexterity]",
+		scores: [0, 1, 0, 0, 0, 0],
+	},
+};
+FeatsList["mounted combatant"] = {
+	name: "Mounted Combatant",
+	source: [["P24", 205]],
+	type: "general",
+	prerequisite: "Level 4+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4;
+	},
+	description: "While I'm mounted and not Incapacitated: ##\u2022 Mounted Strike##. I have Advantage on attacks against unmounted within 5 ft that are smaller than my mount. ##\u2022 Leap Aside##. If my mount is not Incapacitated and makes a Dex save to halve the damage, it takes none on a pass and half on a fail. ##\u2022 Veer##. When an attack hits my mount, I can have it hit me instead. [+1 Strength, Dexterity, or Wisdom]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Strength, Dexterity, or Wisdom score by 1, to a maximum of 20.",
+		"***Mounted Strike***. While mounted, you have Advantage on attack rolls against any unmounted creature within 5 feet of your mount that is at least one size smaller than the mount.",
+		"***Leap Aside***. If your mount is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw and only half damage if it fails. For your mount to gain this benefit, you must be riding it, and neither of you can have the Incapacitated condition.",
+		"***Veer***. While mounted, you can force an attack that hits your mount to hit you instead if you don't have the Incapacitated condition.",
+	],
+	choices: ["Strength", "Dexterity", "Wisdom"],
+	choicesNotInMenu: true,
+	"strength": {
+		description: "While I'm mounted and not Incapacitated:"+
+			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks against unmounted within 5 ft that are smaller than my mount."+
+			(typePF ? " \u2022 " : " ##\u2022 Leap Aside##. ") + "If my mount is not Incapacitated and makes a Dex save to halve the damage, it takes none on a pass and half on a fail."+
+			(typePF ? "\n\u2022 " : " ##\u2022 Veer##. ") + "When an attack hits my mount, I can have it hit me instead."+
+			(typePF ? "" : " [+1 Str]"),
+		scores: [1, 0, 0, 0, 0, 0],
+	},
+	"dexterity": {
+		description: "While I'm mounted and not Incapacitated:"+
+			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks against unmounted within 5 ft that are smaller than my mount."+
+			(typePF ? " \u2022 " : " ##\u2022 Leap Aside##. ") + "If my mount is not Incapacitated and makes a Dex save to halve the damage, it takes none on a pass and half on a fail."+
+			(typePF ? "\n\u2022 " : " ##\u2022 Veer##. ") + "When an attack hits my mount, I can have it hit me instead."+
+			(typePF ? "" : " [+1 Dex]"),
+		scores: [0, 1, 0, 0, 0, 0],
+	},
+	"wisdom": {
+		description: "While I'm mounted and not Incapacitated:"+
+			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks against unmounted within 5 ft that are smaller than my mount."+
+			(typePF ? " \u2022 " : " ##\u2022 Leap Aside##. ") + "If my mount is not Incapacitated and makes a Dex save to halve the damage, it takes none on a pass and half on a fail."+
+			(typePF ? "\n\u2022 " : " ##\u2022 Veer##. ") + "When an attack hits my mount, I can have it hit me instead."+
+			(typePF ? "" : " [+1 Wis]"),
+		scores: [0, 0, 0, 0, 1, 0],
+	},
+};
+FeatsList["observant"] = {
+	name: "Observant",
+	source: [["P24", 205]],
+	type: "general",
+	prerequisite: "Level 4+, Intelligence or Wisdom 13+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4 && (What("Int") >= 13 || What("Wis") >= 13);
+	},
+	description: "##Quick Search##. I can take the Search action as a Bonus Action. ##Keen Observer##. I gain proficiency in Insight, Investigation, or Perception. If I already have proficiency in it, I gain Expertise in it. [+1 Intelligence or Wisdom]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Intelligence or Wisdom score by 1, to a maximum of 20.",
+		"***Keen Observer***. Choose one of the following skills: Insight, Investigation, or Perception. If you lack proficiency with the chosen skill, you gain proficiency in it, and if you already have proficiency in it, you gain Expertise in it.",
+		"***Quick Search***. You can take the Search action as a Bonus Action.",
+	],
+	action: [["bonus action", "Search"]],
+	choices: [
+		"Intelligence, Insight", "Intelligence, Investigation", "Intelligence, Perception",
+		"Wisdom, Insight", "Wisdom, Investigation", "Wisdom, Perception",
+	],
+	choicesNotInMenu: true,
+	"intelligence, insight": {
+		description: [
+			"##Quick Search##. I can take the Search action as a Bonus Action.",
+			"##Keen Observer##. I gain proficiency in the Insight skill. If I already have proficiency in it, I gain Expertise in it.",
+			"[+1 Intelligence]",
+		].join("\n"),
+		scores: [0, 0, 0, 1, 0, 0],
+		skills: [["Insight", "increment"]],
+	},
+	"intelligence, investigation": {
+		description: [
+			"##Quick Search##. I can take the Search action as a Bonus Action.",
+			"##Keen Observer##. I gain proficiency in the Investigation skill. If I already have proficiency in it, I gain Expertise in it.",
+			"[+1 Intelligence]",
+		].join("\n"),
+		scores: [0, 0, 0, 1, 0, 0],
+		skills: [["Investigation", "increment"]],
+	},
+	"intelligence, perception": {
+		description: [
+			"##Quick Search##. I can take the Search action as a Bonus Action.",
+			"##Keen Observer##. I gain proficiency in the Perception skill. If I already have proficiency in it, I gain Expertise in it.",
+			"[+1 Intelligence]",
+		].join("\n"),
+		scores: [0, 0, 0, 1, 0, 0],
+		skills: [["Perception", "increment"]],
+	},
+	"wisdom, insight": {
+		description: [
+			"##Quick Search##. I can take the Search action as a Bonus Action.",
+			"##Keen Observer##. I gain proficiency in the Insight skill. If I already have proficiency in it, I gain Expertise in it.",
+			"[+1 Wisdom]",
+		].join("\n"),
+		scores: [0, 0, 0, 0, 1, 0],
+		skills: [["Insight", "increment"]],
+	},
+	"wisdom, investigation": {
+		description: [
+			"##Quick Search##. I can take the Search action as a Bonus Action.",
+			"##Keen Observer##. I gain proficiency in the Investigation skill. If I already have proficiency in it, I gain Expertise in it.",
+			"[+1 Wisdom]",
+		].join("\n"),
+		scores: [0, 0, 0, 0, 1, 0],
+		skills: [["Investigation", "increment"]],
+	},
+	"wisdom, perception": {
+		description: [
+			"##Quick Search##. I can take the Search action as a Bonus Action.",
+			"##Keen Observer##. I gain proficiency in the Perception skill. If I already have proficiency in it, I gain Expertise in it.",
+			"[+1 Wisdom]",
+		].join("\n"),
+		scores: [0, 0, 0, 0, 1, 0],
+		skills: [["Perception", "increment"]],
+	},
+};
+FeatsList["piercer"] = {
+	name: "Piercer",
+	source: [["P24", 206]],
+	type: "general",
+	prerequisite: "Level 4+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4;
+	},
+	description: "##Puncture##. Once per turn when I hit a creature with an attack that deals Piercing damage, I can reroll one of its damage dice and must use this new roll. ##Enhanced Critical##. When I score a Critical Hit that deals Piercing damage to a creature, I add one extra damage die to the Piercing damage. [+1 Strength or Dexterity]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+		"***Puncture***. Once per turn, when you hit a creature with an attack that deals Piercing damage, you can reroll one of the attack's damage dice, and you must use the new roll.",
+		"***Enhanced Critical***. When you score a Critical Hit that deals Piercing damage to a creature, you can roll one additional damage die when determining the extra Piercing damage the target takes.",
+	],
+	calcChanges: {
+		atkAdd: [
+			function (fields, v) {
+				if (/pierc/i.test(fields.Damage_Type)) {
+					var descrAdd = '1/turn reroll 1 dmg die';
+					var dmgDice = fields.Damage_Die.match(/(\b\w|\b\d+|\b)d\d+/ig);
+					if (dmgDice && !v.isDC) {
+						var dieSize = dmgDice.reduce(function (acc, val) {
+							var size = Number(val.replace(/.+d/, ''));
+							return size > acc ? size : acc;
+						}, 0);
+						descrAdd += '; Crit: +1' + dieSize + ' dmg';
+					};
+					fields.Description += (fields.Description ? '; ' : '') + descrAdd;
+				};
+			},
+			'Attacks that deal Piercing damage get the benefits from the Piercer feat added to their description: Once per turn reroll 1 damage die, and to roll an extra damage die on a Critical Hit.',
+		],
+	},
+	choices: ["Strength", "Dexterity"],
+	choicesNotInMenu: true,
+	"strength": {
+		description: "##Puncture##. Once per turn, when I hit a creature with an attack that deals Piercing damage, I can reroll one of its damage dice and must use this new roll."+
+			(typePF ? " " : "\n") + "##Enhanced Critical##. When I score a Critical Hit that deals Piercing damage to a creature, I add one extra damage die to the Piercing damage. [+1 Strength]",
+		scores: [1, 0, 0, 0, 0, 0],
+	},
+	"dexterity": {
+		description: "##Puncture##. Once per turn, when I hit a creature with an attack that deals Piercing damage, I can reroll one of its damage dice and must use this new roll."+
+			(typePF ? " " : "\n") + "##Enhanced Critical##. When I score a Critical Hit that deals Piercing damage to a creature, I add one extra damage die to the Piercing damage. [+1 Dexterity]",
+		scores: [0, 1, 0, 0, 0, 0],
+	},
+};
+FeatsList["poisoner"] = {
+	name: "Poisoner",
+	source: [["P24", 206]],
+	type: "general",
+	prerequisite: "Level 4+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4;
+	},
+	description: "As a Bonus Action, I can apply poison to weapon/ammo, lasting for 1 min or until used to damage. Creatures damaged this way must make a Con save (DC 8+Prof+mod) or take 2d8 Poison damage and be Poisoned until my next turn ends. Poison damage I deal ignores Resistance. I can create poisons. See Notes page. [+1 Dex or Int]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Dexterity or Intelligence score by 1, to a maximum of 20.",
+		"***Potent Poison***. When you make a damage roll that deals Poison damage, it ignores Resistance to Poison damage.",
+		"***Brew Poison***. You gain proficiency with the Poisoner's Kit. With 1 hour of work using such a kit and expending 50 GP worth of materials, you can create a number of poison doses equal to your Proficiency Bonus. As a Bonus Action, you can apply a poison dose to a weapon or piece of ammunition. Once applied, the poison retains its potency for 1 minute or until you deal damage with the poisoned item, whichever is shorter. When a creature takes damage from the poisoned item, that creature must succeed on a Constitution saving throw (8 plus the modifier of the ability increased by this feat and your Proficiency Bonus) or take 2d8 Poison damage and have the Poisoned condition until the end of your next turn.",
+	],
+	toolProfs: [["Poisoner's Kit"]],
+	action: [["bonus action", "Apply Poison"]],
+	toNotesPage: [{
+		name: "Potent Poison",
+		note: ["When I make a damage roll that deals Poison damage, it ignores Resistance to Poison damage."],
+	}],
+	choices: ["Dexterity", "Intelligence"],
+	choicesNotInMenu: true,
+	"dexterity": {
+		calculate: 'var abi = "Dex";\n var dc = 8 + Number(How("Proficiency Bonus")) + Number(What(abi + " Mod"));\n event.value = "As a Bonus Action, I can apply poison to weapon/ammo, lasting for 1 min or until used to damage. Creatures damaged this way must make a DC " + dc + " Con save or take 2d8 Poison damage and be Poisoned until my next turn ends. Poison damage I deal ignores Resistance. I can create poisons. See Notes page. [+1 " + abi + "]";',
+		scores: [0, 1, 0, 0, 0, 0],
+		toNotesPage: [{
+			name: "Brew Poison",
+			note: [
+				"I gain proficiency with the Poisoner's Kit. With 1 hour of work using such a kit and expending 50 GP worth of materials, I can create a number of poison doses equal to my Proficiency Bonus.",
+				"As a Bonus Action, I can apply a poison dose to a weapon or piece of ammunition. Once applied, the poison retains its potency for 1 minute or until I deal damage with the poisoned item, whichever is shorter.",
+				"When a creature takes damage from the poisoned item, that creature must succeed on a Constitution saving throw (8 + my Proficiency Bonus + my Dexterity modifier) or take 2d8 Poison damage and have the Poisoned condition until the end of my next turn.",
+			],
+			amendTo: "Potent Poison",
+		}],
+	},
+	"intelligence": {
+		calculate: 'var abi = "Int";\n var dc = 8 + Number(How("Proficiency Bonus")) + Number(What(abi + " Mod"));\n event.value = "As a Bonus Action, I can apply poison to weapon/ammo, lasting for 1 min or until used to damage. Creatures damaged this way must make a DC " + dc + " Con save or take 2d8 Poison damage and be Poisoned until my next turn ends. Poison damage I deal ignores Resistance. I can create poisons. See Notes page. [+1 " + abi + "]";',
+		scores: [0, 0, 0, 1, 0, 0],
+		toNotesPage: [{
+			name: "Brew Poison",
+			note: [
+				"I gain proficiency with the Poisoner's Kit. With 1 hour of work using such a kit and expending 50 GP worth of materials, I can create a number of poison doses equal to my Proficiency Bonus.",
+				"As a Bonus Action, I can apply a poison dose to a weapon or piece of ammunition. Once applied, the poison retains its potency for 1 minute or until I deal damage with the poisoned item, whichever is shorter.",
+				"When a creature takes damage from the poisoned item, that creature must succeed on a Constitution saving throw (8 + my Proficiency Bonus + my Intelligence modifier) or take 2d8 Poison damage and have the Poisoned condition until the end of my next turn.",
+			],
+			amendTo: "Potent Poison",
+		}],
+	},
+};
+FeatsList["polearm master"] = {
+	name: "Polearm Master",
+	source: [["P24", 206]],
+	type: "general",
+	prerequisite: "Level 4+, Strength or Dexterity 13+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4 && (What("Str") >= 13 || What("Dex") >= 13);
+	},
+	description: "While wielding a Quarterstaff, Spear, or Heavy Reach weapon: ##Pole Strike##. As a Bonus Action directly after an Attack action with it, I can make a 1d4 Bludgeoning attack with its other end. ##Reactive Strike##. As a Reaction when a creature enters my reach with it, I can make one melee attack against them. [+1 Strength or Dexterity]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Dexterity or Strength score by 1, to a maximum of 20.",
+		"***Pole Strike***. Immediately after you take the Attack action and attack with a Quarterstaff, a Spear, or a weapon that has the Heavy and Reach properties, you can use a Bonus Action to make a melee attack with the opposite end of the weapon. The weapon deals Bludgeoning damage, and the weapon's damage die for this attack is a d4.",
+		"***Reactive Strike***. While you're holding a Quarterstaff, a Spear, or a weapon that has the Heavy and Reach properties, you can take a Reaction to make one melee attack against a creature that enters the reach you have with that weapon.",
+	],
+	weaponOptions: [{
+		name: "Pole Strike",
+		regExpSearch : /pole strike|polearm master|^(?=.*(polearm|(quarterstaff|\bstaff\b|\bbo\b)|(spear|qiang|\byaris?\b)|(glaive|guandao|bisento|naginata)|(halberd|\bji\b|kamayari)|(lance|umayari)|(pike|\bmaos?\b|nagaeyari)))(?=.*butt)(?=.*end).*$/i,
+		source: [["P24", 206]],
+		ability: 1,
+		type: "polearm master",
+		damage: [1, 4, "bludgeoning"],
+		range: "Melee",
+		description: "As Bonus Action after Attack action with Quarterstaff, Spear, or Heavy Reach weapon",
+		abilitytodamage: true,
+		selectNow: true,
+		isAlwaysProf: true,
+	}],
+	action: [
+		["bonus action", "Pole Strike (after Attack action)"],
+		["reaction", "Reactive Strike (if enters my reach)"],
+	],
+	choices: ["Strength", "Dexterity"],
+	choicesNotInMenu: true,
+	"strength": {
+		description: "While wielding a Quarterstaff, Spear, or Heavy Reach weapon: ##Pole Strike##. As a Bonus Action directly after an Attack action with it, I can make a 1d4 Bludgeoning attack with its other end. ##Reactive Strike##. As a Reaction when a creature enters my reach with it, I can make one melee attack against them." + (typePF ? "" : " [+1 Strength]"),
+		scores: [1, 0, 0, 0, 0, 0],
+	},
+	"dexterity": {
+		description: "While wielding a Quarterstaff, Spear, or Heavy Reach weapon: ##Pole Strike##. As a Bonus Action directly after an Attack action with it, I can make a 1d4 Bludgeoning attack with its other end. ##Reactive Strike##. As a Reaction when a creature enters my reach with it, I can make one melee attack against them." + (typePF ? "" : " [+1 Dexterity]"),
+		scores: [0, 1, 0, 0, 0, 0],
+	},
+};
+FeatsList["resilient"] = {
+	name: "Resilient",
+	source: [["P24", 206]],
+	type: "general",
+	prerequisite: "Level 4+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4;
+	},
+	description: "Select an ability score using the square button on this feat line. I gain proficiency with the saving throw of that ability score and a +1 added to it.",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase one ability score of your choice by 1, to a maximum of 20.",
+		"***Saving Throw Proficiency***. You gain saving throw proficiency with the chosen ability.",
+	],
+	choices: ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
+	choicesNotInMenu: true,
+	"strength": {
+		description: "I gain proficiency with Strength saving throws. [+1 Strength]",
+		scores: [1, 0, 0, 0, 0, 0],
+		saves: ["Str"],
+	},
+	"dexterity": {
+		description: "I gain proficiency with Dexterity saving throws. [+1 Dexterity]",
+		scores: [0, 1, 0, 0, 0, 0],
+		saves: ["Dex"],
+	},
+	"constitution": {
+		description: "I gain proficiency with Constitution saving throws. [+1 Constitution]",
+		scores: [0, 0, 1, 0, 0, 0],
+		saves: ["Con"],
+	},
+	"intelligence": {
+		description: "I gain proficiency with Intelligence saving throws. [+1 Intelligence]",
+		scores: [0, 0, 0, 1, 0, 0],
+		saves: ["Int"],
+	},
+	"wisdom": {
+		description: "I gain proficiency with Wisdom saving throws. [+1 Wisdom]",
+		scores: [0, 0, 0, 0, 1, 0],
+		saves: ["Wis"],
+	},
+	"charisma": {
+		description: "I gain proficiency with Charisma saving throws. [+1 Charisma]",
+		scores: [0, 0, 0, 0, 0, 1],
+		saves: ["Cha"],
+	},
+};
+var PHB24_RitualCasterDescription = [
+	"##Ritual Spells##. I know a number of 1st-level Ritual spells equal to my Proficiency Bonus." + (typePF ? " " : "\n") + "I always have these spells prepared and can cast them as a Ritual or using spell slots.",
+	"##Quick Ritual##. Once per Long Rest, I can cast a prepared Ritual spell using its regular casting time without " + (typePF ? "using" : "expending") + " a spell slot.",
+]; if (typePF) PHB24_RitualCasterDescription.reverse();
+FeatsList["ritual caster"] = {
+	name: "Ritual Caster",
+	source: [["P24", 206]],
+	type: "general",
+	prerequisite: "Level 4+; Intelligence, Wisdom, or Charisma 13+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4 && (What("Int") >= 13 || What("Wis") >= 13 || What("Cha") >= 13);
+	},
+	description: PHB24_RitualCasterDescription.join("\n") + " [+1 Intelligence, Wisdom, or Charisma]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
+		"***Ritual Spells***. Choose a number of level 1 spells equal to your Proficiency Bonus that have the Ritual tag. You always have those spells prepared, and you can cast them with any spell slots you have. The spells' spellcasting ability is the ability increased by this feat. Whenever your Proficiency Bonus increases thereafter, you can add an additional level 1 spell with the Ritual tag to the spells always prepared with this feature.",
+		"***Quick Ritual***. With this benefit, you can cast a Ritual spell that you have prepared using its regular casting time rather than the extended time for a Ritual. Doing so doesn't require a spell slot. Once you cast the spell in this way, you can't use this benefit again until you finish a Long Rest.",
+	],
+	spellcastingBonus: [{
+		name: "1st-level Ritual spell",
+		ritual: true,
+		level: [1, 1],
+		times: ProficiencyBonusList,
+		firstCol: "markedbox",
+	}],
+	extraLimitedFeatures: [{
+		name: "Quick Ritual",
+		usages: 1,
+		recovery: "long rest",
+	}],
+	choices: ["Intelligence", "Wisdom", "Charisma"],
+	choicesNotInMenu: true,
+	"intelligence": {
+		description: PHB24_RitualCasterDescription.join("\n") + (typePF ? " [+1 Int]" : " [+1 Intelligence]"),
+		scores: [0, 0, 0, 1, 0, 0],
+		spellcastingAbility: 4,
+	},
+	"wisdom": {
+		description: PHB24_RitualCasterDescription.join("\n") + (typePF ? " [+1 Wis]" : " [+1 Wisdom]"),
+		scores: [0, 0, 0, 0, 1, 0],
+		spellcastingAbility: 5,
+	},
+	"charisma": {
+		description: PHB24_RitualCasterDescription.join("\n") + (typePF ? " [+1 Cha]" : " [+1 Charisma]"),
+		scores: [0, 0, 0, 0, 0, 1],
+		spellcastingAbility: 6,
+	},
+};
+FeatsList["sentinel"] = {
+	name: "Sentinel",
+	source: [["P24", 207]],
+	type: "general",
+	prerequisite: "Level 4+, Strength or Dexterity 13+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4 && (What("Str") >= 13 || What("Dex") >= 13);
+	},
+	description: [
+		"##Guardian##. When a creature within 5 ft of me takes the Disengage action or hits a target other than me with an attack, I can make an Opportunity Attack against them.",
+		"##Halt##. When I make an Opportunity Attack against a creature, its Speed becomes 0 for the rest of the current turn. [+1 Strength or Dexterity]",
+	].join("\n"),
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+		"***Guardian***. Immediately after a creature within 5 feet of you takes the Disengage action or hits a target other than you with an attack, you can make an Opportunity Attack against that creature.",
+		"***Halt***. When you hit a creature with an Opportunity Attack, the creature's Speed becomes 0 for the rest of the current turn.",
+	],
+	action: [["reaction", "Guardian (ally hit/enemy Disengages)"]],
+	choices: ["Strength", "Dexterity"],
+	choicesNotInMenu: true,
+	"strength": {
+		description: [
+			"##Guardian##. When a creature within 5 ft of me takes the Disengage action or hits a target other than me with an attack, I can make an Opportunity Attack against them.",
+			"##Halt##. When I make an Opportunity Attack against a creature, its Speed becomes 0 for the rest of the current turn. [+1 Strength]",
+		].join("\n"),
+		scores: [1, 0, 0, 0, 0, 0],
+	},
+	"dexterity": {
+		description: [
+			"##Guardian##. When a creature within 5 ft of me takes the Disengage action or hits a target other than me with an attack, I can make an Opportunity Attack against them.",
+			"##Halt##. When I make an Opportunity Attack against a creature, its Speed becomes 0 for the rest of the current turn. [+1  Dexterity]",
+		].join("\n"),
+		scores: [0, 1, 0, 0, 0, 0],
+	},
+};
 FeatsList["shadow-touched"] = {
 	name: "Shadow-Touched",
 	source: [["P24", 207]],
@@ -1295,6 +2026,7 @@ FeatsList["shadow-touched"] = {
 		firstCol: "oncelr+markedbox",
 	}],
 	choices: ["Intelligence", "Wisdom", "Charisma"],
+	choicesNotInMenu: true,
 	"intelligence": {
 		description: "I learn Invisibility and one 1st-level Illusion or Necromancy spell. I always have these spell prepared. I can cast each once per Long Rest at their lowest level without expending a spell slot and can cast them by expending a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
 		spellcastingAbility: 4,
@@ -1311,7 +2043,424 @@ FeatsList["shadow-touched"] = {
 		scores: [0, 0, 0, 0, 0, 1],
 	},
 };
-
+FeatsList["sharpshooter"] = {
+	name: "Sharpshooter",
+	source: [["P24", 207]],
+	type: "general",
+	prerequisite: "Level 4+, Dexterity 13+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4 && What("Dex") >= 13;
+	},
+	description: [
+		"My attack rolls with Ranged weapons:",
+		"\n##Bypass Cover##. Ignore Half Cover and Three-Quarters Cover.",
+		"\n##Firing in Melee##. Suffer no Disadvantage when I'm within 5 ft of an enemy.",
+		"\n##Long Shots##. Suffer no Disadvantage when used at long range.",
+		" [+1 Dexterity]",
+	].map(function (n, idx, arr) {
+		// Swap 'Firing in Melee' with 'Long Shots' lines on the Printer Friendly sheet
+		return typePF && idx === 2 ? arr[3] : typePF && idx === 3 ? arr[2] : n;
+	}).join(""),
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Dexterity score by 1, to a maximum of 20.",
+		"***Bypass Cover***. Your ranged attacks with weapons ignore Half Cover and Three-Quarters Cover.",
+		"***Firing in Melee***. Being within 5 feet of an enemy doesn't impose Disadvantage on your attack rolls with Ranged weapons.",
+		"***Long Shots***. Attacking at long range doesn't impose Disadvantage on your attack rolls with Ranged weapons.",
+	],
+	scores: [0, 1, 0, 0, 0, 0],
+	calcChanges: {
+		atkAdd: [
+			function (fields, v) {
+				if (v.isRangedWeapon || v.isThrownWeapon) {
+					fields.Description += (fields.Description ? "; " : "") + "No Disadv. at long range; Ignores \u00BD \x26 \u00BE cover";
+				};
+			},
+			"My attack rolls with Ranged weapons suffer no Disadvantage from being used at long range nor from me being within 5 ft of an enemy. They also ignore Half Cover and Three-Quarters Cover.",
+		],
+	},
+};
+FeatsList["shield master"] = {
+	name: "Shield Master",
+	source: [["P24", 207]],
+	type: "general",
+	prerequisite: "Level 4+, Shield Training",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4 && v.shieldProf;
+	},
+	description: "##Shield Bash##. Once per turn after I hit a creature in 5 ft during the Attack action, I can have it make a Str save (DC 8 + Str mod + Prof B.) or be pushed 5 ft away or knocked Prone. ##Interpose Shield##. As a Reaction when I succeed on a Dex save to halve damage, I can interpose my shield to avoid all the damage. [+1 Strength]",
+	calculate: 'var dc = 8 + Number(How("Proficiency Bonus")) + Number(What("Str Mod"));\n var txt = ["##Shield Bash##. Once per turn after I hit a creature in 5 ft during the Attack action, I can have it make a DC " + dc + " (8+Str+Prof) Str save or be pushed 5 ft away or knocked Prone.", "##Interpose Shield##. As a Reaction when I succeed on a Dex save to halve damage, I can interpose my shield to avoid all the damage."];\n if (typePF) { txt.reverse(); };\n event.value = txt.join("\\n") + " [+1 Strength]";',
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Strength score by 1, to a maximum of 20.",
+		"***Shield Bash***. If you attack a creature within 5 feet of you as part of the Attack action and hit with a Melee weapon, you can immediately bash the target with your Shield if it's equipped, forcing the target to make a Strength saving throw (8 plus your Strength modifier and Proficiency Bonus). On a failed save, you either push the target 5 feet from you or cause it to have the Prone condition (your choice). You can use this benefit only once on each of your turns.",
+		"***Interpose Shield***. If you're subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you can take a Reaction to take no damage if you succeed on the saving throw and are holding a Shield.",
+	],
+	scores: [1, 0, 0, 0, 0, 0],
+	weaponOptions: [{
+		name: "Shield Bash",
+		regExpSearch: /^(?=.*shield)(?=.*bash).*$/i,
+		source: [["P24", 207]],
+		ability: 1,
+		type: "shield master",
+		damage: ["Str save", "", "Shove/Prone"],
+		range: "Melee",
+		description: "1/turn after Melee weapon hit during Attack action",
+		abilitytodamage: false,
+		dc: true,
+		selectNow: true,
+		isNotWeapon: true,
+		isAlwaysProf: true,
+	}],
+	action: [["reaction", "Interpose Shield"]],
+};
+FeatsList["skill expert"] = {
+	name: "Skill Expert",
+	source: [["P24", 207]],
+	type: "general",
+	prerequisite: "Level 4+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4;
+	},
+	description: [
+		"I gain proficiency in one skill of my choice.",
+		"I also gain Expertise in one skill of my choice in which I have proficiency (can be the same skill).",
+		"Neither are automated. [+1 to one ability score of my choice]",
+	].join("\n"),
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase one ability score of your choice by 1, to a maximum of 20.",
+		"***Skill Proficiency***. You gain proficiency in one skill of your choice.",
+		"***Expertise***. Choose one skill in which you have proficiency but lack Expertise. You gain Expertise with that skill.",
+	],
+	skillstxt: "Proficiency in one skill, and Expertise with one skill I'm proficient with.",
+	choices: ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
+	choicesNotInMenu: true,
+	"strength": {
+		description: [
+			"I gain proficiency in one skill of my choice.",
+			"I also gain Expertise in one skill of my choice in which I have proficiency (can be the same skill).",
+			"Neither are automated. [+1 Strength]",
+		].join("\n"),
+		scores: [1, 0, 0, 0, 0, 0],
+	},
+	"dexterity": {
+		description: [
+			"I gain proficiency in one skill of my choice.",
+			"I also gain Expertise in one skill of my choice in which I have proficiency (can be the same skill).",
+			"Neither are automated. [+1 Dexterity]",
+		].join("\n"),
+		scores: [0, 1, 0, 0, 0, 0],
+	},
+	"constitution": {
+		description: [
+			"I gain proficiency in one skill of my choice.",
+			"I also gain Expertise in one skill of my choice in which I have proficiency (can be the same skill).",
+			"Neither are automated. [+1 Constitution]",
+		].join("\n"),
+		scores: [0, 0, 1, 0, 0, 0],
+	},
+	"intelligence": {
+		description: [
+			"I gain proficiency in one skill of my choice.",
+			"I also gain Expertise in one skill of my choice in which I have proficiency (can be the same skill).",
+			"Neither are automated. [+1 Intelligence]",
+		].join("\n"),
+		scores: [0, 0, 0, 1, 0, 0],
+	},
+	"wisdom": {
+		description: [
+			"I gain proficiency in one skill of my choice.",
+			"I also gain Expertise in one skill of my choice in which I have proficiency (can be the same skill).",
+			"Neither are automated. [+1 Wisdom]",
+		].join("\n"),
+		scores: [0, 0, 0, 0, 1, 0],
+	},
+	"charisma": {
+		description: [
+			"I gain proficiency in one skill of my choice.",
+			"I also gain Expertise in one skill of my choice in which I have proficiency (can be the same skill).",
+			"Neither are automated. [+1 Charisma]",
+		].join("\n"),
+		scores: [0, 0, 0, 0, 0, 1],
+	},
+};
+FeatsList["skulker"] = {
+	name: "Skulker",
+	source: [["P24", 208]],
+	type: "general",
+	prerequisite: "Level 4+, Dexterity 13+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4 && What("Dex") >= 13;
+	},
+	description: [
+		"##Fog of War##. I have Advantage on Dexterity (Stealth) checks when using the Hide action during combat.",
+		"##Sniper##. If I miss an attack while hidden, making the attack doesn't reveal my location.",
+		"##Blindsight##. I have Blindsight with a range of 10 ft. [+1 Dexterity]",
+	].join("\n"),
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Dexterity score by 1, to a maximum of 20.",
+		"***Blindsight***. You have Blindsight with a range of 10 feet.",
+		"***Fog of War***. You exploit the distractions of battle, gaining Advantage on any Dexterity (Stealth) check you make as part of the Hide action during combat.",
+		"***Sniper***. If you make an attack roll while hidden and the roll misses, making the attack roll doesn't reveal your location.",
+	],
+	scores: [0, 1, 0, 0, 0, 0],
+	vision: [["Blindsight", 10]],
+};
+FeatsList["slasher"] = {
+	name: "Slasher",
+	source: [["P24", 208]],
+	type: "general",
+	prerequisite: "Level 4+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4;
+	},
+	description: "##Hamstring##. Once per turn when I hit a creature with an attack that deals Slashing damage, I can reduce its Speed by 10 ft until the start of my next turn. ##Enhanced Critical##. When I score a Critical Hit that deals Slashing damage to a creature, it gets Disadvantage on attack rolls until the start of my next turn. [+1 Strength or Dexterity]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+		"***Hamstring***. Once per turn when you hit a creature with an attack that deals Slashing damage, you can reduce the Speed of that creature by 10 feet until the start of your next turn.",
+		"***Enhanced Critical***. When you score a Critical Hit that deals Slashing damage to a creature, it has Disadvantage on attack rolls until the start of your next turn.",
+	],
+	calcChanges: {
+		atkAdd: [
+			function (fields, v) {
+				if (/slash/i.test(fields.Damage_Type)) {
+					fields.Description += (fields.Description ? '; ' : '') + '1/turn target -10 ft Spd till my next SoT, Crit: also Disadv. on atks';
+				};
+			},
+			'Attacks that deal Slashing damage get the benefits from the Slasher feat added to their description: Once per turn -10 ft Speed, and on a Critical Hit target gets Disadvantage on attacks. Each effect lasts until the start of my next turn.',
+		],
+	},
+	choices: ["Strength", "Dexterity"],
+	choicesNotInMenu: true,
+	"strength": {
+		description: "##Hamstring##. Once per turn when I hit a creature with an attack that deals Slashing damage, I can reduce its Speed by 10 ft" + (typePF ? "." : " until the start of my next turn.")+
+			"\n##Enhanced Critical##. When I score a Critical Hit that deals Slashing damage to a creature, it gets Disadvantage on attack rolls" + (typePF ? "." : " until the start of my next turn.")+
+			(typePF ? "\nEach effect lasts until the start of my next turn." : "")+
+			" [+1 Strength]",
+		scores: [1, 0, 0, 0, 0, 0],
+	},
+	"dexterity": {
+		description: "##Hamstring##. Once per turn when I hit a creature with an attack that deals Slashing damage, I can reduce its Speed by 10 ft" + (typePF ? "." : " until the start of my next turn.")+
+			"\n##Enhanced Critical##. When I score a Critical Hit that deals Slashing damage to a creature, it gets Disadvantage on attack rolls" + (typePF ? "." : " until the start of my next turn.")+
+			(typePF ? "\nEach effect lasts until the start of my next turn." : "")+
+			" [+1 Dexterity]",
+		scores: [0, 1, 0, 0, 0, 0],
+	},
+};
+FeatsList["speedy"] = {
+	name: "Speedy",
+	source: [["P24", 208]],
+	type: "general",
+	prerequisite: "Level 4+, Dexterity or Constitution 13+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4 && (What("Dex") >= 13 || What("Con") >= 13);
+	},
+	description: [
+		"##Agile Movement##. Opportunity Attacks have Disadvantage against me.",
+		"##Dash over Difficult Terrain##. When I take the Dash action on my turn, Difficult Terrain doesn't cost me extra movement that turn.",
+		"##Speed Increase##. I have +10 ft Speed. [+1 Dexterity or Constitution]",
+	].join("\n"),
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Dexterity or Constitution score by 1, to a maximum of 20.",
+		"***Speed Increase***. Your Speed increases by 10 feet.",
+		"***Dash over Difficult Terrain***. When you take the Dash action on your turn, Difficult Terrain doesn't cost you extra movement for the rest of that turn.",
+		"***Agile Movement***. Opportunity Attacks have Disadvantage against you.",
+	],
+	speed: { allModes: { bonus: "+10" } },
+	choices: ["Dexterity", "Constitution"],
+	choicesNotInMenu: true,
+	"dexterity": {
+		description: [
+			"##Agile Movement##. Opportunity Attacks have Disadvantage against me.",
+			"##Dash over Difficult Terrain##. When I take the Dash action on my turn, Difficult Terrain doesn't cost me extra movement that turn.",
+			"##Speed Increase##. I have +10 ft Speed. [+1 Dexterity]",
+		].join("\n"),
+		scores: [0, 1, 0, 0, 0, 0],
+	},
+	"constitution": {
+		description: [
+			"##Agile Movement##. Opportunity Attacks have Disadvantage against me.",
+			"##Dash over Difficult Terrain##. When I take the Dash action on my turn, Difficult Terrain doesn't cost me extra movement that turn.",
+			"##Speed Increase##. I have +10 ft Speed. [+1 Constitution]",
+		].join("\n"),
+		scores: [0, 0, 1, 0, 0, 0],
+	},
+};
+var PHB24_SpellSniperDescription = [
+	"My attack rolls with spells:",
+	"##Bypass Cover##. Ignore Half Cover and Three-Quarters Cover.",
+	"##Casting in Melee##. Suffer no Disadvantage when I'm within 5 ft of an enemy.",
+	"##Increased Range##. Gain +60 ft range if the spell's range is " + (typePF ? "\u226510 ft." : "10 ft or more."),
+].map(function (n, idx, arr) {
+	// Swap 'Increased Range' with 'Casting in Melee' lines on the Printer Friendly sheet
+	return typePF && idx === 2 ? arr[3] : typePF && idx === 3 ? arr[2] : n;
+}).join("\n");
+FeatsList["spell sniper"] = {
+	name: "Spell Sniper",
+	source: [["P24", 208]],
+	type: "general",
+	prerequisite: "Level 4+, Spellcasting or Pact Magic Feature",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4 && v.isSpellcasterClass;
+	},
+	description: PHB24_SpellSniperDescription + " [+1 Intelligence, Wisdom, or Charisma]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
+		"***Bypass Cover***. Your attack rolls for spells ignore Half Cover and Three-Quarters Cover.",
+		"***Casting in Melee***. Being within 5 feet of an enemy doesn't impose Disadvantage on your attack rolls with spells.",
+		"***Increased Range***. When you cast a spell that has a range of at least 10 feet and requires you to make an attack roll, you can increase the spell's range by 60 feet.",
+	],
+	calcChanges: {
+		atkAdd: [
+			function (fields, v) {
+				if (!v.isDC && v.isSpell) {
+					var name = "spell sniper", addition = "+60";
+					var useRange = v.rangeObject ? v.rangeObject : fields.Range;
+					var stopFunction = function (sRange, nRangeFT) { return nRangeFT < 10; };
+					v.rangeObject = amendRangeObject(useRange, name, addition, stopFunction);
+					// Test if something changed
+					if (v.rangeObject && v.rangeObject.result !== fields.Range) {
+						fields.Range = v.rangeObject.result;
+					};
+				};
+			},
+			"My spells and cantrips that require an attack roll and have a range of 10 ft or more gain +60 ft range.",
+			700,
+		],
+		spellAdd: [
+			function (spellKey, spellObj, spName) {
+				if ( !spellObj.psionic && /spell at(tac)?k/i.test(spellObj.description + spellObj.descriptionFull) && /^(?!.*(S:|rad|touch|self|cone|cube)).*\d+([.,]\d+)?.?(f.{0,2}t|m).*$/i.test(spellObj.range) ) {
+					var name = "spell sniper", addition = "+60";
+					var useRange = spellObj.rangeObject ? spellObj.rangeObject : spellObj.range;
+					var stopFunction = function (sRange, nRangeFT) { return nRangeFT < 10; };
+					spellObj.rangeObject = amendRangeObject(useRange, name, addition, stopFunction);
+					// Test if something changed
+					if (spellObj.rangeObject && spellObj.rangeObject.result !== spellObj.range) {
+						spellObj.range = spellObj.rangeObject.result;
+						return true;
+					};
+				};
+			},
+			"My spells and cantrips that require an attack roll and have a range of 10 ft or more gain +60 ft range.",
+			700,
+		],
+	},
+	choices: ["Intelligence", "Wisdom", "Charisma"],
+	choicesNotInMenu: true,
+	"intelligence": {
+		description: PHB24_SpellSniperDescription + " [+1 Intelligence]",
+		scores: [0, 0, 0, 1, 0, 0],
+	},
+	"wisdom": {
+		description: PHB24_SpellSniperDescription + " [+1 Wisdom]",
+		scores: [0, 0, 0, 0, 1, 0],
+	},
+	"charisma": {
+		description: PHB24_SpellSniperDescription + " [+1 Charisma]",
+		scores: [0, 0, 0, 0, 0, 1],
+	},
+};
+FeatsList["telekinetic"] = {
+	name: "Telekinetic",
+	source: [["P24", 208]],
+	type: "general",
+	prerequisite: "Level 4+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4;
+	},
+	description: "I know the Mage Hand cantrip, can cast it without components, can make it invisible, and with +30 ft range. As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs. this feat's spell save DC) or move it 5 ft from or towards me. My spellcasting ability is the one increased by this feat. [+1 Int, Wis, or Cha]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
+		"***Minor Telekinesis***. You learn the Mage Hand spell. You can cast it without Verbal or Somatic components, you can make the spectral hand Invisible, and its range and the distance it can be away from you both increase by 30 feet when you cast it. The spell's spellcasting ability is the ability increased by this feat.",
+		"***Telekinetic Shove***. As a Bonus Action, you can telekinetically shove one creature you can see within 30 feet of yourself. When you do so, the target must succeed on a Strength saving throw (8 plus the ability modifier of the score increased by this feat and your Proficiency Bonus) or be moved 5 feet toward or away from you.",
+	],
+	action: [["bonus action", "Telekinetic Shove"]],
+	spellcastingBonus: [{
+		name: "Mage Hand",
+		spells: ["mage hand"],
+		selection: ["mage hand"],
+		firstCol: "atwill",
+	}],
+	spellChanges: {
+		"mage hand": {
+			components: "",
+			range: "60 ft",
+			description: "(in)visible hand does simple task, carry \u226410lb; Act: control again \x26 move 30ft; ends if recast/out range",
+			changes: "I can cast Mage Hand without Verbal or Somatic components, can make the spectral hand Invisible, and can the range and distance it can be away from me increases by +30 ft.",
+		},
+	},
+	choices: ["Intelligence", "Wisdom", "Charisma"],
+	choicesNotInMenu: true,
+	"intelligence": {
+		description: (typePF ? "" : "##Minor Telekinesis##. ") + "I know the Mage Hand cantrip, can cast it without components, can make it invisible, and with +30 ft range. Intelligence is my spellcasting ability for it. "+
+			(typePF ? "" : "##Telekinetic Shove##. ") + "As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs. this feat's spell save DC) or move it 5 ft from or towards me. [+1 Int]",
+		spellcastingAbility: 4,
+		scores: [0, 0, 0, 1, 0, 0],
+	},
+	"wisdom": {
+		description: (typePF ? "" : "##Minor Telekinesis##. ") + "I know the Mage Hand cantrip, can cast it without components, can make it invisible, and with +30 ft range. Wisdom is my spellcasting ability for it. "+
+			(typePF ? "" : "##Telekinetic Shove##. ") + "As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs. this feat's spell save DC) or move it 5 ft from or towards me. [+1 Wis]",
+		spellcastingAbility: 5,
+		scores: [0, 0, 0, 0, 1, 0],
+	},
+	"charisma": {
+		description: (typePF ? "" : "##Minor Telekinesis##. ") + "I know the Mage Hand cantrip, can cast it without components, can make it invisible, and with +30 ft range. Charisma is my spellcasting ability for it. "+
+			(typePF ? "" : "##Telekinetic Shove##. ") + "As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs. this feat's spell save DC) or move it 5 ft from or towards me. [+1 Cha]",
+		spellcastingAbility: 6,
+		scores: [0, 0, 0, 0, 0, 1],
+	},
+};
+FeatsList["telepathic"] = {
+	name: "Telepathic",
+	source: [["P24", 208]],
+	type: "general",
+	prerequisite: "Level 4+",
+	prereqeval: function (v) {
+		return v.characterLevel >= 4;
+	},
+	description: "##Telepathic Utterance##. I can telepathically speak to a creature I can see within 60 ft in a language I know, but they can't respond telepathically. I always have ##Detect Thoughts## prepared. I can cast it once per Long Rest without a spell slot or components and by expending a spell slot as normal. My spellcasting ability is the one increased by this feat. [+1 Int, Wis, or Cha]",
+	descriptionFull: [
+		"You gain the following benefits.",
+		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
+		"***Telepathic Utterance***. You can speak telepathically to any creature you can see within 60 feet of yourself. Your telepathic utterances are in a language you know, and the creature understands you only if it knows that language. Your communication doesn't give the creature the ability to respond to you telepathically.",
+		"***Detect Thoughts***. You always have the Detect Thoughts spell prepared. You can cast it without a spell slot or spell components, and you must finish a Long Rest before you can cast it in this way again. You can also cast it using spell slots you have of the appropriate level. Your spellcasting ability for the spell is the ability increased by this feat.",
+	],
+	spellcastingBonus: [{
+		name: "Detect Thoughts",
+		spells: ["detect thoughts"],
+		selection: ["detect thoughts"],
+		firstCol: "oncelr+markedbox",
+	}],
+	spellChanges: {
+		"detect thoughts": {
+			components: "(V,S,M)",
+			changes: "My Telepathic feat allows me to cast Detect Thoughts once per Long Rest without requiring a spell slot or components, or by using a spell slot to cast it with components as normal.",
+		},
+	},
+	choices: ["Intelligence", "Wisdom", "Charisma"],
+	choicesNotInMenu: true,
+	"intelligence": {
+		description: (typePF ? "" : "##Telepathic Utterance##. ") + "I can telepathically speak to a creature I can see within 60 ft in a language I know, but they can't respond telepathically. I always have ##Detect Thoughts## prepared. I can cast it once per Long Rest without a spell slot or components and by expending a spell slot as normal. Intelligence is my spellcasting ability for it. [+1 Int]",
+		spellcastingAbility: 4,
+		scores: [0, 0, 0, 1, 0, 0],
+	},
+	"wisdom": {
+		description: (typePF ? "" : "##Telepathic Utterance##. ") + "I can telepathically speak to a creature I can see within 60 ft in a language I know, but they can't respond telepathically. I always have ##Detect Thoughts## prepared. I can cast it once per Long Rest without a spell slot or components and by expending a spell slot as normal. Wisdom is my spellcasting ability for it. [+1 Wis]",
+		spellcastingAbility: 5,
+		scores: [0, 0, 0, 0, 1, 0],
+	},
+	"charisma": {
+		description: (typePF ? "" : "##Telepathic Utterance##. ") + "I can telepathically speak to a creature I can see within 60 ft in a language I know, but they can't respond telepathically. I always have ##Detect Thoughts## prepared. I can cast it once per Long Rest without a spell slot or components and by expending a spell slot as normal. Charisma is my spellcasting ability for it. [+1 Cha]",
+		spellcastingAbility: 6,
+		scores: [0, 0, 0, 0, 0, 1],
+	},
+};
 FeatsList["war caster"] = {
 	name: "War Caster",
 	source: [["P24", 209]],
@@ -1328,9 +2477,10 @@ FeatsList["war caster"] = {
 		"***Reactive Spell***. When a creature provokes an Opportunity Attack from you by leaving your reach, you can take a Reaction to cast a spell at the creature rather than making an Opportunity Attack. The spell must have a casting time of one action and must target only that creature.",
 		"***Somatic Components***. You can perform the Somatic components of spells even when you have weapons or a Shield in one or both hands.",
 	],
-	choices: ["Intelligence", "Wisdom", "Charisma"],
-	action: [["reaction", ": Reactive Spell"]],
+	action: [["reaction", "Reactive Spell"]],
 	savetxt: { text: "Adv. on Con (Concentration) saves" },
+	choices: ["Intelligence", "Wisdom", "Charisma"],
+	choicesNotInMenu: true,
 	"intelligence": {
 		description: "I have Advantage on Con saves to maintain ##Concentration##. I can " + (typePF ? "do" : "perform") + " ##Somatic components## " + (typePF ? "" : "of spells ") + "even when I have weapons or a Shield in both hands. ##Reactive Spell##. instead of an Opportunity Attack when a creature leaves my reach, I can cast a spell on it, a spell with a one action casting time that targets only that creature." + (typePF ? "" : " [+1 Intelligence]"),
 		scores: [0, 0, 0, 1, 0, 0],
@@ -1359,9 +2509,10 @@ FeatsList["weapon master"] = {
 	bonusClassExtrachoices: [{
 		"class": "fighter",
 		"feature": "weapon mastery",
-		"bonus": 1
+		"bonus": 1,
 	}],
 	choices: ["Strength", "Dexterity"],
+	choicesNotInMenu: true,
 	"strength": {
 		description: 'I gain mastery with one Simple or Martial weapon. Whenever I finish a Long Rest, I can change my choice. Use 2nd page "Choose Feature" button to select this. [+1 Strength]',
 		scores: [1, 0, 0, 0, 0, 0],
@@ -1399,7 +2550,7 @@ FeatsList["dueling"] = {
 				};
 				if (v.isMeleeWeapon && !v.isNaturalWeapon && !/((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b/i.test(fields.Description)) output.extraDmg += 2;
 			},
-			"When I'm holding a Melee weapon in one hand and no other weapons, I gain a +2 bonus to damage rolls with that weapon. This condition will always be false if the bonus action 'Off-hand Attack' exists."
+			"When I'm holding a Melee weapon in one hand and no other weapons, I gain a +2 bonus to damage rolls with that weapon. This condition will always be false if the bonus action 'Off-hand Attack' exists.",
 		],
 	},
 };
@@ -1413,7 +2564,7 @@ FeatsList["interception"] = {
 	descriptionFull: [
 		"When a creature you can see hits another creature within 5 feet of you with an attack roll, you can take a Reaction to reduce the damage dealt to the target by 1d10 plus your Proficiency Bonus. You must be holding a Shield or a Simple or Martial weapon to use this Reaction.",
 	],
-	action : [["reaction", "Interception Fighting Style"]]
+	action : [["reaction", "Interception Fighting Style"]],
 };
 FeatsList["protection"] = {
 	name: "Protection",
@@ -1424,7 +2575,7 @@ FeatsList["protection"] = {
 	descriptionFull: [
 		"When a creature you can see attacks a target other than you that is within 5 feet of you, you can take a Reaction to interpose your Shield if you're holding one. You impose Disadvantage on the triggering attack roll and all other attack rolls against the target until the start of your next turn if you remain within 5 feet of the target.",
 	],
-	action : [["reaction", "Protection Fighting Style"]]
+	action : [["reaction", "Protection Fighting Style"]],
 };
 FeatsList["thrown weapon fighting"] = {
 	name: "Thrown Weapon Fighting",
@@ -1442,7 +2593,7 @@ FeatsList["thrown weapon fighting"] = {
 					fields.Description += (fields.Description ? '; ' : '') + '+2 damage when thrown';
 				};
 			},
-			"I deal +2 damage when I hit a ranged attack made with a thrown weapon."
+			"I deal +2 damage when I hit a ranged attack made with a thrown weapon.",
 		],
 		atkCalc: [
 			function (fields, v, output) {
@@ -1450,7 +2601,7 @@ FeatsList["thrown weapon fighting"] = {
 					output.extraDmg += 2;
 				};
 			},
-			""
+			"",
 		],
 	},
 };
@@ -1473,8 +2624,8 @@ FeatsList["unarmed fighting"] = {
 				};
 			},
 			"My unarmed strikes deal 1d6 damage instead of 1, which increases to 1d8 if I'm not holding any weapons or a Shield when I make the attack roll.",
-			1
-		]
+			1,
+		],
 	},
 };
 // Epic Boons feats
@@ -1520,15 +2671,16 @@ FeatsList["boon of recovery"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 19;
 	},
-	description: "##Last Stand##. Once per Long Rest when I would be reduced to 0 HP, I can instead drop to 1 HP and regain half my max HP."+
-	"\n##Recover Vitality##. I have a pool of ten d10s, which replenish after a Long Rest. As a Bonus Action, I can expend and roll a number of dice from this pool to regain HP.",
+	description: [
+		"##Last Stand##. Once per Long Rest when I would be reduced to 0 HP, I can instead drop to 1 HP and regain half my max HP.",
+		"n##Recover Vitality##. I have a pool of ten d10s, which replenish after a Long Rest. As a Bonus Action, I can expend and roll a number of dice from this pool to regain HP.",
+	].join("\n"),
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase one ability score of your choice by 1, to a maximum of 30.",
 		"***Last Stand***. When you would be reduced to 0 Hit Points, you can drop to 1 Hit Point instead and regain a number of Hit Points equal to half your Hit Point maximum. Once you use this benefit, you can't use it again until you finish a Long Rest.",
 		"***Recover Vitality***. You have a pool of ten d10s. As a Bonus Action, you can expend dice from the pool, roll those dice, and regain a number of Hit Points equal to the roll's total. You regain all the expended dice when you finish a Long Rest.",
 	],
-	choices: ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
 	action: [["bonus action", "Recover Vitality"]],
 	extraLimitedFeatures: [{
 		name: "Last Stand",
@@ -2126,13 +3278,13 @@ SpellsList["hail of thorns"] = {
 	descriptionFull: [
 		"As you hit the creature, this spell creates a rain of thorns that sprouts from your Ranged weapon or ammunition. The target of the attack and each creature within 5 feet of it make a Dexterity saving throw, taking 1d10 Piercing damage on a failed save or half as much damage on a successful one.",
 		UsingHigherLvl + "The damage increases by 1d10 for each spell slot level above 1.",
-	]
+	],
 };
 /*
 	Hunger of Hadar doesn't behave correctly with `genericSpellDmgEdit`,
 	if adding a bonus that matches both damage types (Cold and Acid) and not
 	restricted to a single roll. There is no setting to prevent both damage types
-	getting the bonus added.
+	getting the bonus added.,
 	However, no official feature allows for adding damage to multiple rolls of a spell.
 */
 SpellsList["hunger of hadar"] = {
@@ -2182,7 +3334,7 @@ SpellsList["jallarzi's storm of radiance"] = {
 	dynamicDamageBonus: {
 		multipleDmgTypes: {
 			dmgTypes: ["radiant", "thunder"],
-			inDescriptionAs: "Radiant \x26 again Thunder dmg|Radiant \x26 Thndr dmg"
+			inDescriptionAs: "Radiant \x26 again Thunder dmg|Radiant \x26 Thndr dmg",
 		},
 	},
 };
@@ -2207,7 +3359,7 @@ SpellsList["lightning arrow"] = {
 	],
 	dynamicDamageBonus: {
 		multipleDmgMoments: false,
-		skipDmgGroupIfNotMultiple: /(atk .*?lightn\. dmg.*?)/i
+		skipDmgGroupIfNotMultiple: /(atk .*?lightn\. dmg.*?)/i,
 	},
 };
 SpellsList["mind sliver"] = {

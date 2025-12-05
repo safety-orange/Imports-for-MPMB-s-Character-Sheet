@@ -257,8 +257,7 @@ BackgroundList["rune carver-ua"] = {
 BackgroundFeatureList["rune carver apprentice"] = {
 	description : "I've dedicated my life to studying the practice of runecraft. Whether I was personally taught by a master rune carver or learned by poring over engravings in ancient ruins, I understand how to tap into the supernatural power held within runes. Also, I gain the Rune Carver Apprentice feat.",
 	source : [["UA:WotM", 5]],
-	eval : function() { AddFeat("Rune Carver Apprentice"); },
-	removeeval : function() { RemoveFeat("Rune Carver Apprentice"); }
+	featsAdd: ["Rune Carver Apprentice"],
 };
 
 // Then the backgrounds that haven't been altered in the book
@@ -305,8 +304,7 @@ if (!BackgroundFeatureList["planar infusion"]) {
 	BackgroundFeatureList["planar infusion"] = {
 		description : "I spent a good amount of time somewhere influenced by planar forces. I'm accustomed to experiences that would leave others reeling in terror or captivated by beauty, and I'm comfortable dealing with fiends and celestials. I know where to find free, modest lodging and food in the community I grew up in. Also, I gain the Scion of the Outer Planes feat.",
 		source : [["P:AitM", 7], ["UA:WotM", 3]],
-		eval : function() { AddFeat("Scion of the Outer Planes"); },
-		removeeval : function() { RemoveFeat("Scion of the Outer Planes"); }
+		featsAdd: ["Scion of the Outer Planes"],
 	};
 }
 
@@ -314,8 +312,7 @@ if (!BackgroundFeatureList["strike of the giants"]) {
 	BackgroundFeatureList["strike of the giants"] = {
 		description : "I grew up among giants, even though I'm not one. Something about this environment ensured that I grew to a remarkable size and I have learned how to embody the titanic might of giants. I'm used to moving through a world much bigger than me, and that is reflected in my skills, attitude, and perspective on life. I gain the Strike of the Giants feat.",
 		source : [["GotG", 13], ["UA:WotM", 4]],
-		eval : function() { AddFeat("Strike of the Giants"); },
-		removeeval : function() { RemoveFeat("Strike of the Giants"); }
+		featsAdd: ["Strike of the Giants"],
 	};
 }
 
@@ -323,8 +320,7 @@ if (!BackgroundFeatureList["conviction"]) {
 	BackgroundFeatureList["conviction"] = {
 		description : "I subscribe to a distinct philosophy that seeks to understand the nature of the planes or a hidden truth of the multiverse and spread my philosophy. I am part of a network of like-minded believers who provide me free, modest lodging and food at any of their holding or the homes of other faction members. Also, I gain the Scion of the Outer Planes feat.",
 		source : [["P:AitM", 8], ["UA:WotM", 4]],
-		eval : function() { AddFeat("Scion of the Outer Planes"); },
-		removeeval : function() { RemoveFeat("Scion of the Outer Planes"); }
+		featsAdd: ["Scion of the Outer Planes"],
 	};
 }
 // dupl_end

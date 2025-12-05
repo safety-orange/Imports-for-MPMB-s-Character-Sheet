@@ -155,8 +155,7 @@ BackgroundList["giant foundling"] = {
 BackgroundFeatureList["strike of the giants"] = {
 	description : "I grew up among giants or where they lived. Something about this environment\u2014the food, water, elemental magic, or some blessing\u2014caused me to grow to a remarkable size for my kind. I'm used to moving through a world much bigger than I, and that is reflected in my skills, attitude, and perspective on life. I gain the Strike of the Giants feat.",
 	source : [["GotG", 13], ["UA:WotM", 4]],
-	eval : function() { AddFeat("Strike of the Giants"); },
-	removeeval : function() { RemoveFeat("Strike of the Giants"); }
+	featsAdd: ["Strike of the Giants"],
 };
 
 BackgroundList["rune carver"] = {
@@ -198,8 +197,7 @@ BackgroundList["rune carver"] = {
 BackgroundFeatureList["rune shaper"] = {
 	description : "I've dedicated my life to studying runecraft, taught by a master rune carver or learned by poring over ancient engravings. I can tap into the supernatural power held within runes. The art of runecraft has been adopted by many outside of giant society and those often incorporate their native language among the Giant runes. I gain the Rune Shaper feat.",
 	source : [["GotG", 14]],
-	eval : function() { AddFeat("Rune Shaper"); },
-	removeeval : function() { RemoveFeat("Rune Shaper"); }
+	featsAdd: ["Rune Shaper"],
 };
 
 // Feats - first the Strike of the Giants tree

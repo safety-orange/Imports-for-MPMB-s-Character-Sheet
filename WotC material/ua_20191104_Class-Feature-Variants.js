@@ -1051,7 +1051,7 @@ AddWarlockInvocation("Investment of the Chain Master (prereq: Pact of the Chain)
 	calcChanges : {
 		companionCallback : [function(prefix, oCrea, bAdd, sCompType) {
 			if (sCompType !== "pact_of_the_chain") return;
-			var strFea = "\u25C6 Investment of the Chain Master (TCoE 71): The familiar gains 40 ft fly or swim speed (my choice), doesn't need to breathe, its attacks are considered magical, and it can use my spell save DC instead of its own DC's (if any).";
+			var strFea = "##\u25C6 Investment of the Chain Master (UA:CFV 11)##.: The familiar gains 40 ft fly or swim speed (my choice), doesn't need to breathe, its attacks are considered magical, and it can use my spell save DC instead of its own DC's (if any).";
 			var strSpd = "fly or swim 40 ft";
 			if (What("Unit System") === "metric") {
 				strFea = ConvertToMetric(strFea, 0.5);

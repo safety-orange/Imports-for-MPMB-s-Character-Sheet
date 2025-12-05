@@ -77,8 +77,7 @@ BackgroundFeatureList["lorehold initiate"] = {
 			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): Comprehend Languages, Identify, Borrowed Knowledge, Locate Object, Speak with Dead, Spirit Guardians, Arcane Eye, Stone Shape, Flame Strike, and Legend Lore."
 		]
 	},
-	eval : function() { AddFeat("Strixhaven Initiate"); },
-	removeeval : function() { RemoveFeat("Strixhaven Initiate"); }
+	featsAdd: [{ key: "strixhaven initiate", choice: "lorehold" }],
 };
 BackgroundList["prismari student"] = {
 	regExpSearch : /^(?=.*prismari)(?=.*student).*$/i,
@@ -122,8 +121,7 @@ BackgroundFeatureList["prismari initiate"] = {
 			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): Chromatic Orb, Thunderwave, Flaming Sphere, Kinetic Jaunt, Haste, Water Walk, Freedom of Movement, Wall of Fire, Cone of Cold, and Conjure Elemental."
 		]
 	},
-	eval : function() { AddFeat("Strixhaven Initiate [Prismari]"); },
-	removeeval : function() { RemoveFeat("Strixhaven Initiate [Prismari]"); }
+	featsAdd: [{ key: "strixhaven initiate", choice: "prismari" }],
 };
 BackgroundList["quandrix student"] = {
 	regExpSearch : /^(?=.*quandrix)(?=.*student).*$/i,
@@ -168,8 +166,7 @@ BackgroundFeatureList["quandrix initiate"] = {
 			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): Entangle, Guiding Bolt, Enlarge/Reduce, Vortex Warp, Aura of Vitality, Haste, Control Water, Freedom of Movement, Circle of Power, and Passwall."
 		]
 	},
-	eval : function() { AddFeat("Strixhaven Initiate [Quandrix]"); },
-	removeeval : function() { RemoveFeat("Strixhaven Initiate [Quandrix]"); }
+	featsAdd: [{ key: "strixhaven initiate", choice: "quandrix" }],
 };
 BackgroundList["silverquill student"] = {
 	regExpSearch : /^(?=.*silverquill)(?=.*student).*$/i,
@@ -212,8 +209,7 @@ BackgroundFeatureList["silverquill initiate"] = {
 			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): Dissonant Whispers, Silvery Barbs, Calm Emotions, Darkness, Beacon of Hope, Daylight, Compulsion, Confusion, Dominate Person, and Rary's Telepathic Bond."
 		]
 	},
-	eval : function() { AddFeat("Strixhaven Initiate [Silverquill]"); },
-	removeeval : function() { RemoveFeat("Strixhaven Initiate [Silverquill]"); }
+	featsAdd: [{ key: "strixhaven initiate", choice: "silverquill" }],
 };
 BackgroundList["witherbloom student"] = {
 	regExpSearch : /^(?=.*witherbloom)(?=.*student).*$/i,
@@ -259,8 +255,7 @@ BackgroundFeatureList["witherbloom initiate"] = {
 			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): Cure Wounds, Inflict Wounds, Lesser Restoration, Wither and Bloom, Revivify, Vampiric Touch, Blight, Death Ward, Antilife Shell, and Greater Restoration."
 		]
 	},
-	eval : function() { AddFeat("Strixhaven Initiate [Witherbloom]"); },
-	removeeval : function() { RemoveFeat("Strixhaven Initiate [Witherbloom]"); }
+	featsAdd: [{ key: "strixhaven initiate", choice: "witherbloom" }],
 };
 
 // Feats
