@@ -38827,7 +38827,8 @@ AddFeatureChoice(ClassList.wizard.features["arcane recovery"], true, "Cantrip Fo
 		"I have scribed arcane formulas in my spellbook with which I formulate cantrips in my mind",
 		"Whenever I finish a long rest, I can use this to change a wizard cantrip I know for another"
 	]),
-	prereqeval : function (v) { return classes.known.wizard.level >= 3 ? true : "skip"; }
+	prereqeval : function (v) { return classes.known.wizard.level >= 3 ? true : "skip"; },
+	spellcastingPreparedCantrips: { "class": ["wizard"] },
 }, "Optional 3rd-level wizard features");
 
 // Wizard Subclasses
