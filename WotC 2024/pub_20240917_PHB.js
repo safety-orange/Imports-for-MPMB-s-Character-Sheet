@@ -12,6 +12,210 @@ SourceList["P24"] = {
 	date: "2024/09/17",
 };
 
+
+// Fighter Subclasses
+AddSubClass("fighter", "battle master", {
+	regExpSearch: /^(?=.*(war|fighter|battle|martial))(?=.*master).*$/i,
+	subname: "Battle Master",
+	fullname: "Battle Master",
+	source: [["P24", 93]],
+	abilitySave: 1,
+	abilitySaveAlt: 2,
+	features: {
+		"subclassfeature3": { // includes the level 10 and 18 Improved/ultimate Combat Superiority features
+			name: "Combat Superiority",
+			source: [["P24", 93]],
+			minlevel: 3,
+			description: "\nI gain a number of Superiority Dice (SD) that I can use to fuel special Maneuvers.",
+			additional: levels.map(function (n) {
+				if (n < 3) return "";
+				return "d" + (n < 10 ? 8 : n < 18 ? 10 : 12);
+			}),
+			limfeaname: "Superiority Dice",
+			usages: levels.map(function (n) {
+				return n < 3 ? 0 : n < 7 ? 4 : n < 15 ? 5 : 6;
+			}),
+			recovery: "Short Rest",
+		},
+		"subclassfeature3.1": {
+			name: "Maneuvers",
+			source: [["P24", 93]],
+			minlevel: 3,
+			description: desc([
+				"I can expend one Superiority Die to do a Maneuver I know, but only one per attack.",
+				"The save DC for my Maneuvers is 8 + my Prof. Bonus + my Str or Dex modifier (my choice).",
+			], "\n"),
+			additional: levels.map(function (n) {
+				return n < 3 ? "" : (n < 7 ? 3 : n < 10 ? 5 : n < 15 ? 7 : 9) + " known";
+			}),
+			extraTimes: levels.map(function (n) {
+				return n < 3 ? 0 : n < 7 ? 3 : n < 10 ? 5 : n < 15 ? 7 : 9;
+			}),
+			extraname: "Maneuver Options",
+			extrachoices: ["Ambush", "Bait and Switch", "Commander's Strike", "Riposte"],
+			// Not yet all Maneuvers added
+			"ambush": {
+				name: "Ambush",
+				extraname: "Maneuver",
+				source: [["P24", 94]],
+				description: "\nWhen I roll for Initiative or Dex (Stealth), I can expend and add 1 SD unless I'm Incapacitated.",
+				additional: "add SD to Stealth or Initiative",
+			},
+			"bait and switch": {
+				name: "Bait and Switch",
+				extraname: "Maneuver",
+				source: [["P24", 94]],
+				description: desc([
+					"On my turn, I can expend 1 SD to switch places with a willing, not-Incapacitated creature within 5 ft, if I spend at least 5 ft of movement. This doesn't provoke Opportunity Attacks.",
+					"The other creature or I (my choice) can add the SD to AC until the start of my next turn.",
+				], "\n"),
+				additional: "add SD to my/other AC",
+			},
+			"commander's strike": {
+				name: "Commander's Strike",
+				extraname: "Maneuver",
+				source: [["P24", 94]],
+				description: "\nWhen I take the Attack action on my turn, I can forgo one attack to direct a willing creature I can see or hear to strike. I expend 1 SD and that creature can immediately use its Reaction to make one attack with a weapon or Unarmed Strike, adding the SD to the attack's damage.",
+				additional: "add SD to other's damage",
+			},
+			"riposte": {
+				name: "Riposte",
+				extraname: "Maneuver",
+				source: [["P24", 95]],
+				description: "\nAs a Reaction when a creature misses me with a melee attack, I can expend 1 SD to make a melee attack with a weapon or Unarmed Strike against it, adding the SD to the damage.",
+				additional: "add SD to damage",
+				action: [["reaction", ""]],
+			},
+		},
+		"subclassfeature3.2": function () {
+			var a = {
+				name: "Student of War",
+				source: [["P24", 94]],
+				minlevel: 3,
+				description: "\nI gain proficiency with one type of Artican's Tools and in one skill from the Fighter list. Use the \"Choose Feature\" button to select a skill.",
+				toolProfs: [["Artisan's tools", 1]],
+				choices: ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Persuasion", "Perception", "Survival"],
+			};
+			for (var i = 0; i < a.choices.length; i++) {
+				var attr = a.choices[i].toLowerCase();
+				var skill = a.choices[i];
+				a[attr] = {
+					name: "Student of War: " + skill,
+					description: "\nI gain proficiency with one type of Artican's Tools of my choice and " + skill + ".",
+					skills: [skill],
+					prereqeval: function (v) {
+						return v.skillProfsLC.indexOf(v.choice) === -1;
+					},
+				};
+			}
+			return a;
+		}(),
+		"subclassfeature7": {
+			name: "Know Your Enemy",
+			source: [["P24", 94]],
+			minlevel: 7,
+			description: "\nAs a Bonus Action, I can learn the Immunities, Resistances, and Vulnerabilities of a creature I can see within 30 ft. I can do this once per Long Rest or by expending a Superiority Die.",
+			action: [["bonus action", ""]],
+			usages: 1,
+			recovery: "Long Rest",
+			altResource: "1 SD",
+		},
+		"subclassfeature15": {
+			name: "Relentless",
+			source: [["P24", 94]],
+			minlevel: 15,
+			description: "\nOnce per turn when I do a Maneuver, I can use a d8 instead of expending a Superiority Die.",
+		}
+	},
+});
+
+// Monk Subclasses
+AddSubClass("monk", "shadow", {
+	regExpSearch: /^(?=.*shadow)((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
+	subname: "Warrior of Shadow",
+	source: [["P24", 105]],
+	features: {
+		"subclassfeature3": {
+			name: "Shadow Arts",
+			source: [["P24", 105]],
+			minlevel: 3,
+			description: "\nI gain +60 ft Darkvision. I know the Minor Illusion cantrip, using Wis as spellcasting ability.",
+			vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
+			spellFirstColTitle : "Ki",
+			spellcastingBonus: [{
+				name: "Shadow Arts",
+				spells: ["minor illusion"],
+				selection: ["minor illusion"],
+				firstCol: "atwill",
+			}, {
+				name: "Shadow Arts",
+				spells: ["darkness"],
+				selection: ["darkness"],
+				firstCol: 1,
+			}],
+			spellChanges: {
+				"darkness": {
+					components: "",
+					compMaterial: "",
+					description: "15-ft rad darkness; blocks other's vision/nonmagical light; dispels magical light SL \u22642; my SoT move it",
+					descriptionMetric: "4,5m rad darkness; blocks other's vision/nonmagical light; dispels magical light SL \u22642; my SoT move it",
+					changes: "With the Shadow Arts feature I can cast Darkness without spell components, can see through it, and can move it to a space within 60 ft of me at the start of each of my turns.",
+				},
+			},
+			extraname: "Focus Feature",
+			"shadow arts: darkness": {
+				name: "Shadow Arts: Darkness",
+				extraname: "Warrior of Shadow 3",
+				source: [["P24", 105]],
+				description: "\nI can expend 1 Focus Point to cast Darkness without spell components. When I do so, I can see within its area and I can move it to a space within 60 ft at the start of each of my turns.",
+				additional: "1 Focus Point",
+			},
+			autoSelectExtrachoices: [{ extrachoice: "shadow arts: darkness" }],
+		},
+		"subclassfeature6": {
+			name: "Shadow Step",
+			source: [["P24", 105]],
+			minlevel: 6,
+			description: "\nAs a Bonus Action while in Dim Light or Darkness, I can teleport up to 60 ft to an empty " + (typePF ? "space" : "spot") + " I can see in Dim Light or Darkness. I then gain Adv" + (typePF ? "antage" : ".") + " on my next melee attack this turn.",
+			action: [["bonus action", ""]],
+		},
+		"subclassfeature11": {
+			name: "Improved Shadow Step",
+			source: [["P24", 105]],
+			minlevel: 11,
+			extraname: "Focus Feature",
+			"improved shadow step": {
+				name: "Improved Shadow Step",
+				extraname: "Warrior of Shadow 11",
+				source: [["P24", 105]],
+				description: "\nWhen I use Shadow Step, I can expend 1 Focus Point to remove the need to start and end in Dim Light or Darkness, and I can make an Unarmed Strike immediately after I teleport.",
+				additional: "1 Focus Point",
+			},
+			autoSelectExtrachoices: [{ extrachoice: "improved shadow step" }],
+		},
+		"subclassfeature17": {
+			name: "Cloak of Shadows",
+			source: [["P24", 105]],
+			minlevel: 17,
+			action: [["action", " (3 FP)"]],
+			extraname: "Focus Feature",
+			"cloak of shadows": {
+				name: "Cloak of Shadows",
+				extraname: "Warrior of Shadow 17",
+				source: [["P24", 105]],
+				description: desc([
+					"As a Magic action while in Dim Light or Darkness, I can expend 3 Focus Points to shroud myself in shadows for 1 min, until I'm Incapacitated, or I end my turn in Bright Light.",
+					"While shrouded, I'm Invisible, using Flurry of Blows requires no Focus Points, and I can move through occupied spaces as if they were Difficult Terrain, but can't end my turn in one.",
+				], "\n"),
+				additional: "3 Focus Points",
+			},
+			autoSelectExtrachoices: [{ extrachoice: "cloak of shadows" }],
+		},
+	},
+});
+
+
+
 // Backgrounds and their corresponding Background Features (which grant the origin feats)
 BackgroundList["artisan"] = {
 	regExpSearch: /^(?!.*guild)(?=.*artisan).*$/i,

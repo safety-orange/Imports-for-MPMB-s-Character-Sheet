@@ -424,7 +424,7 @@ FeatsList["martial adept"] = {
 		bonus: 2,
 	}],
 	extraLimitedFeatures: [{
-		name: "Combat Superiority",
+		name: "Superiority Dice",
 		usages: 1,
 		additional: 'd6',
 		recovery: "short rest",
