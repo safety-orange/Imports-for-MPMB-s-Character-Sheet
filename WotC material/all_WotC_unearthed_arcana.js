@@ -5986,7 +5986,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the
 		atkCalc : [
 			function (fields, v, output) {
 				// Test if this is a pact weapon, has no + bonus from somewhere else, and isn't a magic weapon
-				if (v.pactWeapon && !output.magic && !(v.theWea && v.theWea.isMagicWeapon)) {
+				if (v.pactWeapon && !output.magic && !v.theWea.isMagicWeapon) {
 					v.pactMag = 1;
 					output.magic = 1;
 				};
@@ -6115,7 +6115,7 @@ AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the
 			function (fields, v, output) {
 				// Test if this is a pact weapon, has no + bonus in its name, is not a magic weapon, and doesn't already have a improved pact weapon bonus
 				var iPactWeaBonus = 2;
-				if (v.pactWeapon && !v.thisWeapon[1] && !(v.theWea && v.theWea.isMagicWeapon) && ((!v.pactMag && !output.magic) || (v.pactMag && v.pactMag < iPactWeaBonus))) {
+				if (v.pactWeapon && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && ((!v.pactMag && !output.magic) || (v.pactMag && v.pactMag < iPactWeaBonus))) {
 					if (v.pactMag) output.magic -= v.pactMag;
 					v.pactMag = iPactWeaBonus;
 					output.magic += v.pactMag;
@@ -6151,7 +6151,7 @@ AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of th
 			function (fields, v, output) {
 				// Test if this is a pact weapon, has no + bonus in its name, is not a magic weapon, and doesn't already have a improved pact weapon bonus
 				var iPactWeaBonus = 3;
-				if (v.pactWeapon && !v.thisWeapon[1] && !(v.theWea && v.theWea.isMagicWeapon) && ((!v.pactMag && !output.magic) || (v.pactMag && v.pactMag < iPactWeaBonus))) {
+				if (v.pactWeapon && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && ((!v.pactMag && !output.magic) || (v.pactMag && v.pactMag < iPactWeaBonus))) {
 					if (v.pactMag) output.magic -= v.pactMag;
 					v.pactMag = iPactWeaBonus;
 					output.magic += v.pactMag;
@@ -12076,7 +12076,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 				if (v.pactWeapon && !output.magic) {
 					var bContinue = true;
 					// Now test if this isn't a weaponOptions addition with a static + bonus set to the modifier fields
-					if (v.theWea && v.theWea.isMagicWeapon && v.theWea.modifiers) {
+					if (v.theWea.isMagicWeapon && v.theWea.modifiers) {
 						// Test the first two modifiers to see if both offer a +1 or more. Returns `true` if one contains no numbers or is less than the improved pact weapon bonus
 						var bContinue = v.theWea.modifiers.slice(0, 2).some(function (n) {
 							if (!n || !/\d/.test(n)) {

@@ -633,7 +633,7 @@ MagicItemsList["boomerang shield"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.theWea && v.theWea.name === "Boomerang Shield" && tDoc.getField("Proficiency Shields").isBoxChecked(0)) {
+				if (v.theWea.name === "Boomerang Shield" && tDoc.getField("Proficiency Shields").isBoxChecked(0)) {
 					fields.Proficiency = true;
 				}
 			}

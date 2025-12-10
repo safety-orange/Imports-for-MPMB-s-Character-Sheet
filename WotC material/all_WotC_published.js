@@ -18787,7 +18787,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 				if (v.pactWeapon && !output.magic) {
 					var bContinue = true;
 					// Now test if this isn't a weaponOptions addition with a static + bonus set to the modifier fields
-					if (v.theWea && v.theWea.isMagicWeapon && v.theWea.modifiers) {
+					if (v.theWea.isMagicWeapon && v.theWea.modifiers) {
 						// Test the first two modifiers to see if both offer a +1 or more. Returns `true` if one contains no numbers or is less than the improved pact weapon bonus
 						var bContinue = v.theWea.modifiers.slice(0, 2).some(function (n) {
 							if (!n || !/\d/.test(n)) {
@@ -51979,7 +51979,7 @@ MagicItemsList["boomerang shield"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.theWea && v.theWea.name === "Boomerang Shield" && tDoc.getField("Proficiency Shields").isBoxChecked(0)) {
+				if (v.theWea.name === "Boomerang Shield" && tDoc.getField("Proficiency Shields").isBoxChecked(0)) {
 					fields.Proficiency = true;
 				}
 			}

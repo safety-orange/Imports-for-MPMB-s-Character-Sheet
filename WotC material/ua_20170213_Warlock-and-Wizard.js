@@ -1,5 +1,5 @@
 var iFileName = "ua_20170213_Warlock-and-Wizard.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds the content from the Unearthed Arcana: Warlock and Wizard article to MPMB's Character Record Sheet
 
 // Define the source
@@ -452,7 +452,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the
 		atkCalc : [
 			function (fields, v, output) {
 				// Test if this is a pact weapon, has no + bonus from somewhere else, and isn't a magic weapon
-				if (v.pactWeapon && !output.magic && !(v.theWea && v.theWea.isMagicWeapon)) {
+				if (v.pactWeapon && !output.magic && !v.theWea.isMagicWeapon) {
 					v.pactMag = 1;
 					output.magic = 1;
 				};
@@ -581,7 +581,7 @@ AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the
 			function (fields, v, output) {
 				// Test if this is a pact weapon, has no + bonus in its name, is not a magic weapon, and doesn't already have a improved pact weapon bonus
 				var iPactWeaBonus = 2;
-				if (v.pactWeapon && !v.thisWeapon[1] && !(v.theWea && v.theWea.isMagicWeapon) && ((!v.pactMag && !output.magic) || (v.pactMag && v.pactMag < iPactWeaBonus))) {
+				if (v.pactWeapon && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && ((!v.pactMag && !output.magic) || (v.pactMag && v.pactMag < iPactWeaBonus))) {
 					if (v.pactMag) output.magic -= v.pactMag;
 					v.pactMag = iPactWeaBonus;
 					output.magic += v.pactMag;
@@ -617,7 +617,7 @@ AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of th
 			function (fields, v, output) {
 				// Test if this is a pact weapon, has no + bonus in its name, is not a magic weapon, and doesn't already have a improved pact weapon bonus
 				var iPactWeaBonus = 3;
-				if (v.pactWeapon && !v.thisWeapon[1] && !(v.theWea && v.theWea.isMagicWeapon) && ((!v.pactMag && !output.magic) || (v.pactMag && v.pactMag < iPactWeaBonus))) {
+				if (v.pactWeapon && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && ((!v.pactMag && !output.magic) || (v.pactMag && v.pactMag < iPactWeaBonus))) {
 					if (v.pactMag) output.magic -= v.pactMag;
 					v.pactMag = iPactWeaBonus;
 					output.magic += v.pactMag;

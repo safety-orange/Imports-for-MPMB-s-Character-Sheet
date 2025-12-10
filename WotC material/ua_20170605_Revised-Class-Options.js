@@ -1,5 +1,5 @@
 var iFileName = "ua_20170605_Revised-Class-Options.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("14.0.1-beta");
 // This file adds the content from the Unearthed Arcana: Revised Class Options article to MPMB's Character Record Sheet
 
 // Define the source
@@ -522,7 +522,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 				if (v.pactWeapon && !output.magic) {
 					var bContinue = true;
 					// Now test if this isn't a weaponOptions addition with a static + bonus set to the modifier fields
-					if (v.theWea && v.theWea.isMagicWeapon && v.theWea.modifiers) {
+					if (v.theWea.isMagicWeapon && v.theWea.modifiers) {
 						// Test the first two modifiers to see if both offer a +1 or more. Returns `true` if one contains no numbers or is less than the improved pact weapon bonus
 						var bContinue = v.theWea.modifiers.slice(0, 2).some(function (n) {
 							if (!n || !/\d/.test(n)) {
