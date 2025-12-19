@@ -12,7 +12,6 @@ SourceList["P24"] = {
 	date: "2024/09/17",
 };
 
-
 // Fighter Subclasses
 AddSubClass("fighter", "battle master", {
 	regExpSearch: /^(?=.*(war|fighter|battle|martial))(?=.*master).*$/i,
@@ -22,7 +21,7 @@ AddSubClass("fighter", "battle master", {
 	abilitySave: 1,
 	abilitySaveAlt: 2,
 	features: {
-		"subclassfeature3": { // includes the level 10 and 18 Improved/ultimate Combat Superiority features
+		"subclassfeature3": { // includes the level 10 and 18 Improved/Ultimate Combat Superiority features
 			name: "Combat Superiority",
 			source: [["P24", 93]],
 			minlevel: 3,
@@ -52,8 +51,7 @@ AddSubClass("fighter", "battle master", {
 				return n < 3 ? 0 : n < 7 ? 3 : n < 10 ? 5 : n < 15 ? 7 : 9;
 			}),
 			extraname: "Maneuver Options",
-			extrachoices: ["Ambush", "Bait and Switch", "Commander's Strike", "Riposte"],
-			// Not yet all Maneuvers added
+			extrachoices: ["Ambush", "Bait and Switch", "Commander's Strike", "Commanding Presence", "Disarming Attack", "Distracting Strike", "Evasive Footwork", "Feinting Attack", "Goading Attack", "Lunging Attack", "Menacing Attack", "Parry", "Precision Attack", "Pushing Attack", "Rally", "Riposte", "Sweeping Attack", "Tactical Assessment", "Trip Attack"],
 			"ambush": {
 				name: "Ambush",
 				extraname: "Maneuver",
@@ -69,22 +67,147 @@ AddSubClass("fighter", "battle master", {
 					"On my turn, I can expend 1 SD to switch places with a willing, not-Incapacitated creature within 5 ft, if I spend at least 5 ft of movement. This doesn't provoke Opportunity Attacks.",
 					"The other creature or I (my choice) can add the SD to AC until the start of my next turn.",
 				], "\n"),
-				additional: "add SD to my/other AC",
+				additional: "add SD to my/ally's AC",
 			},
 			"commander's strike": {
 				name: "Commander's Strike",
 				extraname: "Maneuver",
 				source: [["P24", 94]],
 				description: "\nWhen I take the Attack action on my turn, I can forgo one attack to direct a willing creature I can see or hear to strike. I expend 1 SD and that creature can immediately use its Reaction to make one attack with a weapon or Unarmed Strike, adding the SD to the attack's damage.",
-				additional: "add SD to other's damage",
+				additional: "ally adds SD to damage",
+			},
+			"commanding presence": {
+				name: "Commanding Presence",
+				extraname: "Maneuver",
+				source: [["P24", 95]],
+				description: "\nWhen I make an Intimidation, Performance, or Persuasion check, I can expend and add 1 SD.",
+				additional: "add SD to Charisma skill check",
+			},
+			"disarming attack": {
+				name: "Disarming Attack",
+				extraname: "Maneuver",
+				source: [["P24", 95]],
+				description: "\nWhen I hit a creature with an attack, I can expend and add 1 SD to the damage. The target must make a Strength save or drop one object of my choice that it's holding in its space.",
+				additional: "add SD to damage",
+			},
+			"distracting strike": {
+				name: "Distracting Strike",
+				extraname: "Maneuver",
+				source: [["P24", 95]],
+				description: "\nWhen I hit a creature with an attack, I can expend and add 1 SD to the damage. The next attack vs. the target by another than me has Advantage, if made before my next turn starts.",
+				additional: "add SD to damage",
+			},
+			"evasive footwork": {
+				name: "Evasive Footwork",
+				extraname: "Maneuver",
+				source: [["P24", 95]],
+				description: desc([
+					"As a Bonus Action, I can expend 1 SD to take the Disengage action.",
+					"I add the Superiority Die to my AC until the start of my next turn.",
+				], "\n"),
+				additional: "add SD to AC",
+				action: [["bonus action", ""]],
+			},
+			"feinting attack": {
+				name: "Feinting Attack",
+				extraname: "Maneuver",
+				source: [["P24", 95]],
+				description: "\nAs a Bonus Action, I can expend 1 SD to gain Advantage on my next attack this turn against a creature within 5 ft. If that attack hits, I add the Superiority Die to its damage.",
+				additional: "add SD to damage",
+				action: [["bonus action", ""]],
+			},
+			"goading attack": {
+				name: "Goading Attack",
+				extraname: "Maneuver",
+				source: [["P24", 95]],
+				description: "\nWhen I hit a creature with an attack, I can expend and add 1 SD to the damage. The target must make a Wis save or have Disadvantage on attacks not vs. me until my next turn ends.",
+				additional: "add SD to damage",
+			},
+			"lunging attack": {
+				name: "Lunging Attack",
+				extraname: "Maneuver",
+				source: [["P24", 95]],
+				description: "\nAs a Bonus Action, I can expend 1 SD to take the Dash action. If I move 5 ft in a straight line before hitting a melee attack in the same turn's Attack action, I add the SD to the damage.",
+				additional: "add SD to melee damage",
+				action: [["bonus action", ""]],
+			},
+			"maneuvering attack": {
+				name: "Maneuvering Attack",
+				extraname: "Maneuver",
+				source: [["P24", 95]],
+				description: desc([
+					"When I hit a creature with an attack, I can expend and add 1 SD to the damage.",
+					"A willing creature of my choice who can see or hear me can then use its Reaction to move up to half its Speed without provoking an Opportunity Attack from the target of my attack.",
+				], "\n"),
+				additional: "add SD to damage",
+			},
+			"menacing attack": {
+				name: "Menacing Attack",
+				extraname: "Maneuver",
+				source: [["P24", 95]],
+				description: "\nWhen I hit a creature with an attack, I can expend and add 1 SD to the damage. The target must make a Wisdom save or have the Frightened condition until the end of my next turn.",
+				additional: "add SD to damage",
+			},
+			"parry": {
+				name: "Parry",
+				extraname: "Maneuver",
+				source: [["P24", 95]],
+				description: "\nAs a Reaction when I take damage from a melee attack, I can expend and roll 1 SD to reduce the damage by it plus my Strength or Dexterity modifier (my choice).",
+				additional: "reduce damage taken by SD + Str/Dex mod",
+				action: [["reaction", ""]],
+			},
+			"precision attack": {
+				name: "Precision Attack",
+				extraname: "Maneuver",
+				source: [["P24", 95]],
+				description: "\nWhen I miss an attack, I can expend and add 1 SD to the roll, potentially causing it to hit.",
+				additional: "add SD to attack roll",
+			},
+			"pushing attack": {
+				name: "Pushing Attack",
+				extraname: "Maneuver",
+				source: [["P24", 95]],
+				description: "\nWhen I hit a creature with a weapon or Unarmed Strike, I can expend and add 1 SD to the damage. If Large or smaller, it must make a Str save or be pushed up to 15 ft back from me.",
+				additional: "add SD to damage",
+			},
+			"rally": {
+				name: "Rally",
+				extraname: "Maneuver",
+				source: [["P24", 95]],
+				description: "\nAs a Bonus Action, I can expend 1 SD to grant an ally within 30 ft who can see or hear me Temporary Hit Points equal to the SD roll plus half my Fighter level.",
+				additional: levels.map(function (n) {
+					return "ally gains SD + " + Math.floor(n/2) + " Temp HP";
+				}),
+				action: [["bonus action", ""]],
 			},
 			"riposte": {
 				name: "Riposte",
 				extraname: "Maneuver",
 				source: [["P24", 95]],
 				description: "\nAs a Reaction when a creature misses me with a melee attack, I can expend 1 SD to make a melee attack with a weapon or Unarmed Strike against it, adding the SD to the damage.",
-				additional: "add SD to damage",
+				additional: "add SD to melee damage",
 				action: [["reaction", ""]],
+			},
+			"sweeping attack": {
+				name: "Sweeping Attack",
+				extraname: "Maneuver",
+				source: [["P24", 95]],
+				description: "\nWhen I hit a creature with a melee weapon or Unarmed Strike, I can expend 1 SD to damage another creature within reach and within 5 ft of the first. If the original attack roll would hit the second creature, it takes 1 SD damage of the same type as the original attack.",
+				additional: "deal SD damage",
+			},
+			"tactical assessment": {
+				name: "Tactical Assessment",
+				extraname: "Maneuver",
+				source: [["P24", 95]],
+				description: "\nWhen I make a History, Investigation, or Insight check, I can expend and add 1 SD to it.",
+				additional: "add SD to certain skill checks",
+			},
+			"trip attack": {
+				name: "Trip Attack",
+				extraname: "Maneuver",
+				source: [["P24", 95]],
+				description: "\nWhen I hit a creature with a weapon or Unarmed Strike, I can expend and add 1 SD to the damage. If the target is Large or smaller, it must make a Strength save or be knocked Prone.",
+				additional: "add SD to damage",
 			},
 		},
 		"subclassfeature3.2": function () {
@@ -125,7 +248,7 @@ AddSubClass("fighter", "battle master", {
 			source: [["P24", 94]],
 			minlevel: 15,
 			description: "\nOnce per turn when I do a Maneuver, I can use a d8 instead of expending a Superiority Die.",
-		}
+		},
 	},
 });
 
@@ -213,8 +336,6 @@ AddSubClass("monk", "shadow", {
 		},
 	},
 });
-
-
 
 // Backgrounds and their corresponding Background Features (which grant the origin feats)
 BackgroundList["artisan"] = {
@@ -2954,19 +3075,6 @@ WeaponsList["mind sliver"] = {
 	abilitytodamage: false,
 	dc: true,
 };
-WeaponsList["toll the dead"] = {
-	regExpSearch: /^(?=.*toll)(?=.*dead).*$/i,
-	name: "Toll the Dead",
-	source: [["P24", 334]],
-	list: "spell",
-	ability: 5,
-	type: "Cantrip",
-	damage: ["C", 12, "necrotic"],
-	range: "60 ft",
-	description: "Wis save to avoid; If target is at full HP, d8 instead of d12 damage",
-	abilitytodamage: false,
-	dc: true,
-};
 WeaponsList["thorn whip"] = {
 	regExpSearch: /^(?=.*thorn)(?=.*whip).*$/i,
 	name: "Thorn Whip",
@@ -2989,6 +3097,19 @@ WeaponsList["thunderclap"] = {
 	damage: ["C", 6, "thunder"],
 	range: "5-ft radius",
 	description: "Con save to avoid; All creatures in area; Audible in 100 ft",
+	abilitytodamage: false,
+	dc: true,
+};
+WeaponsList["toll the dead"] = {
+	regExpSearch: /^(?=.*toll)(?=.*dead).*$/i,
+	name: "Toll the Dead",
+	source: [["P24", 334]],
+	list: "spell",
+	ability: 5,
+	type: "Cantrip",
+	damage: ["C", 12, "necrotic"],
+	range: "60 ft",
+	description: "Wis save to avoid; If target is at full HP, d8 instead of d12 damage",
 	abilitytodamage: false,
 	dc: true,
 };
