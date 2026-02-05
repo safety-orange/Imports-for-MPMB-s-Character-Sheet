@@ -1,5 +1,5 @@
 var iFileName = "pub_20220816_Spelljammer.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.0.5-beta");
 /*
 	This file adds the Character Options content from the "Spelljammer: Adventures in Space" set
 	(the "Astral Adventurer's Guide" book and the "Boo's Astral Menagerie" book)
@@ -122,7 +122,6 @@ RaceList["astral elf"] = {
 	spellcastingBonus : [{
 		name : "Astral Fire",
 		spells : ["dancing lights", "light", "sacred flame"],
-		firstCol : "atwill"
 	}],
 	features : {
 		"starlight step" : {
@@ -485,7 +484,6 @@ CreatureList["giant space hamster"] = {
 	hd : [4, 10],
 	speed : "30 ft, burrow 10 ft",
 	scores : [14, 12, 10, 2, 12, 4],
-	senses : "",
 	passivePerception : 11,
 	challengeRating : "1/4",
 	proficiencyBonus : 2,
@@ -512,7 +510,6 @@ CreatureList["space mollymawk"] = {
 	skills : {
 		"perception" : 5
 	},
-	senses : "",
 	passivePerception : 15,
 	challengeRating : "0",
 	proficiencyBonus : 2,
@@ -547,7 +544,6 @@ CreatureList["space swine"] = {
 		"perception" : 4,
 		"survival" : 4
 	},
-	senses : "",
 	passivePerception : 14,
 	challengeRating : "1/4",
 	proficiencyBonus : 2,

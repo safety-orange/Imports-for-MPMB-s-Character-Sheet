@@ -1,5 +1,5 @@
 var iFileName = "pub_20140930_MM.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds all the player-material from the Monster Manual to MPMB's Character Record Sheet
 
 // Define the source
@@ -26,7 +26,6 @@ CreatureList["allosaurus"] = {
 	skills : {
 		"perception" : 5
 	},
-	senses : "",
 	passivePerception : 15,
 	challengeRating : "2",
 	proficiencyBonus : 2,
@@ -60,7 +59,6 @@ CreatureList["ankylosaurus"] = {
 	hd : [8, 12], //[#, die]
 	speed : "30 ft",
 	scores : [19, 11, 15, 2, 12, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	senses : "",
 	passivePerception : 11,
 	challengeRating : "3",
 	proficiencyBonus : 2,
@@ -88,7 +86,6 @@ CreatureList["pteranodon"] = {
 	skills : {
 		"perception" : 1
 	},
-	senses : "",
 	passivePerception : 11,
 	challengeRating : "1/4",
 	proficiencyBonus : 2,

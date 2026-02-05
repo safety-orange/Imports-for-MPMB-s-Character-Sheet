@@ -1,5 +1,5 @@
 var iFileName = "ua_20180108_Three-Subclasses.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("13.1.14", 15);
 // This file adds the content from the Unearthed Arcana: Three Subclasses article to MPMB's Character Record Sheet
 
 // Define the source

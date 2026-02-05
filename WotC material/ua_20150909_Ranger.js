@@ -6,7 +6,7 @@
 //
 // You will have to choose the ranger's animal spirit from the companion race drop-down list and add the Wisdom modifier bonus to attacks and saves manually.
 var iFileName = "ua_20150909_Ranger.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.0.8", 15);
 // This file adds the content from the Unearthed Arcana: Ranger article to MPMB's Character Record Sheet
 
 // Define the source

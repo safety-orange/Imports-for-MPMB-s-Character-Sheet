@@ -1,5 +1,5 @@
 var iFileName = "ps_20170705_Amonkhet.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds all material from the Plane Shift: Amonkhet article (https://dnd.wizards.com/articles/features/plane-shift-amonkhet) to MPMB's Character Record Sheet
 // This code contains contributions by /u/MILKB0T and /u/juju2569
 
@@ -645,7 +645,6 @@ CreatureList["cerodon"] = {
 	hd : [11, 12],
 	speed : "40 ft",
 	scores : [24, 9, 21, 3, 11, 6],
-	senses : "",
 	passivePerception : 10,
 	challengeRating : "6",
 	proficiencyBonus : 3,
@@ -684,7 +683,6 @@ CreatureList["hippopotamus"] = {
 	hd : [8, 12],
 	speed : "40 ft, swim 30 ft",
 	scores : [22, 9, 17, 3, 11, 6],
-	senses : "",
 	passivePerception : 10,
 	challengeRating : "4",
 	proficiencyBonus : 2,

@@ -1,5 +1,5 @@
 var iFileName = "ua_20191104_Class-Feature-Variants.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.0.1-beta", 15);
 // This file adds the content from the Unearthed Arcana: Class Feature Variants article to MPMB's Character Record Sheet
 
 // Define the source

@@ -1,5 +1,5 @@
 var iFileName = "pub_20200915_RotF.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds the content from the Icewind Dale: Rime of the Frostmaiden adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -51,7 +51,6 @@ CreatureList["awakened white moose"] = {
 	hd : [8, 10],
 	speed : "40 ft",
 	scores : [19, 11, 16, 10, 12, 6],
-	senses : "",
 	passivePerception : 11,
 	languages : "Druidic",
 	challengeRating : "3",
@@ -135,7 +134,6 @@ CreatureList["hare"] = {
 		"perception" : 2,
 		"stealth" : 5
 	},
-	senses : "",
 	passivePerception : 12,
 	challengeRating : "0",
 	proficiencyBonus : 2,
@@ -192,7 +190,6 @@ CreatureList["mountain goat"] = {
 	hd : [2, 8],
 	speed : "40 ft, climb 30 ft",
 	scores : [14, 12, 14, 2, 10, 5],
-	senses : "",
 	passivePerception : 10,
 	challengeRating : "1/8",
 	proficiencyBonus : 2,
@@ -311,7 +308,6 @@ CreatureList["walrus"] = {
 	hd : [3, 10],
 	speed : "20 ft, swim 40 ft",
 	scores : [15, 9, 14, 3, 11, 4],
-	senses : "",
 	passivePerception : 10,
 	challengeRating : "1/4",
 	proficiencyBonus : 2,
@@ -381,7 +377,6 @@ CreatureList["demos magen"] = {
 	hd : [6, 8],
 	speed : "30 ft",
 	scores : [14, 14, 18, 10, 10, 7],
-	senses : "",
 	damage_immunities : "poison",
 	condition_immunities : "charmed, exhaustion, frightened, paralyzed, poisoned",
 	passivePerception : 10,
@@ -433,7 +428,6 @@ CreatureList["galvan magen"] = {
 	hd : [8, 8],
 	speed : "30 ft, fly 30 ft (hover)",
 	scores : [10, 18, 18, 12, 10, 7],
-	senses : "",
 	damage_immunities : "lightning, poison",
 	condition_immunities : "charmed, exhaustion, frightened, paralyzed, poisoned",
 	passivePerception : 10,
@@ -491,7 +485,6 @@ CreatureList["hypnos magen"] = {
 	hd : [4, 8],
 	speed : "30 ft",
 	scores : [10, 14, 18, 14, 10, 7],
-	senses : "",
 	damage_immunities : "poison",
 	condition_immunities : "charmed, exhaustion, frightened, paralyzed, poisoned",
 	passivePerception : 10,
@@ -529,6 +522,73 @@ CreatureList["hypnos magen"] = {
 };
 
 // Magic Items
+MagicItemsList["orc stone"] = { // from Appendix B: Character Secrets
+	name : "Orc Stone",
+	source : [["RotF", 264]],
+	type : "wondrous item",
+	rarity : "uncommon",
+	attunement : true,
+	prerequisite : "Requires attunement by its recipient",
+	description : "This stone was given to me by an orc whose life I saved. As an action, I can use it to summon an orc warrior spirit within 30 ft. The spirit disappears after 10 minutes or when reduced to 0 HP, understands any language I speak, and obeys my commands. After the stone is used three times, it turns to dust.",
+	descriptionFull : "I saved the life of an orc, who gave me a stone with the symbol of the Many-Arrows tribe (a humanoid skull pierced by three arrows) carved into it. The stone is an uncommon magic item that requires attunement, and only I can attune to it."+
+	"\n   As an action, I can use the stone to summon the spirit of an orc warrior, which appears within 30 feet of me. The spirit uses the orc war chief stat block in the Monster Manual and disappears after 10 minutes or when reduced to 0 hit points. The spirit understands any language I speak and obeys my commands."+
+	"\n   After the stone is used three times, it turns to dust.",
+	usages : 3,
+	recovery : "Never",
+	creaturesAdd : [["Orc Stone Spirit", true]],
+	creatureOptions : [{
+		name : "Orc Stone Spirit",
+		source : [["MM", 246], ["RotF", 264]],
+		size : 3,
+		type : "Humanoid",
+		alignment : "Chaotic Evil",
+		ac : 16,
+		hp : 93,
+		hd : [11, 8],
+		speed : "30 ft",
+		scores : [18, 12, 18, 11, 11, 16],
+		skills : {
+			"intimidation" : 5,
+		},
+		languages: "Understands any language its summoner speaks",
+		senses : "Darkvision 60 ft",
+		passivePerception : 10,
+		challengeRating : "4",
+		proficiencyBonus : 2,
+		attacksAction : 2,
+		attacks : [{
+			name : "Greataxe",
+			ability : 1,
+			damage : ['1d12+1', 8, "slashing"],
+			range : "Melee",
+			description : "Heavy, two-handed; Two attacks as an action",
+		}, {
+			name : "Spear",
+			ability : 1,
+			damage : ['1d6+1', 8, "piercing"],
+			range : "Melee, 20/60 ft",
+			description : "Thrown, versatile (1d8); Two attacks as an action",
+		}],
+		features : [{
+			name : "Gruumsh's Fury",
+			description : "The orc deals an extra 1d8 damage when it hits with a weapon attack (included in the attacks)."
+		}, {
+			name : "Orc Stone",
+			description : "Summoned by an Orc Stone, the orc spirit appears within 30 ft and disappears after 10 minutes or when reduced to 0 hit points. It obeys the command of its summoner."
+		}],
+		actions : [{
+			name : "Multiattack",
+			description : "As an action, the orc makes two attacks with its greataxe or its spear."
+		}, {
+			name : "Aggressive",
+			description : "As a bonus action, the orc can move up to its speed toward a hostile creature that it can see."
+		}, {
+			name : "Battle Cry (1/Day)",
+			description : "As an action, the orc can utter a Battle Cry. Each creature of the orc's choice that is within 30 ft of it, can hear it, and not already affected by Battle Cry gain advantage on attack rolls until the start of the orc's next turn. The orc can then make one attack as a bonus action."
+		}],
+		header : "Summoned",
+	}],
+};
 MagicItemsList["abracadabrus"] = { // contains contributions by BraabHimself
 	name : "Abracadabrus",
 	source : [["RotF", 314]],

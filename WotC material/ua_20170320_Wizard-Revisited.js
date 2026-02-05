@@ -1,5 +1,5 @@
 var iFileName = "ua_20170320_Wizard-Revisited.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.0.8", 15);
 // This file adds the content from the Unearthed Arcana: Wizard Revisited article to MPMB's Character Record Sheet
 
 // Define the source

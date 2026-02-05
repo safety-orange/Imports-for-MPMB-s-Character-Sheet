@@ -1,5 +1,5 @@
 var iFileName = "ua_20170417_Feats-for-Skills.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds the content from the Unearthed Arcana: Feats for Skills article to MPMB's Character Record Sheet
 
 // Define the source
@@ -42,7 +42,6 @@ FeatsList["arcanist-ua"] = {
 		spellcastingAbility : 4,
 		spells : ["prestidigitation"],
 		selection : ["prestidigitation"],
-		firstCol : "atwill"
 	}, {
 		name : "Arcanist (1x long rest)",
 		spells : ["detect magic"],
@@ -121,7 +120,6 @@ FeatsList["naturalist-ua"] = {
 		spellcastingAbility : 4,
 		spells : ["druidcraft"],
 		selection : ["druidcraft"],
-		firstCol : "atwill"
 	}, {
 		name : "Naturalist (1x long rest)",
 		spells : ["detect poison and disease"],
@@ -198,7 +196,6 @@ FeatsList["theologian-ua"] = {
 		spellcastingAbility : 4,
 		spells : ["thaumaturgy"],
 		selection : ["thaumaturgy"],
-		firstCol : "atwill"
 	}, {
 		name : "Theologian (1x long rest)",
 		spells : ["detect evil and good"],

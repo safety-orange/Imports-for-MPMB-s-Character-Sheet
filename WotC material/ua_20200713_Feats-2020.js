@@ -1,5 +1,5 @@
 var iFileName = "ua_20200713_Feats-2020.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.0.5-beta", 15);
 // This file adds the content from the Unearthed Arcana 2020: Feats article to MPMB's Character Record Sheet
 // All content in this file contains contributions by AelarTheElfRogue
 
@@ -25,12 +25,11 @@ if (!SourceList.T) {
 			spellcastingAbility : 4,
 			"class" : 'artificer',
 			level : [0, 0],
-			atwill : true
 		}, {
 			name : "1st-level artificer spell",
 			"class" : 'artificer',
 			level : [1, 1],
-			oncelr : true
+			firstCol : "oncelr",
 		}],
 		toolProfs : [ ["Artisan's tools", 1] ]
 	};

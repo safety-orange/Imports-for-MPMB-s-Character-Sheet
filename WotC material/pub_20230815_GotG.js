@@ -1,5 +1,5 @@
 var iFileName = "pub_20230815_GotG.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds the player-material from Bigby Presents: Glory of the Giants to MPMB's Character Record Sheet
 
 SourceList["GotG"] = {
@@ -26,7 +26,6 @@ AddSubClass("barbarian", "giant", {
 			spellcastingBonus : [{
 				name : "Giant Power",
 				spells : ["druidcraft", "thaumaturgy"],
-				firstCol : "atwill"
 			}]
 		},
 		"subclassfeature3.1" : {
@@ -719,7 +718,6 @@ CreatureList["titanothere"] = {
 	hd : [13, 12],
 	speed : "50 ft",
 	scores : [25, 10, 19, 2, 12, 6],
-	senses : "",
 	passivePerception : 11,
 	challengeRating : "5",
 	proficiencyBonus : 3,

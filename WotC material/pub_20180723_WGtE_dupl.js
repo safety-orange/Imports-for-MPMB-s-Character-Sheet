@@ -1,5 +1,5 @@
 var iFileName = "pub_20180723_WGtE.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds the content from Wayfinder's Guide to Eberron to MPMB's Character Record Sheet
 // Be aware that this script is for the version from 9th of October 2018, not the original version, 
 // nor the updated version of November 2019 that uses the identical rules to Eberron: Rising from the Last War.
@@ -526,7 +526,6 @@ CreatureList["clawfoot raptor"] = {
 		"perception" : 5,
 		"stealth" : 5
 	},
-	senses : "",
 	passivePerception : 15,
 	challengeRating : "1/2",
 	proficiencyBonus : 2,

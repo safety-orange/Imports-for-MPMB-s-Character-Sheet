@@ -1,5 +1,5 @@
 var iFileName = "ua_20170213_Warlock-and-Wizard.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds the content from the Unearthed Arcana: Warlock and Wizard article to MPMB's Character Record Sheet
 
 // Define the source
@@ -137,7 +137,6 @@ AddSubClass("warlock", "the raven queen-ua", { // Still valid 2021-09-21
 				skills : {
 					"perception" : 3
 				},
-				senses : "",
 				passivePerception : 13,
 				challengeRating : "0",
 				proficiencyBonus : 2,

@@ -1,5 +1,5 @@
 var iFileName = "pub_20211019_FToD.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds all the player-material from Fizban's Treasury of Dragons to MPMB's Character Record Sheet
 
 // Define the source
@@ -339,7 +339,6 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 				name : "Draconic Gift",
 				spells : ["thaumaturgy"],
 				selection : ["thaumaturgy"],
-				firstCol : "atwill"
 			}]
 		},
 		"subclassfeature3.1" : {
@@ -978,7 +977,7 @@ MagicItemsList["emerald pen"] = {
 		name : "At will",
 		spells : ["illusory script"],
 		selection : ["illusory script"],
-		firstCol : "atwill"
+		firstCol : "atwill",
 	}],
 	spellChanges : {
 		"illusory script" : {

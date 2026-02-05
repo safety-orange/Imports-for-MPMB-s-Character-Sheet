@@ -1,5 +1,5 @@
 var iFileName = "pub_20161115_VGtM.js";
-RequiredSheetVersion("13.2.3");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds all the player-material from Volo's Guide to Monsters to MPMB's Character Record Sheet
 
 // Define the source
@@ -627,7 +627,6 @@ CreatureList["aurochs"] = {
 	hd : [4, 10], //[#, die]
 	speed : "50 ft",
 	scores : [20, 10, 19, 2, 12, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	senses : "",
 	passivePerception : 11,
 	challengeRating : "2",
 	proficiencyBonus : 2,
@@ -656,7 +655,6 @@ CreatureList["cow"] = {
 	hd : [2, 10], //[#, die]
 	speed : "30 ft",
 	scores : [18, 10, 12, 2, 10, 4], //[Str, Dex, Con, Int, Wis, Cha]
-	senses : "",
 	passivePerception : 10,
 	challengeRating : "1/4",
 	proficiencyBonus : 2,
@@ -685,7 +683,6 @@ CreatureList["ox"] = {
 	hd : [2, 10], //[#, die]
 	speed : "30 ft",
 	scores : [18, 10, 12, 2, 10, 4], //[Str, Dex, Con, Int, Wis, Cha]
-	senses : "",
 	passivePerception : 10,
 	challengeRating : "1/4",
 	proficiencyBonus : 2,
@@ -882,7 +879,6 @@ CreatureList["brontosaurus"] = {
 	speed : "30 ft",
 	scores : [21, 9, 17, 2, 10, 7], //[Str, Dex, Con, Int, Wis, Cha]
 	saves : ["", "", 6, "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-	senses : "",
 	passivePerception : 10,
 	challengeRating : "5",
 	proficiencyBonus : 3,
@@ -916,7 +912,6 @@ CreatureList["deinonychus"] = {
 	skills : {
 		"perception" : 3
 	},
-	senses : "",
 	passivePerception : 13,
 	challengeRating : "1",
 	proficiencyBonus : 2,
@@ -957,7 +952,6 @@ CreatureList["dimetrodon"] = {
 	skills : {
 		"perception" : 2
 	},
-	senses : "",
 	passivePerception : 12,
 	challengeRating : "1/4",
 	proficiencyBonus : 2,
@@ -985,7 +979,6 @@ CreatureList["hadrosaurus"] = {
 	skills : {
 		"perception" : 2
 	},
-	senses : "",
 	passivePerception : 12,
 	challengeRating : "1/4",
 	proficiencyBonus : 2,
@@ -1013,7 +1006,6 @@ CreatureList["quetzalcoatlus"] = {
 	skills : {
 		"perception" : 2
 	},
-	senses : "",
 	passivePerception : 12,
 	challengeRating : "2",
 	proficiencyBonus : 2,
@@ -1045,7 +1037,6 @@ CreatureList["stegosaurus"] = {
 	hd : [8, 12], //[#, die]
 	speed : "40 ft",
 	scores : [20, 9, 17, 2, 11, 5], //[Str, Dex, Con, Int, Wis, Cha]
-	senses : "",
 	passivePerception : 10,
 	challengeRating : "4",
 	proficiencyBonus : 2,
@@ -1073,7 +1064,6 @@ CreatureList["velociraptor"] = {
 	skills : {
 		"perception" : 3
 	},
-	senses : "",
 	passivePerception : 13,
 	challengeRating : "1/4",
 	proficiencyBonus : 2,

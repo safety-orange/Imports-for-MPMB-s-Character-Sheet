@@ -1,5 +1,5 @@
 var iFileName = "pub_20181120_GGtR.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds all material from the Guildmasters' Guide to Ravnica to MPMB's Character Record Sheet
 
 // Define the source
@@ -1329,6 +1329,57 @@ if (!SourceList.X) {
 } // dupl_end
 
 // Magic Items
+var GGtR_GuildKeyrune = {
+	featuresArtificial: {
+		name: "Artificial",
+		description: "The [THIS] is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the [THIS] takes the Dodge action and moves to avoid danger.",
+	},
+	notesSummon: {
+		name: "Summon",
+		description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a [TYPE]. It reverts back to a keyrune after [DURATION], if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.",
+	},
+	createCreatureOptions: function(type, nameThis, duration, aTraits, aActions, aFeatures, aNotes, fCallback) {
+		if (!CreatureList[type]) return false;
+		var obj = newObj(CreatureList[type]);
+		obj.name = "Keyrune " + obj.name;
+		if (nameThis) {
+			if (isArray(nameThis)) {
+				obj.nameThis = nameThis[0];
+				type = nameThis[0];
+				obj.name = nameThis[1];
+			} else {
+				obj.nameThis = nameThis;
+			}
+		}
+		delete obj.nameAlt;
+		obj.source.push(["G", 177]);
+		obj.header = "Keyrune";
+		obj.languages = "Understands the keyrune owner's languages";
+		// traits
+		if (aTraits) {
+			if (!obj.traits) obj.traits = [];
+			obj.traits = obj.traits.concat(aTraits);
+		}
+		// actions
+		if (aActions) {
+			if (!obj.actions) obj.actions = [];
+			obj.actions = obj.actions.concat(aTraits);
+		}
+		// features
+		if (!obj.features) obj.features = [];
+		obj.features.push(GGtR_GuildKeyrune.featuresArtificial);
+		if (aFeatures) obj.features = obj.features.concat(aFeatures);
+		// notes
+		if (!obj.notes) obj.notes = [];
+		obj.notes.push({
+			name: GGtR_GuildKeyrune.notesSummon.name,
+			description: GGtR_GuildKeyrune.notesSummon.description.replace("[TYPE]", type).replace("[DURATION]", duration),
+		});
+		if (aNotes) obj.notes = obj.notes.concat(aNotes);
+		if (fCallback) fCallback(obj);
+		return [obj];
+	},
+}
 MagicItemsList["guild keyrune"] = {
 	name : "Guild Keyrune",
 	source : [["G", 177]],
@@ -1349,7 +1400,16 @@ MagicItemsList["guild keyrune"] = {
 			return (/azorius/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
 		},
 		usages : 1,
-		recovery : "36 h"
+		recovery : "36 h",
+		action: [["action", " (Shared Vision)"]],
+		creaturesAdd: [["Keyrune Giant Eagle", true]],
+		creatureOptions: GGtR_GuildKeyrune.createCreatureOptions("giant eagle", "eagle", "1 hour", [{
+			name: "Telepathy",
+			description: "While the eagle is within 1 mile of its owner, they can communicate telepathically.",
+		}, {
+			name: "Shared Vision",
+			description: "As an action, the owner can see through the eagle's eyes and hear what it hears until the start of their next turn, and gain the benefit of its keen sight. During this time, the owner is deaf and blind with regard to their own senses.",
+		}]),
 	},
 	"boros" : {
 		rarity : "rare",
@@ -1361,7 +1421,65 @@ MagicItemsList["guild keyrune"] = {
 			return (/boros/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
 		},
 		usages : 1,
-		recovery : "36 h"
+		recovery : "36 h",
+		creaturesAdd : [["Keyrune Veteran", true]],
+		creatureOptions : [{
+			name : "Keyrune Veteran",
+			source : [["SRD", 403], ["MM", 350], ["G", 177]],
+			size : 3,
+			type : "Humanoid",
+			alignment : "Any",
+			ac : 17,
+			hp : 58,
+			hd : [9, 8],
+			speed : "30 ft",
+			scores : [16, 13, 14, 10, 11, 10],
+			skills : {
+				"athletics" : 5,
+				"perception" : 2,
+			},
+			languages: "Understands the keyrune owner's languages",
+			passivePerception : 12,
+			challengeRating : "3",
+			proficiencyBonus : 2,
+			attacksAction : 2,
+			attacks : [{
+				name : "Longsword",
+				ability : 1,
+				damage : [1, 8, "slashing"],
+				range : "Melee",
+				description : "Versatile (1d10); Two attacks as an action",
+			}, {
+				name : "Shortsword",
+				ability : 1,
+				damage : [1, 6, "piercing"],
+				range : "Melee",
+				description : "Finesse, light",
+			}, {
+				name : "Heavy Crossbow",
+				ability : 2,
+				damage : [1, 12, "piercing"],
+				range : "100/400 ft",
+				description : "Ammunition, heavy, loading, two-handed",
+			}],
+			features : [{
+				name: "Artificial",
+				description: "The veteran is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the veteran takes the Dodge action and moves to avoid danger. Anyone who talks with the transformed keyrune or examines it closely can easily recognize that it is an artificial human.",
+			}],
+			actions : [{
+				name : "Multiattack",
+				description : "As an action, the veteran makes two longsword attacks. If it has a shortsword drawn, it can also make a shortsword attack.",
+			}],
+			traits : [{
+				name : "Tactician",
+				description : "In addition to fighting on its owner's behalf, the veteran cheerfully offers tactical advice, which is usually sound.",
+			}],
+			notes : [{
+				name: "Summon",
+				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a veteran. It reverts back to a keyrune after 8 hours, if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.",
+			}],
+			header : "Keyrune",
+		}],
 	},
 	"dimir" : {
 		rarity : "very rare",
@@ -1373,7 +1491,72 @@ MagicItemsList["guild keyrune"] = {
 			return (/dimir/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
 		},
 		usages : 1,
-		recovery : "36 h"
+		recovery : "36 h",
+		creaturesAdd : [["Keyrune Intellect Devourer", true]],
+		creatureOptions : [{
+			name : "Keyrune Intellect Devourer",
+			source : [["MM", 191], ["G", 177]],
+			size : 5,
+			type : "Aberration",
+			alignment : "Lawful Evil",
+			ac : 12,
+			hp : 21,
+			hd : [6, 4],
+			speed : "40 ft",
+			scores : [6, 14, 13, 12, 11, 10],
+			skills : {
+				"perception" : 2,
+				"stealth" : 4,
+			},
+			damage_resistances : "bludgeoning, piercing, and slashing from nonmagical weapons",
+			condition_immunities : "blinded",
+			languages: "Understands the keyrune owner's languages, Telepathy 60 ft",
+			senses: "Blindsight 60 ft (blind beyond this radius), Detect Intelligence",
+			passivePerception : 12,
+			challengeRating : "2",
+			proficiencyBonus : 2,
+			attacksAction : 2,
+			attacks : [{
+				name : "Claws",
+				ability : 2,
+				damage : [2, 4, "slashing"],
+				range : "Melee (5 ft)",
+				description : "Claws and Devour Intellect as an action",
+			}, {
+				name : "Devour Intellect",
+				ability : 2,
+				damage : [2, 10, "psychic"],
+				range : "10 ft",
+				description : "Int save to avoid; Failure: if target's Int score \u2264 3d6, it gains Int 0 and is stunned while at Int 0",
+				dc : true,
+				abilitytodamage : false,
+			}],
+			features : [{
+				name: "Detect Intelligence",
+				description: "The devourer magically senses the location of creatures within 300 ft that have an Int score of 3 or higher, regardless of barriers.",
+			}, {
+				name: "Artificial",
+				description: "The devourer is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the devourer takes the Dodge action and moves to avoid danger.",
+			}],
+			actions : [{
+				name : "Multiattack",
+				description : "As an action, the devourer makes one claws attack and uses Devour Intellect.",
+			}, {
+				name : "Devour Intellect",
+				description : "As an action, the devourer targets one creature with a brain that it can see within 10 ft. The target must make an Intelligence save against this magic or take 2d10 psychic damage and if its Intelligence score is lower or equal to a roll of 3d6, that score is reduced to 0 and the target is stunned while its Int is 0.",
+			}, {
+				name : "Body Thief",
+				description : "As an action, the devourer can initiate an Int contest with an incapacitated humanoid within 5 ft. If it wins, the devourer magically consumes the target's brain, teleports into its skull, and takes control of its body. While inside, the intellect has total cover. The devourer retains its Int, Wis, and Cha, as well as its Telepathy and traits. It otherwise adopts the target's statistics and knows everything it knew, including spells and languages.",
+			}],
+			notes : [{
+				name : "Body Thief (continued)",
+				description : "If the host body dies, the intellect devourer must leave it. The intellect devourer is also forced out if the target regains its devoured brain by means of Wish. By spending 5 ft of its movement, the intellect devourer can voluntarily leave the body, teleporting to the nearest unoccupied space within 5 ft. The body then dies, unless its brain is restored within 1 round. Protection from Evil and Good prevents the intellect devourer from consuming a brain, and when cast on a controlled body, it drives the intellect devourer out.",
+			}, {
+				name: "Summon",
+				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a veteran. It reverts back to a keyrune after 24 hours, if it drops to 0 HP, if the keyrune's owner uses an action to touch it and speak the command word, or if it finishes it mission.\n   It pursues only a single mission given by its owner. This is usually an assignment to take over someone's body, either to impersonate that person for a brief time or to extract secrets from their mind. When the mission is complete, the creature returns to its owner, reports its success, and reverts to its keyrune form.",
+			}],
+			header : "Keyrune",
+		}],
 	},
 	"golgari" : {
 		rarity : "very rare",
@@ -1385,7 +1568,12 @@ MagicItemsList["guild keyrune"] = {
 			return (/golgari/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
 		},
 		usages : 1,
-		recovery : "36 h"
+		recovery : "36 h",
+		creaturesAdd: [["Keyrune Giant Scorpion", true]],
+		creatureOptions: GGtR_GuildKeyrune.createCreatureOptions("giant scorpion", "scorpion", "6 hours", [{
+			name: "Telepathy",
+			description: "While the scorpion is within 60 ft of its owner, they can communicate telepathically.",
+		}], function(obj) { obj.scores[3] = 4; }),
 	},
 	"gruul" : {
 		type : "wondrous item",
@@ -1398,7 +1586,9 @@ MagicItemsList["guild keyrune"] = {
 			return (/gruul/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
 		},
 		usages : 1,
-		recovery : "36 h"
+		recovery : "36 h",
+		creaturesAdd: [["Keyrune Ceratok", true]],
+		creatureOptions: GGtR_GuildKeyrune.createCreatureOptions("rhinoceros", ["ceratok", "Keyrune Ceratok"], "1 hour"),
 	},
 	"izzet" : {
 		rarity : "rare",
@@ -1410,7 +1600,67 @@ MagicItemsList["guild keyrune"] = {
 			return (/izzet/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
 		},
 		usages : 1,
-		recovery : "36 h"
+		recovery : "36 h",
+		creaturesAdd: [["Keyrune Galvanice Weird", true]],
+		creatureOptions: [{
+			name : "Keyrune Galvanice Weird",
+			source : [["G", 209]],
+			size : 3,
+			type : "Elemental",
+			alignment : "Chaotic Neutral",
+			ac : 12,
+			hp : 22,
+			hd : [3, 8],
+			speed : "30 ft",
+			scores : [14, 10, 17, 3, 10, 5],
+			damage_resistances : "cold, lightning; bludgeoning, piercing, and slashing from nonmagical attacks",
+			damage_immunities : "poison",
+			condition_immunities : "exhaustion, grappled, paralyzed, petrified, poisoned, prone, restrained, unconscious",
+			senses : "Darkvision 60 ft",
+			passivePerception : 10,
+			languages: "Understands the keyrune owner's languages",
+			challengeRating : "1",
+			proficiencyBonus : 2,
+			attacksAction : 1,
+			attacks : [{
+				name : "Slam",
+				ability : 1,
+				damage : [1, 6, "bludgeoning"],
+				range : "Melee (5 ft)",
+				description : "+2d4 Lightning damage and target must make Con save, see below",
+				tooltip : "If the target is a creature, it must succeed on a DC 13 Constitution saving throw or lose the ability to use reactions until the start of the weird's next turn.",
+			}, {
+				name : "With Slam Hit",
+				ability : 3,
+				damage : ["Con save", "", "No Reactions"],
+				range : "Creature hit",
+				description : "If failed, target can't use reactions until the start of the weird's next turn",
+				dc : true,
+				abilitytodamage : false,
+			}, {
+				name : "Death Burst",
+				ability : 3,
+				damage : [2, 6, "lightning"],
+				range : "10-ft radius",
+				description : "Only when the weird dies; Dex save to halve damage",
+				dc : true,
+				abilitytodamage : false,
+				tooltip : "When the weird dies, it explodes in a burst of ice and lightning. Each creature within 10 ft of the exploding weird must make a DC 13 Dexterity saving throw, taking 2d6 lightning damage on a failed save, or half as much damage on a successful one.",
+			}],
+			traits : [{
+				name : "Death Burst",
+				description : "When the weird dies, it explodes in a burst of ice and lightning. Each creature within 10 ft of the exploding weird must make a Dexterity saving throw, taking 2d6 lightning damage on a failed save, or half as much damage on a successful one.",
+			}],
+			features : [{
+				name: "Artificial",
+				description: "The weird is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the weird takes the Dodge action and moves to avoid danger.",
+			}],
+			notes : [{
+				name: "Summon",
+				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a galvanice weird. It reverts back to a keyrune after 3 hours, if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.\n   In this form, it will serve as a bodyguard, lift and carry things, act as a test subject for experiments, or aid its owner in any other way that its capabilities allow.",
+			}],
+			header : "Keyrune",
+		}],
 	},
 	"orzhov" : {
 		rarity : "rare",
@@ -1422,7 +1672,53 @@ MagicItemsList["guild keyrune"] = {
 			return (/orzhov/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
 		},
 		usages : 1,
-		recovery : "36 h"
+		recovery : "36 h",
+		creaturesAdd: [["Keyrune Winged Thrull", true]],
+		creatureOptions: [{
+			name : "Keyrune Winged Thrull",
+			source : [["G", 221]],
+			size : 4,
+			type : "Construct",
+			alignment : "Unaligned",
+			ac : 12,
+			hp : 31,
+			hd : [7, 6],
+			speed : "30 ft, fly 30 ft",
+			scores : [9, 15, 12, 8, 9, 8],
+			saves : ["", 4, "", "", "", ""],
+			damage_immunities : "poison",
+			condition_immunities : "exhaustion, poisoned",
+			senses : "Darkvision 60 ft",
+			passivePerception : 9,
+			languages: "Understands the keyrune owner's languages",
+			challengeRating : "1/2",
+			proficiencyBonus : 2,
+			attacksAction : 1,
+			attacks : [{
+				name : "Claws",
+				ability : 2,
+				damage : [2, 4, "slashing"],
+				range : "Melee (5 ft)",
+			}, {
+				name : "Rock",
+				ability : 2,
+				damage : [1, 6, "bludgeoning"],
+				range : "20/60 ft",
+			}],
+			actions : [{
+				name : "Self-Sacrifice",
+				description : "As a reaction when a creature within 5 ft of the thrull is hit by an attack, the thrull can swap places with that creature and be hit by the attack instead.",
+			}],
+			features : [{
+				name: "Artificial",
+				description: "The thrull is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the thrull takes the Dodge action and moves to avoid danger.",
+			}],
+			notes : [{
+				name: "Summon",
+				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a winged thrull. It reverts back to a keyrune after 2 hours, if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.\n   If the onwer doesn't come from an Orzhov oligarch family, the thrull serves them grudgingly, clownishly aping their movements and mannerisms while carrying out their orders.",
+			}],
+			header : "Keyrune",
+		}],
 	},
 	"rakdos" : {
 		rarity : "uncommon",
@@ -1434,7 +1730,80 @@ MagicItemsList["guild keyrune"] = {
 			return (/rakdos/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
 		},
 		usages : 1,
-		recovery : "36 h"
+		recovery : "36 h",
+		creaturesAdd: [["Keyrune Cackler", true]],
+		creatureOptions: [{
+			name : "Keyrune Cackler",
+			source : [["G", 195]],
+			size : 4,
+			type : "Fiend",
+			subtype : "Demon",
+			alignment : "Chaotic Evil",
+			ac : 15,
+			hp : 10,
+			hd : [3, 6],
+			speed : "30 ft",
+			scores : [9, 16, 11, 11, 7, 12],
+			skills : {
+				"perception" : 2,
+				"stealth" : 4,
+			},
+			damage_resistances : "cold, fire, lightning; bludgeoning, piercing, and slashing from nonmagical attacks",
+			damage_immunities : "poison",
+			condition_immunities : "poisoned",
+			senses : "Darkvision 120 ft",
+			passivePerception : 9,
+			languages: "Understands the keyrune owner's languages",
+			challengeRating : "1/2",
+			proficiencyBonus : 2,
+			attacksAction : 1,
+			attacks : [{
+				name : "Bite",
+				ability : 2,
+				damage : [1, 4, "piercing"],
+				range : "Melee (5 ft)",
+			}, {
+				name : "Spiked Chain",
+				ability : 2,
+				damage : [1, 6, "slashing"],
+				range : "Melee (10 ft)",
+			}, {
+				name : "Last Laugh",
+				ability : 6,
+				damage : [1, 4, "psychic"],
+				range : "10-ft radius",
+				description : "Only when the cackler dies; Wis save to avoid",
+				dc : true,
+				abilitytodamage : false,
+				tooltip : "When the cackler dies, it releases a dying laugh that scars the minds of other nearby creatures. Each creature within 10 ft of the cackler must succeed on a DC 11 Wisdom saving throw or take 1d4 psychic damage.",
+			}, {
+				name : "Fire Bolt",
+				ability : 6,
+				damage : [1, 10, "fire"],
+				range : "120 ft",
+				description : "Unattended flammable objects ignite",
+				abilitytodamage : false,
+			}],
+			traits : [{
+				name : "Innate Spellcasting",
+				description : "The cackler's innate spellcasting ability is Charisma (spell save DC 11, +3 to hit with spell attacks). The cackler can innately cast, without requiring material components, Fire Bolt (at will) and Tasha's Hideous Laughter (1/day).",
+			}, {
+				name : "Last Laugh",
+				description : "When the cackler dies, it releases a dying laugh that scars the minds of other nearby creatures. Each creature within 10 ft of the cackler must succeed on a Wisdom saving throw or take 1d4 psychic damage.",
+			}, {
+				name : "Mimicry",
+				description : "The cackler can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful DC 11 Wisdom (Insight) check.",
+			}],
+			features : [{
+				name: "Artificial",
+				description: "The cackler is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the cackler takes the Dodge action and moves to avoid danger.",
+			}],
+			notes : [{
+				name: "Summon",
+				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a cackler. It reverts back to a keyrune after 1 hour, if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.",
+			}],
+			header : "Keyrune",
+		}],
 	},
 	"selesnya" : {
 		rarity : "rare",
@@ -1446,7 +1815,15 @@ MagicItemsList["guild keyrune"] = {
 			return (/selesnya/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
 		},
 		usages : 1,
-		recovery : "36 h"
+		recovery : "36 h",
+		creaturesAdd: [["Keyrune Dire Wolf", true]],
+		creatureOptions: GGtR_GuildKeyrune.createCreatureOptions("dire wolf", "wolf", "8 hours", [{
+			name: "Telepathy",
+			description: "While the wolf is within 1 mile of its owner, they can communicate telepathically.",
+		}], function(obj) {
+			obj.scores[3] = 6;
+			obj.languages = "Understands the keyrune owner's languages, Elvish, and Sylvan, but can't speak";
+		}),
 	},
 	"simic" : {
 		rarity : "uncommon",
@@ -1458,7 +1835,61 @@ MagicItemsList["guild keyrune"] = {
 			return (/simic/i).test(What("Background") + What("Background Extra") + What("Background_Faction.Text"));
 		},
 		usages : 1,
-		recovery : "36 h"
+		recovery : "36 h",
+		creaturesAdd: [["Keyrune Krasis", true]],
+		creatureOptions: [{
+			name : "Keyrune Krasis",
+			source : [["G", 210]],
+			size : 3,
+			type : "Monstrosity",
+			alignment : "Unaligned",
+			ac : 15,
+			hp : 19,
+			hd : [3, 8],
+			speed : "30 ft",
+			scores : [16, 15, 14, 2, 13, 8],
+			passivePerception : 11,
+			languages: "Understands the keyrune owner's languages",
+			challengeRating : "1",
+			proficiencyBonus : 2,
+			attacksAction : 2,
+			attacks : [{
+				name : "Bite",
+				ability : 1,
+				damage : [1, 10, "piercing"],
+				range : "Melee (5 ft)",
+				description : "One bite and one claws attack as an Attack action",
+			}, {
+				name : "Claws",
+				ability : 1,
+				damage : [1, 8, "slashing"],
+				range : "Melee (5 ft)",
+				description : "One claws and one bite attack as an Attack action; Target is grappled (escape DC 13)",
+			}],
+			actions : [{
+				name : "Multiattack",
+				description : "As an action, the krasis makes two attacks: one with its bite and one with its claws.",
+			}],
+			traits : [{
+				name : "Amphibious",
+				description : "The krasis can breathe air and water.",
+			}, {
+				name : "Grabber",
+				description : "When the krasis hits a creature with its claws, the target is grappled (escape DC 13) by a specialized grasping appendage on the krasis. It can have only one creature grappled in this way at a time.",
+			}, {
+				name : "Stabilizing Legs",
+				description : "The krasis has several crablike legs. As a result, it has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.",
+			}],
+			features : [{
+				name: "Artificial",
+				description: "The krasis is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the krasis takes the Dodge action and moves to avoid danger.",
+			}],
+			notes : [{
+				name: "Summon",
+				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a category 1 krasis that has the Grabber and Stabilizing Legs adaptations. It reverts back to a keyrune after 5 hours, if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.",
+			}],
+			header : "Keyrune",
+		}],
 	}
 }
 MagicItemsList["guild signet"] = {

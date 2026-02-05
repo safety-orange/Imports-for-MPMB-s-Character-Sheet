@@ -1,5 +1,5 @@
 var iFileName = "pub_20140818_PHB.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds all material from the Player's Handbook to MPMB's Character Record Sheet
 
 // Define the source
@@ -68,7 +68,6 @@ RaceList["dark elf"] = {
 		name : "Drow Magic (level 1)",
 		spells : ["dancing lights"],
 		selection : ["dancing lights"],
-		firstCol : "atwill"
 	}],
 	features : {
 		"faerie fire" : {
@@ -150,7 +149,6 @@ RaceList["forest gnome"] = {
 		name : "Natural Illusionist",
 		spells : ["minor illusion"],
 		selection : ["minor illusion"],
-		firstCol : "atwill"
 	}]
 };
 RaceList["stout halfling"] = {
@@ -778,7 +776,7 @@ AddSubClass("druid", "circle of the moon", {
 				name : "Thousand Forms",
 				spells : ["alter self"],
 				selection : ["alter self"],
-				firstCol : "atwill"
+				firstCol : "atwill",
 			}]
 		}
 	}
@@ -1326,7 +1324,6 @@ AddSubClass("monk", "way of shadow", {
 				name : "Shadow Arts",
 				spells : ["minor illusion"],
 				selection : ["minor illusion"],
-				firstCol : "atwill"
 			}],
 			spellFirstColTitle : "Ki",
 			"shadow spells" : {
@@ -2158,43 +2155,56 @@ AddSubClass("wizard", "necromancy", {
 			name : "Necromancy Savant",
 			source : [["P", 118]],
 			minlevel : 2,
-			description : "\n   " + "I halve the gp and time needed to copy necromancy spells into my spellbook"
+			description: desc("I halve the gp and time needed to copy necromancy spells into my spellbook"),
 		},
 		"subclassfeature2.1" : {
 			name : "Grim Harvest",
 			source : [["P", 118]],
 			minlevel : 2,
-			description : "\n   " + "Once per turn, when I kill something with a 1st-level or higher spell, I regain hit points" + "\n   " + "The number of hit points regained is 2\xD7 the spell's level (or 3\xD7 with necromancy spells)" + "\n   " + "This doesn't occur for constructs/undead"
+			description: desc([
+				"Once per turn, when I kill something with a 1st-level or higher spell, I regain hit points",
+				"The number of hit points regained is 2\xD7 the spell's level (or 3\xD7 with necromancy spells)",
+				"This doesn't occur for constructs/undead",
+			]),
 		},
 		"subclassfeature6" : {
 			name : "Undead Thralls",
 			source : [["P", 119]],
 			minlevel : 6,
-			description : "\n   " + "I add Animate Dead to my spellbook and can have an additional target when casting it" + "\n   " + "Undead created by my necromancy spells have the following benefits:" + "\n   " + "They add my proficiency bonus to damage and my wizard level to their HP maximums",
+			description: desc([
+				"I add Animate Dead to my spellbook and can have an additional target when casting it",
+				"Undead created by my necromancy spells have the following benefits:",
+				"They add my proficiency bonus to damage and my wizard level to their HP maximums",
+			]),
 			spellcastingBonus : [{
 				name : "Undead Thralls",
 				spells : ["animate dead"],
-				selection : ["animate dead"]
+				selection : ["animate dead"],
 			}],
 			spellChanges : {
 				"animate dead" : {
 					description : "Turn corpses into 2+2/SL Skeletons or Zombies; control for 24h; bns a command within 60 ft",
-					changes : "My Undead Thralls class feature allows me to animate one more corpse than normal with Animate Dead."
-				}
-			}
+					changes : "My Undead Thralls class feature allows me to animate one more corpse than normal with Animate Dead.",
+				},
+			},
 		},
 		"subclassfeature10" : {
 			name : "Inured to Undead",
 			source : [["P", 119]],
 			minlevel : 10,
-			description : "\n   " + "I have resistance to necrotic damage and my hit point maximum can't be reduced",
+			description: desc("I have resistance to necrotic damage and my hit point maximum can't be reduced"),
 			dmgres : ["Necrotic"]
 		},
 		"subclassfeature14" : {
 			name : "Command Undead",
 			source : [["P", 11]],
 			minlevel : 14,
-			description : "\n   " + "As an action, an undead within 60 ft that I can see must make a Charisma save" + "\n   " + "If its Int is > 7, it has adv. on the save; If its Int is > 11, it repeats the save every hour" + "\n   " + "If failed, it becomes friendly to me and obeys my commands until I use this on another" + "\n   " + "On success, it becomes permanently immune to my further attempts",
+			description: desc([
+				"As an action, an undead within 60 ft that I can see must make a Charisma save",
+				"If its Int is > 7, it has adv. on the save; If its Int is > 11, it repeats the save every hour",
+				"If failed, it becomes friendly to me and obeys my commands until I use this on another",
+				"On success, it becomes permanently immune to my further attempts",
+			]),
 			action : [["action", ""]]
 		}
 	}
@@ -2266,6 +2276,52 @@ AddSubClass("wizard", "transmutation", {
 		}
 	}
 });
+
+// Companions
+CompanionList["undead_thrall"] = {
+	name: "Undead Thralls",
+	nameOrigin: "School of Necromancy 6",
+	nameMenu : "Undead Thrall (School of Necromancy feature)",
+	source: [["P", 119]],
+	includeCheck: function(sCrea, objCrea, iCreaCR, bIsAL) {
+		return /undead/i.test(objCrea.type);
+	},
+	attributesChange: function(sCrea, objCrea) {
+		objCrea.hp += classes.known.wizard ? classes.known.wizard.level : classes.totallevel;
+		if (!objCrea.attacks) return;
+		objCrea.attacks = objCrea.attacks.map(function(oAtk) {
+			if (oAtk.abilitytodamage !== false && !oAtk.dc) {
+				if (!oAtk.modifiers) {
+					oAtk.modifiers = ["", "oProf"];
+				} else {
+					oAtk.modifiers[1] += "+oProf";
+				}
+			}
+			return oAtk;
+		});
+	},
+	calcChanges: {
+		hp: function (totalHD, HDobj, prefix) {
+			if (classes.known.wizard) {
+				return [classes.known.wizard.level, "Undead Thralls (wizard level)"];
+			} else {
+				return [classes.totallevel, "Undead Thralls (character level)"];
+			}
+		},
+	},
+	notes: [{
+		name: "Undead I create with a necromancy spell",
+		description: "add my wizard level to their hit point maximum and add my proficiency bonus to their weapon damage rolls.",
+		joinString: " ",
+	}],
+	eval: function(prefix, lvl) {
+		// Set HP to use average value, so that the level bonus is automatically included
+		var sHPfld = prefix + "Comp.Use.HP.Max";
+		var aHPsets = How(sHPfld).split(",");
+		aHPsets[3] = "average";
+		AddTooltip(sHPfld, undefined, aHPsets.toString());
+	},
+};
 
 // Add the backgrounds that are not in the SRD
 BackgroundList["charlatan"] = {
@@ -3494,13 +3550,12 @@ FeatsList["magic initiate"] = {
 			spellcastingAbility : 6,
 			'class' : 'bard',
 			level : [0, 0],
-			firstCol : "atwill",
-			times : 2
+			times : 2,
 		}, {
 			name : "Bard 1st-level spell",
 			'class' : 'bard',
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr",
 		}]
 	},
 	"cleric" : {
@@ -3510,13 +3565,12 @@ FeatsList["magic initiate"] = {
 			spellcastingAbility : 5,
 			'class' : 'cleric',
 			level : [0, 0],
-			firstCol : "atwill",
-			times : 2
+			times : 2,
 		}, {
 			name : "Cleric 1st-level spell",
 			'class' : 'cleric',
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr",
 		}]
 	},
 	"druid" : {
@@ -3526,13 +3580,12 @@ FeatsList["magic initiate"] = {
 			spellcastingAbility : 5,
 			'class' : 'druid',
 			level : [0, 0],
-			firstCol : "atwill",
-			times : 2
+			times : 2,
 		}, {
 			name : "Druid 1st-level spell",
 			'class' : 'druid',
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr",
 		}]
 	},
 	"sorcerer" : {
@@ -3542,13 +3595,12 @@ FeatsList["magic initiate"] = {
 			spellcastingAbility : 6,
 			'class' : 'sorcerer',
 			level : [0, 0],
-			firstCol : "atwill",
-			times : 2
+			times : 2,
 		}, {
 			name : "Sorcerer 1st-level spell",
 			'class' : 'sorcerer',
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr",
 		}]
 	},
 	"warlock" : {
@@ -3558,13 +3610,12 @@ FeatsList["magic initiate"] = {
 			spellcastingAbility : 6,
 			'class' : 'warlock',
 			level : [0, 0],
-			firstCol : "atwill",
-			times : 2
+			times : 2,
 		}, {
 			name : "Warlock 1st-level spell",
 			'class' : 'warlock',
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr",
 		}]
 	},
 	"wizard" : {
@@ -3574,13 +3625,12 @@ FeatsList["magic initiate"] = {
 			spellcastingAbility : 4,
 			'class' : 'wizard',
 			level : [0, 0],
-			firstCol : "atwill",
-			times : 2
+			times : 2,
 		}, {
 			name : "Wizard 1st-level spell",
 			'class' : 'wizard',
 			level : [1, 1],
-			firstCol : "oncelr"
+			firstCol : "oncelr",
 		}]
 	}
 };
@@ -3905,7 +3955,6 @@ FeatsList["spell sniper"] = {
 			'class' : 'bard',
 			level : [0, 0],
 			attackOnly : true,
-			firstCol : "atwill"
 		}]
 	},
 	"cleric" : {
@@ -3916,7 +3965,6 @@ FeatsList["spell sniper"] = {
 			'class' : 'cleric',
 			level : [0, 0],
 			attackOnly : true,
-			firstCol : "atwill"
 		}]
 	},
 	"druid" : {
@@ -3927,7 +3975,6 @@ FeatsList["spell sniper"] = {
 			'class' : 'druid',
 			level : [0, 0],
 			attackOnly : true,
-			firstCol : "atwill"
 		}]
 	},
 	"sorcerer" : {
@@ -3938,7 +3985,6 @@ FeatsList["spell sniper"] = {
 			'class' : 'sorcerer',
 			level : [0, 0],
 			attackOnly : true,
-			firstCol : "atwill"
 		}]
 	},
 	"warlock" : {
@@ -3949,7 +3995,6 @@ FeatsList["spell sniper"] = {
 			'class' : 'warlock',
 			level : [0, 0],
 			attackOnly : true,
-			firstCol : "atwill"
 		}]
 	},
 	"wizard" : {
@@ -3960,7 +4005,6 @@ FeatsList["spell sniper"] = {
 			'class' : 'wizard',
 			level : [0, 0],
 			attackOnly : true,
-			firstCol : "atwill"
 		}]
 	}
 };

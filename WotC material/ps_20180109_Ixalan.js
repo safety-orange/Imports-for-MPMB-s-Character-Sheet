@@ -1,5 +1,5 @@
 var iFileName = "ps_20180109_Ixalan.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds all material from the Plane Shift: Ixalan article (https://magic.wizards.com/en/articles/archive/feature/plane-shift-ixalan-2018-01-09) to MPMB's Character Record Sheet
 
 // Define the source
@@ -221,7 +221,6 @@ CreatureList["frilled deathspitter"] = {
 	skills : {
 		"perception" : 3
 	},
-	senses : "",
 	passivePerception : 13,
 	challengeRating : "1/2",
 	proficiencyBonus : 2,

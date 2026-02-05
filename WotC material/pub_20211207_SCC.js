@@ -1,5 +1,5 @@
 var iFileName = "pub_20211207_SCC.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.0.5-beta", 15);
 // This file adds all the player-material from Strixhaven: A Curriculum of Chaos to MPMB's Character Record Sheet
 
 // Define the source
@@ -275,13 +275,12 @@ FeatsList["strixhaven initiate"] = {
 		spellcastingBonus : [{
 			name : "Cantrip",
 			spells : ["light", "sacred flame", "thaumaturgy"],
-			firstCol : "atwill",
-			times : 2
+			times : 2,
 		}, {
 			name : "1st-level spell",
 			"class" : ["cleric", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr+markedbox"
+			firstCol : "oncelr+markedbox",
 		}]
 	},
 	"prismari" : {
@@ -291,13 +290,12 @@ FeatsList["strixhaven initiate"] = {
 		spellcastingBonus : [{
 			name : "Cantrip",
 			spells : ["fire bolt", "prestidigitation", "ray of frost"],
-			firstCol : "atwill",
-			times : 2
+			times : 2,
 		}, {
 			name : "1st-level spell",
 			"class" : ["bard", "sorcerer"],
 			level : [1, 1],
-			firstCol : "oncelr+markedbox"
+			firstCol : "oncelr+markedbox",
 		}]
 	},
 	"quandrix" : {
@@ -307,13 +305,12 @@ FeatsList["strixhaven initiate"] = {
 		spellcastingBonus : [{
 			name : "Cantrip",
 			spells : ["druidcraft", "guidance", "mage hand"],
-			firstCol : "atwill",
-			times : 2
+			times : 2,
 		}, {
 			name : "1st-level spell",
 			"class" : ["druid", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr+markedbox"
+			firstCol : "oncelr+markedbox",
 		}]
 	},
 	"silverquill" : {
@@ -323,13 +320,12 @@ FeatsList["strixhaven initiate"] = {
 		spellcastingBonus : [{
 			name : "Cantrip",
 			spells : ["sacred flame", "thaumaturgy", "vicious mockery"],
-			firstCol : "atwill",
-			times : 2
+			times : 2,
 		}, {
 			name : "1st-level spell",
 			"class" : ["bard", "cleric"],
 			level : [1, 1],
-			firstCol : "oncelr+markedbox"
+			firstCol : "oncelr+markedbox",
 		}]
 	},
 	"witherbloom" : {
@@ -339,13 +335,12 @@ FeatsList["strixhaven initiate"] = {
 		spellcastingBonus : [{
 			name : "Cantrip",
 			spells : ["chill touch", "druidcraft", "spare the dying"],
-			firstCol : "atwill",
-			times : 2
+			times : 2,
 		}, {
 			name : "1st-level spell",
 			"class" : ["druid", "wizard"],
 			level : [1, 1],
-			firstCol : "oncelr+markedbox"
+			firstCol : "oncelr+markedbox",
 		}]
 	}
 };
@@ -399,7 +394,7 @@ FeatsList["strixhaven mascot"] = {
 		creaturesAdd : [["Pest Mascot", true, false, "strixhaven_mascot"]]
 	}
 };
-if (CompanionList.familiar && CompanionList.pact_of_the_chain) {
+if (CompanionList.familiar && CompanionList.pact_of_the_chain) { // Needs to be revisited for v24
 	CompanionList.strixhaven_mascot = {
 		name : "Strixhaven Mascot",
 		nameTooltip : "Strixhaven Mascot (feat)",
@@ -784,7 +779,6 @@ CreatureList["art elemental mascot"] = { // Prismari
 	damage_resistances : "cold, fire",
 	damage_immunities : "poison",
 	condition_immunities : "poisoned",
-	senses : "",
 	passivePerception : 10,
 	languages : "understands the languages of its creator but can't speak",
 	challengeRating : "1/4",
@@ -827,7 +821,6 @@ CreatureList["fractal mascot"] = { // Quandrix
 	scores : [12, 14, 13, 7, 10, 5],
 	damage_immunities : "poison",
 	condition_immunities : "poisoned",
-	senses : "",
 	passivePerception : 10,
 	languages : "understands the languages of its creator but can't speak",
 	challengeRating : "1/4",
@@ -949,7 +942,6 @@ CreatureList["spirit statue mascot"] = { // Lorehold
 		"history" : 5,
 		"perception" : 3
 	},
-	senses : "",
 	passivePerception : 13,
 	languages : "any languages it knew in life",
 	challengeRating : "1/4",

@@ -1,5 +1,5 @@
 var iFileName = "pub_20210921_WBtW.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds the content from The Wild Beyond the Witchlight adventure to MPMB's Character Record Sheet
 
 SourceList.WBtW = {
@@ -157,7 +157,6 @@ RaceList["fairy"] = {
 		name : "Fairy Magic",
 		spells : ["druidcraft"],
 		selection : ["druidcraft"],
-		firstCol : "atwill"
 	}],
 	features : {
 		"fairy magic (level 3)" : {
@@ -533,7 +532,6 @@ MagicItemsList["witchlight vane"] = {
 		name : "At will",
 		spells : ["dancing lights", "ray of frost"],
 		selection : ["dancing lights", "ray of frost"],
-		firstCol : "atwill"
 	}, {
 		name : "See Notes",
 		spells : ["polymorph"],
@@ -582,7 +580,6 @@ MagicItemsList["witchlight watch"] = {
 		name : "At will",
 		spells : ["fire bolt", "message"],
 		selection : ["fire bolt", "message"],
-		firstCol : "atwill"
 	}, {
 		name : "See Notes",
 		spells : ["invisibility"],
@@ -745,7 +742,6 @@ CreatureList["giant dragonfly"] = {
 	hd : [4, 10],
 	speed : "10 ft, fly 60 ft",
 	scores : [15, 18, 11, 3, 10, 3],
-	senses : "",
 	passivePerception : 10,
 	challengeRating : "1/2",
 	proficiencyBonus : 2,

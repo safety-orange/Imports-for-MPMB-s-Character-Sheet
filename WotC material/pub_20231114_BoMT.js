@@ -1,5 +1,5 @@
 var iFileName = "pub_20231114_BoMT.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds the Character Options content from the "The Book of Many Things" book (from the "The Deck of Many Things" set) to MPMB's Character Record Sheet
 
 // Define the source
@@ -126,7 +126,6 @@ FeatsList["cartomancer"] = {
 		name : "Cartomancer",
 		spells : ["prestidigitation"],
 		selection : ["prestidigitation"],
-		firstCol : "atwill"
 	}],
 	spellChanges : {
 		"prestidigitation" : {
@@ -1456,7 +1455,6 @@ MagicItemsList["plate of knight's fellowship"] = {
 		speed : "30 ft",
 		scores : [16, 11, 14, 11, 11, 15],
 		saves : ["", "", 4, "", 2, ""],
-		senses : "",
 		passivePerception : 10,
 		languages : "any one language (usually Common)",
 		challengeRating : "3",

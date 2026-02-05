@@ -394,7 +394,7 @@ CompanionList.companionrr = {
 		var sHPfld = prefix + "Comp.Use.HP.Max";
 		var aHPsets = How(sHPfld).split(",");
 		aHPsets[3] = "fixed";
-		AddTooltip(sHPfld, undefined, aHPsets.join());
+		AddTooltip(sHPfld, undefined, aHPsets.toString());
 		// Add Prof to the AC, if not already present
 		AddToModFld(prefix + "Comp.Use.AC", "Prof", false, "Animal Companion", "An beast conclave's animal companion adds its proficiency bonus (Prof) to its AC.");
 		// Alert player of things that have to be done manually

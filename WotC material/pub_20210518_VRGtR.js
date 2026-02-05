@@ -1,5 +1,5 @@
 var iFileName = "pub_20210518_VRGtR.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds all the player-material from Van Richten's Guide to Ravenloft to MPMB's Character Record Sheet
 
 // Define the source
@@ -197,7 +197,6 @@ AddSubClass("bard", "college of spirits",{
 				name : "Guiding Whispers",
 				spells : ["guidance"],
 				selection : ["guidance"],
-				firstCol : "atwill"
 			}],
 			spellChanges : {
 				"guidance" : {
@@ -766,7 +765,6 @@ MagicItemsList["living shadow"] = {
 		name : "Grasping Shadow",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
-		firstCol : "atwill"
 	}],
 	spellChanges : {
 		"mage hand" : {

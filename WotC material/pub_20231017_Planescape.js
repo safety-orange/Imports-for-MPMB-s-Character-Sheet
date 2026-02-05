@@ -1,5 +1,5 @@
 var iFileName = "pub_20231017_Planescape.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds the Character Options content from the "Planescape: Adventures in the Multiverse" set (the "Sigil and the Outlands" book) to MPMB's Character Record Sheet
 
 // Define the source
@@ -241,7 +241,6 @@ FeatsList["scion of the outer planes"] = {
 			name : "Chaotic Outer Plane",
 			spells : ["minor illusion"],
 			selection : ["minor illusion"],
-			firstCol : "atwill"
 		}],
 		dmgres : ["Poison"],
 		spellChanges : {
@@ -261,7 +260,6 @@ FeatsList["scion of the outer planes"] = {
 			name : "Evil Outer Plane",
 			spells : ["chill touch"],
 			selection : ["chill touch"],
-			firstCol : "atwill"
 		}],
 		dmgres : ["Necrotic"]
 	},
@@ -274,7 +272,6 @@ FeatsList["scion of the outer planes"] = {
 			name : "Good Outer Plane",
 			spells : ["sacred flame"],
 			selection : ["sacred flame"],
-			firstCol : "atwill"
 		}],
 		dmgres : ["Radiant"]
 	},
@@ -287,7 +284,6 @@ FeatsList["scion of the outer planes"] = {
 			name : "Lawful Outer Plane",
 			spells : ["guidance"],
 			selection : ["guidance"],
-			firstCol : "atwill"
 		}],
 		dmgres : ["Force"]
 	},
@@ -300,7 +296,6 @@ FeatsList["scion of the outer planes"] = {
 			name : "The Outlands",
 			spells : ["mage hand"],
 			selection : ["mage hand"],
-			firstCol : "atwill"
 		}],
 		dmgres : ["Psychic"]
 	}

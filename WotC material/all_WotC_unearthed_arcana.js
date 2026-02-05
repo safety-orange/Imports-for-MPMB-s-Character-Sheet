@@ -1,6 +1,8 @@
-if (sheetVersion < 14000001) { throw "This script was made for a newer version of the sheet (v14.0.1-beta). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
+if (sheetVersion < 14000005) { throw "This add-on script was made for a newer version of the sheet (v14.0.5-beta). Please use this required version or a later version (but lower than v15.0.0) and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion >= 15000000) { throw "This add-on script was made for a lower version of the sheet (one before v15.0.0). Please use the required version (v14.0.5-beta) or a later version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
 var iFileName = "all_WotC_unearthed_arcana.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.0.5-beta", "15.0.0");
+
 // ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
 
@@ -3383,7 +3385,7 @@ CompanionList.companionrr = {
 		var sHPfld = prefix + "Comp.Use.HP.Max";
 		var aHPsets = How(sHPfld).split(",");
 		aHPsets[3] = "fixed";
-		AddTooltip(sHPfld, undefined, aHPsets.join());
+		AddTooltip(sHPfld, undefined, aHPsets.toString());
 		// Add Prof to the AC, if not already present
 		AddToModFld(prefix + "Comp.Use.AC", "Prof", false, "Animal Companion", "An beast conclave's animal companion adds its proficiency bonus (Prof) to its AC.");
 		// Alert player of things that have to be done manually
@@ -5671,7 +5673,6 @@ AddSubClass("warlock", "the raven queen-ua", { // Still valid 2021-09-21
 				skills : {
 					"perception" : 3
 				},
-				senses : "",
 				passivePerception : 13,
 				challengeRating : "0",
 				proficiencyBonus : 2,
@@ -10695,7 +10696,6 @@ FeatsList["arcanist-ua"] = {
 		spellcastingAbility : 4,
 		spells : ["prestidigitation"],
 		selection : ["prestidigitation"],
-		firstCol : "atwill"
 	}, {
 		name : "Arcanist (1x long rest)",
 		spells : ["detect magic"],
@@ -10774,7 +10774,6 @@ FeatsList["naturalist-ua"] = {
 		spellcastingAbility : 4,
 		spells : ["druidcraft"],
 		selection : ["druidcraft"],
-		firstCol : "atwill"
 	}, {
 		name : "Naturalist (1x long rest)",
 		spells : ["detect poison and disease"],
@@ -10851,7 +10850,6 @@ FeatsList["theologian-ua"] = {
 		spellcastingAbility : 4,
 		spells : ["thaumaturgy"],
 		selection : ["thaumaturgy"],
-		firstCol : "atwill"
 	}, {
 		name : "Theologian (1x long rest)",
 		spells : ["detect evil and good"],

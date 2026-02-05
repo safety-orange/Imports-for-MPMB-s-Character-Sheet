@@ -1,5 +1,5 @@
 var iFileName = "ps_20160427_Zendikar.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds all material from the Plane Shift: Zendikar article (https://magic.wizards.com/en/articles/archive/feature/plane-shift-zendikar-2016-04-27) to MPMB's Character Record Sheet
 // This code contains mostly contributions by SoilentBrad
 
@@ -355,7 +355,6 @@ CreatureList["woodcrasher baloth"] = {
 	hd : [10, 12],
 	speed : "50 ft, climb 30 ft",
 	scores : [22, 9, 17, 2, 11, 5],
-	senses : "",
 	passivePerception : 10,
 	challengeRating : "5",
 	proficiencyBonus : 3,
@@ -437,7 +436,6 @@ CreatureList["ox"] = {
 	hd : [3, 10],
 	speed : "40 ft",
 	scores : [17, 11, 12, 3, 12, 6],
-	senses : "",
 	passivePerception : 11,
 	challengeRating : "1/2",
 	proficiencyBonus : 2,
@@ -465,7 +463,6 @@ CreatureList["terastodon"] = {
 	hd : [11, 12],
 	speed : "40 ft",
 	scores : [24, 9, 21, 3, 11, 6],
-	senses : "",
 	passivePerception : 10,
 	challengeRating : "6",
 	proficiencyBonus : 3,
@@ -502,7 +499,6 @@ CreatureList["terra stomper"] = {
 	skills : {
 		"perception" : 4,
 	},
-	senses : "",
 	passivePerception : 14,
 	challengeRating : "8",
 	proficiencyBonus : 3,

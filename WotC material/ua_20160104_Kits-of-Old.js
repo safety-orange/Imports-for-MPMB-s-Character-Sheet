@@ -1,5 +1,5 @@
 var iFileName = "ua_20160104_Kits-of-Old.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("13.0.8", 15);
 // This file adds the content from the Unearthed Arcana: Kits of Old article to MPMB's Character Record Sheet
 
 // Define the source

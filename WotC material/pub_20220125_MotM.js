@@ -1,5 +1,5 @@
 var iFileName = "pub_20220125_MotM.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds all the player-material from Mordenkainen Presents: Monsters of the Multiverse to MPMB's Character Record Sheet
 // Includes many contributions by Nod_Hero and BraabHimself
 
@@ -95,7 +95,6 @@ RaceList["multiverse aasimar"] = {
 		name : "Light Bearer",
 		spells : ["light"],
 		selection : ["light"],
-		firstCol : 'atwill'
 	}],
 	features : {
 		"healing hands" : MotM_Aasimar_HealingHands
@@ -444,7 +443,6 @@ if (!RaceList["fairy"]) {
 			name : "Fairy Magic",
 			spells : ["druidcraft"],
 			selection : ["druidcraft"],
-			firstCol : "atwill"
 		}],
 		features : {
 			"fairy magic (level 3)" : {
@@ -604,7 +602,6 @@ RaceList["multiverse air genasi"] = {
 		name : "Mingle with the Wind",
 		spells : ["shocking grasp"],
 		selection : ["shocking grasp"],
-		firstCol : "atwill"
 	}],
 	features : {
 		"mingle with the wind (level 3)" : {
@@ -682,7 +679,6 @@ RaceList["multiverse earth genasi"] = {
 				name : "Merge with Stone",
 				spells : ["blade ward"],
 				selection : ["blade ward"],
-				firstCol : "atwill"
 			}],
 			extraLimitedFeatures : [{
 				name : "Blade Ward (as bonus action)",
@@ -746,7 +742,6 @@ RaceList["multiverse fire genasi"] = {
 		name : "Reach to the Blaze",
 		spells : ["produce flame"],
 		selection : ["produce flame"],
-		firstCol : "atwill"
 	}],
 	features : {
 		"reach to the blaze (level 3)" : {
@@ -816,7 +811,6 @@ RaceList["multiverse water genasi"] = {
 		name : "Call to the Wave",
 		spells : ["acid splash"],
 		selection : ["acid splash"],
-		firstCol : "atwill"
 	}],
 	features : {
 		"call to the wave (level 3)" : {
@@ -885,7 +879,6 @@ RaceList["multiverse githyanki"] = {
 		name : "Githyanki Psionics (1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
-		firstCol : "atwill"
 	}],
 	spellChanges : {
 		"mage hand" : {
@@ -967,7 +960,6 @@ RaceList["multiverse githzerai"] = {
 		name : "Githzerai Psionics (1)",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
-		firstCol : "atwill"
 	}],
 	spellChanges : {
 		"mage hand" : {
@@ -1217,8 +1209,6 @@ AddRacialVariant("multiverse kobold", "draconic sorcery", {
 		name : "Kobold Legacy",
 		"class" : "sorcerer",
 		level : [0, 0],
-		firstCol : 'atwill',
-		allowUpCasting : true
 	}],
 	trait : "Kobold"+
 		'\n \u2022 Kobold Legacy (Draconic Sorcery): I know one cantrip from the sorcerer spell list. Intelligence, Wisdom, or Charisma is my spellcasting ability for it (one-time choice).'+
@@ -1688,7 +1678,7 @@ RaceList["multiverse yuan-ti"] = {
 		spells : ["poison spray", "animal friendship"],
 		selection : ["poison spray", "animal friendship"],
 		firstCol : 'atwill',
-		times : 2
+		times : 2,
 	}],
 	spellChanges : {
 		"animal friendship" : {
@@ -1732,7 +1722,6 @@ if (!SourceList["V"]) {
 		hd : [4, 10], //[#, die]
 		speed : "50 ft",
 		scores : [20, 10, 19, 2, 12, 5], //[Str, Dex, Con, Int, Wis, Cha]
-		senses : "",
 		passivePerception : 11,
 		challengeRating : "2",
 		proficiencyBonus : 2,
@@ -1761,7 +1750,6 @@ if (!SourceList["V"]) {
 		hd : [2, 10], //[#, die]
 		speed : "30 ft",
 		scores : [18, 10, 12, 2, 10, 4], //[Str, Dex, Con, Int, Wis, Cha]
-		senses : "",
 		passivePerception : 10,
 		challengeRating : "1/4",
 		proficiencyBonus : 2,
@@ -1929,7 +1917,6 @@ if (!SourceList["V"]) {
 		speed : "30 ft",
 		scores : [21, 9, 17, 2, 10, 7], //[Str, Dex, Con, Int, Wis, Cha]
 		saves : ["", "", 6, "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-		senses : "",
 		passivePerception : 10,
 		challengeRating : "5",
 		proficiencyBonus : 3,
@@ -1963,7 +1950,6 @@ if (!SourceList["V"]) {
 		skills : {
 			"perception" : 3
 		},
-		senses : "",
 		passivePerception : 13,
 		challengeRating : "1",
 		proficiencyBonus : 2,
@@ -2004,7 +1990,6 @@ if (!SourceList["V"]) {
 		skills : {
 			"perception" : 2
 		},
-		senses : "",
 		passivePerception : 12,
 		challengeRating : "1/4",
 		proficiencyBonus : 2,
@@ -2032,7 +2017,6 @@ if (!SourceList["V"]) {
 		skills : {
 			"perception" : 2
 		},
-		senses : "",
 		passivePerception : 12,
 		challengeRating : "1/4",
 		proficiencyBonus : 2,
@@ -2060,7 +2044,6 @@ if (!SourceList["V"]) {
 		skills : {
 			"perception" : 2
 		},
-		senses : "",
 		passivePerception : 12,
 		challengeRating : "2",
 		proficiencyBonus : 2,
@@ -2092,7 +2075,6 @@ if (!SourceList["V"]) {
 		hd : [8, 12], //[#, die]
 		speed : "40 ft",
 		scores : [20, 9, 17, 2, 11, 5], //[Str, Dex, Con, Int, Wis, Cha]
-		senses : "",
 		passivePerception : 10,
 		challengeRating : "4",
 		proficiencyBonus : 2,
@@ -2120,7 +2102,6 @@ if (!SourceList["V"]) {
 		skills : {
 			"perception" : 3
 		},
-		senses : "",
 		passivePerception : 13,
 		challengeRating : "1/4",
 		proficiencyBonus : 2,

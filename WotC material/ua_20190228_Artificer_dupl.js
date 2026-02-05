@@ -1,5 +1,5 @@
 var iFileName = "ua_20190228_Artificer.js";
-RequiredSheetVersion("13.1.9");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds the content from the Unearthed Arcana: Artificer 2019 article to MPMB's Character Record Sheet
 
 // Define the source
@@ -685,7 +685,6 @@ CreatureList["arcane turret-ua"] = {
 	damage_immunities : "poison, psychic",
 	condition_immunities : "all conditions",
 	passivePerception : 10,
-	senses : "",
 	languages : "",
 	challengeRating : "1",
 	proficiencyBonus : 0,

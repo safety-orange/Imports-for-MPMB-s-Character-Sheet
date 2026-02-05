@@ -1,5 +1,5 @@
 var iFileName = "pub_20191119_ERftLW.js";
-RequiredSheetVersion("14.0.0-beta");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds the content from Eberron: Rising from the Last War to MPMB's Character Record Sheet
 
 // Define the source
@@ -758,7 +758,6 @@ RaceList["dragonmark hospitality halfling"] = {
 				name : "Innkeeper's Magic",
 				spells : ["prestidigitation"],
 				selection : ["prestidigitation"],
-				firstCol : 'atwill'
 			}, {
 				name : "Innkeeper's Magic",
 				spells : ["purify food and drink", "unseen servant"],
@@ -818,7 +817,6 @@ RaceList["dragonmark making human"] = {
 				name : "Spellsmith",
 				spells : ["mending"],
 				selection : ["mending"],
-				firstCol : "atwill"
 			}, {
 				name : "Spellsmith",
 				spells : ["magic weapon"],
@@ -927,7 +925,6 @@ RaceList["dragonmark scribing gnome"] = {
 				name : "Scribe's Insight (level 1)",
 				spells : ["message"],
 				selection : ["message"],
-				firstCol : "atwill"
 			}, {
 				name : "Scribe's Insight (level 1)",
 				spells : ["comprehend languages"],
@@ -1045,7 +1042,6 @@ RaceList["dragonmark shadow elf"] = {
 		name : "Shape Shadows (level 1)",
 		spells : ["minor illusion"],
 		selection : ["minor illusion"],
-		firstCol : 'atwill'
 	}],
 	features : {
 		"shape shadows" : {
@@ -1104,7 +1100,6 @@ RaceList["dragonmark storm half-elf"] = {
 		name : "Headwinds (level 1)",
 		spells : ["gust"],
 		selection : ["gust"],
-		firstCol : 'atwill'
 	}],
 	features : {
 		"gust of wind" : {
@@ -1250,7 +1245,6 @@ FeatsList["aberrant dragonmark"] = {
 		name : "Sorcerer cantrip",
 		'class' : 'sorcerer',
 		level : [0, 0],
-		firstCol : 'atwill'
 	}, {
 		name : "Sorcerer 1st-level spell",
 		'class' : 'sorcerer',
@@ -2133,7 +2127,6 @@ AddSubClass("artificer", "artillerist", {
 				scores : [10, 10, 10, 10, 10, 10],
 				damage_immunities : "poison, psychic",
 				passivePerception : 10,
-				senses : "",
 				challengeRating : "1",
 				proficiencyBonus : 2,
 				proficiencyBonusLinked : true,
@@ -3342,7 +3335,6 @@ CreatureList["clawfoot"] = {
 		"perception" : 3,
 		"stealth" : 5
 	},
-	senses : "",
 	passivePerception : 13,
 	challengeRating : "1",
 	proficiencyBonus : 2,
@@ -3382,7 +3374,6 @@ CreatureList["fastieth"] = {
 	hd : [2, 8],
 	speed : "50 ft",
 	scores : [12, 18, 10, 4, 11, 4],
-	senses : "",
 	passivePerception : 10,
 	challengeRating : "1/4",
 	proficiencyBonus : 2,

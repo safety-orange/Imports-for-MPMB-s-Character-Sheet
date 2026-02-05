@@ -1,5 +1,5 @@
 var iFileName = "pub_20160906_SKT.js";
-RequiredSheetVersion("13.2.2");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds the beasts from the Storm King's Thunder adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -46,7 +46,7 @@ CreatureList["ice spider"] = { // contributed by Nod_Hero
 		damage : ["\u2015", "", "Restrained"],
 		range : "30/60 ft",
 		description : "Target can escape as an action with a DC 12 Strength check, or by destroying the webbing (AC 10; 5 HP)",
-		modifiers : ["", "", false],
+		abilitytodamage : false,
 		tooltip : "On a hit, the target is restrained by webbing and takes 1 cold damage at the start of each of its turns. As an action, the restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; hp 5; vulnerability to fire damage; immunity to poison and psychic damage)."
 	}],
 	traits : [{
@@ -79,7 +79,6 @@ CreatureList["sheep"] = {
 	hd : [1, 6],
 	speed : "30 ft",
 	scores : [12, 10, 11, 2, 10, 5],
-	senses : "",
 	passivePerception : 10,
 	challengeRating : "0",
 	proficiencyBonus : 2,
@@ -101,7 +100,6 @@ CreatureList["pig"] = {
 	hd : [1, 8],
 	speed : "30 ft",
 	scores : [13, 11, 12, 2, 9, 5],
-	senses : "",
 	passivePerception : 9,
 	challengeRating : "0",
 	proficiencyBonus : 2,

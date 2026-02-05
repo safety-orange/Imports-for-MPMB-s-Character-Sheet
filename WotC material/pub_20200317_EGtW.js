@@ -1,5 +1,5 @@
 var iFileName = "pub_20200317_EGtW.js";
-RequiredSheetVersion("13.2.3");
+RequiredSheetVersion("14.0.5-beta", 15);
 // This file adds the content from Explorer's Guide to Wildemount to MPMB's Character Record Sheet
 
 // Define the source
@@ -1132,7 +1132,6 @@ AddSubClass("fighter", "echo knight", { // contains contributions by Smashman, @
 				condition_immunities : "all conditions",
 				passivePerception : 0,
 				languages : "",
-				senses : "",
 				challengeRating : "0",
 				proficiencyBonus : 0,
 				attacksAction : 0,

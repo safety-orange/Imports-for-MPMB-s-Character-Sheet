@@ -1,5 +1,5 @@
 var iFileName = "pub_20170919_ToA.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds the backgrounds and beasts from the Tomb of Annihilation adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -317,7 +317,6 @@ if (!SourceList.V) {
 		speed : "30 ft",
 		scores : [21, 9, 17, 2, 10, 7], //[Str, Dex, Con, Int, Wis, Cha]
 		saves : ["", "", 6, "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
-		senses : "",
 		passivePerception : 10,
 		challengeRating : "5",
 		proficiencyBonus : 3,
@@ -351,7 +350,6 @@ if (!SourceList.V) {
 		skills : {
 			"perception" : 3
 		},
-		senses : "",
 		passivePerception : 13,
 		challengeRating : "1",
 		proficiencyBonus : 2,
@@ -392,7 +390,6 @@ if (!SourceList.V) {
 		skills : {
 			"perception" : 2
 		},
-		senses : "",
 		passivePerception : 12,
 		challengeRating : "1/4",
 		proficiencyBonus : 2,
@@ -420,7 +417,6 @@ if (!SourceList.V) {
 		skills : {
 			"perception" : 2
 		},
-		senses : "",
 		passivePerception : 12,
 		challengeRating : "1/4",
 		proficiencyBonus : 2,
@@ -448,7 +444,6 @@ if (!SourceList.V) {
 		skills : {
 			"perception" : 2
 		},
-		senses : "",
 		passivePerception : 12,
 		challengeRating : "2",
 		proficiencyBonus : 2,
@@ -480,7 +475,6 @@ if (!SourceList.V) {
 		hd : [8, 12], //[#, die]
 		speed : "40 ft",
 		scores : [20, 9, 17, 2, 11, 5], //[Str, Dex, Con, Int, Wis, Cha]
-		senses : "",
 		passivePerception : 10,
 		challengeRating : "4",
 		proficiencyBonus : 2,
@@ -508,7 +502,6 @@ if (!SourceList.V) {
 		skills : {
 			"perception" : 3
 		},
-		senses : "",
 		passivePerception : 13,
 		challengeRating : "1/4",
 		proficiencyBonus : 2,
@@ -583,7 +576,6 @@ CreatureList["flying monkey"] = {
 	hd : [1, 6],
 	speed : "30 ft, climb 20 ft, fly 30 ft",
 	scores : [8, 14, 11, 5, 12, 6],
-	senses : "",
 	passivePerception : 11,
 	challengeRating : "0",
 	proficiencyBonus : 2,

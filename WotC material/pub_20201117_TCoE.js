@@ -1,5 +1,5 @@
 var iFileName = "pub_20201117_TCoE.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.0.5-beta", 15);
 // This file adds the content from Tasha's Cauldron of Everything to MPMB's Character Record Sheet
 
 /*	ACKNOWLEDGEMENTS
@@ -806,7 +806,6 @@ if (!SourceList["E:RLW"]) {
 					scores : [10, 10, 10, 10, 10, 10],
 					damage_immunities : "poison, psychic",
 					passivePerception : 10,
-					senses : "",
 					challengeRating : "1",
 					proficiencyBonus : 2,
 					proficiencyBonusLinked : true,
@@ -2632,7 +2631,6 @@ AddSubClass("druid", "circle of the stars", {
 				name : "Star Map",
 				spells : ["guidance"],
 				selection : ["guidance"],
-				firstCol : "atwill"
 			}, {
 				name : "Star Map",
 				spells : ["guiding bolt"],
@@ -4471,7 +4469,6 @@ var TCoE_Ranger_Subclass_Swarmkeeper = AddSubClass("ranger", "swarmkeeper", {
 				name : "Swarmkeeper Magic",
 				spells : ["mage hand"],
 				selection : ["mage hand"],
-				firstCol : "atwill"
 			}],
 			spellcastingExtra : ["faerie fire", "web", "gaseous form", "arcane eye", "insect plague"],
 			spellcastingExtraApplyNonconform : true
@@ -5913,12 +5910,11 @@ FeatsList["artificer initiate"] = {
 		allowUpCasting : true,
 		"class" : 'artificer',
 		level : [0, 0],
-		atwill : true
 	}, {
 		name : "1st-level artificer spell",
 		"class" : 'artificer',
 		level : [1, 1],
-		oncelr : true
+		firstCol : "oncelr",
 	}],
 	toolProfs : [ ["Artisan's tools", 1] ]
 };
@@ -6201,7 +6197,6 @@ FeatsList["telekinetic"] = {
 		name : "Mage Hand",
 		spells : ["mage hand"],
 		selection : ["mage hand"],
-		firstCol : "atwill"
 	}],
 	spellcastingAbility : 4,
 	calcChanges : {

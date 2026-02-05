@@ -1,5 +1,5 @@
 var iFileName = "ua_20160801_The-Faithful.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.0.1-beta", 15);
 // This file adds the content from the Unearthed Arcana: The Faithful article to MPMB's Character Record Sheet
 
 // Define the source

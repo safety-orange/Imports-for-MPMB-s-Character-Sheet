@@ -1,5 +1,5 @@
 var iFileName = "pub_20221206_Dragonlance.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds the Character Options content from Dragonlance: Shadow of the Dragon Queen to MPMB's Character Record Sheet
 
 SourceList["D:SotDQ"] = {
@@ -158,7 +158,6 @@ FeatsList["initiate of high sorcery"] = {
 			name : "Wizard Cantrip",
 			"class" : ["wizard"],
 			level : [0, 0],
-			firstCol : "atwill"
 		}, {
 			name : "Nuitari 1st-level spell",
 			spells : ["dissonant whispers", "false life", "hex", "ray of sickness"],
@@ -174,7 +173,6 @@ FeatsList["initiate of high sorcery"] = {
 			name : "Wizard Cantrip",
 			"class" : ["wizard"],
 			level : [0, 0],
-			firstCol : "atwill"
 		}, {
 			name : "Lunitari 1st-level spell",
 			spells : ["color spray", "disguise self", "feather fall", "longstrider"],
@@ -190,7 +188,6 @@ FeatsList["initiate of high sorcery"] = {
 			name : "Wizard Cantrip",
 			"class" : ["wizard"],
 			level : [0, 0],
-			firstCol : "atwill"
 		}, {
 			name : "Solinari 1st-level spell",
 			spells : ["comprehend languages", "detect evil and good", "protection from evil and good", "shield"],
@@ -294,7 +291,6 @@ FeatsList["divinely favored"] = {
 			name : "Cleric Cantrip",
 			"class" : ["cleric"],
 			level : [0, 0],
-			firstCol : "atwill"
 		}, {
 			name : "1st-level Warlock Spell",
 			"class" : ["warlock"],
@@ -316,7 +312,6 @@ FeatsList["divinely favored"] = {
 			name : "Cleric Cantrip",
 			"class" : ["cleric"],
 			level : [0, 0],
-			firstCol : "atwill"
 		}, {
 			name : "1st-level Cleric Spell",
 			"class" : ["cleric"],
@@ -338,7 +333,6 @@ FeatsList["divinely favored"] = {
 			name : "Cleric Cantrip",
 			"class" : ["cleric"],
 			level : [0, 0],
-			firstCol : "atwill"
 		}, {
 			name : "1st-level Druid Spell",
 			"class" : ["druid"],

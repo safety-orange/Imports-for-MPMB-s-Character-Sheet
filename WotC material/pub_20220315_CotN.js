@@ -1,5 +1,5 @@
 var iFileName = "pub_20220315_CotN.js";
-RequiredSheetVersion("13.2.3");
+RequiredSheetVersion("14.0.5-beta");
 // This file adds all the magic items from Critical Role: Call of the Netherdeep to MPMB's Character Record Sheet
 
 SourceList.CotN = {
@@ -24,7 +24,6 @@ CreatureList["young horizonback tortoise"] = { // Contains contributions by Nod_
 	hd : [8, 12],
 	speed : "30 ft",
 	scores : [19, 11, 15, 2, 12, 5],
-	senses : "",
 	passivePerception : 11,
 	languages : "understands Goblin but can't speak",
 	challengeRating : "3",
