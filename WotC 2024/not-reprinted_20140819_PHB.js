@@ -1,5 +1,5 @@
 var iFileName = "not-reprinted_20140819_PHB.js";
-RequiredSheetVersion("24.0.1-beta");
+RequiredSheetVersion("24.0.5-beta");
 // This file adds options from the 2014 Player's Handbook to MPMB's Character Record Sheet that have not been replaced with new options in the 2024 Player's Handbook
 
 // Define the source
@@ -96,7 +96,7 @@ RaceList["half-orc"] = {
 AddWarlockInvocation("Beast Speech", {
 	name: "Beast Speech",
 	source: [["SRD", 48], ["P", 110]],
-	description: "\nI can cast Speak with Animals without using a spell slot.",
+	description: desc("I can cast Speak with Animals without using a spell slot."),
 	spellcastingBonus: [{
 		name: "Beast Speech",
 		spells: ["speak with animals"],
@@ -107,7 +107,7 @@ AddWarlockInvocation("Beast Speech", {
 AddWarlockInvocation("Beguiling Influence", {
 	name: "Beguiling Influence",
 	source: [["SRD", 48], ["P", 110]],
-	description: "\nI gain proficiencies with the Deception and Persuasion skills.",
+	description: desc("I gain proficiencies with the Deception and Persuasion skills."),
 	skills: ["Deception", "Persuasion"],
 });
 AddWarlockInvocation("Bewitching Whispers (req: lvl 7+)", {
@@ -115,7 +115,7 @@ AddWarlockInvocation("Bewitching Whispers (req: lvl 7+)", {
 	source: [["SRD", 48], ["P", 110]],
 	minlevel: 7,
 	submenu: "[Warlock level  7+]",
-	description: "\nOnce per Long Rest, I can cast Compulsion using a Pact Magic spell slot.",
+	description: desc("Once per Long Rest, I can cast Compulsion using a Pact Magic spell slot."),
 	spellcastingBonus : [{
 		name: "Bewitching Whispers",
 		spells: ["compulsion"],
@@ -125,7 +125,7 @@ AddWarlockInvocation("Bewitching Whispers (req: lvl 7+)", {
 });
 AddWarlockInvocation("Book of Ancient Secrets (req: Pact of the Tome)", {
 	name: "Book of Ancient Secrets",
-	description: "\nMy Book of Shadows is inscribed with two 1st-level Ritual spells of my choice. When I come across other Ritual spell, I can inscribe them as well. I can cast these inscribed spells as Rituals, they are not automatically prepared. (Select only these inscribed spells in the 'Spells' column.)",
+	description: desc("My Book of Shadows is inscribed with two 1st-level Ritual spells of my choice. When I come across other Ritual spell, I can inscribe them as well. I can cast these inscribed spells as Rituals, they are not automatically prepared. (Select only these inscribed spells in the 'Spells' column.)"),
 	source: [["SRD", 48], ["P", 110]],
 	submenu: "[improves Pact of the Tome]",
 	prereqeval: function(v) { return v.choiceActive.indexOf('pact of the tome') !== -1; },
@@ -192,7 +192,7 @@ AddWarlockInvocation("Chains of Carceri (req: lvl 15+, Pact of the Chain)", {
 	minlevel: 15,
 	submenu: ["[Warlock level 15+]", "[improves Pact of the Chain]"],
 	prereqeval: function(v) { return v.choiceActive.indexOf('pact of the chain') !== -1; },
-	description: "\nI can cast Hold Monster without expending a spell slot or material components, but only on a Celestial, Fiend, or Elemental. I can only target a specific individual once per Long Rest.",
+	description: desc("I can cast Hold Monster without expending a spell slot or material components, but only on a Celestial, Fiend, or Elemental. I can only target a specific individual once per Long Rest."),
 	spellcastingBonus: [{
 		name: "Chains of Carceri",
 		spells: ["hold monster"],
@@ -213,7 +213,7 @@ AddWarlockInvocation("Dreadful Word (req: lvl 7+)", {
 	source: [["SRD", 49], ["P", 110]],
 	minlevel: 7,
 	submenu: "[Warlock level  7+]",
-	description: "\nOnce per Long Rest, I can cast Confusion using a Pact Magic spell slot.",
+	description: desc("Once per Long Rest, I can cast Confusion using a Pact Magic spell slot."),
 	spellcastingBonus: [{
 		name: "Dreadful Word",
 		spells: ["confusion"],
@@ -224,7 +224,7 @@ AddWarlockInvocation("Dreadful Word (req: lvl 7+)", {
 AddWarlockInvocation("Eldritch Sight", {
 	name: "Eldritch Sight",
 	source: [["SRD", 49], ["P", 110]],
-	description: "\nI can cast Detect Magic without expending a spell slot.",
+	description: desc("I can cast Detect Magic without expending a spell slot."),
 	spellcastingBonus: [{
 		name: "Eldritch Sight",
 		spells: ["detect magic"],
@@ -242,7 +242,7 @@ AddWarlockInvocation("Minions of Chaos", {
 	source: [["SRD", 49], ["P", 111]],
 	minlevel: 9,
 	submenu: "[Warlock level  9+]",
-	description: "\nOnce per Long Rest, I can cast Conjure Elemental using a Pact Magic spell slot.",
+	description: desc("Once per Long Rest, I can cast Conjure Elemental using a Pact Magic spell slot."),
 	spellcastingBonus: [{
 		name: "Minions of Chaos",
 		spells: ["conjure elemental"],
@@ -255,7 +255,7 @@ AddWarlockInvocation("Mire the Mind", {
 	source: [["SRD", 49], ["P", 111]],
 	minlevel: 5,
 	submenu: "[Warlock level  5+]",
-	description: "\nOnce per Long Rest, I can cast Slow using a Pact Magic spell slot.",
+	description: desc("Once per Long Rest, I can cast Slow using a Pact Magic spell slot."),
 	spellcastingBonus: [{
 		name: "Mire the Mind",
 		spells: ["slow"],
@@ -268,7 +268,7 @@ AddWarlockInvocation("Sculptor of Flesh", {
 	source: [["SRD", 50], ["P", 111]],
 	minlevel: 7,
 	submenu: "[Warlock level  7+]",
-	description: "\nOnce per Long Rest, I can cast Polymorph using a Pact Magic spell slot.",
+	description: desc("Once per Long Rest, I can cast Polymorph using a Pact Magic spell slot."),
 	spellcastingBonus: [{
 		name: "Sculptor of Flesh",
 		spells: ["polymorph"],
@@ -281,7 +281,7 @@ AddWarlockInvocation("Sign of Ill Omen", {
 	source: [["SRD", 50], ["P", 111]],
 	minlevel: 5,
 	submenu: "[Warlock level  5+]",
-	description: "\nOnce per Long Rest, I can cast Bestow Curse using a Pact Magic spell slot.",
+	description: desc("Once per Long Rest, I can cast Bestow Curse using a Pact Magic spell slot."),
 	spellcastingBonus: [{
 		name: "Sign of Ill Omen",
 		spells: ["bestow curse"],
@@ -292,7 +292,7 @@ AddWarlockInvocation("Sign of Ill Omen", {
 AddWarlockInvocation("Thief of Five Fates", {
 	name: "Thief of Five Fates",
 	source: [["SRD", 50], ["P", 111]],
-	description: "\nOnce per Long Rest, I can cast Bane using a Pact Magic spell slot.",
+	description: desc("Once per Long Rest, I can cast Bane using a Pact Magic spell slot."),
 	spellcastingBonus: [{
 		name: "Thief of Five Fates",
 		spells: ["bane"],
@@ -305,8 +305,118 @@ AddWarlockInvocation("Voice of the Chain Master", {
 	source: [["SRD", 50], ["P", 111]],
 	submenu: "[improves Pact of the Chain]",
 	prereqeval: function(v) { return v.choiceActive.indexOf('pact of the chain') !== -1; },
-	description: "\nWhile on the same plane as my familiar, I can communicate telepathically with it and I can perceive through its senses. While doing the latter, I can speak through it with my voice.",
+	description: desc("While on the same plane as my familiar, I can communicate telepathically with it and I can perceive through its senses. While doing the latter, I can speak through it with my voice."),
 });
+
+// Subclasses
+AddSubClass("wizard", "necromancy", {
+	regExpSearch: /necromancy|necromancer|necromantic/i,
+	subname: "School of Necromancy",
+	fullname: "Necromancer",
+	source: [["P", 118]],
+	features: {
+		"subclassfeature3" : {
+			name: "Necromancy Savant",
+			source: [["P", 118]],
+			minlevel: 3,
+			description: desc("I halve the gp and time needed to copy necromancy spells into my spellbook"),
+		},
+		"subclassfeature3.1": {
+			name: "Grim Harvest",
+			source: [["P", 118]],
+			minlevel: 3,
+			description: desc([
+				"Once per turn, when I kill something with a 1st-level or higher spell, I regain hit points",
+				"The number of hit points regained is 2\xD7 the spell's level (or 3\xD7 with necromancy spells)",
+				"This doesn't occur for constructs/undead",
+			]),
+		},
+		"subclassfeature6": {
+			name: "Undead Thralls",
+			source: [["P", 119]],
+			minlevel: 6,
+			description: desc([
+				"I add Animate Dead to my spellbook and can have an additional target when casting it",
+				"Undead created by my necromancy spells have the following benefits:",
+				"They add my proficiency bonus to damage and my wizard level to their HP maximums",
+			]),
+			spellcastingBonus: [{
+				name: "Undead Thralls",
+				spells: ["animate dead"],
+				selection: ["animate dead"],
+			}],
+			spellChanges: {
+				"animate dead": {
+					description: "Turn corpses into 2+2/SL Skeletons or Zombies; control for 24h; Bns command within 60 ft",
+					changes: "My Undead Thralls class feature allows me to animate one more corpse than normal with Animate Dead.",
+				},
+			},
+		},
+		"subclassfeature10": {
+			name: "Inured to Undead",
+			source: [["P", 119]],
+			minlevel: 10,
+			description: desc("I have resistance to necrotic damage and my hit point maximum can't be reduced"),
+			dmgres: ["Necrotic"],
+		},
+		"subclassfeature14": {
+			name: "Command Undead",
+			source: [["P", 11]],
+			minlevel: 14,
+			description: desc([
+				"As an action, an undead within 60 ft that I can see must make a Charisma save",
+				"If its Int is > 7, it has adv. on the save; If its Int is > 11, it repeats the save every hour",
+				"If failed, it becomes friendly to me and obeys my commands until I use this on another",
+				"On success, it becomes permanently immune to my further attempts",
+			]),
+			action: [["action", ""]],
+		},
+	},
+});
+CompanionList["undead_thrall"] = {
+	name: "Undead Thralls",
+	nameOrigin: "School of Necromancy 6",
+	nameMenu : "Undead Thrall (School of Necromancy feature)",
+	source: [["P", 119]],
+	includeCheck: function(sCrea, objCrea, iCreaCR, bIsAL) {
+		return /undead/i.test(objCrea.type);
+	},
+	attributesChange: function(sCrea, objCrea) {
+		objCrea.hp += classes.known.wizard ? classes.known.wizard.level : classes.totallevel;
+		if (!objCrea.attacks) return;
+		objCrea.attacks = objCrea.attacks.map(function(oAtk) {
+			if (oAtk.abilitytodamage !== false && !oAtk.dc) {
+				if (!oAtk.modifiers) {
+					oAtk.modifiers = ["", "oProf"];
+				} else {
+					oAtk.modifiers[1] += "+oProf";
+				}
+			}
+			return oAtk;
+		});
+	},
+	calcChanges: {
+		hp: function (totalHD, HDobj, prefix) {
+			if (classes.known.wizard) {
+				return [classes.known.wizard.level, "Undead Thralls (wizard level)"];
+			} else {
+				return [classes.totallevel, "Undead Thralls (character level)"];
+			}
+		},
+	},
+	notes: [{
+		name: "Undead I create with a necromancy spell",
+		description: "add my wizard level to their hit point maximum and add my proficiency bonus to their weapon damage rolls.",
+		joinString: " ",
+	}],
+	eval: function(prefix, lvl) {
+		// Set HP to use average value, so that the level bonus is automatically included
+		var sHPfld = prefix + "Comp.Use.HP.Max";
+		var aHPsets = How(sHPfld).split(",");
+		aHPsets[3] = "average";
+		AddTooltip(sHPfld, undefined, aHPsets.toString());
+	},
+};
 
 // Background Features
 BackgroundFeatureList["shelter of the faithful"] = { // from Acolyte

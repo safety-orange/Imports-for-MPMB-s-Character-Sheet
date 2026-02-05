@@ -1,5 +1,5 @@
 var iFileName = "pub_20240917_PHB.js";
-RequiredSheetVersion("24.0.1-beta");
+RequiredSheetVersion("24.0.5-beta");
 // This file adds material from the 2024 Player's Handbook that isn't in the SRD v5.2.1 to MPMB's Character Record Sheet
 
 // Define the source
@@ -25,7 +25,7 @@ AddSubClass("fighter", "battle master", {
 			name: "Combat Superiority",
 			source: [["P24", 93]],
 			minlevel: 3,
-			description: "\nI gain a number of Superiority Dice (SD) that I can use to fuel special Maneuvers.",
+			description: desc("I gain a number of Superiority Dice (SD) that I can use to fuel special Maneuvers."),
 			additional: levels.map(function (n) {
 				if (n < 3) return "";
 				return "d" + (n < 10 ? 8 : n < 18 ? 10 : 12);
@@ -43,7 +43,7 @@ AddSubClass("fighter", "battle master", {
 			description: desc([
 				"I can expend one Superiority Die to do a Maneuver I know, but only one per attack.",
 				"The save DC for my Maneuvers is 8 + my Prof. Bonus + my Str or Dex modifier (my choice).",
-			], "\n"),
+			]),
 			additional: levels.map(function (n) {
 				return n < 3 ? "" : (n < 7 ? 3 : n < 10 ? 5 : n < 15 ? 7 : 9) + " known";
 			}),
@@ -56,7 +56,7 @@ AddSubClass("fighter", "battle master", {
 				name: "Ambush",
 				extraname: "Maneuver",
 				source: [["P24", 94]],
-				description: "\nWhen I roll for Initiative or Dex (Stealth), I can expend and add 1 SD unless I'm Incapacitated.",
+				description: desc("When I roll for Initiative or Dex (Stealth), I can expend and add 1 SD unless I'm Incapacitated."),
 				additional: "add SD to Stealth or Initiative",
 			},
 			"bait and switch": {
@@ -66,35 +66,35 @@ AddSubClass("fighter", "battle master", {
 				description: desc([
 					"On my turn, I can expend 1 SD to switch places with a willing, not-Incapacitated creature within 5 ft, if I spend at least 5 ft of movement. This doesn't provoke Opportunity Attacks.",
 					"The other creature or I (my choice) can add the SD to AC until the start of my next turn.",
-				], "\n"),
+				]),
 				additional: "add SD to my/ally's AC",
 			},
 			"commander's strike": {
 				name: "Commander's Strike",
 				extraname: "Maneuver",
 				source: [["P24", 94]],
-				description: "\nWhen I take the Attack action on my turn, I can forgo one attack to direct a willing creature I can see or hear to strike. I expend 1 SD and that creature can immediately use its Reaction to make one attack with a weapon or Unarmed Strike, adding the SD to the attack's damage.",
+				description: desc("When I take the Attack action on my turn, I can forgo one attack to direct a willing creature I can see or hear to strike. I expend 1 SD and that creature can immediately use its Reaction to make one attack with a weapon or Unarmed Strike, adding the SD to the attack's damage."),
 				additional: "ally adds SD to damage",
 			},
 			"commanding presence": {
 				name: "Commanding Presence",
 				extraname: "Maneuver",
 				source: [["P24", 95]],
-				description: "\nWhen I make an Intimidation, Performance, or Persuasion check, I can expend and add 1 SD.",
+				description: desc("When I make an Intimidation, Performance, or Persuasion check, I can expend and add 1 SD."),
 				additional: "add SD to Charisma skill check",
 			},
 			"disarming attack": {
 				name: "Disarming Attack",
 				extraname: "Maneuver",
 				source: [["P24", 95]],
-				description: "\nWhen I hit a creature with an attack, I can expend and add 1 SD to the damage. The target must make a Strength save or drop one object of my choice that it's holding in its space.",
+				description: desc("When I hit a creature with an attack, I can expend and add 1 SD to the damage. The target must make a Strength save or drop one object of my choice that it's holding in its space."),
 				additional: "add SD to damage",
 			},
 			"distracting strike": {
 				name: "Distracting Strike",
 				extraname: "Maneuver",
 				source: [["P24", 95]],
-				description: "\nWhen I hit a creature with an attack, I can expend and add 1 SD to the damage. The next attack vs. the target by another than me has Advantage, if made before my next turn starts.",
+				description: desc("When I hit a creature with an attack, I can expend and add 1 SD to the damage. The next attack vs. the target by another than me has Advantage, if made before my next turn starts."),
 				additional: "add SD to damage",
 			},
 			"evasive footwork": {
@@ -104,7 +104,7 @@ AddSubClass("fighter", "battle master", {
 				description: desc([
 					"As a Bonus Action, I can expend 1 SD to take the Disengage action.",
 					"I add the Superiority Die to my AC until the start of my next turn.",
-				], "\n"),
+				]),
 				additional: "add SD to AC",
 				action: [["bonus action", ""]],
 			},
@@ -112,7 +112,7 @@ AddSubClass("fighter", "battle master", {
 				name: "Feinting Attack",
 				extraname: "Maneuver",
 				source: [["P24", 95]],
-				description: "\nAs a Bonus Action, I can expend 1 SD to gain Advantage on my next attack this turn against a creature within 5 ft. If that attack hits, I add the Superiority Die to its damage.",
+				description: desc("As a Bonus Action, I can expend 1 SD to gain Advantage on my next attack this turn against a creature within 5 ft. If that attack hits, I add the Superiority Die to its damage."),
 				additional: "add SD to damage",
 				action: [["bonus action", ""]],
 			},
@@ -120,14 +120,14 @@ AddSubClass("fighter", "battle master", {
 				name: "Goading Attack",
 				extraname: "Maneuver",
 				source: [["P24", 95]],
-				description: "\nWhen I hit a creature with an attack, I can expend and add 1 SD to the damage. The target must make a Wis save or have Disadvantage on attacks not vs. me until my next turn ends.",
+				description: desc("When I hit a creature with an attack, I can expend and add 1 SD to the damage. The target must make a Wis save or have Disadvantage on attacks not vs. me until my next turn ends."),
 				additional: "add SD to damage",
 			},
 			"lunging attack": {
 				name: "Lunging Attack",
 				extraname: "Maneuver",
 				source: [["P24", 95]],
-				description: "\nAs a Bonus Action, I can expend 1 SD to take the Dash action. If I move 5 ft in a straight line before hitting a melee attack in the same turn's Attack action, I add the SD to the damage.",
+				description: desc("As a Bonus Action, I can expend 1 SD to take the Dash action. If I move 5 ft in a straight line before hitting a melee attack in the same turn's Attack action, I add the SD to the damage."),
 				additional: "add SD to melee damage",
 				action: [["bonus action", ""]],
 			},
@@ -138,21 +138,21 @@ AddSubClass("fighter", "battle master", {
 				description: desc([
 					"When I hit a creature with an attack, I can expend and add 1 SD to the damage.",
 					"A willing creature of my choice who can see or hear me can then use its Reaction to move up to half its Speed without provoking an Opportunity Attack from the target of my attack.",
-				], "\n"),
+				]),
 				additional: "add SD to damage",
 			},
 			"menacing attack": {
 				name: "Menacing Attack",
 				extraname: "Maneuver",
 				source: [["P24", 95]],
-				description: "\nWhen I hit a creature with an attack, I can expend and add 1 SD to the damage. The target must make a Wisdom save or have the Frightened condition until the end of my next turn.",
+				description: desc("When I hit a creature with an attack, I can expend and add 1 SD to the damage. The target must make a Wisdom save or have the Frightened condition until the end of my next turn."),
 				additional: "add SD to damage",
 			},
 			"parry": {
 				name: "Parry",
 				extraname: "Maneuver",
 				source: [["P24", 95]],
-				description: "\nAs a Reaction when I take damage from a melee attack, I can expend and roll 1 SD to reduce the damage by it plus my Strength or Dexterity modifier (my choice).",
+				description: desc("As a Reaction when I take damage from a melee attack, I can expend and roll 1 SD to reduce the damage by it plus my Strength or Dexterity modifier (my choice)."),
 				additional: "reduce damage taken by SD + Str/Dex mod",
 				action: [["reaction", ""]],
 			},
@@ -160,21 +160,21 @@ AddSubClass("fighter", "battle master", {
 				name: "Precision Attack",
 				extraname: "Maneuver",
 				source: [["P24", 95]],
-				description: "\nWhen I miss an attack, I can expend and add 1 SD to the roll, potentially causing it to hit.",
+				description: desc("When I miss an attack, I can expend and add 1 SD to the roll, potentially causing it to hit."),
 				additional: "add SD to attack roll",
 			},
 			"pushing attack": {
 				name: "Pushing Attack",
 				extraname: "Maneuver",
 				source: [["P24", 95]],
-				description: "\nWhen I hit a creature with a weapon or Unarmed Strike, I can expend and add 1 SD to the damage. If Large or smaller, it must make a Str save or be pushed up to 15 ft back from me.",
+				description: desc("When I hit a creature with a weapon or Unarmed Strike, I can expend and add 1 SD to the damage. If Large or smaller, it must make a Str save or be pushed up to 15 ft back from me."),
 				additional: "add SD to damage",
 			},
 			"rally": {
 				name: "Rally",
 				extraname: "Maneuver",
 				source: [["P24", 95]],
-				description: "\nAs a Bonus Action, I can expend 1 SD to grant an ally within 30 ft who can see or hear me Temporary Hit Points equal to the SD roll plus half my Fighter level.",
+				description: desc("As a Bonus Action, I can expend 1 SD to grant an ally within 30 ft who can see or hear me Temporary Hit Points equal to the SD roll plus half my Fighter level."),
 				additional: levels.map(function (n) {
 					return "ally gains SD + " + Math.floor(n/2) + " Temp HP";
 				}),
@@ -184,7 +184,7 @@ AddSubClass("fighter", "battle master", {
 				name: "Riposte",
 				extraname: "Maneuver",
 				source: [["P24", 95]],
-				description: "\nAs a Reaction when a creature misses me with a melee attack, I can expend 1 SD to make a melee attack with a weapon or Unarmed Strike against it, adding the SD to the damage.",
+				description: desc("As a Reaction when a creature misses me with a melee attack, I can expend 1 SD to make a melee attack with a weapon or Unarmed Strike against it, adding the SD to the damage."),
 				additional: "add SD to melee damage",
 				action: [["reaction", ""]],
 			},
@@ -192,21 +192,21 @@ AddSubClass("fighter", "battle master", {
 				name: "Sweeping Attack",
 				extraname: "Maneuver",
 				source: [["P24", 95]],
-				description: "\nWhen I hit a creature with a melee weapon or Unarmed Strike, I can expend 1 SD to damage another creature within reach and within 5 ft of the first. If the original attack roll would hit the second creature, it takes 1 SD damage of the same type as the original attack.",
+				description: desc("When I hit a creature with a melee weapon or Unarmed Strike, I can expend 1 SD to damage another creature within reach and within 5 ft of the first. If the original attack roll would hit the second creature, it takes 1 SD damage of the same type as the original attack."),
 				additional: "deal SD damage",
 			},
 			"tactical assessment": {
 				name: "Tactical Assessment",
 				extraname: "Maneuver",
 				source: [["P24", 95]],
-				description: "\nWhen I make a History, Investigation, or Insight check, I can expend and add 1 SD to it.",
+				description: desc("When I make a History, Investigation, or Insight check, I can expend and add 1 SD to it."),
 				additional: "add SD to certain skill checks",
 			},
 			"trip attack": {
 				name: "Trip Attack",
 				extraname: "Maneuver",
 				source: [["P24", 95]],
-				description: "\nWhen I hit a creature with a weapon or Unarmed Strike, I can expend and add 1 SD to the damage. If the target is Large or smaller, it must make a Strength save or be knocked Prone.",
+				description: desc("When I hit a creature with a weapon or Unarmed Strike, I can expend and add 1 SD to the damage. If the target is Large or smaller, it must make a Strength save or be knocked Prone."),
 				additional: "add SD to damage",
 			},
 		},
@@ -215,7 +215,7 @@ AddSubClass("fighter", "battle master", {
 				name: "Student of War",
 				source: [["P24", 94]],
 				minlevel: 3,
-				description: "\nI gain proficiency with one type of Artican's Tools and in one skill from the Fighter list. Use the \"Choose Feature\" button to select a skill.",
+				description: desc("I gain proficiency with one type of Artisan's Tools and in one skill from the Fighter list. Use the \"Choose Feature\" button to select a skill."),
 				toolProfs: [["Artisan's tools", 1]],
 				choices: ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Persuasion", "Perception", "Survival"],
 			};
@@ -224,7 +224,7 @@ AddSubClass("fighter", "battle master", {
 				var skill = a.choices[i];
 				a[attr] = {
 					name: "Student of War: " + skill,
-					description: "\nI gain proficiency with one type of Artican's Tools of my choice and " + skill + ".",
+					description: desc("I gain proficiency with one type of Artisan's Tools of my choice and " + skill + "."),
 					skills: [skill],
 					prereqeval: function (v) {
 						return v.skillProfsLC.indexOf(v.choice) === -1;
@@ -237,7 +237,7 @@ AddSubClass("fighter", "battle master", {
 			name: "Know Your Enemy",
 			source: [["P24", 94]],
 			minlevel: 7,
-			description: "\nAs a Bonus Action, I can learn the Immunities, Resistances, and Vulnerabilities of a creature I can see within 30 ft. I can do this once per Long Rest or by expending a Superiority Die.",
+			description: desc("As a Bonus Action, I can learn the Immunities, Resistances, and Vulnerabilities of a creature I can see within 30 ft. I can do this once per Long Rest or by expending a Superiority Die."),
 			action: [["bonus action", ""]],
 			usages: 1,
 			recovery: "Long Rest",
@@ -247,7 +247,7 @@ AddSubClass("fighter", "battle master", {
 			name: "Relentless",
 			source: [["P24", 94]],
 			minlevel: 15,
-			description: "\nOnce per turn when I do a Maneuver, I can use a d8 instead of expending a Superiority Die.",
+			description: desc("Once per turn when I do a Maneuver, I can use a d8 instead of expending a Superiority Die."),
 		},
 	},
 });
@@ -262,14 +262,13 @@ AddSubClass("monk", "shadow", {
 			name: "Shadow Arts",
 			source: [["P24", 105]],
 			minlevel: 3,
-			description: "\nI gain +60 ft Darkvision. I know the Minor Illusion cantrip, using Wis as spellcasting ability.",
+			description: desc("I gain +60 ft Darkvision. I know the Minor Illusion cantrip, using Wis as spellcasting ability."),
 			vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
 			spellFirstColTitle : "Ki",
 			spellcastingBonus: [{
 				name: "Shadow Arts",
 				spells: ["minor illusion"],
 				selection: ["minor illusion"],
-				firstCol: "atwill",
 			}, {
 				name: "Shadow Arts",
 				spells: ["darkness"],
@@ -290,7 +289,7 @@ AddSubClass("monk", "shadow", {
 				name: "Shadow Arts: Darkness",
 				extraname: "Warrior of Shadow 3",
 				source: [["P24", 105]],
-				description: "\nI can expend 1 Focus Point to cast Darkness without spell components. When I do so, I can see within its area and I can move it to a space within 60 ft at the start of each of my turns.",
+				description: desc("I can expend 1 Focus Point to cast Darkness without spell components. When I do so, I can see within its area and I can move it to a space within 60 ft at the start of each of my turns."),
 				additional: "1 Focus Point",
 			},
 			autoSelectExtrachoices: [{ extrachoice: "shadow arts: darkness" }],
@@ -299,7 +298,7 @@ AddSubClass("monk", "shadow", {
 			name: "Shadow Step",
 			source: [["P24", 105]],
 			minlevel: 6,
-			description: "\nAs a Bonus Action while in Dim Light or Darkness, I can teleport up to 60 ft to an empty " + (typePF ? "space" : "spot") + " I can see in Dim Light or Darkness. I then gain Adv" + (typePF ? "antage" : ".") + " on my next melee attack this turn.",
+			description: desc("As a Bonus Action while in Dim Light or Darkness, I can teleport up to 60 ft to an empty " + (typePF ? "space" : "spot") + " I can see in Dim Light or Darkness. I then gain Adv" + (typePF ? "antage" : ".") + " on my next melee attack this turn."),
 			action: [["bonus action", ""]],
 		},
 		"subclassfeature11": {
@@ -311,7 +310,7 @@ AddSubClass("monk", "shadow", {
 				name: "Improved Shadow Step",
 				extraname: "Warrior of Shadow 11",
 				source: [["P24", 105]],
-				description: "\nWhen I use Shadow Step, I can expend 1 Focus Point to remove the need to start and end in Dim Light or Darkness, and I can make an Unarmed Strike immediately after I teleport.",
+				description: desc("When I use Shadow Step, I can expend 1 Focus Point to remove the need to start and end in Dim Light or Darkness, and I can make an Unarmed Strike immediately after I teleport."),
 				additional: "1 Focus Point",
 			},
 			autoSelectExtrachoices: [{ extrachoice: "improved shadow step" }],
@@ -329,7 +328,7 @@ AddSubClass("monk", "shadow", {
 				description: desc([
 					"As a Magic action while in Dim Light or Darkness, I can expend 3 Focus Points to shroud myself in shadows for 1 min, until I'm Incapacitated, or I end my turn in Bright Light.",
 					"While shrouded, I'm Invisible, using Flurry of Blows requires no Focus Points, and I can move through occupied spaces as if they were Difficult Terrain, but can't end my turn in one.",
-				], "\n"),
+				]),
 				additional: "3 Focus Points",
 			},
 			autoSelectExtrachoices: [{ extrachoice: "cloak of shadows" }],
@@ -1090,7 +1089,6 @@ RaceList["aasimar"] = {
 		name: "Light Bearer",
 		spells: ["light"],
 		selection: ["light"],
-		firstCol: "atwill",
 	}],
 	features: {
 		"healing hands": {
@@ -2710,7 +2708,6 @@ FeatsList["telekinetic"] = {
 		name: "Mage Hand",
 		spells: ["mage hand"],
 		selection: ["mage hand"],
-		firstCol: "atwill",
 	}],
 	spellChanges: {
 		"mage hand": {
@@ -2863,7 +2860,7 @@ FeatsList["dueling"] = {
 	source: [["P24", 209]],
 	type: "fighting style",
 	description: "When I'm holding a Melee weapon in one hand and no other weapons, I gain a +2 bonus to damage rolls with that weapon.",
-	descriptionClassFeature: "\nI add +2 to damage rolls when wielding a Melee weapon in one hand and no other weapons.",
+	descriptionClassFeature: desc("I add +2 to damage rolls when wielding a Melee weapon in one hand and no other weapons."),
 	descriptionFull: [
 		"When you're holding a Melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.",
 	],
@@ -2885,7 +2882,7 @@ FeatsList["interception"] = {
 	type: "fighting style",
 	description: "As a reaction when a creature I can see hits another creature within 5 ft of me with an attack, I can reduce the damage dealt by 1d10 plus my Proficiency Bonus. I must be holding a Shield or a Simple or Martial weapon to do this.",
 	calculate: 'event.value = "As a reaction when a creature I can see hits another creature within 5 ft of me with an attack, I can reduce the damage dealt by 1d10 plus my Proficiency Bonus (1d10+" + Number(How("Proficiency Bonus")) + "). I must be holding a Shield or a Simple or Martial weapon to do this.";',
-	descriptionClassFeature: "\nAs a reaction when a creature I can see hits another within 5 ft of me, I can use a Shield or Simple/Martial weapon I'm holding to reduce the damage done by 1d10 + my Prof Bonus.",
+	descriptionClassFeature: desc("As a reaction when a creature I can see hits another within 5 ft of me, I can use a Shield or Simple/Martial weapon I'm holding to reduce the damage done by 1d10 + my Prof Bonus."),
 	descriptionFull: [
 		"When a creature you can see hits another creature within 5 feet of you with an attack roll, you can take a Reaction to reduce the damage dealt to the target by 1d10 plus your Proficiency Bonus. You must be holding a Shield or a Simple or Martial weapon to use this Reaction.",
 	],
@@ -2896,7 +2893,7 @@ FeatsList["protection"] = {
 	source: [["P24", 209]],
 	type: "fighting style",
 	description: "As a reaction when a creature I can see attacks a target other than me within 5 ft of me, I can interpose my Shield if I'm holding one. This gives Disadv" + (typePF ? "antage" : ".") + " to the triggering attack and all other attacks against the target until the start of my next turn while I stay within 5 ft" + (typePF ? " of the target." : "."),
-	descriptionClassFeature: "\nAs a reaction when a creature I can see attacks another within 5 ft of me, I can use a shield I'm holding to impose Disadv" + (typePF ? "antage" : ".") + " on this and other attacks vs. them until my next turn starts.",
+	descriptionClassFeature: desc("As a reaction when a creature I can see attacks another within 5 ft of me, I can use a shield I'm holding to impose Disadv" + (typePF ? "antage" : ".") + " on this and other attacks vs. them until my next turn starts."),
 	descriptionFull: [
 		"When a creature you can see attacks a target other than you that is within 5 feet of you, you can take a Reaction to interpose your Shield if you're holding one. You impose Disadvantage on the triggering attack roll and all other attack rolls against the target until the start of your next turn if you remain within 5 feet of the target.",
 	],
@@ -2907,7 +2904,7 @@ FeatsList["thrown weapon fighting"] = {
 	source: [["P24", 210]],
 	type: "fighting style",
 	description: "I add +2 to the damage roll when I hit with a ranged attack roll using a weapon that has the Thrown property.",
-	descriptionClassFeature: "\nI add +2 damage to ranged attacks made with weapons with the Thrown property.",
+	descriptionClassFeature: desc("I add +2 damage to ranged attacks made with weapons with the Thrown property."),
 	descriptionFull: [
 		"When you hit with a ranged attack roll using a weapon that has the Thrown property, you gain a +2 bonus to the damage roll.",
 	],
@@ -2935,7 +2932,10 @@ FeatsList["unarmed fighting"] = {
 	source: [["P24", 210]],
 	type: "fighting style",
 	description: "My Unarmed Strikes deal 1d6 damage instead of 1. If I'm not holding any weapons or a Shield when I make the attack roll, the d6 becomes a d8. At the start of each of my turns, I can deal 1d4 Bludgeoning damage to one creature Grappled by me.",
-	descriptionClassFeature: "\nMy unarmed strikes deal 1d6 damage, or 1d8 when I'm not holding any weapons or Shield.\nAt the start of my turn, I can deal 1d4 Bludgeoning damage to a creature I'm Grappling.",
+	descriptionClassFeature: desc([
+		"My unarmed strikes deal 1d6 damage, or 1d8 when I'm not holding any weapons or Shield.",
+		"At the start of my turn, I can deal 1d4 Bludgeoning damage to a creature I'm Grappling.",
+	]),
 	descriptionFull: [
 		"When you hit with your Unarmed Strike and deal damage, you can deal Bludgeoning damage equal to 1d6 plus your Strength modifier instead of the normal damage of an Unarmed Strike. If you aren't holding any weapons or a Shield when you make the attack roll, the d6 becomes a d8.",
 		"At the start of each of your turns, you can deal 1d4 Bludgeoning damage to one creature Grappled by you.",
