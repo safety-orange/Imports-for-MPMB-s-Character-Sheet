@@ -51,7 +51,7 @@ AddSubClass("fighter", "battle master", {
 				return n < 3 ? 0 : n < 7 ? 3 : n < 10 ? 5 : n < 15 ? 7 : 9;
 			}),
 			extraname: "Maneuver Options",
-			extrachoices: ["Ambush", "Bait and Switch", "Commander's Strike", "Commanding Presence", "Disarming Attack", "Distracting Strike", "Evasive Footwork", "Feinting Attack", "Goading Attack", "Lunging Attack", "Menacing Attack", "Parry", "Precision Attack", "Pushing Attack", "Rally", "Riposte", "Sweeping Attack", "Tactical Assessment", "Trip Attack"],
+			extrachoices: ["Ambush", "Bait and Switch", "Commander's Strike", "Commanding Presence", "Disarming Attack", "Distracting Strike", "Evasive Footwork", "Feinting Attack", "Goading Attack", "Lunging Attack", "Maneuvering Attack", "Menacing Attack", "Parry", "Precision Attack", "Pushing Attack", "Rally", "Riposte", "Sweeping Attack", "Tactical Assessment", "Trip Attack"],
 			"ambush": {
 				name: "Ambush",
 				extraname: "Maneuver",
@@ -1525,7 +1525,7 @@ FeatsList["elemental adept"] = {
 	type: "general",
 	prerequisite: "Level 4+, Spellcasting or Pact Magic Feature",
 	prereqeval: function (v) {
-		return v.characterLevel >= 4 && v.isSpellcasterClass;
+		return v.characterLevel >= 4 && v.isSpellcastingClass;
 	},
 	description: "Choose one of the damage types: Acid, Cold, Fire, Lightning, or Thunder. Spells I cast ignore resistance to damage from this damage type. For any spell I cast that deals this damage type, I can treat any 1 on a damage die as a 2. [+1 Int, Wis, or Cha]",
 	descriptionFull: [
@@ -2628,7 +2628,7 @@ FeatsList["spell sniper"] = {
 	type: "general",
 	prerequisite: "Level 4+, Spellcasting or Pact Magic Feature",
 	prereqeval: function (v) {
-		return v.characterLevel >= 4 && v.isSpellcasterClass;
+		return v.characterLevel >= 4 && v.isSpellcastingClass;
 	},
 	description: PHB24_SpellSniperDescription + " [+1 Intelligence, Wisdom, or Charisma]",
 	descriptionFull: [
@@ -2789,7 +2789,7 @@ FeatsList["war caster"] = {
 	type: "general",
 	prerequisite: "Level 4+, Spellcasting or Pact Magic Feature",
 	prereqeval: function (v) {
-		return v.characterLevel >= 4 && v.isSpellcasterClass;
+		return v.characterLevel >= 4 && v.isSpellcastingClass;
 	},
 	description: "I have Advantage on Con saves to maintain ##Concentration##. I can do ##Somatic components## even when I have weapons or a Shield in both hands. ##Reactive Spell##. instead of an Opportunity Attack when a creature leaves my reach, I can cast a spell on it, a spell with a one action casting time that targets only that creature.",
 	descriptionFull: [
