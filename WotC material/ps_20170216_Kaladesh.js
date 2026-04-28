@@ -322,14 +322,14 @@ CreatureList["sky whale"] = { // Includes contributions by SoilentBrad
 			description : "Target must succeed on a DC 16 Strength saving throw or be knocked prone"
 		}
 	],
+	actions : [{
+		name : "Multiattack",
+		description : "As an action on its turn, the whale can make one Flipper and one Tail attack."
+	}],
 	traits : [{
-			name : "Hold Breath",
-			description : "The whale can hold its breath for 30 minutes."
-		}, {
-			name : "Multiattack",
-			description : "The whale makes two attacks: one with its flipper and one with its tail."
-		}
-	]
+		name : "Hold Breath",
+		description : "The whale can hold its breath for 30 minutes."
+	}]
 };
 CreatureList["servo"] = { // Includes contributions by userZynx_name
 	name : "Servo",

@@ -1,5 +1,5 @@
 var iFileName = "pub_20140818_PHB.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.0.6-beta");
 // This file adds all material from the Player's Handbook to MPMB's Character Record Sheet
 
 // Define the source
@@ -731,19 +731,28 @@ AddSubClass("druid", "circle of the moon", {
 				" \u2022 I can choose whether equipment falls to the ground, merges, or stays worn",
 				" \u2022 I revert if out of time or unconscious; if KOd by damage, excess damage carries over"
 			]),
-			usages : [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "\u221E\xD7 per "],
+			usages : ClassList.druid.features["subclassfeature2.wild shape"].usages,
 			recovery : "short rest",
 			additional : levels.map(function (n) {
 				if (n < 2) return "";
 				var cr = Math.max(1, Math.floor(n/3));
 				var hr = Math.floor(n/2);
-				var restr = n < 4 ? ", no fly/swim" : n < 8 ? ", no fly" : "";
-				return "CR " + cr + restr + "; " + hr + (restr.length ? " h" : " hours");
+				var limits = n < 4 ? ", no fly/swim" : n < 8 ? ", no fly" : "";
+				return "CR " + cr + limits + "; " + hr + (limits.length ? " h" : " hours");
 			}),
 			action : [["bonus action", " (start/stop)"]],
 			eval : function() {
 				processActions(false, "Druid: Wild Shape", ClassList.druid.features["subclassfeature2.wild shape"].action, "Wild Shape");
-			}
+			},
+			wildshapePageInfo: {
+				uses: ClassList.druid.features["subclassfeature2.wild shape"].wildshapePageInfo.uses,
+				duration: ClassList.druid.features["subclassfeature2.wild shape"].wildshapePageInfo.duration,
+				limitations: levels.map(function (n) {
+					var CR = Math.max(1, Math.floor(n/3));
+					var limits = n < 4 ? ", no fly/swim" : ", no fly speed";
+					return n < 8 ? "max CR " + CR + limits : "CR " + CR + "or lower";
+				}),
+			},
 		},
 		"subclassfeature2.1" : {
 			name : "Combat Wild Shape",

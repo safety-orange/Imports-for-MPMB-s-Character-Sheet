@@ -230,7 +230,7 @@ CreatureList["peryton"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The peryton makes one gore attack and one talon attack."
+		description : "As an action on its turn, the peryton can make one Gore and one Talon attack."
 	}],
 	traits : [{
 		name : "Dive Attack",
@@ -347,7 +347,12 @@ CreatureList["vine blight"] = {
 		name : "Entangling Plants (Recharge 5-6)",
 		description : "As an action, grasping roots and vines sprout in a 15-ft radius centered on the blight, withering away after 1 minute. For the duration, that area is difficult terrain for nonplant creatures. In addition, each creature of the blight's choice in that area when the plants appear must succeed on a DC 12 Strength saving throw or become restrained. A creature can use its action to make a DC 12 Strength check, freeing it self or another entangled creature within reach on a success."
 	}],
-	wildshapeString : "Blindsight 60 ft (blind beyond)| Immune to blinded, deafened| Entangling Plants (Recharge 5-6): As an action, 15-ft radius is difficult terrain for nonplant creatures, for 1 minute. Chosen creatures in it must make a DC 12 Str save or become restrained. A creature can use its action to make a DC 12 Str check to free itself or another within reach| False Appearance: While motionless, it's indistinguishable from a tangle of vines."
+	wildshapeString : [
+		(typePF ? "##Senses##. " : "") + "Blindsight 60 ft (blind beyond).",
+		"##Immunities##. Blinded, deafened.",
+		"##Entangling Plants (Recharge 5-6)##. As an action, 15-ft radius is difficult terrain for nonplant creatures for 1 min. Chosen creatures in it must make a DC 12 Str save or become restrained. A creature can use its action to free itself or another within reach with a DC 12 Str check.",
+		"##False Appearance##. While motionless, it's indistinguishable from a tangle of vines.",
+	].join(typePF ? "\n" : " "),
 };
 CreatureList["gas spore"] = {
 	name : "Gas Spore",
@@ -382,7 +387,11 @@ CreatureList["gas spore"] = {
 		name : "Eerie Resemblance",
 		description : "The gas spore resembles a beholder. A creature that can see the gas spore can discern its true nature with a successful DC 15 Intelligence (Nature) check."
 	}],
-	wildshapeString : "Blindsight 30 ft (blind beyond)| Immune to: blinded, deafened, frightened| Distinguishable form a beholder only with a DC 15 Int (Nature) check| When at 0 HP, explodes: all within 20 ft DC 15 Con save or 3d6 poison damage and infected with disease| The disease kills a creature in 1d12+it's Con score of hours. In half that, it becomes poisoned for the remainder. When dies, sprouts 2d4 Tiny gas spores that grow to full size in 7 days."
+	wildshapeString : [
+		(typePF ? "##Senses##. " : "") + "Blindsight 30 ft (blind beyond).",
+		"##Immunities##. Blinded, deafened, frightened.",
+		"##Eerie Resemblance##. Distinguishable form a beholder only with a DC 15 Nature check. ##Death Burst##. Explodes at 0 HP: all within 20 ft DC 15 Con save or 3d6 poison damage and infected with disease that kills a creature in 1d12+its Con score of hours. After half that, it's poisoned for the remainder. When dies, sprouts 2d4 Tiny gas spores that grow to full size in 7 days.",
+	].join(typePF ? "\n" : " "),
 };
 
 // Even though the shield guardian is in the SRD, the description for its control amulet is only found in the Monster Manual

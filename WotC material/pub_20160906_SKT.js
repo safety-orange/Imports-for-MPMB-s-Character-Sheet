@@ -66,7 +66,13 @@ CreatureList["ice spider"] = { // contributed by Nod_Hero
 		name : "Icy Web (Recharge 5-6)",
 		description : "See attack. On a hit, the target is restrained by webbing and takes 1 cold damage at the start of each of its turns. As an action, the restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; hp 5; vulnerability to fire damage; immunity to bludgeoning, poison, and psychic damage)."
 	}],
-	wildshapeString : "Blindsight 10 ft; Darkvision 60 ft| If the bite's poison damage reduces the target to 0 HP, the target is stable but poisoned and paralyzed for 1 hour, even after regaining HP| Spider Climb: climb difficult surfaces, including upside down, without an ability check| Web Sense: knows the exact location of any other creature in contact with the same web| Web Walker: ignores movement restrictions from webbing"
+	wildshapeString : [
+		"##Senses##. Blindsight 10 ft, Darkvision 60 ft.",
+		"##Bite##. If the poison damage reduces the target to 0 HP, the target is stable but poisoned and paralyzed for 1 hour, even after regaining HP.",
+		"##Spider Climb##. Climb difficult surfaces, including upside down, without an ability check.",
+		"##Web Sense##. Knows the exact location of any other creature in contact with the same web.",
+		"##Web Walker##. No movement restrictions from webbing.",
+	].join(typePF ? "\n" : " "),
 };
 CreatureList["sheep"] = {
 	name : "Sheep",
@@ -190,7 +196,13 @@ CreatureList["tressym"] = {
 			description : "The tressym can detect whether a substance is poisonous by taste, touch, or smell."
 		}
 	],
-	wildshapeString : "\u25C6 Languages: understands Common but can't speak.\n\u25C6 Senses: Darkvision 60 ft; Advantage on Wisdom (Perception) checks that rely on smell.\n\u25C6 Detect Invisibility: Magical invisibility fails to conceal anything from sight, out to 60 ft.\n\u25C6 Immune to: poison damage, poisoned condition.\n\u25C6 Poison Sense: Detect whether a substance is poisonous by taste, touch, or smell."
+	wildshapeString : [
+		"##Languages##. Understands Common but can't speak.",
+		"##Senses##. Darkvision 60 ft; Advantage on Wisdom (Perception) checks that rely on smell.",
+		"##Immunities##. Poison damage, poisoned condition.",
+		"##Detect Invisibility##. Magical invisibility fails to conceal anything from sight, out to 60 ft.",
+		"##Poison Sense##. Detect whether a substance is poisonous by taste, touch, or smell.",
+	].join("\n"),
 };
 
 // Magic Items

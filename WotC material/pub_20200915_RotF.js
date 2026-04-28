@@ -78,11 +78,13 @@ CreatureList["awakened white moose"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The moose makes two attacks: one with its antlers and one with its hooves."
+		description : "As an action on its turn, the moose can make one Antlers and one Hooves attack."
 	}],
-	wildshapeString : "\u25C6 Multiattack: Makes two attacks: one with its antlers and one with its hooves."+
-	"\n\u25C6 Charge: After moving 20 ft straight toward a target and then hitting it with an antlers attack on the same turn, the target takes an extra 2d8 bludgeoning damage and must make a DC 14 Str save or be knocked prone."+
-	"\n\u25C6 Sure-Footed: Advantage on Str and Dex saves against effects that would knock it prone."
+	wildshapeString : [
+		"##Multiattack##. 1 Antlers and 1 Hooves attack.",
+		"##Charge##. After moving 20 ft straight toward a target and then hitting it with an antlers attack on the same turn, the target takes an extra 2d8 bludgeoning damage and must make a DC 14 Str save or be knocked prone.",
+		"##Sure-Footed##. Advantage on Str and Dex saves against effects that would knock it prone.",
+	].join("\n"),
 };
 CreatureList["fox"] = {
 	name : "Fox",
@@ -208,8 +210,10 @@ CreatureList["mountain goat"] = {
 		name : "Sure-Footed",
 		description : "The goat has advantage on Strength and Dexterity saving throws made against effects that would knock it prone."
 	}],
-	wildshapeString : "\u25C6 Charge: After moving 20 ft straight toward a target and then hitting it with a ram attack on the same turn, the target takes an extra 1d6 bludgeoning damage and must make a DC 12 Strength save or be knocked prone."+
-	"\n\u25C6 Sure-Footed: Advantage on Strength and Dexterity saves against effects that would knock it prone."
+	wildshapeString : [
+		"##Charge##. After moving 20 ft straight toward a target and then hitting it with a ram attack on the same turn, the target takes an extra 1d6 bludgeoning damage and must make a DC 12 Strength save or be knocked prone.",
+		"##Sure-Footed##. Advantage on Strength and Dexterity saves against effects that would knock it prone.",
+	].join("\n"),
 };
 CreatureList["seal"] = {
 	name : "Seal",
@@ -291,11 +295,13 @@ CreatureList["sperm whale"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The whale makes two attacks: one with its bite and one with its tail."
+		description : "As an action on its turn, the whale can make one Bite and one Tail attack."
 	}],
-	wildshapeString : "\u25C6 Senses: Blindsight 120 ft (unless deafened); Adv. on Wis (Perception) checks using hearing."+
-	"\n\u25C6 Hold Breath: Can hold its breath for 90 minutes."+
-	"\n\u25C6 Swallow: Large or smaller hit with bite DC 14 Dex save or swallowed. Swallowed: total cover from outside whale, 1d6 acid damage at start of each turn. If whale takes 30 or more damage in a turn from inside, it DC 16 Con save or spit out creature prone in 10 ft at end of turn."
+	wildshapeString : [
+		"##Senses##. Blindsight 120 ft (unless deafened); Adv. on Wis (Perception) checks using hearing.",
+		"##Hold Breath##. Can hold its breath for 90 minutes.",
+		"##Swallow##. Large or smaller hit with bite DC 14 Dex save or swallowed. Swallowed: total cover from outside whale, 1d6 acid damage at start of each turn. If whale takes 30 or more damage in a turn from inside, it DC 16 Con save or spit out creature prone in 10 ft at end of turn.",
+	].join("\n"),
 };
 CreatureList["walrus"] = {
 	name : "Walrus",
@@ -360,7 +366,7 @@ CreatureList["giant walrus"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The walrus makes two attacks: one with its body flop and one with its tusks."
+		description : "As an action on its turn, the walrus can make one Body Flop and one Tusks attack."
 	}]
 };
 
@@ -399,7 +405,7 @@ CreatureList["demos magen"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The magen makes two melee attacks."
+		description : "As an action on its turn, the magen can make two melee attacks."
 	}],
 	traits : [{
 		name : "Fiery End",
@@ -467,7 +473,7 @@ CreatureList["galvan magen"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The magen makes two Shocking Touch attacks."
+		description : "As an action on its turn, the magen can make two Shocking Touch attacks."
 	}, {
 		name : "Static Discharge (Recharge 5-6)",
 		description : "See Attack. The magen discharges a lightning bolt in a 60-ft line that is 5 ft wide. Each creature in that line must make a DC 14 Dexterity saving throw (with disadvantage if the creature is wearing armor made of metal), taking 4d12 lightning damage on a failed save, or half as much damage on a successful one."
@@ -578,7 +584,7 @@ MagicItemsList["orc stone"] = { // from Appendix B: Character Secrets
 		}],
 		actions : [{
 			name : "Multiattack",
-			description : "As an action, the orc makes two attacks with its greataxe or its spear."
+			description : "As an action on its turn, the orc can make two attacks."
 		}, {
 			name : "Aggressive",
 			description : "As a bonus action, the orc can move up to its speed toward a hostile creature that it can see."

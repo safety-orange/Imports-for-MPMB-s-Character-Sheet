@@ -1468,7 +1468,7 @@ MagicItemsList["guild keyrune"] = {
 			}],
 			actions : [{
 				name : "Multiattack",
-				description : "As an action, the veteran makes two longsword attacks. If it has a shortsword drawn, it can also make a shortsword attack.",
+				description : "As an action on its turn, the veteran can make two Longsword attacks and, if it has a shortsword drawn, one Shortsword attack.",
 			}],
 			traits : [{
 				name : "Tactician",
@@ -1540,7 +1540,7 @@ MagicItemsList["guild keyrune"] = {
 			}],
 			actions : [{
 				name : "Multiattack",
-				description : "As an action, the devourer makes one claws attack and uses Devour Intellect.",
+				description : "As an action on its turn, the devourer can make one claws attack and uses Devour Intellect.",
 			}, {
 				name : "Devour Intellect",
 				description : "As an action, the devourer targets one creature with a brain that it can see within 10 ft. The target must make an Intelligence save against this magic or take 2d10 psychic damage and if its Intelligence score is lower or equal to a roll of 3d6, that score is reduced to 0 and the target is stunned while its Int is 0.",
@@ -1868,7 +1868,7 @@ MagicItemsList["guild keyrune"] = {
 			}],
 			actions : [{
 				name : "Multiattack",
-				description : "As an action, the krasis makes two attacks: one with its bite and one with its claws.",
+				description : "As an action on its turn, the krasis can make one Bite and one Claws attack.",
 			}],
 			traits : [{
 				name : "Amphibious",

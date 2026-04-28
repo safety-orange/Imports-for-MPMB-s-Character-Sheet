@@ -1800,7 +1800,7 @@ CreatureList["dragonnel"] = { // Alternate for Find Greater Steed spell (contrib
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The dragonnel makes two Rend attacks."
+		description : "As an action on its turn, the dragonnel can make two Rend attacks."
 	}],
 	traits : [{
 		name : "Flyby",

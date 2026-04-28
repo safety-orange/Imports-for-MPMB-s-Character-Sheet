@@ -411,7 +411,7 @@ CreatureList["space eel"] = {
 		damage : [1, 6, "piercing"],
 		range : "Melee (5 ft)",
 		description : "Attaches on hit; While attached, auto-damage at turn start, but can't make bite attacks",
-		tooltip : "On a hit, the eel attaches to the target. While attached, the eel can't make bite attacks. Instead, the target takes 4 (1d6 + 1) piercing damage at the start of each of the eel's turns. The eel can detach itself as a bonus action. A creature, including the target, can use its action to detach the eel."
+		tooltip : "On a hit, the eel attaches to the target. While attached, the eel can't make bite attacks. Instead, the target takes the bite damage at the start of each of the eel's turns. The eel can detach itself as a bonus action. A creature, including the target, can use its action to detach the eel."
 	}, {
 		name : "Tail Spine",
 		ability : 1,
@@ -420,26 +420,26 @@ CreatureList["space eel"] = {
 		description : "Target DC 10 Con save or poisoned and paralyzed for 1 min (can save as each turn ends)",
 		tooltip : "The target must succeed on a DC 10 Constitution saving throw or be poisoned for 1 minute. Until this poison ends, the target is paralyzed. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 	}],
-	traits : [{
+	features : [{
 		name : "Unusual Nature",
 		description : "The eel doesn't require air."
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "If it isn't attached to a creature, the eel makes one bite attack and one tail spine attack."
+		description : "As an action on its turn if not attached to a creature, the eel can make one Bite and one Tail Spine attack."
 	}, {
 		name : "Attach",
-		description : "If the eel hits with its bite attack, it attaches to the target. While attached, the eel can't make bite attacks. Instead, the target takes 4 (1d6 + 1) piercing damage at the start of each of the eel's turns. The eel can detach itself as a bonus action. A creature, including the target, can use its action to detach the eel."
+		description : "If the eel hits with its bite attack, it attaches to the target. While attached, the eel can't make bite attacks. Instead, the target takes the bite damage at the start of each of the eel's turns. The eel can detach itself as a bonus action. A creature, including the target, can use its action to detach the eel."
 	}, {
 		name : "Tail Spine",
 		description : "If the eel hits with its tail spine, the target must succeed on a DC 10 Constitution saving throw or be poisoned for 1 minute. Until this poison ends, the target is paralyzed. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 	}],
 	wildshapeString : [
-		"\u25C6 Senses: Darkvision 60 ft",
-		"Unusual Nature: The eel doesn't require air.",
-		"Multiattack: If it isn't attached to a creature, the eel makes one bite attack and one tail spine attack.",
-		"Bite: Attaches to the target hit by its bite attack, dealing bite damage at the start of each turn. The eel can detach itself as a bonus action. A creature, including the target, can use its action to detach the eel."
-	].join("\n\u25C6 ")
+		"##Senses##. Darkvision 60 ft",
+		"##Unusual Nature##. Doesn't require air.",
+		"##Multiattack##. 1 bite and 1 tail spine attack if not attached to a creature.",
+		"##Bite##. Attaches to the target hit by its bite attack, dealing bite damage at the start of each turn. The eel can detach itself as a bonus action. A creature, including the target, can use its action to detach the eel."
+	].join("\n"),
 };
 CreatureList["space guppy"] = {
 	name : "Space Guppy",

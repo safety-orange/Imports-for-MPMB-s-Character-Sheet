@@ -3344,13 +3344,17 @@ CreatureList["clawfoot"] = {
 		ability : 2,
 		damage : [1, 8, "piercing"],
 		range : "Melee (5 ft)",
-		description : "Both bite \u0026 claws attack as Attack action"
+		description : "1 bite \u0026 1 claws attack as Attack action"
 	}, {
 		name : "Claws",
 		ability : 2,
 		damage : [1, 8, "slashing"],
 		range : "Melee (5 ft)",
-		description : "If used after moving 20 ft straight in the same round, see Pounce trait; Both bite \u0026 claws attack as Attack action"
+		description : "If used after moving 20 ft straight in the same round, see Pounce trait; 1 bite \u0026 1 claws attack as Attack action"
+	}],
+	actions : [{
+		name : "Multiattack",
+		description : "As an action on its turn, the clawfoot can make one Bite and one Claws attack."
 	}],
 	traits : [{
 		name : "Pack Tactics",
@@ -3358,9 +3362,6 @@ CreatureList["clawfoot"] = {
 	}, {
 		name : "Pounce",
 		description : "If the clawfoot moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 11 Strength saving throw or be knocked prone. If the target is prone, the clawfoot can make one bite attack against it as a bonus action."
-	}, {
-		name : "Multiattack",
-		description : "The clawfoot makes two attacks: one with its bite and one with its claws."
 	}]
 };
 CreatureList["fastieth"] = {

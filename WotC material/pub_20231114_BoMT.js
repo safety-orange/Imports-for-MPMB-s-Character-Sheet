@@ -1474,15 +1474,14 @@ MagicItemsList["plate of knight's fellowship"] = {
 			description : "Ammunition, heavy, loading, two-handed"
 		}],
 		actions : [{
+			name : "Multiattack",
+			description : "As an action on its turn, the knight can make two melee attacks."
+		} ,{
 			name : "Leadership (Recharges after a Short or Long Rest)",
 			description : "As an action, the knight can activate this ability. Then, for 1 minute, the knight can utter a special command or warning whenever a nonhostile creature that it can see within 30 ft of it makes an attack roll or save. The creature can add +1d4 to its roll provided it can hear and understand the knight. A creature can benefit from only one Leadership die at a time. This effect ends if the knight is incapacitated."
 		}, {
 			name : "Parry",
 			description : "As a reaction, the knight can add +2 AC against one melee attack that would hit it. To do so, the knight must see the attacker and be wielding a melee weapon."
-		}],
-		traits : [{
-			name : "Multiattack",
-			description : "The knight makes two melee attacks."
 		}],
 		features : [{
 			name : "Brave",

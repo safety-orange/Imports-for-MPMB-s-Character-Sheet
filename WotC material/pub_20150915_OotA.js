@@ -56,7 +56,7 @@ CreatureList["cave badger"] = { // contributed by Nod_Hero
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The badger makes two attacks: one with its bite and one with its claws."
+		description : "As an action on its turn, the badger can make one Bite and one Claws attack."
 	}],
 	traits : [{
 		name : "Keen Smell",

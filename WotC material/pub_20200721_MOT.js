@@ -466,7 +466,7 @@ CreatureList["anvilwrought raptor"] = {
 		ability : 2,
 		damage : [1, 4, "piercing"],
 		range : "Melee (5 ft)",
-		description : "Two beak attacks as one Attack action"
+		description : "Two beak attacks as an Attack action"
 	}],
 	traits : [{
 		name : "Keen Sight",
@@ -477,7 +477,7 @@ CreatureList["anvilwrought raptor"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The raptor makes two attacks with its beak."
+		description : "As an action on its turn, the raptor can make two Beak attacks."
 	}],
 	variant : [{
 		name : "Variant: Familiar",

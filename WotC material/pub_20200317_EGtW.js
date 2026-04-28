@@ -2037,7 +2037,7 @@ CreatureList["bristled moorbounder"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The moorbounder makes two attacks: one with its blades and one with its claws."
+		description : "As an action on its turn, the moorbounder can makeone Blades and one Claws attack."
 	}],
 	traits : [{
 		name : "Bladed Hide",
@@ -3055,7 +3055,7 @@ MagicItemsList["hide of the feral guardian"] = {
 			}],
 			actions : [{
 				name : "Multiattack",
-				description : "The wolf makes two attacks: one with its bite and one with its claws."
+				description : "As an action on its turn, the wolf can make one Bite and one Claws attack."
 			}],
 			traits : [{
 				name : "Keen Hearing and Smell",

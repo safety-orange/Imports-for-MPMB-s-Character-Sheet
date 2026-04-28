@@ -367,10 +367,11 @@ if (!SourceList.V) {
 			range : "Melee (5 ft)",
 			description : "Two claw and one bite as one Attack action (also, see Pounce trait)"
 		}],
-		traits : [{
+		actions : [{
 			name : "Multiattack",
-			description : "The deinonychus makes three attacks: two with its claws and one with its bite."
-		}, {
+			description : "As an action on its turn, the deinonychus can make two Claw and one Bite attack."
+		}],
+		traits : [{
 			name : "Pounce",
 			description : "If the deinonychus moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the deinonychus can make one bite attack against it as a bonus action."
 		}]
@@ -521,7 +522,7 @@ if (!SourceList.V) {
 		}],
 		actions : [{
 			name : "Multiattack",
-			description : "The velociraptor makes two attacks: one with its bite and one with its claws."
+			description : "As an action on its turn, the velociraptor can make one Bite and one Claw attack."
 		}],
 		traits : [{
 			name : "Pack Tactics",
@@ -663,7 +664,12 @@ CreatureList["jaculi"] = {
 		name : "Keen Smell",
 		description : "The jaculi has advantage on Wisdom (Perception) checks that rely on smell."
 	}],
-	wildshapeString : "\u25C6 Senses: Blindsight 30 ft.\n\u25C6 Camouflage: advantage on Dexterity (Stealth) checks made to hide.\n\u25C6 Keen Smell: advantage on Wisdom (Perception) checks that rely on smell.\n\u25C6 Spring: 30 ft in a straight line and make a bite attack. Advantage on the attack roll if springing at least 10 ft. It deals an extra 7 (2d6) piercing damage on a hit."
+	wildshapeString : [
+		"##Senses##. Blindsight 30 ft.",
+		"##Camouflage##. Advantage on Dexterity (Stealth) checks made to hide.",
+		"##Keen Smell##. Advantage on Wisdom (Perception) checks that rely on smell.",
+		"##Spring##. 30 ft in a straight line and make a bite attack. Advantage on the attack roll if springing at least 10 ft. It deals an extra 7 (2d6) piercing damage on a hit.",
+	].join("\n"),
 };
 
 // Magic Items

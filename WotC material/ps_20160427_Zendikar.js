@@ -415,7 +415,7 @@ CreatureList["gnarlid"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The gnarlid makes two attacks: one with its bite and one with its claws."
+		description : "As an action on its turn, the gnarlid can make one Bite and one Claws attack."
 	}],
 	traits : [{
 		name : "Keen Smell",
@@ -516,9 +516,9 @@ CreatureList["terra stomper"] = {
 		range : "Melee (10 ft)",
 		description : "One bite and one tail attack to a different as an Attack action"
 	}],
-	traits : [{
+	actions : [{
 		name : "Multiattack",
-		description : "The terra stomper makes two attacks: one with its bite and one with its tail. It can't make both attacks against the same target."
+		description : "As an action on its turn, the terra stomper can make one Bite and one Tail attack. It can't make both attacks against the same target."
 	}]
 };
 CreatureList["timbermaw"] = {

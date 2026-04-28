@@ -193,11 +193,11 @@ CreatureList["abyssal chicken"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The abyssal chicken makes two attacks: one with its bite and one with its claws."
+		description : "As an action on its turn, the chicken can make one Bite and one Claws attack."
 	}],
 	traits : [{
 		name : "Bad Flier",
-		description : "The abyssal chicken falls at the end of a turn if it's airborne and the only thing holding it aloft is its flying speed."
+		description : "The chicken falls at the end of a turn if it's airborne and the only thing holding it aloft is its flying speed."
 	}]
 }
 

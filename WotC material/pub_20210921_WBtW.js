@@ -723,7 +723,7 @@ CreatureList["giant swan"] = { // a giant eagle except that it has no talons, ca
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The swan makes two beak attacks."
+		description : "As an action on its turn, the swan can make two Beak attacks."
 	}],
 	traits : [{
 		name : "Keen Sight",

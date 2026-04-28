@@ -1,7 +1,7 @@
-if (sheetVersion < 14000005) { throw "This add-on script was made for a newer version of the sheet (v14.0.5-beta). Please use this required version or a later version (but lower than v15.0.0) and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
-if (sheetVersion >= 15000000) { throw "This add-on script was made for a lower version of the sheet (one before v15.0.0). Please use the required version (v14.0.5-beta) or a later version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion < 14000006) { throw "This add-on script was made for a newer version of the sheet (v14.0.6-beta). Please use this required version or a later version (but lower than v15.0.0) and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion >= 15000000) { throw "This add-on script was made for a lower version of the sheet (one before v15.0.0). Please use the required version (v14.0.6-beta) or a later version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
 var iFileName = "all_WotC_published.js";
-RequiredSheetVersion("14.0.5-beta", "15.0.0");
+RequiredSheetVersion("14.0.6-beta", "15.0.0");
 
 // pub_20140715_LMoP.js
 // This file adds the magic items from the Lost Mines of Phandelver adventure from the D&D 5e starter set to MPMB's Character Record Sheet
@@ -882,19 +882,28 @@ AddSubClass("druid", "circle of the moon", {
 				" \u2022 I can choose whether equipment falls to the ground, merges, or stays worn",
 				" \u2022 I revert if out of time or unconscious; if KOd by damage, excess damage carries over"
 			]),
-			usages : [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "\u221E\xD7 per "],
+			usages : ClassList.druid.features["subclassfeature2.wild shape"].usages,
 			recovery : "short rest",
 			additional : levels.map(function (n) {
 				if (n < 2) return "";
 				var cr = Math.max(1, Math.floor(n/3));
 				var hr = Math.floor(n/2);
-				var restr = n < 4 ? ", no fly/swim" : n < 8 ? ", no fly" : "";
-				return "CR " + cr + restr + "; " + hr + (restr.length ? " h" : " hours");
+				var limits = n < 4 ? ", no fly/swim" : n < 8 ? ", no fly" : "";
+				return "CR " + cr + limits + "; " + hr + (limits.length ? " h" : " hours");
 			}),
 			action : [["bonus action", " (start/stop)"]],
 			eval : function() {
 				processActions(false, "Druid: Wild Shape", ClassList.druid.features["subclassfeature2.wild shape"].action, "Wild Shape");
-			}
+			},
+			wildshapePageInfo: {
+				uses: ClassList.druid.features["subclassfeature2.wild shape"].wildshapePageInfo.uses,
+				duration: ClassList.druid.features["subclassfeature2.wild shape"].wildshapePageInfo.duration,
+				limitations: levels.map(function (n) {
+					var CR = Math.max(1, Math.floor(n/3));
+					var limits = n < 4 ? ", no fly/swim" : ", no fly speed";
+					return n < 8 ? "max CR " + CR + limits : "CR " + CR + "or lower";
+				}),
+			},
 		},
 		"subclassfeature2.1" : {
 			name : "Combat Wild Shape",
@@ -5482,7 +5491,7 @@ CreatureList["peryton"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The peryton makes one gore attack and one talon attack."
+		description : "As an action on its turn, the peryton can make one Gore and one Talon attack."
 	}],
 	traits : [{
 		name : "Dive Attack",
@@ -5599,7 +5608,12 @@ CreatureList["vine blight"] = {
 		name : "Entangling Plants (Recharge 5-6)",
 		description : "As an action, grasping roots and vines sprout in a 15-ft radius centered on the blight, withering away after 1 minute. For the duration, that area is difficult terrain for nonplant creatures. In addition, each creature of the blight's choice in that area when the plants appear must succeed on a DC 12 Strength saving throw or become restrained. A creature can use its action to make a DC 12 Strength check, freeing it self or another entangled creature within reach on a success."
 	}],
-	wildshapeString : "Blindsight 60 ft (blind beyond)| Immune to blinded, deafened| Entangling Plants (Recharge 5-6): As an action, 15-ft radius is difficult terrain for nonplant creatures, for 1 minute. Chosen creatures in it must make a DC 12 Str save or become restrained. A creature can use its action to make a DC 12 Str check to free itself or another within reach| False Appearance: While motionless, it's indistinguishable from a tangle of vines."
+	wildshapeString : [
+		(typePF ? "##Senses##. " : "") + "Blindsight 60 ft (blind beyond).",
+		"##Immunities##. Blinded, deafened.",
+		"##Entangling Plants (Recharge 5-6)##. As an action, 15-ft radius is difficult terrain for nonplant creatures for 1 min. Chosen creatures in it must make a DC 12 Str save or become restrained. A creature can use its action to free itself or another within reach with a DC 12 Str check.",
+		"##False Appearance##. While motionless, it's indistinguishable from a tangle of vines.",
+	].join(typePF ? "\n" : " "),
 };
 CreatureList["gas spore"] = {
 	name : "Gas Spore",
@@ -5634,7 +5648,11 @@ CreatureList["gas spore"] = {
 		name : "Eerie Resemblance",
 		description : "The gas spore resembles a beholder. A creature that can see the gas spore can discern its true nature with a successful DC 15 Intelligence (Nature) check."
 	}],
-	wildshapeString : "Blindsight 30 ft (blind beyond)| Immune to: blinded, deafened, frightened| Distinguishable form a beholder only with a DC 15 Int (Nature) check| When at 0 HP, explodes: all within 20 ft DC 15 Con save or 3d6 poison damage and infected with disease| The disease kills a creature in 1d12+it's Con score of hours. In half that, it becomes poisoned for the remainder. When dies, sprouts 2d4 Tiny gas spores that grow to full size in 7 days."
+	wildshapeString : [
+		(typePF ? "##Senses##. " : "") + "Blindsight 30 ft (blind beyond).",
+		"##Immunities##. Blinded, deafened, frightened.",
+		"##Eerie Resemblance##. Distinguishable form a beholder only with a DC 15 Nature check. ##Death Burst##. Explodes at 0 HP: all within 20 ft DC 15 Con save or 3d6 poison damage and infected with disease that kills a creature in 1d12+its Con score of hours. After half that, it's poisoned for the remainder. When dies, sprouts 2d4 Tiny gas spores that grow to full size in 7 days.",
+	].join(typePF ? "\n" : " "),
 };
 
 // Even though the shield guardian is in the SRD, the description for its control amulet is only found in the Monster Manual
@@ -10204,7 +10222,7 @@ CreatureList["cave badger"] = { // contributed by Nod_Hero
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The badger makes two attacks: one with its bite and one with its claws."
+		description : "As an action on its turn, the badger can make one Bite and one Claws attack."
 	}],
 	traits : [{
 		name : "Keen Smell",
@@ -13083,7 +13101,13 @@ CreatureList["ice spider"] = { // contributed by Nod_Hero
 		name : "Icy Web (Recharge 5-6)",
 		description : "See attack. On a hit, the target is restrained by webbing and takes 1 cold damage at the start of each of its turns. As an action, the restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; hp 5; vulnerability to fire damage; immunity to bludgeoning, poison, and psychic damage)."
 	}],
-	wildshapeString : "Blindsight 10 ft; Darkvision 60 ft| If the bite's poison damage reduces the target to 0 HP, the target is stable but poisoned and paralyzed for 1 hour, even after regaining HP| Spider Climb: climb difficult surfaces, including upside down, without an ability check| Web Sense: knows the exact location of any other creature in contact with the same web| Web Walker: ignores movement restrictions from webbing"
+	wildshapeString : [
+		"##Senses##. Blindsight 10 ft, Darkvision 60 ft.",
+		"##Bite##. If the poison damage reduces the target to 0 HP, the target is stable but poisoned and paralyzed for 1 hour, even after regaining HP.",
+		"##Spider Climb##. Climb difficult surfaces, including upside down, without an ability check.",
+		"##Web Sense##. Knows the exact location of any other creature in contact with the same web.",
+		"##Web Walker##. No movement restrictions from webbing.",
+	].join(typePF ? "\n" : " "),
 };
 CreatureList["sheep"] = {
 	name : "Sheep",
@@ -13207,7 +13231,13 @@ CreatureList["tressym"] = {
 			description : "The tressym can detect whether a substance is poisonous by taste, touch, or smell."
 		}
 	],
-	wildshapeString : "\u25C6 Languages: understands Common but can't speak.\n\u25C6 Senses: Darkvision 60 ft; Advantage on Wisdom (Perception) checks that rely on smell.\n\u25C6 Detect Invisibility: Magical invisibility fails to conceal anything from sight, out to 60 ft.\n\u25C6 Immune to: poison damage, poisoned condition.\n\u25C6 Poison Sense: Detect whether a substance is poisonous by taste, touch, or smell."
+	wildshapeString : [
+		"##Languages##. Understands Common but can't speak.",
+		"##Senses##. Darkvision 60 ft; Advantage on Wisdom (Perception) checks that rely on smell.",
+		"##Immunities##. Poison damage, poisoned condition.",
+		"##Detect Invisibility##. Magical invisibility fails to conceal anything from sight, out to 60 ft.",
+		"##Poison Sense##. Detect whether a substance is poisonous by taste, touch, or smell.",
+	].join("\n"),
 };
 
 // Magic Items
@@ -14581,7 +14611,11 @@ CreatureList["stench kow"] = {
 		name : "Stench",
 		description : "Any creature other than a stench kow starting its turn within 5 ft of a stench kow must make a DC 12 Constitution saving throw or be poisoned until the start of the creature's next turn. On a successful saving throw, the creature is immune to the stench of all stench kows for 1 hour."
 	}],
-	wildshapeString : "Darkvision 60 ft | Resistant to: cold, fire, poison | Charge: If the stench kow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, it deals extra 2d6 piercing damage | Stench: Any creature starting its turn within 5 ft of a stench kow must make a DC 12 Con save or be poisoned until the start of the its next turn. On a success, it is immune to the stench of all stench kows for 1 hour"
+	wildshapeString : [
+		"##Senses##. Darkvision 60 ft." + (typePF ? "\n" : " ") + "##Resistances##. Cold, fire, poison.",
+		"##Charge##. If the stench kow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, it deals extra 2d6 piercing damage.",
+		"##Stench##. Any creature starting its turn within 5 ft of a stench kow must make a DC 12 Con save or be poisoned until the start of the its next turn. On a success, it is immune to the stench of all stench kows for 1 hour",
+	].join("\n")
 };
 CreatureList["dolphin"] = {
 	name : "Dolphin",
@@ -14714,10 +14748,11 @@ CreatureList["deinonychus"] = {
 		range : "Melee (5 ft)",
 		description : "Two claw and one bite as one Attack action (also, see Pounce trait)"
 	}],
-	traits : [{
+	actions : [{
 		name : "Multiattack",
-		description : "The deinonychus makes three attacks: two with its claws and one with its bite."
-	}, {
+		description : "As an action on its turn, the deinonychus can make two Claw and one Bite attack."
+	}],
+	traits : [{
 		name : "Pounce",
 		description : "If the deinonychus moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the deinonychus can make one bite attack against it as a bonus action."
 	}]
@@ -14868,7 +14903,7 @@ CreatureList["velociraptor"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The velociraptor makes two attacks: one with its bite and one with its claws."
+		description : "As an action on its turn, the velociraptor can make one Bite and one Claw attack."
 	}],
 	traits : [{
 		name : "Pack Tactics",
@@ -15130,7 +15165,7 @@ CreatureList["giant ice toad"] = {
 			description : "The toad can make a bite attack against a Medium or smaller target it is grappling. If it hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the toad, and it takes 10 (3d6) acid damage and 11 (2d6) cold damage at the start of each of the toad's turns. The toad can have only one target swallowed at a time.\nIf the toad dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 5 feet of movement, exiting prone."
 		}
 	],
-	wildshapeString : "Darkvision 60 ft| Cold Aura: Any within 5 ft at start of their turn take 1d10 cold damage| Amphibious: breathe air and water| Standing Leap: long jump 20 ft and high jump 10 ft, regardless of start| Swallow: if bite attack hits Medium or smaller being grappling, it takes bite damageand is swallowed: blinded, restrained, total cover, takes 3d6 acid and 2d6 cold damage at the start of each of the toad's turns; Only 1 swallowed at a time."
+	wildshapeString : (typePF ? "##Senses##. " : "") + "Darkvision 60 ft. ##Cold Aura##. Any within 5 ft at start of their turn take 1d10 cold damage. ##Amphibious##. Breathes air and water. ##Standing Leap##. Long jump 20 ft and high jump 10 ft, regardless of start. ##Swallow##. If bite attack hits Medium or smaller being grappling, it takes bite damage and is swallowed: blinded, restrained, total cover, takes 3d6 acid and 2d6 cold damage at the start of each of the toad's turns; Only 1 swallowed at a time."
 };
 CreatureList["giant lightning eel"] = {
 	name : "Giant Lightning Eel",
@@ -15173,7 +15208,7 @@ CreatureList["giant lightning eel"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The eel makes two bite attacks."
+		description : "As an action on its turn, the eel can make two Bite attacks."
 	}, {
 		name : "Lightning Jolt (Recharge 5-6)",
 		description : "See Attack. One creature the eel touches within 5 feet of it outside water, or each creature within 15 feet of it in a body of water, must make a DC 12 Constitution saving throw. On failed save, a target takes 13 (3d8) lightning damage. If the target takes any of this damage, the target is stunned until the end of the eel's next turn. On a successful save, a target takes half as much damage and isn't stunned"
@@ -15217,7 +15252,7 @@ CreatureList["giant subterranean lizard"] = {
 			description : "The lizard can make one bite attack against a Medium or smaller target it is grappling. If the attack hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the lizard, and it takes 10 (3d6) acid damage at the start of each of the lizard's turns. The lizard can have only one target swallowed at a time.\nIf the lizard dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 10 feet of movement, exiting prone."
 		}
 	],
-	wildshapeString : "\u25C6 Swallow: If a bite attack hits a Small or smaller target that is currently being grappled by the lizard, the target is swallowed, ending the grapple. While swallowed, it is blinded, restrained, has total cover, and takes 3d4 acid damage at the start of each of the lizard's turns; The lizard can have only 1 swallowed at a time. If the lizard dies, the swallowed creature is no longer restrained and can escape using 10 ft movement."
+	wildshapeString : "##Swallow##. If a bite attack hits a Small or smaller target that is currently being grappled by the lizard, the target is swallowed, ending the grapple. While swallowed, it is blinded, restrained, has total cover, and takes 3d4 acid damage at the start of each of the lizard's turns; The lizard can have only 1 swallowed at a time. If the lizard dies, the swallowed creature is no longer restrained and can escape using 10 ft movement."
 };
 
 // Magic Items
@@ -16149,7 +16184,12 @@ CreatureList["jaculi"] = {
 		name : "Keen Smell",
 		description : "The jaculi has advantage on Wisdom (Perception) checks that rely on smell."
 	}],
-	wildshapeString : "\u25C6 Senses: Blindsight 30 ft.\n\u25C6 Camouflage: advantage on Dexterity (Stealth) checks made to hide.\n\u25C6 Keen Smell: advantage on Wisdom (Perception) checks that rely on smell.\n\u25C6 Spring: 30 ft in a straight line and make a bite attack. Advantage on the attack roll if springing at least 10 ft. It deals an extra 7 (2d6) piercing damage on a hit."
+	wildshapeString : [
+		"##Senses##. Blindsight 30 ft.",
+		"##Camouflage##. Advantage on Dexterity (Stealth) checks made to hide.",
+		"##Keen Smell##. Advantage on Wisdom (Perception) checks that rely on smell.",
+		"##Spring##. 30 ft in a straight line and make a bite attack. Advantage on the attack roll if springing at least 10 ft. It deals an extra 7 (2d6) piercing damage on a hit.",
+	].join("\n"),
 };
 
 // Magic Items
@@ -23790,7 +23830,7 @@ MagicItemsList["guild keyrune"] = {
 			}],
 			actions : [{
 				name : "Multiattack",
-				description : "As an action, the veteran makes two longsword attacks. If it has a shortsword drawn, it can also make a shortsword attack.",
+				description : "As an action on its turn, the veteran can make two Longsword attacks and, if it has a shortsword drawn, one Shortsword attack.",
 			}],
 			traits : [{
 				name : "Tactician",
@@ -23862,7 +23902,7 @@ MagicItemsList["guild keyrune"] = {
 			}],
 			actions : [{
 				name : "Multiattack",
-				description : "As an action, the devourer makes one claws attack and uses Devour Intellect.",
+				description : "As an action on its turn, the devourer can make one claws attack and uses Devour Intellect.",
 			}, {
 				name : "Devour Intellect",
 				description : "As an action, the devourer targets one creature with a brain that it can see within 10 ft. The target must make an Intelligence save against this magic or take 2d10 psychic damage and if its Intelligence score is lower or equal to a roll of 3d6, that score is reduced to 0 and the target is stunned while its Int is 0.",
@@ -24190,7 +24230,7 @@ MagicItemsList["guild keyrune"] = {
 			}],
 			actions : [{
 				name : "Multiattack",
-				description : "As an action, the krasis makes two attacks: one with its bite and one with its claws.",
+				description : "As an action on its turn, the krasis can make one Bite and one Claws attack.",
 			}],
 			traits : [{
 				name : "Amphibious",
@@ -26160,11 +26200,11 @@ CreatureList["abyssal chicken"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The abyssal chicken makes two attacks: one with its bite and one with its claws."
+		description : "As an action on its turn, the chicken can make one Bite and one Claws attack."
 	}],
 	traits : [{
 		name : "Bad Flier",
-		description : "The abyssal chicken falls at the end of a turn if it's airborne and the only thing holding it aloft is its flying speed."
+		description : "The chicken falls at the end of a turn if it's airborne and the only thing holding it aloft is its flying speed."
 	}]
 }
 
@@ -29724,13 +29764,17 @@ CreatureList["clawfoot"] = {
 		ability : 2,
 		damage : [1, 8, "piercing"],
 		range : "Melee (5 ft)",
-		description : "Both bite \u0026 claws attack as Attack action"
+		description : "1 bite \u0026 1 claws attack as Attack action"
 	}, {
 		name : "Claws",
 		ability : 2,
 		damage : [1, 8, "slashing"],
 		range : "Melee (5 ft)",
-		description : "If used after moving 20 ft straight in the same round, see Pounce trait; Both bite \u0026 claws attack as Attack action"
+		description : "If used after moving 20 ft straight in the same round, see Pounce trait; 1 bite \u0026 1 claws attack as Attack action"
+	}],
+	actions : [{
+		name : "Multiattack",
+		description : "As an action on its turn, the clawfoot can make one Bite and one Claws attack."
 	}],
 	traits : [{
 		name : "Pack Tactics",
@@ -29738,9 +29782,6 @@ CreatureList["clawfoot"] = {
 	}, {
 		name : "Pounce",
 		description : "If the clawfoot moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 11 Strength saving throw or be knocked prone. If the target is prone, the clawfoot can make one bite attack against it as a bonus action."
-	}, {
-		name : "Multiattack",
-		description : "The clawfoot makes two attacks: one with its bite and one with its claws."
 	}]
 };
 CreatureList["fastieth"] = {
@@ -31322,7 +31363,7 @@ CreatureList["bristled moorbounder"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The moorbounder makes two attacks: one with its blades and one with its claws."
+		description : "As an action on its turn, the moorbounder can makeone Blades and one Claws attack."
 	}],
 	traits : [{
 		name : "Bladed Hide",
@@ -32314,7 +32355,7 @@ MagicItemsList["hide of the feral guardian"] = {
 			}],
 			actions : [{
 				name : "Multiattack",
-				description : "The wolf makes two attacks: one with its bite and one with its claws."
+				description : "As an action on its turn, the wolf can make one Bite and one Claws attack."
 			}],
 			traits : [{
 				name : "Keen Hearing and Smell",
@@ -33029,7 +33070,7 @@ CreatureList["anvilwrought raptor"] = {
 		ability : 2,
 		damage : [1, 4, "piercing"],
 		range : "Melee (5 ft)",
-		description : "Two beak attacks as one Attack action"
+		description : "Two beak attacks as an Attack action"
 	}],
 	traits : [{
 		name : "Keen Sight",
@@ -33040,7 +33081,7 @@ CreatureList["anvilwrought raptor"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The raptor makes two attacks with its beak."
+		description : "As an action on its turn, the raptor can make two Beak attacks."
 	}],
 	variant : [{
 		name : "Variant: Familiar",
@@ -33507,11 +33548,13 @@ CreatureList["awakened white moose"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The moose makes two attacks: one with its antlers and one with its hooves."
+		description : "As an action on its turn, the moose can make one Antlers and one Hooves attack."
 	}],
-	wildshapeString : "\u25C6 Multiattack: Makes two attacks: one with its antlers and one with its hooves."+
-	"\n\u25C6 Charge: After moving 20 ft straight toward a target and then hitting it with an antlers attack on the same turn, the target takes an extra 2d8 bludgeoning damage and must make a DC 14 Str save or be knocked prone."+
-	"\n\u25C6 Sure-Footed: Advantage on Str and Dex saves against effects that would knock it prone."
+	wildshapeString : [
+		"##Multiattack##. 1 Antlers and 1 Hooves attack.",
+		"##Charge##. After moving 20 ft straight toward a target and then hitting it with an antlers attack on the same turn, the target takes an extra 2d8 bludgeoning damage and must make a DC 14 Str save or be knocked prone.",
+		"##Sure-Footed##. Advantage on Str and Dex saves against effects that would knock it prone.",
+	].join("\n"),
 };
 CreatureList["fox"] = {
 	name : "Fox",
@@ -33637,8 +33680,10 @@ CreatureList["mountain goat"] = {
 		name : "Sure-Footed",
 		description : "The goat has advantage on Strength and Dexterity saving throws made against effects that would knock it prone."
 	}],
-	wildshapeString : "\u25C6 Charge: After moving 20 ft straight toward a target and then hitting it with a ram attack on the same turn, the target takes an extra 1d6 bludgeoning damage and must make a DC 12 Strength save or be knocked prone."+
-	"\n\u25C6 Sure-Footed: Advantage on Strength and Dexterity saves against effects that would knock it prone."
+	wildshapeString : [
+		"##Charge##. After moving 20 ft straight toward a target and then hitting it with a ram attack on the same turn, the target takes an extra 1d6 bludgeoning damage and must make a DC 12 Strength save or be knocked prone.",
+		"##Sure-Footed##. Advantage on Strength and Dexterity saves against effects that would knock it prone.",
+	].join("\n"),
 };
 CreatureList["seal"] = {
 	name : "Seal",
@@ -33720,11 +33765,13 @@ CreatureList["sperm whale"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The whale makes two attacks: one with its bite and one with its tail."
+		description : "As an action on its turn, the whale can make one Bite and one Tail attack."
 	}],
-	wildshapeString : "\u25C6 Senses: Blindsight 120 ft (unless deafened); Adv. on Wis (Perception) checks using hearing."+
-	"\n\u25C6 Hold Breath: Can hold its breath for 90 minutes."+
-	"\n\u25C6 Swallow: Large or smaller hit with bite DC 14 Dex save or swallowed. Swallowed: total cover from outside whale, 1d6 acid damage at start of each turn. If whale takes 30 or more damage in a turn from inside, it DC 16 Con save or spit out creature prone in 10 ft at end of turn."
+	wildshapeString : [
+		"##Senses##. Blindsight 120 ft (unless deafened); Adv. on Wis (Perception) checks using hearing.",
+		"##Hold Breath##. Can hold its breath for 90 minutes.",
+		"##Swallow##. Large or smaller hit with bite DC 14 Dex save or swallowed. Swallowed: total cover from outside whale, 1d6 acid damage at start of each turn. If whale takes 30 or more damage in a turn from inside, it DC 16 Con save or spit out creature prone in 10 ft at end of turn.",
+	].join("\n"),
 };
 CreatureList["walrus"] = {
 	name : "Walrus",
@@ -33789,7 +33836,7 @@ CreatureList["giant walrus"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The walrus makes two attacks: one with its body flop and one with its tusks."
+		description : "As an action on its turn, the walrus can make one Body Flop and one Tusks attack."
 	}]
 };
 
@@ -33828,7 +33875,7 @@ CreatureList["demos magen"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The magen makes two melee attacks."
+		description : "As an action on its turn, the magen can make two melee attacks."
 	}],
 	traits : [{
 		name : "Fiery End",
@@ -33896,7 +33943,7 @@ CreatureList["galvan magen"] = {
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The magen makes two Shocking Touch attacks."
+		description : "As an action on its turn, the magen can make two Shocking Touch attacks."
 	}, {
 		name : "Static Discharge (Recharge 5-6)",
 		description : "See Attack. The magen discharges a lightning bolt in a 60-ft line that is 5 ft wide. Each creature in that line must make a DC 14 Dexterity saving throw (with disadvantage if the creature is wearing armor made of metal), taking 4d12 lightning damage on a failed save, or half as much damage on a successful one."
@@ -34007,7 +34054,7 @@ MagicItemsList["orc stone"] = { // from Appendix B: Character Secrets
 		}],
 		actions : [{
 			name : "Multiattack",
-			description : "As an action, the orc makes two attacks with its greataxe or its spear."
+			description : "As an action on its turn, the orc can make two attacks."
 		}, {
 			name : "Aggressive",
 			description : "As a bonus action, the orc can move up to its speed toward a hostile creature that it can see."
@@ -43167,7 +43214,7 @@ CreatureList["giant swan"] = { // a giant eagle except that it has no talons, ca
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The swan makes two beak attacks."
+		description : "As an action on its turn, the swan can make two Beak attacks."
 	}],
 	traits : [{
 		name : "Keen Sight",
@@ -45041,7 +45088,7 @@ CreatureList["dragonnel"] = { // Alternate for Find Greater Steed spell (contrib
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "The dragonnel makes two Rend attacks."
+		description : "As an action on its turn, the dragonnel can make two Rend attacks."
 	}],
 	traits : [{
 		name : "Flyby",
@@ -45444,7 +45491,7 @@ FeatsList["strixhaven mascot"] = {
 		creaturesAdd : [["Pest Mascot", true, false, "strixhaven_mascot"]]
 	}
 };
-if (CompanionList.familiar && CompanionList.pact_of_the_chain) {
+if (CompanionList.familiar && CompanionList.pact_of_the_chain) { // Needs to be revisited for v24
 	CompanionList.strixhaven_mascot = {
 		name : "Strixhaven Mascot",
 		nameTooltip : "Strixhaven Mascot (feat)",
@@ -48385,7 +48432,7 @@ CreatureList["space eel"] = {
 		damage : [1, 6, "piercing"],
 		range : "Melee (5 ft)",
 		description : "Attaches on hit; While attached, auto-damage at turn start, but can't make bite attacks",
-		tooltip : "On a hit, the eel attaches to the target. While attached, the eel can't make bite attacks. Instead, the target takes 4 (1d6 + 1) piercing damage at the start of each of the eel's turns. The eel can detach itself as a bonus action. A creature, including the target, can use its action to detach the eel."
+		tooltip : "On a hit, the eel attaches to the target. While attached, the eel can't make bite attacks. Instead, the target takes the bite damage at the start of each of the eel's turns. The eel can detach itself as a bonus action. A creature, including the target, can use its action to detach the eel."
 	}, {
 		name : "Tail Spine",
 		ability : 1,
@@ -48394,26 +48441,26 @@ CreatureList["space eel"] = {
 		description : "Target DC 10 Con save or poisoned and paralyzed for 1 min (can save as each turn ends)",
 		tooltip : "The target must succeed on a DC 10 Constitution saving throw or be poisoned for 1 minute. Until this poison ends, the target is paralyzed. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 	}],
-	traits : [{
+	features : [{
 		name : "Unusual Nature",
 		description : "The eel doesn't require air."
 	}],
 	actions : [{
 		name : "Multiattack",
-		description : "If it isn't attached to a creature, the eel makes one bite attack and one tail spine attack."
+		description : "As an action on its turn if not attached to a creature, the eel can make one Bite and one Tail Spine attack."
 	}, {
 		name : "Attach",
-		description : "If the eel hits with its bite attack, it attaches to the target. While attached, the eel can't make bite attacks. Instead, the target takes 4 (1d6 + 1) piercing damage at the start of each of the eel's turns. The eel can detach itself as a bonus action. A creature, including the target, can use its action to detach the eel."
+		description : "If the eel hits with its bite attack, it attaches to the target. While attached, the eel can't make bite attacks. Instead, the target takes the bite damage at the start of each of the eel's turns. The eel can detach itself as a bonus action. A creature, including the target, can use its action to detach the eel."
 	}, {
 		name : "Tail Spine",
 		description : "If the eel hits with its tail spine, the target must succeed on a DC 10 Constitution saving throw or be poisoned for 1 minute. Until this poison ends, the target is paralyzed. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 	}],
 	wildshapeString : [
-		"\u25C6 Senses: Darkvision 60 ft",
-		"Unusual Nature: The eel doesn't require air.",
-		"Multiattack: If it isn't attached to a creature, the eel makes one bite attack and one tail spine attack.",
-		"Bite: Attaches to the target hit by its bite attack, dealing bite damage at the start of each turn. The eel can detach itself as a bonus action. A creature, including the target, can use its action to detach the eel."
-	].join("\n\u25C6 ")
+		"##Senses##. Darkvision 60 ft",
+		"##Unusual Nature##. Doesn't require air.",
+		"##Multiattack##. 1 bite and 1 tail spine attack if not attached to a creature.",
+		"##Bite##. Attaches to the target hit by its bite attack, dealing bite damage at the start of each turn. The eel can detach itself as a bonus action. A creature, including the target, can use its action to detach the eel."
+	].join("\n"),
 };
 CreatureList["space guppy"] = {
 	name : "Space Guppy",
@@ -50199,10 +50246,10 @@ CreatureList["spotted lion"] = {
 		description : "If the lion moved at least 20 ft straight toward the target immediately before hitting it, the target must succeed on a DC 16 Strength saving throw or have the prone condition. If the target has the prone condition, the lion can make another Rend attack against it as a bonus action."
 	}],
 	wildshapeString : [
-		"\u25C6 Senses: Darkvision 60 ft",
-		"Pack Tactics: advantage on attack rolls if at least one capable ally is within 5 ft of the target.",
-		"Pounce: If moved 20 ft straight to the target before hitting it, the target must succeed on a DC 16 Strength saving throw or be knocked prone. If the target has the prone condition, the lion can make another Rend attack against it as a bonus action."
-	].join("\n\u25C6 ")
+		"##Senses##. Darkvision 60 ft.",
+		"##Pack Tactics##. Advantage on attack rolls if at least one capable ally is within 5 ft of the target.",
+		"##Pounce##. If moved 20 ft straight to the target before hitting it, the target must succeed on a DC 16 Strength saving throw or be knocked prone. If the target has the prone condition, the lion can make another Rend attack against it as a bonus action."
+	].join("\n")
 };
 CreatureList["titanothere"] = {
 	name : "Titanothere",
@@ -53852,15 +53899,14 @@ MagicItemsList["plate of knight's fellowship"] = {
 			description : "Ammunition, heavy, loading, two-handed"
 		}],
 		actions : [{
+			name : "Multiattack",
+			description : "As an action on its turn, the knight can make two melee attacks."
+		} ,{
 			name : "Leadership (Recharges after a Short or Long Rest)",
 			description : "As an action, the knight can activate this ability. Then, for 1 minute, the knight can utter a special command or warning whenever a nonhostile creature that it can see within 30 ft of it makes an attack roll or save. The creature can add +1d4 to its roll provided it can hear and understand the knight. A creature can benefit from only one Leadership die at a time. This effect ends if the knight is incapacitated."
 		}, {
 			name : "Parry",
 			description : "As a reaction, the knight can add +2 AC against one melee attack that would hit it. To do so, the knight must see the attacker and be wielding a melee weapon."
-		}],
-		traits : [{
-			name : "Multiattack",
-			description : "The knight makes two melee attacks."
 		}],
 		features : [{
 			name : "Brave",

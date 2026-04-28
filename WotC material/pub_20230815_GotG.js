@@ -702,10 +702,10 @@ CreatureList["spotted lion"] = {
 		description : "If the lion moved at least 20 ft straight toward the target immediately before hitting it, the target must succeed on a DC 16 Strength saving throw or have the prone condition. If the target has the prone condition, the lion can make another Rend attack against it as a bonus action."
 	}],
 	wildshapeString : [
-		"\u25C6 Senses: Darkvision 60 ft",
-		"Pack Tactics: advantage on attack rolls if at least one capable ally is within 5 ft of the target.",
-		"Pounce: If moved 20 ft straight to the target before hitting it, the target must succeed on a DC 16 Strength saving throw or be knocked prone. If the target has the prone condition, the lion can make another Rend attack against it as a bonus action."
-	].join("\n\u25C6 ")
+		"##Senses##. Darkvision 60 ft.",
+		"##Pack Tactics##. Advantage on attack rolls if at least one capable ally is within 5 ft of the target.",
+		"##Pounce##. If moved 20 ft straight to the target before hitting it, the target must succeed on a DC 16 Strength saving throw or be knocked prone. If the target has the prone condition, the lion can make another Rend attack against it as a bonus action."
+	].join("\n")
 };
 CreatureList["titanothere"] = {
 	name : "Titanothere",

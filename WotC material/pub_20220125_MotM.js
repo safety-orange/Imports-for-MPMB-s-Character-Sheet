@@ -1834,7 +1834,11 @@ if (!SourceList["V"]) {
 			name : "Stench",
 			description : "Any creature other than a stench kow starting its turn within 5 ft of a stench kow must make a DC 12 Constitution saving throw or be poisoned until the start of the creature's next turn. On a successful saving throw, the creature is immune to the stench of all stench kows for 1 hour."
 		}],
-		wildshapeString : "Darkvision 60 ft | Resistant to: cold, fire, poison | Charge: If the stench kow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, it deals extra 2d6 piercing damage | Stench: Any creature starting its turn within 5 ft of a stench kow must make a DC 12 Con save or be poisoned until the start of the its next turn. On a success, it is immune to the stench of all stench kows for 1 hour"
+		wildshapeString : [
+			typePF ? "##Senses##. Darkvision 60 ft.\n##Resistances##. cold, fire, poison." : "Darkvision 60 ft. ##Resistances##. cold, fire, poison.",
+			"##Charge##. If the stench kow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, it deals extra 2d6 piercing damage.",
+			"##Stench##. Any creature starting its turn within 5 ft of a stench kow must make a DC 12 Con save or be poisoned until the start of the its next turn. On a success, it is immune to the stench of all stench kows for 1 hour.",
+		].join("\n")
 	};
 	CreatureList["dolphin"] = {
 		name : "Dolphin",
@@ -1967,10 +1971,11 @@ if (!SourceList["V"]) {
 			range : "Melee (5 ft)",
 			description : "Two claw and one bite as one Attack action (also, see Pounce trait)"
 		}],
-		traits : [{
+		actions : [{
 			name : "Multiattack",
-			description : "The deinonychus makes three attacks: two with its claws and one with its bite."
-		}, {
+			description : "As an action on its turn, the deinonychus can make two Claw and one Bite attack."
+		}],
+		traits : [{
 			name : "Pounce",
 			description : "If the deinonychus moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the deinonychus can make one bite attack against it as a bonus action."
 		}]
@@ -2121,7 +2126,7 @@ if (!SourceList["V"]) {
 		}],
 		actions : [{
 			name : "Multiattack",
-			description : "The velociraptor makes two attacks: one with its bite and one with its claws."
+			description : "As an action on its turn, the velociraptor can make one Bite and one Claw attack."
 		}],
 		traits : [{
 			name : "Pack Tactics",

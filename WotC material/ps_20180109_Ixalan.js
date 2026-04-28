@@ -236,7 +236,7 @@ CreatureList["frilled deathspitter"] = {
 		ability : 2,
 		damage : [1, 6, "slashing"],
 		range : "Melee (5 ft)",
-		description : "One bite and two claw attacks as an Attack action"
+		description : "Two claw and one bite attack as an Attack action"
 	}, {
 		name : "Spit Poison",
 		ability : 2,
@@ -245,8 +245,8 @@ CreatureList["frilled deathspitter"] = {
 		description : "Target blinded til end of next turn; DC 13 Con save for half damage and not blinded",
 		abilitytodamage : false
 	}],
-	traits : [{
+	actions : [{
 		name : "Multiattack",
-		description : "The deathspitter makes three attacks: one with its bite and two with its claws."
+		description : "As an action on its turn, the deathspitter can make two Claw and one Bite attack."
 	}]
 };
