@@ -1,5 +1,5 @@
 var iFileName = "pub_20240917_PHB.js";
-RequiredSheetVersion("24.0.5-beta");
+RequiredSheetVersion("24.0.6-beta");
 // This file adds material from the 2024 Player's Handbook that isn't in the SRD v5.2.1 to MPMB's Character Record Sheet
 
 // Define the source
@@ -248,6 +248,127 @@ AddSubClass("fighter", "battle master", {
 			source: [["P24", 94]],
 			minlevel: 15,
 			description: desc("Once per turn when I do a Maneuver, I can use a d8 instead of expending a Superiority Die."),
+		},
+	},
+});
+
+// Druid Subclasses
+AddSubClass("druid", "moon", {
+	regExpSearch: /^(?=.*druid)((?=.*\bmoon\b)|((?=.*\bmany\b)(?=.*\bforms?\b))).*$/i,
+	subname: "Circle of the Moon",
+	subnameShort: "Moon",
+	source: [["P24", 86]],
+	features: {
+		"subclassfeature3": {
+			name: "Circle Forms",
+			source: [["P24", 86]],
+			minlevel: 3,
+			description: desc([
+				"The max CR for my Wild Shape forms is my Druid level divided by 3. While in WS, my AC can be 13 + my Wisdom modifier. I gain 3\xD7 my Druid level in temp HP when I shape-shift.",
+			]),
+			wildshapePageInfo: {
+				duration: ClassList.druid.features["wild shape"].wildshapePageInfo.duration,
+				knownForms: ClassList.druid.features["wild shape"].wildshapePageInfo.knownForms,
+				tempHP: levels.map(function (n) {
+					return n < 3 ? n : n*3;
+				}),
+				limitations: levels.map(function (n) {
+					var CR = n < 3 ? "1/4" : Math.floor(n/3);
+					return n < 8 ? "max CR " + CR + ", no Fly speed" : "CR " + CR + " or lower";
+				}),
+			},
+			"wild shape rules": {
+				name: "Circle Forms Wild Shape Rules",
+				source: [["P24", "80-86"]],
+				extraname: "Moon 3",
+				description: levels.map(function (n) {
+					if (n < 3) return "";
+					var tempHP = n*3;
+					var duration = Math.floor(n/2) + " hour" + (n > 3 ? "s" : "");
+					var knownForms = n < 4 ? 4 : n < 8 ? 6 : 8;
+					var CR = Math.floor(n/3);
+					var canFly = n < 8 ? "can't" : "can";
+					return desc([
+						"As a Bonus Action, I can expend a Wild Shape (WS) use to shape-shift into a known Beast form and gain **" + tempHP + " Temp HP** (3\xD7 Druid level). I stay in that form for **" + duration + "** (half Druid level), until I use Wild Shape again, end it as a Bonus Action, become Incapacitated, or die.",
+						"I know **" + knownForms + " forms** of **max CR " + CR + "** (one-third Druid level) that **" + canFly + " have a Fly Speed**. " + (typePF ? "Whenever I finish" : "After") + " a Long Rest, I can change one known form for another eligible Beast form.",
+						"In Wild Shape, I use the Beast's stats, but retain my type, HP, HD, Int, Wis, Cha, feats, class features, and ability to speak. I retain my skill and save proficiencies with my Prof Bonus and gain the beast's, using its bonus if higher. My AC is 13 + my Wisdom mod, unless the Beast's AC is higher. I can't cast spells except my Circle of the Moon Spells, but shape-shifting doesn't break concentration. I choose what equipment falls to the ground, merges, or stays worn.",
+						"Use the Wild Shape page to track known forms and their stats.",
+					]);
+				}),
+			},
+			autoSelectExtrachoices: [{
+				extrachoice: "wild shape rules",
+			}],
+			eval: function() {
+				// Remove the Wild Shape Rules set by the default Wild Shape feature so they can be replaced by the ones from this feature
+				ClassFeatureOptions(["druid", "wild shape", "wild shape rules", true], "remove");
+			},
+			removeeval: function(lvlA) {
+				// Return the Wild Shape Rules from the default Wild Shape feature as the ones from this feature are removed, but the new level is still 2 or higher
+				if (lvlA[1] >= 2) ClassFeatureOptions(["druid", "wild shape", "wild shape rules", true], "add");
+			},
+			calcChanges: {
+				wildshapeCallback: [
+					function(prefix, fieldNo, oWildshape, sCrea) {
+						oWildshape.acOptions.push({
+							name: "Circle of the Moon: Circle Forms",
+							ac: "13+Wis",
+						});
+					},
+					"While in Wild Shape, my AC equals 13 plus my Wisdom modifier if that total is higher than the Beast's AC.",
+				],
+			},
+		},
+		"subclassfeature3.1": {
+			name: "Circle of the Moon Spells",
+			source: [["P24", 86]],
+			minlevel: 3,
+			description: desc("I always have these spells prepared and can cast them even when I'm in a Wild Shape form."),
+			spellcastingExtra: ["starry wisp", "cure wounds", "moonbeam", "conjure animals", "fount of moonlight", "mass cure wounds"],
+		},
+		"subclassfeature6": {
+			name: "Improved Circle Forms",
+			source: [["P24", 87]],
+			minlevel: 6,
+			description: desc([
+				"While in Wild Shape form, I gain **Lunar Radiance**: my attacks can deal Radiant damage, and **Increased Toughness**: I add my Wisdom modifier to my Constitution saving throws.",
+			]),
+			calcChanges: {
+				wildshapeCallback: [
+					function(prefix, fieldNo, oWildshape, sCrea) {
+						oWildshape.save.Con.creature.bonus += "+Wis";
+						if (!classes.known.druid) return;
+						var regularLunarRadiance = classes.known.druid.level < 14;
+						oWildshape.wildshapeTraits.push({
+							name: "Lunar Radiance",
+							description: regularLunarRadiance ? "(Moon 6). Attacks can deal Radiant." : "(Moon 14). Attacks can deal Radiant. Once per turn after a hit, deal +2d10 Radiant damage.",
+							joinString: " ",
+						});
+					},
+					"While in a Wild Shape form, I can have my attacks deal Radiant damage and I can add my Wisdom modifier to my Constitution saving throws. Once per turn from level 14 onwards, I can deal an extra 2d10 Radiant damage to a target I hit with a Wild Shape form's attack.",
+				],
+			},
+		},
+		"subclassfeature10": {
+			name: "Moonlight Step",
+			source: [["P24", 87]],
+			minlevel: 10,
+			description: levels.map(function (n) {
+				return n < 10 ? "" : n < 14 ?
+					desc("As a Bonus Action, I can teleport up to 30 ft to an empty space I can see, and I gain Adv. on my next attack roll this turn. I can expend a level 2 spell slot (SS 2+) to regain 1 use.") :
+					desc("As a Bonus Action, I and a willing creature within 10 ft can teleport up to 30 ft to an empty space I can see, with the creature appearing within 10 ft of me. I then gain Adv. on my next attack roll this turn. I can expend a level 2 spell slot (SS 2+) to regain 1 use.");
+			}),
+			usages: typePF ? "" : "Wisdom modifier per ",
+			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
+			altResource: "SS 2+",
+			recovery: "Long Rest",
+			action: [["bonus action", ""]],
+		},
+		"subclassfeature14": {
+			name: "Lunar Form",
+			source: [["P24", 87]],
+			minlevel: 14,
+			description: desc("**Improved Lunar Radiance**. Once per turn, I can deal +2d10 Radiant damage on a hit with a WS attack. **Shared Moonlight**. I can bring along an ally with Moonlight Step, see above."),
 		},
 	},
 });
@@ -646,6 +767,7 @@ BackgroundList["guard"] = {
 	name: "Guard",
 	source: [["P24", 181]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Strength, Intelligence, and Wisdom",
+	skills: ["Athletics", "Perception"],
 	toolProfs: [["Gaming Set", 1]],
 	gold: 12,
 	equipleft: [
@@ -988,6 +1110,7 @@ BackgroundList["scribe"] = {
 	name: "Scribe",
 	source: [["P24", 184]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Dexterity, Intelligence, and Wisdom",
+	skills: ["Investigation", "Perception"],
 	toolProfs: [["Calligrapher's Supplies", "Dex"]],
 	gold: 23,
 	equipleft: [
@@ -1111,7 +1234,7 @@ RaceList["aasimar"] = {
 			toNotesPage: [{
 				name: "Celestial Revelation",
 				note: [
-					"As a Bonus Actio	n once per Long Rest, I can transform using one of the options below (choose the option each time). This lasts for 1 min or until I end it (no action).",
+					"As a Bonus Action once per Long Rest, I can transform using one of the options below (choose the option each time). This lasts for 1 min or until I end it (no action).",
 					"While transformed, once on each of my turns when I deal damage with an attack or spell, I can deal my Proficiency Bonus in extra damage to one target. This extra damage's type is Necrotic for Necrotic Shroud, or Radiant for Heavenly Wings and Inner Radiance.",
 					" **\u2022 Heavenly Wings**. Two spectral wings sprout from my back temporarily. Until the transformation ends, I have a Fly Speed equal to my Speed.",
 					"While transformed like this, the extra damage on attacks/spells mentioned above is Radiant.",

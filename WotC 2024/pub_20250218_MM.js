@@ -100,13 +100,15 @@ CreatureList["giant squid"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an Action, the [THIS] can make one Bite attack and one Tentacle attack.",
+		description: "As an Attack action, the [THIS] can make one Bite and one Tentacle attack.",
 	}, {
 		name: "Ink Cloud (1/Day)",
 		description: "As a Reaction when the [THIS] takes damage while underwater, it can release ink that fills a 15-ft Cube centered on itself, and it moves up to its Swim Speed. The Cube is Heavily Obscured for 1 minute or until a strong current or similar effect disperses the ink.",
+		wildshapeShow: "As a Reaction after taking damage underwater, can release a 15-ft Cube of ink on itself and move up to Swim Speed. The area is Heavily Obscured for 1 minute or until dispersed by a strong current.",
 	}, {
 		name: "Tentacle",
 		description: "If the target is a Huge or smaller creature, it has the Grappled condition (escape DC 16) from one of two tentacles, and the [THIS] can pull the target up to 10 ft straight toward itself.",
+		wildshapeShow: false,
 	}],
 	attacks: [{
 		name: "Bite",
@@ -118,6 +120,6 @@ CreatureList["giant squid"] = {
 		ability: 1,
 		damage: [3, 8, "bludgeoning"],
 		range: "Melee (15 ft)",
-		description: "\u2264Huge is Grappled (escape DC 16) \x26 pulled 10 ft closer; Restrained while Grappled",
+		description: "\u2264Huge is Grappled (escape DC 16) \x26 pulled 10 ft closer",
 	}],
 };
