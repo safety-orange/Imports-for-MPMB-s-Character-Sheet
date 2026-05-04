@@ -110,7 +110,7 @@ RunFunctionAtEnd(function () {
 				source : [["UA:SP3", 2]],
 				minlevel : 15,
 				description : desc([
-					'My armor gets additional features, based on the model; Use "Choose Features" to select it',
+					'My armor gets additional features, based on the model; Use "Choose Feature" to select it',
 					"The guardian gets the ability to pull a creature closer as a reaction and make an attack",
 					"The infiltrator gets an upgrade to its lightning launcher weapon attack"
 				]),
@@ -131,7 +131,8 @@ RunFunctionAtEnd(function () {
 				choicesNotInMenu : true,
 				"guardian" : {
 					name : "Perfected Armor: Guardian",
-					description : " [Intelligence modifier per long rest]" + desc([
+					additional: "Intelligence modifier per long rest",
+					description : desc([
 						"As a reaction when a creature I can see ends its turn in 30 ft, I have it make a Str save",
 						"If it fails, I pull it up to 30 ft towards me to an empty space",
 						"If I pull it within 5 ft, I can make a melee weapon attack vs. it as part of this reaction"
@@ -223,7 +224,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 		AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Helm of Awareness (prereq: level 10 artificer)", {
 			name : "Helm of Awareness",
 			source : [["T", 21], ["UA:SP3", 3]],
-			description : "\n   The wearer has advantage on Initiative rolls and can't be surprised while not incapacitated",
+			description: desc("The wearer has advantage on Initiative rolls and can't be surprised while not incapacitated"),
 			additional : "helmet; requires attunement",
 			prereqeval : function(v) { return classes.known.artificer.level >= 10; },
 			magicitemsAdd : ["Helm of Awareness"]
@@ -297,7 +298,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Mind Sharpener (ua)", {
 		name : "Mind Sharpener",
 		source : [["UA:SP3", 3]],
-		description : "\n   The wearer can use its reaction to ignore a failed Con save to maintain concentration",
+		description: desc("The wearer can use its reaction to ignore a failed Con save to maintain concentration"),
 		additional : "suit of armor or robes",
 		magicitemsAdd : ["Mind Sharpener (UA)"]
 	});
@@ -424,7 +425,7 @@ AddSubClass("druid", "circle of the stars-ua", {
 			name : "Full of Stars",
 			source : [["UA:SP3", 3]],
 			minlevel : 10,
-			description : "\n   While in my starry form, I have resistance to bludgeoning, piercing, and slashing damage",
+			description: desc("While in my starry form, I have resistance to bludgeoning, piercing, and slashing damage"),
 			dmgres : [
 				["Bludgeoning", "Bludgeon. (in form)"],
 				["Piercing", "Piercing (in form)"],
@@ -464,7 +465,7 @@ var UASP3_rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua",
 			name : "Fey Wanderer Magic",
 			source : [["UA:SP3", 5]],
 			minlevel : 3,
-			description : "\n   I get bonus spells known, which do not count against the number of spells I can know",
+			description: desc("I get bonus spells known, which do not count against the number of spells I can know"),
 			spellcastingExtra : ["charm person", "misty step", "dispel magic", "banishment", "mislead"],
 			spellcastingExtraApplyNonconform : true
 		},
@@ -472,7 +473,7 @@ var UASP3_rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua",
 			name : "Cunning Will",
 			source : [["UA:SP3", 5]],
 			minlevel : 3,
-			description : "\n   Adv. on saves vs. charm/frightened; Proficiency in Deception, Performance, or Persuasion",
+			description: desc("Adv. on saves vs. charm/frightened; Proficiency in Deception, Performance, or Persuasion"),
 			skillstxt : "Choose one from: Deception, Performance, or Persuasion",
 			savetxt : { adv_vs : ["charmed", "frightened"] }
 		},

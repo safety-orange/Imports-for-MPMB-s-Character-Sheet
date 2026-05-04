@@ -43,7 +43,7 @@ AddSubClass("fighter", "psychic warrior-ua", {
 			name : "Telekinetic Hand",
 			source : [["UA:FRnW", 1]],
 			minlevel : 3,
-			description : "\n   I learn the Mage Hand cantrip, can cast it without components, and can make it invisible",
+			description: desc("I learn the Mage Hand cantrip, can cast it without components, and can make it invisible"),
 			spellcastingBonus : [{
 				name : "Telekinetic Hand",
 				spells : ["mage hand"],
@@ -394,7 +394,7 @@ AddSubClass("wizard", "psionics-ua", {
 			name : "Empowered Psionics",
 			source : [["UA:FRnW", 5]],
 			minlevel : 10,
-			description : "\n   I add my Int modifier to one target of my wizard spells that do psychic or force damage",
+			description: desc("I add my Int modifier to one target of my wizard spells that do psychic or force damage"),
 			calcChanges : {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {

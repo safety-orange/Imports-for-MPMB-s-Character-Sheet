@@ -136,13 +136,13 @@ AddSubClass("monk", "way of mercy-ua", {
 			"proficiency with insight" : {
 				name : "Implements of Mercy - Insight",
 				source : [["UA:SP1", 2]],
-				description : "\n   I gain proficiency in the Insight skill and with the herbalism kit and the poisoner's kit",
+				description: desc("I gain proficiency in the Insight skill and with the herbalism kit and the poisoner's kit"),
 				skills : ["Insight"]
 			},
 			"proficiency with medicine" : {
 				name : "Implements of Mercy - Medicine",
 				source : [["UA:SP1", 2]],
-				description : "\n   I gain proficiency in the Medicine skill and with the herbalism kit and the poisoner's kit",
+				description: desc("I gain proficiency in the Medicine skill and with the herbalism kit and the poisoner's kit"),
 				skills : ["Medicine"]
 			},
 			"hands of healing" : {
@@ -184,7 +184,8 @@ AddSubClass("monk", "way of mercy-ua", {
 			name : "Noxious Aura",
 			source : [["UA:SP1", 3]],
 			minlevel : 6,
-			description : " [1 ki point]" + desc([
+			additional: "1 ki point",
+			description : desc([
 				"As a bonus action, I can spend 1 ki point to gain a 5-ft radius toxic aura for 1 minute",
 				"While active, ranged attacks have disadv. vs. me; It ends if I'm incapacitated or dismiss it",
 				"Others who start their turn in it must make a Con save or be poisoned and take damage",
@@ -196,7 +197,7 @@ AddSubClass("monk", "way of mercy-ua", {
 			name : "Healing Technique",
 			source : [["UA:SP1", 3]],
 			minlevel : 11,
-			description : "\n   With hands of healing I can also end: 1 disease, blinded, deafened, paralyzed, or poisoned",
+			description: desc("With hands of healing I can also end: 1 disease, blinded, deafened, paralyzed, or poisoned"),
 			"hand of mercy" : {
 				name : "Hand of Mercy",
 				extraname : "Way of Mercy 17",
@@ -229,7 +230,7 @@ AddSubClass("paladin", "oath of the watchers-ua", {
 			name : "Channel Divinity: Watcher's Will",
 			source : [["UA:SP1", 4]],
 			minlevel : 3,
-			description : "\n   As an action, Cha mod of creatures I see in 30 ft adv. on Int/Wis/Cha saves for 1 min",
+			description: desc("As an action, Cha mod of creatures I see in 30 ft adv. on Int/Wis/Cha saves for 1 min"),
 			action : [["action", ""]],
 			spellcastingExtra : ["alarm", "chromatic orb", "augury", "moonbeam", "counterspell", "nondetection", "aura of purity", "banishment", "hold monster", "hallow"]
 		},
@@ -249,7 +250,7 @@ AddSubClass("paladin", "oath of the watchers-ua", {
 			name : "Aura of the Sentinel",
 			source : [["UA:SP1", 4]],
 			minlevel : 7,
-			description : "\n   If I'm not incapacitated, chosen creatures in range and I add my Cha mod to Initiative",
+			description: desc("If I'm not incapacitated, chosen creatures in range and I add my Cha mod to Initiative"),
 			additional : levels.map(function (n) { return n < 7 ? "" : (n < 18 ? 10 : 30) + "-foot aura"; }),
 			addMod : [{ type : "skill", field : "Init", mod : "max(Cha|1)", text : "I can add my Charisma modifier (min +1) to initiative rolls." }]
 		},

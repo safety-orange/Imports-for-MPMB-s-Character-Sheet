@@ -33,7 +33,7 @@ AddSubClass("bard", "college of eloquence-ua", {
 			name : "Soothing Words",
 			source : [["UA:BnP", 1]],
 			minlevel : 3,
-			description : "\n   I can cast Calm Emotions without expending a spell slot",
+			description: desc("I can cast Calm Emotions without expending a spell slot"),
 			spellcastingBonus : [{
 				name : "Soothing Words",
 				spells : ["calm emotions"],
@@ -84,7 +84,7 @@ AddSubClass("paladin", "oath of heroism-ua", {
 			name : "Channel Divinity: Peerless Athlete",
 			source : [["UA:BnP", 2]],
 			minlevel : 3,
-			description : "\n   As a bonus action, I gain adv. on Str (Athletics) and Dex (Acrobatics) checks for 10 min",
+			description: desc("As a bonus action, I gain adv. on Str (Athletics) and Dex (Acrobatics) checks for 10 min"),
 			action : [["bonus action", ""]],
 			spellcastingExtra : ["expeditious retreat", "guiding bolt", "enhance ability", "enthrall", "haste", "protection from energy", "compulsion", "freedom of movement", "commune", "conjure volley"]
 		},
@@ -92,7 +92,7 @@ AddSubClass("paladin", "oath of heroism-ua", {
 			name : "Channel Divinity: Legendary Strike",
 			source : [["UA:BnP", 2]],
 			minlevel : 3,
-			description : "\n   As a bonus action, my weapon attacks score a critical hit on a roll of 19 or 20 for 1 min",
+			description: desc("As a bonus action, my weapon attacks score a critical hit on a roll of 19 or 20 for 1 min"),
 			action : [["bonus action", ""]]
 		},
 		"subclassfeature7" : {

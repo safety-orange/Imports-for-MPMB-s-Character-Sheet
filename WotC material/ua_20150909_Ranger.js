@@ -45,6 +45,7 @@ ClassList["ua-playtest-ranger"] = {
 	},
 	equipment : "Playtest Ranger starting equipment:\n \u2022 leather armor;\n \u2022 Two shortswords -or- two martial melee weapons -or- a martial weapon and a shield;\n \u2022 A dungeoneer's pack -or- an explorer's pack;\n \u2022 A longbow and a quiver of 20 arrows -or- a martial weapon.",
 	subclasses : ["Ranger Path", []],
+	subclassGainedLevel : 3,
 	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"ambuscade" : {
@@ -75,7 +76,7 @@ ClassList["ua-playtest-ranger"] = {
 			source : [["UA:R", 3]],
 			minlevel : 3,
 			description : desc([
-				"Choose a Ranger Path you wish to follow and put it in the \"Class\" field",
+				'Choose a Ranger Path you wish to follow and put it in the "Class" field',
 				"Choose Guardian, Seeker, or Stalker"
 			])
 		},

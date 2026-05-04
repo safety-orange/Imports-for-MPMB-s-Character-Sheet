@@ -41,6 +41,7 @@ ClassList.mystic = {
 	},
 	equipment : "Mystic starting equipment:\n \u2022 A spear -or- a mace;\n \u2022 Leather mail -or- studded leather armor;\n \u2022 A light crossbow and 20 bolts -or- any simple weapon;\n \u2022 A scholar's pack -or- an explorer's pack.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
 	subclasses : ["Mystic Order", []],
+	subclassGainedLevel : 1,
 	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 	spellcastingFactor : "psionic0",
 	spellcastingKnown : {
@@ -96,9 +97,7 @@ ClassList.mystic = {
 			name : "Mystic Order",
 			source : [["UA:TMC", 4]],
 			minlevel : 1,
-			description : desc([
-				"Choose a Mystic Order that shapes the nature of your rage and put it in the \"Class\" field"
-			])
+			description : desc('Choose a Mystic Order that shapes the nature of your rage and put it in the "Class" field')
 		},
 		"mystical recovery" : {
 			name : "Mystical Recovery",
@@ -221,7 +220,7 @@ AddSubClass("mystic", "avatar-ua", {
 			name : "Bonus Disciplines",
 			source : [["UA:TMC", 5]],
 			minlevel : 1,
-			description : "\n   " + "I know two additional psionic disciplines, chosen from the avatar disciplines",
+			description: desc("I know two additional psionic disciplines, chosen from the avatar disciplines"),
 			spellcastingBonus : [{
 				name : "Bonus Disciplines",
 				"class" : "mystic",
@@ -235,14 +234,14 @@ AddSubClass("mystic", "avatar-ua", {
 			name : "Armor Training",
 			source : [["UA:TMC", 5]],
 			minlevel : 1,
-			description : "\n   " + "I gain proficiency with medium armor and shields.",
+			description: desc("I gain proficiency with medium armor and shields."),
 			armorProfs : [false, true, false, true]
 		},
 		"subclassfeature3" : {
 			name : "Avatar of Battle",
 			source : [["UA:TMC", 5]],
 			minlevel : 3,
-			description : "\n   " + "Allies within 30 ft of me gain +2 on initiative rolls while I'm not incapacitated"
+			description: desc("Allies within 30 ft of me gain +2 on initiative rolls while I'm not incapacitated")
 		},
 		"subclassfeature6" : {
 			name : "Avatar of Healing",
@@ -273,7 +272,7 @@ AddSubClass("mystic", "avatar-ua", {
 			name : "Avatar of Speed",
 			source : [["UA:TMC", 6]],
 			minlevel : 14,
-			description : "\n   " + "Allies within 30 ft of me can use Dash as a bonus action while I'm not incapacitated"
+			description: desc("Allies within 30 ft of me can use Dash as a bonus action while I'm not incapacitated")
 		}
 	}
 });
@@ -354,7 +353,7 @@ AddSubClass("mystic", "immortal-ua", {
 			name : "Bonus Disciplines",
 			source : [["UA:TMC", 7]],
 			minlevel : 1,
-			description : "\n   " + "I know two additional psionic disciplines, taken from the immortal disciplines",
+			description: desc("I know two additional psionic disciplines, taken from the immortal disciplines"),
 			spellcastingBonus : [{
 				name : "Bonus Disciplines",
 				"class" : "mystic",
@@ -432,7 +431,7 @@ AddSubClass("mystic", "nomad-ua", {
 			name : "Bonus Disciplines",
 			source : [["UA:TMC", 7]],
 			minlevel : 1,
-			description : "\n   " + "I know two additional psionic disciplines, taken from the nomad disciplines",
+			description: desc("I know two additional psionic disciplines, taken from the nomad disciplines"),
 			spellcastingBonus : [{
 				name : "Bonus Disciplines",
 				"class" : "mystic",
@@ -512,7 +511,7 @@ AddSubClass("mystic", "soul knife-ua", {
 			name : "Martial Training",
 			source : [["UA:TMC", 7]],
 			minlevel : 1,
-			description : "\n   " + "I gain proficiency with medium armor and martial weapons",
+			description: desc("I gain proficiency with medium armor and martial weapons"),
 			armor : [false, true, false, false],
 			weapons : [false, true]			
 		},
@@ -1553,7 +1552,7 @@ PsionicsList["d1-miniature form"] = {
 	time : "1 bns",
 	range : "Self",
 	duration : "Conc, 10 min",
-	description : "Become Tiny, gain +5 to Dex (Stealth) and can fit through gaps of up to 6\" without squeezing",
+	description : 'Become Tiny, gain +5 to Dex (Stealth) and can fit through gaps of up to 6" without squeezing',
 	descriptionMetric : "Become Tiny, gain +5 to Dex (Stealth) and can fit through gaps of up to 15 cm without squeezing",
 	descriptionFull : "As a bonus action, you become Tiny until your concentration ends. While this size, you gain a +5 bonus to Dexterity (Stealth) checks and can move through gaps up to 6 inches across without squeezing.",
 	firstCol : 2
@@ -2229,7 +2228,7 @@ PsionicsList["ma5-misty form"] = {
 	time : "1 a",
 	range : "Self",
 	duration : "Conc, 1 min",
-	description : "Gain resistance to Bludgeoning/Piercing/Slashing, can only take Dash actions, fit through 1\" opening",
+	description : 'Gain resistance to Bludgeoning/Piercing/Slashing, can only take Dash actions, fit through 1" opening',
 	descriptionMetric : "Gain resistance to Bludgeoning/Piercing/Slashing, only take Dash actions, fit through 2,5 cm opening",
 	descriptionFull : "As an action, your body becomes like a misty cloud until your concentration ends. In this form, you gain resistance to bludgeoning, piercing, and slashing damage, and you can't take actions other than the Dash action. You can pass through openings that are no more than 1 inch wide without squeezing.",
 	firstCol : 6
@@ -3103,7 +3102,7 @@ PsionicsList["nm5-wandering eye"] = {
 	time : "1 a",
 	range : "60 ft",
 	duration : "Conc, 1 h",
-	description : "Create invisible, moving (unlimited range, 30ft/rnd) 1\" magic eye with darkvision I see through",
+	description : 'Create invisible, moving (unlimited range, 30ft/rnd) 1" magic eye with darkvision I see through',
 	description : "Create invisible, moving (unlimited range, 10m/rnd) 2,5cm magic eye /w darkvision I see through",
 	descriptionFull : "As an action, you create a psychic sensor within 60 feet of you. The sensor lasts until your concentration ends. The sensor is invisible and hovers in the air. You mentally receive visual information from it, which has normal vision and darkvision with a range of 60 feet. The sensor can look in all directions. As an action, you can move the sensor up to 30 feet in any direction. There is no limit to how far away from you the eye can move, but it can't enter another plane of existence. A solid barrier blocks the eye's movement, but the eye can pass through an opening as small as 1 inch in diameter.",
 	firstCol : 6

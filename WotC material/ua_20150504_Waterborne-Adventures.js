@@ -15,7 +15,10 @@ SourceList["UA:WA"] = {
 AddFightingStyle(["fighter", "ranger", "paladin"], "Mariner", { // Still valid 2021-09-21
 	name : "Mariner Fighting Style",
 	source : [["UA:WA", 3]],
-	description : "\n   " + "While not wearing heavy armor or using a shield, I gain +1 AC and swim/climb speed" + "\n   " + "The swimming and climbing speeds are equal to my current walking speed",
+	description: desc([
+		"While not wearing heavy armor or using a shield, I gain +1 AC and swim/climb speed",
+		"The swimming and climbing speeds are equal to my current walking speed",
+	]),
 	speed : {
 		climb : { spd : "walk", enc : "walk" },
 		swim : { spd : "walk", enc : "walk" }

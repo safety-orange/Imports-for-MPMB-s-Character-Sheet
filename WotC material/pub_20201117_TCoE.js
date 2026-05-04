@@ -126,6 +126,7 @@ if (!SourceList["E:RLW"]) {
 			"\n \u2022 Thieves' tools and a dungeoneer's pack;" +
 			"\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
 		subclasses : ["Artificer Specialist", []],
+		subclassGainedLevel : 3,
 		attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 		spellcastingFactor : 2,
 		spellcastingFactorRoundupMulti : true,
@@ -208,14 +209,14 @@ if (!SourceList["E:RLW"]) {
 				"don't change component column on spell sheet" : {
 					name : "[Meta] Don't alter spell sheets",
 					source : [["E:RLW", 55], ["T", 11]],
-					description : "\n   The automation will not add M\u0192 to each artificer spell on the generated spell sheets"
+					description: desc("The automation will not add M\u0192 to each artificer spell on the generated spell sheets")
 				}
 			},
 			"infuse item" : {
 				name : "Infuse Item",
 				source : [["E:RLW", 57], ["T", 12]],
 				minlevel : 2,
-				description : '\n   Use the "Choose Feature" button above to add Artificer Infusions to the third page',
+				description : desc('Use the "Choose Feature" button above to add Artificer Infusions to the third page'),
 				additional : levels.map(function (n) {
 					return n < 2 ? "" : (n < 6 ? 4 : n < 10 ? 6 : n < 14 ? 8 : n < 18 ? 10 : 12) + " infusions known; max " + (n < 6 ? 2 : n < 10 ? 3 : n < 14 ? 4 : n < 18 ? 5 : 6) + " infused items";
 				}),
@@ -238,7 +239,7 @@ if (!SourceList["E:RLW"]) {
 				"enhanced arcane focus" : {
 					name : "Enhanced Arcane Focus",
 					source : [["E:RLW", 62], ["T", 21]],
-					description : "\n   The holder has a bonus to spell attack rolls and ignores half cover with spell attacks",
+					description: desc("The holder has a bonus to spell attack rolls and ignores half cover with spell attacks"),
 					additional : levels.map(function (n) {
 						return "rod/staff/wand; attunement; +" + (n < 10 ? 1 : 2);
 					}),
@@ -432,7 +433,7 @@ if (!SourceList["E:RLW"]) {
 				name : "The Right Tool for the Job",
 				source : [["E:RLW", 57], ["T", 13]],
 				minlevel : 3,
-				description : "\n   In 1 hour (during a rest) I can create a set of artisan's tools that last until I do so again",
+				description: desc("In 1 hour (during a rest) I can create a set of artisan's tools that last until I do so again"),
 				additional : "using thieves' or artisan's tools"
 			},
 			"subclassfeature3" : {
@@ -457,7 +458,7 @@ if (!SourceList["E:RLW"]) {
 				name : "Flash of Genius",
 				source : [["E:RLW", 57], ["T", 13]],
 				minlevel : 7,
-				description : "\n   As a reaction when I or another in 30 ft make a check/save, I can add my Int mod to it",
+				description: desc("As a reaction when I or another in 30 ft make a check/save, I can add my Int mod to it"),
 				action : [["reaction", ""]],
 				usages : "Intelligence modifier per ",
 				usagescalc : "event.value = Math.max(1, What('Int Mod'));",
@@ -467,7 +468,7 @@ if (!SourceList["E:RLW"]) {
 				name : "Magic Item Adept",
 				source : [["E:RLW", 57], ["T", 13]],
 				minlevel : 10,
-				description : "\n   It takes me half the normal time and gold to craft common and uncommon magic items",
+				description: desc("It takes me half the normal time and gold to craft common and uncommon magic items"),
 				additional : levels.map(function (n) {
 					return n < 10 ? "" : "attune to " + (n < 14 ? 4 : n < 18 ? 5 : 6) + " magic items";
 				})
@@ -726,7 +727,8 @@ if (!SourceList["E:RLW"]) {
 				name : "Chemical Mastery",
 				source : [["E:RLW", 59], ["T", 15]],
 				minlevel : 15,
-				description : " [each spell 1\xD7 per long rest]" + desc([
+				additional: "each spell 1\xD7 per long rest",
+				description : desc([
 					"I have resistance to acid and poison damage and immunity to being poisoned",
 					"I can cast Greater Restoration and Heal each once per long rest without a spell slot",
 					"I need alchemist's supplies as a focus for it, but the spells require no material components"
@@ -941,7 +943,7 @@ if (!SourceList["E:RLW"]) {
 				name : "Explosive Cannon",
 				source : [["E:RLW", 60], ["T", 18]],
 				minlevel : 9,
-				description : "\n   My eldritch cannons deal +1d8 damage; As an action, I can detonate a cannon in 60 ft",
+				description: desc("My eldritch cannons deal +1d8 damage; As an action, I can detonate a cannon in 60 ft"),
 				action : [["action", "Eldritch Cannon (detonate)"]]
 			},
 			"subclassfeature15" : {
@@ -1389,7 +1391,7 @@ MagicItemsList["armor of magical strength"] = {
 AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Helm of Awareness (prereq: level 10 artificer)", {
 	name : "Helm of Awareness",
 	source : [["T", 21], ["UA:SP3", 3]],
-	description : "\n   The wearer has advantage on Initiative rolls and can't be surprised while not incapacitated",
+	description: desc("The wearer has advantage on Initiative rolls and can't be surprised while not incapacitated"),
 	additional : "helmet; requires attunement",
 	prereqeval : function(v) { return classes.known.artificer.level >= 10; },
 	magicitemsAdd : ["Helm of Awareness"]
@@ -1407,7 +1409,7 @@ MagicItemsList["helm of awareness"] = {
 AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Mind Sharpener", {
 	name : "Mind Sharpener",
 	source : [["T", 22]],
-	description : "\n   The wearer can use its reaction to ignore a failed Con save to maintain concentration",
+	description: desc("The wearer can use its reaction to ignore a failed Con save to maintain concentration"),
 	additional : "suit of armor or robes",
 	magicitemsAdd : ["Mind Sharpener"]
 });
@@ -1442,7 +1444,7 @@ MagicItemsList["mind sharpener"] = {
 AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Spell-Refueling Ring (prereq: level 6 artificer)", {
 	name : "Spell-Refueling Ring",
 	source : [["T", 23]],
-	description : "\n   As an action once per dawn, this ring's wearer can recover one 3rd-level or lower spell slot",
+	description: desc("As an action once per dawn, this ring's wearer can recover one 3rd-level or lower spell slot"),
 	additional : "ring; requires attunement",
 	prereqeval : function(v) { return classes.known.artificer.level >= 6; },
 	magicitemsAdd : ["Spell-Refueling Ring"]
@@ -1574,7 +1576,7 @@ RunFunctionAtEnd(function () {
 				source : [["T", 17]],
 				minlevel : 15,
 				description : desc([
-					'My armor gets additional features, based on the model; Use "Choose Features" to select it',
+					'My armor gets additional features, based on the model; Use "Choose Feature" to select it',
 					"The guardian gets the ability to pull a creature closer as a reaction and make an attack",
 					"The infiltrator gets an upgrade to its lightning launcher weapon attack"
 				]),
@@ -1596,7 +1598,8 @@ RunFunctionAtEnd(function () {
 				}],
 				"guardian" : {
 					name : "Perfected Armor: Guardian",
-					description : " [Proficiency Bonus per long rest]" + desc([
+					additional: "Proficiency Bonus per long rest",
+					description : desc([
 						"As a reaction when a creature I can see ends its turn in 30 ft, I have it make a Str save",
 						"If it is Huge or smaller and fails, I pull it up to 30 ft towards me to an unoccupied space",
 						"If I pull it within 5 ft, I can make a melee weapon attack vs. it as part of this reaction"
@@ -1833,7 +1836,7 @@ AddSubClass("barbarian", "path of wild magic", {
 			name : "Wild Surge",
 			source : [["T", 25]],
 			minlevel : 3,
-			description : "\n   Whenever I enter my rage, I roll on the Wild Magic table (see Notes page)",
+			description: desc("Whenever I enter my rage, I roll on the Wild Magic table (see Notes page)"),
 			toNotesPage : [{
 				name : "Wild Magic Table",
 				source : [["T", 26]],
@@ -2069,7 +2072,7 @@ if (!SourceList.MOT) {
 				name : "Silver Tongue",
 				source : [["T", 30], ["MOT", 28]],
 				minlevel : 3,
-				description : "\n   When I make a Persuasion or Deception check, I can treat a roll of 9 or lower as a 10"
+				description: desc("When I make a Persuasion or Deception check, I can treat a roll of 9 or lower as a 10")
 			},
 			"subclassfeature3.1" : {
 				name : "Unsettling Words",
@@ -2085,7 +2088,7 @@ if (!SourceList.MOT) {
 				name : "Unfailing Inspiration",
 				source : [["T", 30], ["MOT", 28]],
 				minlevel : 6,
-				description : "\n   When a creature adds my Bardic Inspiration die to a roll but fails, they can keep the die"
+				description: desc("When a creature adds my Bardic Inspiration die to a roll but fails, they can keep the die")
 			},
 			"subclassfeature6.1" : {
 				name : "Universal Speech",
@@ -2202,7 +2205,7 @@ if (!SourceList.G) {
 				name : "Bonus Proficiency",
 				source : [["T", 32], ["G", 26]],
 				minlevel : 1,
-				description : "\n   " + "I gain proficiency with heavy armor, and either the Intimidation or Persuasion skill",
+				description : desc("I gain proficiency with heavy armor, and either the Intimidation or Persuasion skill"),
 				armorProfs : [false, false, true, false],
 				skillstxt : "Choose one from Intimidation or Persuasion"
 			},
@@ -2254,7 +2257,7 @@ if (!SourceList.G) {
 				name : "Divine Strike",
 				source : [["T", 32], ["G", 26]],
 				minlevel : 8,
-				description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
+				description : desc("Once per turn, when I hit a creature with a weapon attack, I can do extra damage"),
 				additional : levels.map(function (n) {
 					if (n < 8) return "";
 					return "+" + (n < 14 ? 1 : 2) + "d8 psychic damage";
@@ -2307,7 +2310,7 @@ AddSubClass("cleric", "peace domain", {
 		},
 		"subclassfeature1.1" : {
 			name : "Implement of Peace",
-			description : "\n   " + "I gain proficiency in the Insight, Performance, or Persuasion skill (my choice)",
+			description : desc("I gain proficiency in the Insight, Performance, or Persuasion skill (my choice)"),
 			skillstxt : "Choose one from: Insight, Performance, or Persuasion"
 		},
 		"subclassfeature2" : {
@@ -2363,7 +2366,7 @@ AddSubClass("cleric", "twilight domain", {
 			name : "Bonus Proficiency",
 			source : [["T", 34]],
 			minlevel : 1,
-			description : "\n   I gain proficiency with martial weapons and heavy armor",
+			description: desc("I gain proficiency with martial weapons and heavy armor"),
 			armorProfs : [false, false, true, false],
 			weaponProfs : [false, true]
 		},
@@ -2427,7 +2430,7 @@ AddSubClass("cleric", "twilight domain", {
 			name : "Divine Strike",
 			source : [["T", 35]],
 			minlevel : 8,
-			description : "\n  Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
+			description: desc("Once per turn, when I hit a creature with a weapon attack, I can do extra damage"),
 			additional : levels.map(function (n) {
 				if (n < 8) return "";
 				return "+" + (n < 14 ? 1 : 2) + "d8 radiant damage";
@@ -2650,7 +2653,7 @@ AddSubClass("druid", "circle of the stars", {
 				"As a bonus action, I can expend a use of wild shape to take on a starry form for 10 min",
 				"In that form I shed bright light in a 10-ft radius and dim light for an extra 10-ft radius",
 				"When I do so, I choose one constellation that glimmers on my body, granting me benefits",
-				"See the 3rd page's \"Notes\" section for the benefits of the possible constellations"
+				'See the 3rd page "Notes" section for the benefits of the possible constellations',
 			]),
 			weaponOptions : [{
 				regExpSearch : /^(?=.*luminous)(?=.*arrow).*$/i,
@@ -2726,7 +2729,7 @@ AddSubClass("druid", "circle of the stars", {
 			minlevel : 10,
 			description : desc([
 				"While in my starry form, I can change the constellation at the start of each of my turns",
-				"The benefit of my constellations improve, see the 3rd page's \"Notes\" section"
+				'The benefit of my constellations improve, see the 3rd page "Notes" section',
 			]),
 			calcChanges : {
 				atkAdd : [
@@ -2744,7 +2747,7 @@ AddSubClass("druid", "circle of the stars", {
 			name : "Full of Stars",
 			source : [["T", 39]],
 			minlevel : 14,
-			description : "\n   While in my starry form, I have resistance to bludgeoning, piercing, and slashing damage",
+			description: desc("While in my starry form, I have resistance to bludgeoning, piercing, and slashing damage"),
 			dmgres : [
 				["Bludgeoning", "Bludgeon. (in form)"],
 				["Piercing", "Piercing (in form)"],
@@ -2977,7 +2980,8 @@ if (ClassSubList["fighter-battle master"]) {
 	AddFightingStyle(["fighter"], "Superior Technique", {
 		name : "Superior Technique",
 		source : [["T", 41], ["UA:CFV", 5]],
-		description : " [1 maneuver; d6, 1\xD7 per short rest]" + desc([
+		additional: "1 maneuver; d6, 1\xD7 per short rest",
+		description : desc([
 			"I gain one superiority die (d6) that I can expend to fuel a special Maneuver",
 			"I can only use one Maneuver per attack; DCs are 8 + Prof B. + Str/Dex mod, my choice",
 			'Use the "Choose Feature" button above to add a Maneuver to the third page'
@@ -3027,7 +3031,7 @@ if (ClassSubList["fighter-battle master"]) {
 	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Commanding Presence", {
 		name : "Commanding Presence",
 		source : [["T", 42]],
-		description : "\n   When I make a Performance, Intimidation, or Persuasion check, I can add a superiority die"
+		description: desc("When I make a Performance, Intimidation, or Persuasion check, I can add a superiority die")
 	});
 	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Grappling Strike", {
 		name : "Grappling Strike",
@@ -3050,7 +3054,7 @@ if (ClassSubList["fighter-battle master"]) {
 	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Tactical Assessment", {
 		name : "Tactical Assessment",
 		source : [["T", 42]],
-		description : "\n   When I make an Investigation, History, or Insight check, I can add a superiority die to it"
+		description: desc("When I make an Investigation, History, or Insight check, I can add a superiority die to it")
 	});
 }
 
@@ -3088,7 +3092,8 @@ AddSubClass("fighter", "psi warrior", {
 			name : "Psionic Power: Protective Field",
 			source : [["T", 43]],
 			minlevel : 3,
-			description : " [1 psionic energy die]" + desc([
+			additional: "1 psionic energy die",
+			description : desc([
 				"As a reaction when I or a creature I can see within 30 ft takes damage, I can reduce it",
 				"I reduce the damage by the roll of the one psionic energy die I expend + my Int mod"
 			]),
@@ -3098,7 +3103,8 @@ AddSubClass("fighter", "psi warrior", {
 			name : "Psionic Power: Psionic Strike",
 			source : [["T", 43]],
 			minlevel : 3,
-			description : " [1 psionic energy die]" + desc([
+			additional: "1 psionic energy die",
+			description : desc([
 				"Once on each of my turns after I hit a target in 30 ft and damage it with a weapon,",
 				"I can expend a psionic energy die to deal it the die roll + my Int mod in force damage"
 			])
@@ -3137,7 +3143,8 @@ AddSubClass("fighter", "psi warrior", {
 			name : "Telekinetic Adept: Telekinetic Thrust",
 			source : [["T", 43]],
 			minlevel : 7,
-			description : " [DC 8 + Prof B. + Int mod]" + desc([
+			additional: "DC 8 + Prof B. + Int mod",
+			description : desc([
 				"When I deal damage with my Psionic Strike, I can have the target make a Strength save",
 				"If failed, I knock the target prone or move it up to 10 ft in any direction horizontally"
 			]),
@@ -3205,7 +3212,7 @@ AddSubClass("fighter", "rune knight", {
 			name : "Bonus Proficiencies",
 			source : [["T", 44]],
 			minlevel : 3,
-			description : "\n   I gain proficiency with smith's tools and I learn to speak, read, and write Giant",
+			description: desc("I gain proficiency with smith's tools and I learn to speak, read, and write Giant"),
 			toolProfs : ["Smith's tools"],
 			languageProfs : ["Giant"]
 		},
@@ -3394,7 +3401,7 @@ AddSubClass("fighter", "rune knight", {
 			name : "Master of Runes",
 			source : [["T", 46]],
 			minlevel : 15,
-			description : "\n   I can now invoke each of my runes twice per short rest instead of once"
+			description: desc("I can now invoke each of my runes twice per short rest instead of once")
 		},
 		"subclassfeature18" : {
 			name : "Runic Juggernaut",
@@ -3609,7 +3616,8 @@ AddSubClass("monk", "way of the astral self", {
 				name : "Astral Visage",
 				extraname : "Way of the Astral Self 6",
 				source : [["T", 50]],
-				description : " [1 ki point]" + desc([
+				additional: "1 ki point",
+				description : desc([
 					"As a bonus action (or when summoning my astral arms), I can summon my astral visage",
 					"It lasts for 10 minutes or until I'm incapacitated or die; I choose its appearance",
 					"My astral visage covers my face like a helmet or mask and grants me the following benefits:",
@@ -3664,7 +3672,8 @@ AddSubClass("monk", "way of the astral self", {
 				name : "Awakened Astral Self",
 				extraname : "Way of the Astral Self 17",
 				source : [["T", 50]],
-				description : " [5 ki points]" + desc([
+				additional: "5 ki points",
+				description : desc([
 					"As a bonus action, I can summon my astral arms and astral visage, with extra benefits:",
 					" \u2022 Armor of the Spirit: I gain a +2 bonus to my armor class",
 					" \u2022 Astral Barrage: I can do three attacks with the Attack action, if all are with astral arms",
@@ -3772,7 +3781,7 @@ if (!SourceList.MOT) {
 				name : "Aura of Alacrity",
 				source : [["T", 54], ["MOT", 29]],
 				minlevel : 7,
-				description : "\n   If I'm not incapacitated, allies starting their turn in range gain bonus speed for that turn",
+				description: desc("If I'm not incapacitated, allies starting their turn in range gain bonus speed for that turn"),
 				speed : { walk : { spd : "+10", enc : "+10" } },
 				additional : levels.map(function (n) {
 					return n < 7 ? "" : (n < 18 ? 5 : 10) + "-foot aura; +10 ft walking speed";
@@ -3820,7 +3829,7 @@ AddSubClass("paladin", "oath of the watchers", {
 			name : "Channel Divinity: Watcher's Will",
 			source : [["T", 55]],
 			minlevel : 3,
-			description : "\n   As an action, Cha mod of creatures I see in 30 ft adv. on Int/Wis/Cha saves for 1 min",
+			description: desc("As an action, Cha mod of creatures I see in 30 ft adv. on Int/Wis/Cha saves for 1 min"),
 			action : [["action", ""]],
 			spellcastingExtra : ["alarm", "detect magic", "moonbeam", "see invisibility", "counterspell", "nondetection", "aura of purity", "banishment", "hold monster", "scrying"]
 		},
@@ -3840,7 +3849,7 @@ AddSubClass("paladin", "oath of the watchers", {
 			name : "Aura of the Sentinel",
 			source : [["T", 55]],
 			minlevel : 7,
-			description : "\n   If I'm not incapacitated, chosen creatures in range and I add my Prof Bonus to Initiative",
+			description: desc("If I'm not incapacitated, chosen creatures in range and I add my Prof Bonus to Initiative"),
 			additional : levels.map(function (n) { return n < 7 ? "" : (n < 18 ? 10 : 30) + "-foot aura"; }),
 			addMod : [{ type : "skill", field : "Init", mod : "prof", text : "I can add my Proficiency Bonus to initiative rolls." }]
 		},
@@ -3883,7 +3892,7 @@ var TCoE_Deft_Explorer = function () {
 	var a = {
 		name : "Deft Explorer: Canny",
 		source : [["T", 56]],
-		description : "\n   I learn two languages and gain expertise with one skill I'm proficient with",
+		description: desc("I learn two languages and gain expertise with one skill I'm proficient with"),
 		languageProfs : [2],
 		skillstxt : "Expertise with one skill I'm proficient with",
 		additional : "extra benefits at 6th and 10th level",
@@ -3894,7 +3903,7 @@ var TCoE_Deft_Explorer = function () {
 			name : "Roving",
 			extraname : "Deft Explorer Benefit 6",
 			source : [["T", 56]],
-			description : "\n   I gain +5 ft walking speed and climbing and swimming speed equal to my walking speed",
+			description: desc("I gain +5 ft walking speed and climbing and swimming speed equal to my walking speed"),
 			speed : {
 				walk : { spd : "+5", enc : "+5" },
 				climb : { spd : "walk", enc : "walk" },
@@ -4003,7 +4012,7 @@ var TCoE_Ranger_Spellcasting_Focus = {
 	name : "Spellcasting Focus",
 	extraname : "Optional Ranger 2",
 	source : [["T", 57], ["UA:CFV", 8]],
-	description : "\n   I can use a druidic focus as a spellcasting focus for my ranger spells",
+	description: desc("I can use a druidic focus as a spellcasting focus for my ranger spells"),
 	prereqeval : function (v) { return (classes.known.ranger && classes.known.ranger.level >= 2) || (classes.known.rangerau && classes.known.rangerau.level >= 2) ? true : "skip"; }
 };
 AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Spellcasting Focus (prereq: level 2 ranger)", TCoE_Ranger_Spellcasting_Focus, "Optional ranger features");
@@ -4338,7 +4347,7 @@ var TCoE_Ranger_Subclass_Fey_Wanderer = AddSubClass("ranger", "fey wanderer", {
 			name : "Fey Wanderer Magic",
 			source : [["T", 58]],
 			minlevel : 3,
-			description : "\n   I get bonus spells known, which do not count against the number of spells I can know",
+			description: desc("I get bonus spells known, which do not count against the number of spells I can know"),
 			spellcastingExtra : ["charm person", "misty step", "dispel magic", "dimension door", "mislead"],
 			spellcastingExtraApplyNonconform : true
 		},
@@ -4648,7 +4657,8 @@ AddSubClass("rogue", "soulknife", {
 			"psi-bolstered knack" : {
 				name : "Psionic Power: Psi-Bolstered Knack",
 				source : [["T", 64]],
-				description : " [1 PsiD if successful]" + desc([
+				additional: "1 PsiD if successful",
+				description : desc([
 					"If I fail an check using a skill or tool I'm proficient with, I can add a psionic energy die to it",
 					"The psionic energy die is only expended if this addition turns the failure into a success"
 				])
@@ -4704,13 +4714,14 @@ AddSubClass("rogue", "soulknife", {
 			source : [["T", 65]],
 			minlevel : 9,
 			description : desc([
-				"My psi-suffused soul grants me more psionic powers, see the 3rd page's \"Notes\" section"
+				'My psi-suffused soul grants me more psionic powers, see the 3rd page "Notes" section',
 			]),
 			extraname : "Soulknife 9",
 			"homing strikes" : {
 				name : "Homing Strikes",
 				source : [["T", 65]],
-				description : " [1 PsiD if successful]" + desc([
+				additional: "1 PsiD if successful",
+				description : desc([
 					"If I miss an attack with my psychic blades, I can add a psionic energy die to the attack roll",
 					"The psionic energy die is only expended if this addition turns the miss into a hit"
 				])
@@ -4718,7 +4729,8 @@ AddSubClass("rogue", "soulknife", {
 			"psychic teleportation" : {
 				name : "Psychic Teleportation",
 				source : [["T", 65]],
-				description : " [1 PsiD]" + desc([
+				additional: "1 PsiD",
+				description : desc([
 					"As a bonus action, I can teleport up to 10 ft away times the roll of my psionic energy die",
 					"I manifest a psychic blade and throw it to an empty space I can see before teleporting to it"
 				]),
@@ -4788,7 +4800,8 @@ AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Additional Sor
 AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Seeking Spell", {
 	name : "Seeking Spell",
 	source : [["T", 66]],
-	description : " [2 sorcery points]" + desc([
+	additional: "2 sorcery points",
+	description : desc([
 		"If I miss an attack roll for a spell, I can reroll the d20 and must use the new roll",
 		"I can do this even if I already used another Metamagic option during the casting of the spell"
 	])
@@ -4796,7 +4809,8 @@ AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Seeking Spell"
 AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Transmuted Spell", {
 	name : "Transmuted Spell",
 	source : [["T", 66]],
-	description : " [1 sorcery point]" + desc([
+	additional: "1 sorcery point",
+	description : desc([
 		"If the spell deals one of the below damage types, I can change it to another on the list",
 		"These damage types are: acid, cold, fire, lightning, poison, or thunder"
 	])
@@ -4917,7 +4931,7 @@ AddSubClass("sorcerer", "aberrant mind", {
 			name : "Psychic Defenses",
 			source : [["T", 68]],
 			minlevel : 6,
-			description : "\n   I gain resistance to psychic damage and adv. on saves vs. being charmed or frightened",
+			description: desc("I gain resistance to psychic damage and adv. on saves vs. being charmed or frightened"),
 			dmgres : ["Psychic"],
 			savetxt : { adv_vs : ["charmed", "frightened"] }
 		},
@@ -5140,7 +5154,7 @@ AddWarlockInvocation("Bond of the Talisman (prereq: level 12 warlock, Pact of th
 AddWarlockInvocation("Eldritch Mind", {
 	name : "Eldritch Mind",
 	source : [["T", 71]],
-	description : "\n   I have advantage on my Constitution saving throws to maintain concentration on a spell",
+	description: desc("I have advantage on my Constitution saving throws to maintain concentration on a spell"),
 	savetxt : { text : "Adv. on Con (Concentration) saves" }
 });
 AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome)", {
@@ -5236,7 +5250,7 @@ AddWarlockInvocation("Protection of the Talisman (prereq: level 7 warlock, Pact 
 	name : "Protection of the Talisman",
 	source : [["T", 71]],
 	submenu : "[improves Pact of the Talisman]",
-	description : "\n   When the wearer of my talisman fails a saving throw, they can add +1d4 to the roll",
+	description: desc("When the wearer of my talisman fails a saving throw, they can add +1d4 to the roll"),
 	prereqeval : function(v) {
 		return classes.known.warlock.level >= 7 && GetFeatureChoice('class', 'warlock', 'pact boon').indexOf("pact of the talisman") !== -1;
 	},
@@ -5260,7 +5274,7 @@ AddWarlockInvocation("Rebuke of the Talisman (prereq: Pact of the Talisman)", {
 });
 AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 	name : "Undying Servitude",
-	description : "\n   Once per long rest, I can cast Animate Dead without using a spell slot",
+	description: desc("Once per long rest, I can cast Animate Dead without using a spell slot"),
 	source : [["T", 71]],
 	submenu : "[warlock level  5+]",
 	usages : 1,
@@ -5329,7 +5343,7 @@ AddSubClass("warlock", "the fathomless", {
 			name : "Gift of the Sea",
 			source : [["T", 72]],
 			minlevel : 1,
-			description : "\n   I have a swimming speed of 40 ft and I can breathe underwater",
+			description: desc("I have a swimming speed of 40 ft and I can breathe underwater"),
 			speed : { swim : { spd : 40, enc : 30 } }
 		},
 		"subclassfeature6" : {
@@ -5422,7 +5436,7 @@ AddSubClass("warlock", "the genie", {
 			name : "Choose Genie Kind",
 			source : [["T", 73], ["UA:SR", 3]],
 			minlevel : 1,
-			description : '\n   Use the "Choose Feature" button above to choose the kind of genie your patron is',
+			description : desc('Use the "Choose Feature" button above to choose the kind of genie your patron is'),
 			calcChanges : {
 				spellList : [
 					function(spList, spName, spType) {
@@ -5439,22 +5453,22 @@ AddSubClass("warlock", "the genie", {
 			choices : ["Dao (earth)", "Djinni (air)", "Efreeti (fire)", "Marid (water)"],
 			"dao (earth)" : {
 				name : "Dao Genie Patron",
-				description : "\n   My genie patron is a Dao, associated with earth",
+				description: desc("My genie patron is a Dao, associated with earth"),
 				spellcastingExtra : ["detect evil and good", "sanctuary", "phantasmal force", "spike growth", "create food and water", "meld into stone", "phantasmal killer", "stone shape", "creation", "wall of stone", "wish"]
 			},
 			"djinni (air)" : {
 				name : "Djinni Genie Patron",
-				description : "\n   My genie patron is a Djinni, associated with air",
+				description: desc("My genie patron is a Djinni, associated with air"),
 				spellcastingExtra : ["detect evil and good", "thunderwave", "gust of wind", "phantasmal force", "create food and water", "wind wall", "greater invisibility", "phantasmal killer", "creation", "seeming", "wish"]
 			},
 			"efreeti (fire)" : {
 				name : "Efreeti Genie Patron",
-				description : "\n   My genie patron is an Efreeti, associated with fire",
+				description: desc("My genie patron is an Efreeti, associated with fire"),
 				spellcastingExtra : ["burning hands", "detect evil and good", "phantasmal force", "scorching ray", "create food and water", "fireball", "fire shield", "phantasmal killer", "creation", "flame strike", "wish"]
 			},
 			"marid (water)" : {
 				name : "Marid Genie Patron",
-				description : "\n   My genie patron is a Marid, associated with water",
+				description: desc("My genie patron is a Marid, associated with water"),
 				spellcastingExtra : ["detect evil and good", "fog cloud", "blur", "phantasmal force", "create food and water", "sleet storm", "control water", "phantasmal killer", "cone of cold", "creation", "wish"]
 			},
 			choiceDependencies : [{
@@ -5624,7 +5638,8 @@ AddSubClass("warlock", "the genie", {
 			name : "Limited Wish",
 			source : [["T", 75], ["UA:SR", 3]],
 			minlevel : 14,
-			description : " [1\xD7 per 1d4 long rests]" + desc([
+			additional: "1\xD7 per 1d4 long rests",
+			description : desc([
 				"As an action, I can cast a 6th-level or lower spell with a casting time time of one action",
 				"This can be any spell; It doesn't require any costly components, it simply takes effect"
 			]),
@@ -5686,7 +5701,7 @@ if (!SourceList.S) {
 				name : "Training in War and Song",
 				source : [["S", 142], ["T", 76]],
 				minlevel : 2,
-				description : "\n   " + "I gain proficiency with light armor, a one-handed melee weapon, and Performance",
+				description : desc("I gain proficiency with light armor, a one-handed melee weapon, and Performance"),
 				armorProfs : [true, false, false, false],
 				skills : ["Performance"]
 			},
@@ -5732,7 +5747,7 @@ if (!SourceList.S) {
 				name : "Song of Victory",
 				source : [["S", 142], ["T", 77]],
 				minlevel : 14,
-				description : "\n   " + "While my bladesong is active, I add my Int mod (min 1) to melee weapon attack damage",
+				description : desc("While my bladesong is active, I add my Int mod (min 1) to melee weapon attack damage"),
 				calcChanges : {
 					atkCalc : [
 						function (fields, v, output) {

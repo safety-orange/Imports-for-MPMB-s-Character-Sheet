@@ -23,7 +23,7 @@ AddSubClass("fighter", "rune knight-ua", {
 			name : "Bonus Proficiencies",
 			source : [["UA:FRnR", 1]],
 			minlevel : 3,
-			description : "\n   I gain proficiency with smith's tools and I learn to speak, read, and write Giant",
+			description: desc("I gain proficiency with smith's tools and I learn to speak, read, and write Giant"),
 			toolProfs : ["Smith's tools"],
 			languageProfs : ["Giant"]
 		},
@@ -197,7 +197,7 @@ AddSubClass("fighter", "rune knight-ua", {
 			name : "Blessing of the All Father",
 			source : [["UA:FRnR", 3]],
 			minlevel : 18,
-			description : "\n   When I use Giant Might, I can have it also affect a willing ally that I can see within 60 ft"
+			description: desc("When I use Giant Might, I can have it also affect a willing ally that I can see within 60 ft")
 		}
 	}
 });
@@ -312,7 +312,7 @@ AddSubClass("rogue", "the revived-ua", {
 			name : "Tokens of Past Lives",
 			source : [["UA:FRnR", 4]],
 			minlevel : 3,
-			description : "\n   I gain a chosen skill or tool proficiency and can change it whenever I finish a long rest",
+			description: desc("I gain a chosen skill or tool proficiency and can change it whenever I finish a long rest"),
 			skillstxt : "Choose one skill or tool; I can change the choice whenever I finish a long rest"
 		},
 		"subclassfeature3.1" : {

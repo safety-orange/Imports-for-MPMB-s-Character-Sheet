@@ -21,7 +21,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			name : "Jotun Resilience",
 			source : [["UA:GSS", 1]],
 			minlevel : 1,
-			description : "\n   " + "My hit point maximum increases by an amount equal to my sorcerer level",
+			description: desc("My hit point maximum increases by an amount equal to my sorcerer level"),
 			calcChanges : {
 				hp : function (totalHD) {
 					if (classes.known.sorcerer) {
@@ -123,7 +123,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			name : "Soul of Lost Ostoria",
 			source : [["UA:GSS", 1]],
 			minlevel : 6,
-			description : "\n   " + 'Use the "Choose Feature" button above to select the giant heritage',
+			description: desc('Use the "Choose Feature" button above to select the giant heritage'),
 			choices : ["Cloud Giant", "Fire Giant", "Frost Giant", "Hill Giant", "Stone Giant", "Storm Giant"],
 			choicesNotInMenu : true,
 			"cloud giant" : {
@@ -136,7 +136,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			},
 			"fire giant" : {
 				name : "Soul of Lost Ostoria: Fire Giant",
-				description : "\n   " + "I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells",
+				description: desc("I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells"),
 				calcChanges : {
 					atkCalc : [
 						function (fields, v, output) {
@@ -214,7 +214,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			name : "Blessing of the All Father",
 			source : [["UA:GSS", 2]],
 			minlevel : 18,
-			description : "\n   " + "I add +2 to my Constitution and its maximums increases to 22",
+			description: desc("I add +2 to my Constitution and its maximums increases to 22"),
 			scores : [0, 0, 2, 0, 0, 0],
 			scoresMaximum : [0, 0, 22, 0, 0, 0]
 		}

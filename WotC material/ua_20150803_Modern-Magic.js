@@ -23,7 +23,7 @@ AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 			name : "Bonus Cantrip",
 			source : [["UA:MM", 1]],
 			minlevel : 1,
-			description : "\n   " + "I learn the On/Off cantrip if I didn't already know it",
+			description: desc("I learn the On/Off cantrip if I didn't already know it"),
 			spellcastingBonus : [{
 				name : "Bonus Cantrip (On/Off)",
 				spells : ["on/off-ua"],
@@ -34,7 +34,7 @@ AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 			name : "Bonus Proficiency",
 			source : [["UA:MM", 1]],
 			minlevel : 1,
-			description : "\n   " + "I gain proficiency with sidearms and land vehicles",
+			description: desc("I gain proficiency with sidearms and land vehicles"),
 			weaponProfs : [false, false, ["Sidearms"]],
 			toolProfs : ["Vehicles (land)"]
 		},
@@ -66,13 +66,13 @@ AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 			name : "Block Watch",
 			source : [["UA:MM", 2]],
 			minlevel : 6,
-			description : "\n   " + "While in an urban environment, I'm proficient and expertise in Insight and Perception"
+			description: desc("While in an urban environment, I'm proficient and expertise in Insight and Perception")
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
 			source : [["UA:MM", 2]],
 			minlevel : 8,
-			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
+			description: desc("Once per turn, when I hit a creature with a weapon attack, I can do extra damage"),
 			additional : levels.map(function (n) {
 				if (n < 8) return "";
 				return "+" + (n < 14 ? 1 : 2) + "d8 psychic damage";
@@ -114,7 +114,7 @@ AddSubClass("warlock", "ghost in the machine-ua", { // Still valid 2021-09-21
 			name : "Bonus Proficiency",
 			source : [["UA:MM", 2]],
 			minlevel : 1,
-			description : "\n   " + "I am proficient with hacking tools and know the On/Off cantrip",
+			description: desc("I am proficient with hacking tools and know the On/Off cantrip"),
 			toolProfs : ["Hacking tools"],
 			spellcastingBonus : [{
 				name : "Bonus Cantrip (On/Off)",
@@ -186,7 +186,7 @@ AddSubClass("wizard", "technomancy-ua", { // Still valid 2021-09-21
 			name : "Bonus Proficiencies",
 			source : [["UA:MM", 3]],
 			minlevel : 2,
-			description : "\n   " + "I gain proficiency with sidearms and hacking tools",
+			description: desc("I gain proficiency with sidearms and hacking tools"),
 			weaponProfs : [false, false, ["Sidearms"]],
 			toolProfs : ["Hacking tools"]
 		},
@@ -229,7 +229,10 @@ AddSubClass("wizard", "technomancy-ua", { // Still valid 2021-09-21
 			name : "Chained Device",
 			source : [["UA:MM", 4]],
 			minlevel : 14,
-			description : "\n   " + "I can use a held/worn tablet computer to concentrate on a spell I cast instead of me" + "\n   " + "If the device is separated from me, turned off, or broken, the effect is lost",
+			description: desc([
+				"I can use a held/worn tablet computer to concentrate on a spell I cast instead of me",
+				"If the device is separated from me, turned off, or broken, the effect is lost",
+			]),
 			recovery : "long rest",
 			usages : 1
 		}

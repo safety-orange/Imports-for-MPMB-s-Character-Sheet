@@ -38,7 +38,7 @@ AddSubClass("druid", "circle of spores-ua", {
 			name : "Halo of Spores",
 			source : [["UA:TS", 1]],
 			minlevel : 2,
-			description : "\n   " + "As a reaction on my turn, I can do poison damage to one creature I can see within 10 ft",
+			description: desc("As a reaction on my turn, I can do poison damage to one creature I can see within 10 ft"),
 			additional : levels.map(function (n) { return n < 2 ? "" : (n < 6 ? 3 : n < 10 ? 6 : n < 14 ? 9 : 12) + " poison damage"; }),
 			action : [["reaction", " (on my turn)"]]
 		},
@@ -92,7 +92,7 @@ AddSubClass("druid", "circle of spores-ua", {
 			name : "Fungal Body",
 			source : [["UA:TS", 2]],
 			minlevel : 14,
-			description : "\n   " + "I'm immune to critical hits and to being blinded, deafened, frightened, and poisoned",
+			description: desc("I'm immune to critical hits and to being blinded, deafened, frightened, and poisoned"),
 			savetxt : { immune : ["blinded", "deafened", "frightened", "poisoned", "critical hits"] }
 		}
 	}
@@ -107,7 +107,7 @@ var UATS_fighterBruteSubclassUA = AddSubClass("fighter", "brute-ua", {
 			name : "Brute Force",
 			source : [["UA:TS", 2]],
 			minlevel : 3,
-			description : "\n   " + "I do additional damage with weapons that I'm proficient with",
+			description: desc("I do additional damage with weapons that I'm proficient with"),
 			additional : levels.map(function (n) { 
 				return n < 3 ? "" : "+1d" + (n < 10 ? 4 : n < 16 ? 6 : n < 20 ? 8 : 10) + " weapon damage";
 			}),
@@ -136,7 +136,7 @@ var UATS_fighterBruteSubclassUA = AddSubClass("fighter", "brute-ua", {
 			name : "Devastating Critical",
 			source : [["UA:TS", 2]],
 			minlevel : 15,
-			description : "\n   " + "Whenever I score a critical hit with a weapon, I add my fighter level to the damage",
+			description: desc("Whenever I score a critical hit with a weapon, I add my fighter level to the damage"),
 			additional : levels.map(function (n) { return n < 15 ? "" : "+" + n + " damage on crit"; })
 		},
 		"subclassfeature18" : {
@@ -156,7 +156,7 @@ RunFunctionAtEnd(function () {
 	FSfea.source = ["UA:TS", 2];
 	FSfea.minlevel = 10;
 	FSfea.extrachoices = "";
-	FSfea.description = '\n   Choose an Additional Fighting Style using the "Choose Feature" button above ';
+	FSfea.description = desc('Choose an Additional Fighting Style using the "Choose Feature" button above');
 	ClassSubList[UATS_fighterBruteSubclassUA].features.subclassfeature10 = FSfea;
 });
 AddSubClass("wizard", "school of invention-ua", {
@@ -169,7 +169,7 @@ AddSubClass("wizard", "school of invention-ua", {
 			name : "Tools of the Inventor",
 			source : [["UA:TS", 3]],
 			minlevel : 2,
-			description : "\n   " + "I gain proficiency with light armor and two tools of my choice",
+			description: desc("I gain proficiency with light armor and two tools of my choice"),
 			toolProfs : [["Any one tool", 2]],
 			armorProfs : [true, false, false, false]
 		},
@@ -262,7 +262,7 @@ AddSubClass("wizard", "school of invention-ua", {
 			name : "Prodigious Inspiration",
 			source : [["UA:TS", 4]],
 			minlevel : 10,
-			description : "\n   " + "As a bonus action, I can replace a prepared spell with another from my spellbook",
+			description: desc("As a bonus action, I can replace a prepared spell with another from my spellbook"),
 			usages : 1,
 			recovery : "short rest",
 			action : [["bonus action", ""]]

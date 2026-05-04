@@ -43,6 +43,7 @@ ClassList['artificer-ua2'] = {
 		"\n \u2022 Thieves' tools and a dungeoneer's pack;" +
 		"\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
 	subclasses : ["Artificer Specialist", []],
+	subclassGainedLevel : 3,
 	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	spellcastingFactor : 2,
 	spellcastingTable : [[0, 0, 0, 0, 0, 0, 0, 0, 0]].concat(levels.map(function (n) {
@@ -275,7 +276,7 @@ ClassList['artificer-ua2'] = {
 			name : "The Right Cantrip for the Job",
 			source : [["UA:A2", 5]],
 			minlevel : 10,
-			description : "\n   " + "Whenever I finish a short/long rest, I can swap one of my artificer cantrips for another"
+			description: desc("Whenever I finish a short/long rest, I can swap one of my artificer cantrips for another")
 		},
 		"spell-storing item" : {
 			name : "Spell-Storing Item",
@@ -312,7 +313,7 @@ AddSubClass("artificer-ua2", "alchemist", {
 			name : "Tools of the Trade",
 			source : [["UA:A2", 6]],
 			minlevel : 3,
-			description : "\n   I can craft magical potions for half the usual gold and in a quarter of the usual time",
+			description: desc("I can craft magical potions for half the usual gold and in a quarter of the usual time"),
 			additional : "alchemist's and herbalism kit proficiency",
 			toolProfs : ["Alchemist's supplies", "Herbalism kit"],
 			eval : function () {
@@ -421,7 +422,7 @@ AddSubClass("artificer-ua2", "alchemist", {
 			name : "Alchemical Mastery: Lesser Restoration",
 			source : [["UA:A2", 7]],
 			minlevel : 6,
-			description : "\n   I can cast Lesser Restoration without a spell slot if I use alchemist's supplies as a focus",
+			description: desc("I can cast Lesser Restoration without a spell slot if I use alchemist's supplies as a focus"),
 			usages : "Int mod per ",
 			recovery : "long rest",
 			usagescalc : "event.value = Math.max(1, What('Int Mod'));",
@@ -666,7 +667,7 @@ AddSubClass("artificer-ua2", "artillerist", {
 			name : "Fortified Position",
 			source : [["UA:A2", 8]],
 			minlevel : 14,
-			description : "\n   My allies and I have half cover while within 10 ft of an arcane turret I created"
+			description: desc("My allies and I have half cover while within 10 ft of an arcane turret I created")
 		}
 	}
 });

@@ -104,7 +104,7 @@ if (!SourceList.T) {
 				name : "Choose Genie Kind",
 				source : [["T", 73], ["UA:SR", 3]],
 				minlevel : 1,
-				description : '\n   Use the "Choose Feature" button above to choose the kind of genie your patron is',
+				description : desc('Use the "Choose Feature" button above to choose the kind of genie your patron is'),
 				calcChanges : {
 					spellList : [
 						function(spList, spName, spType) {
@@ -121,22 +121,22 @@ if (!SourceList.T) {
 				choices : ["Dao (earth)", "Djinni (air)", "Efreeti (fire)", "Marid (water)"],
 				"dao (earth)" : {
 					name : "Dao Genie Patron",
-					description : "\n   My genie patron is a Dao, associated with earth",
+					description: desc("My genie patron is a Dao, associated with earth"),
 					spellcastingExtra : ["detect evil and good", "sanctuary", "phantasmal force", "spike growth", "create food and water", "meld into stone", "phantasmal killer", "stone shape", "creation", "wall of stone", "wish"]
 				},
 				"djinni (air)" : {
 					name : "Djinni Genie Patron",
-					description : "\n   My genie patron is a Djinni, associated with air",
+					description: desc("My genie patron is a Djinni, associated with air"),
 					spellcastingExtra : ["detect evil and good", "thunderwave", "gust of wind", "phantasmal force", "create food and water", "wind wall", "greater invisibility", "phantasmal killer", "creation", "seeming", "wish"]
 				},
 				"efreeti (fire)" : {
 					name : "Efreeti Genie Patron",
-					description : "\n   My genie patron is an Efreeti, associated with fire",
+					description: desc("My genie patron is an Efreeti, associated with fire"),
 					spellcastingExtra : ["burning hands", "detect evil and good", "phantasmal force", "scorching ray", "create food and water", "fireball", "fire shield", "phantasmal killer", "creation", "flame strike", "wish"]
 				},
 				"marid (water)" : {
 					name : "Marid Genie Patron",
-					description : "\n   My genie patron is a Marid, associated with water",
+					description: desc("My genie patron is a Marid, associated with water"),
 					spellcastingExtra : ["detect evil and good", "fog cloud", "blur", "phantasmal force", "create food and water", "sleet storm", "control water", "phantasmal killer", "cone of cold", "creation", "wish"]
 				},
 				choiceDependencies : [{
@@ -306,7 +306,8 @@ if (!SourceList.T) {
 				name : "Limited Wish",
 				source : [["T", 75], ["UA:SR", 3]],
 				minlevel : 14,
-				description : " [1\xD7 per 1d4 long rests]" + desc([
+				additional: "1\xD7 per 1d4 long rests",
+				description : desc([
 					"As an action, I can cast a 6th-level or lower spell with a casting time time of one action",
 					"This can be any spell; It doesn't require any costly components, it simply takes effect"
 				]),
@@ -376,7 +377,7 @@ AddSubClass("wizard","order of scribes-ua", {
 			name : "Manifest Mind",
 			source : [["UA:SR", 5]],
 			minlevel : 10,
-			description : desc(["As a bonus action, I can cause my Awakened Spellbook to manifest. See \"Notes\" page"]),
+			description : desc('As a bonus action, I can cause my Awakened Spellbook to manifest. See "Note" page'),
 			toNotesPage : [{
 				name : "Manifest Mind",
 				source : [["UA:SR", 5]],

@@ -21,7 +21,12 @@ AddSubClass("monk", "way of the kensei-ua", {
 			name : "Path of the Kensei",
 			source : [["UA:MMT", 1]],
 			minlevel : 3,
-			description : " [3 martial weapons proficiencies]" + "\n   " + "Martial weapons I am proficient with count as kensei weapons for me" + "\n   " + "With these, I can use Dex instead of Str and use the Martial Arts damage die" + "\n   " + "As a bonus action, my kensei weapon deal +1d4 bludg. damage for an Attack action",
+			additional: "3 martial weapons proficiencies",
+			description: desc([
+				"Martial weapons I am proficient with count as kensei weapons for me",
+				"With these, I can use Dex instead of Str and use the Martial Arts damage die",
+				"As a bonus action, my kensei weapon deal +1d4 bludg. damage for an Attack action",
+			]),
 			action : [["bonus action", " (after hit)"]],
 			calcChanges : {
 				atkAdd : [
@@ -47,7 +52,10 @@ AddSubClass("monk", "way of the kensei-ua", {
 				name : "Kensei Defense",
 				extraname : "Way of the Kensei 3",
 				source : [["UA:MMT", 1]],
-				description : "\n   " + "If I make an unarmed strike with an Attack action, I can use my kensei weapon to defend" + "\n   " + "Until the start of my next turn, if I'm not incapacitated, I gain +2 AC while holding it"
+				description: desc([
+					"If I make an unarmed strike with an Attack action, I can use my kensei weapon to defend",
+					"Until the start of my next turn, if I'm not incapacitated, I gain +2 AC while holding it",
+				]),
 			},
 			autoSelectExtrachoices : [{ extrachoice : "kensei defense" }]
 		},
@@ -55,7 +63,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 			name : "One with the Blade",
 			source : [["UA:MMT", 1]],
 			minlevel : 6,
-			description : "\n   " + "My unarmed strikes and kensei weapon attacks count as magical",
+			description: desc("My unarmed strikes and kensei weapon attacks count as magical"),
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -89,7 +97,11 @@ AddSubClass("monk", "way of the kensei-ua", {
 				name : "Sharpen the Blade",
 				extraname : "Way of the Kensei 11",
 				source : [["UA:MMT", 1]],
-				description : " [1 to 3 ki points]" + "\n   " + "As a bonus action, I can grant my weapon a bonus to attack and damage rolls" + "\n   " + "This bonus is equal to the number of ki points I spend; It lasts for 1 minute",
+				additional: "1 to 3 ki points",
+				description: desc([
+					"As a bonus action, I can grant my weapon a bonus to attack and damage rolls",
+					"This bonus is equal to the number of ki points I spend; It lasts for 1 minute",
+				]),
 				action : [["bonus action", ""]]
 			},
 			autoSelectExtrachoices : [{
@@ -101,7 +113,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 			name : "Unerring Accuracy",
 			source : [["UA:MMT", 1]],
 			minlevel : 17,
-			description : "\n   " + "On each of my turns, I can reroll one weapon attack roll I make that misses"
+			description: desc("On each of my turns, I can reroll one weapon attack roll I make that misses")
 		}
 	}
 });
@@ -114,7 +126,7 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 			name : "Path of Tranquility",
 			source : [["UA:MMT", 2]],
 			minlevel : 3,
-			description : "\n   " + "I cast Sanctuary on me, no material comp., lasts 8 hours, hostiles must save every hour",
+			description: desc("I cast Sanctuary on me, no material comp., lasts 8 hours, hostiles must save every hour"),
 			usages : 1,
 			recovery : "1 min",
 			spellcastingBonus : [{
@@ -136,7 +148,10 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 			name : "Healing Hands",
 			source : [["UA:MMT", 2]],
 			minlevel : 3,
-			description : "\n   " + "As an action, I use points to heal living creature; or 5 points to cure one poison/disease" + "\n   " + "With Flurry of Blows, I can replace one unarmed strike with a use of this feature",
+			description: desc([
+				"As an action, I use points to heal living creature; or 5 points to cure one poison/disease",
+				"With Flurry of Blows, I can replace one unarmed strike with a use of this feature",
+			]),
 			usages : [0, 0, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200],
 			recovery : "long rest",
 			action : [["action", ""]]
@@ -151,7 +166,13 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 				name : "Douse the Flames of War",
 				extraname : "Way of Tranquility 11",
 				source : [["UA:MMT", 1]],
-				description : "\n   " + "As an action, a creature I touch must make a Wisdom save or have no violent impulses" + "\n   " + "If the target is missing any HP it succeeds on the save; The effect lasts for 1 minute" + "\n   " + "During this time, it can't attack or cast spells that deal damage or force a saving throw" + "\n   " + "This effect ends if the target is attacked, takes damage, or is forced to make a saving throw" + "\n   " + "It also ends if the target witnesses any of those things happening to its allies",
+				description: desc([
+					"As an action, a creature I touch must make a Wisdom save or have no violent impulses",
+					"If the target is missing any HP it succeeds on the save; The effect lasts for 1 minute",
+					"During this time, it can't attack or cast spells that deal damage or force a saving throw",
+					"This effect ends if the target is attacked, takes damage, or is forced to make a saving throw",
+					"It also ends if the target witnesses any of those things happening to its allies",
+				]),
 				action : [["action", ""]]
 			},
 			autoSelectExtrachoices : [{
@@ -163,7 +184,7 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 			name : "Anger of a Gentle Soul",
 			source : [["UA:MMT", 2]],
 			minlevel : 17,
-			description : "\n   " + "As a reaction if another I see goes to 0 HP, I get bonus damage until my next turn ends",
+			description: desc("As a reaction if another I see goes to 0 HP, I get bonus damage until my next turn ends"),
 			usages : 1,
 			recovery : "short rest",
 			additional : ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "+17", "+18", "+19", "+20"],

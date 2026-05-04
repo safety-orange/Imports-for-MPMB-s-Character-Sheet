@@ -22,7 +22,11 @@ AddSubClass("warlock", "the seeker-ua", { // Still valid 2021-09-21
 			name : "Shielding Aurora",
 			source : [["UA:TF", 1]],
 			minlevel : 1,
-			description : "\n   " + "As a bonus action, I create a whirling aurora of brilliant energy around me" + "\n   " + "It lasts until the end of my next turn and grants me resistance to all damage" + "\n   " + "Any hostile ending its turn in 10 ft of me get Warlock level + Cha mod radiant damage",
+			description: desc([
+				"As a bonus action, I create a whirling aurora of brilliant energy around me",
+				"It lasts until the end of my next turn and grants me resistance to all damage",
+				"Any hostile ending its turn in 10 ft of me get Warlock level + Cha mod radiant damage",
+			]),
 			usages : 1,
 			recovery : "short rest",
 			action : [["bonus action", ""]]
@@ -31,21 +35,28 @@ AddSubClass("warlock", "the seeker-ua", { // Still valid 2021-09-21
 			name : "Astral Refuge",
 			source : [["UA:TF", 2]],
 			minlevel : 6,
-			description : "\n   " + "As an action, I can step into an astral refuge, coming back at the end of the turn" + "\n   " + "While in the astral refuge, I can take two actions to cast spells targeting just me",
+			description: desc([
+				"As an action, I can step into an astral refuge, coming back at the end of the turn",
+				"While in the astral refuge, I can take two actions to cast spells targeting just me",
+			]),
 			action : [["action", ""]]
 		},
 		"subclassfeature10" : {
 			name : "Far Wanderer",
 			source : [["UA:TF", 2]],
 			minlevel : 10,
-			description : "\n   " + "I no longer need to breathe, and I gain resistance to fire damage and cold damage",
+			description: desc("I no longer need to breathe, and I gain resistance to fire damage and cold damage"),
 			dmgres : ["Cold", "Fire"]
 		},
 		"subclassfeature14" : {
 			name : "Astral Sequestration",
 			source : [["UA:TF", 2]],
 			minlevel : 14,
-			description : "\n   " + "With a 5 minutes ritual, I can shift myself and ten willing creatures to the Astral Plane" + "\n   " + "While sequestered an Astral Plane, we gain the full benefits of a short rest" + "\n   " + "After this rest, we return to the same space as before, without any time having passed",
+			description: desc([
+				"With a 5 minutes ritual, I can shift myself and ten willing creatures to the Astral Plane",
+				"While sequestered an Astral Plane, we gain the full benefits of a short rest",
+				"After this rest, we return to the same space as before, without any time having passed",
+			]),
 			usages : 1,
 			recovery : "long rest"
 		}
@@ -91,7 +102,13 @@ RunFunctionAtEnd(function() {
 				name : "Arcane Initiate",
 				source : [["UA:TF", 2], ["UA:WR", 1]],
 				minlevel : 2,
-				description : "\n   " + 'Choose a Cleric Domain using the "Choose Feature" button above' + "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the chosen domain spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks",
+				description: desc([
+					'Choose a Cleric Domain using the "Choose Feature" button above',
+					"When I gain a wizard level I can replace one of the spells I would add to my spellbook",
+					"I can replace it with one of the chosen domain spells, if it is of a level I can cast",
+					"If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast",
+					"Other wizards cannot copy cleric spells from my spellbook into their own spellbooks",
+				]),
 				calcChanges : {
 					spellList : [
 						function(spList, spName, spType) {
@@ -124,7 +141,7 @@ RunFunctionAtEnd(function() {
 				name : "Channel Arcana",
 				source : [["UA:TF", 2], ["UA:WR", 1]],
 				minlevel : 2,
-				description : "\n   " + "I can channel arcane energy from my deity; the save for this is my wizard spell DC",
+				description: desc("I can channel arcane energy from my deity; the save for this is my wizard spell DC"),
 				usages : [0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3],
 				recovery : "short rest"
 			},
@@ -132,14 +149,17 @@ RunFunctionAtEnd(function() {
 				name : "Channel Arcana: Divine Arcana",
 				source : [["UA:TF", 2], ["UA:WR", 1]],
 				minlevel : 2,
-				description : "\n   " + "As a bonus action, I speak a prayer to control the flow of magic around me" + "\n   " + "The next spell I cast gains a +2 bonus to its attack roll or saving throw DC",
+				description: desc([
+					"As a bonus action, I speak a prayer to control the flow of magic around me",
+					"The next spell I cast gains a +2 bonus to its attack roll or saving throw DC",
+				]),
 				action : [["bonus action", ""]]
 			},
 			"subclassfeature2.3" : {
 				name : "Channel Arcana: Domain",
 				source : [["UA:TF", 2], ["UA:WR", 1]],
 				minlevel : 2,
-				description : "\n   " + 'Use the "Choose Feature" button above to select the domain',
+				description: desc('Use the "Choose Feature" button above to select the domain'),
 				choices : [],
 				choicesNotInMenu : true
 			},
@@ -147,7 +167,7 @@ RunFunctionAtEnd(function() {
 				name : "Arcane Acolyte",
 				source : [["UA:TF", 3], ["UA:WR", 1]],
 				minlevel : 6,
-				description : "\n   " + 'Use the "Choose Feature" button above to select the domain',
+				description: desc('Use the "Choose Feature" button above to select the domain'),
 				choices : [],
 				choicesNotInMenu : true
 			},
@@ -155,7 +175,7 @@ RunFunctionAtEnd(function() {
 				name : "Arcane Priest",
 				source : [["UA:TF", 3], ["UA:WR", 2]],
 				minlevel : 10,
-				description : "\n   " + 'Use the "Choose Feature" button above to select the domain',
+				description: desc('Use the "Choose Feature" button above to select the domain'),
 				choices : [],
 				choicesNotInMenu : true
 			},
@@ -163,7 +183,7 @@ RunFunctionAtEnd(function() {
 				name : "Arcane High Priest",
 				source : [["UA:TF", 3], ["UA:WR", 2]],
 				minlevel : 14,
-				description : "\n   " + 'Use the "Choose Feature" button above to select the domain',
+				description: desc('Use the "Choose Feature" button above to select the domain'),
 				choices : [],
 				choicesNotInMenu : true
 			}
@@ -186,7 +206,12 @@ RunFunctionAtEnd(function() {
 			name : "Arcane Initiate: " + aDomain.subname,
 			source : dSource,
 			spellcastingExtra : aDomain.spellcastingExtra,
-			description : "\n   " + "When I gain a wizard level I can replace one of the spells I would add to my spellbook" + "\n   " + "I can replace it with one of the " + aDomain.subname.toLowerCase() + " spells, if it is of a level I can cast" + "\n   " + "If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast" + "\n   " + "Other wizards cannot copy cleric spells from my spellbook into their own spellbooks"
+			description: desc([
+				"When I gain a wizard level I can replace one of the spells I would add to my spellbook",
+				"I can replace it with one of the " + aDomain.subname.toLowerCase() + " spells, if it is of a level I can cast",
+				"If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast",
+				"Other wizards cannot copy cleric spells from my spellbook into their own spellbooks",
+			]),
 		};
 		var AIdomain = MTfeat["subclassfeature2"][entryDoNm.toLowerCase()];
 		for (var aFea in aDomain.features) {

@@ -330,14 +330,14 @@ AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juj
 			name : "Bonus Proficiency",
 			source : [["PS:A", 24]],
 			minlevel : 1,
-			description : "\n   " + "I gain proficiency with heavy armor",
+			description : desc("I gain proficiency with heavy armor"),
 			armorProfs : [false, false, true, false]
 		},
 		"subclassfeature1.1" : {
 			name : "Solidarity's Action",
 			source : [["PS:A", 24]],
 			minlevel : 1,
-			description : "\n   " + "When I do the Help action to aid an ally, I can make a weapon attack as a bonus action",
+			description : desc("When I do the Help action to aid an ally, I can make a weapon attack as a bonus action"),
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
@@ -368,7 +368,7 @@ AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juj
 			name : "Divine Strike",
 			source : [["PS:A", 25]],
 			minlevel : 8,
-			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
+			description : desc("Once per turn, when I hit a creature with a weapon attack, I can do extra damage"),
 			additional : levels.map(function (n) { return n < 8 ? "" : "+" + (n < 14 ? 1 : 2) + "d8 weapon damage"; }),
 			calcChanges : {
 				atkAdd : [
@@ -385,7 +385,7 @@ AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juj
 			name : "Supreme Healing",
 			source : [["PS:A", 25]],
 			minlevel : 17,
-			description : "\n   " + "When I cast a healing spell, all dice for determining HP are treated as rolling maximum",
+			description : desc("When I cast a healing spell, all dice for determining HP are treated as rolling maximum"),
 		}
 	}
 });
@@ -415,7 +415,7 @@ AddSubClass("cleric", "strength domain", { // Includes contributions by /u/juju2
 			name : "Bonus Proficiency",
 			source : [["PS:A", 26]],
 			minlevel : 1,
-			description : "\n   " + "I gain proficiency with heavy armor",
+			description : desc("I gain proficiency with heavy armor"),
 			armorProfs : [false, false, true, false]
 		},
 		"subclassfeature2" : {
@@ -441,7 +441,7 @@ AddSubClass("cleric", "strength domain", { // Includes contributions by /u/juju2
 			name : "Divine Strike",
 			source : [["PS:A", 26]],
 			minlevel : 8,
-			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
+			description : desc("Once per turn, when I hit a creature with a weapon attack, I can do extra damage"),
 			additional : levels.map(function (n) { return n < 8 ? "" : "+" + (n < 14 ? 1 : 2) + "d8 weapon damage"; }),
 			calcChanges : {
 				atkAdd : [
@@ -458,7 +458,7 @@ AddSubClass("cleric", "strength domain", { // Includes contributions by /u/juju2
 			name : "Avatar of Battle",
 			source : [["PS:A", 26]],
 			minlevel : 17,
-			description : "\n   " + "I have resistance to bludgeoning/piercing/slashing damage from nonmagical weapons",
+			description : desc("I have resistance to bludgeoning/piercing/slashing damage from nonmagical weapons"),
 			dmgres : [["Bludgeoning", "Bludg. (nonmagical)"], ["Piercing", "Pierc. (nonmagical)"], ["Slashing", "Slash. (nonmagical)"]]
 		}
 	}
@@ -499,7 +499,7 @@ AddSubClass("cleric", "ambition domain", { // Includes contributions by /u/juju2
 			name : "Channel Divinity: Cloak of Shadows",
 			source : [["PS:A", 27]],
 			minlevel : 6,
-			description : "\n   " + "As an action, I become invisible until the end of my next turn or I attack/cast a spell",
+			description : desc("As an action, I become invisible until the end of my next turn or I attack/cast a spell"),
 			action : [["action", ""]]
 		},
 		"subclassfeature8" : {
@@ -530,7 +530,7 @@ AddSubClass("cleric", "zeal domain", { // Includes contributions by /u/MILKB0T
 			name : "Bonus Proficiency",
 			source : [["PS:A", 28]],
 			minlevel : 1,
-			description : "\n   " + "I gain proficiency with martial weapons and heavy armor",
+			description : desc("I gain proficiency with martial weapons and heavy armor"),
 			armorProfs : [false, false, true, false],
 			weaponProfs : [false, true]
 		},
@@ -538,7 +538,7 @@ AddSubClass("cleric", "zeal domain", { // Includes contributions by /u/MILKB0T
 			name : "Priest of Zeal",
 			source : [["PS:A", 28]],
 			minlevel : 1,
-			description : "\n   " + "When I use the Attack action, I can make a weapon attack as a bonus action",
+			description : desc("When I use the Attack action, I can make a weapon attack as a bonus action"),
 			usages : "Wisdom modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Wis Mod'));",
 			recovery : "long rest",
@@ -548,19 +548,19 @@ AddSubClass("cleric", "zeal domain", { // Includes contributions by /u/MILKB0T
 			name : "Channel Divinity: Consuming Fervor",
 			source : [["PS:A", 28]],
 			minlevel : 2,
-			description : "\n   " + "Instead of rolling, I can do maximum damage when I do fire or thunder damage"
+			description : desc("Instead of rolling, I can do maximum damage when I do fire or thunder damage")
 		},
 		"subclassfeature6" : {
 			name : "Resounding Strike",
 			source : [["PS:A", 28]],
 			minlevel : 6,
-			description : "\n   " + "When I deal thunder damage to a Large or smaller foe, I can push it up to 10 ft away"
+			description : desc("When I deal thunder damage to a Large or smaller foe, I can push it up to 10 ft away")
 		},
 		"subclassfeature8" : {
 			name : "Divine Strike",
 			source : [["PS:A", 28]],
 			minlevel : 8,
-			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
+			description : desc("Once per turn, when I hit a creature with a weapon attack, I can do extra damage"),
 			additional : levels.map(function (n) { return n < 8 ? "" : "+" + (n < 14 ? 1 : 2) + "d8 weapon damage"; }),
 			calcChanges : {
 				atkAdd : [

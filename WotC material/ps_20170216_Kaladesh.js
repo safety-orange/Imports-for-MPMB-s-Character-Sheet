@@ -34,7 +34,7 @@ AddSubClass("sorcerer", "pyromancer", { // Includes contributions by userZynx_na
 			name : "Fire in the Veins",
 			source : [["PS:K", 9]],
 			minlevel : 6,
-			description : "\n   " + "I have resistance to fire damage and spells I cast ignore resistance to fire damage",
+			description: desc("I have resistance to fire damage and spells I cast ignore resistance to fire damage"),
 			dmgres : ["Fire"]
 		},
 		"subclassfeature14" : {

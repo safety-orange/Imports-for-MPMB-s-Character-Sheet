@@ -34,7 +34,7 @@ RunFunctionAtEnd(function() {
 				name : "Bonus Proficiencies",
 				source : [["UA:MC", 9]],
 				minlevel : 1,
-				description : "\n   " + "I gain proficiency with light armor, medium armor, shields, and simple weapons",
+				description: desc("I gain proficiency with light armor, medium armor, shields, and simple weapons"),
 				armorProfs : [true, true, false, true],
 				weaponProfs : [true, false]
 			},
@@ -42,14 +42,21 @@ RunFunctionAtEnd(function() {
 				name : "Chosen of the Gods",
 				source : [["UA:MC", 8]],
 				minlevel : 1,
-				description : "\n   " + 'Choose a Cleric Domain using the "Choose Feature" button above' + "\n   " + "I add the chosen domain's spells to my known spells, when they are of a level I can cast" + "\n   " + "These count as sorcerer spells, but do not count against the number of spells I can know",
+				description: desc([
+					'Choose a Cleric Domain using the "Choose Feature" button above',
+					"I add the chosen domain's spells to my known spells, when they are of a level I can cast",
+					"These count as sorcerer spells, but do not count against the number of spells I can know",
+				]),
 				choices : []
 			},
 			"subclassfeature14" : {
 				name : "Divine Wings",
 				source : [["UA:MC", 8]],
 				minlevel : 14,
-				description : "\n   " + "As a bonus action, I sprout feathered or bat wings from my back unless blocked by armor" + "\n   " + "I gain a fly speed equal to my current speed until I dismiss the wings as a bonus action",
+				description: desc([
+					"As a bonus action, I sprout feathered or bat wings from my back unless blocked by armor",
+					"I gain a fly speed equal to my current speed until I dismiss the wings as a bonus action",
+				]),
 				action : [["bonus action", " (start/stop)"]],
 				speed : { fly : { spd : "walk", enc : "walk" } }
 			},
@@ -57,7 +64,10 @@ RunFunctionAtEnd(function() {
 				name : "Power of the Chosen",
 				source : [["UA:MC", 8]],
 				minlevel : 18,
-				description : "\n   " + "When I cast a spell I gained from the Chosen of the Gods class feature, I heal myself" + "\n   " + "I regain a number of HP equal to my Charisma modifier (minimum 1) + the spell's level"
+				description: desc([
+					"When I cast a spell I gained from the Chosen of the Gods class feature, I heal myself",
+					"I regain a number of HP equal to my Charisma modifier (minimum 1) + the spell's level",
+				]),
 			}
 		}
 	});
@@ -81,7 +91,10 @@ RunFunctionAtEnd(function() {
 				name : "Chosen of the Gods: " + cDomain.subname,
 				source : dSource,
 				spellcastingExtra : eSpells,
-				description : "\n   " + "I add the " + cDomain.subname.toLowerCase() + " spells to my known spells, if they are of a level I can cast" + "\n   " + "These count as sorcerer spells, but do not count against the number of spells I can know"
+				description: desc([
+					"I add the " + cDomain.subname.toLowerCase() + " spells to my known spells, if they are of a level I can cast",
+					"These count as sorcerer spells, but do not count against the number of spells I can know",
+				]),
 			};
 		};
 	};
@@ -113,6 +126,7 @@ ClassList["spell-less ranger"] = {
 	},
 	equipment : "Spell-less Ranger starting equipment:\n \u2022 Scale mail -or- leather armor;\n \u2022 Two shortswords -or- two simple melee weapons;\n \u2022 A dungeoneer's pack -or- an explorer's pack;\n \u2022 A longbow and a quiver of 20 arrows.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
 	subclasses : ["Ranger Archetype", []],
+	subclassGainedLevel : 3,
 	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"favored enemy" : ClassList.ranger.features["favored enemy"],
@@ -121,7 +135,10 @@ ClassList["spell-less ranger"] = {
 			name : "Combat Superiority",
 			source : [["UA:MC", 6]],
 			minlevel : 2,
-			description : "\n   " + "I gain a number of superiority dice that I can use to fuel special Maneuvers" + "\n   " + "I regain all superiority dice after a short rest",
+			description: desc([
+				"I gain a number of superiority dice that I can use to fuel special Maneuvers",
+				"I regain all superiority dice after a short rest",
+			]),
 			additional : "d8",
 			usages : levels.map( function(n) {
 				return n < 2 ? "" : n < 9 ? 4 : n < 17 ? 5 : 6;
@@ -132,7 +149,10 @@ ClassList["spell-less ranger"] = {
 			name : "Combat Maneuvers",
 			source : [["UA:MC", 6]],
 			minlevel : 2,
-			description : "\n   " + 'Use the "Choose Feature" button above to add a Maneuver to the third page' + "\n   " + "I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
+			description: desc([
+				'Use the "Choose Feature" button above to add a Maneuver to the third page',
+				"I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
+			]),
 			additional : levels.map( function(n) {
 				if (n < 2) return "";
 				return (n < 5 ? 2 : n < 9 ? 3 : n < 13 ? 4 : n < 17 ? 5 : 6) + " maneuvers known";
@@ -145,87 +165,123 @@ ClassList["spell-less ranger"] = {
 			"commander's strike" : {
 				name : "Commander's Strike",
 				source : [["P", 74]],
-				description : "\n   " + "I forgo one attack of my Attack action to use a bonus action to direct an ally I see/hear" + "\n   " + "The ally can use a reaction to make an attack, adding the superiority die to damage",
+				description: desc([
+					"I forgo one attack of my Attack action to use a bonus action to direct an ally I see/hear",
+					"The ally can use a reaction to make an attack, adding the superiority die to damage",
+				]),
 				action : [["bonus action", " (with Attack action)"]]
 			},
 			"disarming attack" : {
 				name : "Disarming Attack",
 				source : [["P", 74]],
-				description : "\n   " + "Use after hitting a creature; I add the superiority die to my attack's damage" + "\n   " + "Target makes a Strength save or drops a held object of my choice to its feet"
+				description: desc([
+					"Use after hitting a creature; I add the superiority die to my attack's damage",
+					"Target makes a Strength save or drops a held object of my choice to its feet",
+				]),
 			},
 			"distracting strike" : {
 				name : "Distracting Strike",
 				source : [["P", 74]],
-				description : "\n   " + "Use after hitting a creature; I add the superiority die to my attack's damage" + "\n   " + "The next attack of an ally before my next turn has adv. against the creature"
+				description: desc([
+					"Use after hitting a creature; I add the superiority die to my attack's damage",
+					"The next attack of an ally before my next turn has adv. against the creature",
+				]),
 			},
 			"evasive footwork" : {
 				name : "Evasive Footwork",
 				source : [["P", 74]],
-				description : "\n   " + "Use when moving; I add the superiority die to my AC until I stop moving"
+				description: desc("Use when moving; I add the superiority die to my AC until I stop moving")
 			},
 			"feinting attack" : {
 				name : "Feinting Attack",
 				source : [["P", 74]],
-				description : "\n   " + "As a bonus action, I can feint to gain adv. on my next attack against a target within 5 ft" + "\n   " + "If the attack hits, I add the superiority die to my attack's damage",
+				description: desc([
+					"As a bonus action, I can feint to gain adv. on my next attack against a target within 5 ft",
+					"If the attack hits, I add the superiority die to my attack's damage",
+				]),
 				action : [["bonus action", ""]]
 			},
 			"goading attack" : {
 				name : "Goading Attack",
 				source : [["P", 74]],
-				description : "\n   " + "Use after hitting a creature; I add the superiority die to my attack's damage" + "\n   " + "Target makes a Wis save or has disadv. vs. other targets until the end of my next turn"
+				description: desc([
+					"Use after hitting a creature; I add the superiority die to my attack's damage",
+					"Target makes a Wis save or has disadv. vs. other targets until the end of my next turn",
+				]),
 			},
 			"lunging attack" : {
 				name : "Lunging Attack",
 				source : [["P", 74]],
-				description : "\n   " + "I can spend a superiority die to increase the reach of a melee weapon attack by 5 ft" + "\n   " + "If the attack hits, I add the superiority die to my attack's damage"
+				description: desc([
+					"I can spend a superiority die to increase the reach of a melee weapon attack by 5 ft",
+					"If the attack hits, I add the superiority die to my attack's damage",
+				]),
 			},
 			"maneuvering attack" : {
 				name : "Maneuvering Attack",
 				source : [["P", 74]],
-				description : "\n   " + "Use after hitting a creature; I add the superiority die to my attack's damage" + "\n   " + "Ally can use reaction to move half speed without opportunity attack from the target"
+				description: desc([
+					"Use after hitting a creature; I add the superiority die to my attack's damage",
+					"Ally can use reaction to move half speed without opportunity attack from the target",
+				]),
 			},
 			"menacing attack" : {
 				name : "Menacing Attack",
 				source : [["P", 74]],
-				description : "\n   " + "Use after hitting a creature; I add the superiority die to my attack's damage" + "\n   " + "Target makes a Wisdom save or is frightened of me until the end of my next turn"
+				description: desc([
+					"Use after hitting a creature; I add the superiority die to my attack's damage",
+					"Target makes a Wisdom save or is frightened of me until the end of my next turn",
+				]),
 			},
 			"parry" : {
 				name : "Parry",
 				source : [["P", 74]],
-				description : "\n   " + "When damaged in melee, I can use a reaction to reduce it by superiority die + Dex mod",
+				description: desc("When damaged in melee, I can use a reaction to reduce it by superiority die + Dex mod"),
 				action : [["reaction", " (when damaged in melee)"]]
 			},
 			"precision attack" : {
 				name : "Precision Attack",
 				source : [["P", 74]],
-				description : "\n   " + "I add the superiority die to my attack roll, either before or after rolling"
+				description: desc("I add the superiority die to my attack roll, either before or after rolling")
 			},
 			"pushing attack" : {
 				name : "Pushing Attack",
 				source : [["P", 74]],
-				description : "\n   " + "Use after hitting a creature; I add the superiority die to the attack's damage" + "\n   " + "If target is Large or smaller, it must make a Strength save or be pushed up to 15 ft away"
+				description: desc([
+					"Use after hitting a creature; I add the superiority die to the attack's damage",
+					"If target is Large or smaller, it must make a Strength save or be pushed up to 15 ft away",
+				]),
 			},
 			"rally" : {
 				name : "Rally",
 				source : [["P", 74]],
-				description : "\n   " + "Ally that can see/hear me gets temporary HP equal to superiority die + Charisma mod",
+				description: desc("Ally that can see/hear me gets temporary HP equal to superiority die + Charisma mod"),
 				action : [["bonus action", ""]]
 			},
 			"riposte" : {
 				name : "Riposte",
 				source : [["P", 74]],
-				description : "\n   " + "When missed in melee, I can use my reaction to make one melee attack vs. the attacker" + "\n   " + "If the attack hits, I add the superiority die to my attack's damage",
+				description: desc([
+					"When missed in melee, I can use my reaction to make one melee attack vs. the attacker",
+					"If the attack hits, I add the superiority die to my attack's damage",
+				]),
 				action : [["reaction", " (after missed in melee)"]]
 			},
 			"sweeping attack" : {
 				name : "Sweeping Attack",
 				source : [["P", 74]],
-				description : "\n   " + "Use after hitting a creature and a second creature is within 5 ft of the first" + "\n   " + "If the original attack roll hits this second creature, it takes the superiority die in damage"
+				description: desc([
+					"Use after hitting a creature and a second creature is within 5 ft of the first",
+					"If the original attack roll hits this second creature, it takes the superiority die in damage",
+				]),
 			},
 			"trip attack" : {
 				name : "Trip Attack",
 				source : [["P", 74]],
-				description : "\n   " + "Use after hitting a creature; I add the superiority die to the attack's damage" + "\n   " + "If target is Large or smaller, it must make a Strength save or be knocked prone"
+				description: desc([
+					"Use after hitting a creature; I add the superiority die to the attack's damage",
+					"If target is Large or smaller, it must make a Strength save or be knocked prone",
+				]),
 			}
 		},
 		"fighting style" : ClassList.ranger.features["fighting style"],
@@ -260,7 +316,10 @@ ClassList["spell-less ranger"] = {
 			name : "Ranger Archetype",
 			source : [["UA:MC", 6]],
 			minlevel : 3,
-			description : "\n   " + "Choose a Ranger Archetype you strive to emulate and put it in the \"Class\" field" + "\n   " + "Choose either Spell-less Beast Master or Spell-less Hunter"
+			description: desc([
+				'Choose a Ranger Archetype you strive to emulate and put it in the "Class" field',
+				"Choose either Spell-less Beast Master or Spell-less Hunter",
+			]),
 		},
 		"land's stride" : ClassList.ranger.features["land's stride"],
 		"natural antivenom" : {
@@ -291,7 +350,7 @@ ClassList["spell-less ranger"] = {
 			name : "Relentless",
 			source : [["UA:MC", 7]],
 			minlevel : 17,
-			description : "\n   " + "I regain one superiority die if I have no more remaining when I roll initiative"
+			description: desc("I regain one superiority die if I have no more remaining when I roll initiative")
 		},
 		"feral senses" : ClassList.ranger.features["feral senses"],
 		"foe slayer" : ClassList.ranger.features["foe slayer"]
@@ -313,7 +372,7 @@ if (ClassSubList["ranger-beast master"]) {
 		name : "Beastly Coordination",
 		source : [["UA:MC", 7]],
 		minlevel : 15,
-		description : "\n   " + "My companion can, as a reaction, halve an attack's damage from an attacker that I see"
+		description: desc("My companion can, as a reaction, halve an attack's damage from an attacker that I see")
 	};
 	AddSubClass("spell-less ranger", "beast master-ua", UAMC_SLR_Beast_Master);
 };

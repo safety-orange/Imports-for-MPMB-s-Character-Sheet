@@ -103,7 +103,8 @@ AddSubClass("monk", "ascendant dragon-ua", {
 			name : "Wings Unfurled",
 			source : [["UA:SP5", 2]],
 			minlevel : 6,
-			description : " [Prof B. / long rest or 1 ki]" + desc([
+			additional: "Prof B. / long rest or 1 ki",
+			description : desc([
 				"When I use Step of the Wind, I can gain a flying speed equal to my walking speed",
 				"I can do this Prof Bonus per long rest, or by using 2 ki points to use Step of the Wind"
 			]),
@@ -148,7 +149,7 @@ AddSubClass("monk", "ascendant dragon-ua", {
 			name : "Ascendant Aspect",
 			source : [["UA:SP5", 2]],
 			minlevel : 17,
-			description : "\n   I gain 30 ft blindsight and both Breath of the Dragon and Aspect of the Wyrm improve",
+			description: desc("I gain 30 ft blindsight and both Breath of the Dragon and Aspect of the Wyrm improve"),
 			vision : [["blindsight", 30]]
 		}
 	}

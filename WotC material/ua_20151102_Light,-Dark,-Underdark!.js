@@ -15,7 +15,11 @@ SourceList["UA:LDU"] = {
 AddFightingStyle(["fighter", "ranger", "paladin"], "Close Quarters Shooter", { // Still valid 2021-09-21
 	name : "Close Quarters Shooting Fighting Style",
 	source : [["UA:LDU", 1]],
-	description : "\n   " + "+1 bonus to attack rolls I make with ranged attacks" + "\n   " + "I don't have disadvantage when making a ranged attack while within 5 ft of a hostile" + "\n   " + "My ranged attacks ignore half and three-quarters cover against targets within 30 ft",
+	description: desc([
+		"+1 bonus to attack rolls I make with ranged attacks",
+		"I don't have disadvantage when making a ranged attack while within 5 ft of a hostile",
+		"My ranged attacks ignore half and three-quarters cover against targets within 30 ft",
+	]),
 	calcChanges : {
 		atkCalc : [
 			function (fields, v, output) {
@@ -28,7 +32,12 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Close Quarters Shooter", { /
 AddFightingStyle(["fighter", "ranger", "paladin"], "Tunnel Fighter", { // Still valid 2021-09-21
 	name : "Tunnel Fighting Style",
 	source : [["UA:LDU", 1]],
-	description : "\n   " + "As a bonus action, I enter a defensive stance that lasts until the start of my next turn" + "\n   " + "While I'm in this defensive stance I gain the following two benefits:" + "\n    - " + "I can make opportunity attacks without using my reaction" + "\n    - " + "I can make a melee attack as a reaction if a hostile moves >5 ft while in my reach",
+	description: desc([
+		"As a bonus action, I enter a defensive stance that lasts until the start of my next turn",
+		"While I'm in this defensive stance I gain the following two benefits:",
+		"\u2022 I can make opportunity attacks without using my reaction",
+		"\u2022 I can make a melee attack as a reaction if a hostile moves >5 ft while in my reach",
+	]),
 	action : [["bonus action", ""]]
 });
 
@@ -43,14 +52,20 @@ AddSubClass("ranger", "deep stalker-ua", {
 			name : "Underdark Scout",
 			source : [["UA:LDU", 1]],
 			minlevel : 3,
-			description : "\n   " + "In the first turn of combat I have +10 ft speed and +1 attack with the Attack action" + "\n   " + "All turns after that, I can take the Hide action as a bonus action at the end of my turn",
+			description: desc([
+				"In the first turn of combat I have +10 ft speed and +1 attack with the Attack action",
+				"All turns after that, I can take the Hide action as a bonus action at the end of my turn",
+			]),
 			action : [["bonus action", " (Hide at end of turn)"]]
 		},
 		"subclassfeature3.1" : {
 			name : "Deep Stalker Magic",
 			source : [["UA:LDU", 2]],
 			minlevel : 3,
-			description : "\n   " + "I have 90 ft darkvision and add a spell to my known spells at level 3, 5, 9, 13, and 17" + "\n   " + "These count as ranger spells, but do not count against the number of spells I can know",
+			description: desc([
+				"I have 90 ft darkvision and add a spell to my known spells at level 3, 5, 9, 13, and 17",
+				"These count as ranger spells, but do not count against the number of spells I can know",
+			]),
 			spellcastingExtra : ["disguise self", "rope trick", "glyph of warding", "greater invisibility", "seeming"],
 			spellcastingExtraApplyNonconform : true,
 			vision : [["Darkvision", 90]]
@@ -59,20 +74,20 @@ AddSubClass("ranger", "deep stalker-ua", {
 			name : "Iron Mind",
 			source : [["UA:LDU", 2]],
 			minlevel : 7,
-			description : "\n   " + "I am proficient with Wisdom saving throws",
+			description: desc("I am proficient with Wisdom saving throws"),
 			saves : ["Wis"]
 		},
 		"subclassfeature11" : {
 			name : "Stalker's Flurry",
 			source : [["UA:LDU", 2]],
 			minlevel : 11,
-			description : "\n   " + "Once during my turn when I miss an attack, I can immediately make an extra attack"
+			description: desc("Once during my turn when I miss an attack, I can immediately make an extra attack")
 		},
 		"subclassfeature15" : {
 			name : "Stalker's Dodge",
 			source : [["UA:LDU", 2]],
 			minlevel : 15,
-			description : "\n   " + "As a reaction when I'm attacked without adv., I can impose disadv. on the attack roll",
+			description: desc("As a reaction when I'm attacked without adv., I can impose disadv. on the attack roll"),
 			action : [["reaction", " (when attacked)"]]
 		}
 	}
@@ -89,7 +104,10 @@ AddSubClass("sorcerer", "shadow sorcerer-ua", {
 			name : "Eyes of the Dark",
 			source : [["UA:LDU", 2]],
 			minlevel : 1,
-			description : "\n   " + "I have 60 ft darkvision and can cast Darkness by spending 1 sorcery point" + "\n   " + "I can see through any darkness spell I cast using this ability",
+			description: desc([
+				"I have 60 ft darkvision and can cast Darkness by spending 1 sorcery point",
+				"I can see through any darkness spell I cast using this ability",
+			]),
 			additional : "1 sorcery point",
 			vision : [["Darkvision", 60]],
 			action : [["action", " (1 sorcery point)"]],
@@ -110,21 +128,35 @@ AddSubClass("sorcerer", "shadow sorcerer-ua", {
 			name : "Strength of the Grave",
 			source : [["UA:LDU", 2]],
 			minlevel : 1,
-			description : "\n   " + "When damage reduces me to 0 HP, that isn't radiant damage or a critical hit," + "\n   " + "I can make a Constitution save (DC 5 + damage taken) to drop to 1 HP instead"
+			description: desc([
+				"When damage reduces me to 0 HP, that isn't radiant damage or a critical hit,",
+				"I can make a Constitution save (DC 5 + damage taken) to drop to 1 HP instead",
+			]),
 		},
 		"subclassfeature6" : {
 			name : "Hound of Ill Omen",
 			source : [["UA:LDU", 2]],
 			minlevel : 6,
 			additional : "3 sorcery points",
-			description : "\n   " + "As a bonus action, I target a creature I can see and summon a hound within 30 ft of it" + "\n   " + "The hound has all the stats of a medium sized dire wolf with the following exceptions:" + "\n    - " + "At the start of its turn, it automatically knows where the target is" + "\n    - " + "It can only move towards and make (opportunity) attack against the target" + "\n    - " + "It can move through other creatures and objects as if they were difficult terrain" + "\n    - " + "It takes 5 force damage if it ends its turn inside an object" + "\n   " + "The target has disadvantage on saves vs. my spells while the hound is within 5 ft of it",
+			description: desc([
+				"As a bonus action, I target a creature I can see and summon a hound within 30 ft of it",
+				"The hound has all the stats of a medium sized dire wolf with the following exceptions:",
+				"\u2022 At the start of its turn, it automatically knows where the target is",
+				"\u2022 It can only move towards and make (opportunity) attack against the target",
+				"\u2022 It can move through other creatures and objects as if they were difficult terrain",
+				"\u2022 It takes 5 force damage if it ends its turn inside an object",
+				"The target has disadvantage on saves vs. my spells while the hound is within 5 ft of it",
+			]),
 			action : [["bonus action", " (3 sorcery points)"]]
 		},
 		"subclassfeature14" : {
 			name : "Shadow Walk",
 			source : [["UA:LDU", 3]],
 			minlevel : 14,
-			description : "\n   " + "As a bonus action when I'm in dim light or darkness, I can teleport up to 120 ft" + "\n   " + "The destination has to be unoccupied, within line of sight, and in dim light or darkness",
+			description: desc([
+				"As a bonus action when I'm in dim light or darkness, I can teleport up to 120 ft",
+				"The destination has to be unoccupied, within line of sight, and in dim light or darkness",
+			]),
 			action : [["bonus action", ""]]
 		},
 		"subclassfeature18" : {
@@ -132,7 +164,12 @@ AddSubClass("sorcerer", "shadow sorcerer-ua", {
 			source : [["UA:LDU", 3]],
 			minlevel : 18,
 			additional : "3 sorcery points",
-			description : "\n   " + "As a bonus action, I transform into a shadow form for 1 minute" + "\n   " + "While transformed, I have resistance to all damage types except force damage" + "\n   " + "Also, I can move through other creatures and objects as if they were difficult terrain" + "\n   " + "I take 5 force damage if I end my turn inside an object",
+			description: desc([
+				"As a bonus action, I transform into a shadow form for 1 minute",
+				"While transformed, I have resistance to all damage types except force damage",
+				"Also, I can move through other creatures and objects as if they were difficult terrain",
+				"I take 5 force damage if I end my turn inside an object",
+			]),
 			action : [["bonus action", " (3 sorcery points)"]]
 		}
 	}
@@ -149,7 +186,10 @@ AddSubClass("warlock", "the undying light-ua", {
 			name : "Radiant Soul",
 			source : [["UA:LDU", 3]],
 			minlevel : 1,
-			description : "\n   " + "I add my Cha modifier to cantrips/spells I cast that deal fire or radiant damage" + "\n   " + "I have resistance to radiant damage and know the Light and Sacred Flame cantrips",
+			description: desc([
+				"I add my Cha modifier to cantrips/spells I cast that deal fire or radiant damage",
+				"I have resistance to radiant damage and know the Light and Sacred Flame cantrips",
+			]),
 			spellcastingBonus : [{
 				name : "Radiant Soul",
 				spells : ["light"],
@@ -179,7 +219,12 @@ AddSubClass("warlock", "the undying light-ua", {
 			name : "Searing Vengeance",
 			source : [["UA:LDU", 3]],
 			minlevel : 6,
-			description : "\n   " + "When I would make a death saving throw, I can instead spring back to my feet" + "\n   " + "I immediately stand up and recover HP equal to half my current HP maximum" + "\n   " + "Also, all hostiles within 30 ft of me take 10 + Charisma modifier in radiant damage" + "\n   " + "Damaged creatures are blinded until the end of my next turn",
+			description: desc([
+				"When I would make a death saving throw, I can instead spring back to my feet",
+				"I immediately stand up and recover HP equal to half my current HP maximum",
+				"Also, all hostiles within 30 ft of me take 10 + Charisma modifier in radiant damage",
+				"Damaged creatures are blinded until the end of my next turn",
+			]),
 			usages : 1,
 			recovery : "long rest"
 		},
@@ -187,13 +232,20 @@ AddSubClass("warlock", "the undying light-ua", {
 			name : "Radiant Resilience",
 			source : [["UA:LDU", 4]],
 			minlevel : 10,
-			description : "\n   " + "When I finish a short or long rest, I and up to five allies gain temporary hit points" + "\n   " + "I get my warlock level + Cha mod, while my allies get half my warlock level + Cha mod"
+			description: desc([
+				"When I finish a short or long rest, I and up to five allies gain temporary hit points",
+				"I get my warlock level + Cha mod, while my allies get half my warlock level + Cha mod",
+			]),
 		},
 		"subclassfeature14" : {
 			name : "Healing Light",
 			source : [["UA:LDU", 4]],
 			minlevel : 14,
-			description : "\n   " + "As a bonus action, I touch a creature and heal it by expending dice from my pool" + "\n   " + "I subtract the number of d6's used from my pool; I can expend up to 5d6 at a time" + "\n   " + "The target heals HP equal to the roll of the dice; I regain expended uses with a long rest",
+			description: desc([
+				"As a bonus action, I touch a creature and heal it by expending dice from my pool",
+				"I subtract the number of d6's used from my pool; I can expend up to 5d6 at a time",
+				"The target heals HP equal to the roll of the dice; I regain expended uses with a long rest",
+			]),
 			usages : "15d6 per ",
 			usagescalc : "event.value = '15d6';",
 			recovery : "long rest",

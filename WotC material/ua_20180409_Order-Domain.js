@@ -22,7 +22,7 @@ AddSubClass("cleric", "order domain-ua", {
 			name : "Bonus Proficiency",
 			source : [["UA:OD", 1]],
 			minlevel : 1,
-			description : "\n   " + "I gain proficiency with heavy armor",
+			description: desc("I gain proficiency with heavy armor"),
 			armorProfs : [false, false, true, false]
 		},
 		"subclassfeature1.1" : {
@@ -59,7 +59,7 @@ AddSubClass("cleric", "order domain-ua", {
 			name : "Divine Strike",
 			source : [["UA:OD", 2]],
 			minlevel : 8,
-			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
+			description: desc("Once per turn, when I hit a creature with a weapon attack, I can do extra damage"),
 			additional : levels.map(function (n) {
 				if (n < 8) return "";
 				return "+" + (n < 14 ? 1 : 2) + "d8 force damage";

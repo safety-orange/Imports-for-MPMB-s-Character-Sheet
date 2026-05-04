@@ -1447,6 +1447,7 @@ ClassList.artificer = {
 		"\n \u2022 Thieves' tools and a dungeoneer's pack;" +
 		"\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
 	subclasses : ["Artificer Specialist", []],
+	subclassGainedLevel : 3,
 	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 	spellcastingFactor : 2,
 	spellcastingFactorRoundupMulti : true,
@@ -1529,14 +1530,14 @@ ClassList.artificer = {
 			"don't change component column on spell sheet" : {
 				name : "[Meta] Don't alter spell sheets",
 				source : [["E:RLW", 55], ["T", 11]],
-				description : "\n   The automation will not add M\u0192 to each artificer spell on the generated spell sheets"
+				description: desc("The automation will not add M\u0192 to each artificer spell on the generated spell sheets")
 			}
 		},
 		"infuse item" : {
 			name : "Infuse Item",
 			source : [["E:RLW", 57], ["T", 12]],
 			minlevel : 2,
-			description : '\n   Use the "Choose Feature" button above to add Artificer Infusions to the third page',
+			description : desc('Use the "Choose Feature" button above to add Artificer Infusions to the third page'),
 			additional : levels.map(function (n) {
 				return n < 2 ? "" : (n < 6 ? 4 : n < 10 ? 6 : n < 14 ? 8 : n < 18 ? 10 : 12) + " infusions known; max " + (n < 6 ? 2 : n < 10 ? 3 : n < 14 ? 4 : n < 18 ? 5 : 6) + " infused items";
 			}),
@@ -1559,7 +1560,7 @@ ClassList.artificer = {
 			"enhanced arcane focus" : {
 				name : "Enhanced Arcane Focus",
 				source : [["E:RLW", 62], ["T", 21]],
-				description : "\n   The holder has a bonus to spell attack rolls and ignores half cover with spell attacks",
+				description: desc("The holder has a bonus to spell attack rolls and ignores half cover with spell attacks"),
 				additional : levels.map(function (n) {
 					return "rod/staff/wand; attunement; +" + (n < 10 ? 1 : 2);
 				}),
@@ -1753,7 +1754,7 @@ ClassList.artificer = {
 			name : "The Right Tool for the Job",
 			source : [["E:RLW", 57], ["T", 13]],
 			minlevel : 3,
-			description : "\n   In 1 hour (during a rest) I can create a set of artisan's tools that last until I do so again",
+			description: desc("In 1 hour (during a rest) I can create a set of artisan's tools that last until I do so again"),
 			additional : "using thieves' or artisan's tools"
 		},
 		"subclassfeature3" : {
@@ -1778,7 +1779,7 @@ ClassList.artificer = {
 			name : "Flash of Genius",
 			source : [["E:RLW", 57], ["T", 13]],
 			minlevel : 7,
-			description : "\n   As a reaction when I or another in 30 ft make a check/save, I can add my Int mod to it",
+			description: desc("As a reaction when I or another in 30 ft make a check/save, I can add my Int mod to it"),
 			action : [["reaction", ""]],
 			usages : "Intelligence modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Int Mod'));",
@@ -1788,7 +1789,7 @@ ClassList.artificer = {
 			name : "Magic Item Adept",
 			source : [["E:RLW", 57], ["T", 13]],
 			minlevel : 10,
-			description : "\n   It takes me half the normal time and gold to craft common and uncommon magic items",
+			description: desc("It takes me half the normal time and gold to craft common and uncommon magic items"),
 			additional : levels.map(function (n) {
 				return n < 10 ? "" : "attune to " + (n < 14 ? 4 : n < 18 ? 5 : 6) + " magic items";
 			})
@@ -2047,7 +2048,8 @@ AddSubClass("artificer", "alchemist", {
 			name : "Chemical Mastery",
 			source : [["E:RLW", 59], ["T", 15]],
 			minlevel : 15,
-			description : " [each spell 1\xD7 per long rest]" + desc([
+			additional: "each spell 1\xD7 per long rest",
+			description : desc([
 				"I have resistance to acid and poison damage and immunity to being poisoned",
 				"I can cast Greater Restoration and Heal each once per long rest without a spell slot",
 				"I need alchemist's supplies as a focus for it, but the spells require no material components"
@@ -2262,7 +2264,7 @@ AddSubClass("artificer", "artillerist", {
 			name : "Explosive Cannon",
 			source : [["E:RLW", 60], ["T", 18]],
 			minlevel : 9,
-			description : "\n   My eldritch cannons deal +1d8 damage; As an action, I can detonate a cannon in 60 ft",
+			description: desc("My eldritch cannons deal +1d8 damage; As an action, I can detonate a cannon in 60 ft"),
 			action : [["action", "Eldritch Cannon (detonate)"]]
 		},
 		"subclassfeature15" : {

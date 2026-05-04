@@ -260,7 +260,7 @@ AddSubClass("bard", "college of eloquence", { // includes contributions by /u/Ho
 			name : "Silver Tongue",
 			source : [["T", 30], ["MOT", 28]],
 			minlevel : 3,
-			description : "\n   When I make a Persuasion or Deception check, I can treat a roll of 9 or lower as a 10"
+			description: desc("When I make a Persuasion or Deception check, I can treat a roll of 9 or lower as a 10")
 		},
 		"subclassfeature3.1" : {
 			name : "Unsettling Words",
@@ -276,7 +276,7 @@ AddSubClass("bard", "college of eloquence", { // includes contributions by /u/Ho
 			name : "Unfailing Inspiration",
 			source : [["T", 30], ["MOT", 28]],
 			minlevel : 6,
-			description : "\n   When a creature adds my Bardic Inspiration die to a roll but fails, they can keep the die"
+			description: desc("When a creature adds my Bardic Inspiration die to a roll but fails, they can keep the die")
 		},
 		"subclassfeature6.1" : {
 			name : "Universal Speech",
@@ -340,7 +340,7 @@ AddSubClass("paladin", "oath of glory", { // includes contributions by BraabHims
 			name : "Aura of Alacrity",
 			source : [["T", 54], ["MOT", 29]],
 			minlevel : 7,
-			description : "\n   If I'm not incapacitated, allies starting their turn in range gain bonus speed for that turn",
+			description: desc("If I'm not incapacitated, allies starting their turn in range gain bonus speed for that turn"),
 			speed : { walk : { spd : "+10", enc : "+10" } },
 			additional : levels.map(function (n) {
 				return n < 7 ? "" : (n < 18 ? 5 : 10) + "-foot aura; +10 ft walking speed";

@@ -86,7 +86,7 @@ AddSubClass("warlock", "the hexblade-ua", {
 			name : "Armor of Hexes",
 			source : [["UA:WnW", 2]],
 			minlevel : 10,
-			description : "\n   " + "Targets affected by my hexblade's curse have a 50% of missing me with any attack roll"
+			description: desc("Targets affected by my hexblade's curse have a 50% of missing me with any attack roll")
 		},
 		"subclassfeature14" : {
 			name : "Master of Hexes",
@@ -182,7 +182,7 @@ AddSubClass("warlock", "the raven queen-ua", { // Still valid 2021-09-21
 			name : "Raven's Shield",
 			source : [["UA:WnW", 3]],
 			minlevel : 10,
-			description : "\n   " + "I can't be frightened, have advantage on death saves, and resistance to necrotic damage",
+			description: desc("I can't be frightened, have advantage on death saves, and resistance to necrotic damage"),
 			savetxt : { immune : ["frightened"], adv_vs : ["death"] },
 			dmgres : ["Necrotic"]
 		},
@@ -190,7 +190,7 @@ AddSubClass("warlock", "the raven queen-ua", { // Still valid 2021-09-21
 			name : "Queen's Right Hand",
 			source : [["UA:WnW", 3]],
 			minlevel : 14,
-			description : "\n   " + "I can cast Finger of Death once per long rest",
+			description: desc("I can cast Finger of Death once per long rest"),
 			usages : 1,
 			recovery : "long rest",
 			spellcastingBonus : [{
@@ -233,7 +233,7 @@ AddSubClass("wizard", "lore mastery-ua", { // Still valid 2021-09-21
 			name : "Spell Secrets: Saves",
 			source : [["UA:WnW", 6]],
 			minlevel : 2,
-			description : "\n   " + "I can change the saving throw ability score to another for a spell I cast using a spell slot",
+			description: desc("I can change the saving throw ability score to another for a spell I cast using a spell slot"),
 			recovery : "short rest",
 			usages : 1
 		},
@@ -252,7 +252,7 @@ AddSubClass("wizard", "lore mastery-ua", { // Still valid 2021-09-21
 			name : "Prodigious Memory",
 			source : [["UA:WnW", 6]],
 			minlevel : 10,
-			description : "\n   " + "As a bonus action, I can replace one of my prepared spells with another from my book",
+			description: desc("As a bonus action, I can replace one of my prepared spells with another from my book"),
 			recovery : "short rest",
 			usages : 1,
 			action : [["bonus action", ""]]
@@ -278,7 +278,7 @@ AddSubClass("wizard", "lore mastery-ua", { // Still valid 2021-09-21
 // Most probably still valid 2021-09-21, have to check
 AddWarlockInvocation("Aspect of the Moon (prereq: the Archfey patron)", {
 	name : "Aspect of the Moon",
-	description : "\n   " + "I don't need to sleep nor can be magically forced to; I can rest while doing light activity",
+	description: desc("I don't need to sleep nor can be magically forced to; I can rest while doing light activity"),
 	source : [["UA:WnW", 3]],
 	prereqeval : function(v) { return (/\barchfey\b/).test(classes.known.warlock.subclass); },
 	savetxt : { text : ["Nothing can force me to sleep"] }

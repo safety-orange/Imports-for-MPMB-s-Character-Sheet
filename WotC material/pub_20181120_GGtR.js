@@ -361,7 +361,7 @@ AddSubClass("cleric", "order domain", {
 			name : "Bonus Proficiency",
 			source : [["T", 32], ["G", 26]],
 			minlevel : 1,
-			description : "\n   " + "I gain proficiency with heavy armor, and either the Intimidation or Persuasion skill",
+			description: desc("I gain proficiency with heavy armor, and either the Intimidation or Persuasion skill"),
 			armorProfs : [false, false, true, false],
 			skillstxt : "Choose one from Intimidation or Persuasion"
 		},
@@ -413,7 +413,7 @@ AddSubClass("cleric", "order domain", {
 			name : "Divine Strike",
 			source : [["T", 32], ["G", 26]],
 			minlevel : 8,
-			description : "\n   " + "Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
+			description: desc("Once per turn, when I hit a creature with a weapon attack, I can do extra damage"),
 			additional : levels.map(function (n) {
 				if (n < 8) return "";
 				return "+" + (n < 14 ? 1 : 2) + "d8 psychic damage";

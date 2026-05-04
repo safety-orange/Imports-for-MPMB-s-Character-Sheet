@@ -300,7 +300,7 @@ AddSubClass("monk", "ascendant dragon", {
 			name : "Ascendant Aspect",
 			source : [["FToD", 13]],
 			minlevel : 17,
-			description : "\n   I gain 10 ft blindsight and both Breath of the Dragon and Aspect of the Wyrm improve",
+			description: desc("I gain 10 ft blindsight and both Breath of the Dragon and Aspect of the Wyrm improve"),
 			vision : [["blindsight", 10]],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*breath)(?=.*dragon)(?=.*augment).*$/i,

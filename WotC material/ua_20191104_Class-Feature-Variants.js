@@ -63,7 +63,7 @@ AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Spell Versatility 
 	name : "Spell Versatility",
 	extraname : "Optional Bard 1",
 	source : [["UA:CFV", 3]],
-	description : "\n   After a long rest, I can swap a bard cantrip or spell I know for another of the same level"
+	description: desc("After a long rest, I can swap a bard cantrip or spell I know for another of the same level")
 }, "Optional 1st-level bard features");
 
 // Cleric alternative class features and enhancements
@@ -71,7 +71,7 @@ AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Cantrip Versatil
 	name : "Cantrip Versatility",
 	extraname : "Optional Cleric 1",
 	source : [["UA:CFV", 3]],
-	description : "\n   Whenever I gain a cleric level, I can replace a cleric cantrip I know with another"
+	description: desc("Whenever I gain a cleric level, I can replace a cleric cantrip I know with another")
 }, "Optional 1st-level cleric features");
 AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Expanded Spell List (ua)", {
 	name : "Expanded Cleric Spell List",
@@ -92,7 +92,7 @@ AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Expanded Spell L
 AddFeatureChoice(ClassList.cleric.features["channel divinity"], true, "Harness Divine Power (ua)", {
 	name : "Channel Divinity:\xA0Harness Divine Power",
 	source : [["UA:CFV", 4]],
-	description : "\n   As a bonus action, I can use my holy symbol and a prayer to regain 1 used level 1 spell slot",
+	description: desc("As a bonus action, I can use my holy symbol and a prayer to regain 1 used level 1 spell slot"),
 	action : [["bonus action", ""]]
 }, "Optional 2nd-level cleric features");
 // Cleric subclass alternative feature, so only run this after we are sure all subclasses have been added
@@ -127,7 +127,7 @@ AddFeatureChoice(ClassList.druid.features.spellcasting, true, "Cantrip Versatili
 	name : "Cantrip Versatility",
 	extraname : "Optional Druid 1",
 	source : [["UA:CFV", 4]],
-	description : "\n   Whenever I gain a druid level, I can replace a druid cantrip I know with another"
+	description: desc("Whenever I gain a druid level, I can replace a druid cantrip I know with another")
 }, "Optional 1st-level druid features");
 AddFeatureChoice(ClassList.druid.features.spellcasting, true, "Expanded Spell List (ua)", {
 	name : "Expanded Druid Spell List",
@@ -185,7 +185,7 @@ AddFeatureChoice(ClassList.fighter.features["fighting style"], true, "Martial Ve
 	name : "Martial Versatility",
 	extraname : "Optional Fighter 1",
 	source : [["UA:CFV", 12]],
-	description : "\n   Whenever I gain a fighter level, I can swap a fighting style I know for another I'm allowed"
+	description: desc("Whenever I gain a fighter level, I can swap a fighting style I know for another I'm allowed")
 }, "Optional 1st-level fighter features");
 // All the other fighting styles are available for all three classes, fighter, paladin, and ranger, so add them to all three here
 AddFightingStyle(["fighter", "ranger", "paladin"], "Blind Fighting (ua)", {
@@ -272,14 +272,15 @@ if (ClassSubList["fighter-battle master"]) {
 		name : "Maneuver Versatility",
 		extraname : "Optional Battle Master 3",
 		source : [["UA:CFV", 5]],
-		description : "\n   Whenever I finish a long rest, I can replace a Maneuver I know with another"
+		description: desc("Whenever I finish a long rest, I can replace a Maneuver I know with another")
 	}, "Optional 3rd-level battle master features");
 	// [dupl_start] the same as in Tasha's Cauldron of Everything
 	if (!SourceList.T) {
 		AddFightingStyle(["fighter"], "Superior Technique", {
 			name : "Superior Technique",
 			source : [["T", 41], ["UA:CFV", 5]],
-			description : " [1 maneuver; d6, 1\xD7 per short rest]" + desc([
+			additional: "1 maneuver; d6, 1\xD7 per short rest",
+			description : desc([
 				"I gain one superiority die (d6) that I can expend to fuel a special Maneuver",
 				"I can only use one Maneuver per attack; DCs are 8 + Prof B. + Str/Dex mod, my choice",
 				'Use the "Choose Feature" button above to add a Maneuver to the third page'
@@ -341,7 +342,7 @@ if (ClassSubList["fighter-battle master"]) {
 	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Silver Tongue", {
 		name : "Silver Tongue",
 		source : [["UA:CFV", 5]],
-		description : "\n   When I make a Cha (Deception) or Cha (Persuasion) check, I can add a superiority die to it"
+		description: desc("When I make a Cha (Deception) or Cha (Persuasion) check, I can add a superiority die to it")
 	});
 	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Snipe", {
 		name : "Snipe",
@@ -355,7 +356,7 @@ if (ClassSubList["fighter-battle master"]) {
 	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Studious Eye", {
 		name : "Studious Eye",
 		source : [["UA:CFV", 5]],
-		description : "\n   When I make a Wis (Insight) or Int (Investigation) check, I can add a superiority die to it"
+		description: desc("When I make a Wis (Insight) or Int (Investigation) check, I can add a superiority die to it")
 	});
 }
 
@@ -427,7 +428,7 @@ AddFeatureChoice(ClassList.monk.features.ki, true, "Ki-Fueled Strike (ua)", {
 	name : "Ki-Fueled Strike",
 	extraname : "Optional Monk 2",
 	source : [["UA:CFV", 6]],
-	description : "\n   If I spend any ki points during my action, I can make an unarmed strike as a bonus action",
+	description: desc("If I spend any ki points during my action, I can make an unarmed strike as a bonus action"),
 	action : [["bonus action", ""]]
 }, "Optional 2nd-level monk features");
 AddFeatureChoice(ClassList.monk.features.ki, true, "Distant Eye (1 ki point) (ua)", {
@@ -467,7 +468,7 @@ AddFeatureChoice(ClassList.paladin.features.spellcasting, true, "Martial Versati
 	name : "Martial Versatility",
 	extraname : "Optional Paladin 2",
 	source : [["UA:CFV", 12]],
-	description : "\n   Whenever I gain a paladin level, I can swap a fighting style I know for another I'm allowed"
+	description: desc("Whenever I gain a paladin level, I can swap a fighting style I know for another I'm allowed")
 }, "Optional 2nd-level paladin features");
 AddFeatureChoice(ClassList.paladin.features.spellcasting, true, "Expanded Spell List (ua)", {
 	name : "Expanded Paladin Spell List",
@@ -489,7 +490,7 @@ AddFeatureChoice(ClassList.paladin.features["subclassfeature3.0-channel divinity
 	name : "Channel Divinity:\xA0Harness Divine Power",
 	extraname : "Optional Paladin 3",
 	source : [["UA:CFV", 6]],
-	description : "\n   As a bonus action, I can use my holy symbol and a prayer to regain 1 used level 1 spell slot",
+	description: desc("As a bonus action, I can use my holy symbol and a prayer to regain 1 used level 1 spell slot"),
 	action : [["bonus action", ""]]
 }, "Optional 3rd-level paladin features");
 
@@ -497,7 +498,7 @@ AddFeatureChoice(ClassList.paladin.features["subclassfeature3.0-channel divinity
 var UACFV_Deft_Explorer = {
 	name : "Deft Explorer",
 	source : [["UA:CFV", 7]],
-	description : '\n   Use the "Choose Feature" button above to add a deft explorer benefit to the third page',
+	description : desc('Use the "Choose Feature" button above to add a deft explorer benefit to the third page'),
 	additional : levels.map(function (n) {
 		return n < 6 ? "1 benefit" : (n < 10 ? 2 : 3) + " benefits";
 	}),
@@ -520,7 +521,7 @@ var UACFV_Deft_Explorer = {
 	"roving" : {
 		name : "Roving",
 		source : [["UA:CFV", 7]],
-		description : "\n   I gain +5 ft walking speed and climbing and swimming speed equal to my walking speed",
+		description: desc("I gain +5 ft walking speed and climbing and swimming speed equal to my walking speed"),
 		speed : {
 			walk : { spd : "+5", enc : "+5" },
 			climb : { spd : "walk", enc : "walk" },
@@ -594,7 +595,7 @@ var UACFV_Ranger_Martial_Versatility = {
 	name : "Martial Versatility",
 	extraname : "Optional Ranger 2",
 	source : [["UA:CFV", 12]],
-	description : "\n   Whenever I gain a ranger level, I can swap a fighting style I know for another I'm allowed"
+	description: desc("Whenever I gain a ranger level, I can swap a fighting style I know for another I'm allowed")
 };
 AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Martial Versatility (ua)", UACFV_Ranger_Martial_Versatility, "Optional 2nd-level ranger features");
 var UACFV_Ranger_Expanded_Spell_List = {
@@ -618,7 +619,7 @@ var UACFV_Ranger_Spell_Versatility = {
 	name : "Spell Versatility",
 	extraname : "Optional Ranger 2",
 	source : [["UA:CFV", 8]],
-	description : "\n   When I finish a long rest, I can replace a ranger spell I know with another of the same level"
+	description: desc("When I finish a long rest, I can replace a ranger spell I know with another of the same level")
 };
 AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Spell Versatility (ua)", UACFV_Ranger_Spell_Versatility, "Optional 2nd-level ranger features");
 // [dupl_start] the same as in Tasha's Cauldron of Everything
@@ -627,7 +628,7 @@ if (!SourceList.T) {
 		name : "Spellcasting Focus",
 		extraname : "Optional Ranger 2",
 		source : [["T", 57], ["UA:CFV", 8]],
-		description : "\n   I can use a druidic focus as a spellcasting focus for my ranger spells"
+		description: desc("I can use a druidic focus as a spellcasting focus for my ranger spells")
 	};
 	AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Spellcasting Focus", TCoE_Ranger_Spellcasting_Focus, "Optional 2nd-level ranger features");
 } // dupl_end
@@ -868,7 +869,7 @@ AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Spell Versatil
 	name : "Spell Versatility",
 	extraname : "Optional Sorcerer 1",
 	source : [["UA:CFV", 10]],
-	description : "\n   After a long rest, I can swap a sorcerer cantrip/spell I know for another of the same level"
+	description: desc("After a long rest, I can swap a sorcerer cantrip/spell I know for another of the same level")
 }, "Optional sorcerer features");
 // Font of Magic options
 AddFeatureChoice(ClassList.sorcerer.features["font of magic"], true, "Empowering Reserves", {
@@ -895,7 +896,8 @@ AddFeatureChoice(ClassList.sorcerer.features["font of magic"], true, "Sorcerous 
 AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Elemental Spell (ua)", {
 	name : "Elemental Spell",
 	source : [["UA:CFV", 10]],
-	description : " [1 sorcery point]" + desc([
+	additional: "1 sorcery point",
+	description : desc([
 		"If the spell deals one of the below damage types, I can change it to another on the list",
 		"These damage types are: acid, cold, fire, lightning, or thunder"
 	])
@@ -903,7 +905,8 @@ AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Elemental Spel
 AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Seeking Spell (ua)", {
 	name : "Seeking\xA0Spell",
 	source : [["UA:CFV", 10]],
-	description : " [1 sorcery point]" + desc([
+	additional: "1 sorcery point",
+	description : desc([
 		"I can ignore half- and three-quarters cover for the one spell I'm casting",
 		"This applies both to my spell attack rolls as to the Dexterity saving throws of the targets"
 	])
@@ -911,7 +914,8 @@ AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Seeking Spell 
 AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Unerring Spell (ua)", {
 	name : "Unerring Spell",
 	source : [["UA:CFV", 10]],
-	description : " [2 sorcery points]" + desc([
+	additional: "2 sorcery points",
+	description : desc([
 		"If I make an attack roll for a spell and miss, I can use this to reroll the attack once",
 		"I can use unerring spell even if I already used another metamagic option for the spell"
 	])
@@ -922,7 +926,7 @@ AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Spell Versatil
 	name : "Spell Versatility",
 	extraname : "Optional Warlock 1",
 	source : [["UA:CFV", 10]],
-	description : "\n   After a long rest, I can swap a warlock cantrip or spell I know for another of the same level"
+	description: desc("After a long rest, I can swap a warlock cantrip or spell I know for another of the same level")
 }, "Optional 1st-level warlock features");
 AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Expanded Spell List (ua)", {
 	name : "Expanded Warlock Spell List",
@@ -958,7 +962,7 @@ AddWarlockInvocation("Chain Master's Fury (prereq: level 9 warlock, Pact of the 
 	name : "Chain Master's Fury",
 	source : [["UA:CFV", 11]],
 	submenu : "[improves Pact of the Chain]",
-	description : "\n   As a bonus action, I can command my familiar to make one attack",
+	description: desc("As a bonus action, I can command my familiar to make one attack"),
 	prereqeval : function(v) {
 		return classes.known.warlock.level >= 9 && GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the chain';
 	},
@@ -981,7 +985,7 @@ AddWarlockInvocation("Eldritch Mind (prereq: Pact of the Tome)", {
 	name : "Eldritch Mind",
 	source : [["UA:CFV", 11]],
 	submenu : "[improves Pact of the Tome]",
-	description : "\n   I have advantage on my Constitution saving throws to maintain concentration on a spell",
+	description: desc("I have advantage on my Constitution saving throws to maintain concentration on a spell"),
 	prereqeval : function(v) {
 		return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome';
 	},
@@ -1078,7 +1082,7 @@ AddWarlockInvocation("Protection of the Talisman (prereq: level 9 warlock, Pact 
 	name : "Protection of the\xA0Talisman",
 	source : [["UA:CFV", 12]],
 	submenu : "[improves Pact of the Talisman]",
-	description : "\n   The wearer of my talisman adds 1d4 to saving throw rolls in which they lack proficiency",
+	description: desc("The wearer of my talisman adds 1d4 to saving throw rolls in which they lack proficiency"),
 	prereqeval : function(v) {
 		return classes.known.warlock.level >= 9 && GetFeatureChoice('class', 'warlock', 'pact boon').indexOf("pact of the talisman") !== -1;
 	},
@@ -1115,7 +1119,7 @@ AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Cantrip Versatil
 	name : "Cantrip Versatility",
 	extraname : "Optional Wizard 1",
 	source : [["UA:CFV", 12]],
-	description : "\n   Whenever I gain a wizard level, I can replace a wizard cantrip I know with another"
+	description: desc("Whenever I gain a wizard level, I can replace a wizard cantrip I know with another")
 }, "Optional 1st-level wizard features");
 AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Expanded Spell List (ua)", {
 	name : "Expanded Wizard Spell List",

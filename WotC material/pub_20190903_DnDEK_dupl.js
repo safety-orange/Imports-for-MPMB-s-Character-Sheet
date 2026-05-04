@@ -86,6 +86,7 @@ ClassList["sidekick-expert"] = {
 		"\n \u2022 Studded leather armor;" +
 		"\n \u2022 Thieves' tools and a musical instrument of my choice.",
 	subclasses : ["", []],
+	subclassGainedLevel : 100,
 	attacks : [1, 1, 1, 1, 1, 2],
 	features : {
 		"sidekick" : {
@@ -121,14 +122,14 @@ ClassList["sidekick-expert"] = {
 			name : "Helpful",
 			source : [["DnDEK", 63]],
 			minlevel : 1,
-			description : "\n   I can use a bonus action to take the Help action",
+			description: desc("I can use a bonus action to take the Help action"),
 			action : [["bonus action", ""]]
 		},
 		"cunning action" : {
 			name : "Cunning Action",
 			source : [["DnDEK", 64]],
 			minlevel : 2,
-			description : "\n   I can use a bonus action to take the Dash, Disengage, or Hide action",
+			description: desc("I can use a bonus action to take the Dash, Disengage, or Hide action"),
 			action : [["bonus action", ""]]
 		},
 		"expertise" : function() {
@@ -136,7 +137,7 @@ ClassList["sidekick-expert"] = {
 				name : "Expertise",
 				source : [["DnDEK", 64]],
 				minlevel : 3,
-				description : "\n   " + "I gain expertise with two skills I am proficient with",
+				description: desc("I gain expertise with two skills I am proficient with"),
 				skillstxt : "Expertise with any two skill proficiencies",
 				extraname : "Expertise",
 				extrachoices : ["Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"],
@@ -181,6 +182,7 @@ ClassList["sidekick-warrior"] = {
 		"\n \u2022 A longbow and a quiver of 20 arrows;" +
 		"\n \u2022 Chain shirt and a shield.",
 	subclasses : ["", []],
+	subclassGainedLevel : 100,
 	attacks : [1, 1, 1, 1, 1, 2],
 	features : {
 		"sidekick" : {
@@ -217,11 +219,11 @@ ClassList["sidekick-warrior"] = {
 			name : "Martial Role",
 			source : [["DnDEK", 63]],
 			minlevel : 1,
-			description : '\n   Choose a Martial Role for the warrior using the "Choose Feature" button above',
+			description : desc('Choose a Martial Role for the warrior using the "Choose Feature" button above'),
 			choices : ["Attacker", "Defender"],
 			"attacker" : {
 				name : "Martial Role: Attacker",
-				description : "\n  I gain a +2 bonus to my attack rolls",
+				description: desc("I gain a +2 bonus to my attack rolls"),
 				calcChanges : {
 					atkCalc : [
 						function (fields, v, output) {
@@ -244,7 +246,7 @@ ClassList["sidekick-warrior"] = {
 			name : "Second Wind",
 			source : [["DnDEK", 64]],
 			minlevel : 2,
-			description : "\n   As a bonus action, I regain 1d10 + warrior level HP; I can use this once per short rest",
+			description: desc("As a bonus action, I regain 1d10 + warrior level HP; I can use this once per short rest"),
 			additional : levels.map(function (n) {
 				return "1d10+" + n;
 			}),
@@ -256,7 +258,7 @@ ClassList["sidekick-warrior"] = {
 			name : "Improved Critical",
 			source : [["DnDEK", 64]],
 			minlevel : 3,
-			description : "\n   I score a critical hit with my weapon attacks on a roll of 19 and 20",
+			description: desc("I score a critical hit with my weapon attacks on a roll of 19 and 20"),
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -315,6 +317,7 @@ ClassList["sidekick-spellcaster"] = {
 		"\n \u2022 A quarterstaff;" +
 		"\n \u2022 Leather armor.",
 	subclasses : ["Magical Role", []],
+	subclassGainedLevel : 100,
 	attacks : [1],
 	features : {
 		"sidekick" : {
@@ -350,13 +353,13 @@ ClassList["sidekick-spellcaster"] = {
 			name : "Magical Role",
 			source : [["DnDEK", 63]],
 			minlevel : 1,
-			description : '\n   Choose the magical role of the sidekick, mage or healer, and put it in the "Class" field'
+			description : desc('Choose the magical role of the sidekick, mage or healer, and put it in the "Class" field')
 		},
 		"potent cantrips" : {
 			name : "Potent Cantrips",
 			source : [["DnDEK", 64]],
 			minlevel : 6,
-			description : "\n   I add my spellcasting ability modifier to the damage I deal with any cantrip",
+			description: desc("I add my spellcasting ability modifier to the damage I deal with any cantrip"),
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
@@ -408,7 +411,7 @@ AddSubClass("sidekick-spellcaster", "mage", {
 			name : "Spellcasting",
 			source : [["DnDEK", 63]],
 			minlevel : 1,
-			description : "\n   I can cast wizard cantrips/spells I know, using Intelligence as my spellcasting ability",
+			description: desc("I can cast wizard cantrips/spells I know, using Intelligence as my spellcasting ability"),
 			weaponsAdd : { select : ["Fire Bolt"] },
 			changeeval : function (lvlA, choiceA) {
 				if (!lvlA[1]) return;
@@ -461,7 +464,7 @@ AddSubClass("sidekick-spellcaster", "healer", {
 			name : "Spellcasting",
 			source : [["DnDEK", 63]],
 			minlevel : 1,
-			description : "\n   I can cast cleric cantrips/spells I know, using Wisdom as my spellcasting ability",
+			description: desc("I can cast cleric cantrips/spells I know, using Wisdom as my spellcasting ability"),
 			weaponsAdd : { select : ["Sacred Flame"] },
 			changeeval : function (lvlA, choiceA) {
 				if (!lvlA[1]) return;

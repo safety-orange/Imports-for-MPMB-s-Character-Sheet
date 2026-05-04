@@ -26,13 +26,16 @@ AddSubClass("sorcerer", "favored soul-ua2", {
 			name : "Divine Magic",
 			source : [["UA:SO", 1]],
 			minlevel : 1,
-			description : "\n   " + "When I select my 1st level or higher spells, I can also pick spells from the cleric spell list" + "\n   " + "These cleric spells count as sorcerer spells for me"
+			description: desc([
+				"When I select my 1st level or higher spells, I can also pick spells from the cleric spell list",
+				"These cleric spells count as sorcerer spells for me",
+			]),
 		},
 		"subclassfeature1.1" : {
 			name : "Supernatural Resilience",
 			source : [["UA:SO", 1]],
 			minlevel : 1,
-			description : "\n   " + "My hit point maximum increases by an amount equal to my sorcerer level",
+			description: desc("My hit point maximum increases by an amount equal to my sorcerer level"),
 			calcChanges : {
 				hp : function (totalHD) {
 					if (classes.known.sorcerer) {
@@ -45,7 +48,7 @@ AddSubClass("sorcerer", "favored soul-ua2", {
 			name : "Favored by the Gods",
 			source : [["UA:SO", 1]],
 			minlevel : 1,
-			description : "\n   " + "If I fail a saving throw or miss with an attack roll, I can add 2d4 to the total",
+			description: desc("If I fail a saving throw or miss with an attack roll, I can add 2d4 to the total"),
 			recovery : "short rest",
 			usages : 1
 		},
@@ -53,27 +56,42 @@ AddSubClass("sorcerer", "favored soul-ua2", {
 			name : "Blessed Countenance",
 			source : [["UA:SO", 1]],
 			minlevel : 6,
-			description : "\n   " + 'Choose an otherworldly quality using the "Choose Feature" button above' + "\n   " + "When my proficiency bonus applies to a Charisma check, I double that bonus",
+			description: desc([
+				'Choose an otherworldly quality using the "Choose Feature" button above',
+				"When my proficiency bonus applies to a Charisma check, I double that bonus",
+			]),
 			choices : ["Beautiful", "Youthful", "Kind", "Imposing"],
 			"beautiful" : {
 				name : "Beautiful",
 				source : [["UA:SO", 1]],
-				description : "\n   " + "My appearance takes on an otherworldly quality of beauty" + "\n   " + "When my proficiency bonus applies to a Charisma check, I double that bonus"
+				description: desc([
+					"My appearance takes on an otherworldly quality of beauty",
+					"When my proficiency bonus applies to a Charisma check, I double that bonus",
+				]),
 			},
 			"youthful" : {
 				name : "Youthful",
 				source : [["UA:SO", 1]],
-				description : "\n   " + "My appearance takes on an otherworldly quality of youthfulness" + "\n   " + "When my proficiency bonus applies to a Charisma check, I double that bonus"
+				description: desc([
+					"My appearance takes on an otherworldly quality of youthfulness",
+					"When my proficiency bonus applies to a Charisma check, I double that bonus",
+				]),
 			},
 			"kind" : {
 				name : "Kind",
 				source : [["UA:SO", 1]],
-				description : "\n   " + "My appearance takes on an otherworldly quality of kindness" + "\n   " + "When my proficiency bonus applies to a Charisma check, I double that bonus"
+				description: desc([
+					"My appearance takes on an otherworldly quality of kindness",
+					"When my proficiency bonus applies to a Charisma check, I double that bonus",
+				]),
 			},
 			"imposing" : {
 				name : "Imposing",
 				source : [["UA:SO", 1]],
-				description : "\n   " + "My appearance takes on an otherworldly quality of imposingness" + "\n   " + "When my proficiency bonus applies to a Charisma check, I double that bonus"
+				description: desc([
+					"My appearance takes on an otherworldly quality of imposingness",
+					"When my proficiency bonus applies to a Charisma check, I double that bonus",
+				]),
 			},
 			skillstxt : "I gain expertise in any Charisma-based skill I'm proficient with",
 			skills : [["Deception", "only"], ["Intimidation", "only"], ["Performance", "only"], ["Persuasion", "only"]]
@@ -82,14 +100,17 @@ AddSubClass("sorcerer", "favored soul-ua2", {
 			name : "Divine Purity",
 			source : [["UA:SO", 1]],
 			minlevel : 14,
-			description : "\n   " + "I become immune to disease and poison",
+			description: desc("I become immune to disease and poison"),
 			savetxt : { immune : ["poison", "disease"] }
 		},
 		"subclassfeature18" : {
 			name : "Unearthly Recovery",
 			source : [["UA:SO", 1]],
 			minlevel : 18,
-			description : "\n   " + "As a bonus action when I have less than half of my max HP, I can heal myself" + "\n   " + "I regain a number of HP equal to half my maximum hit points",
+			description: desc([
+				"As a bonus action when I have less than half of my max HP, I can heal myself",
+				"I regain a number of HP equal to half my maximum hit points",
+			]),
 			action : [["bonus action", ""]],
 			recovery : "long rest",
 			usages : 1
@@ -107,7 +128,7 @@ AddSubClass("sorcerer", "phoenix sorcery-ua", { // Still valid 2021-09-21
 			name : "Ignite",
 			source : [["UA:SO", 2]],
 			minlevel : 1,
-			description : "\n   " + "As an action, I can magically ignite a flammable object by touching it with my hand",
+			description: desc("As an action, I can magically ignite a flammable object by touching it with my hand"),
 			action : [["action", ""]]
 		},
 		"subclassfeature1.1" : {
@@ -177,7 +198,7 @@ AddSubClass("sorcerer", "sea sorcery-ua", { // Still valid 2021-09-21
 			name : "Soul of the Sea",
 			source : [["UA:SO", 3]],
 			minlevel : 1,
-			description : "\n   " + "I can breathe underwater and I have a swim speed equal to my walking speed",
+			description: desc("I can breathe underwater and I have a swim speed equal to my walking speed"),
 			speed : { swim : { spd : "walk", enc : "walk" } }
 		},
 		"subclassfeature1.1" : {
@@ -250,7 +271,7 @@ AddSubClass("sorcerer", "stone sorcery-ua", { // Still valid 2021-09-21
 			name : "Bonus Proficiencies",
 			source : [["UA:SO", 4]],
 			minlevel : 1,
-			description : "\n   " + "I gain proficiency with shields, simple weapons and martial weapons",
+			description: desc("I gain proficiency with shields, simple weapons and martial weapons"),
 			armorProfs : [false, false, false, true],
 			weaponProfs : [true, true]
 		},
@@ -258,7 +279,7 @@ AddSubClass("sorcerer", "stone sorcery-ua", { // Still valid 2021-09-21
 			name : "Metal Magic",
 			source : [["UA:SO", 4]],
 			minlevel : 1,
-			description : "\n   " + "My affinity for metal allows me to select from a broader range of spells"
+			description: desc("My affinity for metal allows me to select from a broader range of spells")
 		},
 		"subclassfeature1.2" : {
 			name : "Stone's Durability",
@@ -322,7 +343,7 @@ AddSubClass("sorcerer", "stone sorcery-ua", { // Still valid 2021-09-21
 			name : "Earth Master's Aegis",
 			source : [["UA:SO", 4]],
 			minlevel : 18,
-			description : "\n   " + "My Stone's Aegis can now affect up to three creatures"
+			description: desc("My Stone's Aegis can now affect up to three creatures")
 		}
 	}
 });

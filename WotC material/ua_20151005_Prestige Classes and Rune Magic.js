@@ -24,6 +24,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 		secondary : ["Calligrapher's Supplies", "Mason's Tools", "Woodcarver's Tools"]
 	},
 	subclasses : ["", []],
+	subclassGainedLevel : 100,
 	prestigeClassPrereq : 5,
 	attacks : levels.map(function (n) {return 1}),
 	spellcastingFactor : 1,
@@ -168,7 +169,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 			name : "Runic Magic",
 			source : [["UA:PCRM", 3]],
 			minlevel : 1,
-			description : "\n   " + "I obtain spell slots as if gaining a level in a full spellcasting class, but don't learn spells"
+			description: desc("I obtain spell slots as if gaining a level in a full spellcasting class, but don't learn spells")
 		},
 		"runic discovery" : {
 			name : "Runic Discovery",
@@ -196,7 +197,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 			name : "Rune Mastery",
 			source : [["UA:PCRM", 3]],
 			minlevel : 5,
-			description : "\n   " + "One rune I'm attuned to doesn't count toward the limit of magic items I can attune to"
+			description: desc("One rune I'm attuned to doesn't count toward the limit of magic items I can attune to")
 		}
 	}
 };

@@ -47,7 +47,7 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 			name : "Wild Surge",
 			source : [["UA:BnM", 1]],
 			minlevel : 3,
-			description : "\n   Whenever I enter my rage, I have to roll on the Wild Surge table (see Notes page)",
+			description: desc("Whenever I enter my rage, I have to roll on the Wild Surge table (see Notes page)"),
 			toNotesPage : [{
 				name : "Wild Surge Table",
 				source : [["UA:BnM", 1]],
@@ -112,7 +112,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 			name : "Arms of the Astral Self",
 			source : [["UA:BnM", 2]],
 			minlevel : 3,
-			description : "\n   My ki mastery allows me to summon portions of my astral self; See 3rd page notes",
+			description: desc("My ki mastery allows me to summon portions of my astral self; See 3rd page notes"),
 			action : [["bonus action", "Summon Astral Arms"], ["bonus action", "Astral Arm Attacks (after Attack action)"]],
 			weaponOptions : [{
 				regExpSearch : /^(?=.*\bastral\b)(?=.*\barms?\b).*$/i,
@@ -148,13 +148,14 @@ AddSubClass("monk", "way of the astral self-ua", {
 			name : "Visage of the Astral Self",
 			source : [["UA:BnM", 3]],
 			minlevel : 6,
-			description : "\n   I can now also summon the visage of my astral self; See third page notes section",
+			description: desc("I can now also summon the visage of my astral self; See third page notes section"),
 			action : [["bonus action", "Summon Astral Arms and/or Visage", "Summon Astral Arms"]],
 			"astral visage" : {
 				name : "Astral Visage",
 				extraname : "Way of the Astral Self 6",
 				source : [["UA:BnM", 3]],
-				description : " [1 ki point]" + desc([
+				additional: "1 ki point",
+				description : desc([
 					"As a bonus action (or when summoning my astral arms), I can summon my astral visage",
 					"It covers my face like a helmet or mask and I choose its appearance; It lasts for 10 minutes",
 					"It grants adv. on Insight \u0026 Intimidation, and the ability to see 120 ft in (magical) darkness"
@@ -166,7 +167,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 			name : "Awakening of the Astral Self",
 			source : [["UA:BnM", 3]],
 			minlevel : 11,
-			description : "\n   While having both astral arms and visage summoned, I gain extra benefits, see 3rd page",
+			description: desc("While having both astral arms and visage summoned, I gain extra benefits, see 3rd page"),
 			"deflect energy" : {
 				name : "Deflect Energy",
 				extraname : "Awakening of the Astral Self",
@@ -212,7 +213,8 @@ AddSubClass("monk", "way of the astral self-ua", {
 				name : "Astral Body",
 				extraname : "Way of the Astral Self 17",
 				source : [["UA:BnM", 3]],
-				description : " [10 ki points]" + desc([
+				additional: "10 ki points",
+				description : desc([
 					"As a bonus action, I can summon the arms, visage, and body of my astral self for 10 min",
 					"This gives me the arms, visage, +2 bonus to AC while not incapacitated, and as follows:",
 					"When I take the Attack action I can choose to make 3 attacks with my astral arms instead",

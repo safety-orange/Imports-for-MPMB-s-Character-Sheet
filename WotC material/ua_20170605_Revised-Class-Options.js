@@ -35,11 +35,11 @@ AddSubClass("druid", "circle of the shepherd2-ua", {
 				"As a bonus action, I can summon, or move, a spirit to a point I can see within 60 ft",
 				"The spirit is a Bear, Hawk, or Unicorn (see below), which has a 30-ft radius aura",
 				"It is incorporeal, immobile, doesn't counts as a creature or object, and persists for 1 min",
-				" - " + "Bear: my allies in the area and I instantly gain 5 + my druid level in temp HP",
-				"    " + "While in the aura, my allies and I gain advantage on Strength checks and saves",
-				" - " + "Hawk: As a reaction, I can grant advantage on an attack vs. a target in the aura",
-				" - " + "Unicorn: my allies and I gain advantage on ability checks to detect targets in the aura",
-				"    " + "If I cast a healing spell with a spell slot, allies in the aura heal my druid level in HP"
+				"\u2022 Bear: my allies in the area and I instantly gain 5 + my druid level in temp HP",
+				"   While in the aura, my allies and I gain advantage on Strength checks and saves",
+				"\u2022 Hawk: As a reaction, I can grant advantage on an attack vs. a target in the aura",
+				"\u2022 Unicorn: my allies and I gain advantage on ability checks to detect targets in the aura",
+				"   If I cast a healing spell with a spell slot, allies in the aura heal my druid level in HP"
 			]),
 			usages : 1,
 			recovery : "short rest",
@@ -49,7 +49,7 @@ AddSubClass("druid", "circle of the shepherd2-ua", {
 			name : "Mighty Summoner",
 			source : [["UA:RCO", 2]],
 			minlevel : 6,
-			description : "\n   " + "Beasts or Fey I summon with spells get +2 HP per HD and their attacks count as magical",
+			description: desc("Beasts or Fey I summon with spells get +2 HP per HD and their attacks count as magical"),
 			calcChanges : {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
@@ -71,7 +71,7 @@ AddSubClass("druid", "circle of the shepherd2-ua", {
 			name : "Guardian Spirit",
 			source : [["UA:RCO", 2]],
 			minlevel : 10,
-			description : "\n   " + "When a Beast or Fey that I summoned ends its turn in my Spirit Totem aura, it heals",
+			description: desc("When a Beast or Fey that I summoned ends its turn in my Spirit Totem aura, it heals"),
 			additional : levels.map(function (n) {
 				if (n < 10) return "";
 				return "heals " + Math.floor(n / 2) + " HP";
@@ -124,12 +124,12 @@ AddSubClass("fighter", "cavalier2-ua", {
 			choices : ["Language proficiency", "Skill proficiency: Animal Handling, History, Insight, Performance, or Persuasion"],
 			"language proficiency" : {
 				name : "Bonus Proficiency",
-				description : "\n   " + "I learn one language of my choice",
+				description: desc("I learn one language of my choice"),
 				languageProfs : [1]
 			},
 			"skill proficiency: animal handling, history, insight, performance, or persuasion" : {
 				name : "Bonus Proficiency",
-				description : "\n   " + "I gain proficiency with Animal Handling, History, Insight, Performance, or Persuasion",
+				description: desc("I gain proficiency with Animal Handling, History, Insight, Performance, or Persuasion"),
 				skillstxt : "Choose one from: Animal Handling, History, Insight, Performance, or Persuasion"
 			}
 		},
@@ -180,13 +180,13 @@ AddSubClass("fighter", "cavalier2-ua", {
 			name : "Improved Combat Superiority",
 			source : [["UA:RCO", 3]],
 			minlevel : 10,
-			description : "\n   " + "My superiority dice turn into d10s at 10th level and into d12s at 18th level"
+			description: desc("My superiority dice turn into d10s at 10th level and into d12s at 18th level")
 		},
 		"subclassfeature15" : {
 			name : "Relentless",
 			source : [["UA:RCO", 3]],
 			minlevel : 15,
-			description : "\n   " + "I regain one superiority die if I have no more remaining when I roll initiative"
+			description: desc("I regain one superiority die if I have no more remaining when I roll initiative")
 		}
 	}
 });
@@ -210,7 +210,7 @@ AddSubClass("paladin", "oath of conquest2-ua", {
 			name : "Channel Divinity: Guided Strike",
 			source : [["UA:RCO", 4]],
 			minlevel : 3,
-			description : "\n   " + "When I make an attack roll, I can add a +10 bonus to the roll after seeing the d20 roll"
+			description: desc("When I make an attack roll, I can add a +10 bonus to the roll after seeing the d20 roll")
 		},
 		"subclassfeature7" : {
 			name : "Aura of Conquest",
@@ -260,7 +260,7 @@ AddSubClass("warlock", "the celestial-ua", {
 			name : "Bonus Cantrips",
 			source : [["UA:RCO", 5]],
 			minlevel : 1,
-			description : "\n   " + "I know the Light and Sacred Flame cantrips",
+			description: desc("I know the Light and Sacred Flame cantrips"),
 			spellcastingBonus : [{
 				name : "Bonus Cantrips",
 				spells : ["light"],
@@ -348,7 +348,7 @@ AddSubClass("warlock", "the celestial-ua", {
 if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 	AddWarlockInvocation("Aspect of the Moon (prereq: Pact of the Tome)", {
 		name : "Aspect of the Moon",
-		description : "\n   " + "I don't need sleep nor can be forced to by any means; I can rest while doing light activity",
+		description: desc("I don't need sleep nor can be forced to by any means; I can rest while doing light activity"),
 		source : [["X", 56], ["UA:RCO", 5]],
 		submenu : "[improves Pact of the Tome]",
 		prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the tome'; },
@@ -388,7 +388,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 	});
 	AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)", {
 		name : "Gift of the Ever-Living Ones",
-		description : "\n   " + "When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll",
+		description: desc("When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll"),
 		source : [["X", 57], ["UA:RCO", 6]],
 		submenu : "[improves Pact of the Chain]",
 		prereqeval : function(v) { return GetFeatureChoice('class', 'warlock', 'pact boon') == 'pact of the chain'; }
@@ -410,7 +410,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 	});
 	AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
 		name : "Shroud of Shadow",
-		description : "\n   " + "I can cast Invisibility at will, without using spell slots (PHB 254)",
+		description: desc("I can cast Invisibility at will, without using spell slots (PHB 254)"),
 		source : [["X", 57], ["UA:RCO", 6]],
 		submenu : "[warlock level 15+]",
 		spellcastingBonus : [{
@@ -444,7 +444,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 	});
 	AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 		name : "Trickster's Escape",
-		description : "\n   " + "Once per long rest, I can cast Freedom of Movement on myself without using a spell slot",
+		description: desc("Once per long rest, I can cast Freedom of Movement on myself without using a spell slot"),
 		source : [["X", 57], ["UA:RCO", 7]],
 		submenu : "[warlock level  7+]",
 		spellcastingBonus : [{

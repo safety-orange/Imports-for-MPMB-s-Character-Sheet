@@ -203,6 +203,7 @@ ClassList["sidekick-expert-tcoe"] = {
 	},
 	equipment : "",
 	subclasses : ["", []],
+	subclassGainedLevel : 100,
 	attacks : [1],
 	features : {
 		"a sidekick" : {
@@ -408,6 +409,7 @@ ClassList["sidekick-spellcaster-tcoe"] = {
 	},
 	equipment : "",
 	subclasses : ["Spellcaster's Role", []],
+	subclassGainedLevel : 100,
 	attacks : [1],
 	abilitySave : 4,
 	spellcastingFactor : 2,
@@ -657,6 +659,7 @@ ClassList["sidekick-warrior-tcoe"] = {
 	},
 	equipment : "",
 	subclasses : ["", []],
+	subclassGainedLevel : 100,
 	attacks : [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3],
 	features : {
 		"a sidekick" : {

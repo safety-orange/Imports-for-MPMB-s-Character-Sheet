@@ -44,7 +44,7 @@ AddSubClass("barbarian", "ancestral guardian2-ua", {
 			name : "Consult the Spirits",
 			source : [["UA:RS", 1]],
 			minlevel : 10,
-			description : "\n   " + "Through consulting my ancestral spirits, I can cast Clairvoyance without a spell slot",
+			description: desc("Through consulting my ancestral spirits, I can cast Clairvoyance without a spell slot"),
 			spellcastingBonus : [{
 				name : "Consult the Spirits",
 				spells : ["clairvoyance"],
@@ -58,7 +58,7 @@ AddSubClass("barbarian", "ancestral guardian2-ua", {
 			name : "Vengeful Ancestors",
 			source : [["UA:RS", 1]],
 			minlevel : 14,
-			description : "\n   " + "Whenever I use Spirit Shield to reduce damage, the attacker takes the reduced damage"
+			description: desc("Whenever I use Spirit Shield to reduce damage, the attacker takes the reduced damage")
 		}
 	}
 });
@@ -82,7 +82,7 @@ AddSubClass("bard", "college of swords2-ua", {
 			name : "Fighting Style",
 			source : [["UA:RS", 2]],
 			minlevel : 3,
-			description : "\n   " + 'Select a Fighting Style for the college of swords using the "Choose Feature" button above',
+			description: desc('Select a Fighting Style for the college of swords using the "Choose Feature" button above'),
 			choices : ["Dueling", "Two-Weapon Fighting"],
 			"dueling" : FightingStyles.dueling,
 			"two-weapon fighting" : FightingStyles.two_weapon
@@ -109,13 +109,13 @@ AddSubClass("bard", "college of swords2-ua", {
 			name : "Cunning Flourish",
 			source : [["UA:RS", 2]],
 			minlevel : 6,
-			description : "\n   " + "When I take the Blade Flourish action, I can attack twice, but still only use one flourish"
+			description: desc("When I take the Blade Flourish action, I can attack twice, but still only use one flourish")
 		},
 		"subclassfeature14" : {
 			name : "Master Flourish",
 			source : [["UA:RS", 2]],
 			minlevel : 14,
-			description : "\n   " + "When I do a Blade Flourish, I can use a d6 instead of expending a Bardic Inspiration die"
+			description: desc("When I do a Blade Flourish, I can use a d6 instead of expending a Bardic Inspiration die")
 		}
 	}
 });
@@ -183,7 +183,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 			"bursting arrow [evocation]" : {
 				name : "Bursting Arrow [Evocation]",
 				source : [["UA:RS", 3]],
-				description : "\n   " + "The target, in addition to the shot, and all creatures within 10 ft of it take damage",
+				description: desc("The target, in addition to the shot, and all creatures within 10 ft of it take damage"),
 				additional : levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 force damage"; })
 			},
 			"grasping arrow [conjuration]" : {
@@ -243,7 +243,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 			name : "Arcane Archer's Lore",
 			source : [["UA:RS", 3]],
 			minlevel : 3,
-			description : "\n   " + "I gain proficiency with either the Arcana or Nature skill",
+			description: desc("I gain proficiency with either the Arcana or Nature skill"),
 			skillstxt : "Choose one from: Arcana or Nature"
 		},
 		"subclassfeature7" : {
@@ -260,7 +260,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 			name : "Ever-Ready Shot",
 			source : [["UA:RS", 3]],
 			minlevel : 15,
-			description : "\n   " + "I regain one use of Arcane Shot if I have no more remaining when I roll initiative"
+			description: desc("I regain one use of Arcane Shot if I have no more remaining when I roll initiative")
 		}
 	}
 });
@@ -302,7 +302,7 @@ AddSubClass("monk", "way of the kensei2-ua", {
 			name : "One with the Blade",
 			source : [["UA:RS", 5]],
 			minlevel : 6,
-			description : "\n   " + "My unarmed strikes and kensei weapon attacks count as magical",
+			description: desc("My unarmed strikes and kensei weapon attacks count as magical"),
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -317,7 +317,7 @@ AddSubClass("monk", "way of the kensei2-ua", {
 				name : "Precise Strike",
 				extraname : "Way of the Kensei 6",
 				source : [["UA:RS", 5]],
-				description : "\n   " + "Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage",
+				description: desc("Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage"),
 				additional : "1 ki point"
 			},
 			"sharpen the blade" : {
@@ -342,7 +342,7 @@ AddSubClass("monk", "way of the kensei2-ua", {
 			name : "Unerring Accuracy",
 			source : [["UA:RS", 5]],
 			minlevel : 17,
-			description : "\n   " + "Once per turn, if I miss a monk weapon attack on my turn, I can reroll the attack roll"
+			description: desc("Once per turn, if I miss a monk weapon attack on my turn, I can reroll the attack roll")
 		}
 	}
 });
@@ -374,7 +374,7 @@ AddSubClass("sorcerer", "favoured soul-uars", {
 			name : "Favored by the Gods",
 			source : [["UA:RS", 5]],
 			minlevel : 1,
-			description : "\n   " + "If I fail a saving throw or miss with an attack roll, I can add 2d4 to the total",
+			description: desc("If I fail a saving throw or miss with an attack roll, I can add 2d4 to the total"),
 			recovery : "short rest",
 			usages : 1
 		},
@@ -382,7 +382,8 @@ AddSubClass("sorcerer", "favoured soul-uars", {
 			name : "Empowered Healing",
 			source : [["UA:RS", 5]],
 			minlevel : 6,
-			description : " [1 sorcery point]" + desc([
+			additional: "1 sorcery point",
+			description : desc([
 				"When I roll dice for healing with one of my sorcerer spells, I can reroll them once",
 				"By spending 1 sorcery point, I can reroll any number of those dice for that spell"
 			])

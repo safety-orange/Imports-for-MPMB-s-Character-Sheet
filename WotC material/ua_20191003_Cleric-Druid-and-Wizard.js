@@ -22,7 +22,7 @@ AddSubClass("cleric", "twilight domain-ua", {
 			name : "Bonus Proficiency",
 			source : [["UA:CDnW", 1]],
 			minlevel : 1,
-			description : "\n   I gain proficiency with martial weapons and heavy armor",
+			description: desc("I gain proficiency with martial weapons and heavy armor"),
 			armorProfs : [false, false, true, false],
 			weaponProfs : [false, true]
 		},
@@ -78,7 +78,7 @@ AddSubClass("cleric", "twilight domain-ua", {
 			name : "Divine Strike",
 			source : [["UA:CDnW", 1]],
 			minlevel : 8,
-			description : "\n  Once per turn, when I hit a creature with a weapon attack, I can do extra damage",
+			description: desc("Once per turn, when I hit a creature with a weapon attack, I can do extra damage"),
 			additional : levels.map(function (n) {
 				if (n < 8) return "";
 				return "+" + (n < 14 ? 1 : 2) + "d8 psychic damage";
@@ -278,7 +278,7 @@ AddSubClass("wizard", "onomancy-ua", {
 			name : "Bonus Proficiencies",
 			source : [["UA:CDnW", 4]],
 			minlevel : 2,
-			description : "\n   I learn a language of my choice and gain proficiency with calligrapher's tools",
+			description: desc("I learn a language of my choice and gain proficiency with calligrapher's tools"),
 			toolProfs : ["Calligrapher's tools"],
 			languageProfs : [1]
 		},
@@ -336,7 +336,7 @@ AddSubClass("wizard", "onomancy-ua", {
 			"absorption" : {
 				name : "Absorption",
 				source : [["UA:CDnW", 5]],
-				description : "\n   When the spell deals damage to the named target, I gain a number of temporary hit points",
+				description: desc("When the spell deals damage to the named target, I gain a number of temporary hit points"),
 				additional : levels.map(function (n) {
 					return (n < 10 ? 3 : n < 14 ? 4 : 5) + "d6 temporary hit points";
 				})
@@ -344,12 +344,12 @@ AddSubClass("wizard", "onomancy-ua", {
 			"devastation" : {
 				name : "Devastation",
 				source : [["UA:CDnW", 5]],
-				description : "\n   The named creature has disadvantage on its first saving throw against the spell"
+				description: desc("The named creature has disadvantage on its first saving throw against the spell")
 			},
 			"dissolution" : {
 				name : "Dissolution",
 				source : [["UA:CDnW", 5]],
-				description : "\n   The first time the named creature takes damage from the spell, it takes extra damage",
+				description: desc("The first time the named creature takes damage from the spell, it takes extra damage"),
 				additional : levels.map(function (n) {
 					return "+" + (n < 10 ? 2 : n < 14 ? 3 : 4) + "d8 force damage";
 				})
@@ -373,7 +373,7 @@ AddSubClass("wizard", "onomancy-ua", {
 			"sympathy" : {
 				name : "Sympathy",
 				source : [["UA:CDnW", 5]],
-				description : "\n   I can target the named creature with the spell even if I can't see it or it is has total cover"
+				description: desc("I can target the named creature with the spell even if I can't see it or it is has total cover")
 			}
 		},
 		"subclassfeature6.1" : {

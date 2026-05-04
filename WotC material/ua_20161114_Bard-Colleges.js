@@ -21,7 +21,11 @@ AddSubClass("bard", "college of glamour-ua", {
 			name : "Mantle of Inspiration",
 			source : [["UA:BC", 1]],
 			minlevel : 3,
-			description : "\n   " + "As a bonus action, I expend one bardic inspiration die to aid those within 60 ft of me" + "\n   " + "A number of allies equal to my Cha mod gain twice the die roll in temporary HP" + "\n   " + "They can use a reaction to move their speed toward me, without opportunity attacks",
+			description: desc([
+				"As a bonus action, I expend one bardic inspiration die to aid those within 60 ft of me",
+				"A number of allies equal to my Cha mod gain twice the die roll in temporary HP",
+				"They can use a reaction to move their speed toward me, without opportunity attacks",
+			]),
 			additional : "1 bardic inspiration die",
 			action : [["bonus action", ""]]
 		},
@@ -31,7 +35,13 @@ AddSubClass("bard", "college of glamour-ua", {
 			minlevel : 3,
 			recovery : "short rest",
 			usages : 1,
-			description : "\n   " + "By performing for at least 10 minutes, I can charm humanoids within 60 ft of me" + "\n   " + "At the end of the performance, my Cha mod number of targets must make a Wis save" + "\n   " + "On a fail, a target is charmed for 1 hour; If success, it doesn't knows I tried to charm it" + "\n   " + "While charmed, the target idolizes me, hinders those opposing me, and avoids violence" + "\n   " + "This lasts until a target takes damage, I attack it, or if it sees me attacking its allies"
+			description: desc([
+				"By performing for at least 10 minutes, I can charm humanoids within 60 ft of me",
+				"At the end of the performance, my Cha mod number of targets must make a Wis save",
+				"On a fail, a target is charmed for 1 hour; If success, it doesn't knows I tried to charm it",
+				"While charmed, the target idolizes me, hinders those opposing me, and avoids violence",
+				"This lasts until a target takes damage, I attack it, or if it sees me attacking its allies",
+			]),
 		},
 		"subclassfeature6" : {
 			name : "Mantle of Majesty",
@@ -40,7 +50,11 @@ AddSubClass("bard", "college of glamour-ua", {
 			recovery : "long rest",
 			usages : 1,
 			action : [["bonus action", ""]],
-			description : "\n   " + "As a bonus action, I take on an appearance of unearthly beauty for 1 minute" + "\n   " + "As a bonus action during this time, I can cast Command without using a spell slot" + "\n   " + "Creatures charmed by me automatically fail their saves against these Command spells",
+			description: desc([
+				"As a bonus action, I take on an appearance of unearthly beauty for 1 minute",
+				"As a bonus action during this time, I can cast Command without using a spell slot",
+				"Creatures charmed by me automatically fail their saves against these Command spells",
+			]),
 			spellcastingBonus : [{
 				name : "Mantle of Majesty",
 				spells : ["command"],
@@ -62,7 +76,11 @@ AddSubClass("bard", "college of glamour-ua", {
 			recovery : "short rest",
 			usages : 1,
 			action : [["action", ""]],
-			description : "\n   " + "As an action, I can cast Sanctuary on myself without using a spell slot" + "\n   " + "If a creature fails its save to this, I gain adv. on all Cha checks against it for 1 min" + "\n   " + "In addition, the target has disadv. on saves it makes against my spells on my next turn",
+			description: desc([
+				"As an action, I can cast Sanctuary on myself without using a spell slot",
+				"If a creature fails its save to this, I gain adv. on all Cha checks against it for 1 min",
+				"In addition, the target has disadv. on saves it makes against my spells on my next turn",
+			]),
 			spellcastingBonus : [{
 				name : "Unbreakable Majesty",
 				spells : ["sanctuary"],
@@ -88,7 +106,11 @@ AddSubClass("bard", "college of whispers-ua", {
 			name : "Venomous Blades",
 			source : [["UA:BC", 2]],
 			minlevel : 3,
-			description : "\n   " + "When I hit with a weapon attack, I can expend a bardic inspiration die to add damage" + "\n   " + "I roll the inspiration die twice, dealing the total in Poison damage to the target" + "\n   " + "I can do this no more than once per round on my turn",
+			description: desc([
+				"When I hit with a weapon attack, I can expend a bardic inspiration die to add damage",
+				"I roll the inspiration die twice, dealing the total in Poison damage to the target",
+				"I can do this no more than once per round on my turn",
+			]),
 			additional : "1 bardic inspiration die"
 		},
 		"subclassfeature3.1" : {
@@ -97,20 +119,38 @@ AddSubClass("bard", "college of whispers-ua", {
 			minlevel : 3,
 			recovery : "short rest",
 			usages : 1,
-			description : "\n   " + "By speaking in private with a humanoid for at least 10 minutes, I can try to frighten it" + "\n   " + "After the conversation, the target must make a Wisdom save or be frightened of me" + "\n   " + "If the save is successful, the target doesn't know I try to frighten it" + "\n   " + "While frightened, the target avoids the company of others, including its allies" + "\n   " + "The target also tries to hide in the most secret, safest place available to it" + "\n   " + "This lasts for 1 hour or until it is attacked/damaged, or if it sees me attacking its allies"
+			description: desc([
+				"By speaking in private with a humanoid for at least 10 minutes, I can try to frighten it",
+				"After the conversation, the target must make a Wisdom save or be frightened of me",
+				"If the save is successful, the target doesn't know I try to frighten it",
+				"While frightened, the target avoids the company of others, including its allies",
+				"The target also tries to hide in the most secret, safest place available to it",
+				"This lasts for 1 hour or until it is attacked/damaged, or if it sees me attacking its allies",
+			]),
 		},
 		"subclassfeature6" : {
 			name : "Mantle of Whispers",
 			source : [["UA:BC", 2]],
 			minlevel : 6,
 			action : [["reaction", ""]],
-			description : "\n   " + "As a reaction when a creature dies within 5 ft or by my hand, I can capture its shadow" + "\n   " + "I can use shadows of those with the same type and size as me (or Medium if I'm Small)" + "\n   " + "I can have only one captured shadow at a time and I can don it as a shadow disguise",
+			description: desc([
+				"As a reaction when a creature dies within 5 ft or by my hand, I can capture its shadow",
+				"I can use shadows of those with the same type and size as me (or Medium if I'm Small)",
+				"I can have only one captured shadow at a time and I can don it as a shadow disguise",
+			]),
 			"shadow disguise" : {
 				name : "Shadow Disguise",
 				extraname : "Mantle of Whispers",
 				source : [["UA:BC", 2]],
 				action : [["action", " (start)"], ['bonus action', ' (end)']],
-				description : "\n   " + "As an action, I can don a shadow that I captured as a disguise for 1 hour or until I stop it" + "\n   " + "I take on the creature's appearance and I can access its surface memories, but not secrets" + "\n   " + "I have access to information that it would would freely share with a casual acquaintance" + "\n   " + "This is enough that I can pass myself off as the creature by drawing on its memories" + "\n   " + "Anybody can see through the disguise with a Wis (Insight) check vs. my Cha (Deception) +5" + "\n   " + "The knowledge disappears when the disguise ends"
+				description: desc([
+					"As an action, I can don a shadow that I captured as a disguise for 1 hour or until I stop it",
+					"I take on the creature's appearance and I can access its surface memories, but not secrets",
+					"I have access to information that it would would freely share with a casual acquaintance",
+					"This is enough that I can pass myself off as the creature by drawing on its memories",
+					"Anybody can see through the disguise with a Wis (Insight) check vs. my Cha (Deception) +5",
+					"The knowledge disappears when the disguise ends",
+				]),
 			},
 			autoSelectExtrachoices : [{ extrachoice : "shadow disguise" }]
 		},
@@ -121,7 +161,14 @@ AddSubClass("bard", "college of whispers-ua", {
 			recovery : "long rest",
 			usages : 1,
 			action : [["action", ""]],
-			description : "\n   " + "As an action, I whisper to a creature within 30 ft that can hear and understand me" + "\n   " + "Only the target can hear me; It must make a Wisdom save or be charmed by me" + "\n   " + "If failed, it thinks I know its most mortifying secret, otherwise it only hears mumbling" + "\n   " + "While charmed, the target obeys my commands, but won't risk its life or fight for me" + "\n   " + "This lasts for 8 hours or until I or my allies attack or damage it" + "\n   " + "When the effect ends, the target has no idea why it was so afraid of me"
+			description: desc([
+				"As an action, I whisper to a creature within 30 ft that can hear and understand me",
+				"Only the target can hear me; It must make a Wisdom save or be charmed by me",
+				"If failed, it thinks I know its most mortifying secret, otherwise it only hears mumbling",
+				"While charmed, the target obeys my commands, but won't risk its life or fight for me",
+				"This lasts for 8 hours or until I or my allies attack or damage it",
+				"When the effect ends, the target has no idea why it was so afraid of me",
+			]),
 		}
 	}
 });

@@ -40,6 +40,7 @@ ClassList['artificer-ua'] = {
 	},
 	equipment : "Artificer starting equipment:\n \u2022 A handaxe and a light hammer -or- any two simple weapons;\n \u2022 Scale mail -or- studded leather armor;\n \u2022 A light crossbow and 20 bolts;\n \u2022 A dungeoneer's pack;\n \u2022 Thieves' tools.\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
 	subclasses : ["Artificer Specialism", []],
+	subclassGainedLevel : 1,
 	attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 	spellcastingFactor : 3,
 	spellcastingKnown : {
@@ -51,7 +52,7 @@ ClassList['artificer-ua'] = {
 			source : [["UA:A", 2]],
 			minlevel : 1,
 			description : desc([
-				"Choose an Artificer Specialism and put it in the \"Class\" field on the first page",
+				'Choose an Artificer Specialism and put it in the "Class" field on the first page',
 				"Choose either Alchemist or Gunsmith"
 			])
 		},
@@ -59,7 +60,7 @@ ClassList['artificer-ua'] = {
 			name : "Magic Item Analysis",
 			source : [["UA:A", 2]],
 			minlevel : 1,
-			description : "\n   " + "I can cast Detect Magic and Identify as rituals without requiring material components",
+			description: desc("I can cast Detect Magic and Identify as rituals without requiring material components"),
 			spellcastingBonus : [{
 				name : "Magic Item Analysis",
 				spells : ["detect magic"],
@@ -88,7 +89,7 @@ ClassList['artificer-ua'] = {
 			name : "Tool Expertise",
 			source : [["UA:A", 3]],
 			minlevel : 2,
-			description : "\n   " + "I have expertise with any tool proficiencies I gain from the artificer class",
+			description: desc("I have expertise with any tool proficiencies I gain from the artificer class"),
 			skillstxt : "expertise with any tool proficiencies gained from the artificer class",
 			eval : function () {
 				if ((/thieve.?s.*tools/i).test(What('Too Text'))) {
@@ -105,7 +106,7 @@ ClassList['artificer-ua'] = {
 			name : "Wondrous Invention",
 			source : [["UA:A", 3]],
 			minlevel : 2,
-			description : "\n   " + 'I gain a magic item that I have crafted; Use the "Choose Feature" button above',
+			description: desc('I gain a magic item that I have crafted; Use the "Choose Feature" button above'),
 			additional : levels.map(function (n) {
 				return n < 2 ? "" : n < 5 ? "1 item" : (n < 10 ? 2 : n < 15 ? 3 : n < 20 ? 4 : 5) + " items";
 			}),
@@ -175,7 +176,7 @@ ClassList['artificer-ua'] = {
 			name : "Soul of Artifice",
 			source : [["UA:A", 4]],
 			minlevel : 20,
-			description : "\n   " + "I gain a +1 bonus to all saving throws per magic item I am currently attuned to",
+			description: desc("I gain a +1 bonus to all saving throws per magic item I am currently attuned to"),
 			savetxt : {
 				text : ["+1 to all saves per attuned magic item"]
 			}

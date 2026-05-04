@@ -328,34 +328,49 @@ AddSubClass("wizard", "artificer-ua", {
 			name : "Infuse Potions",
 			source : [["UA:E", 3]],
 			minlevel : 2,
-			description : "\n   " + "I can produce magic potions if I spend 10 minutes and expend a spell slot" + "\n   " + "I can not regain the spell slot until the potion is consumed or a week has passed",
+			description: desc([
+				"I can produce magic potions if I spend 10 minutes and expend a spell slot",
+				"I can not regain the spell slot until the potion is consumed or a week has passed",
+			]),
 			additional : ["", "3 potions", "3 potions", "3 potions", "3 potions", "3 potions", "3 potions", "3 potions", "3 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions", "4 potions"]
 		},
 		"subclassfeature2.1" : {
 			name : "Infuse Scrolls",
 			source : [["UA:E", 4]],
 			minlevel : 2,
-			description : "\n   " + "I can produce a scroll after a short rest if I spend 10 minutes and my Arcane Recovery" + "\n   " + "I subtract the spell's level from the levels worth of slots I regain using Arcane Recovery" + "\n   " + "This reduction applies till the scroll is used and I finish a long rest",
+			description: desc([
+				"I can produce a scroll after a short rest if I spend 10 minutes and my Arcane Recovery",
+				"I subtract the spell's level from the levels worth of slots I regain using Arcane Recovery",
+				"This reduction applies till the scroll is used and I finish a long rest",
+			]),
 			additional : ["", "1 scroll", "1 scroll", "1 scroll", "1 scroll", "1 scroll", "1 scroll", "1 scroll", "1 scroll", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls", "2 scrolls"]
 		},
 		"subclassfeature6" : {
 			name : "Infuse Weapons and Armor",
 			source : [["UA:E", 4]],
 			minlevel : 6,
-			description : "\n   " + "I can spend 10 minutes to produce a magic weapon, armor, a shield, or ammunition" + "\n   " + "The item retains its magic for 8 hours and the spell slot I expend is:" + "\n   " + "2nd: +1 ammunition (20 pieces), 3rd: +1 weapon or +1 shield, 4th: +1 armor," + "\n   " + "5th: +2 weapon or +2 ammunition (20 pieces), 6th: +3 armor.",
+			description: desc([
+				"I can spend 10 minutes to produce a magic weapon, armor, a shield, or ammunition",
+				"The item retains its magic for 8 hours and the spell slot I expend is:",
+				"2nd: +1 ammunition (20 pieces), 3rd: +1 weapon or +1 shield, 4th: +1 armor,",
+				"5th: +2 weapon or +2 ammunition (20 pieces), 6th: +3 armor.",
+			]),
 			additional : ["", "", "", "", "", "1 weapon or armor", "1 weapon or armor", "1 weapon or armor", "1 weapon or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor"]
 		},
 		"subclassfeature10" : {
 			name : "Superior Artificer",
 			source : [["UA:E", 4]],
 			minlevel : 10,
-			description : "\n   " + "I can create one additional scroll, potion, weapon, or armor when I use Infuse"
+			description: desc("I can create one additional scroll, potion, weapon, or armor when I use Infuse")
 		},
 		"subclassfeature14" : {
 			name : "Master Artificer",
 			source : [["UA:E", 4]],
 			minlevel : 14,
-			description : "\n   " + "I can produce a variety of magic items from Tables A and B from the DMG" + "\n   " + "It takes 1 week for such an item and I cannot do it again for a month",
+			description: desc([
+				"I can produce a variety of magic items from Tables A and B from the DMG",
+				"It takes 1 week for such an item and I cannot do it again for a month",
+			]),
 			usages : 1,
 			recovery : "Month"
 		}

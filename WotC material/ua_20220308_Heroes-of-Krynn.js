@@ -193,7 +193,8 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 			name : "Lunar Phenomenon",
 			source : [["UA:HoK", 3]],
 			minlevel : 18,
-			description : " [per phase: 1\xD7 per long rest or 5 SP]" + desc([
+			additional: "per phase: 1\xD7 per long rest or 5 SP",
+			description : desc([
 				"As a bonus action, or as part of changing phase, I can use a power of the (new) phase:",
 				"\u25CB Full: Chosen creatures within 30 ft of me must make a Constitution save or be blinded",
 				"   This lasts until their next turn ends; I also heal one creature within 30 ft for 3d8 HP",

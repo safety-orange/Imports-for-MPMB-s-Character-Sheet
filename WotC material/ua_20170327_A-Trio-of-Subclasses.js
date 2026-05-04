@@ -32,7 +32,7 @@ AddSubClass("monk", "way of the drunken master-ua", {
 			name : "Tipsy Sway",
 			source : [["UA:AToS", 1]],
 			minlevel : 6,
-			description : "\n   " + "As a reaction when missed in melee, attacker instead hits another I can see within 5 ft",
+			description: desc("As a reaction when missed in melee, attacker instead hits another I can see within 5 ft"),
 			usages : 1,
 			recovery : "short rest",
 			action : [["reaction", ""]]
@@ -41,14 +41,14 @@ AddSubClass("monk", "way of the drunken master-ua", {
 			name : "Drunkard's Luck",
 			source : [["UA:AToS", 1]],
 			minlevel : 11,
-			description : "\n   " + "Before I roll for a save, I can spend 1 ki to give myself advantage on it",
+			description: desc("Before I roll for a save, I can spend 1 ki to give myself advantage on it"),
 			additional : "1 ki point"
 		},
 		"subclassfeature17" : {
 			name : "Intoxicated Frenzy",
 			source : [["UA:AToS", 1]],
 			minlevel : 17,
-			description : "\n   " + "I can make 3 extra attacks with Flurry of Blows if each is used on a different target"
+			description: desc("I can make 3 extra attacks with Flurry of Blows if each is used on a different target")
 		}
 	}
 });
@@ -61,7 +61,7 @@ AddSubClass("paladin", "oath of redemption-ua", {
 			name : "Armor of Peace",
 			source : [["UA:AToS", 2]],
 			minlevel : 3,
-			description : "\n   " + "When not wearing armor or wielding a shield, my AC is 16 + my Dexterity modifier",
+			description: desc("When not wearing armor or wielding a shield, my AC is 16 + my Dexterity modifier"),
 			armorOptions : [{
 				regExpSearch : /^(?=.*armou?r)(?=.*peace).*$/i,
 				name : "Armor of Peace",
@@ -75,7 +75,7 @@ AddSubClass("paladin", "oath of redemption-ua", {
 			name : "Channel Divinity: Emissary of Peace",
 			source : [["UA:AToS", 2]],
 			minlevel : 3,
-			description : "\n   " + "As a bonus action, I gain +5 to my next Charisma (Persuasion) check in the next min",
+			description: desc("As a bonus action, I gain +5 to my next Charisma (Persuasion) check in the next min"),
 			action : [["bonus action", ""]]
 		},
 		"subclassfeature3.2" : {
@@ -112,7 +112,7 @@ AddSubClass("paladin", "oath of redemption-ua", {
 			name : "Protective Spirit",
 			source : [["UA:AToS", 2]],
 			minlevel : 15,
-			description : "\n   " + "At the end of my turn when I'm below half HP and not incapacitated, I regain HP",
+			description: desc("At the end of my turn when I'm below half HP and not incapacitated, I regain HP"),
 			additional : levels.map(function (n) { return n < 15 ? "" : "1d6+" + Math.floor(n/2) + " HP"; })
 		},
 		"subclassfeature20" : {
@@ -138,7 +138,7 @@ var UAAToS_rangerSubclassMonsterSlayerUA = AddSubClass("ranger", "monster slayer
 			name : "Slayer's Mysticism",
 			source : [["UA:AToS", 3]],
 			minlevel : 3,
-			description : "\n   " + "I get bonus spells known, which do not count against the number of spells I can know",
+			description: desc("I get bonus spells known, which do not count against the number of spells I can know"),
 			spellcastingExtra : ["protection from evil and good", "zone of truth", "magic circle", "banishment", "planar binding"],
 			spellcastingExtraApplyNonconform : true
 		},

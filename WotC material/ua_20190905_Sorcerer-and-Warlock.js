@@ -36,13 +36,13 @@ AddSubClass("sorcerer", "aberrant mind-ua", {
 			name : "Psionic Spells",
 			source : [["UA:SnW", 1]],
 			minlevel : 1,
-			description : "\n   I learn additional spells, which do not count towards the number of spell I can know"
+			description: desc("I learn additional spells, which do not count towards the number of spell I can know")
 		},
 		"subclassfeature1.2" : {
 			name : "Warped Being",
 			source : [["UA:SnW", 1]],
 			minlevel : 1,
-			description : "\n   My aberrant origin gives me an AC of 13 + my Dex mod when I am not wearing armor",
+			description: desc("My aberrant origin gives me an AC of 13 + my Dex mod when I am not wearing armor"),
 			armorOptions : [{
 				regExpSearch : /^(?=.*warped)(?=.*being).*$/i,
 				name : "Warped Being",
@@ -77,7 +77,7 @@ AddSubClass("sorcerer", "aberrant mind-ua", {
 			name : "Psychic Defenses",
 			source : [["UA:SnW", 2]],
 			minlevel : 6,
-			description : "\n   I gain resistance to psychic damage and adv. on saves vs. being charmed or frightened",
+			description: desc("I gain resistance to psychic damage and adv. on saves vs. being charmed or frightened"),
 			dmgres : ["Psychic"],
 			savetxt : { adv_vs : ["charmed", "frightened"] }
 		},
