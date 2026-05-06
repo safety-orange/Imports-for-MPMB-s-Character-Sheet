@@ -263,9 +263,7 @@ AddSubClass("druid", "moon", {
 			name: "Circle Forms",
 			source: [["P24", 86]],
 			minlevel: 3,
-			description: desc([
-				"The max CR for my Wild Shape forms is my Druid level divided by 3. While in WS, my AC can be 13 + my Wisdom modifier. I gain 3\xD7 my Druid level in temp HP when I shape-shift.",
-			]),
+			description: desc("The max CR for my Wild Shape forms is my Druid level divided by 3. While in WS, my AC can be 13 + my Wisdom modifier. I gain 3\xD7 my Druid level in temp HP when I shape-shift."),
 			wildshapePageInfo: {
 				duration: ClassList.druid.features["wild shape"].wildshapePageInfo.duration,
 				knownForms: ClassList.druid.features["wild shape"].wildshapePageInfo.knownForms,
@@ -274,7 +272,7 @@ AddSubClass("druid", "moon", {
 				}),
 				limitations: levels.map(function (n) {
 					var CR = n < 3 ? "1/4" : Math.floor(n/3);
-					return n < 8 ? "max CR " + CR + ", no Fly speed" : "CR " + CR + " or lower";
+					return n < 8 ? "max CR " + CR + ", no Fly Speed" : "CR " + CR + " or lower";
 				}),
 			},
 			"wild shape rules": {
@@ -330,9 +328,7 @@ AddSubClass("druid", "moon", {
 			name: "Improved Circle Forms",
 			source: [["P24", 87]],
 			minlevel: 6,
-			description: desc([
-				"While in Wild Shape form, I gain **Lunar Radiance**: my attacks can deal Radiant damage, and **Increased Toughness**: I add my Wisdom modifier to my Constitution saving throws.",
-			]),
+			description: desc("While in Wild Shape form, I gain ***Lunar Radiance***: my attacks can deal Radiant damage, and ***Increased Toughness***: I add my Wisdom modifier to my Constitution saving throws."),
 			calcChanges: {
 				wildshapeCallback: [
 					function(prefix, fieldNo, oWildshape, sCrea) {
@@ -368,7 +364,206 @@ AddSubClass("druid", "moon", {
 			name: "Lunar Form",
 			source: [["P24", 87]],
 			minlevel: 14,
-			description: desc("**Improved Lunar Radiance**. Once per turn, I can deal +2d10 Radiant damage on a hit with a WS attack. **Shared Moonlight**. I can bring along an ally with Moonlight Step, see above."),
+			description: desc("***Improved Lunar Radiance***. Once per turn, I can deal +2d10 Radiant damage on a hit with a WS attack. ***Shared Moonlight***. I can bring along an ally with Moonlight Step, see above."),
+		},
+	},
+});
+AddSubClass("druid", "sea", {
+	regExpSearch: /^(?=.*druid)(?=.*\b(sea|waves|tides)\b).*$/i,
+	subname: "Circle of the Sea",
+	subnameShort: "Sea",
+	source: [["P24", 87]],
+	features: {
+		"subclassfeature3": {
+			name: "Wrath of the Sea",
+			source: [["P24", 87]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				var part = {
+					range: n < 6 ? 5 : 10,
+					target: n < 14 ? "" : " or around an ally within 60 ft that I can see, or around both by expending 2 WS uses",
+					turn: n < 14 ? "my turn" : "turns",
+					bearer: n < 14 ? "I" : "the bearer",
+					subject: n < 14 ? "I" : "they",
+				}
+				var text = [
+					"As a Bonus Action, I can expend 1 Wild Shape use to create a " + part.range + "-ft Emanation of ocean spray around me" + part.target + ". When manifested and as a Bonus Actions on " + part.turn + " thereafter, " + part.bearer + " can have a creature " + part.subject + " can see in the area make a Constitution save or take 1d6 Cold damage per my Wisdom modifier and, if it's Large or smaller, be pushed 15 ft away.",
+					"This lasts for 10 " + (typePF ? "minutes" : "min") + " or until I dismiss it (no action), manifest it again, or I'm Incapacitated.",
+				];
+				return desc(text);
+			}),
+			spellcastingExtra: ["ray of frost", "fog cloud", "thunderwave", "gust of wind", "shatter", "lightning bolt", "water breathing", "control water", "ice storm", "conjure elemental", "hold monster"],
+			action: [["bonus action", " (1 WS to create)"]],
+			additional: levels.map(function (n) {
+				var WSuses = n < 14 ? "1 WS use" : "1-2 WS uses";
+				var emanation = n < 6 ? 5 : 10;
+				return n < 3 ? "" : WSuses + "; Wis mod \xD7 d6 dmg; " + emanation + "-ft rad"
+			}),
+		},
+		"subclassfeature6": {
+			name: "Aquatic Affinity",
+			source: [["P24", 87]],
+			minlevel: 6,
+			description: desc("I gain a Swim Speed equal to my Speed and Wrath of the Sea is now a 10-ft Emanation."),
+			speed: { swim: { spd: "walk", end: "walk" } },
+		},
+		"subclassfeature10": {
+			name: "Stormborn",
+			source: [["P24", 87]],
+			minlevel: 10,
+			description: desc("While my Wrath of the Sea is active, it now also grants: ***Resistance*** to Cold, Lightning, and Thunder damage, and ***Flight***. A Fly Speed equal to my Speed."),
+			dmgres: [
+				["Cold",      "Cold (in WotS)"],
+				["Lightning", "Lightn. (in WotS)"],
+				["Thunder",   "Thunder (in WotS)"],
+			],
+		},
+		"subclassfeature14": {
+			name: "Oceanic Gift",
+			source: [["P24", 88]],
+			minlevel: 14,
+			description: desc([
+				"I can create Wrath of the Sea around an ally within 60 ft that I can see instead of myself, or around both my and the ally by expending 2 Wild Shape uses.",
+				"It grants all benefits to the bearer, but always uses my spell save DC and my Wisdom " + (typePF ? "modifier" : "mod") + ".",
+			]),
+		},
+	},
+});
+AddSubClass("druid", "stars", {
+	regExpSearch: /^(?=.*druid)(?=.*\b(stars?|constellations?)\b).*$/i,
+	subname: "Circle of the Stars",
+	subnameShort: "Stars",
+	source: [["P24", 88]],
+	features: {
+		"subclassfeature3": {
+			name: "Star Map",
+			source: [["P24", 88]],
+			minlevel: 3,
+			description: desc("I can use this Tiny object as my spellcasting focus. While holding it, I know Guidance and always have Guiding Bolt prepared, which I can cast my Wisdom mod times per Long Rest without a spell slot. I can recreate it with a 1-hour ceremony during a Short or Long Rest."),
+			additional: "Guiding Bolt",
+			usages: "Wisdom modifier per ",
+			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
+			recovery: "Long Rest",
+			spellcastingBonus: [{
+				name: "Star Map",
+				spells: ["guidance"],
+				selection: ["guidance"],
+			}, {
+				name: "Star Map",
+				spells: ["guiding bolt"],
+				selection: ["guiding bolt"],
+				firstCol: "oncelr+markedbox",
+			}],
+		},
+		"subclassfeature3.1": {
+			name: "Starry Form",
+			source: [["P24", 88]],
+			minlevel: 3,
+			description: desc([
+				"As a Bonus Action, I can expend a WS use to take on a glowing form with the benefits of a constellation (3rd page). I shed Bright Light in " + (typePF ? "10-ft radius" : "10 ft") + " and Dim Light for an additional 10 ft.",
+				"This lasts for 10 minutes or until I dismiss it (no action), use it again, or I'm Incapacitated.",
+			]),
+			action: [["bonus action", " (1 WS)"]],
+			additional: "1 Wild Shape use",
+			weaponOptions: [{
+				regExpSearch: /^(?=.*luminous)(?=.*arrow).*$/i,
+				name: "Luminous Arrow",
+				source: [["P24", 89]],
+				ability: 5,
+				type: "Spell",
+				damage: [1, 8, "radiant"],
+				range: "60 ft",
+				description: "Use as a Bonus Action",
+				abilitytodamage: true,
+				useSpellMod: "druid",
+				selectNow: true,
+				isLuminousArrow: true,
+			}],
+			extraname: "Starry Form",
+			"archer constellation": {
+				name: "Archer Constellation",
+				source: [["P24", 89]],
+				description: levels.map(function (n) {
+					return desc("As a Bonus Action, including the one to take this Starry Form, I can make a ranged spell attack to hurl a luminous arrow 60 ft that deals " + (n < 10 ? 1 : 2) + "d8 + Wisdom modifier Radiant damage.");
+				}),
+				additional: levels.map(function (n) {
+					return n < 3 ? "" : (n < 10 ? 1 : 2) + "d8 damage";
+				}),
+				action: [["bonus action", "Archer (Luminous Arrow)"]],
+			},
+			"chalice constellation": {
+				name: "Chalice Constellation",
+				source: [["P24", 89]],
+				description: levels.map(function (n) {
+					return desc("Whenever I cast a healing spell using a spell slot, I can also heal myself or another within 30 ft for " + (n < 10 ? 1 : 2) + "d8 + Wisdom modifier HP.");
+				}),
+				additional: levels.map(function (n) {
+					return n < 3 ? "" : (n < 10 ? 1 : 2) + "d8 healing";
+				}),
+			},
+			"dragon constellation": {
+				name: "Dragon Constellation",
+				source: [["P24", 89]],
+				description: levels.map(function (n) {
+					var text = [
+						"When I make an Intelligence or Wisdom check, or make a Con save to maintain Concentration,",
+						"I can treat a roll of 9 or lower on the d20 as a 10.",
+					];
+					if (n >= 10) text[1] += " I also gain 20 ft Fly Speed and can hover.";
+					return desc(text);
+				}),
+				additional: levels.map(function (n) {
+					return n < 10 ? "" : "gain Fly Speed";
+				}),
+			},
+			autoSelectExtrachoices : [{
+				extrachoice: "archer constellation",
+			}, {
+				extrachoice: "chalice constellation",
+			}, {
+				extrachoice: "dragon constellation",
+			}],
+		},
+		"subclassfeature6": {
+			name: "Cosmic Omen",
+			source: [["P24", 89]],
+			minlevel: 6,
+			description: desc([
+				"When I finish a Long Rest, I roll a die to determine which omen I can use until my next LR.",
+				"As a Reaction when I see a creature within 30 ft about to make a D20 test, I can use it to:",
+				"**Weal (even)**. Add 1d6 to the total. **Woe (odd)**. Subtract 1d6 from the total.",
+			]),
+			action: [["reaction", ""]],
+			usages: "Wisdom modifier per ",
+			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
+			recovery: "Long Rest",
+		},
+		"subclassfeature10": {
+			name: "Twinkling Constellations",
+			source: [["P24", 89]],
+			minlevel: 10,
+			description: " [improves constellations, see 3rd page]" + desc("While in my Starry Form, I can change the constellation at the start of each of my turns."),
+			calcChanges: {
+				atkAdd: [
+					function (fields, v) {
+						if (v.theWea.isLuminousArrow && fields.Damage_Die.indexOf('1d8') !== -1) {
+							fields.Damage_Die = fields.Damage_Die.replace('1d8', '2d8');
+						}
+					},
+					'',
+				],
+			},
+		},
+		"subclassfeature14": {
+			name: "Full of Stars",
+			source: [["P24", 89]],
+			minlevel: 14,
+			description: desc("While in my Starry Form, I have Resistance to Bludgeoning, Piercing, and Slashing damage."),
+			dmgres: [
+				["Bludgeoning", "Bludgeon. (in SF)"],
+				["Piercing",    "Piercing (in SF)"],
+				["Slashing",    "Slashing (in SF)"],
+			],
 		},
 	},
 });
@@ -3083,8 +3278,8 @@ FeatsList["boon of energy resistance"] = {
 	type: "epic boon",
 	prerequisite: "Level 19+",
 	prereqeval: function (v) { return v.characterLevel >= 19; },
-	description: "I gain **Resistance** to two non-physical damage types, which I can change after a Long Rest. **Energy Redirection**. As a reaction when I take these types of damage, I can have a creature I can see within 60 ft make a Dex save DC 8 + Con mod + Prof Bonus, or take 2d12+Con mod damage of the same type.",
-	calculate: 'var conMod = Number(What("Con Mod")), profB = Number(How("Proficiency Bonus")); var conModStr = conMod > 0 ? "+" + conMod : conMod === 0 ? "" : conMod; event.value = "I gain **Resistance** to two non-physical damage types, which I can change after a Long Rest. **Energy Redirection**. As a reaction when I take these types of damage, I can have a creature I can see within 60 ft make a Dex save DC " + (8+conMod+profB) + " (8 + Con mod + Prof Bonus) or take 2d12" + conModStr + " (Con mod) damage of the same type.";',
+	description: "I gain ***Resistance*** to two non-physical damage types, which I can change after a Long Rest. ***Energy Redirection***. As a reaction when I take these types of damage, I can have a creature I can see within 60 ft make a Dex save DC 8 + Con mod + Prof Bonus, or take 2d12+Con mod damage of the same type.",
+	calculate: 'var conMod = Number(What("Con Mod")), profB = Number(How("Proficiency Bonus")); var conModStr = conMod > 0 ? "+" + conMod : conMod === 0 ? "" : conMod; event.value = "I gain ***Resistance*** to two non-physical damage types, which I can change after a Long Rest. ***Energy Redirection***. As a reaction when I take these types of damage, I can have a creature I can see within 60 ft make a Dex save DC " + (8+conMod+profB) + " (8 + Con mod + Prof Bonus) or take 2d12" + conModStr + " (Con mod) damage of the same type.";',
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase one ability score of your choice by 1, to a maximum of 30.",
@@ -3162,7 +3357,7 @@ FeatsList["boon of speed"] = {
 	type: "epic boon",
 	prerequisite: "Level 19+",
 	prereqeval: function (v) { return v.characterLevel >= 19; },
-	description: "**Escape Artist**. As a Bonus Action, I can take the Disengage action, which also ends the Grappled condition on me.\n**Quickness**. My Speed increases by 30 ft.",
+	description: "***Escape Artist***. As a Bonus Action, I can take the Disengage action, which also ends the Grappled condition on me.\n***Quickness***. My Speed increases by 30 ft.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase one ability score of your choice by 1, to a maximum of 30.",
