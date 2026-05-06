@@ -7254,15 +7254,27 @@ MagicItemsList["arcane grimoire"] = { // contains contributions by lizrdgizrd
 	attunement : true,
 	prerequisite : "Requires attunement by a wizard",
 	prereqeval : function(v) { return classes.known.wizard ? true : false; },
-	description : "I can use this leather-bound book as a spellbook and it allows me to regain 1 extra spell slot level when I use Arcane Recovery (not included in the automation). While holding it, I can use it as a spellcasting focus for my wizard spells and gain a bonus to spell attack rolls and the saving throw DCs of my wizard spells.",
+	description : "I can use this leather-bound book as a spellbook and it allows me to regain 1 extra spell slot level when I use Arcane Recovery (included in Limited Features). While holding it, I can use it as a spellcasting focus for my wizard spells and gain a bonus to spell attack rolls and the saving throw DCs of my wizard spells.",
 	descriptionFull : "While you are holding this leather-bound book, you can use it as a spellcasting focus for your wizard spells, and you gain a bonus to spell attack rolls and the saving throw DCs of your wizard spells. The bonus is determined by the book's rarity."+
 	"\n   You can use this book as a spellbook. In addition, when you use your Arcane Recovery feature, you can increase the number of spell slot levels you regain by 1.",
 	weight : 3, // as spellbook
+	changeeval : function() {
+		// Update the limited feature "Arcane Recovery" to display 1 more spell level than for the wizard level (unless there is no wizard level)
+		if (!classes.known.wizard) return;
+		// This changeeval is called before the class feature updates the limited feature, so we need to use setTimeOut to do the change after
+		var arcaneGrimoireArcaneRecoveryFix = function() {
+			var lvls = Math.ceil(classes.known.wizard.level / 2) + 1;
+			var additional = " (" + lvls + " levels of spell slots)";
+			var tooltip = "Arcane Grimoire (recover +1 level)";
+			AddFeature("Arcane Recovery", 1, additional, "long rest", tooltip, "replace");
+		}
+		var timeout = app.setTimeOut("arcaneGrimoireArcaneRecoveryFix();", 300);
+	},
 	choices : ["+1 to spell attacks and DCs (uncommon)", "+2 to spell attacks and DCs (rare)", "+3 to spell attacks and DCs (very rare)"],
 	"+1 to spell attacks and dcs (uncommon)" : {
 		name : "Arcane Grimoire +1",
 		rarity : "uncommon",
-		description : "I can use this leather-bound book as a spellbook and it allows me to regain 1 extra spell slot level when I use Arcane Recovery (not included in the automation). While holding it, I can use it as a spellcasting focus for my wizard spells and gain a +1 bonus to the spell attack rolls and saving throw DCs of my wizard spells.",
+		description : "I can use this leather-bound book as a spellbook and it allows me to regain 1 extra spell slot level when I use Arcane Recovery (included in Limited Features). While holding it, I can use it as a spellcasting focus for my wizard spells and gain a +1 bonus to the spell attack rolls and saving throw DCs of my wizard spells.",
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability) {
@@ -7275,7 +7287,7 @@ MagicItemsList["arcane grimoire"] = { // contains contributions by lizrdgizrd
 	"+2 to spell attacks and dcs (rare)" : {
 		name : "Arcane Grimoire +2",
 		rarity : "rare",
-		description : "I can use this leather-bound book as a spellbook and it allows me to regain 1 extra spell slot level when I use Arcane Recovery (not included in the automation). While holding it, I can use it as a spellcasting focus for my wizard spells and gain a +2 bonus to the spell attack rolls and saving throw DCs of my wizard spells.",
+		description : "I can use this leather-bound book as a spellbook and it allows me to regain 1 extra spell slot level when I use Arcane Recovery (included in Limited Features). While holding it, I can use it as a spellcasting focus for my wizard spells and gain a +2 bonus to the spell attack rolls and saving throw DCs of my wizard spells.",
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability) {
@@ -7288,7 +7300,7 @@ MagicItemsList["arcane grimoire"] = { // contains contributions by lizrdgizrd
 	"+3 to spell attacks and dcs (very rare)" : {
 		name : "Arcane Grimoire +3",
 		rarity : "very rare",
-		description : "I can use this leather-bound book as a spellbook and it allows me to regain 1 extra spell slot level when I use Arcane Recovery (not included in the automation). While holding it, I can use it as a spellcasting focus for my wizard spells and gain a +3 bonus to the spell attack rolls and saving throw DCs of my wizard spells.",
+		description : "I can use this leather-bound book as a spellbook and it allows me to regain 1 extra spell slot level when I use Arcane Recovery (included in Limited Features). While holding it, I can use it as a spellcasting focus for my wizard spells and gain a +3 bonus to the spell attack rolls and saving throw DCs of my wizard spells.",
 		calcChanges : {
 			spellCalc : [
 				function (type, spellcasters, ability) {
