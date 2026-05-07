@@ -3964,7 +3964,10 @@ AddSubClass("barbarian", "storm herald-ua", {
 			name : "Storm Aura",
 			source : [["UA:BPP", 2]],
 			minlevel : 3,
-			description: desc('While raging, I emanate a 10-ft radius aura that shapes the environment around me" + "\n   " + "Use the "Choose Feature" button above to select the aura'),
+			description: desc([
+				"While raging, I emanate a 10-ft radius aura that shapes the environment around me",
+				'Use the "Choose Feature" button above to select the aura',
+			]),
 			choices : ["Desert", "Sea", "Tundra"],
 			"desert" : {
 				name : "Storm of Fury: Desert",
@@ -4080,7 +4083,10 @@ AddSubClass("barbarian", "zealot-ua", {
 			name : "Divine Fury",
 			source : [["UA:BPP", 2]],
 			minlevel : 3,
-			description: desc('While raging, I can become cloaked in an aura of divine power until my rage ends" + "\n   " + "Choose a damage type using the "Choose Feature" button above'),
+			description: desc([
+				"While raging, I can become cloaked in an aura of divine power until my rage ends",
+				'Choose a damage type using the "Choose Feature" button above',
+			]),
 			additional : ["", "", "1d6+1", "1d6+2", "1d6+2", "1d6+3", "1d6+3", "1d6+4", "1d6+4", "1d6+5", "1d6+5", "1d6+6", "1d6+6", "1d6+7", "1d6+7", "1d6+8", "1d6+8", "1d6+9", "1d6+9", "1d6+10"],
 			usages : 1,
 			recovery : "turn",
@@ -19083,7 +19089,7 @@ AddSubClass("bard", "college of creation-ua", {
 			]),
 			action : [["action", ""], ["bonus action", "Command Dancing Item"]],
 			usages : 1,
-			recovery : "long rest",
+			recovery : typePF ? "LR" : "long rest",
 			altResource : "SS 3+",
 			creaturesAdd : [["Dancing Item"]],
 			creatureOptions : [{
@@ -19155,7 +19161,7 @@ AddSubClass("bard", "college of creation-ua", {
 			}),
 			action : [["action", ""]],
 			usages : 1,
-			recovery : "long rest",
+			recovery : typePF ? "LR" : "long rest",
 			altResource : "SS 5+"
 		}
 	}

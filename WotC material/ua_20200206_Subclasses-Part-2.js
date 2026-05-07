@@ -44,7 +44,7 @@ AddSubClass("bard", "college of creation-ua", {
 			]),
 			action : [["action", ""], ["bonus action", "Command Dancing Item"]],
 			usages : 1,
-			recovery : "long rest",
+			recovery : typePF ? "LR" : "long rest",
 			altResource : "SS 3+",
 			creaturesAdd : [["Dancing Item"]],
 			creatureOptions : [{
@@ -116,7 +116,7 @@ AddSubClass("bard", "college of creation-ua", {
 			}),
 			action : [["action", ""]],
 			usages : 1,
-			recovery : "long rest",
+			recovery : typePF ? "LR" : "long rest",
 			altResource : "SS 5+"
 		}
 	}

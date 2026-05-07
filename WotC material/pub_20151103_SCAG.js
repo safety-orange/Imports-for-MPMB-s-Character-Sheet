@@ -402,7 +402,8 @@ AddSubClass("barbarian", "battlerager", {
 			source : [["S", 121]],
 			minlevel : 14,
 			description : desc([
-				"When I'm hit in melee by an attacker within 5 ft, it takes 3 piercing damage", "This only works while I'm wearing spiked armor, in rage, and I'm not incapacitated",
+				"When I'm hit in melee by an attacker within 5 ft, it takes 3 piercing damage",
+				"This only works while I'm wearing spiked armor, in rage, and I'm not incapacitated",
 			]),
 		}
 	}
@@ -446,8 +447,9 @@ AddSubClass("cleric", "arcana domain", {
 			source : [["S", 126]],
 			minlevel : 6,
 			description : desc([
-				"When I restore HP to an ally with a 1st-level or higher spell, I can also end one spell" + "\n   " + "The chosen spell on the ally ends if it is equal or lower level to the spell slot level used",
-t			]),
+				"When I restore HP to an ally with a 1st-level or higher spell, I can also end one spell",
+				"The chosen spell on the ally ends if it is equal or lower level to the spell slot level used",
+			]),
 			calcChanges : {
 				spellAdd : [
 					function (spellKey, spellObj, spName) {							
@@ -491,8 +493,9 @@ t			]),
 			source : [["S", 126]],
 			minlevel : 17,
 			description : desc([
-				"I add four wizards spells, a 6th, 7th, 8th, and 9th-level spell, to my domain spells" + "\n   " + "As any domain spell, these spells are automatically prepared and count as cleric spells",
-t			]),
+				"I add four wizards spells, a 6th, 7th, 8th, and 9th-level spell, to my domain spells",
+				"As any domain spell, these spells are automatically prepared and count as cleric spells",
+			]),
 			spellcastingBonus : [{
 				name : "Arcane Mastery (6)",
 				"class" : "wizard",
@@ -538,8 +541,9 @@ AddSubClass("fighter", "purple dragon knight", {
 			source : [["S", 128]],
 			minlevel : 7,
 			description : desc([
-				"I gain proficiency with the Persuasion skill and I gain expertise with the Persuasion skill" + "\n   " + "If already proficient, I can choose Animal Handling, Insight, Intimidation, or Performance",
-t			]),
+				"I gain proficiency with the Persuasion skill and I gain expertise with the Persuasion skill",
+				"If already proficient, I can choose Animal Handling, Insight, Intimidation, or Performance",
+			]),
 			skillstxt : "Persuasion proficiency and expertise; If already proficient, choose one from Animal Handling, Insight, Intimidation, or Performance",
 			skills : ["Persuasion", "full"]
 		},
@@ -548,8 +552,9 @@ t			]),
 			source : [["S", 128]],
 			minlevel : 10,
 			description : desc([
-				"When I use my Action Surge, I can inspire an ally within 60 ft that can see or hear me" + "\n   " + "The ally can then use its reaction to make one melee or ranged weapon attack",
-t			]),
+				"When I use my Action Surge, I can inspire an ally within 60 ft that can see or hear me",
+				"The ally can then use its reaction to make one melee or ranged weapon attack",
+			]),
 			additional : levels.map(function (n) {
 				return n < 10 ? "" : n < 18 ? "1 ally" : "2 allies"; // level 18 per errata
 			})
@@ -559,8 +564,10 @@ t			]),
 			source : [["S", 128]],
 			minlevel : 15,
 			description : desc([
-				"When I use Indomitable to reroll a Int, Wis, or Cha save, I can extend it to an ally" + "\n   " + "The ally can reroll its failed saving throw against the same effect and take the result" + "\n   " + "It only works if not incapacitated and the ally is within 60 ft and can see or hear me",
-t			])
+				"When I use Indomitable to reroll a Int, Wis, or Cha save, I can extend it to an ally",
+				"The ally can reroll its failed saving throw against the same effect and take the result",
+				"It only works if not incapacitated and the ally is within 60 ft and can see or hear me",
+			])
 		}
 	}
 });
@@ -580,8 +587,9 @@ AddSubClass("monk", "way of the long death", {
 			source : [["S", 130]],
 			minlevel : 6,
 			description : desc([
-				"As an action, all creatures within 30 feet of me must make a Wisdom saving throw" + "\n   " + "On a failed save the creature is frightened until the end of my next turn",
-t			]),
+				"As an action, all creatures within 30 feet of me must make a Wisdom saving throw",
+				"On a failed save the creature is frightened until the end of my next turn",
+			]),
 			action : [["action", ""]]
 		},
 		"subclassfeature11" : {
@@ -731,8 +739,9 @@ AddSubClass("paladin", "oath of the crown", {
 			source : [["S", 133]],
 			minlevel : 3,
 			description : desc([
-				"As a bonus action, any chosen creatures within 30 ft that can hear me regains HP" + "\n   " + "Each regain 1d6 + my Charisma modifier HP, up to half of its total HP",
-t			]),
+				"As a bonus action, any chosen creatures within 30 ft that can hear me regains HP",
+				"Each regain 1d6 + my Charisma modifier HP, up to half of its total HP",
+			]),
 			action : [["bonus action", ""]]
 		},
 		"subclassfeature7" : {
@@ -740,8 +749,9 @@ t			]),
 			source : [["S", 133]],
 			minlevel : 7,
 			description : desc([
-				"When a creature within 5 feet of me takes damage, I can substitute my HP for it" + "\n   " + "The creature takes no damage and I take all of it; this damage can't be prevented",
-t			]),
+				"When a creature within 5 feet of me takes damage, I can substitute my HP for it",
+				"The creature takes no damage and I take all of it; this damage can't be prevented",
+			]),
 			action : [["reaction", ""]]
 		},
 		"subclassfeature15" : {
@@ -966,8 +976,11 @@ AddSubClass("warlock", "the undying", {
 			source : [["S", 139]],
 			minlevel : 1,
 			description : desc([
-				"I learn the Spare the Dying cantrip and gain advantage on saving throws vs. diseases" + "\n   " + "If an undead targets me directly with an attack or spell, it must make a Wisdom save" + "\n   " + "On a fail, it must choose a new target or forfeit its attack or harmful spell" + "\n   " + "On a success or if I attack or cast a harmful spell on it, it is immune for 24 hours",
-t			]),
+				"I learn the Spare the Dying cantrip and gain advantage on saving throws vs. diseases",
+				"If an undead targets me directly with an attack or spell, it must make a Wisdom save",
+				"On a fail, it must choose a new target or forfeit its attack or harmful spell",
+				"On a success or if I attack or cast a harmful spell on it, it is immune for 24 hours",
+			]),
 			savetxt : { adv_vs : ["disease"] },
 			spellcastingBonus : [{
 				name : "Among the Dead",
@@ -980,8 +993,9 @@ t			]),
 			source : [["S", 140]],
 			minlevel : 6,
 			description : desc([
-				"I regain 1d8 + my Constitution modifier in HP when I succeed on a Death saving throw" + "\n   " + "I also regain this amount whenever I use Spare the Dying to stabilize a creature",
-t			]),
+				"I regain 1d8 + my Constitution modifier in HP when I succeed on a Death saving throw",
+				"I also regain this amount whenever I use Spare the Dying to stabilize a creature",
+			]),
 			recovery : "long rest",
 			usages : 1
 		},
@@ -990,8 +1004,9 @@ t			]),
 			source : [["S", 140]],
 			minlevel : 10,
 			description : desc([
-				"I can hold my breath indefinitely; I don't require food, water, or sleep (I still need rest)" + "\n   " + "I age more slowly, only 1 year for every 10 years that pass; I can't be magically aged",
-t			])
+				"I can hold my breath indefinitely; I don't require food, water, or sleep (I still need rest)",
+				"I age more slowly, only 1 year for every 10 years that pass; I can't be magically aged",
+			])
 		},
 		"subclassfeature14" : {
 			name : "Indestructible Life",
@@ -1543,7 +1558,10 @@ SpellsList["booming blade"] = {
 	description : "Melee wea atk with cast; hit: 0d8 Thunder dmg, if it moves next round +1d8; +1d8 at CL5, 11, \u0026 17",
 	descriptionShorter : "melee wea atk with cast; hit: 0d8 Thunder dmg, if move next rnd +1d8; +1d8 CL 5/11/17 ",
 	descriptionCantripDie : "Melee wea atk with cast; if hit: `CD-1`d8 Thunder dmg and if moves next round +`CD`d8 Thunder dmg",
-	descriptionFull : "You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target suffers the weapon attack's normal effects and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 feet or more before then, the target takes 1d8 thunder damage, and the spell ends.\n   This spell's damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target on a hit, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level (2d8 and 3d8) and again at 17th level (3d8 and 4d8).",
+	descriptionFull: [
+		"You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target suffers the weapon attack's normal effects and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 feet or more before then, the target takes 1d8 thunder damage, and the spell ends.",
+		"This spell's damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target on a hit, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level (2d8 and 3d8) and again at 17th level (3d8 and 4d8).",
+	],
 	dynamicDamageBonus : {
 		extraDmgGroupsSameType : /(next r(?:ou)?nd )((?:\+?\d+d?\d*)+)/i
 	}
@@ -1562,7 +1580,10 @@ SpellsList["green-flame blade"] = {
 	description : "Melee wea atk with cast; hit: 0d8 Fire dmg, 1 crea in 5 ft 0d8+spell mod Fire dmg; +1d8 CL5/11/17",
 	descriptionShorter : "Melee wea atk; hit: 0d8 Fire dmg, 1 crea in 5 ft 0d8+spell mod Fire dmg; +1d8 CL5/11/17",
 	descriptionCantripDie : "Melee wea atk with cast; if hit: `CD-1`d8 Fire dmg, 1 crea in 5 ft `CD-1`d8+spellcasting ability modifier Fire dmg",
-	descriptionFull : "You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target suffers the weapon attack's normal effects, and you can cause green fire to leap from the target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier.\n   This spell's damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 fire damage to the target on a hit, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th level (2d8 and 2d8) and 17th level (3d8 and 3d8)."
+	descriptionFull: [
+		"You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target suffers the weapon attack's normal effects, and you can cause green fire to leap from the target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier.",
+		"This spell's damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 fire damage to the target on a hit, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th level (2d8 and 2d8) and 17th level (3d8 and 3d8)."
+	],
 };
 SpellsList["lightning lure"] = {
 	name : "Lightning Lure",
@@ -1578,7 +1599,10 @@ SpellsList["lightning lure"] = {
 	description : "1 crea in 15 ft save or pulled 10 ft to me; if it ends in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5, 11, \u0026 17",
 	descriptionShorter : "1 crea in 15 ft save or pulled 10 ft to me; if end in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5/11/17",
 	descriptionCantripDie : "1 crea I see save or pulled 10 ft to me; if it ends in 5 ft, `CD`d8 Lightning dmg",
-	descriptionFull : "You create a lash of lightning energy that strikes at one creature of your choice that you can see within 15 feet of you. The target must succeed on a Strength saving throw or be pulled up to 10 feet in a straight line toward you and then take 1d8 lightning damage if it is within 5 feet of you." + "\n   " + "This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
+	descriptionFull: [
+		"You create a lash of lightning energy that strikes at one creature of your choice that you can see within 15 feet of you. The target must succeed on a Strength saving throw or be pulled up to 10 feet in a straight line toward you and then take 1d8 lightning damage if it is within 5 feet of you.",
+		"This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).",
+	],
 };
 SpellsList["sword burst"] = {
 	name : "Sword Burst",
@@ -1593,7 +1617,10 @@ SpellsList["sword burst"] = {
 	save : "Dex",
 	description : "All crea in range save or 1d6 Force damage; +1d6 at CL 5, 11, and 17",
 	descriptionCantripDie : "All crea in range save or `CD`d6 Force damage",
-	descriptionFull : "You create a momentary circle of spectral blades that sweep around you. All other creatures within 5 feet of you must succeed on a Dexterity saving throw or take 1d6 force damage." + "\n   " + "This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
+	descriptionFull: [
+		"You create a momentary circle of spectral blades that sweep around you. All other creatures within 5 feet of you must succeed on a Dexterity saving throw or take 1d6 force damage.",
+		"This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+	],
 };
 
 WeaponsList["booming blade"] = {

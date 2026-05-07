@@ -433,8 +433,7 @@ if (!SourceList["E:RLW"]) {
 				name : "The Right Tool for the Job",
 				source : [["E:RLW", 57], ["T", 13]],
 				minlevel : 3,
-				description: desc("In 1 hour (during a rest) I can create a set of artisan's tools that last until I do so again"),
-				additional : "using thieves' or artisan's tools"
+				description: " [using thieves' or artisan's tools]" + desc("In 1 hour (during a rest) I can create a set of artisan's tools that last until I do so again"),
 			},
 			"subclassfeature3" : {
 				name : "Artificer Specialist",
@@ -486,7 +485,7 @@ if (!SourceList["E:RLW"]) {
 				additional : "cast stored spell",
 				usages : "2\xD7 Int mod per ",
 				usagescalc : "event.value = Math.max(2, Number(What('Int Mod')) * 2);",
-				recovery : "long rest"
+				recovery : typePF ? "LR" : "long rest"
 			},
 			"magic item savant" : {
 				name : "Magic Item Savant",
@@ -647,7 +646,7 @@ if (!SourceList["E:RLW"]) {
 					"For their effects, see the experimental elixir table on a Notes page; They work like potions"
 				]),
 				additional : levels.map(function (n) {
-					return n < 3 ? "" : "create " + (n < 6 ? 1 : n < 15 ? 2 : 3) + " elixir" + (n < 6 ? "" : "s") + " after finishing a long rest";
+					return n < 3 ? "" : (n < 6 ? 1 : n < 15 ? 2 : 3) + " elixir" + (n < 6 ? "" : "s");
 				}),
 				action : [["action", ""]],
 				toNotesPage : [{
@@ -791,9 +790,9 @@ if (!SourceList["E:RLW"]) {
 				recovery : "long rest",
 				altResource : "SS 1+",
 				additional : levels.map(function(n) {
-					return n < 3 ? "" : n < 15 ? "create 1 cannon" : "create 2 cannons";
+					return n < 3 ? "" : n < 15 ? "1 cannon" : "2 cannons";
 				}),
-				action : [["action", " (summon/dismiss)"], ["bonus action", " (activate)"]],
+				action : [["action", " (create/dismiss)"], ["bonus action", " (activate)"]],
 				creaturesAdd : [["Eldritch Cannon"]],
 				creatureOptions : [{
 					name : "Eldritch Cannon",
@@ -1569,7 +1568,7 @@ RunFunctionAtEnd(function () {
 					"Arcane armor now counts as armor, boots, helmet, and a weapon for holding infusions",
 					"Each can hold one infusion; The infusions remain when I change the armor's model"
 				]),
-				additional : "+2 infused items, if used on arcane armor"
+				additional : "+2 infused items if" + (typePF ? "" : " used") + " on arcane armor",
 			},
 			"subclassfeature15" : {
 				name : "Perfected Armor",
@@ -1976,7 +1975,7 @@ AddSubClass("bard", "college of creation", {
 			}),
 			action : [["action", ""]],
 			usages : 1,
-			recovery : "long rest",
+			recovery : typePF ? "LR" : "long rest",
 			altResource : "SS 2+"
 		},
 		"subclassfeature6" : {
@@ -1994,7 +1993,7 @@ AddSubClass("bard", "college of creation", {
 			]),
 			action : [["action", ""], ["bonus action", "Command Dancing Item"]],
 			usages : 1,
-			recovery : "long rest",
+			recovery : typePF ? "LR" : "long rest",
 			altResource : "SS 3+",
 			creaturesAdd : [["Dancing Item"]],
 			creatureOptions : [{

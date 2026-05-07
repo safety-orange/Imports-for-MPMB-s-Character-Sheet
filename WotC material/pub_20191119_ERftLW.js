@@ -1754,8 +1754,7 @@ ClassList.artificer = {
 			name : "The Right Tool for the Job",
 			source : [["E:RLW", 57], ["T", 13]],
 			minlevel : 3,
-			description: desc("In 1 hour (during a rest) I can create a set of artisan's tools that last until I do so again"),
-			additional : "using thieves' or artisan's tools"
+			description: " [using thieves' or artisan's tools]" + desc("In 1 hour (during a rest) I can create a set of artisan's tools that last until I do so again"),
 		},
 		"subclassfeature3" : {
 			name : "Artificer Specialist",
@@ -1807,7 +1806,7 @@ ClassList.artificer = {
 			additional : "cast stored spell",
 			usages : "2\xD7 Int mod per ",
 			usagescalc : "event.value = Math.max(2, Number(What('Int Mod')) * 2);",
-			recovery : "long rest"
+			recovery : typePF ? "LR" : "long rest"
 		},
 		"magic item savant" : {
 			name : "Magic Item Savant",
@@ -1968,7 +1967,7 @@ AddSubClass("artificer", "alchemist", {
 				"For their effects, see the experimental elixir table on a Notes page; They work like potions"
 			]),
 			additional : levels.map(function (n) {
-				return n < 3 ? "" : "create " + (n < 6 ? 1 : n < 15 ? 2 : 3) + " elixir" + (n < 6 ? "" : "s") + " after finishing a long rest";
+				return n < 3 ? "" : (n < 6 ? 1 : n < 15 ? 2 : 3) + " elixir" + (n < 6 ? "" : "s");
 			}),
 			action : [["action", ""]],
 			toNotesPage : [{
@@ -2112,9 +2111,9 @@ AddSubClass("artificer", "artillerist", {
 			recovery : "long rest",
 			altResource : "SS 1+",
 			additional : levels.map(function(n) {
-				return n < 3 ? "" : n < 15 ? "create 1 cannon" : "create 2 cannons";
+				return n < 3 ? "" : n < 15 ? "1 cannon" : "2 cannons";
 			}),
-			action : [["action", " (summon/dismiss)"], ["bonus action", " (activate)"]],
+			action : [["action", " (create/dismiss)"], ["bonus action", " (activate)"]],
 			creaturesAdd : [["Eldritch Cannon"]],
 			creatureOptions : [{
 				name : "Eldritch Cannon",

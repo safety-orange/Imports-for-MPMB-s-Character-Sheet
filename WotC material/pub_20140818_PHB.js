@@ -1667,7 +1667,7 @@ AddSubClass("ranger", "beast master", {
 				"As an action, I can have it take the Attack, Dash, Disengage, or Help action on its turn",
 				"I can still use Extra Attack while commanding it to Attack; No action to order to move"
 			]),
-			additional : "Medium or smaller beast, CR \u00BC or less",
+			additional : "Beast \u2264Medium and CR \u22641/4",
 			creaturesAdd : [["Ranger's Companion", false, function(AddRemove, prefix) {
 				if (!AddRemove) return;
 				var cObj = MakeCompMenu_CompOptions(prefix, "justCompanions");
