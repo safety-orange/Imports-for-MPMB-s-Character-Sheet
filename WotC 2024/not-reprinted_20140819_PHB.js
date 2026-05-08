@@ -312,6 +312,7 @@ AddWarlockInvocation("Voice of the Chain Master", {
 AddSubClass("wizard", "necromancy", {
 	regExpSearch: /necromancy|necromancer|necromantic/i,
 	subname: "School of Necromancy",
+	subnameShort: "Necromancy",
 	fullname: "Necromancer",
 	source: [["P", 118]],
 	features: {

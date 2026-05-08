@@ -12,6 +12,243 @@ SourceList["P24"] = {
 	date: "2024/09/17",
 };
 
+// Barbarian Subclasses
+AddSubClass("barbarian", "wild heart", {
+	regExpSearch: /^(?=.*barbarian)(?=.*wild)(?=.*heart).*$/i,
+	subname: "Path of the Wild Heart",
+	subnameShort: "Wild Heart",
+	source: [["P24", 55]],
+	abilitySave: 5,
+	features: {
+		"subclassfeature3": {
+			name: "Animal Speaker",
+			source: [["P24", 55]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				return n < 14 ? desc("I can cast *Beast Sense* and *Speak with Animals* using Wisdom, but only as Rituals.") : " [*Beast Sense* \x26 *Speak with Animals* as Ritual]";
+			}),
+			spellcastingBonus: [{
+				name: "Animal Speaker",
+				spells: ["beast sense", "speak with animals"],
+				selection: ["beast sense", "speak with animals"],
+				times: 2,
+				firstCol: SpellRitualTag,
+				spellcastingAbility: 5,
+			}],
+		},
+		"subclassfeature3.1": {
+			name: "Rage of the Wilds",
+			source: [["P24", 55]],
+			minlevel: 3,
+			description: desc([
+				"Whenever I enter Rage, I can gain one of the following benefits during that Rage.",
+				" \u2022 ***Bear***. Resistance to all damage types except Force, Necrotic, Psychic, and Radiant.",
+				" \u2022 ***Eagle***. Can Disengage or Dash when entering Rage. As Bonus Action, take both actions.",
+				" \u2022 ***Wolf***. Allies have Advantage on attack rolls against any enemy within 5 ft of me.",
+			]),
+		},
+		"subclassfeature6": {
+			name: "Aspect of the Wilds",
+			source: [["P24", 55]],
+			minlevel: 6,
+			description: ' #[Select option with "Choose Feature"]#' + desc('Use the "Choose Feature" button to select which aspect (Owl, Panther, or Salmon) is currently active and automated, or select to show all of them but have none of them added to the automation.'),
+			choices: ["Owl", "Panther", "Salmon", "show all (bonuses not automated)"],
+			"owl": {
+				name: "Owl Aspect of the Wilds",
+				description: desc([
+					"I have Darkvision 60 ft. If I already have Darkvision, its range increases with 60 ft instead.",
+					"After I finish a Long Rest, I can switch to: ***Panther*** (Climb Speed) or ***Salmon*** (Swim Speed).",
+				]),
+				vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
+			},
+			"panther": {
+				name: "Panther Aspect of the Wilds",
+				description: desc([
+					"I have a Climb Speed equal to my Speed.",
+					"After I finish a Long Rest, I can switch to: ***Owl*** (+60ft Darkvision) or ***Salmon*** (Swim Speed).",
+				]),
+				speed: { climb: { spd: "walk", enc: "walk" } },
+			},
+			"salmon": {
+				name: "Salmon Aspect of the Wilds",
+				description: desc([
+					"I have a Swim Speed equal to my Speed.",
+					"After I finish a Long Rest, I can switch to: ***Owl*** (+60ft Darkvision) or ***Panther*** (Climb Speed).",
+				]),
+				speed: { swim: { spd: "walk", enc: "walk" } },
+			},
+			"show all (bonuses not automated)": {
+				name: "Aspect of the Wilds",
+				description: desc("I gain one option, which I can change when I finish a Long Rest. ***Owl***. +60 ft Darkvision. ***Panther***. Climb Speed equal to my Speed. ***Salmon***. Swim Speed equal to my Speed."),
+			},
+		},
+		"subclassfeature10": {
+			name: "Nature Speaker",
+			source: [["P24", 55]],
+			minlevel: 10,
+			description: levels.map(function (n) {
+				return n < 10 ? "" : n < 14 ? desc("I can cast *Commune with Nature* using Wisdom, but only as a Ritual.") : " [*Commune with Nature* as Ritual]";
+			}),
+			spellcastingBonus: [{
+				name: "Nature Speaker",
+				spells: ["commune with nature"],
+				selection: ["commune with nature"],
+				firstCol: SpellRitualTag,
+			}],
+		},
+		"subclassfeature14": {
+			name: "Power of the Wilds",
+			source: [["P24", 55]],
+			minlevel: 14,
+			description: " [choose one benefit per Rage]" + desc([
+				" \u2022 ***Falcon***. I have a Fly Speed equal to my Speed if I'm not wearing any armor.",
+				" \u2022 ***Lion***. Any enemy within 5 ft of me has Disadvantage on attacks against others than me.",
+				" \u2022 ***Ram***. When I hit a Large or smaller creature with a melee attack, I can knock it Prone.",
+			]),
+		},
+	},
+});
+AddSubClass("barbarian", "world tree", {
+	regExpSearch: /^(?=.*barbarian)((?=.*world)(?=.*tree)|(?=.*yggdrasil)).*$/i,
+	subname: "Path of the World Tree",
+	subnameShort: "World Tree",
+	source: [["P24", 56]],
+	features: {
+		"subclassfeature3": {
+			name: "Vitality of the Tree",
+			source: [["P24", 56]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				var rageDamage = n < 9 ? 2 : n < 16 ? 3 : 4;
+				return desc("When I enter Rage, I gain " + n + " Temp HP (level). At the start of my turn while in Rage, I can give another within 10 ft " + rageDamage + "d6 Temp HP (1d6 per Rage damage) until my Rage ends.");
+			}),
+			additional: levels.map(function (n) {
+				return n < 3 ? "" : "me " + n + ", others " + (n < 9 ? 2 : n < 16 ? 3 : 4) + "d6 Temp HP";
+			}),
+		},
+		"subclassfeature6": {
+			name: "Branches of the Tree",
+			source: [["P24", 56]],
+			minlevel: 6,
+			description: desc("As a Reaction while in Rage when a creature I can see starts its turn within 30 ft, I can have it make a Strength save or teleport it to the empty space of my choice nearest to me that I can see. After it teleports, I can reduce its Speed to 0 until the end of its turn."),
+			action: [["reaction", " (in Rage)"]],
+			additional: "DC 8 + Str mod + Prof Bonus",
+		},
+		"subclassfeature10": {
+			name: "Battering Roots",
+			source: [["P24", 56]],
+			minlevel: 10,
+			description: desc("On my turn, I have +10 ft reach with Heavy and Versatile melee weapons. With those, I can use the Push or Topple mastery in addition to a different mastery I'm using with it."),
+			calcChanges: {
+				atkAdd: [
+					function (fields, v) {
+						if (v.isMeleeWeapon && /heavy|versatile/i.test(fields.Description)) {
+							var text = "+10 ft reach on my turn";
+							if (!/\b(topple|push)\b/i.test(fields.Description)) {
+								text = "Push or Topple; " + text;
+							} else if (!/\bpush\b/i.test(fields.Description)) {
+								text = "Push; " + text;
+							} else if (!/\btopple\b/i.test(fields.Description)) {
+								text = "Topple; " + text;
+							}
+							fields.Description += (fields.Description ? '; ' : '') + text;
+						}
+					},
+					"Heavy and Versatile melee weapons get the Push and Topple masteries added to their description if they don't already have it. With those weapons, I have +10 ft reach on my turn.",
+				],
+			},
+		},
+		"subclassfeature14": {
+			name: "Travel along the Tree",
+			source: [["P24", 56]],
+			minlevel: 14,
+			description: desc("When I enter Rage and as a Bonus Action during, I can teleport up to 60 ft to an empty space I can see. Once per Rage, I can teleport up to 150 ft and bring along up to 6 willing creatures within 10 ft, who each arrive in an empty space of my choice within 10 ft of " + (typePF ? "where I arrive." : "me.")),
+			action: [["bonus action", " (in Rage)"]],
+			usages: 1,
+			recovery: "Rage",
+			additional: "150 ft \x26 bring 6",
+		},
+	},
+});
+AddSubClass("barbarian", "zealot", {
+	regExpSearch: /zealot/i,
+	subname: "Path of the Zealot",
+	subnameShort: "Zealot",
+	fullname: "Zealot",
+	source: [["P24", 57]],
+	features: {
+		"subclassfeature3": {
+			name: "Divine Fury",
+			source: [["P24", 57]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				return desc("While in Rage, the first creature I hit with a weapon or Unarmed Strike on my turn takes +1d6 + " + Math.floor(n / 2) + " (half level) Necrotic or Radiant damage; I choose the type each time.");
+			}),
+			additional: levels.map(function (n) {
+				return n < 3 ? "" : "+1d6 + " + Math.floor(n / 2) + " damage";
+			}),
+			calcChanges: {
+				atkAdd: [
+					function (fields, v) {
+						var lvl = classes.known.barbarian ? classes.known.barbarian.level : false;
+						if (lvl && (v.isWeapon || v.baseWeaponName === "unarmed strike") && /\brage\b/i.test(v.WeaponTextName)) {
+							fields.Description += (fields.Description ? '; ' : '') + "1/turn +1d6+" + Math.floor(lvl / 2) + " Necrotic/Radiant dmg";
+						}
+					},
+					"",
+				],
+			},
+		},
+		"subclassfeature3.1": {
+			name: "Warrior of the Gods",
+			source: [["P24", 57]],
+			minlevel: 3,
+			description: desc("As a Bonus Action, I can expend dice from my pool of d12s to regain HP equal to their roll."),
+			usages: levels.map(function (n) {
+				return n < 3 ? "" : (n < 6 ? 4 : n < 12 ? 5 : n < 17 ? 6 : 7) + "d12 per ";
+			}),
+			recovery: "Long Rest",
+			action: [["bonus action", ""]],
+		},
+		"subclassfeature6": {
+			name: "Fanatical Focus",
+			source: [["P24", 57]],
+			minlevel: 6,
+			description: levels.map(function (n) {
+				var rageDamageBonus = n < 9 ? 2 : n < 16 ? 3 : 4;
+				return n < 6 ? "" : desc("Once per Rage, I can reroll a failed save with a +" + rageDamageBonus + " (Rage damage), but must use the result.");
+			}),
+			additional: levels.map(function (n) {
+				var rageDamageBonus = n < 9 ? 2 : n < 16 ? 3 : 4;
+				return n < 6 ? "" : "reroll save with +" + rageDamageBonus;
+			}),
+			usages: 1,
+			recovery: "Rage",
+		},
+		"subclassfeature10": {
+			name: "Zealous Presence",
+			source: [["P24", 57]],
+			minlevel: 10,
+			description: desc("As a Bonus Action, I can give up to 10 creatures of my choice within 60 ft Adv. on attacks and saves until my next turn starts. I can do this 1/LR and by expending a Rage use (RU)."),
+			usages: 1,
+			recovery: "Long Rest",
+			altResource: "RU",
+			action: [["bonus action", ""]],
+		},
+		"subclassfeature14": {
+			name: "Rage of the Gods",
+			source: [["P24", 57]],
+			minlevel: 14,
+			description: levels.map(function (n) {
+				return n < 14 ? "" : desc("When I enter Rage, I can gain benefits for 1 minute or until I'm at 0 HP. ***Fly Speed*** equal to my Speed. ***Resistance*** to Necrotic, Psychic, and Radiant. ***Revivification***. As a Reaction when a creature within 30 ft drops to 0 HP, I can expend a Rage use to give it " + n + " HP (level).");
+			}),
+			usages: 1,
+			recovery: "Long Rest",
+			action: [["reaction", " (Revivification)"]],
+		},
+	},
+});
+
 // Fighter Subclasses
 AddSubClass("fighter", "battle master", {
 	regExpSearch: /^(?=.*(war|fighter|battle|martial))(?=.*master).*$/i,
@@ -215,7 +452,7 @@ AddSubClass("fighter", "battle master", {
 				name: "Student of War",
 				source: [["P24", 94]],
 				minlevel: 3,
-				description: desc("I gain proficiency with one type of Artisan's Tools and in one skill from the Fighter list. Use the \"Choose Feature\" button to select a skill."),
+				description: ' #[Select option with "Choose Feature"]#' + desc("I gain proficiency with one type of Artisan's Tools and in one skill from the Fighter list. Use the \"Choose Feature\" button to select a skill."),
 				toolProfs: [["Artisan's tools", 1]],
 				choices: ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Persuasion", "Perception", "Survival"],
 			};
@@ -227,7 +464,7 @@ AddSubClass("fighter", "battle master", {
 					description: desc("I gain proficiency with one type of Artisan's Tools of my choice and " + skill + "."),
 					skills: [skill],
 					prereqeval: function (v) {
-						return v.skillProfsLC.indexOf(v.choice) === -1;
+						return v.skillProfsLC.indexOf(v.choice) === -1 ? true : "markButDisable";
 					},
 				};
 			}
@@ -439,7 +676,7 @@ AddSubClass("druid", "stars", {
 			name: "Star Map",
 			source: [["P24", 88]],
 			minlevel: 3,
-			description: desc("I can use this Tiny object as my spellcasting focus. While holding it, I know Guidance and always have Guiding Bolt prepared, which I can cast my Wisdom mod times per Long Rest without a spell slot. I can recreate it with a 1-hour ceremony during a Short or Long Rest."),
+			description: desc("I can use this Tiny object as my spellcasting focus. While holding it, I know *Guidance* and always have *Guiding Bolt* prepared, which I can cast my Wisdom mod times per Long Rest without a spell slot. I can recreate it with a 1-hour ceremony during a Short or Long Rest."),
 			additional: "Guiding Bolt",
 			usages: "Wisdom modifier per ",
 			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
@@ -572,13 +809,14 @@ AddSubClass("druid", "stars", {
 AddSubClass("monk", "shadow", {
 	regExpSearch: /^(?=.*shadow)((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname: "Warrior of Shadow",
+	subnameShort: "Shadow",
 	source: [["P24", 105]],
 	features: {
 		"subclassfeature3": {
 			name: "Shadow Arts",
 			source: [["P24", 105]],
 			minlevel: 3,
-			description: desc("I gain +60 ft Darkvision. I know the Minor Illusion cantrip, using Wis as spellcasting ability."),
+			description: desc("I gain +60 ft Darkvision. I know the *Minor Illusion* cantrip, using Wis as spellcasting ability."),
 			vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
 			spellFirstColTitle : "Ki",
 			spellcastingBonus: [{
@@ -605,7 +843,7 @@ AddSubClass("monk", "shadow", {
 				name: "Shadow Arts: Darkness",
 				extraname: "Warrior of Shadow 3",
 				source: [["P24", 105]],
-				description: desc("I can expend 1 Focus Point to cast Darkness without spell components. When I do so, I can see within its area and I can move it to a space within 60 ft at the start of each of my turns."),
+				description: desc("I can expend 1 Focus Point to cast *Darkness* without spell components. When I do so, I can see within its area and I can move it to a space within 60 ft at the start of each of my turns."),
 				additional: "1 Focus Point",
 			},
 			autoSelectExtrachoices: [{ extrachoice: "shadow arts: darkness" }],
@@ -1445,7 +1683,7 @@ RaceList["aasimar"] = {
 	trait: [
 		"**Aasimar**",
 		"##\u25C6 Healing Hands##. As a Magic action once per Long Rest, I can touch a creature and restore HP to it for a number of d4s equal to my Proficiency Bonus.",
-		"##\u25C6 Light Bearer##. I know the Light cantrip. Charisma is my spellcasting ability for it.",
+		"##\u25C6 Light Bearer##. I know the *Light* cantrip. Charisma is my spellcasting ability for it.",
 		"##\u25C6 Celestial Revelation## (level 3). As a Bonus Action once per Long Rest, I can transform for 1 min or until I end it (no action). Once on each of my turns while transformed, I can deal my Prof. Bonus in extra damage. I choose how I transform each time. See Notes page.",
 	].join("\n"),
 	// from VGM:
@@ -1904,11 +2142,11 @@ FeatsList["fey-touched"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4;
 	},
-	description: "I learn Misty Step and one 1st-level Divination or Enchantment spell. I always have these spells prepared. I can cast each once per Long Rest at their lowest level without expending a spell slot and by expending a spell slot as normal. The spells' spellcasting ability is the ability increased by this feat. [+1 Int, Wis, or Cha]",
+	description: "I learn *Misty Step* and one 1st-level Divination or Enchantment spell. I always have these spells prepared. I can cast each once per Long Rest at their lowest level without expending a spell slot and by expending a spell slot as normal. The spells' spellcasting ability is the ability increased by this feat. [+1 Int, Wis, or Cha]",
 	descriptionFull: [
 		"Your exposure to the Feywild's magic grants you the following benefits.",
 		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
-		"***Fey Magic***. Choose one level 1 spell from the Divination or Enchantment school of magic. You always have that spell and the Misty Step spell prepared. You can cast each of these spells without expending a spell slot. Once you cast either spell in this way, you can't cast that spell in this way again until you finish a Long Rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat.",
+		"***Fey Magic***. Choose one level 1 spell from the Divination or Enchantment school of magic. You always have that spell and the *Misty Step* spell prepared. You can cast each of these spells without expending a spell slot. Once you cast either spell in this way, you can't cast that spell in this way again until you finish a Long Rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat.",
 	],
 	spellFirstColTitle: "PR",
 	spellcastingBonus: [{
@@ -2648,11 +2886,11 @@ FeatsList["shadow-touched"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4;
 	},
-	description: "I learn Invisibility and one 1st-level Illusion or Necromancy spell. I always have these spells prepared. I can cast each once per Long Rest at their lowest level without expending a spell slot and by expending a spell slot as normal. The spells' spellcasting ability is the ability increased by this feat. [+1 Int, Wis, or Cha]",
+	description: "I learn *Invisibility* and one 1st-level Illusion or Necromancy spell. I always have these spells prepared. I can cast each once per Long Rest at their lowest level without expending a spell slot and by expending a spell slot as normal. The spells' spellcasting ability is the ability increased by this feat. [+1 Int, Wis, or Cha]",
 	descriptionFull: [
 		"Your exposure to the Shadowfell's magic grants you the following benefits.",
 		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
-		"***Shadow Magic***. Choose one level 1 spell from the Illusion or Necromancy school of magic. You always have that spell and the Invisibility spell prepared. You can cast each of these spells without expending a spell slot. Once you cast either spell in this way, you can't cast that spell in this way again until you finish a Long Rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat.",
+		"***Shadow Magic***. Choose one level 1 spell from the Illusion or Necromancy school of magic. You always have that spell and the *Invisibility* spell prepared. You can cast each of these spells without expending a spell slot. Once you cast either spell in this way, you can't cast that spell in this way again until you finish a Long Rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat.",
 	],
 	spellFirstColTitle: "PR",
 	spellcastingBonus: [{
@@ -3014,11 +3252,11 @@ FeatsList["telekinetic"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4;
 	},
-	description: "I know the Mage Hand cantrip, can cast it without components, can make it invisible, and with +30 ft range. As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs. this feat's spell save DC) or move it 5 ft from or towards me. My spellcasting ability is the one increased by this feat. [+1 Int, Wis, or Cha]",
+	description: "I know the *Mage Hand* cantrip, can cast it without components, can make it invisible, and with +30 ft range. As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs. this feat's spell save DC) or move it 5 ft from or towards me. My spellcasting ability is the one increased by this feat. [+1 Int, Wis, or Cha]",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
-		"***Minor Telekinesis***. You learn the Mage Hand spell. You can cast it without Verbal or Somatic components, you can make the spectral hand Invisible, and its range and the distance it can be away from you both increase by 30 feet when you cast it. The spell's spellcasting ability is the ability increased by this feat.",
+		"***Minor Telekinesis***. You learn the *Mage Hand* spell. You can cast it without Verbal or Somatic components, you can make the spectral hand Invisible, and its range and the distance it can be away from you both increase by 30 feet when you cast it. The spell's spellcasting ability is the ability increased by this feat.",
 		"***Telekinetic Shove***. As a Bonus Action, you can telekinetically shove one creature you can see within 30 feet of yourself. When you do so, the target must succeed on a Strength saving throw (8 plus the ability modifier of the score increased by this feat and your Proficiency Bonus) or be moved 5 feet toward or away from you.",
 	],
 	action: [["bonus action", "Telekinetic Shove"]],
@@ -3069,7 +3307,7 @@ FeatsList["telepathic"] = {
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
 		"***Telepathic Utterance***. You can speak telepathically to any creature you can see within 60 feet of yourself. Your telepathic utterances are in a language you know, and the creature understands you only if it knows that language. Your communication doesn't give the creature the ability to respond to you telepathically.",
-		"***Detect Thoughts***. You always have the Detect Thoughts spell prepared. You can cast it without a spell slot or spell components, and you must finish a Long Rest before you can cast it in this way again. You can also cast it using spell slots you have of the appropriate level. Your spellcasting ability for the spell is the ability increased by this feat.",
+		"***Detect Thoughts***. You always have the *Detect Thoughts* spell prepared. You can cast it without a spell slot or spell components, and you must finish a Long Rest before you can cast it in this way again. You can also cast it using spell slots you have of the appropriate level. Your spellcasting ability for the spell is the ability increased by this feat.",
 	],
 	spellcastingBonus: [{
 		name: "Detect Thoughts",
@@ -3188,7 +3426,7 @@ FeatsList["dueling"] = {
 				for (var i = 1; i <= FieldNumbers.actions; i++) {
 					if (/off.hand.attack/i.test(What('Bonus Action ' + i))) return;
 				};
-				if (v.isMeleeWeapon && !v.isNaturalWeapon && !/((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b/i.test(fields.Description)) output.extraDmg += 2;
+				if (v.isMeleeWeapon && !/((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b/i.test(fields.Description)) output.extraDmg += 2;
 			},
 			"When I'm holding a Melee weapon in one hand and no other weapons, I gain a +2 bonus to damage rolls with that weapon. This condition will always be false if the bonus action 'Off-hand Attack' exists.",
 		],

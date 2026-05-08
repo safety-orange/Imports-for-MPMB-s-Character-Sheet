@@ -16,6 +16,7 @@ SourceList.T = {
 AddSubClass("bard", "college of eloquence", {
 	regExpSearch: /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*eloquence).*$/i,
 	subname: "College of Eloquence",
+	subnameShort: "Eloquence",
 	source: [["T", 29], ["MOT", 28]],
 	features: {
 		"subclassfeature3": {
@@ -25,9 +26,9 @@ AddSubClass("bard", "college of eloquence", {
 			description: desc("When I make a Persuasion or Deception check, I can treat a roll of 9 or lower as a 10."),
 		},
 		"subclassfeature3.1": {
-			name : "Unsettling Words",
-			source : [["T", 30], ["MOT", 28]],
-			minlevel : 3,
+			name: "Unsettling Words",
+			source: [["T", 30], ["MOT", 28]],
+			minlevel: 3,
 			description: desc("As a Bonus Action, I can expend and roll a Bardic Inspiration Die to have a creature I can see within 60 ft subtract the result from the next save it makes before my next turn starts."),
 			action: [["bonus action", ""]],
 		},
@@ -45,7 +46,7 @@ AddSubClass("bard", "college of eloquence", {
 				"As an Action, I can choose a number of creatures equal to my Charisma modifier (min 1). They can magically understand me, regardless of the language I speak, for 1 hour.",
 				"I can do this once per Long Rest, or by expending a 1st-level or higher spell slot (SS 1+).",
 			]),
-			recovery: "long rest",
+			recovery: "Long Rest",
 			usages: 1,
 			altResource: "SS 1+",
 			action: [["action", ""]],
@@ -54,11 +55,11 @@ AddSubClass("bard", "college of eloquence", {
 			name: "Infectious Inspiration",
 			source: [["T", 30], ["MOT", 28]],
 			minlevel: 14,
-			description: desc("As a Reaction when a creature uses my inspiration die and succeeds, I can  give another creature within 60 ft that can hear me an inspiration die without expending any"),
+			description: desc("As a Reaction when a creature uses my Bardic Inspiration Die and succeeds, I can give another creature within 60 ft that can hear me a " + (typePF ? "Bardic Inspiration Die" : "BID") + " without expending any."),
 			action: [["reaction", ""]],
-			usages: "Charisma mod per ",
+			usages: "Charisma modifier per ",
 			usagescalc: "event.value = Math.max(1, What('Cha Mod'));",
-			recovery: "long rest",
+			recovery: "Long Rest",
 		},
 	},
 });
