@@ -15,6 +15,7 @@ SourceList["UA:BnP"] = {
 AddSubClass("bard", "college of eloquence-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*eloquence).*$/i,
 	subname : "College of Eloquence",
+	subnameShort: "Eloquence",
 	source : [["UA:BnP", 1]],
 	features : {
 		"subclassfeature3" : {
@@ -69,7 +70,7 @@ AddSubClass("bard", "college of eloquence-ua", {
 				"I can use this reaction a number of times per long rest equal to my Cha mod (min 1)"
 			]),
 			action : [["reaction", ""]],
-			usages : "Charisma mod per ",
+			usages : "Cha mod per ",
 			usagescalc : "event.value = Math.max(1, What('Cha Mod'));",
 			recovery : "long rest"
 		}
@@ -78,6 +79,7 @@ AddSubClass("bard", "college of eloquence-ua", {
 AddSubClass("paladin", "oath of heroism-ua", {
 	regExpSearch : /^(?=.*\bhero)((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Oath of Heroism",
+	subnameShort: "Heroism",
 	source : [["UA:BnP", 2]],
 	features : {
 		"subclassfeature3" : {

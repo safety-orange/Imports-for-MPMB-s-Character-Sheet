@@ -323,6 +323,7 @@ WeaponsList.longsword.regExpSearch = WeaponsList.longsword.regExpSearch.replace(
 AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juju2569
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*\b(solidarity|teamwork|oketra)\b).*$/i,
 	subname : "Solidarity Domain",
+	subnameShort: "Solidarity",
 	source : [["PS:A", 24]],
 	spellcastingExtra : ["bless", "guiding bolt", "aid", "warding bond", "beacon of hope", "crusader's mantle", "aura of life", "guardian of faith", "circle of power", "mass cure wounds"],
 	features : {
@@ -392,6 +393,7 @@ AddSubClass("cleric", "solidarity domain", { // Includes contributions by /u/juj
 AddSubClass("cleric", "strength domain", { // Includes contributions by /u/juju2569
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*\b(strength|toughness|rhonas)\b).*$/i,
 	subname : "Strength Domain",
+	subnameShort: "Strength",
 	source : [["PS:A", 25]],
 	spellcastingExtra : ["divine favor", "shield of faith", "enhance ability", "protection from poison", "haste", "protection from energy", "dominate beast", "stoneskin", "destructive wave", "insect plague"],
 	features : {
@@ -466,6 +468,7 @@ AddSubClass("cleric", "strength domain", { // Includes contributions by /u/juju2
 AddSubClass("cleric", "ambition domain", { // Includes contributions by /u/juju2569
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*\b(ambition|bontu)\b).*$/i,
 	subname : "Ambition Domain",
+	subnameShort: "Ambition",
 	source : [["PS:A", 27]],
 	spellcastingExtra : ["bane", "disguise self", "mirror image", "ray of enfeeblement", "bestow curse", "vampiric touch", "death ward", "dimension door", "dominate person", "modify memory"],
 	features : {
@@ -523,6 +526,7 @@ AddSubClass("cleric", "ambition domain", { // Includes contributions by /u/juju2
 AddSubClass("cleric", "zeal domain", { // Includes contributions by /u/MILKB0T
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*\b(zeal|hazoret)\b).*$/i,
 	subname : "Zeal Domain",
+	subnameShort: "Zeal",
 	source : [["PS:A", 28]],
 	spellcastingExtra : ["searing smite", "thunderous smite", "magic weapon", "shatter", "haste", "fireball", "fire shield", "freedom of movement", "destructive wave", "flame strike"],
 	features : {

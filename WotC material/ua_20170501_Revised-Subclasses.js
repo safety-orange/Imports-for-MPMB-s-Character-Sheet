@@ -15,8 +15,9 @@ SourceList["UA:RS"] = {
 AddSubClass("barbarian", "ancestral guardian2-ua", {
 	regExpSearch : /^(?=.*ancestral)(?=.*guardian).*$/i,
 	subname : "Path of the Ancestral Guardian",
-	source : [["UA:RS", 1]],
+	subnameShort: "Ancestral Guardian",
 	fullname : "Ancestral Guardian",
+	source : [["UA:RS", 1]],
 	features : {
 		"subclassfeature3" : {
 			name : "Ancestral Protectors",
@@ -65,6 +66,7 @@ AddSubClass("barbarian", "ancestral guardian2-ua", {
 AddSubClass("bard", "college of swords2-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*\bswords?\b).*$/i,
 	subname : "College of Swords",
+	subnameShort: "Swords",
 	source : [["UA:RS", 1]],
 	features : {
 		"subclassfeature3" : {
@@ -267,6 +269,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 AddSubClass("monk", "way of the kensei2-ua", {
 	regExpSearch : /kensei/i,
 	subname : "Way of the Kensei",
+	subnameShort: "Kensei",
 	source : [["UA:RS", 4]],
 	features : {
 		"subclassfeature3" : {

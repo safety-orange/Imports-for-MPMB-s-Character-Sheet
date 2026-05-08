@@ -15,6 +15,7 @@ SourceList["UA:BC"] = {
 AddSubClass("bard", "college of glamour-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*glamour).*$/i,
 	subname : "College of Glamour",
+	subnameShort: "Glamour",
 	source : [["UA:BC", 1]],
 	features : {
 		"subclassfeature3" : {
@@ -100,6 +101,7 @@ AddSubClass("bard", "college of glamour-ua", {
 AddSubClass("bard", "college of whispers-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*whispers).*$/i,
 	subname : "College of Whispers",
+	subnameShort: "Whispers",
 	source : [["UA:BC", 2]],
 	features : {
 		"subclassfeature3" : {

@@ -1704,6 +1704,7 @@ AddFeatureChoice(ClassList.barbarian.features["feral instinct"], true, "Instinct
 AddSubClass("barbarian", "path of the beast", {
 	regExpSearch : /^(?=.*\bbeast\b)(?=.*(warrior|marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n)).*$/i,
 	subname : "Path of the Beast",
+	subnameShort: "Beast",
 	source : [["T", 24]],
 	abilitySave : 3,
 	features : {
@@ -1814,6 +1815,7 @@ AddSubClass("barbarian", "path of the beast", {
 AddSubClass("barbarian", "path of wild magic", {
 	regExpSearch : /^(?=.*\bwild\b)(?=.*\bmagic\b).*$/i,
 	subname : "Path of Wild Magic",
+	subnameShort: "Wild Magic",
 	source : [["T", 25]],
 	abilitySave : 3,
 	features : {
@@ -1937,6 +1939,7 @@ AddFeatureChoice(ClassList.bard.features["song of rest"], true, "Bardic Versatil
 AddSubClass("bard", "college of creation", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*creation).*$/i,
 	subname : "College of Creation",
+	subnameShort: "Creation",
 	source : [["T", 28]],
 	features : {
 		"subclassfeature3" : {
@@ -1975,7 +1978,7 @@ AddSubClass("bard", "college of creation", {
 			}),
 			action : [["action", ""]],
 			usages : 1,
-			recovery : typePF ? "LR" : "long rest",
+			recovery : "long rest",
 			altResource : "SS 2+"
 		},
 		"subclassfeature6" : {
@@ -1993,7 +1996,7 @@ AddSubClass("bard", "college of creation", {
 			]),
 			action : [["action", ""], ["bonus action", "Command Dancing Item"]],
 			usages : 1,
-			recovery : typePF ? "LR" : "long rest",
+			recovery : "long rest",
 			altResource : "SS 3+",
 			creaturesAdd : [["Dancing Item"]],
 			creatureOptions : [{
@@ -2065,6 +2068,7 @@ if (!SourceList.MOT) {
 	AddSubClass("bard", "college of eloquence", {
 		regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*eloquence).*$/i,
 		subname : "College of Eloquence",
+		subnameShort: "Eloquence",
 		source : [["T", 29], ["MOT", 28]],
 		features : {
 			"subclassfeature3" : {
@@ -2112,7 +2116,7 @@ if (!SourceList.MOT) {
 					"I give a creature within 60 ft that can hear me an inspiration die without expending any"
 				]),
 				action : [["reaction", ""]],
-				usages : "Charisma mod per ",
+				usages : "Charisma modifier per ",
 				usagescalc : "event.value = Math.max(1, What('Cha Mod'));",
 				recovery : "long rest"
 			}
@@ -2358,6 +2362,7 @@ AddSubClass("cleric", "peace domain", {
 AddSubClass("cleric", "twilight domain", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(twilight|transition)).*$/i,
 	subname : "Twilight Domain",
+	subnameShort: "Twilight",
 	source : [["T", 34]],
 	spellcastingExtra : ["faerie fire", "sleep", "moonbeam", "see invisibility", "aura of vitality", "leomund's tiny hut", "aura of life", "greater invisibility", "circle of power", "mislead"],
 	features : {
@@ -2523,6 +2528,7 @@ if (!SourceList.G) {
 	AddSubClass("druid", "circle of spores", {
 		regExpSearch : /^(?=.*(druid|shaman))(?=.*spores).*$/i,
 		subname : "Circle of Spores",
+		subnameShort: "Spores",
 		source : [["T", 36], ["G", 26]],
 		features : {
 			"subclassfeature2" : {
@@ -2616,6 +2622,7 @@ if (!SourceList.G) {
 AddSubClass("druid", "circle of the stars", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*circle)(?=.*stars).*$/i,
 	subname : "Circle of the Stars",
+	subnameShort: "Stars",
 	source : [["T", 38]],
 	features : {
 		"subclassfeature2" : {
@@ -2758,6 +2765,7 @@ AddSubClass("druid", "circle of the stars", {
 AddSubClass("druid", "circle of wildfire", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*wild.{0,1}fire).*$/i,
 	subname : "Circle of Wildfire",
+	subnameShort: "Wildfire",
 	source : [["T", 39]],
 	features : {
 		"subclassfeature2" : {
@@ -3470,6 +3478,7 @@ AddFeatureChoice(ClassList.monk.features["slow fall"], true, "Focused Aim (1-3 k
 AddSubClass("monk", "way of mercy", {
 	regExpSearch : /^(?=.*mercy)((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of Mercy",
+	subnameShort: "Mercy",
 	source : [["T", 49]],
 	features : {
 		"subclassfeature3" : {
@@ -3563,6 +3572,7 @@ AddSubClass("monk", "way of mercy", {
 AddSubClass("monk", "way of the astral self", {
 	regExpSearch : /^(?=.*astral)(?=.*(self|projection|travel))((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of the Astral Self",
+	subnameShort: "Astral Self",
 	source : [["T", 50]],
 	features : {
 		"subclassfeature3" : {
@@ -3750,6 +3760,7 @@ if (!SourceList.MOT) {
 	AddSubClass("paladin", "oath of glory", {
 		regExpSearch : /^(((?=.*glory)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 		subname : "Oath of Glory",
+		subnameShort: "Glory",
 		source : [["T", 53], ["MOT", 29]],
 		features : {
 			"subclassfeature3" : {
@@ -3822,6 +3833,7 @@ if (!SourceList.MOT) {
 AddSubClass("paladin", "oath of the watchers", {
 	regExpSearch : /^(?=.*watchers)((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Oath of the Watchers",
+	subnameShort: "Watchers",
 	source : [["T", 54]],
 	features : {
 		"subclassfeature3" : {
@@ -5692,6 +5704,7 @@ if (!SourceList.S) {
 	AddSubClass("wizard", "bladesinging", {
 		regExpSearch : /(bladesinging|bladesinger)/i,
 		subname : "Tradition of Bladesinging",
+		subnameShort: "Bladesinging",
 		fullname : "Bladesinger",
 		attacks : [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 		source : [["S", 142], ["T", 76]],
@@ -5764,6 +5777,7 @@ if (!SourceList.S) {
 AddSubClass("wizard","order of scribes", {
 	regExpSearch : /^(?=.*wizard)(?=.*order)(?=.*scribes?).*$|scrivener/i,
 	subname : "Order of Scribes",
+	subnameShort: "Scribes",
 	source : [["T", 77]],
 	features : {
 		"subclassfeature2" : {

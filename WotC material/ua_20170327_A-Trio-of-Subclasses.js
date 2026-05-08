@@ -15,8 +15,9 @@ SourceList["UA:AToS"] = {
 AddSubClass("monk", "way of the drunken master-ua", {
 	regExpSearch : /^((?=.*drunken)(?=.*master))|((?=.*drunk)((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname : "Way of the Drunken Master",
-	source : [["UA:AToS", 1]],
+	subnameShort: "Drunken Master",
 	fullname : "Drunken Master",
+	source : [["UA:AToS", 1]],
 	features : {
 		"subclassfeature3" : {
 			name : "Drunken Technique",
@@ -55,6 +56,7 @@ AddSubClass("monk", "way of the drunken master-ua", {
 AddSubClass("paladin", "oath of redemption-ua", {
 	regExpSearch : /^((?=.*redeemer)|((?=.*redemption)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Redemption",
+	subnameShort: "Redemption",
 	source : [["UA:AToS", 1]],
 	features : {
 		"subclassfeature3" : {

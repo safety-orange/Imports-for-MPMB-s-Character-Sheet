@@ -13,6 +13,7 @@ SourceList["GotG"] = {
 AddSubClass("barbarian", "giant", {
 	regExpSearch : /^((?=.*(marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n))|((?=.*(warrior|fighter))(?=.*(feral|tribal))))(?=.*giant).*$/i,
 	subname : "Path of the Giant",
+	subnameShort: "Giant",
 	source : [["GotG", 11]],
 	abilitySave : 1,
 	spellcastingAbility : 5,

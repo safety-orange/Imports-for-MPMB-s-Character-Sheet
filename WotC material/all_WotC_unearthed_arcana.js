@@ -2125,6 +2125,7 @@ SourceList["UA:KoO"] = {
 AddSubClass("bard", "college of swords-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*\bswords?\b).*$/i,
 	subname : "College of Swords",
+	subnameShort: "Swords",
 	source : [["UA:KoO", 1]],
 	attacks : [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
@@ -2174,6 +2175,7 @@ AddSubClass("bard", "college of swords-ua", {
 AddSubClass("bard", "college of satire-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*satire).*$/i,
 	subname : "College of Satire",
+	subnameShort: "Satire",
 	source : [["UA:KoO", 2]],
 	features : {
 		"subclassfeature3" : {
@@ -3907,8 +3909,9 @@ SourceList["UA:BPP"] = {
 AddSubClass("barbarian", "ancestral guardian-ua", {
 	regExpSearch : /^(?=.*ancestral)(?=.*guardian).*$/i,
 	subname : "Path of the Ancestral Guardian",
-	source : [["UA:BPP", 1]],
+	subnameShort: "Ancestral Guardian",
 	fullname : "Ancestral Guardian",
+	source : [["UA:BPP", 1]],
 	features : {
 		"subclassfeature3" : {
 			name : "Ancestral Protectors",
@@ -3956,8 +3959,9 @@ AddSubClass("barbarian", "ancestral guardian-ua", {
 AddSubClass("barbarian", "storm herald-ua", {
 	regExpSearch : /^(?=.*storm)(?=.*herald).*$/i,
 	subname : "Path of the Storm Herald",
-	source : [["UA:BPP", 2]],
+	subnameShort: "Storm Herald",
 	fullname : "Storm Herald",
+	source : [["UA:BPP", 2]],
 	abilitySave : 3,
 	features : {
 		"subclassfeature3" : {
@@ -4076,8 +4080,9 @@ AddSubClass("barbarian", "storm herald-ua", {
 AddSubClass("barbarian", "zealot-ua", {
 	regExpSearch : /zealot/i,
 	subname : "Path of the Zealot",
-	source : [["UA:BPP", 2]],
+	subnameShort: "Zealot",
 	fullname : "Zealot",
+	source : [["UA:BPP", 2]],
 	features : {
 		"subclassfeature3" : {
 			name : "Divine Fury",
@@ -4165,6 +4170,7 @@ SourceList["UA:BC"] = {
 AddSubClass("bard", "college of glamour-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*glamour).*$/i,
 	subname : "College of Glamour",
+	subnameShort: "Glamour",
 	source : [["UA:BC", 1]],
 	features : {
 		"subclassfeature3" : {
@@ -4250,6 +4256,7 @@ AddSubClass("bard", "college of glamour-ua", {
 AddSubClass("bard", "college of whispers-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*whispers).*$/i,
 	subname : "College of Whispers",
+	subnameShort: "Whispers",
 	source : [["UA:BC", 2]],
 	features : {
 		"subclassfeature3" : {
@@ -4641,6 +4648,7 @@ SourceList["UA:DC"] = {
 AddSubClass("druid", "circle of dreams-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*\bdreams\b).*$/i,
 	subname : "Circle of Dreams",
+	subnameShort: "Dreams",
 	source : [["UA:DC", 1]],
 	features : {
 		"subclassfeature2" : {
@@ -4699,6 +4707,7 @@ AddSubClass("druid", "circle of dreams-ua", {
 AddSubClass("druid", "circle of the shepherd-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*shepherd).*$/i,
 	subname : "Circle of the Shepherd",
+	subnameShort: "Shepherd",
 	source : [["UA:DC", 1]],
 	features : {
 		"subclassfeature2" : {
@@ -4790,6 +4799,7 @@ AddSubClass("druid", "circle of the shepherd-ua", {
 AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*twilight).*$/i,
 	subname : "Circle of Twilight",
+	subnameShort: "Twilight",
 	source : [["UA:DC", 2]],
 	features : {
 		"subclassfeature2" : {
@@ -5303,6 +5313,7 @@ SourceList["UA:MMT"] = {
 AddSubClass("monk", "way of the kensei-ua", {
 	regExpSearch : /kensei/i,
 	subname : "Way of the Kensei",
+	subnameShort: "Kensei",
 	source : [["UA:MMT", 1]],
 	features : {
 		"subclassfeature3" : {
@@ -5408,6 +5419,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*tranquility|tranquil|calm|diplomatic|diplomat)((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of Tranquility",
+	subnameShort: "Tranquility",
 	source : [["UA:MMT", 2]],
 	features : {
 		"subclassfeature3" : {
@@ -5497,6 +5509,7 @@ SourceList["UA:PSO"] = {
 AddSubClass("paladin", "oath of conquest-ua", {
 	regExpSearch : /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Conquest",
+	subnameShort: "Conquest",
 	source : [["UA:PSO", 1]],
 	features : {
 		"subclassfeature3" : {
@@ -5549,6 +5562,7 @@ AddSubClass("paladin", "oath of conquest-ua", {
 AddSubClass("paladin", "oath of treachery-ua", { // Still valid 2021-09-21
 	regExpSearch : /^((?=.*blackguard)|(((?=.*(treachery|tyranny|tyrant))(?=.*paladin))|((?=.*(profane|unholy))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
 	subname : "Oath of Treachery",
+	subnameShort: "Treachery",
 	source : [["UA:PSO", 2]],
 	features : {
 		"subclassfeature3" : {
@@ -10887,8 +10901,9 @@ SourceList["UA:AToS"] = {
 AddSubClass("monk", "way of the drunken master-ua", {
 	regExpSearch : /^((?=.*drunken)(?=.*master))|((?=.*drunk)((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname : "Way of the Drunken Master",
-	source : [["UA:AToS", 1]],
+	subnameShort: "Drunken Master",
 	fullname : "Drunken Master",
+	source : [["UA:AToS", 1]],
 	features : {
 		"subclassfeature3" : {
 			name : "Drunken Technique",
@@ -10927,6 +10942,7 @@ AddSubClass("monk", "way of the drunken master-ua", {
 AddSubClass("paladin", "oath of redemption-ua", {
 	regExpSearch : /^((?=.*redeemer)|((?=.*redemption)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Redemption",
+	subnameShort: "Redemption",
 	source : [["UA:AToS", 1]],
 	features : {
 		"subclassfeature3" : {
@@ -11924,8 +11940,9 @@ SourceList["UA:RS"] = {
 AddSubClass("barbarian", "ancestral guardian2-ua", {
 	regExpSearch : /^(?=.*ancestral)(?=.*guardian).*$/i,
 	subname : "Path of the Ancestral Guardian",
-	source : [["UA:RS", 1]],
+	subnameShort: "Ancestral Guardian",
 	fullname : "Ancestral Guardian",
+	source : [["UA:RS", 1]],
 	features : {
 		"subclassfeature3" : {
 			name : "Ancestral Protectors",
@@ -11974,6 +11991,7 @@ AddSubClass("barbarian", "ancestral guardian2-ua", {
 AddSubClass("bard", "college of swords2-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*\bswords?\b).*$/i,
 	subname : "College of Swords",
+	subnameShort: "Swords",
 	source : [["UA:RS", 1]],
 	features : {
 		"subclassfeature3" : {
@@ -12176,6 +12194,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 AddSubClass("monk", "way of the kensei2-ua", {
 	regExpSearch : /kensei/i,
 	subname : "Way of the Kensei",
+	subnameShort: "Kensei",
 	source : [["UA:RS", 4]],
 	features : {
 		"subclassfeature3" : {
@@ -12373,6 +12392,7 @@ SourceList["UA:RCO"] = {
 AddSubClass("druid", "circle of the shepherd2-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*shepherd).*$/i,
 	subname : "Circle of the Shepherd",
+	subnameShort: "Shepherd",
 	source : [["UA:RCO", 1]],
 	features : {
 		"subclassfeature2" : {
@@ -12551,6 +12571,7 @@ AddSubClass("fighter", "cavalier2-ua", {
 AddSubClass("paladin", "oath of conquest2-ua", {
 	regExpSearch : /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Conquest",
+	subnameShort: "Conquest",
 	source : [["UA:RCO", 3]],
 	features : {
 		"subclassfeature3" : {
@@ -13277,6 +13298,7 @@ SourceList["UA:TS"] = {
 AddSubClass("druid", "circle of spores-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*spores).*$/i,
 	subname : "Circle of Spores",
+	subnameShort: "Spores",
 	source : [["UA:TS", 1]],
 	features : {
 		"subclassfeature2" : {
@@ -13424,8 +13446,9 @@ RunFunctionAtEnd(function () {
 AddSubClass("wizard", "school of invention-ua", {
 	regExpSearch : /^(?=.*wizard)(?=.*invent(ion|or)).*$/i,
 	subname : "School of Invention",
-	source : [["UA:TS", 2]],
+	subnameShort: "Invention",
 	fullname : "Wizard (Inventor)",
+	source : [["UA:TS", 2]],
 	features : {
 		"subclassfeature2" : {
 			name : "Tools of the Inventor",
@@ -15690,8 +15713,9 @@ SourceList["UA:BnM"] = {
 AddSubClass("barbarian", "path of the wild soul-ua", {
 	regExpSearch : /^(?=.*\bwild\b)(?=.*\bsoul\b).*$/i,
 	subname : "Path of the Wild Soul",
-	source : [["UA:BnM", 1]],
+	subnameShort: "Wild Soul",
 	fullname : "Wild Soul",
+	source : [["UA:BnM", 1]],
 	abilitySave : 3,
 	features : {
 		"subclassfeature3" : {
@@ -15781,6 +15805,7 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 AddSubClass("monk", "way of the astral self-ua", {
 	regExpSearch : /^(?=.*astral)(?=.*(self|projection|travel))((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of the Astral Self",
+	subnameShort: "Astral Self",
 	source : [["UA:BnM", 2]],
 	features : {
 		"subclassfeature3" : {
@@ -16144,6 +16169,7 @@ SourceList["UA:BnP"] = {
 AddSubClass("bard", "college of eloquence-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*eloquence).*$/i,
 	subname : "College of Eloquence",
+	subnameShort: "Eloquence",
 	source : [["UA:BnP", 1]],
 	features : {
 		"subclassfeature3" : {
@@ -16198,7 +16224,7 @@ AddSubClass("bard", "college of eloquence-ua", {
 				"I can use this reaction a number of times per long rest equal to my Cha mod (min 1)"
 			]),
 			action : [["reaction", ""]],
-			usages : "Charisma mod per ",
+			usages : "Cha mod per ",
 			usagescalc : "event.value = Math.max(1, What('Cha Mod'));",
 			recovery : "long rest"
 		}
@@ -16207,6 +16233,7 @@ AddSubClass("bard", "college of eloquence-ua", {
 AddSubClass("paladin", "oath of heroism-ua", {
 	regExpSearch : /^(?=.*\bhero)((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Oath of Heroism",
+	subnameShort: "Heroism",
 	source : [["UA:BnP", 2]],
 	features : {
 		"subclassfeature3" : {
@@ -16388,6 +16415,7 @@ AddSubClass("cleric", "twilight domain-ua", {
 AddSubClass("druid", "circle of wildfire-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*wild.{0,1}fire).*$/i,
 	subname : "Circle of Wildfire",
+	subnameShort: "Wildfire",
 	source : [["UA:CDnW", 2]],
 	features : {
 		"subclassfeature2" : {
@@ -18689,6 +18717,7 @@ SourceList["UA:SP1"] = {
 AddSubClass("barbarian", "path of the beast-ua", {
 	regExpSearch : /^(?=.*\bbeast\b)(?=.*(warrior|marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n)).*$/i,
 	subname : "Path of the Beast",
+	subnameShort: "Beast",
 	source : [["UA:SP1", 1]],
 	abilitySave : 3,
 	features : {
@@ -18795,6 +18824,7 @@ AddSubClass("barbarian", "path of the beast-ua", {
 AddSubClass("monk", "way of mercy-ua", {
 	regExpSearch : /^(?=.*mercy)((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of Mercy",
+	subnameShort: "Mercy",
 	source : [["UA:SP1", 2]],
 	features : {
 		"subclassfeature3" : {
@@ -18898,6 +18928,7 @@ AddSubClass("monk", "way of mercy-ua", {
 AddSubClass("paladin", "oath of the watchers-ua", {
 	regExpSearch : /^(?=.*watchers)((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Oath of the Watchers",
+	subnameShort: "Watchers",
 	source : [["UA:SP1", 3]],
 	features : {
 		"subclassfeature3" : {
@@ -19060,6 +19091,7 @@ SourceList["UA:SP2"] = {
 AddSubClass("bard", "college of creation-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*creation).*$/i,
 	subname : "College of Creation",
+	subnameShort: "Creation",
 	source : [["UA:SP2", 1]],
 	features : {
 		"subclassfeature3" : {
@@ -19089,7 +19121,7 @@ AddSubClass("bard", "college of creation-ua", {
 			]),
 			action : [["action", ""], ["bonus action", "Command Dancing Item"]],
 			usages : 1,
-			recovery : typePF ? "LR" : "long rest",
+			recovery : "long rest",
 			altResource : "SS 3+",
 			creaturesAdd : [["Dancing Item"]],
 			creatureOptions : [{
@@ -19161,7 +19193,7 @@ AddSubClass("bard", "college of creation-ua", {
 			}),
 			action : [["action", ""]],
 			usages : 1,
-			recovery : typePF ? "LR" : "long rest",
+			recovery : "long rest",
 			altResource : "SS 5+"
 		}
 	}
@@ -19652,6 +19684,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 AddSubClass("druid", "circle of the stars-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*circle)(?=.*stars).*$/i,
 	subname : "Circle of the Stars",
+	subnameShort: "Stars",
 	source : [["UA:SP3", 3]],
 	features : {
 		"subclassfeature2" : {
@@ -20153,6 +20186,7 @@ SourceList["UA:SP4"] = {
 AddSubClass("bard", "college of spirits-ua",{
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*spirits?).*$/i,
 	subname : "College of Spirits",
+	subnameShort: "Spirits",
 	source : [["UA:SP4", 1]],
 	features : {
 		"subclassfeature3" : {
@@ -20403,6 +20437,7 @@ SourceList["UA:SP5"] = {
 AddSubClass("monk", "ascendant dragon-ua", {
 	regExpSearch : /^(?=.*ascendant)(?=.*(dragon|draconic))((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of the Ascendant Dragon",
+	subnameShort: "Ascendant Dragon",
 	source : [["UA:SP5", 1]],
 	features : {
 		"subclassfeature3" : {
@@ -22495,6 +22530,7 @@ SourceList["UA:GO"] = {
 AddSubClass("barbarian", "giant-ua", {
 	regExpSearch : /^((?=.*(marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n))|((?=.*(warrior|fighter))(?=.*(feral|tribal))))(?=.*giant).*$/i,
 	subname : "Path of the Giant",
+	subnameShort: "Giant",
 	source : [["UA:GO", 1]],
 	abilitySave : 1,
 	spellcastingAbility : 5,
@@ -22603,6 +22639,7 @@ AddSubClass("barbarian", "giant-ua", {
 AddSubClass("druid", "circle of the primeval-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*(primeval|behemoth)).*$/i,
 	subname : "Circle of the Primeval",
+	subnameShort: "Primeval",
 	source : [["UA:GO", 2]],
 	features : {
 		"subclassfeature2" : {
@@ -22736,6 +22773,7 @@ AddSubClass("druid", "circle of the primeval-ua", {
 AddSubClass("wizard", "runecrafter-ua", {
 	regExpSearch : /runecrafting|runecrafter/i,
 	subname : "Tradition of Runecrafting",
+	subnameShort: "Runecrafting",
 	fullname : "Runecrafter",
 	source : [["UA:GO", 3]],
 	features : {

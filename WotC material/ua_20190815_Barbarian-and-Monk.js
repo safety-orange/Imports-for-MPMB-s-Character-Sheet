@@ -15,8 +15,9 @@ SourceList["UA:BnM"] = {
 AddSubClass("barbarian", "path of the wild soul-ua", {
 	regExpSearch : /^(?=.*\bwild\b)(?=.*\bsoul\b).*$/i,
 	subname : "Path of the Wild Soul",
-	source : [["UA:BnM", 1]],
+	subnameShort: "Wild Soul",
 	fullname : "Wild Soul",
+	source : [["UA:BnM", 1]],
 	abilitySave : 3,
 	features : {
 		"subclassfeature3" : {
@@ -106,6 +107,7 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 AddSubClass("monk", "way of the astral self-ua", {
 	regExpSearch : /^(?=.*astral)(?=.*(self|projection|travel))((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of the Astral Self",
+	subnameShort: "Astral Self",
 	source : [["UA:BnM", 2]],
 	features : {
 		"subclassfeature3" : {

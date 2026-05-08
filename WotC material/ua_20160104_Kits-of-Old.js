@@ -15,6 +15,7 @@ SourceList["UA:KoO"] = {
 AddSubClass("bard", "college of swords-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*\bswords?\b).*$/i,
 	subname : "College of Swords",
+	subnameShort: "Swords",
 	source : [["UA:KoO", 1]],
 	attacks : [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
@@ -64,6 +65,7 @@ AddSubClass("bard", "college of swords-ua", {
 AddSubClass("bard", "college of satire-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*satire).*$/i,
 	subname : "College of Satire",
+	subnameShort: "Satire",
 	source : [["UA:KoO", 2]],
 	features : {
 		"subclassfeature3" : {

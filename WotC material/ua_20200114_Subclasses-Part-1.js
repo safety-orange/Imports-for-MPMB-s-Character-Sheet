@@ -15,6 +15,7 @@ SourceList["UA:SP1"] = {
 AddSubClass("barbarian", "path of the beast-ua", {
 	regExpSearch : /^(?=.*\bbeast\b)(?=.*(warrior|marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n)).*$/i,
 	subname : "Path of the Beast",
+	subnameShort: "Beast",
 	source : [["UA:SP1", 1]],
 	abilitySave : 3,
 	features : {
@@ -121,6 +122,7 @@ AddSubClass("barbarian", "path of the beast-ua", {
 AddSubClass("monk", "way of mercy-ua", {
 	regExpSearch : /^(?=.*mercy)((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of Mercy",
+	subnameShort: "Mercy",
 	source : [["UA:SP1", 2]],
 	features : {
 		"subclassfeature3" : {
@@ -224,6 +226,7 @@ AddSubClass("monk", "way of mercy-ua", {
 AddSubClass("paladin", "oath of the watchers-ua", {
 	regExpSearch : /^(?=.*watchers)((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Oath of the Watchers",
+	subnameShort: "Watchers",
 	source : [["UA:SP1", 3]],
 	features : {
 		"subclassfeature3" : {

@@ -15,6 +15,7 @@ SourceList["UA:SP4"] = {
 AddSubClass("bard", "college of spirits-ua",{
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*spirits?).*$/i,
 	subname : "College of Spirits",
+	subnameShort: "Spirits",
 	source : [["UA:SP4", 1]],
 	features : {
 		"subclassfeature3" : {

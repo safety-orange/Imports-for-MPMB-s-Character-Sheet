@@ -254,6 +254,7 @@ if (!SpellsList["wall of water"]) {
 AddSubClass("bard", "college of eloquence", { // includes contributions by /u/Holynight6
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*eloquence).*$/i,
 	subname : "College of Eloquence",
+	subnameShort: "Eloquence",
 	source : [["T", 29], ["MOT", 28]],
 	features : {
 		"subclassfeature3" : {
@@ -301,7 +302,7 @@ AddSubClass("bard", "college of eloquence", { // includes contributions by /u/Ho
 				"I give a creature within 60 ft that can hear me an inspiration die without expending any"
 			]),
 			action : [["reaction", ""]],
-			usages : "Charisma mod per ",
+			usages : "Charisma modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Cha Mod'));",
 			recovery : "long rest"
 		}
@@ -310,6 +311,7 @@ AddSubClass("bard", "college of eloquence", { // includes contributions by /u/Ho
 AddSubClass("paladin", "oath of glory", { // includes contributions by BraabHimself
 	regExpSearch : /^(((?=.*glory)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Glory",
+	subnameShort: "Glory",
 	source : [["T", 53], ["MOT", 29]],
 	features : {
 		"subclassfeature3" : {

@@ -15,8 +15,9 @@ SourceList["UA:BPP"] = {
 AddSubClass("barbarian", "ancestral guardian-ua", {
 	regExpSearch : /^(?=.*ancestral)(?=.*guardian).*$/i,
 	subname : "Path of the Ancestral Guardian",
-	source : [["UA:BPP", 1]],
+	subnameShort: "Ancestral Guardian",
 	fullname : "Ancestral Guardian",
+	source : [["UA:BPP", 1]],
 	features : {
 		"subclassfeature3" : {
 			name : "Ancestral Protectors",
@@ -64,8 +65,9 @@ AddSubClass("barbarian", "ancestral guardian-ua", {
 AddSubClass("barbarian", "storm herald-ua", {
 	regExpSearch : /^(?=.*storm)(?=.*herald).*$/i,
 	subname : "Path of the Storm Herald",
-	source : [["UA:BPP", 2]],
+	subnameShort: "Storm Herald",
 	fullname : "Storm Herald",
+	source : [["UA:BPP", 2]],
 	abilitySave : 3,
 	features : {
 		"subclassfeature3" : {
@@ -184,8 +186,9 @@ AddSubClass("barbarian", "storm herald-ua", {
 AddSubClass("barbarian", "zealot-ua", {
 	regExpSearch : /zealot/i,
 	subname : "Path of the Zealot",
-	source : [["UA:BPP", 2]],
+	subnameShort: "Zealot",
 	fullname : "Zealot",
+	source : [["UA:BPP", 2]],
 	features : {
 		"subclassfeature3" : {
 			name : "Divine Fury",

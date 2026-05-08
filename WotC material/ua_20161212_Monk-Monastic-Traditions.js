@@ -15,6 +15,7 @@ SourceList["UA:MMT"] = {
 AddSubClass("monk", "way of the kensei-ua", {
 	regExpSearch : /kensei/i,
 	subname : "Way of the Kensei",
+	subnameShort: "Kensei",
 	source : [["UA:MMT", 1]],
 	features : {
 		"subclassfeature3" : {
@@ -120,6 +121,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*tranquility|tranquil|calm|diplomatic|diplomat)((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of Tranquility",
+	subnameShort: "Tranquility",
 	source : [["UA:MMT", 2]],
 	features : {
 		"subclassfeature3" : {

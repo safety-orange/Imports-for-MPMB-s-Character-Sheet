@@ -1222,8 +1222,9 @@ AddSubClass("fighter", "echo knight", { // contains contributions by Smashman, @
 AddSubClass("wizard", "chronurgy magic", { // contains contributions by bassbogan on GitHub and @Nod_Hero#2046 on Discord
 	regExpSearch : /chronurgy|chronomancer|chronurgist/i,
 	subname : "Chronurgy Magic",
-	source : [["W", 184]],
+	subnameShort: "Chronurgy",
 	fullname : "Chronurgist",
+	source : [["W", 184]],
 	features : {
 		"subclassfeature2" : {
 			name : "Chronal Shift",
@@ -1303,8 +1304,9 @@ AddSubClass("wizard", "chronurgy magic", { // contains contributions by bassboga
 AddSubClass("wizard", "graviturgy magic", { // contains contributions by bassbogan on GitHub and @Nod_Hero#2046 on Discord
 	regExpSearch : /^((?=.*graviturgy)(?=.*(wizard|magic|mage))|gravimancer|graviturgist).*$/i,
 	subname : "Graviturgy Magic",
-	source : [["W", 185]],
+	subnameShort: "Graviturgy",
 	fullname : "Graviturgist",
+	source : [["W", 185]],
 	features : {
 		"subclassfeature2" : {
 			name : "Adjust Density",

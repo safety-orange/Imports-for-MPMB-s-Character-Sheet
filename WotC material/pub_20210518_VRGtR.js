@@ -184,6 +184,7 @@ RaceList["reborn"] = {
 AddSubClass("bard", "college of spirits",{
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*spirits?).*$/i,
 	subname : "College of Spirits",
+	subnameShort: "Spirits",
 	source : [["VRGtR", 28]],
 	features : {
 		"subclassfeature3" : {

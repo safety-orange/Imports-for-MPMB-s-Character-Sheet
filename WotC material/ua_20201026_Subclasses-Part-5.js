@@ -15,6 +15,7 @@ SourceList["UA:SP5"] = {
 AddSubClass("monk", "ascendant dragon-ua", {
 	regExpSearch : /^(?=.*ascendant)(?=.*(dragon|draconic))((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of the Ascendant Dragon",
+	subnameShort: "Ascendant Dragon",
 	source : [["UA:SP5", 1]],
 	features : {
 		"subclassfeature3" : {

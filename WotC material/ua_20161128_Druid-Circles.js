@@ -15,6 +15,7 @@ SourceList["UA:DC"] = {
 AddSubClass("druid", "circle of dreams-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*\bdreams\b).*$/i,
 	subname : "Circle of Dreams",
+	subnameShort: "Dreams",
 	source : [["UA:DC", 1]],
 	features : {
 		"subclassfeature2" : {
@@ -73,6 +74,7 @@ AddSubClass("druid", "circle of dreams-ua", {
 AddSubClass("druid", "circle of the shepherd-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*shepherd).*$/i,
 	subname : "Circle of the Shepherd",
+	subnameShort: "Shepherd",
 	source : [["UA:DC", 1]],
 	features : {
 		"subclassfeature2" : {
@@ -164,6 +166,7 @@ AddSubClass("druid", "circle of the shepherd-ua", {
 AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*twilight).*$/i,
 	subname : "Circle of Twilight",
+	subnameShort: "Twilight",
 	source : [["UA:DC", 2]],
 	features : {
 		"subclassfeature2" : {

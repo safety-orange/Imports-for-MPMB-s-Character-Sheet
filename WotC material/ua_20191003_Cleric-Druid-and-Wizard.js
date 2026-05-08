@@ -122,6 +122,7 @@ AddSubClass("cleric", "twilight domain-ua", {
 AddSubClass("druid", "circle of wildfire-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*wild.{0,1}fire).*$/i,
 	subname : "Circle of Wildfire",
+	subnameShort: "Wildfire",
 	source : [["UA:CDnW", 2]],
 	features : {
 		"subclassfeature2" : {

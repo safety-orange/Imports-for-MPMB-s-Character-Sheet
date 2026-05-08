@@ -15,6 +15,7 @@ SourceList["UA:RCO"] = {
 AddSubClass("druid", "circle of the shepherd2-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*shepherd).*$/i,
 	subname : "Circle of the Shepherd",
+	subnameShort: "Shepherd",
 	source : [["UA:RCO", 1]],
 	features : {
 		"subclassfeature2" : {
@@ -193,6 +194,7 @@ AddSubClass("fighter", "cavalier2-ua", {
 AddSubClass("paladin", "oath of conquest2-ua", {
 	regExpSearch : /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Conquest",
+	subnameShort: "Conquest",
 	source : [["UA:RCO", 3]],
 	features : {
 		"subclassfeature3" : {

@@ -353,6 +353,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 AddSubClass("druid", "circle of the stars-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*circle)(?=.*stars).*$/i,
 	subname : "Circle of the Stars",
+	subnameShort: "Stars",
 	source : [["UA:SP3", 3]],
 	features : {
 		"subclassfeature2" : {

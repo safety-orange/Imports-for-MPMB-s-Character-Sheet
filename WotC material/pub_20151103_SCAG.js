@@ -341,6 +341,7 @@ RunFunctionAtEnd(function() {
 AddSubClass("barbarian", "battlerager", {
 	regExpSearch : /(battlerager|kuldjargh)/i,
 	subname : "Path of the Battlerager",
+	subnameShort: "Battlerager",
 	fullname : "Battlerager",
 	source : [["S", 121]],
 	abilitySave : 6,
@@ -523,6 +524,7 @@ AddSubClass("cleric", "arcana domain", {
 AddSubClass("fighter", "purple dragon knight", {
 	regExpSearch : /^(((?=.*purple)(?=.*dragon)(?=.*knight))|(?=.*banneret)).*$/i,
 	subname : "Purple Dragon Knight",
+	subnameShort : "Purple Dragon",
 	fullname : "Purple Dragon Knight",
 	source : [["S", 128]],
 	features : {
@@ -574,6 +576,7 @@ AddSubClass("fighter", "purple dragon knight", {
 AddSubClass("monk", "way of the long death", {
 	regExpSearch : /^(?=.*\blong)(?=.*\b(death|dead))((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname : "Way of the Long Death",
+	subnameShort: "Long Death",
 	source : [["S", 130]],
 	features : {
 		"subclassfeature3" : {
@@ -619,6 +622,7 @@ AddSubClass("monk", "way of the long death", {
 AddSubClass("monk", "way of the sun soul", {
 	regExpSearch : /^(?=.*\bsun)(?=.*\b(soul|spirit))((?=.*(warrior|monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname : "Way of the Sun Soul",
+	subnameShort: "Sun Soul",
 	source : [["S", 131], ["X", 35]],
 	features : {
 		"subclassfeature3" : {
@@ -720,6 +724,7 @@ AddSubClass("monk", "way of the sun soul", {
 AddSubClass("paladin", "oath of the crown", {
 	regExpSearch : /^(?=.*(crown|king|country))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
 	subname : "Oath of the Crown",
+	subnameShort: "Crown",
 	source : [["S", 133]],
 	features : {
 		"subclassfeature3" : {
@@ -1023,6 +1028,7 @@ AddSubClass("warlock", "the undying", {
 AddSubClass("wizard", "bladesinging", {
 	regExpSearch : /(bladesinging|bladesinger)/i,
 	subname : "Tradition of Bladesinging",
+	subnameShort: "Bladesinging",
 	fullname : "Bladesinger",
 	attacks : [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	source : [["S", 142], ["T", 76]],

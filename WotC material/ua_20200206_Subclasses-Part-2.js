@@ -15,6 +15,7 @@ SourceList["UA:SP2"] = {
 AddSubClass("bard", "college of creation-ua", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*creation).*$/i,
 	subname : "College of Creation",
+	subnameShort: "Creation",
 	source : [["UA:SP2", 1]],
 	features : {
 		"subclassfeature3" : {
@@ -44,7 +45,7 @@ AddSubClass("bard", "college of creation-ua", {
 			]),
 			action : [["action", ""], ["bonus action", "Command Dancing Item"]],
 			usages : 1,
-			recovery : typePF ? "LR" : "long rest",
+			recovery : "long rest",
 			altResource : "SS 3+",
 			creaturesAdd : [["Dancing Item"]],
 			creatureOptions : [{
@@ -116,7 +117,7 @@ AddSubClass("bard", "college of creation-ua", {
 			}),
 			action : [["action", ""]],
 			usages : 1,
-			recovery : typePF ? "LR" : "long rest",
+			recovery : "long rest",
 			altResource : "SS 5+"
 		}
 	}

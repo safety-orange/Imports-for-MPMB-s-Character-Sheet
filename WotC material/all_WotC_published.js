@@ -461,6 +461,7 @@ AddSubClass("barbarian", "totem warrior", {
 AddSubClass("bard", "college of valor", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*valor).*$/i,
 	subname : "College of Valor",
+	subnameshort: "Valor",
 	source : [["P", 55]],
 	attacks : [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
@@ -493,6 +494,7 @@ AddSubClass("bard", "college of valor", {
 AddSubClass("cleric", "knowledge domain", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(knowledge|wisdom|learning)).*$/i,
 	subname : "Knowledge Domain",
+	subnameshort: "Knowledge",
 	source : [["P", 59]],
 	spellcastingExtra : ["command", "identify", "augury", "suggestion", "nondetection", "speak with dead", "arcane eye", "confusion", "legend lore", "scrying"],
 	features : {
@@ -762,6 +764,7 @@ AddSubClass("cleric", "tempest domain", {
 AddSubClass("cleric", "trickery domain", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(trickery|trickster|illusion)).*$/i,
 	subname : "Trickery Domain",
+	subnameshort: "Trickery",
 	source : [["P", 63]],
 	spellcastingExtra : ["charm person", "disguise self", "mirror image", "pass without trace", "blink", "dispel magic", "dimension door", "polymorph", "dominate person", "modify memory"],
 	features : {
@@ -895,6 +898,7 @@ AddSubClass("cleric", "war domain", {
 AddSubClass("druid", "circle of the moon", {
 	regExpSearch : /^(?=.*(druid|shaman))((?=.*\bmoon\b)|((?=.*\bmany\b)(?=.*\bforms?\b))).*$/i,
 	subname : "Circle of the Moon",
+	subnameshort: "Moon",
 	source : [["P", 69]],
 	features : {
 		"subclassfeature2" : {
@@ -1251,6 +1255,7 @@ AddSubClass("fighter", "eldritch knight", {
 AddSubClass("monk", "way of the four elements", {
 	regExpSearch : /^(?=.*\b(four|4)\b)((?=.*elements?)|((?=.*earth)|(?=.*(wind|air))|(?=.*fire)|(?=.*water)))((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname : "Way of the Four Elements",
+	subnameshort: "Four Elements",
 	source : [["P", 80]],
 	features : {
 		"subclassfeature3" : {
@@ -1601,6 +1606,7 @@ AddSubClass("monk", "way of the four elements", {
 AddSubClass("monk", "way of shadow", {
 	regExpSearch : /^(?=.*shadow)((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname : "Way of Shadow",
+	subnameshort: "Shadow",
 	source : [["P", 80]],
 	features : {
 		"subclassfeature3" : {
@@ -1680,6 +1686,7 @@ AddSubClass("monk", "way of shadow", {
 AddSubClass("paladin", "oath of the ancients", {
 	regExpSearch : /^(((?=.*(ancient|nature|natural|green|fey|horned))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))))|((?=.*(green|fey|horned))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Oath of the Ancients",
+	subnameshort: "Ancients",
 	source : [["P", 87]],
 	features : {
 		"subclassfeature3" : {
@@ -1743,6 +1750,7 @@ AddSubClass("paladin", "oath of the ancients", {
 AddSubClass("paladin", "oath of vengeance", {
 	regExpSearch : /^(((?=.*(vengeance|wrath|justice))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))))|((?=.*dark)(?=.*knight))|(?=.*avenger)).*$/i,
 	subname : "Oath of Vengeance",
+	subnameshort: "Vengeance",
 	source : [["P", 88]],
 	features : {
 		"subclassfeature3" : {
@@ -2211,8 +2219,9 @@ AddSubClass("warlock", "the great old one", {
 	}
 });
 AddSubClass("wizard", "abjuration", {
-	regExpSearch : /(abjuration|abjurer)/i,
+	regExpSearch : /abjuration|abjurer/i,
 	subname : "School of Abjuration",
+	subnameshort: "Abjuration",
 	fullname : "Abjurer",
 	source : [["P", 115]],
 	features : {
@@ -2288,8 +2297,9 @@ AddSubClass("wizard", "abjuration", {
 	}
 });
 AddSubClass("wizard", "conjuration", {
-	regExpSearch : /(conjuration|conjurer)/i,
+	regExpSearch : /conjuration|conjurer/i,
 	subname : "School of Conjuration",
+	subnameshort: "Conjuration",
 	fullname : "Conjurer",
 	source : [["P", 116]],
 	features : {
@@ -2352,8 +2362,9 @@ AddSubClass("wizard", "conjuration", {
 	}
 });
 AddSubClass("wizard", "divination", {
-	regExpSearch : /(divination|diviner|divinator)/i,
+	regExpSearch : /divination|diviner|divinator/i,
 	subname : "School of Divination",
+	subnameshort: "Divination",
 	fullname : "Diviner",
 	source : [["P", 116]],
 	features : {
@@ -2404,8 +2415,9 @@ AddSubClass("wizard", "divination", {
 	}
 });
 AddSubClass("wizard", "enchantment", {
-	regExpSearch : /(enchantment|enchanter)/i,
+	regExpSearch : /enchantment|enchanter/i,
 	subname : "School of Enchantment",
+	subnameshort: "Enchantment",
 	fullname : "Enchanter",
 	source : [["P", 117]],
 	features : {
@@ -2486,8 +2498,9 @@ AddSubClass("wizard", "enchantment", {
 	}
 });
 AddSubClass("wizard", "illusion", {
-	regExpSearch : /(illusion|illusionist|illusionary)/i,
+	regExpSearch : /illusion|illusionist|illusionary/i,
 	subname : "School of Illusion",
+	subnameshort: "Illusion",
 	fullname : "Illusionist",
 	source : [["P", 118]],
 	features : {
@@ -2549,6 +2562,7 @@ AddSubClass("wizard", "illusion", {
 AddSubClass("wizard", "necromancy", {
 	regExpSearch : /necromancy|necromancer|necromantic/i,
 	subname : "School of Necromancy",
+	subnameshort: "Necromancy",
 	fullname : "Necromancer",
 	source : [["P", 118]],
 	features : {
@@ -2611,8 +2625,9 @@ AddSubClass("wizard", "necromancy", {
 	}
 });
 AddSubClass("wizard", "transmutation", {
-	regExpSearch : /(transmutation|transmuter)/i,
+	regExpSearch : /transmutation|transmuter/i,
 	subname : "School of Transmutation",
+	subnameshort: "Transmutation",
 	fullname : "Transmuter",
 	source : [["P", 119]],
 	features : {
@@ -11268,6 +11283,7 @@ RunFunctionAtEnd(function() {
 AddSubClass("barbarian", "battlerager", {
 	regExpSearch : /(battlerager|kuldjargh)/i,
 	subname : "Path of the Battlerager",
+	subnameShort: "Battlerager",
 	fullname : "Battlerager",
 	source : [["S", 121]],
 	abilitySave : 6,
@@ -11450,6 +11466,7 @@ AddSubClass("cleric", "arcana domain", {
 AddSubClass("fighter", "purple dragon knight", {
 	regExpSearch : /^(((?=.*purple)(?=.*dragon)(?=.*knight))|(?=.*banneret)).*$/i,
 	subname : "Purple Dragon Knight",
+	subnameShort : "Purple Dragon",
 	fullname : "Purple Dragon Knight",
 	source : [["S", 128]],
 	features : {
@@ -11501,6 +11518,7 @@ AddSubClass("fighter", "purple dragon knight", {
 AddSubClass("monk", "way of the long death", {
 	regExpSearch : /^(?=.*\blong)(?=.*\b(death|dead))((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname : "Way of the Long Death",
+	subnameShort: "Long Death",
 	source : [["S", 130]],
 	features : {
 		"subclassfeature3" : {
@@ -11546,6 +11564,7 @@ AddSubClass("monk", "way of the long death", {
 AddSubClass("monk", "way of the sun soul", {
 	regExpSearch : /^(?=.*\bsun)(?=.*\b(soul|spirit))((?=.*(warrior|monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname : "Way of the Sun Soul",
+	subnameShort: "Sun Soul",
 	source : [["S", 131], ["X", 35]],
 	features : {
 		"subclassfeature3" : {
@@ -11647,6 +11666,7 @@ AddSubClass("monk", "way of the sun soul", {
 AddSubClass("paladin", "oath of the crown", {
 	regExpSearch : /^(?=.*(crown|king|country))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
 	subname : "Oath of the Crown",
+	subnameShort: "Crown",
 	source : [["S", 133]],
 	features : {
 		"subclassfeature3" : {
@@ -11950,6 +11970,7 @@ AddSubClass("warlock", "the undying", {
 AddSubClass("wizard", "bladesinging", {
 	regExpSearch : /(bladesinging|bladesinger)/i,
 	subname : "Tradition of Bladesinging",
+	subnameShort: "Bladesinging",
 	fullname : "Bladesinger",
 	attacks : [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	source : [["S", 142], ["T", 76]],
@@ -16755,8 +16776,9 @@ SourceList.X={
 AddSubClass("barbarian", "ancestral guardian", {
 	regExpSearch : /^(?=.*ancestral)(?=.*guardian).*$/i,
 	subname : "Path of the Ancestral Guardian",
-	source : [["X", 9]],
+	subnameShort: "Ancestral Guardian",
 	fullname : "Ancestral Guardian",
+	source : [["X", 9]],
 	features : {
 		"subclassfeature3" : {
 			name : "Ancestral Protectors",
@@ -16828,8 +16850,9 @@ AddSubClass("barbarian", "ancestral guardian", {
 AddSubClass("barbarian", "storm herald", {
 	regExpSearch : /^(?=.*storm)(?=.*herald).*$/i,
 	subname : "Path of the Storm Herald",
-	source : [["X", 10]],
+	subnameShort: "Storm Herald",
 	fullname : "Storm Herald",
+	source : [["X", 10]],
 	abilitySave : 3,
 	features : {
 		"subclassfeature3" : {
@@ -16977,8 +17000,9 @@ AddSubClass("barbarian", "storm herald", {
 AddSubClass("barbarian", "zealot", {
 	regExpSearch : /zealot/i,
 	subname : "Path of the Zealot",
-	source : [["X", 11]],
+	subnameShort: "Zealot",
 	fullname : "Zealot",
+	source : [["X", 11]],
 	features : {
 		"subclassfeature3" : {
 			name : "Divine Fury",
@@ -17066,6 +17090,7 @@ AddSubClass("barbarian", "zealot", {
 AddSubClass("bard", "college of glamour", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*glamour).*$/i,
 	subname : "College of Glamour",
+	subnameShort: "Glamour",
 	source : [["X", 14]],
 	features : {
 		"subclassfeature3" : {
@@ -17139,6 +17164,7 @@ AddSubClass("bard", "college of glamour", {
 AddSubClass("bard", "college of swords", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*\bswords?\b).*$/i,
 	subname : "College of Swords",
+	subnameShort: "Swords",
 	source : [["X", 15]],
 	attacks : [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
@@ -17188,6 +17214,7 @@ AddSubClass("bard", "college of swords", {
 AddSubClass("bard", "college of whispers", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*whispers).*$/i,
 	subname : "College of Whispers",
+	subnameShort: "Whispers",
 	source : [["X", 16]],
 	features : {
 		"subclassfeature3" : {
@@ -17419,6 +17446,7 @@ AddSubClass("cleric", "grave domain", {
 AddSubClass("druid", "circle of dreams", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*\bdreams\b).*$/i,
 	subname : "Circle of Dreams",
+	subnameShort: "Dreams",
 	source : [["X", 22]],
 	features : {
 		"subclassfeature2" : {
@@ -17512,6 +17540,7 @@ AddSubClass("druid", "circle of dreams", {
 AddSubClass("druid", "circle of the shepherd", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*shepherd).*$/i,
 	subname : "Circle of the Shepherd",
+	subnameShort: "Shepherd",
 	source : [["X", 23]],
 	features : {
 		"subclassfeature2" : {
@@ -17939,8 +17968,9 @@ AddSubClass("fighter", "samurai", {
 AddSubClass("monk", "way of the drunken master", {
 	regExpSearch : /^((?=.*drunken)(?=.*master))|((?=.*drunk)((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname : "Way of the Drunken Master",
-	source : [["X", 33]],
+	subnameShort: "Drunken Master",
 	fullname : "Drunken Master",
+	source : [["X", 33]],
 	features : {
 		"subclassfeature3" : {
 			name : "Bonus Proficiencies",
@@ -17984,8 +18014,9 @@ RunFunctionAtEnd(function () {
 	var theKenseiSubclassName = AddSubClass("monk", "way of the kensei", {
 		regExpSearch : /kensei/i,
 		subname : "Way of the Kensei",
-		source : [["X", 34]],
+		subnameShort: "Kensei",
 		fullname : "Kensei",
+		source : [["X", 34]],
 		features : {
 			"subclassfeature3" : {
 				name : "Path of the Kensei",
@@ -18093,6 +18124,7 @@ RunFunctionAtEnd(function () {
 AddSubClass("paladin", "oath of conquest", {
 	regExpSearch : /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Conquest",
+	subnameShort: "Conquest",
 	source : [["X", 37]],
 	features : {
 		"subclassfeature3" : {
@@ -18153,6 +18185,7 @@ AddSubClass("paladin", "oath of conquest", {
 AddSubClass("paladin", "oath of redemption", {
 	regExpSearch : /^((?=.*redeemer)|((?=.*redemption)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Redemption",
+	subnameShort: "Redemption",
 	source : [["X", 38]],
 	features : {
 		"subclassfeature3" : {
@@ -19331,8 +19364,8 @@ AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 AddSubClass("wizard", "war magic", {
 	regExpSearch : /^(?=.*war)(?=.*(wizard|magic|mage)).*$/i,
 	subname : "War Magic",
-	source : [["X", 59]],
 	fullname : "War Mage",
+	source : [["X", 59]],
 	features : {
 		"subclassfeature2" : { //has to be identical to a feature named in the ClassList
 			name : "Arcane Deflection",
@@ -23174,6 +23207,7 @@ AddSubClass("cleric", "order domain", {
 AddSubClass("druid", "circle of spores", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*spores).*$/i,
 	subname : "Circle of Spores",
+	subnameShort: "Spores",
 	source : [["T", 36], ["G", 26]],
 	features : {
 		"subclassfeature2" : {
@@ -30892,8 +30926,9 @@ AddSubClass("fighter", "echo knight", { // contains contributions by Smashman, @
 AddSubClass("wizard", "chronurgy magic", { // contains contributions by bassbogan on GitHub and @Nod_Hero#2046 on Discord
 	regExpSearch : /chronurgy|chronomancer|chronurgist/i,
 	subname : "Chronurgy Magic",
-	source : [["W", 184]],
+	subnameShort: "Chronurgy",
 	fullname : "Chronurgist",
+	source : [["W", 184]],
 	features : {
 		"subclassfeature2" : {
 			name : "Chronal Shift",
@@ -30973,8 +31008,9 @@ AddSubClass("wizard", "chronurgy magic", { // contains contributions by bassboga
 AddSubClass("wizard", "graviturgy magic", { // contains contributions by bassbogan on GitHub and @Nod_Hero#2046 on Discord
 	regExpSearch : /^((?=.*graviturgy)(?=.*(wizard|magic|mage))|gravimancer|graviturgist).*$/i,
 	subname : "Graviturgy Magic",
-	source : [["W", 185]],
+	subnameShort: "Graviturgy",
 	fullname : "Graviturgist",
+	source : [["W", 185]],
 	features : {
 		"subclassfeature2" : {
 			name : "Adjust Density",
@@ -33202,6 +33238,7 @@ RaceList["satyr"] = { // includes contributions by BraabHimself
 AddSubClass("bard", "college of eloquence", { // includes contributions by /u/Holynight6
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*eloquence).*$/i,
 	subname : "College of Eloquence",
+	subnameShort: "Eloquence",
 	source : [["T", 29], ["MOT", 28]],
 	features : {
 		"subclassfeature3" : {
@@ -33249,7 +33286,7 @@ AddSubClass("bard", "college of eloquence", { // includes contributions by /u/Ho
 				"I give a creature within 60 ft that can hear me an inspiration die without expending any"
 			]),
 			action : [["reaction", ""]],
-			usages : "Charisma mod per ",
+			usages : "Charisma modifier per ",
 			usagescalc : "event.value = Math.max(1, What('Cha Mod'));",
 			recovery : "long rest"
 		}
@@ -33258,6 +33295,7 @@ AddSubClass("bard", "college of eloquence", { // includes contributions by /u/Ho
 AddSubClass("paladin", "oath of glory", { // includes contributions by BraabHimself
 	regExpSearch : /^(((?=.*glory)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Glory",
+	subnameShort: "Glory",
 	source : [["T", 53], ["MOT", 29]],
 	features : {
 		"subclassfeature3" : {
@@ -36086,6 +36124,7 @@ AddFeatureChoice(ClassList.barbarian.features["feral instinct"], true, "Instinct
 AddSubClass("barbarian", "path of the beast", {
 	regExpSearch : /^(?=.*\bbeast\b)(?=.*(warrior|marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n)).*$/i,
 	subname : "Path of the Beast",
+	subnameShort: "Beast",
 	source : [["T", 24]],
 	abilitySave : 3,
 	features : {
@@ -36196,6 +36235,7 @@ AddSubClass("barbarian", "path of the beast", {
 AddSubClass("barbarian", "path of wild magic", {
 	regExpSearch : /^(?=.*\bwild\b)(?=.*\bmagic\b).*$/i,
 	subname : "Path of Wild Magic",
+	subnameShort: "Wild Magic",
 	source : [["T", 25]],
 	abilitySave : 3,
 	features : {
@@ -36319,6 +36359,7 @@ AddFeatureChoice(ClassList.bard.features["song of rest"], true, "Bardic Versatil
 AddSubClass("bard", "college of creation", {
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*creation).*$/i,
 	subname : "College of Creation",
+	subnameShort: "Creation",
 	source : [["T", 28]],
 	features : {
 		"subclassfeature3" : {
@@ -36357,7 +36398,7 @@ AddSubClass("bard", "college of creation", {
 			}),
 			action : [["action", ""]],
 			usages : 1,
-			recovery : typePF ? "LR" : "long rest",
+			recovery : "long rest",
 			altResource : "SS 2+"
 		},
 		"subclassfeature6" : {
@@ -36375,7 +36416,7 @@ AddSubClass("bard", "college of creation", {
 			]),
 			action : [["action", ""], ["bonus action", "Command Dancing Item"]],
 			usages : 1,
-			recovery : typePF ? "LR" : "long rest",
+			recovery : "long rest",
 			altResource : "SS 3+",
 			creaturesAdd : [["Dancing Item"]],
 			creatureOptions : [{
@@ -36587,6 +36628,7 @@ AddSubClass("cleric", "peace domain", {
 AddSubClass("cleric", "twilight domain", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(twilight|transition)).*$/i,
 	subname : "Twilight Domain",
+	subnameShort: "Twilight",
 	source : [["T", 34]],
 	spellcastingExtra : ["faerie fire", "sleep", "moonbeam", "see invisibility", "aura of vitality", "leomund's tiny hut", "aura of life", "greater invisibility", "circle of power", "mislead"],
 	features : {
@@ -36750,6 +36792,7 @@ AddFeatureChoice(ClassList.druid.features.druidic, true, "Cantrip Versatility", 
 AddSubClass("druid", "circle of the stars", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*circle)(?=.*stars).*$/i,
 	subname : "Circle of the Stars",
+	subnameShort: "Stars",
 	source : [["T", 38]],
 	features : {
 		"subclassfeature2" : {
@@ -36892,6 +36935,7 @@ AddSubClass("druid", "circle of the stars", {
 AddSubClass("druid", "circle of wildfire", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*wild.{0,1}fire).*$/i,
 	subname : "Circle of Wildfire",
+	subnameShort: "Wildfire",
 	source : [["T", 39]],
 	features : {
 		"subclassfeature2" : {
@@ -37604,6 +37648,7 @@ AddFeatureChoice(ClassList.monk.features["slow fall"], true, "Focused Aim (1-3 k
 AddSubClass("monk", "way of mercy", {
 	regExpSearch : /^(?=.*mercy)((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of Mercy",
+	subnameShort: "Mercy",
 	source : [["T", 49]],
 	features : {
 		"subclassfeature3" : {
@@ -37697,6 +37742,7 @@ AddSubClass("monk", "way of mercy", {
 AddSubClass("monk", "way of the astral self", {
 	regExpSearch : /^(?=.*astral)(?=.*(self|projection|travel))((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of the Astral Self",
+	subnameShort: "Astral Self",
 	source : [["T", 50]],
 	features : {
 		"subclassfeature3" : {
@@ -37882,6 +37928,7 @@ AddFeatureChoice(ClassList.paladin.features['divine health'], true, "Martial Ver
 AddSubClass("paladin", "oath of the watchers", {
 	regExpSearch : /^(?=.*watchers)((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname : "Oath of the Watchers",
+	subnameShort: "Watchers",
 	source : [["T", 54]],
 	features : {
 		"subclassfeature3" : {
@@ -39750,6 +39797,7 @@ AddFeatureChoice(ClassList.wizard.features["arcane recovery"], true, "Cantrip Fo
 AddSubClass("wizard","order of scribes", {
 	regExpSearch : /^(?=.*wizard)(?=.*order)(?=.*scribes?).*$|scrivener/i,
 	subname : "Order of Scribes",
+	subnameShort: "Scribes",
 	source : [["T", 77]],
 	features : {
 		"subclassfeature2" : {
@@ -42399,6 +42447,7 @@ RaceList["reborn"] = {
 AddSubClass("bard", "college of spirits",{
 	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*spirits?).*$/i,
 	subname : "College of Spirits",
+	subnameShort: "Spirits",
 	source : [["VRGtR", 28]],
 	features : {
 		"subclassfeature3" : {
@@ -43833,6 +43882,7 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 AddSubClass("monk", "ascendant dragon", {
 	regExpSearch : /^(?=.*ascendant)(?=.*(dragon|draconic))((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of the Ascendant Dragon",
+	subnameShort: "Ascendant Dragon",
 	source : [["FToD", 13]],
 	features : {
 		"subclassfeature3" : {
@@ -49931,6 +49981,7 @@ SourceList["GotG"] = {
 AddSubClass("barbarian", "giant", {
 	regExpSearch : /^((?=.*(marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n))|((?=.*(warrior|fighter))(?=.*(feral|tribal))))(?=.*giant).*$/i,
 	subname : "Path of the Giant",
+	subnameShort: "Giant",
 	source : [["GotG", 11]],
 	abilitySave : 1,
 	spellcastingAbility : 5,

@@ -15,6 +15,7 @@ SourceList["UA:PSO"] = {
 AddSubClass("paladin", "oath of conquest-ua", {
 	regExpSearch : /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
 	subname : "Oath of Conquest",
+	subnameShort: "Conquest",
 	source : [["UA:PSO", 1]],
 	features : {
 		"subclassfeature3" : {
@@ -67,6 +68,7 @@ AddSubClass("paladin", "oath of conquest-ua", {
 AddSubClass("paladin", "oath of treachery-ua", { // Still valid 2021-09-21
 	regExpSearch : /^((?=.*blackguard)|(((?=.*(treachery|tyranny|tyrant))(?=.*paladin))|((?=.*(profane|unholy))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
 	subname : "Oath of Treachery",
+	subnameShort: "Treachery",
 	source : [["UA:PSO", 2]],
 	features : {
 		"subclassfeature3" : {

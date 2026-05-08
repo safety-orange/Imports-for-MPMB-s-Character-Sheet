@@ -173,6 +173,7 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 AddSubClass("monk", "ascendant dragon", {
 	regExpSearch : /^(?=.*ascendant)(?=.*(dragon|draconic))((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
 	subname : "Way of the Ascendant Dragon",
+	subnameShort: "Ascendant Dragon",
 	source : [["FToD", 13]],
 	features : {
 		"subclassfeature3" : {

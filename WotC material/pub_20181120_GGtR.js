@@ -445,6 +445,7 @@ AddSubClass("cleric", "order domain", {
 AddSubClass("druid", "circle of spores", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*spores).*$/i,
 	subname : "Circle of Spores",
+	subnameShort: "Spores",
 	source : [["T", 36], ["G", 26]],
 	features : {
 		"subclassfeature2" : {

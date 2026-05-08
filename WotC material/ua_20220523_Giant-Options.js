@@ -14,6 +14,7 @@ SourceList["UA:GO"] = {
 AddSubClass("barbarian", "giant-ua", {
 	regExpSearch : /^((?=.*(marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n))|((?=.*(warrior|fighter))(?=.*(feral|tribal))))(?=.*giant).*$/i,
 	subname : "Path of the Giant",
+	subnameShort: "Giant",
 	source : [["UA:GO", 1]],
 	abilitySave : 1,
 	spellcastingAbility : 5,
@@ -122,6 +123,7 @@ AddSubClass("barbarian", "giant-ua", {
 AddSubClass("druid", "circle of the primeval-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*(primeval|behemoth)).*$/i,
 	subname : "Circle of the Primeval",
+	subnameShort: "Primeval",
 	source : [["UA:GO", 2]],
 	features : {
 		"subclassfeature2" : {
@@ -255,6 +257,7 @@ AddSubClass("druid", "circle of the primeval-ua", {
 AddSubClass("wizard", "runecrafter-ua", {
 	regExpSearch : /runecrafting|runecrafter/i,
 	subname : "Tradition of Runecrafting",
+	subnameShort: "Runecrafting",
 	fullname : "Runecrafter",
 	source : [["UA:GO", 3]],
 	features : {

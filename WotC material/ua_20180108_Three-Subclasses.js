@@ -15,6 +15,7 @@ SourceList["UA:TS"] = {
 AddSubClass("druid", "circle of spores-ua", {
 	regExpSearch : /^(?=.*(druid|shaman))(?=.*spores).*$/i,
 	subname : "Circle of Spores",
+	subnameShort: "Spores",
 	source : [["UA:TS", 1]],
 	features : {
 		"subclassfeature2" : {
@@ -162,8 +163,9 @@ RunFunctionAtEnd(function () {
 AddSubClass("wizard", "school of invention-ua", {
 	regExpSearch : /^(?=.*wizard)(?=.*invent(ion|or)).*$/i,
 	subname : "School of Invention",
-	source : [["UA:TS", 2]],
+	subnameShort: "Invention",
 	fullname : "Wizard (Inventor)",
+	source : [["UA:TS", 2]],
 	features : {
 		"subclassfeature2" : {
 			name : "Tools of the Inventor",
