@@ -222,17 +222,17 @@ AddSubClass("barbarian", "zealot", {
 				var rageDamageBonus = n < 9 ? 2 : n < 16 ? 3 : 4;
 				return n < 6 ? "" : "reroll save with +" + rageDamageBonus;
 			}),
-			usages: 1,
+			usages: "1\xD7 each ",
 			recovery: "Rage",
 		},
 		"subclassfeature10": {
 			name: "Zealous Presence",
 			source: [["P24", 57]],
 			minlevel: 10,
-			description: desc("As a Bonus Action, I can give up to 10 creatures of my choice within 60 ft Adv. on attacks and saves until my next turn starts. I can do this 1/LR and by expending a Rage use (RU)."),
+			description: desc("As a Bonus Action, I can give up to 10 creatures of my choice within 60 ft Adv. on attacks and saves until my next turn starts. I can expend a use of Rage to regain use of this."),
 			usages: 1,
 			recovery: "Long Rest",
-			altResource: "RU",
+			altResource: "Rage",
 			action: [["bonus action", ""]],
 		},
 		"subclassfeature14": {
@@ -245,6 +245,518 @@ AddSubClass("barbarian", "zealot", {
 			usages: 1,
 			recovery: "Long Rest",
 			action: [["reaction", " (Revivification)"]],
+		},
+	},
+});
+
+// Bard Subclasses
+AddSubClass("bard", "dance", {
+	regExpSearch: /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*dance).*$/i,
+	subname: "College of Dance",
+	subnameShort: "Dance",
+	source: [["P24", 64]],
+	features: {
+		"subclassfeature3": {
+			name: "Dazzling Footwork",
+			source: [["P24", 64]],
+			minlevel: 3,
+			description: desc([
+				"While I'm not wearing armor or wielding a Shield, I gain the following benefits:",
+				"***Dance Virtuoso***. I have Advantage on any Charisma (Performance) checks involving dancing.",
+				"***Unarmored Defense***. My AC is 10 + Dexterity modifier + Charisma modifier.",
+				"***Agile Strikes***. When I use Bardic Inspiration as part of an action, Bonus Action, or Reaction, I can make one Unarmed Strike as part of that action, Bonus Action, or Reaction.",
+				"***Bardic Damage***. My Unarmed Strikes can use Dexterity and deal damage equal to my BID.",
+			]),
+			calcChanges: {
+				atkAdd: [
+					function (fields, v) {
+						var n = classes.known.bard ? classes.known.bard.level : false;
+						if (n && v.baseWeaponName.indexOf("unarmed strike") !== -1) {
+							// Set the ability to the highest of Str and Dex, if currently one of those or lower than Str or Dex
+							if (fields.Mod === 1 || fields.Mod === 2 || What(AbilityScores.abbreviations[fields.Mod - 1] + " Mod") < What(AbilityScores.abbreviations[v.StrDex - 1] + " Mod")) {
+								fields.Mod = v.StrDex;
+							}
+							// Improve the damage die if there is one and the Bardic Inspiration Die is better
+							var bardInspDie = n < 5 ? 6 : n < 10 ? 8 : n < 15 ? 10 : 12;
+							var rxDice = /(\d+)d?(\d*)/;
+							if (rxDice.test(fields.Damage_Die)) {
+								var curDie = fields.Damage_Die.match(rxDice);
+								var curDieSize = Math.max(Number(curDie[1]), 1) * Math.max(Number(curDie[2]), 1);
+								if (curDieSize < bardInspDie) {
+									fields.Damage_Die = fields.Damage_Die.replace(curDie[0], '1d' + bardInspDie);
+								}
+							}
+						}
+					},
+					"Unarmed Strikes can use Dexterity and deal Bardic Inspiration Die damage.",
+				],
+			},
+			armorOptions: [{
+				regExpSearch: /justToAddToDropDownAndAffectWildShape/,
+				name: "Unarmored Defense (Cha)",
+				source: [["P24", 64]],
+				ac: "10+Cha",
+				affectsWildShape: true,
+				selectNow: true,
+			}],
+		},
+		"subclassfeature6": {
+			name: "Inspiring Movement",
+			source: [["P24", 64]],
+			minlevel: 6,
+			description: desc("As a Reaction when an enemy I can see ends its turn within 5 ft, I can expend a use of Bardic Inspiration to move up to half my Speed without provoking Opportunity Attacks. Then one ally of my choice within 30 ft can do the same with their Reaction."),
+			additional: "1 Bardic Inspiration",
+			action: [["reaction", " (1 BID)"]],
+		},
+		"subclassfeature6.1": {
+			name: "Tandem Footwork",
+			source: [["P24", 64]],
+			minlevel: 6,
+			description: desc("When I roll Initiative and I'm not Incapacitated, I can expend and roll one Bardic Inspiration Die and add it to the Initiative of every ally within 30 ft that can see or hear me."),
+			additional: "1 Bardic Inspiration",
+		},
+		"subclassfeature14": {
+			name: "Leading Evasion",
+			source: [["P24", 65]],
+			minlevel: 14,
+			description: " [if not Incapacitated]" + desc([
+				"When I make a Dex save to halve damage, I instead take none if I succeed and half if I fail.",
+				"I can share this benefit with creatures within 5 ft making the same save.",
+			]),
+			savetxt: { text: ["**Dex Save for Half**. *Failure:* half dmg, *Success:* no dmg"] },
+		},
+	},
+});
+AddSubClass("bard", "glamour", {
+	regExpSearch: /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*glamour).*$/i,
+	subname: "College of Glamour",
+	subnameShort: "Glamour",
+	source: [["P24", 65]],
+	features: {
+		"subclassfeature3": {
+			name: "Beguiling Magic",
+			source: [["P24", 65]],
+			minlevel: 3,
+			description: desc("Immediately after I use a spell slot to cast an Enchantment or Illusion spell, I can have a creature I can see within 60 ft make a Wisdom save or be either Charmed or Frightened for 1 minute, repeating the save as each of its turns end. I can expend a Bardic Inspiration Die to regain use of this. I always have *Charm Person* and *Mirror Image* prepared."),
+			usages: 1,
+			recovery: "Long Rest",
+			altResource: "BID",
+			spellcastingBonus: [{
+				name: "Beguiling Magic",
+				spells: ["charm person", "mirror image"],
+				selection: ["charm person", "mirror image"],
+				times: 2,
+				firstCol: "markedbox",
+			}],
+		},
+		"subclassfeature3.1": {
+			name: "Mantle of Inspiration",
+			source: [["P24", 65]],
+			minlevel: 3,
+			description: desc([
+				"As a Bonus Action, I can expend and roll a Bardic Inspiration Die to grant other creatures within 60 ft of me Temporary Hit Points equal to twice the number rolled, and then each can use its Reaction to move up to its Speed without provoking Opportunity Attacks.",
+				"I can choose up to my Charisma modifier (minimum 1) number of creatures to affect.",
+			]),
+			additional: levels.map(function (n) {
+				var bardInspDie = n < 5 ? 6 : n < 10 ? 8 : n < 15 ? 10 : 12;
+				return n < 3 ? "" : "1 BID; 1d" + bardInspDie + " \xD7 2 Temp HP";
+			}),
+			action: [["bonus action", ""]],
+		},
+		"subclassfeature6": {
+			name: "Mantle of Majesty",
+			source: [["P24", 65]],
+			minlevel: 6,
+			description: desc("As a Bonus Action, I can take on an unearthly appearance for 1 minute, requiring Concentration. When I do so and as a Bonus Action during, I can cast *Command* without using a spell slot. Creatures Charmed by me automatically fail their save against it. I can expend a level 3+ spell slot (SS 3+) to regain use of this. I always have *Command* prepared."),
+			usages: 1,
+			recovery: "Long Rest",
+			altResource: "SS 3+",
+			spellcastingBonus: [{
+				name: "Mantle of Majesty",
+				spells: ["command"],
+				selection: ["command"],
+				firstCol: "markedbox",
+			}],
+			action: [["bonus action", ""]],
+		},
+		"subclassfeature14": {
+			name: "Unbreakable Majesty",
+			source: [["P24", 66]],
+			minlevel: 14,
+			description: desc([
+				"As a Bonus Action, I can gain a majestic presence for 1 minute or until I'm Incapacitated.",
+				"While active, whenever any creature hits me with an attack roll for the first time on a turn, it has to make a Charisma save or miss instead.",
+			]),
+			usages: 1,
+			recovery: "Short Rest",
+			action: [["bonus action", ""]],
+		},
+	},
+});
+AddSubClass("bard", "valor", {
+	regExpSearch: /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*valor).*$/i,
+	subname: "College of Valor",
+	subnameShort: "Valor",
+	source: [["P24", 67]],
+	attacks: [1, 1, 1, 1, 2],
+	features: {
+		"subclassfeature3": {
+			name: "Combat Inspiration",
+			source: [["P24", 67]],
+			minlevel: 3,
+			description: desc([
+				"A creature that has a Bardic Inspiration Die (BID) from me can use it in one of these ways.",
+				"***Defense***. As a Reaction when hit by an attack, it can add the BID to " + (typePF ? "its " : "") + "AC against that attack.",
+				"***Offense***. After it hits with an attack roll, it can add the BID to that attack's damage.",
+			]),
+		},
+		"subclassfeature3.1": {
+			name: "Martial Training",
+			source: [["P24", 67]],
+			minlevel: 3,
+			description: desc([
+				"I have proficiency with Martial weapons, Medium armor, and Shields.",
+				"I can use a Simple or Martial weapon as a Spellcasting Focus for my Bard spells."
+			]),
+			armorProfs: [false, true, false, true],
+			weaponProfs: [false, true],
+		},
+		"subclassfeature6": {
+			name: "Extra Attack",
+			source: [["P24", 67]],
+			minlevel: 6,
+			description: desc([
+				"I can attack twice instead of once when I take the Attack action on my turn.",
+				"I can cast a cantrip with a casting time of one action in place of one of those attacks.",
+			]),
+			action: [["action", "1 Attack and cast Cantrip"]]
+		},
+		"subclassfeature14": {
+			name: "Battle Magic",
+			source: [["P24", 67]],
+			minlevel: 14,
+			description: desc("As a Bonus Action after I cast a spell that takes an action, I can make one weapon attack."),
+			action: [["bonus action", "Weapon attack (after cast spell)"]],
+		},
+	},
+});
+
+// Cleric subclasses
+
+// Druid subclasses
+
+// Druid Subclasses
+AddSubClass("druid", "moon", {
+	regExpSearch: /^(?=.*druid)((?=.*\bmoon\b)|((?=.*\bmany\b)(?=.*\bforms?\b))).*$/i,
+	subname: "Circle of the Moon",
+	subnameShort: "Moon",
+	source: [["P24", 86]],
+	features: {
+		"subclassfeature3": {
+			name: "Circle Forms",
+			source: [["P24", 86]],
+			minlevel: 3,
+			description: desc("The max CR for my Wild Shape forms is my Druid level divided by 3. While in WS, my AC can be 13 + my Wisdom modifier. I gain 3\xD7 my Druid level in temp HP when I shape-shift."),
+			wildshapePageInfo: {
+				duration: ClassList.druid.features["wild shape"].wildshapePageInfo.duration,
+				knownForms: ClassList.druid.features["wild shape"].wildshapePageInfo.knownForms,
+				tempHP: levels.map(function (n) {
+					return n < 3 ? n : n*3;
+				}),
+				limitations: levels.map(function (n) {
+					var CR = n < 3 ? "1/4" : Math.floor(n/3);
+					return n < 8 ? "max CR " + CR + ", no Fly Speed" : "CR " + CR + " or lower";
+				}),
+			},
+			"wild shape rules": {
+				name: "Circle Forms Wild Shape Rules",
+				source: [["P24", "80-86"]],
+				extraname: "Moon 3",
+				description: levels.map(function (n) {
+					if (n < 3) return "";
+					var tempHP = n*3;
+					var duration = Math.floor(n/2) + " hour" + (n > 3 ? "s" : "");
+					var knownForms = n < 4 ? 4 : n < 8 ? 6 : 8;
+					var CR = Math.floor(n/3);
+					var canFly = n < 8 ? "can't" : "can";
+					return desc([
+						"As a Bonus Action, I can expend a Wild Shape (WS) use to shape-shift into a known Beast form and gain **" + tempHP + " Temp HP** (3\xD7 Druid level). I stay in that form for **" + duration + "** (half Druid level), until I use Wild Shape again, end it as a Bonus Action, become Incapacitated, or die.",
+						"I know **" + knownForms + " forms** of **max CR " + CR + "** (one-third Druid level) that **" + canFly + " have a Fly Speed**. " + (typePF ? "Whenever I finish" : "After") + " a Long Rest, I can change one known form for another eligible Beast form.",
+						"In Wild Shape, I use the Beast's stats, but retain my type, HP, HD, Int, Wis, Cha, feats, class features, and ability to speak. I retain my skill and save proficiencies with my Prof Bonus and gain the beast's, using its bonus if higher. My AC is 13 + my Wisdom mod, unless the Beast's AC is higher. I can't cast spells except my Circle of the Moon Spells, but shape-shifting doesn't break concentration. I choose what equipment falls to the ground, merges, or stays worn.",
+						"Use the Wild Shape page to track known forms and their stats.",
+					]);
+				}),
+			},
+			autoSelectExtrachoices: [{
+				extrachoice: "wild shape rules",
+			}],
+			eval: function() {
+				// Remove the Wild Shape Rules set by the default Wild Shape feature so they can be replaced by the ones from this feature
+				ClassFeatureOptions(["druid", "wild shape", "wild shape rules", true], "remove");
+			},
+			removeeval: function(lvlA) {
+				// Return the Wild Shape Rules from the default Wild Shape feature as the ones from this feature are removed, but the new level is still 2 or higher
+				if (lvlA[1] >= 2) ClassFeatureOptions(["druid", "wild shape", "wild shape rules", true], "add");
+			},
+			calcChanges: {
+				wildshapeCallback: [
+					function(prefix, fieldNo, oWildshape, sCrea) {
+						oWildshape.acOptions.push({
+							name: "Circle of the Moon: Circle Forms",
+							ac: "13+Wis",
+						});
+					},
+					"While in Wild Shape, my AC equals 13 plus my Wisdom modifier if that total is higher than the Beast's AC.",
+				],
+			},
+		},
+		"subclassfeature3.1": {
+			name: "Circle of the Moon Spells",
+			source: [["P24", 86]],
+			minlevel: 3,
+			description: desc("I always have these spells prepared and can cast them even when I'm in a Wild Shape form."),
+			spellcastingExtra: ["starry wisp", "cure wounds", "moonbeam", "conjure animals", "fount of moonlight", "mass cure wounds"],
+		},
+		"subclassfeature6": {
+			name: "Improved Circle Forms",
+			source: [["P24", 87]],
+			minlevel: 6,
+			description: desc("While in Wild Shape form, I gain ***Lunar Radiance***: my attacks can deal Radiant damage, and ***Increased Toughness***: I add my Wisdom modifier to my Constitution saving throws."),
+			calcChanges: {
+				wildshapeCallback: [
+					function(prefix, fieldNo, oWildshape, sCrea) {
+						oWildshape.save.Con.creature.bonus += "+Wis";
+						if (!classes.known.druid) return;
+						var regularLunarRadiance = classes.known.druid.level < 14;
+						oWildshape.wildshapeTraits.push({
+							name: "Lunar Radiance",
+							description: regularLunarRadiance ? "(Moon 6). Attacks can deal Radiant." : "(Moon 14). Attacks can deal Radiant. Once per turn after a hit, deal +2d10 Radiant damage.",
+							joinString: " ",
+						});
+					},
+					"While in a Wild Shape form, I can have my attacks deal Radiant damage and I can add my Wisdom modifier to my Constitution saving throws. Once per turn from level 14 onwards, I can deal an extra 2d10 Radiant damage to a target I hit with a Wild Shape form's attack.",
+				],
+			},
+		},
+		"subclassfeature10": {
+			name: "Moonlight Step",
+			source: [["P24", 87]],
+			minlevel: 10,
+			description: levels.map(function (n) {
+				return n < 10 ? "" : n < 14 ?
+					desc("As a Bonus Action, I can teleport up to 30 ft to an empty space I can see, and I gain Adv. on my next attack roll this turn. I can expend a level 2+ spell slot (SS 2+) to regain 1 use.") :
+					desc("As a Bonus Action, I and a willing creature within 10 ft can teleport up to 30 ft to an empty space I can see, with the creature appearing within 10 ft of me. I then gain Adv. on my next attack roll this turn. I can expend a level 2+ spell slot (SS 2+) to regain 1 use.");
+			}),
+			usages: typePF ? "" : "Wisdom modifier per ",
+			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
+			altResource: "SS 2+",
+			recovery: "Long Rest",
+			action: [["bonus action", ""]],
+		},
+		"subclassfeature14": {
+			name: "Lunar Form",
+			source: [["P24", 87]],
+			minlevel: 14,
+			description: desc("***Improved Lunar Radiance***. Once per turn, I can deal +2d10 Radiant damage on a hit with a WS attack. ***Shared Moonlight***. I can bring along an ally with Moonlight Step, see above."),
+		},
+	},
+});
+AddSubClass("druid", "sea", {
+	regExpSearch: /^(?=.*druid)(?=.*\b(sea|waves|tides)\b).*$/i,
+	subname: "Circle of the Sea",
+	subnameShort: "Sea",
+	source: [["P24", 87]],
+	features: {
+		"subclassfeature3": {
+			name: "Wrath of the Sea",
+			source: [["P24", 87]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				var part = {
+					range: n < 6 ? 5 : 10,
+					target: n < 14 ? "" : " or around an ally within 60 ft that I can see, or around both by expending 2 WS uses",
+					turn: n < 14 ? "my turn" : "turns",
+					bearer: n < 14 ? "I" : "the bearer",
+					subject: n < 14 ? "I" : "they",
+				}
+				var text = [
+					"As a Bonus Action, I can expend 1 Wild Shape use to create a " + part.range + "-ft Emanation of ocean spray around me" + part.target + ". When manifested and as a Bonus Actions on " + part.turn + " thereafter, " + part.bearer + " can have a creature " + part.subject + " can see in the area make a Constitution save or take 1d6 Cold damage per my Wisdom modifier and, if it's Large or smaller, be pushed 15 ft away.",
+					"This lasts for 10 " + (typePF ? "minutes" : "min") + " or until I dismiss it (no action), manifest it again, or I'm Incapacitated.",
+				];
+				return desc(text);
+			}),
+			spellcastingExtra: ["ray of frost", "fog cloud", "thunderwave", "gust of wind", "shatter", "lightning bolt", "water breathing", "control water", "ice storm", "conjure elemental", "hold monster"],
+			action: [["bonus action", " (1 WS to create)"]],
+			additional: levels.map(function (n) {
+				var WSuses = n < 14 ? "1 WS use" : "1-2 WS uses";
+				var emanation = n < 6 ? 5 : 10;
+				return n < 3 ? "" : WSuses + "; Wis mod \xD7 d6 dmg; " + emanation + "-ft rad"
+			}),
+		},
+		"subclassfeature6": {
+			name: "Aquatic Affinity",
+			source: [["P24", 87]],
+			minlevel: 6,
+			description: desc("I gain a Swim Speed equal to my Speed and Wrath of the Sea is now a 10-ft Emanation."),
+			speed: { swim: { spd: "walk", end: "walk" } },
+		},
+		"subclassfeature10": {
+			name: "Stormborn",
+			source: [["P24", 87]],
+			minlevel: 10,
+			description: desc("While my Wrath of the Sea is active, it now also grants: ***Resistance*** to Cold, Lightning, and Thunder damage, and ***Flight***. A Fly Speed equal to my Speed."),
+			dmgres: [
+				["Cold",      "Cold (in WotS)"],
+				["Lightning", "Lightn. (in WotS)"],
+				["Thunder",   "Thunder (in WotS)"],
+			],
+		},
+		"subclassfeature14": {
+			name: "Oceanic Gift",
+			source: [["P24", 88]],
+			minlevel: 14,
+			description: desc([
+				"I can create Wrath of the Sea around an ally within 60 ft that I can see instead of myself, or around both my and the ally by expending 2 Wild Shape uses.",
+				"It grants all benefits to the bearer, but always uses my spell save DC and my Wisdom " + (typePF ? "modifier" : "mod") + ".",
+			]),
+		},
+	},
+});
+AddSubClass("druid", "stars", {
+	regExpSearch: /^(?=.*druid)(?=.*\b(stars?|constellations?)\b).*$/i,
+	subname: "Circle of the Stars",
+	subnameShort: "Stars",
+	source: [["P24", 88]],
+	features: {
+		"subclassfeature3": {
+			name: "Star Map",
+			source: [["P24", 88]],
+			minlevel: 3,
+			description: desc("I can use this Tiny object as my spellcasting focus. While holding it, I know *Guidance* and always have *Guiding Bolt* prepared, which I can cast my Wisdom mod times per Long Rest without a spell slot. I can recreate it with a 1-hour ceremony during a Short or Long Rest."),
+			additional: "Guiding Bolt",
+			usages: "Wisdom modifier per ",
+			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
+			recovery: "Long Rest",
+			spellcastingBonus: [{
+				name: "Star Map",
+				spells: ["guidance"],
+				selection: ["guidance"],
+			}, {
+				name: "Star Map",
+				spells: ["guiding bolt"],
+				selection: ["guiding bolt"],
+				firstCol: "oncelr+markedbox",
+			}],
+		},
+		"subclassfeature3.1": {
+			name: "Starry Form",
+			source: [["P24", 88]],
+			minlevel: 3,
+			description: desc([
+				"As a Bonus Action, I can expend a WS use to take on a glowing form with the benefits of a constellation (3rd page). I shed Bright Light in " + (typePF ? "10-ft radius" : "10 ft") + " and Dim Light for an additional 10 ft.",
+				"This lasts for 10 minutes or until I dismiss it (no action), use it again, or I'm Incapacitated.",
+			]),
+			action: [["bonus action", " (1 WS)"]],
+			additional: "1 Wild Shape use",
+			weaponOptions: [{
+				regExpSearch: /^(?=.*luminous)(?=.*arrow).*$/i,
+				name: "Luminous Arrow",
+				source: [["P24", 89]],
+				ability: 5,
+				type: "Spell",
+				damage: [1, 8, "radiant"],
+				range: "60 ft",
+				description: "Use as a Bonus Action",
+				abilitytodamage: true,
+				useSpellMod: "druid",
+				selectNow: true,
+				isLuminousArrow: true,
+			}],
+			extraname: "Starry Form",
+			"archer constellation": {
+				name: "Archer Constellation",
+				source: [["P24", 89]],
+				description: levels.map(function (n) {
+					return desc("As a Bonus Action, including the one to take this Starry Form, I can make a ranged spell attack to hurl a luminous arrow 60 ft that deals " + (n < 10 ? 1 : 2) + "d8 + Wisdom modifier Radiant damage.");
+				}),
+				additional: levels.map(function (n) {
+					return n < 3 ? "" : (n < 10 ? 1 : 2) + "d8 damage";
+				}),
+				action: [["bonus action", "Archer (Luminous Arrow)"]],
+			},
+			"chalice constellation": {
+				name: "Chalice Constellation",
+				source: [["P24", 89]],
+				description: levels.map(function (n) {
+					return desc("Whenever I cast a healing spell using a spell slot, I can also heal myself or another within 30 ft for " + (n < 10 ? 1 : 2) + "d8 + Wisdom modifier HP.");
+				}),
+				additional: levels.map(function (n) {
+					return n < 3 ? "" : (n < 10 ? 1 : 2) + "d8 healing";
+				}),
+			},
+			"dragon constellation": {
+				name: "Dragon Constellation",
+				source: [["P24", 89]],
+				description: levels.map(function (n) {
+					var text = [
+						"When I make an Intelligence or Wisdom check, or make a Con save to maintain Concentration,",
+						"I can treat a roll of 9 or lower on the d20 as a 10.",
+					];
+					if (n >= 10) text[1] += " I also gain 20 ft Fly Speed and can hover.";
+					return desc(text);
+				}),
+				additional: levels.map(function (n) {
+					return n < 10 ? "" : "gain Fly Speed";
+				}),
+			},
+			autoSelectExtrachoices : [{
+				extrachoice: "archer constellation",
+			}, {
+				extrachoice: "chalice constellation",
+			}, {
+				extrachoice: "dragon constellation",
+			}],
+		},
+		"subclassfeature6": {
+			name: "Cosmic Omen",
+			source: [["P24", 89]],
+			minlevel: 6,
+			description: desc([
+				"When I finish a Long Rest, I roll a die to determine which omen I can use until my next LR.",
+				"As a Reaction when I see a creature within 30 ft about to make a D20 test, I can use it to:",
+				"**Weal (even)**. Add 1d6 to the total. **Woe (odd)**. Subtract 1d6 from the total.",
+			]),
+			action: [["reaction", ""]],
+			usages: "Wisdom modifier per ",
+			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
+			recovery: "Long Rest",
+		},
+		"subclassfeature10": {
+			name: "Twinkling Constellations",
+			source: [["P24", 89]],
+			minlevel: 10,
+			description: " [improves constellations, see 3rd page]" + desc("While in my Starry Form, I can change the constellation at the start of each of my turns."),
+			calcChanges: {
+				atkAdd: [
+					function (fields, v) {
+						if (v.theWea.isLuminousArrow && fields.Damage_Die.indexOf('1d8') !== -1) {
+							fields.Damage_Die = fields.Damage_Die.replace('1d8', '2d8');
+						}
+					},
+					'',
+				],
+			},
+		},
+		"subclassfeature14": {
+			name: "Full of Stars",
+			source: [["P24", 89]],
+			minlevel: 14,
+			description: desc("While in my Starry Form, I have Resistance to Bludgeoning, Piercing, and Slashing damage."),
+			dmgres: [
+				["Bludgeoning", "Bludgeon. (in SF)"],
+				["Piercing",    "Piercing (in SF)"],
+				["Slashing",    "Slashing (in SF)"],
+			],
 		},
 	},
 });
@@ -474,7 +986,7 @@ AddSubClass("fighter", "battle master", {
 			name: "Know Your Enemy",
 			source: [["P24", 94]],
 			minlevel: 7,
-			description: desc("As a Bonus Action, I can learn the Immunities, Resistances, and Vulnerabilities of a creature I can see within 30 ft. I can do this once per Long Rest or by expending a Superiority Die."),
+			description: desc("As a Bonus Action, I can learn the Immunities, Resistances, and Vulnerabilities of a creature I can see within 30 ft. I can expend a Superiority Die to regain use of this."),
 			action: [["bonus action", ""]],
 			usages: 1,
 			recovery: "Long Rest",
@@ -485,322 +997,6 @@ AddSubClass("fighter", "battle master", {
 			source: [["P24", 94]],
 			minlevel: 15,
 			description: desc("Once per turn when I do a Maneuver, I can use a d8 instead of expending a Superiority Die."),
-		},
-	},
-});
-
-// Druid Subclasses
-AddSubClass("druid", "moon", {
-	regExpSearch: /^(?=.*druid)((?=.*\bmoon\b)|((?=.*\bmany\b)(?=.*\bforms?\b))).*$/i,
-	subname: "Circle of the Moon",
-	subnameShort: "Moon",
-	source: [["P24", 86]],
-	features: {
-		"subclassfeature3": {
-			name: "Circle Forms",
-			source: [["P24", 86]],
-			minlevel: 3,
-			description: desc("The max CR for my Wild Shape forms is my Druid level divided by 3. While in WS, my AC can be 13 + my Wisdom modifier. I gain 3\xD7 my Druid level in temp HP when I shape-shift."),
-			wildshapePageInfo: {
-				duration: ClassList.druid.features["wild shape"].wildshapePageInfo.duration,
-				knownForms: ClassList.druid.features["wild shape"].wildshapePageInfo.knownForms,
-				tempHP: levels.map(function (n) {
-					return n < 3 ? n : n*3;
-				}),
-				limitations: levels.map(function (n) {
-					var CR = n < 3 ? "1/4" : Math.floor(n/3);
-					return n < 8 ? "max CR " + CR + ", no Fly Speed" : "CR " + CR + " or lower";
-				}),
-			},
-			"wild shape rules": {
-				name: "Circle Forms Wild Shape Rules",
-				source: [["P24", "80-86"]],
-				extraname: "Moon 3",
-				description: levels.map(function (n) {
-					if (n < 3) return "";
-					var tempHP = n*3;
-					var duration = Math.floor(n/2) + " hour" + (n > 3 ? "s" : "");
-					var knownForms = n < 4 ? 4 : n < 8 ? 6 : 8;
-					var CR = Math.floor(n/3);
-					var canFly = n < 8 ? "can't" : "can";
-					return desc([
-						"As a Bonus Action, I can expend a Wild Shape (WS) use to shape-shift into a known Beast form and gain **" + tempHP + " Temp HP** (3\xD7 Druid level). I stay in that form for **" + duration + "** (half Druid level), until I use Wild Shape again, end it as a Bonus Action, become Incapacitated, or die.",
-						"I know **" + knownForms + " forms** of **max CR " + CR + "** (one-third Druid level) that **" + canFly + " have a Fly Speed**. " + (typePF ? "Whenever I finish" : "After") + " a Long Rest, I can change one known form for another eligible Beast form.",
-						"In Wild Shape, I use the Beast's stats, but retain my type, HP, HD, Int, Wis, Cha, feats, class features, and ability to speak. I retain my skill and save proficiencies with my Prof Bonus and gain the beast's, using its bonus if higher. My AC is 13 + my Wisdom mod, unless the Beast's AC is higher. I can't cast spells except my Circle of the Moon Spells, but shape-shifting doesn't break concentration. I choose what equipment falls to the ground, merges, or stays worn.",
-						"Use the Wild Shape page to track known forms and their stats.",
-					]);
-				}),
-			},
-			autoSelectExtrachoices: [{
-				extrachoice: "wild shape rules",
-			}],
-			eval: function() {
-				// Remove the Wild Shape Rules set by the default Wild Shape feature so they can be replaced by the ones from this feature
-				ClassFeatureOptions(["druid", "wild shape", "wild shape rules", true], "remove");
-			},
-			removeeval: function(lvlA) {
-				// Return the Wild Shape Rules from the default Wild Shape feature as the ones from this feature are removed, but the new level is still 2 or higher
-				if (lvlA[1] >= 2) ClassFeatureOptions(["druid", "wild shape", "wild shape rules", true], "add");
-			},
-			calcChanges: {
-				wildshapeCallback: [
-					function(prefix, fieldNo, oWildshape, sCrea) {
-						oWildshape.acOptions.push({
-							name: "Circle of the Moon: Circle Forms",
-							ac: "13+Wis",
-						});
-					},
-					"While in Wild Shape, my AC equals 13 plus my Wisdom modifier if that total is higher than the Beast's AC.",
-				],
-			},
-		},
-		"subclassfeature3.1": {
-			name: "Circle of the Moon Spells",
-			source: [["P24", 86]],
-			minlevel: 3,
-			description: desc("I always have these spells prepared and can cast them even when I'm in a Wild Shape form."),
-			spellcastingExtra: ["starry wisp", "cure wounds", "moonbeam", "conjure animals", "fount of moonlight", "mass cure wounds"],
-		},
-		"subclassfeature6": {
-			name: "Improved Circle Forms",
-			source: [["P24", 87]],
-			minlevel: 6,
-			description: desc("While in Wild Shape form, I gain ***Lunar Radiance***: my attacks can deal Radiant damage, and ***Increased Toughness***: I add my Wisdom modifier to my Constitution saving throws."),
-			calcChanges: {
-				wildshapeCallback: [
-					function(prefix, fieldNo, oWildshape, sCrea) {
-						oWildshape.save.Con.creature.bonus += "+Wis";
-						if (!classes.known.druid) return;
-						var regularLunarRadiance = classes.known.druid.level < 14;
-						oWildshape.wildshapeTraits.push({
-							name: "Lunar Radiance",
-							description: regularLunarRadiance ? "(Moon 6). Attacks can deal Radiant." : "(Moon 14). Attacks can deal Radiant. Once per turn after a hit, deal +2d10 Radiant damage.",
-							joinString: " ",
-						});
-					},
-					"While in a Wild Shape form, I can have my attacks deal Radiant damage and I can add my Wisdom modifier to my Constitution saving throws. Once per turn from level 14 onwards, I can deal an extra 2d10 Radiant damage to a target I hit with a Wild Shape form's attack.",
-				],
-			},
-		},
-		"subclassfeature10": {
-			name: "Moonlight Step",
-			source: [["P24", 87]],
-			minlevel: 10,
-			description: levels.map(function (n) {
-				return n < 10 ? "" : n < 14 ?
-					desc("As a Bonus Action, I can teleport up to 30 ft to an empty space I can see, and I gain Adv. on my next attack roll this turn. I can expend a level 2 spell slot (SS 2+) to regain 1 use.") :
-					desc("As a Bonus Action, I and a willing creature within 10 ft can teleport up to 30 ft to an empty space I can see, with the creature appearing within 10 ft of me. I then gain Adv. on my next attack roll this turn. I can expend a level 2 spell slot (SS 2+) to regain 1 use.");
-			}),
-			usages: typePF ? "" : "Wisdom modifier per ",
-			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
-			altResource: "SS 2+",
-			recovery: "Long Rest",
-			action: [["bonus action", ""]],
-		},
-		"subclassfeature14": {
-			name: "Lunar Form",
-			source: [["P24", 87]],
-			minlevel: 14,
-			description: desc("***Improved Lunar Radiance***. Once per turn, I can deal +2d10 Radiant damage on a hit with a WS attack. ***Shared Moonlight***. I can bring along an ally with Moonlight Step, see above."),
-		},
-	},
-});
-AddSubClass("druid", "sea", {
-	regExpSearch: /^(?=.*druid)(?=.*\b(sea|waves|tides)\b).*$/i,
-	subname: "Circle of the Sea",
-	subnameShort: "Sea",
-	source: [["P24", 87]],
-	features: {
-		"subclassfeature3": {
-			name: "Wrath of the Sea",
-			source: [["P24", 87]],
-			minlevel: 3,
-			description: levels.map(function (n) {
-				var part = {
-					range: n < 6 ? 5 : 10,
-					target: n < 14 ? "" : " or around an ally within 60 ft that I can see, or around both by expending 2 WS uses",
-					turn: n < 14 ? "my turn" : "turns",
-					bearer: n < 14 ? "I" : "the bearer",
-					subject: n < 14 ? "I" : "they",
-				}
-				var text = [
-					"As a Bonus Action, I can expend 1 Wild Shape use to create a " + part.range + "-ft Emanation of ocean spray around me" + part.target + ". When manifested and as a Bonus Actions on " + part.turn + " thereafter, " + part.bearer + " can have a creature " + part.subject + " can see in the area make a Constitution save or take 1d6 Cold damage per my Wisdom modifier and, if it's Large or smaller, be pushed 15 ft away.",
-					"This lasts for 10 " + (typePF ? "minutes" : "min") + " or until I dismiss it (no action), manifest it again, or I'm Incapacitated.",
-				];
-				return desc(text);
-			}),
-			spellcastingExtra: ["ray of frost", "fog cloud", "thunderwave", "gust of wind", "shatter", "lightning bolt", "water breathing", "control water", "ice storm", "conjure elemental", "hold monster"],
-			action: [["bonus action", " (1 WS to create)"]],
-			additional: levels.map(function (n) {
-				var WSuses = n < 14 ? "1 WS use" : "1-2 WS uses";
-				var emanation = n < 6 ? 5 : 10;
-				return n < 3 ? "" : WSuses + "; Wis mod \xD7 d6 dmg; " + emanation + "-ft rad"
-			}),
-		},
-		"subclassfeature6": {
-			name: "Aquatic Affinity",
-			source: [["P24", 87]],
-			minlevel: 6,
-			description: desc("I gain a Swim Speed equal to my Speed and Wrath of the Sea is now a 10-ft Emanation."),
-			speed: { swim: { spd: "walk", end: "walk" } },
-		},
-		"subclassfeature10": {
-			name: "Stormborn",
-			source: [["P24", 87]],
-			minlevel: 10,
-			description: desc("While my Wrath of the Sea is active, it now also grants: ***Resistance*** to Cold, Lightning, and Thunder damage, and ***Flight***. A Fly Speed equal to my Speed."),
-			dmgres: [
-				["Cold",      "Cold (in WotS)"],
-				["Lightning", "Lightn. (in WotS)"],
-				["Thunder",   "Thunder (in WotS)"],
-			],
-		},
-		"subclassfeature14": {
-			name: "Oceanic Gift",
-			source: [["P24", 88]],
-			minlevel: 14,
-			description: desc([
-				"I can create Wrath of the Sea around an ally within 60 ft that I can see instead of myself, or around both my and the ally by expending 2 Wild Shape uses.",
-				"It grants all benefits to the bearer, but always uses my spell save DC and my Wisdom " + (typePF ? "modifier" : "mod") + ".",
-			]),
-		},
-	},
-});
-AddSubClass("druid", "stars", {
-	regExpSearch: /^(?=.*druid)(?=.*\b(stars?|constellations?)\b).*$/i,
-	subname: "Circle of the Stars",
-	subnameShort: "Stars",
-	source: [["P24", 88]],
-	features: {
-		"subclassfeature3": {
-			name: "Star Map",
-			source: [["P24", 88]],
-			minlevel: 3,
-			description: desc("I can use this Tiny object as my spellcasting focus. While holding it, I know *Guidance* and always have *Guiding Bolt* prepared, which I can cast my Wisdom mod times per Long Rest without a spell slot. I can recreate it with a 1-hour ceremony during a Short or Long Rest."),
-			additional: "Guiding Bolt",
-			usages: "Wisdom modifier per ",
-			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
-			recovery: "Long Rest",
-			spellcastingBonus: [{
-				name: "Star Map",
-				spells: ["guidance"],
-				selection: ["guidance"],
-			}, {
-				name: "Star Map",
-				spells: ["guiding bolt"],
-				selection: ["guiding bolt"],
-				firstCol: "oncelr+markedbox",
-			}],
-		},
-		"subclassfeature3.1": {
-			name: "Starry Form",
-			source: [["P24", 88]],
-			minlevel: 3,
-			description: desc([
-				"As a Bonus Action, I can expend a WS use to take on a glowing form with the benefits of a constellation (3rd page). I shed Bright Light in " + (typePF ? "10-ft radius" : "10 ft") + " and Dim Light for an additional 10 ft.",
-				"This lasts for 10 minutes or until I dismiss it (no action), use it again, or I'm Incapacitated.",
-			]),
-			action: [["bonus action", " (1 WS)"]],
-			additional: "1 Wild Shape use",
-			weaponOptions: [{
-				regExpSearch: /^(?=.*luminous)(?=.*arrow).*$/i,
-				name: "Luminous Arrow",
-				source: [["P24", 89]],
-				ability: 5,
-				type: "Spell",
-				damage: [1, 8, "radiant"],
-				range: "60 ft",
-				description: "Use as a Bonus Action",
-				abilitytodamage: true,
-				useSpellMod: "druid",
-				selectNow: true,
-				isLuminousArrow: true,
-			}],
-			extraname: "Starry Form",
-			"archer constellation": {
-				name: "Archer Constellation",
-				source: [["P24", 89]],
-				description: levels.map(function (n) {
-					return desc("As a Bonus Action, including the one to take this Starry Form, I can make a ranged spell attack to hurl a luminous arrow 60 ft that deals " + (n < 10 ? 1 : 2) + "d8 + Wisdom modifier Radiant damage.");
-				}),
-				additional: levels.map(function (n) {
-					return n < 3 ? "" : (n < 10 ? 1 : 2) + "d8 damage";
-				}),
-				action: [["bonus action", "Archer (Luminous Arrow)"]],
-			},
-			"chalice constellation": {
-				name: "Chalice Constellation",
-				source: [["P24", 89]],
-				description: levels.map(function (n) {
-					return desc("Whenever I cast a healing spell using a spell slot, I can also heal myself or another within 30 ft for " + (n < 10 ? 1 : 2) + "d8 + Wisdom modifier HP.");
-				}),
-				additional: levels.map(function (n) {
-					return n < 3 ? "" : (n < 10 ? 1 : 2) + "d8 healing";
-				}),
-			},
-			"dragon constellation": {
-				name: "Dragon Constellation",
-				source: [["P24", 89]],
-				description: levels.map(function (n) {
-					var text = [
-						"When I make an Intelligence or Wisdom check, or make a Con save to maintain Concentration,",
-						"I can treat a roll of 9 or lower on the d20 as a 10.",
-					];
-					if (n >= 10) text[1] += " I also gain 20 ft Fly Speed and can hover.";
-					return desc(text);
-				}),
-				additional: levels.map(function (n) {
-					return n < 10 ? "" : "gain Fly Speed";
-				}),
-			},
-			autoSelectExtrachoices : [{
-				extrachoice: "archer constellation",
-			}, {
-				extrachoice: "chalice constellation",
-			}, {
-				extrachoice: "dragon constellation",
-			}],
-		},
-		"subclassfeature6": {
-			name: "Cosmic Omen",
-			source: [["P24", 89]],
-			minlevel: 6,
-			description: desc([
-				"When I finish a Long Rest, I roll a die to determine which omen I can use until my next LR.",
-				"As a Reaction when I see a creature within 30 ft about to make a D20 test, I can use it to:",
-				"**Weal (even)**. Add 1d6 to the total. **Woe (odd)**. Subtract 1d6 from the total.",
-			]),
-			action: [["reaction", ""]],
-			usages: "Wisdom modifier per ",
-			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
-			recovery: "Long Rest",
-		},
-		"subclassfeature10": {
-			name: "Twinkling Constellations",
-			source: [["P24", 89]],
-			minlevel: 10,
-			description: " [improves constellations, see 3rd page]" + desc("While in my Starry Form, I can change the constellation at the start of each of my turns."),
-			calcChanges: {
-				atkAdd: [
-					function (fields, v) {
-						if (v.theWea.isLuminousArrow && fields.Damage_Die.indexOf('1d8') !== -1) {
-							fields.Damage_Die = fields.Damage_Die.replace('1d8', '2d8');
-						}
-					},
-					'',
-				],
-			},
-		},
-		"subclassfeature14": {
-			name: "Full of Stars",
-			source: [["P24", 89]],
-			minlevel: 14,
-			description: desc("While in my Starry Form, I have Resistance to Bludgeoning, Piercing, and Slashing damage."),
-			dmgres: [
-				["Bludgeoning", "Bludgeon. (in SF)"],
-				["Piercing",    "Piercing (in SF)"],
-				["Slashing",    "Slashing (in SF)"],
-			],
 		},
 	},
 });
@@ -889,6 +1085,18 @@ AddSubClass("monk", "shadow", {
 		},
 	},
 });
+
+// Paladin Subclasses
+
+// Ranger Subclasses
+
+// Rogue Subclasses
+
+// Sorcerer Subclasses
+
+// Warlock Subclasses
+
+// Wizard Subclasses
 
 // Backgrounds and their corresponding Background Features (which grant the origin feats)
 BackgroundList["artisan"] = {
