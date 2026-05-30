@@ -1,12 +1,12 @@
 var iFileName = "pub_20240917_PHB.js";
-RequiredSheetVersion("24.0.6-beta");
+RequiredSheetVersion("24.0.8-beta");
 // This file adds material from the 2024 Player's Handbook that isn't in the SRD v5.2.1 to MPMB's Character Record Sheet
 
 // Define the source
 SourceList["P24"] = {
 	name: "2024 Player's Handbook",
 	abbreviation: "PHB'24",
-	abbreviationSpellsheet: "P2",
+	abbreviationSpellsheet: "PH",
 	group: "Primary Sources",
 	url: "https://marketplace.dndbeyond.com/core-rules/3709000",
 	date: "2024/09/17",
@@ -65,7 +65,7 @@ AddSubClass("barbarian", "wild heart", {
 				name: "Panther Aspect of the Wilds",
 				description: desc([
 					"I have a Climb Speed equal to my Speed.",
-					"After I finish a Long Rest, I can switch to: ***Owl*** (+60ft Darkvision) or ***Salmon*** (Swim Speed).",
+					"After I finish a Long Rest, I can switch to: ***Owl*** (+60 ft Darkvision) or ***Salmon*** (Swim Speed).",
 				]),
 				speed: { climb: { spd: "walk", enc: "walk" } },
 			},
@@ -229,7 +229,7 @@ AddSubClass("barbarian", "zealot", {
 			name: "Zealous Presence",
 			source: [["P24", 57]],
 			minlevel: 10,
-			description: desc("As a Bonus Action, I can give up to 10 creatures of my choice within 60 ft Adv. on attacks and saves until my next turn starts. I can expend a use of Rage to regain use of this."),
+			description: desc("As a Bonus Action, I can give up to 10 creatures of my choice within 60 ft Adv on attacks and saves until my next turn starts. I can expend a use of Rage to restore use of this action."),
 			usages: 1,
 			recovery: "Long Rest",
 			altResource: "Rage",
@@ -337,7 +337,7 @@ AddSubClass("bard", "glamour", {
 			name: "Beguiling Magic",
 			source: [["P24", 65]],
 			minlevel: 3,
-			description: desc("Immediately after I use a spell slot to cast an Enchantment or Illusion spell, I can have a creature I can see within 60 ft make a Wisdom save or be either Charmed or Frightened for 1 minute, repeating the save as each of its turns end. I can expend a Bardic Inspiration Die to regain use of this. I always have *Charm Person* and *Mirror Image* prepared."),
+			description: desc("Immediately after I use a spell slot to cast an Enchantment or Illusion spell, I can have a creature I can see within 60 ft make a Wisdom save or be either Charmed or Frightened for 1 minute, repeating the save as each of its turns end. I can expend a Bardic Inspiration Die to restore use of this feature. I always have *Charm Person* and *Mirror Image* prepared."),
 			usages: 1,
 			recovery: "Long Rest",
 			altResource: "BID",
@@ -367,7 +367,7 @@ AddSubClass("bard", "glamour", {
 			name: "Mantle of Majesty",
 			source: [["P24", 65]],
 			minlevel: 6,
-			description: desc("As a Bonus Action, I can take on an unearthly appearance for 1 minute, requiring Concentration. When I do so and as a Bonus Action during, I can cast *Command* without using a spell slot. Creatures Charmed by me automatically fail their save against it. I can expend a level 3+ spell slot (SS 3+) to regain use of this. I always have *Command* prepared."),
+			description: desc("As a Bonus Action, I can take on an unearthly appearance for 1 minute, requiring Concentration. When I do so and as a Bonus Action during, I can cast *Command* without using a spell slot. Creatures Charmed by me automatically fail their save against it. I can expend a level 3+ spell slot (SS 3+) to restore use of this. I always have *Command* prepared."),
 			usages: 1,
 			recovery: "Long Rest",
 			altResource: "SS 3+",
@@ -442,8 +442,184 @@ AddSubClass("bard", "valor", {
 });
 
 // Cleric subclasses
-
-// Druid subclasses
+AddSubClass("cleric", "light", {
+	regExpSearch: /^(?=.*(cleric|priest|clergy|acolyte))(?=.*\b(light|sun|shining)\b).*$/i,
+	subname: "Light Domain",
+	source: [["P24", 74]],
+	features: {
+		"subclassfeature3": {
+			name: "Radiance of the Dawn",
+			source: [["P24", 74]],
+			minlevel: 3,
+			description: levels.map(function(n) {
+				return desc(
+					"As a Magic action, I can use 1 CD and my Holy Symbol to emit a 30-ft Emanation of light that dispels magical Darkness within. Creatures of my choice in that area take 2d10 + " + n + " (Cleric level) Radiant damage. They can make a Constitution save to halve the damage."
+				);
+			}),
+			spellcastingExtra: ["burning hands", "faerie fire", "scorching ray", "see invisibility", "daylight", "fireball", "arcane eye", "wall of fire", "flame strike", "scrying"],
+			additional: levels.map(function(n) {
+				return "1 Channel Divinity; 2d10+" + n;
+			}),
+			action: [["action", " (Channel Divinity)"]],
+		},
+		"subclassfeature3.1": { // includes Improved Warding Flame
+			name: "Warding Flame",
+			source: [["P24", 74]],
+			minlevel: 3,
+			description: levels.map(function(n) {
+				return desc(
+					n < 6 ?
+					"As a Reaction when a creature that I can see within 30 ft makes an attack, I can impose Disadvantage on the roll, causing light to flare before it hits or misses."
+					: "As a Reaction when a creature that I can see within 30 ft makes an attack, I can impose Disadvantage on the roll and grant its target 2d6 + my Wisdom modifier Temporary HP."
+				);
+			}),
+			action: [["reaction", ""]],
+			usages: "Wisdom modifier per ",
+			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
+			recovery: levels.map(function (n) {
+				return n < 3 ? "" : n < 6 ? "Long Rest" : "Short Rest";
+			}),
+		},
+		"subclassfeature6": {
+			name: "Improved Warding Flame",
+			source: [["P24", 75]],
+			minlevel: 6,
+			description: " [see Warding Flame]",
+		},
+		"subclassfeature17": {
+			name: "Corona of Light",
+			source: [["P24", 75]],
+			minlevel: 17,
+			description: desc([
+				"As a Magic action, I can emit sunlight for 1 minute or until I dismiss it (no action).",
+				"This sunlight is 60-ft radius Bright Light and 30 ft Dim Light beyond that.",
+				"Enemies in the Bright Light have Disadvantage on their saving throws against my Radiance of the Dawn and any spell that deals Fire or Radiant damage.",
+			]),
+			action: [["action", ""]],
+			usages: "Wisdom modifier per ",
+			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
+			recovery: "Long Rest",
+		},
+	},
+});
+AddSubClass("cleric", "trickery", {
+	regExpSearch: /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(trickery|trickster|illusion)).*$/i,
+	subname: "Trickery Domain",
+	source: [["P24", 75]],
+	features: {
+		"subclassfeature3": {
+			name: "Blessing of the Trickster",
+			source: [["P24", 75]],
+			minlevel: 3,
+			description: desc("As a Magic action, I can give myself or an ally within 30 ft Advantage on Dexterity (Stealth) checks until I finish a Long Rest or use this feature again."),
+			spellcastingExtra: ["charm person", "disguise self", "invisibility", "pass without trace", "hypnotic pattern", "nondetection", "confusion", "dimension door", "dominate person", "modify memory"],
+			action: [["action", ""]],
+		},
+		"subclassfeature3.1": { // includes Trickster's Transposition and Improved Duplicity
+			name: "Invoke Duplicity",
+			source: [["P24", 75]],
+			minlevel: 3,
+			description: levels.map(function(n) {
+				var txt = [
+					"As a Bonus Action, I can expend a Channel Divinity to create a perfect visual illusionary duplicate of myself (VID) in an unoccupied space that I can see within 30 ft.",
+					"The VID is intangible, doesn't occupy its space, is animated, and mimics my expressions and gestures. The VID lasts for 1 minute or until I dismiss it (no action) or I'm Incapacitated.",
+					" \u2022 ***Cast Spells***. I can cast spells as though I were in the VID's space, but use my own senses.",
+					" \u2022 ***Distract***. When both I and the ID are within 5 ft of a creature that can see the ID, I have Advantage on attack rolls against the creature.",
+					" \u2022 ***Move***. As a Bonus Action, I can move the VID up to 30 ft to an unoccupied space I can see within 120 ft.",
+				];
+				if (n >= 6) { // Trickster's Transposition
+					txt[0] = "As a Bonus Action, I can expend 1 CD to create a visual illusionary duplicate of myself (VID) in an empty space that I can see within 30 ft. I can then teleport, swapping places with it.";
+					txt[4] = txt[4].slice(0, -1) + " and, optionally, teleport to swap places with it.";
+				}
+				if (n >= 17) { // Improved Duplicity
+					txt.splice(3, 1);
+					txt = txt.concat([
+						" \u2022 ***Shared Distraction***. Allies and I have Adv on attacks vs creatures within 5 ft of the VID.",
+						" \u2022 ***Healing Illusion***. When the VID ends, I or another within 5 ft of it heals "  + n  + " HP (" + (typePF ? "Cleric " : "") + "level).",
+					]);
+				}
+				return desc(txt);
+			}),
+			additional: "1 Channel Divinity",
+			action: [["bonus action", " (1 CD/move)"]],
+		},
+		"subclassfeature6": {
+			name: "Trickster's Transposition",
+			source: [["P24", 76]],
+			minlevel: 6,
+			description: " [swap with VID, see above]" + desc(
+				"Whenever I create or move the VID, I can teleport, swapping places with the VID."
+			),
+		},
+		"subclassfeature17": {
+			name: "Improved Duplicity",
+			source: [["P24", 76]],
+			minlevel: 17,
+			description: " [improves Invoke Duplicity]",
+		},
+	},
+});
+AddSubClass("cleric", "war", {
+	regExpSearch: /^(?=.*(cleric|priest|clergy|acolyte))(?=.*\b(war|fighting|conflict)\b).*$/i,
+	subname: "War Domain",
+	source: [["P24", 76]],
+	features: {
+		"subclassfeature3": {
+			name: "Guided Strike",
+			source: [["P24", 77]],
+			minlevel: 3,
+			description: desc("When I or a creature within 30 ft misses an attack, I can use 1 CD to give a +10 bonus to the roll, potentially causing it to hit. I must take a Reaction to use feature this on another."),
+			spellcastingExtra: ["guiding bolt", "shield of faith", "magic weapon", "spiritual weapon", "crusader's mantle", "spirit guardians", "fire shield", "freedom of movement", "hold monster", "steel wind strike"],
+			additional: "1 Channel Divinity",
+			action: [["reaction", " on other (CD)"]],
+		},
+		"subclassfeature3.1": {
+			name: "War Priest",
+			source: [["P24", 77]],
+			minlevel: 3,
+			description: desc("As a Bonus Action, I can make one attack with a weapon or an Unarmed Strike."),
+			action: [["bonus action", ""]],
+			usages: "Wisdom modifier per ",
+			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
+			recovery: "Short Rest",
+		},
+		"subclassfeature6": {
+			name: "War God's Blessing",
+			source: [["P24", 77]],
+			minlevel: 6,
+			description: desc([
+				"I can cast *Shield of Faith* or *Spiritual Weapon* by expending 1 CD instead of a spell slot.",
+				"When I cast either spell this way, it doesn't require Concentration and lasts for 1 minute or until I cast it again, become Incapacitated, or die.",
+			]),
+			additional: "1 Channel Divinity",
+			spellcastingBonus: [{
+				name: "War God's Blessing",
+				spells: ["shield of faith", "spiritual weapon"],
+				selection: ["shield of faith", "spiritual weapon"],
+				times: 2,
+				firstCol: "CD",
+			}],
+			spellChanges: {
+				"shield of faith": {
+					duration: "1 min/recast",
+					changes: "Using War God's Blessing, I can cast this spell by expending a Channel Divinity instead of a spell slot. When cast this way, the spell doesn't require Concentration and lasts for 1 minute or until I cast it again, become Incapacitated, or die.",
+				},
+				"spiritual weapon": {
+					duration: "1 min/recast",
+					changes: "Using War God's Blessing, I can cast this spell by expending a Channel Divinity instead of a spell slot. When cast this way, the spell doesn't require Concentration, is cast at its lowest level, and lasts for 1 minute or until I cast it again, become Incapacitated, or die.",
+					allowUpCasting: false,
+				},
+			},
+		},
+		"subclassfeature17": {
+			name: "Avatar of Battle",
+			source: [["P24", 77]],
+			minlevel: 17,
+			description: desc("I gain Resistance to Bludgeoning, Piercing, and Slashing damage."),
+			dmgres: ["Bludgeoning", "Piercing", "Slashing"],
+		},
+	},
+});
 
 // Druid Subclasses
 AddSubClass("druid", "moon", {
@@ -482,7 +658,7 @@ AddSubClass("druid", "moon", {
 					return desc([
 						"As a Bonus Action, I can expend a Wild Shape (WS) use to shape-shift into a known Beast form and gain **" + tempHP + " Temp HP** (3\xD7 Druid level). I stay in that form for **" + duration + "** (half Druid level), until I use Wild Shape again, end it as a Bonus Action, become Incapacitated, or die.",
 						"I know **" + knownForms + " forms** of **max CR " + CR + "** (one-third Druid level) that **" + canFly + " have a Fly Speed**. " + (typePF ? "Whenever I finish" : "After") + " a Long Rest, I can change one known form for another eligible Beast form.",
-						"In Wild Shape, I use the Beast's stats, but retain my type, HP, HD, Int, Wis, Cha, feats, class features, and ability to speak. I retain my skill and save proficiencies with my Prof Bonus and gain the beast's, using its bonus if higher. My AC is 13 + my Wisdom mod, unless the Beast's AC is higher. I can't cast spells except my Circle of the Moon Spells, but shape-shifting doesn't break concentration. I choose what equipment falls to the ground, merges, or stays worn.",
+						"In Wild Shape, I use the Beast's stats, but retain my type, HP, HD, Int, Wis, Cha, feats, class features, and ability to speak. I retain my skill and save proficiencies with my Prof Bonus and gain the beast's, using its bonus if higher. My AC is 13 + Wisdom modifier, unless the Beast's AC is higher. I can't cast spells except my Circle of the Moon Spells, but shape-shifting doesn't break concentration. I choose what equipment falls to the ground, merges, or stays worn.",
 						"Use the Wild Shape page to track known forms and their stats.",
 					]);
 				}),
@@ -544,8 +720,8 @@ AddSubClass("druid", "moon", {
 			minlevel: 10,
 			description: levels.map(function (n) {
 				return n < 10 ? "" : n < 14 ?
-					desc("As a Bonus Action, I can teleport up to 30 ft to an empty space I can see, and I gain Adv. on my next attack roll this turn. I can expend a level 2+ spell slot (SS 2+) to regain 1 use.") :
-					desc("As a Bonus Action, I and a willing creature within 10 ft can teleport up to 30 ft to an empty space I can see, with the creature appearing within 10 ft of me. I then gain Adv. on my next attack roll this turn. I can expend a level 2+ spell slot (SS 2+) to regain 1 use.");
+					desc("As a Bonus Action, I can teleport up to 30 ft to an empty space I can see, and I gain Adv on my next attack roll this turn. I can expend a level 2+ spell slot (SS 2+) to regain 1 use.") :
+					desc("As a Bonus Action, I and a willing creature within 10 ft can teleport up to 30 ft to an empty space I can see, with the creature appearing within 10 ft of me. I then gain Adv on my next attack roll this turn. I can expend a level 2+ spell slot (SS 2+) to regain 1 use.");
 			}),
 			usages: typePF ? "" : "Wisdom modifier per ",
 			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
@@ -617,7 +793,7 @@ AddSubClass("druid", "sea", {
 			minlevel: 14,
 			description: desc([
 				"I can create Wrath of the Sea around an ally within 60 ft that I can see instead of myself, or around both my and the ally by expending 2 Wild Shape uses.",
-				"It grants all benefits to the bearer, but always uses my spell save DC and my Wisdom " + (typePF ? "modifier" : "mod") + ".",
+				"It grants all benefits to the bearer, but always uses my spell save DC and my " + (typePF ? "Wisdom" : "Wis") + " modifier.",
 			]),
 		},
 	},
@@ -632,7 +808,7 @@ AddSubClass("druid", "stars", {
 			name: "Star Map",
 			source: [["P24", 88]],
 			minlevel: 3,
-			description: desc("I can use this Tiny object as my spellcasting focus. While holding it, I know *Guidance* and always have *Guiding Bolt* prepared, which I can cast my Wisdom mod times per Long Rest without a spell slot. I can recreate it with a 1-hour ceremony during a Short or Long Rest."),
+			description: desc("I can use this Tiny object as my spellcasting focus. While holding it, I know *Guidance* and always have *Guiding Bolt* prepared, which I can cast my " + (typePF ? "Wisdom" : "Wis") + " modifier times per Long Rest without a spell slot. I can recreate it with a 1-hour ceremony during a Short or Long Rest."),
 			additional: "Guiding Bolt",
 			usages: "Wisdom modifier per ",
 			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
@@ -791,7 +967,7 @@ AddSubClass("fighter", "battle master", {
 			minlevel: 3,
 			description: desc([
 				"I can expend one Superiority Die to do a Maneuver I know, but only one per attack.",
-				"The save DC for my Maneuvers is 8 + my Prof. Bonus + my Str or Dex modifier (my choice).",
+				"The save DC for my Maneuvers is 8 + PB + Strength or Dexterity modifier (my choice).",
 			]),
 			additional: levels.map(function (n) {
 				return n < 3 ? "" : (n < 7 ? 3 : n < 10 ? 5 : n < 15 ? 7 : 9) + " known";
@@ -843,7 +1019,7 @@ AddSubClass("fighter", "battle master", {
 				name: "Distracting Strike",
 				extraname: "Maneuver",
 				source: [["P24", 95]],
-				description: desc("When I hit a creature with an attack, I can expend and add 1 SD to the damage. The next attack vs. the target by another than me has Advantage, if made before my next turn starts."),
+				description: desc("When I hit a creature with an attack, I can expend and add 1 SD to the damage. The next attack vs the target by another than me has Advantage, if made before my next turn starts."),
 				additional: "add SD to damage",
 			},
 			"evasive footwork": {
@@ -869,7 +1045,7 @@ AddSubClass("fighter", "battle master", {
 				name: "Goading Attack",
 				extraname: "Maneuver",
 				source: [["P24", 95]],
-				description: desc("When I hit a creature with an attack, I can expend and add 1 SD to the damage. The target must make a Wis save or have Disadvantage on attacks not vs. me until my next turn ends."),
+				description: desc("When I hit a creature with an attack, I can expend and add 1 SD to the damage. The target must make a Wis save or have Disadvantage on attacks not vs me until my next turn ends."),
 				additional: "add SD to damage",
 			},
 			"lunging attack": {
@@ -986,7 +1162,7 @@ AddSubClass("fighter", "battle master", {
 			name: "Know Your Enemy",
 			source: [["P24", 94]],
 			minlevel: 7,
-			description: desc("As a Bonus Action, I can learn the Immunities, Resistances, and Vulnerabilities of a creature I can see within 30 ft. I can expend a Superiority Die to regain use of this."),
+			description: desc("As a Bonus Action, I can learn the Immunities, Resistances, and Vulnerabilities of a creature I can see within 30 ft. I can expend a Superiority Die to restore use of this feature."),
 			action: [["bonus action", ""]],
 			usages: 1,
 			recovery: "Long Rest",
@@ -997,6 +1173,222 @@ AddSubClass("fighter", "battle master", {
 			source: [["P24", 94]],
 			minlevel: 15,
 			description: desc("Once per turn when I do a Maneuver, I can use a d8 instead of expending a Superiority Die."),
+		},
+	},
+});
+var PHB_EldritchKnight = {
+	cantrips: levels.map(function (n) {
+		return n < 3 ? 0 : n < 10 ? 2 : 3;
+	}),
+	spells: [0, 0, 3, 4, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 11, 11, 12, 13],
+};
+AddSubClass("fighter", "eldritch knight", {
+	regExpSearch:
+		/^(?!.*(exalted|sacred|holy|divine|nature|natural|purple.*dragon|green|arcane archer))(?=.*(knight|fighter|warrior|militant|warlord|phalanx|gladiator|trooper))(?=.*\b(eldritch|arcane|magic|mage|witch)\b).*$/i,
+	subname: "Eldritch Knight",
+	fullname: "Eldritch Knight",
+	source: [["P24", 96]],
+	abilitySave: 4,
+	spellcastingFactor: 3,
+	spellcastingList: {
+		class: "wizard",
+		level: [0, 4],
+	},
+	spellcastingKnown: {
+		cantrips: PHB_EldritchKnight.cantrips,
+		spells: PHB_EldritchKnight.spells,
+	},
+	features: {
+		"subclassfeature3": {
+			name: "Spellcasting",
+			source: [["P24", 97]],
+			minlevel: 3,
+			description: desc(
+				"I can cast Wizard cantrips/spells I know, using Intelligence as spellcasting ability. I can use Arcane Focus as Spellcasting Focus for them. I can swap 1 spell when I gain a Fighter level."
+			),
+			additional: levels.map(function (n, i) {
+				return n < 3 ? "" : PHB_EldritchKnight.cantrips[i] + " cantrips \x26 " + PHB_EldritchKnight.spells[i] + " spells known";
+			}),
+		},
+		"subclassfeature3.1": {
+			name: "War Bond",
+			source: [["P24", 98]],
+			minlevel: 3,
+			description: desc([
+				"I can bond with up to two weapons by spending a Short Rest with each.",
+				"The bond fails if another Fighter is bonded or someone else is attuned to the weapon.",
+				"I can't be disarmed of a bonded weapon and I can summon one as a Bonus Action.",
+			]),
+			action: [["bonus action", " (summon)"]],
+		},
+		"subclassfeature7": {
+			name: "War Magic",
+			source: [["P24", 98]],
+			minlevel: 7,
+			description: desc("When I take the Attack action, I can replace one of the attacks with casting one of my Wizard cantrips that has a casting time of one action."),
+		},
+		"subclassfeature10": {
+			name: "Eldritch Strike",
+			source: [["P24", 98]],
+			minlevel: 10,
+			description: desc("A creature hit by my weapon attack has Disadvantage on the next save it makes against a spell that I cast before the end of my next turn."),
+		},
+		"subclassfeature15": {
+			name: "Arcane Charge",
+			source: [["P24", 98]],
+			minlevel: 15,
+			description: desc([
+				"When I use Action Surge, I can also teleport up to 30 ft to an empty space I can see.",
+				"I can do so before or after the extra action.",
+			]),
+		},
+		"action surge": Object.assign({}, ClassList.fighter.features["action surge"], {
+			additional: levels.map(function (n) {
+				return n < 15 ? "" : "30 ft teleport";
+			}),
+		}),
+		"subclassfeature18": {
+			name: "Improved War Magic",
+			source: [["P24", 98]],
+			minlevel: 18,
+			description: desc("When I take the Attack action, I can replace two of the attacks with casting one of my level 1 or level 2 Wizard spells that has a casting time of one action."),
+		},
+	},
+});
+var PHB_PsiDSize = levels.map(function (n) {
+	return n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12;
+});
+AddSubClass("fighter", "psi warrior", {
+	regExpSearch: /^(?=.*\bpsi(onic)?s?\b)(?=.*warrior).*$/i,
+	subname: "Psi Warrior",
+	fullname: "Psi Warrior",
+	source: [["P24", 98]],
+	abilitySave: 4,
+	features: {
+		"subclassfeature3": {
+			name: "Psionic Energy Dice",
+			source: [["P24", 98]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				var txt = "";
+				if (n < 18) {
+					txt = desc([
+						"I gain a pool of Psionic Energy Dice (PsiD) that fuel my Psi Warrior abilities.",
+						"I regain one expended PsiD on a Short Rest and regain all PsiD after a Long Rest.",
+					]);
+				} else if (n < 20) {
+					txt = desc("I regain one expended Psionic Energy Die (PsiD) on a Short Rest, and all after a Long Rest.");
+				}
+				return txt;
+			}),
+			additional: "regain 1/SR",
+			usages: levels.map(function (n, i) {
+				if (n < 3) return "";
+				var diceNumber =  n < 5 ? 4 : n < 9 ? 6 : n < 13 ? 8 : n < 17 ? 10 : 12;
+				return diceNumber + "d" + PHB_PsiDSize[i] + " per ";
+			}),
+			recovery: "Long Rest",
+		},
+		"subclassfeature3.1": {
+			name: "Protective Field",
+			source: [["P24", 98]],
+			minlevel: 3,
+			description: levels.map(function (n, i) {
+				return desc("As a Reaction when I or a creature that I can see within 30 ft takes damage, I can expend 1 Psionic Energy Die to reduce the damage by 1d" + PHB_PsiDSize[i] + " (PsiD) + my Intelligence modifier.");
+			}),
+			action: [["reaction", ""]],
+			additional: "1 PsiD",
+		},
+		"subclassfeature3.2": {
+			name: "Psionic Strike",
+			source: [["P24", 98]],
+			minlevel: 3,
+			description: levels.map(function (n, i) {
+				var txt = "";
+				if (n < 7) {
+					txt = "Once per turn when I damage a target within 30 ft with a weapon attack, I can expend 1 Psionic Energy Die to deal it Force damage equal to 1d" + PHB_PsiDSize[i] + " (PsiD) + my Intelligence modifier.";
+				} else {
+					txt = "Once per turn when I damage a target within 30 ft with a weapon attack, I can expend 1 PsiD to deal it 1d" + PHB_PsiDSize[i] + " (PsiD) + " + (typePF ? "Intelligence" : "Int") + " modifier Force damage. I can then also have it make a " + (typePF ? "Strength" : "Str") + " save (DC 8 + PB + Int mod) or be knocked Prone or transported 10 ft horizontally.";
+				}
+				return desc(txt);
+			}),
+			additional: "1 PsiD",
+		},
+		"subclassfeature3.3": {
+			name: "Telekinetic Movement",
+			source: [["P24", 98]],
+			minlevel: 3,
+			description: desc(
+				"As a Magic action, I can choose a \u2264Large object or one willing creature that I can see within 30 ft and teleport it up to 30 ft to an empty space that I can see. If it's a Tiny object, I can teleport it to or from my hand. I can expend a " + (typePF ? "Psionic Energy Die" : "PsiD") + " to restore use of this feature."
+			),
+			action: [["action", ""]],
+			usages: 1,
+			recovery: "Short Rest",
+			altResource: "PsiD",
+		},
+		"subclassfeature7": {
+			name: "Telekinetic Thrust",
+			source: [["P24", 99]],
+			minlevel: 7,
+			description: " [improves Psionic Strike, see above]",
+		},
+		"subclassfeature7.1": {
+			name: "Psi-Powered Leap",
+			source: [["P24", 99]],
+			minlevel: 7,
+			description: desc(
+				"As a Bonus Action, I can gain a Fly Speed equal to twice my Speed until the end of the turn." + (typePF ? "\n" : " ") + "I can expend a Psionic Energy Die to restore use of this feature."
+			),
+			action: [["bonus action", ""]],
+			usages: 1,
+			recovery: "Short Rest",
+			altResource: "PsiD",
+		},
+		"subclassfeature10": {
+			name: "Guarded Mind",
+			source: [["P24", 99]],
+			minlevel: 10,
+			description: desc(
+				"If I start my turn being Charmed or Frightened, I can expend 1 PsiD (no action) to end every effect on myself giving me those conditions. I gain Resistance to Psychic damage."
+			),
+			additional: "1 PsiD",
+			dmgres: ["Psychic"],
+		},
+		"subclassfeature15": {
+			name: "Bulwark of Force",
+			source: [["P24", 99]],
+			minlevel: 15,
+			description: desc(
+				"As a Bonus Action, I can choose Int mod of creatures within 30 ft, including myself, to have Half Cover for 1 min or until I'm Incapacitated. I can expend a PsiD to restore use of this" + (typePF ? " feature." : ".")
+			),
+			action: [["bonus action", ""]],
+			usages: 1,
+			recovery: "Long Rest",
+			altResource: "PsiD",
+		},
+		"subclassfeature18": {
+			name: "Telekinetic Master",
+			source: [["P24", 99]],
+			minlevel: 18,
+			description: desc(
+				"I always have Telekinesis prepared. I can cast it without using a spell slot or components, with Intelligence as spellcasting ability. As a Bonus Action on my turns while Concentrating on this, I can make one attack with a weapon. I can expend a PsiD to restore use of this" + (typePF ? " feature." : ".")
+			),
+			spellcastingBonus: [{
+				name: "Telekinetic Master",
+				spells: ["telekinesis"],
+				selection: ["telekinesis"],
+				firstCol: "oncelr",
+			}],
+			spellChanges: {
+				telekinesis: {
+					components: "",
+					changes: "My Telekinetic Master feature allows me to cast Telekinesis without requiring components or expending a spell slot once per Long Rest or by expending a Psionic Energy Die.",
+				},
+			},
+			action: [["bonus action", "Weapon attack if conc on Telekinesis"]],
+			usages: 1,
+			recovery: "Long Rest",
+			altResource: "PsiD",
 		},
 	},
 });
@@ -1091,6 +1483,303 @@ AddSubClass("monk", "shadow", {
 // Ranger Subclasses
 
 // Rogue Subclasses
+var PHB_ArcaneTrickster = {
+	cantrips: levels.map(function (n) {
+		return n < 3 ? 0 : n < 10 ? 2 : 3;
+	}),
+	spells: [0, 0, 3, 4, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 11, 11, 12, 13],
+};
+AddSubClass("rogue", "arcane trickster", {
+	regExpSearch: /^(?=.*(trickster|rogue|miscreant))(?=.*\b(eldritch|arcane|magic|mage|witch)\b).*$/i,
+	subname: "Arcane Trickster",
+	fullname: "Arcane Trickster",
+	source: [["P24", 132]],
+	spellcastingAbility: 4,
+	spellcastingFactor: 3,
+	spellcastingList: {
+		class: "wizard",
+		level: [0, 4],
+	},
+	spellcastingKnown: {
+		cantrips: PHB_ArcaneTrickster.cantrips,
+		spells: PHB_ArcaneTrickster.spells,
+	},
+	features: {
+		"subclassfeature3": {
+			name: "Spellcasting",
+			source: [["P24", 132]],
+			minlevel: 3,
+			description: desc(
+				"I can cast Wizard cantrips/spells I know, using Intelligence as spellcasting ability. I can use Arcane Focus as Spellcasting Focus for them. I can swap 1 spell when I gain a Rogue level."
+			),
+			additional: levels.map(function (n, i) {
+				return n < 3 ? "" : PHB_ArcaneTrickster.cantrips[i] + " cantrips \x26 " + PHB_ArcaneTrickster.spells[i] + " spells known";
+			}),
+		},
+		"subclassfeature3.1": {
+			name: "Mage Hand Legerdemain",
+			source: [["P24", 133]],
+			minlevel: 3,
+			description: desc(
+				"I can cast *Mage Hand* as a Bonus Action and can make the hand Invisible. I can control it as a Bonus Action and through it can make Dexterity (Sleight of Hand) checks."
+			),
+			spellChanges: {
+				"mage hand": {
+					time: "Bns",
+					description: "(In)visible hand, carries \u226410lb; Bns to control \x26 move 30ft; make Sleight of Hand checks; ends if recast",
+					changes: "My Mage Hand Legerdemain class feature makes Mage Hand a Bonus Action to cast and control, enables Dexterity (Sleight of Hand) checks and can make the spectral hand invisible.",
+				},
+			},
+			spellcastingBonus: [{
+				name: "Mage Hand cantrip",
+				spells: ["mage hand"],
+				selection: ["mage hand"],
+			}],
+		},
+		"subclassfeature9": {
+			name: "Magical Ambush",
+			source: [["P24", 133]],
+			minlevel: 9,
+			description: desc(
+				"If I have the Invisible condition when I cast a spell on a creature, it has Disadvantage on any saving throw it makes against the spell on the same turn."
+			),
+		},
+		"subclassfeature13": {
+			name: "Versatile Trickster",
+			source: [["P24", 133]],
+			minlevel: 13,
+			description: " [improves Cunning Strike: Trip]",
+		},
+		// Update Trip cunning strike option
+		"cunning strike": Object.assign({}, ClassList.rogue.features["cunning strike"], {
+			trip: Object.assign({}, ClassList.rogue.features["cunning strike"].trip, {
+				description: levels.map(function (n) {
+					var originalDescription = ClassList.rogue.features["cunning strike"].trip.description;
+					return n < 13 ? originalDescription : originalDescription + " I can also do the same to a target within 5 ft of my *Mage Hand*.";
+				}),
+			}),
+		}),
+		"subclassfeature17": {
+			name: "Spell Thief",
+			source: [["P24", 133]],
+			minlevel: 17,
+			description: desc(
+				"As a Reaction after a creature casts a spell that targets me or includes me in its area, I can have the creature make an Intelligence save (spell save DC) or I negate the spell's effect against me. If the spell is at least level 1 and of a level I can cast, I steal its knowledge and for the next 8 hours, I have it prepared and the creature can't cast it during that time."
+			),
+			additional: "if spell stolen",
+			usages: 1,
+			recovery: "Long Rest",
+			action: [["reaction", ""]],
+		},
+	},
+});
+AddSubClass("rogue", "assassin", {
+	regExpSearch: /^(?!.*(barbarian|bard|cleric|druid|fighter|monk|paladin|ranger|sorcerer|warlock|wizard))(?=.*assassin).*$/i,
+	subname: "Assassin",
+	fullname: "Assassin",
+	source: [["P24", 134]],
+	abilitySave: 2,
+	features: {
+		"subclassfeature3": {
+			name: "Assassinate",
+			source: [["P24", 134]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				return desc([
+					"***Surprising Strikes***. During the first round of combat, my Sneak Attack deals +" + n + " damage (Rogue level), and I have Advantage on attacks against creatures that haven't taken a turn.",
+					"***Initiative***. I have Advantage on Initiative rolls.",
+				]);
+			}),
+			advantages: [["Initiative", true]],
+			additional: levels.map(function (n) {
+				return n < 3 ? "" : "+" + n + " Sneak Attack damage on 1st round"
+			}),
+		},
+		"subclassfeature3.1": {
+			name: "Assassin's Tools",
+			source: [["P24", 134]],
+			minlevel: 3,
+			description: desc("I gain a Disguise Kit and a Poisoner's Kit and have proficiency with them."),
+			toolProfs: ["Disguise Kit", "Poisoner's Kit"],
+			eval: function() {
+				// Perhaps first ask the user if they want these added and include a warning that they aren't automatically removed when this feature is removed...
+				[ToolsList["disguise kit"], ToolsList["poisoner's kit"]].forEach(function (kit) {
+					AddToInv("gear", "l", kit.name, "", kit.weight);
+				});
+			},
+		},
+		"subclassfeature9": {
+			name: "Infiltration Expertise",
+			source: [["P24", 134]],
+			minlevel: 9,
+			description: desc(
+				"***Masterful Mimicry***. I can mimic another person's speech and handwriting if I spend 1 hour studying them. ***Roving Aim***. My Speed isn't reduced to 0 by using Steady Aim."
+			),
+		},
+		// Update Steady Aim to remove the Speed = 0 sentence from level 9 onwards
+		"steady aim": Object.assign({}, ClassList.rogue.features["steady aim"], {
+			description: levels.map(function (n) {
+				var originalDescription = ClassList.rogue.features["steady aim"].description;
+				return n < 9 ? originalDescription : originalDescription.match(/[\s\S]*?\./)[0];
+			}),
+		}),
+		"subclassfeature13": {
+			name: "Envenom Weapons",
+			source: [["P24", 134]],
+			minlevel: 13,
+			description: " [improves Cunning Strike: Poison]",
+		},
+		// Update Cunning Strike: Poison option to include the extra damage from level 13 onwards
+		"cunning strike": Object.assign({}, ClassList.rogue.features["cunning strike"], {
+			poison: Object.assign({}, ClassList.rogue.features["cunning strike"].poison, {
+				description: levels.map(function (n) {
+					return n < 13 ? ClassList.rogue.features["cunning strike"].poison.description : desc(
+						"If I have a Poisoner's Kit on my person, I can add a toxin to my strike. The target must make a Constitution save or be Poisoned for 1 min and take 2d6 Poison damage. It can repeat the save at the end of each of its turns to end this or take 2d6 Poison damage on a failure. Damage from this feature ignores Resistance to Poison damage."
+					);
+				}),
+			}),
+		}),
+		"subclassfeature17": {
+			name: "Death Strike",
+			source: [["P24", 134]],
+			minlevel: 17,
+			description: desc(
+				"When I hit with my Sneak Attack on the first round of a combat, the target must succeed on a Constitution saving throw (DC 8 + Dexterity modifier + Proficiency Bonus), or the attack's damage is doubled."
+			),
+		},
+	},
+});
+AddSubClass("rogue", "soulknife", {
+	regExpSearch: /soulknife/i,
+	subname: "Soulknife",
+	fullname: "Soulknife",
+	source: [["P24", 135]],
+	features: {
+		"subclassfeature3": {
+			name: "Psionic Energy Dice",
+			source: [["P24", 135]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				return n >= 18 ? "" : desc([
+					"I gain a pool of Psionic Energy Dice (PsiD) that fuel my Soulknife abilities.",
+					"I regain one expended PsiD on a Short Rest and regain all PsiD after a Long Rest.",
+				]);
+			}),
+			additional: "regain 1/SR",
+			usages: levels.map(function (n, i) {
+				if (n < 3) return "";
+				var diceNumber = n < 5 ? 4 : n < 9 ? 6 : n < 13 ? 8 : n < 17 ? 10 : 12;
+				return diceNumber + "d" + PHB_PsiDSize[i] + " per ";
+			}),
+			recovery: "Long Rest",
+		},
+		"subclassfeature3.1": {
+			name: "Psionic Power",
+			source: [["P24", 135]],
+			minlevel: 3,
+			description: levels.map(function (n, i) {
+				return desc([
+					"***Psi-Bolstered Knack***. If I fail an ability check using a skill or tool with which I am proficient, I can add +1d" + PHB_PsiDSize[i] + " (PsiD) to the check. The PsiD is only expended if the check then succeeds.",
+					"***Psychic Whispers (1/LR or PsiD)***. As a Magic action, I can choose up to Prof Bonus creatures that I can see. For 1d" + PHB_PsiDSize[i] + " (PsiD) hours, while within 1 mile, I can communicate telepathically with each. Each can end (no action). I can expend a PsiD to restore use of this feature.",
+				]);
+			}),
+			action: [["action", "Psychic Whispers"]],
+			extraLimitedFeatures: [{
+				name: "Psychic Whispers",
+				usages: 1,
+				recovery: "Long Rest",
+				altResource: "PsiD",
+			}],
+		},
+		"subclassfeature3.2": {
+			name: "Psychic Blades",
+			source: [["P24", 136]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				return n < 17 ? " (see third page)" : undefined;
+			}),
+			action: [["bonus action", "Psychic Blade 1d4 (after Attack action)"]],
+			weaponOptions: [{
+				regExpSearch: /^(?=.*psychic)(?=.*blade).*$/i,
+				name: "Psychic Blade",
+				source: [["P24", 136]],
+				ability: 1,
+				type: "Simple",
+				damage: [1, 6, "psychic"],
+				range: "Melee, 60/120 ft",
+				description: "Finesse, Thrown; Bonus Action: 1d4 instead of 1d6",
+				abilitytodamage: true,
+				selectNow: true,
+				mastery: "vex",
+				masteryAlways: true,
+			}],
+			"psychic blades": {
+				name: "Psychic Blades",
+				extraname: "Soulknife 3",
+				description: desc([
+					"Whenever I take the Attack action or make an Opportunity Attack, I can make the attack with a Psychic Blade. I require a free hand to manifest a blade. The blade disappears after the attack and leaves no mark.",
+					"As a Bonus Action after I attack with the blade on my turn, I can make an attack with a second psychic blade on the same turn if I have my other hand free to create it. The damage die of this attack is 1d4.",
+				]),
+			},
+			"psychic blade: vex": {
+				name: "Psychic Blade: Vex",
+				extraname: "Psychic Blades, Soulknife 3",
+				description: desc(WeaponMasteriesList.vex.description),
+			},
+			autoSelectExtrachoices: [{
+				extrachoice: "psychic blades",
+			}, {
+				extrachoice: "psychic blade: vex",
+			}],
+		},
+		"subclassfeature9": {
+			name: "Soul Blades",
+			source: [["P24", 136]],
+			minlevel: 9,
+			description: levels.map(function (n, i) {
+				return desc([
+					"***Homing Strikes***. If I make an attack with Psychic Blade and miss, I can add +1d" + PHB_PsiDSize[i] + " (PsiD) to the attack roll. The PsiD is only expended if it causes the attack to hit.",
+					"***Psychic Teleportation (1 PsiD)***. As a Bonus Action if I have an empty hand, I can expend 1 PsiD to teleport to an unoccupied space that I can see up to 1d" + PHB_PsiDSize[i] + " (PsiD) times 10 ft away.",
+				]);
+			}),
+			action: [["bonus action", "Psychic Teleportation"]],
+		},
+		subclassfeature13: {
+			name: "Psychic Veil",
+			source: [["P24", 136]],
+			minlevel: 13,
+			description: desc(
+				"As a Magic action, I can become Invisible for 1 hour or until I dismiss this effect, damage a creature, or force one to make a save. I can expend a PsiD to restore use of this feature."
+			),
+			action: [["action", ""]],
+			usages: 1,
+			recovery: "Long Rest",
+			altResource: "PsiD",
+		},
+		subclassfeature17: {
+			name: "Rend Mind",
+			source: [["P24", 136]],
+			minlevel: 17,
+			description: desc(
+				"When I hit a Sneak Attack with Psychic Blades, I can have the target make a Wis save (DC 8 + Dex mod + PB) or be Stunned for 1 min. It can repeat the save at the end of its turns."
+			),
+			usages: 1,
+			recovery: "Long Rest",
+			altResource: "3 PsiD",
+		},
+		// Shorten/hide core Rogue abilities to allow all Soulknife abilities to fit
+		"devious strikes": Object.assign({}, ClassList.rogue.features["devious strikes"], {
+			description: levels.map(function (n) {
+				return n < 17 ? ClassList.rogue.features["devious strikes"].description : undefined;
+			}),
+		}),
+		"cunning strike": Object.assign({}, ClassList.rogue.features["cunning strike"], {
+			description: levels.map(function (n) {
+				return n < 20 ? ClassList.rogue.features["cunning strike"].description : " (" + (typePF ? "" : "see ") + "third page)";
+			}),
+		}),
+	},
+});
 
 // Sorcerer Subclasses
 
@@ -1881,7 +2570,7 @@ RaceList["aasimar"] = {
 					"While transformed like this, the extra damage on attacks/spells mentioned above is Radiant.",
 					" **\u2022 Inner Radiance**. Searing light temporarily radiates from my eyes and mouth. For the duration, I shed Bright Light in a 10-ft radius and Dim Light for an additional 10 ft, and at the end of each of my turns, each creature within 10 ft of me takes Radiant damage equal to my Proficiency Bonus",
 					"While transformed like this, the extra damage on attacks/spells mentioned above is Radiant.",
-					" **\u2022 Necrotic Shroud**. My eyes briefly become pools of darkness, and flightless wings sprout from my back temporarily. Creatures other than my allies within 10 ft of me must succeed on a Charisma saving throw (DC 8 + Cha mod + Prof. Bonus) or have the Frightened condition until the end of my next turn.",
+					" **\u2022 Necrotic Shroud**. My eyes briefly become pools of darkness, and flightless wings sprout from my back temporarily. Creatures other than my allies within 10 ft of me must succeed on a Charisma saving throw (DC 8 + Cha mod + Prof Bonus) or have the Frightened condition until the end of my next turn.",
 					"While transformed like this, the extra damage on attacks/spells mentioned above is Necrotic.",
 				],
 				additional: "1\xD7 per long rest",
@@ -1892,7 +2581,7 @@ RaceList["aasimar"] = {
 		"**Aasimar**",
 		"##\u25C6 Healing Hands##. As a Magic action once per Long Rest, I can touch a creature and restore HP to it for a number of d4s equal to my Proficiency Bonus.",
 		"##\u25C6 Light Bearer##. I know the *Light* cantrip. Charisma is my spellcasting ability for it.",
-		"##\u25C6 Celestial Revelation## (level 3). As a Bonus Action once per Long Rest, I can transform for 1 min or until I end it (no action). Once on each of my turns while transformed, I can deal my Prof. Bonus in extra damage. I choose how I transform each time. See Notes page.",
+		"##\u25C6 Celestial Revelation## (level 3). As a Bonus Action once per Long Rest, I can transform for 1 min or until I end it (no action). Once on each of my turns while transformed, I can deal my Prof Bonus in extra damage. I choose how I transform each time. See Notes page.",
 	].join("\n"),
 	// from VGM:
 	age : " reach adulthood in their late teens and live around 160 years",
@@ -2279,7 +2968,7 @@ FeatsList["durable"] = {
 	],
 	scores: [0, 0, 1, 0, 0, 0],
 	savetxt: {
-		text: ["Adv. on Death Saves"],
+		text: ["Adv on Death Saves"],
 	},
 	action: [["bonus action", "Speedy Recovery (1 HD)"]],
 };
@@ -2869,7 +3558,7 @@ FeatsList["poisoner"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4;
 	},
-	description: "As a Bonus Action, I can apply poison to weapon/ammo, lasting for 1 min or until used to damage. Creatures damaged this way must make a Con save (DC 8+Prof+mod) or take 2d8 Poison damage and be Poisoned until my next turn ends. Poison damage I deal ignores Resistance. I can create poisons. See Notes page. [+1 Dex or Int]",
+	description: "As a Bonus Action, I can apply poison to weapon/ammo, lasting for 1 min or until used to damage. Creatures damaged this way must make a Con save (DC 8 + PB + mod) or take 2d8 Poison damage and be Poisoned until my next turn ends. Poison damage I deal ignores Resistance. I can create poisons. See Notes page. [+1 Dex or Int]",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Dexterity or Intelligence score by 1, to a maximum of 20.",
@@ -3160,7 +3849,7 @@ FeatsList["sharpshooter"] = {
 		atkAdd: [
 			function (fields, v) {
 				if (v.isRangedWeapon || v.isThrownWeapon) {
-					fields.Description += (fields.Description ? "; " : "") + "No Disadv. at long range; Ignores \u00BD \x26 \u00BE cover";
+					fields.Description += (fields.Description ? "; " : "") + "No Disadv at long range; Ignores \u00BD \x26 \u00BE cover";
 				};
 			},
 			"My attack rolls with Ranged weapons suffer no Disadvantage from being used at long range nor from me being within 5 ft of an enemy. They also ignore Half Cover and Three-Quarters Cover.",
@@ -3175,8 +3864,8 @@ FeatsList["shield master"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && v.shieldProf;
 	},
-	description: "##Shield Bash##. Once per turn after I hit a creature in 5 ft during the Attack action, I can have it make a Str save (DC 8 + Str mod + Prof B.) or be pushed 5 ft away or knocked Prone. ##Interpose Shield##. As a Reaction when I succeed on a Dex save to halve damage, I can interpose my shield to avoid all the damage. [+1 Strength]",
-	calculate: 'var dc = 8 + Number(How("Proficiency Bonus")) + Number(What("Str Mod"));\n var txt = ["##Shield Bash##. Once per turn after I hit a creature in 5 ft during the Attack action, I can have it make a DC " + dc + " (8+Str+Prof) Str save or be pushed 5 ft away or knocked Prone.", "##Interpose Shield##. As a Reaction when I succeed on a Dex save to halve damage, I can interpose my shield to avoid all the damage."];\n if (typePF) { txt.reverse(); };\n event.value = txt.join("\\n") + " [+1 Strength]";',
+	description: "##Shield Bash##. Once per turn after I hit a creature in 5 ft during the Attack action, I can have it make a Str save (DC 8 + Str mod + PB) or be pushed 5 ft away or knocked Prone. ##Interpose Shield##. As a Reaction when I succeed on a Dex save to halve damage, I can interpose my shield to avoid all the damage. [+1 Strength]",
+	calculate: 'var dc = 8 + Number(How("Proficiency Bonus")) + Number(What("Str Mod"));\n var txt = ["##Shield Bash##. Once per turn after I hit a creature in 5 ft during the Attack action, I can have it make a DC " + dc + " (8+Str+PB) Str save or be pushed 5 ft away or knocked Prone.", "##Interpose Shield##. As a Reaction when I succeed on a Dex save to halve damage, I can interpose my shield to avoid all the damage."];\n if (typePF) { txt.reverse(); };\n event.value = txt.join("\\n") + " [+1 Strength]";',
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Strength score by 1, to a maximum of 20.",
@@ -3314,7 +4003,7 @@ FeatsList["slasher"] = {
 		atkAdd: [
 			function (fields, v) {
 				if (/slash/i.test(fields.Damage_Type)) {
-					fields.Description += (fields.Description ? '; ' : '') + '1/turn target -10 ft Spd till my next SoT, Crit: also Disadv. on atks';
+					fields.Description += (fields.Description ? '; ' : '') + '1/turn target -10 ft Spd till my next SoT, Crit: also Disadv on atks';
 				};
 			},
 			'Attacks that deal Slashing damage get the benefits from the Slasher feat added to their description: Once per turn -10 ft Speed, and on a Critical Hit target gets Disadvantage on attacks. Each effect lasts until the start of my next turn.',
@@ -3460,7 +4149,7 @@ FeatsList["telekinetic"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4;
 	},
-	description: "I know the *Mage Hand* cantrip, can cast it without components, can make it invisible, and with +30 ft range. As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs. this feat's spell save DC) or move it 5 ft from or towards me. My spellcasting ability is the one increased by this feat. [+1 Int, Wis, or Cha]",
+	description: "I know the *Mage Hand* cantrip, can cast it without components, can make it invisible, and with +30 ft range. As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs this feat's spell save DC) or move it 5 ft from or towards me. My spellcasting ability is the one increased by this feat. [+1 Int, Wis, or Cha]",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
@@ -3485,19 +4174,19 @@ FeatsList["telekinetic"] = {
 	choicesNotInMenu: true,
 	"intelligence": {
 		description: (typePF ? "" : "##Minor Telekinesis##. ") + "I know the Mage Hand cantrip, can cast it without components, can make it invisible, and with +30 ft range. Intelligence is my spellcasting ability for it. "+
-			(typePF ? "" : "##Telekinetic Shove##. ") + "As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs. this feat's spell save DC) or move it 5 ft from or towards me. [+1 Int]",
+			(typePF ? "" : "##Telekinetic Shove##. ") + "As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs this feat's spell save DC) or move it 5 ft from or towards me. [+1 Int]",
 		spellcastingAbility: 4,
 		scores: [0, 0, 0, 1, 0, 0],
 	},
 	"wisdom": {
 		description: (typePF ? "" : "##Minor Telekinesis##. ") + "I know the Mage Hand cantrip, can cast it without components, can make it invisible, and with +30 ft range. Wisdom is my spellcasting ability for it. "+
-			(typePF ? "" : "##Telekinetic Shove##. ") + "As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs. this feat's spell save DC) or move it 5 ft from or towards me. [+1 Wis]",
+			(typePF ? "" : "##Telekinetic Shove##. ") + "As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs this feat's spell save DC) or move it 5 ft from or towards me. [+1 Wis]",
 		spellcastingAbility: 5,
 		scores: [0, 0, 0, 0, 1, 0],
 	},
 	"charisma": {
 		description: (typePF ? "" : "##Minor Telekinesis##. ") + "I know the Mage Hand cantrip, can cast it without components, can make it invisible, and with +30 ft range. Charisma is my spellcasting ability for it. "+
-			(typePF ? "" : "##Telekinetic Shove##. ") + "As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs. this feat's spell save DC) or move it 5 ft from or towards me. [+1 Cha]",
+			(typePF ? "" : "##Telekinetic Shove##. ") + "As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs this feat's spell save DC) or move it 5 ft from or towards me. [+1 Cha]",
 		spellcastingAbility: 6,
 		scores: [0, 0, 0, 0, 0, 1],
 	},
@@ -3564,7 +4253,7 @@ FeatsList["war caster"] = {
 		"***Somatic Components***. You can perform the Somatic components of spells even when you have weapons or a Shield in one or both hands.",
 	],
 	action: [["reaction", "Reactive Spell"]],
-	savetxt: { text: "Adv. on Con (Concentration) saves" },
+	savetxt: { text: "Adv on Con (Concentration) saves" },
 	choices: ["Intelligence", "Wisdom", "Charisma"],
 	choicesNotInMenu: true,
 	"intelligence": {
@@ -3657,7 +4346,7 @@ FeatsList["protection"] = {
 	source: [["P24", 209]],
 	type: "fighting style",
 	description: "As a reaction when a creature I can see attacks a target other than me within 5 ft of me, I can interpose my Shield if I'm holding one. This gives Disadv" + (typePF ? "antage" : ".") + " to the triggering attack and all other attacks against the target until the start of my next turn while I stay within 5 ft" + (typePF ? " of the target." : "."),
-	descriptionClassFeature: desc("As a reaction when a creature I can see attacks another within 5 ft of me, I can use a shield I'm holding to impose Disadv" + (typePF ? "antage" : ".") + " on this and other attacks vs. them until my next turn starts."),
+	descriptionClassFeature: desc("As a reaction when a creature I can see attacks another within 5 ft of me, I can use a shield I'm holding to impose Disadv" + (typePF ? "antage" : ".") + " on this and other attacks vs them until my next turn starts."),
 	descriptionFull: [
 		"When a creature you can see attacks a target other than you that is within 5 feet of you, you can take a Reaction to interpose your Shield if you're holding one. You impose Disadvantage on the triggering attack roll and all other attack rolls against the target until the start of your next turn if you remain within 5 feet of the target.",
 	],
@@ -3938,7 +4627,7 @@ SpellsList["armor of agathys"] = {
 	compMaterial: "A shard of blue glass",
 	duration: "1 h",
 	description: "5+5/SL temp HP; crea that hit me with melee atk take 5+5/SL Cold dmg; spell ends if 0 temp HP left",
-	descriptionShorter: "5+5/SL temp HP; melee attackers vs. me take 5+5/SL Cold dmg; spell ends if 0 temp HP",
+	descriptionShorter: "5+5/SL temp HP; melee attackers vs me take 5+5/SL Cold dmg; spell ends if 0 temp HP",
 	descriptionFull: [
 		"Protective magical frost surrounds you. You gain 5 Temporary Hit Points. If a creature hits you with a melee attack roll before the spell ends, the creature takes 5 Cold damage. The spell ends early if you have no Temporary Hit Points.",
 		UsingHigherLvl + "The Temporary Hit Points and the Cold damage both increase by 5 for each spell slot level above 1.",
@@ -3971,7 +4660,7 @@ SpellsList["aura of purity"] = {
 	range: "S:30-ft rad",
 	components: "V",
 	duration: "Conc, 10 min",
-	description: "Me \x26 allies resist Poison dmg, adv. on saves vs. blind, charm, deaf, fright, paralysis, poison, and stun",
+	description: "Me \x26 allies resist Poison dmg, Adv on saves vs blind, charm, deaf, fright, paralysis, poison, and stun",
 	descriptionFull: [
 		"An aura radiates from you in a 30-foot Emanation for the duration. While in the aura, you and your allies have Resistance to Poison damage and Advantage on saving throws to avoid or end effects that include the Blinded, Charmed, Deafened, Frightened, Paralyzed, Poisoned, or Stunned condition.",
 	],
@@ -4068,7 +4757,7 @@ SpellsList["circle of power"] = {
 	range: "S:30-ft rad",
 	components: "V",
 	duration: "Conc, 10 min",
-	description: "While in aura, me \x26 allies adv. on saves vs magical effects; if save would half dmg, we take no dmg",
+	description: "While in aura, me \x26 allies Adv on saves vs magical effects; if save would half dmg, we take no dmg",
 	descriptionFull: [
 		"An aura radiates from you in a 30-foot Emanation for the duration. While in the aura, you and your allies have Advantage on saving throws against spells and other magical effects. When an affected creature makes a saving throw against a spell or magical effect that allows a save to take only half damage, it takes no damage if it succeeds on the save.",
 	],
@@ -4103,7 +4792,7 @@ SpellsList["compelled duel"] = {
 	components: "V",
 	duration: "Conc, 1 min",
 	save: "Wis",
-	description: "1 crea save or dis. atk vs. not-me, can't move >30ft away; ends if ally dmg, I atk other or move >30ft",
+	description: "1 crea save or Dis atk vs not-me, can't move >30ft away; ends if ally dmg, I atk other or move >30ft",
 	descriptionFull: [
 		"You try to compel a creature into a duel. One creature that you can see within range makes a Wisdom saving throw. On a failed save, the target has Disadvantage on attack rolls against creatures other than you, and it can't willingly move to a space that is more than 30 feet away from you.",
 		"The spell ends if you make an attack roll against a creature other than the target, if you cast a spell on an enemy other than the target, if an ally of yours damages the target, or if you end your turn more than 30 feet away from the target.",
@@ -4514,7 +5203,7 @@ SpellsList["steel wind strike"] = {
 	components: "S,M\u0192",
 	compMaterial: "A Melee weapon worth 1+ SP",
 	duration: "Instantaneous",
-	description: "Melee spell atk vs. 5 visible creature for each 6d10 Force dmg; after, I teleport next to 1 target",
+	description: "Melee spell atk vs 5 visible creature for each 6d10 Force dmg; after, I teleport next to 1 target",
 	descriptionFull: [
 		"You flourish the weapon used in the casting and then vanish to strike like the wind. Choose up to five creatures you can see within range. Make a melee spell attack against each target. On a hit, a target takes 6d10 Force damage.",
 		"You then teleport to an unoccupied space you can see within 5 feet of one of the targets.",

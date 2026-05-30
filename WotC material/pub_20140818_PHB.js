@@ -343,7 +343,6 @@ AddSubClass("bard", "college of valor", {
 AddSubClass("cleric", "knowledge domain", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(knowledge|wisdom|learning)).*$/i,
 	subname : "Knowledge Domain",
-	subnameshort: "Knowledge",
 	source : [["P", 59]],
 	spellcastingExtra : ["command", "identify", "augury", "suggestion", "nondetection", "speak with dead", "arcane eye", "confusion", "legend lore", "scrying"],
 	features : {
@@ -613,7 +612,6 @@ AddSubClass("cleric", "tempest domain", {
 AddSubClass("cleric", "trickery domain", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(trickery|trickster|illusion)).*$/i,
 	subname : "Trickery Domain",
-	subnameshort: "Trickery",
 	source : [["P", 63]],
 	spellcastingExtra : ["charm person", "disguise self", "mirror image", "pass without trace", "blink", "dispel magic", "dimension door", "polymorph", "dominate person", "modify memory"],
 	features : {
