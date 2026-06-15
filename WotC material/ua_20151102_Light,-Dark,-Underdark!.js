@@ -205,13 +205,13 @@ AddSubClass("warlock", "the undying light-ua", {
 					function (fields, v, output) {
 						if (v.isSpell && (/fire|radiant/i).test(fields.Damage_Type)) output.extraDmg += What('Cha Mod');
 					},
-					"Cantrips and spells that fire or radiant damage get my Charisma modifier added to their damage."
+					"Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to their damage."
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
 						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "fire|radiant", "Cha");
 					},
-					"Cantrips and spells that fire or radiant damage get my Charisma modifier added to their damage."
+					"Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to their damage."
 				]
 			}
 		},

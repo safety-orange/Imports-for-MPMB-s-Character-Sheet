@@ -1,7 +1,7 @@
-if (sheetVersion < 14000006) { throw "This add-on script was made for a newer version of the sheet (v14.0.6-beta). Please use this required version or a later version (but lower than v15.0.0) and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
-if (sheetVersion >= 15000000) { throw "This add-on script was made for a lower version of the sheet (one before v15.0.0). Please use the required version (v14.0.6-beta) or a later version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion < 14000009) { throw "This add-on script was made for a newer version of the sheet (v14.0.9-beta). Please use this required version or a later version (but lower than v15.0.0) and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion >= 15000000) { throw "This add-on script was made for a lower version of the sheet (one before v15.0.0). Please use the required version (v14.0.9-beta) or a later version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
 var iFileName = "all_WotC_unearthed_arcana.js";
-RequiredSheetVersion("14.0.6-beta", "15.0.0");
+RequiredSheetVersion("14.0.9-beta", "15.0.0");
 
 // ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
@@ -1900,13 +1900,13 @@ AddSubClass("warlock", "the undying light-ua", {
 					function (fields, v, output) {
 						if (v.isSpell && (/fire|radiant/i).test(fields.Damage_Type)) output.extraDmg += What('Cha Mod');
 					},
-					"Cantrips and spells that fire or radiant damage get my Charisma modifier added to their damage."
+					"Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to their damage."
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
 						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "fire|radiant", "Cha");
 					},
-					"Cantrips and spells that fire or radiant damage get my Charisma modifier added to their damage."
+					"Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to their damage."
 				]
 			}
 		},
@@ -15940,12 +15940,12 @@ SourceList["UA:SnW"] = {
 
 // Add a subclasses for the Sorcerer and one for the Warlock
 // Both contain work by /u/KaydeArcane
-var UASnW_abberantMindExtraSpell = ["arms of hadar", "dissonant whispers", "calm emotions", "detect thoughts", "hunger of hadar", "sending", "compulsion", "evard's black tentacles", "modify memory", "rary's telepathic bond"];
+var UASnW_aberrantMindExtraSpell = ["arms of hadar", "dissonant whispers", "calm emotions", "detect thoughts", "hunger of hadar", "sending", "compulsion", "evard's black tentacles", "modify memory", "rary's telepathic bond"];
 AddSubClass("sorcerer", "aberrant mind-ua", {
 	regExpSearch : /^(?=.*aberrant)(?=.*mind).*$/i,
 	subname : "Aberrant Mind",
 	source : [["UA:SnW", 1]],
-	spellcastingExtra : UASnW_abberantMindExtraSpell,
+	spellcastingExtra : UASnW_aberrantMindExtraSpell,
 	spellcastingExtraApplyNonconform : true,
 	features : {
 		"subclassfeature1" : {
@@ -15989,7 +15989,7 @@ AddSubClass("sorcerer", "aberrant mind-ua", {
 			spellFirstColTitle : "SP",
 			spellChanges : function () {
 				var fullReObj = {};
-				UASnW_abberantMindExtraSpell.map(function (s) {
+				UASnW_aberrantMindExtraSpell.map(function (s) {
 					var spObj = SpellsList[s] ? SpellsList[s] : { level : 1 };
 					fullReObj[s] = {
 						firstCol : spObj.level,

@@ -1,7 +1,7 @@
-if (sheetVersion < 14000006) { throw "This add-on script was made for a newer version of the sheet (v14.0.6-beta). Please use this required version or a later version (but lower than v15.0.0) and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
-if (sheetVersion >= 15000000) { throw "This add-on script was made for a lower version of the sheet (one before v15.0.0). Please use the required version (v14.0.6-beta) or a later version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion < 14000009) { throw "This add-on script was made for a newer version of the sheet (v14.0.9-beta). Please use this required version or a later version (but lower than v15.0.0) and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion >= 15000000) { throw "This add-on script was made for a lower version of the sheet (one before v15.0.0). Please use the required version (v14.0.9-beta) or a later version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
 var iFileName = "all_WotC_published.js";
-RequiredSheetVersion("14.0.6-beta", "15.0.0");
+RequiredSheetVersion("14.0.9-beta", "15.0.0");
 
 // pub_20140715_LMoP.js
 // This file adds the magic items from the Lost Mines of Phandelver adventure from the D&D 5e starter set to MPMB's Character Record Sheet
@@ -494,7 +494,6 @@ AddSubClass("bard", "college of valor", {
 AddSubClass("cleric", "knowledge domain", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(knowledge|wisdom|learning)).*$/i,
 	subname : "Knowledge Domain",
-	subnameshort: "Knowledge",
 	source : [["P", 59]],
 	spellcastingExtra : ["command", "identify", "augury", "suggestion", "nondetection", "speak with dead", "arcane eye", "confusion", "legend lore", "scrying"],
 	features : {
@@ -764,7 +763,6 @@ AddSubClass("cleric", "tempest domain", {
 AddSubClass("cleric", "trickery domain", {
 	regExpSearch : /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(trickery|trickster|illusion)).*$/i,
 	subname : "Trickery Domain",
-	subnameshort: "Trickery",
 	source : [["P", 63]],
 	spellcastingExtra : ["charm person", "disguise self", "mirror image", "pass without trace", "blink", "dispel magic", "dimension door", "polymorph", "dominate person", "modify memory"],
 	features : {
@@ -2015,67 +2013,71 @@ AddSubClass("sorcerer", "wild magic", {
 				note : [
 					"My spellcasting can unleash surges of untamed magic. Immediately after I cast a sorcerer spell of 1st level or higher, the DM can have me roll a d20. If I roll a 1, a Wild Magic Surge happens. Roll on the table below to create a random magical effect. A surge can happen only once per turn.",
 					"If a Wild Magic effect is a spell, it's too wild to be affected by Metamagic. If it normally requires concentration, it doesn't require concentration in this case; the spell lasts for its full duration.",
-					"d100  Effect",
-					"01-02 Roll on this table at the start of each of your turns for the next minute, ignoring this result on subsequent rolls.",
-					"03-04 For the next minute, you can see any invisible creature if you have line of sight to it.",
-					"05-06 A modron chosen and controlled by the DM appears in an unoccupied space within 5 ft of you, then disappears 1 minute later.",
-					"07-08 You cast fireball as a 3rd-level spell centered on yourself.",
-					"09-10 You cast magic missile as a 5th-level spell.",
-					"11-12 Roll a d10. Your height changes by a number of inches equal to the roll. If the roll is odd, you shrink. If the roll is even, you grow.",
-					"13-14 You cast confusion centered on yourself.",
-					"15-16 For the next minute, you regain 5 hit points at the start of each of your turns.",
-					"17-18 You grow a long beard made of feathers that remains until you sneeze, at which point the feathers explode out from your face.",
-					"19-20 You cast grease centered on yourself.",
-					"21-22 Creatures have disadvantage on saving throws against the next spell you cast in the next minute that involves a saving throw.",
-					"23-24 Your skin turns a vibrant shade of blue. A remove curse spell can end this effect.",
-					"25-26 An eye appears on your forehead for the next minute.",
-					"27-28 For the next minute, all your spells with a casting time feet of 1 action have a casting time of 1 bonus action.",
-					"29-30 You teleport up to 60 ft to an unoccupied space of your choice that you can see.",
-					"31-32 You are transported to the Astral Plane until the end of your next turn, after which time you return to the space you previously occupied or the nearest unoccupied space if that space is occupied.",
-					"33-34 Maximize the damage of the next damaging spell you cast within the next minute.",
-					"35-36 Roll a d10. Your age changes by a number of years equal to the roll. If the roll is odd, you get younger (minimum 1 year old). If the roll is even, you get older.",
-					"37-38 1d6 flumphs controlled by the DM appear in unoccupied spaces within 60 ft of you and are frightened of you. They vanish after 1 minute.",
-					"39-40 You regain 2d10 hit points.",
-					"41-42 You turn into a potted plant until the start of your next turn. While a plant, you are incapacitated and have vulnerability to all damage. If you drop to 0 hit points, your pot breaks, and your form reverts.",
-					"43-44 For the next minute, you can teleport up to 20 ft as a bonus action on each of your turns.",
-					"45-46 You cast levitate on yourself.",
-					"47-48 A unicorn controlled by the DM appears in a space within 5 ft of you, then disappears 1 minute later.",
-					"49-50 You can't speak for the next minute. Whenever you try, pink bubbles float out of your mouth."
-				]
+					[
+						["d100", "Effect"],
+						["01\u201302", "For the next minute, I roll on this table at the start of each of my turns, ignoring this result on subsequent rolls."],
+						["03\u201304", "For the next minute, I can see any invisible creature if I have line of sight to it."],
+						["05\u201306", "A modron chosen and controlled by the DM appears in an unoccupied space within 5 ft of me, then disappears 1 minute later."],
+						["07\u201308", "I cast Fireball as a 3rd-level spell centered on myself."],
+						["09\u201310", "I cast Magic Missile as a 5th-level spell."],
+						["11\u201312", "Roll a d10. My height changes by a number of inches equal to the roll. If the roll is odd, I shrink. If the roll is even, I grow."],
+						["13\u201314", "I cast Confusion centered on myself."],
+						["15\u201316", "For the next minute, I regain 5 hit points at the start of each of my turns."],
+						["17\u201318", "I grow a long beard made of feathers that remains until I sneeze, at which point the feathers explode out from my face."],
+						["19\u201320", "I cast Grease centered on myself."],
+						["21\u201322", "Creatures have disadvantage on saving throws against the next spell I cast in the next minute that involves a saving throw."],
+						["23\u201324", "My skin turns a vibrant shade of blue. A remove curse spell can end this effect."],
+						["25\u201326", "An eye appears on my forehead for the next minute."],
+						["27\u201328", "For the next minute, all my spells with a casting time feet of 1 action have a casting time of 1 bonus action."],
+						["29\u201330", "I teleport up to 60 ft to an unoccupied space of my choice that I can see."],
+						["31\u201332", "I am transported to the Astral Plane until the end of my next turn, after which time I return to the space I previously occupied or the nearest unoccupied space if that space is occupied."],
+						["33\u201334", "Maximize the damage of the next damaging spell that I cast within the next minute."],
+						["35\u201336", "Roll a d10. My age changes by a number of years equal to the roll. If the roll is odd, I get younger (minimum 1 year old). If the roll is even, I get older."],
+						["37\u201338", "1d6 flumphs controlled by the DM appear in unoccupied spaces within 60 ft of me and are frightened of me. They vanish after 1 minute."],
+						["39\u201340", "I regain 2d10 hit points."],
+						["41\u201342", "I turn into a potted plant until the start of my next turn. While a plant, I am incapacitated and have vulnerability to all damage. If I drop to 0 hit points, my pot breaks, and my form reverts."],
+						["43\u201344", "For the next minute, I can teleport up to 20 ft as a bonus action on each of my turns."],
+						["45\u201346", "I cast Levitate on myself."],
+						["47\u201348", "A unicorn controlled by the DM appears in a space within 5 ft of me, then disappears 1 minute later."],
+						["49\u201350", "I can't speak for the next minute. Whenever I try, pink bubbles float out of my mouth."],
+					],
+				],
 			}, {
 				name : "Wild Magic Surge Table",
 				source : [["P", 104]],
 				popupName : "Wild Mage's Wild Magic Surge Table, part 2",
 				additional : "results 51-100",
 				note : [
-					"d100  Effect",
-					"51-52 A spectral shield hovers near you for the next minute, granting you a +2 bonus to AC and immunity to magic missile.",
-					"53-54 You are immune to being intoxicated by alcohol for the next 5d6 days.",
-					"55-56 Your hair falls out but grows back within 24 hours.",
-					"57-58 For the next minute, any flammable object you touch that isn't being worn or carried by another creature bursts into flame.",
-					"59-60 You regain your lowest-level expended spell slot.",
-					"61-62 For the next minute, you must shout when you speak.",
-					"63-64 You cast fog cloud centered on yourself.",
-					"65-66 Up to three creatures you choose within 30 ft of you take 4d10 lightning damage.",
-					"67-68 You are frightened by the nearest creature until the end of your next turn.",
-					"69-70 Each creature within 30 ft of you becomes invisible for the next minute. The invisibility ends on a creature when it attacks or casts a spell.",
-					"71-72 You gain resistance to all damage for the next minute.",
-					"73-74 A random creature within 60 ft of you becomes poisoned for 1d4 hours.",
-					"75-76 You glow with bright light in a 30-ft radius for the next minute. Any creature that ends its turn within 5 ft of you is blinded until the end of its next turn.",
-					"79-80 Illusory butterflies and flower petals flutter in the air within 10 ft of you for the next minute.",
-					"77-78 You cast polymorph on yourself. If you fail the saving throw, you turn into a sheep for the spell's duration.",
-					"81-82 You can take one additional action immediately.",
-					"83-84 Each creature within 30 ft of you takes 1d10 necrotic damage. You regain hit points equal to the sum of the necrotic damage dealt.",
-					"85-86 You cast mirror image.",
-					"87-88 You cast fly on a random creature within 60 ft of you.",
-					"89-90 You become invisible for the next minute. During that time, other creatures can't hear you. The invisibility ends if you attack or cast a spell.",
-					"91-92 If you die within the next minute, you immediately come back to life as if by the reincarnate spell.",
-					"93-94 Your size increases by one size category for the next minute.",
-					"95-96 You and all creatures within 30 ft of you gain vulnerability to piercing damage for the next minute.",
-					"97-98 You are surrounded by faint, ethereal music for the next minute.",
-					"99-100 You regain all expended sorcery points."
-				]
-			}]
+					[
+						["d100", "Effect"],
+						["51\u201352", "A spectral shield hovers near me for the next minute, granting me a +2 bonus to AC and immunity to magic missile."],
+						["53\u201354", "I am immune to being intoxicated by alcohol for the next 5d6 days."],
+						["55\u201356", "My hair falls out but grows back within 24 hours."],
+						["57\u201358", "For the next minute, any flammable object I touch that isn't being worn or carried by another creature bursts into flame."],
+						["59\u201360", "I regain my lowest-level expended spell slot."],
+						["61\u201362", "For the next minute, I must shout when I speak."],
+						["63\u201364", "I cast Fog Cloud centered on myself."],
+						["65\u201366", "Up to three creatures I choose within 30 ft of me take 4d10 lightning damage."],
+						["67\u201368", "I am frightened by the nearest creature until the end of my next turn."],
+						["69\u201370", "Each creature within 30 ft of me becomes invisible for the next minute. The invisibility ends on a creature when it attacks or casts a spell."],
+						["71\u201372", "I gain resistance to all damage for the next minute."],
+						["73\u201374", "A random creature within 60 ft of me becomes poisoned for 1d4 hours."],
+						["75\u201376", "I glow with bright light in a 30-ft radius for the next minute. Any creature that ends its turn within 5 ft of me is blinded until the end of its next turn."],
+						["79\u201380", "Illusory butterflies and flower petals flutter in the air within 10 ft of me for the next minute."],
+						["77\u201378", "I cast Polymorph on myself. If I fail the saving throw, I turn into a sheep for the spell's duration."],
+						["81\u201382", "I can take one additional action immediately."],
+						["83\u201384", "Each creature within 30 ft of me takes 1d10 necrotic damage. I regain hit points equal to the sum of the necrotic damage dealt."],
+						["85\u201386", "I cast Mirror Image."],
+						["87\u201388", "I cast Fly on a random creature within 60 ft of me."],
+						["89\u201390", "I become Invisible for the next minute. During that time, other creatures can't hear me. The invisibility ends if I attack or cast a spell."],
+						["91\u201392", "If I die within the next minute, I immediately come back to life as if by the Reincarnate spell."],
+						["93\u201394", "My size increases by one size category for the next minute."],
+						["95\u201396", "I and all creatures within 30 ft of me gain vulnerability to piercing damage for the next minute."],
+						["97\u201398", "I am surrounded by faint, ethereal music for the next minute."],
+						["99\u2013100", "I regain all expended sorcery points."],
+					],
+				],
+			}],
 		},
 		"subclassfeature1.1" : {
 			name : "Tides of Chaos",
@@ -2084,7 +2086,7 @@ AddSubClass("sorcerer", "wild magic", {
 			description: desc([
 				"I can gain advantage on either one attack roll, ability check, or saving throw",
 				"After I cast a 1st-level or higher sorcerer spell, the DM can impose a Wild Magic Surge",
-				"After I roll on the Wild Magic Surge table, I regain my use of Tides of Chaos",
+				"After this roll on the Wild Magic Surge table, I regain my use of Tides of Chaos",
 			]),
 			recovery : "long rest",
 			usages : 1
@@ -2242,10 +2244,10 @@ AddSubClass("wizard", "abjuration", {
 				"If I take damage, the ward takes the damage instead, but excess damage carries over",
 			]),
 			additional : levels.map( function(n) {
-				return n < 2 ? "" : "Ward max HP: " + (n * 2) + "+Int mod";
+				return n < 2 ? "" : "Ward " + (typePF ? "" : "max ") + "HP: " + (n * 2) + "+Int mod";
 			}),
 			usages : 1,
-			recovery : "long rest"
+			recovery : typePF ? "LR" : "long rest"
 		},
 		"subclassfeature6" : {
 			name : "Projected Ward",
@@ -18930,17 +18932,17 @@ AddSubClass("warlock", "the celestial", {
 			calcChanges : {
 				atkCalc : [
 					function (fields, v, output) {
-						if (v.isSpell && (/fire|radiant/i).test(fields.Damage_Type)) {
+						if (v.isSpell && /fire|radiant/i.test(fields.Damage_Type)) {
 							output.extraDmg += What('Cha Mod');
 						};
 					},
-					"Cantrips and spells that fire or radiant damage get my Charisma modifier added to their damage to one target."
+					"Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to their damage to one target."
 				],
 				spellAdd : [
 					function (spellKey, spellObj, spName) {
 						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "fire|radiant", "Cha", true);
 					},
-					"Cantrips and spells that fire or radiant damage get my Charisma modifier added to their damage to one target."
+					"Cantrips and spells that deal fire or radiant damage get my Charisma modifier added to their damage to one target."
 				]
 			}
 		},
@@ -40415,7 +40417,7 @@ SpellsList["summon aberration"] = {
 	components : "V,S,M\u0192",
 	compMaterial : "A pickled tentacle and an eyeball in a platinum-inlaid vial worth at least 400 gp",
 	duration : "Conc, 1 h",
-	description : "Summon choice of Abberant Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (400gp)",
+	description : "Summon choice of Aberrant Spirit; obeys commands; takes turn after mine; vanishes at 0 hp (400gp)",
 	descriptionFull : "You call forth an aberrant spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Aberrant Spirit stat block. When you cast the spell, choose Beholderkin, Slaad, or Star Spawn. The creature resembles an aberration of that kind, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n   The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block."
 };
 SpellsList["summon beast"] = {
@@ -41157,13 +41159,17 @@ MagicItemsList["arcane grimoire"] = { // contains contributions by lizrdgizrd
 		// Update the limited feature "Arcane Recovery" to display 1 more spell level than for the wizard level (unless there is no wizard level)
 		if (!classes.known.wizard) return;
 		// This changeeval is called before the class feature updates the limited feature, so we need to use setTimeOut to do the change after
-		var arcaneGrimoireArcaneRecoveryFix = function() {
-			var lvls = Math.ceil(classes.known.wizard.level / 2) + 1;
+		var func = function() {
+			if (!classes.known.wizard) return;
+			var hasAG = CurrentMagicItems.known.indexOf("arcane grimoire") !== -1;
+			var lvls = Math.ceil(classes.known.wizard.level / 2);
+			if (hasAG) lvls++;
 			var additional = " (" + lvls + " levels of spell slots)";
 			var tooltip = "Arcane Grimoire (recover +1 level)";
-			AddFeature("Arcane Recovery", 1, additional, "long rest", tooltip, "replace");
+			var UpdateOrReplace = hasAG ? "replace" : "replaceUndo";
+			AddFeature("Arcane Recovery", 1, additional, "long rest", tooltip, UpdateOrReplace);
 		}
-		var timeout = app.setTimeOut("arcaneGrimoireArcaneRecoveryFix();", 300);
+		var timeout = app.setTimeOut(func.toSource() + "();", 300);
 	},
 	choices : ["+1 to spell attacks and DCs (uncommon)", "+2 to spell attacks and DCs (rare)", "+3 to spell attacks and DCs (very rare)"],
 	"+1 to spell attacks and dcs (uncommon)" : {
