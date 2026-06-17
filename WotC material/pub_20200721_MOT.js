@@ -309,7 +309,7 @@ AddSubClass("bard", "college of eloquence", { // includes contributions by /u/Ho
 	}
 });
 AddSubClass("paladin", "oath of glory", { // includes contributions by BraabHimself
-	regExpSearch : /^(((?=.*glory)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
+	regExpSearch : /^(?=.*glory)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
 	subname : "Oath of Glory",
 	subnameShort: "Glory",
 	source : [["T", 53], ["MOT", 29]],

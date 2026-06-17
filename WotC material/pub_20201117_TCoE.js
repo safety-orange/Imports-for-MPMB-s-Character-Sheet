@@ -3758,7 +3758,7 @@ AddFeatureChoice(ClassList.paladin.features['divine health'], true, "Martial Ver
 // [dupl_start] reprints from Mythic Odysseys of Theros
 if (!SourceList.MOT) {
 	AddSubClass("paladin", "oath of glory", {
-		regExpSearch : /^(((?=.*glory)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
+		regExpSearch : /^(?=.*glory)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
 		subname : "Oath of Glory",
 		subnameShort: "Glory",
 		source : [["T", 53], ["MOT", 29]],
