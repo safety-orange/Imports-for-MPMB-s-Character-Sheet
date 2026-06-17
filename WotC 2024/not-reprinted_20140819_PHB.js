@@ -366,7 +366,7 @@ AddSubClass("wizard", "necromancy", {
 			minlevel: 14,
 			description: desc([
 				"As an action, an undead within 60 ft that I can see must make a Charisma save",
-				"If its Int is > 7, it has adv. on the save; If its Int is > 11, it repeats the save every hour",
+				"If its Int is > 7, it has Adv on the save; If its Int is > 11, it repeats the save every hour",
 				"If failed, it becomes friendly to me and obeys my commands until I use this on another",
 				"On success, it becomes permanently immune to my further attempts",
 			]),
@@ -489,7 +489,7 @@ BackgroundFeatureList["city secrets"] = { // from Urchin
 FeatsList["dungeon delver"] = {
 	name: "Dungeon Delver",
 	source: [["P", 166]],
-	description: "I have adv. on Wis (Perception) and Int (Investigation) checks made to detect the presence of secret doors. I have resistance to damage dealt by traps and advantage on saves to avoid or resist traps. Travelling at a fast pace doesn't impose -5 on my passive Perception.",
+	description: "I have Adv on Wis (Perception) and Int (Investigation) checks made to detect the presence of secret doors. I have resistance to damage dealt by traps and advantage on saves to avoid or resist traps. Travelling at a fast pace doesn't impose -5 on my passive Perception.",
 	descriptionFull: [
 		"Alert to the hidden traps and secret doors found in many dungeons, you gain the following benefits:",
 		" \u2022 You have advantage on Wisdom (Perception) and Intelligence (Investigation) checks made to detect the presence of secret doors.",
@@ -500,7 +500,7 @@ FeatsList["dungeon delver"] = {
 	dmgres: ["Traps"],
 	savetxt: { adv_vs: ["traps"] },
 	vision: [
-		["Adv. on Perception and Investigation for secret doors", 0],
+		["Adv on Perception and Investigation for secret doors", 0],
 		["No -5 for travelling at fast pace", 0],
 	],
 };

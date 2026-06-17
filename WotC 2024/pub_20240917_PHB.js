@@ -1575,7 +1575,7 @@ AddSubClass("monk", "shadow", {
 			name: "Shadow Step",
 			source: [["P24", 105]],
 			minlevel: 6,
-			description: desc("As a Bonus Action while in Dim Light or Darkness, I can teleport up to 60 ft to an empty " + (typePF ? "space" : "spot") + " I can see in Dim Light or Darkness. I then gain Adv" + (typePF ? "antage" : ".") + " on my next melee attack this turn."),
+			description: desc("As a Bonus Action while in Dim Light or Darkness, I can teleport up to 60 ft to an empty " + (typePF ? "space" : "spot") + " I can see in Dim Light or Darkness. I then gain Adv" + (typePF ? "antage" : "") + " on my next melee attack this turn."),
 			action: [["bonus action", ""]],
 		},
 		"subclassfeature11": {
@@ -1769,6 +1769,232 @@ AddSubClass("monk", "elements", {
 });
 
 // Paladin Subclasses
+AddSubClass("paladin", "glory", {
+	regExpSearch: /^(?=.*glory)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
+	subname: "Oath of Glory",
+	subnameShort: "Glory",
+	source: [["P24", 114]],
+	features: {
+		"weapon mastery": Object.assign({}, ClassList.paladin.features["weapon mastery"], typeA4 ? {} : {
+			description: levels.map(function (n) {
+				return n < 18 ? ClassList.paladin.features["weapon mastery"].description : " (change 2/LR)";
+			}),
+		}),
+		"subclassfeature3": {
+			name: "Inspiring Smite",
+			source: [["P24", 114]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				return desc("After I cast *Divine Smite*, I can expend 1 Channel Divinity to distribute 2d8 + " + n + " (Paladin level) Temporary Hit Points among creatures within 30 ft and myself however I like.");
+			}),
+			additional: levels.map(function (n) {
+				return "1 Channel Divinity, 2d8+" + n + " Temp HP";
+			}),
+			spellcastingExtra: ["guiding bolt", "heroism", "enhance ability", "magic weapon", "haste", "protection from energy", "compulsion", "freedom of movement", "legend lore", "yolande's regal presence"],
+			toNotesPage: [
+				{
+					name: "Tenets of the Oath of Glory", // needs to start with "Tenets of the Oath"
+					origin: "",
+					note: [
+						"Paladins who take the Oath of Glory believe they and their companions are destined to achieve glory through deeds of heroism and share the following tenets.",
+						" \u2022 Endeavor to be known by your deeds.",
+						" \u2022 Face hardships with courage.",
+						" \u2022 Inspire others to strive for glory.",
+					],
+				},
+				GenericClassFeatures["paladin's oath"].toNotesPage,
+			],
+		},
+		"subclassfeature3.1": {
+			name: "Peerless Athlete",
+			source: [["P24", 115]],
+			minlevel: 3,
+			description: desc(
+				"As a Bonus Action, I can expend a Channel Divinity to get Advantage on my Athletics and Acrobatics checks and increase my Long and High jumps by 10 ft for 1 hour."
+			),
+			action: [["bonus action", " (Channel Divinity)"]],
+			additional: "1 Channel Divinity",
+		},
+		"subclassfeature7": {
+			name: "Aura of Alacrity",
+			source: [["P24", 115]],
+			minlevel: 7,
+			description: " [+10 ft Speed]" +
+				desc("Allies in my aura on their turn gain +10 ft Speed until the end of their next turn."),
+			speed: { allModes: "+10" },
+		},
+		"subclassfeature15": {
+			name: "Glorious Defense",
+			source: [["P24", 115]],
+			minlevel: 15,
+			description: desc(
+				"As a Reaction when an attack hits me or a creature " + (typePF ? "within" : "in") + " 10 ft, I can increase their AC by my Cha modifier vs that attack. If this causes it to miss, I can attack the attacker if " + (typePF ? "within my" : "in") + " reach."
+			),
+			usages: "Charisma modifier per ",
+			usagescalc: "event.value = Math.max(1, What('Cha Mod'));",
+			recovery: "Long Rest",
+			action: [["reaction", ""]],
+		},
+		"subclassfeature20": {
+			name: "Living Legend",
+			source: [["P24", 115]],
+			minlevel: 20,
+			description: desc([
+				"As a Bonus Action, I can gain the following benefits for 10 minutes.",
+				" \u2022 ***Charismatic***. I have advantage on all Charisma checks.",
+				" \u2022 ***Saving Throw Reroll***. As a Reaction " + (typePF ? "when" : "if") + " I fail a save, I can reroll it but must use that roll.",
+				" \u2022 ***Unerring Strike***. Once on each of my turns I can turn an attack that I missed into a hit.",
+				"I can expend a level 5+ spell slot (SS 5+) to restore my use of this feature.",
+			]),
+			recovery: "Long Rest",
+			usages: 1,
+			altResource: "SS 5+",
+			action: [
+				["bonus action", " (activate)"],
+				["reaction", " (reroll save)"],
+			],
+		},
+	},
+});
+AddSubClass("paladin", "ancients", {
+	regExpSearch: /^(((?=.*(ancient|nature|natural|green|fey|horned))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))))|((?=.*(green|fey|horned))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	subname: "Oath of the Ancients",
+	subnameShort: "Ancients",
+	source: [["P24", 115]],
+	features: {
+		"subclassfeature3": {
+			name: "Nature's Wrath",
+			source: [["P24", 115]],
+			minlevel: 3,
+			description: desc(
+				"As a Magic action, I can use 1 CD to have all creatures of my choice that I can see " + (typePF ? "within" : "in") + " 15 ft make a Strength save or be Restrained for 1 min, repeating the save at the end of " + (typePF ? "their" : "its") + " turns."
+			),
+			additional: "1 Channel Divinity",
+			action: [["action", " (Channel Divinity)"]],
+			spellcastingExtra: ["ensnaring strike", "speak with animals", "misty step", "moonbeam", "plant growth", "protection from energy", "ice storm", "stoneskin", "commune with nature", "tree stride"],
+			toNotesPage: [
+				{
+					name: "Tenets of the Oath of the Ancients", // needs to start with "Tenets of the Oath"
+					origin: "",
+					note: [
+						"This oath binds Paladins to preserve life and light in the world with the following tenets.",
+						" \u2022 Kindle the light of hope.",
+						" \u2022 Shelter life.",
+						" \u2022 Delight in art and laughter.",
+					],
+				},
+				GenericClassFeatures["paladin's oath"].toNotesPage,
+			],
+		},
+		"subclassfeature7": {
+			name: "Aura of Warding",
+			source: [["P24", 116]],
+			minlevel: 7,
+			description: desc(
+				"While in my aura, my allies and I have Resistance to Necrotic, Psychic and Radiant damage."
+			),
+			dmgres: ["Necrotic", "Psychic", "Radiant"],
+		},
+		"subclassfeature15": {
+			name: "Undying Sentinel",
+			source: [["P24", 116]],
+			minlevel: 15,
+			description: levels.map(function (n) {
+				return desc([
+					"When I am reduced to 0 Hit Points and not killed, I can drop to 1 HP and regain " + (n * 3) + " HP.",
+					"Additionally, I can't be aged magically and cease visibly aging.",
+				]);
+			}),
+			usages: 1,
+			recovery: "Long Rest",
+			additional: levels.map(function (n) {
+				return (n * 3 + 1) + " HP";
+			}),
+		},
+		"subclassfeature20": {
+			name: "Elder Champion",
+			source: [["P24", 116]],
+			minlevel: 20,
+			description: desc([
+				"As a Bonus Action, I can give my Aura of Protection these benefits for 1 minute.",
+				" \u2022 ***Diminish Defiance***. Enemies in my aura have Disadv on saves vs my spells and CD options.",
+				" \u2022 ***Regeneration***. At the start of each of my turns I regain 10 Hit Points.",
+				" \u2022 ***Swift Spells***. I can cast spells with a casting time of an Action " + (typePF ? "using" : "as") + " a Bonus Action instead.",
+				"I can end it for free. I can expend a level 5+ spell slot (SS 5+) to restore use of this feature.",
+			]),
+			recovery: "Long Rest",
+			usages: 1,
+			altResource: "SS 5+",
+			action: [["bonus action", ""]],
+		},
+	},
+});
+AddSubClass("paladin", "vengeance", {
+	regExpSearch: /^(((?=.*(vengeance|wrath|justice))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))))|((?=.*dark)(?=.*knight))|(?=.*avenger)).*$/i,
+	subname: "Oath of Vengeance",
+	subnameShort: "Vengeance",
+	source: [["P24", 116]],
+	features: {
+		"subclassfeature3": { // includes Soul of Vengeance
+			name: "Vow of Enmity",
+			source: [["P24", 117]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				var text = [
+					"When I take the Attack action, I can expend 1 CD to utter a vow against a creature I can see within 30 ft. I have Adv on attack rolls against it for 1 min or until I use this again.",
+					"If the creature drops to 0 HP, I can move the vow to another within 30 ft (no action).",
+				];
+				if (n >= 15) text.splice(1, 0, "As a Reaction after it attacks, I can make a melee attack against it, if it's within range.");
+				return desc(text);
+			}),
+			additional: "1 Channel Divinity",
+			spellcastingExtra: ["bane", "hunter's mark", "hold person", "misty step", "haste", "protection from energy", "banishment", "dimension door", "hold monster", "scrying"],
+			toNotesPage: [
+				{
+					name: "Tenets of the Oath of Vengeance", // needs to start with "Tenets of the Oath"
+					origin: "",
+					note: [
+						"This oath binds Paladins to punish those who have committed grievously evil acts with the following tenets.",
+						" \u2022 Show the wicked no mercy.",
+						" \u2022 Fight injustice and its causes.",
+						" \u2022 Aid those harmed by injustice.",
+					],
+				},
+				GenericClassFeatures["paladin's oath"].toNotesPage,
+			],
+		},
+		"subclassfeature7": {
+			name: "Relentless Avenger",
+			source: [["P24", 117]],
+			minlevel: 7,
+			description: desc(
+				"When I hit a creature with an Opportunity Attack, I can reduce its Speed to 0 until the end of the turn. I can then move up to half my Speed without provoking Opportunity Attacks."
+			),
+		},
+		"subclassfeature15": {
+			name: "Soul of Vengeance",
+			source: [["P24", 117]],
+			minlevel: 15,
+			description: " [adds Reaction to Vow of Enmity]",
+			action: [["reaction", ""]],
+		},
+		"subclassfeature20": {
+			name: "Avenging Angel",
+			source: [["P24", 117]],
+			minlevel: 20,
+			description: desc([
+				"As a Bonus Action, I can gain the following benefits for 10 min or until I end it (no action).",
+				" \u2022 ***Flight***. Spectral wings give me 60 ft Fly Speed, and I can hover.",
+				" \u2022 ***Frightful Aura***. When an enemy starts its turn in my aura they must make a Wis save or be Frightened for 1 min or until damaged. While Frightened, attack rolls have Adv vs them.",
+				"I can expend a level 5+ spell slot (SS 5+) to restore my use of this feature.",
+			]),
+			recovery: "Long Rest",
+			usages: 1,
+			altResource: "SS 5+",
+			action: [["bonus action", ""]],
+		},
+	},
+});
 
 // Ranger Subclasses
 
@@ -4005,8 +4231,8 @@ FeatsList["crossbow expert"] = {
 		"***Dual Wielding***. When you make the extra attack of the Light property, you can add your ability modifier to the damage of the extra attack if that attack is with a crossbow that has the Light property and you aren't already adding that modifier to the damage.",
 	],
 	scores: [0, 1, 0, 0, 0, 0],
-	calcChanges : {
-		atkAdd : [
+	calcChanges: {
+		atkAdd: [
 			function (fields, v) {
 				if (/(hand|heavy|light) crossbow/i.test(v.baseWeaponName)) {
 					fields.Description = fields.Description.replace(/([,;]? ?loading|loading[,;]? ?)/i, '');
@@ -5457,8 +5683,8 @@ FeatsList["dueling"] = {
 	descriptionFull: [
 		"When you're holding a Melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.",
 	],
-	calcChanges : {
-		atkCalc : [
+	calcChanges: {
+		atkCalc: [
 			function (fields, v, output) {
 				for (var i = 1; i <= FieldNumbers.actions; i++) {
 					if (/off.hand.attack/i.test(What('Bonus Action ' + i))) return;
@@ -5473,9 +5699,9 @@ FeatsList["interception"] = {
 	name: "Interception",
 	source: [["P24", 209]],
 	type: "fighting style",
-	description: "As a reaction when a creature I can see hits another creature within 5 ft of me with an attack, I can reduce the damage dealt by 1d10 plus my Proficiency Bonus. I must be holding a Shield or a Simple or Martial weapon to do this.",
-	calculate: 'event.value = "As a reaction when a creature I can see hits another creature within 5 ft of me with an attack, I can reduce the damage dealt by 1d10 plus my Proficiency Bonus (1d10+" + Number(How("Proficiency Bonus")) + "). I must be holding a Shield or a Simple or Martial weapon to do this.";',
-	descriptionClassFeature: desc("As a reaction when a creature I can see hits another within 5 ft of me, I can use a Shield or Simple/Martial weapon I'm holding to reduce the damage done by 1d10 + my Prof Bonus."),
+	description: "As a Reaction when a creature I can see hits another creature within 5 ft of me with an attack, I can reduce the damage dealt by 1d10 plus my Proficiency Bonus. I must be holding a Shield or a Simple or Martial weapon to do this.",
+	calculate: 'event.value = "As a Reaction when a creature I can see hits another creature within 5 ft of me with an attack, I can reduce the damage dealt by 1d10 plus my Proficiency Bonus (1d10+" + Number(How("Proficiency Bonus")) + "). I must be holding a Shield or a Simple or Martial weapon to do this.";',
+	descriptionClassFeature: desc("As a Reaction when a creature I can see hits another within 5 ft, I can use a Shield or Simple/Martial weapon I'm holding to reduce the damage done by 1d10 + Prof" + (typePF ? "iciency" : "") + " Bonus."),
 	descriptionFull: [
 		"When a creature you can see hits another creature within 5 feet of you with an attack roll, you can take a Reaction to reduce the damage dealt to the target by 1d10 plus your Proficiency Bonus. You must be holding a Shield or a Simple or Martial weapon to use this Reaction.",
 	],
@@ -5485,8 +5711,8 @@ FeatsList["protection"] = {
 	name: "Protection",
 	source: [["P24", 209]],
 	type: "fighting style",
-	description: "As a reaction when a creature I can see attacks a target other than me within 5 ft of me, I can interpose my Shield if I'm holding one. This gives Disadv" + (typePF ? "antage" : ".") + " to the triggering attack and all other attacks against the target until the start of my next turn while I stay within 5 ft" + (typePF ? " of the target." : "."),
-	descriptionClassFeature: desc("As a reaction when a creature I can see attacks another within 5 ft of me, I can use a shield I'm holding to impose Disadv" + (typePF ? "antage" : ".") + " on this and other attacks vs them until my next turn starts."),
+	description: "As a Reaction when a creature I can see attacks a target other than me within 5 ft of me, I can interpose my Shield if I'm holding one. This imposes Disadvantage to the triggering attack and all other attacks against the target until the start of my next turn while I stay within 5 ft of the target.",
+	descriptionClassFeature: desc("As a Reaction when a creature I can see attacks another within 5 ft, I can use a shield I'm holding to impose Disadv" + (typePF ? "antage" : "") + " on this and other attacks vs them until my next turn starts."),
 	descriptionFull: [
 		"When a creature you can see attacks a target other than you that is within 5 feet of you, you can take a Reaction to interpose your Shield if you're holding one. You impose Disadvantage on the triggering attack roll and all other attack rolls against the target until the start of your next turn if you remain within 5 feet of the target.",
 	],
@@ -5533,8 +5759,8 @@ FeatsList["unarmed fighting"] = {
 		"When you hit with your Unarmed Strike and deal damage, you can deal Bludgeoning damage equal to 1d6 plus your Strength modifier instead of the normal damage of an Unarmed Strike. If you aren't holding any weapons or a Shield when you make the attack roll, the d6 becomes a d8.",
 		"At the start of each of your turns, you can deal 1d4 Bludgeoning damage to one creature Grappled by you.",
 	],
-	calcChanges : {
-		atkAdd : [
+	calcChanges: {
+		atkAdd: [
 			function (fields, v) {
 				if (v.baseWeaponName == "unarmed strike") {
 					if (fields.Damage_Die == 1 || fields.Damage_Die == "1d4") fields.Damage_Die = '1d6';
