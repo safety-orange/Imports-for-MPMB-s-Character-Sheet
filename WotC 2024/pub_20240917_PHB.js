@@ -2,6 +2,20 @@ var iFileName = "pub_20240917_PHB.js";
 RequiredSheetVersion("24.0.8-beta");
 // This file adds material from the 2024 Player's Handbook that isn't in the SRD v5.2.1 to MPMB's Character Record Sheet
 
+/* Star characters that work well on the sheet
+ https://symbl.cc/en/unicode-table/#dingbats
+ ★  "\u2605"	Star (five-point)			Monk
+ ✦  "\u2726"	Four-point star				
+ ✱  "\u2731"	Heavy Asterisk (very similar to six-point star at a distance)
+ ✶  "\u2736"	Six-point star				Sorcerer
+ ✸  "\u2738"	Heavy Eight-point star		Wizard
+ ❋  "\u274B"	Heavy Eight Teardrop-Spoked Propeller Asterisk
+ ✽  "\u273D"	Heavy Teardrop-Spoked Asterisk
+ ♥  "\u2665"	Heart Suit
+ ♦  "\u2666"	Diamond Suit				
+ ♪  "\u266A"	Eight Note					Bard
+ */
+
 // Define the source
 SourceList["P24"] = {
 	name: "2024 Player's Handbook",
@@ -261,7 +275,7 @@ AddSubClass("bard", "dance", {
 			source: [["P24", 64]],
 			minlevel: 3,
 			description: desc([
-				"While I'm not wearing armor or wielding a Shield, I gain the following benefits:",
+				"While I'm not wearing armor or wielding a Shield, I gain the following benefits.",
 				"***Dance Virtuoso***. I have Advantage on any Charisma (Performance) checks involving dancing.",
 				"***Unarmored Defense***. My AC is 10 + Dexterity modifier + Charisma modifier.",
 				"***Agile Strikes***. When I use Bardic Inspiration as part of an action, Bonus Action, or Reaction, I can make one Unarmed Strike as part of that action, Bonus Action, or Reaction.",
@@ -1394,6 +1408,127 @@ AddSubClass("fighter", "psi warrior", {
 });
 
 // Monk Subclasses
+var PHB_WarriorMercy = {
+	handOfHarm: {
+		description: desc("Once per turn when I damage a creature with an Unarmed Strike, I can expend 1 Focus Point to deal it extra Necrotic damage equal to a Martial Arts die + my Wisdom modifier."),
+		description6: desc("Once per turn when I damage a creature with an Unarmed Strike, I can " + (typePF ? "expend" : "use") + " 1 FP to deal it Martial Arts die + Wis mod Necrotic damage and make it Poisoned until my next turn ends."),
+		additional: levels.map(function (n) {
+			var die = n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12;
+			return "1 Focus Point; 1d" + die + " + Wis mod Necrotic" + (typePF ? "" : " dmg");
+		}),
+	},
+	handOfHealing: {
+		description: desc("As a Magic action, I can expend 1 Focus Point to heal a creature I touch for Martial Arts die + my Wisdom modifier Hit Points. When I use Flurry of Blows, I can replace one of its Unarmed Strikes with a use of this feature without expending a Focus Point for the healing."),
+		description6: desc([
+			"As a Magic action, I can use 1 FP to heal a creature I touch for Martial Arts die + Wis mod HP and cure it of one of the following: Blinded, Deafened, Paralyzed, Poisoned, or Stunned.",
+			"When I use Flurry of Blows, I can swap one Unarmed Strike for this without using more FP."
+		]),
+		additional: levels.map(function (n) {
+			var die = n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12;
+			return "1 Focus Point; 1d" + die + " + Wis mod HP";
+		}),
+	},
+};
+AddSubClass("monk", "mercy", {
+	regExpSearch: /^(?=.*mercy)((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
+	subname: "Warrior of Mercy",
+	subnameShort: "Mercy",
+	source: [["P24", 104]],
+	features: {
+		"subclassfeature3": { // includes Physician's Touch; moves to third page from level 15 onwards
+			name: "Hand of Harm",
+			minlevel: 3,
+			source: [["P24", 104]],
+			description: levels.map(function (n, idx) {
+				return n < 6 ? PHB_WarriorMercy.handOfHarm.description :
+					n < 15 ? PHB_WarriorMercy.handOfHarm.description6 : undefined;
+			}),
+			autoSelectExtrachoices: [{
+				extrachoice: "hand of harm",
+				minlevel: 15,
+			}],
+			"hand of harm": {
+				name: "Hand of Harm",
+				extraname: "Mercy 3",
+				source: [["P24", 104]],
+				description: PHB_WarriorMercy.handOfHarm.description6,
+				additional: PHB_WarriorMercy.handOfHarm.additional,
+			},
+		},
+		"subclassfeature3.1": { // includes Physician's Touch; moves to third page from level 15 onwards
+			name: "Hand of Healing",
+			minlevel: 3,
+			source: [["P24", 104]],
+			description: levels.map(function (n, idx) {
+				return n < 6 ? PHB_WarriorMercy.handOfHealing.description :
+					n < 15 ? PHB_WarriorMercy.handOfHealing.description6 : undefined;
+			}),
+			action: [["action", " (1 FP)"]],
+			autoSelectExtrachoices: [{
+				extrachoice: "hand of healing",
+				minlevel: 15,
+			}],
+			"hand of healing": {
+				name: "Hand of Healing",
+				extraname: "Mercy 3",
+				source: [["P24", 104]],
+				description: PHB_WarriorMercy.handOfHealing.description6,
+				additional: PHB_WarriorMercy.handOfHealing.additional,
+			},
+		},
+		"subclassfeature3.2": {
+			name: "Hand of Harm \x26 Hand of Healing",
+			source: [["P24", 104]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				return n < 15 ? undefined : " [see third page]";
+			}),
+		},
+		"subclassfeature3.3": {
+			name: "Implements of Mercy",
+			source: [["P24", 104]],
+			minlevel: 3,
+			description: " [Insight, Medicine, and Herbalism Kit prof]",
+			skills: ["Insight", "Medicine"],
+			toolProfs: ["Herbalism kit"],
+		},
+		"subclassfeature6": {
+			name: "Physician's Touch",
+			source: [["P24", 104]],
+			minlevel: 6,
+			autoSelectExtrachoices: [{ extrachoice: "physician's touch" }],
+			"physician's touch": {
+				name: "Physician's Touch",
+				extraname: "Mercy 6",
+				source: [["P24", 104]],
+				description: " [improves Hand of Healing \x26 Hand of Harm]",
+			},
+		},
+		"subclassfeature11": {
+			name: "Flurry of Healing and Harm",
+			source: [["P24", 104]],
+			minlevel: 11,
+			description: desc(
+				"When I use Flurry of Blows, I can replace each of its Unarmed Strikes with a use of Hand of Healing, and I can use Hand of Harm when I deal damage with one of its Unarmed Strikes. I can still use Hand of Harm only once per turn. When I use this feature, I only need to expend a Focus Point for Flurry of Blows, not for Hand of Healing or Hand of Harm."
+			),
+			usages: typePF ? "Wis mod per " : "Wisdom modifier per ",
+			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
+			recovery: "Long Rest",
+		},
+		"subclassfeature17": {
+			name: "Hand of Ultimate Mercy",
+			source: [["P24", 105]],
+			minlevel: 17,
+			description: desc(
+				"As a Magic action, I can touch a creature that died within the past 24 hours and expend 5 Focus Points. The creature then returns to life with 4d10 + my Wisdom modifier Hit Points and is cured of all of the following: Blinded, Deafened, Paralyzed, Poisoned, and Stunned."
+			),
+			usages: 1,
+			recovery: "Long Rest",
+			additional: "5 FP",
+			action: [["action", " (5 FP)"]],
+		},
+	},
+});
 AddSubClass("monk", "shadow", {
 	regExpSearch: /^(?=.*shadow)((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname: "Warrior of Shadow",
@@ -1411,6 +1546,7 @@ AddSubClass("monk", "shadow", {
 				name: "Shadow Arts",
 				spells: ["minor illusion"],
 				selection: ["minor illusion"],
+				firstCol: "atwill",
 			}, {
 				name: "Shadow Arts",
 				spells: ["darkness"],
@@ -1426,7 +1562,6 @@ AddSubClass("monk", "shadow", {
 					changes: "With the Shadow Arts feature I can cast Darkness without spell components, can see through it, and can move it to a space within 60 ft of me at the start of each of my turns.",
 				},
 			},
-			extraname: "Focus Feature",
 			"shadow arts: darkness": {
 				name: "Shadow Arts: Darkness",
 				extraname: "Warrior of Shadow 3",
@@ -1447,7 +1582,6 @@ AddSubClass("monk", "shadow", {
 			name: "Improved Shadow Step",
 			source: [["P24", 105]],
 			minlevel: 11,
-			extraname: "Focus Feature",
 			"improved shadow step": {
 				name: "Improved Shadow Step",
 				extraname: "Warrior of Shadow 11",
@@ -1462,7 +1596,6 @@ AddSubClass("monk", "shadow", {
 			source: [["P24", 105]],
 			minlevel: 17,
 			action: [["action", " (3 FP)"]],
-			extraname: "Focus Feature",
 			"cloak of shadows": {
 				name: "Cloak of Shadows",
 				extraname: "Warrior of Shadow 17",
@@ -1474,6 +1607,163 @@ AddSubClass("monk", "shadow", {
 				additional: "3 Focus Points",
 			},
 			autoSelectExtrachoices: [{ extrachoice: "cloak of shadows" }],
+		},
+	},
+});
+var PHB_WarriorOfTheElements = {
+	elementalBurst: {
+		description: desc("As a Magic action, I can " + (typePF ? "expend" : "use") + " 2 Focus Points to create a 20-ft-radius Sphere within 120 ft that deals three Martial Art dice damage (\u2605) to all within. Each can Dex save for half damage."),
+		descriptionCF: desc("As a Magic action, I can use 2 Focus Points to create a 20-ft-radius Sphere within 120 ft that deals 3 Martial Art dice damage (\u2605) to all within. Each can Dex save for half damage."),
+		additional: levels.map(function (n) {
+			var die = n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12;
+			return "2 Focus Points; 3d" + die + " damage";
+		}),
+	},
+};
+AddSubClass("monk", "elements", {
+	regExpSearch: /^(?=.*(elements|elemental))((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
+	subname: "Warrior of the Elements",
+	subnameShort: "Elements",
+	source: [["P24", 106]],
+	features: {
+		"subclassfeature3": { // includes Stride of the Elements and Elemental Epitome
+			name: "Elemental Attunement",
+			source: [["P24", 106]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				var text = [
+					typePF ? "As my turn starts, I can expend 1 FP to gain these benefits for 10 min or until I'm Incapacitated." :
+						"As my turn starts, I can use 1 FP to gain these benefits for 10 min or till I'm Incapacitated.",
+					"***Reach***. When I make an Unarmed Strike, my reach increases by 10 ft.",
+					"***Elemental Strikes***. I can change the damage type (\u2605) of my Unarmed Strike. If I do and deal damage, I can have the target make a Str save or move it " + (typePF ? "up to " : "\u2264") + "10 ft toward or away from me.",
+					"(\u2605) This can be my choice of Acid, Cold, Fire, Lightning, or Thunder.",
+				];
+				if (n >= 11) { // Stride of the Elements
+					text.splice(text.length - 1, 0, "***Stride of the Elements***. I gain a Fly Speed and a Swim Speed equal to my Speed.");
+				}
+				if (n >= 17) { // Elemental Epitome
+					var die = n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12;
+					text.splice(text.length - 1, 1,
+						"***Damage Resistance***. I gain a Resistance (\u2605). I can change its type at the start of my turns.",
+						"***Destructive Stride***. On a turn that I use Step of the Wind, I have +20 ft Speed and I can deal 1d" + die + " (MA die) damage (\u2605) to each creature of my choice that I come within 5 ft of.",
+						"***Empowered Strikes***. I can add 1d" + die + " (MA die) " + (typePF ? "damage" : "dmg") + " to one Unarmed Strike hit on my turn.",
+						"(\u2605) My choice of Acid, Cold, Fire, Lightning, or Thunder. (MA die) Martial Arts die."
+					);
+				}
+				return desc(text);
+			}),
+			additional: "1 Focus Point",
+			weaponOptions: [{
+				baseWeapon: "unarmed strike",
+				regExpSearch: /^(?=.*elemental)(?=.*strike).*$/i,
+				name: "Elemental Strike",
+				source: [["P24", 106]],
+				damage: [1, "", "Elemental (\u2605)"],
+				description: "+10 ft reach; Str save or moved 10 ft toward/away",
+				selectNow: true,
+				isElementalStrike: true,
+			}],
+		},
+		"subclassfeature3.1": {
+			name: "Manipulate Elements",
+			source: [["P24", 106]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				return n < 15 ? desc("I know the *Elementalism* cantrip. Wisdom is my spellcasting ability for it.") : " [know *Elementalism*, using Wisdom]";
+			}),
+			spellcastingBonus: [{
+				name: "Manipulate Elements",
+				spells: ["elementalism"],
+				selection: ["elementalism"],
+				firstCol: "atwill",
+			}],
+		},
+		"subclassfeature6": { // moves to third page from level 17 onwards
+			name: "Elemental Burst",
+			source: [["P24", 106]],
+			minlevel: 6,
+			description: levels.map(function (n) {
+				var obj = PHB_WarriorOfTheElements.elementalBurst;
+				var text = typePF ? obj.description : obj.descriptionCF;
+				return n < 17 ? text : undefined;
+			}),
+			additional: PHB_WarriorOfTheElements.elementalBurst.additional,
+			action: [["action", " (2 FP)"]],
+			weaponOptions: [{
+				regExpSearch: /^(?=.*elemental)(?=.*burst).*$/i,
+				name: "Elemental Burst",
+				source: [["P24", 106]],
+				ability: 5,
+				type: "Magic",
+				damage: [3, 8, "Elemental (\u2605)"],
+				range: "120 ft",
+				description: "2 FP; 20-ft radius Sphere; Dex save for half; (\u2605) Acid, Cold, Fire, Lightning, or Thunder",
+				abilitytodamage: false,
+				monkweapon: false,
+				dc: true,
+				selectNow: true,
+				isAlwaysProf: true,
+				isElementalBurst: true,
+			}],
+			calcChanges: {
+				atkAdd: [
+					function (fields, v) {
+						if (v.theWea.isElementalBurst && classes.known.monk) {
+							var n = classes.known.monk.level;
+							var die = n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12;
+							fields.Damage_Die = '3d' + die;
+						}
+					},
+					'',
+					20,
+				],
+			},
+			autoSelectExtrachoices: [{
+				extrachoice: "elemental burst",
+				minlevel: 17,
+			}],
+			"elemental burst": {
+				name: "Elemental Burst",
+				extraname: "Elements 6",
+				source: [["P24", 106]],
+				description: PHB_WarriorOfTheElements.elementalBurst.description,
+				additional: PHB_WarriorOfTheElements.elementalBurst.additional,
+			},
+		},
+		"subclassfeature11": { // only on third page, description included in Elemental Attunement
+			name: "Stride of the Elements",
+			source: [["P24", 106]],
+			minlevel: 11,
+			autoSelectExtrachoices: [{ extrachoice: "stride of the elements" }],
+			"stride of the elements": {
+				name: "Stride of the Elements",
+				extraname: "Elements 11",
+				source: [["P24", 106]],
+				description: " [improves Elemental Attunement]",
+			},
+		},
+		"subclassfeature17": { // only on third page, description included in Elemental Attunement
+			name: "Elemental Epitome",
+			source: [["P24", 106]],
+			minlevel: 17,
+			dmgres: ["Elemental (\u2605)"],
+			calcChanges: {
+				atkAdd: [
+					function (fields, v) {
+						if (v.theWea.isElementalStrike && classes.known.monk && classes.known.monk.level >= 17) {
+							fields.Description += '; 1/my turn +1d12 damage';
+						}
+					},
+					''
+				],
+			},
+			autoSelectExtrachoices: [{ extrachoice: "elemental epitome" }],
+			"elemental epitome": {
+				name: "Elemental Epitome",
+				extraname: "Elements 17",
+				source: [["P24", 106]],
+				description: " [improves Elemental Attunement]",
+			},
 		},
 	},
 });
@@ -1782,10 +2072,860 @@ AddSubClass("rogue", "soulknife", {
 });
 
 // Sorcerer Subclasses
+var PHB_AberrantSorcerer = AddSubClass("sorcerer", "aberrant", {
+	regExpSearch: /^(?=.*aberrant)(?=.*(sorcerer|sorcery|mind)).*$/i,
+	subname: "Aberrant Sorcery",
+	subnameShort: "Aberrant",
+	fullname: "Aberrant Sorcerer",
+	source: [["P24", 145]],
+	features: {
+		"subclassfeature3": {
+			name: "Psionic Spells",
+			source: [["P24", 145]],
+			minlevel: 3,
+			spellcastingExtra: ["mind sliver", "arms of hadar", "dissonant whispers", "calm emotions", "detect thoughts", "hunger of hadar", "sending", "evard's black tentacles", "summon aberration", "rary's telepathic bond", "telekinesis"],
+			spellcastingExtraApplyNonconform: true,
+			autoSelectExtrachoices: [{
+				extrachoice: "psionic spells",
+			}],
+			"psionic spells": {
+				name: "Psionic Spells",
+				extraname: "Aberrant Sorcerer 3",
+				description: "Will be set below, at the end of this add-on script.",
+				// See bottom of this file
+			},
+		},
+		"subclassfeature3.1": {
+			name: "Telepathic Speech",
+			source: [["P24", 145]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				return desc("As a Bonus Action, I can choose one creature that I can see within 30 ft. While we are within Charisma modifier miles (min 1) we can telepathically communicate in a language we both know. This lasts for " + n + " minutes (Sorcerer level) or until I use this feature again.");
+			}),
+			additional: levels.map(function (n) {
+				return n + " minutes";
+			}),
+			action: [["bonus action", ""]],
+		},
+		"subclassfeature6": {
+			name: "Psionic Sorcery",
+			source: [["P24", 146]],
+			minlevel: 6,
+			description: desc([
+				"When I cast a Psionic Spell (see third page), I can cast it by spending a number of Sorcery Points equal to its level instead of using a spell slot. If I do so, it requires no Verbal, Somatic, or Material components, unless they are consumed or have a cost specified.",
+			]),
+			additional: "1-9 Sorcery Points",
+		},
+		"subclassfeature6.1": {
+			name: "Psychic Defenses",
+			source: [["P24", 146]],
+			minlevel: 6,
+			description: desc(
+				"I have Resistance to Psychic damage and Adv on saves against being Charmed or Frightened."
+			),
+			dmgres: ["Psychic"],
+			savetxt: { adv_vs: ["Charmed", "Frightened"] },
+		},
+		"subclassfeature14": {
+			name: "Revelation in Flesh",
+			source: [["P24", 146]],
+			minlevel: 14,
+			description: desc([
+				"As a Bonus Action, I can spend Sorcery Points to gain a benefit of my choice per Sorcery Point spent. These benefits last for 10 minutes. See third page for possible benefits.",
+			]),
+			"revelation in flesh": {
+				name: "Revelation in Flesh Benefits",
+				extraname: "Aberrant Sorcerer 14",
+				description: desc([
+					"***Aquatic Adaptation***. I gain a Swim Speed equal to twice my Speed. I can breathe underwater.",
+					"***Glistening Flight***. I gain a Fly Speed equal to my Speed, and can hover.",
+					"***See the Invisible***. I can see any Invisible creature within 60 ft that isn't behind Total Cover.",
+					"***Wormlike Movement***. I can move through any space as narrow as 1 inch, and can spend 5 ft of movement to escape from nonmagical restraints or the Grappled condition.",
+				]),
+				additional: "1-4 Sorcery Points",
+			},
+			autoSelectExtrachoices: [{
+				extrachoice: "revelation in flesh",
+			}],
+		},
+		"subclassfeature18": {
+			name: "Warping Implosion",
+			source: [["P24", 146]],
+			minlevel: 18,
+			description: desc([
+				"As a Magic action, I teleport to an unoccupied space that I can see within 120 ft.",
+				"After I disappear, each creature within 30 ft of the space that I left takes 3d10 Force damage and is pulled straight toward that space, ending in an empty space as close to it as possible. Each creature can make a Strength save to halve the damage and not be pulled in.",
+				"I can expend 5 Sorcery Points to restore use of this feature.",
+			]),
+			action: [["action", ""]],
+			usages: 1,
+			recovery: "Long Rest",
+			altResource: "5 SP",
+		},
+	},
+});
+AddSubClass("sorcerer", "clockwork", {
+	regExpSearch: /^((?=.*(sorcerer|witch))(?=.*mechanus)|(?=.*clockwork)(?=.*(sorcerer|sorcery|soul))).*$/i,
+	subname: "Clockwork Sorcery",
+	subnameShort: "Clockwork",
+	fullname: "Clockwork Sorcerer",
+	source: [["P24", 146]],
+	features: {
+		"subclassfeature3": {
+			name: "Restore Balance",
+			source: [["P24", 146]],
+			minlevel: 3,
+			description: desc(
+				"As a Reaction when I see a creature within 60 ft about to roll a d20 with Advantage or Disadvantage, I can prevent the roll from being affected by Advantage or Disadvantage."
+			),
+			action: ["Reaction", ""],
+			usages: "Charisma modifier per ",
+			usagescalc: "event.value = Math.max(1, What('Cha Mod'));",
+			recovery: "Long Rest",
+			spellcastingExtra: ["alarm", "protection from evil and good", "aid", "lesser restoration", "dispel magic", "protection from energy", "freedom of movement", "summon construct", "greater restoration", "wall of force" ],
+			spellcastingExtraApplyNonconform: true,
+		},
+		"subclassfeature6": {
+			name: "Bastion of Law",
+			source: [["P24", 147]],
+			minlevel: 6,
+			description: desc([
+				"As a Magic action, I can expend 1 to 5 Sorcery Points to create a magical ward around me or another creature that I can see within 30 feet of me. The ward is represented by a number of d8s equal to the number of Sorcery Points spent to create it. When the warded creature takes damage, it can expend a number of those dice, roll them, and reduce the damage taken by the total rolled on those dice.",
+				"The ward lasts until I finish a Long Rest or until I use this feature again.",
+			]),
+			additional: "1-5 Sorcery Points",
+			action: [["action", ""]],
+		},
+		"subclassfeature14": {
+			name: "Trance of Order",
+			source: [["P24", 147]],
+			minlevel: 14,
+			description: desc(
+				"As a Bonus Action, I can enter a state for 1 minute. For the duration, attack rolls against me can't benefit from Advantage, and whenever I make a D20 Test, I can treat a roll of 9 or lower on the d20 as a 10. I can expend 5 Sorcery Points to restore use of this feature."
+			),
+			action: [["bonus action", ""]],
+			usages: 1,
+			recovery: "Long Rest",
+			altResource: "5 SP",
+		},
+		"subclassfeature18": {
+			name: "Clockwork Cavalcade",
+			source: [["P24", 147]],
+			minlevel: 18,
+			description: desc([
+				"As a Magic action, I create the following effects in a 30-ft Cube originating from me.",
+				" \u2022 ***Heal***. Restore 100 Hit Points divided as I choose among any creatures in the Cube.",
+				" \u2022 ***Repair***. Any damaged objects entirely in the Cube are repaired instantly.",
+				" \u2022 ***Dispel***. Every spell of level \u22646 ends on creatures and objects of my choice in the Cube.",
+				"I can expend 7 Sorcery Points to restore use of this feature.",
+			]),
+			usages: 1,
+			recovery: "Long Rest",
+			altResource: "7 SP",
+			action: [["action", ""]],
+		},
+	},
+});
+AddSubClass("sorcerer", "wild magic", {
+	regExpSearch: /^(?=.*(mage|magus|sorcerer|witch))(?=.*(wild|chaos|chaotic|limbo)).*$/i,
+	subname: "Wild Magic",
+	fullname: "Wild Mage",
+	source: [["P24", 149]],
+	features: {
+		"subclassfeature3": {
+			name: "Wild Magic Surge",
+			source: [["P24", 149]],
+			minlevel: 3,
+			description: " [see Notes page for table]" + desc([
+				"Once per turn, I can roll 1d20 immediately after I cast a Sorcerer spell with a spell slot.",
+				"If I roll a 20, I roll on the Wild Magic Surge table to create a magical effect.",
+				"If the magical effect is a spell, it cannot be affected by my Metamagic.",
+			]),
+			toNotesPage: [{
+				name: "Wild Magic Surge Table",
+				source: [["P24", 150]],
+				popupName: "Wild Mage's Wild Magic Surge Table, part 1",
+				additional: "results 01-44",
+				note: [
+					"My spellcasting can unleash surges of untamed magic. Once per turn, I can roll 1d20 immediately after I cast a Sorcerer spell with a spell slot. If I roll a 20, roll on the Wild Magic Surge table to create a magical effect.",
+					"If the magical effect is a spell, it is too wild to be affected by my Metamagic.",
+					[
+						["1d100", "Effect"],
+						["01\u201304", "For the next minute, I roll on this table at the start of each of my turns,"],
+						["", "ignoring this result on subsequent rolls."],
+						["05\u201308", "A creature that is Friendly towards me appears in a random " + (typePF ? "empty" : "unoccupied")],
+						["", "space within 60 ft of me. The creature is under the DM's control and"],
+						["", "disappears 1 minute later."],
+						["", "**1d4**  **Creature**"],
+						["", "  1    Modron Duodrone"],
+						["", "  2    Flumph"],
+						["", "  3    Modron Monodrone"],
+						["", "  4    Unicorn"],
+						["09\u201312", "For the next minute, I regain 5 " + (typePF ? "HP" : "Hit Points") + " at the start of each of my turns."],
+						["13\u201316", "Creatures have Disadvantage on saving throws against the next spell"],
+						["", "that I cast in the next minute that involves a saving throw."],
+						["17\u201320", "I am subjected to an effect that lasts for 1 minute unless"],
+						["", "its description says otherwise."],
+						["", "**1d8**  **Effect**"],
+						["", "  1    I am surrounded by faint, ethereal music that only creatures"],
+						["", "        within 5 ft of me and I can hear."],
+						["", "  2    My size increases by one size category."],
+						["", "  3    I grow a long beard made of feathers that remains until I sneeze,"],
+						["", "        at which point the feathers explode from my face and vanish."],
+						["", "  4    I must shout when I speak."],
+						["", "  5    Illusory butterflies flutter in the air within 10 ft of me."],
+						["", "  6    An eye appears on my forehead, granting me Advantage on"],
+						["", "        Wisdom (Perception) checks."],
+						["", "  7    Pink bubbles float out of my mouth whenever I speak."],
+						["", "  8    My skin turns a vibrant shade of blue for 24 hours or until"],
+						["", "        the effect is ended by a *Remove Curse* spell."],
+						["21\u201324", "For the next minute, all of my spells with a casting time of an action"],
+						["", "have a casting time of a Bonus Action."],
+						["25\u201328", "I am transported to the Astral Plane until the end of my next turn."],
+						["", "I then return to the space that I previously occupied or the nearest"],
+						["", "unoccupied space if that space is occupied."],
+						["29\u201332", "The next time that I cast a spell that deals damage within the"],
+						["", "next minute, don't roll the spell's damage dice for the damage."],
+						["", "Instead use the highest number possible for each damage die."],
+						["33\u201336", "I have Resistance to all damage for the next minute."],
+						["37\u201340", "I turn into a potted plant until the start of my next turn. While I'm a",
+						],
+						["", "plant, I have the Incapacitated condition and have Vulnerability to all"],
+						["", "damage. If I drop to 0 Hit Points, my pot breaks, and my form reverts."],
+						["41\u201344", "For the next minute, I can teleport up to 20 ft as a Bonus Action"],
+						["", "on each of my turns."],
+					],
+				],
+			}, {
+				name: "Wild Magic Surge Table",
+				source: [["P24", 150]],
+				popupName: "Wild Mage's Wild Magic Surge Table, part 2",
+				additional: "results 45-00",
+				note: [[
+					["1d100", "Effect"],
+					["45\u201348", "Up to three creatures that I choose within 30 ft of me and I have the"],
+					["", "Invisible condition for 1 minute. This invisibility ends on a creature"],
+					["", "immediately after it makes an attack, deals damage, or casts a spell."],
+					["49\u201352", "A spectral shield hovers near me for the next minute,"],
+					["", "granting me a +2 bonus to AC and immunity to Magic Missile."],
+					["53\u201356", "I can take one extra action on this turn."],
+					["57\u201360", "I cast a random spell. If the spell normally requires Concentration,"],
+					["", "it doesn't require " + (typePF ? "it" : "Concentration") + " in this case; the spell lasts for its full duration."],
+					["", "**1d10** **Spell**"],
+					["", "  1    *Confusion*"],
+					["", "  2    *Fireball*"],
+					["", "  3    *Fog Cloud*"],
+					["", "  4    *Fly* (cast on a random creature within 60 ft of me)"],
+					["", "  5    *Grease*"],
+					["", "  6    *Levitate* (cast on me)"],
+					["", "  7    *Magic Missile* (cast as a level 5 spell)"],
+					["", "  8    *Mirror Image*"],
+					["", "  9    *Polymorph* (cast on me and if I fail the save, I turn into a Goat)"],
+					["", "10    *See Invisibility*"],
+					["61\u201364", "For the next minute, any flammable, nonmagical object that I touch"],
+					["", "that isn't being worn or carried by another creature bursts into flame,"],
+					["", "takes 1d4 Fire damage, and is burning."],
+					["65\u201368", "If I die within the next hour, I immediately revive as if by the" + (typePF ? "\n\t" : " ") + "*Reincarnate* spell."],
+					["69\u201372", "I have the Frightened condition until the end of my next turn."],
+					["", "The DM determines the source of my fear."],
+					["73\u201376", "I teleport up to 60 ft to an unoccupied space that I can see."],
+					["77\u201380", "A random creature within 60 ft of me " + (typePF ? "is Poisoned" : "has the Poisoned condition") + " for 1d4 hours."],
+					["81\u201384", "I radiate Bright Light in a 30-ft radius for the next minute."],
+					["", "Any creature that ends its turn within 5 ft of me has the Blinded"],
+					["", "condition until the end of its next turn."],
+					["85\u201388", "Up to three creatures of my choice that I can see within 30 ft of me"],
+					["", "take 1d10 Necrotic damage. I regain Hit Points equal to the sum of"],
+					["", "the Necrotic damage dealt."],
+					["89\u201392", "Up to three creatures of my choice that I can see within 30 ft of me"],
+					["", "take 4d10 Lightning damage."],
+					["93\u201396", "All creatures within 30 ft of me and I have Vulnerability to Piercing"],
+					["", "damage for the next minute."],
+					["97\u201300", "**1d6**  **Effect**"],
+					["", "  1    I regain 2d10 Hit Points"],
+					["", "  2    One ally of my choice within 300 ft of me regains 2d10 Hit Points"],
+					["", "  3    I regain my lowest-level expended spell slot"],
+					["", "  4    One ally of my choice within 300 ft of me regains their"],
+					["", "        lowest-level expended spell slot"],
+					["", "  5    I regain all expended Sorcery Points"],
+					["", "  6    All the effects of row 17\u201320 affect me simultaneously."],
+				]],
+			}],
+		},
+		"subclassfeature3.1": {
+			name: "Tides of Chaos",
+			source: [["P24", 149]],
+			minlevel: 3,
+			description: desc([
+				"I can give myself Advantage on one D20 Test before I roll the d20.",
+				"(\u2736) When I cast a Sorcerer spell with a spell slot, I regain use of this feature.",
+				"If I regain use of this feature by casting a spell, I roll on the Wild Magic Surge table.",
+			]),
+			usages: 1,
+			recovery: "Long Rest",
+			altResource: "\u2736",
+		},
+		"subclassfeature6": {
+			name: "Bend Luck",
+			source: [["P24", 149]],
+			minlevel: 6,
+			description: desc(
+				"As a Reaction, after another creature that I can see rolls the d20 for a D20 Test, I can spend 1 Sorcery Point to apply 1d4 as a bonus or penalty (my choice) to the d20 roll."
+			),
+			action: [["reaction", ""]],
+			additional: "1 Sorcery Point",
+		},
+		"subclassfeature14": {
+			name: "Controlled Chaos",
+			source: [["P24", 149]],
+			minlevel: 14,
+			description: desc("Whenever I roll on the Wild Magic Surge table, I can roll twice and use either number."),
+		},
+		"subclassfeature18": {
+			name: "Tamed Surge",
+			source: [["P24", 150]],
+			minlevel: 18,
+			description: desc([
+				"After I cast a Sorcerer spell with a spell slot, I can create an effect of my choice from the Wild Magic Surge table instead of rolling on that table. I can choose any effect in the table except for the final row, and if the chosen effect involves a roll, I must make it.",
+			]),
+			usages: 1,
+			recovery: "Long Rest",
+		},
+	},
+});
 
 // Warlock Subclasses
+AddSubClass("warlock", "archfey", {
+	regExpSearch: /^(?=.*fey)(?=.*warlock).*$/i,
+	subname: "Archfey Patron",
+	source: [["P24", 159]],
+	features: {
+		"subclassfeature3": {
+			name: "Steps of the Fey",
+			source: [["P24", 159]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				var lines = [
+					"I can cast *Misty Step* without expending a spell slot.",
+					"Whenever I cast *Misty Step* this way, I can choose one of the following additional effects.",
+					" \u2022 ***Refreshing Step***. After I teleport, either one creature that I can see within 10 ft or I gains 1d10 Temporary Hit Points.",
+					" \u2022 ***Taunting Step***. Creatures within 5 ft of the space that I left must make a Wisdom save or have Disadv on attack rolls against creatures other than me until the start of my next turn.",
+				];
+				if (n >= 6) {
+					lines.push(
+						" \u2022 ***Disappearing Step***. I am Invisible until the start of my next turn or until I make an attack roll, deal damage, or cast a spell.",
+						" \u2022 ***Dreadful Step***. Creatures within 5 feet of the space that I left or appeared in must make a Wisdom save or take 2d10 Psychic damage."
+					);
+				}
+				return desc(lines);
+			}),
+			recovery: "Long Rest",
+			usages: "Charisma modifier per ",
+			usagescalc: "event.value = Math.max(1, What('Cha Mod'));",
+			spellcastingExtra: ["calm emotions", "faerie fire", "misty step", "phantasmal force", "sleep", "blink", "plant growth", "dominate beast", "greater invisibility", "dominate person", "seeming"],
+			spellcastingExtraApplyNonconform: true,
+		},
+		"subclassfeature6": {
+			name: "Misty Escape",
+			source: [["P24", 159]],
+			minlevel: 6,
+			description: " [improves Steps of the Fey]" +
+				desc("As a Reaction when I take damage, I can cast *Misty Step*."),
+			action: [["reaction", ""]],
+		},
+		"subclassfeature10": {
+			name: "Beguiling Defenses",
+			source: [["P24", 159]],
+			minlevel: 10,
+			description: desc([
+				"As a Reaction after a creature that I can see hits me with an attack, I can halve the damage and force the attacker to make a Wisdom save or take Psychic damage equal to the damage that I took. I can expend a Pact Magic spell slot (PSS) to restore use of this feature.",
+				"I am immune to the Charmed condition.",
+			]),
+			action: [["reaction", ""]],
+			savetxt: { immune: ["Charmed"] },
+			usages: 1,
+			recovery: "Long Rest",
+			altResource: "PSS",
+		},
+		"subclassfeature14": {
+			name: "Bewitching Magic",
+			source: [["P24", 160]],
+			minlevel: 14,
+			description: desc(
+				"After I cast an Enchantment or Illusion spell using an action and a spell slot, I can cast *Misty Step* as part of the same action and without expending a spell slot."
+			),
+		},
+	},
+});
+AddSubClass("warlock", "celestial", {
+	regExpSearch: /^(?=.*warlock)(?=.*celestial).*$/i,
+	subname: "Celestial Patron",
+	source: [["P24", 160]],
+	features: {
+		"subclassfeature3": {
+			name: "Healing Light",
+			source: [["P24", 160]],
+			minlevel: 3,
+			description: desc([
+				"I have a pool of d6s equal to my Warlock level plus 1 that I can use to heal.",
+				"As a Bonus Action, I can expend and roll up to my " + (typePF ? "Charisma" : "Cha") + " modifier number of dice from it.",
+				"I restore Hit Points equal to the result to myself or a creature that I can see within 60 ft.",
+			]),
+			action: [["bonus action", ""]],
+			usages: levels.map(function (n) {
+				return n < 3 ? "" : n + 1 + "d6 per ";
+			}),
+			recovery: "Long Rest",
+			spellcastingExtra: ["aid", "cure wounds", "guiding bolt", "lesser restoration", "light", "sacred flame", "daylight", "revivify", "guardian of faith", "wall of fire", "greater restoration", "summon celestial"],
+			spellcastingExtraApplyNonconform: true,
+		},
+		"subclassfeature6": {
+			name: "Radiant Soul",
+			source: [["P24", 160]],
+			minlevel: 6,
+			description: desc([
+				"Once per turn, when a spell that I cast deals Radiant or Fire damage, I can add my Charisma modifier to that spell's damage against one of the spell's targets.",
+				"I have Resistance to Radiant damage.",
+			]),
+			dmgres: ["Radiant"],
+			calcChanges: {
+				atkCalc: [
+					function (fields, v, output) {
+						if (v.isSpell && /fire|radiant/i.test(fields.Damage_Type)) {
+							output.extraDmg += What('Cha Mod');
+						};
+					},
+					"Cantrips and spells that deal Radiant or Fire damage get my Charisma modifier added to their damage to one target.",
+				],
+				spellAdd: [
+					function (spellKey, spellObj, spName) {
+						if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "fire|radiant", "Cha", true);
+					},
+					"Cantrips and spells that deal Radiant or Fire damage get my Charisma modifier added to their damage to one target.",
+				],
+			},
+		},
+		"subclassfeature10": {
+			name: "Celestial Resilience",
+			source: [["P24", 161]],
+			minlevel: 10,
+			description: levels.map(function (n) {
+				return desc([
+					"Whenever I use my Magical Cunning feature or finish a Short or Long Rest, I gain a number of Temporary Hit Points equal to " + n + " (Warlock level) plus my Charisma modifier.",
+					"When I gain these, up to five creatures that I can see each gain a number of Temporary Hit Points equal to " + Math.floor(n / 2) + " (half Warlock level) plus my Charisma modifier.",
+				]);
+			}),
+		},
+		"subclassfeature14": {
+			name: "Searing Vengeance",
+			source: [["P24", 161]],
+			minlevel: 14,
+			description: desc([
+				"When an ally within 60 ft or I are about to make a Death Saving Throw, I can cause them to regain Hit Points equal to half their Hit Point maximum and end their Prone condition.",
+				"Each creature of my choice that is within 30 ft of the healed creature takes Radiant damage equal to 2d8 + my Charisma modifier, and they gain the Blinded condition until the end of the turn.",
+			]),
+			usages: 1,
+			recovery: "Long Rest",
+		},
+	},
+});
+AddSubClass("warlock", "great old one", {
+	regExpSearch: /^(((?=.*(tharizdun|cthulhu))(?=.*warlock))|((?=.*(great|dread))(?=.*(ancient|old))(?=.*\b(one|entity)\b))).*$/i,
+	subname: "Great Old One Patron",
+	subnameShort: "Great Old One",
+	source: [["P24", 162]],
+	features: {
+		"subclassfeature3": {
+			name: "Awakened Mind",
+			source: [["P24", 162]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				return desc(
+					"As a Bonus Action, I can choose one creature that I can see within 30 ft. While we are within Charisma modifier miles (min 1) we can telepathically communicate in a language we both know. This lasts for " + n + " minutes (Warlock level) or until I use this feature again."
+				);
+			}),
+			additional: levels.map(function (n) {
+				return n + " minutes";
+			}),
+			action: [["bonus action", ""]],
+		},
+		"subclassfeature3.1": {
+			name: "Psychic Spells",
+			source: [["P24", 163]],
+			minlevel: 3,
+			description: desc([
+				"When I cast a Warlock spell that deals damage, I can change its damage type to Psychic.",
+				"I don't need Verbal or Somatic components to cast Enchantment and Illusion Warlock spells.",
+			]),
+			spellcastingExtra: ["detect thoughts", "dissonant whispers", "phantasmal force", "tasha's hideous laughter", "clairvoyance", "hunger of hadar", "confusion", "summon aberration", "modify memory", "telekinesis"],
+			spellcastingExtraApplyNonconform: true,
+			calcChanges: {
+				spellAdd: [
+					function (spellKey, spellObj, spName) {
+						if (spName.indexOf("warlock") !== -1 && (spellObj.school === "Illus" || spellObj.school === "Ench")) {
+							var newComponents = spellObj.components.replace(/,?[VS],?/g, "");
+							if (newComponents !== spellObj.components) {
+								spellObj.components = newComponents;
+								return true;
+							}
+						}
+					},
+					"I can cast Enchantment and Illusion Warlock spells without Verbal or Somatic components.",
+				],
+			},
+		},
+		"subclassfeature6": {
+			name: "Clairvoyant Combatant",
+			source: [["P24", 163]],
+			minlevel: 6,
+			description: desc(
+				"When I use Awakened Mind on a creature, I can have them make a Wisdom save or they have Disadvantage on attack rolls against me and I have Advantage on attack rolls against them while bonded. I can expend a Pact Magic spell slot (PSS) to restore use of this feature."
+			),
+			usages: 1,
+			recovery: "Short Rest",
+			altResource: "PSS",
+		},
+		"subclassfeature10": {
+			name: "Eldritch Hex",
+			source: [["P24", 163]],
+			minlevel: 10,
+			description: desc("I always have *Hex* prepared and it also imposes Disadvantage on saves of the chosen ability."),
+			spellcastingBonus: [{
+				name: "Eldritch Hex",
+				spells: ["hex"],
+				selection: ["hex"],
+				firstCol: "markedbox",
+			}],
+			spellChanges: {
+				"hex": {
+					description: "1 crea +1d6 Necro. dmg my atks, Dis 1 abi chks/saves; if 0HP: Bns change crea; SL2: 4h, 3: 8h; 5: 24h",
+					descriptionShorter: "1 crea +1d6 Necro. dmg my atks, Dis 1 abi chks/saves; 0HP: Bns change; SL2:4h, 3:8h; 5:24h",
+					changes: "My Eldritch Hex class feature causes Hex to also impose Disadvantage on the ability that I chose.",
+				},
+			},
+		},
+		"subclassfeature10.1": {
+			name: "Thought Shield",
+			source: [["P24", 163]],
+			minlevel: 10,
+			description: desc([
+				"My thoughts can't be read by telepathy or other means unless I allow it.",
+				"I have Resistance to Psychic damage, and whenever a creature deals Psychic damage to me, that creature takes the same amount of damage that I took."
+			]),
+			dmgres: ["Psychic"],
+		},
+		"subclassfeature14": {
+			name: "Create Thrall",
+			source: [["P24", 163]],
+			minlevel: 14,
+			description: levels.map(function (n) {
+				return desc([
+					"When I cast *Summon Aberration*, I can modify it so that it doesn't require Concentration.",
+					"When I do, the spell's duration becomes 1 minute and the summoned creature gains a number of Temporary Hit Points equal to " + n + " (Warlock level) plus my Charisma modifier.",
+					"In addition, when the Aberration hits a creature under the effects of my *Hex* for the first time on a turn, they also deal the *Hex* bonus damage as Psychic damage.",
+				]);
+			}),
+			additional: levels.map(function (n) {
+				return n + " + Cha mod Temp HP";
+			}),
+			spellcastingBonus: [{
+				name: "Create Thrall",
+				spells: ["summon aberration"],
+				selection: ["summon aberration"],
+				firstCol: "oncelr", // trick the sheet into keeping this as a duplicate
+			}],
+			calcChanges: {
+				spellAdd: [
+					function (spellKey, spellObj, spName, isDuplicate, isBonusSpell) {
+						if (spName === "warlock" && spellKey === "summon aberration") {
+							spellObj.firstCol = CurrentSpells[spName].typeList === 4 ? "markedbox" : "";
+							if (isDuplicate) { // Second line
+								spellObj.name = "Summon Aber. Thrall";
+								spellObj.duration = "1 min";
+								if (CurrentCasters.amendSpDescr) {
+									var lvl = classes.known.warlock ? classes.known.warlock.level : classes.totallevel;
+									var cha = Number(What("Cha Mod"));
+									spellObj.description = "As Summon Aberration, but with " + (lvl + cha) + " Temp HP (CL+Cha), benefits from Hex; see Create Thrall (400gp)";
+								} else {
+									spellObj.description = "As Summon Aberration, but with CL+Cha mod Temp HP, benefits from Hex; see Create Thrall (400gp)";
+								}
+								return true;
+							}
+						}
+					},
+					"I can cast Summon Aberration in a way that it doesn't require concentration, but then it lasts for 1 minute, the summon has extra Temporary Hit Points, and it benefits from the Hex bonus damage as Psychic damage.",
+				],
+			},
+		},
+	},
+});
 
 // Wizard Subclasses
+AddSubClass("wizard", "abjurer", {
+	regExpSearch: /abjuration|abjurer/i,
+	subname: "Abjurer",
+	fullname: "Abjurer",
+	source: [["P24", 172]],
+	features: {
+		"subclassfeature3": {
+			name: "Abjuration Savant",
+			source: [["P24", 172]],
+			minlevel: 3,
+			description: desc(
+				"I add two Wizard Abjuration spells, up to level 2, to my spellbook. Whenever I gain access to a new level of spell slots in this class, I can add one Wizard Abjuration spell to my spellbook."
+			),
+		},
+		"subclassfeature3.1": {
+			name: "Arcane Ward",
+			source: [["P24", 172]],
+			minlevel: 3,
+			description: desc([
+				"Once per Long Rest when I cast an Abjuration spell with a spell slot, I can create a ward that lasts until my next Long Rest. Whenever I take damage, the ward takes the damage instead. If I have any Resistances or Vulnerabilities, those are applied before reducing the HP of the ward. If the damage reduces the ward to 0 HP, I take any remaining damage.",
+				"While the ward has 0 HP, it can't absorb damage, but its magic remains active.",
+				"(\u2738) When I cast an Abjuration spell with a spell slot while the ward is active, it regains HP equal to " + (typePF ? "twice" : "2\xD7") + " the spell slot level. I can also do this by expending a spell slot as a Bonus Action.",
+			]),
+			action: [["bonus action", " (regain ward HP)"]],
+			additional: levels.map(function (n) {
+				return "Ward max HP: " + n * 2 + " + Int mod";
+			}),
+			extraLimitedFeatures: [{
+				name: "Arcane Ward Hit Points",
+				usages: "Twice Wizard level + Intelligence modifier",
+				usagescalc: "event.value = (classes.known.wizard ? classes.known.wizard.level * 2 : 0) + Number(What('Int Mod'));",
+				recovery: "Long Rest",
+				altResource: "\u2738",
+			}],
+		},
+		"subclassfeature6": {
+			name: "Projected Ward",
+			source: [["P24", 172]],
+			minlevel: 6,
+			description: desc(
+				"As a Reaction when a creature in 30 ft takes damage, I can cause my Arcane Ward to absorb the damage, after applying their Resistances and Vulnerabilities. If the damage reduces the ward to 0 HP, the creature takes any excess damage."
+			),
+			action: [["reaction", ""]],
+		},
+		"subclassfeature10": {
+			name: "Spell Breaker",
+			source: [["P24", 173]],
+			minlevel: 10,
+			description: desc(
+				"I always have *Counterspell* and *Dispel Magic* prepared. I can cast *Dispel Magic* as a Bonus Action and add my Proficiency Bonus to its ability check. When I cast either spell with a spell slot, that slot isn't expended if the spell fails to stop a spell."
+			),
+			spellcastingBonus: [{
+				name: "Spell Breaker",
+				spells: ["counterspell", "dispel magic"],
+				selection: ["counterspell", "dispel magic"],
+				firstCol: "markedbox",
+				times: 2,
+			}],
+			calcChanges: {
+				spellAdd: [
+					function (spellKey, spellObj, spName) {
+						if (spellKey === "dispel magic") {
+							var newDesr = applySpellcastingAbility(spellObj, CurrentSpells[spName]);
+							if (newDesr) spellObj.description = newDesr;
+							var profB = Number(How('Proficiency Bonus'));
+							spellObj.time = "Bns";
+							spellObj.description = spellObj.description.replace("check DC", "check with +" + profB + " (PB) DC");
+						};
+					},
+					"My Spell Breaker class feature allows me to cast Dispel Magic as a Bonus Action and add my Proficiency Bonus to its ability check. This is reflected in the short description by removing the Proficiency Bonus from the base 10 of the DC.",
+				],
+			},
+		},
+		"subclassfeature14": {
+			name: "Spell Resistance",
+			source: [["P24", 173]],
+			minlevel: 14,
+			description: desc("I have Advantage on saves against spells, and have Resistance to the damage of spells."),
+			dmgres: ["Damage from spells"],
+			savetxt: { adv_vs: ["spells"] },
+		},
+	},
+});
+AddSubClass("wizard", "diviner", {
+	regExpSearch: /divination|diviner|divinator/i,
+	subname: "Diviner",
+	fullname: "Diviner",
+	source: [["P24", 173]],
+	features: {
+		"subclassfeature3": {
+			name: "Divination Savant",
+			source: [["P24", 173]],
+			minlevel: 3,
+			description: desc(
+				"I add two Wizard Divination spells, up to level 2, to my spellbook. Whenever I gain access to a new level of spell slots in this class, I can add one Wizard Divination spell to my spellbook."
+			),
+		},
+		"subclassfeature3.1": { // includes Greater Portent
+			name: "Portent",
+			source: [["P24", 173]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				var portentCount = n < 14 ? "two" : "three";
+				return desc([
+					"When I finish a Long Rest, I roll " + portentCount + " d20s and record the numbers rolled. I can replace any D20 Test made by me or by a creature that I can see with one of these foretelling rolls.",
+					"I must choose to do so before the roll, and can replace a roll in this way only once per turn.",
+					"Each foretelling roll can be used only once and is lost if not used before I finish a Long Rest.",
+				]);
+			}),
+			usages: levels.map(function (n) {
+				return n < 3 ? "" : (n < 14 ? 2 : 3) + "d20 per ";
+			}),
+			recovery: "Long Rest",
+		},
+		"subclassfeature6": {
+			name: "Expert Divination",
+			source: [["P24", 173]],
+			minlevel: 6,
+			description: desc(
+				"When I cast a Divination spell using a level 2+ spell slot, I regain one expended spell slot of a level lower than the slot used for the spell and can't be higher than level 5."
+			),
+		},
+		"subclassfeature10": {
+			name: "The Third Eye",
+			source: [["P24", 173]],
+			minlevel: 10,
+			description: desc([
+				"As a Bonus Action, I can choose one of the following benefits, which lasts until I start a Short or Long Rest.",
+				" \u2022 ***Darkvision***. I gain Darkvision with a range of 120 ft.",
+				" \u2022 ***Greater Comprehension***. I can read any language.",
+				" \u2022 ***See Invisibility***. I can cast *See Invisibility* without expending a spell slot.",
+			]),
+			usages: 1,
+			recovery: "Short Rest",
+		},
+		"subclassfeature14": {
+			name: "Greater Portent",
+			source: [["P24", 173]],
+			minlevel: 14,
+			description: " [improves Portent]",
+		},
+	},
+});
+AddSubClass("wizard", "illusionist", {
+	regExpSearch: /illusion|illusionist|illusionary/i,
+	subname: "Illusionist",
+	fullname: "Illusionist",
+	source: [["P24", 175]],
+	features: {
+		"subclassfeature3": {
+			name: "Illusion Savant",
+			source: [["P24", 175]],
+			minlevel: 3,
+			description: desc(
+				"I add two Wizard Illusion spells, up to level 2, to my spellbook. Whenever I gain access to a new level of spell slots in this class, I can add one Wizard Illusion spell to my spellbook."
+			),
+		},
+		"subclassfeature3.1": {
+			name: "Improved Illusions",
+			source: [["P24", 175]],
+			minlevel: 3,
+			description: desc([
+				"I can cast Illusion spells without providing Verbal components and Illusion spells with a range of 10 ft or more have their range increased by 60 ft.",
+				"I know the *Minor Illusion* cantrip, can cast it as a Bonus Action, and can create both a sound and an image with a single casting of it.",
+			]),
+			spellcastingBonus: [{
+				name: "Improved Illusions",
+				spells: ["minor illusion"],
+				selection: ["minor illusion"],
+			}],
+			spellChanges: {
+				"minor illusion": {
+					time: "Bns",
+					description: "5-ft cube illusion includes visible and audible; Int(Investigation) check vs. Spell DC; see book",
+					changes: "My Improved Illusions class feature allows me to make both a sound and an image with a single casting and can cast it as a Bonus Action.",
+				},
+			},
+			calcChanges: {
+				spellAdd: [
+					function (spellKey, spellObj, spName) {
+						var changed = false;
+						// Stop if no wizard levels present or spell is not illusion
+						if ( spellObj.school !== "Illus" ) return changed;
+						// Add the +60 ft range
+						var useRange = spellObj.rangeObject ? spellObj.rangeObject : spellObj.range;
+						var stopFunction = function (sRange, nRangeFT) {
+							return nRangeFT < 10 || sRange.indexOf("S:") !== -1;
+						};
+						spellObj.rangeObject = amendRangeObject( useRange, "improved illusions", "+60", stopFunction );
+						// Only apply if something changed
+						if ( spellObj.rangeObject && spellObj.rangeObject.result !== spellObj.range ) {
+							spellObj.range = spellObj.rangeObject.result;
+							changed = true;
+						}
+						// Remove verbal component, if any
+						var newComponents = spellObj.components.replace(/V,?/g, "");
+						if ( newComponents !== spellObj.components ) {
+							spellObj.components = newComponents;
+							changed = true;
+						}
+						return changed;
+					},
+					"I can cast Illusion spells without Verbal components and spells with a range of 10+ ft have their range increased by 60 ft.",
+					700,
+				],
+			},
+		},
+		"subclassfeature6": {
+			name: "Phantasmal Creatures",
+			source: [["P24", 175]],
+			minlevel: 6,
+			description: desc(
+				"I always have *Summon Beast* and *Summon Fey* prepared. When I cast either, I can change its school to Illusion, causing the summon to appear spectral and to have only halve its Hit Points. I can cast each spell as an Illusion once per Long Rest without expending a spell slot."
+			),
+			spellcastingExtra: ["summon beast", "summon fey"],
+			spellcastingExtraApplyNonconform: true,
+			spellcastingBonus: [{
+				name: "Phantasmal Creatures",
+				spells: ["summon beast", "summon fey"],
+				selection: ["summon beast", "summon fey"],
+				firstCol: "oncelr", // trick the sheet into keeping these as a duplicates
+				times: 2,
+			}],
+			calcChanges: {
+				spellAdd: [
+					function (spellKey, spellObj, spName, isDuplicate, isBonusSpell) {
+						if (spName !== "wizard" || (spellKey !== "summon beast" && spellKey !== "summon fey")) return;
+						if (isDuplicate) {
+							// Make the second entry the Illusion variant
+							spellObj.description = spellObj.description.replace("obeys verbal commands; takes turn after mine", "has half HP; obeys commands; turn after mine");
+							spellObj.school = "Illus";
+							spellObj.firstCol = "oncelr+markedbox";
+							return true;
+						} else {
+							// The regular version, which is always prepared
+							spellObj.firstCol = "markedbox";
+						}
+					},
+					"I always have Summon Beast and Summon Fey prepared and can cast them as an Illusion spell, but if I do so the summon appears spectral and only has half its Hit Points. I can cast each once per Long Rest without expending a spell slot as an Illusion spell.",
+				],
+			},
+		},
+		"subclassfeature10": {
+			name: "Illusory Self",
+			source: [["P24", 175]],
+			minlevel: 10,
+			description: desc(
+				"As a Reaction when a creature hits me with an attack roll, I can summon an illusion to cause that attack to miss. I can expend a level 2+ spell slot (SS 2+) to restore use of this."
+			),
+			action: [["reaction", ""]],
+			usages: 1,
+			recovery: "Short Rest",
+			altResource: "SS 2+",
+		},
+		"subclassfeature14": {
+			name: "Illusory Reality",
+			source: [["P24", 175]],
+			minlevel: 14,
+			description: desc(
+				"As a Bonus Action, I can choose one inanimate, nonmagical object that is part of an illusion that I have cast using a spell slot and make it real for 1 minute. The object cannot deal damage or inflict any conditions."
+			),
+			action: [["bonus action", ""]],
+		},
+	},
+});
+
 
 // Backgrounds and their corresponding Background Features (which grant the origin feats)
 BackgroundList["artisan"] = {
@@ -3690,10 +4830,10 @@ FeatsList["resilient"] = {
 		saves: ["Cha"],
 	},
 };
-var PHB24_RitualCasterDescription = [
+var PHB_RitualCasterDescription = [
 	"##Ritual Spells##. I know a number of 1st-level Ritual spells equal to my Proficiency Bonus." + (typePF ? " " : "\n") + "I always have these spells prepared and can cast them as a Ritual or using spell slots.",
 	"##Quick Ritual##. Once per Long Rest, I can cast a prepared Ritual spell using its regular casting time without " + (typePF ? "using" : "expending") + " a spell slot.",
-]; if (typePF) PHB24_RitualCasterDescription.reverse();
+]; if (typePF) PHB_RitualCasterDescription.reverse();
 FeatsList["ritual caster"] = {
 	name: "Ritual Caster",
 	source: [["P24", 206]],
@@ -3702,7 +4842,7 @@ FeatsList["ritual caster"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && (What("Int") >= 13 || What("Wis") >= 13 || What("Cha") >= 13);
 	},
-	description: PHB24_RitualCasterDescription.join("\n") + " [+1 Intelligence, Wisdom, or Charisma]",
+	description: PHB_RitualCasterDescription.join("\n") + " [+1 Intelligence, Wisdom, or Charisma]",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
@@ -3724,17 +4864,17 @@ FeatsList["ritual caster"] = {
 	choices: ["Intelligence", "Wisdom", "Charisma"],
 	choicesNotInMenu: true,
 	"intelligence": {
-		description: PHB24_RitualCasterDescription.join("\n") + (typePF ? " [+1 Int]" : " [+1 Intelligence]"),
+		description: PHB_RitualCasterDescription.join("\n") + (typePF ? " [+1 Int]" : " [+1 Intelligence]"),
 		scores: [0, 0, 0, 1, 0, 0],
 		spellcastingAbility: 4,
 	},
 	"wisdom": {
-		description: PHB24_RitualCasterDescription.join("\n") + (typePF ? " [+1 Wis]" : " [+1 Wisdom]"),
+		description: PHB_RitualCasterDescription.join("\n") + (typePF ? " [+1 Wis]" : " [+1 Wisdom]"),
 		scores: [0, 0, 0, 0, 1, 0],
 		spellcastingAbility: 5,
 	},
 	"charisma": {
-		description: PHB24_RitualCasterDescription.join("\n") + (typePF ? " [+1 Cha]" : " [+1 Charisma]"),
+		description: PHB_RitualCasterDescription.join("\n") + (typePF ? " [+1 Cha]" : " [+1 Charisma]"),
 		scores: [0, 0, 0, 0, 0, 1],
 		spellcastingAbility: 6,
 	},
@@ -3770,7 +4910,7 @@ FeatsList["sentinel"] = {
 	"dexterity": {
 		description: [
 			"##Guardian##. When a creature within 5 ft of me takes the Disengage action or hits a target other than me with an attack, I can make an Opportunity Attack against them.",
-			"##Halt##. When I make an Opportunity Attack against a creature, its Speed becomes 0 for the rest of the current turn. [+1  Dexterity]",
+			"##Halt##. When I make an Opportunity Attack against a creature, its Speed becomes 0 for the rest of the current turn. [+1 Dexterity]",
 		].join("\n"),
 		scores: [0, 1, 0, 0, 0, 0],
 	},
@@ -4066,7 +5206,7 @@ FeatsList["speedy"] = {
 		scores: [0, 0, 1, 0, 0, 0],
 	},
 };
-var PHB24_SpellSniperDescription = [
+var PHB_SpellSniperDescription = [
 	"My attack rolls with spells:",
 	"##Bypass Cover##. Ignore Half Cover and Three-Quarters Cover.",
 	"##Casting in Melee##. Suffer no Disadvantage when I'm within 5 ft of an enemy.",
@@ -4083,7 +5223,7 @@ FeatsList["spell sniper"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && v.isSpellcastingClass;
 	},
-	description: PHB24_SpellSniperDescription + " [+1 Intelligence, Wisdom, or Charisma]",
+	description: PHB_SpellSniperDescription + " [+1 Intelligence, Wisdom, or Charisma]",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
@@ -4129,15 +5269,15 @@ FeatsList["spell sniper"] = {
 	choices: ["Intelligence", "Wisdom", "Charisma"],
 	choicesNotInMenu: true,
 	"intelligence": {
-		description: PHB24_SpellSniperDescription + " [+1 Intelligence]",
+		description: PHB_SpellSniperDescription + " [+1 Intelligence]",
 		scores: [0, 0, 0, 1, 0, 0],
 	},
 	"wisdom": {
-		description: PHB24_SpellSniperDescription + " [+1 Wisdom]",
+		description: PHB_SpellSniperDescription + " [+1 Wisdom]",
 		scores: [0, 0, 0, 0, 1, 0],
 	},
 	"charisma": {
-		description: PHB24_SpellSniperDescription + " [+1 Charisma]",
+		description: PHB_SpellSniperDescription + " [+1 Charisma]",
 		scores: [0, 0, 0, 0, 0, 1],
 	},
 };
@@ -5222,7 +6362,7 @@ SpellsList["summon aberration"] = {
 	components: "V,S,M\u0192",
 	compMaterial: "A pickled tentacle and an eyeball in a platinum-inlaid vial worth 400+ GP",
 	duration: "Conc, 1 h",
-	description: (typePF ? "C" : "c") + "hosen Abberant spirit; obeys verbal commands; takes turn after mine; vanishes at 0 HP; see B (400gp)",
+	description: "Chosen Aberrant spirit; obeys verbal commands; takes turn after mine; vanishes at 0 HP; see B (400gp)",
 	descriptionFull: [
 		"You call forth an aberrant spirit. It manifests in an unoccupied space that you can see within range and uses the Aberrant Spirit stat block. When you cast the spell, choose Beholderkin, Mind Flayer, or Slaad. The creature resembles an Aberration of that kind, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.",
 		"The creature is an ally to you and your allies. In combat, it shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.",
@@ -5590,3 +6730,21 @@ SpellsList["yolande's regal presence"] = {
 		"You surround yourself with unearthly majesty in a 10-foot Emanation. Whenever the Emanation enters the space of a creature you can see and whenever a creature you can see enters the Emanation or ends its turn there, you can force that creature to make a Wisdom saving throw. On a failed save, the target takes 4d6 Psychic damage and has the Prone condition, and you can push it up to 10 feet away. On a successful save, the target takes half as much damage only. A creature makes this save only once per turn.",
 	],
 };
+
+/** Create the Aberrant Sorcerer's "Psionic Spells" feature description
+ * This can only be done after all the spells have been defined
+ */
+(function() {
+	var subclass = ClassSubList[PHB_AberrantSorcerer];
+	var extraSpells = subclass.features.subclassfeature3.spellcastingExtra;
+	var feature = subclass.features.subclassfeature3["psionic spells"];
+	feature.description = levels.map(function (n) {
+		var maxSpellLvl = Math.min(9, Math.ceil(n / 2));
+		var spells = extraSpells.filter(function (spell) {
+			return SpellsList[spell] && SpellsList[spell].level <= maxSpellLvl;
+		}).map(function (spell) {
+			return "*" + SpellsList[spell].name + "*";
+		});
+		return desc(formatLineList("I know the following spells:", spells) + ".");
+	});
+})();
