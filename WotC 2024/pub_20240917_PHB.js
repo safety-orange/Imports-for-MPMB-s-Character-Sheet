@@ -10,7 +10,7 @@ RequiredSheetVersion("24.0.8-beta");
  ✶  "\u2736"	Six-point star				Sorcerer
  ✸  "\u2738"	Heavy Eight-point star		Wizard
  ❋  "\u274B"	Heavy Eight Teardrop-Spoked Propeller Asterisk
- ✽  "\u273D"	Heavy Teardrop-Spoked Asterisk
+ ✽  "\u273D"	Heavy Teardrop-Spoked Asterisk	Ranger
  ♥  "\u2665"	Heart Suit
  ♦  "\u2666"	Diamond Suit				
  ♪  "\u266A"	Eight Note					Bard
@@ -1997,6 +1997,469 @@ AddSubClass("paladin", "vengeance", {
 });
 
 // Ranger Subclasses
+var PHB_BeastMaster = {
+	baseCreature: {
+		type: "Beast",
+		alignment: "Neutral",
+		ac: "13+oWis",
+		hdLinked: ["ranger"],
+		minlevelLinked: ["ranger"],
+		passivePerception: 12,
+		languages: "Understands the languages of its master but can't speak",
+		challengeRating: "0",
+		proficiencyBonus: 2,
+		proficiencyBonusLinked: true,
+		attacksAction: 1,
+		addMod: [{
+			type: "skill", field: "all", mod: "Prof",
+			text: "The Primal Companion adds its Proficiency Bonus to all its ability checks and saving throws.",
+		}, {
+			type: "skill", field: "Init", mod: "Prof",
+			text: "The Primal Companion adds its Proficiency Bonus to all its ability checks and saving throws.",
+		}, {
+			type: "save", field: "all", mod: "Prof",
+			text: "The Primal Companion adds its Proficiency Bonus to all its ability checks and saving throws.",
+		}],
+		calcChanges: {
+			hp: function (totalHD, HDobj, prefix) {
+				if (!classes.known.ranger) return;
+				var rngrLvl = classes.known.ranger.level;
+				if (What(prefix + "Comp.Use.HD.Die") == 6) {
+					var multiplier = { die: 4, text: "four" };
+				} else {
+					var multiplier = { die: 5, text: "five" };
+				}
+				var total = multiplier.die * rngrLvl;
+				HDobj.alt.push(multiplier.die + total);
+				HDobj.altStr.push([
+					" = " + multiplier.die + " as a base",
+					" + " + multiplier.die + " \xD7 " + rngrLvl + " from " + multiplier.text + " times my Ranger level (" + total + ")",
+				].join("\n"));
+			},
+			setAltHp: true,
+		},
+		features: [{
+			name: "Master",
+			description: "The beast obeys the commands of its master and shares its Proficiency Bonus. It takes its turn during that of its master, on the same initiative count. It can move and take Reactions on its own, but only takes the Dodge action on its turn unless its master takes a Bonus Action to command it to take another action. Its master can also forgo one attack during their Attack action to command the beast to do a Beast's Strike. If its master is incapacitated, the beast can take any action, not just Dodge. The beast vanishes if its master dies.",
+		}],
+		traits: [{
+			name: "Primal Rebirth",
+			description: "Within an hour of the beast's death, its master can take a Magic action to touch it and expend a spell slot to have it return to life after " + (typePF ? "1 min with full HP." : "1 minute with all its HP."),
+		}, {
+			name: "Primal Bond",
+			description: "The beast adds its Proficiency Bonus to all its ability checks and saving throws.",
+		}, {
+			name: "Exceptional Training",
+			minlevel: 7,
+			description: "(Beast Master 7). As a Bonus Action if commanded to do so, the beast can take the Dash, Disengage, Dodge, or Help action. Its attacks can deal Force damage" + (typePF ? " instead of their normal damage type." : "."),
+			joinString: " ",
+			eval: function(prefix, lvl) {
+				var field = prefix + "Comp.Use.Attack.1.Damage Type";
+				var currentVal = What(field);
+				if (/force/i.test(currentVal)) return;
+				var newVal = "Force/" + currentVal
+					.replace(/(Bludg|Pierc|Slash)(eon)?ing/ig, "$1.")
+					.replace("Bludg./Pierc.", "B/P");
+				Value(field, newVal);
+			},
+			removeeval: function(prefix, lvl) {
+				var field = prefix + "Comp.Use.Attack.1.Damage Type";
+				var currentVal = What(field);
+				if (!/force/i.test(currentVal)) return;
+				var newVal = currentVal.replace(/Force\/?/ig, "")
+					.replace("Bludg.", "Bludgeoning")
+					.replace("Pierc.", "Piercing")
+					.replace("Slash.", "Slashing")
+					.replace(/^B\/P$/i, "Bludg./Pierc.");
+				Value(field, newVal);
+			},
+		}, {
+			name: "Bestial Fury",
+			minlevel: 11,
+			description: "(Beast Master 11). When commanded to do a Beast's Strike, the beast can make two Beast's Strikes. Once per turn, the beast can benefit from its master's *Hunter's Mark* bonus damage when it attacks a creature affected by that spell.",
+			joinString: " ",
+			eval: function(prefix, lvl) {
+				Value(prefix + "Comp.Use.Attack.perAction", 2);
+			},
+			removeeval: function(prefix, lvl) {
+				Value(prefix + "Comp.Use.Attack.perAction", 1);
+			},
+		}],
+	},
+};
+AddSubClass("ranger", "beast master", {
+	regExpSearch : /^(?=.*beast)(?=.*master).*$/i,
+	subname: "Beast Master",
+	fullname: "Beast Master",
+	source: [["P24", 122]],
+	features: {
+		"subclassfeature3": {
+			name: "Primal Companion",
+			source: [["P24", 122]],
+			minlevel: 3,
+			description: desc([
+				"When I finish a Long Rest, I can summon a Beast of the Land, Sea, or Sky within 5 ft.",
+				"I choose what kind of animal it is, fitting with its stats, but it always has primal markings.",
+				"If I already have a Primal Companion, the old one vanishes when the new one appears.",
+				"The beast is friendly to me and my allies and obeys my commands. It vanishes if I die.",
+				"***The Beast in Combat***. It acts during my turn and can move and use its Reaction on its own.",
+				"Unless I use a Bonus Action to command it, it only takes the Dodge action.",
+				"I can forgo one attack of my Attack action to command it to take the Beast's Strike action.",
+				"If I'm Incapacitated, the beast acts on its own and isn't limited to the Dodge action.",
+				"***Restoring the Beast***. As a Magic action if the beast died within the last hour, I can touch it and expend a spell slot to have it return to life with all its Hit Points restored.",
+			]),
+			action: [
+				["bonus action", " (command)"],
+				["action", " (revive)"],
+			],
+			creaturesAdd: [
+				["Beast of the Land", true],
+				["Beast of the Sea",  true],
+				["Beast of the Sky",  true],
+			],
+			creatureOptions: [
+				Object.assign({}, PHB_BeastMaster.baseCreature, {
+					name: "Beast of the Land",
+					source: [["P24", 123]],
+					size: 3,
+					hp: 20,
+					hd: [3, 8],
+					speed: "40 ft, Climb 40 ft",
+					scores: [14, 14, 15, 8, 14, 11],
+					senses: "Darkvision 60 ft",
+					attacks: [{
+						name: "Beast's Strike (\u273D)",
+						ability: 1, // will be overridden by useSpellMod
+						damage: [1, 8, "B/P/S"],
+						modifiers: ["", "Str+oWis"],
+						range: "Melee (5 ft)",
+						description: "If moved 20 ft and hit: +1d6 damage \x26 \u2264Large knocked Prone, see Charge",
+						abilitytodamage: false,
+						tooltip: "The Beast of the Land's Strike can deal Bludgeoning, Piercing, or Slashing damage (my choice when I summon the beast).\n\nIf the beast moved at least 20 ft straight toward the target before the hit, the target takes an extra 1d6 damage of the same type, and the target has the Prone condition if it is a Large or smaller creature.",
+						useSpellMod: "ranger",
+					}],
+					actions: [{
+						name: "Charge",
+						description: "If the beast moves at least 20 ft straight toward a target and hits it with a Beast's Strike, " + (typePF ? "it" : "the target") + " takes +1d6 damage, and is knocked Prone if it's Large or smaller.",
+					}],
+					notes: [{
+						name: "Beast's Strike Damage Type",
+						description: "The damage type of the beast's attack can be Bludgeoning, Piercing, or Slashing damage, which is chosen by its master when they summon the beast.",
+						bulletString: "(\u273D)",
+					}],
+				}),
+				Object.assign({}, PHB_BeastMaster.baseCreature, {
+					name: "Beast of the Sky",
+					source: [["P24", 124]],
+					size: 4,
+					hp: 16,
+					hd: [3, 6],
+					speed: "10 ft, Fly 60 ft",
+					scores: [6, 16, 13, 8, 14, 11],
+					senses: "Darkvision 60 ft",
+					attacks: [{
+						name: "Beast's Strike",
+						ability: 2, // will be overridden by useSpellMod
+						damage: [1, 4, "Slashing"],
+						modifiers: ["", "Dex+oWis"],
+						range: "Melee (5 ft)",
+						description: "",
+						abilitytodamage: false,
+						useSpellMod: "ranger",
+					}],
+					actions: [{
+						name: "Flyby",
+						description: "The beast doesn't provoke Opportunity Attacks when it flies out of an enemy's reach.",
+					}],
+				}),
+				Object.assign({}, PHB_BeastMaster.baseCreature, {
+					name: "Beast of the Sea",
+					source: [["P24", 124]],
+					size: 3,
+					hp: 20,
+					hd: [3, 8],
+					speed: "5 ft, Swim 60 ft",
+					scores: [14, 14, 15, 8, 14, 11],
+					senses: "Darkvision 90 ft",
+					attacks: [{
+						name: "Beast's Strike (\u273D)",
+						ability: 1, // will be overridden by useSpellMod
+						damage: [1, 6, "Bludg./Pierc."],
+						modifiers: ["", "Str+oWis"],
+						range: "Melee (5 ft)",
+						abilitytodamage: false,
+						description: "Hit: Grappled (Ranger spell save DC to escape)",
+						tooltip: "The Beast of the Sky's Strike can deal Bludgeoning or Piercing damage (my choice when I summon the beast).\n\nAny target hit by the Beast's Strike has the Grappled condition (escape DC equals my spell save DC).",
+						useSpellMod: "ranger",
+					}],
+					actions: [{
+						name: "Amphibious",
+						description: "The beast can breathe air and water.",
+					}],
+					notes: [{
+						name: "Beast's Strike Damage Type",
+						description: "The damage type of the beast's attack can be Bludgeoning or Piercing damage, which is chosen by its master when they summon the beast.",
+						bulletString: "(\u273D)",
+					}],
+				}),
+			],
+		},
+		"subclassfeature7": {
+			name: "Exceptional Training",
+			source: [["P24", 123]],
+			minlevel: 7,
+			description: desc([
+				"When I take a Bonus Action to command my Primal Companion to take an action, I can also command it to take the Dash, Disengage, Dodge, or Help action using its Bonus Action.",
+				"I can have the beast deal my choice of Force or its normal damage type with its attacks.",
+			]),
+		},
+		"subclassfeature11": {
+			name: "Bestial Fury",
+			source: [["P24", 123]],
+			minlevel: 11,
+			description: desc([
+				"When I command my Primal Companion to do a Beast's Strike, the beast can do so twice.",
+				"Once per turn, it can deal my Hunter's Mark bonus damage when it hits an affected target.",
+			]),
+		},
+		"subclassfeature15": {
+			name: "Share Spells",
+			source: [["P24", 123]],
+			minlevel: 15,
+			description: desc("When I cast a spell on myself, I can also affect my Primal Companion if it is within 30 ft."),
+		},
+	},
+});
+AddSubClass("ranger", "fey wanderer", {
+	regExpSearch: /^(?=.*fey)(?=.*wanderer).*$/i,
+	subname: "Fey Wanderer",
+	fullname: "Fey Wanderer",
+	source: [["P24", 124]],
+	features: {
+		"subclassfeature3": {
+			name: "Dreadful Strikes",
+			source: [["P24", 125]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				return desc([
+					"When I hit a creature with a weapon, I can deal an extra 1d" + (n < 11 ? 4 : 6) + " Psychic damage.",
+					"A creature can only take this extra damage once per turn.",
+				]);
+			}),
+			spellcastingExtra: ["charm person", "misty step", "summon fey", "dimension door", "mislead"],
+			additional: levels.map(function (n) {
+				return "1d" + (n < 11 ? 4 : 6) + " Psychic damage";
+			}),
+			calcChanges: {
+				atkAdd: [
+					function (fields, v) {
+						if (v.isWeapon && classes.known.ranger) {
+							var die = classes.known.ranger.level < 11 ? 4 : 6;
+							fields.Description += (fields.Description ? '; ' : '') + "1/turn/target +1d" + die + " Psychic dmg";
+						}
+					},
+					"All weapons get the bonus damage from my Dreadful Strikes added to their description. This is +1d4 Psychic damage that I can deal when I hit a creature with a weapon, but a creature can only take this extra damage once per turn. The damage increases to 1d6 at Ranger level 11.",
+				],
+			},
+		},
+		"subclassfeature3.1": function() {
+			var choices = ["Deception", "Performance", "Persuasion"];
+			var addMods = choices.concat(["Intimidation"]);
+			var a = {
+				name: "Otherworldly Glamour",
+				source: [["P24", 124]],
+				minlevel: 3,
+				description: ' #[Select option with "Choose Feature"]#' + desc(
+					"I can add my Wisdom modifier to Charisma checks (min 1) and gain proficiency in my choice of Deception, Performance, or Persuasion."
+				),
+				addMod: addMods.map(function (skillName) {
+					return {
+						type: "skill", field: skillName, mod: "max(1|Wis)",
+						text: "I can add my Wisdom modifier to Charisma checks (min 1).",
+					};
+				}),
+				choices: choices,
+			};
+			for (var i = 0; i < choices.length; i++) {
+				var skill = choices[i];
+				var attr = skill.toLowerCase();
+				var wisdom = skill === "Performance" && !typePF ? "Wis" : "Wisdom";
+				a[attr] = {
+					name: "Otherworldly Glamour: " + skill,
+					description: desc("I can add my " + wisdom + " modifier to Charisma checks (min 1). I gain proficiency in " + skill + "."),
+					skills: [skill],
+				}
+			};
+			return a;
+		}(),
+		"subclassfeature7": {
+			name: "Beguiling Twist",
+			source: [["P24", 125]],
+			minlevel: 7,
+			description: desc([
+				"As a Reaction when a creature that I can see within 120 ft or I succeeds on a save against being Charmed or Frightened, I can force another creature within 120 ft to make a Wisdom save or be Charmed or Frightened (my choice) for 1 min. They can repeat the save at the end of each of their turns.",
+				"I have Advantage on saves against being Charmed or Frightened.",
+			]),
+			action: [["reaction", ""]],
+			savetxt: { adv_vs: ["Charmed", "Frightened"] },
+		},
+		"subclassfeature11": {
+			name: "Fey Reinforcements",
+			source: [["P24", 125]],
+			minlevel: 11,
+			description: desc([
+				"I can cast *Summon Fey* without a Material component.",
+				"I can choose to cast it without requiring Concentration, but then its duration is 1 minute.",
+				"Once per Long Rest, I can cast *Summon Fey* without expending a spell slot.",
+			]),
+			usages: 1,
+			recovery: "Long Rest",
+			spellChanges: {
+				"summon fey": {
+					components: "V,S",
+					compMaterial: "",
+					duration: "1min/conc,1h",
+					description: "Chosen Fey Spirit; obeys verbal commands; takes turn after mine; vanishes at 0 HP; see book",
+					changes: "I can cast Summon Fey without a Material component. I can also choose to cast it in a way that it doesn't require concentration, but then it has a duration of 1 minute. Once per Long Rest, I can cast it without expending a spell slot.",
+					firstCol: "oncelr+markedbox",
+				},
+			},
+		},
+		"subclassfeature15": {
+			name: "Misty Wanderer",
+			source: [["P24", 125]],
+			minlevel: 15,
+			description: desc([
+				"I can cast *Misty Step* without using a spell slot several times per Long Rest.",
+				"When I cast *Misty Step*, I can bring along one willing creature that I can see within 5 ft.",
+			]),
+			usages: "Wisdom modifier per ",
+			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
+			recovery: "Long Rest",
+			spellChanges: {
+				"misty step": {
+					description: "Teleport myself and 1 willing crea I can see within 5 ft up to 30 ft to an unoccupied space I can see",
+					changes: "I can bring along one willing creature that I can see within 5 ft when I cast Misty Step. I can cast Misty Step without using a spell slot a number of times equal to my Wisdom modifier (min 1) per Long Rest.",
+					firstCol: "oncelr+markedbox",
+				},
+			},
+		},
+	},
+});
+AddSubClass("ranger", "gloom stalker", {
+	regExpSearch: /^(?=.*gloom)(?=.*stalker).*$/i,
+	subname: "Gloom Stalker",
+	fullname: "Gloom Stalker",
+	source: [["P24", 125]],
+	features: {
+		"subclassfeature3": {
+			name: "Dread Ambusher",
+			source: [["P24", 125]],
+			minlevel: 3,
+			description: desc([
+				"***Ambusher's Leap***. My Speed is increased by 10 ft during my first turn each combat.",
+				"***Initiative Bonus***. I can add my Wisdom modifier to my Initiative rolls.",
+			]),
+			addMod: [{
+				type: "skill", field: "Init", mod: "Wis",
+				text: "I can add my Wisdom modifier to my Initiative rolls.",
+			}],
+			spellcastingExtra: ["disguise self", "rope trick", "fear", "greater invisibility", "seeming"],
+		},
+		"subclassfeature3.1": { // includes Stalker's Flurry
+			name: "Dreadful Strike",
+			source: [["P24", 125]],
+			minlevel: 3,
+			description: levels.map(function (n) {
+				var lines = [
+					"Once per turn when I hit a creature with a weapon, I can deal it +2d" + (n < 11 ? 6 : 8) + " Psychic damage.",
+				];
+				if (n >= 11) {
+					lines.push(
+						"When I use this feature I can cause one of the following additional effects.",
+						" \u2022 ***Sudden Strike***. I can make another attack with the same weapon against a different creature within 5 ft of the original target and that is within the weapon's range.",
+						" \u2022 ***Mass Fear***. The target and each creature within 10 ft of it must make a Wisdom save or be Frightened until the start of my next turn."
+					);
+				}
+				return desc(lines);
+			}),
+			usages: levels.map(function (n) {
+				return n < 3 ? "" : n < 11 ? "Wisdom modifier per " : "Wis mod per ";
+			}),
+			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
+			recovery: typePF ? "LR" : "Long Rest",
+			additional: levels.map(function (n) {
+				return n < 11 ? "2d6" : "2d8 \x26 effect";
+			}),
+		},
+		"subclassfeature3.2": {
+			name: "Umbral Sight",
+			source: [["P24", 125]],
+			minlevel: 3,
+			description: desc([
+				"I gain 60 ft Darkvision, or increase my Darkvision by 60 ft if I already have it.",
+				"While in Darkness, I gain the Invisible condition to creatures relying on Darkvision to see me.",
+			]),
+			vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
+		},
+		"subclassfeature7": {
+			name: "Iron Mind",
+			source: [["P24", 126]],
+			minlevel: 7,
+			description: " [auto-selected]",
+			choices: [
+				"Wisdom saving throw proficiency (default)",
+				"Intelligence saving throw proficiency",
+				"Charisma saving throw proficiency",
+			],
+			defaultChoice: "wisdom saving throw proficiency (default)",
+			"wisdom saving throw proficiency (default)": {
+				name: "Iron Mind",
+				description: desc("I gain proficiency with Wisdom saves unless I already have it, in which case I can choose proficiency in Intelligence or Charisma saves instead."),
+				saves: ["Wis"],
+			},
+			"intelligence saving throw proficiency": {
+				name: "Iron Mind: Intelligence",
+				description: desc("I gain proficiency with Intelligence saves."),
+				saves: ["Int"],
+				prereqeval: function() {
+					var oField = tDoc.getField("Wis ST Prof");
+					if (!oField.isBoxChecked(0) || !oField.userName) return false;
+					var otherSources = oField.userName.replace(/[\n\r]+.*\bIron Mind\b.*/ig, "").match(/\n/g);
+					return otherSources && otherSources.length;
+				},
+			},
+			"charisma saving throw proficiency": {
+				name: "Iron Mind: Charisma",
+				description: desc("I gain proficiency with Charisma saves."),
+				saves: ["Cha"],
+				prereqeval: function() {
+					var oField = tDoc.getField("Wis ST Prof");
+					if (!oField.isBoxChecked(0) || !oField.userName) return false;
+					var otherSources = oField.userName.replace(/[\n\r]+.*\bIron Mind\b.*/ig, "").match(/\n/g);
+					return otherSources && otherSources.length;
+				},
+			},
+			
+		},
+		"subclassfeature11": {
+			name: "Stalker's Flurry",
+			source: [["P24", 126]],
+			minlevel: 11,
+			description: " [improves Dreadful Strike]",
+		},
+		"subclassfeature15": {
+			name: "Shadowy Dodge",
+			source: [["P24", 126]],
+			minlevel: 15,
+			description: desc([
+				"As a Reaction when a creature attacks me, I can impose Disadvantage on its attack roll.",
+				"After the attack, hit or miss, I can teleport up to 30 ft to an unoccupied space I can see.",
+			]),
+			action: [["reaction", ""]],
+		},
+	},
+});
 
 // Rogue Subclasses
 var PHB_ArcaneTrickster = {
@@ -5701,7 +6164,7 @@ FeatsList["interception"] = {
 	type: "fighting style",
 	description: "As a Reaction when a creature I can see hits another creature within 5 ft of me with an attack, I can reduce the damage dealt by 1d10 plus my Proficiency Bonus. I must be holding a Shield or a Simple or Martial weapon to do this.",
 	calculate: 'event.value = "As a Reaction when a creature I can see hits another creature within 5 ft of me with an attack, I can reduce the damage dealt by 1d10 plus my Proficiency Bonus (1d10+" + Number(How("Proficiency Bonus")) + "). I must be holding a Shield or a Simple or Martial weapon to do this.";',
-	descriptionClassFeature: desc("As a Reaction when a creature I can see hits another within 5 ft, I can use a Shield or Simple/Martial weapon I'm holding to reduce the damage done by 1d10 + Prof" + (typePF ? "iciency" : "") + " Bonus."),
+	descriptionClassFeature: desc("As a Reaction when a creature I can see hits another within 5 ft of me, I can use a Shield or Simple/Martial weapon I'm holding to reduce the damage done by 1d10 + Prof" + (typePF ? "iciency" : "") + " Bonus."),
 	descriptionFull: [
 		"When a creature you can see hits another creature within 5 feet of you with an attack roll, you can take a Reaction to reduce the damage dealt to the target by 1d10 plus your Proficiency Bonus. You must be holding a Shield or a Simple or Martial weapon to use this Reaction.",
 	],
@@ -5712,7 +6175,7 @@ FeatsList["protection"] = {
 	source: [["P24", 209]],
 	type: "fighting style",
 	description: "As a Reaction when a creature I can see attacks a target other than me within 5 ft of me, I can interpose my Shield if I'm holding one. This imposes Disadvantage to the triggering attack and all other attacks against the target until the start of my next turn while I stay within 5 ft of the target.",
-	descriptionClassFeature: desc("As a Reaction when a creature I can see attacks another within 5 ft, I can use a shield I'm holding to impose Disadv" + (typePF ? "antage" : "") + " on this and other attacks vs them until my next turn starts."),
+	descriptionClassFeature: desc("As a Reaction when a creature I can see attacks a creature within 5 ft of me, I can use a shield I'm holding to impose Disadv" + (typePF ? "antage" : "") + " on this and attacks " + (typePF ? "against" : "vs") + " them until my next turn starts."),
 	descriptionFull: [
 		"When a creature you can see attacks a target other than you that is within 5 feet of you, you can take a Reaction to interpose your Shield if you're holding one. You impose Disadvantage on the triggering attack roll and all other attack rolls against the target until the start of your next turn if you remain within 5 feet of the target.",
 	],

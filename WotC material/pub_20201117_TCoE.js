@@ -4115,14 +4115,14 @@ if (ClassSubList["ranger-beast master"]) {
 		languages : "understands the languages of its master but can't speak",
 		features : [{
 			name : "Master",
-			description : "The beast obeys the commands of its master and shares its proficiency bonus. It takes its turn during that of its master, on the same initiative count. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its master takes a bonus action to command it to take another action. Its master can also forgo one attack during their Attack action to command the beast to take the Attack action. If its master is incapacitated, the beast can take any action, not just Dodge. The beast vanishes if its master dies."
+			description : "The beast obeys the commands of its master and shares its Proficiency Bonus. It takes its turn during that of its master, on the same initiative count. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its master takes a bonus action to command it to take another action. Its master can also forgo one attack during their Attack action to command the beast to take the Attack action. If its master is incapacitated, the beast can take any action, not just Dodge. The beast vanishes if its master dies."
 		}],
 		traits : [{
 			name : "Primal Rebirth",
 			description : "Within an hour of the beast's death, its master can take an action to touch it and expend a spell slot to have it return to full HP after 1 minute."
 		}, {
 			name : "Primal Bond",
-			description : "The beast adds it proficiency bonus to all its ability check and saving throws."
+			description: "The beast adds its Proficiency Bonus to all its ability checks and saving throws."
 		}, {
 			name : "Exceptional Training (Beast Master 7)",
 			minlevel : 7,
@@ -4144,11 +4144,16 @@ if (ClassSubList["ranger-beast master"]) {
 				Value(prefix + "Comp.Use.Attack.perAction", 1);
 			}
 		}],
-		addMod : [
-			{ type : "skill", field : "all", mod : "Prof", text : "The primal companion adds it proficiency bonus to all its ability check and saving throws." },
-			{ type : "skill", field : "Init", mod : "Prof", text : "The primal companion adds it proficiency bonus to all its ability check and saving throws." },
-			{ type : "save", field : "all", mod : "Prof", text : "The primal companion adds it proficiency bonus to all its ability check and saving throws." }
-		],
+		addMod: [{
+			type: "skill", field: "all", mod: "Prof",
+			text: "The Primal Companion adds its Proficiency Bonus to all its ability checks and saving throws.",
+		}, {
+			type: "skill", field: "Init", mod: "Prof",
+			text: "The Primal Companion adds its Proficiency Bonus to all its ability checks and saving throws.",
+		}, {
+			type: "save", field: "all", mod: "Prof",
+			text: "The Primal Companion adds its Proficiency Bonus to all its ability checks and saving throws.",
+		}],
 		calcChanges : {
 			hp : function (totalHD, HDobj, prefix) {
 				if (!classes.known.ranger && !classes.known["spell-less ranger"]) return;
