@@ -2297,7 +2297,8 @@ AddSubClass("ranger", "fey wanderer", {
 			source: [["P24", 125]],
 			minlevel: 7,
 			description: desc([
-				"As a Reaction when a creature that I can see within 120 ft or I succeeds on a save against being Charmed or Frightened, I can force another creature within 120 ft to make a Wisdom save or be Charmed or Frightened (my choice) for 1 min. They can repeat the save at the end of each of their turns.",
+				"As a Reaction when a creature that I can see within 120 ft or I succeeds on a save against being Charmed or Frightened, I can force another creature within 120 ft to make a Wisdom save or be Charmed or Frightened (my choice) for 1 min.",
+				"An affected creature can repeat its save at the end of each of its turns to end the condition.",
 				"I have Advantage on saves against being Charmed or Frightened.",
 			]),
 			action: [["reaction", ""]],
@@ -2377,7 +2378,7 @@ AddSubClass("ranger", "gloom stalker", {
 				if (n >= 11) {
 					lines.push(
 						"When I use this feature I can cause one of the following additional effects.",
-						" \u2022 ***Sudden Strike***. I can make another attack with the same weapon against a different creature within 5 ft of the original target and that is within the weapon's range.",
+						" \u2022 ***Sudden Strike***. I can make another attack with the same weapon against a different creature within 5 ft of the original target if that creature is within the weapon's range.",
 						" \u2022 ***Mass Fear***. The target and each creature within 10 ft of it must make a Wisdom save or be Frightened until the start of my next turn."
 					);
 				}
@@ -2408,17 +2409,17 @@ AddSubClass("ranger", "gloom stalker", {
 			minlevel: 7,
 			description: " [auto-selected]",
 			choices: [
-				"Wisdom saving throw proficiency (default)",
-				"Intelligence saving throw proficiency",
-				"Charisma saving throw proficiency",
+				"Wisdom save proficiency [default]",
+				"Intelligence save proficiency (req: Wis save prof)",
+				"Charisma save proficiency (req: Wis save prof)",
 			],
-			defaultChoice: "wisdom saving throw proficiency (default)",
-			"wisdom saving throw proficiency (default)": {
+			defaultChoice: "wisdom save proficiency [default]",
+			"wisdom save proficiency [default]": {
 				name: "Iron Mind",
 				description: desc("I gain proficiency with Wisdom saves unless I already have it, in which case I can choose proficiency in Intelligence or Charisma saves instead."),
 				saves: ["Wis"],
 			},
-			"intelligence saving throw proficiency": {
+			"intelligence save proficiency (req: wis save prof)": {
 				name: "Iron Mind: Intelligence",
 				description: desc("I gain proficiency with Intelligence saves."),
 				saves: ["Int"],
@@ -2429,7 +2430,7 @@ AddSubClass("ranger", "gloom stalker", {
 					return otherSources && otherSources.length;
 				},
 			},
-			"charisma saving throw proficiency": {
+			"charisma save proficiency (req: wis save prof)": {
 				name: "Iron Mind: Charisma",
 				description: desc("I gain proficiency with Charisma saves."),
 				saves: ["Cha"],
@@ -2440,7 +2441,6 @@ AddSubClass("ranger", "gloom stalker", {
 					return otherSources && otherSources.length;
 				},
 			},
-			
 		},
 		"subclassfeature11": {
 			name: "Stalker's Flurry",
