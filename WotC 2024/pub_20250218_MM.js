@@ -1,6 +1,6 @@
 var iFileName = "pub_20250218_MM.js";
 RequiredSheetVersion("24.0.1-beta");
-// This file adds material from the 2025 Monster Manual that isn't in the SRD v5.2.1 to MPMB's Character Record Sheet
+// This file adds material from the 2025 Monster Manual that isn't in the SRD v5.2.1 to MPMB's Character Record Sheet for 5.5e
 
 // Define the source
 SourceList["M24"] = {
@@ -10,7 +10,6 @@ SourceList["M24"] = {
 	url: "https://marketplace.dndbeyond.com/core-rules/3711000",
 	date: "2025/02/18",
 };
-
 
 // Pact of the Chain familiar
 CreatureList["slaad tadpole"] = {

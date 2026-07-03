@@ -1,6 +1,6 @@
 var iFileName = "pub_20240917_PHB.js";
-RequiredSheetVersion("24.0.8-beta");
-// This file adds material from the 2024 Player's Handbook that isn't in the SRD v5.2.1 to MPMB's Character Record Sheet
+RequiredSheetVersion("24.0.9-beta");
+// This file adds material from the 2024 Player's Handbook that isn't in the SRD v5.2.1 to MPMB's Character Record Sheet for 5.5e
 
 /* Star characters that work well on the sheet
  https://symbl.cc/en/unicode-table/#dingbats

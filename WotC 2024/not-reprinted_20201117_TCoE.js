@@ -4,7 +4,7 @@ RequiredSheetVersion("24.0.5-beta");
 
 // Define the source
 SourceList.T = {
-	name: "Tasha's Cauldron of Everything",
+	name: "Tasha's Cauldron of Everything (incomplete)",
 	abbreviation: "TCoE",
 	abbreviationSpellsheet: "T",
 	group: "Legacy Sources",
