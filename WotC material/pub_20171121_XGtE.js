@@ -4838,7 +4838,7 @@ MagicItemsList["adamantine weapon"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.theWea.list == "melee" && /adamantine/i.test(v.WeaponTextName)) {
+				if (v.isMeleeWeapon && /adamantine/i.test(v.WeaponTextName)) {
 					fields.Description += (fields.Description ? '; ' : '') + 'Always critical hits on objects';
 				}
 			},

@@ -6820,7 +6820,7 @@ MagicItemsList["alchemy jug"] = {
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "B",
-	description : "As an action, command the jug to produce liquid; or an action to uncorked it and pour 2 gal/min. After producing, it only makes the same up to its max, until next dawn. Oil (1 qt), acid (8 fl oz), basic poison (1/2 fl oz), beer (4 gal), honey/wine (1 gal), fresh water (8 gal), mayonnaise/vinegar (2 gal), salt water (12 gal).",
+	description : "As an action, command the jug to produce liquid; or an action to uncork it and pour 2 gal/min. After producing, it only makes the same up to its max, until next dawn. Oil (1 qt), acid (8 fl oz), basic poison (1/2 fl oz), beer (4 gal), honey/wine (1 gal), fresh water (8 gal), mayonnaise/vinegar (2 gal), salt water (12 gal).",
 	descriptionLong : "A heavy ceramic jug. As an action, the jug can be commanded to hold a chosen liquid. With another action, I can uncork the jug and pour the liquid out at 2 gallons per minute. Once commanded to produce a liquid, it can't produce a different one or more than the maximum of one, until the next dawn.\rLiquids (with maximum): acid (8 fl. oz.), basic poison (1/2 fl. oz.), beer (4 gallons), honey (1 gallon), mayonnaise (2 gallons), oil (1 quart), vinegar (2 gallons), fresh water (8 gallons), salt water (12 gallons), wine (1 gallon).",
 	descriptionFull : "This ceramic jug appears to be able to hold a gallon of liquid and weighs 12 pounds whether full or empty. Sloshing sounds can be heard from within the jug when it is shaken, even if the jug is empty."+
 	"\n   You can use an action and name one liquid from the table below to cause the jug to produce the chosen liquid. Afterward, you can uncork the jug as an action and pour that liquid out, up to 2 gallons per minute. The maximum amount of liquid the jug can produce depends on the liquid you named."+
@@ -20631,7 +20631,7 @@ MagicItemsList["adamantine weapon"] = {
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
-				if (v.theWea.list == "melee" && /adamantine/i.test(v.WeaponTextName)) {
+				if (v.isMeleeWeapon && /adamantine/i.test(v.WeaponTextName)) {
 					fields.Description += (fields.Description ? '; ' : '') + 'Always critical hits on objects';
 				}
 			},
@@ -33295,7 +33295,7 @@ AddSubClass("bard", "college of eloquence", { // includes contributions by /u/Ho
 	}
 });
 AddSubClass("paladin", "oath of glory", { // includes contributions by BraabHimself
-	regExpSearch : /^(((?=.*glory)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
+	regExpSearch : /^(?=.*glory)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
 	subname : "Oath of Glory",
 	subnameShort: "Glory",
 	source : [["T", 53], ["MOT", 29]],
@@ -38212,14 +38212,14 @@ if (ClassSubList["ranger-beast master"]) {
 		languages : "understands the languages of its master but can't speak",
 		features : [{
 			name : "Master",
-			description : "The beast obeys the commands of its master and shares its proficiency bonus. It takes its turn during that of its master, on the same initiative count. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its master takes a bonus action to command it to take another action. Its master can also forgo one attack during their Attack action to command the beast to take the Attack action. If its master is incapacitated, the beast can take any action, not just Dodge. The beast vanishes if its master dies."
+			description : "The beast obeys the commands of its master and shares its Proficiency Bonus. It takes its turn during that of its master, on the same initiative count. It can move and take reactions on its own, but only takes the Dodge action on its turn unless its master takes a bonus action to command it to take another action. Its master can also forgo one attack during their Attack action to command the beast to take the Attack action. If its master is incapacitated, the beast can take any action, not just Dodge. The beast vanishes if its master dies."
 		}],
 		traits : [{
 			name : "Primal Rebirth",
 			description : "Within an hour of the beast's death, its master can take an action to touch it and expend a spell slot to have it return to full HP after 1 minute."
 		}, {
 			name : "Primal Bond",
-			description : "The beast adds it proficiency bonus to all its ability check and saving throws."
+			description: "The beast adds its Proficiency Bonus to all its ability checks and saving throws."
 		}, {
 			name : "Exceptional Training (Beast Master 7)",
 			minlevel : 7,
@@ -38241,11 +38241,16 @@ if (ClassSubList["ranger-beast master"]) {
 				Value(prefix + "Comp.Use.Attack.perAction", 1);
 			}
 		}],
-		addMod : [
-			{ type : "skill", field : "all", mod : "Prof", text : "The primal companion adds it proficiency bonus to all its ability check and saving throws." },
-			{ type : "skill", field : "Init", mod : "Prof", text : "The primal companion adds it proficiency bonus to all its ability check and saving throws." },
-			{ type : "save", field : "all", mod : "Prof", text : "The primal companion adds it proficiency bonus to all its ability check and saving throws." }
-		],
+		addMod: [{
+			type: "skill", field: "all", mod: "Prof",
+			text: "The Primal Companion adds its Proficiency Bonus to all its ability checks and saving throws.",
+		}, {
+			type: "skill", field: "Init", mod: "Prof",
+			text: "The Primal Companion adds its Proficiency Bonus to all its ability checks and saving throws.",
+		}, {
+			type: "save", field: "all", mod: "Prof",
+			text: "The Primal Companion adds its Proficiency Bonus to all its ability checks and saving throws.",
+		}],
 		calcChanges : {
 			hp : function (totalHD, HDobj, prefix) {
 				if (!classes.known.ranger && !classes.known["spell-less ranger"]) return;
