@@ -3,7 +3,7 @@ RequiredSheetVersion("24.0.1-beta");
 // This file adds material from the 2025 Monster Manual that isn't in the SRD v5.2.1 to MPMB's Character Record Sheet for 5.5e
 
 // Define the source
-SourceList["M24"] = {
+SourceList["MM24"] = {
 	name: "2025 Monster Manual",
 	abbreviation: "MM'25",
 	group: "Primary Sources",
@@ -15,7 +15,7 @@ SourceList["M24"] = {
 CreatureList["slaad tadpole"] = {
 	name: "Slaad Tadpole",
 	nameThis: "slaad",
-	source: [["M24", 284]],
+	source: [["MM24", 284]],
 	size: 5,
 	type: "Aberration",
 	companion: ["pact_of_the_chain"],
@@ -49,7 +49,7 @@ CreatureList["slaad tadpole"] = {
 // Undead
 CreatureList["crawling claw"] = {
 	name: "Crawling Claw",
-	source: [["M24", 83]],
+	source: [["MM24", 83]],
 	size: 5,
 	type: "Undead",
 	alignment: "Neutral Evil",
@@ -75,7 +75,7 @@ CreatureList["crawling claw"] = {
 // Beast
 CreatureList["giant squid"] = {
 	name: "Giant Squid",
-	source: [["M24", 360]],
+	source: [["MM24", 360]],
 	size: 1,
 	type: "Beast",
 	alignment: "Unaligned",

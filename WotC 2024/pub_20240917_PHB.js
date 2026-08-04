@@ -17,7 +17,7 @@ RequiredSheetVersion("24.0.9-beta");
  */
 
 // Define the source
-SourceList["P24"] = {
+SourceList["PHB24"] = {
 	name: "2024 Player's Handbook",
 	abbreviation: "PHB'24",
 	abbreviationSpellsheet: "PH",
@@ -31,12 +31,12 @@ AddSubClass("barbarian", "wild heart", {
 	regExpSearch: /^(?=.*barbarian)(?=.*wild)(?=.*heart).*$/i,
 	subname: "Path of the Wild Heart",
 	subnameShort: "Wild Heart",
-	source: [["P24", 55]],
+	source: [["PHB24", 55]],
 	abilitySave: 5,
 	features: {
 		"subclassfeature3": {
 			name: "Animal Speaker",
-			source: [["P24", 55]],
+			source: [["PHB24", 55]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				return n < 14 ? desc("I can cast *Beast Sense* and *Speak with Animals* using Wisdom, but only as Rituals.") : " [*Beast Sense* \x26 *Speak with Animals* as Ritual]";
@@ -52,7 +52,7 @@ AddSubClass("barbarian", "wild heart", {
 		},
 		"subclassfeature3.1": {
 			name: "Rage of the Wilds",
-			source: [["P24", 55]],
+			source: [["PHB24", 55]],
 			minlevel: 3,
 			description: desc([
 				"Whenever I enter Rage, I can gain one of the following benefits during that Rage.",
@@ -63,7 +63,7 @@ AddSubClass("barbarian", "wild heart", {
 		},
 		"subclassfeature6": {
 			name: "Aspect of the Wilds",
-			source: [["P24", 55]],
+			source: [["PHB24", 55]],
 			minlevel: 6,
 			description: ' #[Select option with "Choose Feature"]#' + desc('Use the "Choose Feature" button to select which aspect (Owl, Panther, or Salmon) is currently active and automated, or select to show all of them but have none of them added to the automation.'),
 			choices: ["Owl", "Panther", "Salmon", "show all (bonuses not automated)"],
@@ -98,7 +98,7 @@ AddSubClass("barbarian", "wild heart", {
 		},
 		"subclassfeature10": {
 			name: "Nature Speaker",
-			source: [["P24", 55]],
+			source: [["PHB24", 55]],
 			minlevel: 10,
 			description: levels.map(function (n) {
 				return n < 10 ? "" : n < 14 ? desc("I can cast *Commune with Nature* using Wisdom, but only as a Ritual.") : " [*Commune with Nature* as Ritual]";
@@ -112,7 +112,7 @@ AddSubClass("barbarian", "wild heart", {
 		},
 		"subclassfeature14": {
 			name: "Power of the Wilds",
-			source: [["P24", 55]],
+			source: [["PHB24", 55]],
 			minlevel: 14,
 			description: " [choose one benefit per Rage]" + desc([
 				" \u2022 ***Falcon***. I have a Fly Speed equal to my Speed if I'm not wearing any armor.",
@@ -126,11 +126,11 @@ AddSubClass("barbarian", "world tree", {
 	regExpSearch: /^(?=.*barbarian)((?=.*world)(?=.*tree)|(?=.*yggdrasil)).*$/i,
 	subname: "Path of the World Tree",
 	subnameShort: "World Tree",
-	source: [["P24", 56]],
+	source: [["PHB24", 56]],
 	features: {
 		"subclassfeature3": {
 			name: "Vitality of the Tree",
-			source: [["P24", 56]],
+			source: [["PHB24", 56]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				var rageDamage = n < 9 ? 2 : n < 16 ? 3 : 4;
@@ -142,7 +142,7 @@ AddSubClass("barbarian", "world tree", {
 		},
 		"subclassfeature6": {
 			name: "Branches of the Tree",
-			source: [["P24", 56]],
+			source: [["PHB24", 56]],
 			minlevel: 6,
 			description: desc("As a Reaction while in Rage when a creature I can see starts its turn within 30 ft, I can have it make a Strength save or teleport it to the empty space of my choice nearest to me that I can see. After it teleports, I can reduce its Speed to 0 until the end of its turn."),
 			action: [["reaction", " (in Rage)"]],
@@ -150,7 +150,7 @@ AddSubClass("barbarian", "world tree", {
 		},
 		"subclassfeature10": {
 			name: "Battering Roots",
-			source: [["P24", 56]],
+			source: [["PHB24", 56]],
 			minlevel: 10,
 			description: desc("On my turn, I have +10 ft reach with Heavy and Versatile melee weapons. With those, I can use the Push or Topple mastery in addition to a different mastery I'm using with it."),
 			calcChanges: {
@@ -174,7 +174,7 @@ AddSubClass("barbarian", "world tree", {
 		},
 		"subclassfeature14": {
 			name: "Travel along the Tree",
-			source: [["P24", 56]],
+			source: [["PHB24", 56]],
 			minlevel: 14,
 			description: desc("When I enter Rage and as a Bonus Action during, I can teleport up to 60 ft to an empty space I can see. Once per Rage, I can teleport up to 150 ft and bring along up to 6 willing creatures within 10 ft, who each arrive in an empty space of my choice within 10 ft of " + (typePF ? "where I arrive." : "me.")),
 			action: [["bonus action", " (in Rage)"]],
@@ -189,11 +189,11 @@ AddSubClass("barbarian", "zealot", {
 	subname: "Path of the Zealot",
 	subnameShort: "Zealot",
 	fullname: "Zealot",
-	source: [["P24", 57]],
+	source: [["PHB24", 57]],
 	features: {
 		"subclassfeature3": {
 			name: "Divine Fury",
-			source: [["P24", 57]],
+			source: [["PHB24", 57]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				return desc("While in Rage, the first creature I hit with a weapon or Unarmed Strike on my turn takes +1d6 + " + Math.floor(n / 2) + " (half level) Necrotic or Radiant damage; I choose the type each time.");
@@ -215,7 +215,7 @@ AddSubClass("barbarian", "zealot", {
 		},
 		"subclassfeature3.1": {
 			name: "Warrior of the Gods",
-			source: [["P24", 57]],
+			source: [["PHB24", 57]],
 			minlevel: 3,
 			description: desc("As a Bonus Action, I can expend dice from my pool of d12s to regain HP equal to their roll."),
 			usages: levels.map(function (n) {
@@ -226,7 +226,7 @@ AddSubClass("barbarian", "zealot", {
 		},
 		"subclassfeature6": {
 			name: "Fanatical Focus",
-			source: [["P24", 57]],
+			source: [["PHB24", 57]],
 			minlevel: 6,
 			description: levels.map(function (n) {
 				var rageDamageBonus = n < 9 ? 2 : n < 16 ? 3 : 4;
@@ -241,7 +241,7 @@ AddSubClass("barbarian", "zealot", {
 		},
 		"subclassfeature10": {
 			name: "Zealous Presence",
-			source: [["P24", 57]],
+			source: [["PHB24", 57]],
 			minlevel: 10,
 			description: desc("As a Bonus Action, I can give up to 10 creatures of my choice within 60 ft Adv on attacks and saves until my next turn starts. I can expend a use of Rage to restore use of this action."),
 			usages: 1,
@@ -251,7 +251,7 @@ AddSubClass("barbarian", "zealot", {
 		},
 		"subclassfeature14": {
 			name: "Rage of the Gods",
-			source: [["P24", 57]],
+			source: [["PHB24", 57]],
 			minlevel: 14,
 			description: levels.map(function (n) {
 				return n < 14 ? "" : desc("When I enter Rage, I can gain benefits for 1 minute or until I'm at 0 HP. ***Fly Speed*** equal to my Speed. ***Resistance*** to Necrotic, Psychic, and Radiant. ***Revivification***. As a Reaction when a creature within 30 ft drops to 0 HP, I can expend a Rage use to give it " + n + " HP (level).");
@@ -268,11 +268,11 @@ AddSubClass("bard", "dance", {
 	regExpSearch: /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*dance).*$/i,
 	subname: "College of Dance",
 	subnameShort: "Dance",
-	source: [["P24", 64]],
+	source: [["PHB24", 64]],
 	features: {
 		"subclassfeature3": {
 			name: "Dazzling Footwork",
-			source: [["P24", 64]],
+			source: [["PHB24", 64]],
 			minlevel: 3,
 			description: desc([
 				"While I'm not wearing armor or wielding a Shield, I gain the following benefits.",
@@ -308,7 +308,7 @@ AddSubClass("bard", "dance", {
 			armorOptions: [{
 				regExpSearch: /justToAddToDropDownAndAffectWildShape/,
 				name: "Unarmored Defense (Cha)",
-				source: [["P24", 64]],
+				source: [["PHB24", 64]],
 				ac: "10+Cha",
 				affectsWildShape: true,
 				selectNow: true,
@@ -316,7 +316,7 @@ AddSubClass("bard", "dance", {
 		},
 		"subclassfeature6": {
 			name: "Inspiring Movement",
-			source: [["P24", 64]],
+			source: [["PHB24", 64]],
 			minlevel: 6,
 			description: desc("As a Reaction when an enemy I can see ends its turn within 5 ft, I can expend a use of Bardic Inspiration to move up to half my Speed without provoking Opportunity Attacks. Then one ally of my choice within 30 ft can do the same with their Reaction."),
 			additional: "1 Bardic Inspiration",
@@ -324,14 +324,14 @@ AddSubClass("bard", "dance", {
 		},
 		"subclassfeature6.1": {
 			name: "Tandem Footwork",
-			source: [["P24", 64]],
+			source: [["PHB24", 64]],
 			minlevel: 6,
 			description: desc("When I roll Initiative and I'm not Incapacitated, I can expend and roll one Bardic Inspiration Die and add it to the Initiative of every ally within 30 ft that can see or hear me."),
 			additional: "1 Bardic Inspiration",
 		},
 		"subclassfeature14": {
 			name: "Leading Evasion",
-			source: [["P24", 65]],
+			source: [["PHB24", 65]],
 			minlevel: 14,
 			description: " [if not Incapacitated]" + desc([
 				"When I make a Dex save to halve damage, I instead take none if I succeed and half if I fail.",
@@ -345,11 +345,11 @@ AddSubClass("bard", "glamour", {
 	regExpSearch: /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*glamour).*$/i,
 	subname: "College of Glamour",
 	subnameShort: "Glamour",
-	source: [["P24", 65]],
+	source: [["PHB24", 65]],
 	features: {
 		"subclassfeature3": {
 			name: "Beguiling Magic",
-			source: [["P24", 65]],
+			source: [["PHB24", 65]],
 			minlevel: 3,
 			description: desc("Immediately after I use a spell slot to cast an Enchantment or Illusion spell, I can have a creature I can see within 60 ft make a Wisdom save or be either Charmed or Frightened for 1 minute, repeating the save as each of its turns end. I can expend a Bardic Inspiration Die to restore use of this feature. I always have *Charm Person* and *Mirror Image* prepared."),
 			usages: 1,
@@ -365,7 +365,7 @@ AddSubClass("bard", "glamour", {
 		},
 		"subclassfeature3.1": {
 			name: "Mantle of Inspiration",
-			source: [["P24", 65]],
+			source: [["PHB24", 65]],
 			minlevel: 3,
 			description: desc([
 				"As a Bonus Action, I can expend and roll a Bardic Inspiration Die to grant other creatures within 60 ft of me Temporary Hit Points equal to twice the number rolled, and then each can use its Reaction to move up to its Speed without provoking Opportunity Attacks.",
@@ -379,7 +379,7 @@ AddSubClass("bard", "glamour", {
 		},
 		"subclassfeature6": {
 			name: "Mantle of Majesty",
-			source: [["P24", 65]],
+			source: [["PHB24", 65]],
 			minlevel: 6,
 			description: desc("As a Bonus Action, I can take on an unearthly appearance for 1 minute, requiring Concentration. When I do so and as a Bonus Action during, I can cast *Command* without using a spell slot. Creatures Charmed by me automatically fail their save against it. I can expend a level 3+ spell slot (SS 3+) to restore use of this. I always have *Command* prepared."),
 			usages: 1,
@@ -395,7 +395,7 @@ AddSubClass("bard", "glamour", {
 		},
 		"subclassfeature14": {
 			name: "Unbreakable Majesty",
-			source: [["P24", 66]],
+			source: [["PHB24", 66]],
 			minlevel: 14,
 			description: desc([
 				"As a Bonus Action, I can gain a majestic presence for 1 minute or until I'm Incapacitated.",
@@ -411,12 +411,12 @@ AddSubClass("bard", "valor", {
 	regExpSearch: /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*valor).*$/i,
 	subname: "College of Valor",
 	subnameShort: "Valor",
-	source: [["P24", 67]],
+	source: [["PHB24", 67]],
 	attacks: [1, 1, 1, 1, 2],
 	features: {
 		"subclassfeature3": {
 			name: "Combat Inspiration",
-			source: [["P24", 67]],
+			source: [["PHB24", 67]],
 			minlevel: 3,
 			description: desc([
 				"A creature that has a Bardic Inspiration Die (BID) from me can use it in one of these ways.",
@@ -426,7 +426,7 @@ AddSubClass("bard", "valor", {
 		},
 		"subclassfeature3.1": {
 			name: "Martial Training",
-			source: [["P24", 67]],
+			source: [["PHB24", 67]],
 			minlevel: 3,
 			description: desc([
 				"I have proficiency with Martial weapons, Medium armor, and Shields.",
@@ -437,7 +437,7 @@ AddSubClass("bard", "valor", {
 		},
 		"subclassfeature6": {
 			name: "Extra Attack",
-			source: [["P24", 67]],
+			source: [["PHB24", 67]],
 			minlevel: 6,
 			description: desc([
 				"I can attack twice instead of once when I take the Attack action on my turn.",
@@ -447,7 +447,7 @@ AddSubClass("bard", "valor", {
 		},
 		"subclassfeature14": {
 			name: "Battle Magic",
-			source: [["P24", 67]],
+			source: [["PHB24", 67]],
 			minlevel: 14,
 			description: desc("As a Bonus Action after I cast a spell that takes an action, I can make one weapon attack."),
 			action: [["bonus action", "Weapon attack (after cast spell)"]],
@@ -459,11 +459,11 @@ AddSubClass("bard", "valor", {
 AddSubClass("cleric", "light", {
 	regExpSearch: /^(?=.*(cleric|priest|clergy|acolyte))(?=.*\b(light|sun|shining)\b).*$/i,
 	subname: "Light Domain",
-	source: [["P24", 74]],
+	source: [["PHB24", 74]],
 	features: {
 		"subclassfeature3": {
 			name: "Radiance of the Dawn",
-			source: [["P24", 74]],
+			source: [["PHB24", 74]],
 			minlevel: 3,
 			description: levels.map(function(n) {
 				return desc(
@@ -478,7 +478,7 @@ AddSubClass("cleric", "light", {
 		},
 		"subclassfeature3.1": { // includes Improved Warding Flame
 			name: "Warding Flame",
-			source: [["P24", 74]],
+			source: [["PHB24", 74]],
 			minlevel: 3,
 			description: levels.map(function(n) {
 				return desc(
@@ -496,13 +496,13 @@ AddSubClass("cleric", "light", {
 		},
 		"subclassfeature6": {
 			name: "Improved Warding Flame",
-			source: [["P24", 75]],
+			source: [["PHB24", 75]],
 			minlevel: 6,
 			description: " [see Warding Flame]",
 		},
 		"subclassfeature17": {
 			name: "Corona of Light",
-			source: [["P24", 75]],
+			source: [["PHB24", 75]],
 			minlevel: 17,
 			description: desc([
 				"As a Magic action, I can emit sunlight for 1 minute or until I dismiss it (no action).",
@@ -519,11 +519,11 @@ AddSubClass("cleric", "light", {
 AddSubClass("cleric", "trickery", {
 	regExpSearch: /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(trickery|trickster|illusion)).*$/i,
 	subname: "Trickery Domain",
-	source: [["P24", 75]],
+	source: [["PHB24", 75]],
 	features: {
 		"subclassfeature3": {
 			name: "Blessing of the Trickster",
-			source: [["P24", 75]],
+			source: [["PHB24", 75]],
 			minlevel: 3,
 			description: desc("As a Magic action, I can give myself or an ally within 30 ft Advantage on Dexterity (Stealth) checks until I finish a Long Rest or use this feature again."),
 			spellcastingExtra: ["charm person", "disguise self", "invisibility", "pass without trace", "hypnotic pattern", "nondetection", "confusion", "dimension door", "dominate person", "modify memory"],
@@ -531,7 +531,7 @@ AddSubClass("cleric", "trickery", {
 		},
 		"subclassfeature3.1": { // includes Trickster's Transposition and Improved Duplicity
 			name: "Invoke Duplicity",
-			source: [["P24", 75]],
+			source: [["PHB24", 75]],
 			minlevel: 3,
 			description: levels.map(function(n) {
 				var txt = [
@@ -559,7 +559,7 @@ AddSubClass("cleric", "trickery", {
 		},
 		"subclassfeature6": {
 			name: "Trickster's Transposition",
-			source: [["P24", 76]],
+			source: [["PHB24", 76]],
 			minlevel: 6,
 			description: " [swap with VID, see above]" + desc(
 				"Whenever I create or move the VID, I can teleport, swapping places with the VID."
@@ -567,7 +567,7 @@ AddSubClass("cleric", "trickery", {
 		},
 		"subclassfeature17": {
 			name: "Improved Duplicity",
-			source: [["P24", 76]],
+			source: [["PHB24", 76]],
 			minlevel: 17,
 			description: " [improves Invoke Duplicity]",
 		},
@@ -576,11 +576,11 @@ AddSubClass("cleric", "trickery", {
 AddSubClass("cleric", "war", {
 	regExpSearch: /^(?=.*(cleric|priest|clergy|acolyte))(?=.*\b(war|fighting|conflict)\b).*$/i,
 	subname: "War Domain",
-	source: [["P24", 76]],
+	source: [["PHB24", 76]],
 	features: {
 		"subclassfeature3": {
 			name: "Guided Strike",
-			source: [["P24", 77]],
+			source: [["PHB24", 77]],
 			minlevel: 3,
 			description: desc("When I or a creature within 30 ft misses an attack, I can use 1 CD to give a +10 bonus to the roll, potentially causing it to hit. I must take a Reaction to use feature this on another."),
 			spellcastingExtra: ["guiding bolt", "shield of faith", "magic weapon", "spiritual weapon", "crusader's mantle", "spirit guardians", "fire shield", "freedom of movement", "hold monster", "steel wind strike"],
@@ -589,7 +589,7 @@ AddSubClass("cleric", "war", {
 		},
 		"subclassfeature3.1": {
 			name: "War Priest",
-			source: [["P24", 77]],
+			source: [["PHB24", 77]],
 			minlevel: 3,
 			description: desc("As a Bonus Action, I can make one attack with a weapon or an Unarmed Strike."),
 			action: [["bonus action", ""]],
@@ -599,7 +599,7 @@ AddSubClass("cleric", "war", {
 		},
 		"subclassfeature6": {
 			name: "War God's Blessing",
-			source: [["P24", 77]],
+			source: [["PHB24", 77]],
 			minlevel: 6,
 			description: desc([
 				"I can cast *Shield of Faith* or *Spiritual Weapon* by expending 1 CD instead of a spell slot.",
@@ -627,7 +627,7 @@ AddSubClass("cleric", "war", {
 		},
 		"subclassfeature17": {
 			name: "Avatar of Battle",
-			source: [["P24", 77]],
+			source: [["PHB24", 77]],
 			minlevel: 17,
 			description: desc("I gain Resistance to Bludgeoning, Piercing, and Slashing damage."),
 			dmgres: ["Bludgeoning", "Piercing", "Slashing"],
@@ -640,11 +640,11 @@ AddSubClass("druid", "moon", {
 	regExpSearch: /^(?=.*druid)((?=.*\bmoon\b)|((?=.*\bmany\b)(?=.*\bforms?\b))).*$/i,
 	subname: "Circle of the Moon",
 	subnameShort: "Moon",
-	source: [["P24", 86]],
+	source: [["PHB24", 86]],
 	features: {
 		"subclassfeature3": {
 			name: "Circle Forms",
-			source: [["P24", 86]],
+			source: [["PHB24", 86]],
 			minlevel: 3,
 			description: desc("The max CR for my Wild Shape forms is my Druid level divided by 3. While in WS, my AC can be 13 + my Wisdom modifier. I gain 3\xD7 my Druid level in temp HP when I shape-shift."),
 			wildshapePageInfo: {
@@ -660,7 +660,7 @@ AddSubClass("druid", "moon", {
 			},
 			"wild shape rules": {
 				name: "Circle Forms Wild Shape Rules",
-				source: [["P24", "80-86"]],
+				source: [["PHB24", "80-86"]],
 				extraname: "Moon 3",
 				description: levels.map(function (n) {
 					if (n < 3) return "";
@@ -702,14 +702,14 @@ AddSubClass("druid", "moon", {
 		},
 		"subclassfeature3.1": {
 			name: "Circle of the Moon Spells",
-			source: [["P24", 86]],
+			source: [["PHB24", 86]],
 			minlevel: 3,
 			description: desc("I always have these spells prepared and can cast them even when I'm in a Wild Shape form."),
 			spellcastingExtra: ["starry wisp", "cure wounds", "moonbeam", "conjure animals", "fount of moonlight", "mass cure wounds"],
 		},
 		"subclassfeature6": {
 			name: "Improved Circle Forms",
-			source: [["P24", 87]],
+			source: [["PHB24", 87]],
 			minlevel: 6,
 			description: desc("While in Wild Shape form, I gain ***Lunar Radiance***: my attacks can deal Radiant damage, and ***Increased Toughness***: I add my Wisdom modifier to my Constitution saving throws."),
 			calcChanges: {
@@ -730,7 +730,7 @@ AddSubClass("druid", "moon", {
 		},
 		"subclassfeature10": {
 			name: "Moonlight Step",
-			source: [["P24", 87]],
+			source: [["PHB24", 87]],
 			minlevel: 10,
 			description: levels.map(function (n) {
 				return n < 10 ? "" : n < 14 ?
@@ -745,7 +745,7 @@ AddSubClass("druid", "moon", {
 		},
 		"subclassfeature14": {
 			name: "Lunar Form",
-			source: [["P24", 87]],
+			source: [["PHB24", 87]],
 			minlevel: 14,
 			description: desc("***Improved Lunar Radiance***. Once per turn, I can deal +2d10 Radiant damage on a hit with a WS attack. ***Shared Moonlight***. I can bring along an ally with Moonlight Step, see above."),
 		},
@@ -755,11 +755,11 @@ AddSubClass("druid", "sea", {
 	regExpSearch: /^(?=.*druid)(?=.*\b(sea|waves|tides)\b).*$/i,
 	subname: "Circle of the Sea",
 	subnameShort: "Sea",
-	source: [["P24", 87]],
+	source: [["PHB24", 87]],
 	features: {
 		"subclassfeature3": {
 			name: "Wrath of the Sea",
-			source: [["P24", 87]],
+			source: [["PHB24", 87]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				var part = {
@@ -785,14 +785,14 @@ AddSubClass("druid", "sea", {
 		},
 		"subclassfeature6": {
 			name: "Aquatic Affinity",
-			source: [["P24", 87]],
+			source: [["PHB24", 87]],
 			minlevel: 6,
 			description: desc("I gain a Swim Speed equal to my Speed and Wrath of the Sea is now a 10-ft Emanation."),
 			speed: { swim: { spd: "walk", end: "walk" } },
 		},
 		"subclassfeature10": {
 			name: "Stormborn",
-			source: [["P24", 87]],
+			source: [["PHB24", 87]],
 			minlevel: 10,
 			description: desc("While my Wrath of the Sea is active, it now also grants: ***Resistance*** to Cold, Lightning, and Thunder damage, and ***Flight***. A Fly Speed equal to my Speed."),
 			dmgres: [
@@ -803,7 +803,7 @@ AddSubClass("druid", "sea", {
 		},
 		"subclassfeature14": {
 			name: "Oceanic Gift",
-			source: [["P24", 88]],
+			source: [["PHB24", 88]],
 			minlevel: 14,
 			description: desc([
 				"I can create Wrath of the Sea around an ally within 60 ft that I can see instead of myself, or around both my and the ally by expending 2 Wild Shape uses.",
@@ -816,11 +816,11 @@ AddSubClass("druid", "stars", {
 	regExpSearch: /^(?=.*druid)(?=.*\b(stars?|constellations?)\b).*$/i,
 	subname: "Circle of the Stars",
 	subnameShort: "Stars",
-	source: [["P24", 88]],
+	source: [["PHB24", 88]],
 	features: {
 		"subclassfeature3": {
 			name: "Star Map",
-			source: [["P24", 88]],
+			source: [["PHB24", 88]],
 			minlevel: 3,
 			description: desc("I can use this Tiny object as my spellcasting focus. While holding it, I know *Guidance* and always have *Guiding Bolt* prepared, which I can cast my " + (typePF ? "Wisdom" : "Wis") + " modifier times per Long Rest without a spell slot. I can recreate it with a 1-hour ceremony during a Short or Long Rest."),
 			additional: "Guiding Bolt",
@@ -840,7 +840,7 @@ AddSubClass("druid", "stars", {
 		},
 		"subclassfeature3.1": {
 			name: "Starry Form",
-			source: [["P24", 88]],
+			source: [["PHB24", 88]],
 			minlevel: 3,
 			description: desc([
 				"As a Bonus Action, I can expend a WS use to take on a glowing form with the benefits of a constellation (3rd page). I shed Bright Light in " + (typePF ? "10-ft radius" : "10 ft") + " and Dim Light for an additional 10 ft.",
@@ -851,7 +851,7 @@ AddSubClass("druid", "stars", {
 			weaponOptions: [{
 				regExpSearch: /^(?=.*luminous)(?=.*arrow).*$/i,
 				name: "Luminous Arrow",
-				source: [["P24", 89]],
+				source: [["PHB24", 89]],
 				ability: 5,
 				type: "Spell",
 				damage: [1, 8, "radiant"],
@@ -865,7 +865,7 @@ AddSubClass("druid", "stars", {
 			extraname: "Starry Form",
 			"archer constellation": {
 				name: "Archer Constellation",
-				source: [["P24", 89]],
+				source: [["PHB24", 89]],
 				description: levels.map(function (n) {
 					return desc("As a Bonus Action, including the one to take this Starry Form, I can make a ranged spell attack to hurl a luminous arrow 60 ft that deals " + (n < 10 ? 1 : 2) + "d8 + Wisdom modifier Radiant damage.");
 				}),
@@ -876,7 +876,7 @@ AddSubClass("druid", "stars", {
 			},
 			"chalice constellation": {
 				name: "Chalice Constellation",
-				source: [["P24", 89]],
+				source: [["PHB24", 89]],
 				description: levels.map(function (n) {
 					return desc("Whenever I cast a healing spell using a spell slot, I can also heal myself or another within 30 ft for " + (n < 10 ? 1 : 2) + "d8 + Wisdom modifier HP.");
 				}),
@@ -886,7 +886,7 @@ AddSubClass("druid", "stars", {
 			},
 			"dragon constellation": {
 				name: "Dragon Constellation",
-				source: [["P24", 89]],
+				source: [["PHB24", 89]],
 				description: levels.map(function (n) {
 					var text = [
 						"When I make an Intelligence or Wisdom check, or make a Con save to maintain Concentration,",
@@ -909,7 +909,7 @@ AddSubClass("druid", "stars", {
 		},
 		"subclassfeature6": {
 			name: "Cosmic Omen",
-			source: [["P24", 89]],
+			source: [["PHB24", 89]],
 			minlevel: 6,
 			description: desc([
 				"When I finish a Long Rest, I roll a die to determine which omen I can use until my next LR.",
@@ -923,7 +923,7 @@ AddSubClass("druid", "stars", {
 		},
 		"subclassfeature10": {
 			name: "Twinkling Constellations",
-			source: [["P24", 89]],
+			source: [["PHB24", 89]],
 			minlevel: 10,
 			description: " [improves constellations, see 3rd page]" + desc("While in my Starry Form, I can change the constellation at the start of each of my turns."),
 			calcChanges: {
@@ -939,7 +939,7 @@ AddSubClass("druid", "stars", {
 		},
 		"subclassfeature14": {
 			name: "Full of Stars",
-			source: [["P24", 89]],
+			source: [["PHB24", 89]],
 			minlevel: 14,
 			description: desc("While in my Starry Form, I have Resistance to Bludgeoning, Piercing, and Slashing damage."),
 			dmgres: [
@@ -956,13 +956,13 @@ AddSubClass("fighter", "battle master", {
 	regExpSearch: /^(?=.*(war|fighter|battle|martial))(?=.*master).*$/i,
 	subname: "Battle Master",
 	fullname: "Battle Master",
-	source: [["P24", 93]],
+	source: [["PHB24", 93]],
 	abilitySave: 1,
 	abilitySaveAlt: 2,
 	features: {
 		"subclassfeature3": { // includes the level 10 and 18 Improved/Ultimate Combat Superiority features
 			name: "Combat Superiority",
-			source: [["P24", 93]],
+			source: [["PHB24", 93]],
 			minlevel: 3,
 			description: desc("I gain a number of Superiority Dice (SD) that I can use to fuel special Maneuvers."),
 			additional: levels.map(function (n) {
@@ -977,7 +977,7 @@ AddSubClass("fighter", "battle master", {
 		},
 		"subclassfeature3.1": {
 			name: "Maneuvers",
-			source: [["P24", 93]],
+			source: [["PHB24", 93]],
 			minlevel: 3,
 			description: desc([
 				"I can expend one Superiority Die to do a Maneuver I know, but only one per attack.",
@@ -994,14 +994,14 @@ AddSubClass("fighter", "battle master", {
 			"ambush": {
 				name: "Ambush",
 				extraname: "Maneuver",
-				source: [["P24", 94]],
+				source: [["PHB24", 94]],
 				description: desc("When I roll for Initiative or Dex (Stealth), I can expend and add 1 SD unless I'm Incapacitated."),
 				additional: "add SD to Stealth or Initiative",
 			},
 			"bait and switch": {
 				name: "Bait and Switch",
 				extraname: "Maneuver",
-				source: [["P24", 94]],
+				source: [["PHB24", 94]],
 				description: desc([
 					"On my turn, I can expend 1 SD to switch places with a willing, not-Incapacitated creature within 5 ft, if I spend at least 5 ft of movement. This doesn't provoke Opportunity Attacks.",
 					"The other creature or I (my choice) can add the SD to AC until the start of my next turn.",
@@ -1011,35 +1011,35 @@ AddSubClass("fighter", "battle master", {
 			"commander's strike": {
 				name: "Commander's Strike",
 				extraname: "Maneuver",
-				source: [["P24", 94]],
+				source: [["PHB24", 94]],
 				description: desc("When I take the Attack action on my turn, I can forgo one attack to direct a willing creature I can see or hear to strike. I expend 1 SD and that creature can immediately use its Reaction to make one attack with a weapon or Unarmed Strike, adding the SD to the attack's damage."),
 				additional: "ally adds SD to damage",
 			},
 			"commanding presence": {
 				name: "Commanding Presence",
 				extraname: "Maneuver",
-				source: [["P24", 95]],
+				source: [["PHB24", 95]],
 				description: desc("When I make an Intimidation, Performance, or Persuasion check, I can expend and add 1 SD."),
 				additional: "add SD to Charisma skill check",
 			},
 			"disarming attack": {
 				name: "Disarming Attack",
 				extraname: "Maneuver",
-				source: [["P24", 95]],
+				source: [["PHB24", 95]],
 				description: desc("When I hit a creature with an attack, I can expend and add 1 SD to the damage. The target must make a Strength save or drop one object of my choice that it's holding in its space."),
 				additional: "add SD to damage",
 			},
 			"distracting strike": {
 				name: "Distracting Strike",
 				extraname: "Maneuver",
-				source: [["P24", 95]],
+				source: [["PHB24", 95]],
 				description: desc("When I hit a creature with an attack, I can expend and add 1 SD to the damage. The next attack vs the target by another than me has Advantage, if made before my next turn starts."),
 				additional: "add SD to damage",
 			},
 			"evasive footwork": {
 				name: "Evasive Footwork",
 				extraname: "Maneuver",
-				source: [["P24", 95]],
+				source: [["PHB24", 95]],
 				description: desc([
 					"As a Bonus Action, I can expend 1 SD to take the Disengage action.",
 					"I add the Superiority Die to my AC until the start of my next turn.",
@@ -1050,7 +1050,7 @@ AddSubClass("fighter", "battle master", {
 			"feinting attack": {
 				name: "Feinting Attack",
 				extraname: "Maneuver",
-				source: [["P24", 95]],
+				source: [["PHB24", 95]],
 				description: desc("As a Bonus Action, I can expend 1 SD to gain Advantage on my next attack this turn against a creature within 5 ft. If that attack hits, I add the Superiority Die to its damage."),
 				additional: "add SD to damage",
 				action: [["bonus action", ""]],
@@ -1058,14 +1058,14 @@ AddSubClass("fighter", "battle master", {
 			"goading attack": {
 				name: "Goading Attack",
 				extraname: "Maneuver",
-				source: [["P24", 95]],
+				source: [["PHB24", 95]],
 				description: desc("When I hit a creature with an attack, I can expend and add 1 SD to the damage. The target must make a Wis save or have Disadvantage on attacks not vs me until my next turn ends."),
 				additional: "add SD to damage",
 			},
 			"lunging attack": {
 				name: "Lunging Attack",
 				extraname: "Maneuver",
-				source: [["P24", 95]],
+				source: [["PHB24", 95]],
 				description: desc("As a Bonus Action, I can expend 1 SD to take the Dash action. If I move 5 ft in a straight line before hitting a melee attack in the same turn's Attack action, I add the SD to the damage."),
 				additional: "add SD to melee damage",
 				action: [["bonus action", ""]],
@@ -1073,7 +1073,7 @@ AddSubClass("fighter", "battle master", {
 			"maneuvering attack": {
 				name: "Maneuvering Attack",
 				extraname: "Maneuver",
-				source: [["P24", 95]],
+				source: [["PHB24", 95]],
 				description: desc([
 					"When I hit a creature with an attack, I can expend and add 1 SD to the damage.",
 					"A willing creature of my choice who can see or hear me can then use its Reaction to move up to half its Speed without provoking an Opportunity Attack from the target of my attack.",
@@ -1083,14 +1083,14 @@ AddSubClass("fighter", "battle master", {
 			"menacing attack": {
 				name: "Menacing Attack",
 				extraname: "Maneuver",
-				source: [["P24", 95]],
+				source: [["PHB24", 95]],
 				description: desc("When I hit a creature with an attack, I can expend and add 1 SD to the damage. The target must make a Wisdom save or have the Frightened condition until the end of my next turn."),
 				additional: "add SD to damage",
 			},
 			"parry": {
 				name: "Parry",
 				extraname: "Maneuver",
-				source: [["P24", 95]],
+				source: [["PHB24", 95]],
 				description: desc("As a Reaction when I take damage from a melee attack, I can expend and roll 1 SD to reduce the damage by it plus my Strength or Dexterity modifier (my choice)."),
 				additional: "reduce damage taken by SD + Str/Dex mod",
 				action: [["reaction", ""]],
@@ -1098,21 +1098,21 @@ AddSubClass("fighter", "battle master", {
 			"precision attack": {
 				name: "Precision Attack",
 				extraname: "Maneuver",
-				source: [["P24", 95]],
+				source: [["PHB24", 95]],
 				description: desc("When I miss an attack, I can expend and add 1 SD to the roll, potentially causing it to hit."),
 				additional: "add SD to attack roll",
 			},
 			"pushing attack": {
 				name: "Pushing Attack",
 				extraname: "Maneuver",
-				source: [["P24", 95]],
+				source: [["PHB24", 95]],
 				description: desc("When I hit a creature with a weapon or Unarmed Strike, I can expend and add 1 SD to the damage. If Large or smaller, it must make a Str save or be pushed up to 15 ft back from me."),
 				additional: "add SD to damage",
 			},
 			"rally": {
 				name: "Rally",
 				extraname: "Maneuver",
-				source: [["P24", 95]],
+				source: [["PHB24", 95]],
 				description: desc("As a Bonus Action, I can expend 1 SD to grant an ally within 30 ft who can see or hear me Temporary Hit Points equal to the SD roll plus half my Fighter level."),
 				additional: levels.map(function (n) {
 					return "ally gains SD + " + Math.floor(n/2) + " Temp HP";
@@ -1122,7 +1122,7 @@ AddSubClass("fighter", "battle master", {
 			"riposte": {
 				name: "Riposte",
 				extraname: "Maneuver",
-				source: [["P24", 95]],
+				source: [["PHB24", 95]],
 				description: desc("As a Reaction when a creature misses me with a melee attack, I can expend 1 SD to make a melee attack with a weapon or Unarmed Strike against it, adding the SD to the damage."),
 				additional: "add SD to melee damage",
 				action: [["reaction", ""]],
@@ -1130,21 +1130,21 @@ AddSubClass("fighter", "battle master", {
 			"sweeping attack": {
 				name: "Sweeping Attack",
 				extraname: "Maneuver",
-				source: [["P24", 95]],
+				source: [["PHB24", 95]],
 				description: desc("When I hit a creature with a melee weapon or Unarmed Strike, I can expend 1 SD to damage another creature within reach and within 5 ft of the first. If the original attack roll would hit the second creature, it takes 1 SD damage of the same type as the original attack."),
 				additional: "deal SD damage",
 			},
 			"tactical assessment": {
 				name: "Tactical Assessment",
 				extraname: "Maneuver",
-				source: [["P24", 95]],
+				source: [["PHB24", 95]],
 				description: desc("When I make a History, Investigation, or Insight check, I can expend and add 1 SD to it."),
 				additional: "add SD to certain skill checks",
 			},
 			"trip attack": {
 				name: "Trip Attack",
 				extraname: "Maneuver",
-				source: [["P24", 95]],
+				source: [["PHB24", 95]],
 				description: desc("When I hit a creature with a weapon or Unarmed Strike, I can expend and add 1 SD to the damage. If the target is Large or smaller, it must make a Strength save or be knocked Prone."),
 				additional: "add SD to damage",
 			},
@@ -1152,7 +1152,7 @@ AddSubClass("fighter", "battle master", {
 		"subclassfeature3.2": function () {
 			var a = {
 				name: "Student of War",
-				source: [["P24", 94]],
+				source: [["PHB24", 94]],
 				minlevel: 3,
 				description: ' #[Select option with "Choose Feature"]#' + desc("I gain proficiency with one type of Artisan's Tools and in one skill from the Fighter list. Use the \"Choose Feature\" button to select a skill."),
 				toolProfs: [["Artisan's tools", 1]],
@@ -1174,7 +1174,7 @@ AddSubClass("fighter", "battle master", {
 		}(),
 		"subclassfeature7": {
 			name: "Know Your Enemy",
-			source: [["P24", 94]],
+			source: [["PHB24", 94]],
 			minlevel: 7,
 			description: desc("As a Bonus Action, I can learn the Immunities, Resistances, and Vulnerabilities of a creature I can see within 30 ft. I can expend a Superiority Die to restore use of this feature."),
 			action: [["bonus action", ""]],
@@ -1184,7 +1184,7 @@ AddSubClass("fighter", "battle master", {
 		},
 		"subclassfeature15": {
 			name: "Relentless",
-			source: [["P24", 94]],
+			source: [["PHB24", 94]],
 			minlevel: 15,
 			description: desc("Once per turn when I do a Maneuver, I can use a d8 instead of expending a Superiority Die."),
 		},
@@ -1201,7 +1201,7 @@ AddSubClass("fighter", "eldritch knight", {
 		/^(?!.*(exalted|sacred|holy|divine|nature|natural|purple.*dragon|green|arcane archer))(?=.*(knight|fighter|warrior|militant|warlord|phalanx|gladiator|trooper))(?=.*\b(eldritch|arcane|magic|mage|witch)\b).*$/i,
 	subname: "Eldritch Knight",
 	fullname: "Eldritch Knight",
-	source: [["P24", 96]],
+	source: [["PHB24", 96]],
 	abilitySave: 4,
 	spellcastingFactor: 3,
 	spellcastingList: {
@@ -1215,7 +1215,7 @@ AddSubClass("fighter", "eldritch knight", {
 	features: {
 		"subclassfeature3": {
 			name: "Spellcasting",
-			source: [["P24", 97]],
+			source: [["PHB24", 97]],
 			minlevel: 3,
 			description: desc(
 				"I can cast Wizard cantrips/spells I know, using Intelligence as spellcasting ability. I can use Arcane Focus as Spellcasting Focus for them. I can swap 1 spell when I gain a Fighter level."
@@ -1226,7 +1226,7 @@ AddSubClass("fighter", "eldritch knight", {
 		},
 		"subclassfeature3.1": {
 			name: "War Bond",
-			source: [["P24", 98]],
+			source: [["PHB24", 98]],
 			minlevel: 3,
 			description: desc([
 				"I can bond with up to two weapons by spending a Short Rest with each.",
@@ -1237,19 +1237,19 @@ AddSubClass("fighter", "eldritch knight", {
 		},
 		"subclassfeature7": {
 			name: "War Magic",
-			source: [["P24", 98]],
+			source: [["PHB24", 98]],
 			minlevel: 7,
 			description: desc("When I take the Attack action, I can replace one of the attacks with casting one of my Wizard cantrips that has a casting time of one action."),
 		},
 		"subclassfeature10": {
 			name: "Eldritch Strike",
-			source: [["P24", 98]],
+			source: [["PHB24", 98]],
 			minlevel: 10,
 			description: desc("A creature hit by my weapon attack has Disadvantage on the next save it makes against a spell that I cast before the end of my next turn."),
 		},
 		"subclassfeature15": {
 			name: "Arcane Charge",
-			source: [["P24", 98]],
+			source: [["PHB24", 98]],
 			minlevel: 15,
 			description: desc([
 				"When I use Action Surge, I can also teleport up to 30 ft to an empty space I can see.",
@@ -1263,7 +1263,7 @@ AddSubClass("fighter", "eldritch knight", {
 		}),
 		"subclassfeature18": {
 			name: "Improved War Magic",
-			source: [["P24", 98]],
+			source: [["PHB24", 98]],
 			minlevel: 18,
 			description: desc("When I take the Attack action, I can replace two of the attacks with casting one of my level 1 or level 2 Wizard spells that has a casting time of one action."),
 		},
@@ -1276,12 +1276,12 @@ AddSubClass("fighter", "psi warrior", {
 	regExpSearch: /^(?=.*\bpsi(onic)?s?\b)(?=.*warrior).*$/i,
 	subname: "Psi Warrior",
 	fullname: "Psi Warrior",
-	source: [["P24", 98]],
+	source: [["PHB24", 98]],
 	abilitySave: 4,
 	features: {
 		"subclassfeature3": {
 			name: "Psionic Energy Dice",
-			source: [["P24", 98]],
+			source: [["PHB24", 98]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				var txt = "";
@@ -1305,7 +1305,7 @@ AddSubClass("fighter", "psi warrior", {
 		},
 		"subclassfeature3.1": {
 			name: "Protective Field",
-			source: [["P24", 98]],
+			source: [["PHB24", 98]],
 			minlevel: 3,
 			description: levels.map(function (n, i) {
 				return desc("As a Reaction when I or a creature that I can see within 30 ft takes damage, I can expend 1 Psionic Energy Die to reduce the damage by 1d" + PHB_PsiDSize[i] + " (PsiD) + my Intelligence modifier.");
@@ -1315,7 +1315,7 @@ AddSubClass("fighter", "psi warrior", {
 		},
 		"subclassfeature3.2": {
 			name: "Psionic Strike",
-			source: [["P24", 98]],
+			source: [["PHB24", 98]],
 			minlevel: 3,
 			description: levels.map(function (n, i) {
 				var txt = "";
@@ -1330,7 +1330,7 @@ AddSubClass("fighter", "psi warrior", {
 		},
 		"subclassfeature3.3": {
 			name: "Telekinetic Movement",
-			source: [["P24", 98]],
+			source: [["PHB24", 98]],
 			minlevel: 3,
 			description: desc(
 				"As a Magic action, I can choose a \u2264Large object or one willing creature that I can see within 30 ft and teleport it up to 30 ft to an empty space that I can see. If it's a Tiny object, I can teleport it to or from my hand. I can expend a " + (typePF ? "Psionic Energy Die" : "PsiD") + " to restore use of this feature."
@@ -1342,13 +1342,13 @@ AddSubClass("fighter", "psi warrior", {
 		},
 		"subclassfeature7": {
 			name: "Telekinetic Thrust",
-			source: [["P24", 99]],
+			source: [["PHB24", 99]],
 			minlevel: 7,
 			description: " [improves Psionic Strike, see above]",
 		},
 		"subclassfeature7.1": {
 			name: "Psi-Powered Leap",
-			source: [["P24", 99]],
+			source: [["PHB24", 99]],
 			minlevel: 7,
 			description: desc(
 				"As a Bonus Action, I can gain a Fly Speed equal to twice my Speed until the end of the turn." + (typePF ? "\n" : " ") + "I can expend a Psionic Energy Die to restore use of this feature."
@@ -1360,7 +1360,7 @@ AddSubClass("fighter", "psi warrior", {
 		},
 		"subclassfeature10": {
 			name: "Guarded Mind",
-			source: [["P24", 99]],
+			source: [["PHB24", 99]],
 			minlevel: 10,
 			description: desc(
 				"If I start my turn being Charmed or Frightened, I can expend 1 PsiD (no action) to end every effect on myself giving me those conditions. I gain Resistance to Psychic damage."
@@ -1370,7 +1370,7 @@ AddSubClass("fighter", "psi warrior", {
 		},
 		"subclassfeature15": {
 			name: "Bulwark of Force",
-			source: [["P24", 99]],
+			source: [["PHB24", 99]],
 			minlevel: 15,
 			description: desc(
 				"As a Bonus Action, I can choose Int mod of creatures within 30 ft, including myself, to have Half Cover for 1 min or until I'm Incapacitated. I can expend a PsiD to restore use of this" + (typePF ? " feature." : ".")
@@ -1382,7 +1382,7 @@ AddSubClass("fighter", "psi warrior", {
 		},
 		"subclassfeature18": {
 			name: "Telekinetic Master",
-			source: [["P24", 99]],
+			source: [["PHB24", 99]],
 			minlevel: 18,
 			description: desc(
 				"I always have Telekinesis prepared. I can cast it without using a spell slot or components, with Intelligence as spellcasting ability. As a Bonus Action on my turns while Concentrating on this, I can make one attack with a weapon. I can expend a PsiD to restore use of this" + (typePF ? " feature." : ".")
@@ -1433,12 +1433,12 @@ AddSubClass("monk", "mercy", {
 	regExpSearch: /^(?=.*mercy)((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname: "Warrior of Mercy",
 	subnameShort: "Mercy",
-	source: [["P24", 104]],
+	source: [["PHB24", 104]],
 	features: {
 		"subclassfeature3": { // includes Physician's Touch; moves to third page from level 15 onwards
 			name: "Hand of Harm",
 			minlevel: 3,
-			source: [["P24", 104]],
+			source: [["PHB24", 104]],
 			description: levels.map(function (n, idx) {
 				return n < 6 ? PHB_WarriorMercy.handOfHarm.description :
 					n < 15 ? PHB_WarriorMercy.handOfHarm.description6 : undefined;
@@ -1450,7 +1450,7 @@ AddSubClass("monk", "mercy", {
 			"hand of harm": {
 				name: "Hand of Harm",
 				extraname: "Mercy 3",
-				source: [["P24", 104]],
+				source: [["PHB24", 104]],
 				description: PHB_WarriorMercy.handOfHarm.description6,
 				additional: PHB_WarriorMercy.handOfHarm.additional,
 			},
@@ -1458,7 +1458,7 @@ AddSubClass("monk", "mercy", {
 		"subclassfeature3.1": { // includes Physician's Touch; moves to third page from level 15 onwards
 			name: "Hand of Healing",
 			minlevel: 3,
-			source: [["P24", 104]],
+			source: [["PHB24", 104]],
 			description: levels.map(function (n, idx) {
 				return n < 6 ? PHB_WarriorMercy.handOfHealing.description :
 					n < 15 ? PHB_WarriorMercy.handOfHealing.description6 : undefined;
@@ -1471,14 +1471,14 @@ AddSubClass("monk", "mercy", {
 			"hand of healing": {
 				name: "Hand of Healing",
 				extraname: "Mercy 3",
-				source: [["P24", 104]],
+				source: [["PHB24", 104]],
 				description: PHB_WarriorMercy.handOfHealing.description6,
 				additional: PHB_WarriorMercy.handOfHealing.additional,
 			},
 		},
 		"subclassfeature3.2": {
 			name: "Hand of Harm \x26 Hand of Healing",
-			source: [["P24", 104]],
+			source: [["PHB24", 104]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				return n < 15 ? undefined : " [see third page]";
@@ -1486,7 +1486,7 @@ AddSubClass("monk", "mercy", {
 		},
 		"subclassfeature3.3": {
 			name: "Implements of Mercy",
-			source: [["P24", 104]],
+			source: [["PHB24", 104]],
 			minlevel: 3,
 			description: " [Insight, Medicine, and Herbalism Kit prof]",
 			skills: ["Insight", "Medicine"],
@@ -1494,19 +1494,19 @@ AddSubClass("monk", "mercy", {
 		},
 		"subclassfeature6": {
 			name: "Physician's Touch",
-			source: [["P24", 104]],
+			source: [["PHB24", 104]],
 			minlevel: 6,
 			autoSelectExtrachoices: [{ extrachoice: "physician's touch" }],
 			"physician's touch": {
 				name: "Physician's Touch",
 				extraname: "Mercy 6",
-				source: [["P24", 104]],
+				source: [["PHB24", 104]],
 				description: " [improves Hand of Healing \x26 Hand of Harm]",
 			},
 		},
 		"subclassfeature11": {
 			name: "Flurry of Healing and Harm",
-			source: [["P24", 104]],
+			source: [["PHB24", 104]],
 			minlevel: 11,
 			description: desc(
 				"When I use Flurry of Blows, I can replace each of its Unarmed Strikes with a use of Hand of Healing, and I can use Hand of Harm when I deal damage with one of its Unarmed Strikes. I can still use Hand of Harm only once per turn. When I use this feature, I only need to expend a Focus Point for Flurry of Blows, not for Hand of Healing or Hand of Harm."
@@ -1517,7 +1517,7 @@ AddSubClass("monk", "mercy", {
 		},
 		"subclassfeature17": {
 			name: "Hand of Ultimate Mercy",
-			source: [["P24", 105]],
+			source: [["PHB24", 105]],
 			minlevel: 17,
 			description: desc(
 				"As a Magic action, I can touch a creature that died within the past 24 hours and expend 5 Focus Points. The creature then returns to life with 4d10 + my Wisdom modifier Hit Points and is cured of all of the following: Blinded, Deafened, Paralyzed, Poisoned, and Stunned."
@@ -1533,11 +1533,11 @@ AddSubClass("monk", "shadow", {
 	regExpSearch: /^(?=.*shadow)((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname: "Warrior of Shadow",
 	subnameShort: "Shadow",
-	source: [["P24", 105]],
+	source: [["PHB24", 105]],
 	features: {
 		"subclassfeature3": {
 			name: "Shadow Arts",
-			source: [["P24", 105]],
+			source: [["PHB24", 105]],
 			minlevel: 3,
 			description: desc("I gain +60 ft Darkvision. I know the *Minor Illusion* cantrip, using Wis as spellcasting ability."),
 			vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
@@ -1565,7 +1565,7 @@ AddSubClass("monk", "shadow", {
 			"shadow arts: darkness": {
 				name: "Shadow Arts: Darkness",
 				extraname: "Warrior of Shadow 3",
-				source: [["P24", 105]],
+				source: [["PHB24", 105]],
 				description: desc("I can expend 1 Focus Point to cast *Darkness* without spell components. When I do so, I can see within its area and I can move it to a space within 60 ft at the start of each of my turns."),
 				additional: "1 Focus Point",
 			},
@@ -1573,19 +1573,19 @@ AddSubClass("monk", "shadow", {
 		},
 		"subclassfeature6": {
 			name: "Shadow Step",
-			source: [["P24", 105]],
+			source: [["PHB24", 105]],
 			minlevel: 6,
 			description: desc("As a Bonus Action while in Dim Light or Darkness, I can teleport up to 60 ft to an empty " + (typePF ? "space" : "spot") + " I can see in Dim Light or Darkness. I then gain Adv" + (typePF ? "antage" : "") + " on my next melee attack this turn."),
 			action: [["bonus action", ""]],
 		},
 		"subclassfeature11": {
 			name: "Improved Shadow Step",
-			source: [["P24", 105]],
+			source: [["PHB24", 105]],
 			minlevel: 11,
 			"improved shadow step": {
 				name: "Improved Shadow Step",
 				extraname: "Warrior of Shadow 11",
-				source: [["P24", 105]],
+				source: [["PHB24", 105]],
 				description: desc("When I use Shadow Step, I can expend 1 Focus Point to remove the need to start and end in Dim Light or Darkness, and I can make an Unarmed Strike immediately after I teleport."),
 				additional: "1 Focus Point",
 			},
@@ -1593,13 +1593,13 @@ AddSubClass("monk", "shadow", {
 		},
 		"subclassfeature17": {
 			name: "Cloak of Shadows",
-			source: [["P24", 105]],
+			source: [["PHB24", 105]],
 			minlevel: 17,
 			action: [["action", " (3 FP)"]],
 			"cloak of shadows": {
 				name: "Cloak of Shadows",
 				extraname: "Warrior of Shadow 17",
-				source: [["P24", 105]],
+				source: [["PHB24", 105]],
 				description: desc([
 					"As a Magic action while in Dim Light or Darkness, I can expend 3 Focus Points to shroud myself in shadows for 1 min, until I'm Incapacitated, or I end my turn in Bright Light.",
 					"While shrouded, I'm Invisible, using Flurry of Blows requires no Focus Points, and I can move through occupied spaces as if they were Difficult Terrain, but can't end my turn in one.",
@@ -1624,11 +1624,11 @@ AddSubClass("monk", "elements", {
 	regExpSearch: /^(?=.*(elements|elemental))((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname: "Warrior of the Elements",
 	subnameShort: "Elements",
-	source: [["P24", 106]],
+	source: [["PHB24", 106]],
 	features: {
 		"subclassfeature3": { // includes Stride of the Elements and Elemental Epitome
 			name: "Elemental Attunement",
-			source: [["P24", 106]],
+			source: [["PHB24", 106]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				var text = [
@@ -1657,7 +1657,7 @@ AddSubClass("monk", "elements", {
 				baseWeapon: "unarmed strike",
 				regExpSearch: /^(?=.*elemental)(?=.*strike).*$/i,
 				name: "Elemental Strike",
-				source: [["P24", 106]],
+				source: [["PHB24", 106]],
 				damage: [1, "", "Elemental (\u2605)"],
 				description: "+10 ft reach; Str save or moved 10 ft toward/away",
 				selectNow: true,
@@ -1666,7 +1666,7 @@ AddSubClass("monk", "elements", {
 		},
 		"subclassfeature3.1": {
 			name: "Manipulate Elements",
-			source: [["P24", 106]],
+			source: [["PHB24", 106]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				return n < 15 ? desc("I know the *Elementalism* cantrip. Wisdom is my spellcasting ability for it.") : " [know *Elementalism*, using Wisdom]";
@@ -1680,7 +1680,7 @@ AddSubClass("monk", "elements", {
 		},
 		"subclassfeature6": { // moves to third page from level 17 onwards
 			name: "Elemental Burst",
-			source: [["P24", 106]],
+			source: [["PHB24", 106]],
 			minlevel: 6,
 			description: levels.map(function (n) {
 				var obj = PHB_WarriorOfTheElements.elementalBurst;
@@ -1692,7 +1692,7 @@ AddSubClass("monk", "elements", {
 			weaponOptions: [{
 				regExpSearch: /^(?=.*elemental)(?=.*burst).*$/i,
 				name: "Elemental Burst",
-				source: [["P24", 106]],
+				source: [["PHB24", 106]],
 				ability: 5,
 				type: "Magic",
 				damage: [3, 8, "Elemental (\u2605)"],
@@ -1725,26 +1725,26 @@ AddSubClass("monk", "elements", {
 			"elemental burst": {
 				name: "Elemental Burst",
 				extraname: "Elements 6",
-				source: [["P24", 106]],
+				source: [["PHB24", 106]],
 				description: PHB_WarriorOfTheElements.elementalBurst.description,
 				additional: PHB_WarriorOfTheElements.elementalBurst.additional,
 			},
 		},
 		"subclassfeature11": { // only on third page, description included in Elemental Attunement
 			name: "Stride of the Elements",
-			source: [["P24", 106]],
+			source: [["PHB24", 106]],
 			minlevel: 11,
 			autoSelectExtrachoices: [{ extrachoice: "stride of the elements" }],
 			"stride of the elements": {
 				name: "Stride of the Elements",
 				extraname: "Elements 11",
-				source: [["P24", 106]],
+				source: [["PHB24", 106]],
 				description: " [improves Elemental Attunement]",
 			},
 		},
 		"subclassfeature17": { // only on third page, description included in Elemental Attunement
 			name: "Elemental Epitome",
-			source: [["P24", 106]],
+			source: [["PHB24", 106]],
 			minlevel: 17,
 			dmgres: ["Elemental (\u2605)"],
 			calcChanges: {
@@ -1761,7 +1761,7 @@ AddSubClass("monk", "elements", {
 			"elemental epitome": {
 				name: "Elemental Epitome",
 				extraname: "Elements 17",
-				source: [["P24", 106]],
+				source: [["PHB24", 106]],
 				description: " [improves Elemental Attunement]",
 			},
 		},
@@ -1773,7 +1773,7 @@ AddSubClass("paladin", "glory", {
 	regExpSearch: /^(?=.*glory)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
 	subname: "Oath of Glory",
 	subnameShort: "Glory",
-	source: [["P24", 114]],
+	source: [["PHB24", 114]],
 	features: {
 		"weapon mastery": Object.assign({}, ClassList.paladin.features["weapon mastery"], typeA4 ? {} : {
 			description: levels.map(function (n) {
@@ -1782,7 +1782,7 @@ AddSubClass("paladin", "glory", {
 		}),
 		"subclassfeature3": {
 			name: "Inspiring Smite",
-			source: [["P24", 114]],
+			source: [["PHB24", 114]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				return desc("After I cast *Divine Smite*, I can expend 1 Channel Divinity to distribute 2d8 + " + n + " (Paladin level) Temporary Hit Points among creatures within 30 ft and myself however I like.");
@@ -1807,7 +1807,7 @@ AddSubClass("paladin", "glory", {
 		},
 		"subclassfeature3.1": {
 			name: "Peerless Athlete",
-			source: [["P24", 115]],
+			source: [["PHB24", 115]],
 			minlevel: 3,
 			description: desc(
 				"As a Bonus Action, I can expend a Channel Divinity to get Advantage on my Athletics and Acrobatics checks and increase my Long and High jumps by 10 ft for 1 hour."
@@ -1817,7 +1817,7 @@ AddSubClass("paladin", "glory", {
 		},
 		"subclassfeature7": {
 			name: "Aura of Alacrity",
-			source: [["P24", 115]],
+			source: [["PHB24", 115]],
 			minlevel: 7,
 			description: " [+10 ft Speed]" +
 				desc("Allies in my aura on their turn gain +10 ft Speed until the end of their next turn."),
@@ -1825,7 +1825,7 @@ AddSubClass("paladin", "glory", {
 		},
 		"subclassfeature15": {
 			name: "Glorious Defense",
-			source: [["P24", 115]],
+			source: [["PHB24", 115]],
 			minlevel: 15,
 			description: desc(
 				"As a Reaction when an attack hits me or a creature " + (typePF ? "within" : "in") + " 10 ft, I can increase their AC by my Cha modifier vs that attack. If this causes it to miss, I can attack the attacker if " + (typePF ? "within my" : "in") + " reach."
@@ -1837,7 +1837,7 @@ AddSubClass("paladin", "glory", {
 		},
 		"subclassfeature20": {
 			name: "Living Legend",
-			source: [["P24", 115]],
+			source: [["PHB24", 115]],
 			minlevel: 20,
 			description: desc([
 				"As a Bonus Action, I can gain the following benefits for 10 minutes.",
@@ -1860,11 +1860,11 @@ AddSubClass("paladin", "ancients", {
 	regExpSearch: /^(((?=.*(ancient|nature|natural|green|fey|horned))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))))|((?=.*(green|fey|horned))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
 	subname: "Oath of the Ancients",
 	subnameShort: "Ancients",
-	source: [["P24", 115]],
+	source: [["PHB24", 115]],
 	features: {
 		"subclassfeature3": {
 			name: "Nature's Wrath",
-			source: [["P24", 115]],
+			source: [["PHB24", 115]],
 			minlevel: 3,
 			description: desc(
 				"As a Magic action, I can use 1 CD to have all creatures of my choice that I can see " + (typePF ? "within" : "in") + " 15 ft make a Strength save or be Restrained for 1 min, repeating the save at the end of " + (typePF ? "their" : "its") + " turns."
@@ -1888,7 +1888,7 @@ AddSubClass("paladin", "ancients", {
 		},
 		"subclassfeature7": {
 			name: "Aura of Warding",
-			source: [["P24", 116]],
+			source: [["PHB24", 116]],
 			minlevel: 7,
 			description: desc(
 				"While in my aura, my allies and I have Resistance to Necrotic, Psychic and Radiant damage."
@@ -1897,7 +1897,7 @@ AddSubClass("paladin", "ancients", {
 		},
 		"subclassfeature15": {
 			name: "Undying Sentinel",
-			source: [["P24", 116]],
+			source: [["PHB24", 116]],
 			minlevel: 15,
 			description: levels.map(function (n) {
 				return desc([
@@ -1913,7 +1913,7 @@ AddSubClass("paladin", "ancients", {
 		},
 		"subclassfeature20": {
 			name: "Elder Champion",
-			source: [["P24", 116]],
+			source: [["PHB24", 116]],
 			minlevel: 20,
 			description: desc([
 				"As a Bonus Action, I can give my Aura of Protection these benefits for 1 minute.",
@@ -1933,11 +1933,11 @@ AddSubClass("paladin", "vengeance", {
 	regExpSearch: /^(((?=.*(vengeance|wrath|justice))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))))|((?=.*dark)(?=.*knight))|(?=.*avenger)).*$/i,
 	subname: "Oath of Vengeance",
 	subnameShort: "Vengeance",
-	source: [["P24", 116]],
+	source: [["PHB24", 116]],
 	features: {
 		"subclassfeature3": { // includes Soul of Vengeance
 			name: "Vow of Enmity",
-			source: [["P24", 117]],
+			source: [["PHB24", 117]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				var text = [
@@ -1965,7 +1965,7 @@ AddSubClass("paladin", "vengeance", {
 		},
 		"subclassfeature7": {
 			name: "Relentless Avenger",
-			source: [["P24", 117]],
+			source: [["PHB24", 117]],
 			minlevel: 7,
 			description: desc(
 				"When I hit a creature with an Opportunity Attack, I can reduce its Speed to 0 until the end of the turn. I can then move up to half my Speed without provoking Opportunity Attacks."
@@ -1973,14 +1973,14 @@ AddSubClass("paladin", "vengeance", {
 		},
 		"subclassfeature15": {
 			name: "Soul of Vengeance",
-			source: [["P24", 117]],
+			source: [["PHB24", 117]],
 			minlevel: 15,
 			description: " [adds Reaction to Vow of Enmity]",
 			action: [["reaction", ""]],
 		},
 		"subclassfeature20": {
 			name: "Avenging Angel",
-			source: [["P24", 117]],
+			source: [["PHB24", 117]],
 			minlevel: 20,
 			description: desc([
 				"As a Bonus Action, I can gain the following benefits for 10 min or until I end it (no action).",
@@ -2091,11 +2091,11 @@ AddSubClass("ranger", "beast master", {
 	regExpSearch : /^(?=.*beast)(?=.*master).*$/i,
 	subname: "Beast Master",
 	fullname: "Beast Master",
-	source: [["P24", 122]],
+	source: [["PHB24", 122]],
 	features: {
 		"subclassfeature3": {
 			name: "Primal Companion",
-			source: [["P24", 122]],
+			source: [["PHB24", 122]],
 			minlevel: 3,
 			description: desc([
 				"When I finish a Long Rest, I can summon a Beast of the Land, Sea, or Sky within 5 ft.",
@@ -2120,7 +2120,7 @@ AddSubClass("ranger", "beast master", {
 			creatureOptions: [
 				Object.assign({}, PHB_BeastMaster.baseCreature, {
 					name: "Beast of the Land",
-					source: [["P24", 123]],
+					source: [["PHB24", 123]],
 					size: 3,
 					hp: 20,
 					hd: [3, 8],
@@ -2150,7 +2150,7 @@ AddSubClass("ranger", "beast master", {
 				}),
 				Object.assign({}, PHB_BeastMaster.baseCreature, {
 					name: "Beast of the Sky",
-					source: [["P24", 124]],
+					source: [["PHB24", 124]],
 					size: 4,
 					hp: 16,
 					hd: [3, 6],
@@ -2174,7 +2174,7 @@ AddSubClass("ranger", "beast master", {
 				}),
 				Object.assign({}, PHB_BeastMaster.baseCreature, {
 					name: "Beast of the Sea",
-					source: [["P24", 124]],
+					source: [["PHB24", 124]],
 					size: 3,
 					hp: 20,
 					hd: [3, 8],
@@ -2206,7 +2206,7 @@ AddSubClass("ranger", "beast master", {
 		},
 		"subclassfeature7": {
 			name: "Exceptional Training",
-			source: [["P24", 123]],
+			source: [["PHB24", 123]],
 			minlevel: 7,
 			description: desc([
 				"When I take a Bonus Action to command my Primal Companion to take an action, I can also command it to take the Dash, Disengage, Dodge, or Help action using its Bonus Action.",
@@ -2215,7 +2215,7 @@ AddSubClass("ranger", "beast master", {
 		},
 		"subclassfeature11": {
 			name: "Bestial Fury",
-			source: [["P24", 123]],
+			source: [["PHB24", 123]],
 			minlevel: 11,
 			description: desc([
 				"When I command my Primal Companion to do a Beast's Strike, the beast can do so twice.",
@@ -2224,7 +2224,7 @@ AddSubClass("ranger", "beast master", {
 		},
 		"subclassfeature15": {
 			name: "Share Spells",
-			source: [["P24", 123]],
+			source: [["PHB24", 123]],
 			minlevel: 15,
 			description: desc("When I cast a spell on myself, I can also affect my Primal Companion if it is within 30 ft."),
 		},
@@ -2234,11 +2234,11 @@ AddSubClass("ranger", "fey wanderer", {
 	regExpSearch: /^(?=.*fey)(?=.*wanderer).*$/i,
 	subname: "Fey Wanderer",
 	fullname: "Fey Wanderer",
-	source: [["P24", 124]],
+	source: [["PHB24", 124]],
 	features: {
 		"subclassfeature3": {
 			name: "Dreadful Strikes",
-			source: [["P24", 125]],
+			source: [["PHB24", 125]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				return desc([
@@ -2267,7 +2267,7 @@ AddSubClass("ranger", "fey wanderer", {
 			var addMods = choices.concat(["Intimidation"]);
 			var a = {
 				name: "Otherworldly Glamour",
-				source: [["P24", 124]],
+				source: [["PHB24", 124]],
 				minlevel: 3,
 				description: ' #[Select option with "Choose Feature"]#' + desc(
 					"I can add my Wisdom modifier to Charisma checks (min 1) and gain proficiency in my choice of Deception, Performance, or Persuasion."
@@ -2294,7 +2294,7 @@ AddSubClass("ranger", "fey wanderer", {
 		}(),
 		"subclassfeature7": {
 			name: "Beguiling Twist",
-			source: [["P24", 125]],
+			source: [["PHB24", 125]],
 			minlevel: 7,
 			description: desc([
 				"As a Reaction when a creature that I can see within 120 ft or I succeeds on a save against being Charmed or Frightened, I can force another creature within 120 ft to make a Wisdom save or be Charmed or Frightened (my choice) for 1 min.",
@@ -2306,7 +2306,7 @@ AddSubClass("ranger", "fey wanderer", {
 		},
 		"subclassfeature11": {
 			name: "Fey Reinforcements",
-			source: [["P24", 125]],
+			source: [["PHB24", 125]],
 			minlevel: 11,
 			description: desc([
 				"I can cast *Summon Fey* without a Material component.",
@@ -2328,7 +2328,7 @@ AddSubClass("ranger", "fey wanderer", {
 		},
 		"subclassfeature15": {
 			name: "Misty Wanderer",
-			source: [["P24", 125]],
+			source: [["PHB24", 125]],
 			minlevel: 15,
 			description: desc([
 				"I can cast *Misty Step* without using a spell slot several times per Long Rest.",
@@ -2351,11 +2351,11 @@ AddSubClass("ranger", "gloom stalker", {
 	regExpSearch: /^(?=.*gloom)(?=.*stalker).*$/i,
 	subname: "Gloom Stalker",
 	fullname: "Gloom Stalker",
-	source: [["P24", 125]],
+	source: [["PHB24", 125]],
 	features: {
 		"subclassfeature3": {
 			name: "Dread Ambusher",
-			source: [["P24", 125]],
+			source: [["PHB24", 125]],
 			minlevel: 3,
 			description: desc([
 				"***Ambusher's Leap***. My Speed is increased by 10 ft during my first turn each combat.",
@@ -2369,7 +2369,7 @@ AddSubClass("ranger", "gloom stalker", {
 		},
 		"subclassfeature3.1": { // includes Stalker's Flurry
 			name: "Dreadful Strike",
-			source: [["P24", 125]],
+			source: [["PHB24", 125]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				var lines = [
@@ -2395,7 +2395,7 @@ AddSubClass("ranger", "gloom stalker", {
 		},
 		"subclassfeature3.2": {
 			name: "Umbral Sight",
-			source: [["P24", 125]],
+			source: [["PHB24", 125]],
 			minlevel: 3,
 			description: desc([
 				"I gain 60 ft Darkvision, or increase my Darkvision by 60 ft if I already have it.",
@@ -2405,7 +2405,7 @@ AddSubClass("ranger", "gloom stalker", {
 		},
 		"subclassfeature7": {
 			name: "Iron Mind",
-			source: [["P24", 126]],
+			source: [["PHB24", 126]],
 			minlevel: 7,
 			description: " [auto-selected]",
 			choices: [
@@ -2444,13 +2444,13 @@ AddSubClass("ranger", "gloom stalker", {
 		},
 		"subclassfeature11": {
 			name: "Stalker's Flurry",
-			source: [["P24", 126]],
+			source: [["PHB24", 126]],
 			minlevel: 11,
 			description: " [improves Dreadful Strike]",
 		},
 		"subclassfeature15": {
 			name: "Shadowy Dodge",
-			source: [["P24", 126]],
+			source: [["PHB24", 126]],
 			minlevel: 15,
 			description: desc([
 				"As a Reaction when a creature attacks me, I can impose Disadvantage on its attack roll.",
@@ -2472,7 +2472,7 @@ AddSubClass("rogue", "arcane trickster", {
 	regExpSearch: /^(?=.*(trickster|rogue|miscreant))(?=.*\b(eldritch|arcane|magic|mage|witch)\b).*$/i,
 	subname: "Arcane Trickster",
 	fullname: "Arcane Trickster",
-	source: [["P24", 132]],
+	source: [["PHB24", 132]],
 	spellcastingAbility: 4,
 	spellcastingFactor: 3,
 	spellcastingList: {
@@ -2486,7 +2486,7 @@ AddSubClass("rogue", "arcane trickster", {
 	features: {
 		"subclassfeature3": {
 			name: "Spellcasting",
-			source: [["P24", 132]],
+			source: [["PHB24", 132]],
 			minlevel: 3,
 			description: desc(
 				"I can cast Wizard cantrips/spells I know, using Intelligence as spellcasting ability. I can use Arcane Focus as Spellcasting Focus for them. I can swap 1 spell when I gain a Rogue level."
@@ -2497,7 +2497,7 @@ AddSubClass("rogue", "arcane trickster", {
 		},
 		"subclassfeature3.1": {
 			name: "Mage Hand Legerdemain",
-			source: [["P24", 133]],
+			source: [["PHB24", 133]],
 			minlevel: 3,
 			description: desc(
 				"I can cast *Mage Hand* as a Bonus Action and can make the hand Invisible. I can control it as a Bonus Action and through it can make Dexterity (Sleight of Hand) checks."
@@ -2517,7 +2517,7 @@ AddSubClass("rogue", "arcane trickster", {
 		},
 		"subclassfeature9": {
 			name: "Magical Ambush",
-			source: [["P24", 133]],
+			source: [["PHB24", 133]],
 			minlevel: 9,
 			description: desc(
 				"If I have the Invisible condition when I cast a spell on a creature, it has Disadvantage on any saving throw it makes against the spell on the same turn."
@@ -2525,7 +2525,7 @@ AddSubClass("rogue", "arcane trickster", {
 		},
 		"subclassfeature13": {
 			name: "Versatile Trickster",
-			source: [["P24", 133]],
+			source: [["PHB24", 133]],
 			minlevel: 13,
 			description: " [improves Cunning Strike: Trip]",
 		},
@@ -2540,7 +2540,7 @@ AddSubClass("rogue", "arcane trickster", {
 		}),
 		"subclassfeature17": {
 			name: "Spell Thief",
-			source: [["P24", 133]],
+			source: [["PHB24", 133]],
 			minlevel: 17,
 			description: desc(
 				"As a Reaction after a creature casts a spell that targets me or includes me in its area, I can have the creature make an Intelligence save (spell save DC) or I negate the spell's effect against me. If the spell is at least level 1 and of a level I can cast, I steal its knowledge and for the next 8 hours, I have it prepared and the creature can't cast it during that time."
@@ -2556,12 +2556,12 @@ AddSubClass("rogue", "assassin", {
 	regExpSearch: /^(?!.*(barbarian|bard|cleric|druid|fighter|monk|paladin|ranger|sorcerer|warlock|wizard))(?=.*assassin).*$/i,
 	subname: "Assassin",
 	fullname: "Assassin",
-	source: [["P24", 134]],
+	source: [["PHB24", 134]],
 	abilitySave: 2,
 	features: {
 		"subclassfeature3": {
 			name: "Assassinate",
-			source: [["P24", 134]],
+			source: [["PHB24", 134]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				return desc([
@@ -2576,7 +2576,7 @@ AddSubClass("rogue", "assassin", {
 		},
 		"subclassfeature3.1": {
 			name: "Assassin's Tools",
-			source: [["P24", 134]],
+			source: [["PHB24", 134]],
 			minlevel: 3,
 			description: desc("I gain a Disguise Kit and a Poisoner's Kit and have proficiency with them."),
 			toolProfs: ["Disguise Kit", "Poisoner's Kit"],
@@ -2589,7 +2589,7 @@ AddSubClass("rogue", "assassin", {
 		},
 		"subclassfeature9": {
 			name: "Infiltration Expertise",
-			source: [["P24", 134]],
+			source: [["PHB24", 134]],
 			minlevel: 9,
 			description: desc(
 				"***Masterful Mimicry***. I can mimic another person's speech and handwriting if I spend 1 hour studying them. ***Roving Aim***. My Speed isn't reduced to 0 by using Steady Aim."
@@ -2604,7 +2604,7 @@ AddSubClass("rogue", "assassin", {
 		}),
 		"subclassfeature13": {
 			name: "Envenom Weapons",
-			source: [["P24", 134]],
+			source: [["PHB24", 134]],
 			minlevel: 13,
 			description: " [improves Cunning Strike: Poison]",
 		},
@@ -2620,7 +2620,7 @@ AddSubClass("rogue", "assassin", {
 		}),
 		"subclassfeature17": {
 			name: "Death Strike",
-			source: [["P24", 134]],
+			source: [["PHB24", 134]],
 			minlevel: 17,
 			description: desc(
 				"When I hit with my Sneak Attack on the first round of a combat, the target must succeed on a Constitution saving throw (DC 8 + Dexterity modifier + Proficiency Bonus), or the attack's damage is doubled."
@@ -2632,11 +2632,11 @@ AddSubClass("rogue", "soulknife", {
 	regExpSearch: /soulknife/i,
 	subname: "Soulknife",
 	fullname: "Soulknife",
-	source: [["P24", 135]],
+	source: [["PHB24", 135]],
 	features: {
 		"subclassfeature3": {
 			name: "Psionic Energy Dice",
-			source: [["P24", 135]],
+			source: [["PHB24", 135]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				return n >= 18 ? "" : desc([
@@ -2654,7 +2654,7 @@ AddSubClass("rogue", "soulknife", {
 		},
 		"subclassfeature3.1": {
 			name: "Psionic Power",
-			source: [["P24", 135]],
+			source: [["PHB24", 135]],
 			minlevel: 3,
 			description: levels.map(function (n, i) {
 				return desc([
@@ -2672,7 +2672,7 @@ AddSubClass("rogue", "soulknife", {
 		},
 		"subclassfeature3.2": {
 			name: "Psychic Blades",
-			source: [["P24", 136]],
+			source: [["PHB24", 136]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				return n < 17 ? " (see third page)" : undefined;
@@ -2681,7 +2681,7 @@ AddSubClass("rogue", "soulknife", {
 			weaponOptions: [{
 				regExpSearch: /^(?=.*psychic)(?=.*blade).*$/i,
 				name: "Psychic Blade",
-				source: [["P24", 136]],
+				source: [["PHB24", 136]],
 				ability: 1,
 				type: "Simple",
 				damage: [1, 6, "psychic"],
@@ -2713,7 +2713,7 @@ AddSubClass("rogue", "soulknife", {
 		},
 		"subclassfeature9": {
 			name: "Soul Blades",
-			source: [["P24", 136]],
+			source: [["PHB24", 136]],
 			minlevel: 9,
 			description: levels.map(function (n, i) {
 				return desc([
@@ -2725,7 +2725,7 @@ AddSubClass("rogue", "soulknife", {
 		},
 		subclassfeature13: {
 			name: "Psychic Veil",
-			source: [["P24", 136]],
+			source: [["PHB24", 136]],
 			minlevel: 13,
 			description: desc(
 				"As a Magic action, I can become Invisible for 1 hour or until I dismiss this effect, damage a creature, or force one to make a save. I can expend a PsiD to restore use of this feature."
@@ -2737,7 +2737,7 @@ AddSubClass("rogue", "soulknife", {
 		},
 		subclassfeature17: {
 			name: "Rend Mind",
-			source: [["P24", 136]],
+			source: [["PHB24", 136]],
 			minlevel: 17,
 			description: desc(
 				"When I hit a Sneak Attack with Psychic Blades, I can have the target make a Wis save (DC 8 + Dex mod + PB) or be Stunned for 1 min. It can repeat the save at the end of its turns."
@@ -2766,11 +2766,11 @@ var PHB_AberrantSorcerer = AddSubClass("sorcerer", "aberrant", {
 	subname: "Aberrant Sorcery",
 	subnameShort: "Aberrant",
 	fullname: "Aberrant Sorcerer",
-	source: [["P24", 145]],
+	source: [["PHB24", 145]],
 	features: {
 		"subclassfeature3": {
 			name: "Psionic Spells",
-			source: [["P24", 145]],
+			source: [["PHB24", 145]],
 			minlevel: 3,
 			spellcastingExtra: ["mind sliver", "arms of hadar", "dissonant whispers", "calm emotions", "detect thoughts", "hunger of hadar", "sending", "evard's black tentacles", "summon aberration", "rary's telepathic bond", "telekinesis"],
 			spellcastingExtraApplyNonconform: true,
@@ -2786,7 +2786,7 @@ var PHB_AberrantSorcerer = AddSubClass("sorcerer", "aberrant", {
 		},
 		"subclassfeature3.1": {
 			name: "Telepathic Speech",
-			source: [["P24", 145]],
+			source: [["PHB24", 145]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				return desc("As a Bonus Action, I can choose one creature that I can see within 30 ft. While we are within Charisma modifier miles (min 1) we can telepathically communicate in a language we both know. This lasts for " + n + " minutes (Sorcerer level) or until I use this feature again.");
@@ -2798,7 +2798,7 @@ var PHB_AberrantSorcerer = AddSubClass("sorcerer", "aberrant", {
 		},
 		"subclassfeature6": {
 			name: "Psionic Sorcery",
-			source: [["P24", 146]],
+			source: [["PHB24", 146]],
 			minlevel: 6,
 			description: desc([
 				"When I cast a Psionic Spell (see third page), I can cast it by spending a number of Sorcery Points equal to its level instead of using a spell slot. If I do so, it requires no Verbal, Somatic, or Material components, unless they are consumed or have a cost specified.",
@@ -2807,7 +2807,7 @@ var PHB_AberrantSorcerer = AddSubClass("sorcerer", "aberrant", {
 		},
 		"subclassfeature6.1": {
 			name: "Psychic Defenses",
-			source: [["P24", 146]],
+			source: [["PHB24", 146]],
 			minlevel: 6,
 			description: desc(
 				"I have Resistance to Psychic damage and Adv on saves against being Charmed or Frightened."
@@ -2817,7 +2817,7 @@ var PHB_AberrantSorcerer = AddSubClass("sorcerer", "aberrant", {
 		},
 		"subclassfeature14": {
 			name: "Revelation in Flesh",
-			source: [["P24", 146]],
+			source: [["PHB24", 146]],
 			minlevel: 14,
 			description: desc([
 				"As a Bonus Action, I can spend Sorcery Points to gain a benefit of my choice per Sorcery Point spent. These benefits last for 10 minutes. See third page for possible benefits.",
@@ -2839,7 +2839,7 @@ var PHB_AberrantSorcerer = AddSubClass("sorcerer", "aberrant", {
 		},
 		"subclassfeature18": {
 			name: "Warping Implosion",
-			source: [["P24", 146]],
+			source: [["PHB24", 146]],
 			minlevel: 18,
 			description: desc([
 				"As a Magic action, I teleport to an unoccupied space that I can see within 120 ft.",
@@ -2858,11 +2858,11 @@ AddSubClass("sorcerer", "clockwork", {
 	subname: "Clockwork Sorcery",
 	subnameShort: "Clockwork",
 	fullname: "Clockwork Sorcerer",
-	source: [["P24", 146]],
+	source: [["PHB24", 146]],
 	features: {
 		"subclassfeature3": {
 			name: "Restore Balance",
-			source: [["P24", 146]],
+			source: [["PHB24", 146]],
 			minlevel: 3,
 			description: desc(
 				"As a Reaction when I see a creature within 60 ft about to roll a d20 with Advantage or Disadvantage, I can prevent the roll from being affected by Advantage or Disadvantage."
@@ -2876,7 +2876,7 @@ AddSubClass("sorcerer", "clockwork", {
 		},
 		"subclassfeature6": {
 			name: "Bastion of Law",
-			source: [["P24", 147]],
+			source: [["PHB24", 147]],
 			minlevel: 6,
 			description: desc([
 				"As a Magic action, I can expend 1 to 5 Sorcery Points to create a magical ward around me or another creature that I can see within 30 feet of me. The ward is represented by a number of d8s equal to the number of Sorcery Points spent to create it. When the warded creature takes damage, it can expend a number of those dice, roll them, and reduce the damage taken by the total rolled on those dice.",
@@ -2887,7 +2887,7 @@ AddSubClass("sorcerer", "clockwork", {
 		},
 		"subclassfeature14": {
 			name: "Trance of Order",
-			source: [["P24", 147]],
+			source: [["PHB24", 147]],
 			minlevel: 14,
 			description: desc(
 				"As a Bonus Action, I can enter a state for 1 minute. For the duration, attack rolls against me can't benefit from Advantage, and whenever I make a D20 Test, I can treat a roll of 9 or lower on the d20 as a 10. I can expend 5 Sorcery Points to restore use of this feature."
@@ -2899,7 +2899,7 @@ AddSubClass("sorcerer", "clockwork", {
 		},
 		"subclassfeature18": {
 			name: "Clockwork Cavalcade",
-			source: [["P24", 147]],
+			source: [["PHB24", 147]],
 			minlevel: 18,
 			description: desc([
 				"As a Magic action, I create the following effects in a 30-ft Cube originating from me.",
@@ -2919,11 +2919,11 @@ AddSubClass("sorcerer", "wild magic", {
 	regExpSearch: /^(?=.*(mage|magus|sorcerer|witch))(?=.*(wild|chaos|chaotic|limbo)).*$/i,
 	subname: "Wild Magic",
 	fullname: "Wild Mage",
-	source: [["P24", 149]],
+	source: [["PHB24", 149]],
 	features: {
 		"subclassfeature3": {
 			name: "Wild Magic Surge",
-			source: [["P24", 149]],
+			source: [["PHB24", 149]],
 			minlevel: 3,
 			description: " [see Notes page for table]" + desc([
 				"Once per turn, I can roll 1d20 immediately after I cast a Sorcerer spell with a spell slot.",
@@ -2932,7 +2932,7 @@ AddSubClass("sorcerer", "wild magic", {
 			]),
 			toNotesPage: [{
 				name: "Wild Magic Surge Table",
-				source: [["P24", 150]],
+				source: [["PHB24", 150]],
 				popupName: "Wild Mage's Wild Magic Surge Table, part 1",
 				additional: "results 01-44",
 				note: [
@@ -2987,7 +2987,7 @@ AddSubClass("sorcerer", "wild magic", {
 				],
 			}, {
 				name: "Wild Magic Surge Table",
-				source: [["P24", 150]],
+				source: [["PHB24", 150]],
 				popupName: "Wild Mage's Wild Magic Surge Table, part 2",
 				additional: "results 45-00",
 				note: [[
@@ -3042,7 +3042,7 @@ AddSubClass("sorcerer", "wild magic", {
 		},
 		"subclassfeature3.1": {
 			name: "Tides of Chaos",
-			source: [["P24", 149]],
+			source: [["PHB24", 149]],
 			minlevel: 3,
 			description: desc([
 				"I can give myself Advantage on one D20 Test before I roll the d20.",
@@ -3055,7 +3055,7 @@ AddSubClass("sorcerer", "wild magic", {
 		},
 		"subclassfeature6": {
 			name: "Bend Luck",
-			source: [["P24", 149]],
+			source: [["PHB24", 149]],
 			minlevel: 6,
 			description: desc(
 				"As a Reaction, after another creature that I can see rolls the d20 for a D20 Test, I can spend 1 Sorcery Point to apply 1d4 as a bonus or penalty (my choice) to the d20 roll."
@@ -3065,13 +3065,13 @@ AddSubClass("sorcerer", "wild magic", {
 		},
 		"subclassfeature14": {
 			name: "Controlled Chaos",
-			source: [["P24", 149]],
+			source: [["PHB24", 149]],
 			minlevel: 14,
 			description: desc("Whenever I roll on the Wild Magic Surge table, I can roll twice and use either number."),
 		},
 		"subclassfeature18": {
 			name: "Tamed Surge",
-			source: [["P24", 150]],
+			source: [["PHB24", 150]],
 			minlevel: 18,
 			description: desc([
 				"After I cast a Sorcerer spell with a spell slot, I can create an effect of my choice from the Wild Magic Surge table instead of rolling on that table. I can choose any effect in the table except for the final row, and if the chosen effect involves a roll, I must make it.",
@@ -3086,11 +3086,11 @@ AddSubClass("sorcerer", "wild magic", {
 AddSubClass("warlock", "archfey", {
 	regExpSearch: /^(?=.*fey)(?=.*warlock).*$/i,
 	subname: "Archfey Patron",
-	source: [["P24", 159]],
+	source: [["PHB24", 159]],
 	features: {
 		"subclassfeature3": {
 			name: "Steps of the Fey",
-			source: [["P24", 159]],
+			source: [["PHB24", 159]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				var lines = [
@@ -3115,7 +3115,7 @@ AddSubClass("warlock", "archfey", {
 		},
 		"subclassfeature6": {
 			name: "Misty Escape",
-			source: [["P24", 159]],
+			source: [["PHB24", 159]],
 			minlevel: 6,
 			description: " [improves Steps of the Fey]" +
 				desc("As a Reaction when I take damage, I can cast *Misty Step*."),
@@ -3123,7 +3123,7 @@ AddSubClass("warlock", "archfey", {
 		},
 		"subclassfeature10": {
 			name: "Beguiling Defenses",
-			source: [["P24", 159]],
+			source: [["PHB24", 159]],
 			minlevel: 10,
 			description: desc([
 				"As a Reaction after a creature that I can see hits me with an attack, I can halve the damage and force the attacker to make a Wisdom save or take Psychic damage equal to the damage that I took. I can expend a Pact Magic spell slot (PSS) to restore use of this feature.",
@@ -3137,7 +3137,7 @@ AddSubClass("warlock", "archfey", {
 		},
 		"subclassfeature14": {
 			name: "Bewitching Magic",
-			source: [["P24", 160]],
+			source: [["PHB24", 160]],
 			minlevel: 14,
 			description: desc(
 				"After I cast an Enchantment or Illusion spell using an action and a spell slot, I can cast *Misty Step* as part of the same action and without expending a spell slot."
@@ -3148,11 +3148,11 @@ AddSubClass("warlock", "archfey", {
 AddSubClass("warlock", "celestial", {
 	regExpSearch: /^(?=.*warlock)(?=.*celestial).*$/i,
 	subname: "Celestial Patron",
-	source: [["P24", 160]],
+	source: [["PHB24", 160]],
 	features: {
 		"subclassfeature3": {
 			name: "Healing Light",
-			source: [["P24", 160]],
+			source: [["PHB24", 160]],
 			minlevel: 3,
 			description: desc([
 				"I have a pool of d6s equal to my Warlock level plus 1 that I can use to heal.",
@@ -3169,7 +3169,7 @@ AddSubClass("warlock", "celestial", {
 		},
 		"subclassfeature6": {
 			name: "Radiant Soul",
-			source: [["P24", 160]],
+			source: [["PHB24", 160]],
 			minlevel: 6,
 			description: desc([
 				"Once per turn, when a spell that I cast deals Radiant or Fire damage, I can add my Charisma modifier to that spell's damage against one of the spell's targets.",
@@ -3195,7 +3195,7 @@ AddSubClass("warlock", "celestial", {
 		},
 		"subclassfeature10": {
 			name: "Celestial Resilience",
-			source: [["P24", 161]],
+			source: [["PHB24", 161]],
 			minlevel: 10,
 			description: levels.map(function (n) {
 				return desc([
@@ -3206,7 +3206,7 @@ AddSubClass("warlock", "celestial", {
 		},
 		"subclassfeature14": {
 			name: "Searing Vengeance",
-			source: [["P24", 161]],
+			source: [["PHB24", 161]],
 			minlevel: 14,
 			description: desc([
 				"When an ally within 60 ft or I are about to make a Death Saving Throw, I can cause them to regain Hit Points equal to half their Hit Point maximum and end their Prone condition.",
@@ -3221,11 +3221,11 @@ AddSubClass("warlock", "great old one", {
 	regExpSearch: /^(((?=.*(tharizdun|cthulhu))(?=.*warlock))|((?=.*(great|dread))(?=.*(ancient|old))(?=.*\b(one|entity)\b))).*$/i,
 	subname: "Great Old One Patron",
 	subnameShort: "Great Old One",
-	source: [["P24", 162]],
+	source: [["PHB24", 162]],
 	features: {
 		"subclassfeature3": {
 			name: "Awakened Mind",
-			source: [["P24", 162]],
+			source: [["PHB24", 162]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				return desc(
@@ -3239,7 +3239,7 @@ AddSubClass("warlock", "great old one", {
 		},
 		"subclassfeature3.1": {
 			name: "Psychic Spells",
-			source: [["P24", 163]],
+			source: [["PHB24", 163]],
 			minlevel: 3,
 			description: desc([
 				"When I cast a Warlock spell that deals damage, I can change its damage type to Psychic.",
@@ -3264,7 +3264,7 @@ AddSubClass("warlock", "great old one", {
 		},
 		"subclassfeature6": {
 			name: "Clairvoyant Combatant",
-			source: [["P24", 163]],
+			source: [["PHB24", 163]],
 			minlevel: 6,
 			description: desc(
 				"When I use Awakened Mind on a creature, I can have them make a Wisdom save or they have Disadvantage on attack rolls against me and I have Advantage on attack rolls against them while bonded. I can expend a Pact Magic spell slot (PSS) to restore use of this feature."
@@ -3275,7 +3275,7 @@ AddSubClass("warlock", "great old one", {
 		},
 		"subclassfeature10": {
 			name: "Eldritch Hex",
-			source: [["P24", 163]],
+			source: [["PHB24", 163]],
 			minlevel: 10,
 			description: desc("I always have *Hex* prepared and it also imposes Disadvantage on saves of the chosen ability."),
 			spellcastingBonus: [{
@@ -3294,7 +3294,7 @@ AddSubClass("warlock", "great old one", {
 		},
 		"subclassfeature10.1": {
 			name: "Thought Shield",
-			source: [["P24", 163]],
+			source: [["PHB24", 163]],
 			minlevel: 10,
 			description: desc([
 				"My thoughts can't be read by telepathy or other means unless I allow it.",
@@ -3304,7 +3304,7 @@ AddSubClass("warlock", "great old one", {
 		},
 		"subclassfeature14": {
 			name: "Create Thrall",
-			source: [["P24", 163]],
+			source: [["PHB24", 163]],
 			minlevel: 14,
 			description: levels.map(function (n) {
 				return desc([
@@ -3353,11 +3353,11 @@ AddSubClass("wizard", "abjurer", {
 	regExpSearch: /abjuration|abjurer/i,
 	subname: "Abjurer",
 	fullname: "Abjurer",
-	source: [["P24", 172]],
+	source: [["PHB24", 172]],
 	features: {
 		"subclassfeature3": {
 			name: "Abjuration Savant",
-			source: [["P24", 172]],
+			source: [["PHB24", 172]],
 			minlevel: 3,
 			description: desc(
 				"I add two Wizard Abjuration spells, up to level 2, to my spellbook. Whenever I gain access to a new level of spell slots in this class, I can add one Wizard Abjuration spell to my spellbook."
@@ -3365,7 +3365,7 @@ AddSubClass("wizard", "abjurer", {
 		},
 		"subclassfeature3.1": {
 			name: "Arcane Ward",
-			source: [["P24", 172]],
+			source: [["PHB24", 172]],
 			minlevel: 3,
 			description: desc([
 				"Once per Long Rest when I cast an Abjuration spell with a spell slot, I can create a ward that lasts until my next Long Rest. Whenever I take damage, the ward takes the damage instead. If I have any Resistances or Vulnerabilities, those are applied before reducing the HP of the ward. If the damage reduces the ward to 0 HP, I take any remaining damage.",
@@ -3386,7 +3386,7 @@ AddSubClass("wizard", "abjurer", {
 		},
 		"subclassfeature6": {
 			name: "Projected Ward",
-			source: [["P24", 172]],
+			source: [["PHB24", 172]],
 			minlevel: 6,
 			description: desc(
 				"As a Reaction when a creature in 30 ft takes damage, I can cause my Arcane Ward to absorb the damage, after applying their Resistances and Vulnerabilities. If the damage reduces the ward to 0 HP, the creature takes any excess damage."
@@ -3395,7 +3395,7 @@ AddSubClass("wizard", "abjurer", {
 		},
 		"subclassfeature10": {
 			name: "Spell Breaker",
-			source: [["P24", 173]],
+			source: [["PHB24", 173]],
 			minlevel: 10,
 			description: desc(
 				"I always have *Counterspell* and *Dispel Magic* prepared. I can cast *Dispel Magic* as a Bonus Action and add my Proficiency Bonus to its ability check. When I cast either spell with a spell slot, that slot isn't expended if the spell fails to stop a spell."
@@ -3424,7 +3424,7 @@ AddSubClass("wizard", "abjurer", {
 		},
 		"subclassfeature14": {
 			name: "Spell Resistance",
-			source: [["P24", 173]],
+			source: [["PHB24", 173]],
 			minlevel: 14,
 			description: desc("I have Advantage on saves against spells, and have Resistance to the damage of spells."),
 			dmgres: ["Damage from spells"],
@@ -3436,11 +3436,11 @@ AddSubClass("wizard", "diviner", {
 	regExpSearch: /divination|diviner|divinator/i,
 	subname: "Diviner",
 	fullname: "Diviner",
-	source: [["P24", 173]],
+	source: [["PHB24", 173]],
 	features: {
 		"subclassfeature3": {
 			name: "Divination Savant",
-			source: [["P24", 173]],
+			source: [["PHB24", 173]],
 			minlevel: 3,
 			description: desc(
 				"I add two Wizard Divination spells, up to level 2, to my spellbook. Whenever I gain access to a new level of spell slots in this class, I can add one Wizard Divination spell to my spellbook."
@@ -3448,7 +3448,7 @@ AddSubClass("wizard", "diviner", {
 		},
 		"subclassfeature3.1": { // includes Greater Portent
 			name: "Portent",
-			source: [["P24", 173]],
+			source: [["PHB24", 173]],
 			minlevel: 3,
 			description: levels.map(function (n) {
 				var portentCount = n < 14 ? "two" : "three";
@@ -3465,7 +3465,7 @@ AddSubClass("wizard", "diviner", {
 		},
 		"subclassfeature6": {
 			name: "Expert Divination",
-			source: [["P24", 173]],
+			source: [["PHB24", 173]],
 			minlevel: 6,
 			description: desc(
 				"When I cast a Divination spell using a level 2+ spell slot, I regain one expended spell slot of a level lower than the slot used for the spell and can't be higher than level 5."
@@ -3473,7 +3473,7 @@ AddSubClass("wizard", "diviner", {
 		},
 		"subclassfeature10": {
 			name: "The Third Eye",
-			source: [["P24", 173]],
+			source: [["PHB24", 173]],
 			minlevel: 10,
 			description: desc([
 				"As a Bonus Action, I can choose one of the following benefits, which lasts until I start a Short or Long Rest.",
@@ -3486,7 +3486,7 @@ AddSubClass("wizard", "diviner", {
 		},
 		"subclassfeature14": {
 			name: "Greater Portent",
-			source: [["P24", 173]],
+			source: [["PHB24", 173]],
 			minlevel: 14,
 			description: " [improves Portent]",
 		},
@@ -3496,11 +3496,11 @@ AddSubClass("wizard", "illusionist", {
 	regExpSearch: /illusion|illusionist|illusionary/i,
 	subname: "Illusionist",
 	fullname: "Illusionist",
-	source: [["P24", 175]],
+	source: [["PHB24", 175]],
 	features: {
 		"subclassfeature3": {
 			name: "Illusion Savant",
-			source: [["P24", 175]],
+			source: [["PHB24", 175]],
 			minlevel: 3,
 			description: desc(
 				"I add two Wizard Illusion spells, up to level 2, to my spellbook. Whenever I gain access to a new level of spell slots in this class, I can add one Wizard Illusion spell to my spellbook."
@@ -3508,7 +3508,7 @@ AddSubClass("wizard", "illusionist", {
 		},
 		"subclassfeature3.1": {
 			name: "Improved Illusions",
-			source: [["P24", 175]],
+			source: [["PHB24", 175]],
 			minlevel: 3,
 			description: desc([
 				"I can cast Illusion spells without providing Verbal components and Illusion spells with a range of 10 ft or more have their range increased by 60 ft.",
@@ -3558,7 +3558,7 @@ AddSubClass("wizard", "illusionist", {
 		},
 		"subclassfeature6": {
 			name: "Phantasmal Creatures",
-			source: [["P24", 175]],
+			source: [["PHB24", 175]],
 			minlevel: 6,
 			description: desc(
 				"I always have *Summon Beast* and *Summon Fey* prepared. When I cast either, I can change its school to Illusion, causing the summon to appear spectral and to have only halve its Hit Points. I can cast each spell as an Illusion once per Long Rest without expending a spell slot."
@@ -3593,7 +3593,7 @@ AddSubClass("wizard", "illusionist", {
 		},
 		"subclassfeature10": {
 			name: "Illusory Self",
-			source: [["P24", 175]],
+			source: [["PHB24", 175]],
 			minlevel: 10,
 			description: desc(
 				"As a Reaction when a creature hits me with an attack roll, I can summon an illusion to cause that attack to miss. I can expend a level 2+ spell slot (SS 2+) to restore use of this."
@@ -3605,7 +3605,7 @@ AddSubClass("wizard", "illusionist", {
 		},
 		"subclassfeature14": {
 			name: "Illusory Reality",
-			source: [["P24", 175]],
+			source: [["PHB24", 175]],
 			minlevel: 14,
 			description: desc(
 				"As a Bonus Action, I can choose one inanimate, nonmagical object that is part of an illusion that I have cast using a spell slot and make it real for 1 minute. The object cannot deal damage or inflict any conditions."
@@ -3620,7 +3620,7 @@ AddSubClass("wizard", "illusionist", {
 BackgroundList["artisan"] = {
 	regExpSearch: /^(?!.*guild)(?=.*artisan).*$/i,
 	name: "Artisan",
-	source: [["P24", 178]],
+	source: [["PHB24", 178]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Strength, Dexterity, and Intelligence",
 	skills: ["Investigation", "Persuasion"],
 	toolProfs: [["Artisan's tools", 1]],
@@ -3697,13 +3697,13 @@ BackgroundList["artisan"] = {
 };
 BackgroundFeatureList["artisan"] = {
 	description: "I began mopping floors and scrubbing counters in an artisan's workshop for a few coppers per day as soon as I was strong enough to carry a bucket. When I was old enough to apprentice, I learned to create basic crafts of my own, as well as how to sweet talk the occasional demanding customer. My trade has also given me a keen eye for detail.",
-	source: [["P24", 178]],
+	source: [["PHB24", 178]],
 	featsAdd: ["Crafter"],
 };
 BackgroundList["charlatan"] = {
 	regExpSearch: /charlatan/i,
 	name: "Charlatan",
-	source: [["P24", 179]],
+	source: [["PHB24", 179]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Dexterity, Constitution, and Charisma",
 	skills: ["Deception", "Sleight of Hand"],
 	toolProfs: [["Forgery Kit", "Dex"]],
@@ -3765,13 +3765,13 @@ BackgroundList["charlatan"] = {
 };
 BackgroundFeatureList["charlatan"] = {
 	description: "Once I was old enough to order an ale, I soon had a favorite stool in every tavern within ten miles of where I was born. As I traveled the circuit from public house to watering hole, I learned to prey on unfortunates who were in the market for a comforting lie or two - perhaps a sham potion or forged ancestry records.",
-	source: [["P24", 179]],
+	source: [["PHB24", 179]],
 	featsAdd: ["Skilled"],
 };
 BackgroundList["entertainer"] = {
 	regExpSearch: /(entertainer|actor|dancer|fire.?eater|jester|juggler|instrumentalist|poet|singer|storyteller|tumbler)/i,
 	name: "Entertainer",
-	source: [["P24", 180]],
+	source: [["PHB24", 180]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Strength, Dexterity, and Charisma",
 	skills: ["Acrobatics", "Performance"],
 	toolProfs: [["Musical Instrument", 1]],
@@ -3839,13 +3839,13 @@ BackgroundList["entertainer"] = {
 };
 BackgroundFeatureList["entertainer"] = {
 	description: "I spent much of my youth following roving fairs and carnivals, performing odd jobs for musicians and acrobats in exchange for lessons. I may have learned how to walk a tightrope, how to play a lute in a distinct style, or how to recite poetry with impeccable diction. To this day, I thrive on applause and long for the stage.",
-	source: [["P24", 180]],
+	source: [["PHB24", 180]],
 	featsAdd: ["Musician"],
 };
 BackgroundList["farmer"] = {
 	regExpSearch: /farmer/i,
 	name: "Farmer",
-	source: [["P24", 180]],
+	source: [["PHB24", 180]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Strength, Constitution, and Wisdom",
 	skills: ["Animal Handling", "Nature"],
 	toolProfs: [["Carpenter's Tools", "Str"]],
@@ -3918,13 +3918,13 @@ BackgroundList["farmer"] = {
 };
 BackgroundFeatureList["farmer"] = {
 	description: "I grew up close to the land. Years tending animals and cultivating the earth rewarded me with patience and good health. I have a keen appreciation for nature's bounty alongside a healthy respect for nature's wrath.",
-	source: [["P24", 180]],
+	source: [["PHB24", 180]],
 	featsAdd: ["Tough"],
 };
 BackgroundList["guard"] = {
 	regExpSearch: /guard/i,
 	name: "Guard",
-	source: [["P24", 181]],
+	source: [["PHB24", 181]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Strength, Intelligence, and Wisdom",
 	skills: ["Athletics", "Perception"],
 	toolProfs: [["Gaming Set", 1]],
@@ -3950,13 +3950,13 @@ BackgroundList["guard"] = {
 };
 BackgroundFeatureList["guard"] = {
 	description: "My feet ache when I remember the countless hours I spent at my post in the tower. I was trained to keep one eye looking outside the wall watching for marauders sweeping from the nearby forest, and my other eye looking inside the wall searching for cut purses and troublemakers.",
-	source: [["P24", 181]],
+	source: [["PHB24", 181]],
 	featsAdd: ["Alert"],
 };
 BackgroundList["guide"] = {
 	regExpSearch: /^(?!.*urban)(?=.*(guide|outlander|forester|trapper|homesteader|exile|outcast|bounty.?hunter|tribal nomad|hunter.?gatherer|tribal.?marauder)).*$/i,
 	name: "Guide",
-	source: [["P24", 181]],
+	source: [["PHB24", 181]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Dexterity, Constitution, and Wisdom",
 	skills: ["Stealth", "Survival"],
 	toolProfs: [["Cartographer's Tools", "Wis"]],
@@ -4030,13 +4030,13 @@ BackgroundList["guide"] = {
 };
 BackgroundFeatureList["guide"] = {
 	description: "I came of age outdoors, far from settled lands. My home was anywhere I chose to spread my bedroll. The wilderness has wonders like strange monsters, pristine forests, streams, overgrown ruins, and I learned to fend for myself as I explored them. From time to time, I guided nature priests who taught me the fundamentals of using the magic of the wild.",
-	source: [["P24", 181]],
+	source: [["PHB24", 181]],
 	featsAdd: [{ key: "magic initiate", choice: "druid" }],
 };
 BackgroundList["hermit"] = {
 	regExpSearch: /hermit/i,
 	name: "Hermit",
-	source: [["P24", 182]],
+	source: [["PHB24", 182]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Constitution, Wisdom, and Charisma",
 	skills: ["Medicine", "Religion"],
 	toolProfs: [["Herbalism Kit", "Int"]],
@@ -4107,13 +4107,13 @@ BackgroundList["hermit"] = {
 };
 BackgroundFeatureList["hermit"] = {
 	description: "I spent my early years secluded in a hut or monastery located well beyond the outskirts of the nearest settlement. In those days, my only companions were the creatures of the forest and those who would occasionally visit to bring news of the outside world and supplies. The solitude allowed me to spend many hours pondering the mysteries of creation.",
-	source: [["P24", 182]],
+	source: [["PHB24", 182]],
 	featsAdd: ["Healer"],
 };
 BackgroundList["merchant"] = {
 	regExpSearch: /^(?!.*guild)(?=.*merchant).*$/i,
 	name: "Merchant",
-	source: [["P24", 182]],
+	source: [["PHB24", 182]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Constitution, Intelligence, and Charisma",
 	skills: ["Animal Handling", "Persuasion"],
 	toolProfs: [["Navigator's Tools", "Wis"]],
@@ -4139,13 +4139,13 @@ BackgroundList["merchant"] = {
 };
 BackgroundFeatureList["merchant"] = {
 	description: "I was apprenticed to a trader, caravan master, or shopkeeper, learning the fundamentals of commerce. I traveled broadly and earned a living by buying and selling raw materials artisans need to practice their craft, or their finished works. I transported goods from one place to another or bought them from traveling traders and sold them in my own shop.",
-	source: [["P24", 182]],
+	source: [["PHB24", 182]],
 	featsAdd: ["Lucky"],
 };
 BackgroundList["noble"] = {
 	regExpSearch: /^(?!.*(waterdhavian|waterdeep|knight))(?=.*noble).*$/i,
 	name: "Noble",
-	source: [["P24", 183]],
+	source: [["PHB24", 183]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Strength, Intelligence, and Charisma",
 	skills: ["History", "Persuasion"],
 	toolProfs: [["Gaming Set", 1]],
@@ -4198,13 +4198,13 @@ BackgroundList["noble"] = {
 };
 BackgroundFeatureList["noble"] = {
 	description: "I was raised in a castle, surrounded by wealth, power, and privilege. My family of minor aristocrats ensured that I received a first-class education, some of which I appreciated and some of which I resented. My time in the castle, especially the many hours I spent observing my family at court, also taught me a great deal about leadership.",
-	source: [["P24", 183]],
+	source: [["PHB24", 183]],
 	featsAdd: ["Skilled"],
 };
 BackgroundList["sailor"] = {
 	regExpSearch: /sailor/i,
 	name: "Sailor",
-	source: [["P24", 184]],
+	source: [["PHB24", 184]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Strength, Dexterity, and Wisdom",
 	skills: ["Acrobatics", "Perception"],
 	toolProfs: [["Navigator's Tools", "Wis"]],
@@ -4261,13 +4261,13 @@ BackgroundList["sailor"] = {
 };
 BackgroundFeatureList["sailor"] = {
 	description: "I lived as a seafarer, wind at my back and decks swaying beneath my feet. I've perched on bar stools in more ports of call than I can remember, faced mighty storms, and swapped stories with folk who live beneath the waves.",
-	source: [["P24", 184]],
+	source: [["PHB24", 184]],
 	featsAdd: ["Tavern Brawler"],
 };
 BackgroundList["scribe"] = {
 	regExpSearch: /scribe/i,
 	name: "Scribe",
-	source: [["P24", 184]],
+	source: [["PHB24", 184]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Dexterity, Intelligence, and Wisdom",
 	skills: ["Investigation", "Perception"],
 	toolProfs: [["Calligrapher's Supplies", "Dex"]],
@@ -4286,13 +4286,13 @@ BackgroundList["scribe"] = {
 };
 BackgroundFeatureList["scribe"] = {
 	description: "I spent formative years in a scriptorium, monastery, or government agency, where I learned to write with a clear hand and produce finely written texts. Perhaps I scribed government documents, or copied tomes, or perhaps I've written poetry, prose, or scholarly research. I have an attention to detail, helping me avoid mistakes in that I copy or create.",
-	source: [["P24", 184]],
+	source: [["PHB24", 184]],
 	featsAdd: ["Skilled"],
 };
 BackgroundList["wayfarer"] = {
 	regExpSearch: /wayfarer/i,
 	name: "Wayfarer",
-	source: [["P24", 185]],
+	source: [["PHB24", 185]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Dexterity, Wisdom, and Charisma",
 	skills: ["Insight", "Stealth"],
 	toolProfs: [["Thieves' Tools", "Dex"]],
@@ -4352,7 +4352,7 @@ BackgroundList["wayfarer"] = {
 };
 BackgroundFeatureList["wayfarer"] = {
 	description: "I grew up on the streets surrounded by similarly ill-fated castoffs, a few of them friends and a few of them rivals. I slept where I could and did odd jobs for food. At times, when the hunger became unbearable, I resorted to theft. Still, I never lost my pride and never abandoned hope. Fate is not yet finished with me.",
-	source: [["P24", 185]],
+	source: [["PHB24", 185]],
 	featsAdd: ["Lucky"],
 };
 
@@ -4360,7 +4360,7 @@ BackgroundFeatureList["wayfarer"] = {
 RaceList["aasimar"] = {
 	regExpSearch: /^((?=.*aasimar)|((?=.*planetouched)(?=.*(celestial|angel)))).*$/i,
 	name: "Aasimar",
-	source: [["P24", 186]],
+	source: [["PHB24", 186]],
 	plural: "Aasimar",
 	size: [3, 4],
 	speed: { walk: { spd: 30, enc: 20 } },
@@ -4375,7 +4375,7 @@ RaceList["aasimar"] = {
 	features: {
 		"healing hands": {
 			name: "Healing Hands",
-			source: [["P24", 186]],
+			source: [["PHB24", 186]],
 			minlevel: 1,
 			usages: 1,
 			recovery: "long rest",
@@ -4384,7 +4384,7 @@ RaceList["aasimar"] = {
 		},
 		"celestial revelation": {
 			name: "Celestial Revelation",
-			source: [["P24", 186]],
+			source: [["PHB24", 186]],
 			minlevel: 3,
 			usages: 1,
 			recovery: "long rest",
@@ -4423,7 +4423,7 @@ RaceList["aasimar"] = {
 // Origin feats
 FeatsList["crafter"] = {
 	name: "Crafter",
-	source: [["P24", 200]],
+	source: [["PHB24", 200]],
 	type: "origin",
 	description: "I received a 20% discount on nonmagical items. I'm proficient with three Artisan's Tools of choice from the Fast Crafting table. Fast Crafting. I can craft one item from that table during a Long Rest, which lasts until I finish another Long Rest. I need to have the associated tools and proficiency to do this. [See Notes page]",
 	descriptionFull: [
@@ -4466,7 +4466,7 @@ FeatsList["crafter"] = {
 };
 FeatsList["healer"] = {
 	name: "Healer",
-	source: [["P24", 201]],
+	source: [["PHB24", 201]],
 	type: "origin",
 	description: "##Battle Medic##. As a Utilize action, I can expend 1 use of a Healer's Kit to allow a creature within 5 ft of me to expend 1 Hit Die and regain HP equal to the HD's roll plus my Proficiency Bonus. ##Healing Rerolls##. Whenever I roll a 1 on the die to heal using a spell or this feat, I can reroll the die but must use the new roll.",
 	descriptionFull: [
@@ -4478,7 +4478,7 @@ FeatsList["healer"] = {
 };
 FeatsList["lucky"] = {
 	name: "Lucky",
-	source: [["P24", 201]],
+	source: [["PHB24", 201]],
 	type: "origin",
 	description: [
 		"I gain a number of ##Luck Points## equal to my Proficiency Bonus that I regain "+ (typePF ? "after" : "when") + " I finish a Long Rest. I can expend 1 of them to:",
@@ -4498,7 +4498,7 @@ FeatsList["lucky"] = {
 };
 FeatsList["musician"] = {
 	name: "Musician",
-	source: [["P24", 201]],
+	source: [["PHB24", 201]],
 	type: "origin",
 	description: [
 		"At the end of a Short or Long Rest, I can play an instrument I'm proficient with to give Heroic Inspiration to a number of allies up to my Proficiency Bonus, if they hear the song.",
@@ -4513,7 +4513,7 @@ FeatsList["musician"] = {
 };
 FeatsList["tavern brawler"] = {
 	name: "Tavern Brawler",
-	source: [["P24", 202]],
+	source: [["PHB24", 202]],
 	type: "origin",
 	description: "Once per turn when I hit a creature with an Unarmed Strike as part of the Attack action on my turn, I can deal damage to the target and also push it 5 ft away from me. My Unarmed Strike deals 1d4 damage and I can reroll a 1 on its damage die, but must use the new roll. I'm proficient with improvised weapons. ",
 	descriptionFull: [
@@ -4541,7 +4541,7 @@ FeatsList["tavern brawler"] = {
 };
 FeatsList["tough"] = {
 	name: "Tough",
-	source: [["P24", 202]],
+	source: [["PHB24", 202]],
 	type: "origin",
 	description: "My Hit Point maximum increases by an amount equal to twice my character level when I gain this feat. Whenever I gain a character level thereafter, my Hit Point maximum increases by an additional 2 Hit Points.",
 	descriptionFull: [
@@ -4556,7 +4556,7 @@ FeatsList["tough"] = {
 // General feats
 FeatsList["actor"] = {
 	name: "Actor",
-	source: [["P24", 202]],
+	source: [["PHB24", 202]],
 	type: "general",
 	prerequisite: "Level 4+, Charisma 13+",
 	prereqeval: function (v) {
@@ -4574,7 +4574,7 @@ FeatsList["actor"] = {
 };
 FeatsList["athlete"] = {
 	name: "Athlete",
-	source: [["P24", 202]],
+	source: [["PHB24", 202]],
 	type: "general",
 	prerequisite: "Level 4+, Strength or Dexterity 13+",
 	prereqeval: function (v) {
@@ -4614,7 +4614,7 @@ FeatsList["athlete"] = {
 };
 FeatsList["charger"] = {
 	name: "Charger",
-	source: [["P24", 202]],
+	source: [["PHB24", 202]],
 	type: "general",
 	prerequisite: "Level 4+, Strength or Dexterity 13+",
 	prereqeval: function (v) {
@@ -4640,7 +4640,7 @@ FeatsList["charger"] = {
 };
 FeatsList["chef"] = {
 	name: "Chef",
-	source: [["P24", 202]],
+	source: [["PHB24", 202]],
 	type: "general",
 	prerequisite: "Level 4+",
 	prereqeval: function (v) {
@@ -4679,7 +4679,7 @@ FeatsList["chef"] = {
 };
 FeatsList["crossbow expert"] = {
 	name: "Crossbow Expert",
-	source: [["P24", 203]],
+	source: [["PHB24", 203]],
 	type: "general",
 	prerequisite: "Level 4+, Dexterity 13+",
 	prereqeval: function (v) {
@@ -4710,7 +4710,7 @@ FeatsList["crossbow expert"] = {
 };
 FeatsList["crusher"] = {
 	name: "Crusher",
-	source: [["P24", 203]],
+	source: [["PHB24", 203]],
 	type: "general",
 	prerequisite: "Level 4+",
 	prereqeval: function (v) {
@@ -4736,7 +4736,7 @@ FeatsList["crusher"] = {
 };
 FeatsList["defensive duelist"] = {
 	name: "Defensive Duelist",
-	source: [["P24", 203]],
+	source: [["PHB24", 203]],
 	type: "general",
 	prerequisite: "Level 4+, Dexterity 13+",
 	prereqeval: function (v) {
@@ -4753,7 +4753,7 @@ FeatsList["defensive duelist"] = {
 };
 FeatsList["dual wielder"] = {
 	name: "Dual Wielder",
-	source: [["P24", 203]],
+	source: [["PHB24", 203]],
 	type: "general",
 	prerequisite: "Level 4+, Strength or Dexterity 13+",
 	prereqeval: function (v) {
@@ -4779,7 +4779,7 @@ FeatsList["dual wielder"] = {
 };
 FeatsList["durable"] = {
 	name: "Durable",
-	source: [["P24", 203]],
+	source: [["PHB24", 203]],
 	type: "general",
 	prerequisite: "Level 4+",
 	prereqeval: function (v) {
@@ -4803,7 +4803,7 @@ FeatsList["durable"] = {
 };
 FeatsList["elemental adept"] = {
 	name: "Elemental Adept",
-	source: [["P24", 203]],
+	source: [["PHB24", 203]],
 	type: "general",
 	prerequisite: "Level 4+, Spellcasting or Pact Magic Feature",
 	prereqeval: function (v) {
@@ -4862,7 +4862,7 @@ FeatsList["elemental adept"] = {
 };
 FeatsList["fey-touched"] = {
 	name: "Fey-Touched",
-	source: [["P24", 204]],
+	source: [["PHB24", 204]],
 	type: "general",
 	prerequisite: "Level 4+",
 	prereqeval: function (v) {
@@ -4906,7 +4906,7 @@ FeatsList["fey-touched"] = {
 };
 FeatsList["great weapon master"] = {
 	name: "Great Weapon Master",
-	source: [["P24", 204]],
+	source: [["PHB24", 204]],
 	type: "general",
 	prerequisite: "Level 4+, Strength 13+",
 	prereqeval: function (v) {
@@ -4937,7 +4937,7 @@ FeatsList["great weapon master"] = {
 };
 FeatsList["heavily armored"] = {
 	name: "Heavily Armored",
-	source: [["P24", 204]],
+	source: [["PHB24", 204]],
 	type: "general",
 	prerequisite: "Level 4+, Medium Armor Training",
 	prereqeval: function (v) {
@@ -4963,7 +4963,7 @@ FeatsList["heavily armored"] = {
 };
 FeatsList["heavy armor master"] = {
 	name: "Heavy Armor Master",
-	source: [["P24", 204]],
+	source: [["PHB24", 204]],
 	type: "general",
 	prerequisite: "Level 4+, Heavy Armor Training",
 	prereqeval: function (v) {
@@ -4988,7 +4988,7 @@ FeatsList["heavy armor master"] = {
 };
 FeatsList["inspiring leader"] = {
 	name: "Inspiring Leader",
-	source: [["P24", 204]],
+	source: [["PHB24", 204]],
 	type: "general",
 	prerequisite: "Level 4+, Wisdom or Charisma 13+",
 	prereqeval: function (v) {
@@ -5013,7 +5013,7 @@ FeatsList["inspiring leader"] = {
 };
 FeatsList["keen mind"] = {
 	name: "Keen Mind",
-	source: [["P24", 205]],
+	source: [["PHB24", 205]],
 	type: "general",
 	prerequisite: "Level 4+, Intelligence 13+",
 	prereqeval: function (v) {
@@ -5073,7 +5073,7 @@ FeatsList["keen mind"] = {
 };
 FeatsList["lightly armored"] = {
 	name: "Lightly Armored",
-	source: [["P24", 205]],
+	source: [["PHB24", 205]],
 	type: "general",
 	prerequisite: "Level 4+",
 	prereqeval: function (v) {
@@ -5099,7 +5099,7 @@ FeatsList["lightly armored"] = {
 };
 FeatsList["mage slayer"] = {
 	name: "Mage Slayer",
-	source: [["P24", 205]],
+	source: [["PHB24", 205]],
 	type: "general",
 	prerequisite: "Level 4+",
 	prereqeval: function (v) {
@@ -5130,7 +5130,7 @@ FeatsList["mage slayer"] = {
 };
 FeatsList["martial weapon training"] = {
 	name: "Martial Weapon Training",
-	source: [["P24", 205]],
+	source: [["PHB24", 205]],
 	type: "general",
 	prerequisite: "Level 4+",
 	prereqeval: function (v) {
@@ -5156,7 +5156,7 @@ FeatsList["martial weapon training"] = {
 };
 FeatsList["medium armor master"] = {
 	name: "Medium Armor Master",
-	source: [["P24", 205]],
+	source: [["PHB24", 205]],
 	type: "general",
 	prerequisite: "Level 4+, Medium Armor Training",
 	prereqeval: function (v) {
@@ -5189,7 +5189,7 @@ FeatsList["medium armor master"] = {
 };
 FeatsList["moderately armored"] = {
 	name: "Moderately Armored",
-	source: [["P24", 205]],
+	source: [["PHB24", 205]],
 	type: "general",
 	prerequisite: "Level 4+, Light Armor Training",
 	prereqeval: function (v) {
@@ -5215,7 +5215,7 @@ FeatsList["moderately armored"] = {
 };
 FeatsList["mounted combatant"] = {
 	name: "Mounted Combatant",
-	source: [["P24", 205]],
+	source: [["PHB24", 205]],
 	type: "general",
 	prerequisite: "Level 4+",
 	prereqeval: function (v) {
@@ -5258,7 +5258,7 @@ FeatsList["mounted combatant"] = {
 };
 FeatsList["observant"] = {
 	name: "Observant",
-	source: [["P24", 205]],
+	source: [["PHB24", 205]],
 	type: "general",
 	prerequisite: "Level 4+, Intelligence or Wisdom 13+",
 	prereqeval: function (v) {
@@ -5334,7 +5334,7 @@ FeatsList["observant"] = {
 };
 FeatsList["piercer"] = {
 	name: "Piercer",
-	source: [["P24", 206]],
+	source: [["PHB24", 206]],
 	type: "general",
 	prerequisite: "Level 4+",
 	prereqeval: function (v) {
@@ -5381,7 +5381,7 @@ FeatsList["piercer"] = {
 };
 FeatsList["poisoner"] = {
 	name: "Poisoner",
-	source: [["P24", 206]],
+	source: [["PHB24", 206]],
 	type: "general",
 	prerequisite: "Level 4+",
 	prereqeval: function (v) {
@@ -5431,7 +5431,7 @@ FeatsList["poisoner"] = {
 };
 FeatsList["polearm master"] = {
 	name: "Polearm Master",
-	source: [["P24", 206]],
+	source: [["PHB24", 206]],
 	type: "general",
 	prerequisite: "Level 4+, Strength or Dexterity 13+",
 	prereqeval: function (v) {
@@ -5447,7 +5447,7 @@ FeatsList["polearm master"] = {
 	weaponOptions: [{
 		name: "Pole Strike",
 		regExpSearch : /pole strike|polearm master|^(?=.*(polearm|(quarterstaff|\bstaff\b|\bbo\b)|(spear|qiang|\byaris?\b)|(glaive|guandao|bisento|naginata)|(halberd|\bji\b|kamayari)|(lance|umayari)|(pike|\bmaos?\b|nagaeyari)))(?=.*butt)(?=.*end).*$/i,
-		source: [["P24", 206]],
+		source: [["PHB24", 206]],
 		ability: 1,
 		type: "polearm master",
 		damage: [1, 4, "bludgeoning"],
@@ -5474,7 +5474,7 @@ FeatsList["polearm master"] = {
 };
 FeatsList["resilient"] = {
 	name: "Resilient",
-	source: [["P24", 206]],
+	source: [["PHB24", 206]],
 	type: "general",
 	prerequisite: "Level 4+",
 	prereqeval: function (v) {
@@ -5525,7 +5525,7 @@ var PHB_RitualCasterDescription = [
 ]; if (typePF) PHB_RitualCasterDescription.reverse();
 FeatsList["ritual caster"] = {
 	name: "Ritual Caster",
-	source: [["P24", 206]],
+	source: [["PHB24", 206]],
 	type: "general",
 	prerequisite: "Level 4+; Intelligence, Wisdom, or Charisma 13+",
 	prereqeval: function (v) {
@@ -5570,7 +5570,7 @@ FeatsList["ritual caster"] = {
 };
 FeatsList["sentinel"] = {
 	name: "Sentinel",
-	source: [["P24", 207]],
+	source: [["PHB24", 207]],
 	type: "general",
 	prerequisite: "Level 4+, Strength or Dexterity 13+",
 	prereqeval: function (v) {
@@ -5606,7 +5606,7 @@ FeatsList["sentinel"] = {
 };
 FeatsList["shadow-touched"] = {
 	name: "Shadow-Touched",
-	source: [["P24", 207]],
+	source: [["PHB24", 207]],
 	type: "general",
 	prerequisite: "Level 4+",
 	prereqeval: function (v) {
@@ -5650,7 +5650,7 @@ FeatsList["shadow-touched"] = {
 };
 FeatsList["sharpshooter"] = {
 	name: "Sharpshooter",
-	source: [["P24", 207]],
+	source: [["PHB24", 207]],
 	type: "general",
 	prerequisite: "Level 4+, Dexterity 13+",
 	prereqeval: function (v) {
@@ -5687,7 +5687,7 @@ FeatsList["sharpshooter"] = {
 };
 FeatsList["shield master"] = {
 	name: "Shield Master",
-	source: [["P24", 207]],
+	source: [["PHB24", 207]],
 	type: "general",
 	prerequisite: "Level 4+, Shield Training",
 	prereqeval: function (v) {
@@ -5705,7 +5705,7 @@ FeatsList["shield master"] = {
 	weaponOptions: [{
 		name: "Shield Bash",
 		regExpSearch: /^(?=.*shield)(?=.*bash).*$/i,
-		source: [["P24", 207]],
+		source: [["PHB24", 207]],
 		ability: 1,
 		type: "shield master",
 		damage: ["Str save", "", "Shove/Prone"],
@@ -5721,7 +5721,7 @@ FeatsList["shield master"] = {
 };
 FeatsList["skill expert"] = {
 	name: "Skill Expert",
-	source: [["P24", 207]],
+	source: [["PHB24", 207]],
 	type: "general",
 	prerequisite: "Level 4+",
 	prereqeval: function (v) {
@@ -5792,7 +5792,7 @@ FeatsList["skill expert"] = {
 };
 FeatsList["skulker"] = {
 	name: "Skulker",
-	source: [["P24", 208]],
+	source: [["PHB24", 208]],
 	type: "general",
 	prerequisite: "Level 4+, Dexterity 13+",
 	prereqeval: function (v) {
@@ -5815,7 +5815,7 @@ FeatsList["skulker"] = {
 };
 FeatsList["slasher"] = {
 	name: "Slasher",
-	source: [["P24", 208]],
+	source: [["PHB24", 208]],
 	type: "general",
 	prerequisite: "Level 4+",
 	prereqeval: function (v) {
@@ -5857,7 +5857,7 @@ FeatsList["slasher"] = {
 };
 FeatsList["speedy"] = {
 	name: "Speedy",
-	source: [["P24", 208]],
+	source: [["PHB24", 208]],
 	type: "general",
 	prerequisite: "Level 4+, Dexterity or Constitution 13+",
 	prereqeval: function (v) {
@@ -5906,7 +5906,7 @@ var PHB_SpellSniperDescription = [
 }).join("\n");
 FeatsList["spell sniper"] = {
 	name: "Spell Sniper",
-	source: [["P24", 208]],
+	source: [["PHB24", 208]],
 	type: "general",
 	prerequisite: "Level 4+, Spellcasting or Pact Magic Feature",
 	prereqeval: function (v) {
@@ -5972,7 +5972,7 @@ FeatsList["spell sniper"] = {
 };
 FeatsList["telekinetic"] = {
 	name: "Telekinetic",
-	source: [["P24", 208]],
+	source: [["PHB24", 208]],
 	type: "general",
 	prerequisite: "Level 4+",
 	prereqeval: function (v) {
@@ -6022,7 +6022,7 @@ FeatsList["telekinetic"] = {
 };
 FeatsList["telepathic"] = {
 	name: "Telepathic",
-	source: [["P24", 208]],
+	source: [["PHB24", 208]],
 	type: "general",
 	prerequisite: "Level 4+",
 	prereqeval: function (v) {
@@ -6067,7 +6067,7 @@ FeatsList["telepathic"] = {
 };
 FeatsList["war caster"] = {
 	name: "War Caster",
-	source: [["P24", 209]],
+	source: [["PHB24", 209]],
 	type: "general",
 	prerequisite: "Level 4+, Spellcasting or Pact Magic Feature",
 	prereqeval: function (v) {
@@ -6100,7 +6100,7 @@ FeatsList["war caster"] = {
 };
 FeatsList["weapon master"] = {
 	name: "Weapon Master",
-	source: [["P24", 209]],
+	source: [["PHB24", 209]],
 	type: "general",
 	prerequisite: "Level 4+",
 	prereqeval: function (v) { return v.characterLevel >= 4; },
@@ -6129,7 +6129,7 @@ FeatsList["weapon master"] = {
 // Fighting Style feats
 FeatsList["blind fighting"] = {
 	name: "Blind Fighting",
-	source: [["P24", 209]],
+	source: [["PHB24", 209]],
 	type: "fighting style",
 	description: "I have Blindsight with a range of 10 ft.",
 	descriptionFull: [
@@ -6139,7 +6139,7 @@ FeatsList["blind fighting"] = {
 };
 FeatsList["dueling"] = {
 	name: "Dueling",
-	source: [["P24", 209]],
+	source: [["PHB24", 209]],
 	type: "fighting style",
 	description: "When I'm holding a Melee weapon in one hand and no other weapons, I gain a +2 bonus to damage rolls with that weapon.",
 	descriptionClassFeature: desc("I add +2 to damage rolls when wielding a Melee weapon in one hand and no other weapons."),
@@ -6160,7 +6160,7 @@ FeatsList["dueling"] = {
 };
 FeatsList["interception"] = {
 	name: "Interception",
-	source: [["P24", 209]],
+	source: [["PHB24", 209]],
 	type: "fighting style",
 	description: "As a Reaction when a creature I can see hits another creature within 5 ft of me with an attack, I can reduce the damage dealt by 1d10 plus my Proficiency Bonus. I must be holding a Shield or a Simple or Martial weapon to do this.",
 	calculate: 'event.value = "As a Reaction when a creature I can see hits another creature within 5 ft of me with an attack, I can reduce the damage dealt by 1d10 plus my Proficiency Bonus (1d10+" + Number(How("Proficiency Bonus")) + "). I must be holding a Shield or a Simple or Martial weapon to do this.";',
@@ -6172,7 +6172,7 @@ FeatsList["interception"] = {
 };
 FeatsList["protection"] = {
 	name: "Protection",
-	source: [["P24", 209]],
+	source: [["PHB24", 209]],
 	type: "fighting style",
 	description: "As a Reaction when a creature I can see attacks a target other than me within 5 ft of me, I can interpose my Shield if I'm holding one. This imposes Disadvantage to the triggering attack and all other attacks against the target until the start of my next turn while I stay within 5 ft of the target.",
 	descriptionClassFeature: desc("As a Reaction when a creature I can see attacks a creature within 5 ft of me, I can use a shield I'm holding to impose Disadv" + (typePF ? "antage" : "") + " on this and attacks " + (typePF ? "against" : "vs") + " them until my next turn starts."),
@@ -6183,7 +6183,7 @@ FeatsList["protection"] = {
 };
 FeatsList["thrown weapon fighting"] = {
 	name: "Thrown Weapon Fighting",
-	source: [["P24", 210]],
+	source: [["PHB24", 210]],
 	type: "fighting style",
 	description: "I add +2 to the damage roll when I hit with a ranged attack roll using a weapon that has the Thrown property.",
 	descriptionClassFeature: desc("I add +2 damage to ranged attacks made with weapons with the Thrown property."),
@@ -6211,7 +6211,7 @@ FeatsList["thrown weapon fighting"] = {
 };
 FeatsList["unarmed fighting"] = {
 	name: "Unarmed Fighting",
-	source: [["P24", 210]],
+	source: [["PHB24", 210]],
 	type: "fighting style",
 	description: "My Unarmed Strikes deal 1d6 damage instead of 1. If I'm not holding any weapons or a Shield when I make the attack roll, the d6 becomes a d8. At the start of each of my turns, I can deal 1d4 Bludgeoning damage to one creature Grappled by me.",
 	descriptionClassFeature: desc([
@@ -6238,7 +6238,7 @@ FeatsList["unarmed fighting"] = {
 // Epic Boons feats
 FeatsList["boon of energy resistance"] = {
 	name: "Boon of Energy Resistance",
-	source: [["P24", 210]],
+	source: [["PHB24", 210]],
 	type: "epic boon",
 	prerequisite: "Level 19+",
 	prereqeval: function (v) { return v.characterLevel >= 19; },
@@ -6254,7 +6254,7 @@ FeatsList["boon of energy resistance"] = {
 };
 FeatsList["boon of fortitude"] = {
 	name: "Boon of Fortitude",
-	source: [["P24", 210]],
+	source: [["PHB24", 210]],
 	type: "epic boon",
 	prerequisite: "Level 19+",
 	prereqeval: function (v) {
@@ -6272,7 +6272,7 @@ FeatsList["boon of fortitude"] = {
 };
 FeatsList["boon of recovery"] = {
 	name: "Boon of Recovery",
-	source: [["P24", 211]],
+	source: [["PHB24", 211]],
 	type: "epic boon",
 	prerequisite: "Level 19+",
 	prereqeval: function (v) {
@@ -6301,7 +6301,7 @@ FeatsList["boon of recovery"] = {
 };
 FeatsList["boon of skill"] = {
 	name: "Boon of Skill",
-	source: [["P24", 211]],
+	source: [["PHB24", 211]],
 	type: "epic boon",
 	prerequisite: "Level 19+",
 	prereqeval: function (v) { return v.characterLevel >= 19; },
@@ -6317,7 +6317,7 @@ FeatsList["boon of skill"] = {
 };
 FeatsList["boon of speed"] = {
 	name: "Boon of Speed",
-	source: [["P24", 211]],
+	source: [["PHB24", 211]],
 	type: "epic boon",
 	prerequisite: "Level 19+",
 	prereqeval: function (v) { return v.characterLevel >= 19; },
@@ -6347,7 +6347,7 @@ FeatsList["boon of speed"] = {
 WeaponsList["mind sliver"] = {
 	regExpSearch: /^(?=.*mind)(?=.*sliver).*$/i,
 	name: "Mind Sliver",
-	source: [["P24", 298]],
+	source: [["PHB24", 298]],
 	list: "spell",
 	ability: 6,
 	type: "Cantrip",
@@ -6360,7 +6360,7 @@ WeaponsList["mind sliver"] = {
 WeaponsList["thorn whip"] = {
 	regExpSearch: /^(?=.*thorn)(?=.*whip).*$/i,
 	name: "Thorn Whip",
-	source: [["P24", 333]],
+	source: [["PHB24", 333]],
 	list: "spell",
 	ability: 5,
 	type: "Cantrip",
@@ -6372,7 +6372,7 @@ WeaponsList["thorn whip"] = {
 WeaponsList["thunderclap"] = {
 	regExpSearch: /thunderclap/i,
 	name: "Thunderclap",
-	source: [["P24", 333]],
+	source: [["PHB24", 333]],
 	list: "spell",
 	ability: 6,
 	type: "Cantrip",
@@ -6385,7 +6385,7 @@ WeaponsList["thunderclap"] = {
 WeaponsList["toll the dead"] = {
 	regExpSearch: /^(?=.*toll)(?=.*dead).*$/i,
 	name: "Toll the Dead",
-	source: [["P24", 334]],
+	source: [["PHB24", 334]],
 	list: "spell",
 	ability: 5,
 	type: "Cantrip",
@@ -6398,7 +6398,7 @@ WeaponsList["toll the dead"] = {
 WeaponsList["word of radiance"] = {
 	regExpSearch: /^(?=.*word)(?=.*radiance).*$/i,
 	name: "Word of Radiance",
-	source: [["P24", 343]],
+	source: [["PHB24", 343]],
 	list: "spell",
 	ability: 5,
 	type: "Cantrip",
@@ -6413,7 +6413,7 @@ WeaponsList["word of radiance"] = {
 SpellsList["arcane gate"] = {
 	name: "Arcane Gate",
 	classes: ["sorcerer", "warlock", "wizard"],
-	source: [["P24", 242]],
+	source: [["PHB24", 242]],
 	reqLoS: true,
 	level: 6,
 	school: "Conj",
@@ -6431,7 +6431,7 @@ SpellsList["arcane gate"] = {
 SpellsList["arcane vigor"] = {
 	name: "Arcane Vigor",
 	classes: ["sorcerer", "wizard"],
-	source: [["P24", 242]],
+	source: [["PHB24", 242]],
 	level: 2,
 	school: "Abjur",
 	time: "Bns",
@@ -6447,7 +6447,7 @@ SpellsList["arcane vigor"] = {
 SpellsList["armor of agathys"] = {
 	name: "Armor of Agathys",
 	classes: ["warlock"],
-	source: [["P24", 243]],
+	source: [["PHB24", 243]],
 	level: 1,
 	school: "Abjur",
 	time: "Bns",
@@ -6465,7 +6465,7 @@ SpellsList["armor of agathys"] = {
 SpellsList["arms of hadar"] = {
 	name: "Arms of Hadar",
 	classes: ["warlock"],
-	source: [["P24", 243]],
+	source: [["PHB24", 243]],
 	level: 1,
 	school: "Conj",
 	time: "Act",
@@ -6482,7 +6482,7 @@ SpellsList["arms of hadar"] = {
 SpellsList["aura of purity"] = {
 	name: "Aura of Purity",
 	classes: ["cleric", "paladin"],
-	source: [["P24", 244]],
+	source: [["PHB24", 244]],
 	level: 4,
 	school: "Abjur",
 	time: "Act",
@@ -6497,7 +6497,7 @@ SpellsList["aura of purity"] = {
 SpellsList["aura of vitality"] = {
 	name: "Aura of Vitality",
 	classes: ["cleric", "druid", "paladin"],
-	source: [["P24", 244]],
+	source: [["PHB24", 244]],
 	level: 3,
 	school: "Abjur",
 	time: "Act",
@@ -6512,7 +6512,7 @@ SpellsList["aura of vitality"] = {
 SpellsList["banishing smite"] = {
 	name: "Banishing Smite",
 	classes: ["paladin"],
-	source: [["P24", 245]],
+	source: [["PHB24", 245]],
 	level: 5,
 	school: "Conj",
 	time: "Bns",
@@ -6531,7 +6531,7 @@ SpellsList["banishing smite"] = {
 SpellsList["beast sense"] = {
 	name: "Beast Sense",
 	classes: ["druid", "ranger"],
-	source: [["P24", 245]],
+	source: [["PHB24", 245]],
 	ritual: true,
 	level: 2,
 	school: "Div",
@@ -6547,7 +6547,7 @@ SpellsList["beast sense"] = {
 SpellsList["blade ward"] = {
 	name: "Blade Ward",
 	classes: ["bard", "sorcerer", "warlock", "wizard"],
-	source: [["P24", 247]],
+	source: [["PHB24", 247]],
 	level: 0,
 	school: "Abjur",
 	time: "Act",
@@ -6560,7 +6560,7 @@ SpellsList["blade ward"] = {
 SpellsList["blinding smite"] = {
 	name: "Blinding Smite",
 	classes: ["paladin"],
-	source: [["P24", 247]],
+	source: [["PHB24", 247]],
 	level: 3,
 	school: "Evoc",
 	time: "Bns",
@@ -6579,7 +6579,7 @@ SpellsList["blinding smite"] = {
 SpellsList["circle of power"] = {
 	name: "Circle of Power",
 	classes: ["cleric", "paladin", "wizard"],
-	source: [["P24", 250]],
+	source: [["PHB24", 250]],
 	level: 5,
 	school: "Abjur",
 	time: "Act",
@@ -6594,7 +6594,7 @@ SpellsList["circle of power"] = {
 SpellsList["cloud of daggers"] = {
 	name: "Cloud of Daggers",
 	classes: ["bard", "sorcerer", "warlock", "wizard"],
-	source: [["P24", 251]],
+	source: [["PHB24", 251]],
 	level: 2,
 	school: "Conj",
 	time: "Act",
@@ -6612,7 +6612,7 @@ SpellsList["cloud of daggers"] = {
 SpellsList["compelled duel"] = {
 	name: "Compelled Duel",
 	classes: ["paladin"],
-	source: [["P24", 252]],
+	source: [["PHB24", 252]],
 	reqLoS: true,
 	level: 1,
 	school: "Ench",
@@ -6630,7 +6630,7 @@ SpellsList["compelled duel"] = {
 SpellsList["conjure barrage"] = {
 	name: "Conjure Barrage",
 	classes: ["ranger"],
-	source: [["P24", 254]],
+	source: [["PHB24", 254]],
 	reqLoS: true,
 	level: 3,
 	school: "Conj",
@@ -6649,7 +6649,7 @@ SpellsList["conjure barrage"] = {
 SpellsList["conjure volley"] = {
 	name: "Conjure Volley",
 	classes: ["ranger"],
-	source: [["P24", 255]],
+	source: [["PHB24", 255]],
 	reqLoS: true,
 	level: 5,
 	school: "Conj",
@@ -6667,7 +6667,7 @@ SpellsList["conjure volley"] = {
 SpellsList["cordon of arrows"] = {
 	name: "Cordon of Arrows",
 	classes: ["ranger"],
-	source: [["P24", 258]],
+	source: [["PHB24", 258]],
 	level: 2,
 	school: "Trans",
 	time: "Act",
@@ -6687,7 +6687,7 @@ SpellsList["cordon of arrows"] = {
 SpellsList["crown of madness"] = {
 	name: "Crown of Madness",
 	classes: ["bard", "sorcerer", "warlock", "wizard"],
-	source: [["P24", 259]],
+	source: [["PHB24", 259]],
 	reqLoS: true,
 	level: 2,
 	school: "Ench",
@@ -6706,7 +6706,7 @@ SpellsList["crown of madness"] = {
 SpellsList["crusader's mantle"] = {
 	name: "Crusader's Mantle",
 	classes: ["paladin"],
-	source: [["P24", 259]],
+	source: [["PHB24", 259]],
 	level: 3,
 	school: "Evoc",
 	time: "Act",
@@ -6721,7 +6721,7 @@ SpellsList["crusader's mantle"] = {
 SpellsList["destructive wave"] = {
 	name: "Destructive Wave",
 	classes: ["paladin"],
-	source: [["P24", 261]],
+	source: [["PHB24", 261]],
 	level: 5,
 	school: "Evoc",
 	time: "Act",
@@ -6745,7 +6745,7 @@ SpellsList["destructive wave"] = {
 SpellsList["elemental weapon"] = {
 	name: "Elemental Weapon",
 	classes: ["artificer", "druid", "paladin", "ranger"],
-	source: [["P24", 267]],
+	source: [["PHB24", 267]],
 	level: 3,
 	school: "Trans",
 	time: "Act",
@@ -6768,7 +6768,7 @@ SpellsList["elemental weapon"] = {
 SpellsList["feign death"] = {
 	name: "Feign Death",
 	classes: ["bard", "cleric", "druid", "wizard"],
-	source: [["P24", 271]],
+	source: [["PHB24", 271]],
 	ritual: true,
 	level: 3,
 	school: "Necro",
@@ -6787,7 +6787,7 @@ SpellsList["feign death"] = {
 SpellsList["fount of moonlight"] = {
 	name: "Fount of Moonlight",
 	classes: ["bard", "druid"],
-	source: [["P24", 277]],
+	source: [["PHB24", 277]],
 	level: 4,
 	school: "Evoc",
 	time: "Act",
@@ -6812,7 +6812,7 @@ SpellsList["fount of moonlight-1-reaction"] = {
 	name: "Fount of Moonlight: Reaction",
 	nameShort: "Fount of Moon: reaction", // capitalized Reacton doesn't fit
 	classes: ["bard", "druid"],
-	source: [["P24", 277]],
+	source: [["PHB24", 277]],
 	reqLoS: true,
 	level: 4,
 	school: "Evoc",
@@ -6833,7 +6833,7 @@ SpellsList["fount of moonlight-1-reaction"] = {
 SpellsList["friends"] = {
 	name: "Friends",
 	classes: ["bard", "sorcerer", "warlock", "wizard"],
-	source: [["P24", 277]],
+	source: [["PHB24", 277]],
 	reqLoS: true,
 	level: 0,
 	school: "Ench",
@@ -6852,7 +6852,7 @@ SpellsList["friends"] = {
 SpellsList["grasping vine"] = {
 	name: "Grasping Vine",
 	classes: ["druid", "ranger"],
-	source: [["P24", 280]],
+	source: [["PHB24", 280]],
 	reqLoS: true,
 	level: 4,
 	school: "Conj",
@@ -6872,7 +6872,7 @@ SpellsList["grasping vine"] = {
 SpellsList["hail of thorns"] = {
 	name: "Hail of Thorns",
 	classes: ["ranger"],
-	source: [["P24", 283]],
+	source: [["PHB24", 283]],
 	level: 1,
 	school: "Conj",
 	time: "Bns",
@@ -6897,7 +6897,7 @@ SpellsList["hail of thorns"] = {
 SpellsList["hunger of hadar"] = {
 	name: "Hunger of Hadar",
 	classes: ["warlock"],
-	source: [["P24", 286]],
+	source: [["PHB24", 286]],
 	level: 3,
 	school: "Conj",
 	time: "Act",
@@ -6909,7 +6909,7 @@ SpellsList["hunger of hadar"] = {
 	description: "20-ft rad all in area Blinded; start in: 2d6 Cold dmg; end in: save or 2d6 Acid dmg; +1d6/SL one type",
 	descriptionShorter: "20-ft rad all in: Blinded; start: 2d6 Cold dmg; end save or 2d6 Acid dmg; +1d6/SL one type",
 	descriptionFull: [
-		"You open a gateway to the Far Realm, a region infested with unspeakable horrors. A 20-foot-radius Sphere of Darkness appears, centered on a point with range and lasting for the duration. The Sphere is Difficult Terrain, and it is filled with strange whispers and slurping noises, which can be heard up to 30 feet away. No light, magical or otherwise, can illuminate the area, and creatures fully within it have the Blinded condition.",
+		"You open a gateway to the Far Realm, a region infested with unspeakable horrors. A 20-foot-radius Sphere of Darkness appears, centered on a point within range and lasting for the duration. The Sphere is Difficult Terrain, and it is filled with strange whispers and slurping noises, which can be heard up to 30 feet away. No light, magical or otherwise, can illuminate the area, and creatures fully within it have the Blinded condition.",
 		"Any creature that starts its turn in the area takes 2d6 Cold damage. Any creature that ends its turn there must succeed on a Dexterity saving throw or take 2d6 Acid damage from otherworldly tentacles.",
 		UsingHigherLvl + "The Cold or Acid damage (your choice) increases by 1d6 for each spell slot level above 3.",
 	],
@@ -6919,7 +6919,7 @@ SpellsList["jallarzi's storm of radiance"] = {
 	nameShort: "J's Storm of Radiance",
 	nameAlt: "Storm of Radiance",
 	classes: ["warlock", "wizard"],
-	source: [["P24", 289]],
+	source: [["PHB24", 289]],
 	reqLoS: true,
 	level: 5,
 	school: "Evoc",
@@ -6948,7 +6948,7 @@ SpellsList["jallarzi's storm of radiance"] = {
 SpellsList["lightning arrow"] = {
 	name: "Lightning Arrow",
 	classes: ["ranger"],
-	source: [["P24", 292]],
+	source: [["PHB24", 292]],
 	level: 3,
 	school: "Trans",
 	time: "Bns",
@@ -6972,7 +6972,7 @@ SpellsList["lightning arrow"] = {
 SpellsList["mind sliver"] = {
 	name: "Mind Sliver",
 	classes: ["sorcerer", "warlock", "wizard"],
-	source: [["P24", 298]],
+	source: [["PHB24", 298]],
 	reqLoS: true,
 	level: 0,
 	school: "Ench",
@@ -6991,7 +6991,7 @@ SpellsList["mind sliver"] = {
 SpellsList["power word fortify"] = {
 	name: "Power Word Fortify",
 	classes: ["bard", "cleric"],
-	source: [["P24", 306]],
+	source: [["PHB24", 306]],
 	reqLoS: true,
 	level: 7,
 	school: "Ench",
@@ -7005,7 +7005,7 @@ SpellsList["power word fortify"] = {
 SpellsList["staggering smite"] = {
 	name: "Staggering Smite",
 	classes: ["paladin"],
-	source: [["P24", 320]],
+	source: [["PHB24", 320]],
 	level: 4,
 	school: "Ench",
 	time: "Bns",
@@ -7023,7 +7023,7 @@ SpellsList["staggering smite"] = {
 SpellsList["steel wind strike"] = {
 	name: "Steel Wind Strike",
 	classes: ["ranger", "wizard"],
-	source: [["P24", 320]],
+	source: [["PHB24", 320]],
 	reqLoS: true,
 	level: 5,
 	school: "Conj",
@@ -7042,7 +7042,7 @@ SpellsList["steel wind strike"] = {
 SpellsList["summon aberration"] = {
 	name: "Summon Aberration",
 	classes: ["warlock", "wizard"],
-	source: [["P24", 322]],
+	source: [["PHB24", 322]],
 	reqLoS: true,
 	level: 4,
 	school: "Conj",
@@ -7061,7 +7061,7 @@ SpellsList["summon aberration"] = {
 SpellsList["summon beast"] = {
 	name: "Summon Beast",
 	classes: ["druid", "ranger"],
-	source: [["P24", 322]],
+	source: [["PHB24", 322]],
 	reqLoS: true,
 	level: 2,
 	school: "Conj",
@@ -7080,7 +7080,7 @@ SpellsList["summon beast"] = {
 SpellsList["summon celestial"] = {
 	name: "Summon Celestial",
 	classes: ["cleric", "paladin"],
-	source: [["P24", 323]],
+	source: [["PHB24", 323]],
 	reqLoS: true,
 	level: 5,
 	school: "Conj",
@@ -7099,7 +7099,7 @@ SpellsList["summon celestial"] = {
 SpellsList["summon construct"] = {
 	name: "Summon Construct",
 	classes: ["artificer", "wizard"],
-	source: [["P24", 324]],
+	source: [["PHB24", 324]],
 	reqLoS: true,
 	level: 4,
 	school: "Conj",
@@ -7118,7 +7118,7 @@ SpellsList["summon construct"] = {
 SpellsList["summon elemental"] = {
 	name: "Summon Elemental",
 	classes: ["druid", "ranger", "wizard"],
-	source: [["P24", 325]],
+	source: [["PHB24", 325]],
 	reqLoS: true,
 	level: 4,
 	school: "Conj",
@@ -7137,7 +7137,7 @@ SpellsList["summon elemental"] = {
 SpellsList["summon fey"] = {
 	name: "Summon Fey",
 	classes: ["druid", "ranger", "warlock", "wizard"],
-	source: [["P24", 326]],
+	source: [["PHB24", 326]],
 	reqLoS: true,
 	level: 3,
 	school: "Conj",
@@ -7156,7 +7156,7 @@ SpellsList["summon fey"] = {
 SpellsList["summon fiend"] = {
 	name: "Summon Fiend",
 	classes: ["warlock", "wizard"],
-	source: [["P24", 326]],
+	source: [["PHB24", 326]],
 	reqLoS: true,
 	level: 6,
 	school: "Conj",
@@ -7175,7 +7175,7 @@ SpellsList["summon fiend"] = {
 SpellsList["summon undead"] = {
 	name: "Summon Undead",
 	classes: ["warlock", "wizard"],
-	source: [["P24", 328]],
+	source: [["PHB24", 328]],
 	reqLoS: true,
 	level: 3,
 	school: "Necro",
@@ -7194,7 +7194,7 @@ SpellsList["summon undead"] = {
 SpellsList["swift quiver"] = {
 	name: "Swift Quiver",
 	classes: ["ranger"],
-	source: [["P24", 329]],
+	source: [["PHB24", 329]],
 	level: 5,
 	school: "Trans",
 	time: "Bns",
@@ -7210,7 +7210,7 @@ SpellsList["swift quiver"] = {
 SpellsList["synaptic static"] = {
 	name: "Synaptic Static",
 	classes: ["bard", "sorcerer", "warlock", "wizard"],
-	source: [["P24", 330]],
+	source: [["PHB24", 330]],
 	level: 5,
 	school: "Ench",
 	time: "Act",
@@ -7230,7 +7230,7 @@ SpellsList["tasha's bubbling cauldron"] = {
 	nameAlt: "Bubbling Cauldron",
 	nameShort: "T's Bubbling Cauldron",
 	classes: ["warlock", "wizard"],
-	source: [["P24", 330]],
+	source: [["PHB24", 330]],
 	level: 6,
 	school: "Conj",
 	time: "Act",
@@ -7248,7 +7248,7 @@ SpellsList["tasha's bubbling cauldron"] = {
 SpellsList["telepathy"] = {
 	name: "Telepathy",
 	classes: ["wizard"],
-	source: [["P24", 331]],
+	source: [["PHB24", 331]],
 	level: 8,
 	school: "Div",
 	time: "Act",
@@ -7265,7 +7265,7 @@ SpellsList["telepathy"] = {
 SpellsList["thorn whip"] = {
 	name: "Thorn Whip",
 	classes: ["artificer", "druid"],
-	source: [["P24", 333]],
+	source: [["PHB24", 333]],
 	level: 0,
 	school: "Trans",
 	time: "Act",
@@ -7284,7 +7284,7 @@ SpellsList["thorn whip"] = {
 SpellsList["thunderclap"] = {
 	name: "Thunderclap",
 	classes: ["artificer", "bard", "druid", "sorcerer", "warlock", "wizard"],
-	source: [["P24", 333]],
+	source: [["PHB24", 333]],
 	level: 0,
 	school: "Evoc",
 	time: "Act",
@@ -7302,7 +7302,7 @@ SpellsList["thunderclap"] = {
 SpellsList["thunderous smite"] = {
 	name: "Thunderous Smite",
 	classes: ["paladin"],
-	source: [["P24", 334]],
+	source: [["PHB24", 334]],
 	level: 1,
 	school: "Evoc",
 	time: "Bns",
@@ -7320,7 +7320,7 @@ SpellsList["thunderous smite"] = {
 SpellsList["toll the dead"] = {
 	name: "Toll the Dead",
 	classes: ["cleric", "warlock", "wizard"],
-	source: [["P24", 334]],
+	source: [["PHB24", 334]],
 	reqLoS: true,
 	level: 0,
 	school: "Necro",
@@ -7340,7 +7340,7 @@ SpellsList["toll the dead"] = {
 SpellsList["witch bolt"] = {
 	name: "Witch Bolt",
 	classes: ["sorcerer", "warlock", "wizard"],
-	source: [["P24", 343]],
+	source: [["PHB24", 343]],
 	level: 1,
 	school: "Evoc",
 	time: "Act",
@@ -7364,7 +7364,7 @@ SpellsList["witch bolt"] = {
 SpellsList["word of radiance"] = {
 	name: "Word of Radiance",
 	classes: ["cleric"],
-	source: [["P24", 343]],
+	source: [["PHB24", 343]],
 	reqLoS: true,
 	level: 0,
 	school: "Evoc",
@@ -7384,7 +7384,7 @@ SpellsList["word of radiance"] = {
 SpellsList["wrathful smite"] = {
 	name: "Wrathful Smite",
 	classes: ["paladin"],
-	source: [["P24", 343]],
+	source: [["PHB24", 343]],
 	level: 1,
 	school: "Necro",
 	time: "Bns",
@@ -7403,7 +7403,7 @@ SpellsList["yolande's regal presence"] = {
 	name: "Yolande's Regal Presence",
 	nameShort: "Y's Regal Presence",
 	classes: ["bard", "wizard"],
-	source: [["P24", 343]],
+	source: [["PHB24", 343]],
 	reqLoS: true,
 	level: 5,
 	school: "Ench",
