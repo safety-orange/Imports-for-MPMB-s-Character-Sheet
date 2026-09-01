@@ -25,7 +25,7 @@ AddSubClass("sorcerer", "shadow", {
 			minlevel: 3,
 			description: desc([
 				"I can see normally through areas of Darkness created by spells that I cast.",
-				"I have 120 ft Darkvision and 10 ft Blindsight."
+				"I have 120 ft Darkvision and 10 ft Blindsight.",
 			]),
 			vision: [["Darkvision", 120], ["Blindsight", 10]],
 			spellcastingExtra: ["bane", "inflict wounds", "darkness", "pass without trace", "hunger of hadar", "nondetection", "greater invisibility", "phantasmal killer", "contagion", "creation"],

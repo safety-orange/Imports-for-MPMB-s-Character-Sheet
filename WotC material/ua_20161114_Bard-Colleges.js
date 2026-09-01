@@ -4,38 +4,38 @@ RequiredSheetVersion("13.0.8");
 
 // Define the source
 SourceList["UA:BC"] = {
-	name : "Unearthed Arcana: Bard Colleges",
-	abbreviation : "UA:BC",
-	group : "Unearthed Arcana",
-	url : "https://media.wizards.com/2016/dnd/downloads/UA_Bard.pdf",
-	date : "2016/11/14"
+	name: "Unearthed Arcana: Bard Colleges",
+	abbreviation: "UA:BC",
+	group: "Unearthed Arcana",
+	url: "https://media.wizards.com/2016/dnd/downloads/UA_Bard.pdf",
+	date: "2016/11/14",
 };
 
 // Adds 2 subclasses for the Bard
 AddSubClass("bard", "college of glamour-ua", {
-	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*glamour).*$/i,
-	subname : "College of Glamour",
+	regExpSearch: /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*glamour).*$/i,
+	subname: "College of Glamour",
 	subnameShort: "Glamour",
-	source : [["UA:BC", 1]],
-	features : {
-		"subclassfeature3" : {
-			name : "Mantle of Inspiration",
-			source : [["UA:BC", 1]],
-			minlevel : 3,
+	source: [["UA:BC", 1]],
+	features: {
+		"subclassfeature3": {
+			name: "Mantle of Inspiration",
+			source: [["UA:BC", 1]],
+			minlevel: 3,
 			description: desc([
 				"As a bonus action, I expend one bardic inspiration die to aid those within 60 ft of me",
 				"A number of allies equal to my Cha mod gain twice the die roll in temporary HP",
 				"They can use a reaction to move their speed toward me, without opportunity attacks",
 			]),
-			additional : "1 bardic inspiration die",
-			action : [["bonus action", ""]]
+			additional: "1 bardic inspiration die",
+			action: [["bonus action", ""]],
 		},
-		"subclassfeature3.1" : {
-			name : "Enthralling Performance",
-			source : [["UA:BC", 1]],
-			minlevel : 3,
-			recovery : "short rest",
-			usages : 1,
+		"subclassfeature3.1": {
+			name: "Enthralling Performance",
+			source: [["UA:BC", 1]],
+			minlevel: 3,
+			recovery: "short rest",
+			usages: 1,
 			description: desc([
 				"By performing for at least 10 minutes, I can charm humanoids within 60 ft of me",
 				"At the end of the performance, my Cha mod number of targets must make a Wis save",
@@ -44,83 +44,83 @@ AddSubClass("bard", "college of glamour-ua", {
 				"This lasts until a target takes damage, I attack it, or if it sees me attacking its allies",
 			]),
 		},
-		"subclassfeature6" : {
-			name : "Mantle of Majesty",
-			source : [["UA:BC", 1]],
-			minlevel : 6,
-			recovery : "long rest",
-			usages : 1,
-			action : [["bonus action", ""]],
+		"subclassfeature6": {
+			name: "Mantle of Majesty",
+			source: [["UA:BC", 1]],
+			minlevel: 6,
+			recovery: "long rest",
+			usages: 1,
+			action: [["bonus action", ""]],
 			description: desc([
 				"As a bonus action, I take on an appearance of unearthly beauty for 1 minute",
 				"As a bonus action during this time, I can cast Command without using a spell slot",
 				"Creatures charmed by me automatically fail their saves against these Command spells",
 			]),
-			spellcastingBonus : [{
-				name : "Mantle of Majesty",
-				spells : ["command"],
-				selection : ["command"],
-				firstCol : 'oncelr'
+			spellcastingBonus: [{
+				name: "Mantle of Majesty",
+				spells: ["command"],
+				selection: ["command"],
+				firstCol: "oncelr",
 			}],
-			spellChanges : {
-				"command" : {
-					time : "1 bns",
-					description : "1 crea save (fails save if charmed) or follow one word command, e.g. approach, drop, flee, halt",
-					changes : "Using my Mantle of Majesty class feature, I can cast Command as a bonus action once per long rest without using a spell slot, thus only affect a single target."
-				}
-			}
+			spellChanges: {
+				"command": {
+					time: "1 bns",
+					description: "1 crea save (fails save if charmed) or follow one word command, e.g. approach, drop, flee, halt",
+					changes: "Using my Mantle of Majesty class feature, I can cast Command as a bonus action once per long rest without using a spell slot, thus only affect a single target.",
+				},
+			},
 		},
-		"subclassfeature14" : {
-			name : "Unbreakable Majesty",
-			source : [["UA:BC", 2]],
-			minlevel : 14,
-			recovery : "short rest",
-			usages : 1,
-			action : [["action", ""]],
+		"subclassfeature14": {
+			name: "Unbreakable Majesty",
+			source: [["UA:BC", 2]],
+			minlevel: 14,
+			recovery: "short rest",
+			usages: 1,
+			action: [["action", ""]],
 			description: desc([
 				"As an action, I can cast Sanctuary on myself without using a spell slot",
 				"If a creature fails its save to this, I gain adv. on all Cha checks against it for 1 min",
 				"In addition, the target has disadv. on saves it makes against my spells on my next turn",
 			]),
-			spellcastingBonus : [{
-				name : "Unbreakable Majesty",
-				spells : ["sanctuary"],
-				selection : ["sanctuary"],
-				firstCol : 'oncesr'
+			spellcastingBonus: [{
+				name: "Unbreakable Majesty",
+				spells: ["sanctuary"],
+				selection: ["sanctuary"],
+				firstCol: "oncesr",
 			}],
-			spellChanges : {
-				"sanctuary" : {
-					time : "Self",
-					description : "Any trying to atk/target me must save or fail, dis. on save vs. spell I cast next turn, I adv. on Cha vs. it",
-					changes : "Using my Unbreakable Majesty class feature, I can cast Sanctuary once per short rest without using a spell slot, but only on myself."
-				}
-			}
-		}
-	}
+			spellChanges: {
+				"sanctuary": {
+					time: "Self",
+					description: "Any trying to atk/target me must save or fail, dis. on save vs. spell I cast next turn, I adv. on Cha vs. it",
+					changes: "Using my Unbreakable Majesty class feature, I can cast Sanctuary once per short rest without using a spell slot, but only on myself.",
+				},
+			},
+		},
+	},
 });
 AddSubClass("bard", "college of whispers-ua", {
-	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*whispers).*$/i,
-	subname : "College of Whispers",
+	regExpSearch: /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*whispers).*$/i,
+	subname: "College of Whispers",
 	subnameShort: "Whispers",
-	source : [["UA:BC", 2]],
-	features : {
-		"subclassfeature3" : {
-			name : "Venomous Blades",
-			source : [["UA:BC", 2]],
-			minlevel : 3,
+	source: [["UA:BC", 2]],
+	features: {
+		"subclassfeature3": {
+			name: "Venomous Blades",
+			source: [["UA:BC", 2]],
+			minlevel: 3,
 			description: desc([
 				"When I hit with a weapon attack, I can expend a bardic inspiration die to add damage",
 				"I roll the inspiration die twice, dealing the total in Poison damage to the target",
 				"I can do this no more than once per round on my turn",
 			]),
-			additional : "1 bardic inspiration die"
+			additional: "1 bardic inspiration die",
 		},
-		"subclassfeature3.1" : {
-			name : "Venomous Words",
-			source : [["UA:BC", 2]],
-			minlevel : 3,
-			recovery : "short rest",
-			usages : 1,
+		"subclassfeature3.1": {
+			name: "Venomous Words",
+			source: [["UA:BC", 2]],
+			minlevel: 3,
+			recovery: "short rest",
+			usages: 1,
 			description: desc([
 				"By speaking in private with a humanoid for at least 10 minutes, I can try to frighten it",
 				"After the conversation, the target must make a Wisdom save or be frightened of me",
@@ -130,21 +130,21 @@ AddSubClass("bard", "college of whispers-ua", {
 				"This lasts for 1 hour or until it is attacked/damaged, or if it sees me attacking its allies",
 			]),
 		},
-		"subclassfeature6" : {
-			name : "Mantle of Whispers",
-			source : [["UA:BC", 2]],
-			minlevel : 6,
-			action : [["reaction", ""]],
+		"subclassfeature6": {
+			name: "Mantle of Whispers",
+			source: [["UA:BC", 2]],
+			minlevel: 6,
+			action: [["reaction", ""]],
 			description: desc([
 				"As a reaction when a creature dies within 5 ft or by my hand, I can capture its shadow",
 				"I can use shadows of those with the same type and size as me (or Medium if I'm Small)",
 				"I can have only one captured shadow at a time and I can don it as a shadow disguise",
 			]),
-			"shadow disguise" : {
-				name : "Shadow Disguise",
-				extraname : "Mantle of Whispers",
-				source : [["UA:BC", 2]],
-				action : [["action", " (start)"], ['bonus action', ' (end)']],
+			"shadow disguise": {
+				name: "Shadow Disguise",
+				extraname: "Mantle of Whispers",
+				source: [["UA:BC", 2]],
+				action: [["action", " (start)"], ["bonus action", " (end)"]],
 				description: desc([
 					"As an action, I can don a shadow that I captured as a disguise for 1 hour or until I stop it",
 					"I take on the creature's appearance and I can access its surface memories, but not secrets",
@@ -154,15 +154,15 @@ AddSubClass("bard", "college of whispers-ua", {
 					"The knowledge disappears when the disguise ends",
 				]),
 			},
-			autoSelectExtrachoices : [{ extrachoice : "shadow disguise" }]
+			autoSelectExtrachoices: [{ extrachoice: "shadow disguise" }],
 		},
-		"subclassfeature14" : {
-			name : "Shadow Lore",
-			source : [["UA:BC", 3]],
-			minlevel : 14,
-			recovery : "long rest",
-			usages : 1,
-			action : [["action", ""]],
+		"subclassfeature14": {
+			name: "Shadow Lore",
+			source: [["UA:BC", 3]],
+			minlevel: 14,
+			recovery: "long rest",
+			usages: 1,
+			action: [["action", ""]],
 			description: desc([
 				"As an action, I whisper to a creature within 30 ft that can hear and understand me",
 				"Only the target can hear me; It must make a Wisdom save or be charmed by me",
@@ -171,6 +171,6 @@ AddSubClass("bard", "college of whispers-ua", {
 				"This lasts for 8 hours or until I or my allies attack or damage it",
 				"When the effect ends, the target has no idea why it was so afraid of me",
 			]),
-		}
-	}
+		},
+	},
 });

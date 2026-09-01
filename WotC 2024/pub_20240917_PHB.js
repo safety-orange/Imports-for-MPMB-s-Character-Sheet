@@ -165,7 +165,7 @@ AddSubClass("barbarian", "world tree", {
 							} else if (!/\btopple\b/i.test(fields.Description)) {
 								text = "Topple; " + text;
 							}
-							fields.Description += (fields.Description ? '; ' : '') + text;
+							fields.Description += (fields.Description ? "; " : "") + text;
 						}
 					},
 					"Heavy and Versatile melee weapons get the Push and Topple masteries added to their description if they don't already have it. With those weapons, I have +10 ft reach on my turn.",
@@ -206,7 +206,7 @@ AddSubClass("barbarian", "zealot", {
 					function (fields, v) {
 						var lvl = classes.known.barbarian ? classes.known.barbarian.level : false;
 						if (lvl && (v.isWeapon || v.baseWeaponName === "unarmed strike") && /\brage\b/i.test(v.WeaponTextName)) {
-							fields.Description += (fields.Description ? '; ' : '') + "1/turn +1d6+" + Math.floor(lvl / 2) + " Necrotic/Radiant dmg";
+							fields.Description += (fields.Description ? "; " : "") + "1/turn +1d6+" + Math.floor(lvl / 2) + " Necrotic/Radiant dmg";
 						}
 					},
 					"",
@@ -297,7 +297,7 @@ AddSubClass("bard", "dance", {
 								var curDie = fields.Damage_Die.match(rxDice);
 								var curDieSize = Math.max(Number(curDie[1]), 1) * Math.max(Number(curDie[2]), 1);
 								if (curDieSize < bardInspDie) {
-									fields.Damage_Die = fields.Damage_Die.replace(curDie[0], '1d' + bardInspDie);
+									fields.Damage_Die = fields.Damage_Die.replace(curDie[0], "1d" + bardInspDie);
 								}
 							}
 						}
@@ -430,7 +430,7 @@ AddSubClass("bard", "valor", {
 			minlevel: 3,
 			description: desc([
 				"I have proficiency with Martial weapons, Medium armor, and Shields.",
-				"I can use a Simple or Martial weapon as a Spellcasting Focus for my Bard spells."
+				"I can use a Simple or Martial weapon as a Spellcasting Focus for my Bard spells.",
 			]),
 			armorProfs: [false, true, false, true],
 			weaponProfs: [false, true],
@@ -443,7 +443,7 @@ AddSubClass("bard", "valor", {
 				"I can attack twice instead of once when I take the Attack action on my turn.",
 				"I can cast a cantrip with a casting time of one action in place of one of those attacks.",
 			]),
-			action: [["action", "1 Attack and cast Cantrip"]]
+			action: [["action", "1 Attack and cast Cantrip"]],
 		},
 		"subclassfeature14": {
 			name: "Battle Magic",
@@ -651,10 +651,10 @@ AddSubClass("druid", "moon", {
 				duration: ClassList.druid.features["wild shape"].wildshapePageInfo.duration,
 				knownForms: ClassList.druid.features["wild shape"].wildshapePageInfo.knownForms,
 				tempHP: levels.map(function (n) {
-					return n < 3 ? n : n*3;
+					return n < 3 ? n : n * 3;
 				}),
 				limitations: levels.map(function (n) {
-					var CR = n < 3 ? "1/4" : Math.floor(n/3);
+					var CR = n < 3 ? "1/4" : Math.floor(n / 3);
 					return n < 8 ? "max CR " + CR + ", no Fly Speed" : "CR " + CR + " or lower";
 				}),
 			},
@@ -664,10 +664,10 @@ AddSubClass("druid", "moon", {
 				extraname: "Moon 3",
 				description: levels.map(function (n) {
 					if (n < 3) return "";
-					var tempHP = n*3;
-					var duration = Math.floor(n/2) + " hour" + (n > 3 ? "s" : "");
+					var tempHP = n * 3;
+					var duration = Math.floor(n / 2) + " hour" + (n > 3 ? "s" : "");
 					var knownForms = n < 4 ? 4 : n < 8 ? 6 : 8;
-					var CR = Math.floor(n/3);
+					var CR = Math.floor(n / 3);
 					var canFly = n < 8 ? "can't" : "can";
 					return desc([
 						"As a Bonus Action, I can expend a Wild Shape (WS) use to shape-shift into a known Beast form and gain **" + tempHP + " Temp HP** (3\xD7 Druid level). I stay in that form for **" + duration + "** (half Druid level), until I use Wild Shape again, end it as a Bonus Action, become Incapacitated, or die.",
@@ -899,7 +899,7 @@ AddSubClass("druid", "stars", {
 					return n < 10 ? "" : "gain Fly Speed";
 				}),
 			},
-			autoSelectExtrachoices : [{
+			autoSelectExtrachoices: [{
 				extrachoice: "archer constellation",
 			}, {
 				extrachoice: "chalice constellation",
@@ -929,11 +929,11 @@ AddSubClass("druid", "stars", {
 			calcChanges: {
 				atkAdd: [
 					function (fields, v) {
-						if (v.theWea.isLuminousArrow && fields.Damage_Die.indexOf('1d8') !== -1) {
-							fields.Damage_Die = fields.Damage_Die.replace('1d8', '2d8');
+						if (v.theWea.isLuminousArrow && fields.Damage_Die.indexOf("1d8") !== -1) {
+							fields.Damage_Die = fields.Damage_Die.replace("1d8", "2d8");
 						}
 					},
-					'',
+					"",
 				],
 			},
 		},
@@ -1115,7 +1115,7 @@ AddSubClass("fighter", "battle master", {
 				source: [["PHB24", 95]],
 				description: desc("As a Bonus Action, I can expend 1 SD to grant an ally within 30 ft who can see or hear me Temporary Hit Points equal to the SD roll plus half my Fighter level."),
 				additional: levels.map(function (n) {
-					return "ally gains SD + " + Math.floor(n/2) + " Temp HP";
+					return "ally gains SD + " + Math.floor(n / 2) + " Temp HP";
 				}),
 				action: [["bonus action", ""]],
 			},
@@ -1421,7 +1421,7 @@ var PHB_WarriorMercy = {
 		description: desc("As a Magic action, I can expend 1 Focus Point to heal a creature I touch for Martial Arts die + my Wisdom modifier Hit Points. When I use Flurry of Blows, I can replace one of its Unarmed Strikes with a use of this feature without expending a Focus Point for the healing."),
 		description6: desc([
 			"As a Magic action, I can use 1 FP to heal a creature I touch for Martial Arts die + Wis mod HP and cure it of one of the following: Blinded, Deafened, Paralyzed, Poisoned, or Stunned.",
-			"When I use Flurry of Blows, I can swap one Unarmed Strike for this without using more FP."
+			"When I use Flurry of Blows, I can swap one Unarmed Strike for this without using more FP.",
 		]),
 		additional: levels.map(function (n) {
 			var die = n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12;
@@ -1541,7 +1541,7 @@ AddSubClass("monk", "shadow", {
 			minlevel: 3,
 			description: desc("I gain +60 ft Darkvision. I know the *Minor Illusion* cantrip, using Wis as spellcasting ability."),
 			vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
-			spellFirstColTitle : "Ki",
+			spellFirstColTitle: "Ki",
 			spellcastingBonus: [{
 				name: "Shadow Arts",
 				spells: ["minor illusion"],
@@ -1643,7 +1643,8 @@ AddSubClass("monk", "elements", {
 				}
 				if (n >= 17) { // Elemental Epitome
 					var die = n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12;
-					text.splice(text.length - 1, 1,
+					text.splice(text.length - 1,
+						1,
 						"***Damage Resistance***. I gain a Resistance (\u2605). I can change its type at the start of my turns.",
 						"***Destructive Stride***. On a turn that I use Step of the Wind, I have +20 ft Speed and I can deal 1d" + die + " (MA die) damage (\u2605) to each creature of my choice that I come within 5 ft of.",
 						"***Empowered Strikes***. I can add 1d" + die + " (MA die) " + (typePF ? "damage" : "dmg") + " to one Unarmed Strike hit on my turn.",
@@ -1711,10 +1712,10 @@ AddSubClass("monk", "elements", {
 						if (v.theWea.isElementalBurst && classes.known.monk) {
 							var n = classes.known.monk.level;
 							var die = n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12;
-							fields.Damage_Die = '3d' + die;
+							fields.Damage_Die = "3d" + die;
 						}
 					},
-					'',
+					"",
 					20,
 				],
 			},
@@ -1751,10 +1752,10 @@ AddSubClass("monk", "elements", {
 				atkAdd: [
 					function (fields, v) {
 						if (v.theWea.isElementalStrike && classes.known.monk && classes.known.monk.level >= 17) {
-							fields.Description += '; 1/my turn +1d12 damage';
+							fields.Description += "; 1/my turn +1d12 damage";
 						}
 					},
-					''
+					"",
 				],
 			},
 			autoSelectExtrachoices: [{ extrachoice: "elemental epitome" }],
@@ -2088,7 +2089,7 @@ var PHB_BeastMaster = {
 	},
 };
 AddSubClass("ranger", "beast master", {
-	regExpSearch : /^(?=.*beast)(?=.*master).*$/i,
+	regExpSearch: /^(?=.*beast)(?=.*master).*$/i,
 	subname: "Beast Master",
 	fullname: "Beast Master",
 	source: [["PHB24", 122]],
@@ -2255,7 +2256,7 @@ AddSubClass("ranger", "fey wanderer", {
 					function (fields, v) {
 						if (v.isWeapon && classes.known.ranger) {
 							var die = classes.known.ranger.level < 11 ? 4 : 6;
-							fields.Description += (fields.Description ? '; ' : '') + "1/turn/target +1d" + die + " Psychic dmg";
+							fields.Description += (fields.Description ? "; " : "") + "1/turn/target +1d" + die + " Psychic dmg";
 						}
 					},
 					"All weapons get the bonus damage from my Dreadful Strikes added to their description. This is +1d4 Psychic damage that I can deal when I hit a creature with a weapon, but a creature can only take this extra damage once per turn. The damage increases to 1d6 at Ranger level 11.",
@@ -3180,7 +3181,7 @@ AddSubClass("warlock", "celestial", {
 				atkCalc: [
 					function (fields, v, output) {
 						if (v.isSpell && /fire|radiant/i.test(fields.Damage_Type)) {
-							output.extraDmg += What('Cha Mod');
+							output.extraDmg += What("Cha Mod");
 						};
 					},
 					"Cantrips and spells that deal Radiant or Fire damage get my Charisma modifier added to their damage to one target.",
@@ -3298,7 +3299,7 @@ AddSubClass("warlock", "great old one", {
 			minlevel: 10,
 			description: desc([
 				"My thoughts can't be read by telepathy or other means unless I allow it.",
-				"I have Resistance to Psychic damage, and whenever a creature deals Psychic damage to me, that creature takes the same amount of damage that I took."
+				"I have Resistance to Psychic damage, and whenever a creature deals Psychic damage to me, that creature takes the same amount of damage that I took.",
 			]),
 			dmgres: ["Psychic"],
 		},
@@ -3413,7 +3414,7 @@ AddSubClass("wizard", "abjurer", {
 						if (spellKey === "dispel magic") {
 							var newDesr = applySpellcastingAbility(spellObj, CurrentSpells[spName]);
 							if (newDesr) spellObj.description = newDesr;
-							var profB = Number(How('Proficiency Bonus'));
+							var profB = Number(How("Proficiency Bonus"));
 							spellObj.time = "Bns";
 							spellObj.description = spellObj.description.replace("check DC", "check with +" + profB + " (PB) DC");
 						};
@@ -3618,7 +3619,7 @@ AddSubClass("wizard", "illusionist", {
 
 // Backgrounds and their corresponding Background Features (which grant the origin feats)
 BackgroundList["artisan"] = {
-	regExpSearch: /^(?!.*guild)(?=.*artisan).*$/i,
+	regExpSearch: /artisan/i,
 	name: "Artisan",
 	source: [["PHB24", 178]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Strength, Dexterity, and Intelligence",
@@ -3843,7 +3844,7 @@ BackgroundFeatureList["entertainer"] = {
 	featsAdd: ["Musician"],
 };
 BackgroundList["farmer"] = {
-	regExpSearch: /farmer/i,
+	regExpSearch: /farmer|folk hero/i,
 	name: "Farmer",
 	source: [["PHB24", 180]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Strength, Constitution, and Wisdom",
@@ -4111,7 +4112,7 @@ BackgroundFeatureList["hermit"] = {
 	featsAdd: ["Healer"],
 };
 BackgroundList["merchant"] = {
-	regExpSearch: /^(?!.*guild)(?=.*merchant).*$/i,
+	regExpSearch: /merchant/i,
 	name: "Merchant",
 	source: [["PHB24", 182]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Constitution, Intelligence, and Charisma",
@@ -4290,7 +4291,7 @@ BackgroundFeatureList["scribe"] = {
 	featsAdd: ["Skilled"],
 };
 BackgroundList["wayfarer"] = {
-	regExpSearch: /wayfarer/i,
+	regExpSearch: /wayfarer|urchin/i,
 	name: "Wayfarer",
 	source: [["PHB24", 185]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Dexterity, Wisdom, and Charisma",
@@ -4413,11 +4414,11 @@ RaceList["aasimar"] = {
 		"##\u25C6 Celestial Revelation## (level 3). As a Bonus Action once per Long Rest, I can transform for 1 min or until I end it (no action). Once on each of my turns while transformed, I can deal my Prof Bonus in extra damage. I choose how I transform each time. See Notes page.",
 	].join("\n"),
 	// from VGM:
-	age : " reach adulthood in their late teens and live around 160 years",
+	age: " reach adulthood in their late teens and live around 160 years",
 	height: " are about 2-4 ft (small) or 4-7 ft (medium) tall (4'8\" + 2d10\")",
-	weight : " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
+	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric: " are about 60-120 cm (small) or 120-210 cm (medium) tall (145 + 5d10 cm)",
-	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
+	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 };
 
 // Origin feats
@@ -4481,7 +4482,7 @@ FeatsList["lucky"] = {
 	source: [["PHB24", 201]],
 	type: "origin",
 	description: [
-		"I gain a number of ##Luck Points## equal to my Proficiency Bonus that I regain "+ (typePF ? "after" : "when") + " I finish a Long Rest. I can expend 1 of them to:",
+		"I gain a number of ##Luck Points## equal to my Proficiency Bonus that I regain " + (typePF ? "after" : "when") + " I finish a Long Rest. I can expend 1 of them to:",
 		" \u2022 Give myself Advantage on a D20 Test.",
 		" \u2022 Impose Disadvantage on an attack roll against me.",
 	].join("\n"),
@@ -4544,12 +4545,10 @@ FeatsList["tough"] = {
 	source: [["PHB24", 202]],
 	type: "origin",
 	description: "My Hit Point maximum increases by an amount equal to twice my character level when I gain this feat. Whenever I gain a character level thereafter, my Hit Point maximum increases by an additional 2 Hit Points.",
-	descriptionFull: [
-		"Your Hit Point maximum increases by an amount equal to twice your character level when you gain this feat. Whenever you gain a character level thereafter, your Hit Point maximum increases by an additional 2 Hit Points.",
-	],
+	descriptionFull: "Your Hit Point maximum increases by an amount equal to twice your character level when you gain this feat. Whenever you gain a character level thereafter, your Hit Point maximum increases by an additional 2 Hit Points.",
 	calcChanges: {
 		hp: function (totalHD) {
-			return [totalHD * 2, '\n + ' + totalHD + ' \xD7 2 from the Tough feat (' + (totalHD * 2) + ')', true];
+			return [totalHD * 2, "\n + " + totalHD + " \xD7 2 from the Tough feat (" + (totalHD * 2) + ")", true];
 		},
 	},
 };
@@ -4698,7 +4697,7 @@ FeatsList["crossbow expert"] = {
 		atkAdd: [
 			function (fields, v) {
 				if (/(hand|heavy|light) crossbow/i.test(v.baseWeaponName)) {
-					fields.Description = fields.Description.replace(/([,;]? ?loading|loading[,;]? ?)/i, '');
+					fields.Description = fields.Description.replace(/([,;]? ?loading|loading[,;]? ?)/i, "");
 					if (v.isOffHand && /\blight\b/i.test(fields.Description))  {
 						output.modToDmg = true;
 					};
@@ -5232,26 +5231,26 @@ FeatsList["mounted combatant"] = {
 	choices: ["Strength", "Dexterity", "Wisdom"],
 	choicesNotInMenu: true,
 	"strength": {
-		description: "While I'm mounted and not Incapacitated:"+
-			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks against unmounted within 5 ft that are smaller than my mount."+
-			(typePF ? " \u2022 " : " ##\u2022 Leap Aside##. ") + "If my mount is not Incapacitated and makes a Dex save to halve the damage, it takes none on a pass and half on a fail."+
-			(typePF ? "\n\u2022 " : " ##\u2022 Veer##. ") + "When an attack hits my mount, I can have it hit me instead."+
+		description: "While I'm mounted and not Incapacitated:" +
+			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks against unmounted within 5 ft that are smaller than my mount." +
+			(typePF ? " \u2022 " : " ##\u2022 Leap Aside##. ") + "If my mount is not Incapacitated and makes a Dex save to halve the damage, it takes none on a pass and half on a fail." +
+			(typePF ? "\n\u2022 " : " ##\u2022 Veer##. ") + "When an attack hits my mount, I can have it hit me instead." +
 			(typePF ? "" : " [+1 Str]"),
 		scores: [1, 0, 0, 0, 0, 0],
 	},
 	"dexterity": {
-		description: "While I'm mounted and not Incapacitated:"+
-			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks against unmounted within 5 ft that are smaller than my mount."+
-			(typePF ? " \u2022 " : " ##\u2022 Leap Aside##. ") + "If my mount is not Incapacitated and makes a Dex save to halve the damage, it takes none on a pass and half on a fail."+
-			(typePF ? "\n\u2022 " : " ##\u2022 Veer##. ") + "When an attack hits my mount, I can have it hit me instead."+
+		description: "While I'm mounted and not Incapacitated:" +
+			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks against unmounted within 5 ft that are smaller than my mount." +
+			(typePF ? " \u2022 " : " ##\u2022 Leap Aside##. ") + "If my mount is not Incapacitated and makes a Dex save to halve the damage, it takes none on a pass and half on a fail." +
+			(typePF ? "\n\u2022 " : " ##\u2022 Veer##. ") + "When an attack hits my mount, I can have it hit me instead." +
 			(typePF ? "" : " [+1 Dex]"),
 		scores: [0, 1, 0, 0, 0, 0],
 	},
 	"wisdom": {
-		description: "While I'm mounted and not Incapacitated:"+
-			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks against unmounted within 5 ft that are smaller than my mount."+
-			(typePF ? " \u2022 " : " ##\u2022 Leap Aside##. ") + "If my mount is not Incapacitated and makes a Dex save to halve the damage, it takes none on a pass and half on a fail."+
-			(typePF ? "\n\u2022 " : " ##\u2022 Veer##. ") + "When an attack hits my mount, I can have it hit me instead."+
+		description: "While I'm mounted and not Incapacitated:" +
+			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks against unmounted within 5 ft that are smaller than my mount." +
+			(typePF ? " \u2022 " : " ##\u2022 Leap Aside##. ") + "If my mount is not Incapacitated and makes a Dex save to halve the damage, it takes none on a pass and half on a fail." +
+			(typePF ? "\n\u2022 " : " ##\u2022 Veer##. ") + "When an attack hits my mount, I can have it hit me instead." +
 			(typePF ? "" : " [+1 Wis]"),
 		scores: [0, 0, 0, 0, 1, 0],
 	},
@@ -5273,8 +5272,12 @@ FeatsList["observant"] = {
 	],
 	action: [["bonus action", "Search"]],
 	choices: [
-		"Intelligence, Insight", "Intelligence, Investigation", "Intelligence, Perception",
-		"Wisdom, Insight", "Wisdom, Investigation", "Wisdom, Perception",
+		"Intelligence, Insight",
+		"Intelligence, Investigation",
+		"Intelligence, Perception",
+		"Wisdom, Insight",
+		"Wisdom, Investigation",
+		"Wisdom, Perception",
 	],
 	choicesNotInMenu: true,
 	"intelligence, insight": {
@@ -5351,30 +5354,30 @@ FeatsList["piercer"] = {
 		atkAdd: [
 			function (fields, v) {
 				if (/pierc/i.test(fields.Damage_Type)) {
-					var descrAdd = '1/turn reroll 1 dmg die';
+					var descrAdd = "1/turn reroll 1 dmg die";
 					var dmgDice = fields.Damage_Die.match(/(\b\w|\b\d+|\b)d\d+/ig);
 					if (dmgDice && !v.isDC) {
 						var dieSize = dmgDice.reduce(function (acc, val) {
-							var size = Number(val.replace(/.+d/, ''));
+							var size = Number(val.replace(/.+d/, ""));
 							return size > acc ? size : acc;
 						}, 0);
-						descrAdd += '; Crit: +1' + dieSize + ' dmg';
+						descrAdd += "; Crit: +1" + dieSize + " dmg";
 					};
-					fields.Description += (fields.Description ? '; ' : '') + descrAdd;
+					fields.Description += (fields.Description ? "; " : "") + descrAdd;
 				};
 			},
-			'Attacks that deal Piercing damage get the benefits from the Piercer feat added to their description: Once per turn reroll 1 damage die, and to roll an extra damage die on a Critical Hit.',
+			"Attacks that deal Piercing damage get the benefits from the Piercer feat added to their description: Once per turn reroll 1 damage die, and to roll an extra damage die on a Critical Hit.",
 		],
 	},
 	choices: ["Strength", "Dexterity"],
 	choicesNotInMenu: true,
 	"strength": {
-		description: "##Puncture##. Once per turn, when I hit a creature with an attack that deals Piercing damage, I can reroll one of its damage dice and must use this new roll."+
+		description: "##Puncture##. Once per turn, when I hit a creature with an attack that deals Piercing damage, I can reroll one of its damage dice and must use this new roll." +
 			(typePF ? " " : "\n") + "##Enhanced Critical##. When I score a Critical Hit that deals Piercing damage to a creature, I add one extra damage die to the Piercing damage. [+1 Strength]",
 		scores: [1, 0, 0, 0, 0, 0],
 	},
 	"dexterity": {
-		description: "##Puncture##. Once per turn, when I hit a creature with an attack that deals Piercing damage, I can reroll one of its damage dice and must use this new roll."+
+		description: "##Puncture##. Once per turn, when I hit a creature with an attack that deals Piercing damage, I can reroll one of its damage dice and must use this new roll." +
 			(typePF ? " " : "\n") + "##Enhanced Critical##. When I score a Critical Hit that deals Piercing damage to a creature, I add one extra damage die to the Piercing damage. [+1 Dexterity]",
 		scores: [0, 1, 0, 0, 0, 0],
 	},
@@ -5446,7 +5449,7 @@ FeatsList["polearm master"] = {
 	],
 	weaponOptions: [{
 		name: "Pole Strike",
-		regExpSearch : /pole strike|polearm master|^(?=.*(polearm|(quarterstaff|\bstaff\b|\bbo\b)|(spear|qiang|\byaris?\b)|(glaive|guandao|bisento|naginata)|(halberd|\bji\b|kamayari)|(lance|umayari)|(pike|\bmaos?\b|nagaeyari)))(?=.*butt)(?=.*end).*$/i,
+		regExpSearch: /pole strike|polearm master|^(?=.*(polearm|(quarterstaff|\bstaff\b|\bbo\b)|(spear|qiang|\byaris?\b)|(glaive|guandao|bisento|naginata)|(halberd|\bji\b|kamayari)|(lance|umayari)|(pike|\bmaos?\b|nagaeyari)))(?=.*butt)(?=.*end).*$/i,
 		source: [["PHB24", 206]],
 		ability: 1,
 		type: "polearm master",
@@ -5832,25 +5835,25 @@ FeatsList["slasher"] = {
 		atkAdd: [
 			function (fields, v) {
 				if (/slash/i.test(fields.Damage_Type)) {
-					fields.Description += (fields.Description ? '; ' : '') + '1/turn target -10 ft Spd till my next SoT, Crit: also Disadv on atks';
+					fields.Description += (fields.Description ? "; " : "") + "1/turn target -10 ft Spd till my next SoT, Crit: also Disadv on atks";
 				};
 			},
-			'Attacks that deal Slashing damage get the benefits from the Slasher feat added to their description: Once per turn -10 ft Speed, and on a Critical Hit target gets Disadvantage on attacks. Each effect lasts until the start of my next turn.',
+			"Attacks that deal Slashing damage get the benefits from the Slasher feat added to their description: Once per turn -10 ft Speed, and on a Critical Hit target gets Disadvantage on attacks. Each effect lasts until the start of my next turn.",
 		],
 	},
 	choices: ["Strength", "Dexterity"],
 	choicesNotInMenu: true,
 	"strength": {
-		description: "##Hamstring##. Once per turn when I hit a creature with an attack that deals Slashing damage, I can reduce its Speed by 10 ft" + (typePF ? "." : " until the start of my next turn.")+
-			"\n##Enhanced Critical##. When I score a Critical Hit that deals Slashing damage to a creature, it gets Disadvantage on attack rolls" + (typePF ? "." : " until the start of my next turn.")+
-			(typePF ? "\nEach effect lasts until the start of my next turn." : "")+
+		description: "##Hamstring##. Once per turn when I hit a creature with an attack that deals Slashing damage, I can reduce its Speed by 10 ft" + (typePF ? "." : " until the start of my next turn.") +
+			"\n##Enhanced Critical##. When I score a Critical Hit that deals Slashing damage to a creature, it gets Disadvantage on attack rolls" + (typePF ? "." : " until the start of my next turn.") +
+			(typePF ? "\nEach effect lasts until the start of my next turn." : "") +
 			" [+1 Strength]",
 		scores: [1, 0, 0, 0, 0, 0],
 	},
 	"dexterity": {
-		description: "##Hamstring##. Once per turn when I hit a creature with an attack that deals Slashing damage, I can reduce its Speed by 10 ft" + (typePF ? "." : " until the start of my next turn.")+
-			"\n##Enhanced Critical##. When I score a Critical Hit that deals Slashing damage to a creature, it gets Disadvantage on attack rolls" + (typePF ? "." : " until the start of my next turn.")+
-			(typePF ? "\nEach effect lasts until the start of my next turn." : "")+
+		description: "##Hamstring##. Once per turn when I hit a creature with an attack that deals Slashing damage, I can reduce its Speed by 10 ft" + (typePF ? "." : " until the start of my next turn.") +
+			"\n##Enhanced Critical##. When I score a Critical Hit that deals Slashing damage to a creature, it gets Disadvantage on attack rolls" + (typePF ? "." : " until the start of my next turn.") +
+			(typePF ? "\nEach effect lasts until the start of my next turn." : "") +
 			" [+1 Dexterity]",
 		scores: [0, 1, 0, 0, 0, 0],
 	},
@@ -6002,19 +6005,19 @@ FeatsList["telekinetic"] = {
 	choices: ["Intelligence", "Wisdom", "Charisma"],
 	choicesNotInMenu: true,
 	"intelligence": {
-		description: (typePF ? "" : "##Minor Telekinesis##. ") + "I know the Mage Hand cantrip, can cast it without components, can make it invisible, and with +30 ft range. Intelligence is my spellcasting ability for it. "+
+		description: (typePF ? "" : "##Minor Telekinesis##. ") + "I know the Mage Hand cantrip, can cast it without components, can make it invisible, and with +30 ft range. Intelligence is my spellcasting ability for it. " +
 			(typePF ? "" : "##Telekinetic Shove##. ") + "As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs this feat's spell save DC) or move it 5 ft from or towards me. [+1 Int]",
 		spellcastingAbility: 4,
 		scores: [0, 0, 0, 1, 0, 0],
 	},
 	"wisdom": {
-		description: (typePF ? "" : "##Minor Telekinesis##. ") + "I know the Mage Hand cantrip, can cast it without components, can make it invisible, and with +30 ft range. Wisdom is my spellcasting ability for it. "+
+		description: (typePF ? "" : "##Minor Telekinesis##. ") + "I know the Mage Hand cantrip, can cast it without components, can make it invisible, and with +30 ft range. Wisdom is my spellcasting ability for it. " +
 			(typePF ? "" : "##Telekinetic Shove##. ") + "As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs this feat's spell save DC) or move it 5 ft from or towards me. [+1 Wis]",
 		spellcastingAbility: 5,
 		scores: [0, 0, 0, 0, 1, 0],
 	},
 	"charisma": {
-		description: (typePF ? "" : "##Minor Telekinesis##. ") + "I know the Mage Hand cantrip, can cast it without components, can make it invisible, and with +30 ft range. Charisma is my spellcasting ability for it. "+
+		description: (typePF ? "" : "##Minor Telekinesis##. ") + "I know the Mage Hand cantrip, can cast it without components, can make it invisible, and with +30 ft range. Charisma is my spellcasting ability for it. " +
 			(typePF ? "" : "##Telekinetic Shove##. ") + "As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs this feat's spell save DC) or move it 5 ft from or towards me. [+1 Cha]",
 		spellcastingAbility: 6,
 		scores: [0, 0, 0, 0, 0, 1],
@@ -6132,10 +6135,8 @@ FeatsList["blind fighting"] = {
 	source: [["PHB24", 209]],
 	type: "fighting style",
 	description: "I have Blindsight with a range of 10 ft.",
-	descriptionFull: [
-		"You have Blindsight with a range of 10 feet.",
-	],
-	vision : [["Blindsight", 10]],
+	descriptionFull: "You have Blindsight with a range of 10 feet.",
+	vision: [["Blindsight", 10]],
 };
 FeatsList["dueling"] = {
 	name: "Dueling",
@@ -6143,14 +6144,12 @@ FeatsList["dueling"] = {
 	type: "fighting style",
 	description: "When I'm holding a Melee weapon in one hand and no other weapons, I gain a +2 bonus to damage rolls with that weapon.",
 	descriptionClassFeature: desc("I add +2 to damage rolls when wielding a Melee weapon in one hand and no other weapons."),
-	descriptionFull: [
-		"When you're holding a Melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.",
-	],
+	descriptionFull: "When you're holding a Melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.",
 	calcChanges: {
 		atkCalc: [
 			function (fields, v, output) {
 				for (var i = 1; i <= FieldNumbers.actions; i++) {
-					if (/off.hand.attack/i.test(What('Bonus Action ' + i))) return;
+					if (/off.hand.attack/i.test(What("Bonus Action " + i))) return;
 				};
 				if (v.isMeleeWeapon && !/((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b/i.test(fields.Description)) output.extraDmg += 2;
 			},
@@ -6165,10 +6164,8 @@ FeatsList["interception"] = {
 	description: "As a Reaction when a creature I can see hits another creature within 5 ft of me with an attack, I can reduce the damage dealt by 1d10 plus my Proficiency Bonus. I must be holding a Shield or a Simple or Martial weapon to do this.",
 	calculate: 'event.value = "As a Reaction when a creature I can see hits another creature within 5 ft of me with an attack, I can reduce the damage dealt by 1d10 plus my Proficiency Bonus (1d10+" + Number(How("Proficiency Bonus")) + "). I must be holding a Shield or a Simple or Martial weapon to do this.";',
 	descriptionClassFeature: desc("As a Reaction when a creature I can see hits another within 5 ft of me, I can use a Shield or Simple/Martial weapon I'm holding to reduce the damage done by 1d10 + Prof" + (typePF ? "iciency" : "") + " Bonus."),
-	descriptionFull: [
-		"When a creature you can see hits another creature within 5 feet of you with an attack roll, you can take a Reaction to reduce the damage dealt to the target by 1d10 plus your Proficiency Bonus. You must be holding a Shield or a Simple or Martial weapon to use this Reaction.",
-	],
-	action : [["reaction", "Interception Fighting Style"]],
+	descriptionFull: "When a creature you can see hits another creature within 5 feet of you with an attack roll, you can take a Reaction to reduce the damage dealt to the target by 1d10 plus your Proficiency Bonus. You must be holding a Shield or a Simple or Martial weapon to use this Reaction.",
+	action: [["reaction", "Interception Fighting Style"]],
 };
 FeatsList["protection"] = {
 	name: "Protection",
@@ -6176,10 +6173,8 @@ FeatsList["protection"] = {
 	type: "fighting style",
 	description: "As a Reaction when a creature I can see attacks a target other than me within 5 ft of me, I can interpose my Shield if I'm holding one. This imposes Disadvantage to the triggering attack and all other attacks against the target until the start of my next turn while I stay within 5 ft of the target.",
 	descriptionClassFeature: desc("As a Reaction when a creature I can see attacks a creature within 5 ft of me, I can use a shield I'm holding to impose Disadv" + (typePF ? "antage" : "") + " on this and attacks " + (typePF ? "against" : "vs") + " them until my next turn starts."),
-	descriptionFull: [
-		"When a creature you can see attacks a target other than you that is within 5 feet of you, you can take a Reaction to interpose your Shield if you're holding one. You impose Disadvantage on the triggering attack roll and all other attack rolls against the target until the start of your next turn if you remain within 5 feet of the target.",
-	],
-	action : [["reaction", "Protection Fighting Style"]],
+	descriptionFull: "When a creature you can see attacks a target other than you that is within 5 feet of you, you can take a Reaction to interpose your Shield if you're holding one. You impose Disadvantage on the triggering attack roll and all other attack rolls against the target until the start of your next turn if you remain within 5 feet of the target.",
+	action: [["reaction", "Protection Fighting Style"]],
 };
 FeatsList["thrown weapon fighting"] = {
 	name: "Thrown Weapon Fighting",
@@ -6187,14 +6182,12 @@ FeatsList["thrown weapon fighting"] = {
 	type: "fighting style",
 	description: "I add +2 to the damage roll when I hit with a ranged attack roll using a weapon that has the Thrown property.",
 	descriptionClassFeature: desc("I add +2 damage to ranged attacks made with weapons with the Thrown property."),
-	descriptionFull: [
-		"When you hit with a ranged attack roll using a weapon that has the Thrown property, you gain a +2 bonus to the damage roll.",
-	],
+	descriptionFull: "When you hit with a ranged attack roll using a weapon that has the Thrown property, you gain a +2 bonus to the damage roll.",
 	calcChanges: {
 		atkAdd: [
 			function (fields, v) {
 				if (v.isThrownWeapon && v.isMeleeWeapon) {
-					fields.Description += (fields.Description ? '; ' : '') + '+2 damage when thrown';
+					fields.Description += (fields.Description ? "; " : "") + "+2 damage when thrown";
 				};
 			},
 			"I deal +2 damage when I hit a ranged attack made with a thrown weapon.",
@@ -6226,8 +6219,8 @@ FeatsList["unarmed fighting"] = {
 		atkAdd: [
 			function (fields, v) {
 				if (v.baseWeaponName == "unarmed strike") {
-					if (fields.Damage_Die == 1 || fields.Damage_Die == "1d4") fields.Damage_Die = '1d6';
-					fields.Description += (fields.Description ? '; ' : '') + 'Versatile (d8)';
+					if (fields.Damage_Die == 1 || fields.Damage_Die == "1d4") fields.Damage_Die = "1d6";
+					fields.Description += (fields.Description ? "; " : "") + "Versatile (d8)";
 				};
 			},
 			"My unarmed strikes deal 1d6 damage instead of 1, which increases to 1d8 if I'm not holding any weapons or a Shield when I make the attack roll.",
@@ -6490,9 +6483,7 @@ SpellsList["aura of purity"] = {
 	components: "V",
 	duration: "Conc, 10 min",
 	description: "Me \x26 allies resist Poison dmg, Adv on saves vs blind, charm, deaf, fright, paralysis, poison, and stun",
-	descriptionFull: [
-		"An aura radiates from you in a 30-foot Emanation for the duration. While in the aura, you and your allies have Resistance to Poison damage and Advantage on saving throws to avoid or end effects that include the Blinded, Charmed, Deafened, Frightened, Paralyzed, Poisoned, or Stunned condition.",
-	],
+	descriptionFull: "An aura radiates from you in a 30-foot Emanation for the duration. While in the aura, you and your allies have Resistance to Poison damage and Advantage on saving throws to avoid or end effects that include the Blinded, Charmed, Deafened, Frightened, Paralyzed, Poisoned, or Stunned condition.",
 };
 SpellsList["aura of vitality"] = {
 	name: "Aura of Vitality",
@@ -6505,9 +6496,7 @@ SpellsList["aura of vitality"] = {
 	components: "V",
 	duration: "Conc, 1 min",
 	description: "On cast and at the start of each of my turns, 1 creature in aura heals 2d6 HP",
-	descriptionFull: [
-		"An aura radiates from you in a 30-foot Emanation for the duration. When you create the aura and at the start of each of your turns while it persists, you can restore 2d6 Hit Points to one creature in it.",
-	],
+	descriptionFull: "An aura radiates from you in a 30-foot Emanation for the duration. When you create the aura and at the start of each of your turns while it persists, you can restore 2d6 Hit Points to one creature in it.",
 };
 SpellsList["banishing smite"] = {
 	name: "Banishing Smite",
@@ -6521,9 +6510,7 @@ SpellsList["banishing smite"] = {
 	components: "V",
 	duration: "Conc, 1 min",
 	description: "Cast on melee wea hit; +5d10 Force dmg; if this brings target HP\u226450, banished until spell ends",
-	descriptionFull: [
-		"The target hit by the attack roll takes an extra 5d10 Force damage from the attack. If the attack reduces the target to 50 Hit Points or fewer, the target must succeed on a Charisma saving throw or be transported to a harmless demiplane for the duration. While there, the target has the Incapacitated condition. When the spell ends, the target reappears in the space it left or in the nearest unoccupied space if that space is occupied.",
-	],
+	descriptionFull: "The target hit by the attack roll takes an extra 5d10 Force damage from the attack. If the attack reduces the target to 50 Hit Points or fewer, the target must succeed on a Charisma saving throw or be transported to a harmless demiplane for the duration. While there, the target has the Incapacitated condition. When the spell ends, the target reappears in the space it left or in the nearest unoccupied space if that space is occupied.",
 	dynamicDamageBonus: {
 		multipleDmgMoments: false,
 	},
@@ -6540,9 +6527,7 @@ SpellsList["beast sense"] = {
 	components: "S",
 	duration: "Conc, 1 h",
 	description: "Use 1 willing Beast's senses as well as my own for the duration",
-	descriptionFull: [
-		"You touch a willing Beast. For the duration, you can perceive through the Beast's senses as well as your own. When perceiving through the Beast's senses, you benefit from any special senses it has.",
-	],
+	descriptionFull: "You touch a willing Beast. For the duration, you can perceive through the Beast's senses as well as your own. When perceiving through the Beast's senses, you benefit from any special senses it has.",
 };
 SpellsList["blade ward"] = {
 	name: "Blade Ward",
@@ -6587,9 +6572,7 @@ SpellsList["circle of power"] = {
 	components: "V",
 	duration: "Conc, 10 min",
 	description: "While in aura, me \x26 allies Adv on saves vs magical effects; if save would half dmg, we take no dmg",
-	descriptionFull: [
-		"An aura radiates from you in a 30-foot Emanation for the duration. While in the aura, you and your allies have Advantage on saving throws against spells and other magical effects. When an affected creature makes a saving throw against a spell or magical effect that allows a save to take only half damage, it takes no damage if it succeeds on the save.",
-	],
+	descriptionFull: "An aura radiates from you in a 30-foot Emanation for the duration. While in the aura, you and your allies have Advantage on saving throws against spells and other magical effects. When an affected creature makes a saving throw against a spell or magical effect that allows a save to take only half damage, it takes no damage if it succeeds on the save.",
 };
 SpellsList["cloud of daggers"] = {
 	name: "Cloud of Daggers",
@@ -6660,9 +6643,7 @@ SpellsList["conjure volley"] = {
 	duration: "Instantaneous",
 	save: "Dex",
 	description: "Volley falls in 40-ft rad 20-ft high cylinder; any seen creatures in it take 8d8 Force dmg; save halves",
-	descriptionFull: [
-		"You brandish the weapon used to cast the spell and choose a point within range. Hundreds of similar spectral weapons (or ammunition appropriate to the weapon) fall in a volley and then disappear. Each creature of your choice that you can see in a 40-foot-radius, 20-foot-high Cylinder centered on that point makes a Dexterity saving throw. A creature takes 8d8 Force damage on a failed save or half as much damage on a successful one.",
-	],
+	descriptionFull: "You brandish the weapon used to cast the spell and choose a point within range. Hundreds of similar spectral weapons (or ammunition appropriate to the weapon) fall in a volley and then disappear. Each creature of your choice that you can see in a 40-foot-radius, 20-foot-high Cylinder centered on that point makes a Dexterity saving throw. A creature takes 8d8 Force damage on a failed save or half as much damage on a successful one.",
 };
 SpellsList["cordon of arrows"] = {
 	name: "Cordon of Arrows",
@@ -6714,9 +6695,7 @@ SpellsList["crusader's mantle"] = {
 	components: "V",
 	duration: "Conc, 1 min",
 	description: "Allies within the aura and I deal +1d4 Radiant dmg with weapons and unarmed strikes",
-	descriptionFull: [
-		"You radiate a magical aura in a 30-foot Emanation. While in the aura, you and your allies each deal an extra 1d4 Radiant damage when hitting with a weapon or an Unarmed Strike.",
-	],
+	descriptionFull: "You radiate a magical aura in a 30-foot Emanation. While in the aura, you and your allies each deal an extra 1d4 Radiant damage when hitting with a weapon or an Unarmed Strike.",
 };
 SpellsList["destructive wave"] = {
 	name: "Destructive Wave",
@@ -6731,9 +6710,7 @@ SpellsList["destructive wave"] = {
 	save: "Con",
 	description: "Any crea 5d6 Thunder dmg \x26 5d6 Radiant or Necrotic dmg \x26 knocked prone; save halves, not prone",
 	descriptionShorter: "Any crea 5d6 Thunder dmg \x26 5d6 Radiant or Necrotic dmg \x26 prone; save half, not prone",
-	descriptionFull: [
-		"Destructive energy ripples outward from you in a 30-foot Emanation. Each creature you choose in the Emanation makes a Constitution saving throw. On a failed save, a target takes 5d6 Thunder damage and 5d6 Radiant or Necrotic damage (your choice) and has the Prone condition. On a successful save, a target takes half as much damage only.",
-	],
+	descriptionFull: "Destructive energy ripples outward from you in a 30-foot Emanation. Each creature you choose in the Emanation makes a Constitution saving throw. On a failed save, a target takes 5d6 Thunder damage and 5d6 Radiant or Necrotic damage (your choice) and has the Prone condition. On a successful save, a target takes half as much damage only.",
 	dynamicDamageBonus: {
 		allDmgTypesSingleMoment: true,
 		multipleDmgTypes: {
@@ -7203,9 +7180,7 @@ SpellsList["swift quiver"] = {
 	compMaterial: "A Quiver worth 1+ GP",
 	duration: "Conc, 1 min",
 	description: "At cast \x26 Bns after: attack twice with weapon that uses arrows or bolts; spell creates nonmagical ammo",
-	descriptionFull: [
-		"When you cast the spell and as a Bonus Action until it ends, you can make two attacks with a weapon that fires Arrows or Bolts, such as a Longbow or a Light Crossbow. The spell magically creates the ammunition needed for each attack. Each Arrow or Bolt created by the spell deals damage like a nonmagical piece of ammunition of its kind and disintegrates immediately after it hits or misses.",
-	],
+	descriptionFull: "When you cast the spell and as a Bonus Action until it ends, you can make two attacks with a weapon that fires Arrows or Bolts, such as a Longbow or a Light Crossbow. The spell magically creates the ammunition needed for each attack. Each Arrow or Bolt created by the spell deals damage like a nonmagical piece of ammunition of its kind and disintegrates immediately after it hits or misses.",
 };
 SpellsList["synaptic static"] = {
 	name: "Synaptic Static",
@@ -7415,9 +7390,7 @@ SpellsList["yolande's regal presence"] = {
 	save: "Wis",
 	description: "Any crea cast/enter/end 4d6 Psychic dmg, Prone, and can push it up to 10 ft away; save half dmg only",
 	descriptionShorter: "Any crea cast/enter/end 4d6 Psychic dmg, Prone, can push it up to 10 ft; save half dmg only",
-	descriptionFull: [
-		"You surround yourself with unearthly majesty in a 10-foot Emanation. Whenever the Emanation enters the space of a creature you can see and whenever a creature you can see enters the Emanation or ends its turn there, you can force that creature to make a Wisdom saving throw. On a failed save, the target takes 4d6 Psychic damage and has the Prone condition, and you can push it up to 10 feet away. On a successful save, the target takes half as much damage only. A creature makes this save only once per turn.",
-	],
+	descriptionFull: "You surround yourself with unearthly majesty in a 10-foot Emanation. Whenever the Emanation enters the space of a creature you can see and whenever a creature you can see enters the Emanation or ends its turn there, you can force that creature to make a Wisdom saving throw. On a failed save, the target takes 4d6 Psychic damage and has the Prone condition, and you can push it up to 10 feet away. On a successful save, the target takes half as much damage only. A creature makes this save only once per turn.",
 };
 
 /** Create the Aberrant Sorcerer's "Psionic Spells" feature description

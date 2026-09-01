@@ -11,6 +11,40 @@ SourceList["MM24"] = {
 	date: "2025/02/18",
 };
 
+// Animated for Magic Items
+CreatureList["animated broom"] = {
+	name: "Animated Broom",
+	nameThis: "broom",
+	source: [["MM24", 16]],
+	size: 4,
+	type: "Construct",
+	alignment: "Unaligned",
+	ac: 15,
+	hp: 14,
+	hd: [4, 6],
+	speed: "5 ft, Fly 10 ft (hover)",
+	scores: [10, 17, 10, 1, 5, 1],
+	immunities: "Poison, Psychic; Charmed, Deafened, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned",
+	senses: "Blindsight 60 ft",
+	passivePerception: 7,
+	challengeRating: "1/4",
+	proficiencyBonus: 2,
+	attacksAction: 1,
+	addMod: [{
+		type: "skill", field: "Init", mod: "Prof",
+		text: "The broom adds its Proficiency Bonus to its Initiative rolls.",
+	}],
+	traits: [{
+		name: "Flyby",
+		description: "The [THIS] doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.",
+	}],
+	attacks: [{
+		name: "Slam",
+		ability: 2,
+		damage: [1, 4, "bludgeoning"],
+		range: "Melee (5 ft)",
+	}],
+};
 // Pact of the Chain familiar
 CreatureList["slaad tadpole"] = {
 	name: "Slaad Tadpole",
@@ -23,7 +57,7 @@ CreatureList["slaad tadpole"] = {
 	ac: 12,
 	hp: 7,
 	hd: [3, 4],
-	speed: "30 ft, burrow 10 ft",
+	speed: "30 ft, Burrow 10 ft",
 	scores: [7, 15, 10, 3, 5, 3],
 	skills: {
 		"stealth": 4,
@@ -56,7 +90,7 @@ CreatureList["crawling claw"] = {
 	ac: 12,
 	hp: 2,
 	hd: [1, 4],
-	speed: "20 ft, climb 20 ft",
+	speed: "20 ft, Climb 20 ft",
 	scores: [13, 14, 11, 5, 10, 4],
 	immunities: "Necrotic, Poison; Charmed, Exhaustion, Frightened, Incapacitated, Poisoned",
 	senses: "Blindsight 30 ft",
@@ -82,7 +116,7 @@ CreatureList["giant squid"] = {
 	ac: 12,
 	hp: 120,
 	hd: [16, 12],
-	speed: "5 ft, swim 80 ft",
+	speed: "5 ft, Swim 80 ft",
 	scores: [23, 14, 12, 5, 11, 4],
 	saves: [9, 5, "", "", "", ""],
 	skills: {

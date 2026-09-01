@@ -36,8 +36,8 @@ RaceList["half-elf"] = {
 	heightMetric: " range from 1,5 to 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scorestxt: "+2 Charisma and +1 to two other ability scores of my choice",
-	trait: "Half-Elf"+
-	"\n##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being charmed, and magic can't put me to sleep."+
+	trait: "Half-Elf" +
+	"\n##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being charmed, and magic can't put me to sleep." +
 	"\n##\u25C6 Skill Versatility##. I gain proficiency in two skills of my choice.",
 };
 RaceList["half-orc"] = {
@@ -74,10 +74,10 @@ RaceList["half-orc"] = {
 							if (v.extraCritM) {
 								v.extraCritM += 1;
 								var extraCritRegex = /\d+(d\d+ extra on a crit(ical)?( hit)? in melee)/i;
-								fields.Description = fields.Description.replace(extraCritRegex, v.extraCritM + '$1');
+								fields.Description = fields.Description.replace(extraCritRegex, v.extraCritM + "$1");
 							} else {
 								v.extraCritM = 1;
-								fields.Description += (fields.Description ? '; ' : '') + v.extraCritM + fields.Damage_Die.replace(/.*(d\d+).*/, '$1') + ' extra on a crit in melee';
+								fields.Description += (fields.Description ? "; " : "") + v.extraCritM + fields.Damage_Die.replace(/.*(d\d+).*/, "$1") + " extra on a crit in melee";
 							};
 						};
 					},
@@ -87,8 +87,8 @@ RaceList["half-orc"] = {
 			},
 		},
 	},
-	trait: "Half-Orc"+
-	"\n##\u25C6 Relentless Endurance##. When I am reduced to 0 hit points but not killed outright, I can drop to 1 hit point instead. I can't use this feature again until I finish a Long Rest."+
+	trait: "Half-Orc" +
+	"\n##\u25C6 Relentless Endurance##. When I am reduced to 0 hit points but not killed outright, I can drop to 1 hit point instead. I can't use this feature again until I finish a Long Rest." +
 	"\n##\u25C6 Savage Attacks##. When I score a critical hit with a melee weapon attack, I can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.",
 };
 
@@ -116,7 +116,7 @@ AddWarlockInvocation("Bewitching Whispers (req: lvl 7+)", {
 	minlevel: 7,
 	submenu: "[Warlock level  7+]",
 	description: desc("Once per Long Rest, I can cast Compulsion using a Pact Magic spell slot."),
-	spellcastingBonus : [{
+	spellcastingBonus: [{
 		name: "Bewitching Whispers",
 		spells: ["compulsion"],
 		selection: ["compulsion"],
@@ -128,9 +128,9 @@ AddWarlockInvocation("Book of Ancient Secrets (req: Pact of the Tome)", {
 	description: desc("My Book of Shadows is inscribed with two 1st-level Ritual spells of my choice. When I come across other Ritual spell, I can inscribe them as well. I can cast these inscribed spells as Rituals, they are not automatically prepared. (Select only these inscribed spells in the 'Spells' column.)"),
 	source: [["SRD", 48], ["P", 110]],
 	submenu: "[improves Pact of the Tome]",
-	prereqeval: function(v) { return v.choiceActive.indexOf('pact of the tome') !== -1; },
+	prereqeval: function(v) { return v.choiceActive.indexOf("pact of the tome") !== -1; },
 	eval: function() {
-		var oSpells = CurrentSpells['warlock-book of shadows'];
+		var oSpells = CurrentSpells["warlock-book of shadows"];
 		if (!oSpells) return;
 		// Change into a "book" caster that has access to ritual spells from any level
 		oSpells.known.spells = "book";
@@ -141,22 +141,22 @@ AddWarlockInvocation("Book of Ancient Secrets (req: Pact of the Tome)", {
 		oSpells.known.cantripsPrepare = true;
 		oSpells.preparedCantrips = true;
 		// Add it so that all 1st-level ritual spells are always displayed
-		oSpells.extra = CreateSpellList({ritual: true, level : [1, 1]});
+		oSpells.extra = CreateSpellList({ ritual: true, level: [1, 1] });
 		oSpells.extraSpecial = true;
-		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+		SetStringifieds("spells"); CurrentUpdates.types.push("spells");
 		// cleanup old versions of this invocation
-		if (CurrentSpells['warlock-book of ancient secrets'] || CurrentSpells['book of ancient secrets']) {
-			var oSpellsOld = CurrentSpells['book of ancient secrets'] ? CurrentSpells['book of ancient secrets'] : CurrentSpells['warlock-book of ancient secrets'];
+		if (CurrentSpells["warlock-book of ancient secrets"] || CurrentSpells["book of ancient secrets"]) {
+			var oSpellsOld = CurrentSpells["book of ancient secrets"] ? CurrentSpells["book of ancient secrets"] : CurrentSpells["warlock-book of ancient secrets"];
 			if (oSpellsOld.selectSp) oSpells.selectSp = oSpellsOld.selectSp;
 			if (oSpellsOld.offsetBo) oSpells.offsetBo = oSpellsOld.offsetBo;
 			if (oSpellsOld.selectBo) oSpells.selectBo = oSpellsOld.selectBo;
-			delete CurrentSpells['warlock-book of ancient secrets'];
-			delete CurrentSpells['book of ancient secrets'];
+			delete CurrentSpells["warlock-book of ancient secrets"];
+			delete CurrentSpells["book of ancient secrets"];
 		};
 	},
 	removeeval: function() {
-		if (CurrentSpells['book of ancient secrets']) delete CurrentSpells['book of ancient secrets'];
-		var oSpells = CurrentSpells['warlock-book of shadows'];
+		if (CurrentSpells["book of ancient secrets"]) delete CurrentSpells["book of ancient secrets"];
+		var oSpells = CurrentSpells["warlock-book of shadows"];
 		if (!oSpells) return;
 		oSpells.known.spells = "list";
 		oSpells.typeSp = "list";
@@ -165,7 +165,7 @@ AddWarlockInvocation("Book of Ancient Secrets (req: Pact of the Tome)", {
 		delete oSpells.preparedCantrips;
 		delete oSpells.extra;
 		delete oSpells.extraSpecial;
-		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+		SetStringifieds("spells"); CurrentUpdates.types.push("spells");
 	},
 	calcChanges: {
 		spellAdd: [
@@ -174,7 +174,7 @@ AddWarlockInvocation("Book of Ancient Secrets (req: Pact of the Tome)", {
 				var oSpells = CurrentSpells[spName];
 				if (oSpells.selectSp.indexOf(spellKey)) {
 					spellObj.firstCol = SpellRitualTag;
-					if (!(/.*(\d+ ?h\b|special|see b).*/i).test(spellObj.time)) {
+					if (!/.*(\d+ ?h\b|special|see b).*/i.test(spellObj.time)) {
 						var numMinutes = Number(spellObj.time.replace(/(\d+) ?min.*/, "$1"));
 						if (isNaN(numMinutes)) numMinutes = 0;
 						spellObj.time = (numMinutes + 10) + " min";
@@ -187,11 +187,11 @@ AddWarlockInvocation("Book of Ancient Secrets (req: Pact of the Tome)", {
 	},
 });
 AddWarlockInvocation("Chains of Carceri (req: lvl 15+, Pact of the Chain)", {
-	name : "Chains of Carceri",
-	source : [["SRD", 49], ["P", 110]],
+	name: "Chains of Carceri",
+	source: [["SRD", 49], ["P", 110]],
 	minlevel: 15,
 	submenu: ["[Warlock level 15+]", "[improves Pact of the Chain]"],
-	prereqeval: function(v) { return v.choiceActive.indexOf('pact of the chain') !== -1; },
+	prereqeval: function(v) { return v.choiceActive.indexOf("pact of the chain") !== -1; },
 	description: desc("I can cast Hold Monster without expending a spell slot or material components, but only on a Celestial, Fiend, or Elemental. I can only target a specific individual once per Long Rest."),
 	spellcastingBonus: [{
 		name: "Chains of Carceri",
@@ -301,10 +301,10 @@ AddWarlockInvocation("Thief of Five Fates", {
 	}],
 });
 AddWarlockInvocation("Voice of the Chain Master", {
-	name : "Voice of the Chain Master",
+	name: "Voice of the Chain Master",
 	source: [["SRD", 50], ["P", 111]],
 	submenu: "[improves Pact of the Chain]",
-	prereqeval: function(v) { return v.choiceActive.indexOf('pact of the chain') !== -1; },
+	prereqeval: function(v) { return v.choiceActive.indexOf("pact of the chain") !== -1; },
 	description: desc("While on the same plane as my familiar, I can communicate telepathically with it and I can perceive through its senses. While doing the latter, I can speak through it with my voice."),
 });
 
@@ -316,7 +316,7 @@ AddSubClass("wizard", "necromancy", {
 	fullname: "Necromancer",
 	source: [["P", 118]],
 	features: {
-		"subclassfeature3" : {
+		"subclassfeature3": {
 			name: "Necromancy Savant",
 			source: [["P", 118]],
 			minlevel: 3,
@@ -377,7 +377,7 @@ AddSubClass("wizard", "necromancy", {
 CompanionList["undead_thrall"] = {
 	name: "Undead Thralls",
 	nameOrigin: "School of Necromancy 6",
-	nameMenu : "Undead Thrall (School of Necromancy feature)",
+	nameMenu: "Undead Thrall (School of Necromancy feature)",
 	source: [["P", 119]],
 	includeCheck: function(sCrea, objCrea, iCreaCR, bIsAL) {
 		return /undead/i.test(objCrea.type);
@@ -537,7 +537,7 @@ FeatsList["martial adept"] = {
 	extraLimitedFeatures: [{
 		name: "Superiority Dice",
 		usages: 1,
-		additional: 'd6',
+		additional: "d6",
 		recovery: "short rest",
 		addToExisting: true,
 	}],

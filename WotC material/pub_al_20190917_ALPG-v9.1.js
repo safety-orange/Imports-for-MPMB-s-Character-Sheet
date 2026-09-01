@@ -4,12 +4,12 @@ RequiredSheetVersion("13.0.8");
 
 // Define the source
 SourceList["ALPGs9"] = {
-	name : "AL Player's Guide v9.1: Inglorious Redemption",
-	abbreviation : "ALPGs9",
-	group : "Adventurers League",
-	url : "https://www.dropbox.com/s/8r1cwjrk6n2rzyo/AL-Players-Guide-v9.1-Forgotten-Realms.pdf?dl=1", // used to be https://www.dmsguild.com/product/208178
-	date : "2019/09/17",
-	defaultExcluded : true
+	name: "AL Player's Guide v9.1: Inglorious Redemption",
+	abbreviation: "ALPGs9",
+	group: "Adventurers League",
+	url: "https://www.dropbox.com/s/8r1cwjrk6n2rzyo/AL-Players-Guide-v9.1-Forgotten-Realms.pdf?dl=1", // used to be https://www.dmsguild.com/product/208178
+	date: "2019/09/17",
+	defaultExcluded: true,
 };
 
 /*
@@ -21,35 +21,35 @@ SourceList["ALPGs9"] = {
 	["protector aasimar", false],
 	["scourge aasimar", false],
 	["tiefling-winged", true],
-	["feral tiefling-winged", true]
+	["feral tiefling-winged", true],
 ].forEach(function (rac) {
 	var rObj = rac[1] ? RaceSubList[rac[0]] : RaceList[rac[0]];
 	if (!rObj) return;
 	rObj.source = (isArray(rObj.source[0]) ? rObj.source : [rObj.source]).concat([["ALPGs9", 6]]);
 	if (rac[0].indexOf("aasimar") !== -1) {
 		AddRacialVariant(rac[0], "winged", {
-			regExpSearch : /wing/i,
-			name : "Winged " + rObj.name,
-			source : [["ALPGs9", 6]],
-			plural : "Winged " + rObj.plural,
-			speed : {
-				walk : { spd : 30, enc : 20 },
-				fly : { spd : 30, enc : 0 }
+			regExpSearch: /wing/i,
+			name: "Winged " + rObj.name,
+			source: [["ALPGs9", 6]],
+			plural: "Winged " + rObj.plural,
+			speed: {
+				walk: { spd: 30, enc: 20 },
+				fly: { spd: 30, enc: 0 },
 			},
-			trait : "Winged " + rObj.trait.replace(/\)(\r|\n|.)+/, ")\n\nHealing Hands:\n   As an action, once per long rest, I can touch to heal for my level in HP.\nWings:\n   Once I'm 5th level, I sprout feathered wings from my shoulder blades that give me a flying speed of 30 feet when I'm not wearing heavy armor."),
-			features : {
-				"healing hands" : {
-					name : "Healing Hands",
-					usages : 1,
-					minlevel : 1,
-					recovery : "long rest",
-					additional : levels.map(function (n) { return n + " HP"; }),
-					action : [["action", ""]]
-				}
+			trait: "Winged " + rObj.trait.replace(/\)(\r|\n|.)+/, ")\n\nHealing Hands:\n   As an action, once per long rest, I can touch to heal for my level in HP.\nWings:\n   Once I'm 5th level, I sprout feathered wings from my shoulder blades that give me a flying speed of 30 feet when I'm not wearing heavy armor."),
+			features: {
+				"healing hands": {
+					name: "Healing Hands",
+					usages: 1,
+					minlevel: 1,
+					recovery: "long rest",
+					additional: levels.map(function (n) { return n + " HP"; }),
+					action: [["action", ""]],
+				},
 			},
-			abilitySave : "",
-			spellcastingAbility : "",
-			spellcastingBonus : ""
+			abilitySave: "",
+			spellcastingAbility: "",
+			spellcastingBonus: "",
 		});
 	}
 });

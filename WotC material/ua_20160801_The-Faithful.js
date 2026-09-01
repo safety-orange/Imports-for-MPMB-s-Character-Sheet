@@ -4,104 +4,104 @@ RequiredSheetVersion("14.0.1-beta", 15);
 
 // Define the source
 SourceList["UA:TF"] = {
-	name : "Unearthed Arcana: The Faithful",
-	abbreviation : "UA:TF",
-	group : "Unearthed Arcana",
-	url : "https://media.wizards.com/2016/dnd/downloads/UA%20Non-Divine%20Faithful%20SFG.pdf",
-	date : "2016/08/01"
+	name: "Unearthed Arcana: The Faithful",
+	abbreviation: "UA:TF",
+	group: "Unearthed Arcana",
+	url: "https://media.wizards.com/2016/dnd/downloads/UA%20Non-Divine%20Faithful%20SFG.pdf",
+	date: "2016/08/01",
 };
 
 // Adds 2 subclasses, 1 for the Warlock and 1 for the Wizard
 AddSubClass("warlock", "the seeker-ua", { // Still valid 2021-09-21
-	regExpSearch : /^(?=.*warlock)(?=.*seeker).*$/i,
-	subname : "the Seeker",
-	source : [["UA:TF", 1]],
-	spellcastingExtra : ["feather fall", "jump", "levitate", "locate object", "clairvoyance", "sending", "arcane eye", "locate creature", "legend lore", "passwall"],
-	features : {
-		"subclassfeature1" : {
-			name : "Shielding Aurora",
-			source : [["UA:TF", 1]],
-			minlevel : 1,
+	regExpSearch: /^(?=.*warlock)(?=.*seeker).*$/i,
+	subname: "the Seeker",
+	source: [["UA:TF", 1]],
+	spellcastingExtra: ["feather fall", "jump", "levitate", "locate object", "clairvoyance", "sending", "arcane eye", "locate creature", "legend lore", "passwall"],
+	features: {
+		"subclassfeature1": {
+			name: "Shielding Aurora",
+			source: [["UA:TF", 1]],
+			minlevel: 1,
 			description: desc([
 				"As a bonus action, I create a whirling aurora of brilliant energy around me",
 				"It lasts until the end of my next turn and grants me resistance to all damage",
 				"Any hostile ending its turn in 10 ft of me get Warlock level + Cha mod radiant damage",
 			]),
-			usages : 1,
-			recovery : "short rest",
-			action : [["bonus action", ""]]
+			usages: 1,
+			recovery: "short rest",
+			action: [["bonus action", ""]],
 		},
-		"subclassfeature6" : {
-			name : "Astral Refuge",
-			source : [["UA:TF", 2]],
-			minlevel : 6,
+		"subclassfeature6": {
+			name: "Astral Refuge",
+			source: [["UA:TF", 2]],
+			minlevel: 6,
 			description: desc([
 				"As an action, I can step into an astral refuge, coming back at the end of the turn",
 				"While in the astral refuge, I can take two actions to cast spells targeting just me",
 			]),
-			action : [["action", ""]]
+			action: [["action", ""]],
 		},
-		"subclassfeature10" : {
-			name : "Far Wanderer",
-			source : [["UA:TF", 2]],
-			minlevel : 10,
+		"subclassfeature10": {
+			name: "Far Wanderer",
+			source: [["UA:TF", 2]],
+			minlevel: 10,
 			description: desc("I no longer need to breathe, and I gain resistance to fire damage and cold damage"),
-			dmgres : ["Cold", "Fire"]
+			dmgres: ["Cold", "Fire"],
 		},
-		"subclassfeature14" : {
-			name : "Astral Sequestration",
-			source : [["UA:TF", 2]],
-			minlevel : 14,
+		"subclassfeature14": {
+			name: "Astral Sequestration",
+			source: [["UA:TF", 2]],
+			minlevel: 14,
 			description: desc([
 				"With a 5 minutes ritual, I can shift myself and ten willing creatures to the Astral Plane",
 				"While sequestered an Astral Plane, we gain the full benefits of a short rest",
 				"After this rest, we return to the same space as before, without any time having passed",
 			]),
-			usages : 1,
-			recovery : "long rest"
-		}
-	}
+			usages: 1,
+			recovery: "long rest",
+		},
+	},
 });
 
 // Add a Pact Boon option that is only available for "the Seeker" subclass
 AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the Star Chain", {
-	name : "Pact of the Star Chain",
-	source : [["UA:TF", 1]],
-	description : desc([
+	name: "Pact of the Star Chain",
+	source: [["UA:TF", 1]],
+	description: desc([
 		"My patron grants me an item of power which disappears when I die",
 		"While it is on my person, I can cast Augury as a ritual",
 		"Additionally, once per short rest, I can get advantage on an Intelligence check",
-		"If I lose this item I can perform a 1-hour ceremony to get a replacement"
+		"If I lose this item I can perform a 1-hour ceremony to get a replacement",
 	]),
-	usages : 1,
-	recovery : "short rest",
-	spellcastingBonus : [{
-		name : "Pact of the Star Chain",
-		spells : ["augury"],
-		selection : ["augury"],
-		firstCol : SpellRitualTag,
+	usages: 1,
+	recovery: "short rest",
+	spellcastingBonus: [{
+		name: "Pact of the Star Chain",
+		spells: ["augury"],
+		selection: ["augury"],
+		firstCol: SpellRitualTag,
 	}],
-	spellChanges : {
-		"augury" : {
-			time : "11 min",
-			changes : "With my Pact of the Star Chain boon I can cast Augury only as a ritual, thus requiring 10 extra minutes to cast it."
-		}
+	spellChanges: {
+		"augury": {
+			time: "11 min",
+			changes: "With my Pact of the Star Chain boon I can cast Augury only as a ritual, thus requiring 10 extra minutes to cast it.",
+		},
 	},
-	prereqeval : function(v) {
+	prereqeval: function(v) {
 		return classes.known.warlock && classes.known.warlock.subclass.indexOf("the seeker") !== -1 ? true : "skip";
-	}
+	},
 });
 RunFunctionAtEnd(function() {
 	var theTheurgySubclass = AddSubClass("wizard", "theurgy-ua", { // Still valid 2021-09-21
-		regExpSearch : /^((?=.*mystic)(?=.*theurge))|(?=.*(theurgy|theurgist)).*$/i,
-		subname : "Theurgy",
-		source : [["UA:TF", 1], ["UA:WR", 1]],
-		fullname : "Theurgist",
-		features : {
-			"subclassfeature2" : {
-				name : "Arcane Initiate",
-				source : [["UA:TF", 2], ["UA:WR", 1]],
-				minlevel : 2,
+		regExpSearch: /^((?=.*mystic)(?=.*theurge))|(?=.*(theurgy|theurgist)).*$/i,
+		subname: "Theurgy",
+		source: [["UA:TF", 1], ["UA:WR", 1]],
+		fullname: "Theurgist",
+		features: {
+			"subclassfeature2": {
+				name: "Arcane Initiate",
+				source: [["UA:TF", 2], ["UA:WR", 1]],
+				minlevel: 2,
 				description: desc([
 					'Choose a Cleric Domain using the "Choose Feature" button above',
 					"When I gain a wizard level I can replace one of the spells I would add to my spellbook",
@@ -109,8 +109,8 @@ RunFunctionAtEnd(function() {
 					"If my spellbook has all the domain spells, I can select any cleric spell of a level I can cast",
 					"Other wizards cannot copy cleric spells from my spellbook into their own spellbooks",
 				]),
-				calcChanges : {
-					spellList : [
+				calcChanges: {
+					spellList: [
 						function(spList, spName, spType) {
 							if (spName !== "wizard" || spType.indexOf("bonus") !== -1 || !CurrentSpells.wizard.extra || !CurrentSpells.wizard.selectSp || !spList.level || !spList.level[1]) return;
 							var domainSpells = CurrentSpells.wizard.extra;
@@ -120,74 +120,74 @@ RunFunctionAtEnd(function() {
 								if (knownSpells.indexOf(domainSpells[i]) == -1) return;
 							}
 							// get all the cleric spells, level 1-9
-							var clericSpells = CreateSpellList({"class" : "cleric", level : [1,9]});
+							var clericSpells = CreateSpellList({ "class": "cleric", level: [1,9] });
 							spList.extraspells = spList.extraspells.concat(clericSpells);
 						},
-						"When I gain a wizard level after my spellbook already has all the spells of my chosen domain, I can instead select any cleric spell of a level I can cast as one of the spells I gain from levelling up."
-					]
+						"When I gain a wizard level after my spellbook already has all the spells of my chosen domain, I can instead select any cleric spell of a level I can cast as one of the spells I gain from levelling up.",
+					],
 				},
-				choices : [],
-				choiceDependencies : [{
-					feature : "subclassfeature2.3"
+				choices: [],
+				choiceDependencies: [{
+					feature: "subclassfeature2.3",
 				}, {
-					feature : "subclassfeature6"
+					feature: "subclassfeature6",
 				}, {
-					feature : "subclassfeature10"
+					feature: "subclassfeature10",
 				}, {
-					feature : "subclassfeature14"
-				}]
+					feature: "subclassfeature14",
+				}],
 			},
-			"subclassfeature2.1" : {
-				name : "Channel Arcana",
-				source : [["UA:TF", 2], ["UA:WR", 1]],
-				minlevel : 2,
+			"subclassfeature2.1": {
+				name: "Channel Arcana",
+				source: [["UA:TF", 2], ["UA:WR", 1]],
+				minlevel: 2,
 				description: desc("I can channel arcane energy from my deity; the save for this is my wizard spell DC"),
-				usages : [0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3],
-				recovery : "short rest"
+				usages: [0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3],
+				recovery: "short rest",
 			},
-			"subclassfeature2.2" : {
-				name : "Channel Arcana: Divine Arcana",
-				source : [["UA:TF", 2], ["UA:WR", 1]],
-				minlevel : 2,
+			"subclassfeature2.2": {
+				name: "Channel Arcana: Divine Arcana",
+				source: [["UA:TF", 2], ["UA:WR", 1]],
+				minlevel: 2,
 				description: desc([
 					"As a bonus action, I speak a prayer to control the flow of magic around me",
 					"The next spell I cast gains a +2 bonus to its attack roll or saving throw DC",
 				]),
-				action : [["bonus action", ""]]
+				action: [["bonus action", ""]],
 			},
-			"subclassfeature2.3" : {
-				name : "Channel Arcana: Domain",
-				source : [["UA:TF", 2], ["UA:WR", 1]],
-				minlevel : 2,
+			"subclassfeature2.3": {
+				name: "Channel Arcana: Domain",
+				source: [["UA:TF", 2], ["UA:WR", 1]],
+				minlevel: 2,
 				description: desc('Use the "Choose Feature" button above to select the domain'),
-				choices : [],
-				choicesNotInMenu : true
+				choices: [],
+				choicesNotInMenu: true,
 			},
-			"subclassfeature6" : {
-				name : "Arcane Acolyte",
-				source : [["UA:TF", 3], ["UA:WR", 1]],
-				minlevel : 6,
+			"subclassfeature6": {
+				name: "Arcane Acolyte",
+				source: [["UA:TF", 3], ["UA:WR", 1]],
+				minlevel: 6,
 				description: desc('Use the "Choose Feature" button above to select the domain'),
-				choices : [],
-				choicesNotInMenu : true
+				choices: [],
+				choicesNotInMenu: true,
 			},
-			"subclassfeature10" : {
-				name : "Arcane Priest",
-				source : [["UA:TF", 3], ["UA:WR", 2]],
-				minlevel : 10,
+			"subclassfeature10": {
+				name: "Arcane Priest",
+				source: [["UA:TF", 3], ["UA:WR", 2]],
+				minlevel: 10,
 				description: desc('Use the "Choose Feature" button above to select the domain'),
-				choices : [],
-				choicesNotInMenu : true
+				choices: [],
+				choicesNotInMenu: true,
 			},
-			"subclassfeature14" : {
-				name : "Arcane High Priest",
-				source : [["UA:TF", 3], ["UA:WR", 2]],
-				minlevel : 14,
+			"subclassfeature14": {
+				name: "Arcane High Priest",
+				source: [["UA:TF", 3], ["UA:WR", 2]],
+				minlevel: 14,
 				description: desc('Use the "Choose Feature" button above to select the domain'),
-				choices : [],
-				choicesNotInMenu : true
-			}
-		}
+				choices: [],
+				choicesNotInMenu: true,
+			},
+		},
 	});
 	var MTfeat = ClassSubList[theTheurgySubclass].features;
 	for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
@@ -203,9 +203,9 @@ RunFunctionAtEnd(function() {
 		};
 		MTfeat["subclassfeature2"].choices.push(entryDoNm);
 		MTfeat["subclassfeature2"][entryDoNm.toLowerCase()] = {
-			name : "Arcane Initiate: " + aDomain.subname,
-			source : dSource,
-			spellcastingExtra : aDomain.spellcastingExtra,
+			name: "Arcane Initiate: " + aDomain.subname,
+			source: dSource,
+			spellcastingExtra: aDomain.spellcastingExtra,
 			description: desc([
 				"When I gain a wizard level I can replace one of the spells I would add to my spellbook",
 				"I can replace it with one of the " + aDomain.subname.toLowerCase() + " spells, if it is of a level I can cast",
@@ -216,7 +216,7 @@ RunFunctionAtEnd(function() {
 		var AIdomain = MTfeat["subclassfeature2"][entryDoNm.toLowerCase()];
 		for (var aFea in aDomain.features) {
 			var dFea = aDomain.features[aFea];
-			if (dFea.minlevel === 2 && (/channel divinity/i).test(dFea.name)) {
+			if (dFea.minlevel === 2 && /channel divinity/i.test(dFea.name)) {
 				MTfeat["subclassfeature2.3"].choices.push(entryDoNm);
 				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()] = newObj(dFea);
 				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name = MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name.replace(/channel divinity/i, "Channel Arcana");
