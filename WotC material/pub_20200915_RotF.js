@@ -28,7 +28,7 @@ GearList["crampons (2)"] = {
 	source: [["RotF", 20]],
 	amount: 2,
 	weight: 0.125,
-};    
+};
 GearList["snowshoes"] = {
 	infoname: "Snowshoes [2 gp]",
 	name: "Snowshoes",
@@ -639,7 +639,7 @@ MagicItemsList["hook of fisher's delight"] = { // contains contributions by Braa
 	type: "wondrous item",
 	rarity: "rare",
 	description: "For this tiny silver fishhook to work, I must attach it to the end of a fishing line and immerse it in at least 10 cu ft of water. Then, at the end of each uninterrupted hour of immersion, I roll a d6. On a 6, a magical fish appears on the hook; roll a d20 to determine the fish's properties on the table on the Notes page.",
-	descriptionFull: IDRotF_HookOfFishersDelightFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: IDRotF_HookOfFishersDelightFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Fish Properties Table",
 		note: desc(IDRotF_HookOfFishersDelightFullDescription).replace(/>>|<</g, "").replace(/\byou\b/ig, "I").replace(/\bf(oo|ee)t\b/ig, "ft"),
@@ -687,7 +687,7 @@ MagicItemsList["lantern of tracking"] = function () { // contains contributions 
 }();
 // [dupl_start] reprint from Waterdeep: Dungeon of the Mad Mage
 if (!MagicItemsList["professor orb"]) {
-	
+
 	MagicItemsList["professor orb"] = { // contains contributions by Pengsloth
 		name: "Professor Orb",
 		source: [["WDotMM", 131], ["RotF", 315]],
@@ -722,7 +722,7 @@ MagicItemsList["psi crystal"] = { // contains contributions by BraabHimself
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a creature with an intelligence score of 3 or higher",
-	prereqeval: function(v) { return Number(What("Int")) >= 3; },
+	prereqeval: function (v) { return Number(What("Int")) >= 3; },
 	description: "While attuned to this orb, it glows with an inner purplish light and gives me telepathy. The range of telepathy and intensity of light are determined by my Intelligence score.",
 	descriptionFull: "This crystal grants you telepathy for as long as you remain attuned to it. See the introduction of the Monster Manual for rules on how this telepathy works." +
 	"\n   The crystal also glows with a purplish inner light while you are attuned to it." +
@@ -788,7 +788,7 @@ MagicItemsList["ythryn mythallar"] = { // contains contributions by BraabHimself
 	rarity: "legendary",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This 50 ft diameter crystal ball sheds light in a 300 ft radius and dim light for an additional 300 ft. Up to 8 creatures can attune to it at one time, a 9th creature's attunement fails. All those attuned to it can sense when it is used and they all must agree to any properties being used. See Notes page.",
 	descriptionFull: "A mythallar looks like an enormous crystal ball held in an ornate cradle. The globe sheds bright light in a 300-foot radius and dim light for an additional 300 feet. The globe draws magic from the Weave that can be harnessed for various purposes. For example, Netherese mages used mythallars to keep their cities aloft and empower their magic items. The bigger the mythallar, the more magic it can hold. The largest mythallars are 150 feet in diameter." +
 	"\n   The Ythryn mythallar is a relatively small device\u2014a mere 50 feet in diameter. To attune to this mythallar, a creature must finish a short rest within 30 feet of it, meditating on the mythallar. Up to eight creatures can be attuned to it at one time; otherwise, the Ythryn mythallar follows the attunement rules in the Dungeon Master's Guide. If a ninth creature tries to attune to the mythallar, nothing happens." +
@@ -848,7 +848,7 @@ if (!MagicItemsList["shield guardian amulet"]) {
 		attunement: true,
 		notLegalAL: true,
 		prerequisite: "Requires attunement by a humanoid",
-		prereqeval: function(v) { return !CurrentRace.known || !RaceList[CurrentRace.known] || !/creature type/i.test(RaceList[CurrentRace.known].trait); },
+		prereqeval: function (v) { return !CurrentRace.known || !RaceList[CurrentRace.known] || !/creature type/i.test(RaceList[CurrentRace.known].trait); },
 		description: "A shield guardian is magically linked to this amulet. It has AC 10, 10 HP, and immunity to poison and psychic damage. I know the distance and direction of the guardian while I'm wearing the amulet and I'm on the same plane as it. While within 10 ft of it, I can use the amulet to reactivate it with a DC 20 Arcana check.",
 		descriptionFull: "The amulet is a 4-inch-wide disk composed of silver-framed wood, with a rune carved into its face. A detect magic spell reveals a magical aura of enchantment around the amulet." +
 		"\n   Every shield guardian has an amulet magically linked to it. A shield guardian can have only one corresponding amulet, and if that amulet is destroyed, the shield guardian is incapacitated until a replacement amulet is created." +

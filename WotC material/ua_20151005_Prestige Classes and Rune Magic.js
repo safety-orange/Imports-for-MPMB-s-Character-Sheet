@@ -40,7 +40,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 				'Use the "Choose Feature" button above to add master runes to the third page',
 			]),
 			extraname: "Master Rune",
-			extrachoices: ["Opal of the Ild Rune", "Orb of the Stein Rune", "Pennant of the Vind Rune", "Shard of the Kalt Rune"],	
+			extrachoices: ["Opal of the Ild Rune", "Orb of the Stein Rune", "Pennant of the Vind Rune", "Shard of the Kalt Rune"],
 			"opal of the ild rune": {
 				name: "Opal of the Ild Rune",
 				source: [["UA:PCRM", 4]],
@@ -83,7 +83,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 				spellcastingBonus: [{
 					name: "Orb of the Stein Rune",
 					spells: ["meld into stone"],
-					selection: ["meld into stone"], 
+					selection: ["meld into stone"],
 					firstCol: "oncesr",
 				}],
 				spellChanges: {
@@ -119,7 +119,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 				spellcastingBonus: [{
 					name: "Pennant of the Vind Rune",
 					spells: ["levitate"],
-					selection: ["levitate"], 
+					selection: ["levitate"],
 					firstCol: "oncesr",
 				}],
 				spellChanges: {

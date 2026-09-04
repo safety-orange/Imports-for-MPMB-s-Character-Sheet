@@ -51,7 +51,7 @@ AddSubClass("warlock", "the hexblade-ua", {
 				" - If the target dies while cursed, I regain HP equal to my warlock level + Cha mod",
 			]),
 			recovery: "short rest",
-			usages: levels.map( function(n) { return n < 14 ? 1 : ""; }),
+			usages: levels.map( function (n) { return n < 14 ? 1 : ""; }),
 			action: [["bonus action", ""]],
 			calcChanges: {
 				atkAdd: [
@@ -280,7 +280,7 @@ AddWarlockInvocation("Aspect of the Moon (prereq: the Archfey patron)", {
 	name: "Aspect of the Moon",
 	description: desc("I don't need to sleep nor can be magically forced to; I can rest while doing light activity"),
 	source: [["UA:WnW", 3]],
-	prereqeval: function(v) { return (/\barchfey\b/).test(classes.known.warlock.subclass); },
+	prereqeval: function (v) { return (/\barchfey\b/).test(classes.known.warlock.subclass); },
 	savetxt: { text: ["Nothing can force me to sleep"] },
 });
 AddWarlockInvocation("Burning Hex (prereq: the Hexblade patron)", {
@@ -290,7 +290,7 @@ AddWarlockInvocation("Burning Hex (prereq: the Hexblade patron)", {
 		"It immediately takes fire damage equal to my Charisma modifier (min 1)",
 	]),
 	source: [["UA:WnW", 3]],
-	prereqeval: function(v) { return (/hexblade/).test(classes.known.warlock.subclass); },
+	prereqeval: function (v) { return (/hexblade/).test(classes.known.warlock.subclass); },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Caiphon's Beacon (prereq: the Great Old One patron)", {
@@ -300,7 +300,7 @@ AddWarlockInvocation("Caiphon's Beacon (prereq: the Great Old One patron)", {
 		"I have advantage on attack rolls against charmed creatures",
 	]),
 	source: [["UA:WnW", 3]],
-	prereqeval: function(v) { return (/great old one/).test(classes.known.warlock.subclass); },
+	prereqeval: function (v) { return (/great old one/).test(classes.known.warlock.subclass); },
 	skills: ["Deception", "Stealth"],
 });
 AddWarlockInvocation("Chilling Hex (prereq: the Hexblade patron)", {
@@ -310,7 +310,7 @@ AddWarlockInvocation("Chilling Hex (prereq: the Hexblade patron)", {
 		"All creatures within 5 ft of the target take cold damage equal to my Cha modifier (min 1)",
 	]),
 	source: [["UA:WnW", 3]],
-	prereqeval: function(v) { return (/hexblade/).test(classes.known.warlock.subclass); },
+	prereqeval: function (v) { return (/hexblade/).test(classes.known.warlock.subclass); },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Chronicle of the Raven Queen (prereq: the Raven Queen patron, Pact of the Tome)", {
@@ -322,7 +322,7 @@ AddWarlockInvocation("Chronicle of the Raven Queen (prereq: the Raven Queen patr
 	]),
 	source: [["UA:WnW", 3]],
 	submenu: "[improves Pact of the Tome]",
-	prereqeval: function(v) { return (/raven queen/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome"; },
+	prereqeval: function (v) { return (/raven queen/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome"; },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of the Blade)", {
@@ -334,7 +334,7 @@ AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of 
 	]),
 	source: [["UA:WnW", 3]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function(v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	prereqeval: function (v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	weaponOptions: [{
 		baseWeapon: "flail",
 		regExpSearch: /^(?=.*\bclaw\b)(?=.*\bacamar\b).*$/i,
@@ -353,7 +353,7 @@ AddWarlockInvocation("Cloak of Baalzebul (prereq: the Fiend patron)", {
 		"Creatures starting their turn within 5 ft of me take poison damage equal to my Cha mod",
 	]),
 	source: [["UA:WnW", 3]],
-	prereqeval: function(v) { return (/\bfiend\b/).test(classes.known.warlock.subclass); },
+	prereqeval: function (v) { return (/\bfiend\b/).test(classes.known.warlock.subclass); },
 	action: [["bonus action", " (start/end)"]],
 });
 AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Blade)", {
@@ -366,7 +366,7 @@ AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Bl
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function(v) { return (/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	prereqeval: function (v) { return (/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	weaponOptions: [{
 		baseWeapon: "greatsword",
 		regExpSearch: /^(?=.*\bcurse)(?=.*bringer\b).*$/i,
@@ -385,7 +385,7 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, the Fiend
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Eldritch Blast]",
-	prereqeval: function(v) { return v.hasEldritchBlast && classes.known.warlock.level >= 5 && (/\bfiend\b/).test(classes.known.warlock.subclass); },
+	prereqeval: function (v) { return v.hasEldritchBlast && classes.known.warlock.level >= 5 && (/\bfiend\b/).test(classes.known.warlock.subclass); },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast cantrip)", {
@@ -396,7 +396,7 @@ AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast ca
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Eldritch Blast]",
-	prereqeval: function(v) { return v.hasEldritchBlast && (/\barchfey\b/).test(classes.known.warlock.subclass); },
+	prereqeval: function (v) { return v.hasEldritchBlast && (/\barchfey\b/).test(classes.known.warlock.subclass); },
 	calcChanges: {
 		atkAdd: [
 			function (fields, v) {
@@ -413,7 +413,7 @@ AddWarlockInvocation("Gaze of Khirad (prereq: level 7 warlock, the Great Old One
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[warlock level  7+]",
-	prereqeval: function(v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 7; },
+	prereqeval: function (v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 7; },
 	action: [["action", ""]],
 });
 AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch Blast cantrip)", {
@@ -421,7 +421,7 @@ AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch
 	description: desc("Once per turn when my Eldritch Blast hits a creature, I can move it 10 ft closer to me"),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Eldritch Blast]",
-	prereqeval: function(v) { return v.hasEldritchBlast && (/great old one/).test(classes.known.warlock.subclass); },
+	prereqeval: function (v) { return v.hasEldritchBlast && (/great old one/).test(classes.known.warlock.subclass); },
 	calcChanges: {
 		atkAdd: [
 			function (fields, v) {
@@ -437,7 +437,7 @@ AddWarlockInvocation("Green Lord's Gift (prereq: the Archfey patron)", {
 		"When I regain HP, all dice for determining the HP I heal are treated as rolling maximum",
 	]),
 	source: [["UA:WnW", 4]],
-	prereqeval: function(v) { return (/\barchfey\b/).test(classes.known.warlock.subclass); },
+	prereqeval: function (v) { return (/\barchfey\b/).test(classes.known.warlock.subclass); },
 });
 AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the Blade)", {
 	name: "Improved Pact Weapon",
@@ -446,7 +446,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function(v) { return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	prereqeval: function (v) { return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	calcChanges: {
 		atkCalc: [
 			function (fields, v, output) {
@@ -469,7 +469,7 @@ AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Bl
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function(v) { return (/\bfiend\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	prereqeval: function (v) { return (/\bfiend\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	weaponOptions: [{
 		baseWeapon: "mace",
 		regExpSearch: /^(?=.*\bmace\b)(?=.*\bdispater\b).*$/i,
@@ -489,7 +489,7 @@ AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)",
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function(v) { return (/\barchfey\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	prereqeval: function (v) { return (/\barchfey\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	weaponOptions: [{
 		baseWeapon: "longbow",
 		regExpSearch: /^(?=.*\bmoon)(?=.*bow\b).*$/i,
@@ -507,7 +507,7 @@ AddWarlockInvocation("Path of the Seeker (prereq: the Seeker patron)", {
 		"I also have advantage on checks to escape a grapple, manacles, or rope bindings",
 	]),
 	source: [["UA:WnW", 4]],
-	prereqeval: function(v) { return (/\bseeker\b/).test(classes.known.warlock.subclass); },
+	prereqeval: function (v) { return (/\bseeker\b/).test(classes.known.warlock.subclass); },
 	savetxt: { adv_vs: ["paralyzed"] },
 });
 AddWarlockInvocation("Raven Queen's Blessing (prereq: the Raven Queen patron, Eldritch Blast cantrip)", {
@@ -518,7 +518,7 @@ AddWarlockInvocation("Raven Queen's Blessing (prereq: the Raven Queen patron, El
 	]),
 	source: [["UA:WnW", 5]],
 	submenu: "[improves Eldritch Blast]",
-	prereqeval: function(v) { return v.hasEldritchBlast && (/raven queen/).test(classes.known.warlock.subclass); },
+	prereqeval: function (v) { return v.hasEldritchBlast && (/raven queen/).test(classes.known.warlock.subclass); },
 });
 AddWarlockInvocation("Relentless Hex (prereq: level 5 warlock, the Hexblade patron)", {
 	name: "Relentless Hex",
@@ -528,7 +528,7 @@ AddWarlockInvocation("Relentless Hex (prereq: level 5 warlock, the Hexblade patr
 	]),
 	source: [["UA:WnW", 5]],
 	submenu: "[warlock level  5+]",
-	prereqeval: function(v) { return (/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 5; },
+	prereqeval: function (v) { return (/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 5; },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Sea Twins' Gift (prereq: the Archfey patron)", {
@@ -544,7 +544,7 @@ AddWarlockInvocation("Sea Twins' Gift (prereq: the Archfey patron)", {
 		firstCol: "oncelr",
 	}],
 	source: [["UA:WnW", 5]],
-	prereqeval: function(v) { return (/\barchfey\b/).test(classes.known.warlock.subclass); },
+	prereqeval: function (v) { return (/\barchfey\b/).test(classes.known.warlock.subclass); },
 	speed: { swim: { spd: "walk", enc: "walk" } },
 });
 AddWarlockInvocation("Seeker's Speech (prereq: the Seeker patron)", {
@@ -553,7 +553,7 @@ AddWarlockInvocation("Seeker's Speech (prereq: the Seeker patron)", {
 		"When I finish a long rest, I pick two languages that I know until I finish my next long rest",
 	]),
 	source: [["UA:WnW", 5]],
-	prereqeval: function(v) { return (/\bseeker\b/).test(classes.known.warlock.subclass); },
+	prereqeval: function (v) { return (/\bseeker\b/).test(classes.known.warlock.subclass); },
 });
 AddWarlockInvocation("Shroud of Ulban (prereq: level 18 warlock, the Great Old One patron)", {
 	name: "Shroud of Ulban",
@@ -564,7 +564,7 @@ AddWarlockInvocation("Shroud of Ulban (prereq: level 18 warlock, the Great Old O
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[warlock level 18+]",
-	prereqeval: function(v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 18; },
+	prereqeval: function (v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 18; },
 	action: [["action", ""]],
 });
 AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the Blade)", {
@@ -574,7 +574,7 @@ AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the
 	]),
 	source: [["UA:WnW", 5]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function(v) { return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	prereqeval: function (v) { return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	calcChanges: {
 		atkCalc: [
 			function (fields, v, output) {
@@ -598,7 +598,7 @@ AddWarlockInvocation("Tomb of Levistus (prereq: the Fiend patron)", {
 		"Until the ice is gone, I have vulnerability to fire damage, 0 speed, and am incapacitated",
 	]),
 	source: [["UA:WnW", 5]],
-	prereqeval: function(v) { return (/\bfiend\b/).test(classes.known.warlock.subclass); },
+	prereqeval: function (v) { return (/\bfiend\b/).test(classes.known.warlock.subclass); },
 	recovery: "short rest",
 	usages: 1,
 	action: [["reaction", ""]],
@@ -610,7 +610,7 @@ AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of th
 	]),
 	source: [["UA:WnW", 5]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function(v) { return classes.known.warlock.level >= 15 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	prereqeval: function (v) { return classes.known.warlock.level >= 15 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	calcChanges: {
 		atkCalc: [
 			function (fields, v, output) {

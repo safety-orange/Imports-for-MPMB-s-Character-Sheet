@@ -353,7 +353,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		description: desc("I don't need sleep nor can be forced to by any means; I can rest while doing light activity"),
 		source: [["X", 56], ["UA:RCO", 5]],
 		submenu: "[improves Pact of the Tome]",
-		prereqeval: function(v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome"; },
+		prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome"; },
 		savetxt: { text: ["Nothing can force me to sleep"] },
 	});
 	AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
@@ -366,7 +366,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		]),
 		source: [["X", 56], ["UA:RCO", 5]],
 		submenu: "[warlock level  5+]",
-		prereqeval: function(v) { return classes.known.warlock.level >= 5; },
+		prereqeval: function (v) { return classes.known.warlock.level >= 5; },
 		recovery: "short rest",
 		usages: 1,
 		action: [["bonus action", " (start/stop)"]],
@@ -385,7 +385,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			selection: ["water breathing"],
 			firstCol: "oncelr",
 		}],
-		prereqeval: function(v) { return classes.known.warlock.level >= 5; },
+		prereqeval: function (v) { return classes.known.warlock.level >= 5; },
 		speed: { swim: { spd: "walk", enc: "walk" } },
 	});
 	AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)", {
@@ -393,14 +393,14 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		description: desc("When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll"),
 		source: [["X", 57], ["UA:RCO", 6]],
 		submenu: "[improves Pact of the Chain]",
-		prereqeval: function(v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the chain"; },
+		prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the chain"; },
 	});
 	AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
 		name: "Grasp of Hadar",
 		description: desc("Once per turn when my Eldritch Blast hits a creature, I can move it 10 ft closer to me"),
 		source: [["X", 57], ["UA:RCO", 6]],
 		submenu: "[improves Eldritch Blast]",
-		prereqeval: function(v) { return v.hasEldritchBlast; },
+		prereqeval: function (v) { return v.hasEldritchBlast; },
 		calcChanges: {
 			atkAdd: [
 				function (fields, v) {
@@ -421,7 +421,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			selection: ["invisibility"],
 			firstCol: "atwill",
 		}],
-		prereqeval: function(v) { return classes.known.warlock.level >= 15; },
+		prereqeval: function (v) { return classes.known.warlock.level >= 15; },
 		spellChanges: {
 			"invisibility": {
 				description: "1 crea invisible; attacking/casting makes the crea visible; anything worn/carried also invisible",
@@ -438,11 +438,11 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 		]),
 		source: [["X", 57], ["UA:RCO", 6]],
 		submenu: "[warlock level  5+]",
-		prereqeval: function(v) { return classes.known.warlock.level >= 5; },
+		prereqeval: function (v) { return classes.known.warlock.level >= 5; },
 		recovery: "short rest",
 		usages: 1,
 		action: [["reaction", ""]],
-		additional: levels.map( function(n) { return (n * 10) + " temp HP"; }),
+		additional: levels.map( function (n) { return (n * 10) + " temp HP"; }),
 	});
 	AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 		name: "Trickster's Escape",
@@ -455,7 +455,7 @@ if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
 			selection: ["freedom of movement"],
 			firstCol: "oncelr",
 		}],
-		prereqeval: function(v) { return classes.known.warlock.level >= 7; },
+		prereqeval: function (v) { return classes.known.warlock.level >= 7; },
 		spellChanges: {
 			"freedom of movement": {
 				range: "Self",
@@ -475,7 +475,7 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function(v) { return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	prereqeval: function (v) { return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 });
 AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", { // Still valid 2021-09-21
 	name: "Frost Lance",
@@ -485,7 +485,7 @@ AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", { // Still 
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[improves Eldritch Blast]",
-	prereqeval: function(v) { return v.hasEldritchBlast; },
+	prereqeval: function (v) { return v.hasEldritchBlast; },
 	calcChanges: {
 		atkAdd: [
 			function (fields, v) {
@@ -503,7 +503,7 @@ AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[warlock level  7+]",
-	prereqeval: function(v) { return classes.known.warlock.level >= 7; },
+	prereqeval: function (v) { return classes.known.warlock.level >= 7; },
 	recovery: "short rest",
 	usages: 1,
 	action: [["action", ""]],
@@ -516,7 +516,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function(v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	calcChanges: {
 		atkCalc: [
 			function (fields, v, output) {
@@ -531,7 +531,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 								var nmbr = 0;
 							} else if (isNaN(n)) {
 								var nmbr = n.match(/(^|\+|-)\d+\b/g);
-								nmbr = !nmbr ? 0 : nmbr.reduce(function(a, b) {return Number(a) + Number(b)});
+								nmbr = !nmbr ? 0 : nmbr.reduce(function (a, b) {return Number(a) + Number(b)});
 							} else {
 								var nmbr = Number(n);
 							}
@@ -557,7 +557,7 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, Eldritch 
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[improves Eldritch Blast]",
-	prereqeval: function(v) { return v.hasEldritchBlast && classes.known.warlock.level >= 5; },
+	prereqeval: function (v) { return v.hasEldritchBlast && classes.known.warlock.level >= 5; },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
@@ -568,7 +568,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[warlock level  5+]",
-	prereqeval: function(v) { return classes.known.warlock.level >= 5; },
+	prereqeval: function (v) { return classes.known.warlock.level >= 5; },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
@@ -579,6 +579,6 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[warlock level  7+]",
-	prereqeval: function(v) { return classes.known.warlock.level >= 7; },
+	prereqeval: function (v) { return classes.known.warlock.level >= 7; },
 	action: [["bonus action", ""]],
 });

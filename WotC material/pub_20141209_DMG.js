@@ -466,7 +466,7 @@ MagicItemsList["instrument of the bards"] = {
 	attunement: true,
 	weight: 3, // Magic of Faerûn (2001) page 161
 	prerequisite: "Requires attunement by a bard",
-	prereqeval: function(v) { return classes.known.bard ? true : false; },
+	prereqeval: function (v) { return classes.known.bard ? true : false; },
 	choices: ["Anstruth Harp (very rare)", "Canaith Mandolin (rare)", "Cli Lyre (rare)", "Doss Lute (uncommon)", "Fochlucan Bandore (uncommon)", "Mac-Fuirmidh Cittern (uncommon)", "Ollamh Harp (legendary)"],
 	"anstruth harp (very rare)": {
 		name: "Anstruth Harp [Instrument of the Bards]",
@@ -675,7 +675,7 @@ MagicItemsList["rod of resurrection"] = {
 	attunement: true,
 	weight: 2,
 	prerequisite: "Requires attunement by a cleric, druid, or paladin",
-	prereqeval: function(v) { return classes.known.cleric || classes.known.druid || classes.known.paladin ? true : false; },
+	prereqeval: function (v) { return classes.known.cleric || classes.known.druid || classes.known.paladin ? true : false; },
 	usages: 5,
 	recovery: "dawn",
 	additional: "regains 1",
@@ -707,7 +707,7 @@ MagicItemsList["rod of the pact keeper, +1, +2, or +3"] = {
 	attunement: true,
 	weight: 2,
 	prerequisite: "Requires attunement by a warlock",
-	prereqeval: function(v) { return classes.known.warlock; },
+	prereqeval: function (v) { return classes.known.warlock; },
 	usages: 1,
 	recovery: "long rest",
 	limfeaname: "Rod of the Pact Keeper (warlock spell slot)",
@@ -829,7 +829,7 @@ MagicItemsList["sending stones"] = {
 		selection: ["sending"],
 		firstCol: "oncelr",
 	}],
-	usages: 1, 
+	usages: 1,
 	recovery: "dawn",
 	spellChanges: {
 		"sending": {
@@ -862,7 +862,7 @@ MagicItemsList["staff of the adder"] = {
 	attunement: true,
 	weight: 4,
 	prerequisite: "Requires attunement by a cleric, druid, or warlock",
-	prereqeval: function(v) { return classes.known.cleric || classes.known.druid || classes.known.warlock ? true : false; },
+	prereqeval: function (v) { return classes.known.cleric || classes.known.druid || classes.known.warlock ? true : false; },
 	action: [["bonus action", " (animate/end)"]],
 	weaponOptions: [{
 		regExpSearch: /^(?=.*snake)(?=.*head)(?=.*staff)(?=.*adder).*$/i,
@@ -913,55 +913,55 @@ MagicItemsList["sword of answering"] = {
 	"answerer (chaotic good)": {
 		name: "Sword of Answering [Answerer]",
 		prerequisite: "Requires attunement by a creature with the chaotic good alignment",
-		prereqeval: function(v) { return /^(?=.*chaotic)(?=.*good).*$/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /^(?=.*chaotic)(?=.*good).*$/i.test(What("Alignment")); },
 		description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has an emerald set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	},
 	"back talker (chaotic evil)": {
 		name: "Sword of Answering [Back Talker]",
 		prerequisite: "Requires attunement by a creature with the chaotic evil alignment",
-		prereqeval: function(v) { return /^(?=.*chaotic)(?=.*evil).*$/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /^(?=.*chaotic)(?=.*evil).*$/i.test(What("Alignment")); },
 		description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has jet set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	},
 	"concluder (lawful neutral)": {
 		name: "Sword of Answering [Concluder]",
 		prerequisite: "Requires attunement by a creature with the lawful neutral alignment",
-		prereqeval: function(v) { return /^(?=.*lawful)(?=.*neutral).*$/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /^(?=.*lawful)(?=.*neutral).*$/i.test(What("Alignment")); },
 		description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has an amethyst set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	},
 	"last quip (chaotic neutral)": {
 		name: "Sword of Answering [Last Quip]",
 		prerequisite: "Requires attunement by a creature with the chaotic neutral alignment",
-		prereqeval: function(v) { return /^(?=.*chaotic)(?=.*neutral).*$/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /^(?=.*chaotic)(?=.*neutral).*$/i.test(What("Alignment")); },
 		description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has a tourmaline set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	},
 	"rebutter (neutral good)": {
 		name: "Sword of Answering [Rebutter]",
 		prerequisite: "Requires attunement by a creature with the neutral good alignment",
-		prereqeval: function(v) { return /^(?=.*neutral)(?=.*good).*$/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /^(?=.*neutral)(?=.*good).*$/i.test(What("Alignment")); },
 		description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has a topaz set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	},
 	"replier (neutral)": {
 		name: "Sword of Answering [Replier]",
 		prerequisite: "Requires attunement by a creature with the neutral alignment",
-		prereqeval: function(v) { return /^(?=.*neutral)(?!.*(chaotic|lawful|evil|good)).*$/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /^(?=.*neutral)(?!.*(chaotic|lawful|evil|good)).*$/i.test(What("Alignment")); },
 		description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has a peridot set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	},
 	"retorter (lawful good)": {
 		name: "Sword of Answering [Retorter]",
 		prerequisite: "Requires attunement by a creature with the lawful good alignment",
-		prereqeval: function(v) { return /^(?=.*lawful)(?=.*good).*$/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /^(?=.*lawful)(?=.*good).*$/i.test(What("Alignment")); },
 		description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has an aquamarine set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	},
 	"scather (lawful evil)": {
 		name: "Sword of Answering [Scather]",
 		prerequisite: "Requires attunement by a creature with the lawful evil alignment",
-		prereqeval: function(v) { return /^(?=.*lawful)(?=.*evil).*$/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /^(?=.*lawful)(?=.*evil).*$/i.test(What("Alignment")); },
 		description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has a garnet set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	},
 	"squelcher (neutral evil)": {
 		name: "Sword of Answering [Squelcher]",
 		prerequisite: "Requires attunement by a creature with the neutral evil alignment",
-		prereqeval: function(v) { return /^(?=.*neutral)(?=.*evil).*$/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /^(?=.*neutral)(?=.*evil).*$/i.test(What("Alignment")); },
 		description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has a spinel set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	},
 }
@@ -1044,7 +1044,7 @@ MagicItemsList["tome of the stilled tongue"] = {
 	attunement: true,
 	weight: 5,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	action: [["bonus action", ""]],
 	usages: 1,
 	recovery: "dawn",
@@ -1102,10 +1102,10 @@ MagicItemsList["blackrazor"] = {
 	rarity: "legendary",
 	notLegalAL: true,
 	description: "This sentient greatsword adds +3 to hit and damage and makes me immune to being charmed or frightened. Once per day it can cast Haste on me as it sees fit. If I use it to bring a creature to 0 HP, it devours the creature's soul, granting me temporary HP equal to the creature's max HP for 24 hours. See Notes page.",
-	descriptionFull: DMG_blackrazorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: DMG_blackrazorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	attunement: true,
 	prerequisite: "Requires attunement by a creature of non-lawful alignment",
-	prereqeval: function(v) { return !/lawful/i.test(What("Alignment")); },
+	prereqeval: function (v) { return !/lawful/i.test(What("Alignment")); },
 	action: [["bonus action", ""]],
 	weight: 6,
 	weaponOptions: [{
@@ -1119,7 +1119,7 @@ MagicItemsList["blackrazor"] = {
 	}],
 	toNotesPage: [{
 		name: "Features",
-		note: desc(DMG_blackrazorFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|reduces|grants) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(DMG_blackrazorFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|reduces|grants) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 	savetxt: { immune: ["charmed", "frightened"] },
 	usages: 1,
@@ -1158,10 +1158,10 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 		rarity: "legendary",
 		notLegalAL: true,
 		description: "This sentient trident adds +3 to hit and damage and if I score a critical hit with it, the target takes extra necrotic damage equal to half its max HP. It also functions as a trident of fish command, a weapon of warning, cap of water breathing while I hold it, and I can use it as a cube of force. See Notes page.",
-		descriptionFull: DMG_waveFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+		descriptionFull: DMG_waveFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 		attunement: true,
 		prerequisite: "Requires attunement by a creature that worships a god of the sea",
-		prereqeval: function(v) { return /deep sashelas|sekolah|ulutiu|umberlee|valkur|poseidon|neptune|aegir|nehalennia|njord/i.test(What("Faith/Deity")); },
+		prereqeval: function (v) { return /deep sashelas|sekolah|ulutiu|umberlee|valkur|poseidon|neptune|aegir|nehalennia|njord/i.test(What("Faith/Deity")); },
 		weight: 4,
 		weaponOptions: [{
 			baseWeapon: "trident",
@@ -1174,7 +1174,7 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 		}],
 		toNotesPage: [{
 			name: "Features",
-			note: desc(DMG_waveFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/you/ig, "I") + "\n\n" + sentientItemConflictTxt,
+			note: desc(DMG_waveFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/you/ig, "I") + "\n\n" + sentientItemConflictTxt,
 		}, {
 			name: "Contained Items",
 			note: [
@@ -1231,10 +1231,10 @@ MagicItemsList["whelm"] = {
 	rarity: "legendary",
 	notLegalAL: true,
 	description: "This sentient warhammer adds +3 to hit and damage, has the thrown property, deals extra damage when thrown, and returns to my hand when thrown. I can use it to create a shock wave. It makes me afraid of the outdoors, so while I can see the daytime sky, I have disadv. on attacks, saves, and checks. See Notes page.",
-	descriptionFull: DMG_whelmFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: DMG_whelmFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	attunement: true,
 	prerequisite: "Requires attunement by a dwarf",
-	prereqeval: function(v) { return CurrentRace.known.indexOf("dwarf") !== -1; },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("dwarf") !== -1; },
 	weight: 2,
 	weaponOptions: [{
 		baseWeapon: "warhammer",
@@ -1248,7 +1248,7 @@ MagicItemsList["whelm"] = {
 	}],
 	toNotesPage: [{
 		name: "Features",
-		note: desc(DMG_whelmFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|causes|alerts) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(DMG_whelmFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|causes|alerts) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 	action: [["action", " (Shock Wave)"]],
 	extraLimitedFeatures: [{
@@ -1560,7 +1560,7 @@ MagicItemsList["bomb, renaissance"] = {
 	descriptionFull: "As an action, a character can light this bomb and throw it at a point up to 60 feet away. Each creature within 5 feet of that point must succeed on a DC 12 Dexterity saving throw or take 3d6 fire damage.",
 	action: [["action", "Throw Explosive"]],
 	weaponsAdd: { select: ["Bomb, Renaissance"] },
-	eval: function() { // make sure the weapon and ammo are not excluded
+	eval: function () { // make sure the weapon and ammo are not excluded
 		if (CurrentSources.weapExcl.eject("bomb, renaissance") !== -1) SetWeaponsdropdown();
 		if (CurrentSources.ammoExcl.eject("bomb") !== -1) SetAmmosdropdown();
 	},
@@ -1599,7 +1599,7 @@ MagicItemsList["dynamite stick"] = {
 	"\n   Dynamite can be rigged with a longer fuse to explode after a set amount of time, usually 1 to 6 rounds. Roll initiative for the dynamite. After the set number of rounds goes by, the dynamite explodes on that initiative.",
 	action: [["action", "Throw Explosive"]],
 	weaponsAdd: { select: ["Dynamite Stick"] },
-	eval: function() { // make sure the weapon and ammo are not excluded
+	eval: function () { // make sure the weapon and ammo are not excluded
 		if (CurrentSources.weapExcl.eject("dynamite stick") !== -1) SetWeaponsdropdown();
 		if (CurrentSources.ammoExcl.eject("dynamite stick") !== -1) SetAmmosdropdown();
 	},
@@ -1624,7 +1624,7 @@ MagicItemsList["grenade"] = {
 		"\n   Each creature within 20 feet of an exploding fragmentation grenade must make a DC 15 Dexterity saving throw, taking 5d6 piercing damage on a failed save, or half as much damage on a successful one.",
 		weight: 1,
 		weaponsAdd: { select: ["Fragmentation Grenade"] },
-		eval: function() { // make sure the weapon and ammo are not excluded
+		eval: function () { // make sure the weapon and ammo are not excluded
 			if (CurrentSources.weapExcl.eject("grenade, fragmentation") !== -1) SetWeaponsdropdown();
 			if (CurrentSources.ammoExcl.eject("grenade") !== -1) SetAmmosdropdown();
 		},

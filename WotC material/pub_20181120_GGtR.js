@@ -214,7 +214,7 @@ RaceList["simic hybrid"] = {
 		"animal enhancement": {
 			name: "Animal Enhancement",
 			minlevel: 5,
-			eval: function() {
+			eval: function () {
 				var curChoice = ParseRace(What("Race Remember"))[1].capitalize();
 				var AEoptions = ["Manta Glide", "Nimble Climber", "Underwater Adaptation", "Grappling Appendages", "Carapace", "Acid Spit"];
 				if (curChoice && AEoptions.indexOf(curChoice) !== -1) AEoptions.splice(AEoptions.indexOf(curChoice), 1);
@@ -256,7 +256,7 @@ RaceList["simic hybrid"] = {
 				Value("Racial Traits", What("Racial Traits").replace(/Animal Enhancement \(5th level\):.*/, "") + feaTxt);
 				Value("Race Remember", What("Race Remember") + "-*" + theChoice.replace(" ", "_") + "*");
 			},
-			removeeval: function() {
+			removeeval: function () {
 				var theRegex = /\*(Manta_Glide|Nimble_Climber|Underwater_Adaptation|Grappling_Appendages|Carapace|Acid_Spit)\*/i;
 				var raceRem = What("Race Remember");
 				if (!theRegex.test(raceRem)) return;
@@ -467,7 +467,7 @@ AddSubClass("druid", "circle of spores", {
 			name: "Halo of Spores",
 			source: [["T", 36], ["G", 27]],
 			minlevel: 2,
- 			description: desc([
+			description: desc([
 				"As a reaction when someone I can see in 10 ft starts its turn or moves, I can have it save",
 				"It must succeed on a Constitution save or take necrotic damage from my cloud of spores",
 			]),
@@ -543,7 +543,7 @@ BackgroundList["azorius functionary"] = {
 	skills: ["Insight", "Intimidation"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -613,7 +613,7 @@ BackgroundList["boros legionnaire"] = {
 	skills: ["Athletics", "Intimidation"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -685,7 +685,7 @@ BackgroundList["dimir operative"] = {
 	skills: ["Deception", "Stealth"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -766,7 +766,7 @@ BackgroundList["golgari agent"] = {
 	skills: ["Nature", "Survival"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -836,7 +836,7 @@ BackgroundList["gruul anarch"] = {
 	skills: ["Animal Handling", "Athletics"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -909,7 +909,7 @@ BackgroundList["gruul anarch"] = {
 };
 BackgroundFeatureList["rubblebelt refuge"] = {
 	description: "I'm very familiar with areas of the city that most people shun: neighborhoods ruined by wurms, overgrown parks gone untended for decades, and the vast, long abandoned rubblebelts of broken terrain. There, I can find a suitable place for me and my allies to hide or rest, as well as food and fresh water for myself and up to five other people each day.",
-	source: [["G", 60]],	
+	source: [["G", 60]],
 };
 
 BackgroundList["izzet engineer"] = {
@@ -919,7 +919,7 @@ BackgroundList["izzet engineer"] = {
 	skills: ["Arcana", "Investigation"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -991,7 +991,7 @@ BackgroundList["orzhov representative"] = {
 	skills: ["Intimidation", "Religion"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -1058,7 +1058,7 @@ BackgroundList["rakdos cultist"] = {
 	skills: ["Acrobatics", "Performance"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -1144,7 +1144,7 @@ BackgroundList["selesnya initiate"] = {
 	skills: ["Nature", "Persuasion"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -1214,7 +1214,7 @@ BackgroundList["simic scientist"] = {
 	skills: ["Arcana", "Medicine"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -1339,7 +1339,7 @@ var GGtR_GuildKeyrune = {
 		name: "Summon",
 		description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a [TYPE]. It reverts back to a keyrune after [DURATION], if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.",
 	},
-	createCreatureOptions: function(type, nameThis, duration, aTraits, aActions, aFeatures, aNotes, fCallback) {
+	createCreatureOptions: function (type, nameThis, duration, aTraits, aActions, aFeatures, aNotes, fCallback) {
 		if (!CreatureList[type]) return false;
 		var obj = newObj(CreatureList[type]);
 		obj.name = "Keyrune " + obj.name;
@@ -1574,7 +1574,7 @@ MagicItemsList["guild keyrune"] = {
 		creatureOptions: GGtR_GuildKeyrune.createCreatureOptions("giant scorpion", "scorpion", "6 hours", [{
 			name: "Telepathy",
 			description: "While the scorpion is within 60 ft of its owner, they can communicate telepathically.",
-		}], function(obj) { obj.scores[3] = 4; }),
+		}], function (obj) { obj.scores[3] = 4; }),
 	},
 	"gruul": {
 		type: "wondrous item",
@@ -1821,7 +1821,7 @@ MagicItemsList["guild keyrune"] = {
 		creatureOptions: GGtR_GuildKeyrune.createCreatureOptions("dire wolf", "wolf", "8 hours", [{
 			name: "Telepathy",
 			description: "While the wolf is within 1 mile of its owner, they can communicate telepathically.",
-		}], function(obj) {
+		}], function (obj) {
 			obj.scores[3] = 6;
 			obj.languages = "Understands the keyrune owner's languages, Elvish, and Sylvan, but can't speak";
 		}),
@@ -2037,7 +2037,7 @@ MagicItemsList["illusionist's bracers"] = {
 	weight: 1,
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	action: [["bonus action", " (with cantrip)"]],
 }
 MagicItemsList["mizzium apparatus"] = {
@@ -2083,7 +2083,7 @@ MagicItemsList["mizzium apparatus"] = {
 	weight: 8,
 	attunement: true,
 	prerequisite: "Requires attunement by a sorcerer, warlock, or wizard",
-	prereqeval: function(v) { return classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
 	toNotesPage: [{
 		name: "Random Spells",
 		note: [
@@ -2315,7 +2315,7 @@ MagicItemsList["voyager staff"] = {
 	attunement: true,
 	weight: 4,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	weaponOptions: [{
 		baseWeapon: "quarterstaff",
 		regExpSearch: /^(?=.*voyager)(?=.*staff).*$/i,

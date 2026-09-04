@@ -53,7 +53,7 @@
 		weight: 5,
 		attunement: true,
 		prerequisite: "Requires attunement by a creature of good alignment",
-		prereqeval: function(v) { return /good/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /good/i.test(What("Alignment")); },
 	}
 	MagicItemsList["book of vile darkness"] = {
 		name: "Book of Vile Darkness",
@@ -527,7 +527,7 @@
 		rarity: "artifact",
 		description: "While attuned to this construct, I can enter it and control it along with one other creature. See the Notes section for full information and stat block.",
 		descriptionFull: "  Named for the warlord who infamously employed it, the Mighty Servant of Leuk-o is a fantastically powerful, 10-foot-tall machine that turns into an animate construct when piloted. Crafted of a gleaming black alloy of unknown origin, the servant is often described as a combination of a disproportioned dwarf and an oversized beetle. The servant contains enough space for 1 ton of cargo and a crew compartment within, from which up to two Medium creatures can control it--and potentially execute a spree of unstoppable destruction.\n  Tales of the servant's origins involve more conjecture than fact, often referring to otherworldly beings, the mysterious Barrier Peaks in Oerth, and the supposedly related device known as the Machine of Lum the Mad. The best details on the device's origins and operation can be found in the Mind of Metal, a tome of artificer's secrets that connects the device to the traditions of the lost Olman people, and which was written by Lum the Mad's several tiems over granddaughter, Lum the Maestro, while she reconstructed the long disassembled Mighty Servant of Leuk-o.\n  Dangerous Attunement. Two creatures can be attuned to the servant at a time. If a third creature tries to attune to it, nothing happens.\n  The servant's controls are accessed by a hatch in its upper back, which is easily opened while there are no creatures attuned to the artifact.\n  Attuning to the artifact requires two hours, which can be undertaken as part of a long rest, during which time you must be inside the servant, interating with its controls. While crew memebers are attuning themselves, any creature or structure outside and within 50 feet of the servant has a 25 percent chance of being accidentally targeted by one of its Destructive Fist attacks once during the attunement. This process must be undergone every time a creature attunes itself to the artifact.\n\n  See the Notes section for further information.",
-			toNotesPage: [{
+		toNotesPage: [{
 			name: "Mighty Servant of Leuk-o",
 			note: [
 				"\nControlling the Servant.",
@@ -956,7 +956,7 @@
 		rarity: "artifact",
 		attunement: true,
 		prerequisite: "Requires attunement by a spellcaster",
-		prereqeval: function(v) { return v.isSpellcaster; },
+		prereqeval: function (v) { return v.isSpellcaster; },
 		notLegalAL: true,
 		description: "",
 		descriptionFull: "Iggwilv crafted this wondrous cauldron with the help of her adoptive mother, the archfey Baba Yaga. The cauldron has two forms. Only Iggwilv or Baba Yaga can change the cauldron from one form to another (by using an action to touch it), which either can do without being attuned to the item. In its first form, the cauldron is made of solid gold and embossed on the outside with images of bare-branched trees, falling leaves, and broomsticks. In its second form, the cauldron is made of iron and embossed on the outside with images of bats, toads, cats, lizards, and snakes\u2014eight of each animal. In either form, the cauldron is roughly 3 feet in diameter and has a 2-foot-wide mouth, a round lid with a molded handle at the top, and eight clawed feet for stability. The cauldron weighs 80 pounds when empty, and it can hold up to 100 gallons of liquid." +

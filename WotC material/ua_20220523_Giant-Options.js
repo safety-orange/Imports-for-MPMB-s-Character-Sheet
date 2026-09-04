@@ -192,13 +192,13 @@ AddSubClass("druid", "circle of the primeval-ua", {
 					name: "Titanic Bond (Circle of the Primeval 10)",
 					minlevel: 10,
 					description: "The companion's size is now Large and it gains either a swimming or climbing speed equal to its walking speed.",
-					eval: function(prefix, lvl) {
+					eval: function (prefix, lvl) {
 						PickDropdown(prefix + "Comp.Desc.Size", 2); // Large
 						var sMoveStr = (typePF ? ",\n" : ", ") + "swim/climb 30 ft";
 						if (What("Unit System") === "metric") sMoveStr = ConvertToMetric(sMoveStr, 0.5);
 						tDoc.getField(prefix + "Comp.Use.Speed").value += sMoveStr;
 					},
-					removeeval: function(prefix, lvl) {
+					removeeval: function (prefix, lvl) {
 						PickDropdown(prefix + "Comp.Desc.Size", 3); // Medium
 						var sMoveStr = (typePF ? ",\n" : ", ") + "swim or climb 30 ft";
 						if (What("Unit System") === "metric") sMoveStr = ConvertToMetric(sMoveStr, 0.5);
@@ -389,7 +389,7 @@ FeatsList["ember of the fire giant-ua"] = {
 	name: "Ember of the Fire Giant",
 	source: [["UA:GO", 4]],
 	prerequisite: "8th level",
-	prereqeval: function(v) { return v.characterLevel >= 8; },
+	prereqeval: function (v) { return v.characterLevel >= 8; },
 	descriptionFull: "You've manifested the fiery combat emblematic of fire giants, granting you the following benefits:" +
 	"\n\n" + toUni("Born of Flame") + ". You have resistance to fire damage." +
 	"\n" + toUni("Searing Ignition") + ". When you take the Attack action on your turn, you can replace one of your attacks with a magical burst of flame. Each creature of your choice within 15 feet of you that can see you must make a Dexterity saving throw (DC equals 8 + your proficiency bonus + your Constitution modifier). On a failed save, a creature takes fire damage equal to 2d6 + your proficiency bonus and is blinded until the start of your next turn; on a successful save, the creature takes half as much damage with no additional effects. You can use your Searing Ignition a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
@@ -404,7 +404,7 @@ FeatsList["fury of the frost giant-ua"] = {
 	name: "Fury of the Frost Giant",
 	source: [["UA:GO", 4]],
 	prerequisite: "4th level",
-	prereqeval: function(v) { return v.characterLevel >= 4; },
+	prereqeval: function (v) { return v.characterLevel >= 4; },
 	descriptionFull: "You've manifested the icy might emblematic of frost giants, granting you the following benefits:" +
 	"\n\n" + toUni("Born of Ice") + ". You have resistance to cold damage." +
 	"\n" + toUni("Frigid Vengeance") + ". When a creature hits you with an attack roll, you can use your reaction to retaliate with a burst of magical ire. The creature must succeed on a Wisdom saving throw (DC equals 8 + your proficiency bonus + your Consitution modifier) or be frightened of you until the start of its next turn. You can use your reaction in this way a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
@@ -419,7 +419,7 @@ FeatsList["guile of the cloud giant-ua"] = {
 	name: "Guile of the Cloud Giant",
 	source: [["UA:GO", 4]],
 	prerequisite: "8th level",
-	prereqeval: function(v) { return v.characterLevel >= 8; },
+	prereqeval: function (v) { return v.characterLevel >= 8; },
 	descriptionFull: "You've manifested the airy speech and magic emblematic of cloud giants, granting you the following benefits:" +
 	"\n\n" + toUni("Misty Form") + ". You can cast the blur spell without using a spell slot or material components. When you cast the spell in this way, the spell doesn't require you to maintain concentration on it. Once you cast the spell in this way, you can't do so again until you finish a long rest. You can also cast this spell in the normal way using spell slots you have of appropriate level." +
 	"\nIntelligence, Wisdom, or Charisma is your spellcasting ability for this feature (choose when you gain this feat)." +
@@ -439,7 +439,7 @@ FeatsList["keenness of the stone giant-ua"] = {
 	name: "Keenness of the Stone Giant",
 	source: [["UA:GO", 5]],
 	prerequisite: "4th level",
-	prereqeval: function(v) { return v.characterLevel >= 4; },
+	prereqeval: function (v) { return v.characterLevel >= 4; },
 	descriptionFull: "You've manifested the protection and spellcasting emblematic of stone giants, granting you the following benefits:" +
 	"\n\n" + toUni("Dreamer's Magic") + " You learn the detect thoughts spell and one 1st-level spell of your choice. The 1st-level spell must be from the abjuration or the divination school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level." +
 	"\nIntelligence, Wisdom, or Charisma is your spellcasting ability for this feature (choose when you gain this feat)." +
@@ -466,7 +466,7 @@ FeatsList["soul of the storm giant-ua"] = {
 	name: "Soul of the Storm Giant",
 	source: [["UA:GO", 5]],
 	prerequisite: "8th level",
-	prereqeval: function(v) { return v.characterLevel >= 8; },
+	prereqeval: function (v) { return v.characterLevel >= 8; },
 	descriptionFull: "You've manifested divination abilities and tempest magic emblematic of storm giants, granting you the following benefits:" +
 	"\n\n" + toUni("Maelstrom Aura") + ". As a bonus action, you surround yourself in an aura of magical wind and lightning that extends 10 feet from you in every direction but not through total cover. The aura lasts for 1 minute or until you are incapacitated. While the aura is active, attack rolls against you have disadvantage, and whenever a creature starts its turn within the sphere, you can force the creature's speed to be halved until the start of its next turn. Once you use this bonus action, you can't do so again until you finish a long rest." +
 	"\n" + toUni("Storm's Oracle") + ". You can cast the divination spell as a ritual, without needing amterial components.\n Intelligence, Wisdom, or Charisma is your spellcasting ability for this feature (choose when you gain this feat). Once you cast the spell in this way, you can't do so again until you finish a long rest.",
@@ -492,7 +492,7 @@ FeatsList["vigor of the hill giant-ua"] = {
 	name: "Vigor of the Hill Giant",
 	source: [["UA:GO", 5]],
 	prerequisite: "4th level",
-	prereqeval: function(v) { return v.characterLevel >= 4; },
+	prereqeval: function (v) { return v.characterLevel >= 4; },
 	descriptionFull: "You've manifested the resilience emblematic of hill giants, granting you the following benefits:" +
 	"\n\n" + toUni("Bulwark") + ". When you are subjected to an effect that would move you at least 5 feet or knock you prone, you can use your reaction to steady yourself. You are then neither moved nor knocked prone." +
 	"\n" + toUni("Hearty Health") + ". When you are subjected to a spell that restores your hit points, you can regain additional hit points equal to your Constitution modifier. You can regain these additional hit points a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
@@ -543,7 +543,7 @@ FeatsList["rune carver adept-ua"] = {
 	name: "Rune Carver Adept",
 	source: [["UA:GO", 5]],
 	prerequisite: "4th level, Rune Carver Apprentice feat",
-	prereqeval: function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("rune carver apprentice") !== -1; },
+	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("rune carver apprentice") !== -1; },
 	descriptionFull: "Your skill with the art of runecraft has increased.\n   Whenever you finish a long rest, you can now mark a number of objects equal to your proficiency bonus with a rune from the Rune Carver Apprentice feat. An object can have only one rune at a time, and you must inscribe a different rune on each object.",
 	description: "At the end of a long rest, when using the Rune Carver apprentice feat, I can now inscribe a number of objects up to my Proficiency Bonus. Each object can only have one rune, and each rune must be different.",
 };

@@ -199,7 +199,7 @@ RaceList["giff"] = {
 			usages: "Proficiency bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) { return "+" + n + " force damage"; }),
+			additional: ProficiencyBonusList.map(function (n) { return "+" + n + " force damage"; }),
 		},
 	},
 	weaponProfs: [false, false, ["Firearms"]],
@@ -244,7 +244,7 @@ RaceList["hadozee"] = {
 			usages: "Proficiency bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) { return "1d6+" + n + " damage"; }),
+			additional: ProficiencyBonusList.map(function (n) { return "1d6+" + n + " damage"; }),
 			action: [["reaction", ""]],
 		},
 	},
@@ -327,7 +327,7 @@ SpellsList["air bubble"] = {
 	descriptionFull: "You create a spectral globe around the head of a willing creature you can see within range. The globe is filled with fresh air that lasts until the spell ends. If the creature has more than one head, the globe of air appears around only one of its heads (which is all the creature needs to avoid suffocation, assuming that all its heads share the same respiratory system)." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you can create two additional globes of fresh air for each slot level above 2nd.",
 };
 SpellsList["create spelljamming helm"] = {
-	name: "Create Spelljamming Helm", 
+	name: "Create Spelljamming Helm",
 	nameShort: typePF ? "Create spelljamming helm" : "Create spelljammin' helm", // Lowercase or won't fit, shortened for Colourful version
 	classes: ["artificer", "wizard"],
 	source: [["S:AiS", 22]],
@@ -369,13 +369,13 @@ MagicItemsList["spelljamming helm"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "While attuned to  this ornate chair and sitting in it, I can propel and maneuver the ship on which it has been installed through space, air, or water up to the ship's speed. I need to maintain concentration as if concentrating on a spell to do so. The ship can move faster in space if nothing is nearby. See Notes page.",
-	descriptionFull: SJAAG_SpelljammingHelm.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: SJAAG_SpelljammingHelm.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	action: [["action", " (Transfer Attunement)"]],
 	toNotesPage: [{
 		name: "Features",
-		note: desc(SJAAG_SpelljammingHelm).replace(/your/ig, "my").replace(/\byou\b/ig, "I").replace(/   >>(.*?)<<\. /g, function(a, match) { return "\n" + match.toUpperCase() + "\n   "; }),
+		note: desc(SJAAG_SpelljammingHelm).replace(/your/ig, "my").replace(/\byou\b/ig, "I").replace(/   >>(.*?)<<\. /g, function (a, match) { return "\n" + match.toUpperCase() + "\n   "; }),
 	}],
 };
 MagicItemsList["wildspace orrery"] = {

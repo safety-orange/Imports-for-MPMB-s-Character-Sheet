@@ -72,7 +72,7 @@ var MotM_Aasimar_HealingHands = {
 	minlevel: 1,
 	usages: 1,
 	recovery: "long rest",
-	additional: ProficiencyBonusList.map(function(n) { return n + "d4 healing"; }),
+	additional: ProficiencyBonusList.map(function (n) { return n + "d4 healing"; }),
 	action: [["action", ""]],
 };
 RaceList["multiverse aasimar"] = {
@@ -114,7 +114,7 @@ AddRacialVariant("multiverse aasimar", "necrotic shroud", {
 			minlevel: 3,
 			usages: 1,
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) { return "+" + n + " necrotic damage"; }),
+			additional: ProficiencyBonusList.map(function (n) { return "+" + n + " necrotic damage"; }),
 			action: [["bonus action", " (start/end)"]],
 		},
 	},
@@ -133,7 +133,7 @@ AddRacialVariant("multiverse aasimar", "radiant consumption", {
 			minlevel: 3,
 			usages: 1,
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) { return "+" + n + " radiant damage"; }),
+			additional: ProficiencyBonusList.map(function (n) { return "+" + n + " radiant damage"; }),
 			action: [["bonus action", " (start/end)"]],
 		},
 	},
@@ -152,7 +152,7 @@ AddRacialVariant("multiverse aasimar", "radiant soul", {
 			minlevel: 3,
 			usages: 1,
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) { return "+" + n + " radiant damage"; }),
+			additional: ProficiencyBonusList.map(function (n) { return "+" + n + " radiant damage"; }),
 			action: [["bonus action", " (start/end)"]],
 		},
 	},
@@ -507,7 +507,7 @@ if (!RaceList["harengon"]) {
 				usages: "Proficiency bonus per ",
 				usagescalc: "event.value = How('Proficiency Bonus');",
 				recovery: "long rest",
-				additional: ProficiencyBonusList.map(function(n) {
+				additional: ProficiencyBonusList.map(function (n) {
 					var hopDistance = n * 5 + " ft";
 					return What("Unit System") === "metric" ? ConvertToMetric(hopDistance) : hopDistance;
 				}),
@@ -1038,7 +1038,7 @@ RaceList["multiverse goblin"] = {
 			usages: "Proficiency bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) { return "+" + n + " damage"; }),
+			additional: ProficiencyBonusList.map(function (n) { return "+" + n + " damage"; }),
 		},
 	},
 	action: [["bonus action", "Nimble Escape (disengage/hide)"]],
@@ -1250,7 +1250,7 @@ RaceList["multiverse lizardfolk"] = {
 			usages: "Proficiency bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) { return n + " temp HP"; }),
+			additional: ProficiencyBonusList.map(function (n) { return n + " temp HP"; }),
 			action: [["bonus action", ""]],
 		},
 	},
@@ -1313,7 +1313,7 @@ RaceList["multiverse orc"] = {
 			usages: "Proficiency bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) { return "+" + n + " temp HP"; }),
+			additional: ProficiencyBonusList.map(function (n) { return "+" + n + " temp HP"; }),
 			action: [["bonus action", ""]],
 		},
 		"relentless endurance": {
@@ -1426,7 +1426,7 @@ RaceList["multiverse shadar-kai"] = {
 				usages: "Proficiency bonus per ",
 				usagescalc: "event.value = How('Proficiency Bonus');",
 				recovery: "long rest",
-				additional: ProficiencyBonusList.map(function(n) { return "1d6 + " + (2 * n) + " temp HP"; }),
+				additional: ProficiencyBonusList.map(function (n) { return "1d6 + " + (2 * n) + " temp HP"; }),
 			},
 		},
 	},
@@ -1464,7 +1464,7 @@ RaceList["multiverse shadar-kai"] = {
 		],
 		savetxt: { text: ["While shifted, Adv. on Wis checks"] },
 	},
-}].forEach(function(o) {
+}].forEach(function (o) {
 	var objNm = "multiverse " + o.name.toLowerCase() + " shifter";
 	RaceList[objNm] = {
 		regExpSearch: RegExp("^(?=.*(multiverse|motm\\b))" + o.regExpSearch + "(?=.*shifter).*$", "i"),
@@ -1489,7 +1489,7 @@ RaceList["multiverse shadar-kai"] = {
 				usages: "Proficiency bonus per ",
 				usagescalc: "event.value = How('Proficiency Bonus');",
 				recovery: "long rest",
-				additional: ProficiencyBonusList.map(function(n) { return 2 * n + " temp HP"; }),
+				additional: ProficiencyBonusList.map(function (n) { return 2 * n + " temp HP"; }),
 				action: [["bonus action", " (start/end)"]],
 			},
 		},

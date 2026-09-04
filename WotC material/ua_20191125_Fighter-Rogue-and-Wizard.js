@@ -482,7 +482,7 @@ SpellsList["mental barrier-ua"] = {
 if (!SourceList.T) {
 	// almost duplicate from UA:SnW, but now also on the Bard's spell list
 	// too much alike to the final TCoE version, so don't include it if TCoE is available
-	SpellsList["mind sliver"] = { 
+	SpellsList["mind sliver"] = {
 		name: "Mind Sliver",
 		classes: ["bard", "sorcerer", "warlock", "wizard"],
 		source: [["T", 108], ["UA:SnW", 4], ["UA:FRnW", 7], ["UA:POR", 7]],

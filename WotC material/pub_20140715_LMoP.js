@@ -81,7 +81,7 @@ MagicItemsList["spider staff"] = { // changed to the new version introduced in P
 	descriptionFull: "The top of this black, adamantine staff is shaped like a spider. The staff weighs 6 pounds. You must be attuned to the staff to gain its benefits and cast its spells. The staff can be wielded as a quarterstaff. It deals 1d6 extra poison damage on a hit when used to make a weapon attack.\n   The staff has 10 charges, which are used to fuel the spells within it. With the staff in hand, you can use your action to cast one of the following spells from the staff if the spell is on your class's spell list: Spider Climb (1 charge) or Web (2 charges, spell save DC 15). No components are required.\n   The staff regains 1d6+4 expended charges each day at dusk. If you expend the staff's last charge, roll a d20. On a 1, the staff crumbles to dust and is destroyed.",
 	attunement: true,
 	prerequisite: "Requires attunement by a bard, sorcerer, warlock, or wizard",
-	prereqeval: function(v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
 	weight: 6, // kept to the original weight
 	usages: 10,
 	recovery: "dawn",
@@ -118,7 +118,7 @@ MagicItemsList["staff of defense"] = { // changed to the new version introduced 
 	descriptionFull: "This slender, hollow staff is made of glass yet is as strong as oak. It weighs 3 pounds. You must be attuned to the staff to gain its benefits and cast its spells.\n   While holding the staff, you have a +1 bonus to your Armor Class.\n   The staff has 10 charges, which are used to fuel the spells within it. With the staff in hand, you can use your action to cast one of the following spells from the staff if the spell is on your class's spell list: Mage Armor (1 charge) or Shield (2 charges). No components are required.\n   The staff regains 1d6+4 expended charges each day at dawn. If you expend the staff's last charge, roll a d20. On a 1, the staff shatters and is destroyed.",
 	attunement: true,
 	prerequisite: "Requires attunement by a bard, sorcerer, warlock, or wizard",
-	prereqeval: function(v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
 	weight: 3,
 	usages: 10,
 	recovery: "dawn",

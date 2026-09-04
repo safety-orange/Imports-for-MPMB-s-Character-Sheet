@@ -107,7 +107,7 @@ if (!SourceList.T) {
 				description: desc('Use the "Choose Feature" button above to choose the kind of genie your patron is'),
 				calcChanges: {
 					spellList: [
-						function(spList, spName, spType) {
+						function (spList, spName, spType) {
 							if (spType.indexOf("bonus") !== -1 && spList.name && /mystic arcanum/i.test(spList.name) && spList.level[0] === 9) {
 								spList.extraspells.push("wish");
 							} else if (spType.indexOf("bonus") === -1 && spName === "warlock") {

@@ -121,7 +121,7 @@ FeatsList["cartomancer"] = {
 	"\n   " + toUni("Card Tricks") + ". You learn the Prestidigitation cantrip and can use it to create illusions that duplicate the effects of stage magic. When you use Prestidigitation in this way, you can conceal the verbal and somatic components of the spell as ordinary conversation and card handling." +
 	"\n   " + toUni("Hidden Ace") + ". When you finish a long rest, you can choose one spell from your class's spell list and imbue that spell into a card. The chosen spell must have a casting time of 1 action, and it must be a level for which you have spell slots. The card remains imbued with this spell for 8 hours. While the card is imbued with the spell, you can use a bonus action to flourish the card and cast the spell within. The card then immediately loses its magic.",
 	prerequisite: "4th-level, Spellcasting feature",
-	prereqeval: function(v) { return v.characterLevel >= 4 && v.isSpellcastingClass; },
+	prereqeval: function (v) { return v.characterLevel >= 4 && v.isSpellcastingClass; },
 	spellcastingBonus: [{
 		name: "Cartomancer",
 		spells: ["prestidigitation"],
@@ -152,7 +152,7 @@ var BoMT = {
 	toDescrFull: function (sDescr) {
 		if (typeof sDescr !== "string") sDescr = sDescr.join("\n   ");
 		return sDescr.replace(/\[\[.*?\]\]/g, "$1")
-			.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); });
+			.replace(/>>(.*?)<</g, function (a, match) { return toUni(match); });
 	},
 	to1stPerson: function (sDescr, joinStr) {
 		if (typeof sDescr === "string") sDescr = [sDescr];
@@ -167,7 +167,7 @@ var BoMT = {
 			.replace(/yours\b/g, "mine").replace(/Yours/g, "Mine")
 			.replace(/your/g, "my").replace(/Your/g, "My")
 			.replace(/\[\[.*?\]\]/g, "")
-			.replace(/(\n *|\u2022 |\u25C6 )>>(.*?)( \(.*?\))?<<\. /g, function(a, p1, p2, p3, p4) {
+			.replace(/(\n *|\u2022 |\u25C6 )>>(.*?)( \(.*?\))?<<\. /g, function (a, p1, p2, p3, p4) {
 				if (/\n   /.test(p1)) {
 					return "\n\n   " + p2.toUpperCase() + p3.toLowerCase() + "\n   ";
 				} else {
@@ -1316,7 +1316,7 @@ MagicItemsList["gloomwrought armor"] = {
 	"\n   This armor has 3 charges. You can expend a charge to cast the Calm Emotions spell (save DC 15) from the armor. This armor regains 1d3 expended charges daily at dawn.",
 	chooseGear: {
 		type: "armor",
-		prefixOrSuffix: ["between", "Gloomwrought", "Armor"], 
+		prefixOrSuffix: ["between", "Gloomwrought", "Armor"],
 		descriptionChange: ["prefix", "armor"],
 		itemName1stPage: ["suffix", "Gloomwrought"],
 	},
@@ -1443,7 +1443,7 @@ MagicItemsList["plate of knight's fellowship"] = {
 	creatureOptions: [{
 		name: "Knight",
 		source: [["SRD", 400], ["M", 347]],
-		eval: function(prefix) {
+		eval: function (prefix) {
 			Value(prefix + "Comp.Desc.Name", "Warrior Spirit");
 		},
 		size: 3,
@@ -1511,7 +1511,7 @@ MagicItemsList["rod of hellish flames"] = {
 	rarity: "very rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "I can use this black iron rod as an arcane focus and it grants me resistance to fire and necrotic damage. Once per dawn I can use it to cast Hellish Rebuke as a 4th-level spell (save DC 16). When I cast a spell that deals fire or necrotic damage, I can once per dawn use it to maximize the damage instead of rolling.",
 	descriptionFull: "Glowing cinders orbit the flanged head of this black iron rod." +
 	"\n   This rod can be used as an arcane focus. While holding this rod, you gain the following benefits:" +
@@ -1594,7 +1594,7 @@ MagicItemsList["sage's signet"] = {
 	type: "ring",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This gilded ring with a beautiful engraving is imbued with powers of keen wisdom and foresight. While wearing this ring, I can cast Augury and two more spells depending on the signet each once per dawn using my Intelligence as the spellcasting ability. Casting Augury using this ring only takes one action.",
 	descriptionFull: "This gilded ring bears a beautiful engraving and is imbued with powers of keen wisdom and foresight. While wearing this ring, you can use an action to cast the Augury spell from the ring. Once you use the ring to cast the spell, the ring can't cast the spell again until the next dawn." +
 	"\n   Six varieties of Sage's Signet rings exist, each with a different signet (see the table below). A ring's signet determines its rarity as well as the additional spells it can cast. While wearing a Sage's Signet, you can cast each of its additional spells once from the ring using your Intelligence as the spellcasting ability. Once you cast each of the additional spells from the ring, it can't cast the spell again until the next dawn." +

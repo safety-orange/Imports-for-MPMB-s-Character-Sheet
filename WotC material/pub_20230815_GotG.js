@@ -250,7 +250,7 @@ FeatsList["ember of the fire giant"] = {
 	name: "Ember of the Fire Giant",
 	source: [["GotG", 17]],
 	prerequisite: "4th level, Strike of the Giants (Fire Strike) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iStrikeGiants = CurrentFeats.known.indexOf("strike of the giants");
 		return v.characterLevel >= 4 && iStrikeGiants !== -1 && CurrentFeats.choices[iStrikeGiants] === "fire strike";
 	},
@@ -332,7 +332,7 @@ FeatsList["fury of the frost giant"] = {
 	name: "Fury of the Frost Giant",
 	source: [["GotG", 17]],
 	prerequisite: "4th level, Strike of the Giants (Frost Strike) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iStrikeGiants = CurrentFeats.known.indexOf("strike of the giants");
 		return v.characterLevel >= 4 && iStrikeGiants !== -1 && CurrentFeats.choices[iStrikeGiants] === "frost strike";
 	},
@@ -415,7 +415,7 @@ FeatsList["guile of the cloud giant"] = {
 	name: "Guile of the Cloud Giant",
 	source: [["GotG", 18]],
 	prerequisite: "4th level, Strike of the Giants (Cloud Strike) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iStrikeGiants = CurrentFeats.known.indexOf("strike of the giants");
 		return v.characterLevel >= 4 && iStrikeGiants !== -1 && CurrentFeats.choices[iStrikeGiants] === "cloud strike";
 	},
@@ -448,7 +448,7 @@ FeatsList["keenness of the stone giant"] = {
 	name: "Keenness of the Stone Giant",
 	source: [["GotG", 18]],
 	prerequisite: "4th level, Strike of the Giants (Stone Strike) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iStrikeGiants = CurrentFeats.known.indexOf("strike of the giants");
 		return v.characterLevel >= 4 && iStrikeGiants !== -1 && CurrentFeats.choices[iStrikeGiants] === "stone strike";
 	},
@@ -522,7 +522,7 @@ FeatsList["soul of the storm giant"] = {
 	name: "Soul of the Storm Giant",
 	source: [["GotG", 19]],
 	prerequisite: "4th level, Strike of the Giants (Storm Strike) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iStrikeGiants = CurrentFeats.known.indexOf("strike of the giants");
 		return v.characterLevel >= 4 && iStrikeGiants !== -1 && CurrentFeats.choices[iStrikeGiants] === "storm strike";
 	},
@@ -558,7 +558,7 @@ FeatsList["vigor of the hill giant"] = {
 	name: "Vigor of the Hill Giant",
 	source: [["GotG", 19]],
 	prerequisite: "4th level, Strike of the Giants (Hill Strike) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iStrikeGiants = CurrentFeats.known.indexOf("strike of the giants");
 		return v.characterLevel >= 4 && iStrikeGiants !== -1 && CurrentFeats.choices[iStrikeGiants] === "hill strike";
 	},
@@ -608,8 +608,8 @@ FeatsList["rune shaper"] = {
 	name: "Rune Shaper",
 	source: [["GotG", 18]],
 	prerequisite: "Spellcasting feature or Rune Carver background",
-	prereqeval: function(v) { return v.isSpellcastingClass || CurrentBackground.known.indexOf("rune carver") !== -1 || /rune shaper/i.test(What("Background Feature")); },
-	descriptionFull: GotG_RuneShaper.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	prereqeval: function (v) { return v.isSpellcastingClass || CurrentBackground.known.indexOf("rune carver") !== -1 || /rune shaper/i.test(What("Background Feature")); },
+	descriptionFull: GotG_RuneShaper.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	description: "I know half my Prof Bonus, rounded down, in runes. After a long rest, I can inscribe each rune on a nonmagical objects I touch. It lasts until my next long rest. I can cast Comprehend Languages and each inscribed rune's spell once per long rest without a spell slot or material components, or by using spell slots. See Notes.",
 	spellcastingAbility: [4, 5, 6],
 	spellFirstColTitle: "PR",
@@ -626,7 +626,7 @@ FeatsList["rune shaper"] = {
 		linkTimesToHalfProf: true, // custom attribute, for use in calcChanges.spellList
 		times: 1, // half proficiency bonus, so always minimum of 1
 	}],
-	changeeval: function() {
+	changeeval: function () {
 		if (!CurrentSpells["rune shaper"]) return;
 		// See if the proficiency bonus changed to trigger the changes dialog
 		// Don't set the times attribute here, but instead on every call to the spell dialog
@@ -638,7 +638,7 @@ FeatsList["rune shaper"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Change the times attribute to be half proficiency, rounded down
 				// Do it this way, so it is updated even if a bonus to proficiency was manually applied
 				if (spName === "rune shaper" && spType === "feat-bonus" && spList.name === "Comprehend languages") {
@@ -654,7 +654,7 @@ FeatsList["rune shaper"] = {
 							}
 						}
 					}
-					
+
 				}
 			},
 			"",
@@ -662,7 +662,7 @@ FeatsList["rune shaper"] = {
 	},
 	toNotesPage: [{
 		name: "Features",
-		note: desc(GotG_RuneShaper).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/Your/g, "My").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(contact|granting) you/ig, "$1 me").replace(/you /ig, "I "),
+		note: desc(GotG_RuneShaper).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/Your/g, "My").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(contact|granting) you/ig, "$1 me").replace(/you /ig, "I "),
 	}],
 };
 
@@ -748,7 +748,7 @@ MagicItemsList["elven thrower"] = { // spear, but otherwise identical to Dwarven
 	rarity: "very rare",
 	attunement: true,
 	prerequisite: "Requires attunement by an Elf",
-	prereqeval: function(v) { return /elf|eladrin|avariel|grugach|shadar-kai/i.test(CurrentRace.known); },
+	prereqeval: function (v) { return /elf|eladrin|avariel|grugach|shadar-kai/i.test(CurrentRace.known); },
 	descriptionFull: "You gain a +3 bonus to attack and damage rolls made with this magic weapon. When you hit with a ranged attack using this weapon, it deals an extra 1d8 damage or, if the target is a Giant, 2d8 damage. Immediately after the attack, the weapon flies back to your hand.",
 	description: "I gain a +3 bonus to attack and damage rolls made with this magic spear. When I hit with a ranged attack using this weapon, it deals an extra 1d8 damage or, if the target is a Giant, 2d8 damage. Immediately after the attack, the weapon flies back to my hand.",
 	weight: 3,
@@ -929,13 +929,13 @@ MagicItemsList["harp of gilded plenty"] = {
 	type: "wondrous item",
 	rarity: "legendary",
 	attunement: true,
-	descriptionFull: GotG_HarpOfGildedPlenty.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: GotG_HarpOfGildedPlenty.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
-		note: desc(GotG_HarpOfGildedPlenty).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/\bf(oo|ee)t\b/ig, "ft").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(suit) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(GotG_HarpOfGildedPlenty).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/\bf(oo|ee)t\b/ig, "ft").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(suit) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 	prerequisite: "To attune to the harp, you must first make either a DC 15 Charisma (Performance) check or a DC 20 Charisma (Persuasion) check to convince the harp that you are worthy. You can retry after the next dawn.",
-	prereqeval: function() { return false; }, // so that everyone reads the prerequisite before adding the item
+	prereqeval: function () { return false; }, // so that everyone reads the prerequisite before adding the item
 	description: "This sentient harp is dramatic and pompous, see notes. I can treat a roll of 9 or lower as a 10 for Charisma checks. I can cast Heroes' Feast by playing it for 10 min, but can't do so again until 1d10+10 days have passed. Five times per dawn, I can use it to cast Calm Emotions (DC 19) with a 1 hour duration.",
 	extraLimitedFeatures: [{
 		name: "Harp of Gilded Plenty: Calm Emotions",
@@ -1120,7 +1120,7 @@ MagicItemsList["orb of skoraeus"] = {
 	rarity: "legendary",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	descriptionFull: "Said to be infused with the wisdom and power of the god Skoraeus, this polished stone orb is veined with iridescent crystal that seems to glow from within. The orb is 8 inches in diameter and weighs 8 pounds, making it a palm-sized trinket for a stone giant but a more unwieldy item for a Medium creature to use." +
 	"\n   While holding this orb, you can use it as a spellcasting focus for your spells. You also gain the following benefits:" +
 	"\n   " + toUni("Abundant Components") + ". The orb has 3 charges and regains all expended charges at dawn. When you cast a spell while holding this orb, you can expend up to 3 charges to ignore the spell's material components with a gold piece cost, up to 300 gp per charge expended." +

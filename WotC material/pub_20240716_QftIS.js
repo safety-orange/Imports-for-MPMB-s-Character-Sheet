@@ -19,7 +19,7 @@ try {
 		toDescrFull: function (sDescr) {
 			if (typeof sDescr !== "string") sDescr = sDescr.join("\n   ");
 			return sDescr.replace(/\[\[.*?\]\]/g, "$1")
-				.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); });
+				.replace(/>>(.*?)<</g, function (a, match) { return toUni(match); });
 		},
 		to1stPerson: function (sDescr, joinStr) {
 			if (typeof sDescr === "string") sDescr = [sDescr];
@@ -34,7 +34,7 @@ try {
 				.replace(/yours\b/g, "mine").replace(/Yours/g, "Mine")
 				.replace(/your/g, "my").replace(/Your/g, "My")
 				.replace(/\[\[.*?\]\]/g, "")
-				.replace(/(\n *|\u2022 |\u25C6 )>>(.*?)( \(.*?\))?<<\. /g, function(a, p1, p2, p3, p4) {
+				.replace(/(\n *|\u2022 |\u25C6 )>>(.*?)( \(.*?\))?<<\. /g, function (a, p1, p2, p3, p4) {
 					if (/\n   /.test(p1)) {
 						return "\n\n   " + p2.toUpperCase() + p3.toLowerCase() + "\n   ";
 					} else {
@@ -51,7 +51,7 @@ QftIS.replaceEnergyCell = "\n   " + QftIS.replaceEnergyCellPlain.replace(">>Repl
 MagicItemsList["antigravity belt"] = {
 	name: "Antigravity Belt",
 	source: [["QftIS", 192]],
-	type: "futuristic item", // not really magic items, so these use their own category 
+	type: "futuristic item", // not really magic items, so these use their own category
 	rarity: "priceless", // as per QftIS page 192
 	defaultExcluded: true,
 	description: "This belt has 10 charges per energy cell, which can be replaced as a (bonus) action if empty. As a bonus action, I can use charges to activate it for 1 min per charge, causing me to float in place. As a bonus action and when activating it, I can move 20 ft vertically. I can push off to move horizontally at half my speed.",
@@ -127,7 +127,7 @@ if (MagicItemsList["grenade"]) {
 		descriptionFull: "As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away." +
 		"\n   A concussion grenade explodes in a concussive blast that fills a 20-foot-radius sphere. Each creature in that area must make a DC 15 Dexterity saving throw, taking 6d6 force damage on a failed save or half as much damage on a successful one.",
 		weaponsAdd: { select: ["Concussion Grenade"] },
-		eval: function() { // make sure the weapon and ammo are not excluded
+		eval: function () { // make sure the weapon and ammo are not excluded
 			if (CurrentSources.weapExcl.eject("grenade, concussion") !== -1) SetWeaponsdropdown();
 			if (CurrentSources.ammoExcl.eject("grenade") !== -1) SetAmmosdropdown();
 		},
@@ -277,7 +277,7 @@ MagicItemsList["heretic"] = {
 	descriptionFull: QftIS.toDescrFull(QftIS.heretic),
 	attunement: true,
 	prerequisite: "Requires attunement by a non-good creature",
-	prereqeval: function(v) { return !/good/i.test(What("Alignment")); },
+	prereqeval: function (v) { return !/good/i.test(What("Alignment")); },
 	weight: 3,
 	weaponOptions: [{
 		baseWeapon: "longsword",

@@ -270,7 +270,7 @@ MagicItemsList["fane-eater"] = {
 	descriptionFull: "Fane-Eater is a battleaxe belonging to Arkhan the Cruel.\n   You gain a +3 bonus to attack and damage rolls with Fane-Eater. If you attack a creature with this weapon and roll a 20 on the attack roll, the creature takes an extra 2d8 necrotic damage, and you regain a number of hit points equal to the necrotic damage taken.",
 	attunement: true,
 	prerequisite: "Requires attunement by an evil cleric or paladin",
-	prereqeval: function(v) { return (classes.known.paladin || classes.known.cleric) && /evil/i.test(What("Alignment")); },
+	prereqeval: function (v) { return (classes.known.paladin || classes.known.cleric) && /evil/i.test(What("Alignment")); },
 	weight: 4,
 	weaponOptions: [{
 		baseWeapon: "battleaxe",
@@ -317,7 +317,7 @@ MagicItemsList["helm of devil command"] = {
 	descriptionFull: "This bulky, eyeless helmet is made for a pit fiend but magically resizes to fit the heads of other wearers.\n   While wearing the helm, you can see out of it as though you weren't wearing it. In addition, you know the exact location and type of all devils within 1,000 feet of you. You can telepathically communicate with a devil within range, or you can broadcast your thoughts to all devils within range. The devils receiving your broadcasted thoughts have no special means of replying to them.\n   The helm has 3 charges. As an action, you can expend 1 charge to cast dominate monster (save DC 21), which affects devils only. (The spell fails and the charge is wasted if you target any creature that's not a devil.) If a devil can see you when you cast this spell on it, the devil knows you tried to charm it. The helm regains all its charges 24 hours after its last charge is expended.\n   If you are not a devil, using the helm's dominate monster property in the Nine Hells has a 20 percent chance of attracting a narzugon, which arrives on the back of a nightmare mount in 1d4 hours. The narzugon tries to recover the helm, killing you if necessary to obtain it. If it gets the helm, the narzugon tries to deliver it to its infernal master.",
 	attunement: true,
 	prerequisite: "Requires attunement by a creature that can speak infernal",
-	prereqeval: function(v) { return /infernal/i.test(v.languageProfs); },
+	prereqeval: function (v) { return /infernal/i.test(v.languageProfs); },
 	usages: 3,
 	recovery: "Special",
 	fixedDC: 21,
@@ -359,25 +359,25 @@ if (!SourceList.MToF) {
 		attunement: true,
 		weight: 26, // riding saddle (25) + bit and bridle (1)
 		prerequisite: "Requires attunement by a creature of evil alignment",
-		prereqeval: function(v) { return /evil/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /evil/i.test(What("Alignment")); },
 		action: [["action", ""]],
 		creaturesAdd: [["Nightmare",
-true,
-		function (AddRemove, prefix) {
-			if (!AddRemove) return;
-			// Show equipment section
-			MakeCompMenu_CompOptions(prefix, ["companion", "visible", "comp.eqp"], true);
-			// Add equipment when added
-			var equip = ["bit and bridle", "riding"];
-			for (var i = 0; i < equip.length; i++) {
-				var gear = GearList[equip[i]];
-				if (!gear) continue;
-				AddToInv(prefix + "comp", "l", gear.name, gear.amount, gear.weight, "", false, false, false, false);
-			}
-			// Add notes
-			var note = "I can use an action to call a nightmare equipped with infernal tack by clashing the spurs together or scraping them through blood. The nightmare appears at the start of my next turn, within 20 ft of me.\nThe nightmare acts as my ally and takes its turn on my initiative count. It remains for 1 day, until I or it dies, or until I dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which I can summon it again.";
-			Value(prefix + "Comp.eqp.Notes", What("Unit System") === "metric" ? ConvertToMetric(note, 0.5) : note);
-		}]],
+			true,
+			function (AddRemove, prefix) {
+				if (!AddRemove) return;
+				// Show equipment section
+				MakeCompMenu_CompOptions(prefix, ["companion", "visible", "comp.eqp"], true);
+				// Add equipment when added
+				var equip = ["bit and bridle", "riding"];
+				for (var i = 0; i < equip.length; i++) {
+					var gear = GearList[equip[i]];
+					if (!gear) continue;
+					AddToInv(prefix + "comp", "l", gear.name, gear.amount, gear.weight, "", false, false, false, false);
+				}
+				// Add notes
+				var note = "I can use an action to call a nightmare equipped with infernal tack by clashing the spurs together or scraping them through blood. The nightmare appears at the start of my next turn, within 20 ft of me.\nThe nightmare acts as my ally and takes its turn on my initiative count. It remains for 1 day, until I or it dies, or until I dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which I can summon it again.";
+				Value(prefix + "Comp.eqp.Notes", What("Unit System") === "metric" ? ConvertToMetric(note, 0.5) : note);
+			}]],
 	}
 } // dupl_end
 MagicItemsList["matalotok"] = {
@@ -441,11 +441,11 @@ MagicItemsList["shield of the hidden lord"] = {
 	rarity: "legendary",
 	storyItemAL: true,
 	description: 'This shield grants me +2 bonus to AC and resistance to fire damage. It has 3 charges, regaining all at dawn. I can expend 1 charge to cast Fireball or 2 charges to cast Wall of Fire from it at DC 21. The shield is sentient and can communicate telepathically with any creature within 120 ft of it. See "Notes" page for more.',
-	descriptionFull: DiA_shieldOfTheHiddenLordFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: DiA_shieldOfTheHiddenLordFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	attunement: true,
 	toNotesPage: [{
 		name: "Features",
-		note: desc(DiA_shieldOfTheHiddenLordFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(to) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(DiA_shieldOfTheHiddenLordFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(to) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 	weight: 6,
 	shieldAdd: ["Shield of the Hidden Lord", 4, 6],
@@ -490,10 +490,10 @@ MagicItemsList["soul coin"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	description: "Each coin traps a unique soul, whose rage or despair is felt by me while I hold it. A coin has 3 charges. As an action, I can expend 1 charge to either siphon the soul's essence to grant me 1d10 temporary HP or telepathically ask the soul a question which it must answer truthfully. See \"Notes\" page for more.",
-	descriptionFull: DiA_soulCoinFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: DiA_soulCoinFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
-		note: desc(DiA_soulCoinFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(answer) you/ig, "$1 me").replace(/you /ig, "I "),
+		note: desc(DiA_soulCoinFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(answer) you/ig, "$1 me").replace(/you /ig, "I "),
 	}],
 	weight: 0.3,
 	usages: 3,

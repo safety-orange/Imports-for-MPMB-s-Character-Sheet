@@ -95,7 +95,7 @@ RaceList["simic hybrid-ua"] = {
 		"animal enhancement": {
 			name: "Animal Enhancement",
 			minlevel: 5,
-			eval: function() {
+			eval: function () {
 				var curChoice = ParseRace(What("Race Remember"))[1].capitalize();
 				var AEoptions = ["Manta Glide", "Nimble Climber", "Underwater Adaptation", "Grappling Appendages", "Carapace", "Acid Spit"];
 				if (curChoice && AEoptions.indexOf(curChoice) !== -1) AEoptions.splice(AEoptions.indexOf(curChoice), 1);
@@ -136,7 +136,7 @@ RaceList["simic hybrid-ua"] = {
 				Value("Racial Traits", What("Racial Traits").replace(/Animal Enhancement \(5th level\):.*/, "") + feaTxt);
 				Value("Race Remember", What("Race Remember") + "-*" + theChoice.replace(" ", "_") + "*");
 			},
-			removeeval: function() {
+			removeeval: function () {
 				var theRegex = /\*(Manta_Glide|Nimble_Climber|Underwater_Adaptation|Grappling_Appendages|Carapace|Acid_Spit)\*/i;
 				var raceRem = What("Race Remember");
 				if (!theRegex.test(raceRem)) return;

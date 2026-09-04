@@ -5,7 +5,7 @@ RequiredSheetVersion("14.0.5-beta");
 
 // Define the source
 SourceList["PS:Z"] = {
-	name: "Plane Shift: Zendikar", 
+	name: "Plane Shift: Zendikar",
 	abbreviation: "PS:Z",
 	group: "Plane Shift",
 	campaignSetting: "Magic: The Gathering",
@@ -360,23 +360,23 @@ CreatureList["woodcrasher baloth"] = {
 	proficiencyBonus: 3,
 	attacksAction: 1,
 	attacks: [{
-			name: "Gore",
-			ability: 1,
-			damage: [4, 8, "bludgeoning"],
-			range: "Melee (5 ft)",
-			description: "If used after moving 20 ft straight in the same round, see Trampling Charge trait",
-		}, {
-			name: "Stomp",
-			ability: 1,
-			damage: [3, 10, "bludgeoning"],
-			range: "Melee (5 ft)",
-			description: "Can only be used on prone creatures (also see Trampling Charge trait)",
-		},
+		name: "Gore",
+		ability: 1,
+		damage: [4, 8, "bludgeoning"],
+		range: "Melee (5 ft)",
+		description: "If used after moving 20 ft straight in the same round, see Trampling Charge trait",
+	}, {
+		name: "Stomp",
+		ability: 1,
+		damage: [3, 10, "bludgeoning"],
+		range: "Melee (5 ft)",
+		description: "Can only be used on prone creatures (also see Trampling Charge trait)",
+	},
 	],
 	traits: [{
-			name: "Trampling Charge",
-			description: "If the baloth moves at least 20 ft straight toward a creature and then hits it with a gore attack on the same turn, that target must succeed on a DC 13 Strength saving throw or be knocked prone. If the target is prone, the baloth can make one stomp attack against it as a bonus action.",
-		},
+		name: "Trampling Charge",
+		description: "If the baloth moves at least 20 ft straight toward a creature and then hits it with a gore attack on the same turn, that target must succeed on a DC 13 Strength saving throw or be knocked prone. If the target is prone, the baloth can make one stomp attack against it as a bonus action.",
+	},
 	],
 };
 CreatureList["gnarlid"] = {

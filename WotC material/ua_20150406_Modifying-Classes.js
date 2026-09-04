@@ -22,7 +22,7 @@ if (!SourceList.P) {
 };
 
 // Adds a subclass for the Sorcerer, called "Favored Soul", but only have it added at the very end, after all cleric subclasses have been defined
-RunFunctionAtEnd(function() {
+RunFunctionAtEnd(function () {
 	var SorcererSubclassFavoredSoul = AddSubClass("sorcerer", "favored soul-ua", {
 		regExpSearch: /^(?=.*favou?red)(?=.*soul).*$/i,
 		subname: "Favored Soul",
@@ -79,7 +79,7 @@ RunFunctionAtEnd(function() {
 			var eSpells = newObj(cDomain.spellcastingExtra);
 			eSpells[100] = "AddToKnown";
 			var dSource = cDomain.source ? cDomain.source : cDomain.features["subclassfeature1"] && cDomain.features["subclassfeature1"].source ? cDomain.features["subclassfeature1"].source : [["UA:MC", 8]];
-			
+
 			var suffix = 1;
 			var entryDoNm = cDomain.subname;
 			while (FSfeat.choices.indexOf(entryDoNm) !== -1) {
@@ -140,7 +140,7 @@ ClassList["spell-less ranger"] = {
 				"I regain all superiority dice after a short rest",
 			]),
 			additional: "d8",
-			usages: levels.map( function(n) {
+			usages: levels.map( function (n) {
 				return n < 2 ? "" : n < 9 ? 4 : n < 17 ? 5 : 6;
 			}),
 			recovery: "short rest",
@@ -153,7 +153,7 @@ ClassList["spell-less ranger"] = {
 				'Use the "Choose Feature" button above to add a Maneuver to the third page',
 				"I can use a Maneuver by expending a superiority die (only one Maneuver per attack)",
 			]),
-			additional: levels.map( function(n) {
+			additional: levels.map( function (n) {
 				if (n < 2) return "";
 				return (n < 5 ? 2 : n < 9 ? 3 : n < 13 ? 4 : n < 17 ? 5 : 6) + " maneuvers known";
 			}),
@@ -294,7 +294,7 @@ ClassList["spell-less ranger"] = {
 				"The number of poultices I can have with me can't exceed my Wisdom modifier (min 1)",
 				"I can applying a poultice in 1 minute, healing a creature; Poultices last for 24 hours",
 			]),
-			additional: levels.map( function(n) {
+			additional: levels.map( function (n) {
 				if (n < 3) return "";
 				return "heals " + Math.ceil(n / 2) + "d6";
 			}),

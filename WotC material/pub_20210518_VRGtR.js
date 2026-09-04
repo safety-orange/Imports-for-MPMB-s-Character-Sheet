@@ -59,13 +59,13 @@ RaceList["dhampir"] = {
 	useFromPreviousRace: {
 		message: "If you replace a race with the Dhampir lineage, you can keep the following elements of that race:" +
 		desc(["its size,",
-		"any skill proficiencies you gained from it,",
-		"any climbing, flying, or swimming speed you gained from it, and",
-		"any languages it knows."], "\n   \u2022 ") +
+			"any skill proficiencies you gained from it,",
+			"any climbing, flying, or swimming speed you gained from it, and",
+			"any languages it knows."], "\n   \u2022 ") +
 		"\n\nIf you don't keep any of those elements or you choose this lineage at character creation, you instead:" +
 		desc(["are size Medium or Small (your choice),",
-		"gain proficiency in two skills of your choice, and",
-		"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
+			"gain proficiency in two skills of your choice, and",
+			"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
 		defaultTraits: {
 			size: [3, 4],
 			skillstxt: "Choose any two skills",
@@ -122,13 +122,13 @@ RaceList["hexblood"] = {
 	useFromPreviousRace: {
 		message: "If you replace a race with the Hexblood lineage, you can keep the following elements of that race:" +
 		desc(["its size,",
-		"any skill proficiencies you gained from it,",
-		"any climbing, flying, or swimming speed you gained from it, and",
-		"any languages it knows."], "\n   \u2022 ") +
+			"any skill proficiencies you gained from it,",
+			"any climbing, flying, or swimming speed you gained from it, and",
+			"any languages it knows."], "\n   \u2022 ") +
 		"\n\nIf you don't keep any of those elements or you choose this lineage at character creation, you instead:" +
 		desc(["are size Medium or Small (your choice),",
-		"gain proficiency in two skills of your choice, and",
-		"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
+			"gain proficiency in two skills of your choice, and",
+			"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
 		defaultTraits: {
 			size: [3, 4],
 			skillstxt: "Choose any two skills",
@@ -164,13 +164,13 @@ RaceList["reborn"] = {
 	useFromPreviousRace: {
 		message: "If you replace a race with the Reborn lineage, you can keep the following elements of that race:" +
 		desc(["its size,",
-		"any skill proficiencies you gained from it,",
-		"any climbing, flying, or swimming speed you gained from it, and",
-		"any languages it knows."], "\n   \u2022 ") +
+			"any skill proficiencies you gained from it,",
+			"any climbing, flying, or swimming speed you gained from it, and",
+			"any languages it knows."], "\n   \u2022 ") +
 		"\n\nIf you don't keep any of those elements or you choose this lineage at character creation, you instead:" +
 		desc(["are size Medium or Small (your choice),",
-		"gain proficiency in two skills of your choice, and",
-		"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
+			"gain proficiency in two skills of your choice, and",
+			"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
 		defaultTraits: {
 			size: [3, 4],
 			skillstxt: "Choose any two skills",
@@ -235,19 +235,19 @@ AddSubClass("bard", "college of spirits",{
 					"\nRoll " + (typePF ? "" : " ") + "Tale",
 				]) +
 				 desc([
-					"  1    Tale of the Clever Animal: For the next 10 minutes, whenever the target makes an Intelligence, a Wisdom, or a Charisma check, the target can roll my Bardic Inspiration die immediately after rolling the d20 and add it to the check.",
-					"  2    Tale of the Renowned Duelist: I make a melee spell attack against the target. On a hit, the target takes force damage equal to two rolls of my Bardic Inspiration die + my Charisma modifier.",
-					"  3    Tale of the Beloved Friends: The target and another creature of its choice it can see within 5 ft of it gains temporary hit points equal to a roll of my Bardic Inspiration die + my Charisma modifier.",
-					"  4    Tale of the Runaway: The target can immediately use its reaction to teleport up to 30 ft to an unoccupied space it can see. When the target teleports, it can choose a number of creatures it can see within 30 ft of it up to my Charisma modifier (minimum of 0) to immediately use the same reaction.",
-					"  5    Tale of the Avenger: For 1 minute, any creature that hits the target with a melee attack takes force damage equal to a roll of my Bardic Inspiration die.",
-					"  6    Tale of the Traveler: The target gains temporary hit points equal to a roll of my Bardic Inspiration die + my bard level. While it has these temporary hit points, the target's walking speed increases by 10 ft and it gains a +1 bonus to its AC.",
-					"  7    Tale of the Beguiler: The target must succeed on a Wisdom saving throw or take psychic damage equal to two rolls of my Bardic Inspiration die, and the target is incapacitated until the end of its next turn.",
-					"  8    Tale of the Phantom: The target becomes invisible until the end of its next turn or until it hits a creature with an attack. If the target hits a creature with an attack during this invisibility, the creature it hits takes necrotic damage equal to a roll of my Bardic Inspiration die and is frightened of the target until the end of the frightened creature's next turn.",
-					"  9    Tale of the Brute: Each creature of the target's choice it can see within 30 ft of it must make a Strength saving throw. On a failed save, a creature takes thunder damage equal to three rolls of my Bardic Inspiration die and is knocked prone. A creature that succeeds on its saving throw takes half as much damage and isn't knocked prone.",
-					" 10    Tale of the Dragon: The target spews fire from the mouth in a 30-ft cone. Each creature in that area must make a Dexterity saving throw, taking fire damage equal to four rolls of my Bardic Inspiration die on a failed save, or half as much damage on a successful one.",
-					" 11    Tale of the Angel: The target regains hit points equal to two rolls of my Bardic Inspiration die + my Charisma modifier, and I end one condition from the following list affecting the target: blinded, deafened, paralyzed, petrified, or poisoned.",
-					" 12    Tale of the Mind-Bender: I evoke an incomprehensible fable from an otherworldly being. The target must succeed on an Intelligence saving throw or take psychic damage equal to three rolls of my Bardic Inspiration die and be stunned until the end of its next turn.",
-				], "\n"),
+				 	"  1    Tale of the Clever Animal: For the next 10 minutes, whenever the target makes an Intelligence, a Wisdom, or a Charisma check, the target can roll my Bardic Inspiration die immediately after rolling the d20 and add it to the check.",
+				 	"  2    Tale of the Renowned Duelist: I make a melee spell attack against the target. On a hit, the target takes force damage equal to two rolls of my Bardic Inspiration die + my Charisma modifier.",
+				 	"  3    Tale of the Beloved Friends: The target and another creature of its choice it can see within 5 ft of it gains temporary hit points equal to a roll of my Bardic Inspiration die + my Charisma modifier.",
+				 	"  4    Tale of the Runaway: The target can immediately use its reaction to teleport up to 30 ft to an unoccupied space it can see. When the target teleports, it can choose a number of creatures it can see within 30 ft of it up to my Charisma modifier (minimum of 0) to immediately use the same reaction.",
+				 	"  5    Tale of the Avenger: For 1 minute, any creature that hits the target with a melee attack takes force damage equal to a roll of my Bardic Inspiration die.",
+				 	"  6    Tale of the Traveler: The target gains temporary hit points equal to a roll of my Bardic Inspiration die + my bard level. While it has these temporary hit points, the target's walking speed increases by 10 ft and it gains a +1 bonus to its AC.",
+				 	"  7    Tale of the Beguiler: The target must succeed on a Wisdom saving throw or take psychic damage equal to two rolls of my Bardic Inspiration die, and the target is incapacitated until the end of its next turn.",
+				 	"  8    Tale of the Phantom: The target becomes invisible until the end of its next turn or until it hits a creature with an attack. If the target hits a creature with an attack during this invisibility, the creature it hits takes necrotic damage equal to a roll of my Bardic Inspiration die and is frightened of the target until the end of the frightened creature's next turn.",
+				 	"  9    Tale of the Brute: Each creature of the target's choice it can see within 30 ft of it must make a Strength saving throw. On a failed save, a creature takes thunder damage equal to three rolls of my Bardic Inspiration die and is knocked prone. A creature that succeeds on its saving throw takes half as much damage and isn't knocked prone.",
+				 	" 10    Tale of the Dragon: The target spews fire from the mouth in a 30-ft cone. Each creature in that area must make a Dexterity saving throw, taking fire damage equal to four rolls of my Bardic Inspiration die on a failed save, or half as much damage on a successful one.",
+				 	" 11    Tale of the Angel: The target regains hit points equal to two rolls of my Bardic Inspiration die + my Charisma modifier, and I end one condition from the following list affecting the target: blinded, deafened, paralyzed, petrified, or poisoned.",
+				 	" 12    Tale of the Mind-Bender: I evoke an incomprehensible fable from an otherworldly being. The target must succeed on an Intelligence saving throw or take psychic damage equal to three rolls of my Bardic Inspiration die and be stunned until the end of its next turn.",
+				 ], "\n"),
 			}],
 		},
 		"subclassfeature6": {
@@ -708,10 +708,10 @@ MagicItemsList["nepenthe"] = {
 	prerequisite: "Requires attunement by a paladin",
 	prereqeval: function (v) { return classes.known.paladin ? true : false; },
 	description: "This sentient holy avenger longsword gives me a +3 bonus to attack and damage rolls. It does +2d10 radiant damage against fiends and undead. While holding the drawn sword, I have a 10-ft radius aura (30-ft if level 17 paladin) that grants me and my allies adv. on saves against spells and magical effects.",
-	descriptionFull: VRGtR_nepentheFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: VRGtR_nepentheFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
-		note: desc(VRGtR_nepentheFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/(to|around) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(VRGtR_nepentheFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/(to|around) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 	weaponOptions: [{
 		baseWeapon: "longsword",

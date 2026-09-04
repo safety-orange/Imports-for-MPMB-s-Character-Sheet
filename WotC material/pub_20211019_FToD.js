@@ -401,14 +401,14 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 					name: "Bond of Fang and Scale (Drakewarden 7)",
 					minlevel: 7,
 					description: "The drake is now Medium and can be ridden as a mount. It has a flying speed equal to its walking speed, but can't fly with a rider on its back. The drake's bite deals an extra 1d6 damage of its chosen Draconic Essence type.",
-					eval: function(prefix, lvl) {
+					eval: function (prefix, lvl) {
 						var sMoveStr = (typePF ? ",\n" : ", ") + "fly 40 ft";
 						if (What("Unit System") === "metric") sMoveStr = ConvertToMetric(sMoveStr, 0.5);
 						tDoc.getField(prefix + "Comp.Use.Speed").value += sMoveStr;
 						AddString(prefix + "Comp.Use.Attack.1.Description", "+1d6 damage of the chosen Draconic Essense type");
 						PickDropdown(prefix + "Comp.Desc.Size", 3); // Medium
 					},
-					removeeval: function(prefix, lvl) {
+					removeeval: function (prefix, lvl) {
 						var sMoveStr = (typePF ? ",\n" : ", ") + "fly 40 ft";
 						if (What("Unit System") === "metric") sMoveStr = ConvertToMetric(sMoveStr, 0.5);
 						Value(prefix + "Comp.Use.Speed", What(prefix + "Comp.Use.Speed").replace(sMoveStr, ""));
@@ -420,12 +420,12 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 					name: "Perfected Bond (Drakewarden 15)",
 					minlevel: 15,
 					description: "The drake is now Large and can fly while its being ridden. Its bite attack deals an extra 1d6 damage (for a total of +2d6) of its chosen Draconic Essence type.",
-					eval: function(prefix, lvl) {
+					eval: function (prefix, lvl) {
 						var sAtkFld = prefix + "Comp.Use.Attack.1.Description";
 						Value(sAtkFld, What(sAtkFld).replace(/\+\d+d6 damage of the chosen Draconic Essense type/i, "+2d6 damage of the chosen Draconic Essense type"));
 						PickDropdown(prefix + "Comp.Desc.Size", 2); // Large
 					},
-					removeeval: function(prefix, lvl) {
+					removeeval: function (prefix, lvl) {
 						var sAtkFld = prefix + "Comp.Use.Attack.1.Description";
 						Value(sAtkFld, What(sAtkFld).replace(/\+\d+d6 damage of the chosen Draconic Essense type/i, "+1d6 damage of the chosen Draconic Essense type"));
 						PickDropdown(prefix + "Comp.Desc.Size", 3); // Medium
@@ -802,7 +802,7 @@ MagicItemsList["dragonhide belt, +1, +2, or +3"] = {
 	descriptionFull: "This finely detailed belt is made of dragonhide. While wearing it, you gain a bonus to the saving throw DCs of your ki features. The bonus is determined by the belt's rarity: uncommon (+1), rare (+2), or very rare (+3). In addition, you can use an action to regain ki points equal to a roll of your Martial Arts die. You can't use this action again until the next dawn.",
 	attunement: true,
 	prerequisite: "Requires attunement by a monk",
-	prereqeval: function(v) { return classes.known.monk ? true : false; },
+	prereqeval: function (v) { return classes.known.monk ? true : false; },
 	usages: 1,
 	recovery: "dawn",
 	additional: "regain ki points",
@@ -1089,7 +1089,7 @@ MagicItemsList["ruby weave gem"] = {
 	rarity: "legendary",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "While I hold this gem, I can use it as my spellcasting focus. It has 3 charges per dawn. When I cast a spell while holding it, I can use charges to ignore 500 gp per charge of components with a gp cost. When I finish a long rest, I learn any one spell of a level I can cast until my next long rest. I can cast it using spell slots.",
 	descriptionFull: "While you are holding this gem, you can use it as a spellcasting focus for your spells." +
 	"\n   The gem has 3 charges and regains all expended charges daily at dawn. When you cast a spell while holding this gem, you can expend up to 3 charges to ignore the spell's material components with a gold piece cost, up to 500 gp per charge expended." +
@@ -1332,11 +1332,11 @@ var FToD_HoardItems = {
 			selectNow: true,
 		}],
 	},
-	dragonsWrathWeaponCreate: function() {
+	dragonsWrathWeaponCreate: function () {
 		var aTypes = [["Slumbering", "uncommon"], ["Stirring", "rare"], ["Wakened", "very rare"], ["Ascendant", "legendary"]];
 		var aDragons = [["Black", "acid"], ["Blue", "lightning"], ["Green", "poison"], ["Red", "fire"], ["White", "cold"], ["Amethyst", "force"], ["Crystal", "radiant"], ["Emerald", "psychic"], ["Sapphire", "thunder"], ["Topaz", "necrotic"], ["Brass", "fire"], ["Bronze", "lightning"], ["Copper", "acid"], ["Gold", "fire"], ["Silver", "cold"]];
 		var aVowels = ["a", "e"];
-		var sDescriptionFull = FToD_HoardItems["dragon's wrath weapon"].join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); });
+		var sDescriptionFull = FToD_HoardItems["dragon's wrath weapon"].join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); });
 		var sNotesDescription = FToD_HoardItems.to1stPerson(FToD_HoardItems["dragon's wrath weapon"]);
 		for (var t = 0; t < aTypes.length; t++) {
 			var sItemType = aTypes[t][0];
@@ -1517,7 +1517,7 @@ var FToD_HoardItems = {
 			.replace(/(by|of|to|for|on) I\b|\bI to|\bI an?\b/ig, "$1 me")
 			.replace(/\bI (to|a|an)\b/ig, "me $1")
 			.replace(/your/g, "my").replace(/Your/g, "My")
-			.replace(/   >>(.*?)( \(.*?\))?<<. /g, function(a, p1, p2) { return "\n   " + p1.toUpperCase() + p2.toLowerCase() + "\n   "; }) +
+			.replace(/   >>(.*?)( \(.*?\))?<<. /g, function (a, p1, p2) { return "\n   " + p1.toUpperCase() + p2.toLowerCase() + "\n   "; }) +
 			FToD_HoardItems.hoardMagicItems;
 	},
 }
@@ -1529,9 +1529,9 @@ MagicItemsList["dragon-touched focus"] = {
 	type: "wondrous item",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "",
-	descriptionFull: FToD_HoardItems["dragon-touched focus"].join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: FToD_HoardItems["dragon-touched focus"].join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Full Text",
 		note: FToD_HoardItems.to1stPerson(FToD_HoardItems["dragon-touched focus"]),
@@ -1631,7 +1631,7 @@ MagicItemsList["dragon vessel"] = {
 	type: "wondrous item",
 	attunement: true,
 	description: "As a bonus action once per dawn, if this magical container is empty, I can speak the command word to fill the vessel with one liquid of my choice. The list of options depends on the level and rarity of the item.",
-	descriptionFull: FToD_HoardItems["dragon vessel"].join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: FToD_HoardItems["dragon vessel"].join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Full Text",
 		note: FToD_HoardItems.to1stPerson(FToD_HoardItems["dragon vessel"]),
@@ -1670,7 +1670,7 @@ MagicItemsList["scaled ornament"] = function (n) {
 		type: "wondrous item",
 		attunement: true,
 		description: "This ornament can be jewelry, a cloak, or another wearable accessory. It appears to be fashioned from a dragon's scale, tooth, or claw, or it incorporates images in those shapes.",
-		descriptionFull: FToD_HoardItems["scaled ornament"].join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+		descriptionFull: FToD_HoardItems["scaled ornament"].join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 		toNotesPage: [{
 			name: "Full Text",
 			note: FToD_HoardItems.to1stPerson(FToD_HoardItems["scaled ornament"]),

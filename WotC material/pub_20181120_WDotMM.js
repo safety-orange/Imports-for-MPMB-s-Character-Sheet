@@ -108,7 +108,7 @@ MagicItemsList["black crystal tablet"] = { // contains contributions by Pengslot
 	descriptionFull: "Any creature that attunes to the tablet must make a DC 20 Wisdom saving throw at the end of its next long rest. On a failed save, the creature becomes afflicted with a random form of long-term madness (see \"Madness\" in chapter 8 of the Dungeon Master's Guide).\n   As an action, a creature attuned to the Black Crystal Tablet can use it to cast Eyebite or Gate (the portal created by this spell links to the Far Realm only). After the tablet is used to cast a spell, it cannot be used again until the next dawn.",
 	attunement: true,
 	prerequisite: "Requires attunement by a creature that has proficiency in the arcana skill",
-	prereqeval: function(v) { return v.skillProfs.indexOf("Arcana") !== -1; },
+	prereqeval: function (v) { return v.skillProfs.indexOf("Arcana") !== -1; },
 	usages: 1,
 	recovery: "dawn",
 	spellFirstColTitle: "Ch",
@@ -300,7 +300,7 @@ MagicItemsList["tearulai"] = { // contains contributions by Pengsloth
 	].join("\n   "),
 	attunement: true,
 	prerequisite: "Requires attunement by a creature of non-evil alignment",
-	prereqeval: function(v) { return !/evil/i.test(What("Alignment")); },
+	prereqeval: function (v) { return !/evil/i.test(What("Alignment")); },
 	weight: 3,
 	weaponOptions: [{
 		baseWeapon: "longsword",

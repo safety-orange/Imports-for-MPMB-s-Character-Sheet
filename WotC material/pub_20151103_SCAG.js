@@ -306,7 +306,7 @@ AddRacialVariant("tiefling", "winged", {
 	spellcastingAbility: "",
 	spellcastingBonus: "",
 });
-RunFunctionAtEnd(function() {
+RunFunctionAtEnd(function () {
 	if (!RaceList.tiefling) return;
 	var tRace = {
 		objname: "feral tiefling",
@@ -327,7 +327,7 @@ RunFunctionAtEnd(function() {
 		RaceList[tRace.objname][rFea] = tRace[rFea];
 	};
 	// Create feral tiefling variants
-	RaceList[tRace.objname].variants.forEach( function(nVar) {
+	RaceList[tRace.objname].variants.forEach( function (nVar) {
 		RaceSubList[tRace.objname + "-" + nVar] = newObj(RaceSubList["tiefling-" + nVar]);
 		var thisVar = RaceSubList[tRace.objname + "-" + nVar];
 		thisVar.trait = thisVar.trait.replace(tRace.replaceTraitTxt[0], tRace.replaceTraitTxt[1]);
@@ -378,7 +378,7 @@ AddSubClass("barbarian", "battlerager", {
 				selectNow: true,
 			}],
 			weaponProfs: [false, false, ["armor spikes"]],
-			eval: function() {
+			eval: function () {
 				AddString("Proficiency Armor Other Description", "Spiked Armor", ", ");
 			},
 			removeeval: function () {
@@ -453,7 +453,7 @@ AddSubClass("cleric", "arcana domain", {
 			]),
 			calcChanges: {
 				spellAdd: [
-					function (spellKey, spellObj, spName) {							
+					function (spellKey, spellObj, spName) {
 						var startDescr = spellObj.description;
 						switch (spellKey) {
 							case "mass heal" :
@@ -1521,7 +1521,7 @@ if (!FeatsList["svirfneblin magic"]) {
 		name: "Svirfneblin Magic",
 		source: [["E", 7], ["S", 115], ["MToF", 114]],
 		prerequisite: "Being a Svirfneblin (Deep Gnome)",
-		prereqeval: function(v) { return CurrentRace.known === "deep gnome"; },
+		prereqeval: function (v) { return CurrentRace.known === "deep gnome"; },
 		descriptionFull: "You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast Nondetection on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: Blindness/Deafness, Blur, and Disguise Self. You regain the ability to cast these spells when you finish a long rest.\n   Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
 		description: "I can cast Nondetection on myself at will, without a material component. I can also cast the spells Blindness/Deafness, Blur, and Disguise Self once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
 		spellcastingBonus: [{

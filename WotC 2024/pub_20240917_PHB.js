@@ -5,14 +5,14 @@ RequiredSheetVersion("24.0.9-beta");
 /* Star characters that work well on the sheet
  https://symbl.cc/en/unicode-table/#dingbats
  ★  "\u2605"	Star (five-point)			Monk
- ✦  "\u2726"	Four-point star				
+ ✦  "\u2726"	Four-point star
  ✱  "\u2731"	Heavy Asterisk (very similar to six-point star at a distance)
  ✶  "\u2736"	Six-point star				Sorcerer
  ✸  "\u2738"	Heavy Eight-point star		Wizard
  ❋  "\u274B"	Heavy Eight Teardrop-Spoked Propeller Asterisk
  ✽  "\u273D"	Heavy Teardrop-Spoked Asterisk	Ranger
  ♥  "\u2665"	Heart Suit
- ♦  "\u2666"	Diamond Suit				
+ ♦  "\u2666"	Diamond Suit
  ♪  "\u266A"	Eight Note					Bard
  */
 
@@ -465,13 +465,13 @@ AddSubClass("cleric", "light", {
 			name: "Radiance of the Dawn",
 			source: [["PHB24", 74]],
 			minlevel: 3,
-			description: levels.map(function(n) {
+			description: levels.map(function (n) {
 				return desc(
 					"As a Magic action, I can use 1 CD and my Holy Symbol to emit a 30-ft Emanation of light that dispels magical Darkness within. Creatures of my choice in that area take 2d10 + " + n + " (Cleric level) Radiant damage. They can make a Constitution save to halve the damage."
 				);
 			}),
 			spellcastingExtra: ["burning hands", "faerie fire", "scorching ray", "see invisibility", "daylight", "fireball", "arcane eye", "wall of fire", "flame strike", "scrying"],
-			additional: levels.map(function(n) {
+			additional: levels.map(function (n) {
 				return "1 Channel Divinity; 2d10+" + n;
 			}),
 			action: [["action", " (Channel Divinity)"]],
@@ -480,11 +480,11 @@ AddSubClass("cleric", "light", {
 			name: "Warding Flame",
 			source: [["PHB24", 74]],
 			minlevel: 3,
-			description: levels.map(function(n) {
-				return desc(
-					n < 6 ?
+			description: levels.map(function (n) {
+				return desc(n < 6 ?
 					"As a Reaction when a creature that I can see within 30 ft makes an attack, I can impose Disadvantage on the roll, causing light to flare before it hits or misses."
-					: "As a Reaction when a creature that I can see within 30 ft makes an attack, I can impose Disadvantage on the roll and grant its target 2d6 + my Wisdom modifier Temporary HP."
+					:
+					"As a Reaction when a creature that I can see within 30 ft makes an attack, I can impose Disadvantage on the roll and grant its target 2d6 + my Wisdom modifier Temporary HP."
 				);
 			}),
 			action: [["reaction", ""]],
@@ -533,7 +533,7 @@ AddSubClass("cleric", "trickery", {
 			name: "Invoke Duplicity",
 			source: [["PHB24", 75]],
 			minlevel: 3,
-			description: levels.map(function(n) {
+			description: levels.map(function (n) {
 				var txt = [
 					"As a Bonus Action, I can expend a Channel Divinity to create a perfect visual illusionary duplicate of myself (VID) in an unoccupied space that I can see within 30 ft.",
 					"The VID is intangible, doesn't occupy its space, is animated, and mimics my expressions and gestures. The VID lasts for 1 minute or until I dismiss it (no action) or I'm Incapacitated.",
@@ -680,17 +680,17 @@ AddSubClass("druid", "moon", {
 			autoSelectExtrachoices: [{
 				extrachoice: "wild shape rules",
 			}],
-			eval: function() {
+			eval: function () {
 				// Remove the Wild Shape Rules set by the default Wild Shape feature so they can be replaced by the ones from this feature
 				ClassFeatureOptions(["druid", "wild shape", "wild shape rules", true], "remove");
 			},
-			removeeval: function(lvlA) {
+			removeeval: function (lvlA) {
 				// Return the Wild Shape Rules from the default Wild Shape feature as the ones from this feature are removed, but the new level is still 2 or higher
 				if (lvlA[1] >= 2) ClassFeatureOptions(["druid", "wild shape", "wild shape rules", true], "add");
 			},
 			calcChanges: {
 				wildshapeCallback: [
-					function(prefix, fieldNo, oWildshape, sCrea) {
+					function (prefix, fieldNo, oWildshape, sCrea) {
 						oWildshape.acOptions.push({
 							name: "Circle of the Moon: Circle Forms",
 							ac: "13+Wis",
@@ -714,7 +714,7 @@ AddSubClass("druid", "moon", {
 			description: desc("While in Wild Shape form, I gain ***Lunar Radiance***: my attacks can deal Radiant damage, and ***Increased Toughness***: I add my Wisdom modifier to my Constitution saving throws."),
 			calcChanges: {
 				wildshapeCallback: [
-					function(prefix, fieldNo, oWildshape, sCrea) {
+					function (prefix, fieldNo, oWildshape, sCrea) {
 						oWildshape.save.Con.creature.bonus += "+Wis";
 						if (!classes.known.druid) return;
 						var regularLunarRadiance = classes.known.druid.level < 14;
@@ -2054,7 +2054,7 @@ var PHB_BeastMaster = {
 			minlevel: 7,
 			description: "(Beast Master 7). As a Bonus Action if commanded to do so, the beast can take the Dash, Disengage, Dodge, or Help action. Its attacks can deal Force damage" + (typePF ? " instead of their normal damage type." : "."),
 			joinString: " ",
-			eval: function(prefix, lvl) {
+			eval: function (prefix, lvl) {
 				var field = prefix + "Comp.Use.Attack.1.Damage Type";
 				var currentVal = What(field);
 				if (/force/i.test(currentVal)) return;
@@ -2063,7 +2063,7 @@ var PHB_BeastMaster = {
 					.replace("Bludg./Pierc.", "B/P");
 				Value(field, newVal);
 			},
-			removeeval: function(prefix, lvl) {
+			removeeval: function (prefix, lvl) {
 				var field = prefix + "Comp.Use.Attack.1.Damage Type";
 				var currentVal = What(field);
 				if (!/force/i.test(currentVal)) return;
@@ -2079,10 +2079,10 @@ var PHB_BeastMaster = {
 			minlevel: 11,
 			description: "(Beast Master 11). When commanded to do a Beast's Strike, the beast can make two Beast's Strikes. Once per turn, the beast can benefit from its master's *Hunter's Mark* bonus damage when it attacks a creature affected by that spell.",
 			joinString: " ",
-			eval: function(prefix, lvl) {
+			eval: function (prefix, lvl) {
 				Value(prefix + "Comp.Use.Attack.perAction", 2);
 			},
-			removeeval: function(prefix, lvl) {
+			removeeval: function (prefix, lvl) {
 				Value(prefix + "Comp.Use.Attack.perAction", 1);
 			},
 		}],
@@ -2263,7 +2263,7 @@ AddSubClass("ranger", "fey wanderer", {
 				],
 			},
 		},
-		"subclassfeature3.1": function() {
+		"subclassfeature3.1": function () {
 			var choices = ["Deception", "Performance", "Persuasion"];
 			var addMods = choices.concat(["Intimidation"]);
 			var a = {
@@ -2322,7 +2322,7 @@ AddSubClass("ranger", "fey wanderer", {
 					compMaterial: "",
 					duration: "1min/conc,1h",
 					description: "Chosen Fey Spirit; obeys verbal commands; takes turn after mine; vanishes at 0 HP; see book",
-					changes: "I can cast Summon Fey without a Material component. I can also choose to cast it in a way that it doesn't require concentration, but then it has a duration of 1 minute. Once per Long Rest, I can cast it without expending a spell slot.",
+					changes: "I can cast *Summon Fey* without a Material component. I can also choose to cast it in a way that it doesn't require concentration, but then it has a duration of 1 minute. Once per Long Rest, I can cast it without expending a spell slot.",
 					firstCol: "oncelr+markedbox",
 				},
 			},
@@ -2424,7 +2424,7 @@ AddSubClass("ranger", "gloom stalker", {
 				name: "Iron Mind: Intelligence",
 				description: desc("I gain proficiency with Intelligence saves."),
 				saves: ["Int"],
-				prereqeval: function() {
+				prereqeval: function () {
 					var oField = tDoc.getField("Wis ST Prof");
 					if (!oField.isBoxChecked(0) || !oField.userName) return false;
 					var otherSources = oField.userName.replace(/[\n\r]+.*\bIron Mind\b.*/ig, "").match(/\n/g);
@@ -2435,7 +2435,7 @@ AddSubClass("ranger", "gloom stalker", {
 				name: "Iron Mind: Charisma",
 				description: desc("I gain proficiency with Charisma saves."),
 				saves: ["Cha"],
-				prereqeval: function() {
+				prereqeval: function () {
 					var oField = tDoc.getField("Wis ST Prof");
 					if (!oField.isBoxChecked(0) || !oField.userName) return false;
 					var otherSources = oField.userName.replace(/[\n\r]+.*\bIron Mind\b.*/ig, "").match(/\n/g);
@@ -2581,7 +2581,7 @@ AddSubClass("rogue", "assassin", {
 			minlevel: 3,
 			description: desc("I gain a Disguise Kit and a Poisoner's Kit and have proficiency with them."),
 			toolProfs: ["Disguise Kit", "Poisoner's Kit"],
-			eval: function() {
+			eval: function () {
 				// Perhaps first ask the user if they want these added and include a warning that they aren't automatically removed when this feature is removed...
 				[ToolsList["disguise kit"], ToolsList["poisoner's kit"]].forEach(function (kit) {
 					AddToInv("gear", "l", kit.name, "", kit.weight);
@@ -3419,7 +3419,7 @@ AddSubClass("wizard", "abjurer", {
 							spellObj.description = spellObj.description.replace("check DC", "check with +" + profB + " (PB) DC");
 						};
 					},
-					"My Spell Breaker class feature allows me to cast Dispel Magic as a Bonus Action and add my Proficiency Bonus to its ability check. This is reflected in the short description by removing the Proficiency Bonus from the base 10 of the DC.",
+					"My Spell Breaker class feature allows me to cast *Dispel Magic* as a Bonus Action and add my Proficiency Bonus to its ability check. This is reflected in the short description by removing the Proficiency Bonus from the base 10 of the DC.",
 				],
 			},
 		},
@@ -4211,13 +4211,13 @@ BackgroundList["sailor"] = {
 	toolProfs: [["Navigator's Tools", "Wis"]],
 	gold: 20,
 	equipleft: [
-	  ["Navigator's tools", "", 2],
-	  ["Rope", "", 5],
+		["Navigator's tools", "", 2],
+		["Rope", "", 5],
 	],
 	equipright: [
-	  ["Traveler's clothes", "", 4],
-	  ["Belt pouch (with coins)", "", 1],
-	  ["Dagger", "", 1],
+		["Traveler's clothes", "", 4],
+		["Belt pouch (with coins)", "", 1],
+		["Dagger", "", 1],
 	],
 	equip1stPage: {
 		weapons: ["Dagger"],
@@ -4381,7 +4381,7 @@ RaceList["aasimar"] = {
 			usages: 1,
 			recovery: "long rest",
 			action: [["action", ""]],
-			additional: ProficiencyBonusList.map(function(n) { return n + "d4 healing"; }),
+			additional: ProficiencyBonusList.map(function (n) { return n + "d4 healing"; }),
 		},
 		"celestial revelation": {
 			name: "Celestial Revelation",
@@ -4389,7 +4389,7 @@ RaceList["aasimar"] = {
 			minlevel: 3,
 			usages: 1,
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) { return "+" + n + " damage"; }),
+			additional: ProficiencyBonusList.map(function (n) { return "+" + n + " damage"; }),
 			action: [["bonus action", ""]],
 			toNotesPage: [{
 				name: "Celestial Revelation",
@@ -6677,7 +6677,7 @@ SpellsList["crown of madness"] = {
 	components: "V,S",
 	duration: "Conc, 1 min",
 	save: "Wis",
-	description: "1 humanoid save or Charmed \x26 melee atk chosen crea before move; Act to keep; repeat save turn's end",
+	description: "1 Humanoid save or Charmed \x26 melee atk chosen crea before move; Act to keep; repeat save turn end",
 	descriptionFull: [
 		"One creature that you can see within range must succeed on a Wisdom saving throw or have the Charmed condition for the duration. The creature succeeds automatically if it isn't Humanoid.",
 		"A spectral crown appears on the Charmed target's head, and it must use its action before moving on each of its turns to make a melee attack against a creature other than itself that you mentally choose. The target can act normally on its turn if you choose no creature or if no creature is within its reach. The target repeats the save at the end of each of its turns, ending the spell on itself on a success.",
@@ -6801,7 +6801,7 @@ SpellsList["fount of moonlight-1-reaction"] = {
 	description: "Reaction if crea I can see within 60 ft damages me: save or Blinded until the end of my next turn",
 	descriptionFull: [
 		"Immediately after you take damage from a creature you can see within 60 feet of yourself, you can take a Reaction to force the creature to make a Constitution saving throw. On a failed save, the creature has the Blinded condition until the end of your next turn.",
-		"This is an option of the Fount of Moonlight spell, see the line above for its full description.",
+		"This is an option of the *Fount of Moonlight* spell, see the line above for its full description.",
 	],
 	dynamicDamageBonus: {
 		doNotProcess: true, // sheet makes mistake because "damage" comes after a numerical
@@ -7030,7 +7030,7 @@ SpellsList["summon aberration"] = {
 	duration: "Conc, 1 h",
 	description: "Chosen Aberrant spirit; obeys verbal commands; takes turn after mine; vanishes at 0 HP; see B (400gp)",
 	descriptionFull: [
-		"You call forth an aberrant spirit. It manifests in an unoccupied space that you can see within range and uses the Aberrant Spirit stat block. When you cast the spell, choose Beholderkin, Mind Flayer, or Slaad. The creature resembles an Aberration of that kind, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.",
+		"You call forth an aberrant spirit. It manifests in an unoccupied space that you can see within range and uses the **Aberrant Spirit** stat block. When you cast the spell, choose Beholderkin, Mind Flayer, or Slaad. The creature resembles an Aberration of that kind, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.",
 		"The creature is an ally to you and your allies. In combat, it shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.",
 		UsingHigherLvl + "Use the spell slot's level for the spell's level in the stat block.",
 	],
@@ -7049,7 +7049,7 @@ SpellsList["summon beast"] = {
 	duration: "Conc, 1 h",
 	description: "Chosen Bestial Spirit; obeys verbal commands; takes turn after mine; vanishes at 0 HP; see B (200gp)",
 	descriptionFull: [
-		"You call forth a bestial spirit. It manifests in an unoccupied space that you can see within range and uses the Bestial Spirit stat block. When you cast the spell, choose an environment: Air, Land, or Water. The creature resembles an animal of your choice that is native to the chosen environment, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.",
+		"You call forth a bestial spirit. It manifests in an unoccupied space that you can see within range and uses the **Bestial Spirit** stat block. When you cast the spell, choose an environment: Air, Land, or Water. The creature resembles an animal of your choice that is native to the chosen environment, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.",
 		"The creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.",
 		UsingHigherLvl + "Use the spell slot's level for the spell's level in the stat block.",
 	],
@@ -7068,7 +7068,7 @@ SpellsList["summon celestial"] = {
 	duration: "Conc, 1 h",
 	description: "Chosen Celestial Spirit; obeys verbal commands; takes turn after mine; vanishes at 0 HP; see B (500gp)",
 	descriptionFull: [
-		"You call forth a Celestial spirit. It manifests in an angelic form in an unoccupied space that you can see within range and uses the Celestial Spirit stat block. When you cast the spell, choose Avenger or Defender. Your choice determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.",
+		"You call forth a Celestial spirit. It manifests in an angelic form in an unoccupied space that you can see within range and uses the **Celestial Spirit** stat block. When you cast the spell, choose Avenger or Defender. Your choice determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.",
 		"The creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.",
 		UsingHigherLvl + "Use the spell slot's level for the spell's level in the stat block.",
 	],
@@ -7087,7 +7087,7 @@ SpellsList["summon construct"] = {
 	duration: "Conc, 1 h",
 	description: (typePF ? "C" : "c") + "hosen Construct " + (typePF ? "S" : "s") + "pirit; obeys verbal commands; takes turn after mine; vanishes at 0 HP; see B (400gp)",
 	descriptionFull: [
-		"You call forth the spirit of a Construct. It manifests in an unoccupied space that you can see within range and uses the Construct Spirit stat block. When you cast the spell, choose a material: Clay, Metal, or Stone. The creature resembles an animate statue (you determine the appearance) made of the chosen material, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.",
+		"You call forth the spirit of a Construct. It manifests in an unoccupied space that you can see within range and uses the **Construct Spirit** stat block. When you cast the spell, choose a material: Clay, Metal, or Stone. The creature resembles an animate statue (you determine the appearance) made of the chosen material, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.",
 		"The creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.",
 		UsingHigherLvl + "Use the spell slot's level for the spell's level in the stat block.",
 	],
@@ -7106,7 +7106,7 @@ SpellsList["summon elemental"] = {
 	duration: "Conc, 1 h",
 	description: (typePF ? "C" : "c") + "hosen Elemental " + (typePF ? "S" : "s") + "pirit; obeys verbal commands; takes turn after mine; vanishes at 0 HP; see B (400gp)",
 	descriptionFull: [
-		"You call forth an Elemental spirit. It manifests in an unoccupied space that you can see within range and uses the Elemental Spirit stat block. When you cast the spell, choose an element: Air, Earth, Fire, or Water. The creature resembles a bipedal form wreathed in the chosen element, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.",
+		"You call forth an Elemental spirit. It manifests in an unoccupied space that you can see within range and uses the **Elemental Spirit** stat block. When you cast the spell, choose an element: Air, Earth, Fire, or Water. The creature resembles a bipedal form wreathed in the chosen element, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.",
 		"The creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.",
 		UsingHigherLvl + "Use the spell slot's level for the spell's level in the stat block.",
 	],
@@ -7125,7 +7125,7 @@ SpellsList["summon fey"] = {
 	duration: "Conc, 1 h",
 	description: "Chosen Fey Spirit; obeys verbal commands; takes turn after mine; vanishes at 0 HP; see B (300gp)",
 	descriptionFull: [
-		"You call forth a Fey spirit. It manifests in an unoccupied space that you can see within range and uses the Fey Spirit stat block. When you cast the spell, choose a mood: Fuming, Mirthful, or Tricksy. The creature resembles a Fey creature of your choice marked by the chosen mood, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.",
+		"You call forth a Fey spirit. It manifests in an unoccupied space that you can see within range and uses the **Fey Spirit** stat block. When you cast the spell, choose a mood: Fuming, Mirthful, or Tricksy. The creature resembles a Fey creature of your choice marked by the chosen mood, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.",
 		"The creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.",
 		UsingHigherLvl + "Use the spell slot's level for the spell's level in the stat block.",
 	],
@@ -7144,7 +7144,7 @@ SpellsList["summon fiend"] = {
 	duration: "Conc, 1 h",
 	description: "Chosen Fiend Spirit; obeys verbal commands; takes turn after mine; vanishes at 0 HP; see B (600gp)",
 	descriptionFull: [
-		"You call forth a fiendish spirit. It manifests in an unoccupied space that you can see within range and uses the Fiendish Spirit stat block. When you cast the spell, choose Demon, Devil, or Yugoloth. The creature resembles a Fiend of the chosen type, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.",
+		"You call forth a fiendish spirit. It manifests in an unoccupied space that you can see within range and uses the **Fiendish Spirit** stat block. When you cast the spell, choose Demon, Devil, or Yugoloth. The creature resembles a Fiend of the chosen type, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.",
 		"The creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.",
 		UsingHigherLvl + "Use the spell slot's level for the spell's level in the stat block.",
 	],
@@ -7163,7 +7163,7 @@ SpellsList["summon undead"] = {
 	duration: "Conc, 1 h",
 	description: "Chosen Undead Spirit; obeys verbal commands; takes turn after mine; vanishes at 0 HP; see B (300gp)",
 	descriptionFull: [
-		"You call forth an Undead spirit. It manifests in an unoccupied space that you can see within range and uses the Undead Spirit stat block. When you cast the spell, choose the creature's form: Ghostly, Putrid, or Skeletal. The spirit resembles an Undead creature with the chosen form, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.",
+		"You call forth an Undead spirit. It manifests in an unoccupied space that you can see within range and uses the **Undead Spirit** stat block. When you cast the spell, choose the creature's form: Ghostly, Putrid, or Skeletal. The spirit resembles an Undead creature with the chosen form, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.",
 		"The creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.",
 		UsingHigherLvl + "Use the spell slot's level for the spell's level in the stat block.",
 	],
@@ -7216,7 +7216,7 @@ SpellsList["tasha's bubbling cauldron"] = {
 	description: "Conjure immobile pot with spell mod of (un)common potion; Bns to take 1, lasting till recast (500 gp)",
 	descriptionFull: [
 		"You conjure a claw-footed cauldron filled with bubbling liquid. The cauldron appears in an unoccupied space on the ground within 5 feet of you and lasts for the duration. The cauldron can't be moved and disappears when the spell ends, along with the bubbling liquid inside it.",
-		"The liquid in the cauldron duplicates the properties of a Common or an Uncommon potion of your choice (such as a Potion of Healing). As a Bonus Action, you or an ally can reach into the cauldron and withdraw one potion of that kind. The potion is contained in a vial that disappears when the potion is consumed. The cauldron can produce a number of these potions equal to your spellcasting ability modifier (minimum 1). When the last of these potions is withdrawn from the cauldron, the cauldron disappears, and the spell ends.",
+		"The liquid in the cauldron duplicates the properties of a Common or an Uncommon potion of your choice (such as a *Potion of Healing*). As a Bonus Action, you or an ally can reach into the cauldron and withdraw one potion of that kind. The potion is contained in a vial that disappears when the potion is consumed. The cauldron can produce a number of these potions equal to your spellcasting ability modifier (minimum 1). When the last of these potions is withdrawn from the cauldron, the cauldron disappears, and the spell ends.",
 		"Potions obtained from the cauldron that aren't consumed disappear when you cast this spell again.",
 	],
 };
@@ -7396,7 +7396,7 @@ SpellsList["yolande's regal presence"] = {
 /** Create the Aberrant Sorcerer's "Psionic Spells" feature description
  * This can only be done after all the spells have been defined
  */
-(function() {
+(function () {
 	var subclass = ClassSubList[PHB_AberrantSorcerer];
 	var extraSpells = subclass.features.subclassfeature3.spellcastingExtra;
 	var feature = subclass.features.subclassfeature3["psionic spells"];

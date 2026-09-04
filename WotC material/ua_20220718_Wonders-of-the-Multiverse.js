@@ -474,7 +474,7 @@ FeatsList["agent of order-ua"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase an ability score of your choice by 1, to a maximum of 20." +
 	"\n   " + toUni("Stasis Strike") + ". Once per turn when you damage a creature you can see within 60 feet of yourself, you can deal an extra 1d8 force damage to the target, and it must succeed on a Wisdom saving throw (DC equal to 8 + your proficiency bonus + the modifier of the ability score increased by this feat) or be restrained by spectral bindings until the start of your next turn. These bindings manifest as chains, gears, encasing stone, or some other symbol of stasis. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th-level, Scion of the Outer Planes (Lawful Outer Plane) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes-ua");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "lawful outer plane (radiant, guidance)";
 	},
@@ -515,7 +515,7 @@ FeatsList["baleful scion-ua"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase an ability score of your choice by 1, to a maximum of 20." +
 	"\n   " + toUni("Life-Draining Grasp") + ". Once per turn, when you hit a creature with a melee weapon attack, you can also deal necrotic damage to it. The damage equals 1d6 + your proficiency bonus, and you regain a number of hit points equal to this necrotic damage dealt. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th-level, Scion of the Outer Planes (Evil Outer Plane) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes-ua");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "evil outer plane (necrotic, chill touch)";
 	},
@@ -538,7 +538,7 @@ FeatsList["cohort of chaos-ua"] = {
 	"\n  4\tWailing Winds: Howling winds swirl around you in a 60-foot radius. You and any creature in that radius has disadvantage on Wisdom saving throws." +
 	"\n\n   You can also forcibly release a chaotic flare as a bonus action, rolling on the table as normal to determine the effects. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th-level, Scion of the Outer Planes (Chaotic Outer Plane) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes-ua");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "chaotic outer plane (necrotic, minor illusion)";
 	},
@@ -569,7 +569,7 @@ FeatsList["outlands envoy-ua"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase an ability score of your choice by 1, to a maximum of 20." +
 	"\n   " + toUni("Crossroads Emissary") + ". You learn the misty step and tongues spells. You can cast each spell once using this feat without a spell slot, and you must finish a long rest before you can cast that spell in this way again. When you cast tongues using this feat, you require no material components. You can also cast these spells using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gained the Scion of the Outer Planes feat.",
 	prerequisite: "4th-level, Scion of the Outer Planes feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return v.characterLevel >= 4 && CurrentFeats.known.indexOf("scion of the outer planes-ua") !== -1;
 	},
 	scorestxt: "+1 to one ability score of your choice",
@@ -598,7 +598,7 @@ FeatsList["planar wanderer-ua"] = {
 	"\n   " + toUni("Portal Cracker") + ". Your experience with portals allows you to operate them without the proper portal key. As an action, you can concentrate on a portal you're aware of that is within 5 feet of you and make a DC 20 Wisdom (Survival) check. On a failure, you take 3d8 force damage and you can't use this feature on that portal again until you finish a long rest. On a success, you can force the portal open or closed for 1 hour. For that duration, a portal closed in this way doesn't respond to its portal key unless a creature employing the key succeeds on a DC 20 Intelligence (Arcana) check as an action." +
 	"\n   " + toUni("Portal Sense") + ". You know the direction to the last planar portal you used while you and the portal are on the same plane. Moreover, as an action, you can detect the location of any portals within 30 feet of you that aren't behind total cover. Once you detect a portal with this action, you can't use the action again until you finish a long rest.",
 	prerequisite: "4th-level, Scion of the Outer Planes feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return v.characterLevel >= 4 && CurrentFeats.known.indexOf("scion of the outer planes-ua") !== -1;
 	},
 	dmgres: ["Acid/Cold/Fire"],
@@ -633,7 +633,7 @@ FeatsList["righteous heritor-ua"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase an ability score of your choice by 1, to a maximum of 20." +
 	"\n   " + toUni("Soothe Pain") + ". When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to dull its suffering and reduce the damage it takes by 1d10 + your proficiency bonus. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th-level, Scion of the Outer Planes (Good Outer Plane) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes-ua");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "good outer plane (radiant, sacred flame)";
 	},
@@ -693,7 +693,7 @@ FeatsList["ember of the fire giant-ua2"] = {
 	"\n   " + toUni("Born of Flame") + ". You have resistance to fire damage." +
 	"\n   " + toUni("Searing Ignition") + ". When you take the Attack action on your turn, you can replace a single attack with a magical burst of flame. Each creature of your choice within 15 feet of you that can see you must make a Dexterity saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, a creature takes fire damage equal to 1d8 + your proficiency bonus, and it is blinded until the start of your next turn. On a successful save, the creature takes half as much damage and isn't blinded. You can use your Searing Ignition a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th-level, Strike of the Giants (Fire Giant) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("strike of the giants-ua");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "fire giant";
 	},
@@ -766,7 +766,7 @@ FeatsList["fury of the frost giant-ua2"] = {
 	"\n   " + toUni("Born of Ice") + ". You have resistance to cold damage." +
 	"\n   " + toUni("Frigid Retaliation") + ". Immediately after a creature you can see within 30 feet of you hits you with an attack roll and deals damage, you can use your reaction to retaliate with a conjured blast of ice. The creature must make a Constitution saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, it takes 1d8 + your proficiency bonus cold damage, and its speed is halved until the end of its next turn. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th-level, Strike of the Giants (Frost Giant) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("strike of the giants-ua");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "frost giant";
 	},
@@ -797,7 +797,7 @@ FeatsList["guile of the cloud giant-ua2"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20." +
 	"\n   " + toUni("Cloudy Escape") + ". When a creature you can see hits you with an attack roll, you can use your reaction to give yourself resistance to that attack's damage. You then teleport to an unoccupied space that you can see within 30 feet of yourself. You can use this reaction a number of times equal to half your proficiency bonus (rounded up), and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th-level, Strike of the Giants (Cloud Giant) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("strike of the giants-ua");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "cloud giant";
 	},
@@ -816,7 +816,7 @@ FeatsList["keenness of the stone giant-ua2"] = {
 	"\n   " + toUni("Stone Throw") + ". As a bonus action, you can touch a rock that can fit in the palm of your hand and imbue it with magic. While the rock is imbued with magic and you are wielding it, the rock is a magic ranged weapon with which you're proficient, and it has the thrown property with a normal range of 60 feet and a long range of 180 feet. On a hit, the rock deals 1d10 bludgeoning damage, and if the target is a creature, it must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat) or be knocked prone. The magic remains in the rock until you hit with it or finish a long rest. You can imbue a number of rocks equal to your proficiency bonus with this bonus action, and you regain all expended uses when you finish a long rest." +
 	"\n   " + toUni("Cavernous Sight") + ". You gain darkvision out to a range of 60 feet. If you already have darkvision from another source, its range increases by 60 feet.",
 	prerequisite: "4th-level, Strike of the Giants (Stone Giant) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("strike of the giants-ua");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "stone giant";
 	},
@@ -885,7 +885,7 @@ FeatsList["soul of the storm giant-ua2"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20." +
 	"\n   " + toUni("Maelstrom Aura") + ". As a bonus action, you surround yourself in an aura of magical wind and lightning that extends 10 feet from you in every direction but not through total cover. The aura lasts until the start of your next turn or until you are incapacitated. While the aura is active, attack rolls against you have disadvantage, and whenever a creature starts its turn within the aura, you can force the creature to make a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the creature's speed is halved until the start of its next turn. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th-level, Strike of the Giants (Storm Giant) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("strike of the giants-ua");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "storm giant";
 	},
@@ -916,7 +916,7 @@ FeatsList["vigor of the hill giant-ua2"] = {
 	"\n   " + toUni("Bulwark") + ". When you are subjected to an effect that would move you at least 5 feet or knock you prone, you can use your reaction to steady yourself. You are then neither moved nor knocked prone." +
 	"\n   " + toUni("Iron Stomach") + ". Whenever you eat food as part of a short rest and spend one or more Hit Dice to regain hit points, you regain additional hit points equal to your Constitution modifier + your proficiency bonus.",
 	prerequisite: "4th-level, Strike of the Giants (Hill Giant) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("strike of the giants-ua");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "hill giant";
 	},
@@ -1004,13 +1004,13 @@ FeatsList["rune carver adept-ua2"] = {
 		"You can invoke runic power a number of times equal to your proficiency bonus, but no more than once per spell you cast. You regain all expended uses when you finish a long rest.",
 	]),
 	prerequisite: "4th-level, Rune Carver Apprentice feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return v.characterLevel >= 4 && CurrentFeats.known.indexOf("rune carver apprentice-ua2") !== -1;
 	},
 	usages: "Proficiency bonus per ",
 	usagescalc: "event.value = How('Proficiency Bonus');",
 	recovery: "long rest",
-	selfChoosing: function() {
+	selfChoosing: function () {
 		if (CurrentSpells["rune carver apprentice-ua2"] && !isNaN(CurrentSpells["rune carver apprentice-ua2"].ability)) {
 			return AbilityScores.names[CurrentSpells["rune carver apprentice-ua2"].ability - 1].toLowerCase();
 		}

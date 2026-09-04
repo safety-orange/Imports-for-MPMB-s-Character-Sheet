@@ -35,17 +35,17 @@ CreatureList["giant crayfish"] = {
 	proficiencyBonus: 2,
 	attacksAction: 2,
 	attacks: [{
-			name: "Claw",
-			ability: 1,
-			damage: [1, 10, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range: "Melee (5 ft)",
-			description: "Target grappled on hit (escape DC 12); 2 claw attacks as Attack action, if not grappling with claw",
-		},
+		name: "Claw",
+		ability: 1,
+		damage: [1, 10, "bludgeoning"], //[#, die, type] "" for die is allowed
+		range: "Melee (5 ft)",
+		description: "Target grappled on hit (escape DC 12); 2 claw attacks as Attack action, if not grappling with claw",
+	},
 	],
 	traits: [{
-			name: "Amphibious",
-			description: "The giant crayfish can breathe air and water.",
-		},
+		name: "Amphibious",
+		description: "The giant crayfish can breathe air and water.",
+	},
 	],
 };
 CreatureList["giant ice toad"] = {
@@ -68,28 +68,28 @@ CreatureList["giant ice toad"] = {
 	proficiencyBonus: 2,
 	attacksAction: 1,
 	attacks: [{
-			name: "Bite",
-			ability: 1,
-			damage: [2, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range: "Melee (5 ft)",
-			description: "Target is grappled and restrained (escape DC 13); Can't use bite again until grapple ends",
-		},
+		name: "Bite",
+		ability: 1,
+		damage: [2, 6, "piercing"], //[#, die, type] "" for die is allowed
+		range: "Melee (5 ft)",
+		description: "Target is grappled and restrained (escape DC 13); Can't use bite again until grapple ends",
+	},
 	],
 	traits: [{
-			name: "Amphibious",
-			description: "The toad can breathe air and water",
-		}, {
-			name: "Cold Aura",
-			description: "A creature that starts its turn within 10 feet of the toad takes 5 (1d10) cold damage.",
-		}, {
-			name: "Standing Leap",
-			description: "The toad's long jump is up to 20 ft and its high jump is up to 10 ft, with or without a running start.",
-		},
+		name: "Amphibious",
+		description: "The toad can breathe air and water",
+	}, {
+		name: "Cold Aura",
+		description: "A creature that starts its turn within 10 feet of the toad takes 5 (1d10) cold damage.",
+	}, {
+		name: "Standing Leap",
+		description: "The toad's long jump is up to 20 ft and its high jump is up to 10 ft, with or without a running start.",
+	},
 	],
 	features: [{
-			name: "Swallow",
-			description: "The toad can make a bite attack against a Medium or smaller target it is grappling. If it hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the toad, and it takes 10 (3d6) acid damage and 11 (2d6) cold damage at the start of each of the toad's turns. The toad can have only one target swallowed at a time.\nIf the toad dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 5 feet of movement, exiting prone.",
-		},
+		name: "Swallow",
+		description: "The toad can make a bite attack against a Medium or smaller target it is grappling. If it hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the toad, and it takes 10 (3d6) acid damage and 11 (2d6) cold damage at the start of each of the toad's turns. The toad can have only one target swallowed at a time.\nIf the toad dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 5 feet of movement, exiting prone.",
+	},
 	],
 	wildshapeString: (typePF ? "##Senses##. " : "") + "Darkvision 60 ft. ##Cold Aura##. Any within 5 ft at start of their turn take 1d10 cold damage. ##Amphibious##. Breathes air and water. ##Standing Leap##. Long jump 20 ft and high jump 10 ft, regardless of start. ##Swallow##. If bite attack hits Medium or smaller being grappling, it takes bite damage and is swallowed: blinded, restrained, total cover, takes 3d6 acid and 2d6 cold damage at the start of each of the toad's turns; Only 1 swallowed at a time.",
 };
@@ -160,23 +160,23 @@ CreatureList["giant subterranean lizard"] = {
 	proficiencyBonus: 2,
 	attacksAction: 2,
 	attacks: [{
-			name: "Bite",
-			ability: 1,
-			damage: [2, 10, "piercing"], //[#, die, type] "" for die is allowed
-			range: "Melee (5 ft)",
-			description: "1 bite \u0026 1 tail attack as Attack action; Target grappled \u0026 restrained (escape DC 15); Can't use bite until grapple ends",
-		}, {
-			name: "Tail",
-			ability: 1,
-			damage: [2, 6, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range: "Melee (10 ft)",
-			description: "1 bite \u0026 1 tail attack as Attack action; Target DC 15 Str save or knocked prone",
-		},
+		name: "Bite",
+		ability: 1,
+		damage: [2, 10, "piercing"], //[#, die, type] "" for die is allowed
+		range: "Melee (5 ft)",
+		description: "1 bite \u0026 1 tail attack as Attack action; Target grappled \u0026 restrained (escape DC 15); Can't use bite until grapple ends",
+	}, {
+		name: "Tail",
+		ability: 1,
+		damage: [2, 6, "bludgeoning"], //[#, die, type] "" for die is allowed
+		range: "Melee (10 ft)",
+		description: "1 bite \u0026 1 tail attack as Attack action; Target DC 15 Str save or knocked prone",
+	},
 	],
 	traits: [{
-			name: "Swallow",
-			description: "The lizard can make one bite attack against a Medium or smaller target it is grappling. If the attack hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the lizard, and it takes 10 (3d6) acid damage at the start of each of the lizard's turns. The lizard can have only one target swallowed at a time.\nIf the lizard dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 10 feet of movement, exiting prone.",
-		},
+		name: "Swallow",
+		description: "The lizard can make one bite attack against a Medium or smaller target it is grappling. If the attack hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the lizard, and it takes 10 (3d6) acid damage at the start of each of the lizard's turns. The lizard can have only one target swallowed at a time.\nIf the lizard dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 10 feet of movement, exiting prone.",
+	},
 	],
 	wildshapeString: "##Swallow##. If a bite attack hits a Small or smaller target that is currently being grappled by the lizard, the target is swallowed, ending the grapple. While swallowed, it is blinded, restrained, has total cover, and takes 3d4 acid damage at the start of each of the lizard's turns; The lizard can have only 1 swallowed at a time. If the lizard dies, the swallowed creature is no longer restrained and can escape using 10 ft movement.",
 };
@@ -463,7 +463,7 @@ MagicItemsList["wand of entangle"] = {
 	attunement: true,
 	weight: 1,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	usages: 7,
 	recovery: "dawn",
 	additional: "regains 1d6+1",

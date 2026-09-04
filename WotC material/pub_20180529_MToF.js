@@ -743,7 +743,7 @@ RaceList["githzerai-mtof"] = {
 };
 
 // [dupl_start] Reprint from Sword Coast Adventure Guide
-if (!RaceList["gray dwarf"]) { 
+if (!RaceList["gray dwarf"]) {
 	RaceList["gray dwarf"] = {
 		regExpSearch: /^((?=.*\bduergars?\b)|((?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b)(?=.*\b(grey|gray|underdark)\b))).*$/i,
 		name: "Duergar",
@@ -841,7 +841,7 @@ if (!FeatsList["svirfneblin magic"]) {
 		name: "Svirfneblin Magic",
 		source: [["E", 7], ["S", 115], ["MToF", 114]],
 		prerequisite: "Being a Svirfneblin (Deep Gnome)",
-		prereqeval: function(v) { return CurrentRace.known === "deep gnome"; },
+		prereqeval: function (v) { return CurrentRace.known === "deep gnome"; },
 		descriptionFull: "You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast Nondetection on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: Blindness/Deafness, Blur, and Disguise Self. You regain the ability to cast these spells when you finish a long rest.\n   Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
 		description: "I can cast Nondetection on myself at will, without a material component. I can also cast the spells Blindness/Deafness, Blur, and Disguise Self once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
 		spellcastingBonus: [{
@@ -917,23 +917,23 @@ MagicItemsList["infernal tack"] = {
 	attunement: true,
 	weight: 26, // riding saddle (25) + bit and bridle (1)
 	prerequisite: "Requires attunement by a creature of evil alignment",
-	prereqeval: function(v) { return /evil/i.test(What("Alignment")); },
+	prereqeval: function (v) { return /evil/i.test(What("Alignment")); },
 	action: [["action", ""]],
 	creaturesAdd: [["Nightmare",
-true,
-	function (AddRemove, prefix) {
-		if (!AddRemove) return;
-		// Show equipment section
-		MakeCompMenu_CompOptions(prefix, ["companion", "visible", "comp.eqp"], true);
-		// Add equipment when added
-		var equip = ["bit and bridle", "riding"];
-		for (var i = 0; i < equip.length; i++) {
-			var gear = GearList[equip[i]];
-			if (!gear) continue;
-			AddToInv(prefix + "comp", "l", gear.name, gear.amount, gear.weight, "", false, false, false, false);
-		}
-		// Add notes
-		var note = "I can use an action to call a nightmare equipped with infernal tack by clashing the spurs together or scraping them through blood. The nightmare appears at the start of my next turn, within 20 ft of me.\nThe nightmare acts as my ally and takes its turn on my initiative count. It remains for 1 day, until I or it dies, or until I dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which I can summon it again.";
-		Value(prefix + "Comp.eqp.Notes", What("Unit System") === "metric" ? ConvertToMetric(note, 0.5) : note);
-	}]],
+		true,
+		function (AddRemove, prefix) {
+			if (!AddRemove) return;
+			// Show equipment section
+			MakeCompMenu_CompOptions(prefix, ["companion", "visible", "comp.eqp"], true);
+			// Add equipment when added
+			var equip = ["bit and bridle", "riding"];
+			for (var i = 0; i < equip.length; i++) {
+				var gear = GearList[equip[i]];
+				if (!gear) continue;
+				AddToInv(prefix + "comp", "l", gear.name, gear.amount, gear.weight, "", false, false, false, false);
+			}
+			// Add notes
+			var note = "I can use an action to call a nightmare equipped with infernal tack by clashing the spurs together or scraping them through blood. The nightmare appears at the start of my next turn, within 20 ft of me.\nThe nightmare acts as my ally and takes its turn on my initiative count. It remains for 1 day, until I or it dies, or until I dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which I can summon it again.";
+			Value(prefix + "Comp.eqp.Notes", What("Unit System") === "metric" ? ConvertToMetric(note, 0.5) : note);
+		}]],
 }

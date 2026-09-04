@@ -133,22 +133,22 @@ CreatureList["hulking crab"] = {
 	proficiencyBonus: 3,
 	attacksAction: 2,
 	attacks: [{
-			name: "Claws",
-			ability: 2,
-			damage: [1, "", "slashing"], //[#, die, type] "" for die is allowed
-			range: "Melee (5 ft)",
-			description: "",
-			modifiers: [-4, ""],
-			abilitytodamage: false,
-		},
+		name: "Claws",
+		ability: 2,
+		damage: [1, "", "slashing"], //[#, die, type] "" for die is allowed
+		range: "Melee (5 ft)",
+		description: "",
+		modifiers: [-4, ""],
+		abilitytodamage: false,
+	},
 	],
 	traits: [{
-			name: "Amphibious",
-			description: "The hulking crab can breate air and water.",
-		}, {
-			name: "Shell Camouflage",
-			description: "While the hulking crab remains motionless with its eyestalks and pincers tucked close to its body, it resembles a natural formation or a pile of detritus. A creature within 30 feet of it can discern its true nature with a DC 15 Intelligence (Nature) check.",
-		},
+		name: "Amphibious",
+		description: "The hulking crab can breate air and water.",
+	}, {
+		name: "Shell Camouflage",
+		description: "While the hulking crab remains motionless with its eyestalks and pincers tucked close to its body, it resembles a natural formation or a pile of detritus. A creature within 30 feet of it can discern its true nature with a DC 15 Intelligence (Nature) check.",
+	},
 	],
 };
 CreatureList["tressym"] = {
@@ -176,25 +176,25 @@ CreatureList["tressym"] = {
 	proficiencyBonus: 2,
 	attacksAction: 1,
 	attacks: [{
-			name: "Claws",
-			ability: 2,
-			damage: [1, "", "slashing"], //[#, die, type] "" for die is allowed
-			range: "Melee (5 ft)",
-			description: "",
-			modifiers: [-4, ""],
-			abilitytodamage: false,
-		},
+		name: "Claws",
+		ability: 2,
+		damage: [1, "", "slashing"], //[#, die, type] "" for die is allowed
+		range: "Melee (5 ft)",
+		description: "",
+		modifiers: [-4, ""],
+		abilitytodamage: false,
+	},
 	],
 	traits: [{
-			name: "Detect Invisibility",
-			description: "Within 60 feet of the tressym, magical invisibility fails to conceal anything from the tressym's sight.",
-		}, {
-			name: "Keen Smell",
-			description: "The tressym has advantage on Wisdom (Perception) checks that rely on smell.",
-		}, {
-			name: "Poison Sense",
-			description: "The tressym can detect whether a substance is poisonous by taste, touch, or smell.",
-		},
+		name: "Detect Invisibility",
+		description: "Within 60 feet of the tressym, magical invisibility fails to conceal anything from the tressym's sight.",
+	}, {
+		name: "Keen Smell",
+		description: "The tressym has advantage on Wisdom (Perception) checks that rely on smell.",
+	}, {
+		name: "Poison Sense",
+		description: "The tressym can detect whether a substance is poisonous by taste, touch, or smell.",
+	},
 	],
 	wildshapeString: [
 		"##Languages##. Understands Common but can't speak.",

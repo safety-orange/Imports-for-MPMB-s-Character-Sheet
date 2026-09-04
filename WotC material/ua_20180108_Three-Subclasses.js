@@ -109,7 +109,7 @@ var UATS_fighterBruteSubclassUA = AddSubClass("fighter", "brute-ua", {
 			source: [["UA:TS", 2]],
 			minlevel: 3,
 			description: desc("I do additional damage with weapons that I'm proficient with"),
-			additional: levels.map(function (n) { 
+			additional: levels.map(function (n) {
 				return n < 3 ? "" : "+1d" + (n < 10 ? 4 : n < 16 ? 6 : n < 20 ? 8 : 10) + " weapon damage";
 			}),
 			calcChanges: {

@@ -68,9 +68,9 @@ RaceList["hexblood-ua"] = {
 	toNotesPage: [{
 		name: "Hexblood's Magic Token",
 		note: ["As an action, I can harmlessly pull out one of my nails, a tooth, or a lock of hair. This token is imbued with magic until I finish a long rest.",
-		"While the token is imbued in this way, I can use an action to send a telepathic message to the creature holding or carrying the token, as long as I'm on the same plane of existence and are within 10 miles of it. The message can contain up to twenty-five words.",
-		"In addition, while I'm within 10 miles of the token, I can use an action to enter a trance for 1 minute, during which I can see and hear from the token as if I was located where it is. While I'm using my senses at the token's location, I'm blinded and deafened in regard to my own surroundings. Afterward, the token is harmlessly destroyed.",
-		"Once I create a token using this feature, I can't do so again until I finish a long rest, at which point my missing part regrows."],
+			"While the token is imbued in this way, I can use an action to send a telepathic message to the creature holding or carrying the token, as long as I'm on the same plane of existence and are within 10 miles of it. The message can contain up to twenty-five words.",
+			"In addition, while I'm within 10 miles of the token, I can use an action to enter a trance for 1 minute, during which I can see and hear from the token as if I was located where it is. While I'm using my senses at the token's location, I'm blinded and deafened in regard to my own surroundings. Afterward, the token is harmlessly destroyed.",
+			"Once I create a token using this feature, I can't do so again until I finish a long rest, at which point my missing part regrows."],
 	}],
 	savetxt: {
 		adv_vs: ["charmed"],
@@ -128,13 +128,13 @@ RaceList["reborn-ua"] = {
 	useFromPreviousRace: {
 		message: "If you replace a race with the Reborn lineage, you can keep the following elements of that race:" +
 		desc(["its size,",
-		"any skill proficiencies you gained from it,",
-		"any climbing, flying, or swimming speed you gained from it, and",
-		"any languages it knows and gain no new languages."], "\n   \u2022 ") +
+			"any skill proficiencies you gained from it,",
+			"any climbing, flying, or swimming speed you gained from it, and",
+			"any languages it knows and gain no new languages."], "\n   \u2022 ") +
 		"\n\nIf you don't keep any of those elements or you choose this lineage at character creation, you instead:" +
 		desc(["are size Medium or Small (your choice),",
-		"gain proficiency in two skills of your choice, and",
-		"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
+			"gain proficiency in two skills of your choice, and",
+			"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
 		defaultTraits: {
 			size: [3, 4],
 			skillstxt: "Choose any two skills",

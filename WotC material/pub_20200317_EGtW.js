@@ -1148,7 +1148,7 @@ AddSubClass("fighter", "echo knight", { // contains contributions by Smashman, @
 					description: "When the echo's creator takes the Attack action on their turn, any attack they make with that action can originate from the echo's space. This choice is made for each attack separately.\n   In addition, when a creature that the echo's creator can see within 5 ft of the echo moves at least 5 ft away from it, its creator can use their reaction to make an opportunity attack against that creature as if its creator was in the echo's space.",
 				}],
 				header: "Echo",
-				eval: function(prefix, lvl) {
+				eval: function (prefix, lvl) {
 					// Same size as character
 					PickDropdown(prefix + "Comp.Desc.Size", tDoc.getField("Size Category").currentValueIndices);
 					Value(prefix + "Comp.Desc.Age", What("Age"));
@@ -1237,13 +1237,13 @@ AddSubClass("wizard", "chronurgy magic", { // contains contributions by bassboga
 			action: [["reaction", ""]],
 			usages: 2,
 			recovery: "long rest",
-			eval: function() {
+			eval: function () {
 				// Always have access to dunamancy spells enabled
 				if (GetFeatureChoice("classes", "wizard", "spellcasting", true).indexOf("access to dunamancy spells") === -1) {
 					ClassFeatureOptions(["wizard", "spellcasting", "access to dunamancy spells", true]);
 				}
 			},
-			removeeval: function() {
+			removeeval: function () {
 				// Remove access to dunamancy spells when removing subclass
 				if (GetFeatureChoice("classes", "wizard", "spellcasting", true).indexOf("access to dunamancy spells") !== -1) {
 					ClassFeatureOptions(["wizard", "spellcasting", "access to dunamancy spells", true], "remove");
@@ -1322,13 +1322,13 @@ AddSubClass("wizard", "graviturgy magic", { // contains contributions by bassbog
 			additional: levels.map(function (n) {
 				return n < 2 ? "" : (n < 10 ? "Large" : "Huge") + " or smaller creatures";
 			}),
-			eval: function() {
+			eval: function () {
 				// Always have access to dunamancy spells enabled
 				if (GetFeatureChoice("classes", "wizard", "spellcasting", true).indexOf("access to dunamancy spells") === -1) {
 					ClassFeatureOptions(["wizard", "spellcasting", "access to dunamancy spells", true]);
 				}
 			},
-			removeeval: function() {
+			removeeval: function () {
 				// Remove access to dunamancy spells when removing subclass
 				if (GetFeatureChoice("classes", "wizard", "spellcasting", true).indexOf("access to dunamancy spells") !== -1) {
 					ClassFeatureOptions(["wizard", "spellcasting", "access to dunamancy spells", true], "remove");
@@ -1388,7 +1388,7 @@ AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Access to Dunamanc
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "bard" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["sapping sting", "gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt", "gravity fissure", "tether essence", "dark star", "reality break", "ravenous void", "time ravage"]);
@@ -1406,7 +1406,7 @@ AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Access to Dunama
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "cleric" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["sapping sting", "gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt", "gravity fissure", "tether essence", "dark star", "reality break", "ravenous void", "time ravage"]);
@@ -1424,7 +1424,7 @@ AddFeatureChoice(ClassList.druid.features.spellcasting, true, "Access to Dunaman
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "druid" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["sapping sting", "gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt", "gravity fissure", "tether essence", "dark star", "reality break", "ravenous void", "time ravage"]);
@@ -1442,7 +1442,7 @@ AddFeatureChoice(ClassList.paladin.features.spellcasting, true, "Access to Dunam
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "paladin" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt"]);
@@ -1460,7 +1460,7 @@ var EGtW_Ranger_Dunamancy_Spells = {
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if ((spName !== "ranger" && spName !== "rangerua") || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt"]);
@@ -1470,7 +1470,7 @@ var EGtW_Ranger_Dunamancy_Spells = {
 	},
 };
 AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Access to Dunamancy Spells", EGtW_Ranger_Dunamancy_Spells, "Optional 2nd-level ranger features");
-RunFunctionAtEnd(function() {
+RunFunctionAtEnd(function () {
 	if (!ClassList["rangerua"]) return;
 	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Access to Dunamancy Spells", EGtW_Ranger_Dunamancy_Spells, "Optional 2nd-level ranger features");
 });
@@ -1483,7 +1483,7 @@ AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Access to Duna
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "sorcerer" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["sapping sting", "gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt", "gravity fissure", "tether essence", "dark star", "reality break", "ravenous void", "time ravage"]);
@@ -1501,7 +1501,7 @@ AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Access to Duna
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "warlock" || (spType.indexOf("bonus") !== -1 && (!spList["class"] || spList["class"] !== "warlock"))) return;
 				spList.extraspells = spList.extraspells.concat(["sapping sting", "gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt", "gravity fissure", "tether essence", "dark star", "reality break", "ravenous void", "time ravage"]);
@@ -1519,7 +1519,7 @@ AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Access to Dunama
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "wizard" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["sapping sting", "gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt", "gravity fissure", "tether essence", "dark star", "reality break", "ravenous void", "time ravage"]);
@@ -1528,7 +1528,7 @@ AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Access to Dunama
 		],
 	},
 }, "Optional 1st-level wizard features");
-RunFunctionAtEnd(function() {
+RunFunctionAtEnd(function () {
 	if (!ClassList.artificer) return;
 	AddFeatureChoice(ClassList.artificer.features.spellcasting, true, "Access to Dunamancy Spells", {
 		name: "Dunamancy Spells",
@@ -1539,7 +1539,7 @@ RunFunctionAtEnd(function() {
 		]),
 		calcChanges: {
 			spellList: [
-				function(spList, spName, spType) {
+				function (spList, spName, spType) {
 					if (spName !== "artificer" || spType.indexOf("bonus") !== -1) return;
 					spList.extraspells = spList.extraspells.concat(["sapping sting", "gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt"]);
 				},
@@ -2131,11 +2131,11 @@ MagicItemsList["arcane cannon"] = {
 	rarity: "very rare",
 	notLegalAL: true,
 	description: "This Large magical cannon requires no ammunition and doesn't need to be loaded, but takes 5 minutes to recharge once fired. It takes one action to aim it and another action to fire it. When I fire it, I can choose the effect, an acid jet, fire jet, frost shot, lightning shot, or poison spray. See Notes page.",
-	descriptionFull: EGtW_ArcaneCannonFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: EGtW_ArcaneCannonFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	action: [["action", " (Aim or Fire)"]],
 	toNotesPage: [{
 		name: "Effects",
-		note: "\n" + EGtW_ArcaneCannonFullDescription.join("\n \u2022 ").replace(/>>(.*?)<<\./g, function(a, match) { return match.toUpperCase() + ":"; }).replace(/\byou\b/ig, "I").replace(/\bf(oo|ee)t\b/ig, "ft"),
+		note: "\n" + EGtW_ArcaneCannonFullDescription.join("\n \u2022 ").replace(/>>(.*?)<<\./g, function (a, match) { return match.toUpperCase() + ":"; }).replace(/\byou\b/ig, "I").replace(/\bf(oo|ee)t\b/ig, "ft"),
 	}],
 };
 MagicItemsList["battering shield"] = {
@@ -2416,7 +2416,7 @@ MagicItemsList["luxon beacon"] = {
 	rarity: "legendary",
 	notLegalAL: true,
 	description: "Once per dawn, a creature can touch this crystal for 1 minute to gain a Fragment of Possibility. Once for the next 8 hours, it can roll an extra d20 for an attack, check, save, or being attacked, before the outcome is determined. Creatures consecuted to the Luxon that die within 100 miles of it are reincarnated. See notes.",
-	descriptionFull: EGtW_LuxonBeaconFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: EGtW_LuxonBeaconFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	extraLimitedFeatures: [{
 		name: "Luxon Beacon (Fragment of Possibility)",
 		usages: 1,
@@ -2424,7 +2424,7 @@ MagicItemsList["luxon beacon"] = {
 	}],
 	toNotesPage: [{
 		name: "Features",
-		note: desc(EGtW_LuxonBeaconFullDescription).replace(/   >>(.*?)<<\. /g, function(a, match) { return match.toUpperCase() + "\n   "; }),
+		note: desc(EGtW_LuxonBeaconFullDescription).replace(/   >>(.*?)<<\. /g, function (a, match) { return match.toUpperCase() + "\n   "; }),
 	}],
 };
 MagicItemsList["needle of mending"] = {
@@ -2663,7 +2663,7 @@ MagicItemsList["staff of the ivory claw"] = {
 	description: "This gray-and-cerulean staff is topped with a small dragon claw carved from ivory. While holding the staff, I gain a +1 bonus to spell attack rolls. Whenever you score a critical hit with a spell attack, the target takes an extra 3d6 radiant damage.",
 	descriptionFull: "This gray-and-cerulean staff is topped with a small dragon claw carved from ivory. While holding the staff, you gain a +1 bonus to spell attack rolls. Whenever you score a critical hit with a spell attack, the target takes an extra 3d6 radiant damage.",
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	calcChanges: {
 		spellCalc: [
 			function (type, spellcasters, ability) {
@@ -2766,7 +2766,7 @@ var EGtW_Vestiges_Replace = function (sDescr) {
 		.replace(/you are/ig, "I am").replace(/\byou\b/ig, "I")
 		.replace(/(by|giving|grants|of|to|for) I\b/ig, "$1 me")
 		.replace(/your/g, "my").replace(/Your/g, "My")
-		.replace(/   >>(.*?)<<\. /g, function(a, match) { return "\n" + match.toUpperCase() + "\n   "; });
+		.replace(/   >>(.*?)<<\. /g, function (a, match) { return "\n" + match.toUpperCase() + "\n   "; });
 }
 var EGtW_DanothsVisorFullDescription = [
 	"These mithral-frame goggles with clear diamond lenses were used by the evoker Danoth Oro to spot invisible enemies and scout areas from afar.",
@@ -2788,7 +2788,7 @@ MagicItemsList["danoth's visor"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "These mithral-frame goggles with clear diamond lenses were used by the evoker Danoth Oro to spot invisible enemies and scout areas from afar. See notes page for more information.",
-	descriptionFull: EGtW_DanothsVisorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: EGtW_DanothsVisorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
 		note: EGtW_Vestiges_Replace(EGtW_DanothsVisorFullDescription),
@@ -2805,7 +2805,7 @@ MagicItemsList["danoth's visor"] = {
 		description: "These mithral-frame goggles with clear diamond lenses grant me the ability to see, out to 60 ft, in nonmagical and magical darkness, invisible creatures and objects, and into the Ethereal plane. They give me adv. on Investigation and Perception checks that rely on sight. I can active them to see more, see Notes page.",
 		action: [
 			["bonus action", "Danoth's Visor (see through matter)"]
-			["bonus action", "Danoth's Visor (spyglass mode)"],
+				["bonus action", "Danoth's Visor (spyglass mode)"],
 		],
 		extraLimitedFeatures: [{
 			name: "Danoth's Visor (see through matter)",
@@ -2818,7 +2818,7 @@ MagicItemsList["danoth's visor"] = {
 		description: "These goggles grant me the ability to see, out to 60 ft, in normal and magical darkness, invisible creatures and objects, and into the Ethereal plane. They allow me to automatically detect illusions for what they are, succeed on saves against them, and see if creatures aren't in their true form. See Notes for more.",
 		action: [
 			["bonus action", "Danoth's Visor (see through matter)"]
-			["bonus action", "Danoth's Visor (spyglass mode)"],
+				["bonus action", "Danoth's Visor (spyglass mode)"],
 		],
 		extraLimitedFeatures: [{
 			name: "Danoth's Visor (see through matter)",
@@ -2858,7 +2858,7 @@ MagicItemsList["grimoire infinitus"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This spellbook with unlimited gilded pages and silver-plated covers can be used by a wizard to prepare and store spells. It holds several spells already. When I use to prepare wizards spells, I can prepare 1 additional spell.",
-	descriptionFull: EGtW_GrimoireInfinitusFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: EGtW_GrimoireInfinitusFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	weight: 3,
 	toNotesPage: [{
 		name: "Features",
@@ -2940,7 +2940,7 @@ MagicItemsList["hide of the feral guardian"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This magic studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then also grants me a bonus to melee attack and damage rolls. Once per dawn, I can use it to cast Polymorph on myself.",
-	descriptionFull: EGtW_HideFeralGuardianFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: EGtW_HideFeralGuardianFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	weight: 13,
 	toNotesPage: [{
 		name: "Features",
@@ -3089,7 +3089,7 @@ MagicItemsList["infiltrator's key"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This mithral skeleton key was forged using the blood of twelve master thieves executed for trying to steal magic items during the Age of Arcanum. See notes page for more information.",
-	descriptionFull: EGtW_InfiltratorsKeyFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: EGtW_InfiltratorsKeyFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
 		note: EGtW_Vestiges_Replace(EGtW_InfiltratorsKeyFullDescription),
@@ -3178,7 +3178,7 @@ MagicItemsList["stormgirdle"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "A wide belt of leather branded with the symbol of Kord. While attuned to and wearing this belt, I am resistant to lightning and thunder damage. My Strength score becomes 21, provided my Strength is not already 21 or higher. As an action, I can become a Storm Avatar for 1 minute. See notes page for more info.",
-	descriptionFull: EGtW_StormgirdleFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: EGtW_StormgirdleFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
 		note: EGtW_Vestiges_Replace(EGtW_StormgirdleFullDescription),
@@ -3262,7 +3262,7 @@ MagicItemsList["verminshroud"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This patchy cloak was pieced together from the pelts of rats found feasting on the dead in Blightshore and is dotted with the bloated corpses of magically preserved insects along its seams. See notes page for more info.",
-	descriptionFull: EGtW_VerminshroudFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: EGtW_VerminshroudFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
 		note: EGtW_Vestiges_Replace(EGtW_VerminshroudFullDescription),
@@ -3379,7 +3379,7 @@ MagicItemsList["wreath of the prism"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This loop of golden thorns is inset with dozens of gems that represent the five colors of Tiamat. I gain darkvision to 60 ft, or extend my darkvision by 60 ft. When I hit a beast, dragon, or monstrosity with an attack, I can cast dominate monster on that creature, depending on its CR. See notes page for info.",
-	descriptionFull: EGtW_WreathPrismFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: EGtW_WreathPrismFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
 		note: EGtW_Vestiges_Replace(EGtW_WreathPrismFullDescription),

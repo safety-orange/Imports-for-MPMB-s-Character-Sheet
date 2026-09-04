@@ -108,7 +108,7 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 			additional: levels.map(function (n) { return (n < 3 ? 3 : n < 5 ? 6 : n < 7 ? 9 : n < 9 ? 12 : 15) + " additional spells known"}),
 			spellcastingExtra: ["faerie fire", "dissonant whispers", "sanctuary", "moonbeam", "darkness", "blindness/deafness", "death ward", "bestow curse", "phantom steed", "freedom of movement", "evard's black tentacles", "hallucinatory terrain", "mass cure wounds", "mislead", "dream"],
 			spellcastingExtraApplyNonconform: true,
-			description: levels.map(function(n) {
+			description: levels.map(function (n) {
 				var phases = {
 					"\u25CB Full: ": ["Faerie Fire", "Moonbeam", "Death Ward", "Freedom of Movement", "Mass Cure Wounds"],
 					"\u25CF New: ": ["Dissonant Whispers", "Darkness", "Bestow Curse", "Evard's Black Tentacles", "Mislead"],
@@ -152,7 +152,7 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 				spells: ["death ward"],
 				selection: ["death ward"],
 				firstCol: "F",
-				times: levels.map(function(n){ return n === 5 || n === 6 ? 1 : 0; }),
+				times: levels.map(function (n){ return n === 5 || n === 6 ? 1 : 0; }),
 			}],
 		},
 		"subclassfeature6": {
@@ -459,7 +459,7 @@ FeatsList["adept of the black robes-ua"] = {
 	description: "I learn one 2nd-level Evoc or Necro spell. I can cast this spell 1/LR w/out using a spell slot, and can cast it normally. Choose an ability for this spell. If creature I can see within 60 ft fails a save vs my spell I can spend HD equal to spell's level. I roll half that many HD and the creature takes that much additional damage.",
 	descriptionFull: "Your ambition and loyalty to the Order of the Black Robes has been recognized, granting you these benefits:\n" + toUni("Ambitious Magic.") + " You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.\n" + toUni("Life Channel.") + " You can channel your lifeforce into the power of your magic. When a creature you can see within 60 feet fails on a saving throw against a spell you cast, you can expend a number of Hit Dice equal to the level of the spell. Roll a number of Hit Die equal to half the number of Hit Dice expended (rounded up) and the damage the triggering creature takes increases by an amount equal to the total rolled of those dice.",
 	prerequisite: "4th-level, Initiate of High Sorcery feat, Any Non-Good Alignment",
-	prereqeval: function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("initiate of high sorcery-ua") !== -1 && !/good/i.test(What("Alignment")); },
+	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("initiate of high sorcery-ua") !== -1 && !/good/i.test(What("Alignment")); },
 	spellcastingBonus: [{
 		name: "2nd-level Evoc/Necro spell",
 		"class": "any",
@@ -495,7 +495,7 @@ FeatsList["adept of the red robes-ua"] = {
 	description: "I learn one 2nd-level Div or Trans spell. I can cast this spell 1/LR w/out using a spell slot, and can cast it normally. Int is my ability for this spell. If I roll less than a 10 on an atk, check, or save, I can use my reaction to treat it as a 10. I can do this a number of times equal to my proficiency bonus per long rest.",
 	descriptionFull: "Your pursuit of truth and dedication to maintaining the balance between all things has been recognized by the Order of the Red Robes, granting you these benefits:\n" + toUni("Insightful Magic.") + " You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the divination or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.\n" + toUni("Magical Balance.") + " When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. you can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th level, Initiate of High Sorcery feat",
-	prereqeval: function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("initiate of high sorcery-ua") !== -1; },
+	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("initiate of high sorcery-ua") !== -1; },
 	spellcastingBonus: [{
 		name: "2nd-level Div/Trans spell",
 		"class": "any",
@@ -535,7 +535,7 @@ FeatsList["adept of the white robes-ua"] = {
 	description: "I learn one 2nd-level Abjur or Conj spell. I can cast this spell 1/LR w/out using a spell slot, and can cast it normally. Choose an ability for this spell. When a creature w/in 30 ft takes damage I can use a reaction to expend a spell slot and roll d4s equal to the spell's level and reduce the damage by that much + my SC ability mod.",
 	descriptionFull: "Your oath to use magic to make the world a better place has been recognized by the Order of the White Robes, granting you these benefits:\n" + toUni("Protective Magic.") + " You learn one 2nd-level spell of you choice. The 2nd-level spell must be from the abjuration or conjuration school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.\n" + toUni("Protective Ward.") + " When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d4s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier.",
 	prerequisite: "4th level, Initiate of High Sorcery feat, Any Non-Evil Alignment",
-	prereqeval: function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("initiate of high sorcery-ua") !== -1 && !/evil/i.test(What("Alignment")); },
+	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("initiate of high sorcery-ua") !== -1 && !/evil/i.test(What("Alignment")); },
 	spellcastingBonus: [{
 		name: "2nd-level Abjur/Conj spell",
 		"class": "any",
@@ -725,7 +725,7 @@ FeatsList["divine communications-ua"] = {
 	description: "I learn Augury and Commune. I can cast these spells without a spell slot, then must wait 1d4 long rests before doing so again, and I can cast it normally. My chosen ability from Divinely Favored is my spellcasting ability for these spells",
 	descriptionFull: "Your connection to your god deepens, granting you these benefits:\n" + toUni("Ability Score Increase.") + " Increase the ability score of the spellcasting ability chosen when you gained the Divinely Favored feat by 1, to a maximum of 20.\n" + toUni("Celestial Tongues.") + " You learn to speak, read, and write Celestial, and two other languages of your choice.\n" + toUni("Divine Omens.") + " You can cast the augury and commune spell without a spell slot, and you must finish 1d4 long rests before you can cast it in this way again. You can also cast the spell using the spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gained the Divinely Favored feat.",
 	prerequisite: "4th level, Divinely Favored feat",
-	prereqeval: function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("divinely favored-ua") !== -1; },
+	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("divinely favored-ua") !== -1; },
 	languageProfs: ["Celestial", 2],
 	spellcastingBonus: [{
 		name: "Augury and Commune",
@@ -781,7 +781,7 @@ FeatsList["knight of the crown-ua"] = {
 	description: "When a creature within 30 ft makes an attack roll against another creature within 5 ft, I can use my reaction to grant advantage on the attack roll. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.",
 	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Crown, a group that extols the virtues of cooperation, loyalty, and obedience. You excel in group combat and gain these benefits:\n" + toUni("Ability Score Increase.") + " Increase your Strength or Dexterity score by 1, to a maximum of 20.\n" + toUni("Tactical Teamwork.") + " When a creature you can see within 30 feet of you makes an attack roll against another creature that is within 5 feet of you, you can use your reaction to grant advantage on the attack roll. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th level, Squire of Solamnia feat",
-	prereqeval: function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua") !== -1; },
+	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua") !== -1; },
 	scorestxt: "+1 Strength or Dexterity",
 	action: [["reaction", "Tactical Teamwork (Knight of the Crown)"]],
 	usages: "Proficiency bonus per ",
@@ -794,7 +794,7 @@ FeatsList["knight of the sword-ua"] = {
 	description: "I gain proficiency in the chosen ability saving throw. After I or a creature I can see within 30 feet fails an Int, Wis, or Cha save, I can expend a HD. I roll that die and increase the save by that much. Once I change a fail into a success, I can't do so again until a long rest.",
 	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Sword, a group devoted to heroism and courage. Bravery steels your spirit, granting you these benefits:\n" + toUni("Disciplined Spirit.") + " You gain proficiency in Intelligence, Wisdom, or Charisma saving throws (your choice when you take this feat).\n" + toUni("Willpower.") + " Immediately after you or a creature you can see within 30 feet of you fail an Intelligence, Wisdom, or Charisma saving throw, you can expend a Hit Die. The saving throw increases by an amount equal to a roll of that Hit Die, potentially turning a failure into a success. Once you turn a failed saving throw into a successful one using this feat, you can't do so again until you finish a long rest.",
 	prerequisite: "4th level, Squire of Solamnia feat",
-	prereqeval: function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua") !== -1; },
+	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua") !== -1; },
 	choices: ["Intelligence", "Wisdom", "Charisma"],
 	"intelligence": {
 		saves: ["Int"],
@@ -814,7 +814,7 @@ FeatsList["knight of the rose-ua"] = {
 	description: "When I roll initiative I can choose up to 3 other creatures I can see within 30 ft. They gain temp HP equal to a roll of my HD + my proficiency bonus + the modifier of the score increased by this feat. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.",
 	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Rose, a group known for leadership, justice, and wisdom. Your resolve grants you these benefits:\n" + toUni("Ability Score Increase.") + " Increase your Constitution or Charisma score by 1, to a maximum of 20.\n" + toUni("Bolstering Rally.") + " When you roll initiative, you can choose up to three other creatures you can see within 30 feet of you. Each creature can gain temporary hit points equal to a roll of your Hit Die + your proficiency bonus + the ability modifier of the ability score increased by this feat. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th level, Squire of Solamnia feat",
-	prereqeval: function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua") !== -1; },
+	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua") !== -1; },
 	scorestxt: "+1 Constitution or Charisma",
 	choices: ["Constitution", "Charisma"],
 	"constitution": {

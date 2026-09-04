@@ -65,7 +65,7 @@ AddSubClass("barbarian", "path of the beast-ua", {
 				bestialNaturalWeapon: true,
 				selectNow: true,
 			}],
-			additional: levels.map(function(n) {
+			additional: levels.map(function (n) {
 				return n < 6 ? "" : "chosen weapon counts as magical";
 			}),
 		},

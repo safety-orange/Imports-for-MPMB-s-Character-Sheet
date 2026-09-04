@@ -13,7 +13,7 @@ SourceList["CoA"] = {
 };
 
 CoA_Corruption = {
-	process: function(bAddRemove, sItem) {
+	process: function (bAddRemove, sItem) {
 		// Make a variable to remember the settings for this
 		if (!CurrentVars.CoA_Corruption) {
 			CurrentVars.CoA_Corruption = {
@@ -31,7 +31,7 @@ CoA_Corruption = {
 				// Still items present, so don't change anything
 				return;
 			} else {
-				// Removing note in final step if present 
+				// Removing note in final step if present
 				bProcessIt = CurrentVars.CoA_Corruption.present ? true : false;
 				// Make pop-up appear at next corrupting item addition
 				CurrentVars.CoA_Corruption.savedAlert = false;
@@ -152,8 +152,8 @@ MagicItemsList["bracers of asmodeus"] = {
 	descriptionFull: "You have a +2 bonus to AC while wearing these bracers, if you do not wear armor or use a shield at the same time." +
 	"\n   " + toUni("Curse") + ". While attuned to the bracers, you become obsessed with plotting, scheming, and manipulation. You always barter for better deals, often using secrets or leveraging other offers in the process. If you ever decline an opportunity to better yourself financially at another's expense, you immediately take 3d10 necrotic damage. Only the Remove Curse spell allows you to end attunement to this item." +
 	CoA_Corruption.description,
-	eval: function() { CoA_Corruption.process(true,  "bracers of asmodeus") },
-	removeeval: function() { CoA_Corruption.process(false, "bracers of asmodeus") },
+	eval: function () { CoA_Corruption.process(true,  "bracers of asmodeus") },
+	removeeval: function () { CoA_Corruption.process(false, "bracers of asmodeus") },
 	extraAC: [{
 		mod: 2,
 		magic: true,
@@ -173,8 +173,8 @@ MagicItemsList["canian fork"] = {
 	"\n   " + toUni("Curse") + ". You're unwilling to part with this weapon while attuned to it. You're also vulnerable to radiant damage and each time you receive magical healing, you must make a DC 15 Constitution saving throw." +
 	"\n   On a failed save, the healing has no effect. Only the Remove Curse spell allows you to end attunement to this item." +
 	CoA_Corruption.description,
-	eval: function() { CoA_Corruption.process(true,  "canian fork") },
-	removeeval: function() { CoA_Corruption.process(false, "canian fork") },
+	eval: function () { CoA_Corruption.process(true,  "canian fork") },
+	removeeval: function () { CoA_Corruption.process(false, "canian fork") },
 	weight: 4,
 	savetxt: { text: ["Vulnerable to radiant damage"] },
 	action: [["bonus action", " attack"]],
@@ -211,8 +211,8 @@ MagicItemsList["demonbone polearm"] = {
 	"\n   Whenever a hostile creature damages you, you must succeed on a DC 15 Wisdom saving throw or go berserk. While berserk, you must use your action on each of your turns to attack the creature nearest to you with the weapon. If you can make extra attacks as part of the Attack action, you use those extra attacks, moving to attack the next nearest creature after you fell your current target. If you have multiple possible targets, you attack one at random." +
 	"\n   You're berserk until you start your turn with no creatures within 60 feet of you that you can see or hear. Alternatively, an ally can use an action to make a DC 15 Charisma (Persuasion) check and if successful, you're no longer berserk. Only the Remove Curse spell allows you to end attunement to this item." +
 	CoA_Corruption.description,
-	eval: function() { CoA_Corruption.process(true,  "demonbone polearm") },
-	removeeval: function() { CoA_Corruption.process(false, "demonbone polearm") },
+	eval: function () { CoA_Corruption.process(true,  "demonbone polearm") },
+	removeeval: function () { CoA_Corruption.process(false, "demonbone polearm") },
 	chooseGear: {
 		type: "weapon",
 		prefixOrSuffix: "suffix",
@@ -242,7 +242,7 @@ MagicItemsList["gauntlets of rage"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a bard, sorcerer, warlock, or wizard",
-	prereqeval: function(v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
 	description: "The first melee weapon attack I make after a short rest sends me into a fury for 1 minute. I can't cast spells or speak, am immune to charmed and frightened, and when I deal damage, I heal 2d8 hp and end this fury or one condition. Also, I can use a spell slot before a melee attack for +1d6 necrotic damage per spell level.",
 	descriptionLong: "I gain the power of never-ending fury. The first melee weapon attack I make after I finish a short or long rest automatically send me into a special fury for 1 minute. While furious, I can't cast spells, can't verbally communicate, and am immune to the charmed and frightened conditions. Each time I deal damage, I regain 2d8 hit points and may immediately remove a condition I currently suffer from or end this fury. Also, while in this fury, I may spend a spell slot before I make a melee attack. Doing so causes the attack to deal an extra 1d6 necrotic damage per level of spell slot expended, if it hits.",
 	descriptionFull: "You gain the power of never-ending fury. After you make a melee weapon attack, you automatically enter a special fury for 1 minute. While furious, you can't cast spells, can't verbally communicate, and are immune to the charmed and frightened conditions. Each time you deal damage, you regain 2d8 hit points and may immediately remove a condition you currently suffer from or end this fury. Additionally, while in this fury, you may spend a spell slot before you make a melee attack. Doing so causes the attack to deal an extra 3 (1d6) necrotic damage per level of spell slot expended, if the attack hits. Once used you may not use this fury again until you finish a short or long rest.",
@@ -261,8 +261,8 @@ MagicItemsList["infernal amulet"] = {
 	descriptionFull: "While wearing this amulet, you can use it as a spellcasting focus for your spells, and it grants a +2 bonus to your spell save DC and spell attack bonus." +
 	"\n   " + toUni("Curse") + ". You're unwilling to part with this amulet while attuned to it and you wear it always. While wearing the amulet you have disadvantage on Strength saving throws and Strength checks. Only the Remove Curse spell allows you to remove the item and end attunement." +
 	CoA_Corruption.description,
-	eval: function() { CoA_Corruption.process(true,  "infernal amulet") },
-	removeeval: function() { CoA_Corruption.process(false, "infernal amulet") },
+	eval: function () { CoA_Corruption.process(true,  "infernal amulet") },
+	removeeval: function () { CoA_Corruption.process(false, "infernal amulet") },
 	calcChanges: {
 		spellCalc: [
 			function (type, spellcasters, ability) {
@@ -285,8 +285,8 @@ MagicItemsList["infernal plate armor"] = {
 	descriptionFull: "While wearing this armor, you gain a +2 bonus to AC." +
 	"\n   " + toUni("Curse") + ". Once you wear this armor, and are attuned to it, you can't remove it. Only the Remove Curse spell allows you to end the attunement and finally doff it. While wearing the armor, you're vulnerable to the following damage types: force, lightning, psychic, radiant, and thunder." +
 	CoA_Corruption.description,
-	eval: function() { CoA_Corruption.process(true,  "infernal plate armor") },
-	removeeval: function() { CoA_Corruption.process(false, "infernal plate armor") },
+	eval: function () { CoA_Corruption.process(true,  "infernal plate armor") },
+	removeeval: function () { CoA_Corruption.process(false, "infernal plate armor") },
 	weight: 65,
 	armorOptions: [{
 		regExpSearch: /^(?=.*infernal)(?=.*plate).*$/i,
@@ -431,10 +431,10 @@ if (!MagicItemsList["soul coin"]) {
 		type: "wondrous item",
 		rarity: "uncommon",
 		description: "Each coin traps a unique soul, whose rage or despair is felt by me while I hold it. A coin has 3 charges. As an action, I can expend 1 charge to either siphon the soul's essence to grant me 1d10 temporary HP or telepathically ask the soul a question which it must answer truthfully. See \"Notes\" page for more.",
-		descriptionFull: DiA_soulCoinFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+		descriptionFull: DiA_soulCoinFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 		toNotesPage: [{
 			name: "Features",
-			note: desc(DiA_soulCoinFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(answer) you/ig, "$1 me").replace(/you /ig, "I "),
+			note: desc(DiA_soulCoinFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(answer) you/ig, "$1 me").replace(/you /ig, "I "),
 		}],
 		weight: 0.3,
 		usages: 3,
@@ -456,8 +456,8 @@ MagicItemsList["stygian spear"] = {
 	"\n   Whenever you roll a 1 on an attack roll using this weapon, your target changes to your closest ally." +
 	"\n   If there are multiple allies, randomly determine which is the target. Make a new attack roll with advantage against your ally. If the attack hits, in addition to the standard damage you deal an extra 2d6 poison damage. Only the Remove Curse spell allows you to end attunement to this item." +
 	CoA_Corruption.description,
-	eval: function() { CoA_Corruption.process(true,  "stygian spear") },
-	removeeval: function() { CoA_Corruption.process(false, "stygian spear") },
+	eval: function () { CoA_Corruption.process(true,  "stygian spear") },
+	removeeval: function () { CoA_Corruption.process(false, "stygian spear") },
 	choices: ["Javelin", "Spear"],
 	"javelin": {
 		name: "Stygian Javelin",
@@ -504,8 +504,8 @@ MagicItemsList["sword of retribution"] = {
 	"\n   " + toUni("Curse") + ". You're unwilling to part with this weapon while attuned to it. While attuned to this weapon, you also have disadvantage on attack rolls made with weapons other than this one." +
 	"\n   The vengeful spirit possessing the sword shares its history and lust for vengeance with the wielder. After each successful long rest, you experience nightmares of the spirit's past, culminating in its death. When you wake, you must make a DC 11 Constitution saving throw. On a failed save, you only gain the benefits of a short rest. Only the Remove Curse spell allows you to end attunement to this item." +
 	CoA_Corruption.description,
-	eval: function() { CoA_Corruption.process(true,  "sword of retribution") },
-	removeeval: function() { CoA_Corruption.process(false, "sword of retribution") },
+	eval: function () { CoA_Corruption.process(true,  "sword of retribution") },
+	removeeval: function () { CoA_Corruption.process(false, "sword of retribution") },
 	chooseGear: {
 		type: "weapon",
 		prefixOrSuffix: "prefix",

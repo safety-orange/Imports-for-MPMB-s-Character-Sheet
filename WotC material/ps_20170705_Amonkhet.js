@@ -616,26 +616,26 @@ CreatureList["serpopard"] = {
 	proficiencyBonus: 2,
 	attacksAction: 2,
 	attacks: [{
-			name: "Claw", // No Claw attack in the stat block, but logical considering the Pounce trait and CR 3
-			ability: 1,
-			damage: [1, 8, "slashing"],
-			range: "Melee (5 ft)",
-			description: "If used after moving 20 ft straight in the same round, see Pounce trait",
-		}, {
-			name: "Bite",
-			ability: 1,
-			damage: [1, 10, "piercing"],
-			range: "Melee (5 ft)",
-			description: "Target also takes 3d6 poison damage, half on a DC 14 Constitution saving throw",
-		},
+		name: "Claw", // No Claw attack in the stat block, but logical considering the Pounce trait and CR 3
+		ability: 1,
+		damage: [1, 8, "slashing"],
+		range: "Melee (5 ft)",
+		description: "If used after moving 20 ft straight in the same round, see Pounce trait",
+	}, {
+		name: "Bite",
+		ability: 1,
+		damage: [1, 10, "piercing"],
+		range: "Melee (5 ft)",
+		description: "Target also takes 3d6 poison damage, half on a DC 14 Constitution saving throw",
+	},
 	],
 	traits: [{
-			name: "Keen Smell",
-			description: "The serpopard has advantage on Wisdom (Perception) checks that rely on smell.",
-		}, {
-			name: "Pounce",
-			description: "If the serpopard moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 14 Strength saving throw or be knocked prone. If the target is prone, the serpopard can make one bite attack against it as a bonus action.",
-		},
+		name: "Keen Smell",
+		description: "The serpopard has advantage on Wisdom (Perception) checks that rely on smell.",
+	}, {
+		name: "Pounce",
+		description: "If the serpopard moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 14 Strength saving throw or be knocked prone. If the target is prone, the serpopard can make one bite attack against it as a bonus action.",
+	},
 	],
 };
 CreatureList["cerodon"] = {
@@ -654,26 +654,26 @@ CreatureList["cerodon"] = {
 	proficiencyBonus: 3,
 	attacksAction: 1,
 	attacks: [{
-			name: "Gore",
-			ability: 1,
-			damage: [4, 8, "bludgeoning"],
-			range: "Melee (10 ft)",
-			description: "If used after moving 20 ft straight in the same round, see Trampling Charge trait",
-		}, {
-			name: "Stomp",
-			ability: 1,
-			damage: [4, 10, "bludgeoning"],
-			range: "Melee (5 ft)",
-			description: "Can only be used on prone creatures (also see Trampling Charge trait)",
-		},
+		name: "Gore",
+		ability: 1,
+		damage: [4, 8, "bludgeoning"],
+		range: "Melee (10 ft)",
+		description: "If used after moving 20 ft straight in the same round, see Trampling Charge trait",
+	}, {
+		name: "Stomp",
+		ability: 1,
+		damage: [4, 10, "bludgeoning"],
+		range: "Melee (5 ft)",
+		description: "Can only be used on prone creatures (also see Trampling Charge trait)",
+	},
 	],
 	traits: [{
-			name: "Trampling Charge",
-			description: "If the cerodon moves at least 20 ft straight toward a creature and then hits it with a gore attack on the same turn, that target must succeed on a DC 18 Strength saving throw or be knocked prone. If the target is prone, the cerodon can make one stomp attack against it as a bonus action.",
-		}, {
-			name: "Siege Monster",
-			description: "The cerodon deals double damage to objects and structures.",
-		},
+		name: "Trampling Charge",
+		description: "If the cerodon moves at least 20 ft straight toward a creature and then hits it with a gore attack on the same turn, that target must succeed on a DC 18 Strength saving throw or be knocked prone. If the target is prone, the cerodon can make one stomp attack against it as a bonus action.",
+	}, {
+		name: "Siege Monster",
+		description: "The cerodon deals double damage to objects and structures.",
+	},
 	],
 };
 CreatureList["hippopotamus"] = {
@@ -692,25 +692,25 @@ CreatureList["hippopotamus"] = {
 	proficiencyBonus: 2,
 	attacksAction: 1,
 	attacks: [{
-			name: "Bite",
-			ability: 1,
-			damage: [3, 8, "piercing"],
-			range: "Melee (5 ft)",
-			description: "If used after moving 20 ft straight in the same round, see Trampling Charge trait",
-		}, {
-			name: "Stomp",
-			ability: 1,
-			damage: [3, 10, "bludgeoning"],
-			range: "Melee (5 ft)",
-			description: "Can only be used on prone creatures (also see Trampling Charge trait)",
-		},
+		name: "Bite",
+		ability: 1,
+		damage: [3, 8, "piercing"],
+		range: "Melee (5 ft)",
+		description: "If used after moving 20 ft straight in the same round, see Trampling Charge trait",
+	}, {
+		name: "Stomp",
+		ability: 1,
+		damage: [3, 10, "bludgeoning"],
+		range: "Melee (5 ft)",
+		description: "Can only be used on prone creatures (also see Trampling Charge trait)",
+	},
 	],
 	traits: [{
-			name: "Hold Breath",
-			description: "The hippopotamus can hold its breath for 30 minutes.",
-		}, {
-			name: "Trampling Charge",
-			description: "If the hippopotamus moves at least 20 ft straight toward a creature and then hits it with a Bit attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the hippopotamus can make one stomp attack against it as a bonus action.",
-		},
+		name: "Hold Breath",
+		description: "The hippopotamus can hold its breath for 30 minutes.",
+	}, {
+		name: "Trampling Charge",
+		description: "If the hippopotamus moves at least 20 ft straight toward a creature and then hits it with a Bit attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the hippopotamus can make one stomp attack against it as a bonus action.",
+	},
 	],
 };

@@ -85,7 +85,7 @@ MagicItemsList["spider staff"] = { // changed to the new version introduced in P
 	descriptionFull: "The top of this black, adamantine staff is shaped like a spider. The staff weighs 6 pounds. You must be attuned to the staff to gain its benefits and cast its spells. The staff can be wielded as a quarterstaff. It deals 1d6 extra poison damage on a hit when used to make a weapon attack.\n   The staff has 10 charges, which are used to fuel the spells within it. With the staff in hand, you can use your action to cast one of the following spells from the staff if the spell is on your class's spell list: Spider Climb (1 charge) or Web (2 charges, spell save DC 15). No components are required.\n   The staff regains 1d6+4 expended charges each day at dusk. If you expend the staff's last charge, roll a d20. On a 1, the staff crumbles to dust and is destroyed.",
 	attunement: true,
 	prerequisite: "Requires attunement by a bard, sorcerer, warlock, or wizard",
-	prereqeval: function(v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
 	weight: 6, // kept to the original weight
 	usages: 10,
 	recovery: "dawn",
@@ -122,7 +122,7 @@ MagicItemsList["staff of defense"] = { // changed to the new version introduced 
 	descriptionFull: "This slender, hollow staff is made of glass yet is as strong as oak. It weighs 3 pounds. You must be attuned to the staff to gain its benefits and cast its spells.\n   While holding the staff, you have a +1 bonus to your Armor Class.\n   The staff has 10 charges, which are used to fuel the spells within it. With the staff in hand, you can use your action to cast one of the following spells from the staff if the spell is on your class's spell list: Mage Armor (1 charge) or Shield (2 charges). No components are required.\n   The staff regains 1d6+4 expended charges each day at dawn. If you expend the staff's last charge, roll a d20. On a 1, the staff shatters and is destroyed.",
 	attunement: true,
 	prerequisite: "Requires attunement by a bard, sorcerer, warlock, or wizard",
-	prereqeval: function(v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
 	weight: 3,
 	usages: 10,
 	recovery: "dawn",
@@ -375,10 +375,10 @@ AddSubClass("barbarian", "totem warrior", {
 				name: "Bear Spirit",
 				description: desc("While raging, I have resistance to all damage types except psychic"),
 				dmgres: [["All -Psychic", "All -Psychic (rage)"]],
-				eval: function() {
+				eval: function () {
 					processResistance(false, "Barbarian: Rage", ClassList.barbarian.features.rage.dmgres);
 				},
-				removeeval: function() {
+				removeeval: function () {
 					processResistance(true, "Barbarian: Rage", ClassList.barbarian.features.rage.dmgres);
 				},
 			},
@@ -929,7 +929,7 @@ AddSubClass("druid", "circle of the moon", {
 				return "CR " + cr + limits + "; " + hr + (limits.length ? " h" : " hours");
 			}),
 			action: [["bonus action", " (start/stop)"]],
-			eval: function() {
+			eval: function () {
 				processActions(false, "Druid: Wild Shape", ClassList.druid.features["subclassfeature2.wild shape"].action, "Wild Shape");
 			},
 			wildshapePageInfo: {
@@ -951,7 +951,7 @@ AddSubClass("druid", "circle of the moon", {
 				"I regain 1d8 HP per expended spell slot level; I can use Wild Shape as a bonus action",
 			]),
 			action: [["bonus action", " (heal)"]],
-			removeeval: function() {
+			removeeval: function () {
 				processActions(true, "Druid: Wild Shape", ClassList.druid.features["subclassfeature2.wild shape"].action, "Wild Shape");
 			},
 		},
@@ -1297,7 +1297,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 6,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function(v) { return classes.known.monk.level >= 17; },
+				prereqeval: function (v) { return classes.known.monk.level >= 17; },
 				spellChanges: {
 					"cone of cold": {
 						components: "V,S",
@@ -1319,7 +1319,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 3,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function(v) { return classes.known.monk.level >= 6; },
+				prereqeval: function (v) { return classes.known.monk.level >= 6; },
 				spellChanges: {
 					"hold person": {
 						components: "V,S",
@@ -1341,7 +1341,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 5,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function(v) { return classes.known.monk.level >= 17; },
+				prereqeval: function (v) { return classes.known.monk.level >= 17; },
 				spellChanges: {
 					"stoneskin": {
 						range: "Self",
@@ -1415,7 +1415,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 4,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function(v) { return classes.known.monk.level >= 11; },
+				prereqeval: function (v) { return classes.known.monk.level >= 11; },
 				spellChanges: {
 					"fireball": {
 						components: "V,S",
@@ -1437,7 +1437,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 3,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function(v) { return classes.known.monk.level >= 6; },
+				prereqeval: function (v) { return classes.known.monk.level >= 6; },
 				spellChanges: {
 					"shatter": {
 						components: "V,S",
@@ -1459,7 +1459,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 4,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function(v) { return classes.known.monk.level >= 11; },
+				prereqeval: function (v) { return classes.known.monk.level >= 11; },
 				spellChanges: {
 					"gaseous form": {
 						range: "Self",
@@ -1482,7 +1482,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 4,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function(v) { return classes.known.monk.level >= 11; },
+				prereqeval: function (v) { return classes.known.monk.level >= 11; },
 				spellChanges: {
 					"fly": {
 						range: "Self",
@@ -1505,7 +1505,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 5,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function(v) { return classes.known.monk.level >= 17; },
+				prereqeval: function (v) { return classes.known.monk.level >= 17; },
 				spellChanges: {
 					"wall of fire": {
 						components: "V,S",
@@ -1589,7 +1589,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 6,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function(v) { return classes.known.monk.level >= 17; },
+				prereqeval: function (v) { return classes.known.monk.level >= 17; },
 				spellChanges: {
 					"wall of stone": {
 						components: "V,S",
@@ -1825,13 +1825,13 @@ AddSubClass("ranger", "beast master", {
 				"I can still use Extra Attack while commanding it to Attack; No action to order to move",
 			]),
 			additional: "Beast \u2264Medium and CR \u22641/4",
-			creaturesAdd: [["Ranger's Companion", false, function(AddRemove, prefix) {
+			creaturesAdd: [["Ranger's Companion", false, function (AddRemove, prefix) {
 				if (!AddRemove) return;
 				var cObj = MakeCompMenu_CompOptions(prefix, "justCompanions");
 				if (!cObj.companion || !cObj.companion.length) {
 					var selectedRace = "Wolf";
 				} else {
-					var compOptions = cObj.companion.map(function(n) { return n[0] });
+					var compOptions = cObj.companion.map(function (n) { return n[0] });
 					var selectedRace = AskUserOptions("Select Ranger's Companion", "Select which beast you would like to have as your ranger's companion.\nThis can be any beast that is no larger than Medium and that has a challenge rating of 1/4 or lower.\nYou can change the beast at any time using the \"Companion Options\" button at the top of the Companion page.", compOptions, "radio", true);
 				}
 				ApplyCompRace(selectedRace, prefix, "companion");
@@ -2243,7 +2243,7 @@ AddSubClass("wizard", "abjuration", {
 				"It stays active at 0 HP and doesn't go away until my next long rest",
 				"If I take damage, the ward takes the damage instead, but excess damage carries over",
 			]),
-			additional: levels.map( function(n) {
+			additional: levels.map( function (n) {
 				return n < 2 ? "" : "Ward " + (typePF ? "" : "max ") + "HP: " + (n * 2) + "+Int mod";
 			}),
 			usages: 1,
@@ -2385,7 +2385,7 @@ AddSubClass("wizard", "divination", {
 				"A result can replace an attack/save/ability check made by me or a creature I can see",
 				"I choose to switch them before the dice to be replaced are rolled; Max once per turn",
 			]),
-			additional: levels.map( function(n) {
+			additional: levels.map( function (n) {
 				return n < 2 ? "" : (n < 14 ? 2 : 3) + "d20 after a long rest";
 			}),
 		},
@@ -2719,13 +2719,13 @@ CompanionList["undead_thrall"] = {
 	nameOrigin: "School of Necromancy 6",
 	nameMenu: "Undead Thrall (School of Necromancy feature)",
 	source: [["P", 119]],
-	includeCheck: function(sCrea, objCrea, iCreaCR, bIsAL) {
+	includeCheck: function (sCrea, objCrea, iCreaCR, bIsAL) {
 		return /undead/i.test(objCrea.type);
 	},
-	attributesChange: function(sCrea, objCrea) {
+	attributesChange: function (sCrea, objCrea) {
 		objCrea.hp += classes.known.wizard ? classes.known.wizard.level : classes.totallevel;
 		if (!objCrea.attacks) return;
-		objCrea.attacks = objCrea.attacks.map(function(oAtk) {
+		objCrea.attacks = objCrea.attacks.map(function (oAtk) {
 			if (oAtk.abilitytodamage !== false && !oAtk.dc) {
 				if (!oAtk.modifiers) {
 					oAtk.modifiers = ["", "oProf"];
@@ -2750,7 +2750,7 @@ CompanionList["undead_thrall"] = {
 		description: "add my wizard level to their hit point maximum and add my proficiency bonus to their weapon damage rolls.",
 		joinString: " ",
 	}],
-	eval: function(prefix, lvl) {
+	eval: function (prefix, lvl) {
 		// Set HP to use average value, so that the level bonus is automatically included
 		var sHPfld = prefix + "Comp.Use.HP.Max";
 		var aHPsets = How(sHPfld).split(",");
@@ -3813,7 +3813,7 @@ FeatsList["defensive duelist"] = {
 	descriptionFull: "When you are wielding a finesse weapon with which you are proficient and another creature hits you with a melee attack, you can use your reaction to add your proficiency bonus to your AC for that attack, potentially causing the attack to miss you.",
 	description: "When wielding a finesse weapon with which I am proficient and another creature hits me with a melee attack, I can use my reaction to add my proficiency bonus to my AC for that attack, potentially causing the attack to miss me.",
 	prerequisite: "Dexterity 13 or higher",
-	prereqeval: function(v) { return What("Dex") >= 13; },
+	prereqeval: function (v) { return What("Dex") >= 13; },
 	action: [["reaction", " (when hit in melee)"]],
 };
 FeatsList["dual wielder"] = {
@@ -3849,7 +3849,7 @@ FeatsList["elemental adept"] = {
 	descriptionFull: "When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder.\n   Spells you cast ignore resistance to damage of the chosen type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can treat any 1 on a damage die as a 2.\n\nYou can select this feat multiple times. Each time you do so, you must choose a different damage type.",
 	description: "Choose one of the damage types: acid, cold, fire, lightning, or thunder. Spells I cast ignore resistance to damage from this damage type. For any spell I cast that deals this damage type, I can treat any 1 on a damage die as a 2.",
 	prerequisite: "The ability to cast at least one spell",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	allowDuplicates: true,
 	choices: ["acid", "cold", "fire", "lightning", "thunder"],
 	"acid": {
@@ -3899,7 +3899,7 @@ FeatsList["heavily armored"] = {
 	descriptionFull: "You have trained to master the use of heavy armor, gaining the following benefits:\n \u2022 Increase your Strength score by 1, to a maximum of 20.\n \u2022 You gain proficiency with heavy armor.",
 	description: "I gain proficiency with heavy armor. [+1 Strength]",
 	prerequisite: "Proficiency with medium armor",
-	prereqeval: function(v) { return v.mediumArmorProf; },
+	prereqeval: function (v) { return v.mediumArmorProf; },
 	scores: [1, 0, 0, 0, 0, 0],
 	armorProfs: [false, false, true, false],
 };
@@ -3909,7 +3909,7 @@ FeatsList["heavy armor master"] = {
 	descriptionFull: "You can use your armor to deflect strikes that would kill others. You gain the following benefits:\n \u2022 While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from nonmagical weapons is reduced by 3.",
 	description: "While wearing heavy armor, bludgeoning, piercing, and slashing damage taken from nonmagical weapons is reduced by 3. [+1 Strength]",
 	prerequisite: "Proficiency with heavy armor",
-	prereqeval: function(v) { return v.heavyArmorProf; },
+	prereqeval: function (v) { return v.heavyArmorProf; },
 	scores: [1, 0, 0, 0, 0, 0],
 };
 FeatsList["inspiring leader"] = {
@@ -3918,7 +3918,7 @@ FeatsList["inspiring leader"] = {
 	descriptionFull: "You can spend 10 minutes inspiring your companions, shoring up their resolve to fight. When you do so, choose up to six friendly creatures (which can include yourself) within 30 feet of you who can see or hear you and who can understand you. Each creature can gain temporary hit points equal to your level + your Charisma modifier. A creature can't gain temporary hit points from this feat again until it has finished a short or long rest.",
 	calculate: "event.value = 'I can spend 10 minutes inspiring up to 6 friendly creatures within 30 feet who can see or hear and can understand me. Each gains lvl (' + What('Character Level') + ') + Cha mod (' + What('Cha Mod') + \") temporary hit points. One can't gain temporary hit points from this feat again until after a short rest.\";",
 	prerequisite: "Charisma 13 or higher",
-	prereqeval: function(v) { return What("Cha") >= 13; },
+	prereqeval: function (v) { return What("Cha") >= 13; },
 };
 FeatsList["keen mind"] = {
 	name: "Keen Mind",
@@ -4096,7 +4096,7 @@ FeatsList["medium armor master"] = {
 	descriptionFull: "You have practiced moving in medium armor to gain the following benefits:\n \u2022 Wearing medium armor doesn't impose disadvantage on your Dexterity (Stealth) checks.\n \u2022 When you wear medium armor, you can add 3, rather than 2, to your AC if you have a Dexterity of 16 or higher.",
 	description: "Wearing medium armor doesn't impose disadvantage on my Dexterity (Stealth) checks. When I wear medium armor, I can add up to 3, rather than 2, to my AC if my Dexterity is 16 or higher.",
 	prerequisite: "Proficiency with medium armor",
-	prereqeval: function(v) { return v.mediumArmorProf; },
+	prereqeval: function (v) { return v.mediumArmorProf; },
 	eval: function () {
 		Value("Medium Armor Max Mod", 3);
 		ApplyArmor(What("AC Armor Description"));
@@ -4119,7 +4119,7 @@ FeatsList["moderately armored"] = {
 	descriptionFull: "You have trained to master the use of medium armor and shields, gaining the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with medium armor and shields.",
 	description: "I gain proficiency with medium armor and shields. [+1 Strength or Dexterity]",
 	prerequisite: "Proficiency with light armor",
-	prereqeval: function(v) { return v.lightArmorProf; },
+	prereqeval: function (v) { return v.lightArmorProf; },
 	scorestxt: "+1 Strength or Dexterity",
 	armorProfs: [false, true, false, true],
 };
@@ -4200,8 +4200,8 @@ FeatsList["ritual caster"] = {
 	descriptionFull: "You have learned a number of spells that you can cast as rituals. These spells are written in a ritual book, which you must have in hand while casting one of them.\n   When you choose this feat, you acquire a ritual book holding two 1st-level spells of your choice. Choose one of the following classes: bard, cleric, druid, sorcerer, warlock, or wizard. You must choose your spells from that class's spell list, and the spells you choose must have the ritual tag. The class you choose also determines your spellcasting ability for these spells: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; or Intelligence for wizard.\n   If you come across a spell in written form, such as a magical spell scroll or a wizard's spellbook, you might be able to add it to your ritual book. The spell must be on the spell list for the class you chose, the spell's level can be no higher than half your level (rounded up), and it must have the ritual tag. The process of copying the spell into your ritual book takes 2 hours per level of the spell, and costs 50 gp per level. The cost represents material components you expend as you experiment with the spell to master it, as well as the fine inks you need to record it.",
 	description: "Select a spellcasting class using the square button on this feat line. I gain a book with two 1st-level ritual spells from that class' spell list. I can transcribe more ritual spells into this book and cast them as rituals only.",
 	prerequisite: "Intelligence or Wisdom 13 or higher",
-	prereqeval: function(v) { return What("Int") >= 13 || What("Wis") >= 13; },
-	commoneval: function(chc, spellAbility) {
+	prereqeval: function (v) { return What("Int") >= 13 || What("Wis") >= 13; },
+	commoneval: function (chc, spellAbility) {
 		if (!chc) return;
 		CurrentSpells["ritual caster " + chc] = {
 			name: "Ritual Book [" + chc.capitalize() + "]",
@@ -4212,7 +4212,7 @@ FeatsList["ritual caster"] = {
 		};
 		SetStringifieds("spells"); CurrentUpdates.types.push("spells");
 	},
-	commonremoveeval: function(chc) {
+	commonremoveeval: function (chc) {
 		if (!chc) return;
 		delete CurrentSpells["ritual caster " + chc];
 		SetStringifieds("spells"); CurrentUpdates.types.push("spells");
@@ -4237,33 +4237,33 @@ FeatsList["ritual caster"] = {
 	choices: ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
 	"bard": {
 		description: "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual bard spells.\nI can copy ritual bard spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
-		eval: function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 6); },
-		removeeval: function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
+		eval: function (lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 6); },
+		removeeval: function (lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
 	},
 	"cleric": {
 		description: "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual cleric spells.\nI can copy ritual cleric spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Wisdom is my spellcasting ability for these.",
-		eval: function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 5); },
-		removeeval: function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
+		eval: function (lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 5); },
+		removeeval: function (lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
 	},
 	"druid": {
 		description: "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual druid spells.\nI can copy ritual druid spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Wisdom is my spellcasting ability for these.",
-		eval: function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 5); },
-		removeeval: function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
+		eval: function (lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 5); },
+		removeeval: function (lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
 	},
 	"sorcerer": {
 		description: "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual sorcerer spells.\nI can copy ritual sorcerer spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
-		eval: function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 6); },
-		removeeval: function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
+		eval: function (lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 6); },
+		removeeval: function (lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
 	},
 	"warlock": {
 		description: "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual warlock spells.\nI can copy ritual warlock spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
-		eval: function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 6); },
-		removeeval: function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
+		eval: function (lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 6); },
+		removeeval: function (lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
 	},
 	"wizard": {
 		description: "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual wizard spells.\nI can copy ritual wizard spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Intelligence is my spellcasting ability for these.",
-		eval: function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 4); },
-		removeeval: function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
+		eval: function (lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 4); },
+		removeeval: function (lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
 	},
 };
 FeatsList["savage attacker"] = {
@@ -4323,7 +4323,7 @@ FeatsList["skulker"] = {
 	descriptionFull: "You are expert at slinking through shadows. You gain the following benefits:\n \u2022 You can try to hide when you are lightly obscured from the creature from which you are hiding.\n \u2022 When you are hidden from a creature and miss it with a ranged weapon attack, making the attack doesn't reveal your position.\n \u2022 Dim light doesn't impose disadvantage on your Wisdom (Perception) checks relying on sight.",
 	description: "I can try to hide when I am lightly obscured. My position is not revealed when I am hidden from a creature and miss it with a ranged weapon attack. Dim light doesn't impose disadvantage on my Wisdom (Perception) checks relying on sight.",
 	prerequisite: "Dexterity 13 or higher",
-	prereqeval: function(v) { return What("Dex") >= 13; },
+	prereqeval: function (v) { return What("Dex") >= 13; },
 	vision: [["No disadv. on Perception in dim light", 0]],
 };
 FeatsList["spell sniper"] = {
@@ -4332,7 +4332,7 @@ FeatsList["spell sniper"] = {
 	descriptionFull: "You have learned techniques to enhance your attacks with certain kinds of spells, gaining the following benefits:\n \u2022 When you cast a spell that requires you to make an attack roll, the spell's range is doubled.\n \u2022 Your ranged spell attacks ignore half cover and three-quarters cover.\n \u2022 You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. Your spellcasting ability for this cantrip depends on the spell list you chose from: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; or Intelligence for wizard.",
 	description: "Select a spellcasting class using the square button on this feat line. I learn one cantrip requiring an attack roll from the spell list of the chosen class. Any spell I cast requiring an attack roll has its range doubled and ignores half and 3/4 cover.",
 	prerequisite: "The ability to cast at least one spell",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	calcChanges: {
 		atkAdd: [
 			function (fields, v) {
@@ -4482,7 +4482,7 @@ FeatsList["war caster"] = {
 	name: "War Caster",
 	source: [["P", 170]],
 	prerequisite: "The ability to cast at least one spell",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	descriptionFull: "You have practiced casting spells in the midst of combat, learning techniques that grant you the following benefits:\n \u2022 You have advantage on Constitution saving throws that you make to maintain your concentration on a spell when you take damage.\n \u2022 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.\n \u2022 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a spell at the creature, rather than making an opportunity attack. The spell must have a casting time of 1 action and must target only that creature.",
 	description: "Advantage on Con saves to maintain concentration on spells when damaged. Perform somatic components even when holding weapons or shield in one or both hands. Cast spell of 1 action casting time that targets only one creature instead of an opportunity attack.",
 	action: [["reaction", " - Opportunity Spell"]],
@@ -5940,7 +5940,7 @@ MagicItemsList["shield guardian amulet"] = {
 	attunement: true,
 	notLegalAL: true,
 	prerequisite: "Requires attunement by a humanoid",
-	prereqeval: function(v) { return !CurrentRace.known || !RaceList[CurrentRace.known] || !/creature type/i.test(RaceList[CurrentRace.known].trait); },
+	prereqeval: function (v) { return !CurrentRace.known || !RaceList[CurrentRace.known] || !/creature type/i.test(RaceList[CurrentRace.known].trait); },
 	description: "A shield guardian is magically linked to this amulet. It has AC 10, 10 HP, and immunity to poison and psychic damage. I know the distance and direction of the guardian while I'm wearing the amulet and I'm on the same plane as it. While within 10 ft of it, I can use the amulet to reactivate it with a DC 20 Arcana check.",
 	descriptionFull: "The amulet is a 4-inch-wide disk composed of silver-framed wood, with a rune carved into its face. A detect magic spell reveals a magical aura of enchantment around the amulet." +
 	"\n   Every shield guardian has an amulet magically linked to it. A shield guardian can have only one corresponding amulet, and if that amulet is destroyed, the shield guardian is incapacitated until a replacement amulet is created." +
@@ -5962,7 +5962,7 @@ Gains:
  P.S. multiattack is a weird one, going with the interpretation here: https://rpg.stackexchange.com/questions/70694
 */
 var MM_lycanthrope = {
-	createDefaultTraits: function(sLycanName, sLycanPlural) {
+	createDefaultTraits: function (sLycanName, sLycanPlural) {
 		// the traits of a human
 		var obj = {
 			name: "Human " + sLycanName,
@@ -5978,7 +5978,7 @@ var MM_lycanthrope = {
 		}
 		return obj;
 	},
-	createMessage: function(sLycanName, aOtherGains) {
+	createMessage: function (sLycanName, aOtherGains) {
 		var aGained = [
 			"Its speed in nonhumanoid form.",
 			"Natural attacks in nonhumanoid form (e.g. bite/claw).",
@@ -6947,7 +6947,7 @@ MagicItemsList["instrument of the bards"] = {
 	attunement: true,
 	weight: 3, // Magic of Faerûn (2001) page 161
 	prerequisite: "Requires attunement by a bard",
-	prereqeval: function(v) { return classes.known.bard ? true : false; },
+	prereqeval: function (v) { return classes.known.bard ? true : false; },
 	choices: ["Anstruth Harp (very rare)", "Canaith Mandolin (rare)", "Cli Lyre (rare)", "Doss Lute (uncommon)", "Fochlucan Bandore (uncommon)", "Mac-Fuirmidh Cittern (uncommon)", "Ollamh Harp (legendary)"],
 	"anstruth harp (very rare)": {
 		name: "Anstruth Harp [Instrument of the Bards]",
@@ -7156,7 +7156,7 @@ MagicItemsList["rod of resurrection"] = {
 	attunement: true,
 	weight: 2,
 	prerequisite: "Requires attunement by a cleric, druid, or paladin",
-	prereqeval: function(v) { return classes.known.cleric || classes.known.druid || classes.known.paladin ? true : false; },
+	prereqeval: function (v) { return classes.known.cleric || classes.known.druid || classes.known.paladin ? true : false; },
 	usages: 5,
 	recovery: "dawn",
 	additional: "regains 1",
@@ -7188,7 +7188,7 @@ MagicItemsList["rod of the pact keeper, +1, +2, or +3"] = {
 	attunement: true,
 	weight: 2,
 	prerequisite: "Requires attunement by a warlock",
-	prereqeval: function(v) { return classes.known.warlock; },
+	prereqeval: function (v) { return classes.known.warlock; },
 	usages: 1,
 	recovery: "long rest",
 	limfeaname: "Rod of the Pact Keeper (warlock spell slot)",
@@ -7310,7 +7310,7 @@ MagicItemsList["sending stones"] = {
 		selection: ["sending"],
 		firstCol: "oncelr",
 	}],
-	usages: 1, 
+	usages: 1,
 	recovery: "dawn",
 	spellChanges: {
 		"sending": {
@@ -7343,7 +7343,7 @@ MagicItemsList["staff of the adder"] = {
 	attunement: true,
 	weight: 4,
 	prerequisite: "Requires attunement by a cleric, druid, or warlock",
-	prereqeval: function(v) { return classes.known.cleric || classes.known.druid || classes.known.warlock ? true : false; },
+	prereqeval: function (v) { return classes.known.cleric || classes.known.druid || classes.known.warlock ? true : false; },
 	action: [["bonus action", " (animate/end)"]],
 	weaponOptions: [{
 		regExpSearch: /^(?=.*snake)(?=.*head)(?=.*staff)(?=.*adder).*$/i,
@@ -7394,55 +7394,55 @@ MagicItemsList["sword of answering"] = {
 	"answerer (chaotic good)": {
 		name: "Sword of Answering [Answerer]",
 		prerequisite: "Requires attunement by a creature with the chaotic good alignment",
-		prereqeval: function(v) { return /^(?=.*chaotic)(?=.*good).*$/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /^(?=.*chaotic)(?=.*good).*$/i.test(What("Alignment")); },
 		description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has an emerald set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	},
 	"back talker (chaotic evil)": {
 		name: "Sword of Answering [Back Talker]",
 		prerequisite: "Requires attunement by a creature with the chaotic evil alignment",
-		prereqeval: function(v) { return /^(?=.*chaotic)(?=.*evil).*$/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /^(?=.*chaotic)(?=.*evil).*$/i.test(What("Alignment")); },
 		description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has jet set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	},
 	"concluder (lawful neutral)": {
 		name: "Sword of Answering [Concluder]",
 		prerequisite: "Requires attunement by a creature with the lawful neutral alignment",
-		prereqeval: function(v) { return /^(?=.*lawful)(?=.*neutral).*$/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /^(?=.*lawful)(?=.*neutral).*$/i.test(What("Alignment")); },
 		description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has an amethyst set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	},
 	"last quip (chaotic neutral)": {
 		name: "Sword of Answering [Last Quip]",
 		prerequisite: "Requires attunement by a creature with the chaotic neutral alignment",
-		prereqeval: function(v) { return /^(?=.*chaotic)(?=.*neutral).*$/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /^(?=.*chaotic)(?=.*neutral).*$/i.test(What("Alignment")); },
 		description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has a tourmaline set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	},
 	"rebutter (neutral good)": {
 		name: "Sword of Answering [Rebutter]",
 		prerequisite: "Requires attunement by a creature with the neutral good alignment",
-		prereqeval: function(v) { return /^(?=.*neutral)(?=.*good).*$/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /^(?=.*neutral)(?=.*good).*$/i.test(What("Alignment")); },
 		description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has a topaz set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	},
 	"replier (neutral)": {
 		name: "Sword of Answering [Replier]",
 		prerequisite: "Requires attunement by a creature with the neutral alignment",
-		prereqeval: function(v) { return /^(?=.*neutral)(?!.*(chaotic|lawful|evil|good)).*$/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /^(?=.*neutral)(?!.*(chaotic|lawful|evil|good)).*$/i.test(What("Alignment")); },
 		description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has a peridot set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	},
 	"retorter (lawful good)": {
 		name: "Sword of Answering [Retorter]",
 		prerequisite: "Requires attunement by a creature with the lawful good alignment",
-		prereqeval: function(v) { return /^(?=.*lawful)(?=.*good).*$/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /^(?=.*lawful)(?=.*good).*$/i.test(What("Alignment")); },
 		description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has an aquamarine set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	},
 	"scather (lawful evil)": {
 		name: "Sword of Answering [Scather]",
 		prerequisite: "Requires attunement by a creature with the lawful evil alignment",
-		prereqeval: function(v) { return /^(?=.*lawful)(?=.*evil).*$/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /^(?=.*lawful)(?=.*evil).*$/i.test(What("Alignment")); },
 		description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has a garnet set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	},
 	"squelcher (neutral evil)": {
 		name: "Sword of Answering [Squelcher]",
 		prerequisite: "Requires attunement by a creature with the neutral evil alignment",
-		prereqeval: function(v) { return /^(?=.*neutral)(?=.*evil).*$/i.test(What("Alignment")); },
+		prereqeval: function (v) { return /^(?=.*neutral)(?=.*evil).*$/i.test(What("Alignment")); },
 		description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has a spinel set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	},
 }
@@ -7525,7 +7525,7 @@ MagicItemsList["tome of the stilled tongue"] = {
 	attunement: true,
 	weight: 5,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	action: [["bonus action", ""]],
 	usages: 1,
 	recovery: "dawn",
@@ -7583,10 +7583,10 @@ MagicItemsList["blackrazor"] = {
 	rarity: "legendary",
 	notLegalAL: true,
 	description: "This sentient greatsword adds +3 to hit and damage and makes me immune to being charmed or frightened. Once per day it can cast Haste on me as it sees fit. If I use it to bring a creature to 0 HP, it devours the creature's soul, granting me temporary HP equal to the creature's max HP for 24 hours. See Notes page.",
-	descriptionFull: DMG_blackrazorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: DMG_blackrazorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	attunement: true,
 	prerequisite: "Requires attunement by a creature of non-lawful alignment",
-	prereqeval: function(v) { return !/lawful/i.test(What("Alignment")); },
+	prereqeval: function (v) { return !/lawful/i.test(What("Alignment")); },
 	action: [["bonus action", ""]],
 	weight: 6,
 	weaponOptions: [{
@@ -7600,7 +7600,7 @@ MagicItemsList["blackrazor"] = {
 	}],
 	toNotesPage: [{
 		name: "Features",
-		note: desc(DMG_blackrazorFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|reduces|grants) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(DMG_blackrazorFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|reduces|grants) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 	savetxt: { immune: ["charmed", "frightened"] },
 	usages: 1,
@@ -7639,10 +7639,10 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 		rarity: "legendary",
 		notLegalAL: true,
 		description: "This sentient trident adds +3 to hit and damage and if I score a critical hit with it, the target takes extra necrotic damage equal to half its max HP. It also functions as a trident of fish command, a weapon of warning, cap of water breathing while I hold it, and I can use it as a cube of force. See Notes page.",
-		descriptionFull: DMG_waveFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+		descriptionFull: DMG_waveFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 		attunement: true,
 		prerequisite: "Requires attunement by a creature that worships a god of the sea",
-		prereqeval: function(v) { return /deep sashelas|sekolah|ulutiu|umberlee|valkur|poseidon|neptune|aegir|nehalennia|njord/i.test(What("Faith/Deity")); },
+		prereqeval: function (v) { return /deep sashelas|sekolah|ulutiu|umberlee|valkur|poseidon|neptune|aegir|nehalennia|njord/i.test(What("Faith/Deity")); },
 		weight: 4,
 		weaponOptions: [{
 			baseWeapon: "trident",
@@ -7655,7 +7655,7 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 		}],
 		toNotesPage: [{
 			name: "Features",
-			note: desc(DMG_waveFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/you/ig, "I") + "\n\n" + sentientItemConflictTxt,
+			note: desc(DMG_waveFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/you/ig, "I") + "\n\n" + sentientItemConflictTxt,
 		}, {
 			name: "Contained Items",
 			note: [
@@ -7712,10 +7712,10 @@ MagicItemsList["whelm"] = {
 	rarity: "legendary",
 	notLegalAL: true,
 	description: "This sentient warhammer adds +3 to hit and damage, has the thrown property, deals extra damage when thrown, and returns to my hand when thrown. I can use it to create a shock wave. It makes me afraid of the outdoors, so while I can see the daytime sky, I have disadv. on attacks, saves, and checks. See Notes page.",
-	descriptionFull: DMG_whelmFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: DMG_whelmFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	attunement: true,
 	prerequisite: "Requires attunement by a dwarf",
-	prereqeval: function(v) { return CurrentRace.known.indexOf("dwarf") !== -1; },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("dwarf") !== -1; },
 	weight: 2,
 	weaponOptions: [{
 		baseWeapon: "warhammer",
@@ -7729,7 +7729,7 @@ MagicItemsList["whelm"] = {
 	}],
 	toNotesPage: [{
 		name: "Features",
-		note: desc(DMG_whelmFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|causes|alerts) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(DMG_whelmFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|causes|alerts) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 	action: [["action", " (Shock Wave)"]],
 	extraLimitedFeatures: [{
@@ -8041,7 +8041,7 @@ MagicItemsList["bomb, renaissance"] = {
 	descriptionFull: "As an action, a character can light this bomb and throw it at a point up to 60 feet away. Each creature within 5 feet of that point must succeed on a DC 12 Dexterity saving throw or take 3d6 fire damage.",
 	action: [["action", "Throw Explosive"]],
 	weaponsAdd: { select: ["Bomb, Renaissance"] },
-	eval: function() { // make sure the weapon and ammo are not excluded
+	eval: function () { // make sure the weapon and ammo are not excluded
 		if (CurrentSources.weapExcl.eject("bomb, renaissance") !== -1) SetWeaponsdropdown();
 		if (CurrentSources.ammoExcl.eject("bomb") !== -1) SetAmmosdropdown();
 	},
@@ -8080,7 +8080,7 @@ MagicItemsList["dynamite stick"] = {
 	"\n   Dynamite can be rigged with a longer fuse to explode after a set amount of time, usually 1 to 6 rounds. Roll initiative for the dynamite. After the set number of rounds goes by, the dynamite explodes on that initiative.",
 	action: [["action", "Throw Explosive"]],
 	weaponsAdd: { select: ["Dynamite Stick"] },
-	eval: function() { // make sure the weapon and ammo are not excluded
+	eval: function () { // make sure the weapon and ammo are not excluded
 		if (CurrentSources.weapExcl.eject("dynamite stick") !== -1) SetWeaponsdropdown();
 		if (CurrentSources.ammoExcl.eject("dynamite stick") !== -1) SetAmmosdropdown();
 	},
@@ -8105,7 +8105,7 @@ MagicItemsList["grenade"] = {
 		"\n   Each creature within 20 feet of an exploding fragmentation grenade must make a DC 15 Dexterity saving throw, taking 5d6 piercing damage on a failed save, or half as much damage on a successful one.",
 		weight: 1,
 		weaponsAdd: { select: ["Fragmentation Grenade"] },
-		eval: function() { // make sure the weapon and ammo are not excluded
+		eval: function () { // make sure the weapon and ammo are not excluded
 			if (CurrentSources.weapExcl.eject("grenade, fragmentation") !== -1) SetWeaponsdropdown();
 			if (CurrentSources.ammoExcl.eject("grenade") !== -1) SetAmmosdropdown();
 		},
@@ -9228,7 +9228,7 @@ FeatsList["svirfneblin magic"] = {
 	name: "Svirfneblin Magic",
 	source: [["E", 7], ["S", 115], ["MToF", 114]],
 	prerequisite: "Being a Svirfneblin (Deep Gnome)",
-	prereqeval: function(v) { return CurrentRace.known === "deep gnome"; },
+	prereqeval: function (v) { return CurrentRace.known === "deep gnome"; },
 	descriptionFull: "You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast Nondetection on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: Blindness/Deafness, Blur, and Disguise Self. You regain the ability to cast these spells when you finish a long rest.\n   Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
 	description: "I can cast Nondetection on myself at will, without a material component. I can also cast the spells Blindness/Deafness, Blur, and Disguise Self once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
 	spellcastingBonus: [{
@@ -10621,7 +10621,7 @@ MagicItemsList["dawnbringer"] = {
 	rarity: "legendary",
 	storyItemAL: true,
 	prerequisite: "Requires attunement by a creature of non-evil alignment",
-	prereqeval: function(v) { return !/evil/i.test(What("Alignment")); },
+	prereqeval: function (v) { return !/evil/i.test(What("Alignment")); },
 	description: "As a bonus action, I can have this hilt create a blade of radiance. It acts like a longsword that does +2 to attack and damage rolls, radiant damage (+1d8 to undead), has finesse, emits bright sunlight in a 15-ft radius and dim light in another 15 ft. I can use it to cast Lesser Restoration and it is sentient, see Notes page.",
 	descriptionLong: "As a bonus action, I can have this longsword hilt create or dismiss a blade of pure radiance. It acts like a longsword that grants a +2 bonus to attack and damage rolls, does radiant damage and has the finesse property. It deals +1d8 radiant damage to undead and emits sunlight, bright light in a 15-ft radius and dim light in an additional 15ft. As an action, I can expand or reduce both the bright and dim light's radius by 5 ft each, to a maximum of 30 feet each or a minimum of 10 feet each. Once per dawn, I can use it to cast Lesser Restoration. Also, it is sentient, see Notes page.",
 	descriptionFull: "Lost for ages in the Underdark, Dawnbringer appears to be a gilded longsword hilt. While grasping the hilt, you can use a bonus action to make a blade of pure radiance spring from the hilt, or cause the blade to disappear. While the blade exists, this magic longsword has the finesse property. If you are proficient with shortswords or longswords, you are proficient with Dawnbringer.\n   You gain a +2 bonus to attack and damage rolls made with this weapon, which deals radiant damage instead of slashing damage. When you hit an undead with it, that target takes an extra 1d8 radiant damage.\n   The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 feet. The light is sunlight. While the blade persists, you can use an action to expand or reduce its radius of bright and dim light by 5 feet each, to a maximum of 30 feet each or a minimum of 10 feet each.\n   While holding the weapon, you can use an action to touch a creature with the blade and cast Lesser Restoration on that creature. Once used, this ability can't be used again until the next dawn.\n   " + toUni("Sentience") + ". Dawnbringer is a sentient neutral good weapon with an Intelligence of 12, a Wisdom of 15, and a Charisma of 14. It has hearing and darkvision out to a range of 120 feet.\n   The sword can speak, read, and understand Common, and it can communicate with its wielder telepathically. Its voice is kind and feminine. It knows every language you know while attuned to it.\n   " + toUni("Personality") + ". Forged by ancient sun worshippers, Dawnbringer is meant to bring light into darkness and to fight creatures of darkness. It is kind and compassionate to those in need, but fierce and destructive to its enemies.\n   Long years lost in darkness have made Dawnbringer frightened of both the dark and abandonment. It prefers that its blade always be present and shedding light in areas of darkness, and it strongly resists being parted from its wielder for any length of time." +
@@ -10741,7 +10741,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 			"Spells cast into a Spell Gem can only have a casting time of either 1 action or 1 minute or longer.\n \u2022 Spells cast from a Spell Gem always require 1 action to cast.",
 		],
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// only continue for spell gems
 				if (!/spell gem/i.test(CurrentSpells[spName].name)) return;
 				// create the notspells array if it didn't already exist
@@ -11251,7 +11251,7 @@ AddRacialVariant("tiefling", "winged", {
 	spellcastingAbility: "",
 	spellcastingBonus: "",
 });
-RunFunctionAtEnd(function() {
+RunFunctionAtEnd(function () {
 	if (!RaceList.tiefling) return;
 	var tRace = {
 		objname: "feral tiefling",
@@ -11272,7 +11272,7 @@ RunFunctionAtEnd(function() {
 		RaceList[tRace.objname][rFea] = tRace[rFea];
 	};
 	// Create feral tiefling variants
-	RaceList[tRace.objname].variants.forEach( function(nVar) {
+	RaceList[tRace.objname].variants.forEach( function (nVar) {
 		RaceSubList[tRace.objname + "-" + nVar] = newObj(RaceSubList["tiefling-" + nVar]);
 		var thisVar = RaceSubList[tRace.objname + "-" + nVar];
 		thisVar.trait = thisVar.trait.replace(tRace.replaceTraitTxt[0], tRace.replaceTraitTxt[1]);
@@ -11323,7 +11323,7 @@ AddSubClass("barbarian", "battlerager", {
 				selectNow: true,
 			}],
 			weaponProfs: [false, false, ["armor spikes"]],
-			eval: function() {
+			eval: function () {
 				AddString("Proficiency Armor Other Description", "Spiked Armor", ", ");
 			},
 			removeeval: function () {
@@ -11398,7 +11398,7 @@ AddSubClass("cleric", "arcana domain", {
 			]),
 			calcChanges: {
 				spellAdd: [
-					function (spellKey, spellObj, spName) {							
+					function (spellKey, spellObj, spName) {
 						var startDescr = spellObj.description;
 						switch (spellKey) {
 							case "mass heal" :
@@ -13206,7 +13206,7 @@ MagicItemsList["holy symbol of ravenkind"] = {
 	rarity: "legendary",
 	storyItemAL: true,
 	prerequisite: "Requires attunement by a cleric or paladin of good alignment",
-	prereqeval: function(v) { return /good/i.test(What("Alignment")) && (classes.known.cleric || classes.known.paladin); },
+	prereqeval: function (v) { return /good/i.test(What("Alignment")) && (classes.known.cleric || classes.known.paladin); },
 	description: "This platinum amulet has 10 charges, regaining 1d6+4 at dawn. As an action, I can use 1 charge to hold vampires (see 3rd page notes). I can use 3 charges with Turn Undead to give disadv. on its saves. As an action, ican use 5 charges to shed daylight, 30-ft radius bright light and dim light for another 30-ft for 10 minutes.",
 	descriptionFull: "The Holy Symbol of Ravenkind is a unique holy symbol sacred to the good-hearted faithful of Barovia. It predates the establishment of any church in Barovia. According to legend, it was delivered to a paladin named Lugdana by a giant raven - or an angel in the form of a giant raven. Lugdana used the holy symbol to root out and destroy nests of vampires until her death. The high priests of Ravenloft kept and wore the holy symbol after Lugdana's passing.\n   The holy symbol is a platinum amulet shaped like the sun, with a large crystal embedded in its center.\n   The holy symbol has 10 charges for the following properties. It regains 1d6+4 charges daily at dawn.\n   " + toUni("Hold Vampires") + ". As an Action, you can expend 1 charge and present the holy symbol to make it flare with holy power. Vampires and vampire spawn within 30 feet of the holy symbol when it flares must make a DC 15 Wisdom saving throw. On a failed save, a target is paralyzed for 1 minute. It can repeat the saving throw at the end of its turns to end the effect on itself.\n   " + toUni("Turn Undead") + ". If you have the Turn Undead or the Turn the Unholy feature, you can expend 3 charges when you present the holy symbol while using that feature. When you do so, undead have disadvantage on their saving throws against the effect.\n   " + toUni("Sunlight") + ". As an action, you can expend 5 charges while presenting the holy symbol to make it shed bright light in a 30-foot radius and dim light for an additional 30 feet. The light is sunlight and lasts for 10 minutes or until you end the effect (no action required).",
 	attunement: true,
@@ -13231,7 +13231,7 @@ MagicItemsList["icon of ravenloft"] = {
 	rarity: "legendary",
 	storyItemAL: true,
 	prerequisite: "Requires attunement by a creature of good alignment",
-	prereqeval: function(v) { return /good/i.test(What("Alignment")); },
+	prereqeval: function (v) { return /good/i.test(What("Alignment")); },
 	description: "All within 30 ft of this silver statue are under the effect of Protection from Evil and Good that works against fiends and undead. As an action while attuned to it, I can cast Augury or Cure Wounds (3d8+3, 30 ft range) from it, each once per dawn and if I use it for my Turn Undead, the DC increases by 2.",
 	descriptionFull: "The Icon of Ravenloft is a 12-inch tall statuette made of the purest silver, weighing 10 pounds. It depicts a cleric kneeling in supplication.\n   The icon was given to Strahd by the archpriest Ciril Romulich, an old family friend, to consecrate the castle and its chapel.\n   While within 30 feet of the icon, a creature is under the effect of a Protection from Evil and Good spell against fiends and undead. Only a creature attuned to the icon can use its other properties.\n   " + toUni("Augury") + ". You can use an action to cast an Augury spell from the icon, with no material components required. Once used, this property can't be used again until the next dawn.\n   " + toUni("Bane of the Undead") + ". You can use the icon as a holy symbol while using the Turn Undead or Turn the Unholy feature. If you do so, increase the save DC by 2.\n   " + toUni("Cure Wounds") + ". While holding the icon, you can take an action to heal one creature that you can see within 30 feet of you. The target regains 3d8+3 hit points, unless it is an undead, a construct, or a fiend. Once used, this property can't be used again until the next dawn.",
 	attunement: true,
@@ -13284,7 +13284,7 @@ MagicItemsList["lost sword"] = {
 	rarity: "very rare",
 	magicItemTable: "G",
 	prerequisite: "Requires attunement by a creature of lawful good alignment",
-	prereqeval: function(v) { return /^(?=.*lawful)(?=.*good).*$/i.test(What("Alignment")); },
+	prereqeval: function (v) { return /^(?=.*lawful)(?=.*good).*$/i.test(What("Alignment")); },
 	description: "This lawful good shortsword is sentient (Int 11, Wis 13, Cha 13). It adds +1 to hit and damage and shines bright light in a 15-ft radius and dim light for an additional 15 ft. Attuning to it takes only 1 minute. Once per dawn, I can use it to cast Crusader's Mantle. Its purpose is to fight evil. See Notes page.",
 	descriptionFull: "The Lost Sword is a sentient lawful good +1 shortsword (Intelligence 11, Wisdom 13, Charisma 13). It has hearing and normal vision out to a range of 120 feet. It communicates by transmitting emotion to the creature carrying or wielding it.\n   The sword's purpose is to fight evil. The sword has the following additional properties:\n \u2022 The sword continually sheds bright light in a 15-foot radius and dim light for an additional 15 feet. Only by destroying the sword can this light be extinguished.\n \u2022 A lawful good creature can attune itself to the sword in 1 minute.\n \u2022 While attuned to the weapon, the sword's wielder can use the sword to cast the Crusader's Mantle spell. Once used, this property of the sword can't be used again until the next dawn.",
 	attunement: true,
@@ -13535,22 +13535,22 @@ CreatureList["hulking crab"] = {
 	proficiencyBonus: 3,
 	attacksAction: 2,
 	attacks: [{
-			name: "Claws",
-			ability: 2,
-			damage: [1, "", "slashing"], //[#, die, type] "" for die is allowed
-			range: "Melee (5 ft)",
-			description: "",
-			modifiers: [-4, ""],
-			abilitytodamage: false,
-		},
+		name: "Claws",
+		ability: 2,
+		damage: [1, "", "slashing"], //[#, die, type] "" for die is allowed
+		range: "Melee (5 ft)",
+		description: "",
+		modifiers: [-4, ""],
+		abilitytodamage: false,
+	},
 	],
 	traits: [{
-			name: "Amphibious",
-			description: "The hulking crab can breate air and water.",
-		}, {
-			name: "Shell Camouflage",
-			description: "While the hulking crab remains motionless with its eyestalks and pincers tucked close to its body, it resembles a natural formation or a pile of detritus. A creature within 30 feet of it can discern its true nature with a DC 15 Intelligence (Nature) check.",
-		},
+		name: "Amphibious",
+		description: "The hulking crab can breate air and water.",
+	}, {
+		name: "Shell Camouflage",
+		description: "While the hulking crab remains motionless with its eyestalks and pincers tucked close to its body, it resembles a natural formation or a pile of detritus. A creature within 30 feet of it can discern its true nature with a DC 15 Intelligence (Nature) check.",
+	},
 	],
 };
 CreatureList["tressym"] = {
@@ -13578,25 +13578,25 @@ CreatureList["tressym"] = {
 	proficiencyBonus: 2,
 	attacksAction: 1,
 	attacks: [{
-			name: "Claws",
-			ability: 2,
-			damage: [1, "", "slashing"], //[#, die, type] "" for die is allowed
-			range: "Melee (5 ft)",
-			description: "",
-			modifiers: [-4, ""],
-			abilitytodamage: false,
-		},
+		name: "Claws",
+		ability: 2,
+		damage: [1, "", "slashing"], //[#, die, type] "" for die is allowed
+		range: "Melee (5 ft)",
+		description: "",
+		modifiers: [-4, ""],
+		abilitytodamage: false,
+	},
 	],
 	traits: [{
-			name: "Detect Invisibility",
-			description: "Within 60 feet of the tressym, magical invisibility fails to conceal anything from the tressym's sight.",
-		}, {
-			name: "Keen Smell",
-			description: "The tressym has advantage on Wisdom (Perception) checks that rely on smell.",
-		}, {
-			name: "Poison Sense",
-			description: "The tressym can detect whether a substance is poisonous by taste, touch, or smell.",
-		},
+		name: "Detect Invisibility",
+		description: "Within 60 feet of the tressym, magical invisibility fails to conceal anything from the tressym's sight.",
+	}, {
+		name: "Keen Smell",
+		description: "The tressym has advantage on Wisdom (Perception) checks that rely on smell.",
+	}, {
+		name: "Poison Sense",
+		description: "The tressym can detect whether a substance is poisonous by taste, touch, or smell.",
+	},
 	],
 	wildshapeString: [
 		"##Languages##. Understands Common but can't speak.",
@@ -15476,17 +15476,17 @@ CreatureList["giant crayfish"] = {
 	proficiencyBonus: 2,
 	attacksAction: 2,
 	attacks: [{
-			name: "Claw",
-			ability: 1,
-			damage: [1, 10, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range: "Melee (5 ft)",
-			description: "Target grappled on hit (escape DC 12); 2 claw attacks as Attack action, if not grappling with claw",
-		},
+		name: "Claw",
+		ability: 1,
+		damage: [1, 10, "bludgeoning"], //[#, die, type] "" for die is allowed
+		range: "Melee (5 ft)",
+		description: "Target grappled on hit (escape DC 12); 2 claw attacks as Attack action, if not grappling with claw",
+	},
 	],
 	traits: [{
-			name: "Amphibious",
-			description: "The giant crayfish can breathe air and water.",
-		},
+		name: "Amphibious",
+		description: "The giant crayfish can breathe air and water.",
+	},
 	],
 };
 CreatureList["giant ice toad"] = {
@@ -15509,28 +15509,28 @@ CreatureList["giant ice toad"] = {
 	proficiencyBonus: 2,
 	attacksAction: 1,
 	attacks: [{
-			name: "Bite",
-			ability: 1,
-			damage: [2, 6, "piercing"], //[#, die, type] "" for die is allowed
-			range: "Melee (5 ft)",
-			description: "Target is grappled and restrained (escape DC 13); Can't use bite again until grapple ends",
-		},
+		name: "Bite",
+		ability: 1,
+		damage: [2, 6, "piercing"], //[#, die, type] "" for die is allowed
+		range: "Melee (5 ft)",
+		description: "Target is grappled and restrained (escape DC 13); Can't use bite again until grapple ends",
+	},
 	],
 	traits: [{
-			name: "Amphibious",
-			description: "The toad can breathe air and water",
-		}, {
-			name: "Cold Aura",
-			description: "A creature that starts its turn within 10 feet of the toad takes 5 (1d10) cold damage.",
-		}, {
-			name: "Standing Leap",
-			description: "The toad's long jump is up to 20 ft and its high jump is up to 10 ft, with or without a running start.",
-		},
+		name: "Amphibious",
+		description: "The toad can breathe air and water",
+	}, {
+		name: "Cold Aura",
+		description: "A creature that starts its turn within 10 feet of the toad takes 5 (1d10) cold damage.",
+	}, {
+		name: "Standing Leap",
+		description: "The toad's long jump is up to 20 ft and its high jump is up to 10 ft, with or without a running start.",
+	},
 	],
 	features: [{
-			name: "Swallow",
-			description: "The toad can make a bite attack against a Medium or smaller target it is grappling. If it hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the toad, and it takes 10 (3d6) acid damage and 11 (2d6) cold damage at the start of each of the toad's turns. The toad can have only one target swallowed at a time.\nIf the toad dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 5 feet of movement, exiting prone.",
-		},
+		name: "Swallow",
+		description: "The toad can make a bite attack against a Medium or smaller target it is grappling. If it hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the toad, and it takes 10 (3d6) acid damage and 11 (2d6) cold damage at the start of each of the toad's turns. The toad can have only one target swallowed at a time.\nIf the toad dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 5 feet of movement, exiting prone.",
+	},
 	],
 	wildshapeString: (typePF ? "##Senses##. " : "") + "Darkvision 60 ft. ##Cold Aura##. Any within 5 ft at start of their turn take 1d10 cold damage. ##Amphibious##. Breathes air and water. ##Standing Leap##. Long jump 20 ft and high jump 10 ft, regardless of start. ##Swallow##. If bite attack hits Medium or smaller being grappling, it takes bite damage and is swallowed: blinded, restrained, total cover, takes 3d6 acid and 2d6 cold damage at the start of each of the toad's turns; Only 1 swallowed at a time.",
 };
@@ -15601,23 +15601,23 @@ CreatureList["giant subterranean lizard"] = {
 	proficiencyBonus: 2,
 	attacksAction: 2,
 	attacks: [{
-			name: "Bite",
-			ability: 1,
-			damage: [2, 10, "piercing"], //[#, die, type] "" for die is allowed
-			range: "Melee (5 ft)",
-			description: "1 bite \u0026 1 tail attack as Attack action; Target grappled \u0026 restrained (escape DC 15); Can't use bite until grapple ends",
-		}, {
-			name: "Tail",
-			ability: 1,
-			damage: [2, 6, "bludgeoning"], //[#, die, type] "" for die is allowed
-			range: "Melee (10 ft)",
-			description: "1 bite \u0026 1 tail attack as Attack action; Target DC 15 Str save or knocked prone",
-		},
+		name: "Bite",
+		ability: 1,
+		damage: [2, 10, "piercing"], //[#, die, type] "" for die is allowed
+		range: "Melee (5 ft)",
+		description: "1 bite \u0026 1 tail attack as Attack action; Target grappled \u0026 restrained (escape DC 15); Can't use bite until grapple ends",
+	}, {
+		name: "Tail",
+		ability: 1,
+		damage: [2, 6, "bludgeoning"], //[#, die, type] "" for die is allowed
+		range: "Melee (10 ft)",
+		description: "1 bite \u0026 1 tail attack as Attack action; Target DC 15 Str save or knocked prone",
+	},
 	],
 	traits: [{
-			name: "Swallow",
-			description: "The lizard can make one bite attack against a Medium or smaller target it is grappling. If the attack hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the lizard, and it takes 10 (3d6) acid damage at the start of each of the lizard's turns. The lizard can have only one target swallowed at a time.\nIf the lizard dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 10 feet of movement, exiting prone.",
-		},
+		name: "Swallow",
+		description: "The lizard can make one bite attack against a Medium or smaller target it is grappling. If the attack hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the lizard, and it takes 10 (3d6) acid damage at the start of each of the lizard's turns. The lizard can have only one target swallowed at a time.\nIf the lizard dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 10 feet of movement, exiting prone.",
+	},
 	],
 	wildshapeString: "##Swallow##. If a bite attack hits a Small or smaller target that is currently being grappled by the lizard, the target is swallowed, ending the grapple. While swallowed, it is blinded, restrained, has total cover, and takes 3d4 acid damage at the start of each of the lizard's turns; The lizard can have only 1 swallowed at a time. If the lizard dies, the swallowed creature is no longer restrained and can escape using 10 ft movement.",
 };
@@ -15904,7 +15904,7 @@ MagicItemsList["wand of entangle"] = {
 	attunement: true,
 	weight: 1,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	usages: 7,
 	recovery: "dawn",
 	additional: "regains 1d6+1",
@@ -17669,7 +17669,7 @@ AddSubClass("fighter", "arcane archer", {
 			]),
 			usages: 2,
 			recovery: "short rest",
-			additional: levels.map( function(n) { return n < 3 ? "" : (n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6) + " options known"; }),
+			additional: levels.map( function (n) { return n < 3 ? "" : (n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6) + " options known"; }),
 			extraname: "Arcane Shot Option",
 			extrachoices: ["Banishing Arrow [Abjuration]", "Beguiling Arrow [Enchantment]", "Bursting Arrow [Evocation]", "Enfeebling Arrow [Necromancy]", "Grasping Arrow [Conjuration]", "Piercing Arrow [Transmutation]", "Seeking Arrow [Divination]", "Shadow Arrow [Illusion]"],
 			extraTimes: levels.map(function (n) {
@@ -17683,7 +17683,7 @@ AddSubClass("fighter", "arcane archer", {
 					"While banished, its speed is 0 and is incapacitated; It re-appearing in the same spot",
 					"When I reach 18th level, this Arcane Shot Option also does an extra 2d6 force damage",
 				]),
-				additional: levels.map( function(n) { return n < 18 ? "" : "+2d6 force damage"; }),
+				additional: levels.map( function (n) { return n < 18 ? "" : "+2d6 force damage"; }),
 			},
 			"beguiling arrow [enchantment]": {
 				name: "Beguiling Arrow [Enchantment]",
@@ -17693,13 +17693,13 @@ AddSubClass("fighter", "arcane archer", {
 					"If failed, it is charmed by one of my allies within 30 ft of it that I choose",
 					"This lasts until my next turn starts or until the chosen ally attacks the target in any way",
 				]),
-				additional: levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 damage"; }),
 			},
 			"bursting arrow [evocation]": {
 				name: "Bursting Arrow [Evocation]",
 				source: [["X", 29]],
 				description: desc("The target, in addition to the shot, and all creatures within 10 ft of it take damage"),
-				additional: levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 force damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 force damage"; }),
 			},
 			"enfeebling arrow [necromancy]": {
 				name: "Enfeebling Arrow [Necromancy]",
@@ -17708,7 +17708,7 @@ AddSubClass("fighter", "arcane archer", {
 					"The target takes extra necrotic damage and must make a Constitution save",
 					"If failed, the damage of the target's attacks are halved until the start of my next turn",
 				]),
-				additional: levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 necrotic damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 necrotic damage"; }),
 			},
 			"grasping arrow [conjuration]": {
 				name: "Grasping Arrow [Conjuration]",
@@ -17718,7 +17718,7 @@ AddSubClass("fighter", "arcane archer", {
 					"The brambles give it -10 ft speed and do it slashing damage every round it moves",
 					"These can be removed by it or another as an action with Strength (Athletics) vs. my DC",
 				]),
-				additional: levels.map( function(n) { return n < 3 ? "" : (n < 18 ? 2 : 4) + "d6 poison/slash. damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : (n < 18 ? 2 : 4) + "d6 poison/slash. damage"; }),
 			},
 			"piercing arrow [transmutation]": {
 				name: "Piercing Arrow [Transmutation]",
@@ -17729,7 +17729,7 @@ AddSubClass("fighter", "arcane archer", {
 					"The damage is the same as a normal hit from my attack, plus extra piercing damage",
 					"A creature can make a Dexterity save to reduce the damage by half",
 				]),
-				additional: levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 1 : 2) + "d6 piercing damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 1 : 2) + "d6 piercing damage"; }),
 			},
 			"seeking arrow [divination]": {
 				name: "Seeking Arrow [Divination]",
@@ -17741,7 +17741,7 @@ AddSubClass("fighter", "arcane archer", {
 					"The target takes the full damage of the attack plus extra force damage",
 					"It can make a Dexterity save to reduce the damage by half; If failed, I know its location",
 				]),
-				additional: levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 1 : 2) + "d6 force damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 1 : 2) + "d6 force damage"; }),
 			},
 			"shadow arrow [illusion]": {
 				name: "Shadow Arrow [Illusion]",
@@ -17750,7 +17750,7 @@ AddSubClass("fighter", "arcane archer", {
 					"The target takes extra psychic damage and must succeed on a Wisdom save",
 					"If failed, the target can't see anything beyond 5 ft until the end of my next turn",
 				]),
-				additional: levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 psychic damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 psychic damage"; }),
 			},
 		},
 		"subclassfeature7": {
@@ -18034,11 +18034,11 @@ RunFunctionAtEnd(function () {
 					"\u2022 Ranged: as a bonus action, ranged weapon attacks deal +1d4 damage in current turn",
 				]),
 				action: [["bonus action", " (with ranged)"]],
-				additional: levels.map( function(n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
 				toolProfs: ["calligrapher's or painter's supplies"],
 				extraname: "Kensei Weapon",
 				extrachoices: [], // add these dynamically, see below
-				extraTimes: levels.map( function(n) { return n < 3 ? 0 : n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5; }),
+				extraTimes: levels.map( function (n) { return n < 3 ? 0 : n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5; }),
 				calcChanges: {
 					atkAdd: [
 						function (fields, v) {
@@ -18847,10 +18847,10 @@ AddSubClass("sorcerer", "shadow magic", {
 					description: "While the hound is within 5 ft of its target, that target has disadvantage on saving throws versus my spells.",
 				}],
 				header: "Summoned",
-				eval: function(prefix, lvl) {
+				eval: function (prefix, lvl) {
 					AddTooltip(prefix + "Comp.Use.HP.Temp", "The hound of ill omen gains half my sorcerer level as temporary HP when created.");
 				},
-				removeeval: function(prefix, lvl) {
+				removeeval: function (prefix, lvl) {
 					AddTooltip(prefix + "Comp.Use.HP.Temp", "");
 				},
 				changeeval: function (prefix, lvl) {
@@ -19044,7 +19044,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 				"It gains a bonus to attack rolls equal to my Charisma modifier (min +0)",
 				"The specter remains until the end of my next long rest, at which point it vanishes",
 			]),
-			additional: levels.map( function(n) { return n < 6 ? "" : Math.floor(n / 2) + " temp HP"; }),
+			additional: levels.map( function (n) { return n < 6 ? "" : Math.floor(n / 2) + " temp HP"; }),
 			usages: 1,
 			recovery: "long rest",
 			creaturesAdd: [["Accursed Specter", true]],
@@ -19094,10 +19094,10 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 					description: "The specter obeys my verbal commands and remains in my service until the end of my next long rest, at which point it vanishes to the afterlife. It acts on its own turn with its own initiative.",
 				}],
 				header: "Bound Spirit",
-				eval: function(prefix) {
+				eval: function (prefix) {
 					AddTooltip(prefix + "Comp.Use.HP.Temp", "The accursed specter gains half my warlock level as temporary HP when created.");
 				},
-				removeeval: function(prefix) {
+				removeeval: function (prefix) {
 					AddTooltip(prefix + "Comp.Use.HP.Temp", "");
 				},
 				changeeval: function (prefix, newLvl) {
@@ -19133,7 +19133,7 @@ AddWarlockInvocation("Aspect of the Moon (prereq: Pact of the Tome)", {
 	description: desc("I don't need sleep nor can be forced to by any means; I can rest while doing light activity"),
 	source: [["X", 56], ["UA:RCO", 5]],
 	submenu: "[improves Pact of the Tome]",
-	prereqeval: function(v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome"; },
+	prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome"; },
 	savetxt: { text: ["Nothing can force me to sleep"] },
 });
 AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
@@ -19146,7 +19146,7 @@ AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
 	]),
 	source: [["X", 56], ["UA:RCO", 5]],
 	submenu: "[warlock level  5+]",
-	prereqeval: function(v) { return classes.known.warlock.level >= 5; },
+	prereqeval: function (v) { return classes.known.warlock.level >= 5; },
 	recovery: "short rest",
 	usages: 1,
 	action: [["bonus action", " (start/stop)"]],
@@ -19161,7 +19161,7 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 	]),
 	source: [["X", 56]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function(v) { return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	prereqeval: function (v) { return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 });
 AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 	name: "Ghostly Gaze",
@@ -19171,7 +19171,7 @@ AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 	]),
 	source: [["X", 56]],
 	submenu: "[warlock level  7+]",
-	prereqeval: function(v) { return classes.known.warlock.level >= 7; },
+	prereqeval: function (v) { return classes.known.warlock.level >= 7; },
 	recovery: "short rest",
 	usages: 1,
 	action: [["action", ""]],
@@ -19190,7 +19190,7 @@ AddWarlockInvocation("Gift of the Depths (prereq: level 5 warlock)", {
 		selection: ["water breathing"],
 		firstCol: "oncelr",
 	}],
-	prereqeval: function(v) { return classes.known.warlock.level >= 5; },
+	prereqeval: function (v) { return classes.known.warlock.level >= 5; },
 	speed: { swim: { spd: "walk", enc: "walk" } },
 });
 AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)", {
@@ -19198,14 +19198,14 @@ AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)",
 	description: desc("When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll"),
 	source: [["X", 57], ["UA:RCO", 6]],
 	submenu: "[improves Pact of the Chain]",
-	prereqeval: function(v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the chain"; },
+	prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the chain"; },
 });
 AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
 	name: "Grasp of Hadar",
 	description: desc("Once per turn when my Eldritch Blast hits a creature, I can move it 10 ft closer to me"),
 	source: [["X", 57], ["UA:RCO", 6]],
 	submenu: "[improves Eldritch Blast]",
-	prereqeval: function(v) { return v.hasEldritchBlast; },
+	prereqeval: function (v) { return v.hasEldritchBlast; },
 	calcChanges: {
 		atkAdd: [
 			function (fields, v) {
@@ -19224,7 +19224,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 	]),
 	source: [["X", 57]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function(v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	calcChanges: {
 		atkCalc: [
 			function (fields, v, output) {
@@ -19242,7 +19242,7 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 								var nmbr = 0;
 							} else if (isNaN(n)) {
 								var nmbr = n.match(/(^|\+|-)\d+\b/g);
-								nmbr = !nmbr ? 0 : nmbr.reduce(function(a, b) {return Number(a) + Number(b)});
+								nmbr = !nmbr ? 0 : nmbr.reduce(function (a, b) {return Number(a) + Number(b)});
 							} else {
 								var nmbr = Number(n);
 							}
@@ -19275,7 +19275,7 @@ AddWarlockInvocation("Lance of Lethargy (prereq: Eldritch Blast cantrip)", {
 	]),
 	source: [["X", 57]],
 	submenu: "[improves Eldritch Blast]",
-	prereqeval: function(v) { return v.hasEldritchBlast; },
+	prereqeval: function (v) { return v.hasEldritchBlast; },
 	calcChanges: {
 		atkAdd: [
 			function (fields, v) {
@@ -19294,7 +19294,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock, Hex spell or warlo
 	]),
 	source: [["X", 57]],
 	submenu: "[improves Hex spell or warlock feature that curses]",
-	prereqeval: function(v) { return classes.known.warlock.level >= 5 && (isSpellUsed("hex", true) || (/hexblade/).test(classes.known.warlock.subclass)); },
+	prereqeval: function (v) { return classes.known.warlock.level >= 5 && (isSpellUsed("hex", true) || (/hexblade/).test(classes.known.warlock.subclass)); },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock, Hex spell or warlock feature that curses)", {
@@ -19305,7 +19305,7 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock, Hex spell or warl
 	]),
 	source: [["X", 57]],
 	submenu: "[improves Hex spell or warlock feature that curses]",
-	prereqeval: function(v) { return classes.known.warlock.level >= 7 && (isSpellUsed("hex", true) || (/hexblade/).test(classes.known.warlock.subclass)); },
+	prereqeval: function (v) { return classes.known.warlock.level >= 7 && (isSpellUsed("hex", true) || (/hexblade/).test(classes.known.warlock.subclass)); },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
@@ -19319,7 +19319,7 @@ AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
 		selection: ["invisibility"],
 		firstCol: "atwill",
 	}],
-	prereqeval: function(v) { return classes.known.warlock.level >= 15; },
+	prereqeval: function (v) { return classes.known.warlock.level >= 15; },
 	spellChanges: {
 		"invisibility": {
 			description: "1 crea invisible; attacking/casting makes the crea visible; anything worn/carried also invisible",
@@ -19336,11 +19336,11 @@ AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
 	]),
 	source: [["X", 57], ["UA:RCO", 6]],
 	submenu: "[warlock level  5+]",
-	prereqeval: function(v) { return classes.known.warlock.level >= 5; },
+	prereqeval: function (v) { return classes.known.warlock.level >= 5; },
 	recovery: "short rest",
 	usages: 1,
 	action: [["reaction", ""]],
-	additional: levels.map( function(n) { return (n * 10) + " temp HP"; }),
+	additional: levels.map( function (n) { return (n * 10) + " temp HP"; }),
 });
 AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 	name: "Trickster's Escape",
@@ -19353,7 +19353,7 @@ AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 		selection: ["freedom of movement"],
 		firstCol: "oncelr",
 	}],
-	prereqeval: function(v) { return classes.known.warlock.level >= 7; },
+	prereqeval: function (v) { return classes.known.warlock.level >= 7; },
 	spellChanges: {
 		"freedom of movement": {
 			range: "Self",
@@ -19403,7 +19403,7 @@ AddSubClass("wizard", "war magic", {
 			usages: "Resets to 1 after ",
 			usagescalc: "event.value = !event.value || event.value == 'Resets to 1 after ' ? 1 : event.value;",
 			recovery: "long rest",
-			additional: levels.map( function(n) { return n < 6 ? "" : "+" + Math.floor(n / 2) + " force damage"; }),
+			additional: levels.map( function (n) { return n < 6 ? "" : "+" + Math.floor(n / 2) + " force damage"; }),
 		},
 		"subclassfeature10": {
 			name: "Durable Magic",
@@ -19419,7 +19419,7 @@ AddSubClass("wizard", "war magic", {
 				"When I use my Arcane Deflection feature, magical energy arcs from me to creatures",
 				"Up to 3 targets I can see within 60 ft of me take half my wizard level in force damage",
 			]),
-			additional: levels.map( function(n) { return n < 14 ? "" : Math.floor(n / 2) + " force damage"; }),
+			additional: levels.map( function (n) { return n < 14 ? "" : Math.floor(n / 2) + " force damage"; }),
 		},
 	},
 });
@@ -19429,7 +19429,7 @@ FeatsList["bountiful luck"] = {
 	name: "Bountiful Luck",
 	source: [["X", 73]],
 	prerequisite: "Being a Halfling",
-	prereqeval: function(v) { return CurrentRace.known.indexOf("halfling") !== -1; },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("halfling") !== -1; },
 	descriptionFull: "Your people have extraordinary luck, which you have learned to mystically lend to your companions when you see them falter. You're not sure how you do it; you just wish it, and it happens. Surely a sign of fortune's favor!\n   When an ally you can see within 30 feet of you rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, you can use your reaction to let the ally reroll the die. The ally must use the new roll\n   When you use this ability, you can't use your Lucky racial trait before the end of your next turn.",
 	description: "When an ally I can see within 30 ft of me rolls a 1 on an attack roll, an ability check, or a saving throw, I can use my reaction to let the ally reroll the die. The ally must use the new roll. When I use this, I can't use my racial Lucky trait until the end of my next turn.",
 	action: [["reaction", ""]],
@@ -19438,7 +19438,7 @@ FeatsList["dragon fear"] = {
 	name: "Dragon Fear",
 	source: [["X", 74]],
 	prerequisite: "Being a Dragonborn",
-	prereqeval: function(v) { return CurrentRace.known.indexOf("dragonborn") !== -1; },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("dragonborn") !== -1; },
 	descriptionFull: "When angered, you radiate menace. You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds on the save if it can't hear or see you. On a failed save, a target becomes frightened of you for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success.",
 	calculate: "event.value = 'I can use my Breath Weapon to roar instead. Chosen creatures within 30 ft that see and hear me must make a DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Cha Mod'))) + ' Wis save (8 + Prof Bonus + Cha mod) or be frightened of me for 1 min. A target can repeat the save whenever it takes damage. [+1 Str, Con, or Cha]';",
 	scorestxt: "+1 Strength, Constitution, or Charisma",
@@ -19448,7 +19448,7 @@ FeatsList["dragon hide"] = {
 	name: "Dragon Hide",
 	source: [["X", 74]],
 	prerequisite: "Being a Dragonborn",
-	prereqeval: function(v) { return CurrentRace.known.indexOf("dragonborn") !== -1; },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("dragonborn") !== -1; },
 	descriptionFull: "You manifest scales and claws reminiscent of your draconic ancestors. You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 Your scales harden. While you aren't wearing armor, you can calculate your AC as 13 + your Dexterity modifier. You can use a shield and still gain this benefit.\n \u2022 You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the normal bludgeoning damage for an unarmed strike.",
 	description: "I gain retractable claws that I can retract or extend, requiring no action. While extended, my unarmed strikes deal 1d4 slashing damage. My scales harden, giving me an AC of 13 + Dexterity modifier + shield when I'm not wearing armor. [+1 Str, Con, or Cha]",
 	scorestxt: "+1 Strength, Constitution, or Charisma",
@@ -19472,7 +19472,7 @@ FeatsList["drow high magic"] = {
 	name: "Drow High Magic",
 	source: [["X", 74]],
 	prerequisite: "Being a Drow (Dark Elf)",
-	prereqeval: function(v) { return CurrentRace.known.indexOf("dark elf") !== -1; },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("dark elf") !== -1; },
 	descriptionFull: "You learn more of the magic typical of dark elves. You learn the Detect Magic spell and can cast it at will, without expending a spell slot. You also learn Levitate and Dispel Magic, each of which you can cast once without expending a spell slot. You regain the ability to cast those two spells in this way when you finish a long rest. Charisma is your spellcasting ability for all three spells.",
 	description: "I can cast Detect Magic at will, without expending a spell slot. I can also cast Levitate and Dispel Magic without expending a spell slot, but each only once per long rest. Charisma is my spellcasting ability for these three spells.",
 	spellcastingBonus: [{
@@ -19497,7 +19497,7 @@ FeatsList["dwarven fortitude"] = {
 	name: "Dwarven Fortitude",
 	source: [["X", 74]],
 	prerequisite: "Being a Dwarf",
-	prereqeval: function(v) { return CurrentRace.known.indexOf("dwarf") !== -1; },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("dwarf") !== -1; },
 	descriptionFull: "You have the blood of dwarf heroes flowing through your veins. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 Whenever you take the Dodge action in combat, you can spend one Hit Die to heal yourself. Roll the die, add your Constitution modifier, and regain a number of hit points equal to the total (minimum of 1).",
 	description: "Whenever I take the Dodge action in combat, I can spend one Hit Die to heal myself. I roll the die, add my Constitution modifier, and regain a number of hit points equal to the total (minimum of 1). [+1 Constitution]",
 	scores: [0, 0, 1, 0, 0, 0],
@@ -19506,7 +19506,7 @@ FeatsList["elven accuracy"] = {
 	name: "Elven Accuracy",
 	source: [["X", 74]],
 	prerequisite: "Being an Elf or a Half-Elf",
-	prereqeval: function(v) { return /elf|eladrin|avariel|grugach|shadar-kai/i.test(CurrentRace.known); },
+	prereqeval: function (v) { return /elf|eladrin|avariel|grugach|shadar-kai/i.test(CurrentRace.known); },
 	descriptionFull: "The accuracy of elves is legendary, especially that of elf archers and spellcasters. You have uncanny aim with attacks that rely on precision rather than brute force. You gain the following benefits:\n \u2022 Increase your Dexterity, Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.\n \u2022 Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.",
 	description: "Whenever I have advantage on an attack roll that uses Dexterity, Intelligence, Wisdom, or Charisma, I can reroll one of the dice once. [+1 Dexterity, Intelligence, Wisdom, or Charisma]",
 	scorestxt: "+1 Dexterity, Intelligence, Wisdom, or Charisma",
@@ -19515,7 +19515,7 @@ FeatsList["fade away"] = {
 	name: "Fade Away",
 	source: [["X", 74]],
 	prerequisite: "Being a Gnome",
-	prereqeval: function(v) { return CurrentRace.known.indexOf("gnome") !== -1; },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("gnome") !== -1; },
 	descriptionFull: "Your people are clever, with a knack for illusion magic. You have learned a magical trick for fading away when you suffer harm. You gain the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.",
 	description: "As a reaction when I take damage, I can magically become invisible until the end of my next turn or until I attack, deal damage, or force someone to make a saving throw. Once I do this, I can't do so again until I finish a short rest. [+1 Dexterity or Intelligence]",
 	scorestxt: "+1 Dexterity or Intelligence",
@@ -19527,7 +19527,7 @@ FeatsList["fey teleportation"] = { // this code includes contributions by Soilen
 	name: "Fey Teleportation",
 	source: [["X", 74]],
 	prerequisite: "Being a High Elf",
-	prereqeval: function(v) { return CurrentRace.known.indexOf("high elf") !== -1; },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("high elf") !== -1; },
 	descriptionFull: "Your study of high elven lore has unlocked fey power that few other elves possess, except your eladrin cousins. Drawing on your fey ancestry, you can momentarily stride through the Feywild to shorten your path from one place to another. You gain the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 You learn to speak, read, and write Sylvan.\n \u2022 You learn the Misty Step spell and can cast it once without expending a spell slot. You regain the ability to cast it in this way when you finish a short or long rest. Intelligence is your spellcasting ability for this spell.",
 	description: "I can cast Misty Step without using a spell slot. I can do so once per short rest. Intelligence is my spellcasting ability for this spell. I also learn to speak, read, and write Sylvan. [+1 Intelligence or Charisma]",
 	scorestxt: "+1 Intelligence or Charisma",
@@ -19546,16 +19546,16 @@ FeatsList["flames of phlegethos"] = {
 	name: "Flames of Phlegethos",
 	source: [["X", 74]],
 	prerequisite: "Being a Tiefling",
-	prereqeval: function(v) { return CurrentRace.known.indexOf("tiefling") !== -1; },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("tiefling") !== -1; },
 	descriptionFull: "You learn to call on hellfire to serve your commands. You gain the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 When you roll fire damage for a spell you cast, you can reroll any roll of 1 on the fire damage dice, but you must use the new roll, even if it is another 1.\n \u2022 Whenever you cast a spell that deals fire damage, you can cause flames to wreathe you until the end of your next turn. The flames don't harm you or your possessions, and they shed bright light out to 30 feet and dim light for an additional 30 feet. While the flames are present, any creature within 5 feet of you that hits you with a melee attack takes 1d4 fire damage.",
 	description: "When I cast a fire damage spell, I can reroll any 1 on fire damage dice once. I then sheathe myself in flame until my next turn ends. These shed bright light in 30 ft, dim light in 30 ft and cause any within 5 ft that hit me in melee to take 1d4 fire damage. [+1 Int or Cha]",
-	scorestxt: "+1 Intelligence or Charisma",	
+	scorestxt: "+1 Intelligence or Charisma",
 };
 FeatsList["infernal constitution"] = {
 	name: "Infernal Constitution",
 	source: [["X", 75]],
 	prerequisite: "Being a Tiefling",
-	prereqeval: function(v) { return CurrentRace.known.indexOf("tiefling") !== -1; },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("tiefling") !== -1; },
 	descriptionFull: "Fiendish blood runs strong in you, unlocking a resilience akin to that possessed by some fiends. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You have resistance to cold and poison damage.\n \u2022 You have advantage on saving throws against being poisoned.",
 	description: "I have resistance to cold and poison damage and I have advantage on saving throws against being poisoned.\n[+1 Constitution]",
 	scores: [0, 0, 1, 0, 0, 0],
@@ -19566,7 +19566,7 @@ FeatsList["orcish fury"] = {
 	name: "Orcish Fury",
 	source: [["X", 75]],
 	prerequisite: "Being a Half-Orc",
-	prereqeval: function(v) { return /^(?=.*half)(?=.*orc).*$/i.test(CurrentRace.known); },
+	prereqeval: function (v) { return /^(?=.*half)(?=.*orc).*$/i.test(CurrentRace.known); },
 	descriptionFull: "Your fury burns tirelessly. You gain the following benefits:\n \u2022 Increase your Strength or Constitution score by 1, to a maximum of 20.\n \u2022 When you hit with an attack using a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.\n \u2022 Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.",
 	description: "Once per short rest, I can roll an extra damage die for an attack with a simple or martial weapon. In addition, Immediately after I use my Relentless Endurance trait, I can use my reaction to make one weapon attack. [+1 Strength or Constitution]",
 	scorestxt: "+1 Strength or Constitution",
@@ -19579,7 +19579,7 @@ FeatsList["prodigy"] = {
 	name: "Prodigy",
 	source: [["X", 75]],
 	prerequisite: "Being a Half-Elf, Half-Orc, or Human",
-	prereqeval: function(v) { return /human|^(?=.*half)(?=.*(elf|orc)).*$/i.test(CurrentRace.known); },
+	prereqeval: function (v) { return /human|^(?=.*half)(?=.*(elf|orc)).*$/i.test(CurrentRace.known); },
 	descriptionFull: "You have a knack for learning new things. You gain the following benefits:\n \u2022 You gain one skill proficiency of your choice, one tool proficiency of your choice, and fluency in one language of your choice.\n \u2022 Choose one skill in which you have proficiency. You gain expertise with that skill, which means your proficiency bonus is doubled for any ability check you make with it. The skill you choose must be one that isn't already benefiting from a feature, such as Expertise, that doubles your proficiency bonus.",
 	description: "I gain proficiency with one skill of my choice and expertise with it, or expertise with another skill of my choice that I'm already proficient with. I also gain proficiency with one tool of my choice and fluency in one language of my choice.",
 	skillstxt: "Proficiency with any one skill and Expertise with any one skill that you are already proficient with",
@@ -19590,7 +19590,7 @@ FeatsList["second chance"] = {
 	name: "Second Chance",
 	source: [["X", 75]],
 	prerequisite: "Being a Halfling",
-	prereqeval: function(v) { return CurrentRace.known.indexOf("halfling") !== -1; },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("halfling") !== -1; },
 	descriptionFull: "Fortune favors you when someone tries to strike you. You gain the following benefits:\n \u2022 Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't use it again until you roll initiative at the start of combat or until you finish a short or long rest.",
 	description: "When a creature I can see hits me with an attack roll, I can use my reaction to force that creature to reroll. Once I use this ability, I can't do so again until I roll initiative at the start of combat or I finish a short rest. [+1 Dexterity, Constitution, or Charisma]",
 	scorestxt: "+1 Dexterity, Constitution, or Charisma",
@@ -19602,7 +19602,7 @@ FeatsList["squat nimbleness"] = {
 	name: "Squat Nimbleness",
 	source: [["X", 75]],
 	prerequisite: "Being a Dwarf or a small race",
-	prereqeval: function(v) { return /dwarf/i.test(CurrentRace.known) || tDoc.getField("Size Category").currentValueIndices === 4; },
+	prereqeval: function (v) { return /dwarf/i.test(CurrentRace.known) || tDoc.getField("Size Category").currentValueIndices === 4; },
 	descriptionFull: "You are uncommonly nimble for your race. You gain the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 Increase your walking speed by 5 feet.\n \u2022 You gain proficiency in the Acrobatics or Athletics skill (your choice).\n \u2022 You have advantage on any Strength (Athletics) or Dexterity (Acrobatics) check you make to escape from being grappled.",
 	description: "My walking speed increases by 5 ft. I gain proficiency in either the Acrobatics or the Athletics skill. I have advantage on Dexterity (Acrobatics) and Strength (Athletics) checks I make to escape from being grappled. [+1 Strength or Dexterity]",
 	scorestxt: "+1 Strength or Dexterity",
@@ -19613,7 +19613,7 @@ FeatsList["wood elf magic"] = {
 	name: "Wood Elf Magic",
 	source: [["X", 75]],
 	prerequisite: "Being a Wood Elf",
-	prereqeval: function(v) { return CurrentRace.known.indexOf("wood elf") !== -1; },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("wood elf") !== -1; },
 	descriptionFull: "You learn the magic of the primeval woods, which are revered and protected by your people. You learn one druid cantrip of your choice. You also learn the Longstrider and Pass Without Trace spells, each of which you can cast once without expending a spell slot. You regain the ability to cast these two spells in this way when you finish a long rest. Wisdom is your spellcasting ability for all three spells.",
 	description: "I learn a druid cantrip. In addition, I can cast Longstrider and Pass Without Trace, without expending a spell slot, but each only once per long rest. Wisdom is my spellcasting ability for these three spells.",
 	spellcastingBonus: [{
@@ -19722,7 +19722,7 @@ SpellsList["create homunculus"] = {
 	time: "1 h",
 	range: "Touch",
 	components: "V,S,M\u0192",
-	compMaterial: "Clay, ash, and mandrake root, all of which the spell consumes, and a jewel-encrusted dagger worth at least 1,000 gp", 
+	compMaterial: "Clay, ash, and mandrake root, all of which the spell consumes, and a jewel-encrusted dagger worth at least 1,000 gp",
 	duration: "Instantaneous",
 	description: "I take 2d4 piercing dmg to create a homunculus as my faithful companion; see book (1000gp)",
 	descriptionFull: "While speaking an intricate incantation, you cut yourself with a jewel-encrusted dagger, taking 2d4 piercing damage that can't be reduced in any way. You then drip your blood on the spell's other components and touch them, transforming them into a special construct called a homunculus." + "\n   " + "The statistics of the homunculus are in the Monster Manual. It is your faithful companion, and it dies if you die. Whenever you finish a long rest, you can spend up to half your Hit Dice if the homunculus is on the same plane of existence as you. When you do so, roll each die and add your Constitution modifier to it. Your hit point maximum is reduced by the total, and the homunculus's hit point maximum and current hit points are both increased by it. This process can reduce you to no lower than 1 hit point, and the change to your and the homunculus's hit points ends when you finish your next long rest. The reduction to your hit point maximum can't be removed by any means before then, except by the homunculus's death." + "\n   " + "You can have only one homunculus at a time. If you cast this spell while your homunculus lives, the spell fails.",
@@ -19764,7 +19764,7 @@ SpellsList["dawn"] = {
 	time: "1 a",
 	range: "60 ft",
 	components: "V,S,M\u0192",
-	compMaterial: "A sunburst pendant worth at least 100 gp", 
+	compMaterial: "A sunburst pendant worth at least 100 gp",
 	duration: "Conc, 1 min",
 	save: "Con",
 	description: "30-ft rad 40-ft high all crea 4d10 Radiant dmg at cast/end turn; bns a move it 60 ft (100gp)",
@@ -19850,16 +19850,16 @@ SpellsList["far step"] = {
 };
 SpellsList["find greater steed"] = {
 	name: "Find Greater Steed",
-		classes: ["paladin"],
-		source: [["X", 156]],
-		level: 4,
-		school: "Conj",
-		time: "10 min",
-		range: "30 ft",
-		components: "V,S",
-		duration: "Instantaneous",
-		description: "Gain the services of a steed; can communicate with it telepathically; can share spells with it; see book",
-		descriptionFull: "You summon a spirit that assumes the form of a loyal, majestic mount. Appearing in an unoccupied space within range, the spirit takes on a form you choose: a griffon, a pegasus, a peryton, a dire wolf, a rhinoceros, or a saber-toothed tiger. The creature has the statistics provided in the Monster Manual for the chosen form, though it is a celestial, a fey, or a fiend (your choice) instead of its normal creature type. Additionally, if it has an Intelligence score of 5 or lower, its Intelligence becomes 6, and it gains the ability to understand one language of your choice that you speak." + "\n   " + "You control the mount in combat. While the mount is within 1 mile of you, you can communicate with it telepathically. While mounted on it, you can make any spell you cast that targets only you also target the mount." + "\n   " + "The mount disappears temporarily when it drops to 0 hit points or when you dismiss it as an action. Casting this spell again re-summons the bonded mount, with all its hit points restored and any conditions removed." + "\n   " + "You can't have more than one mount bonded by this spell or find steed at the same time. As an action, you can release a mount from its bond, causing it to disappear permanently." + "\n   " + "Whenever the mount disappears, it leaves behind any objects it was wearing or carrying.",
+	classes: ["paladin"],
+	source: [["X", 156]],
+	level: 4,
+	school: "Conj",
+	time: "10 min",
+	range: "30 ft",
+	components: "V,S",
+	duration: "Instantaneous",
+	description: "Gain the services of a steed; can communicate with it telepathically; can share spells with it; see book",
+	descriptionFull: "You summon a spirit that assumes the form of a loyal, majestic mount. Appearing in an unoccupied space within range, the spirit takes on a form you choose: a griffon, a pegasus, a peryton, a dire wolf, a rhinoceros, or a saber-toothed tiger. The creature has the statistics provided in the Monster Manual for the chosen form, though it is a celestial, a fey, or a fiend (your choice) instead of its normal creature type. Additionally, if it has an Intelligence score of 5 or lower, its Intelligence becomes 6, and it gains the ability to understand one language of your choice that you speak." + "\n   " + "You control the mount in combat. While the mount is within 1 mile of you, you can communicate with it telepathically. While mounted on it, you can make any spell you cast that targets only you also target the mount." + "\n   " + "The mount disappears temporarily when it drops to 0 hit points or when you dismiss it as an action. Casting this spell again re-summons the bonded mount, with all its hit points restored and any conditions removed." + "\n   " + "You can't have more than one mount bonded by this spell or find steed at the same time. As an action, you can release a mount from its bond, causing it to disappear permanently." + "\n   " + "Whenever the mount disappears, it leaves behind any objects it was wearing or carrying.",
 };
 SpellsList["guardian of nature"] = {
 	name: "Guardian of Nature",
@@ -19888,7 +19888,7 @@ SpellsList["healing spirit"] = { // limited usages (https://media.wizards.com/20
 	descriptionShorter: "5-ft cube; any living start/enter heals 1d6+1d6/SL HP; 1+spell mod uses; bns a move 30 ft",
 	descriptionFull: "You call forth a nature spirit to soothe the wounded. The intangible spirit appears in a space that is a 5-foot cube you can see within range. The spirit looks like a transparent beast or fey (your choice)." + "\n   " + "Until the spell ends, whenever you or a creature you can see moves into the spirit's space for the first time on a turn or starts its turn there, you can cause the spirit to restore 1d6 hit points to that creature (no action required). The spirit can't heal constructs or undead. The spirit can heal a number of times equal to 1 + your spellcasting ability modifier (minimum of twice). After healing that number of times, the spirit disappears." + "\n   " + "As a bonus action on your turn, you can move the spirit up to 30 feet to a space you can see." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the healing increases by 1d6 for each slot level above 2nd.",
 };
-SpellsList["holy weapon"] = { 
+SpellsList["holy weapon"] = {
 	name: "Holy Weapon",
 	classes: ["cleric", "paladin"],
 	source: [["X", 157]],
@@ -20093,7 +20093,7 @@ SpellsList["power word pain"] = {
 	description: "1 crea with 100 HP or less disadv. atk/check/save, conc. save to cast; save/rnd to end; charm effect",
 	descriptionFull: "You speak a word of power that causes waves of intense pain to assail one creature you can see within range. If the target has 100 hit points or fewer, it is subject to crippling pain. Otherwise, the spell has no effect on it. A target is also unaffected if it is immune to being charmed." + "\n   " + "While the target is affected by crippling pain, any speed it has can be no higher than 10 feet. The target also has disadvantage on attack rolls, ability checks, and saving throws, other than Constitution saving throws. Finally, if the target tries to cast a spell, it must first succeed on a Constitution saving throw, or the casting fails and the spell is wasted." + "\n   " + "A target suffering this pain can make a Constitution saving throw at the end of each of its turns. On a successful save, the pain ends.",
 };
-SpellsList["primal savagery"] = { 
+SpellsList["primal savagery"] = {
 	name: "Primal Savagery",
 	classes: ["druid"],
 	source: [["X", 163]],
@@ -20416,7 +20416,7 @@ SpellsList["wrath of nature"] = {
 	descriptionShorter: "60-ft cu dif. ter.; rock: atk 3d8 Bludg. dmg; tree: Dex or 4d6 Slash. dmg; root: Str or restrain",
 	descriptionFull: "You call out to the spirits of nature to rouse them against your enemies. Choose a point you can see within range. The spirits cause trees, rocks, and grasses in a 60-foot cube centered on that point to become animated until the spell ends." + "\n   " + toUni("Grasses and Undergrowth") + ": Any area of ground in the cube that is covered by grass or undergrowth is difficult terrain for your enemies." + "\n   " + toUni("Trees") + ": At the start of each of your turns, each of your enemies within 10 feet of any tree in the cube must succeed on a Dexterity saving throw or take 4d6 slashing damage from whipping branches." + "\n   " + toUni("Roots and Vines") + ": At the end of each of your turns, one creature of your choice that is on the ground in the cube must succeed on a Strength saving throw or become restrained until the spell ends. A restrained creature can use an action to make a Strength (Athletics) check against your spell save DC, ending the effect on itself on a success." + "\n   " + toUni("Rocks") + ": As a bonus action on your turn, you can cause a loose rock in the cube to launch at a creature you can see in the cube. Make a ranged spell attack against the target. On a hit, the target takes 3d8 nonmagical bludgeoning damage, and it must succeed on a Strength saving throw or fall prone.",
 };
-SpellsList["zephyr strike"] = { 
+SpellsList["zephyr strike"] = {
 	name: "Zephyr Strike",
 	classes: ["ranger"],
 	source: [["X", 171]],
@@ -20554,10 +20554,10 @@ CompanionList.steed = {
 		}],
 		languages: "understands one language its master speaks (master's choice)",
 	},
-	attributesChange: function(sCrea, objCrea) {
+	attributesChange: function (sCrea, objCrea) {
 		if (objCrea.scores[3] < 6) objCrea.scores[3] = 6;
 	},
-	notes: function() {
+	notes: function () {
 		if (!CompanionList.mount) return;
 		var a = newObj(CompanionList.mount.notes);
 		a[0].description = a[0].description.replace(/It assumes a chosen form.*/i, "It has the chosen form: griffon, pegasus, peryton, dire wolf, rhinoceros, or saber-toothed tiger");
@@ -20780,7 +20780,7 @@ MagicItemsList["dark shard amulet"] = {
 	}],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Remove the already known cantrips, from any source except magic items
 				if (spName.indexOf("dark shard amulet") !== -1) {
 					var allSpellsKnown = [];
@@ -20882,7 +20882,7 @@ MagicItemsList["hat of wizardry"] = {
 	}],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Remove the already known cantrips, from any source except magic items
 				if (spName.indexOf("hat of wizardry") !== -1) {
 					var allSpellsKnown = [];
@@ -21106,7 +21106,7 @@ MagicItemsList["ruby of the war mage"] = {
 	descriptionFull: "Etched with eldritch runes, this 1-inch-diameter ruby allows you to use a simple or martial weapon as a spellcasting focus for your spells. For this property to work, you must attach the ruby to the weapon by pressing the ruby against it for at least 10 minutes. Thereafter, the ruby can't be removed unless you detach it as an action or the weapon is destroyed. Not even an Antimagic Field causes it to fall off. The ruby does fall off the weapon if your attunement to the ruby ends.",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 }
 MagicItemsList["shield of expression"] = {
 	name: "Shield of Expression",
@@ -22064,25 +22064,25 @@ MagicItemsList["infernal tack"] = {
 	attunement: true,
 	weight: 26, // riding saddle (25) + bit and bridle (1)
 	prerequisite: "Requires attunement by a creature of evil alignment",
-	prereqeval: function(v) { return /evil/i.test(What("Alignment")); },
+	prereqeval: function (v) { return /evil/i.test(What("Alignment")); },
 	action: [["action", ""]],
 	creaturesAdd: [["Nightmare",
-true,
-	function (AddRemove, prefix) {
-		if (!AddRemove) return;
-		// Show equipment section
-		MakeCompMenu_CompOptions(prefix, ["companion", "visible", "comp.eqp"], true);
-		// Add equipment when added
-		var equip = ["bit and bridle", "riding"];
-		for (var i = 0; i < equip.length; i++) {
-			var gear = GearList[equip[i]];
-			if (!gear) continue;
-			AddToInv(prefix + "comp", "l", gear.name, gear.amount, gear.weight, "", false, false, false, false);
-		}
-		// Add notes
-		var note = "I can use an action to call a nightmare equipped with infernal tack by clashing the spurs together or scraping them through blood. The nightmare appears at the start of my next turn, within 20 ft of me.\nThe nightmare acts as my ally and takes its turn on my initiative count. It remains for 1 day, until I or it dies, or until I dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which I can summon it again.";
-		Value(prefix + "Comp.eqp.Notes", What("Unit System") === "metric" ? ConvertToMetric(note, 0.5) : note);
-	}]],
+		true,
+		function (AddRemove, prefix) {
+			if (!AddRemove) return;
+			// Show equipment section
+			MakeCompMenu_CompOptions(prefix, ["companion", "visible", "comp.eqp"], true);
+			// Add equipment when added
+			var equip = ["bit and bridle", "riding"];
+			for (var i = 0; i < equip.length; i++) {
+				var gear = GearList[equip[i]];
+				if (!gear) continue;
+				AddToInv(prefix + "comp", "l", gear.name, gear.amount, gear.weight, "", false, false, false, false);
+			}
+			// Add notes
+			var note = "I can use an action to call a nightmare equipped with infernal tack by clashing the spurs together or scraping them through blood. The nightmare appears at the start of my next turn, within 20 ft of me.\nThe nightmare acts as my ally and takes its turn on my initiative count. It remains for 1 day, until I or it dies, or until I dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which I can summon it again.";
+			Value(prefix + "Comp.eqp.Notes", What("Unit System") === "metric" ? ConvertToMetric(note, 0.5) : note);
+		}]],
 }
 
 // pub_20180918_WDH.js
@@ -22144,7 +22144,7 @@ MagicItemsList["azuredge"] = {
 	rarity: "legendary",
 	storyItemAL: true,
 	description: "This battleaxe is sentient, adds +3 to hit and damage, and deals +2d6 radiant damage vs. fiends/undead. As an action, I can stop or start its glow of bright light in a 30-ft radius and dim light for another 30 ft. It has 3 charges, regaining all at dawn, which can be used to throw it, after which it returns to my hand. See Notes.",
-	descriptionFull: WDH_azuredgeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: WDH_azuredgeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	attunement: true,
 	weight: 4,
 	action: [["action", " (glow/end)"]],
@@ -22169,7 +22169,7 @@ MagicItemsList["azuredge"] = {
 	}],
 	toNotesPage: [{
 		name: "Features",
-		note: "\n   " + WDH_azuredgeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: "\n   " + WDH_azuredgeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 }
 MagicItemsList["badge of the watch"] = { // contains contributions by Pengsloth
@@ -22202,11 +22202,11 @@ if (MagicItemsList["staff of power"]) {
 		rarity: "legendary",
 		storyItemAL: true,
 		description: "This +2 quarterstaff gives me a +2 bonus on saves, AC, and spell attacks. It has 20 charges, regaining 2d8+4 at dawn, which can be used to cast spells, deal +1d6 force damage in melee, drain magic from a target hit in melee, or animate walking statues. It is sentient and has more features, see Notes page.",
-		descriptionFull: WDH_blackstaffFullDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+		descriptionFull: WDH_blackstaffFullDescription.replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 		attunement: true,
 		weight: 4,
 		prerequisite: "Requires attunement by the Blackstaff heir, who must be a wizard",
-		prereqeval: function(v) { return classes.known.wizard ? true : false; },
+		prereqeval: function (v) { return classes.known.wizard ? true : false; },
 		usages: 20,
 		recovery: "dawn",
 		additional: "regains 2d8+4",
@@ -22254,7 +22254,7 @@ if (MagicItemsList["staff of power"]) {
 		},
 		toNotesPage: [{
 			name: "Features",
-			note: "\n   " + WDH_blackstaffFullDescription.replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I "),
+			note: "\n   " + WDH_blackstaffFullDescription.replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I "),
 		}, {
 			name: "Sentient Item Features",
 			note: sentientItemConflictTxt,
@@ -22614,7 +22614,7 @@ MagicItemsList["leather golem armor"] = {
 	rarity: "rare",
 	magicItemTable: "G",
 	description: "I am unwilling to part with this leather armor until its curse is lifted from me, see Notes page. The curse makes me go berserk and have an aversion to fire. It gives me a +1 bonus to AC and saves vs. spells and magical effects. I have resistance to lightning damage and when I suffer such damage, I gain 5 temporary HP.",
-	descriptionFull: LLoK_leatherGolemArmorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: LLoK_leatherGolemArmorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	attunement: true,
 	weight: 10,
 	dmgres: ["Lightning"],
@@ -22631,7 +22631,7 @@ MagicItemsList["leather golem armor"] = {
 	savetxt: { text: ["+1 vs. spells and magical effects"] },
 	toNotesPage: [{
 		name: "Features",
-		note: desc(LLoK_leatherGolemArmorFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I "),
+		note: desc(LLoK_leatherGolemArmorFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I "),
 	}],
 }
 var LLoK_polymorphBladeFullDescription = [
@@ -22658,7 +22658,7 @@ MagicItemsList["polymorph blade"] = {
 	rarity: "very rare",
 	magicItemTable: "H",
 	description: "I'm unwilling to part with this magic sword. When I attack a creature with it and roll a 20 to hit, the creature must make a DC 15 Wisdom save or be polymorphed for 1 hour into a random beast (see Notes page). However, on a roll of 1 to hit, I am the one being polymorphed for 1 hour without a save.",
-	descriptionFull: LLoK_polymorphBladeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: LLoK_polymorphBladeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	attunement: true,
 	chooseGear: {
 		type: "weapon",
@@ -22683,7 +22683,7 @@ MagicItemsList["polymorph blade"] = {
 	},
 	toNotesPage: [{
 		name: "Features",
-		note: desc(LLoK_polymorphBladeFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I "),
+		note: desc(LLoK_polymorphBladeFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I "),
 	}],
 }
 var LLoK_poweredArmorFullDescription = [
@@ -22980,7 +22980,7 @@ RaceList["simic hybrid"] = {
 		"animal enhancement": {
 			name: "Animal Enhancement",
 			minlevel: 5,
-			eval: function() {
+			eval: function () {
 				var curChoice = ParseRace(What("Race Remember"))[1].capitalize();
 				var AEoptions = ["Manta Glide", "Nimble Climber", "Underwater Adaptation", "Grappling Appendages", "Carapace", "Acid Spit"];
 				if (curChoice && AEoptions.indexOf(curChoice) !== -1) AEoptions.splice(AEoptions.indexOf(curChoice), 1);
@@ -23022,7 +23022,7 @@ RaceList["simic hybrid"] = {
 				Value("Racial Traits", What("Racial Traits").replace(/Animal Enhancement \(5th level\):.*/, "") + feaTxt);
 				Value("Race Remember", What("Race Remember") + "-*" + theChoice.replace(" ", "_") + "*");
 			},
-			removeeval: function() {
+			removeeval: function () {
 				var theRegex = /\*(Manta_Glide|Nimble_Climber|Underwater_Adaptation|Grappling_Appendages|Carapace|Acid_Spit)\*/i;
 				var raceRem = What("Race Remember");
 				if (!theRegex.test(raceRem)) return;
@@ -23233,7 +23233,7 @@ AddSubClass("druid", "circle of spores", {
 			name: "Halo of Spores",
 			source: [["T", 36], ["G", 27]],
 			minlevel: 2,
- 			description: desc([
+			description: desc([
 				"As a reaction when someone I can see in 10 ft starts its turn or moves, I can have it save",
 				"It must succeed on a Constitution save or take necrotic damage from my cloud of spores",
 			]),
@@ -23309,7 +23309,7 @@ BackgroundList["azorius functionary"] = {
 	skills: ["Insight", "Intimidation"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -23379,7 +23379,7 @@ BackgroundList["boros legionnaire"] = {
 	skills: ["Athletics", "Intimidation"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -23451,7 +23451,7 @@ BackgroundList["dimir operative"] = {
 	skills: ["Deception", "Stealth"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -23532,7 +23532,7 @@ BackgroundList["golgari agent"] = {
 	skills: ["Nature", "Survival"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -23602,7 +23602,7 @@ BackgroundList["gruul anarch"] = {
 	skills: ["Animal Handling", "Athletics"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -23675,7 +23675,7 @@ BackgroundList["gruul anarch"] = {
 };
 BackgroundFeatureList["rubblebelt refuge"] = {
 	description: "I'm very familiar with areas of the city that most people shun: neighborhoods ruined by wurms, overgrown parks gone untended for decades, and the vast, long abandoned rubblebelts of broken terrain. There, I can find a suitable place for me and my allies to hide or rest, as well as food and fresh water for myself and up to five other people each day.",
-	source: [["G", 60]],	
+	source: [["G", 60]],
 };
 
 BackgroundList["izzet engineer"] = {
@@ -23685,7 +23685,7 @@ BackgroundList["izzet engineer"] = {
 	skills: ["Arcana", "Investigation"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -23757,7 +23757,7 @@ BackgroundList["orzhov representative"] = {
 	skills: ["Intimidation", "Religion"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -23824,7 +23824,7 @@ BackgroundList["rakdos cultist"] = {
 	skills: ["Acrobatics", "Performance"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -23910,7 +23910,7 @@ BackgroundList["selesnya initiate"] = {
 	skills: ["Nature", "Persuasion"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -23980,7 +23980,7 @@ BackgroundList["simic scientist"] = {
 	skills: ["Arcana", "Medicine"],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -24081,7 +24081,7 @@ var GGtR_GuildKeyrune = {
 		name: "Summon",
 		description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a [TYPE]. It reverts back to a keyrune after [DURATION], if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.",
 	},
-	createCreatureOptions: function(type, nameThis, duration, aTraits, aActions, aFeatures, aNotes, fCallback) {
+	createCreatureOptions: function (type, nameThis, duration, aTraits, aActions, aFeatures, aNotes, fCallback) {
 		if (!CreatureList[type]) return false;
 		var obj = newObj(CreatureList[type]);
 		obj.name = "Keyrune " + obj.name;
@@ -24316,7 +24316,7 @@ MagicItemsList["guild keyrune"] = {
 		creatureOptions: GGtR_GuildKeyrune.createCreatureOptions("giant scorpion", "scorpion", "6 hours", [{
 			name: "Telepathy",
 			description: "While the scorpion is within 60 ft of its owner, they can communicate telepathically.",
-		}], function(obj) { obj.scores[3] = 4; }),
+		}], function (obj) { obj.scores[3] = 4; }),
 	},
 	"gruul": {
 		type: "wondrous item",
@@ -24563,7 +24563,7 @@ MagicItemsList["guild keyrune"] = {
 		creatureOptions: GGtR_GuildKeyrune.createCreatureOptions("dire wolf", "wolf", "8 hours", [{
 			name: "Telepathy",
 			description: "While the wolf is within 1 mile of its owner, they can communicate telepathically.",
-		}], function(obj) {
+		}], function (obj) {
 			obj.scores[3] = 6;
 			obj.languages = "Understands the keyrune owner's languages, Elvish, and Sylvan, but can't speak";
 		}),
@@ -24779,7 +24779,7 @@ MagicItemsList["illusionist's bracers"] = {
 	weight: 1,
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	action: [["bonus action", " (with cantrip)"]],
 }
 MagicItemsList["mizzium apparatus"] = {
@@ -24825,7 +24825,7 @@ MagicItemsList["mizzium apparatus"] = {
 	weight: 8,
 	attunement: true,
 	prerequisite: "Requires attunement by a sorcerer, warlock, or wizard",
-	prereqeval: function(v) { return classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
 	toNotesPage: [{
 		name: "Random Spells",
 		note: [
@@ -25057,7 +25057,7 @@ MagicItemsList["voyager staff"] = {
 	attunement: true,
 	weight: 4,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	weaponOptions: [{
 		baseWeapon: "quarterstaff",
 		regExpSearch: /^(?=.*voyager)(?=.*staff).*$/i,
@@ -25216,7 +25216,7 @@ MagicItemsList["black crystal tablet"] = { // contains contributions by Pengslot
 	descriptionFull: "Any creature that attunes to the tablet must make a DC 20 Wisdom saving throw at the end of its next long rest. On a failed save, the creature becomes afflicted with a random form of long-term madness (see \"Madness\" in chapter 8 of the Dungeon Master's Guide).\n   As an action, a creature attuned to the Black Crystal Tablet can use it to cast Eyebite or Gate (the portal created by this spell links to the Far Realm only). After the tablet is used to cast a spell, it cannot be used again until the next dawn.",
 	attunement: true,
 	prerequisite: "Requires attunement by a creature that has proficiency in the arcana skill",
-	prereqeval: function(v) { return v.skillProfs.indexOf("Arcana") !== -1; },
+	prereqeval: function (v) { return v.skillProfs.indexOf("Arcana") !== -1; },
 	usages: 1,
 	recovery: "dawn",
 	spellFirstColTitle: "Ch",
@@ -25408,7 +25408,7 @@ MagicItemsList["tearulai"] = { // contains contributions by Pengsloth
 	].join("\n   "),
 	attunement: true,
 	prerequisite: "Requires attunement by a creature of non-evil alignment",
-	prereqeval: function(v) { return !/evil/i.test(What("Alignment")); },
+	prereqeval: function (v) { return !/evil/i.test(What("Alignment")); },
 	weight: 3,
 	weaponOptions: [{
 		baseWeapon: "longsword",
@@ -26658,7 +26658,7 @@ MagicItemsList["fane-eater"] = {
 	descriptionFull: "Fane-Eater is a battleaxe belonging to Arkhan the Cruel.\n   You gain a +3 bonus to attack and damage rolls with Fane-Eater. If you attack a creature with this weapon and roll a 20 on the attack roll, the creature takes an extra 2d8 necrotic damage, and you regain a number of hit points equal to the necrotic damage taken.",
 	attunement: true,
 	prerequisite: "Requires attunement by an evil cleric or paladin",
-	prereqeval: function(v) { return (classes.known.paladin || classes.known.cleric) && /evil/i.test(What("Alignment")); },
+	prereqeval: function (v) { return (classes.known.paladin || classes.known.cleric) && /evil/i.test(What("Alignment")); },
 	weight: 4,
 	weaponOptions: [{
 		baseWeapon: "battleaxe",
@@ -26705,7 +26705,7 @@ MagicItemsList["helm of devil command"] = {
 	descriptionFull: "This bulky, eyeless helmet is made for a pit fiend but magically resizes to fit the heads of other wearers.\n   While wearing the helm, you can see out of it as though you weren't wearing it. In addition, you know the exact location and type of all devils within 1,000 feet of you. You can telepathically communicate with a devil within range, or you can broadcast your thoughts to all devils within range. The devils receiving your broadcasted thoughts have no special means of replying to them.\n   The helm has 3 charges. As an action, you can expend 1 charge to cast dominate monster (save DC 21), which affects devils only. (The spell fails and the charge is wasted if you target any creature that's not a devil.) If a devil can see you when you cast this spell on it, the devil knows you tried to charm it. The helm regains all its charges 24 hours after its last charge is expended.\n   If you are not a devil, using the helm's dominate monster property in the Nine Hells has a 20 percent chance of attracting a narzugon, which arrives on the back of a nightmare mount in 1d4 hours. The narzugon tries to recover the helm, killing you if necessary to obtain it. If it gets the helm, the narzugon tries to deliver it to its infernal master.",
 	attunement: true,
 	prerequisite: "Requires attunement by a creature that can speak infernal",
-	prereqeval: function(v) { return /infernal/i.test(v.languageProfs); },
+	prereqeval: function (v) { return /infernal/i.test(v.languageProfs); },
 	usages: 3,
 	recovery: "Special",
 	fixedDC: 21,
@@ -26794,11 +26794,11 @@ MagicItemsList["shield of the hidden lord"] = {
 	rarity: "legendary",
 	storyItemAL: true,
 	description: 'This shield grants me +2 bonus to AC and resistance to fire damage. It has 3 charges, regaining all at dawn. I can expend 1 charge to cast Fireball or 2 charges to cast Wall of Fire from it at DC 21. The shield is sentient and can communicate telepathically with any creature within 120 ft of it. See "Notes" page for more.',
-	descriptionFull: DiA_shieldOfTheHiddenLordFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: DiA_shieldOfTheHiddenLordFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	attunement: true,
 	toNotesPage: [{
 		name: "Features",
-		note: desc(DiA_shieldOfTheHiddenLordFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(to) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(DiA_shieldOfTheHiddenLordFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(to) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 	weight: 6,
 	shieldAdd: ["Shield of the Hidden Lord", 4, 6],
@@ -26843,10 +26843,10 @@ MagicItemsList["soul coin"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	description: "Each coin traps a unique soul, whose rage or despair is felt by me while I hold it. A coin has 3 charges. As an action, I can expend 1 charge to either siphon the soul's essence to grant me 1d10 temporary HP or telepathically ask the soul a question which it must answer truthfully. See \"Notes\" page for more.",
-	descriptionFull: DiA_soulCoinFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: DiA_soulCoinFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
-		note: desc(DiA_soulCoinFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(answer) you/ig, "$1 me").replace(/you /ig, "I "),
+		note: desc(DiA_soulCoinFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(answer) you/ig, "$1 me").replace(/you /ig, "I "),
 	}],
 	weight: 0.3,
 	usages: 3,
@@ -26992,7 +26992,7 @@ FeatsList["revenant blade"] = {
 	name: "Revenant Blade",
 	source: [["E:RLW", 22]],
 	prerequisite: "Being an Elf",
-	prereqeval: function(v) { return /^(?!.*half)(?=.*(elf|eladrin|avariel|grugach|shadar-kai)).*$/i.test(CurrentRace.known); },
+	prereqeval: function (v) { return /^(?!.*half)(?=.*(elf|eladrin|avariel|grugach|shadar-kai)).*$/i.test(CurrentRace.known); },
 	descriptionFull: "You are descended from a master of the double blade and their skills have passed on to you. You gain the following benefits:\n \u2022 Increase your Dexterity or Strength score by 1, to a maximum of 20.\n \u2022 While you are holding a double-bladed scimitar with two hands, you gain a + 1 bonus to Armor Class.\n \u2022 A double-bladed scimitar has the finesse property when you wield it.",
 	description: "My mastery with the double bladed scimitar allows me to treat it as having the finesse trait. In addition, I gain +1 AC while wielding it with two hands. [+1 Strength or Dexterity]",
 	scorestxt: "+1 Strength or Dexterity",
@@ -27285,7 +27285,7 @@ RaceList["dragonmark detection half-elf"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -27346,7 +27346,7 @@ RaceList["dragonmark finding half-orc"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -27407,7 +27407,7 @@ RaceList["dragonmark finding human"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -27474,7 +27474,7 @@ RaceList["dragonmark handling human"] = {
 			"When I cast Animal Friendship or Speak with Animals, I can target a monstrosity with an Intelligence of 3 or lower instead of a beast.",
 		],
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -27535,7 +27535,7 @@ RaceList["dragonmark healing halfling"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -27593,7 +27593,7 @@ RaceList["dragonmark hospitality halfling"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -27653,7 +27653,7 @@ RaceList["dragonmark making human"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -27701,7 +27701,7 @@ RaceList["dragonmark passage human"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -27767,7 +27767,7 @@ RaceList["dragonmark scribing gnome"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -27821,7 +27821,7 @@ RaceList["dragonmark sentinel human"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -27879,7 +27879,7 @@ RaceList["dragonmark shadow elf"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -27937,7 +27937,7 @@ RaceList["dragonmark storm half-elf"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -28020,7 +28020,7 @@ RaceList["dragonmark warding dwarf"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -28037,7 +28037,7 @@ FeatsList["aberrant dragonmark"] = {
 	name: "Aberrant Dragonmark",
 	source: [["E:RLW", 52]],
 	prerequisite: "No other dragonmark",
-	prereqeval: function(v) { return !/dragonmark/i.test(CurrentRace.known); },
+	prereqeval: function (v) { return !/dragonmark/i.test(CurrentRace.known); },
 	descriptionFull: "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip of your choice from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it through your mark. Once you cast it, you must finish a short or long rest before you can cast it again through the mark. Constitution is your spellcasting ability for these spells.\n \u2022 When you cast the 1st-level spell through your mark, you can expend one of your Hit Dice and roll it. If you roll an even number, you gain a number of temporary hit points equal to the number rolled. If you roll an odd number, one random creature within 30 feet of you (not including you) takes force damage equal to the number rolled. If no other creatures are in range, you take the damage.\n\nYou also develop a random flaw from the Aberrant Dragonmark Flaws table.\n\n" + toUni("d8\tFlaw") + "\n  1\tYour mark is a source of constant physical pain.\n  2\tYour mark whispers to you. Its meaning can be unclear.\n  3\tWhen you're stressed, the mark hisses audibly.\n  4\tThe skin around the mark is burned, scaly, or withered.\n  5\tAnimals are uneasy around you.\n  6\tYou have a mood swing any time you use your mark.\n  7\tYour looks change slightly whenever you use the mark.\n  8\tYou have horrific nightmares after you use your mark.",
 	description: "I learn a sorcerer cantrip, and a 1st-level spell that I can cast once per short rest. They use Con as spellcasting ability. I can expend and roll an HD when I cast the level 1 spell. If even, I gain it in temp HP. If odd, a random target in 30 ft takes it in force damage. [+1 Con]",
 	scores: [0, 0, 1, 0, 0, 0],
@@ -28355,7 +28355,7 @@ ClassList.artificer = {
 					"It must be a space that the wearer had occupied some time during the current turn",
 				]),
 				additional: "pair of boots; requires attunement",
-				prereqeval: function(v) { return classes.known.artificer.level >= 6; },
+				prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 				magicitemsAdd: ["Boots of the Winding Path"],
 			},
 			"enhanced arcane focus": {
@@ -28379,7 +28379,7 @@ ClassList.artificer = {
 				additional: levels.map(function (n) {
 					return "armor/shield; +" + (n < 10 ? 1 : 2) + " magical";
 				}),
-				prereqeval: function(v) {
+				prereqeval: function (v) {
 					return GetFeatureChoice("classes", "artificer", "infuse item", true).indexOf("enhanced defense (shield)") == -1;
 				},
 				eval: function (lvl, chc) {
@@ -28396,7 +28396,7 @@ ClassList.artificer = {
 				additional: levels.map(function (n) {
 					return "armor/shield; +" + (n < 10 ? 1 : 2) + " magical";
 				}),
-				prereqeval: function(v) {
+				prereqeval: function (v) {
 					return GetFeatureChoice("classes", "artificer", "infuse item", true).indexOf("enhanced defense (armor)") == -1;
 				},
 				eval: function (lvl, chc) {
@@ -28507,7 +28507,7 @@ ClassList.artificer = {
 					"The attacker makes a Con save (my spell save DC) or is blinded until its next turn ends",
 				]),
 				additional: "simple/martial weapon; requires attunement",
-				prereqeval: function(v) { return classes.known.artificer.level >= 6; },
+				prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 				magicitemsAdd: ["Radiant Weapon"],
 			},
 			"repeating shot": {
@@ -28529,7 +28529,7 @@ ClassList.artificer = {
 					"As a reaction when hit in melee, the wearer can use 1 charge to push the attacker 15 ft",
 				]),
 				additional: "shield; requires attunement",
-				prereqeval: function(v) { return classes.known.artificer.level >= 6; },
+				prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 				magicitemsAdd: ["Repulsion Shield"],
 			},
 			"resistant armor (prereq: level 6 artificer)": {
@@ -28540,7 +28540,7 @@ ClassList.artificer = {
 					"Choose from: acid,	cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder",
 				]),
 				additional: "suit of armor; requires attunement",
-				prereqeval: function(v) { return classes.known.artificer.level >= 6; },
+				prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 				magicitemsAdd: ["Armor of Resistance"],
 			},
 			"returning weapon": {
@@ -28626,13 +28626,13 @@ ClassList.artificer = {
 			},
 		},
 	},
-	prereqLvl6: function(v) { return classes.known.artificer.level >= 6; },
-	prereqLvl10: function(v) { return classes.known.artificer.level >= 10; },
-	prereqLvl14: function(v) { return classes.known.artificer.level >= 14; },
+	prereqLvl6: function (v) { return classes.known.artificer.level >= 6; },
+	prereqLvl10: function (v) { return classes.known.artificer.level >= 10; },
+	prereqLvl14: function (v) { return classes.known.artificer.level >= 14; },
 };
 
 // Set the Artificer infusion list for Replicate Magic Item
-RunFunctionAtEnd(function() {
+RunFunctionAtEnd(function () {
 	var artMi = [
 		// 2nd-level artificer
 		["alchemy jug", 2],
@@ -28911,7 +28911,7 @@ AddSubClass("artificer", "artillerist", {
 			usages: 1,
 			recovery: "long rest",
 			altResource: "SS 1+",
-			additional: levels.map(function(n) {
+			additional: levels.map(function (n) {
 				return n < 3 ? "" : n < 15 ? "1 cannon" : "2 cannons";
 			}),
 			action: [["action", " (create/dismiss)"], ["bonus action", " (activate)"]],
@@ -28983,7 +28983,7 @@ AddSubClass("artificer", "artillerist", {
 					name: "Detonate (Artillerist 9)",
 					minlevel: 9,
 					description: "The creator of the cannon, can use an action to detonate the cannon when within 60 ft of it, see the attack section. The cannon's attacks now deal 3d8 damage.",
-					eval: function(prefix, lvl) {
+					eval: function (prefix, lvl) {
 						// add the Detonate attack entry
 						Value(prefix + "Comp.Use.Attack.3.Weapon Selection", "Detonate");
 						// Upgrade the damage for the attacks
@@ -28991,7 +28991,7 @@ AddSubClass("artificer", "artillerist", {
 							Value(prefix + "BlueText.Comp.Use.Attack." + i + ".Damage Die", "3d8");
 						}
 					},
-					removeeval: function(prefix, lvl) {
+					removeeval: function (prefix, lvl) {
 						// remove the Detonate attack entry
 						Value(prefix + "Comp.Use.Attack.3.Weapon Selection", "");
 						// Reset the damage for the attacks
@@ -29015,7 +29015,7 @@ AddSubClass("artificer", "artillerist", {
 					},
 					setAltHp: true,
 				},
-				eval: function(prefix, lvl) {
+				eval: function (prefix, lvl) {
 					// remove the Detonate attack if adding this creature before artificer level 9
 					if (lvl[0] < 9) Value(prefix + "Comp.Use.Attack.3.Weapon Selection", "");
 				},
@@ -29186,10 +29186,10 @@ AddSubClass("artificer", "battle smith", {
 				}, {
 					name: "Arcane Jolt (Battle Smith 9)",
 					minlevel: 9,
-					eval: function(prefix, lvl) {
+					eval: function (prefix, lvl) {
 						Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (1d6): On hit, deal force damage or heal target in 30 ft");
 					},
-					removeeval: function(prefix, lvl) {
+					removeeval: function (prefix, lvl) {
 						Value(prefix + "Comp.Use.Attack.1.Description", "");
 					},
 				}, {
@@ -29197,11 +29197,11 @@ AddSubClass("artificer", "battle smith", {
 					minlevel: 15,
 					description: "The steel defender's Deflect Attack now deals 1d4 + its creator's Intelligence modifier in force damage to the attacker.",
 					addMod: [{ type: "", field: "Comp.Use.AC", mod: 2, text: "The steel defender gains a +2 bonus to its AC (base AC of 15)." }],
-					eval: function(prefix, lvl) {
+					eval: function (prefix, lvl) {
 						Value(prefix + "Comp.Use.Attack.1.Description", What(prefix + "Comp.Use.Attack.1.Description").replace("Arcane Jolt (1d6)", "Arcane Jolt (2d6)"));
 						Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "Deflect Attack (reaction)");
 					},
-					removeeval: function(prefix, lvl) {
+					removeeval: function (prefix, lvl) {
 						Value(prefix + "Comp.Use.Attack.1.Description", What(prefix + "Comp.Use.Attack.1.Description").replace("Arcane Jolt (2d6)", "Arcane Jolt (1d6)"));
 						Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "");
 					},
@@ -29220,7 +29220,7 @@ AddSubClass("artificer", "battle smith", {
 					setAltHp: true,
 					hpForceRecalc: true,
 				},
-				eval: function(prefix, lvl) {
+				eval: function (prefix, lvl) {
 					// remove the Deflect Attack (reaction) attack if adding this creature before artificer level 15
 					if (lvl[0] < 15) Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "");
 				},
@@ -29290,7 +29290,7 @@ MagicItemsList["enhanced arcane focus, +1 or +2"] = {
 	attunement: true,
 	weight: 1,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	choices: ["+1 to spell attacks", "+2 to spell attacks (artificer level 10+)"],
 	"+1 to spell attacks": {
 		name: "Enhanced Arcane Focus +1",
@@ -29561,13 +29561,13 @@ MagicItemsList["docent"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	description: "I can embed this sentient small metal sphere studded with dragonshards into my chest or eye socket. I can communicate telepathically with it and it uses my senses. It can serve me as an advisor and a translator. It knowns 6 languages, a spells, an Intelligence skill, and can stabilize me. See Notes page.",
-	descriptionFull: ERftLW_docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: ERftLW_docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	attunement: true,
 	prerequisite: "Requires attunement by a warforged",
 	prereqeval: function (v) { return /warforged/i.test(CurrentRace.known); },
 	toNotesPage: [{
 		name: "Features",
-		note: desc(ERftLW_docentFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/(with|stabilizes|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(ERftLW_docentFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/(with|stabilizes|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 }
 MagicItemsList["dyrrn's tentacle whip"] = {
@@ -30197,19 +30197,19 @@ ERftLW_Valenar_Ancestral_Traits = [
 	"\u25C6 [Variant] Ancestral Traits: Each Valenar animal can be customized with an ancestral gift, a supernatural trait granted by its ancestral spirit. Choose a trait or roll on the table below for each Valenar animal.",
 	" d8\tTrait",
 	"  1\tBestow Luck (1/day): As a bonus action, the animal chooses one creature it can see",
-		"\twithin 30 ft of it. The next ability check, attack roll, or saving throw the target",
-		"\tmakes in the next hour has advantage.",
+	"\twithin 30 ft of it. The next ability check, attack roll, or saving throw the target",
+	"\tmakes in the next hour has advantage.",
 	"  2\tBurst of Speed (recharge 6): The animal can take the Dash action as a bonus action.",
 	"  3\tCamouflage: The animal has advantage on Dexterity (Stealth) checks it makes while",
-		"\toutdoors.",
+	"\toutdoors.",
 	"  4\tLie Detector: The animal knows when a creature within 15 ft of it tells a lie.",
 	"  5\tFey Ancestry: The animal has advantage on saving throws against being charmed or",
-		"\tfrightened, and magic can't put it to sleep.",
+	"\tfrightened, and magic can't put it to sleep.",
 	"  6\tFey Step (1/day): The animal, along with anything it is wearing or carrying,",
-		"\tteleports up to 30 ft to an unoccupied space it can see.",
+	"\tteleports up to 30 ft to an unoccupied space it can see.",
 	"  7\tQuickness (recharge 6): The animal can take the Dodge action as a bonus action.",
 	"  8\tShrouded Step. The animal can't be tracked except by magical means, and it leaves",
-		"\tbehind no tracks or other traces of its passage.",
+	"\tbehind no tracks or other traces of its passage.",
 ].join("\n");
 CreatureList["valenar hawk"] = { // contributed by Nod_Hero
 	name: "Valenar Hawk",
@@ -30244,10 +30244,10 @@ CreatureList["valenar hawk"] = { // contributed by Nod_Hero
 		name: "Bonding",
 		description: "The hawk can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the hawk bonds with a different creature or until the bonded creature dies. While bonded, the hawk and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
 	}],
-	eval: function(prefix, lvl) {
+	eval: function (prefix, lvl) {
 		AddString(prefix + "Cnote.Left", ERftLW_Valenar_Ancestral_Traits, true);
 	},
-	removeeval: function(prefix, lvl) {
+	removeeval: function (prefix, lvl) {
 		RemoveString(prefix + "Cnote.Left", ERftLW_Valenar_Ancestral_Traits, true);
 	},
 };
@@ -30285,10 +30285,10 @@ CreatureList["valenar hound"] = { // contributed by Nod_Hero
 		name: "Bonding",
 		description: "The hound can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the hound bonds with a different creature or until the bonded creature dies. While bonded, the hound and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
 	}],
-	eval: function(prefix, lvl) {
+	eval: function (prefix, lvl) {
 		AddString(prefix + "Cnote.Left", ERftLW_Valenar_Ancestral_Traits, true);
 	},
-	removeeval: function(prefix, lvl) {
+	removeeval: function (prefix, lvl) {
 		RemoveString(prefix + "Cnote.Left", ERftLW_Valenar_Ancestral_Traits, true);
 	},
 };
@@ -30321,10 +30321,10 @@ CreatureList["valenar steed"] = { // contributed by Nod_Hero
 		name: "Bonding",
 		description: "The steed can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the steed bonds with a different creature or until the bonded creature dies. While bonded, the steed and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
 	}],
-	eval: function(prefix, lvl) {
+	eval: function (prefix, lvl) {
 		AddString(prefix + "Cnote.Left", ERftLW_Valenar_Ancestral_Traits, true);
 	},
-	removeeval: function(prefix, lvl) {
+	removeeval: function (prefix, lvl) {
 		RemoveString(prefix + "Cnote.Left", ERftLW_Valenar_Ancestral_Traits, true);
 	},
 };
@@ -30856,7 +30856,7 @@ AddSubClass("fighter", "echo knight", { // contains contributions by Smashman, @
 					description: "When the echo's creator takes the Attack action on their turn, any attack they make with that action can originate from the echo's space. This choice is made for each attack separately.\n   In addition, when a creature that the echo's creator can see within 5 ft of the echo moves at least 5 ft away from it, its creator can use their reaction to make an opportunity attack against that creature as if its creator was in the echo's space.",
 				}],
 				header: "Echo",
-				eval: function(prefix, lvl) {
+				eval: function (prefix, lvl) {
 					// Same size as character
 					PickDropdown(prefix + "Comp.Desc.Size", tDoc.getField("Size Category").currentValueIndices);
 					Value(prefix + "Comp.Desc.Age", What("Age"));
@@ -30945,13 +30945,13 @@ AddSubClass("wizard", "chronurgy magic", { // contains contributions by bassboga
 			action: [["reaction", ""]],
 			usages: 2,
 			recovery: "long rest",
-			eval: function() {
+			eval: function () {
 				// Always have access to dunamancy spells enabled
 				if (GetFeatureChoice("classes", "wizard", "spellcasting", true).indexOf("access to dunamancy spells") === -1) {
 					ClassFeatureOptions(["wizard", "spellcasting", "access to dunamancy spells", true]);
 				}
 			},
-			removeeval: function() {
+			removeeval: function () {
 				// Remove access to dunamancy spells when removing subclass
 				if (GetFeatureChoice("classes", "wizard", "spellcasting", true).indexOf("access to dunamancy spells") !== -1) {
 					ClassFeatureOptions(["wizard", "spellcasting", "access to dunamancy spells", true], "remove");
@@ -31030,13 +31030,13 @@ AddSubClass("wizard", "graviturgy magic", { // contains contributions by bassbog
 			additional: levels.map(function (n) {
 				return n < 2 ? "" : (n < 10 ? "Large" : "Huge") + " or smaller creatures";
 			}),
-			eval: function() {
+			eval: function () {
 				// Always have access to dunamancy spells enabled
 				if (GetFeatureChoice("classes", "wizard", "spellcasting", true).indexOf("access to dunamancy spells") === -1) {
 					ClassFeatureOptions(["wizard", "spellcasting", "access to dunamancy spells", true]);
 				}
 			},
-			removeeval: function() {
+			removeeval: function () {
 				// Remove access to dunamancy spells when removing subclass
 				if (GetFeatureChoice("classes", "wizard", "spellcasting", true).indexOf("access to dunamancy spells") !== -1) {
 					ClassFeatureOptions(["wizard", "spellcasting", "access to dunamancy spells", true], "remove");
@@ -31096,7 +31096,7 @@ AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Access to Dunamanc
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "bard" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["sapping sting", "gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt", "gravity fissure", "tether essence", "dark star", "reality break", "ravenous void", "time ravage"]);
@@ -31114,7 +31114,7 @@ AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Access to Dunama
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "cleric" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["sapping sting", "gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt", "gravity fissure", "tether essence", "dark star", "reality break", "ravenous void", "time ravage"]);
@@ -31132,7 +31132,7 @@ AddFeatureChoice(ClassList.druid.features.spellcasting, true, "Access to Dunaman
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "druid" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["sapping sting", "gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt", "gravity fissure", "tether essence", "dark star", "reality break", "ravenous void", "time ravage"]);
@@ -31150,7 +31150,7 @@ AddFeatureChoice(ClassList.paladin.features.spellcasting, true, "Access to Dunam
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "paladin" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt"]);
@@ -31168,7 +31168,7 @@ var EGtW_Ranger_Dunamancy_Spells = {
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if ((spName !== "ranger" && spName !== "rangerua") || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt"]);
@@ -31178,7 +31178,7 @@ var EGtW_Ranger_Dunamancy_Spells = {
 	},
 };
 AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Access to Dunamancy Spells", EGtW_Ranger_Dunamancy_Spells, "Optional 2nd-level ranger features");
-RunFunctionAtEnd(function() {
+RunFunctionAtEnd(function () {
 	if (!ClassList["rangerua"]) return;
 	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Access to Dunamancy Spells", EGtW_Ranger_Dunamancy_Spells, "Optional 2nd-level ranger features");
 });
@@ -31191,7 +31191,7 @@ AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Access to Duna
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "sorcerer" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["sapping sting", "gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt", "gravity fissure", "tether essence", "dark star", "reality break", "ravenous void", "time ravage"]);
@@ -31209,7 +31209,7 @@ AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Access to Duna
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "warlock" || (spType.indexOf("bonus") !== -1 && (!spList["class"] || spList["class"] !== "warlock"))) return;
 				spList.extraspells = spList.extraspells.concat(["sapping sting", "gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt", "gravity fissure", "tether essence", "dark star", "reality break", "ravenous void", "time ravage"]);
@@ -31227,7 +31227,7 @@ AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Access to Dunama
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "wizard" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["sapping sting", "gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt", "gravity fissure", "tether essence", "dark star", "reality break", "ravenous void", "time ravage"]);
@@ -31236,7 +31236,7 @@ AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Access to Dunama
 		],
 	},
 }, "Optional 1st-level wizard features");
-RunFunctionAtEnd(function() {
+RunFunctionAtEnd(function () {
 	if (!ClassList.artificer) return;
 	AddFeatureChoice(ClassList.artificer.features.spellcasting, true, "Access to Dunamancy Spells", {
 		name: "Dunamancy Spells",
@@ -31247,7 +31247,7 @@ RunFunctionAtEnd(function() {
 		]),
 		calcChanges: {
 			spellList: [
-				function(spList, spName, spType) {
+				function (spList, spName, spType) {
 					if (spName !== "artificer" || spType.indexOf("bonus") !== -1) return;
 					spList.extraspells = spList.extraspells.concat(["sapping sting", "gift of alacrity", "magnify gravity", "fortune's favor", "immovable object", "wristpocket", "pulse wave", "gravity sinkhole", "temporal shunt"]);
 				},
@@ -31839,11 +31839,11 @@ MagicItemsList["arcane cannon"] = {
 	rarity: "very rare",
 	notLegalAL: true,
 	description: "This Large magical cannon requires no ammunition and doesn't need to be loaded, but takes 5 minutes to recharge once fired. It takes one action to aim it and another action to fire it. When I fire it, I can choose the effect, an acid jet, fire jet, frost shot, lightning shot, or poison spray. See Notes page.",
-	descriptionFull: EGtW_ArcaneCannonFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: EGtW_ArcaneCannonFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	action: [["action", " (Aim or Fire)"]],
 	toNotesPage: [{
 		name: "Effects",
-		note: "\n" + EGtW_ArcaneCannonFullDescription.join("\n \u2022 ").replace(/>>(.*?)<<\./g, function(a, match) { return match.toUpperCase() + ":"; }).replace(/\byou\b/ig, "I").replace(/\bf(oo|ee)t\b/ig, "ft"),
+		note: "\n" + EGtW_ArcaneCannonFullDescription.join("\n \u2022 ").replace(/>>(.*?)<<\./g, function (a, match) { return match.toUpperCase() + ":"; }).replace(/\byou\b/ig, "I").replace(/\bf(oo|ee)t\b/ig, "ft"),
 	}],
 };
 MagicItemsList["battering shield"] = {
@@ -32111,7 +32111,7 @@ MagicItemsList["luxon beacon"] = {
 	rarity: "legendary",
 	notLegalAL: true,
 	description: "Once per dawn, a creature can touch this crystal for 1 minute to gain a Fragment of Possibility. Once for the next 8 hours, it can roll an extra d20 for an attack, check, save, or being attacked, before the outcome is determined. Creatures consecuted to the Luxon that die within 100 miles of it are reincarnated. See notes.",
-	descriptionFull: EGtW_LuxonBeaconFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: EGtW_LuxonBeaconFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	extraLimitedFeatures: [{
 		name: "Luxon Beacon (Fragment of Possibility)",
 		usages: 1,
@@ -32119,7 +32119,7 @@ MagicItemsList["luxon beacon"] = {
 	}],
 	toNotesPage: [{
 		name: "Features",
-		note: desc(EGtW_LuxonBeaconFullDescription).replace(/   >>(.*?)<<\. /g, function(a, match) { return match.toUpperCase() + "\n   "; }),
+		note: desc(EGtW_LuxonBeaconFullDescription).replace(/   >>(.*?)<<\. /g, function (a, match) { return match.toUpperCase() + "\n   "; }),
 	}],
 };
 MagicItemsList["needle of mending"] = {
@@ -32345,7 +32345,7 @@ MagicItemsList["staff of the ivory claw"] = {
 	description: "This gray-and-cerulean staff is topped with a small dragon claw carved from ivory. While holding the staff, I gain a +1 bonus to spell attack rolls. Whenever you score a critical hit with a spell attack, the target takes an extra 3d6 radiant damage.",
 	descriptionFull: "This gray-and-cerulean staff is topped with a small dragon claw carved from ivory. While holding the staff, you gain a +1 bonus to spell attack rolls. Whenever you score a critical hit with a spell attack, the target takes an extra 3d6 radiant damage.",
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	calcChanges: {
 		spellCalc: [
 			function (type, spellcasters, ability) {
@@ -32448,7 +32448,7 @@ var EGtW_Vestiges_Replace = function (sDescr) {
 		.replace(/you are/ig, "I am").replace(/\byou\b/ig, "I")
 		.replace(/(by|giving|grants|of|to|for) I\b/ig, "$1 me")
 		.replace(/your/g, "my").replace(/Your/g, "My")
-		.replace(/   >>(.*?)<<\. /g, function(a, match) { return "\n" + match.toUpperCase() + "\n   "; });
+		.replace(/   >>(.*?)<<\. /g, function (a, match) { return "\n" + match.toUpperCase() + "\n   "; });
 }
 var EGtW_DanothsVisorFullDescription = [
 	"These mithral-frame goggles with clear diamond lenses were used by the evoker Danoth Oro to spot invisible enemies and scout areas from afar.",
@@ -32470,7 +32470,7 @@ MagicItemsList["danoth's visor"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "These mithral-frame goggles with clear diamond lenses were used by the evoker Danoth Oro to spot invisible enemies and scout areas from afar. See notes page for more information.",
-	descriptionFull: EGtW_DanothsVisorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: EGtW_DanothsVisorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
 		note: EGtW_Vestiges_Replace(EGtW_DanothsVisorFullDescription),
@@ -32487,7 +32487,7 @@ MagicItemsList["danoth's visor"] = {
 		description: "These mithral-frame goggles with clear diamond lenses grant me the ability to see, out to 60 ft, in nonmagical and magical darkness, invisible creatures and objects, and into the Ethereal plane. They give me adv. on Investigation and Perception checks that rely on sight. I can active them to see more, see Notes page.",
 		action: [
 			["bonus action", "Danoth's Visor (see through matter)"]
-			["bonus action", "Danoth's Visor (spyglass mode)"],
+				["bonus action", "Danoth's Visor (spyglass mode)"],
 		],
 		extraLimitedFeatures: [{
 			name: "Danoth's Visor (see through matter)",
@@ -32500,7 +32500,7 @@ MagicItemsList["danoth's visor"] = {
 		description: "These goggles grant me the ability to see, out to 60 ft, in normal and magical darkness, invisible creatures and objects, and into the Ethereal plane. They allow me to automatically detect illusions for what they are, succeed on saves against them, and see if creatures aren't in their true form. See Notes for more.",
 		action: [
 			["bonus action", "Danoth's Visor (see through matter)"]
-			["bonus action", "Danoth's Visor (spyglass mode)"],
+				["bonus action", "Danoth's Visor (spyglass mode)"],
 		],
 		extraLimitedFeatures: [{
 			name: "Danoth's Visor (see through matter)",
@@ -32540,7 +32540,7 @@ MagicItemsList["grimoire infinitus"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This spellbook with unlimited gilded pages and silver-plated covers can be used by a wizard to prepare and store spells. It holds several spells already. When I use to prepare wizards spells, I can prepare 1 additional spell.",
-	descriptionFull: EGtW_GrimoireInfinitusFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: EGtW_GrimoireInfinitusFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	weight: 3,
 	toNotesPage: [{
 		name: "Features",
@@ -32622,7 +32622,7 @@ MagicItemsList["hide of the feral guardian"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This magic studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then also grants me a bonus to melee attack and damage rolls. Once per dawn, I can use it to cast Polymorph on myself.",
-	descriptionFull: EGtW_HideFeralGuardianFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: EGtW_HideFeralGuardianFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	weight: 13,
 	toNotesPage: [{
 		name: "Features",
@@ -32771,7 +32771,7 @@ MagicItemsList["infiltrator's key"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This mithral skeleton key was forged using the blood of twelve master thieves executed for trying to steal magic items during the Age of Arcanum. See notes page for more information.",
-	descriptionFull: EGtW_InfiltratorsKeyFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: EGtW_InfiltratorsKeyFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
 		note: EGtW_Vestiges_Replace(EGtW_InfiltratorsKeyFullDescription),
@@ -32860,7 +32860,7 @@ MagicItemsList["stormgirdle"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "A wide belt of leather branded with the symbol of Kord. While attuned to and wearing this belt, I am resistant to lightning and thunder damage. My Strength score becomes 21, provided my Strength is not already 21 or higher. As an action, I can become a Storm Avatar for 1 minute. See notes page for more info.",
-	descriptionFull: EGtW_StormgirdleFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: EGtW_StormgirdleFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
 		note: EGtW_Vestiges_Replace(EGtW_StormgirdleFullDescription),
@@ -32944,7 +32944,7 @@ MagicItemsList["verminshroud"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This patchy cloak was pieced together from the pelts of rats found feasting on the dead in Blightshore and is dotted with the bloated corpses of magically preserved insects along its seams. See notes page for more info.",
-	descriptionFull: EGtW_VerminshroudFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: EGtW_VerminshroudFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
 		note: EGtW_Vestiges_Replace(EGtW_VerminshroudFullDescription),
@@ -33061,7 +33061,7 @@ MagicItemsList["wreath of the prism"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This loop of golden thorns is inset with dozens of gems that represent the five colors of Tiamat. I gain darkvision to 60 ft, or extend my darkvision by 60 ft. When I hit a beast, dragon, or monstrosity with an attack, I can cast dominate monster on that creature, depending on its CR. See notes page for info.",
-	descriptionFull: EGtW_WreathPrismFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: EGtW_WreathPrismFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
 		note: EGtW_Vestiges_Replace(EGtW_WreathPrismFullDescription),
@@ -33749,11 +33749,11 @@ MagicItemsList["pyxis of pandemonium"] = {
 	notLegalAL: true,
 	description: "Once per long rest, I gain the benefits of a short rest by touching this ornate vessel for 1 minute. I also gain the benefit of Bless until I finish my next rest. After benefiting from this vessel, I have to make a DC 17 Wis save or become charmed by the vessel for 1 hour. If charmed, I must do everything to open it. See Notes.",
 	descriptionLong: "Once per long rest, I can touch this ornate wooden vessel for 1 minute to gain the benefits of a short rest. I then also gain the benefit of the Bless spell until I finish my next rest. After I gain the benefits of a short rest from this vessel, I must make a DC 17 Wisdom save or become charmed by it for 1 hour. On a success, I am immune to its charm for 24 hours. If charmed, I will do everything I can to open the vessel as soon as possible. Once opened, the vessel causes a random effect to occur, then it disappears after 1 minute and reappears, sealed, in random location on the same plane. See Notes.",
-	descriptionFull: MOT_PyxisOfPandemoniumFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: MOT_PyxisOfPandemoniumFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Effects",
 		source: [["MOT", 197]],
-		note: desc(MOT_PyxisOfPandemoniumFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/\bf(oo|ee)t\b/ig, "ft"),
+		note: desc(MOT_PyxisOfPandemoniumFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/\bf(oo|ee)t\b/ig, "ft"),
 	}],
 	usages: 1,
 	recovery: "long rest",
@@ -33810,7 +33810,7 @@ MagicItemsList["sling bullets of althemone"] = {
 	rarity: "very rare",
 	notLegalAL: true,
 	description: "These bullets come in a pouch containing 1d4 + 4 bullets. Attacks made with these sling bullets add +2 to hit and damage. If a bullet misses, it teleports back to its pouch. On a hit, the bullet's effect happens and the bullet loses its magic. I roll on the table to determine each bullet's magical effect, see Notes.",
-	descriptionFull: MOT_SlingBulletsOfAlthemoneFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: MOT_SlingBulletsOfAlthemoneFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	calcChanges: {
 		atkAdd: [
 			function (fields, v) {
@@ -33832,7 +33832,7 @@ MagicItemsList["sling bullets of althemone"] = {
 	toNotesPage: [{
 		name: "Magic Sling Bullets Table",
 		source: [["MOT", 198]],
-		note: desc(MOT_SlingBulletsOfAlthemoneFullDescription.slice(2)).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/\bf(oo|ee)t\b/ig, "ft").replace(/\byou\b/ig, "I").replace(/your/g, "my"),
+		note: desc(MOT_SlingBulletsOfAlthemoneFullDescription.slice(2)).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/\bf(oo|ee)t\b/ig, "ft").replace(/\byou\b/ig, "I").replace(/your/g, "my"),
 	}],
 	weight: 1.5, // assuming an averyage of 6,5 bullets (0.4875) and a pouch (1)
 };
@@ -33885,7 +33885,7 @@ GearList["crampons (2)"] = {
 	source: [["RotF", 20]],
 	amount: 2,
 	weight: 0.125,
-};    
+};
 GearList["snowshoes"] = {
 	infoname: "Snowshoes [2 gp]",
 	name: "Snowshoes",
@@ -34496,7 +34496,7 @@ MagicItemsList["hook of fisher's delight"] = { // contains contributions by Braa
 	type: "wondrous item",
 	rarity: "rare",
 	description: "For this tiny silver fishhook to work, I must attach it to the end of a fishing line and immerse it in at least 10 cu ft of water. Then, at the end of each uninterrupted hour of immersion, I roll a d6. On a 6, a magical fish appears on the hook; roll a d20 to determine the fish's properties on the table on the Notes page.",
-	descriptionFull: IDRotF_HookOfFishersDelightFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: IDRotF_HookOfFishersDelightFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Fish Properties Table",
 		note: desc(IDRotF_HookOfFishersDelightFullDescription).replace(/>>|<</g, "").replace(/\byou\b/ig, "I").replace(/\bf(oo|ee)t\b/ig, "ft"),
@@ -34566,7 +34566,7 @@ MagicItemsList["psi crystal"] = { // contains contributions by BraabHimself
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a creature with an intelligence score of 3 or higher",
-	prereqeval: function(v) { return Number(What("Int")) >= 3; },
+	prereqeval: function (v) { return Number(What("Int")) >= 3; },
 	description: "While attuned to this orb, it glows with an inner purplish light and gives me telepathy. The range of telepathy and intensity of light are determined by my Intelligence score.",
 	descriptionFull: "This crystal grants you telepathy for as long as you remain attuned to it. See the introduction of the Monster Manual for rules on how this telepathy works." +
 	"\n   The crystal also glows with a purplish inner light while you are attuned to it." +
@@ -34632,7 +34632,7 @@ MagicItemsList["ythryn mythallar"] = { // contains contributions by BraabHimself
 	rarity: "legendary",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This 50 ft diameter crystal ball sheds light in a 300 ft radius and dim light for an additional 300 ft. Up to 8 creatures can attune to it at one time, a 9th creature's attunement fails. All those attuned to it can sense when it is used and they all must agree to any properties being used. See Notes page.",
 	descriptionFull: "A mythallar looks like an enormous crystal ball held in an ornate cradle. The globe sheds bright light in a 300-foot radius and dim light for an additional 300 feet. The globe draws magic from the Weave that can be harnessed for various purposes. For example, Netherese mages used mythallars to keep their cities aloft and empower their magic items. The bigger the mythallar, the more magic it can hold. The largest mythallars are 150 feet in diameter." +
 	"\n   The Ythryn mythallar is a relatively small device\u2014a mere 50 feet in diameter. To attune to this mythallar, a creature must finish a short rest within 30 feet of it, meditating on the mythallar. Up to eight creatures can be attuned to it at one time; otherwise, the Ythryn mythallar follows the attunement rules in the Dungeon Master's Guide. If a ninth creature tries to attune to the mythallar, nothing happens." +
@@ -34759,7 +34759,7 @@ if (!SourceList.T) {
 // Define some functions here, so we an use them for all sidekick classes without duplication
 global_TCoE_Sidekick_fn = {
 	// prereqeval runs before any of the other class stuff is added, so we can even modify the ClassList object with it to set the HD
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var sClass = v["class"];
 		var sSubclass = v.subclass;
 		var sClassOld = CurrentVars.sidekickDialogShown === undefined ? false : CurrentVars.sidekickDialogShown[0];
@@ -34787,7 +34787,7 @@ global_TCoE_Sidekick_fn = {
 				"\n   \u2022 Proficiencies for: skills, saving throws, weapons, armor, languages, and tools" +
 				"\n   \u2022 Attacks (tip: use Modifier fields for attacks that aren't weapons/cantrips)" +
 				"\n   \u2022 Hit dice (you will be prompted to enter)",
-				sClass.indexOf("warrior") !== -1 ? false : "To gain either the Expert of Spellcaster sidekick class, a creature must have at least one language in its stat block that it can speak.",
+			sClass.indexOf("warrior") !== -1 ? false : "To gain either the Expert of Spellcaster sidekick class, a creature must have at least one language in its stat block that it can speak.",
 			"If you continue, the race and background automation will be turned off and the respective fields emptied. You can use these fields to enter the name and type of the base creature." +
 				"\nFor example. when using the bandit stat block, you could enter:" +
 				"\n   \u2022 Race: Elf" +
@@ -34817,7 +34817,7 @@ global_TCoE_Sidekick_fn = {
 			"Enter the number and type of hit dice that the chosen base creature has in its stat block (i.e. without bonuses from sidekick levels).\nThe sidekick will gain 1 extra HD for each level it gains after the first.", // top explanation
 			['Number of hit dice, for example "2"', 'Size of the hit dice, for example "d8"'],
 			false,
-true,
+			true,
 			"Be aware that you *can't* change the *size* of the hit die (e.g. d8) at a later time. To do that, you will have to first remove the sidekick class completely.\n\nHowever, you *can* change the *number* of hit dice manually by editing the appropriate field." // bottom explanation
 		).map(function (n, idx) {
 			var a = n.replace(/.*?(\d+).*/, "$1");
@@ -34828,7 +34828,7 @@ true,
 		SetStringifieds("vars");
 	},
 	// Change the race and background to manual or auto
-	manualRaceBackground: function(bAuto) {
+	manualRaceBackground: function (bAuto) {
 		if (bAuto && (CurrentVars.manual.background || CurrentVars.manual.race)) {
 			// set to automatic
 			if (CurrentVars.manual.background) {
@@ -34863,13 +34863,13 @@ true,
 		}
 	},
 	// When removing a sidekick class, return some stuff to normal
-	removeeval: function(lvl) {
+	removeeval: function (lvl) {
 		// This could be called after the dialog was shown for another sidekick, so check if there is actually something to do
 		var sClass = CurrentVars.sidekickDialogShown ? CurrentVars.sidekickDialogShown[0] : false;
 		var sSubclass = CurrentVars.sidekickDialogShown ? CurrentVars.sidekickDialogShown[1] : false;
 		if (!sClass || !classes.known[sClass] || classes.known[sClass].level ||
 			(classes.old[sClass] && classes.old[sClass].subclass && classes.old[sClass].subclass !== sSubclass)
-			) return;
+		) return;
 		// Remove the extra sidekickHD and delete it from the CurrentVars
 		global_TCoE_Sidekick_fn.eval(lvl, false, false, true);
 		delete CurrentVars.sidekickHD;
@@ -34879,7 +34879,7 @@ true,
 		global_TCoE_Sidekick_fn.manualRaceBackground(true);
 	},
 	// After the HD has been set, we still need to enter the bonus HD, if any (this can't be done with the prereqeval)
-	eval: function(lvl, chc, undef, bRemove) {
+	eval: function (lvl, chc, undef, bRemove) {
 		var hd = CurrentVars.sidekickHD;
 		var extraHD = hd[0] - 1;
 		if (isNaN(extraHD) || extraHD < 1) return;
@@ -35018,7 +35018,7 @@ ClassList["sidekick-expert-tcoe"] = {
 			description: desc("I can use a bonus action to take the Dash, Disengage, or Hide action"),
 			action: [["bonus action", ""]],
 		},
-		"expertise": function() {
+		"expertise": function () {
 			var a = {
 				name: "Expertise",
 				source: [["T", 143]],
@@ -35039,7 +35039,7 @@ ClassList["sidekick-expert-tcoe"] = {
 					description: "",
 					source: a.source,
 					skills: [[a.extrachoices[i], "only"]],
-					prereqeval: function(v) {
+					prereqeval: function (v) {
 						return v.skillProfsLC.indexOf(v.choice) === -1 ? false : v.skillExpertiseLC.indexOf(v.choice) === -1 ? true : "markButDisable";
 					},
 				}
@@ -35106,19 +35106,19 @@ ClassList["sidekick-expert-tcoe"] = {
 				name: "Sharp Mind: Intelligence",
 				description: desc("I gain proficiency in Intelligence saving throws"),
 				saves: ["Int"],
-				prereqeval: function(v) { return tDoc.getField("Int ST Prof").isBoxChecked(0) ? false : true; },
+				prereqeval: function (v) { return tDoc.getField("Int ST Prof").isBoxChecked(0) ? false : true; },
 			},
 			"wisdom": {
 				name: "Sharp Mind: Wisdom",
 				description: desc("I gain proficiency in Wisdom saving throws"),
 				saves: ["Wis"],
-				prereqeval: function(v) { return tDoc.getField("Wis ST Prof").isBoxChecked(0) ? false : true; },
+				prereqeval: function (v) { return tDoc.getField("Wis ST Prof").isBoxChecked(0) ? false : true; },
 			},
 			"charisma": {
 				name: "Sharp Mind: Charisma",
 				description: desc("I gain proficiency in Charisma saving throws"),
 				saves: ["Cha"],
-				prereqeval: function(v) { return tDoc.getField("Cha ST Prof").isBoxChecked(0) ? false : true; },
+				prereqeval: function (v) { return tDoc.getField("Cha ST Prof").isBoxChecked(0) ? false : true; },
 			},
 		},
 	},
@@ -35712,8 +35712,8 @@ RaceList["custom lineage"] = {
 	},
 	languageProfs: ["Common", 1],
 	scorestxt: "+2 to one ability score of my choice",
-	eval: function() { AddString("Feat Note 1", "Custom lineage bonus feat", "; "); },
-	removeeval: function() { RemoveString("Feat Note 1", "Custom lineage bonus feat"); },
+	eval: function () { AddString("Feat Note 1", "Custom lineage bonus feat", "; "); },
+	removeeval: function () { RemoveString("Feat Note 1", "Custom lineage bonus feat"); },
 	trait: "Custom Lineage (+2 to one ability score of my choice)" + desc([
 		"Size: I am Small or Medium (my choice).",
 		"Feat: I gain one feat of my choice for which I qualify.",
@@ -35754,7 +35754,7 @@ AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Arcane Prop
 		"It increases the wearer's walking speed by 5 ft; Its gauntlet can be used as melee weapons",
 	]),
 	additional: "suit of armor; requires attunement",
-	prereqeval: function(v) { return classes.known.artificer.level >= 14; },
+	prereqeval: function (v) { return classes.known.artificer.level >= 14; },
 	magicitemsAdd: ["Arcane Propulsion Armor"],
 });
 MagicItemsList["arcane propulsion armor"] = {
@@ -35818,7 +35818,7 @@ AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Helm of Awa
 	source: [["T", 21], ["UA:SP3", 3]],
 	description: desc("The wearer has advantage on Initiative rolls and can't be surprised while not incapacitated"),
 	additional: "helmet; requires attunement",
-	prereqeval: function(v) { return classes.known.artificer.level >= 10; },
+	prereqeval: function (v) { return classes.known.artificer.level >= 10; },
 	magicitemsAdd: ["Helm of Awareness"],
 });
 MagicItemsList["helm of awareness"] = {
@@ -35871,7 +35871,7 @@ AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Spell-Refue
 	source: [["T", 23]],
 	description: desc("As an action once per dawn, this ring's wearer can recover one 3rd-level or lower spell slot"),
 	additional: "ring; requires attunement",
-	prereqeval: function(v) { return classes.known.artificer.level >= 6; },
+	prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 	magicitemsAdd: ["Spell-Refueling Ring"],
 });
 MagicItemsList["spell-refueling ring"] = {
@@ -36062,7 +36062,7 @@ RunFunctionAtEnd(function () {
 		"+5 ft walking speed; Gemlike node in fist/chest is a ranged weapon, Lightning Launcher",
 		"It gives me advantage on Dexterity (Stealth) checks",
 	])
-	var prereqFunc = function(v) {
+	var prereqFunc = function (v) {
 		var sParsed = ParseArmor(v.choice.replace(/(Guardian|Infiltrator) arcane /i, ""));
 		return sParsed && testSource(sParsed, ArmourList[sParsed], "armorExcl") ? "skip" : true;
 	};
@@ -36183,7 +36183,7 @@ AddSubClass("barbarian", "path of the beast", {
 				bestialNaturalWeapon: true,
 				selectNow: true,
 			}],
-			additional: levels.map(function(n) {
+			additional: levels.map(function (n) {
 				return n < 6 ? "" : "chosen weapon counts as magical";
 			}),
 			action: [["reaction", "Bestial Tail"]],
@@ -36332,7 +36332,7 @@ AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Additional Bard Sp
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "bard" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["color spray", "command", "aid", "enlarge/reduce", "mirror image", "mass healing word", "slow", "phantasmal killer", "rary's telepathic bond", "heroes' feast", "prismatic spray", "antipathy/sympathy", "prismatic wall"]);
@@ -36501,7 +36501,7 @@ AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Additional Cleri
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "cleric" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["aura of vitality", "aura of life", "aura of purity", "sunbeam", "sunburst", "power word heal"]);
@@ -36520,7 +36520,7 @@ AddFeatureChoice(ClassList.cleric.features["channel divinity"], true, "Harness D
 		"I can only do this so many times per long rest, even if I have uses of channel divinity left",
 	]),
 	action: [["bonus action", ""]],
-	usages: levels.map(function(n) {
+	usages: levels.map(function (n) {
 		return n < 3 ? "" : n < 6 ? 1 : n < 18 ? 2 : 3;
 	}),
 	recovery: "long rest",
@@ -36533,7 +36533,7 @@ AddFeatureChoice(ClassList.cleric.features["turn undead"], true, "Cantrip Versat
 	prereqeval: function (v) { return classes.known.cleric.level >= 4 ? true : "skip"; },
 }, "Optional 4th-level cleric features");
 // Cleric subclass alternative feature, so only run this after we are sure all subclasses have been added
-RunFunctionAtEnd(function() {
+RunFunctionAtEnd(function () {
 	for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
 		var domain = ClassList.cleric.subclasses[1][i];
 		var objDomain = ClassSubList[domain];
@@ -36685,7 +36685,7 @@ AddSubClass("cleric", "twilight domain", {
 				"From 17th-level onwards, me and my allies have half cover while inside the sphere",
 			]),
 			action: [["action", ""]],
-			additional: levels.map(function(n) {
+			additional: levels.map(function (n) {
 				return n < 2 ? "" : "1d6 + " + n + " temp HP";
 			}),
 		},
@@ -36746,7 +36746,7 @@ AddFeatureChoice(ClassList.druid.features.spellcasting, true, "Additional Druid 
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "druid" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["protection from evil and good", "augury", "continual flame", "enlarge/reduce", "aura of vitality", "elemental weapon", "revivify", "divination", "fire shield", "cone of cold", "flesh to stone", "symbol", "incendiary cloud"]);
@@ -37258,7 +37258,7 @@ AddSubClass("fighter", "psi warrior", {
 				"I regain all expended psionic energy dice after a long rest",
 				"As a bonus action once per short rest, I can regain one expended psionic energy die",
 			]),
-			additional: levels.map(function(n) {
+			additional: levels.map(function (n) {
 				return n < 3 ? "" : n < 5 ? "d6" : n < 11 ? "d8" : n < 17 ? "d10" : "d12";
 			}),
 			action: [["bonus action", "Regain 1 Psionic Energy Die"]],
@@ -37493,7 +37493,7 @@ AddSubClass("fighter", "rune knight", {
 					"I always gain advantage on saves against being poisoned and resistance to poison damage",
 					"As a bonus action, I can invoke it to gain resistance to bludg/slash/pierc damage for 1 min",
 				]),
-				prereqeval: function(v) { return classes.known.fighter.level >= 7; },
+				prereqeval: function (v) { return classes.known.fighter.level >= 7; },
 				action: [["bonus action", " (invoke)"]],
 				additional: "invoke",
 				usages: ["", "", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2],
@@ -37511,7 +37511,7 @@ AddSubClass("fighter", "rune knight", {
 					"While in this state, I can use a reaction to cause a roll to gain advantage or disadvantage",
 					"I can do this for attacks, saves, and checks of myself or others I can see within 60 ft of me",
 				]),
-				prereqeval: function(v) { return classes.known.fighter.level >= 7; },
+				prereqeval: function (v) { return classes.known.fighter.level >= 7; },
 				action: [["bonus action", " (invoke)"]],
 				additional: "invoke",
 				usages: ["", "", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2],
@@ -37694,7 +37694,7 @@ AddSubClass("monk", "way of mercy", {
 					var d = "I can use this feature only once per turn";
 					return desc( n < 6 ? [a, d] :
 						n < 11 ? [a, b6, d] :
-						[a, b6, c11, d]
+							[a, b6, c11, d]
 					);
 				}),
 				additional: levels.map(function (n) {
@@ -37883,7 +37883,7 @@ AddFeatureChoice(ClassList.paladin.features.spellcasting, true, "Additional Pala
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "paladin" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["gentle repose", "prayer of healing", "warding bond"]);
@@ -37917,7 +37917,7 @@ AddFeatureChoice(ClassList.paladin.features["subclassfeature3.0-channel divinity
 		"I can only do this so many times per long rest, even if I have uses of channel divinity left",
 	]),
 	action: [["bonus action", ""]],
-	usages: levels.map(function(n) {
+	usages: levels.map(function (n) {
 		return n < 3 ? "" : n < 7 ? 1 : n < 15 ? 2 : 3;
 	}),
 	recovery: "long rest",
@@ -38052,7 +38052,7 @@ var TCoE_Deft_Explorer = function () {
 			description: "",
 			source: a.source,
 			skills: [[a.extrachoices[i], "only"]],
-			prereqeval: function(v) {
+			prereqeval: function (v) {
 				return v.skillProfsLC.indexOf(v.choice) === -1 ? false : v.skillExpertiseLC.indexOf(v.choice) === -1 ? true : "markButDisable";
 			},
 		}
@@ -38094,7 +38094,7 @@ var TCoE_Additional_Ranger_Spells = {
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if ((spName !== "ranger" && spName !== "rangerua") || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["entangle", "searing smite", "aid", "enhance ability", "gust of wind", "magic weapon", "elemental weapon", "meld into stone", "revivify", "dominate beast", "greater restoration"]);
@@ -38137,7 +38137,7 @@ var TCoE_Primal_Awareness = {
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Remove the bonus spells from the normally selectable list
 				if ((spName === "ranger" || spName === "rangerua") && spType.indexOf("bonus") === -1) {
 					if (!spList.notspells) spList.notspells = [];
@@ -38181,13 +38181,13 @@ var TCoE_Natures_Veil = {
 CreateClassFeatureVariant("ranger", "hide in plain sight", "Nature's Veil", TCoE_Natures_Veil);
 
 // Add the Ranger alternative class features also to the Revised Ranger, if it exists after all scripts have ran
-RunFunctionAtEnd(function() {
+RunFunctionAtEnd(function () {
 	if (!ClassList["rangerua"]) return;
 	CreateClassFeatureVariant("rangerua", "natural explorer", "Deft Explorer", TCoE_Deft_Explorer);
 
 	// Add Favored Foe as an alternative choice (can't be done by automation because of choices) and add "Favored Foe" variant option
 	// Move some attributes from the main object to the favored enemy choice objects
-	["additional", "languageProfs", "calcChanges"].forEach( function(attr) {
+	["additional", "languageProfs", "calcChanges"].forEach( function (attr) {
 		var fea = ClassList.rangerua.features["favored enemy"];
 		if (!fea[attr]) return;
 		// Move the attribute to each of the choices
@@ -38228,20 +38228,20 @@ if (ClassSubList["ranger-beast master"]) {
 			name: "Exceptional Training (Beast Master 7)",
 			minlevel: 7,
 			description: "The beast's attacks count as magical for overcoming resistances and immunities.",
-			eval: function(prefix, lvl) {
+			eval: function (prefix, lvl) {
 				AddString(prefix + "Comp.Use.Attack.1.Description", "Counts as magical", "; ");
 			},
-			removeeval: function(prefix, lvl) {
+			removeeval: function (prefix, lvl) {
 				RemoveString(prefix + "Comp.Use.Attack.1.Description", "Counts as magical");
 			},
 		}, {
 			name: "Bestial Fury (Beast Master 11)",
 			minlevel: 11,
 			description: "When commanded to take the Attack action, the beast can make 2 attacks as part of its Attack action.",
-			eval: function(prefix, lvl) {
+			eval: function (prefix, lvl) {
 				Value(prefix + "Comp.Use.Attack.perAction", 2);
 			},
-			removeeval: function(prefix, lvl) {
+			removeeval: function (prefix, lvl) {
 				Value(prefix + "Comp.Use.Attack.perAction", 1);
 			},
 		}],
@@ -38333,7 +38333,7 @@ if (ClassSubList["ranger-beast master"]) {
 				description: "If the beast moves at least 20 ft straight toward a target and then hits it with a maul attack on the same turn, the target takes an extra 1d6 slashing damage. If the target is a creature, it must succeed on a Strength saving throw against my spell save DC or be knocked prone.",
 			}],
 			features: TCoE_Primal_Companion_Attributes.features,
-			traits: TCoE_Primal_Companion_Attributes.traits.map( function(n) {
+			traits: TCoE_Primal_Companion_Attributes.traits.map( function (n) {
 				if (!typePF && /Exceptional Training/i.test(n.name)) {
 					var a = newObj(n);
 					a.description = "The beast's attacks count as magical.";
@@ -38420,7 +38420,7 @@ if (ClassSubList["ranger-beast master"]) {
 			calcChanges: TCoE_Primal_Companion_Attributes.calcChanges,
 			minlevelLinked: TCoE_Primal_Companion_Attributes.hdLinked,
 		}],
-		eval: function() {
+		eval: function () {
 			// Remove any ranger companion pages
 			What("Template.extras.AScomp").split(",").forEach(function (prefix) {
 				if (What(prefix + "Companion.Remember") === "companion") {
@@ -38476,7 +38476,7 @@ var TCoE_Ranger_Subclass_Fey_Wanderer = AddSubClass("ranger", "fey wanderer", {
 				"I can add my Wisdom modifier to any Charisma check I make (minimum of +1)",
 				'I gain proficiency in Deception, Performance, or Persuasion; Use "Choose Feature" button',
 			]),
-			addMod: ["Deception", "Intimidation", "Performance", "Persuasion"].map(function(skill){return { type: "skill", field: skill, mod: "max(Wis|1)", text: "I can add my Wisdom modifier to any Charisma check I make (minimum of +1)." };}),
+			addMod: ["Deception", "Intimidation", "Performance", "Persuasion"].map(function (skill){return { type: "skill", field: skill, mod: "max(Wis|1)", text: "I can add my Wisdom modifier to any Charisma check I make (minimum of +1)." };}),
 			choices: ["Deception proficiency", "Performance proficiency", "Persuasion proficiency"],
 			"deception proficiency": {
 				name: "Otherworldly Glamour",
@@ -38758,7 +38758,7 @@ AddSubClass("rogue", "soulknife", {
 				"I regain all expended psionic energy dice after a long rest; See psionic powers on page 3",
 				"As a bonus action once per short rest, I can regain one expended psionic energy die",
 			]),
-			additional: levels.map(function(n) {
+			additional: levels.map(function (n) {
 				return n < 3 ? "" : n < 5 ? "d6" : n < 11 ? "d8" : n < 17 ? "d10" : "d12";
 			}),
 			action: [["bonus action", "Regain 1 Psionic Energy Die"]],
@@ -38904,7 +38904,7 @@ AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Additional Sor
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "sorcerer" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["grease", "flame blade", "flaming sphere", "magic weapon", "vampiric touch", "fire shield", "bigby's hand", "flesh to stone", "otiluke's freezing sphere", "demiplane"]);
@@ -39217,7 +39217,7 @@ AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Additional War
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "warlock" || (spType.indexOf("bonus") !== -1 && (!spList["class"] || spList["class"] !== "warlock"))) return;
 				spList.extraspells = spList.extraspells.concat(["mislead", "planar binding", "teleportation circle", "gate", "weird"]);
@@ -39260,7 +39260,7 @@ AddWarlockInvocation("Bond of the Talisman (prereq: level 12 warlock, Pact of th
 		"As an action, I can teleport to the unoccupied space closest to the wearer of my talisman",
 		"The talisman's wearer can do the same to teleport to me; Only works if both on same plane",
 	]),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.warlock.level >= 12 && GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	action: [["action", ""]],
@@ -39285,7 +39285,7 @@ AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome)", {
 		"Instead of saying the message, I write it on the page and any reply appears there as well",
 		"This writing disappears after 1 minute; The target still hears the message in their mind",
 	]),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
 	},
 	action: [["action", " (erase name)"]],
@@ -39314,7 +39314,7 @@ AddWarlockInvocation("Gift of the Protectors (prereq: level 9 warlock, Pact of t
 		"If a creature whose name is on the page drops to 0 HP, it magically drops to 1 HP instead",
 		"This doesn't work if the creature would be killed outright",
 	]),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
 	},
 	action: [["action", " (erase name)"]],
@@ -39334,11 +39334,11 @@ AddWarlockInvocation("Investment of the Chain Master (prereq: Pact of the Chain)
 		"\u2022 As a reaction when it takes damage, I can grant it resistance against that damage",
 	]),
 	action: [["bonus action", " (command to attack)"], ["reaction", " (give resistance)"]],
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the chain";
 	},
 	calcChanges: {
-		companionCallback: [function(prefix, oCrea, bAdd, sCompType) {
+		companionCallback: [function (prefix, oCrea, bAdd, sCompType) {
 			if (sCompType !== "pact_of_the_chain") return;
 			var strFea = "##\u25C6 Investment of the Chain Master (TCoE 71)##. The familiar gains 40 ft fly or swim speed (my choice), its attacks are considered magical, and it can use my spell save DC instead of its own DC's (if any).";
 			var strSpd = "fly or swim 40 ft";
@@ -39368,7 +39368,7 @@ AddWarlockInvocation("Protection of the Talisman (prereq: level 7 warlock, Pact 
 	source: [["T", 71]],
 	submenu: "[improves Pact of the Talisman]",
 	description: desc("When the wearer of my talisman fails a saving throw, they can add +1d4 to the roll"),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.warlock.level >= 7 && GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	usages: "Proficiency bonus per ",
@@ -39384,7 +39384,7 @@ AddWarlockInvocation("Rebuke of the Talisman (prereq: Pact of the Talisman)", {
 		"To be able to do this, I have to see the attacker and it has to be within 30 ft of me",
 		"I deal it my Proficiency Bonus in psychic damage and push it 10 ft away from the talisman",
 	]),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	action: [["reaction", ""]],
@@ -39403,7 +39403,7 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 		selection: ["animate dead"],
 		firstCol: "oncelr",
 	}],
-	prereqeval: function(v) { return classes.known.warlock.level >= 5; },
+	prereqeval: function (v) { return classes.known.warlock.level >= 5; },
 });
 
 // Warlock Subclasses
@@ -39556,7 +39556,7 @@ AddSubClass("warlock", "the genie", {
 			description: desc('Use the "Choose Feature" button above to choose the kind of genie your patron is'),
 			calcChanges: {
 				spellList: [
-					function(spList, spName, spType) {
+					function (spList, spName, spType) {
 						if (spType.indexOf("bonus") !== -1 && spList.name && /mystic arcanum/i.test(spList.name) && spList.level[0] === 9) {
 							spList.extraspells.push("wish");
 						} else if (spType.indexOf("bonus") === -1 && spName === "warlock") {
@@ -39783,7 +39783,7 @@ AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Additional Wizar
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "wizard" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["augury", "enhance ability", "speak with dead", "divination"]);
@@ -40043,7 +40043,7 @@ FeatsList["fey touched"] = {
 	},
 };
 // Add the fighting initiate only when all other code has run, so that we get fighting styles added by the code
-RunFunctionAtEnd(function() {
+RunFunctionAtEnd(function () {
 	if (!ClassList.fighter || !ClassList.fighter.features["fighting style"]) return;
 	var FtngStyles = ClassList.fighter.features["fighting style"];
 	FeatsList["fighting initiate"] = {
@@ -40052,7 +40052,7 @@ RunFunctionAtEnd(function() {
 		descriptionFull: "Your martial training has helped you develop a particular style of fighting. As a result, you learn one Fighting Style option of your choice from the fighter class. If you already have a style, the one you choose must be different.\n   Whenever you reach a level that grants the Ability Score Improvement feature, you can replace this feat's fighting style with another one from the fighter class that you don't have.",
 		description: "I learn one Fighting Style from the fighter class, which must be one that I don't yet know. I can replace this fighting style for another whenever I gain an Ability Score Improvement.",
 		prerequisite: "Proficiency with a martial weapon",
-		prereqeval: function(v) {
+		prereqeval: function (v) {
 			return v.martialWeaponsProf || v.otherWeaponsProf.some(function (n) {
 				return WeaponsList[n] && /Martial/i.test(WeaponsList[n].type);
 			});
@@ -40115,7 +40115,7 @@ RunFunctionAtEnd(function() {
 			FeatsList["fighting initiate"][sNameLC][attr] = FtngStyles[sNameLC][attr];
 		}
 		if (!FeatsList["fighting initiate"][sNameLC].prereqeval) {
-			FeatsList["fighting initiate"][sNameLC].prereqeval = function(v) {
+			FeatsList["fighting initiate"][sNameLC].prereqeval = function (v) {
 				var knownStyles = GetFightingStyleSelection();
 				return knownStyles[v.choice] ? false : true;
 			};
@@ -40620,11 +40620,11 @@ var TCoE_magicTattoosDescription = desc([
 ], "\n  ");
 magicTattoosTxt = { // a public variable to be used for any magical tattoo that uses these rules
 	base: TCoE_magicTattoosDescription,
-	unicode: TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
-	uppercase: TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/\byou\b/ig, "I"),
+	unicode: TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	uppercase: TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/\byou\b/ig, "I"),
 	plain: TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, "$1").replace(/your/g, "my").replace(/\byou\b/ig, "I"),
 };
-MagicItemsList["absorbing tattoo"] = function() {
+MagicItemsList["absorbing tattoo"] = function () {
 	var oObj = {
 		name: "Absorbing Tattoo",
 		source: [["T", 119]],
@@ -41009,7 +41009,7 @@ MagicItemsList["all-purpose tool"] = {
 	type: "wondrous item",
 	attunement: true,
 	prerequisite: "Requires attunement by an artificer",
-	prereqeval: function(v) { return classes.known.artificer ? true : false; },
+	prereqeval: function (v) { return classes.known.artificer ? true : false; },
 	description: "As an action, I can transform this simple screwdriver into any set of artisan's tools and be proficient with them. While holding this tool, I gain a bonus to my artificer spell attacks and save DCs. As an action once per dawn, I can choose any cantrip that I don't know and cast it as an artificer cantrip for the next 8 hours.",
 	descriptionFull: "This simple screwdriver can transform into a variety of tools; as an action, you can touch the item and transform it into any type of artisan's tool of your choice (see the \"Equipment\" chapter in the Player's Handbook for a list of artisan's tools). Whatever form the tool takes, you are proficient with it." +
 	"\n   While holding this tool, you gain a bonus to the spell attack rolls and the saving throw DCs of your artificer spells. The bonus is determined by the tool's rarity." +
@@ -41034,7 +41034,7 @@ MagicItemsList["all-purpose tool"] = {
 	}],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Remove the already known cantrips, from any source except magic items
 				if (spName.indexOf("all-purpose tool") !== -1) {
 					var allSpellsKnown = [];
@@ -41099,7 +41099,7 @@ MagicItemsList["amulet of the devout"] = { // contains contributions by lizrdgiz
 	type: "wondrous item",
 	attunement: true,
 	prerequisite: "Requires attunement by a cleric or paladin",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.cleric || classes.known.paladin ? true : false;
 	},
 	description: "This amulet bears the symbol of a deity inlaid with precious stones or metals. While I wear this holy symbol, I gain a bonus to spell attack rolls and saving throw DCs of my spells. Once per dawn, it allows me to use my Channel Divinity feature without expending one of the feature's uses.",
@@ -41159,16 +41159,16 @@ MagicItemsList["arcane grimoire"] = { // contains contributions by lizrdgizrd
 	type: "wondrous item",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "I can use this leather-bound book as a spellbook and it allows me to regain 1 extra spell slot level when I use Arcane Recovery (included in Limited Features). While holding it, I can use it as a spellcasting focus for my wizard spells and gain a bonus to spell attack rolls and the saving throw DCs of my wizard spells.",
 	descriptionFull: "While you are holding this leather-bound book, you can use it as a spellcasting focus for your wizard spells, and you gain a bonus to spell attack rolls and the saving throw DCs of your wizard spells. The bonus is determined by the book's rarity." +
 	"\n   You can use this book as a spellbook. In addition, when you use your Arcane Recovery feature, you can increase the number of spell slot levels you regain by 1.",
 	weight: 3, // as spellbook
-	changeeval: function() {
+	changeeval: function () {
 		// Update the limited feature "Arcane Recovery" to display 1 more spell level than for the wizard level (unless there is no wizard level)
 		if (!classes.known.wizard) return;
 		// This changeeval is called before the class feature updates the limited feature, so we need to use setTimeOut to do the change after
-		var func = function() {
+		var func = function () {
 			if (!classes.known.wizard) return;
 			var hasAG = CurrentMagicItems.known.indexOf("arcane grimoire") !== -1;
 			var lvls = Math.ceil(classes.known.wizard.level / 2);
@@ -41227,7 +41227,7 @@ MagicItemsList["bloodwell vial"] = { // contains contributions by lizrdgizrd
 	type: "wondrous item",
 	attunement: true,
 	prerequisite: "Requires attunement by a sorcerer",
-	prereqeval: function(v) { return classes.known.sorcerer ? true : false; },
+	prereqeval: function (v) { return classes.known.sorcerer ? true : false; },
 	description: "While I wear or hold this vial to which I added a few drops of my blood, I gain a bonus to my spell attack rolls and to the saving throw DCs of my sorcerer spells. While I'm attuned to it, it can't be opened. Once per dawn, when I roll any Hit Dice to recover HP while carrying this vial, I can regain 5 sorcery points.",
 	descriptionFull: "To attune to this vial, you must place a few drops of your blood into it. The vial can't be opened while your attunement to it lasts. If your attunement to the vial ends, the contained blood turns to ash. You can use the vial as a spellcasting focus for your spells while wearing or holding it, and you gain a bonus to spell attack rolls and to the saving throw DCs of your sorcerer spells. The bonus is determined by the vial's rarity." +
 	"\n   In addition, when you roll any Hit Dice to recover hit points while you are carrying the vial, you can regain 5 sorcery points. This property of the vial can't be used again until the next dawn.",
@@ -41281,7 +41281,7 @@ MagicItemsList["moon sickle"] = {
 	type: "weapon (sickle)",
 	attunement: true,
 	prerequisite: "Requires attunement by a druid or ranger",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.druid || classes.known.ranger || classes.known.rangerua ? true : false;
 	},
 	description: "This silver-bladed sickle glimmers softly with moonlight. I gain a bonus to attack and damage rolls made with it. While I'm holding it, I gain a bonus to spell attack rolls and saving throw DCs of my druid and ranger spells, and spells I cast that restore HP add 1d4 to the number of HP restored.",
@@ -41327,7 +41327,7 @@ MagicItemsList["moon sickle"] = {
 		rarity: "rare",
 		description: "This silver-bladed sickle glimmers softly with moonlight. I gain a +2 bonus to attack and damage rolls made with it. While I'm holding it, I gain a +2 bonus to spell attack rolls and saving throw DCs of my druid and ranger spells, and spells I cast that restore HP add 1d4 to the number of HP restored.",
 		calcChanges: {
-				spellCalc: [
+			spellCalc: [
 				function (type, spellcasters, ability) {
 					if (type !== "prepare" && (spellcasters.indexOf("druid") !== -1 || spellcasters.indexOf("ranger") !== -1)) return 2;
 				},
@@ -41357,7 +41357,7 @@ MagicItemsList["rhythm maker's drum"] = {
 	type: "wondrous item (instrument)",
 	attunement: true,
 	prerequisite: "Requires attunement by a bard",
-	prereqeval: function(v) { return classes.known.bard ? true : false; },
+	prereqeval: function (v) { return classes.known.bard ? true : false; },
 	description: "While holding this drum, I gain a bonus to spell attack rolls and to the spell saving throw DCs of my bard spells.\nAs an action once per dawn, I can play the drum to regain one use of my Bardic Inspiration feature.",
 	descriptionFull: "While holding this drum, you gain a bonus to spell attack rolls and to the spell saving throw DCs or your bard spells. The bonus is determined by the drum's rarity." +
 	"\n   As an action, you can play the drum to regain one use of your Bardic Inspiration feature. This property of the drum can't be used again until the next dawn.",
@@ -41414,7 +41414,7 @@ MagicItemsList["alchemical compendium"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "I can use this tome with spells as my spellbook and spellcasting focus. It has 3 charges, regaining 1d3 at dawn. With 1 charge \u0026 1 min of study, I can change a prepared spell to a transmutation spell within. As an action, I can touch an unattended, nonmagical object and use charges to transform it into another. See tooltip.",
 	descriptionLong: "I can use this acrid smelling, stained, heavy book with metal fittings as my spellbook and, while held, as my spellcasting focus. It contains several spells and has 3 charges, regaining 1d3 at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to a transmutation spell within. As an action, I can touch an unattended, nonmagical object and use charges to transform it into another. For 1 charge, the object can be up to 1 ft on a side. I can spend additional charges to increase these dimensions by 2 ft per charge. The new object must have no higher gp value than the original.",
 	descriptionFull: "Acrid odors cling to this stained, heavy volume. The book's metal fittings are copper, iron, lead, silver, and gold, some frozen mid-transition from one metal to another. When found, the book contains the following spells: enlarge/reduce, feather fall, flesh to stone, gaseous form, magic weapon, and polymorph. It functions as a spellbook for you." +
@@ -41439,7 +41439,7 @@ MagicItemsList["astromancy archive"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "As bonus action, I can (un)fold this disc into an armillary sphere. I can use it as a spellcasting focus and spellbook with 3 charges, regains 1d3 at dawn. For 1 charge \u0026 1 min of study, I can swap a prepared spell for a divination spell within. As a reaction, I can use 1 charge to add/subtract d4 from attack/check/save in 30 ft.",
 	descriptionLong: "As a bonus action, I can unfold this brass disc of articulated, concentric rings into an armillary sphere or back into a disc. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to a divination spell within. As a reaction when I see a creature within 30 ft roll for an attack, check, or save, I can expend 1 change to add or subtract 1d4 from the roll. This happens after I see the roll but before the roll's effects are applied.",
 	descriptionFull: "This brass disc of articulated, concentric rings unfolds into an armillary sphere. As a bonus action, you can unfold it into the sphere or back into a disc. When found, it contains the following spells, which are wizard spells for you while you are attuned to it: augury, divination, find the path, foresight, locate creature, and locate object. It functions as a spellbook for you, with spells encoded on the rings." +
@@ -41473,7 +41473,7 @@ MagicItemsList["atlas of endless horizons"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "This spellbook starts with 7 spells and is a wizard spellcasting focus. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to a conjuration spell within. As a reaction when hit by an attack, I can use 1 charge to teleport up to 10 ft, making it miss if I'm out of range.",
 	descriptionLong: "This thick book is bound in dark leather, crisscrossed with inlaid silver lines suggesting a map or chart. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 expended charges daily at dawn. I can study the book for 1 minute and expend 1 charge to replace one of my prepared wizard spells with a conjuration spell in this book. As a reaction when I am hit by an attack, I can expend 1 charge to teleport up to 10 ft to an unoccupied space I can see. If my new position is out of range of the attack, it misses me.",
 	descriptionFull: "This thick book is bound in dark leather, crisscrossed with inlaid silver lines suggesting a map or chart. When found, the book contains the following spells, which are wizard spells for you while you are attuned to the book: arcane gate, dimension door, gate, misty step, plane shift, teleportation circle, and word of recall. It functions as a spellbook for you." +
@@ -41503,7 +41503,7 @@ MagicItemsList["crystalline chronicle"] = {
 	rarity: "very rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "I can use this orb with spells as a wizard spellcasting focus and spellbook. It lets me use Mage Hand, Mind Sliver, and Message. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to another within. I can use 1 charge to ignore components of a wizard spell (max 100 gp).",
 	descriptionLong: "This grapefruit sized, etched crystal sphere hums pulses with irregular flares of inner light. I can retrieve and store information within the crystal as a spellbook by touching it. It contains several spells and has 3 charges, regaining 1d3 at dawn. While holding it, I can use it as a spellcasting focus for my wizard spells, I know the Mage Hand, Mind Sliver, and Message cantrips, I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to another within, and when I cast a wizard spell, I can expend 1 charge to cast it without verbal, somatic, or material components of up to 100 gp value.",
 	descriptionFull: "An etched crystal sphere the size of a grapefruit hums faintly and pulses with irregular flares of inner light. While you are touching the crystal, you can retrieve and store information and spells within the crystal at the same rate as reading and writing. When found, the crystal contains the following spells: detect thoughts, intellect fortress, Rary's telepathic bond, sending, telekinesis, Tasha's mind whip, and Tenser's floating disk. It functions as a spellbook for you, with its spells and other writing psychically encoded within it." +
@@ -41527,7 +41527,7 @@ MagicItemsList["duplicitous manuscript"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "This spellbook starts with 7 spells and is a wizard spellcasting focus. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to an illusion spell within. As a reaction when a save or Investigation check is made vs. my illusion spells, I can use 1 charge to impose disadv.",
 	descriptionLong: "This book appears to be a volume of romance fiction to anyone but me. As an action, I can change its appearance and plot. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 expended charges at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an illusion spell within. As a reaction while holding it when a creature I can see makes a save or an Intelligence (Investigation) check against an illusion spell I cast, I can expend 1 charge to impose disadvantage on the roll.",
 	descriptionFull: "To you, this book is a magical spellbook. To anyone else, the book appears to be a volume of verbose romance fiction. As an action, you can change the book's appearance and alter the plot of the romance." +
@@ -41556,7 +41556,7 @@ MagicItemsList["fulminating treatise"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "I can use this tome as a wizard spellcasting focus and spellbook. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min study, I can change a prepared spell to an evocation spell within. As a reaction when my evocation spell damages a creature, I can use 1 charge to deal it 2d6 force damage and knock it prone.",
 	descriptionLong: "This thick, scorched book reeks of smoke and ozone, and sparks of energy crackles along the edges of its pages. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 expended charges at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an evocation spell within. As a reaction while holding it when a creature I can see takes damage from an evocation spell I cast, I can expend 1 charge to deal the creature an extra 2d6 force damage and knock it prone if it's Large or smaller.",
 	descriptionFull: "This thick, scorched spellbook reeks of smoke and ozone, and sparks of energy crackles along the edges of its pages. When found, the book contains the following spells: contingency, fireball, gust of wind, Leomund's tiny hut, magic missile, thunderwave, and wall of force. It functions as a spellbook for you." +
@@ -41581,7 +41581,7 @@ MagicItemsList["heart weaver's primer"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "I can use this book as a wizard spellcasting focus and spellbook. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to an enchantment spell in it. When I cast an enchantment spell, I can use 1 charge to grant disadv. on the first save one target makes against the spell.",
 	descriptionLong: "This pristine book smells faintly of a random scent I find pleasing. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells that I can prepare as wizards spells. It has 3 charges and it regains 1d3 expended charges daily at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an enchantment spell within the book. When I cast an enchantment spell while holding the book, I can expend 1 charge to impose disadvantage on the first saving throw one target makes against the spell.",
 	descriptionFull: "This pristine book smells faintly of a random scent you find pleasing. When found, the book contains the following spells: antipathy/sympathy, charm person, dominate person, enthrall, hypnotic pattern, modify memory, and suggestion. It functions as a spellbook for you." +
@@ -41610,7 +41610,7 @@ MagicItemsList["libram of souls and flesh"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "This spellbook starts with 7 spells and is a wizard spellcasting focus. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to a necromancy spell within. As an action, I can use 1 charge to appear undead for 10 min, causing undead I haven't damage to be indifferent.",
 	descriptionLong: "With covers made of skin and fittings of bone, this tome is cold to the touch, and fainlty whispers. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to a necromancy spell within. As an action, I can expend 1 charge to appear undead for 10 minutes, fooling even spells. For the duration, undead are indifferent to me, unless I have damaged them. The effect ends early if I deal damage or force a creature to make a save.",
 	descriptionFull: "With covers made of skin and fittings of bone, this tome is cold to the touch, and it whispers faintly. When found, the book contains the following spells, which are wizard spells for you while you are attuned to the book: animate dead, circle of death, false life, finger of death, speak with dead, summon undead, and vampiric touch. It functions as a spellbook for you." +
@@ -41640,7 +41640,7 @@ MagicItemsList["planecaller's codex"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "This spellbook starts with 6 spells and is a wizard spellcasting focus. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to a conjuration spell within. When I cast a conjuration spell to summon or create one creature, I can give it adv. on attacks for 1 min for 1 charge.",
 	descriptionLong: "The pages of this book are bound in fiend hide, and its cover is embossed with a diagram of the multiverse. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 expended charges daily at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to a conjuration spell within the book. When I hold the book and cast a conjuration spell that summons or creates one creature, I can expend 1 charge to grant that creature advantage on attack rolls for 1 minute.",
 	descriptionFull: "The pages of this book are bound in fiend hide, and its cover is embossed with a diagram of the Great Wheel of the multiverse. When found, the book contains the following spells: banishment, find familiar, gate, magic circle, planar binding, and summon elemental. It functions as a spellbook for you." +
@@ -41664,7 +41664,7 @@ MagicItemsList["protective verses"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "I can use this book with an iron lock as a spellcasting focus and spellbook. As an action, I can use Arcane Lock it. It has 3 charges, regains 1d3 at dawn. For 1 charge \u0026 1 min study, I can change a prepared spell to an abjuration within. I can use 1 charge when I cast an abjuration spell to give a creature in 30 ft 2d10 temp HP.",
 	descriptionLong: "This leather-bound spellbook is reinforced with iron and silver fittings and an iron lock (DC 20 to open). As an action, I can touch the book's cover and cause it to lock as if I cast arcane lock on it. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 charges at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an abjuration spell within. When I hold the book and cast an abjuration, I can expend 1 charge to grant a creature I can see within 30 ft 2d10 temporary hit points.",
 	descriptionFull: "This leather-bound spellbook is reinforced with iron and silver fittings and an iron lock (DC 20 to open). As an action, you can touch the book's cover and cause it to lock as if you cast arcane lock on it. When found, the book contains the following spells: arcane lock, dispel magic, globe of invulnerability, glyph of warding, Mordenkainen's private sanctum, protection from evil, and symbol. It functions as a spellbook for you." +
@@ -41690,7 +41690,7 @@ MagicItemsList["astral shard"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a sorcerer",
-	prereqeval: function(v) { return classes.known.sorcerer ? true : false; },
+	prereqeval: function (v) { return classes.known.sorcerer ? true : false; },
 	description: "I can use this crystal swirling with silver mist as a spellcasting focus for my sorcerer spells while I hold or wear it. As an action, I can attach or detach it to a Tiny object. Immediately after I cast a spell with a metamagic option while I hold or wear this shard, I can teleport to an unoccupied space I can see within 30 ft.",
 	descriptionFull: "This crystal is a solidified shard of the Astral Plane, swirling with silver mist. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus for your sorcerer spells while you hold or wear it." +
 	"\n   When you use a Metamagic option on a spell while you are holding or wearing the shard, immediately after casting the spell you can teleport to an unoccupied space you can see within 30 feet of you.",
@@ -41704,7 +41704,7 @@ MagicItemsList["elemental essence shard"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a sorcerer",
-	prereqeval: function(v) { return classes.known.sorcerer ? true : false; },
+	prereqeval: function (v) { return classes.known.sorcerer ? true : false; },
 	description: "I can use this flickering crystal as a spellcasting focus for my sorcerer spells while I hold or wear it. As an action, I can attach or detach it to a Tiny object. It holds the essence of an Elemental Plane, which grants me additional benefits when I use a Metamagic option on a spell.",
 	descriptionFull: "This crackling crystal contains the essence of an elemental plane. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus while you hold or wear it." +
 	"\n   Roll a d4 and consult the Elemental Essence Shards table to determine the shard's essence and property. When you use a Metamagic option on a spell while you are holding or wearing the shard, you can use that property." +
@@ -41748,7 +41748,7 @@ MagicItemsList["far realm shard"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a sorcerer",
-	prereqeval: function(v) { return classes.known.sorcerer ? true : false; },
+	prereqeval: function (v) { return classes.known.sorcerer ? true : false; },
 	description: "As an action, I can attach/detach this crystal to an object. While I hold or wear it, it works as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option, I can have a creature I can see in 30 ft make a Cha save (my spell save DC) or take 3d6 psychic damage \u0026 be frightened of me until my next turn starts.",
 	descriptionFull: "This writhing crystal is steeped in the warped essence of the Far Realm. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus while you hold or wear it." +
 	"\n   When you use a Metamagic option on a spell while you are holding or wearing the shard, you can cause a slimy tentacle to rip through the fabric of reality and strike one creature you can see within 30 feet of you. The creature must succeed on a Charisma saving throw against your spell save DC or take 3d6 psychic damage and become frightened of you until the start of your next turn.",
@@ -41762,7 +41762,7 @@ MagicItemsList["outer essence shard"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a sorcerer",
-	prereqeval: function(v) { return classes.known.sorcerer ? true : false; },
+	prereqeval: function (v) { return classes.known.sorcerer ? true : false; },
 	description: "I can use this flickering crystal as a spellcasting focus for my sorcerer spells while I hold or wear it. As an action, I can attach or detach it to a Tiny object. It holds the essence of an Outer Plane, which grants me additional benefits when I use a Metamagic option on a spell.",
 	descriptionFull: "This flickering crystal holds the essence of an Outer Plane. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus while you hold or wear it." +
 	"\n   Roll a d4 and consult the Outer Essence Shards table to determine the shard's essence and property. When you use a Metamagic option on a spell while you are holding or wearing the shard, you can use that property." +
@@ -41806,7 +41806,7 @@ MagicItemsList["shadowfell shard"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a sorcerer",
-	prereqeval: function(v) { return classes.known.sorcerer ? true : false; },
+	prereqeval: function (v) { return classes.known.sorcerer ? true : false; },
 	description: "As an action, I can attach/detach this dull crystal to a Tiny object. While I hold or wear it, I can use it as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option on a spell, I can curse a target of that spell to have disadv. on checks and saves with an ability score of my choice until my next turn ends.",
 	descriptionFull: "This dull, cold crystal sits heavy and leaden, saturated by the Shadowfell's despair. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus while you hold or wear it." +
 	"\n   When you use a Metamagic option on a spell while you are holding or wearing the shard, you can momentarily curse one creature targeted by the spell; choose one ability score, and until the end of your next turn, the creature has disadvantage on ability checks and saving throws that use that ability.",
@@ -41820,7 +41820,7 @@ MagicItemsList["feywild shard"] = {
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a sorcerer",
-	prereqeval: function(v) { return classes.known.sorcerer ? true : false; },
+	prereqeval: function (v) { return classes.known.sorcerer ? true : false; },
 	description: "As an action, I can attach/detach this warm crystal that glints with sunset colors to a Tiny object. While I hold or wear it, I can use it as a spellcasting focus for my sorcerer spells, and once per dawn when I use a Metamagic option on a spell, I can choose to roll on the Wild Magic Surge table (see Notes for the table).",
 	descriptionFull: "This warm crystal glints with the sunset colors of the Feywild sky and evokes whispers of emotional memory. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus while you hold or wear it." +
 	"\n   When you use a Metamagic option on a spell while you are holding or wearing the shard, you can roll on the Wild Magic Surge table in the Player's Handbook. If the result is a spell, it is too wild to be affected by your Metamagic, and if it normally requires concentration, it doesn't require concentration in this case; the spell lasts for its full duration." +
@@ -41856,7 +41856,7 @@ MagicItemsList["reveler's concertina"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a bard",
-	prereqeval: function(v) { return classes.known.bard ? true : false; },
+	prereqeval: function (v) { return classes.known.bard ? true : false; },
 	description: "While holding this concertina, I gain a +2 bonus to the saving throw DC of my bard spells.\nOnce per dawn, I can use the concertina to cast Otto's Irresistible Dance.",
 	descriptionFull: "While holding this concertina, you gain a +2 bonus to the saving throw DC of your bard spells." +
 	"\n   As an action, you can use the concertina to cast Otto's irresistible dance from the item. This property of the concertina can't be used again until the next dawn.",
@@ -41886,7 +41886,7 @@ MagicItemsList["lyre of building"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a bard",
-	prereqeval: function(v) { return classes.known.bard ? true : false; },
+	prereqeval: function (v) { return classes.known.bard ? true : false; },
 	description: "While holding this lyre, I can cast mending as an action. As a reaction, I can protect a structure or object that takes damage from that damage type until the my next turn starts. As an action, I can play the lyre to cast Fabricate, Move Earth, Passwall, or Summon Construct from it, each spell once per dawn.",
 	descriptionFull: "While holding this lyre, you can cast mending as an action. You can also play the lyre as a reaction when an object or a structure you can see within 300 feet of you takes damage, causing it to be immune to that damage and any further damage of the same type until the start of your next turn." +
 	"\n   In addition, you can play the lyre as an action to cast fabricate, move earth, passwall, or summon construct, and that spell can't be cast from it again until the next dawn.",
@@ -41924,7 +41924,7 @@ MagicItemsList["bell branch"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a druid or warlock",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.druid || classes.known.warlock ? true : false;
 	},
 	description: "This silver branch with bells has 3 charges, regains 1d3 at dawn. I can use it as my spellcasting focus. As a bonus action, I can use 1 charge to detect the presence of aberrations, celestials, fiends, constructs, elementals, fey, or undead in 60 ft not behind total cover. I can use 1 charge to cast Protection from Evil and Good.",
@@ -41952,7 +41952,7 @@ MagicItemsList["cauldron of rebirth"] = {
 	rarity: "very rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a druid or warlock",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.druid || classes.known.warlock ? true : false;
 	},
 	description: "After a long rest, I can use this Tiny pot to create a potion of greater healing that lasts up to 24 hours. As an action, I can have it grow to fit a Medium creature, or shrink it back down. I can place a dead creature inside with 200 lb salt (10 gp) for 8 hours to Raise Dead. Once used, it can't do this again for 7 days.",
@@ -41971,7 +41971,7 @@ MagicItemsList["devotee's censer"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a cleric or paladin",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.cleric || classes.known.paladin ? true : false;
 	},
 	description: "I can use this magic flail, perforated with tiny holes, as a holy symbol. Attacks with it deal +1d8 radiant damage. As a bonus action once per dawn, I can speak the command word to cause it to emanate incense out to 10 ft for 1 minute. At the start of each of my turns, all creatures in the incense heal 1d4 hit points.",
@@ -41997,7 +41997,7 @@ MagicItemsList["guardian emblem"] = {
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a cleric or paladin",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.cleric || classes.known.paladin ? true : false;
 	},
 	description: "As an action, I can attach or detach this symbol of a deity to a shield or a suit of armor. It has 3 charges, regaining all at dawn. As a reaction when I or a creature I can see within 30 ft suffers a critical hit while I wear the armor or wield the shield that bears the emblem, I can expend 1 charge to turn it into a normal hit.",
@@ -42019,7 +42019,7 @@ MagicItemsList["nature's mantle"] = {
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a druid or ranger.",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.druid || classes.known.ranger || classes.known.rangerua ? true : false;
 	},
 	description: "This cloak shifts color and texture to blend with the terrain surrounding me. While wearing the cloak, I can use it as a spellcasting focus for my druid and ranger spells. While I am in an area that is lightly obscured, I can Hide as a bonus action even if I am being directly observed.",
@@ -42065,7 +42065,7 @@ MagicItemsList["radiance (wand)"] = {
 	descriptionFull: "While holding this wand, you gain a +1 bonus to spell attack rolls. In addition, you ignore half cover when making a spell attack. Radiance is in the form of an exquisite golden hand mirror." +
 	"\n   While surrounded by darkness, it sheds dim light in a 5-foot radius. A creature that is attuned to Radiance can use a bonus action while holding the mirror to cast the enhance ability spell, choosing itself and no other creature as the spell's target. Once this property of the wand is used, it can't be used again until the next dawn.",
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	extraLimitedFeatures: [{
 		name: "Radiance (Enhance Ability)",
 		usages: 1,
@@ -42150,7 +42150,7 @@ if (MagicItemsList["alchemy jug"]) {
 		source: [["CM", 144]],
 		description: MagicItemsList["alchemy jug"].description.replace("acid (8 fl oz), basic poison (1/2 fl oz)", "boiling hot tea (1 qt)"),
 		descriptionLong: MagicItemsList["alchemy jug"].descriptionLong.replace("acid (8 fl. oz.), basic poison (1/2 fl. oz.)", "boiling hot tea (1 quart)"),
-		descriptionFull: MagicItemsList["alchemy jug"].descriptionFull.replace(/\n8 ounces[\s\S]+/, 
+		descriptionFull: MagicItemsList["alchemy jug"].descriptionFull.replace(/\n8 ounces[\s\S]+/,
 			"\n4 gallons  \tBeer\t\t2 gallons  \tVinegar" +
 			"\n1 quart   \tBoiling hot tea\t8 gallons  \tWater, fresh" +
 			"\n1 gallon    \tHoney\t\t12 gallons\tWater, salt" +
@@ -42163,7 +42163,7 @@ if (MagicItemsList["alchemy jug"]) {
 		source: [["CM", 144]],
 		description: MagicItemsList["alchemy jug"].description.replace("acid (8 fl oz), basic poison (1/2 fl oz)", "soy sauce (1 gal)"),
 		descriptionLong: MagicItemsList["alchemy jug"].descriptionLong.replace("acid (8 fl. oz.), basic poison (1/2 fl. oz.)", "soy sauce (1 gallon)"),
-		descriptionFull: MagicItemsList["alchemy jug"].descriptionFull.replace(/\n8 ounces[\s\S]+/, 
+		descriptionFull: MagicItemsList["alchemy jug"].descriptionFull.replace(/\n8 ounces[\s\S]+/,
 			"\n4 gallons  \tBeer\t\t2 gallons  \tVinegar" +
 			"\n1 gallon    \tHoney\t\t8 gallons  \tWater, fresh" +
 			"\n2 gallons \tMayonnaise\t12 gallons\tWater, salt" +
@@ -42176,7 +42176,7 @@ MagicItemsList["gloves of soul catching"] = {
 	name: "Gloves of Soul Catching",
 	source: [["CM", 169]],
 	type: "wondrous item",
-	rarity: "legendary",	
+	rarity: "legendary",
 	notLegalAL: true,
 	attunement: true,
 	description: "My Constitution increases to 20 while wearing these gloves. After hitting with an unarmed strike while wearing these gloves, I can deal an extra 2d10 force damage to target and regain an equal amount of HP. Alternatively, instead of regaining hit points in this way, you can choose to gain advantage on one attack roll, ability check, or saving throw you make before the end of your next turn.",
@@ -42196,7 +42196,7 @@ MagicItemsList["watchful helm"] = {
 	name: "Watchful Helm",
 	source: [["CM", 183]],
 	type: "wondrous item",
-	rarity: "very rare",	
+	rarity: "very rare",
 	attunement: true,
 	description: "While I wear this helm, I gain a +1 bonus to AC, remain aware of my surroundings even while asleep, and have advantage on Wisdom (Perception) checks that rely on sight. As a bonus action once per dawn, I can use it to cast See Invisibility.",
 	descriptionFull: "While you wear this helm, you gain a +1 bonus to AC and remain aware of your surroundings even while you're asleep, and you have advantage on Wisdom (Perception) checks that rely on sight." +
@@ -42268,7 +42268,7 @@ MagicItemsList["nether scroll of azumar"] = {
 	},
 	"read": { // contains contributions by Nod_Hero
 		description: CM_NetherScrollOfAzumar,
-		eval: function() {
+		eval: function () {
 			var src = "Nether Scroll of Azumar";
 			MagicItemsList["manual of bodily health"].applyStatBonus(src, "Intelligence", 2);
 			SetProf("savetxt", true, { adv_vs: ["magic"] }, src);
@@ -42337,13 +42337,13 @@ RaceList["dhampir"] = {
 	useFromPreviousRace: {
 		message: "If you replace a race with the Dhampir lineage, you can keep the following elements of that race:" +
 		desc(["its size,",
-		"any skill proficiencies you gained from it,",
-		"any climbing, flying, or swimming speed you gained from it, and",
-		"any languages it knows."], "\n   \u2022 ") +
+			"any skill proficiencies you gained from it,",
+			"any climbing, flying, or swimming speed you gained from it, and",
+			"any languages it knows."], "\n   \u2022 ") +
 		"\n\nIf you don't keep any of those elements or you choose this lineage at character creation, you instead:" +
 		desc(["are size Medium or Small (your choice),",
-		"gain proficiency in two skills of your choice, and",
-		"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
+			"gain proficiency in two skills of your choice, and",
+			"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
 		defaultTraits: {
 			size: [3, 4],
 			skillstxt: "Choose any two skills",
@@ -42400,13 +42400,13 @@ RaceList["hexblood"] = {
 	useFromPreviousRace: {
 		message: "If you replace a race with the Hexblood lineage, you can keep the following elements of that race:" +
 		desc(["its size,",
-		"any skill proficiencies you gained from it,",
-		"any climbing, flying, or swimming speed you gained from it, and",
-		"any languages it knows."], "\n   \u2022 ") +
+			"any skill proficiencies you gained from it,",
+			"any climbing, flying, or swimming speed you gained from it, and",
+			"any languages it knows."], "\n   \u2022 ") +
 		"\n\nIf you don't keep any of those elements or you choose this lineage at character creation, you instead:" +
 		desc(["are size Medium or Small (your choice),",
-		"gain proficiency in two skills of your choice, and",
-		"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
+			"gain proficiency in two skills of your choice, and",
+			"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
 		defaultTraits: {
 			size: [3, 4],
 			skillstxt: "Choose any two skills",
@@ -42442,13 +42442,13 @@ RaceList["reborn"] = {
 	useFromPreviousRace: {
 		message: "If you replace a race with the Reborn lineage, you can keep the following elements of that race:" +
 		desc(["its size,",
-		"any skill proficiencies you gained from it,",
-		"any climbing, flying, or swimming speed you gained from it, and",
-		"any languages it knows."], "\n   \u2022 ") +
+			"any skill proficiencies you gained from it,",
+			"any climbing, flying, or swimming speed you gained from it, and",
+			"any languages it knows."], "\n   \u2022 ") +
 		"\n\nIf you don't keep any of those elements or you choose this lineage at character creation, you instead:" +
 		desc(["are size Medium or Small (your choice),",
-		"gain proficiency in two skills of your choice, and",
-		"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
+			"gain proficiency in two skills of your choice, and",
+			"can speak, read, and write Common and one other language that you and your DM agree is appropriate."], "\n   \u2022 "),
 		defaultTraits: {
 			size: [3, 4],
 			skillstxt: "Choose any two skills",
@@ -42513,19 +42513,19 @@ AddSubClass("bard", "college of spirits",{
 					"\nRoll " + (typePF ? "" : " ") + "Tale",
 				]) +
 				 desc([
-					"  1    Tale of the Clever Animal: For the next 10 minutes, whenever the target makes an Intelligence, a Wisdom, or a Charisma check, the target can roll my Bardic Inspiration die immediately after rolling the d20 and add it to the check.",
-					"  2    Tale of the Renowned Duelist: I make a melee spell attack against the target. On a hit, the target takes force damage equal to two rolls of my Bardic Inspiration die + my Charisma modifier.",
-					"  3    Tale of the Beloved Friends: The target and another creature of its choice it can see within 5 ft of it gains temporary hit points equal to a roll of my Bardic Inspiration die + my Charisma modifier.",
-					"  4    Tale of the Runaway: The target can immediately use its reaction to teleport up to 30 ft to an unoccupied space it can see. When the target teleports, it can choose a number of creatures it can see within 30 ft of it up to my Charisma modifier (minimum of 0) to immediately use the same reaction.",
-					"  5    Tale of the Avenger: For 1 minute, any creature that hits the target with a melee attack takes force damage equal to a roll of my Bardic Inspiration die.",
-					"  6    Tale of the Traveler: The target gains temporary hit points equal to a roll of my Bardic Inspiration die + my bard level. While it has these temporary hit points, the target's walking speed increases by 10 ft and it gains a +1 bonus to its AC.",
-					"  7    Tale of the Beguiler: The target must succeed on a Wisdom saving throw or take psychic damage equal to two rolls of my Bardic Inspiration die, and the target is incapacitated until the end of its next turn.",
-					"  8    Tale of the Phantom: The target becomes invisible until the end of its next turn or until it hits a creature with an attack. If the target hits a creature with an attack during this invisibility, the creature it hits takes necrotic damage equal to a roll of my Bardic Inspiration die and is frightened of the target until the end of the frightened creature's next turn.",
-					"  9    Tale of the Brute: Each creature of the target's choice it can see within 30 ft of it must make a Strength saving throw. On a failed save, a creature takes thunder damage equal to three rolls of my Bardic Inspiration die and is knocked prone. A creature that succeeds on its saving throw takes half as much damage and isn't knocked prone.",
-					" 10    Tale of the Dragon: The target spews fire from the mouth in a 30-ft cone. Each creature in that area must make a Dexterity saving throw, taking fire damage equal to four rolls of my Bardic Inspiration die on a failed save, or half as much damage on a successful one.",
-					" 11    Tale of the Angel: The target regains hit points equal to two rolls of my Bardic Inspiration die + my Charisma modifier, and I end one condition from the following list affecting the target: blinded, deafened, paralyzed, petrified, or poisoned.",
-					" 12    Tale of the Mind-Bender: I evoke an incomprehensible fable from an otherworldly being. The target must succeed on an Intelligence saving throw or take psychic damage equal to three rolls of my Bardic Inspiration die and be stunned until the end of its next turn.",
-				], "\n"),
+				 	"  1    Tale of the Clever Animal: For the next 10 minutes, whenever the target makes an Intelligence, a Wisdom, or a Charisma check, the target can roll my Bardic Inspiration die immediately after rolling the d20 and add it to the check.",
+				 	"  2    Tale of the Renowned Duelist: I make a melee spell attack against the target. On a hit, the target takes force damage equal to two rolls of my Bardic Inspiration die + my Charisma modifier.",
+				 	"  3    Tale of the Beloved Friends: The target and another creature of its choice it can see within 5 ft of it gains temporary hit points equal to a roll of my Bardic Inspiration die + my Charisma modifier.",
+				 	"  4    Tale of the Runaway: The target can immediately use its reaction to teleport up to 30 ft to an unoccupied space it can see. When the target teleports, it can choose a number of creatures it can see within 30 ft of it up to my Charisma modifier (minimum of 0) to immediately use the same reaction.",
+				 	"  5    Tale of the Avenger: For 1 minute, any creature that hits the target with a melee attack takes force damage equal to a roll of my Bardic Inspiration die.",
+				 	"  6    Tale of the Traveler: The target gains temporary hit points equal to a roll of my Bardic Inspiration die + my bard level. While it has these temporary hit points, the target's walking speed increases by 10 ft and it gains a +1 bonus to its AC.",
+				 	"  7    Tale of the Beguiler: The target must succeed on a Wisdom saving throw or take psychic damage equal to two rolls of my Bardic Inspiration die, and the target is incapacitated until the end of its next turn.",
+				 	"  8    Tale of the Phantom: The target becomes invisible until the end of its next turn or until it hits a creature with an attack. If the target hits a creature with an attack during this invisibility, the creature it hits takes necrotic damage equal to a roll of my Bardic Inspiration die and is frightened of the target until the end of the frightened creature's next turn.",
+				 	"  9    Tale of the Brute: Each creature of the target's choice it can see within 30 ft of it must make a Strength saving throw. On a failed save, a creature takes thunder damage equal to three rolls of my Bardic Inspiration die and is knocked prone. A creature that succeeds on its saving throw takes half as much damage and isn't knocked prone.",
+				 	" 10    Tale of the Dragon: The target spews fire from the mouth in a 30-ft cone. Each creature in that area must make a Dexterity saving throw, taking fire damage equal to four rolls of my Bardic Inspiration die on a failed save, or half as much damage on a successful one.",
+				 	" 11    Tale of the Angel: The target regains hit points equal to two rolls of my Bardic Inspiration die + my Charisma modifier, and I end one condition from the following list affecting the target: blinded, deafened, paralyzed, petrified, or poisoned.",
+				 	" 12    Tale of the Mind-Bender: I evoke an incomprehensible fable from an otherworldly being. The target must succeed on an Intelligence saving throw or take psychic damage equal to three rolls of my Bardic Inspiration die and be stunned until the end of its next turn.",
+				 ], "\n"),
 			}],
 		},
 		"subclassfeature6": {
@@ -42962,10 +42962,10 @@ MagicItemsList["nepenthe"] = {
 	prerequisite: "Requires attunement by a paladin",
 	prereqeval: function (v) { return classes.known.paladin ? true : false; },
 	description: "This sentient holy avenger longsword gives me a +3 bonus to attack and damage rolls. It does +2d10 radiant damage against fiends and undead. While holding the drawn sword, I have a 10-ft radius aura (30-ft if level 17 paladin) that grants me and my allies adv. on saves against spells and magical effects.",
-	descriptionFull: VRGtR_nepentheFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: VRGtR_nepentheFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
-		note: desc(VRGtR_nepentheFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/(to|around) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(VRGtR_nepentheFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/(to|around) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 	weaponOptions: [{
 		baseWeapon: "longsword",
@@ -43252,7 +43252,7 @@ RaceList["harengon"] = {
 			usages: "Proficiency bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) {
+			additional: ProficiencyBonusList.map(function (n) {
 				var hopDistance = n * 5 + " ft";
 				return What("Unit System") === "metric" ? ConvertToMetric(hopDistance) : hopDistance;
 			}),
@@ -43272,7 +43272,7 @@ var WBtW_Sentient_Item_toNotes = function (sDescr, skipConflict) {
 		.replace(/(by|of|to|for) I\b|\bI to|\bI an?\b/ig, "$1 me")
 		.replace(/\bI (to|a|an)\b/ig, "me $1")
 		.replace(/your/g, "my").replace(/Your/g, "My")
-		.replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); });
+		.replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); });
 	return skipConflict ? theR : theR + "\n\n" + sentientItemConflictTxt
 }
 MagicItemsList["bobbing lily pad"] = {
@@ -43409,7 +43409,7 @@ MagicItemsList["scissors of shadow snipping"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a fey or a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; }, // no fey player races exist that don't have racial spellcasting
+	prereqeval: function (v) { return v.isSpellcaster; }, // no fey player races exist that don't have racial spellcasting
 	description: "As an action once per dawn, I can use these iron shears to detach the shadow of a Humanoid I can see within 5 ft. An involuntary target can make a DC 15 Cha save to resist. The detached shadow stays where it was snipped until I use a bonus action to control it or set it free. See Notes page.",
 	descriptionFull: WBtW_Scissors_of_Shadow_Snipping_Full_Description.join("\n   "),
 	toNotesPage: [{
@@ -43433,9 +43433,9 @@ MagicItemsList["snicker-snack"] = {
 	rarity: "legendary",
 	attunement: true,
 	prerequisite: "Requires attunement by a non-evil creature",
-	prereqeval: function(v) { return !/evil/i.test(What("Alignment")); },
+	prereqeval: function (v) { return !/evil/i.test(What("Alignment")); },
 	description: "I have a +3 bonus on attack and damage rolls with this sentient magic greatsword and can use Cha instead of Str. It ignores slashing resistance. On a 20 to hit, it cuts off " + (typePF ? "a head" : "one head, possibly killing it instantly") + ". If the target has legendary actions, no head, too wide neck, or is immune to slashing damage, it takes +6d8 damage instead. See Notes.",
-	descriptionFull: WBtW_Snicker_Snack_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: WBtW_Snicker_Snack_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	weight: 6,
 	toNotesPage: [{
 		name: "Features",
@@ -43475,9 +43475,9 @@ MagicItemsList["steel"] = {
 	rarity: "very rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a good-aligned creature",
-	prereqeval: function(v) { return /good/i.test(What("Alignment")); },
+	prereqeval: function (v) { return /good/i.test(What("Alignment")); },
 	description: "This sentient longsword adds +2 to attack and damage rolls made with it. As an action once per dawn, I can use it to cast Revivify on a target I touch with the sword. Steel is lawful good and frets over my well-being and doesn't like to back down from a fight. It has Int 8, Wis 11, and Cha 15. See Notes page.",
-	descriptionFull: WBtW_Steel_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: WBtW_Steel_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	weight: 3,
 	toNotesPage: [{
 		name: "Features",
@@ -43539,7 +43539,7 @@ MagicItemsList["witchlight vane"] = {
 	prerequisite: "Requires attunement by a mister light or his handpicked successor",
 	description: "I can use this sentient ornate rod as a +3 mace that deals an extra 1d8 radiant damage on a hit. It can sense the mood of every creature in the carnival. As an action, I can pinpoint the happiest in the carnival. I can use it to cast spells. I can't be blinded, deafened, petrified, or stunned. See Notes page.",
 	descriptionLong: "This sentient ornate rod is topped by a pair of butterfly wings and incorporates bits of red glass into its length. I can use it as a +3 mace that deals an extra 1d8 radiant damage on a hit. It can sense the mood of every creature in the carnival. As an action, I can use it to pinpoint the happiest in the carnival. I can use it to cast Dancing Light, Ray of Frost, and Polymorph. After I use it to cast Polymorph, roll a d8. On a roll of 3 or 8, the vane can't be used to cast Polymorph again until the next dawn. It makes me vulnerable to lightning damage, but I can't be blinded, deafened, petrified, or stunned. See Notes page.",
-	descriptionFull: WBtW_Witchlight_Vane_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: WBtW_Witchlight_Vane_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	weight: 3,
 	toNotesPage: [{
 		name: "Features",
@@ -43593,7 +43593,7 @@ MagicItemsList["witchlight watch"] = {
 	prerequisite: "Requires attunement by a mister witch or his handpicked successor",
 	description: "As an action once per 8 hours, I can use this ornate pocket watch to initiate the (un)packing of the carnival over the next hour. I can use it to cast Fire Bolt, Message, and Invisibility. After it casts Invisibility, I roll a d8. On a roll of 3 or 8, I can't cast this again until the next dawn. See Notes page.",
 	descriptionLong: "This ornate pocket watch is fastened to the end of a gold chain and glows with a faint golden light when opened. As an action once per 8 hours, I can use this ornate pocket watch to initiate the (un)packing of the carnival over the next hour, provided the carnival and I are on the same plane of existence. I can use it to cast Fire Bolt, Message, and Invisibility. After I use it to cast Invisibility, roll a d8. On a roll of 3 or 8, it can't be used to cast Invisibility again until the next dawn. As long as I'm attuned to it, I'm 30 lb heavier and must eat and drink eight times the normal amount each day. See Notes page.",
-	descriptionFull: WBtW_Witchlight_Watch_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: WBtW_Witchlight_Watch_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
 		note: WBtW_Sentient_Item_toNotes(WBtW_Witchlight_Watch_Full_Description, true),
@@ -44126,14 +44126,14 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 					name: "Bond of Fang and Scale (Drakewarden 7)",
 					minlevel: 7,
 					description: "The drake is now Medium and can be ridden as a mount. It has a flying speed equal to its walking speed, but can't fly with a rider on its back. The drake's bite deals an extra 1d6 damage of its chosen Draconic Essence type.",
-					eval: function(prefix, lvl) {
+					eval: function (prefix, lvl) {
 						var sMoveStr = (typePF ? ",\n" : ", ") + "fly 40 ft";
 						if (What("Unit System") === "metric") sMoveStr = ConvertToMetric(sMoveStr, 0.5);
 						tDoc.getField(prefix + "Comp.Use.Speed").value += sMoveStr;
 						AddString(prefix + "Comp.Use.Attack.1.Description", "+1d6 damage of the chosen Draconic Essense type");
 						PickDropdown(prefix + "Comp.Desc.Size", 3); // Medium
 					},
-					removeeval: function(prefix, lvl) {
+					removeeval: function (prefix, lvl) {
 						var sMoveStr = (typePF ? ",\n" : ", ") + "fly 40 ft";
 						if (What("Unit System") === "metric") sMoveStr = ConvertToMetric(sMoveStr, 0.5);
 						Value(prefix + "Comp.Use.Speed", What(prefix + "Comp.Use.Speed").replace(sMoveStr, ""));
@@ -44145,12 +44145,12 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 					name: "Perfected Bond (Drakewarden 15)",
 					minlevel: 15,
 					description: "The drake is now Large and can fly while its being ridden. Its bite attack deals an extra 1d6 damage (for a total of +2d6) of its chosen Draconic Essence type.",
-					eval: function(prefix, lvl) {
+					eval: function (prefix, lvl) {
 						var sAtkFld = prefix + "Comp.Use.Attack.1.Description";
 						Value(sAtkFld, What(sAtkFld).replace(/\+\d+d6 damage of the chosen Draconic Essense type/i, "+2d6 damage of the chosen Draconic Essense type"));
 						PickDropdown(prefix + "Comp.Desc.Size", 2); // Large
 					},
-					removeeval: function(prefix, lvl) {
+					removeeval: function (prefix, lvl) {
 						var sAtkFld = prefix + "Comp.Use.Attack.1.Description";
 						Value(sAtkFld, What(sAtkFld).replace(/\+\d+d6 damage of the chosen Draconic Essense type/i, "+1d6 damage of the chosen Draconic Essense type"));
 						PickDropdown(prefix + "Comp.Desc.Size", 3); // Medium
@@ -44527,7 +44527,7 @@ MagicItemsList["dragonhide belt, +1, +2, or +3"] = {
 	descriptionFull: "This finely detailed belt is made of dragonhide. While wearing it, you gain a bonus to the saving throw DCs of your ki features. The bonus is determined by the belt's rarity: uncommon (+1), rare (+2), or very rare (+3). In addition, you can use an action to regain ki points equal to a roll of your Martial Arts die. You can't use this action again until the next dawn.",
 	attunement: true,
 	prerequisite: "Requires attunement by a monk",
-	prereqeval: function(v) { return classes.known.monk ? true : false; },
+	prereqeval: function (v) { return classes.known.monk ? true : false; },
 	usages: 1,
 	recovery: "dawn",
 	additional: "regain ki points",
@@ -44814,7 +44814,7 @@ MagicItemsList["ruby weave gem"] = {
 	rarity: "legendary",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "While I hold this gem, I can use it as my spellcasting focus. It has 3 charges per dawn. When I cast a spell while holding it, I can use charges to ignore 500 gp per charge of components with a gp cost. When I finish a long rest, I learn any one spell of a level I can cast until my next long rest. I can cast it using spell slots.",
 	descriptionFull: "While you are holding this gem, you can use it as a spellcasting focus for your spells." +
 	"\n   The gem has 3 charges and regains all expended charges daily at dawn. When you cast a spell while holding this gem, you can expend up to 3 charges to ignore the spell's material components with a gold piece cost, up to 500 gp per charge expended." +
@@ -45057,11 +45057,11 @@ var FToD_HoardItems = {
 			selectNow: true,
 		}],
 	},
-	dragonsWrathWeaponCreate: function() {
+	dragonsWrathWeaponCreate: function () {
 		var aTypes = [["Slumbering", "uncommon"], ["Stirring", "rare"], ["Wakened", "very rare"], ["Ascendant", "legendary"]];
 		var aDragons = [["Black", "acid"], ["Blue", "lightning"], ["Green", "poison"], ["Red", "fire"], ["White", "cold"], ["Amethyst", "force"], ["Crystal", "radiant"], ["Emerald", "psychic"], ["Sapphire", "thunder"], ["Topaz", "necrotic"], ["Brass", "fire"], ["Bronze", "lightning"], ["Copper", "acid"], ["Gold", "fire"], ["Silver", "cold"]];
 		var aVowels = ["a", "e"];
-		var sDescriptionFull = FToD_HoardItems["dragon's wrath weapon"].join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); });
+		var sDescriptionFull = FToD_HoardItems["dragon's wrath weapon"].join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); });
 		var sNotesDescription = FToD_HoardItems.to1stPerson(FToD_HoardItems["dragon's wrath weapon"]);
 		for (var t = 0; t < aTypes.length; t++) {
 			var sItemType = aTypes[t][0];
@@ -45242,7 +45242,7 @@ var FToD_HoardItems = {
 			.replace(/(by|of|to|for|on) I\b|\bI to|\bI an?\b/ig, "$1 me")
 			.replace(/\bI (to|a|an)\b/ig, "me $1")
 			.replace(/your/g, "my").replace(/Your/g, "My")
-			.replace(/   >>(.*?)( \(.*?\))?<<. /g, function(a, p1, p2) { return "\n   " + p1.toUpperCase() + p2.toLowerCase() + "\n   "; }) +
+			.replace(/   >>(.*?)( \(.*?\))?<<. /g, function (a, p1, p2) { return "\n   " + p1.toUpperCase() + p2.toLowerCase() + "\n   "; }) +
 			FToD_HoardItems.hoardMagicItems;
 	},
 }
@@ -45254,9 +45254,9 @@ MagicItemsList["dragon-touched focus"] = {
 	type: "wondrous item",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "",
-	descriptionFull: FToD_HoardItems["dragon-touched focus"].join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: FToD_HoardItems["dragon-touched focus"].join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Full Text",
 		note: FToD_HoardItems.to1stPerson(FToD_HoardItems["dragon-touched focus"]),
@@ -45356,7 +45356,7 @@ MagicItemsList["dragon vessel"] = {
 	type: "wondrous item",
 	attunement: true,
 	description: "As a bonus action once per dawn, if this magical container is empty, I can speak the command word to fill the vessel with one liquid of my choice. The list of options depends on the level and rarity of the item.",
-	descriptionFull: FToD_HoardItems["dragon vessel"].join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: FToD_HoardItems["dragon vessel"].join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Full Text",
 		note: FToD_HoardItems.to1stPerson(FToD_HoardItems["dragon vessel"]),
@@ -45395,7 +45395,7 @@ MagicItemsList["scaled ornament"] = function (n) {
 		type: "wondrous item",
 		attunement: true,
 		description: "This ornament can be jewelry, a cloak, or another wearable accessory. It appears to be fashioned from a dragon's scale, tooth, or claw, or it incorporates images in those shapes.",
-		descriptionFull: FToD_HoardItems["scaled ornament"].join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+		descriptionFull: FToD_HoardItems["scaled ornament"].join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 		toNotesPage: [{
 			name: "Full Text",
 			note: FToD_HoardItems.to1stPerson(FToD_HoardItems["scaled ornament"]),
@@ -45602,7 +45602,7 @@ BackgroundFeatureList["lorehold initiate"] = {
 	source: [["SCC", 31]],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -45646,7 +45646,7 @@ BackgroundFeatureList["prismari initiate"] = {
 	source: [["SCC", 32]],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -45691,7 +45691,7 @@ BackgroundFeatureList["quandrix initiate"] = {
 	source: [["SCC", 33]],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -45734,7 +45734,7 @@ BackgroundFeatureList["silverquill initiate"] = {
 	source: [["SCC", 35]],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -45780,7 +45780,7 @@ BackgroundFeatureList["witherbloom initiate"] = {
 	source: [["SCC", 36]],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -45888,7 +45888,7 @@ FeatsList["strixhaven mascot"] = {
 	"\n \u2022 When you take the Attack action on your turn, you can forgo one attack to allow your mascot familiar to make one attack of its own with its reaction." +
 	"\n \u2022 If your mascot familiar is within 60 feet of you, you can teleport as an action, swapping places with the familiar. If your destination space is too small for you to occupy, the teleportation fails and is wasted. Once you teleport in this way, you can't do so again until you finish a long rest, unless you expend a spell slot of 2nd level or higher to do it again.",
 	prerequisite: "4th level, Strixhaven Initiate feat",
-	prereqeval: function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("strixhaven initiate") !== -1; },
+	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("strixhaven initiate") !== -1; },
 	extraLimitedFeatures: [{
 		name: "Swap places with Strixhaven Mascot",
 		recovery: "long rest",
@@ -45940,7 +45940,7 @@ if (CompanionList.familiar && CompanionList.pact_of_the_chain) { // Needs to be 
 		action: [["action", "Swap places with Strixhaven Mascot"]].concat(CompanionList.familiar.action),
 		attributesChange: CompanionList.pact_of_the_chain.attributesChange,
 		attributesAdd: CompanionList.familiar.attributesAdd,
-		notes: function() {
+		notes: function () {
 			var a = newObj(CompanionList.pact_of_the_chain.notes);
 			a[0].description = [
 				"appearing in an unoccupied space within 10 ft",
@@ -46070,7 +46070,7 @@ MagicItemsList["lorehold primer"] = {
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to an History or Religion check, after the d20 roll. If I study it during a long rest, I can pick a 1st-level cleric or wizard spell. I can cast the spell once without a spell slot before my next long rest ends.",
 	descriptionFull: "The Lorehold Primer is a magic textbook created at Strixhaven's Lorehold College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make an Intelligence (History) or Intelligence (Religion) check while holding the primer, you can expend 1 charge to give yourself 1d4 bonus to the check, immediately after you roll the d20." +
 	"\n   In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the cleric or wizard spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
@@ -46084,7 +46084,7 @@ MagicItemsList["lorehold primer"] = {
 		recovery: "long rest",
 	}],
 	spellcastingAbility: [4, 5, 6],
-	fCreateSCCPrimerSpellsEntry: function(bAddIt, sName, aClasses) {
+	fCreateSCCPrimerSpellsEntry: function (bAddIt, sName, aClasses) {
 		var sNameLC = sName.toLowerCase();
 		if (bAddIt) {
 			CurrentSpells[sNameLC] = {
@@ -46129,7 +46129,7 @@ MagicItemsList["prismari primer"] = {
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to an Acrobatics or Performance check, after the d20 roll. If I study it in a long rest, I can pick a 1st-level bard or sorcerer spell. I can cast the spell once without a spell slot before my next long rest ends.",
 	descriptionFull: "The Prismari Primer is a magic textbook created at Strixhaven's Prismari College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make a Dexterity (Acrobatics) or a Charisma (Performance) check while holding the primer, you can expend 1 charge to give yourself a 1d4 bonus to the check, immediately after you roll the d20." +
 	"\n   In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the bard or sorcerer spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
@@ -46159,7 +46159,7 @@ MagicItemsList["quandrix primer"] = {
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to an Arcana or Nature check, after the d20 roll. If I study it during a long rest, I can pick a 1st-level druid or wizard spell. I can cast the spell once without a spell slot before my next long rest ends.",
 	descriptionFull: "The Quandrix Primer is a magic textbook created at Strixhaven's Quandrix College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make an Intelligence (Arcana) or an Intelligence (Nature) check while holding the primer, you can expend 1 charge to give yourself a 1d4 bonus to the check, immediately after you roll the d20." +
 	"\n   In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the druid or wizard spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
@@ -46189,7 +46189,7 @@ MagicItemsList["silverquill primer"] = {
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to an Intimidation or Persuasion check, after the d20 roll. If I study it in a long rest, I can pick a 1st-level bard or cleric spell. I can cast the spell once without a spell slot before my next long rest ends.",
 	descriptionFull: "The Silverquill Primer is a magic textbook created at Strixhaven's Silverquill College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make a Charisma (Intimidation) or a Charisma (Persuasion) check while holding the primer, you can expend 1 charge to give yourself a 1d4 bonus to the check, immediately after you roll the d20." +
 	"\n   In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the bard or cleric spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
@@ -46227,7 +46227,7 @@ MagicItemsList["witherbloom primer"] = {
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to a Nature or Survival check, after the d20 roll. If I study it during a long rest, I can pick a 1st-level druid or wizard spell. I can cast the spell once without a spell slot before my next long rest ends.",
 	descriptionFull: "The Witherbloom Primer is a magic textbook created at Strixhaven's Witherbloom College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make an Intelligence (Nature) or Wisdom (Survival) check while holding the primer, you can expend 1 charge to give yourself a 1d4 bonus to the check, immediately after you roll the d20." +
 	"\n   In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the druid or wizard spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
@@ -46270,10 +46270,10 @@ MagicItemsList["murgaxor's orb"] = {
 	rarity: "legendary",
 	attunement: true,
 	description: "This sentient, chaotic evil orb bears a curse. It can communicate telepathically with any creature touching it. It can cast Suggestion on my turn, possibly on me. I have no control over it. Any Humanoid I touch while holding the orb must make a DC 10 Wisdom save or become cursed. See the Notes page.",
-	descriptionFull: SCC_Murgaxors_Orb_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: SCC_Murgaxors_Orb_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
-		note: desc(SCC_Murgaxors_Orb_Full_Description).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(targeting) you/ig, "$1 me").replace(/you /ig, "I ").replace(/feet/ig, "ft") + "\n\n" + sentientItemConflictTxt,
+		note: desc(SCC_Murgaxors_Orb_Full_Description).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(targeting) you/ig, "$1 me").replace(/you /ig, "I ").replace(/feet/ig, "ft") + "\n\n" + sentientItemConflictTxt,
 	}],
 }
 MagicItemsList["masque charm"] = {
@@ -46290,8 +46290,8 @@ MagicItemsList["masque charm"] = {
 		spells: ["disguise self"],
 		selection: ["disguise self"],
 		firstCol: "oncelr",
-   }],
-   fixedDC: 13,
+	}],
+	fixedDC: 13,
 }
 
 // Creatures (for Strixhaven Mascot feat)
@@ -46572,7 +46572,7 @@ var MotM_Aasimar_HealingHands = {
 	minlevel: 1,
 	usages: 1,
 	recovery: "long rest",
-	additional: ProficiencyBonusList.map(function(n) { return n + "d4 healing"; }),
+	additional: ProficiencyBonusList.map(function (n) { return n + "d4 healing"; }),
 	action: [["action", ""]],
 };
 RaceList["multiverse aasimar"] = {
@@ -46614,7 +46614,7 @@ AddRacialVariant("multiverse aasimar", "necrotic shroud", {
 			minlevel: 3,
 			usages: 1,
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) { return "+" + n + " necrotic damage"; }),
+			additional: ProficiencyBonusList.map(function (n) { return "+" + n + " necrotic damage"; }),
 			action: [["bonus action", " (start/end)"]],
 		},
 	},
@@ -46633,7 +46633,7 @@ AddRacialVariant("multiverse aasimar", "radiant consumption", {
 			minlevel: 3,
 			usages: 1,
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) { return "+" + n + " radiant damage"; }),
+			additional: ProficiencyBonusList.map(function (n) { return "+" + n + " radiant damage"; }),
 			action: [["bonus action", " (start/end)"]],
 		},
 	},
@@ -46652,7 +46652,7 @@ AddRacialVariant("multiverse aasimar", "radiant soul", {
 			minlevel: 3,
 			usages: 1,
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) { return "+" + n + " radiant damage"; }),
+			additional: ProficiencyBonusList.map(function (n) { return "+" + n + " radiant damage"; }),
 			action: [["bonus action", " (start/end)"]],
 		},
 	},
@@ -47443,7 +47443,7 @@ RaceList["multiverse goblin"] = {
 			usages: "Proficiency bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) { return "+" + n + " damage"; }),
+			additional: ProficiencyBonusList.map(function (n) { return "+" + n + " damage"; }),
 		},
 	},
 	action: [["bonus action", "Nimble Escape (disengage/hide)"]],
@@ -47655,7 +47655,7 @@ RaceList["multiverse lizardfolk"] = {
 			usages: "Proficiency bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) { return n + " temp HP"; }),
+			additional: ProficiencyBonusList.map(function (n) { return n + " temp HP"; }),
 			action: [["bonus action", ""]],
 		},
 	},
@@ -47718,7 +47718,7 @@ RaceList["multiverse orc"] = {
 			usages: "Proficiency bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) { return "+" + n + " temp HP"; }),
+			additional: ProficiencyBonusList.map(function (n) { return "+" + n + " temp HP"; }),
 			action: [["bonus action", ""]],
 		},
 		"relentless endurance": {
@@ -47831,7 +47831,7 @@ RaceList["multiverse shadar-kai"] = {
 				usages: "Proficiency bonus per ",
 				usagescalc: "event.value = How('Proficiency Bonus');",
 				recovery: "long rest",
-				additional: ProficiencyBonusList.map(function(n) { return "1d6 + " + (2 * n) + " temp HP"; }),
+				additional: ProficiencyBonusList.map(function (n) { return "1d6 + " + (2 * n) + " temp HP"; }),
 			},
 		},
 	},
@@ -47869,7 +47869,7 @@ RaceList["multiverse shadar-kai"] = {
 		],
 		savetxt: { text: ["While shifted, Adv. on Wis checks"] },
 	},
-}].forEach(function(o) {
+}].forEach(function (o) {
 	var objNm = "multiverse " + o.name.toLowerCase() + " shifter";
 	RaceList[objNm] = {
 		regExpSearch: RegExp("^(?=.*(multiverse|motm\\b))" + o.regExpSearch + "(?=.*shifter).*$", "i"),
@@ -47894,7 +47894,7 @@ RaceList["multiverse shadar-kai"] = {
 				usages: "Proficiency bonus per ",
 				usagescalc: "event.value = How('Proficiency Bonus');",
 				recovery: "long rest",
-				additional: ProficiencyBonusList.map(function(n) { return 2 * n + " temp HP"; }),
+				additional: ProficiencyBonusList.map(function (n) { return 2 * n + " temp HP"; }),
 				action: [["bonus action", " (start/end)"]],
 			},
 		},
@@ -48383,7 +48383,7 @@ var EGtW_Vestiges_Replace = function (sDescr) {
 		.replace(/you are/ig, "I am").replace(/\byou\b/ig, "I")
 		.replace(/(by|giving|grants|of|to|for) I\b/ig, "$1 me")
 		.replace(/your/g, "my").replace(/Your/g, "My")
-		.replace(/   >>(.*?)<<\. /g, function(a, match) { return "\n" + match.toUpperCase() + "\n   "; });
+		.replace(/   >>(.*?)<<\. /g, function (a, match) { return "\n" + match.toUpperCase() + "\n   "; });
 }
 var EGtW_JewelOfThreePrayersFullDescription = [
 	"The Jewel of Three Prayers is a Vestige of Divergence. In ancient times, Alyxian the Apotheon bore this amulet as a symbol of his covenant with three Prime Deities: Sehanine the Moon Weaver, Avandra the Change Bringer, and Corellon the Arch Heart.[[ When the jewel is found, only Sehanine's power thrums within its dormant heart. The power of the other two deities waits to be reawakened by a hero \u2014 or heroes \u2014 who can follow in Alyxian's footsteps.]]",
@@ -48416,7 +48416,7 @@ MagicItemsList["jewel of three prayers"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "The golden chain of this intricate jewel magically resizes to function as a necklace for the creature that wears it. In ancient times, Alyxian the Apotheon bore this amulet as a symbol of his covenant with three Prime Deities: Sehanine the Moon Weaver, Avandra the Change Bringer, and Corellon the Arch Heart.",
-	descriptionFull: EGtW_JewelOfThreePrayersFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }).replace(/\[\[|\]\]/g, ""),
+	descriptionFull: EGtW_JewelOfThreePrayersFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }).replace(/\[\[|\]\]/g, ""),
 	toNotesPage: [{
 		name: "Features",
 		note: EGtW_Vestiges_Replace(EGtW_JewelOfThreePrayersFullDescription).replace(/\[\[.*?\]\]/, ""),
@@ -48658,7 +48658,7 @@ RaceList["giff"] = {
 			usages: "Proficiency bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) { return "+" + n + " force damage"; }),
+			additional: ProficiencyBonusList.map(function (n) { return "+" + n + " force damage"; }),
 		},
 	},
 	weaponProfs: [false, false, ["Firearms"]],
@@ -48703,7 +48703,7 @@ RaceList["hadozee"] = {
 			usages: "Proficiency bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) { return "1d6+" + n + " damage"; }),
+			additional: ProficiencyBonusList.map(function (n) { return "1d6+" + n + " damage"; }),
 			action: [["reaction", ""]],
 		},
 	},
@@ -48786,7 +48786,7 @@ SpellsList["air bubble"] = {
 	descriptionFull: "You create a spectral globe around the head of a willing creature you can see within range. The globe is filled with fresh air that lasts until the spell ends. If the creature has more than one head, the globe of air appears around only one of its heads (which is all the creature needs to avoid suffocation, assuming that all its heads share the same respiratory system)." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you can create two additional globes of fresh air for each slot level above 2nd.",
 };
 SpellsList["create spelljamming helm"] = {
-	name: "Create Spelljamming Helm", 
+	name: "Create Spelljamming Helm",
 	nameShort: typePF ? "Create spelljamming helm" : "Create spelljammin' helm", // Lowercase or won't fit, shortened for Colourful version
 	classes: ["artificer", "wizard"],
 	source: [["S:AiS", 22]],
@@ -48828,13 +48828,13 @@ MagicItemsList["spelljamming helm"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "While attuned to  this ornate chair and sitting in it, I can propel and maneuver the ship on which it has been installed through space, air, or water up to the ship's speed. I need to maintain concentration as if concentrating on a spell to do so. The ship can move faster in space if nothing is nearby. See Notes page.",
-	descriptionFull: SJAAG_SpelljammingHelm.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: SJAAG_SpelljammingHelm.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	action: [["action", " (Transfer Attunement)"]],
 	toNotesPage: [{
 		name: "Features",
-		note: desc(SJAAG_SpelljammingHelm).replace(/your/ig, "my").replace(/\byou\b/ig, "I").replace(/   >>(.*?)<<\. /g, function(a, match) { return "\n" + match.toUpperCase() + "\n   "; }),
+		note: desc(SJAAG_SpelljammingHelm).replace(/your/ig, "my").replace(/\byou\b/ig, "I").replace(/   >>(.*?)<<\. /g, function (a, match) { return "\n" + match.toUpperCase() + "\n   "; }),
 	}],
 };
 MagicItemsList["wildspace orrery"] = {
@@ -49225,7 +49225,7 @@ FeatsList["adept of the black robes"] = {
 	"\n   " + toUni("Ambitious Magic") + ". You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
 	"\n   " + toUni("Life Channel") + ". You can channel your life force into the power of your magic. When a creature you can see within 60 feet fails on a saving throw against a spell that deals damage that you cast, you can expend a number of Hit Dice equal to the level of the spell. Roll the expended Hit Dice and add them together. The damage that the creature takes increases by an amount equal to that total.",
 	prerequisite: "4th level, Initiate of High Sorcery (Nuitari) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery");
 		return v.characterLevel >= 4 && iHghSrcyInit !== -1 && CurrentFeats.choices[iHghSrcyInit] === "nuitari";
 	},
@@ -49247,7 +49247,7 @@ FeatsList["adept of the red robes"] = {
 	"\n   " + toUni("Insightful Magic") + ". You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the illusion or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
 	"\n   " + toUni("Magical Balance") + ". When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. you can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th level, Initiate of High Sorcery (Lunitari) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery");
 		return v.characterLevel >= 4 && iHghSrcyInit !== -1 && CurrentFeats.choices[iHghSrcyInit] === "lunitari";
 	},
@@ -49272,7 +49272,7 @@ FeatsList["adept of the white robes"] = {
 	"\n   " + toUni("Protective Magic") + ". You learn one 2nd-level spell of you choice. The 2nd-level spell must be from the abjuration or divination school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
 	"\n   " + toUni("Protective Ward") + ". When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d6s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier.",
 	prerequisite: "4th level, Initiate of High Sorcery (Solinari) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery");
 		return v.characterLevel >= 4 && iHghSrcyInit !== -1 && CurrentFeats.choices[iHghSrcyInit] === "solinari";
 	},
@@ -49393,7 +49393,7 @@ FeatsList["knight of the crown"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase your Strength, Dexterity, or Constitution by 1, to a maximum of 20." +
 	"\n   " + toUni("Commanding Rally") + ". As a bonus action, you can command one ally within 30 feet of yourself to attack. If that ally can see or hear you, they can immediately make one weapon attack as a reaction. If the attack hits, the ally can roll a d8 and add the number rolled as a bonus to the attack's damage roll. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th level, Squire of Solamnia feat",
-	prereqeval: function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia") !== -1; },
+	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia") !== -1; },
 	limfeaname: "Commanding Rally (Knight of the Crown)",
 	usages: "Proficiency bonus per ",
 	usagescalc: "event.value = Number(How('Proficiency Bonus'));",
@@ -49421,7 +49421,7 @@ FeatsList["knight of the rose"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase your Constitution, Wisdom, or Charisma by 1, to a maximum of 20." +
 	"\n   " + toUni("Bolstering Rally") + ". As a bonus action, you can encourage one creature you can see within 30 feet of yourself (you can choose yourself). If the target can see or hear you, the target gains temporary hit points equal to 1d8 + your proficiency bonus + the ability modifier of the ability score increased by this feat. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th level, Squire of Solamnia feat",
-	prereqeval: function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia") !== -1; },
+	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia") !== -1; },
 	limfeaname: "Bolstering Rally (Knight of the Rose)",
 	usages: "Proficiency bonus per ",
 	usagescalc: "event.value = Number(How('Proficiency Bonus'));",
@@ -49449,7 +49449,7 @@ FeatsList["knight of the sword"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20." +
 	"\n   " + toUni("Demoralizing Strike") + ". Once per turn, when you hit a creature with a weapon attack roll, you can attempt to frighten that target. The target must make a Wisdom saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the target is frightened of you until the end of your next turn. On a successful save, the target has disadvantage on the next attack roll it makes before the end of its next turn. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th level, Squire of Solamnia feat",
-	prereqeval: function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia") !== -1; },
+	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia") !== -1; },
 	limfeaname: "Demoralizing Strike (Knight of the Sword)",
 	usages: "Proficiency bonus per ",
 	usagescalc: "event.value = Number(How('Proficiency Bonus'));",
@@ -49484,25 +49484,25 @@ AddSubClass("sorcerer", "lunar sorcery", {
 			spellcastingExtra: [
 				// full moon
 				"shield",
-"lesser restoration",
-"dispel magic",
-"death ward",
-"rary's telepathic bond",
+				"lesser restoration",
+				"dispel magic",
+				"death ward",
+				"rary's telepathic bond",
 				// new moon
 				"ray of sickness",
-"blindness/deafness",
-"vampiric touch",
-"confusion",
-"hold monster",
+				"blindness/deafness",
+				"vampiric touch",
+				"confusion",
+				"hold monster",
 				// crescent moon
 				"color spray",
-"alter self",
-"phantom steed",
-"hallucinatory terrain",
-"mislead",
+				"alter self",
+				"phantom steed",
+				"hallucinatory terrain",
+				"mislead",
 			],
 			spellcastingExtraApplyNonconform: true,
-			description: levels.map(function(n) {
+			description: levels.map(function (n) {
 				var phases = {
 					"\u25CB Full: ": ["Shield", "Lesser Restoration", "Dispel Magic", "Death Ward", "Rary's Telepathic Bond"],
 					"\u25CF New: ": ["Ray of Sickness", "Blindness/deafness", "Vampiric Touch", "Confusion", "Hold Monster"],
@@ -49709,7 +49709,7 @@ MagicItemsList["flying citadel helm"] = {
 	rarity: "very rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This ornate chair allows me to maneuver a flying citadel while concentrating (as if a spell). I can move the citadel through the air 80 ft/round or 8 miles/h, steer it, and see and hear from its highest point as though I was at that location. As an action or bonus action, I can transfer attunement to a willing spellcaster.",
 	descriptionFull: "The function of this ornate chair is to propel and maneuver a flying citadel on which it has been installed. The chair has AC 15, 18 hit points, and immunity to poison and psychic damage. It is destroyed if reduced to 0 hit points." +
 	"\n   The sensation of being attuned to a flying citadel helm is akin to the pins-and-needles effect one experiences after one's arm or leg falls asleep, but not as intense." +
@@ -49786,10 +49786,10 @@ MagicItemsList["constantori's portrait"] = {
 	rarity: "very rare",
 	attunement: true,
 	description: "As an action, I can telepathically contact this sentient painting over any distance while on the same plane. It can't contact me. Maintaining contact requires concentration like on a spell. I can command the painting to guard an area. It can cast Magic Missile 3 times per dawn. See Notes page.",
-	descriptionFull: KftGV_ConstantoriPortrait.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: KftGV_ConstantoriPortrait.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
-		note: desc(KftGV_ConstantoriPortrait).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/\bf(oo|ee)t\b/ig, "ft").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(contact) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(KftGV_ConstantoriPortrait).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/\bf(oo|ee)t\b/ig, "ft").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(contact) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 	action: [["action", " (contact)"]],
 	usages: 3,
@@ -50246,7 +50246,7 @@ FeatsList["ember of the fire giant"] = {
 	name: "Ember of the Fire Giant",
 	source: [["GotG", 17]],
 	prerequisite: "4th level, Strike of the Giants (Fire Strike) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iStrikeGiants = CurrentFeats.known.indexOf("strike of the giants");
 		return v.characterLevel >= 4 && iStrikeGiants !== -1 && CurrentFeats.choices[iStrikeGiants] === "fire strike";
 	},
@@ -50328,7 +50328,7 @@ FeatsList["fury of the frost giant"] = {
 	name: "Fury of the Frost Giant",
 	source: [["GotG", 17]],
 	prerequisite: "4th level, Strike of the Giants (Frost Strike) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iStrikeGiants = CurrentFeats.known.indexOf("strike of the giants");
 		return v.characterLevel >= 4 && iStrikeGiants !== -1 && CurrentFeats.choices[iStrikeGiants] === "frost strike";
 	},
@@ -50411,7 +50411,7 @@ FeatsList["guile of the cloud giant"] = {
 	name: "Guile of the Cloud Giant",
 	source: [["GotG", 18]],
 	prerequisite: "4th level, Strike of the Giants (Cloud Strike) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iStrikeGiants = CurrentFeats.known.indexOf("strike of the giants");
 		return v.characterLevel >= 4 && iStrikeGiants !== -1 && CurrentFeats.choices[iStrikeGiants] === "cloud strike";
 	},
@@ -50444,7 +50444,7 @@ FeatsList["keenness of the stone giant"] = {
 	name: "Keenness of the Stone Giant",
 	source: [["GotG", 18]],
 	prerequisite: "4th level, Strike of the Giants (Stone Strike) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iStrikeGiants = CurrentFeats.known.indexOf("strike of the giants");
 		return v.characterLevel >= 4 && iStrikeGiants !== -1 && CurrentFeats.choices[iStrikeGiants] === "stone strike";
 	},
@@ -50518,7 +50518,7 @@ FeatsList["soul of the storm giant"] = {
 	name: "Soul of the Storm Giant",
 	source: [["GotG", 19]],
 	prerequisite: "4th level, Strike of the Giants (Storm Strike) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iStrikeGiants = CurrentFeats.known.indexOf("strike of the giants");
 		return v.characterLevel >= 4 && iStrikeGiants !== -1 && CurrentFeats.choices[iStrikeGiants] === "storm strike";
 	},
@@ -50554,7 +50554,7 @@ FeatsList["vigor of the hill giant"] = {
 	name: "Vigor of the Hill Giant",
 	source: [["GotG", 19]],
 	prerequisite: "4th level, Strike of the Giants (Hill Strike) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iStrikeGiants = CurrentFeats.known.indexOf("strike of the giants");
 		return v.characterLevel >= 4 && iStrikeGiants !== -1 && CurrentFeats.choices[iStrikeGiants] === "hill strike";
 	},
@@ -50604,8 +50604,8 @@ FeatsList["rune shaper"] = {
 	name: "Rune Shaper",
 	source: [["GotG", 18]],
 	prerequisite: "Spellcasting feature or Rune Carver background",
-	prereqeval: function(v) { return v.isSpellcastingClass || CurrentBackground.known.indexOf("rune carver") !== -1 || /rune shaper/i.test(What("Background Feature")); },
-	descriptionFull: GotG_RuneShaper.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	prereqeval: function (v) { return v.isSpellcastingClass || CurrentBackground.known.indexOf("rune carver") !== -1 || /rune shaper/i.test(What("Background Feature")); },
+	descriptionFull: GotG_RuneShaper.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	description: "I know half my Prof Bonus, rounded down, in runes. After a long rest, I can inscribe each rune on a nonmagical objects I touch. It lasts until my next long rest. I can cast Comprehend Languages and each inscribed rune's spell once per long rest without a spell slot or material components, or by using spell slots. See Notes.",
 	spellcastingAbility: [4, 5, 6],
 	spellFirstColTitle: "PR",
@@ -50622,7 +50622,7 @@ FeatsList["rune shaper"] = {
 		linkTimesToHalfProf: true, // custom attribute, for use in calcChanges.spellList
 		times: 1, // half proficiency bonus, so always minimum of 1
 	}],
-	changeeval: function() {
+	changeeval: function () {
 		if (!CurrentSpells["rune shaper"]) return;
 		// See if the proficiency bonus changed to trigger the changes dialog
 		// Don't set the times attribute here, but instead on every call to the spell dialog
@@ -50634,7 +50634,7 @@ FeatsList["rune shaper"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Change the times attribute to be half proficiency, rounded down
 				// Do it this way, so it is updated even if a bonus to proficiency was manually applied
 				if (spName === "rune shaper" && spType === "feat-bonus" && spList.name === "Comprehend languages") {
@@ -50650,7 +50650,7 @@ FeatsList["rune shaper"] = {
 							}
 						}
 					}
-					
+
 				}
 			},
 			"",
@@ -50658,7 +50658,7 @@ FeatsList["rune shaper"] = {
 	},
 	toNotesPage: [{
 		name: "Features",
-		note: desc(GotG_RuneShaper).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/Your/g, "My").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(contact|granting) you/ig, "$1 me").replace(/you /ig, "I "),
+		note: desc(GotG_RuneShaper).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/Your/g, "My").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(contact|granting) you/ig, "$1 me").replace(/you /ig, "I "),
 	}],
 };
 
@@ -50744,7 +50744,7 @@ MagicItemsList["elven thrower"] = { // spear, but otherwise identical to Dwarven
 	rarity: "very rare",
 	attunement: true,
 	prerequisite: "Requires attunement by an Elf",
-	prereqeval: function(v) { return /elf|eladrin|avariel|grugach|shadar-kai/i.test(CurrentRace.known); },
+	prereqeval: function (v) { return /elf|eladrin|avariel|grugach|shadar-kai/i.test(CurrentRace.known); },
 	descriptionFull: "You gain a +3 bonus to attack and damage rolls made with this magic weapon. When you hit with a ranged attack using this weapon, it deals an extra 1d8 damage or, if the target is a Giant, 2d8 damage. Immediately after the attack, the weapon flies back to your hand.",
 	description: "I gain a +3 bonus to attack and damage rolls made with this magic spear. When I hit with a ranged attack using this weapon, it deals an extra 1d8 damage or, if the target is a Giant, 2d8 damage. Immediately after the attack, the weapon flies back to my hand.",
 	weight: 3,
@@ -50925,13 +50925,13 @@ MagicItemsList["harp of gilded plenty"] = {
 	type: "wondrous item",
 	rarity: "legendary",
 	attunement: true,
-	descriptionFull: GotG_HarpOfGildedPlenty.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: GotG_HarpOfGildedPlenty.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
-		note: desc(GotG_HarpOfGildedPlenty).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/\bf(oo|ee)t\b/ig, "ft").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(suit) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(GotG_HarpOfGildedPlenty).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/\bf(oo|ee)t\b/ig, "ft").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(suit) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 	prerequisite: "To attune to the harp, you must first make either a DC 15 Charisma (Performance) check or a DC 20 Charisma (Persuasion) check to convince the harp that you are worthy. You can retry after the next dawn.",
-	prereqeval: function() { return false; }, // so that everyone reads the prerequisite before adding the item
+	prereqeval: function () { return false; }, // so that everyone reads the prerequisite before adding the item
 	description: "This sentient harp is dramatic and pompous, see notes. I can treat a roll of 9 or lower as a 10 for Charisma checks. I can cast Heroes' Feast by playing it for 10 min, but can't do so again until 1d10+10 days have passed. Five times per dawn, I can use it to cast Calm Emotions (DC 19) with a 1 hour duration.",
 	extraLimitedFeatures: [{
 		name: "Harp of Gilded Plenty: Calm Emotions",
@@ -51116,7 +51116,7 @@ MagicItemsList["orb of skoraeus"] = {
 	rarity: "legendary",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	descriptionFull: "Said to be infused with the wisdom and power of the god Skoraeus, this polished stone orb is veined with iridescent crystal that seems to glow from within. The orb is 8 inches in diameter and weighs 8 pounds, making it a palm-sized trinket for a stone giant but a more unwieldy item for a Medium creature to use." +
 	"\n   While holding this orb, you can use it as a spellcasting focus for your spells. You also gain the following benefits:" +
 	"\n   " + toUni("Abundant Components") + ". The orb has 3 charges and regains all expended charges at dawn. When you cast a spell while holding this orb, you can expend up to 3 charges to ignore the spell's material components with a gold piece cost, up to 300 gp per charge expended." +
@@ -52073,7 +52073,7 @@ FeatsList["agent of order"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase one ability score of your choice by 1, to a maximum of 20." +
 	"\n   " + toUni("Stasis Strike") + ". Once per turn, when you damage a creature you can see within 60 feet of yourself, you can deal an extra 1d8 force damage to the target, and it must make a Wisdom saving throw (DC equal to 8 + your proficiency bonus + the modifier of the spellcasting ability you chose for the Scion of the Outer Planes feat) as spectral bindings try to ensnare it. On a successful save, the target escapes. On a failed save, the target has the restrained condition until the start of your next turn. These bindings manifest as chains or some other symbol of stasis. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th-level, Scion of the Outer Planes (Lawful Outer Plane) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "lawful outer plane (force, guidance)";
 	},
@@ -52090,7 +52090,7 @@ FeatsList["baleful scion"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase one ability score of your choice by 1, to a maximum of 20." +
 	"\n   " + toUni("Life-Draining Grasp") + ". Once per turn, when you damage a creature you can see within 60 feet of yourself, you can also deal necrotic damage to it. The necrotic damage equals 1d6 + your proficiency bonus, and you regain a number of hit points equal to this necrotic damage dealt. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th-level, Scion of the Outer Planes (Evil Outer Plane) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "evil outer plane (necrotic, chill touch)";
 	},
@@ -52113,7 +52113,7 @@ FeatsList["cohort of chaos"] = {
 	"\n  4\tWailing Winds: Winds swirl in a 15-foot-radius sphere centered on you. You and any other creatures in that area have disadvantage on Wisdom saving throws." +
 	"\n\n   You can also forcibly release a chaotic flare as a bonus action, rolling on the table as normal to determine the effects. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th-level, Scion of the Outer Planes (Chaotic Outer Plane) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "chaotic outer plane (poison, minor illusion)";
 	},
@@ -52144,7 +52144,7 @@ FeatsList["outlands envoy"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase one ability score of your choice by 1, to a maximum of 20." +
 	"\n   " + toUni("Crossroads Emissary") + ". You learn the misty step and tongues spells. You can cast each spell once using this feat without a spell slot, and you must finish a long rest before you can cast that spell in this way again. When you cast tongues using this feat, you require no material components. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the one chosen when you gained the Scion of the Outer Planes feat.",
 	prerequisite: "4th-level, Scion of the Outer Planes (the Outlands) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "the outlands (psychic, mage hand)";
 	},
@@ -52174,7 +52174,7 @@ FeatsList["planar wanderer"] = {
 	"\n   " + toUni("Portal Cracker") + ". Your experience with portals allows you to open them without a portal key. As an action, you can concentrate on a portal you're aware of that is within 5 feet of yourself and make a DC 20 Intelligence (Arcana) check. On a failed check, you take 3d8 psychic damage and can't use this benefit on that portal again until you finish a long rest. On a successful check, you can force the portal open or closed for 1 hour. For that duration, the portal doesn't respond to its portal key unless a creature employing the key succeeds on a DC 20 Intelligence (Arcana) check as an action." +
 	"\n   " + toUni("Portal Sense") + ". You know the direction to the last planar portal you used while you and the portal are on the same plane of existence. Moreover, as an action, you can detect the location of any portals within 30 feet of you that aren't behind total cover. Once you detect a portal with this action, you can't use the action again until you finish a long rest.",
 	prerequisite: "4th-level, Scion of the Outer Planes feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return v.characterLevel >= 4 && CurrentFeats.known.indexOf("scion of the outer planes") !== -1;
 	},
 	dmgres: ["Acid/Cold/Fire"],
@@ -52209,7 +52209,7 @@ FeatsList["righteous heritor"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase one ability score of your choice by 1, to a maximum of 20." +
 	"\n   " + toUni("Soothe Pain") + ". When you or a creature within 30 feet of you takes damage, you can use your reaction to reduce that damage by 1d10 + your proficiency bonus. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th-level, Scion of the Outer Planes (Good Outer Plane) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "good outer plane (radiant, sacred flame)";
 	},
@@ -52323,7 +52323,7 @@ SourceList["CoA"] = {
 };
 
 CoA_Corruption = {
-	process: function(bAddRemove, sItem) {
+	process: function (bAddRemove, sItem) {
 		// Make a variable to remember the settings for this
 		if (!CurrentVars.CoA_Corruption) {
 			CurrentVars.CoA_Corruption = {
@@ -52341,7 +52341,7 @@ CoA_Corruption = {
 				// Still items present, so don't change anything
 				return;
 			} else {
-				// Removing note in final step if present 
+				// Removing note in final step if present
 				bProcessIt = CurrentVars.CoA_Corruption.present ? true : false;
 				// Make pop-up appear at next corrupting item addition
 				CurrentVars.CoA_Corruption.savedAlert = false;
@@ -52462,8 +52462,8 @@ MagicItemsList["bracers of asmodeus"] = {
 	descriptionFull: "You have a +2 bonus to AC while wearing these bracers, if you do not wear armor or use a shield at the same time." +
 	"\n   " + toUni("Curse") + ". While attuned to the bracers, you become obsessed with plotting, scheming, and manipulation. You always barter for better deals, often using secrets or leveraging other offers in the process. If you ever decline an opportunity to better yourself financially at another's expense, you immediately take 3d10 necrotic damage. Only the Remove Curse spell allows you to end attunement to this item." +
 	CoA_Corruption.description,
-	eval: function() { CoA_Corruption.process(true,  "bracers of asmodeus") },
-	removeeval: function() { CoA_Corruption.process(false, "bracers of asmodeus") },
+	eval: function () { CoA_Corruption.process(true,  "bracers of asmodeus") },
+	removeeval: function () { CoA_Corruption.process(false, "bracers of asmodeus") },
 	extraAC: [{
 		mod: 2,
 		magic: true,
@@ -52483,8 +52483,8 @@ MagicItemsList["canian fork"] = {
 	"\n   " + toUni("Curse") + ". You're unwilling to part with this weapon while attuned to it. You're also vulnerable to radiant damage and each time you receive magical healing, you must make a DC 15 Constitution saving throw." +
 	"\n   On a failed save, the healing has no effect. Only the Remove Curse spell allows you to end attunement to this item." +
 	CoA_Corruption.description,
-	eval: function() { CoA_Corruption.process(true,  "canian fork") },
-	removeeval: function() { CoA_Corruption.process(false, "canian fork") },
+	eval: function () { CoA_Corruption.process(true,  "canian fork") },
+	removeeval: function () { CoA_Corruption.process(false, "canian fork") },
 	weight: 4,
 	savetxt: { text: ["Vulnerable to radiant damage"] },
 	action: [["bonus action", " attack"]],
@@ -52521,8 +52521,8 @@ MagicItemsList["demonbone polearm"] = {
 	"\n   Whenever a hostile creature damages you, you must succeed on a DC 15 Wisdom saving throw or go berserk. While berserk, you must use your action on each of your turns to attack the creature nearest to you with the weapon. If you can make extra attacks as part of the Attack action, you use those extra attacks, moving to attack the next nearest creature after you fell your current target. If you have multiple possible targets, you attack one at random." +
 	"\n   You're berserk until you start your turn with no creatures within 60 feet of you that you can see or hear. Alternatively, an ally can use an action to make a DC 15 Charisma (Persuasion) check and if successful, you're no longer berserk. Only the Remove Curse spell allows you to end attunement to this item." +
 	CoA_Corruption.description,
-	eval: function() { CoA_Corruption.process(true,  "demonbone polearm") },
-	removeeval: function() { CoA_Corruption.process(false, "demonbone polearm") },
+	eval: function () { CoA_Corruption.process(true,  "demonbone polearm") },
+	removeeval: function () { CoA_Corruption.process(false, "demonbone polearm") },
 	chooseGear: {
 		type: "weapon",
 		prefixOrSuffix: "suffix",
@@ -52552,7 +52552,7 @@ MagicItemsList["gauntlets of rage"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a bard, sorcerer, warlock, or wizard",
-	prereqeval: function(v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
 	description: "The first melee weapon attack I make after a short rest sends me into a fury for 1 minute. I can't cast spells or speak, am immune to charmed and frightened, and when I deal damage, I heal 2d8 hp and end this fury or one condition. Also, I can use a spell slot before a melee attack for +1d6 necrotic damage per spell level.",
 	descriptionLong: "I gain the power of never-ending fury. The first melee weapon attack I make after I finish a short or long rest automatically send me into a special fury for 1 minute. While furious, I can't cast spells, can't verbally communicate, and am immune to the charmed and frightened conditions. Each time I deal damage, I regain 2d8 hit points and may immediately remove a condition I currently suffer from or end this fury. Also, while in this fury, I may spend a spell slot before I make a melee attack. Doing so causes the attack to deal an extra 1d6 necrotic damage per level of spell slot expended, if it hits.",
 	descriptionFull: "You gain the power of never-ending fury. After you make a melee weapon attack, you automatically enter a special fury for 1 minute. While furious, you can't cast spells, can't verbally communicate, and are immune to the charmed and frightened conditions. Each time you deal damage, you regain 2d8 hit points and may immediately remove a condition you currently suffer from or end this fury. Additionally, while in this fury, you may spend a spell slot before you make a melee attack. Doing so causes the attack to deal an extra 3 (1d6) necrotic damage per level of spell slot expended, if the attack hits. Once used you may not use this fury again until you finish a short or long rest.",
@@ -52571,8 +52571,8 @@ MagicItemsList["infernal amulet"] = {
 	descriptionFull: "While wearing this amulet, you can use it as a spellcasting focus for your spells, and it grants a +2 bonus to your spell save DC and spell attack bonus." +
 	"\n   " + toUni("Curse") + ". You're unwilling to part with this amulet while attuned to it and you wear it always. While wearing the amulet you have disadvantage on Strength saving throws and Strength checks. Only the Remove Curse spell allows you to remove the item and end attunement." +
 	CoA_Corruption.description,
-	eval: function() { CoA_Corruption.process(true,  "infernal amulet") },
-	removeeval: function() { CoA_Corruption.process(false, "infernal amulet") },
+	eval: function () { CoA_Corruption.process(true,  "infernal amulet") },
+	removeeval: function () { CoA_Corruption.process(false, "infernal amulet") },
 	calcChanges: {
 		spellCalc: [
 			function (type, spellcasters, ability) {
@@ -52595,8 +52595,8 @@ MagicItemsList["infernal plate armor"] = {
 	descriptionFull: "While wearing this armor, you gain a +2 bonus to AC." +
 	"\n   " + toUni("Curse") + ". Once you wear this armor, and are attuned to it, you can't remove it. Only the Remove Curse spell allows you to end the attunement and finally doff it. While wearing the armor, you're vulnerable to the following damage types: force, lightning, psychic, radiant, and thunder." +
 	CoA_Corruption.description,
-	eval: function() { CoA_Corruption.process(true,  "infernal plate armor") },
-	removeeval: function() { CoA_Corruption.process(false, "infernal plate armor") },
+	eval: function () { CoA_Corruption.process(true,  "infernal plate armor") },
+	removeeval: function () { CoA_Corruption.process(false, "infernal plate armor") },
 	weight: 65,
 	armorOptions: [{
 		regExpSearch: /^(?=.*infernal)(?=.*plate).*$/i,
@@ -52733,8 +52733,8 @@ MagicItemsList["stygian spear"] = {
 	"\n   Whenever you roll a 1 on an attack roll using this weapon, your target changes to your closest ally." +
 	"\n   If there are multiple allies, randomly determine which is the target. Make a new attack roll with advantage against your ally. If the attack hits, in addition to the standard damage you deal an extra 2d6 poison damage. Only the Remove Curse spell allows you to end attunement to this item." +
 	CoA_Corruption.description,
-	eval: function() { CoA_Corruption.process(true,  "stygian spear") },
-	removeeval: function() { CoA_Corruption.process(false, "stygian spear") },
+	eval: function () { CoA_Corruption.process(true,  "stygian spear") },
+	removeeval: function () { CoA_Corruption.process(false, "stygian spear") },
 	choices: ["Javelin", "Spear"],
 	"javelin": {
 		name: "Stygian Javelin",
@@ -52781,8 +52781,8 @@ MagicItemsList["sword of retribution"] = {
 	"\n   " + toUni("Curse") + ". You're unwilling to part with this weapon while attuned to it. While attuned to this weapon, you also have disadvantage on attack rolls made with weapons other than this one." +
 	"\n   The vengeful spirit possessing the sword shares its history and lust for vengeance with the wielder. After each successful long rest, you experience nightmares of the spirit's past, culminating in its death. When you wake, you must make a DC 11 Constitution saving throw. On a failed save, you only gain the benefits of a short rest. Only the Remove Curse spell allows you to end attunement to this item." +
 	CoA_Corruption.description,
-	eval: function() { CoA_Corruption.process(true,  "sword of retribution") },
-	removeeval: function() { CoA_Corruption.process(false, "sword of retribution") },
+	eval: function () { CoA_Corruption.process(true,  "sword of retribution") },
+	removeeval: function () { CoA_Corruption.process(false, "sword of retribution") },
 	chooseGear: {
 		type: "weapon",
 		prefixOrSuffix: "prefix",
@@ -52999,7 +52999,7 @@ FeatsList["cartomancer"] = {
 	"\n   " + toUni("Card Tricks") + ". You learn the Prestidigitation cantrip and can use it to create illusions that duplicate the effects of stage magic. When you use Prestidigitation in this way, you can conceal the verbal and somatic components of the spell as ordinary conversation and card handling." +
 	"\n   " + toUni("Hidden Ace") + ". When you finish a long rest, you can choose one spell from your class's spell list and imbue that spell into a card. The chosen spell must have a casting time of 1 action, and it must be a level for which you have spell slots. The card remains imbued with this spell for 8 hours. While the card is imbued with the spell, you can use a bonus action to flourish the card and cast the spell within. The card then immediately loses its magic.",
 	prerequisite: "4th-level, Spellcasting feature",
-	prereqeval: function(v) { return v.characterLevel >= 4 && v.isSpellcastingClass; },
+	prereqeval: function (v) { return v.characterLevel >= 4 && v.isSpellcastingClass; },
 	spellcastingBonus: [{
 		name: "Cartomancer",
 		spells: ["prestidigitation"],
@@ -53030,7 +53030,7 @@ var BoMT = {
 	toDescrFull: function (sDescr) {
 		if (typeof sDescr !== "string") sDescr = sDescr.join("\n   ");
 		return sDescr.replace(/\[\[.*?\]\]/g, "$1")
-			.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); });
+			.replace(/>>(.*?)<</g, function (a, match) { return toUni(match); });
 	},
 	to1stPerson: function (sDescr, joinStr) {
 		if (typeof sDescr === "string") sDescr = [sDescr];
@@ -53045,7 +53045,7 @@ var BoMT = {
 			.replace(/yours\b/g, "mine").replace(/Yours/g, "Mine")
 			.replace(/your/g, "my").replace(/Your/g, "My")
 			.replace(/\[\[.*?\]\]/g, "")
-			.replace(/(\n *|\u2022 |\u25C6 )>>(.*?)( \(.*?\))?<<\. /g, function(a, p1, p2, p3, p4) {
+			.replace(/(\n *|\u2022 |\u25C6 )>>(.*?)( \(.*?\))?<<\. /g, function (a, p1, p2, p3, p4) {
 				if (/\n   /.test(p1)) {
 					return "\n\n   " + p2.toUpperCase() + p3.toLowerCase() + "\n   ";
 				} else {
@@ -54194,7 +54194,7 @@ MagicItemsList["gloomwrought armor"] = {
 	"\n   This armor has 3 charges. You can expend a charge to cast the Calm Emotions spell (save DC 15) from the armor. This armor regains 1d3 expended charges daily at dawn.",
 	chooseGear: {
 		type: "armor",
-		prefixOrSuffix: ["between", "Gloomwrought", "Armor"], 
+		prefixOrSuffix: ["between", "Gloomwrought", "Armor"],
 		descriptionChange: ["prefix", "armor"],
 		itemName1stPage: ["suffix", "Gloomwrought"],
 	},
@@ -54321,7 +54321,7 @@ MagicItemsList["plate of knight's fellowship"] = {
 	creatureOptions: [{
 		name: "Knight",
 		source: [["SRD", 400], ["M", 347]],
-		eval: function(prefix) {
+		eval: function (prefix) {
 			Value(prefix + "Comp.Desc.Name", "Warrior Spirit");
 		},
 		size: 3,
@@ -54389,7 +54389,7 @@ MagicItemsList["rod of hellish flames"] = {
 	rarity: "very rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "I can use this black iron rod as an arcane focus and it grants me resistance to fire and necrotic damage. Once per dawn I can use it to cast Hellish Rebuke as a 4th-level spell (save DC 16). When I cast a spell that deals fire or necrotic damage, I can once per dawn use it to maximize the damage instead of rolling.",
 	descriptionFull: "Glowing cinders orbit the flanged head of this black iron rod." +
 	"\n   This rod can be used as an arcane focus. While holding this rod, you gain the following benefits:" +
@@ -54472,7 +54472,7 @@ MagicItemsList["sage's signet"] = {
 	type: "ring",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This gilded ring with a beautiful engraving is imbued with powers of keen wisdom and foresight. While wearing this ring, I can cast Augury and two more spells depending on the signet each once per dawn using my Intelligence as the spellcasting ability. Casting Augury using this ring only takes one action.",
 	descriptionFull: "This gilded ring bears a beautiful engraving and is imbued with powers of keen wisdom and foresight. While wearing this ring, you can use an action to cast the Augury spell from the ring. Once you use the ring to cast the spell, the ring can't cast the spell again until the next dawn." +
 	"\n   Six varieties of Sage's Signet rings exist, each with a different signet (see the table below). A ring's signet determines its rarity as well as the additional spells it can cast. While wearing a Sage's Signet, you can cast each of its additional spells once from the ring using your Intelligence as the spellcasting ability. Once you cast each of the additional spells from the ring, it can't cast the spell again until the next dawn." +
@@ -55198,7 +55198,7 @@ QftIS.replaceEnergyCell = "\n   " + QftIS.replaceEnergyCellPlain.replace(">>Repl
 MagicItemsList["antigravity belt"] = {
 	name: "Antigravity Belt",
 	source: [["QftIS", 192]],
-	type: "futuristic item", // not really magic items, so these use their own category 
+	type: "futuristic item", // not really magic items, so these use their own category
 	rarity: "priceless", // as per QftIS page 192
 	defaultExcluded: true,
 	description: "This belt has 10 charges per energy cell, which can be replaced as a (bonus) action if empty. As a bonus action, I can use charges to activate it for 1 min per charge, causing me to float in place. As a bonus action and when activating it, I can move 20 ft vertically. I can push off to move horizontally at half my speed.",
@@ -55274,7 +55274,7 @@ if (MagicItemsList["grenade"]) {
 		descriptionFull: "As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away." +
 		"\n   A concussion grenade explodes in a concussive blast that fills a 20-foot-radius sphere. Each creature in that area must make a DC 15 Dexterity saving throw, taking 6d6 force damage on a failed save or half as much damage on a successful one.",
 		weaponsAdd: { select: ["Concussion Grenade"] },
-		eval: function() { // make sure the weapon and ammo are not excluded
+		eval: function () { // make sure the weapon and ammo are not excluded
 			if (CurrentSources.weapExcl.eject("grenade, concussion") !== -1) SetWeaponsdropdown();
 			if (CurrentSources.ammoExcl.eject("grenade") !== -1) SetAmmosdropdown();
 		},
@@ -55424,7 +55424,7 @@ MagicItemsList["heretic"] = {
 	descriptionFull: QftIS.toDescrFull(QftIS.heretic),
 	attunement: true,
 	prerequisite: "Requires attunement by a non-good creature",
-	prereqeval: function(v) { return !/good/i.test(What("Alignment")); },
+	prereqeval: function (v) { return !/good/i.test(What("Alignment")); },
 	weight: 3,
 	weaponOptions: [{
 		baseWeapon: "longsword",

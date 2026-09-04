@@ -62,7 +62,7 @@ function combine(minified, beta) {
 	const maxVersion = beta ? betaMaxVers : stableMaxVers;
 	const tooOldCheck = getTooOldCheck(requiredVersion, maxVersion);
 	const tooNewCheck = getTooNewCheck(requiredVersion, maxVersion);
-	const replaceStartRx = minified ? 
+	const replaceStartRx = minified ?
 		/if ?\(sheetVersion ?< ?\d+\.?\d*e?\d*\)[ {]*?throw[\s\S]*?(var)|()RequiredSheetVersion\(.*?\)[,;]|()iFileName ?= ?['"].*?['"][,;]/g
 		:
 		/if ?\(sheetVersion ?< ?\d+\.?\d*e?\d*\)[ {]*?throw[\s\S]*?RequiredSheetVersion\(.*?\)[,;][\r\n]*/;
@@ -73,7 +73,7 @@ function combine(minified, beta) {
 		`var iFileName = "${fileName}";`,
 		`RequiredSheetVersion(${requiredVersion}${maxVersion ? ", " + maxVersion : ""});`,
 		"",
-"",
+		"",
 	]);
 	return src([`${path}published${ext}`, `${path}unearthed_arcana${ext}`])
 		.pipe(replace(replaceStartRx, replaceStartWith))
@@ -143,7 +143,7 @@ if ( hasBetaFolder ) {
 	);
 
 	exports.minifyBeta   = minifyBeta;
-	
+
 	minify = parallel(
 		minifyStable,
 		minifyBeta

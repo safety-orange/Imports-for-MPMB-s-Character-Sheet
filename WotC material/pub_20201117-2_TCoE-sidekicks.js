@@ -26,7 +26,7 @@ if (!SourceList.T) {
 // Define some functions here, so we an use them for all sidekick classes without duplication
 global_TCoE_Sidekick_fn = {
 	// prereqeval runs before any of the other class stuff is added, so we can even modify the ClassList object with it to set the HD
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var sClass = v["class"];
 		var sSubclass = v.subclass;
 		var sClassOld = CurrentVars.sidekickDialogShown === undefined ? false : CurrentVars.sidekickDialogShown[0];
@@ -54,7 +54,7 @@ global_TCoE_Sidekick_fn = {
 				"\n   \u2022 Proficiencies for: skills, saving throws, weapons, armor, languages, and tools" +
 				"\n   \u2022 Attacks (tip: use Modifier fields for attacks that aren't weapons/cantrips)" +
 				"\n   \u2022 Hit dice (you will be prompted to enter)",
-				sClass.indexOf("warrior") !== -1 ? false : "To gain either the Expert of Spellcaster sidekick class, a creature must have at least one language in its stat block that it can speak.",
+			sClass.indexOf("warrior") !== -1 ? false : "To gain either the Expert of Spellcaster sidekick class, a creature must have at least one language in its stat block that it can speak.",
 			"If you continue, the race and background automation will be turned off and the respective fields emptied. You can use these fields to enter the name and type of the base creature." +
 				"\nFor example. when using the bandit stat block, you could enter:" +
 				"\n   \u2022 Race: Elf" +
@@ -84,7 +84,7 @@ global_TCoE_Sidekick_fn = {
 			"Enter the number and type of hit dice that the chosen base creature has in its stat block (i.e. without bonuses from sidekick levels).\nThe sidekick will gain 1 extra HD for each level it gains after the first.", // top explanation
 			['Number of hit dice, for example "2"', 'Size of the hit dice, for example "d8"'],
 			false,
-true,
+			true,
 			"Be aware that you *can't* change the *size* of the hit die (e.g. d8) at a later time. To do that, you will have to first remove the sidekick class completely.\n\nHowever, you *can* change the *number* of hit dice manually by editing the appropriate field." // bottom explanation
 		).map(function (n, idx) {
 			var a = n.replace(/.*?(\d+).*/, "$1");
@@ -95,7 +95,7 @@ true,
 		SetStringifieds("vars");
 	},
 	// Change the race and background to manual or auto
-	manualRaceBackground: function(bAuto) {
+	manualRaceBackground: function (bAuto) {
 		if (bAuto && (CurrentVars.manual.background || CurrentVars.manual.race)) {
 			// set to automatic
 			if (CurrentVars.manual.background) {
@@ -130,13 +130,13 @@ true,
 		}
 	},
 	// When removing a sidekick class, return some stuff to normal
-	removeeval: function(lvl) {
+	removeeval: function (lvl) {
 		// This could be called after the dialog was shown for another sidekick, so check if there is actually something to do
 		var sClass = CurrentVars.sidekickDialogShown ? CurrentVars.sidekickDialogShown[0] : false;
 		var sSubclass = CurrentVars.sidekickDialogShown ? CurrentVars.sidekickDialogShown[1] : false;
 		if (!sClass || !classes.known[sClass] || classes.known[sClass].level ||
 			(classes.old[sClass] && classes.old[sClass].subclass && classes.old[sClass].subclass !== sSubclass)
-			) return;
+		) return;
 		// Remove the extra sidekickHD and delete it from the CurrentVars
 		global_TCoE_Sidekick_fn.eval(lvl, false, false, true);
 		delete CurrentVars.sidekickHD;
@@ -146,7 +146,7 @@ true,
 		global_TCoE_Sidekick_fn.manualRaceBackground(true);
 	},
 	// After the HD has been set, we still need to enter the bonus HD, if any (this can't be done with the prereqeval)
-	eval: function(lvl, chc, undef, bRemove) {
+	eval: function (lvl, chc, undef, bRemove) {
 		var hd = CurrentVars.sidekickHD;
 		var extraHD = hd[0] - 1;
 		if (isNaN(extraHD) || extraHD < 1) return;
@@ -285,7 +285,7 @@ ClassList["sidekick-expert-tcoe"] = {
 			description: desc("I can use a bonus action to take the Dash, Disengage, or Hide action"),
 			action: [["bonus action", ""]],
 		},
-		"expertise": function() {
+		"expertise": function () {
 			var a = {
 				name: "Expertise",
 				source: [["T", 143]],
@@ -306,7 +306,7 @@ ClassList["sidekick-expert-tcoe"] = {
 					description: "",
 					source: a.source,
 					skills: [[a.extrachoices[i], "only"]],
-					prereqeval: function(v) {
+					prereqeval: function (v) {
 						return v.skillProfsLC.indexOf(v.choice) === -1 ? false : v.skillExpertiseLC.indexOf(v.choice) === -1 ? true : "markButDisable";
 					},
 				}
@@ -373,19 +373,19 @@ ClassList["sidekick-expert-tcoe"] = {
 				name: "Sharp Mind: Intelligence",
 				description: desc("I gain proficiency in Intelligence saving throws"),
 				saves: ["Int"],
-				prereqeval: function(v) { return tDoc.getField("Int ST Prof").isBoxChecked(0) ? false : true; },
+				prereqeval: function (v) { return tDoc.getField("Int ST Prof").isBoxChecked(0) ? false : true; },
 			},
 			"wisdom": {
 				name: "Sharp Mind: Wisdom",
 				description: desc("I gain proficiency in Wisdom saving throws"),
 				saves: ["Wis"],
-				prereqeval: function(v) { return tDoc.getField("Wis ST Prof").isBoxChecked(0) ? false : true; },
+				prereqeval: function (v) { return tDoc.getField("Wis ST Prof").isBoxChecked(0) ? false : true; },
 			},
 			"charisma": {
 				name: "Sharp Mind: Charisma",
 				description: desc("I gain proficiency in Charisma saving throws"),
 				saves: ["Cha"],
-				prereqeval: function(v) { return tDoc.getField("Cha ST Prof").isBoxChecked(0) ? false : true; },
+				prereqeval: function (v) { return tDoc.getField("Cha ST Prof").isBoxChecked(0) ? false : true; },
 			},
 		},
 	},

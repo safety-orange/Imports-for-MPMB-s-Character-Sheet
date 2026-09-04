@@ -41,7 +41,7 @@ AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Expanded Spell Lis
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "bard" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["cause fear", "color spray", "command", "aid", "enlarge/reduce", "mind spike", "mirror image", "phantasmal force", "mass healing word", "slow", "tiny servant", "phantasmal killer", "contact other plane", "rary's telepathic bond", "heroes' feast", "mental prison", "scatter", "tenser's transformation", "power word pain", "prismatic spray", "antipathy/sympathy", "maze", "prismatic wall"]);
@@ -80,7 +80,7 @@ AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Expanded Spell L
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "cleric" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["cause fear", "wrathful smite", "branding smite", "aura of vitality", "aura of life", "aura of purity", "skill empowerment", "wall of light", "power word heal"]);
@@ -96,7 +96,7 @@ AddFeatureChoice(ClassList.cleric.features["channel divinity"], true, "Harness D
 	action: [["bonus action", ""]],
 }, "Optional 2nd-level cleric features");
 // Cleric subclass alternative feature, so only run this after we are sure all subclasses have been added
-RunFunctionAtEnd(function() {
+RunFunctionAtEnd(function () {
 	for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
 		var domain = ClassList.cleric.subclasses[1][i];
 		var objDomain = ClassSubList[domain];
@@ -136,7 +136,7 @@ AddFeatureChoice(ClassList.druid.features.spellcasting, true, "Expanded Spell Li
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "druid" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["ceremony", "protection from evil and good", "augury", "continual flame", "enlarge/reduce", "aura of vitality", "elemental weapon", "revivify", "thunder step", "wall of sand", "divination", "fire shield", "cone of cold", "dawn", "immolation", "flesh to stone", "symbol", "incendiary cloud", "mass polymorph", "power word heal"]);
@@ -477,7 +477,7 @@ AddFeatureChoice(ClassList.paladin.features.spellcasting, true, "Expanded Spell 
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "paladin" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["gentle repose", "prayer of healing", "warding bond", "life transference", "spirit guardians", "dawn", "flame strike"]);
@@ -562,7 +562,7 @@ var UACFV_Favored_Foe = {
 	recovery: "long rest",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				if ((spName === "ranger" || spName === "rangerua") && spType.indexOf("bonus") === -1) {
 					if (!spList.notspells) spList.notspells = [];
 					spList.notspells = spList.notspells.concat(["hunter's mark"]);
@@ -605,7 +605,7 @@ var UACFV_Ranger_Expanded_Spell_List = {
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if ((spName !== "ranger" && spName !== "rangerua") || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["entangle", "searing smite", "aid", "enhance ability", "gust of wind", "magic weapon", "warding bond", "blinding smite", "meld into stone", "revivify", "tongues", "death ward", "dominate beast", "awaken", "greater restoration"]);
@@ -641,7 +641,7 @@ var UACFV_Primal_Awareness = {
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Remove the bonus spells from the normally selectable list
 				if ((spName === "ranger" || spName === "rangerua") && spType.indexOf("bonus") === -1) {
 					if (!spList.notspells) spList.notspells = [];
@@ -809,7 +809,7 @@ if (ClassList["rangerua"]) {
 
 	// Add Favored Foe as an alternative choice (can't be done by automation because of choices) and add "Favored Foe" variant option
 	// Move some attributes from the main object to the favored enemy choice objects
-	["additional", "languageProfs", "calcChanges"].forEach( function(attr) {
+	["additional", "languageProfs", "calcChanges"].forEach( function (attr) {
 		var fea = ClassList.rangerua.features["favored enemy"];
 		if (!fea[attr]) return;
 		// Move the attribute to each of the choices
@@ -856,7 +856,7 @@ AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Expanded Spell
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "sorcerer" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["primal savagery", "grease", "protection from evil and good", "flame blade", "flaming sphere", "vampiric touch", "fire shield", "flesh to stone", "demiplane", "foresight"]);
@@ -935,7 +935,7 @@ AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Expanded Spell
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "warlock" || (spType.indexOf("bonus") !== -1 && (!spList["class"] || spList["class"] !== "warlock"))) return;
 				spList.extraspells = spList.extraspells.concat(["thunderwave", "knock", "animate dead", "life transference", "greater invisibility", "phantasmal killer", "mislead", "modify memory", "planar binding", "teleportation circle", "create homunculus", "magic jar", "project image", "abi-dalzim's horrid wilting", "gate", "shapechange", "weird"]);
@@ -953,7 +953,7 @@ AddWarlockInvocation("Bond of the Talisman (prereq: level 12 warlock, Pact of th
 		"As an action, I can teleport to the unoccupied space closest to the wearer of my talisman",
 		"The talisman's wearer can do the same to teleport to me; Only works if both on same plane",
 	]),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.warlock.level >= 12 && GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	action: [["action", ""]],
@@ -963,7 +963,7 @@ AddWarlockInvocation("Chain Master's Fury (prereq: level 9 warlock, Pact of the 
 	source: [["UA:CFV", 11]],
 	submenu: "[improves Pact of the Chain]",
 	description: desc("As a bonus action, I can command my familiar to make one attack"),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the chain";
 	},
 	action: [["bonus action", ""]],
@@ -976,7 +976,7 @@ AddWarlockInvocation("Eldritch Armor (prereq: Pact of the Blade)", {
 		"As an action, I can touch an unattended suit of armor and instantly don it",
 		"I am proficient with this suit of armor until it is removed",
 	]),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade";
 	},
 	action: [["action", ""]],
@@ -986,7 +986,7 @@ AddWarlockInvocation("Eldritch Mind (prereq: Pact of the Tome)", {
 	source: [["UA:CFV", 11]],
 	submenu: "[improves Pact of the Tome]",
 	description: desc("I have advantage on my Constitution saving throws to maintain concentration on a spell"),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
 	},
 	savetxt: { text: "Adv. on Con (Concentration) saves" },
@@ -1002,7 +1002,7 @@ AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome) (ua
 		"Instead of saying the message, I write it on the page and any reply appears there as well",
 		"This writing disappears after 1 minute; The target still hears the message in their mind",
 	]),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
 	},
 	action: [["action", " (erase name)"]],
@@ -1031,7 +1031,7 @@ AddWarlockInvocation("Gift of the Protectors (prereq: level 9 warlock, Pact of t
 		"If a creature whose name is on the page drops to 0 HP, it magically drops to 1 HP instead",
 		"This doesn't work if the creature would be killed outright",
 	]),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
 	},
 	action: [["action", " (erase name)"]],
@@ -1049,11 +1049,11 @@ AddWarlockInvocation("Investment of the Chain Master (prereq: Pact of the Chain)
 		"\u2022 Its weapon attacks are considered magical for overcoming immunities and resistances",
 		"\u2022 If it forces a creature to make a saving throw, it uses my spell save DC",
 	]),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the chain";
 	},
 	calcChanges: {
-		companionCallback: [function(prefix, oCrea, bAdd, sCompType) {
+		companionCallback: [function (prefix, oCrea, bAdd, sCompType) {
 			if (sCompType !== "pact_of_the_chain") return;
 			var strFea = "##\u25C6 Investment of the Chain Master (UA:CFV 11)##.: The familiar gains 40 ft fly or swim speed (my choice), doesn't need to breathe, its attacks are considered magical, and it can use my spell save DC instead of its own DC's (if any).";
 			var strSpd = "fly or swim 40 ft";
@@ -1083,7 +1083,7 @@ AddWarlockInvocation("Protection of the Talisman (prereq: level 9 warlock, Pact 
 	source: [["UA:CFV", 12]],
 	submenu: "[improves Pact of the Talisman]",
 	description: desc("The wearer of my talisman adds 1d4 to saving throw rolls in which they lack proficiency"),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	savetxt: { text: ["+1d4 to nonproficient saves"] },
@@ -1097,7 +1097,7 @@ AddWarlockInvocation("Rebuke of the Talisman (prereq: Pact of the Talisman) (ua)
 		"To be able to do this, I have to see the attacker and it has to be within 30 ft of me",
 		"I deal it my Cha mod in psychic damage (min 1) and push it 10 ft away from the talisman",
 	]),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	action: [["reaction", ""]],
@@ -1128,7 +1128,7 @@ AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Expanded Spell L
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "wizard" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["augury", "enhance ability", "speak with dead", "divination"]);

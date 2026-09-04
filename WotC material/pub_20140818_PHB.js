@@ -224,10 +224,10 @@ AddSubClass("barbarian", "totem warrior", {
 				name: "Bear Spirit",
 				description: desc("While raging, I have resistance to all damage types except psychic"),
 				dmgres: [["All -Psychic", "All -Psychic (rage)"]],
-				eval: function() {
+				eval: function () {
 					processResistance(false, "Barbarian: Rage", ClassList.barbarian.features.rage.dmgres);
 				},
-				removeeval: function() {
+				removeeval: function () {
 					processResistance(true, "Barbarian: Rage", ClassList.barbarian.features.rage.dmgres);
 				},
 			},
@@ -778,7 +778,7 @@ AddSubClass("druid", "circle of the moon", {
 				return "CR " + cr + limits + "; " + hr + (limits.length ? " h" : " hours");
 			}),
 			action: [["bonus action", " (start/stop)"]],
-			eval: function() {
+			eval: function () {
 				processActions(false, "Druid: Wild Shape", ClassList.druid.features["subclassfeature2.wild shape"].action, "Wild Shape");
 			},
 			wildshapePageInfo: {
@@ -800,7 +800,7 @@ AddSubClass("druid", "circle of the moon", {
 				"I regain 1d8 HP per expended spell slot level; I can use Wild Shape as a bonus action",
 			]),
 			action: [["bonus action", " (heal)"]],
-			removeeval: function() {
+			removeeval: function () {
 				processActions(true, "Druid: Wild Shape", ClassList.druid.features["subclassfeature2.wild shape"].action, "Wild Shape");
 			},
 		},
@@ -1146,7 +1146,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 6,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function(v) { return classes.known.monk.level >= 17; },
+				prereqeval: function (v) { return classes.known.monk.level >= 17; },
 				spellChanges: {
 					"cone of cold": {
 						components: "V,S",
@@ -1168,7 +1168,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 3,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function(v) { return classes.known.monk.level >= 6; },
+				prereqeval: function (v) { return classes.known.monk.level >= 6; },
 				spellChanges: {
 					"hold person": {
 						components: "V,S",
@@ -1190,7 +1190,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 5,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function(v) { return classes.known.monk.level >= 17; },
+				prereqeval: function (v) { return classes.known.monk.level >= 17; },
 				spellChanges: {
 					"stoneskin": {
 						range: "Self",
@@ -1264,7 +1264,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 4,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function(v) { return classes.known.monk.level >= 11; },
+				prereqeval: function (v) { return classes.known.monk.level >= 11; },
 				spellChanges: {
 					"fireball": {
 						components: "V,S",
@@ -1286,7 +1286,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 3,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function(v) { return classes.known.monk.level >= 6; },
+				prereqeval: function (v) { return classes.known.monk.level >= 6; },
 				spellChanges: {
 					"shatter": {
 						components: "V,S",
@@ -1308,7 +1308,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 4,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function(v) { return classes.known.monk.level >= 11; },
+				prereqeval: function (v) { return classes.known.monk.level >= 11; },
 				spellChanges: {
 					"gaseous form": {
 						range: "Self",
@@ -1331,7 +1331,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 4,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function(v) { return classes.known.monk.level >= 11; },
+				prereqeval: function (v) { return classes.known.monk.level >= 11; },
 				spellChanges: {
 					"fly": {
 						range: "Self",
@@ -1354,7 +1354,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 5,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function(v) { return classes.known.monk.level >= 17; },
+				prereqeval: function (v) { return classes.known.monk.level >= 17; },
 				spellChanges: {
 					"wall of fire": {
 						components: "V,S",
@@ -1438,7 +1438,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 6,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function(v) { return classes.known.monk.level >= 17; },
+				prereqeval: function (v) { return classes.known.monk.level >= 17; },
 				spellChanges: {
 					"wall of stone": {
 						components: "V,S",
@@ -1674,13 +1674,13 @@ AddSubClass("ranger", "beast master", {
 				"I can still use Extra Attack while commanding it to Attack; No action to order to move",
 			]),
 			additional: "Beast \u2264Medium and CR \u22641/4",
-			creaturesAdd: [["Ranger's Companion", false, function(AddRemove, prefix) {
+			creaturesAdd: [["Ranger's Companion", false, function (AddRemove, prefix) {
 				if (!AddRemove) return;
 				var cObj = MakeCompMenu_CompOptions(prefix, "justCompanions");
 				if (!cObj.companion || !cObj.companion.length) {
 					var selectedRace = "Wolf";
 				} else {
-					var compOptions = cObj.companion.map(function(n) { return n[0] });
+					var compOptions = cObj.companion.map(function (n) { return n[0] });
 					var selectedRace = AskUserOptions("Select Ranger's Companion", "Select which beast you would like to have as your ranger's companion.\nThis can be any beast that is no larger than Medium and that has a challenge rating of 1/4 or lower.\nYou can change the beast at any time using the \"Companion Options\" button at the top of the Companion page.", compOptions, "radio", true);
 				}
 				ApplyCompRace(selectedRace, prefix, "companion");
@@ -2092,7 +2092,7 @@ AddSubClass("wizard", "abjuration", {
 				"It stays active at 0 HP and doesn't go away until my next long rest",
 				"If I take damage, the ward takes the damage instead, but excess damage carries over",
 			]),
-			additional: levels.map( function(n) {
+			additional: levels.map( function (n) {
 				return n < 2 ? "" : "Ward " + (typePF ? "" : "max ") + "HP: " + (n * 2) + "+Int mod";
 			}),
 			usages: 1,
@@ -2234,7 +2234,7 @@ AddSubClass("wizard", "divination", {
 				"A result can replace an attack/save/ability check made by me or a creature I can see",
 				"I choose to switch them before the dice to be replaced are rolled; Max once per turn",
 			]),
-			additional: levels.map( function(n) {
+			additional: levels.map( function (n) {
 				return n < 2 ? "" : (n < 14 ? 2 : 3) + "d20 after a long rest";
 			}),
 		},
@@ -2568,13 +2568,13 @@ CompanionList["undead_thrall"] = {
 	nameOrigin: "School of Necromancy 6",
 	nameMenu: "Undead Thrall (School of Necromancy feature)",
 	source: [["P", 119]],
-	includeCheck: function(sCrea, objCrea, iCreaCR, bIsAL) {
+	includeCheck: function (sCrea, objCrea, iCreaCR, bIsAL) {
 		return /undead/i.test(objCrea.type);
 	},
-	attributesChange: function(sCrea, objCrea) {
+	attributesChange: function (sCrea, objCrea) {
 		objCrea.hp += classes.known.wizard ? classes.known.wizard.level : classes.totallevel;
 		if (!objCrea.attacks) return;
-		objCrea.attacks = objCrea.attacks.map(function(oAtk) {
+		objCrea.attacks = objCrea.attacks.map(function (oAtk) {
 			if (oAtk.abilitytodamage !== false && !oAtk.dc) {
 				if (!oAtk.modifiers) {
 					oAtk.modifiers = ["", "oProf"];
@@ -2599,7 +2599,7 @@ CompanionList["undead_thrall"] = {
 		description: "add my wizard level to their hit point maximum and add my proficiency bonus to their weapon damage rolls.",
 		joinString: " ",
 	}],
-	eval: function(prefix, lvl) {
+	eval: function (prefix, lvl) {
 		// Set HP to use average value, so that the level bonus is automatically included
 		var sHPfld = prefix + "Comp.Use.HP.Max";
 		var aHPsets = How(sHPfld).split(",");
@@ -3662,7 +3662,7 @@ FeatsList["defensive duelist"] = {
 	descriptionFull: "When you are wielding a finesse weapon with which you are proficient and another creature hits you with a melee attack, you can use your reaction to add your proficiency bonus to your AC for that attack, potentially causing the attack to miss you.",
 	description: "When wielding a finesse weapon with which I am proficient and another creature hits me with a melee attack, I can use my reaction to add my proficiency bonus to my AC for that attack, potentially causing the attack to miss me.",
 	prerequisite: "Dexterity 13 or higher",
-	prereqeval: function(v) { return What("Dex") >= 13; },
+	prereqeval: function (v) { return What("Dex") >= 13; },
 	action: [["reaction", " (when hit in melee)"]],
 };
 FeatsList["dual wielder"] = {
@@ -3698,7 +3698,7 @@ FeatsList["elemental adept"] = {
 	descriptionFull: "When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder.\n   Spells you cast ignore resistance to damage of the chosen type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can treat any 1 on a damage die as a 2.\n\nYou can select this feat multiple times. Each time you do so, you must choose a different damage type.",
 	description: "Choose one of the damage types: acid, cold, fire, lightning, or thunder. Spells I cast ignore resistance to damage from this damage type. For any spell I cast that deals this damage type, I can treat any 1 on a damage die as a 2.",
 	prerequisite: "The ability to cast at least one spell",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	allowDuplicates: true,
 	choices: ["acid", "cold", "fire", "lightning", "thunder"],
 	"acid": {
@@ -3748,7 +3748,7 @@ FeatsList["heavily armored"] = {
 	descriptionFull: "You have trained to master the use of heavy armor, gaining the following benefits:\n \u2022 Increase your Strength score by 1, to a maximum of 20.\n \u2022 You gain proficiency with heavy armor.",
 	description: "I gain proficiency with heavy armor. [+1 Strength]",
 	prerequisite: "Proficiency with medium armor",
-	prereqeval: function(v) { return v.mediumArmorProf; },
+	prereqeval: function (v) { return v.mediumArmorProf; },
 	scores: [1, 0, 0, 0, 0, 0],
 	armorProfs: [false, false, true, false],
 };
@@ -3758,7 +3758,7 @@ FeatsList["heavy armor master"] = {
 	descriptionFull: "You can use your armor to deflect strikes that would kill others. You gain the following benefits:\n \u2022 While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from nonmagical weapons is reduced by 3.",
 	description: "While wearing heavy armor, bludgeoning, piercing, and slashing damage taken from nonmagical weapons is reduced by 3. [+1 Strength]",
 	prerequisite: "Proficiency with heavy armor",
-	prereqeval: function(v) { return v.heavyArmorProf; },
+	prereqeval: function (v) { return v.heavyArmorProf; },
 	scores: [1, 0, 0, 0, 0, 0],
 };
 FeatsList["inspiring leader"] = {
@@ -3767,7 +3767,7 @@ FeatsList["inspiring leader"] = {
 	descriptionFull: "You can spend 10 minutes inspiring your companions, shoring up their resolve to fight. When you do so, choose up to six friendly creatures (which can include yourself) within 30 feet of you who can see or hear you and who can understand you. Each creature can gain temporary hit points equal to your level + your Charisma modifier. A creature can't gain temporary hit points from this feat again until it has finished a short or long rest.",
 	calculate: "event.value = 'I can spend 10 minutes inspiring up to 6 friendly creatures within 30 feet who can see or hear and can understand me. Each gains lvl (' + What('Character Level') + ') + Cha mod (' + What('Cha Mod') + \") temporary hit points. One can't gain temporary hit points from this feat again until after a short rest.\";",
 	prerequisite: "Charisma 13 or higher",
-	prereqeval: function(v) { return What("Cha") >= 13; },
+	prereqeval: function (v) { return What("Cha") >= 13; },
 };
 FeatsList["keen mind"] = {
 	name: "Keen Mind",
@@ -3945,7 +3945,7 @@ FeatsList["medium armor master"] = {
 	descriptionFull: "You have practiced moving in medium armor to gain the following benefits:\n \u2022 Wearing medium armor doesn't impose disadvantage on your Dexterity (Stealth) checks.\n \u2022 When you wear medium armor, you can add 3, rather than 2, to your AC if you have a Dexterity of 16 or higher.",
 	description: "Wearing medium armor doesn't impose disadvantage on my Dexterity (Stealth) checks. When I wear medium armor, I can add up to 3, rather than 2, to my AC if my Dexterity is 16 or higher.",
 	prerequisite: "Proficiency with medium armor",
-	prereqeval: function(v) { return v.mediumArmorProf; },
+	prereqeval: function (v) { return v.mediumArmorProf; },
 	eval: function () {
 		Value("Medium Armor Max Mod", 3);
 		ApplyArmor(What("AC Armor Description"));
@@ -3968,7 +3968,7 @@ FeatsList["moderately armored"] = {
 	descriptionFull: "You have trained to master the use of medium armor and shields, gaining the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with medium armor and shields.",
 	description: "I gain proficiency with medium armor and shields. [+1 Strength or Dexterity]",
 	prerequisite: "Proficiency with light armor",
-	prereqeval: function(v) { return v.lightArmorProf; },
+	prereqeval: function (v) { return v.lightArmorProf; },
 	scorestxt: "+1 Strength or Dexterity",
 	armorProfs: [false, true, false, true],
 };
@@ -4049,8 +4049,8 @@ FeatsList["ritual caster"] = {
 	descriptionFull: "You have learned a number of spells that you can cast as rituals. These spells are written in a ritual book, which you must have in hand while casting one of them.\n   When you choose this feat, you acquire a ritual book holding two 1st-level spells of your choice. Choose one of the following classes: bard, cleric, druid, sorcerer, warlock, or wizard. You must choose your spells from that class's spell list, and the spells you choose must have the ritual tag. The class you choose also determines your spellcasting ability for these spells: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; or Intelligence for wizard.\n   If you come across a spell in written form, such as a magical spell scroll or a wizard's spellbook, you might be able to add it to your ritual book. The spell must be on the spell list for the class you chose, the spell's level can be no higher than half your level (rounded up), and it must have the ritual tag. The process of copying the spell into your ritual book takes 2 hours per level of the spell, and costs 50 gp per level. The cost represents material components you expend as you experiment with the spell to master it, as well as the fine inks you need to record it.",
 	description: "Select a spellcasting class using the square button on this feat line. I gain a book with two 1st-level ritual spells from that class' spell list. I can transcribe more ritual spells into this book and cast them as rituals only.",
 	prerequisite: "Intelligence or Wisdom 13 or higher",
-	prereqeval: function(v) { return What("Int") >= 13 || What("Wis") >= 13; },
-	commoneval: function(chc, spellAbility) {
+	prereqeval: function (v) { return What("Int") >= 13 || What("Wis") >= 13; },
+	commoneval: function (chc, spellAbility) {
 		if (!chc) return;
 		CurrentSpells["ritual caster " + chc] = {
 			name: "Ritual Book [" + chc.capitalize() + "]",
@@ -4061,7 +4061,7 @@ FeatsList["ritual caster"] = {
 		};
 		SetStringifieds("spells"); CurrentUpdates.types.push("spells");
 	},
-	commonremoveeval: function(chc) {
+	commonremoveeval: function (chc) {
 		if (!chc) return;
 		delete CurrentSpells["ritual caster " + chc];
 		SetStringifieds("spells"); CurrentUpdates.types.push("spells");
@@ -4086,33 +4086,33 @@ FeatsList["ritual caster"] = {
 	choices: ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
 	"bard": {
 		description: "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual bard spells.\nI can copy ritual bard spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
-		eval: function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 6); },
-		removeeval: function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
+		eval: function (lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 6); },
+		removeeval: function (lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
 	},
 	"cleric": {
 		description: "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual cleric spells.\nI can copy ritual cleric spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Wisdom is my spellcasting ability for these.",
-		eval: function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 5); },
-		removeeval: function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
+		eval: function (lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 5); },
+		removeeval: function (lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
 	},
 	"druid": {
 		description: "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual druid spells.\nI can copy ritual druid spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Wisdom is my spellcasting ability for these.",
-		eval: function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 5); },
-		removeeval: function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
+		eval: function (lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 5); },
+		removeeval: function (lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
 	},
 	"sorcerer": {
 		description: "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual sorcerer spells.\nI can copy ritual sorcerer spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
-		eval: function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 6); },
-		removeeval: function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
+		eval: function (lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 6); },
+		removeeval: function (lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
 	},
 	"warlock": {
 		description: "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual warlock spells.\nI can copy ritual warlock spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Charisma is my spellcasting ability for these.",
-		eval: function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 6); },
-		removeeval: function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
+		eval: function (lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 6); },
+		removeeval: function (lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
 	},
 	"wizard": {
 		description: "I can cast spells in my ritual book as rituals only. I gain two 1st-level ritual wizard spells.\nI can copy ritual wizard spells that I find into my book if they are not more than half my level (2 hours and 50 gp per spell level). Intelligence is my spellcasting ability for these.",
-		eval: function(lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 4); },
-		removeeval: function(lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
+		eval: function (lvl, chc) { FeatsList["ritual caster"].commoneval(chc[1], 4); },
+		removeeval: function (lvl, chc) { FeatsList["ritual caster"].commonremoveeval(chc[0]); },
 	},
 };
 FeatsList["savage attacker"] = {
@@ -4172,7 +4172,7 @@ FeatsList["skulker"] = {
 	descriptionFull: "You are expert at slinking through shadows. You gain the following benefits:\n \u2022 You can try to hide when you are lightly obscured from the creature from which you are hiding.\n \u2022 When you are hidden from a creature and miss it with a ranged weapon attack, making the attack doesn't reveal your position.\n \u2022 Dim light doesn't impose disadvantage on your Wisdom (Perception) checks relying on sight.",
 	description: "I can try to hide when I am lightly obscured. My position is not revealed when I am hidden from a creature and miss it with a ranged weapon attack. Dim light doesn't impose disadvantage on my Wisdom (Perception) checks relying on sight.",
 	prerequisite: "Dexterity 13 or higher",
-	prereqeval: function(v) { return What("Dex") >= 13; },
+	prereqeval: function (v) { return What("Dex") >= 13; },
 	vision: [["No disadv. on Perception in dim light", 0]],
 };
 FeatsList["spell sniper"] = {
@@ -4181,7 +4181,7 @@ FeatsList["spell sniper"] = {
 	descriptionFull: "You have learned techniques to enhance your attacks with certain kinds of spells, gaining the following benefits:\n \u2022 When you cast a spell that requires you to make an attack roll, the spell's range is doubled.\n \u2022 Your ranged spell attacks ignore half cover and three-quarters cover.\n \u2022 You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. Your spellcasting ability for this cantrip depends on the spell list you chose from: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; or Intelligence for wizard.",
 	description: "Select a spellcasting class using the square button on this feat line. I learn one cantrip requiring an attack roll from the spell list of the chosen class. Any spell I cast requiring an attack roll has its range doubled and ignores half and 3/4 cover.",
 	prerequisite: "The ability to cast at least one spell",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	calcChanges: {
 		atkAdd: [
 			function (fields, v) {
@@ -4331,7 +4331,7 @@ FeatsList["war caster"] = {
 	name: "War Caster",
 	source: [["P", 170]],
 	prerequisite: "The ability to cast at least one spell",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	descriptionFull: "You have practiced casting spells in the midst of combat, learning techniques that grant you the following benefits:\n \u2022 You have advantage on Constitution saving throws that you make to maintain your concentration on a spell when you take damage.\n \u2022 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.\n \u2022 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a spell at the creature, rather than making an opportunity attack. The spell must have a casting time of 1 action and must target only that creature.",
 	description: "Advantage on Con saves to maintain concentration on spells when damaged. Perform somatic components even when holding weapons or shield in one or both hands. Cast spell of 1 action casting time that targets only one creature instead of an opportunity attack.",
 	action: [["reaction", " - Opportunity Spell"]],

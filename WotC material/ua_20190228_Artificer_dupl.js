@@ -143,7 +143,7 @@ ClassList["artificer-ua2"] = {
 					"It must be a space that the wearer had occupied some time during the current turn",
 				]),
 				additional: "pair of boots; requires attunement",
-				prereqeval: function(v) { return classes.known["artificer-ua2"].level >= 4; },
+				prereqeval: function (v) { return classes.known["artificer-ua2"].level >= 4; },
 				eval: function (lvl, chc) { AddMagicItem("Boots of the Winding Path"); },
 				removeeval: function (lvl, chc) {
 					var loc = CurrentMagicItems.known.indexOf("boots of the winding path");
@@ -193,7 +193,7 @@ ClassList["artificer-ua2"] = {
 					"When the infusion ends, the contents is moved to one of the pouches, chosen randomly",
 				]),
 				additional: "2-5 pouches",
-				prereqeval: function(v) { return classes.known["artificer-ua2"].level >= 4; },
+				prereqeval: function (v) { return classes.known["artificer-ua2"].level >= 4; },
 				eval: function (lvl, chc) { AddMagicItem("Many-Handed Pouch"); },
 				removeeval: function (lvl, chc) {
 					var loc = CurrentMagicItems.known.indexOf("many-handed pouch");
@@ -211,7 +211,7 @@ ClassList["artificer-ua2"] = {
 					"The attack must succeed on a Con save (spell save DC) or be blinded until its next turn ends",
 				]),
 				additional: "simple/martial weapon; requires attunement",
-				prereqeval: function(v) { return classes.known["artificer-ua2"].level >= 8; },
+				prereqeval: function (v) { return classes.known["artificer-ua2"].level >= 8; },
 				eval: function (lvl, chc) { AddMagicItem("Radiant Weapon"); },
 				removeeval: function (lvl, chc) {
 					var loc = CurrentMagicItems.known.indexOf("radiant weapon");
@@ -227,7 +227,7 @@ ClassList["artificer-ua2"] = {
 					"Choose from: acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder",
 				]),
 				additional: "suit of armor; requires attunement",
-				prereqeval: function(v) { return classes.known["artificer-ua2"].level >= 8; },
+				prereqeval: function (v) { return classes.known["artificer-ua2"].level >= 8; },
 				eval: function (lvl, chc) { AddMagicItem("Armor of Resistance"); },
 				removeeval: function (lvl, chc) {
 					var loc = CurrentMagicItems.known.indexOf("armor of resistance");
@@ -555,11 +555,11 @@ AddSubClass("artificer-ua2", "artillerist", {
 				"When within 60 ft of it, I can activate it as a bonus action, or detonate it as an action",
 				"See the companion page for how the different types of turrets operate",
 			]),
-			usages: levels.map(function(n) {
+			usages: levels.map(function (n) {
 				return n < 3 ? "" : n < 14 ? 1 : 2;
 			}),
 			recovery: "long rest",
-			additional: levels.map(function(n) {
+			additional: levels.map(function (n) {
 				return n < 3 ? "" : n < 14 ? "max 1 active turret"  : "max 2 active turrets";
 			}),
 			action: [["action", " (summon/detonate)"], ["bonus action", " (command)"]],
@@ -608,7 +608,7 @@ AddSubClass("artificer-ua2", "artillerist", {
 				"As an action, I can use the wand to cast the cantrip, using my spellcasting ability",
 				"I also add my Intelligence modifier (min 1) to any damage rolls for that cantrip",
 			]),
-			additional: levels.map(function(n) {
+			additional: levels.map(function (n) {
 				return n < 6 ? "" : "infuse wand with " + (n < 14 ? "1 cantrip" : "2 cantrips");
 			}),
 			spellcastingBonus: [{
@@ -616,7 +616,7 @@ AddSubClass("artificer-ua2", "artillerist", {
 				"class": "artificer-ua2",
 				notspells: ["magic stone", "mending", "shillelagh"], // all cantrips with a casting time that is not 1 action
 				level: [0, 0],
-				times: levels.map(function(n) {
+				times: levels.map(function (n) {
 					return n < 14 ? 1 : 2;
 				}),
 				firstCol: "W",
@@ -855,7 +855,7 @@ if (!MagicItemsList["returning weapon"]) {
 }
 
 // Set the Artificer class spell list
-var UAA2_SetArtificerSpells = function(){
+var UAA2_SetArtificerSpells = function (){
 	var artSp = [
 		"acid splash",
 		"dancing lights",

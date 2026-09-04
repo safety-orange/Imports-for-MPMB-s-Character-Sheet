@@ -1,7 +1,7 @@
 var iFileName = "pub_20180723_WGtE.js";
 RequiredSheetVersion("14.0.5-beta");
 // This file adds the content from Wayfinder's Guide to Eberron to MPMB's Character Record Sheet
-// Be aware that this script is for the version from 9th of October 2018, not the original version, 
+// Be aware that this script is for the version from 9th of October 2018, not the original version,
 // nor the updated version of November 2019 that uses the identical rules to Eberron: Rising from the Last War.
 
 // Define the sources
@@ -240,7 +240,7 @@ if (!SourceList["UA:RoE"]) {
 		scorestxt: "+1 Constitution and +1 to two other ability scores of my choice",
 		scores: [0, 0, 1, 0, 0, 0],
 		trait: "Envoy Warforged (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B.), medium (13+Dex+Prof B.), heavy (16+Prof B.; Stealth disadv.). I can use a shield.\nIntegrated Tool: I have expertise with one tool and it is integrated into my body.",
-		eval: function() {
+		eval: function () {
 			var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
 			if (tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0)) {
 				CurrentRace.armorAdd.select = "Heavy Plating";
@@ -315,7 +315,7 @@ if (!SourceList["UA:RoE"]) {
 		scores: [2, 0, 1, 0, 0, 0],
 		trait: "Juggernaut Warforged (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4.") + "\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B.), medium (13+Dex+Prof B.), heavy (16+Prof B.; Stealth disadv.). I can use a shield.\nPowerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
 		carryingCapacity: 2,
-		eval: function() {
+		eval: function () {
 			var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
 			if (tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0)) {
 				CurrentRace.armorAdd.select = "Heavy Plating";
@@ -381,7 +381,7 @@ if (!SourceList["UA:RoE"]) {
 		weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 		scores: [0, 2, 1, 0, 0, 0],
 		trait: "Skirmisher Warforged (+2 Dexterity, +1 Constitution)\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B.), medium (13+Dex+Prof B.), heavy (16+Prof B.; Stealth disadv.). I can use a shield.\nLight Step: If I travel alone for an hour or more, I can move stealthily at a normal pace.",
-		eval: function() {
+		eval: function () {
 			var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
 			if (tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0)) {
 				CurrentRace.armorAdd.select = "Heavy Plating";
@@ -479,14 +479,14 @@ if (!WeaponsList["double-bladed scimitar"]){
 		description: "Two-handed; With Attack action, one attack as bonus action for 1d4",
 		special: true,
 		abilitytodamage: true,
-};
+	};
 }
 // Revenant blade feat
 FeatsList["revenant blade-wgte"] = {
 	name: "Revenant Blade",
 	source: [["WGtE", 74]],
 	prerequisite: "Being an Elf",
-	prereqeval: function(v) { return /^(?!.*half)(?=.*(elf|eladrin|avariel|grugach|shadar-kai)).*$/i.test(CurrentRace.known); },
+	prereqeval: function (v) { return /^(?!.*half)(?=.*(elf|eladrin|avariel|grugach|shadar-kai)).*$/i.test(CurrentRace.known); },
 	descriptionFull: "You are descended from a master of the double blade and their skills have passed on to you. You gain the following benefits:\n \u2022 Increase your Dexterity or Strength score by 1, to a maximum of 20.\n \u2022 While wielding a double-bladed weapon with two hands, the weapon has the finesse trait for your attacks with it, and you gain +1 AC.\n \u2022 On your turn, when you use a bonus action to make a melee attack with the blade at the opposite end of the weapon, the weapon's damage die for this attack increases to 2d4, instead of 1d4.",
 	description: "As a bonus action with the Attack action, I can make an extra with a double-bladed weapon for 2d4 slashing damage. I treat double-bladed weapons as having the finesse trait. +1 AC while wielding a double-bladed weapon with two hands. [+1 Strength or Dexterity]",
 	scorestxt: "+1 Strength or Dexterity",
@@ -1278,7 +1278,7 @@ if (!SourceList["UA:D"]) {
 		choices: ["Detection", "Finding", "Handling", "Healing", "Hospitality", "Making", "Passage", "Scribing", "Sentinel", "Shadow", "Storm", "Warding"],
 		"detection": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Detection",
-			prereqeval: function(v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*detection).*$/i.test(CurrentRace.known); },
+			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*detection).*$/i.test(CurrentRace.known); },
 			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Charisma or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells See Invisibility and True Seeing, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast See Invisibility and True Seeing each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Charisma or Intelligence]",
 			scorestxt: "+1 Charisma or Intelligence",
@@ -1306,7 +1306,7 @@ if (!SourceList["UA:D"]) {
 		},
 		"finding": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Finding",
-			prereqeval: function(v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*finding).*$/i.test(CurrentRace.known); },
+			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*finding).*$/i.test(CurrentRace.known); },
 			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity, Strength, or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Locate Creature and Find the Path, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Locate Creature and Find the Path each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 " + (typePF ? "Strength, Dexterity, or Wisdom]" : "Str, Dex, or Wis]"),
 			scorestxt: "+1 Strength, Dexterity, or Wisdom",
@@ -1334,7 +1334,7 @@ if (!SourceList["UA:D"]) {
 		},
 		"handling": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Handling",
-			prereqeval: function(v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*handling).*$/i.test(CurrentRace.known); },
+			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*handling).*$/i.test(CurrentRace.known); },
 			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Beast Sense and Dominate Beast, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Beast Sense and Dominate Beast each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 			scorestxt: "+1 Dexterity or Wisdom",
@@ -1349,7 +1349,7 @@ if (!SourceList["UA:D"]) {
 		},
 		"healing": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Healing",
-			prereqeval: function(v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*healing).*$/i.test(CurrentRace.known); },
+			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*healing).*$/i.test(CurrentRace.known); },
 			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Mass Healing Word and Greater Restoration, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Mass Healing Word and Greater Restoration each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 			scorestxt: "+1 Dexterity or Wisdom",
@@ -1372,7 +1372,7 @@ if (!SourceList["UA:D"]) {
 		},
 		"hospitality": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Hospitality",
-			prereqeval: function(v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*hospitality).*$/i.test(CurrentRace.known); },
+			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*hospitality).*$/i.test(CurrentRace.known); },
 			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Sanctuary and Mordenkainen's Magnificent Mansion, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sanctuary and " + (typePF ? "Mordenkainen's " : "") + "Magnificent Mansion each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 			scorestxt: "+1 Dexterity or Charisma",
@@ -1400,7 +1400,7 @@ if (!SourceList["UA:D"]) {
 		},
 		"making": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Making",
-			prereqeval: function(v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*making).*$/i.test(CurrentRace.known); },
+			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*making).*$/i.test(CurrentRace.known); },
 			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Fabricate and Creation, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Fabricate and Creation each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Dexterity or Intelligence]",
 			scorestxt: "+1 Dexterity or Intelligence",
@@ -1422,7 +1422,7 @@ if (!SourceList["UA:D"]) {
 		},
 		"passage": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Passage",
-			prereqeval: function(v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*passage).*$/i.test(CurrentRace.known); },
+			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*passage).*$/i.test(CurrentRace.known); },
 			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Constitution score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Blink and Teleportation Circle, each of which you can cast once without expending a spell slot or using a material component. Constitution is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Blink and Teleportation Circle each once per long rest without using spell slots or requiring material components. Constitution is my spellcasting ability for these. [+1 Dexterity or Constitution]",
 			scorestxt: "+1 Dexterity or Constitution",
@@ -1445,7 +1445,7 @@ if (!SourceList["UA:D"]) {
 		},
 		"scribing": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Scribing",
-			prereqeval: function(v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*scribing).*$/i.test(CurrentRace.known); },
+			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*scribing).*$/i.test(CurrentRace.known); },
 			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Sending and Tongues, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
 			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sending and Tongues each once per short rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Intelligence or Charisma]",
 			scorestxt: "+1 Intelligence or Charisma",
@@ -1472,7 +1472,7 @@ if (!SourceList["UA:D"]) {
 		},
 		"sentinel": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Sentinel",
-			prereqeval: function(v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*sentinel).*$/i.test(CurrentRace.known); },
+			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*sentinel).*$/i.test(CurrentRace.known); },
 			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Strength or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Compelled Duel, Warding Bond, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
 			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Compelled Duel and Warding Bond each once per short rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Strength or Wisdom]",
 			scorestxt: "+1 Strength or Wisdom",
@@ -1495,7 +1495,7 @@ if (!SourceList["UA:D"]) {
 		},
 		"shadow": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Shadow",
-			prereqeval: function(v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*shadow).*$/i.test(CurrentRace.known); },
+			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*shadow).*$/i.test(CurrentRace.known); },
 			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Nondetection and Mislead, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Nondetection and Mislead each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 			scorestxt: "+1 Dexterity or Charisma",
@@ -1518,7 +1518,7 @@ if (!SourceList["UA:D"]) {
 		},
 		"storm": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Storm",
-			prereqeval: function(v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*storm).*$/i.test(CurrentRace.known); },
+			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*storm).*$/i.test(CurrentRace.known); },
 			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Control Water and Control Winds, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
 			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Control Water and Control Winds each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 			scorestxt: "+1 Dexterity or Charisma",
@@ -1540,7 +1540,7 @@ if (!SourceList["UA:D"]) {
 		},
 		"warding": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Warding",
-			prereqeval: function(v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*warding).*$/i.test(CurrentRace.known); },
+			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*warding).*$/i.test(CurrentRace.known); },
 			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Knock, Glyph of Warding and Leomund's Secret Chest*, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.\n\n* To cast Leomund's Secret Chest using this feat, you must have a Siberys dragonshard with a value of at least 100 gp. While you have this dragonshard in hand, it serves as the spell's focus, and you can use it to summon and dismiss the chest.",
 			description: "My Intuition Die increases one step. I can cast Knock, Secret Chest, and Glyph of Warding each once per long rest without spell slot or material component. Secret Chest requires a 100 gp Siberys dragonshard as a focus. These use Int as spellcasting ability. [+1 Dex or Int]",
 			scorestxt: "+1 Dexterity or Intelligence",
@@ -1578,7 +1578,7 @@ if (!SourceList["UA:D"]) {
 		name: "Aberrant Dragonmark",
 		source: [["WGtE", 112], ["UA:D", 9]],
 		prerequisite: "Not having a dragonmark",
-		prereqeval: function(v) { return !/dragonmark/i.test(CurrentRace.known); },
+		prereqeval: function (v) { return !/dragonmark/i.test(CurrentRace.known); },
 		descriptionFull: "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it (see the table below for examples). You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again. Constitution is your spellcasting ability for these spells.\n \u2022 You can increase the power of your aberrant spells at the risk of your own vitality. When you cast a spell with your aberrant mark, you can use one of your Hit Dice to increase the spell's level by 1. Immediately after you cast the spell, roll the Hit Die. You take damage equal to the number rolled.\n\n" + toUni("1d8") + "\t" + toUni("Aberrant Mark Flaw") + "\n1\tYour mark is a source of constant physical pain.\n2\tYour mark whispers to you, though you may not understand what it says.\n3\tIn times of stress, your mark may trigger a cantrip effect involuntarily.\n4\tThe skin around your mark has an unusual appearance: burned, scaly, withered, etc.\n5\tMundane animals become uneasy around you.\n6\tYou have dramatic mood swings any time you use your mark.\n7\tYour appearance changes in a minor way every time you use your mark.\n8\tYou have horrific nightmares after you use your mark.",
 		description: "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
 		scores: [0, 0, 1, 0, 0, 0],
@@ -1939,14 +1939,14 @@ if (!SourceList["UA:MIoE"]) {
 		type: "wondrous item",
 		rarity: "rare",
 		description: "I can embed this sentient small metal sphere studded with dragonshards into my chest. I can communicate telepathically with it. It can serve me as an advisor and a translator, as it knowns 6 languages. It also knows spells and/or skills that I can have it use as a bonus action. See Notes page.",
-		descriptionFull: ERftLW_docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+		descriptionFull: ERftLW_docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 		attunement: true,
 		prerequisite: "Requires attunement by a warforged",
 		prereqeval: function (v) { return /warforged/i.test(CurrentRace.known); },
 		action: [["bonus action", ""]],
 		toNotesPage: [{
 			name: "Features",
-			note: desc(ERftLW_docentFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+			note: desc(ERftLW_docentFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 		}],
 	}
 	MagicItemsList["feather token-ua"] = {

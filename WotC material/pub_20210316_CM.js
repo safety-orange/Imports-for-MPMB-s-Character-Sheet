@@ -36,7 +36,7 @@ MagicItemsList["radiance (wand)"] = {
 	descriptionFull: "While holding this wand, you gain a +1 bonus to spell attack rolls. In addition, you ignore half cover when making a spell attack. Radiance is in the form of an exquisite golden hand mirror." +
 	"\n   While surrounded by darkness, it sheds dim light in a 5-foot radius. A creature that is attuned to Radiance can use a bonus action while holding the mirror to cast the enhance ability spell, choosing itself and no other creature as the spell's target. Once this property of the wand is used, it can't be used again until the next dawn.",
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	extraLimitedFeatures: [{
 		name: "Radiance (Enhance Ability)",
 		usages: 1,
@@ -121,7 +121,7 @@ if (MagicItemsList["alchemy jug"]) {
 		source: [["CM", 144]],
 		description: MagicItemsList["alchemy jug"].description.replace("acid (8 fl oz), basic poison (1/2 fl oz)", "boiling hot tea (1 qt)"),
 		descriptionLong: MagicItemsList["alchemy jug"].descriptionLong.replace("acid (8 fl. oz.), basic poison (1/2 fl. oz.)", "boiling hot tea (1 quart)"),
-		descriptionFull: MagicItemsList["alchemy jug"].descriptionFull.replace(/\n8 ounces[\s\S]+/, 
+		descriptionFull: MagicItemsList["alchemy jug"].descriptionFull.replace(/\n8 ounces[\s\S]+/,
 			"\n4 gallons  \tBeer\t\t2 gallons  \tVinegar" +
 			"\n1 quart   \tBoiling hot tea\t8 gallons  \tWater, fresh" +
 			"\n1 gallon    \tHoney\t\t12 gallons\tWater, salt" +
@@ -134,7 +134,7 @@ if (MagicItemsList["alchemy jug"]) {
 		source: [["CM", 144]],
 		description: MagicItemsList["alchemy jug"].description.replace("acid (8 fl oz), basic poison (1/2 fl oz)", "soy sauce (1 gal)"),
 		descriptionLong: MagicItemsList["alchemy jug"].descriptionLong.replace("acid (8 fl. oz.), basic poison (1/2 fl. oz.)", "soy sauce (1 gallon)"),
-		descriptionFull: MagicItemsList["alchemy jug"].descriptionFull.replace(/\n8 ounces[\s\S]+/, 
+		descriptionFull: MagicItemsList["alchemy jug"].descriptionFull.replace(/\n8 ounces[\s\S]+/,
 			"\n4 gallons  \tBeer\t\t2 gallons  \tVinegar" +
 			"\n1 gallon    \tHoney\t\t8 gallons  \tWater, fresh" +
 			"\n2 gallons \tMayonnaise\t12 gallons\tWater, salt" +
@@ -147,7 +147,7 @@ MagicItemsList["gloves of soul catching"] = {
 	name: "Gloves of Soul Catching",
 	source: [["CM", 169]],
 	type: "wondrous item",
-	rarity: "legendary",	
+	rarity: "legendary",
 	notLegalAL: true,
 	attunement: true,
 	description: "My Constitution increases to 20 while wearing these gloves. After hitting with an unarmed strike while wearing these gloves, I can deal an extra 2d10 force damage to target and regain an equal amount of HP. Alternatively, instead of regaining hit points in this way, you can choose to gain advantage on one attack roll, ability check, or saving throw you make before the end of your next turn.",
@@ -167,7 +167,7 @@ MagicItemsList["watchful helm"] = {
 	name: "Watchful Helm",
 	source: [["CM", 183]],
 	type: "wondrous item",
-	rarity: "very rare",	
+	rarity: "very rare",
 	attunement: true,
 	description: "While I wear this helm, I gain a +1 bonus to AC, remain aware of my surroundings even while asleep, and have advantage on Wisdom (Perception) checks that rely on sight. As a bonus action once per dawn, I can use it to cast See Invisibility.",
 	descriptionFull: "While you wear this helm, you gain a +1 bonus to AC and remain aware of your surroundings even while you're asleep, and you have advantage on Wisdom (Perception) checks that rely on sight." +
@@ -239,7 +239,7 @@ MagicItemsList["nether scroll of azumar"] = {
 	},
 	"read": { // contains contributions by Nod_Hero
 		description: CM_NetherScrollOfAzumar,
-		eval: function() {
+		eval: function () {
 			var src = "Nether Scroll of Azumar";
 			MagicItemsList["manual of bodily health"].applyStatBonus(src, "Intelligence", 2);
 			SetProf("savetxt", true, { adv_vs: ["magic"] }, src);

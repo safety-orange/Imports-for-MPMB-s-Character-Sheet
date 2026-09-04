@@ -128,8 +128,8 @@ AddWarlockInvocation("Book of Ancient Secrets (req: Pact of the Tome)", {
 	description: desc("My Book of Shadows is inscribed with two 1st-level Ritual spells of my choice. When I come across other Ritual spell, I can inscribe them as well. I can cast these inscribed spells as Rituals, they are not automatically prepared. (Select only these inscribed spells in the 'Spells' column.)"),
 	source: [["SRD", 48], ["P", 110]],
 	submenu: "[improves Pact of the Tome]",
-	prereqeval: function(v) { return v.choiceActive.indexOf("pact of the tome") !== -1; },
-	eval: function() {
+	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the tome") !== -1; },
+	eval: function () {
 		var oSpells = CurrentSpells["warlock-book of shadows"];
 		if (!oSpells) return;
 		// Change into a "book" caster that has access to ritual spells from any level
@@ -154,7 +154,7 @@ AddWarlockInvocation("Book of Ancient Secrets (req: Pact of the Tome)", {
 			delete CurrentSpells["book of ancient secrets"];
 		};
 	},
-	removeeval: function() {
+	removeeval: function () {
 		if (CurrentSpells["book of ancient secrets"]) delete CurrentSpells["book of ancient secrets"];
 		var oSpells = CurrentSpells["warlock-book of shadows"];
 		if (!oSpells) return;
@@ -191,7 +191,7 @@ AddWarlockInvocation("Chains of Carceri (req: lvl 15+, Pact of the Chain)", {
 	source: [["SRD", 49], ["P", 110]],
 	minlevel: 15,
 	submenu: ["[Warlock level 15+]", "[improves Pact of the Chain]"],
-	prereqeval: function(v) { return v.choiceActive.indexOf("pact of the chain") !== -1; },
+	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the chain") !== -1; },
 	description: desc("I can cast Hold Monster without expending a spell slot or material components, but only on a Celestial, Fiend, or Elemental. I can only target a specific individual once per Long Rest."),
 	spellcastingBonus: [{
 		name: "Chains of Carceri",
@@ -304,7 +304,7 @@ AddWarlockInvocation("Voice of the Chain Master", {
 	name: "Voice of the Chain Master",
 	source: [["SRD", 50], ["P", 111]],
 	submenu: "[improves Pact of the Chain]",
-	prereqeval: function(v) { return v.choiceActive.indexOf("pact of the chain") !== -1; },
+	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the chain") !== -1; },
 	description: desc("While on the same plane as my familiar, I can communicate telepathically with it and I can perceive through its senses. While doing the latter, I can speak through it with my voice."),
 });
 
@@ -379,13 +379,13 @@ CompanionList["undead_thrall"] = {
 	nameOrigin: "School of Necromancy 6",
 	nameMenu: "Undead Thrall (School of Necromancy feature)",
 	source: [["P", 119]],
-	includeCheck: function(sCrea, objCrea, iCreaCR, bIsAL) {
+	includeCheck: function (sCrea, objCrea, iCreaCR, bIsAL) {
 		return /undead/i.test(objCrea.type);
 	},
-	attributesChange: function(sCrea, objCrea) {
+	attributesChange: function (sCrea, objCrea) {
 		objCrea.hp += classes.known.wizard ? classes.known.wizard.level : classes.totallevel;
 		if (!objCrea.attacks) return;
-		objCrea.attacks = objCrea.attacks.map(function(oAtk) {
+		objCrea.attacks = objCrea.attacks.map(function (oAtk) {
 			if (oAtk.abilitytodamage !== false && !oAtk.dc) {
 				if (!oAtk.modifiers) {
 					oAtk.modifiers = ["", "oProf"];
@@ -410,7 +410,7 @@ CompanionList["undead_thrall"] = {
 		description: "add my wizard level to their hit point maximum and add my proficiency bonus to their weapon damage rolls.",
 		joinString: " ",
 	}],
-	eval: function(prefix, lvl) {
+	eval: function (prefix, lvl) {
 		// Set HP to use average value, so that the level bonus is automatically included
 		var sHPfld = prefix + "Comp.Use.HP.Max";
 		var aHPsets = How(sHPfld).split(",");

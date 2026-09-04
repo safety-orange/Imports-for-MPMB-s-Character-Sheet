@@ -51,7 +51,7 @@ AddSubClass("fighter", "arcane archer-ua", {
 			source: [["UA:FMA", 1]],
 			minlevel: 3,
 			description: desc('Use the "Choose Feature" button above to add Arcane Shots to the third page'),
-			additional: levels.map( function(n) { return n < 3 ? "" : (n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6) + " known"; }),
+			additional: levels.map( function (n) { return n < 3 ? "" : (n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6) + " known"; }),
 			extraname: "Arcane Shot",
 			extrachoices: ["Beguiling Arrow", "Brute Bane Arrow", "Bursting Arrow", "Defending Arrow", "Grasping Arrow", "Piercing Arrow", "Seeking Arrow", "Shadow Arrow"],
 			extraTimes: levels.map(function (n) {

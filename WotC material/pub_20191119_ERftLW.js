@@ -57,7 +57,7 @@ FeatsList["revenant blade"] = {
 	name: "Revenant Blade",
 	source: [["E:RLW", 22]],
 	prerequisite: "Being an Elf",
-	prereqeval: function(v) { return /^(?!.*half)(?=.*(elf|eladrin|avariel|grugach|shadar-kai)).*$/i.test(CurrentRace.known); },
+	prereqeval: function (v) { return /^(?!.*half)(?=.*(elf|eladrin|avariel|grugach|shadar-kai)).*$/i.test(CurrentRace.known); },
 	descriptionFull: "You are descended from a master of the double blade and their skills have passed on to you. You gain the following benefits:\n \u2022 Increase your Dexterity or Strength score by 1, to a maximum of 20.\n \u2022 While you are holding a double-bladed scimitar with two hands, you gain a + 1 bonus to Armor Class.\n \u2022 A double-bladed scimitar has the finesse property when you wield it.",
 	description: "My mastery with the double bladed scimitar allows me to treat it as having the finesse trait. In addition, I gain +1 AC while wielding it with two hands. [+1 Strength or Dexterity]",
 	scorestxt: "+1 Strength or Dexterity",
@@ -466,7 +466,7 @@ RaceList["dragonmark detection half-elf"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -527,7 +527,7 @@ RaceList["dragonmark finding half-orc"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -588,7 +588,7 @@ RaceList["dragonmark finding human"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -655,7 +655,7 @@ RaceList["dragonmark handling human"] = {
 			"When I cast Animal Friendship or Speak with Animals, I can target a monstrosity with an Intelligence of 3 or lower instead of a beast.",
 		],
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -716,7 +716,7 @@ RaceList["dragonmark healing halfling"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -774,7 +774,7 @@ RaceList["dragonmark hospitality halfling"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -834,7 +834,7 @@ RaceList["dragonmark making human"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -882,7 +882,7 @@ RaceList["dragonmark passage human"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -948,7 +948,7 @@ RaceList["dragonmark scribing gnome"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -1002,7 +1002,7 @@ RaceList["dragonmark sentinel human"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -1060,7 +1060,7 @@ RaceList["dragonmark shadow elf"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -1118,7 +1118,7 @@ RaceList["dragonmark storm half-elf"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -1201,7 +1201,7 @@ RaceList["dragonmark warding dwarf"] = {
 	},
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -1236,7 +1236,7 @@ FeatsList["aberrant dragonmark"] = {
 	name: "Aberrant Dragonmark",
 	source: [["E:RLW", 52]],
 	prerequisite: "No other dragonmark",
-	prereqeval: function(v) { return !/dragonmark/i.test(CurrentRace.known); },
+	prereqeval: function (v) { return !/dragonmark/i.test(CurrentRace.known); },
 	descriptionFull: "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip of your choice from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it through your mark. Once you cast it, you must finish a short or long rest before you can cast it again through the mark. Constitution is your spellcasting ability for these spells.\n \u2022 When you cast the 1st-level spell through your mark, you can expend one of your Hit Dice and roll it. If you roll an even number, you gain a number of temporary hit points equal to the number rolled. If you roll an odd number, one random creature within 30 feet of you (not including you) takes force damage equal to the number rolled. If no other creatures are in range, you take the damage.\n\nYou also develop a random flaw from the Aberrant Dragonmark Flaws table.\n\n" + toUni("d8\tFlaw") + "\n  1\tYour mark is a source of constant physical pain.\n  2\tYour mark whispers to you. Its meaning can be unclear.\n  3\tWhen you're stressed, the mark hisses audibly.\n  4\tThe skin around the mark is burned, scaly, or withered.\n  5\tAnimals are uneasy around you.\n  6\tYou have a mood swing any time you use your mark.\n  7\tYour looks change slightly whenever you use the mark.\n  8\tYou have horrific nightmares after you use your mark.",
 	description: "I learn a sorcerer cantrip, and a 1st-level spell that I can cast once per short rest. They use Con as spellcasting ability. I can expend and roll an HD when I cast the level 1 spell. If even, I gain it in temp HP. If odd, a random target in 30 ft takes it in force damage. [+1 Con]",
 	scores: [0, 0, 1, 0, 0, 0],
@@ -1554,7 +1554,7 @@ ClassList.artificer = {
 					"It must be a space that the wearer had occupied some time during the current turn",
 				]),
 				additional: "pair of boots; requires attunement",
-				prereqeval: function(v) { return classes.known.artificer.level >= 6; },
+				prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 				magicitemsAdd: ["Boots of the Winding Path"],
 			},
 			"enhanced arcane focus": {
@@ -1578,7 +1578,7 @@ ClassList.artificer = {
 				additional: levels.map(function (n) {
 					return "armor/shield; +" + (n < 10 ? 1 : 2) + " magical";
 				}),
-				prereqeval: function(v) {
+				prereqeval: function (v) {
 					return GetFeatureChoice("classes", "artificer", "infuse item", true).indexOf("enhanced defense (shield)") == -1;
 				},
 				eval: function (lvl, chc) {
@@ -1595,7 +1595,7 @@ ClassList.artificer = {
 				additional: levels.map(function (n) {
 					return "armor/shield; +" + (n < 10 ? 1 : 2) + " magical";
 				}),
-				prereqeval: function(v) {
+				prereqeval: function (v) {
 					return GetFeatureChoice("classes", "artificer", "infuse item", true).indexOf("enhanced defense (armor)") == -1;
 				},
 				eval: function (lvl, chc) {
@@ -1706,7 +1706,7 @@ ClassList.artificer = {
 					"The attacker makes a Con save (my spell save DC) or is blinded until its next turn ends",
 				]),
 				additional: "simple/martial weapon; requires attunement",
-				prereqeval: function(v) { return classes.known.artificer.level >= 6; },
+				prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 				magicitemsAdd: ["Radiant Weapon"],
 			},
 			"repeating shot": {
@@ -1728,7 +1728,7 @@ ClassList.artificer = {
 					"As a reaction when hit in melee, the wearer can use 1 charge to push the attacker 15 ft",
 				]),
 				additional: "shield; requires attunement",
-				prereqeval: function(v) { return classes.known.artificer.level >= 6; },
+				prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 				magicitemsAdd: ["Repulsion Shield"],
 			},
 			"resistant armor (prereq: level 6 artificer)": {
@@ -1739,7 +1739,7 @@ ClassList.artificer = {
 					"Choose from: acid,	cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder",
 				]),
 				additional: "suit of armor; requires attunement",
-				prereqeval: function(v) { return classes.known.artificer.level >= 6; },
+				prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 				magicitemsAdd: ["Armor of Resistance"],
 			},
 			"returning weapon": {
@@ -1825,13 +1825,13 @@ ClassList.artificer = {
 			},
 		},
 	},
-	prereqLvl6: function(v) { return classes.known.artificer.level >= 6; },
-	prereqLvl10: function(v) { return classes.known.artificer.level >= 10; },
-	prereqLvl14: function(v) { return classes.known.artificer.level >= 14; },
+	prereqLvl6: function (v) { return classes.known.artificer.level >= 6; },
+	prereqLvl10: function (v) { return classes.known.artificer.level >= 10; },
+	prereqLvl14: function (v) { return classes.known.artificer.level >= 14; },
 };
 
 // Set the Artificer infusion list for Replicate Magic Item
-RunFunctionAtEnd(function() {
+RunFunctionAtEnd(function () {
 	var artMi = [
 		// 2nd-level artificer
 		["alchemy jug", 2],
@@ -2110,7 +2110,7 @@ AddSubClass("artificer", "artillerist", {
 			usages: 1,
 			recovery: "long rest",
 			altResource: "SS 1+",
-			additional: levels.map(function(n) {
+			additional: levels.map(function (n) {
 				return n < 3 ? "" : n < 15 ? "1 cannon" : "2 cannons";
 			}),
 			action: [["action", " (create/dismiss)"], ["bonus action", " (activate)"]],
@@ -2182,7 +2182,7 @@ AddSubClass("artificer", "artillerist", {
 					name: "Detonate (Artillerist 9)",
 					minlevel: 9,
 					description: "The creator of the cannon, can use an action to detonate the cannon when within 60 ft of it, see the attack section. The cannon's attacks now deal 3d8 damage.",
-					eval: function(prefix, lvl) {
+					eval: function (prefix, lvl) {
 						// add the Detonate attack entry
 						Value(prefix + "Comp.Use.Attack.3.Weapon Selection", "Detonate");
 						// Upgrade the damage for the attacks
@@ -2190,7 +2190,7 @@ AddSubClass("artificer", "artillerist", {
 							Value(prefix + "BlueText.Comp.Use.Attack." + i + ".Damage Die", "3d8");
 						}
 					},
-					removeeval: function(prefix, lvl) {
+					removeeval: function (prefix, lvl) {
 						// remove the Detonate attack entry
 						Value(prefix + "Comp.Use.Attack.3.Weapon Selection", "");
 						// Reset the damage for the attacks
@@ -2214,7 +2214,7 @@ AddSubClass("artificer", "artillerist", {
 					},
 					setAltHp: true,
 				},
-				eval: function(prefix, lvl) {
+				eval: function (prefix, lvl) {
 					// remove the Detonate attack if adding this creature before artificer level 9
 					if (lvl[0] < 9) Value(prefix + "Comp.Use.Attack.3.Weapon Selection", "");
 				},
@@ -2385,10 +2385,10 @@ AddSubClass("artificer", "battle smith", {
 				}, {
 					name: "Arcane Jolt (Battle Smith 9)",
 					minlevel: 9,
-					eval: function(prefix, lvl) {
+					eval: function (prefix, lvl) {
 						Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (1d6): On hit, deal force damage or heal target in 30 ft");
 					},
-					removeeval: function(prefix, lvl) {
+					removeeval: function (prefix, lvl) {
 						Value(prefix + "Comp.Use.Attack.1.Description", "");
 					},
 				}, {
@@ -2396,11 +2396,11 @@ AddSubClass("artificer", "battle smith", {
 					minlevel: 15,
 					description: "The steel defender's Deflect Attack now deals 1d4 + its creator's Intelligence modifier in force damage to the attacker.",
 					addMod: [{ type: "", field: "Comp.Use.AC", mod: 2, text: "The steel defender gains a +2 bonus to its AC (base AC of 15)." }],
-					eval: function(prefix, lvl) {
+					eval: function (prefix, lvl) {
 						Value(prefix + "Comp.Use.Attack.1.Description", What(prefix + "Comp.Use.Attack.1.Description").replace("Arcane Jolt (1d6)", "Arcane Jolt (2d6)"));
 						Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "Deflect Attack (reaction)");
 					},
-					removeeval: function(prefix, lvl) {
+					removeeval: function (prefix, lvl) {
 						Value(prefix + "Comp.Use.Attack.1.Description", What(prefix + "Comp.Use.Attack.1.Description").replace("Arcane Jolt (2d6)", "Arcane Jolt (1d6)"));
 						Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "");
 					},
@@ -2419,7 +2419,7 @@ AddSubClass("artificer", "battle smith", {
 					setAltHp: true,
 					hpForceRecalc: true,
 				},
-				eval: function(prefix, lvl) {
+				eval: function (prefix, lvl) {
 					// remove the Deflect Attack (reaction) attack if adding this creature before artificer level 15
 					if (lvl[0] < 15) Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "");
 				},
@@ -2489,7 +2489,7 @@ MagicItemsList["enhanced arcane focus, +1 or +2"] = {
 	attunement: true,
 	weight: 1,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	choices: ["+1 to spell attacks", "+2 to spell attacks (artificer level 10+)"],
 	"+1 to spell attacks": {
 		name: "Enhanced Arcane Focus +1",
@@ -2760,13 +2760,13 @@ MagicItemsList["docent"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	description: "I can embed this sentient small metal sphere studded with dragonshards into my chest or eye socket. I can communicate telepathically with it and it uses my senses. It can serve me as an advisor and a translator. It knowns 6 languages, a spells, an Intelligence skill, and can stabilize me. See Notes page.",
-	descriptionFull: ERftLW_docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: ERftLW_docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	attunement: true,
 	prerequisite: "Requires attunement by a warforged",
 	prereqeval: function (v) { return /warforged/i.test(CurrentRace.known); },
 	toNotesPage: [{
 		name: "Features",
-		note: desc(ERftLW_docentFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/(with|stabilizes|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(ERftLW_docentFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/(with|stabilizes|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 }
 MagicItemsList["dyrrn's tentacle whip"] = {
@@ -3396,19 +3396,19 @@ ERftLW_Valenar_Ancestral_Traits = [
 	"\u25C6 [Variant] Ancestral Traits: Each Valenar animal can be customized with an ancestral gift, a supernatural trait granted by its ancestral spirit. Choose a trait or roll on the table below for each Valenar animal.",
 	" d8\tTrait",
 	"  1\tBestow Luck (1/day): As a bonus action, the animal chooses one creature it can see",
-		"\twithin 30 ft of it. The next ability check, attack roll, or saving throw the target",
-		"\tmakes in the next hour has advantage.",
+	"\twithin 30 ft of it. The next ability check, attack roll, or saving throw the target",
+	"\tmakes in the next hour has advantage.",
 	"  2\tBurst of Speed (recharge 6): The animal can take the Dash action as a bonus action.",
 	"  3\tCamouflage: The animal has advantage on Dexterity (Stealth) checks it makes while",
-		"\toutdoors.",
+	"\toutdoors.",
 	"  4\tLie Detector: The animal knows when a creature within 15 ft of it tells a lie.",
 	"  5\tFey Ancestry: The animal has advantage on saving throws against being charmed or",
-		"\tfrightened, and magic can't put it to sleep.",
+	"\tfrightened, and magic can't put it to sleep.",
 	"  6\tFey Step (1/day): The animal, along with anything it is wearing or carrying,",
-		"\tteleports up to 30 ft to an unoccupied space it can see.",
+	"\tteleports up to 30 ft to an unoccupied space it can see.",
 	"  7\tQuickness (recharge 6): The animal can take the Dodge action as a bonus action.",
 	"  8\tShrouded Step. The animal can't be tracked except by magical means, and it leaves",
-		"\tbehind no tracks or other traces of its passage.",
+	"\tbehind no tracks or other traces of its passage.",
 ].join("\n");
 CreatureList["valenar hawk"] = { // contributed by Nod_Hero
 	name: "Valenar Hawk",
@@ -3443,10 +3443,10 @@ CreatureList["valenar hawk"] = { // contributed by Nod_Hero
 		name: "Bonding",
 		description: "The hawk can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the hawk bonds with a different creature or until the bonded creature dies. While bonded, the hawk and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
 	}],
-	eval: function(prefix, lvl) {
+	eval: function (prefix, lvl) {
 		AddString(prefix + "Cnote.Left", ERftLW_Valenar_Ancestral_Traits, true);
 	},
-	removeeval: function(prefix, lvl) {
+	removeeval: function (prefix, lvl) {
 		RemoveString(prefix + "Cnote.Left", ERftLW_Valenar_Ancestral_Traits, true);
 	},
 };
@@ -3484,10 +3484,10 @@ CreatureList["valenar hound"] = { // contributed by Nod_Hero
 		name: "Bonding",
 		description: "The hound can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the hound bonds with a different creature or until the bonded creature dies. While bonded, the hound and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
 	}],
-	eval: function(prefix, lvl) {
+	eval: function (prefix, lvl) {
 		AddString(prefix + "Cnote.Left", ERftLW_Valenar_Ancestral_Traits, true);
 	},
-	removeeval: function(prefix, lvl) {
+	removeeval: function (prefix, lvl) {
 		RemoveString(prefix + "Cnote.Left", ERftLW_Valenar_Ancestral_Traits, true);
 	},
 };
@@ -3520,10 +3520,10 @@ CreatureList["valenar steed"] = { // contributed by Nod_Hero
 		name: "Bonding",
 		description: "The steed can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the steed bonds with a different creature or until the bonded creature dies. While bonded, the steed and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
 	}],
-	eval: function(prefix, lvl) {
+	eval: function (prefix, lvl) {
 		AddString(prefix + "Cnote.Left", ERftLW_Valenar_Ancestral_Traits, true);
 	},
-	removeeval: function(prefix, lvl) {
+	removeeval: function (prefix, lvl) {
 		RemoveString(prefix + "Cnote.Left", ERftLW_Valenar_Ancestral_Traits, true);
 	},
 };

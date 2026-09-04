@@ -202,7 +202,7 @@ AddSubClass("rogue", "scout-ua", {
 			source: [["UA:RnR", 3]],
 			minlevel: 9,
 			description: desc("I gain +10 ft to my walking speed (and swimming/climbing speed, if applicable)"),
-			speed: { 
+			speed: {
 				allModes: { bonus: "+10", exclude: ["fly", "burrow"] },
 			},
 		},

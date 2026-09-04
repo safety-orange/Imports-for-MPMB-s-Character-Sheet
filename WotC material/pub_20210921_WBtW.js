@@ -219,7 +219,7 @@ RaceList["harengon"] = {
 			usages: "Proficiency bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
 			recovery: "long rest",
-			additional: ProficiencyBonusList.map(function(n) {
+			additional: ProficiencyBonusList.map(function (n) {
 				var hopDistance = n * 5 + " ft";
 				return What("Unit System") === "metric" ? ConvertToMetric(hopDistance) : hopDistance;
 			}),
@@ -239,7 +239,7 @@ var WBtW_Sentient_Item_toNotes = function (sDescr, skipConflict) {
 		.replace(/(by|of|to|for) I\b|\bI to|\bI an?\b/ig, "$1 me")
 		.replace(/\bI (to|a|an)\b/ig, "me $1")
 		.replace(/your/g, "my").replace(/Your/g, "My")
-		.replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); });
+		.replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); });
 	return skipConflict ? theR : theR + "\n\n" + sentientItemConflictTxt
 }
 MagicItemsList["bobbing lily pad"] = {
@@ -376,7 +376,7 @@ MagicItemsList["scissors of shadow snipping"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a fey or a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; }, // no fey player races exist that don't have racial spellcasting
+	prereqeval: function (v) { return v.isSpellcaster; }, // no fey player races exist that don't have racial spellcasting
 	description: "As an action once per dawn, I can use these iron shears to detach the shadow of a Humanoid I can see within 5 ft. An involuntary target can make a DC 15 Cha save to resist. The detached shadow stays where it was snipped until I use a bonus action to control it or set it free. See Notes page.",
 	descriptionFull: WBtW_Scissors_of_Shadow_Snipping_Full_Description.join("\n   "),
 	toNotesPage: [{
@@ -400,9 +400,9 @@ MagicItemsList["snicker-snack"] = {
 	rarity: "legendary",
 	attunement: true,
 	prerequisite: "Requires attunement by a non-evil creature",
-	prereqeval: function(v) { return !/evil/i.test(What("Alignment")); },
+	prereqeval: function (v) { return !/evil/i.test(What("Alignment")); },
 	description: "I have a +3 bonus on attack and damage rolls with this sentient magic greatsword and can use Cha instead of Str. It ignores slashing resistance. On a 20 to hit, it cuts off " + (typePF ? "a head" : "one head, possibly killing it instantly") + ". If the target has legendary actions, no head, too wide neck, or is immune to slashing damage, it takes +6d8 damage instead. See Notes.",
-	descriptionFull: WBtW_Snicker_Snack_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: WBtW_Snicker_Snack_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	weight: 6,
 	toNotesPage: [{
 		name: "Features",
@@ -442,9 +442,9 @@ MagicItemsList["steel"] = {
 	rarity: "very rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a good-aligned creature",
-	prereqeval: function(v) { return /good/i.test(What("Alignment")); },
+	prereqeval: function (v) { return /good/i.test(What("Alignment")); },
 	description: "This sentient longsword adds +2 to attack and damage rolls made with it. As an action once per dawn, I can use it to cast Revivify on a target I touch with the sword. Steel is lawful good and frets over my well-being and doesn't like to back down from a fight. It has Int 8, Wis 11, and Cha 15. See Notes page.",
-	descriptionFull: WBtW_Steel_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: WBtW_Steel_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	weight: 3,
 	toNotesPage: [{
 		name: "Features",
@@ -506,7 +506,7 @@ MagicItemsList["witchlight vane"] = {
 	prerequisite: "Requires attunement by a mister light or his handpicked successor",
 	description: "I can use this sentient ornate rod as a +3 mace that deals an extra 1d8 radiant damage on a hit. It can sense the mood of every creature in the carnival. As an action, I can pinpoint the happiest in the carnival. I can use it to cast spells. I can't be blinded, deafened, petrified, or stunned. See Notes page.",
 	descriptionLong: "This sentient ornate rod is topped by a pair of butterfly wings and incorporates bits of red glass into its length. I can use it as a +3 mace that deals an extra 1d8 radiant damage on a hit. It can sense the mood of every creature in the carnival. As an action, I can use it to pinpoint the happiest in the carnival. I can use it to cast Dancing Light, Ray of Frost, and Polymorph. After I use it to cast Polymorph, roll a d8. On a roll of 3 or 8, the vane can't be used to cast Polymorph again until the next dawn. It makes me vulnerable to lightning damage, but I can't be blinded, deafened, petrified, or stunned. See Notes page.",
-	descriptionFull: WBtW_Witchlight_Vane_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: WBtW_Witchlight_Vane_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	weight: 3,
 	toNotesPage: [{
 		name: "Features",
@@ -560,7 +560,7 @@ MagicItemsList["witchlight watch"] = {
 	prerequisite: "Requires attunement by a mister witch or his handpicked successor",
 	description: "As an action once per 8 hours, I can use this ornate pocket watch to initiate the (un)packing of the carnival over the next hour. I can use it to cast Fire Bolt, Message, and Invisibility. After it casts Invisibility, I roll a d8. On a roll of 3 or 8, I can't cast this again until the next dawn. See Notes page.",
 	descriptionLong: "This ornate pocket watch is fastened to the end of a gold chain and glows with a faint golden light when opened. As an action once per 8 hours, I can use this ornate pocket watch to initiate the (un)packing of the carnival over the next hour, provided the carnival and I are on the same plane of existence. I can use it to cast Fire Bolt, Message, and Invisibility. After I use it to cast Invisibility, roll a d8. On a roll of 3 or 8, it can't be used to cast Invisibility again until the next dawn. As long as I'm attuned to it, I'm 30 lb heavier and must eat and drink eight times the normal amount each day. See Notes page.",
-	descriptionFull: WBtW_Witchlight_Watch_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: WBtW_Witchlight_Watch_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
 		note: WBtW_Sentient_Item_toNotes(WBtW_Witchlight_Watch_Full_Description, true),

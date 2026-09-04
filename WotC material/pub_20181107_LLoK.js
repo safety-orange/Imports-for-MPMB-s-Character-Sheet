@@ -212,7 +212,7 @@ MagicItemsList["leather golem armor"] = {
 	rarity: "rare",
 	magicItemTable: "G",
 	description: "I am unwilling to part with this leather armor until its curse is lifted from me, see Notes page. The curse makes me go berserk and have an aversion to fire. It gives me a +1 bonus to AC and saves vs. spells and magical effects. I have resistance to lightning damage and when I suffer such damage, I gain 5 temporary HP.",
-	descriptionFull: LLoK_leatherGolemArmorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: LLoK_leatherGolemArmorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	attunement: true,
 	weight: 10,
 	dmgres: ["Lightning"],
@@ -229,7 +229,7 @@ MagicItemsList["leather golem armor"] = {
 	savetxt: { text: ["+1 vs. spells and magical effects"] },
 	toNotesPage: [{
 		name: "Features",
-		note: desc(LLoK_leatherGolemArmorFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I "),
+		note: desc(LLoK_leatherGolemArmorFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I "),
 	}],
 }
 var LLoK_polymorphBladeFullDescription = [
@@ -256,7 +256,7 @@ MagicItemsList["polymorph blade"] = {
 	rarity: "very rare",
 	magicItemTable: "H",
 	description: "I'm unwilling to part with this magic sword. When I attack a creature with it and roll a 20 to hit, the creature must make a DC 15 Wisdom save or be polymorphed for 1 hour into a random beast (see Notes page). However, on a roll of 1 to hit, I am the one being polymorphed for 1 hour without a save.",
-	descriptionFull: LLoK_polymorphBladeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: LLoK_polymorphBladeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	attunement: true,
 	chooseGear: {
 		type: "weapon",
@@ -281,7 +281,7 @@ MagicItemsList["polymorph blade"] = {
 	},
 	toNotesPage: [{
 		name: "Features",
-		note: desc(LLoK_polymorphBladeFullDescription).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I "),
+		note: desc(LLoK_polymorphBladeFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I "),
 	}],
 }
 var LLoK_poweredArmorFullDescription = [

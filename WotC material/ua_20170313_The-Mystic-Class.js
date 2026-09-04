@@ -6,7 +6,7 @@ RequiredSheetVersion("13.1.14");
 // Define the source
 SourceList["UA:TMC"] = {
 	name: "Unearthed Arcana: The Mystic Class",
-	abbreviation: "UA:TMC",	
+	abbreviation: "UA:TMC",
 	group: "Unearthed Arcana",
 	url: "https://media.wizards.com/2017/dnd/downloads/UAMystic3.pdf",
 	date: "2017/03/13",
@@ -62,8 +62,8 @@ ClassList.mystic = {
 			]),
 			usages: levels.map(function (n) {
 				return n < 2 ? 4 : n < 3 ? 6 : n < 4 ? 14 : n < 5 ? 17 :
-				n < 6 ? 27 : n < 7 ? 32 : n < 8 ? 38 : n < 9 ? 44 : n < 10 ? 57 :
-				n < 18 ? 64 : 71;
+					n < 6 ? 27 : n < 7 ? 32 : n < 8 ? 38 : n < 9 ? 44 : n < 10 ? 57 :
+						n < 18 ? 64 : 71;
 			}),
 			recovery: "long rest",
 			additional: levels.map(function (n) {
@@ -513,7 +513,7 @@ AddSubClass("mystic", "soul knife-ua", {
 			minlevel: 1,
 			description: desc("I gain proficiency with medium armor and martial weapons"),
 			armor: [false, true, false, false],
-			weapons: [false, true],			
+			weapons: [false, true],
 		},
 		"subclassfeature1.1": {
 			name: "Soul Knife",

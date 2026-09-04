@@ -151,13 +151,13 @@ ClassList["artificer-ua"] = {
 				"As a reaction when I'm attacked in melee, I can have it make a melee attack back",
 			]),
 			additional: "Large beast, CR 2 or less",
-			creaturesAdd: [["Mechanical Servant", false, function(AddRemove, prefix) {
+			creaturesAdd: [["Mechanical Servant", false, function (AddRemove, prefix) {
 				if (!AddRemove) return;
 				var cObj = MakeCompMenu_CompOptions(prefix, "justCompanions");
 				if (!cObj.mechanicalserv || !cObj.mechanicalserv.length) {
 					var selectedRace = "Warhorse";
 				} else {
-					var compOptions = cObj.mechanicalserv.map(function(n) { return n[0] });
+					var compOptions = cObj.mechanicalserv.map(function (n) { return n[0] });
 					var selectedRace = AskUserOptions("Select Mechanical Servant", "Select which beast you would like to have as your mechanical servant.\nThis can be any beast that is Large and that has a challenge rating of 2.\nYou can change the beast at any time using the \"Companion Options\" button at the top of the Companion page.", compOptions, "radio", true);
 				}
 				ApplyCompRace(selectedRace, prefix, "mechanicalserv");
@@ -458,9 +458,9 @@ AddSubClass("artificer-ua", "gunsmith", {
 			]),
 			additional: levels.map(function (n) {
 				return n < 9 ? "" :
-				n < 13 ? "2d6 force damage" :
-				n < 17 ? "3d6 force damage" :
-				"4d6 force damage";
+					n < 13 ? "2d6 force damage" :
+						n < 17 ? "3d6 force damage" :
+							"4d6 force damage";
 			}),
 			action: [["action", ""]],
 			weaponOptions: [{
@@ -497,8 +497,8 @@ AddSubClass("artificer-ua", "gunsmith", {
 			]),
 			additional: levels.map(function (n) {
 				return n < 14 ? "" :
-				n < 19 ? "4d6 lightning damage" :
-				"6d6 lightning damage";
+					n < 19 ? "4d6 lightning damage" :
+						"6d6 lightning damage";
 			}),
 			action: [["action", ""]],
 			weaponOptions: [{
@@ -555,7 +555,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 });
 
 // Set the Artificer class spell list and Create the choices for the wondrous items class feature of the artificer
-var UAA_SetArtificerAttr = function(){
+var UAA_SetArtificerAttr = function (){
 	var artSp = [
 		// level 1
 		"alarm",
@@ -671,7 +671,7 @@ CompanionList.mechanicalserv = {
 	nameOrigin: "Artificer 6",
 	nameMenu: "Mechanical Servant (2017 Artificer feature)",
 	source: [["UA:A", 4]],
-	includeCheck: function(sCrea, objCrea, iCreaCR) {
+	includeCheck: function (sCrea, objCrea, iCreaCR) {
 		return objCrea.type.toLowerCase() === "beast" && objCrea.size === 2 && iCreaCR <= 2 ? true : false;
 	},
 	action: [["reaction", "Mechanical Servant (if attacked)"]],
@@ -711,7 +711,7 @@ CompanionList.mechanicalserv = {
 		senses: "Darkvision 60 ft",
 		languages: "understands the languages its creator speaks",
 	},
-	attributesChange: function(sCrea, objCrea) {
+	attributesChange: function (sCrea, objCrea) {
 		// Fix duplicate stuff
 		if (!sCrea || !CreatureList[sCrea]) return;
 		var oOrigCrea = CreatureList[sCrea];

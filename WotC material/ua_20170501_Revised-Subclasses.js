@@ -157,7 +157,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 			]),
 			usages: 2,
 			recovery: "short rest",
-			additional: levels.map( function(n) { return n < 3 ? "" : (n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6) + " options known"; }),
+			additional: levels.map( function (n) { return n < 3 ? "" : (n < 7 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 18 ? 5 : 6) + " options known"; }),
 			extraname: "Arcane Shot Option",
 			extrachoices: ["Banishing Arrow [Abjuration]", "Brute Bane Arrow [Necromancy]", "Bursting Arrow [Evocation]", "Grasping Arrow [Conjuration]", "Mind-Scrambling Arrow [Enchantment]", "Piercing Arrow [Transmutation]", "Seeking Arrow [Divination]", "Shadow Arrow [Illusion]"],
 			extraTimes: levels.map(function (n) {
@@ -171,7 +171,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 					"While banished, its speed is 0 and is incapacitated; It re-appearing in the same spot",
 					"When I reach 18th level, this Arcane Shot Option also does an extra 2d6 force damage",
 				]),
-				additional: levels.map( function(n) { return n < 18 ? "" : "+2d6 force damage"; }),
+				additional: levels.map( function (n) { return n < 18 ? "" : "+2d6 force damage"; }),
 			},
 			"brute bane arrow [necromancy]": {
 				name: "Brute Bane Arrow [Necromancy]",
@@ -180,13 +180,13 @@ AddSubClass("fighter", "arcane archer2-ua", {
 					"The target takes extra necrotic damage and must make a Constitution save",
 					"If failed, the damage of the target's attacks is halved until the start of my next turn",
 				]),
-				additional: levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 necrotic damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 necrotic damage"; }),
 			},
 			"bursting arrow [evocation]": {
 				name: "Bursting Arrow [Evocation]",
 				source: [["UA:RS", 3]],
 				description: desc("The target, in addition to the shot, and all creatures within 10 ft of it take damage"),
-				additional: levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 force damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 force damage"; }),
 			},
 			"grasping arrow [conjuration]": {
 				name: "Grasping Arrow [Conjuration]",
@@ -196,7 +196,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 					"The brambles give it -10 ft speed and do it slashing damage every round it moves",
 					"These can be removed by it or another as an action with Strength (Athletics) vs. my DC",
 				]),
-				additional: levels.map( function(n) { return n < 3 ? "" : (n < 18 ? 2 : 4) + "d6 poison/slash. damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : (n < 18 ? 2 : 4) + "d6 poison/slash. damage"; }),
 			},
 			"mind-scrambling arrow [enchantment]": {
 				name: "Mind-Scrambling Arrow [Enchantment]",
@@ -206,7 +206,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 					"If failed, it can't attack or harm one of my allies within 30 ft of it that I choose",
 					"This lasts until the start of my next turn or until the chosen ally harms the target",
 				]),
-				additional: levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 damage"; }),
 			},
 			"piercing arrow [transmutation]": {
 				name: "Piercing Arrow [Transmutation]",
@@ -217,7 +217,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 					"The damage is the same as a normal hit from my attack, plus extra piercing damage",
 					"A creature can make a Dexterity save to reduce the damage by half",
 				]),
-				additional: levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 1 : 2) + "d6 piercing damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 1 : 2) + "d6 piercing damage"; }),
 			},
 			"seeking arrow [divination]": {
 				name: "Seeking Arrow [Divination]",
@@ -229,7 +229,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 					"The target takes the full damage of the attack plus extra force damage",
 					"It can make a Dexterity save to reduce the damage by half; If failed, I know its location",
 				]),
-				additional: levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 1 : 2) + "d6 force damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 1 : 2) + "d6 force damage"; }),
 			},
 			"shadow arrow [illusion]": {
 				name: "Shadow Arrow [Illusion]",
@@ -238,7 +238,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 					"The target takes extra psychic damage and must succeed on a Wisdom save",
 					"If failed, the target can't see anything beyond 5 ft until the end of my next turn",
 				]),
-				additional: levels.map( function(n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 psychic damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 psychic damage"; }),
 			},
 		},
 		"subclassfeature3.2": {
@@ -284,7 +284,7 @@ AddSubClass("monk", "way of the kensei2-ua", {
 				" - As a bonus action, ranged kensei weapon attacks deal +1d4 damage in current turn",
 			]),
 			action: [["bonus action", " (with ranged)"]],
-			additional: levels.map( function(n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
+			additional: levels.map( function (n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
 			calcChanges: {
 				atkAdd: [
 					function (fields, v) {

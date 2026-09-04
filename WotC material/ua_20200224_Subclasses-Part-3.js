@@ -171,7 +171,7 @@ RunFunctionAtEnd(function () {
 		"+5 ft walking speed; Gemlike node in fist/chest is a ranged weapon, Lightning Launcher",
 		"The power armor is formfitting, has negligible weight, and doesn't give disadv. on Stealth",
 	])
-	var prereqFunc = function(v) {
+	var prereqFunc = function (v) {
 		var sParsed = ParseArmor(v.choice.replace(/(Guardian|Infiltrator) arcane /i, ""));
 		return sParsed && testSource(sParsed, ArmourList[sParsed], "armorExcl") ? "skip" : true;
 	};
@@ -226,7 +226,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 			source: [["T", 21], ["UA:SP3", 3]],
 			description: desc("The wearer has advantage on Initiative rolls and can't be surprised while not incapacitated"),
 			additional: "helmet; requires attunement",
-			prereqeval: function(v) { return classes.known.artificer.level >= 10; },
+			prereqeval: function (v) { return classes.known.artificer.level >= 10; },
 			magicitemsAdd: ["Helm of Awareness"],
 		});
 		MagicItemsList["helm of awareness"] = {
@@ -249,7 +249,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 			"As a reaction when being knocked prone, the wearer can use 1 charge to not be prone",
 		]),
 		additional: "suit of armor; requires attunement",
-		prereqeval: function(v) { return classes.known.artificer.level >= 10; },
+		prereqeval: function (v) { return classes.known.artificer.level >= 10; },
 		magicitemsAdd: ["Armor of Magical Strength (UA)"],
 	});
 	MagicItemsList["armor of magical strength-ua"] = {
@@ -334,7 +334,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 			"The maximum level of the spell slot is equal to the number of magic items it is attuned to",
 		]),
 		additional: "ring; requires attunement",
-		prereqeval: function(v) { return classes.known.artificer.level >= 6; },
+		prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 		magicitemsAdd: ["Spell-Refueling Ring (UA)"],
 	});
 	MagicItemsList["spell-refueling ring-ua"] = {
@@ -498,7 +498,7 @@ var UASP3_rangerSubclassFeyWandererUA = AddSubClass("ranger", "fey wanderer-ua",
 				"The target takes +3d6 psychic damage and must make a Wis save or be frightened of me",
 				"This lasts until the end of my next turn; In addition, I add my Wis mod to Cha checks",
 			]),
-			addMod: ["Deception", "Intimidation", "Performance", "Persuasion"].map(function(skill){return { type: "skill", field: skill, mod: "Wis", text: "I add my Wisdom modifier to my Charisma checks" };}),
+			addMod: ["Deception", "Intimidation", "Performance", "Persuasion"].map(function (skill){return { type: "skill", field: skill, mod: "Wis", text: "I add my Wisdom modifier to my Charisma checks" };}),
 		},
 		"subclassfeature11": {
 			name: "Beguiling Twist",

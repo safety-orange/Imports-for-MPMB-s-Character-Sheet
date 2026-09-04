@@ -67,7 +67,7 @@ BackgroundFeatureList["lorehold initiate"] = {
 	source: [["SCC", 31]],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -111,7 +111,7 @@ BackgroundFeatureList["prismari initiate"] = {
 	source: [["SCC", 32]],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -156,7 +156,7 @@ BackgroundFeatureList["quandrix initiate"] = {
 	source: [["SCC", 33]],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -199,7 +199,7 @@ BackgroundFeatureList["silverquill initiate"] = {
 	source: [["SCC", 35]],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -245,7 +245,7 @@ BackgroundFeatureList["witherbloom initiate"] = {
 	source: [["SCC", 36]],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// don't add if this is not a class or a list of spells is already given
 				if (!ClassList[spName] || spList.spells || spList.psionic) return;
 				// if this is an 'extra spell', also test if it uses the class' spell list or not
@@ -353,7 +353,7 @@ FeatsList["strixhaven mascot"] = {
 	"\n \u2022 When you take the Attack action on your turn, you can forgo one attack to allow your mascot familiar to make one attack of its own with its reaction." +
 	"\n \u2022 If your mascot familiar is within 60 feet of you, you can teleport as an action, swapping places with the familiar. If your destination space is too small for you to occupy, the teleportation fails and is wasted. Once you teleport in this way, you can't do so again until you finish a long rest, unless you expend a spell slot of 2nd level or higher to do it again.",
 	prerequisite: "4th level, Strixhaven Initiate feat",
-	prereqeval: function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("strixhaven initiate") !== -1; },
+	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("strixhaven initiate") !== -1; },
 	extraLimitedFeatures: [{
 		name: "Swap places with Strixhaven Mascot",
 		recovery: "long rest",
@@ -405,7 +405,7 @@ if (CompanionList.familiar && CompanionList.pact_of_the_chain) { // Needs to be 
 		action: [["action", "Swap places with Strixhaven Mascot"]].concat(CompanionList.familiar.action),
 		attributesChange: CompanionList.pact_of_the_chain.attributesChange,
 		attributesAdd: CompanionList.familiar.attributesAdd,
-		notes: function() {
+		notes: function () {
 			var a = newObj(CompanionList.pact_of_the_chain.notes);
 			a[0].description = [
 				"appearing in an unoccupied space within 10 ft",
@@ -535,7 +535,7 @@ MagicItemsList["lorehold primer"] = {
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to an History or Religion check, after the d20 roll. If I study it during a long rest, I can pick a 1st-level cleric or wizard spell. I can cast the spell once without a spell slot before my next long rest ends.",
 	descriptionFull: "The Lorehold Primer is a magic textbook created at Strixhaven's Lorehold College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make an Intelligence (History) or Intelligence (Religion) check while holding the primer, you can expend 1 charge to give yourself 1d4 bonus to the check, immediately after you roll the d20." +
 	"\n   In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the cleric or wizard spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
@@ -549,7 +549,7 @@ MagicItemsList["lorehold primer"] = {
 		recovery: "long rest",
 	}],
 	spellcastingAbility: [4, 5, 6],
-	fCreateSCCPrimerSpellsEntry: function(bAddIt, sName, aClasses) {
+	fCreateSCCPrimerSpellsEntry: function (bAddIt, sName, aClasses) {
 		var sNameLC = sName.toLowerCase();
 		if (bAddIt) {
 			CurrentSpells[sNameLC] = {
@@ -594,7 +594,7 @@ MagicItemsList["prismari primer"] = {
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to an Acrobatics or Performance check, after the d20 roll. If I study it in a long rest, I can pick a 1st-level bard or sorcerer spell. I can cast the spell once without a spell slot before my next long rest ends.",
 	descriptionFull: "The Prismari Primer is a magic textbook created at Strixhaven's Prismari College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make a Dexterity (Acrobatics) or a Charisma (Performance) check while holding the primer, you can expend 1 charge to give yourself a 1d4 bonus to the check, immediately after you roll the d20." +
 	"\n   In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the bard or sorcerer spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
@@ -624,7 +624,7 @@ MagicItemsList["quandrix primer"] = {
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to an Arcana or Nature check, after the d20 roll. If I study it during a long rest, I can pick a 1st-level druid or wizard spell. I can cast the spell once without a spell slot before my next long rest ends.",
 	descriptionFull: "The Quandrix Primer is a magic textbook created at Strixhaven's Quandrix College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make an Intelligence (Arcana) or an Intelligence (Nature) check while holding the primer, you can expend 1 charge to give yourself a 1d4 bonus to the check, immediately after you roll the d20." +
 	"\n   In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the druid or wizard spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
@@ -654,7 +654,7 @@ MagicItemsList["silverquill primer"] = {
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to an Intimidation or Persuasion check, after the d20 roll. If I study it in a long rest, I can pick a 1st-level bard or cleric spell. I can cast the spell once without a spell slot before my next long rest ends.",
 	descriptionFull: "The Silverquill Primer is a magic textbook created at Strixhaven's Silverquill College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make a Charisma (Intimidation) or a Charisma (Persuasion) check while holding the primer, you can expend 1 charge to give yourself a 1d4 bonus to the check, immediately after you roll the d20." +
 	"\n   In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the bard or cleric spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
@@ -692,7 +692,7 @@ MagicItemsList["witherbloom primer"] = {
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to a Nature or Survival check, after the d20 roll. If I study it during a long rest, I can pick a 1st-level druid or wizard spell. I can cast the spell once without a spell slot before my next long rest ends.",
 	descriptionFull: "The Witherbloom Primer is a magic textbook created at Strixhaven's Witherbloom College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make an Intelligence (Nature) or Wisdom (Survival) check while holding the primer, you can expend 1 charge to give yourself a 1d4 bonus to the check, immediately after you roll the d20." +
 	"\n   In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the druid or wizard spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
@@ -735,10 +735,10 @@ MagicItemsList["murgaxor's orb"] = {
 	rarity: "legendary",
 	attunement: true,
 	description: "This sentient, chaotic evil orb bears a curse. It can communicate telepathically with any creature touching it. It can cast Suggestion on my turn, possibly on me. I have no control over it. Any Humanoid I touch while holding the orb must make a DC 10 Wisdom save or become cursed. See the Notes page.",
-	descriptionFull: SCC_Murgaxors_Orb_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: SCC_Murgaxors_Orb_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
-		note: desc(SCC_Murgaxors_Orb_Full_Description).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(targeting) you/ig, "$1 me").replace(/you /ig, "I ").replace(/feet/ig, "ft") + "\n\n" + sentientItemConflictTxt,
+		note: desc(SCC_Murgaxors_Orb_Full_Description).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(targeting) you/ig, "$1 me").replace(/you /ig, "I ").replace(/feet/ig, "ft") + "\n\n" + sentientItemConflictTxt,
 	}],
 }
 MagicItemsList["masque charm"] = {
@@ -755,8 +755,8 @@ MagicItemsList["masque charm"] = {
 		spells: ["disguise self"],
 		selection: ["disguise self"],
 		firstCol: "oncelr",
-   }],
-   fixedDC: 13,
+	}],
+	fixedDC: 13,
 }
 
 // Creatures (for Strixhaven Mascot feat)

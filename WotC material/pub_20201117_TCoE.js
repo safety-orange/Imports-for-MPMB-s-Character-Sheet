@@ -60,8 +60,8 @@ RaceList["custom lineage"] = {
 	},
 	languageProfs: ["Common", 1],
 	scorestxt: "+2 to one ability score of my choice",
-	eval: function() { AddString("Feat Note 1", "Custom lineage bonus feat", "; "); },
-	removeeval: function() { RemoveString("Feat Note 1", "Custom lineage bonus feat"); },
+	eval: function () { AddString("Feat Note 1", "Custom lineage bonus feat", "; "); },
+	removeeval: function () { RemoveString("Feat Note 1", "Custom lineage bonus feat"); },
 	trait: "Custom Lineage (+2 to one ability score of my choice)" + desc([
 		"Size: I am Small or Medium (my choice).",
 		"Feat: I gain one feat of my choice for which I qualify.",
@@ -233,7 +233,7 @@ if (!SourceList["E:RLW"]) {
 						"It must be a space that the wearer had occupied some time during the current turn",
 					]),
 					additional: "pair of boots; requires attunement",
-					prereqeval: function(v) { return classes.known.artificer.level >= 6; },
+					prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 					magicitemsAdd: ["Boots of the Winding Path"],
 				},
 				"enhanced arcane focus": {
@@ -257,7 +257,7 @@ if (!SourceList["E:RLW"]) {
 					additional: levels.map(function (n) {
 						return "armor/shield; +" + (n < 10 ? 1 : 2) + " magical";
 					}),
-					prereqeval: function(v) {
+					prereqeval: function (v) {
 						return GetFeatureChoice("classes", "artificer", "infuse item", true).indexOf("enhanced defense (shield)") == -1;
 					},
 					eval: function (lvl, chc) {
@@ -274,7 +274,7 @@ if (!SourceList["E:RLW"]) {
 					additional: levels.map(function (n) {
 						return "armor/shield; +" + (n < 10 ? 1 : 2) + " magical";
 					}),
-					prereqeval: function(v) {
+					prereqeval: function (v) {
 						return GetFeatureChoice("classes", "artificer", "infuse item", true).indexOf("enhanced defense (armor)") == -1;
 					},
 					eval: function (lvl, chc) {
@@ -385,7 +385,7 @@ if (!SourceList["E:RLW"]) {
 						"The attacker makes a Con save (my spell save DC) or is blinded until its next turn ends",
 					]),
 					additional: "simple/martial weapon; requires attunement",
-					prereqeval: function(v) { return classes.known.artificer.level >= 6; },
+					prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 					magicitemsAdd: ["Radiant Weapon"],
 				},
 				"repeating shot": {
@@ -407,7 +407,7 @@ if (!SourceList["E:RLW"]) {
 						"As a reaction when hit in melee, the wearer can use 1 charge to push the attacker 15 ft",
 					]),
 					additional: "shield; requires attunement",
-					prereqeval: function(v) { return classes.known.artificer.level >= 6; },
+					prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 					magicitemsAdd: ["Repulsion Shield"],
 				},
 				"resistant armor (prereq: level 6 artificer)": {
@@ -418,7 +418,7 @@ if (!SourceList["E:RLW"]) {
 						"Choose from: acid,	cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder",
 					]),
 					additional: "suit of armor; requires attunement",
-					prereqeval: function(v) { return classes.known.artificer.level >= 6; },
+					prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 					magicitemsAdd: ["Armor of Resistance"],
 				},
 				"returning weapon": {
@@ -504,13 +504,13 @@ if (!SourceList["E:RLW"]) {
 				},
 			},
 		},
-		prereqLvl6: function(v) { return classes.known.artificer.level >= 6; },
-		prereqLvl10: function(v) { return classes.known.artificer.level >= 10; },
-		prereqLvl14: function(v) { return classes.known.artificer.level >= 14; },
+		prereqLvl6: function (v) { return classes.known.artificer.level >= 6; },
+		prereqLvl10: function (v) { return classes.known.artificer.level >= 10; },
+		prereqLvl14: function (v) { return classes.known.artificer.level >= 14; },
 	};
 
 	// Set the Artificer infusion list for Replicate Magic Item
-	RunFunctionAtEnd(function() {
+	RunFunctionAtEnd(function () {
 		var artMi = [
 			// 2nd-level artificer
 			["alchemy jug", 2],
@@ -789,7 +789,7 @@ if (!SourceList["E:RLW"]) {
 				usages: 1,
 				recovery: "long rest",
 				altResource: "SS 1+",
-				additional: levels.map(function(n) {
+				additional: levels.map(function (n) {
 					return n < 3 ? "" : n < 15 ? "1 cannon" : "2 cannons";
 				}),
 				action: [["action", " (create/dismiss)"], ["bonus action", " (activate)"]],
@@ -861,7 +861,7 @@ if (!SourceList["E:RLW"]) {
 						name: "Detonate (Artillerist 9)",
 						minlevel: 9,
 						description: "The creator of the cannon, can use an action to detonate the cannon when within 60 ft of it, see the attack section. The cannon's attacks now deal 3d8 damage.",
-						eval: function(prefix, lvl) {
+						eval: function (prefix, lvl) {
 							// add the Detonate attack entry
 							Value(prefix + "Comp.Use.Attack.3.Weapon Selection", "Detonate");
 							// Upgrade the damage for the attacks
@@ -869,7 +869,7 @@ if (!SourceList["E:RLW"]) {
 								Value(prefix + "BlueText.Comp.Use.Attack." + i + ".Damage Die", "3d8");
 							}
 						},
-						removeeval: function(prefix, lvl) {
+						removeeval: function (prefix, lvl) {
 							// remove the Detonate attack entry
 							Value(prefix + "Comp.Use.Attack.3.Weapon Selection", "");
 							// Reset the damage for the attacks
@@ -893,7 +893,7 @@ if (!SourceList["E:RLW"]) {
 						},
 						setAltHp: true,
 					},
-					eval: function(prefix, lvl) {
+					eval: function (prefix, lvl) {
 						// remove the Detonate attack if adding this creature before artificer level 9
 						if (lvl[0] < 9) Value(prefix + "Comp.Use.Attack.3.Weapon Selection", "");
 					},
@@ -1064,10 +1064,10 @@ if (!SourceList["E:RLW"]) {
 					}, {
 						name: "Arcane Jolt (Battle Smith 9)",
 						minlevel: 9,
-						eval: function(prefix, lvl) {
+						eval: function (prefix, lvl) {
 							Value(prefix + "Comp.Use.Attack.1.Description", "Arcane Jolt (1d6): On hit, deal force damage or heal target in 30 ft");
 						},
-						removeeval: function(prefix, lvl) {
+						removeeval: function (prefix, lvl) {
 							Value(prefix + "Comp.Use.Attack.1.Description", "");
 						},
 					}, {
@@ -1075,11 +1075,11 @@ if (!SourceList["E:RLW"]) {
 						minlevel: 15,
 						description: "The steel defender's Deflect Attack now deals 1d4 + its creator's Intelligence modifier in force damage to the attacker.",
 						addMod: [{ type: "", field: "Comp.Use.AC", mod: 2, text: "The steel defender gains a +2 bonus to its AC (base AC of 15)." }],
-						eval: function(prefix, lvl) {
+						eval: function (prefix, lvl) {
 							Value(prefix + "Comp.Use.Attack.1.Description", What(prefix + "Comp.Use.Attack.1.Description").replace("Arcane Jolt (1d6)", "Arcane Jolt (2d6)"));
 							Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "Deflect Attack (reaction)");
 						},
-						removeeval: function(prefix, lvl) {
+						removeeval: function (prefix, lvl) {
 							Value(prefix + "Comp.Use.Attack.1.Description", What(prefix + "Comp.Use.Attack.1.Description").replace("Arcane Jolt (2d6)", "Arcane Jolt (1d6)"));
 							Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "");
 						},
@@ -1098,7 +1098,7 @@ if (!SourceList["E:RLW"]) {
 						setAltHp: true,
 						hpForceRecalc: true,
 					},
-					eval: function(prefix, lvl) {
+					eval: function (prefix, lvl) {
 						// remove the Deflect Attack (reaction) attack if adding this creature before artificer level 15
 						if (lvl[0] < 15) Value(prefix + "Comp.Use.Attack.2.Weapon Selection", "");
 					},
@@ -1168,7 +1168,7 @@ if (!SourceList["E:RLW"]) {
 		attunement: true,
 		weight: 1,
 		prerequisite: "Requires attunement by a spellcaster",
-		prereqeval: function(v) { return v.isSpellcaster; },
+		prereqeval: function (v) { return v.isSpellcaster; },
 		choices: ["+1 to spell attacks", "+2 to spell attacks (artificer level 10+)"],
 		"+1 to spell attacks": {
 			name: "Enhanced Arcane Focus +1",
@@ -1328,7 +1328,7 @@ AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Arcane Prop
 		"It increases the wearer's walking speed by 5 ft; Its gauntlet can be used as melee weapons",
 	]),
 	additional: "suit of armor; requires attunement",
-	prereqeval: function(v) { return classes.known.artificer.level >= 14; },
+	prereqeval: function (v) { return classes.known.artificer.level >= 14; },
 	magicitemsAdd: ["Arcane Propulsion Armor"],
 });
 MagicItemsList["arcane propulsion armor"] = {
@@ -1392,7 +1392,7 @@ AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Helm of Awa
 	source: [["T", 21], ["UA:SP3", 3]],
 	description: desc("The wearer has advantage on Initiative rolls and can't be surprised while not incapacitated"),
 	additional: "helmet; requires attunement",
-	prereqeval: function(v) { return classes.known.artificer.level >= 10; },
+	prereqeval: function (v) { return classes.known.artificer.level >= 10; },
 	magicitemsAdd: ["Helm of Awareness"],
 });
 MagicItemsList["helm of awareness"] = {
@@ -1445,7 +1445,7 @@ AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Spell-Refue
 	source: [["T", 23]],
 	description: desc("As an action once per dawn, this ring's wearer can recover one 3rd-level or lower spell slot"),
 	additional: "ring; requires attunement",
-	prereqeval: function(v) { return classes.known.artificer.level >= 6; },
+	prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 	magicitemsAdd: ["Spell-Refueling Ring"],
 });
 MagicItemsList["spell-refueling ring"] = {
@@ -1636,7 +1636,7 @@ RunFunctionAtEnd(function () {
 		"+5 ft walking speed; Gemlike node in fist/chest is a ranged weapon, Lightning Launcher",
 		"It gives me advantage on Dexterity (Stealth) checks",
 	])
-	var prereqFunc = function(v) {
+	var prereqFunc = function (v) {
 		var sParsed = ParseArmor(v.choice.replace(/(Guardian|Infiltrator) arcane /i, ""));
 		return sParsed && testSource(sParsed, ArmourList[sParsed], "armorExcl") ? "skip" : true;
 	};
@@ -1757,7 +1757,7 @@ AddSubClass("barbarian", "path of the beast", {
 				bestialNaturalWeapon: true,
 				selectNow: true,
 			}],
-			additional: levels.map(function(n) {
+			additional: levels.map(function (n) {
 				return n < 6 ? "" : "chosen weapon counts as magical";
 			}),
 			action: [["reaction", "Bestial Tail"]],
@@ -1906,7 +1906,7 @@ AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Additional Bard Sp
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "bard" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["color spray", "command", "aid", "enlarge/reduce", "mirror image", "mass healing word", "slow", "phantasmal killer", "rary's telepathic bond", "heroes' feast", "prismatic spray", "antipathy/sympathy", "prismatic wall"]);
@@ -2137,7 +2137,7 @@ AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Additional Cleri
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "cleric" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["aura of vitality", "aura of life", "aura of purity", "sunbeam", "sunburst", "power word heal"]);
@@ -2156,7 +2156,7 @@ AddFeatureChoice(ClassList.cleric.features["channel divinity"], true, "Harness D
 		"I can only do this so many times per long rest, even if I have uses of channel divinity left",
 	]),
 	action: [["bonus action", ""]],
-	usages: levels.map(function(n) {
+	usages: levels.map(function (n) {
 		return n < 3 ? "" : n < 6 ? 1 : n < 18 ? 2 : 3;
 	}),
 	recovery: "long rest",
@@ -2169,7 +2169,7 @@ AddFeatureChoice(ClassList.cleric.features["turn undead"], true, "Cantrip Versat
 	prereqeval: function (v) { return classes.known.cleric.level >= 4 ? true : "skip"; },
 }, "Optional 4th-level cleric features");
 // Cleric subclass alternative feature, so only run this after we are sure all subclasses have been added
-RunFunctionAtEnd(function() {
+RunFunctionAtEnd(function () {
 	for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
 		var domain = ClassList.cleric.subclasses[1][i];
 		var objDomain = ClassSubList[domain];
@@ -2413,7 +2413,7 @@ AddSubClass("cleric", "twilight domain", {
 				"From 17th-level onwards, me and my allies have half cover while inside the sphere",
 			]),
 			action: [["action", ""]],
-			additional: levels.map(function(n) {
+			additional: levels.map(function (n) {
 				return n < 2 ? "" : "1d6 + " + n + " temp HP";
 			}),
 		},
@@ -2474,7 +2474,7 @@ AddFeatureChoice(ClassList.druid.features.spellcasting, true, "Additional Druid 
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "druid" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["protection from evil and good", "augury", "continual flame", "enlarge/reduce", "aura of vitality", "elemental weapon", "revivify", "divination", "fire shield", "cone of cold", "flesh to stone", "symbol", "incendiary cloud"]);
@@ -2550,7 +2550,7 @@ if (!SourceList.G) {
 				name: "Halo of Spores",
 				source: [["T", 36], ["G", 27]],
 				minlevel: 2,
-				 description: desc([
+				description: desc([
 					"As a reaction when someone I can see in 10 ft starts its turn or moves, I can have it save",
 					"It must succeed on a Constitution save or take necrotic damage from my cloud of spores",
 				]),
@@ -3082,7 +3082,7 @@ AddSubClass("fighter", "psi warrior", {
 				"I regain all expended psionic energy dice after a long rest",
 				"As a bonus action once per short rest, I can regain one expended psionic energy die",
 			]),
-			additional: levels.map(function(n) {
+			additional: levels.map(function (n) {
 				return n < 3 ? "" : n < 5 ? "d6" : n < 11 ? "d8" : n < 17 ? "d10" : "d12";
 			}),
 			action: [["bonus action", "Regain 1 Psionic Energy Die"]],
@@ -3317,7 +3317,7 @@ AddSubClass("fighter", "rune knight", {
 					"I always gain advantage on saves against being poisoned and resistance to poison damage",
 					"As a bonus action, I can invoke it to gain resistance to bludg/slash/pierc damage for 1 min",
 				]),
-				prereqeval: function(v) { return classes.known.fighter.level >= 7; },
+				prereqeval: function (v) { return classes.known.fighter.level >= 7; },
 				action: [["bonus action", " (invoke)"]],
 				additional: "invoke",
 				usages: ["", "", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2],
@@ -3335,7 +3335,7 @@ AddSubClass("fighter", "rune knight", {
 					"While in this state, I can use a reaction to cause a roll to gain advantage or disadvantage",
 					"I can do this for attacks, saves, and checks of myself or others I can see within 60 ft of me",
 				]),
-				prereqeval: function(v) { return classes.known.fighter.level >= 7; },
+				prereqeval: function (v) { return classes.known.fighter.level >= 7; },
 				action: [["bonus action", " (invoke)"]],
 				additional: "invoke",
 				usages: ["", "", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2],
@@ -3518,7 +3518,7 @@ AddSubClass("monk", "way of mercy", {
 					var d = "I can use this feature only once per turn";
 					return desc( n < 6 ? [a, d] :
 						n < 11 ? [a, b6, d] :
-						[a, b6, c11, d]
+							[a, b6, c11, d]
 					);
 				}),
 				additional: levels.map(function (n) {
@@ -3707,7 +3707,7 @@ AddFeatureChoice(ClassList.paladin.features.spellcasting, true, "Additional Pala
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "paladin" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["gentle repose", "prayer of healing", "warding bond"]);
@@ -3741,7 +3741,7 @@ AddFeatureChoice(ClassList.paladin.features["subclassfeature3.0-channel divinity
 		"I can only do this so many times per long rest, even if I have uses of channel divinity left",
 	]),
 	action: [["bonus action", ""]],
-	usages: levels.map(function(n) {
+	usages: levels.map(function (n) {
 		return n < 3 ? "" : n < 7 ? 1 : n < 15 ? 2 : 3;
 	}),
 	recovery: "long rest",
@@ -3951,7 +3951,7 @@ var TCoE_Deft_Explorer = function () {
 			description: "",
 			source: a.source,
 			skills: [[a.extrachoices[i], "only"]],
-			prereqeval: function(v) {
+			prereqeval: function (v) {
 				return v.skillProfsLC.indexOf(v.choice) === -1 ? false : v.skillExpertiseLC.indexOf(v.choice) === -1 ? true : "markButDisable";
 			},
 		}
@@ -3993,7 +3993,7 @@ var TCoE_Additional_Ranger_Spells = {
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if ((spName !== "ranger" && spName !== "rangerua") || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["entangle", "searing smite", "aid", "enhance ability", "gust of wind", "magic weapon", "elemental weapon", "meld into stone", "revivify", "dominate beast", "greater restoration"]);
@@ -4036,7 +4036,7 @@ var TCoE_Primal_Awareness = {
 	]),
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Remove the bonus spells from the normally selectable list
 				if ((spName === "ranger" || spName === "rangerua") && spType.indexOf("bonus") === -1) {
 					if (!spList.notspells) spList.notspells = [];
@@ -4080,13 +4080,13 @@ var TCoE_Natures_Veil = {
 CreateClassFeatureVariant("ranger", "hide in plain sight", "Nature's Veil", TCoE_Natures_Veil);
 
 // Add the Ranger alternative class features also to the Revised Ranger, if it exists after all scripts have ran
-RunFunctionAtEnd(function() {
+RunFunctionAtEnd(function () {
 	if (!ClassList["rangerua"]) return;
 	CreateClassFeatureVariant("rangerua", "natural explorer", "Deft Explorer", TCoE_Deft_Explorer);
 
 	// Add Favored Foe as an alternative choice (can't be done by automation because of choices) and add "Favored Foe" variant option
 	// Move some attributes from the main object to the favored enemy choice objects
-	["additional", "languageProfs", "calcChanges"].forEach( function(attr) {
+	["additional", "languageProfs", "calcChanges"].forEach( function (attr) {
 		var fea = ClassList.rangerua.features["favored enemy"];
 		if (!fea[attr]) return;
 		// Move the attribute to each of the choices
@@ -4127,20 +4127,20 @@ if (ClassSubList["ranger-beast master"]) {
 			name: "Exceptional Training (Beast Master 7)",
 			minlevel: 7,
 			description: "The beast's attacks count as magical for overcoming resistances and immunities.",
-			eval: function(prefix, lvl) {
+			eval: function (prefix, lvl) {
 				AddString(prefix + "Comp.Use.Attack.1.Description", "Counts as magical", "; ");
 			},
-			removeeval: function(prefix, lvl) {
+			removeeval: function (prefix, lvl) {
 				RemoveString(prefix + "Comp.Use.Attack.1.Description", "Counts as magical");
 			},
 		}, {
 			name: "Bestial Fury (Beast Master 11)",
 			minlevel: 11,
 			description: "When commanded to take the Attack action, the beast can make 2 attacks as part of its Attack action.",
-			eval: function(prefix, lvl) {
+			eval: function (prefix, lvl) {
 				Value(prefix + "Comp.Use.Attack.perAction", 2);
 			},
-			removeeval: function(prefix, lvl) {
+			removeeval: function (prefix, lvl) {
 				Value(prefix + "Comp.Use.Attack.perAction", 1);
 			},
 		}],
@@ -4232,7 +4232,7 @@ if (ClassSubList["ranger-beast master"]) {
 				description: "If the beast moves at least 20 ft straight toward a target and then hits it with a maul attack on the same turn, the target takes an extra 1d6 slashing damage. If the target is a creature, it must succeed on a Strength saving throw against my spell save DC or be knocked prone.",
 			}],
 			features: TCoE_Primal_Companion_Attributes.features,
-			traits: TCoE_Primal_Companion_Attributes.traits.map( function(n) {
+			traits: TCoE_Primal_Companion_Attributes.traits.map( function (n) {
 				if (!typePF && /Exceptional Training/i.test(n.name)) {
 					var a = newObj(n);
 					a.description = "The beast's attacks count as magical.";
@@ -4319,7 +4319,7 @@ if (ClassSubList["ranger-beast master"]) {
 			calcChanges: TCoE_Primal_Companion_Attributes.calcChanges,
 			minlevelLinked: TCoE_Primal_Companion_Attributes.hdLinked,
 		}],
-		eval: function() {
+		eval: function () {
 			// Remove any ranger companion pages
 			What("Template.extras.AScomp").split(",").forEach(function (prefix) {
 				if (What(prefix + "Companion.Remember") === "companion") {
@@ -4375,7 +4375,7 @@ var TCoE_Ranger_Subclass_Fey_Wanderer = AddSubClass("ranger", "fey wanderer", {
 				"I can add my Wisdom modifier to any Charisma check I make (minimum of +1)",
 				'I gain proficiency in Deception, Performance, or Persuasion; Use "Choose Feature" button',
 			]),
-			addMod: ["Deception", "Intimidation", "Performance", "Persuasion"].map(function(skill){return { type: "skill", field: skill, mod: "max(Wis|1)", text: "I can add my Wisdom modifier to any Charisma check I make (minimum of +1)." };}),
+			addMod: ["Deception", "Intimidation", "Performance", "Persuasion"].map(function (skill){return { type: "skill", field: skill, mod: "max(Wis|1)", text: "I can add my Wisdom modifier to any Charisma check I make (minimum of +1)." };}),
 			choices: ["Deception proficiency", "Performance proficiency", "Persuasion proficiency"],
 			"deception proficiency": {
 				name: "Otherworldly Glamour",
@@ -4657,7 +4657,7 @@ AddSubClass("rogue", "soulknife", {
 				"I regain all expended psionic energy dice after a long rest; See psionic powers on page 3",
 				"As a bonus action once per short rest, I can regain one expended psionic energy die",
 			]),
-			additional: levels.map(function(n) {
+			additional: levels.map(function (n) {
 				return n < 3 ? "" : n < 5 ? "d6" : n < 11 ? "d8" : n < 17 ? "d10" : "d12";
 			}),
 			action: [["bonus action", "Regain 1 Psionic Energy Die"]],
@@ -4803,7 +4803,7 @@ AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Additional Sor
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "sorcerer" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["grease", "flame blade", "flaming sphere", "magic weapon", "vampiric touch", "fire shield", "bigby's hand", "flesh to stone", "otiluke's freezing sphere", "demiplane"]);
@@ -5116,7 +5116,7 @@ AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Additional War
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "warlock" || (spType.indexOf("bonus") !== -1 && (!spList["class"] || spList["class"] !== "warlock"))) return;
 				spList.extraspells = spList.extraspells.concat(["mislead", "planar binding", "teleportation circle", "gate", "weird"]);
@@ -5159,7 +5159,7 @@ AddWarlockInvocation("Bond of the Talisman (prereq: level 12 warlock, Pact of th
 		"As an action, I can teleport to the unoccupied space closest to the wearer of my talisman",
 		"The talisman's wearer can do the same to teleport to me; Only works if both on same plane",
 	]),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.warlock.level >= 12 && GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	action: [["action", ""]],
@@ -5184,7 +5184,7 @@ AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome)", {
 		"Instead of saying the message, I write it on the page and any reply appears there as well",
 		"This writing disappears after 1 minute; The target still hears the message in their mind",
 	]),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
 	},
 	action: [["action", " (erase name)"]],
@@ -5213,7 +5213,7 @@ AddWarlockInvocation("Gift of the Protectors (prereq: level 9 warlock, Pact of t
 		"If a creature whose name is on the page drops to 0 HP, it magically drops to 1 HP instead",
 		"This doesn't work if the creature would be killed outright",
 	]),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
 	},
 	action: [["action", " (erase name)"]],
@@ -5233,11 +5233,11 @@ AddWarlockInvocation("Investment of the Chain Master (prereq: Pact of the Chain)
 		"\u2022 As a reaction when it takes damage, I can grant it resistance against that damage",
 	]),
 	action: [["bonus action", " (command to attack)"], ["reaction", " (give resistance)"]],
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the chain";
 	},
 	calcChanges: {
-		companionCallback: [function(prefix, oCrea, bAdd, sCompType) {
+		companionCallback: [function (prefix, oCrea, bAdd, sCompType) {
 			if (sCompType !== "pact_of_the_chain") return;
 			var strFea = "##\u25C6 Investment of the Chain Master (TCoE 71)##. The familiar gains 40 ft fly or swim speed (my choice), its attacks are considered magical, and it can use my spell save DC instead of its own DC's (if any).";
 			var strSpd = "fly or swim 40 ft";
@@ -5267,7 +5267,7 @@ AddWarlockInvocation("Protection of the Talisman (prereq: level 7 warlock, Pact 
 	source: [["T", 71]],
 	submenu: "[improves Pact of the Talisman]",
 	description: desc("When the wearer of my talisman fails a saving throw, they can add +1d4 to the roll"),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.warlock.level >= 7 && GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	usages: "Proficiency bonus per ",
@@ -5283,7 +5283,7 @@ AddWarlockInvocation("Rebuke of the Talisman (prereq: Pact of the Talisman)", {
 		"To be able to do this, I have to see the attacker and it has to be within 30 ft of me",
 		"I deal it my Proficiency Bonus in psychic damage and push it 10 ft away from the talisman",
 	]),
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	action: [["reaction", ""]],
@@ -5302,7 +5302,7 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 		selection: ["animate dead"],
 		firstCol: "oncelr",
 	}],
-	prereqeval: function(v) { return classes.known.warlock.level >= 5; },
+	prereqeval: function (v) { return classes.known.warlock.level >= 5; },
 });
 
 // Warlock Subclasses
@@ -5455,7 +5455,7 @@ AddSubClass("warlock", "the genie", {
 			description: desc('Use the "Choose Feature" button above to choose the kind of genie your patron is'),
 			calcChanges: {
 				spellList: [
-					function(spList, spName, spType) {
+					function (spList, spName, spType) {
 						if (spType.indexOf("bonus") !== -1 && spList.name && /mystic arcanum/i.test(spList.name) && spList.level[0] === 9) {
 							spList.extraspells.push("wish");
 						} else if (spType.indexOf("bonus") === -1 && spName === "warlock") {
@@ -5682,7 +5682,7 @@ AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Additional Wizar
 	description: "",
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Stop this is not the class' spell list or if this is for a bonus spell entry
 				if (spName !== "wizard" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["augury", "enhance ability", "speak with dead", "divination"]);
@@ -6017,7 +6017,7 @@ FeatsList["fey touched"] = {
 	},
 };
 // Add the fighting initiate only when all other code has run, so that we get fighting styles added by the code
-RunFunctionAtEnd(function() {
+RunFunctionAtEnd(function () {
 	if (!ClassList.fighter || !ClassList.fighter.features["fighting style"]) return;
 	var FtngStyles = ClassList.fighter.features["fighting style"];
 	FeatsList["fighting initiate"] = {
@@ -6026,7 +6026,7 @@ RunFunctionAtEnd(function() {
 		descriptionFull: "Your martial training has helped you develop a particular style of fighting. As a result, you learn one Fighting Style option of your choice from the fighter class. If you already have a style, the one you choose must be different.\n   Whenever you reach a level that grants the Ability Score Improvement feature, you can replace this feat's fighting style with another one from the fighter class that you don't have.",
 		description: "I learn one Fighting Style from the fighter class, which must be one that I don't yet know. I can replace this fighting style for another whenever I gain an Ability Score Improvement.",
 		prerequisite: "Proficiency with a martial weapon",
-		prereqeval: function(v) {
+		prereqeval: function (v) {
 			return v.martialWeaponsProf || v.otherWeaponsProf.some(function (n) {
 				return WeaponsList[n] && /Martial/i.test(WeaponsList[n].type);
 			});
@@ -6089,7 +6089,7 @@ RunFunctionAtEnd(function() {
 			FeatsList["fighting initiate"][sNameLC][attr] = FtngStyles[sNameLC][attr];
 		}
 		if (!FeatsList["fighting initiate"][sNameLC].prereqeval) {
-			FeatsList["fighting initiate"][sNameLC].prereqeval = function(v) {
+			FeatsList["fighting initiate"][sNameLC].prereqeval = function (v) {
 				var knownStyles = GetFightingStyleSelection();
 				return knownStyles[v.choice] ? false : true;
 			};
@@ -6732,11 +6732,11 @@ var TCoE_magicTattoosDescription = desc([
 ], "\n  ");
 magicTattoosTxt = { // a public variable to be used for any magical tattoo that uses these rules
 	base: TCoE_magicTattoosDescription,
-	unicode: TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
-	uppercase: TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/\byou\b/ig, "I"),
+	unicode: TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	uppercase: TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/\byou\b/ig, "I"),
 	plain: TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, "$1").replace(/your/g, "my").replace(/\byou\b/ig, "I"),
 };
-MagicItemsList["absorbing tattoo"] = function() {
+MagicItemsList["absorbing tattoo"] = function () {
 	var oObj = {
 		name: "Absorbing Tattoo",
 		source: [["T", 119]],
@@ -7121,7 +7121,7 @@ MagicItemsList["all-purpose tool"] = {
 	type: "wondrous item",
 	attunement: true,
 	prerequisite: "Requires attunement by an artificer",
-	prereqeval: function(v) { return classes.known.artificer ? true : false; },
+	prereqeval: function (v) { return classes.known.artificer ? true : false; },
 	description: "As an action, I can transform this simple screwdriver into any set of artisan's tools and be proficient with them. While holding this tool, I gain a bonus to my artificer spell attacks and save DCs. As an action once per dawn, I can choose any cantrip that I don't know and cast it as an artificer cantrip for the next 8 hours.",
 	descriptionFull: "This simple screwdriver can transform into a variety of tools; as an action, you can touch the item and transform it into any type of artisan's tool of your choice (see the \"Equipment\" chapter in the Player's Handbook for a list of artisan's tools). Whatever form the tool takes, you are proficient with it." +
 	"\n   While holding this tool, you gain a bonus to the spell attack rolls and the saving throw DCs of your artificer spells. The bonus is determined by the tool's rarity." +
@@ -7146,7 +7146,7 @@ MagicItemsList["all-purpose tool"] = {
 	}],
 	calcChanges: {
 		spellList: [
-			function(spList, spName, spType) {
+			function (spList, spName, spType) {
 				// Remove the already known cantrips, from any source except magic items
 				if (spName.indexOf("all-purpose tool") !== -1) {
 					var allSpellsKnown = [];
@@ -7211,7 +7211,7 @@ MagicItemsList["amulet of the devout"] = { // contains contributions by lizrdgiz
 	type: "wondrous item",
 	attunement: true,
 	prerequisite: "Requires attunement by a cleric or paladin",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.cleric || classes.known.paladin ? true : false;
 	},
 	description: "This amulet bears the symbol of a deity inlaid with precious stones or metals. While I wear this holy symbol, I gain a bonus to spell attack rolls and saving throw DCs of my spells. Once per dawn, it allows me to use my Channel Divinity feature without expending one of the feature's uses.",
@@ -7271,16 +7271,16 @@ MagicItemsList["arcane grimoire"] = { // contains contributions by lizrdgizrd
 	type: "wondrous item",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "I can use this leather-bound book as a spellbook and it allows me to regain 1 extra spell slot level when I use Arcane Recovery (included in Limited Features). While holding it, I can use it as a spellcasting focus for my wizard spells and gain a bonus to spell attack rolls and the saving throw DCs of my wizard spells.",
 	descriptionFull: "While you are holding this leather-bound book, you can use it as a spellcasting focus for your wizard spells, and you gain a bonus to spell attack rolls and the saving throw DCs of your wizard spells. The bonus is determined by the book's rarity." +
 	"\n   You can use this book as a spellbook. In addition, when you use your Arcane Recovery feature, you can increase the number of spell slot levels you regain by 1.",
 	weight: 3, // as spellbook
-	changeeval: function() {
+	changeeval: function () {
 		// Update the limited feature "Arcane Recovery" to display 1 more spell level than for the wizard level (unless there is no wizard level)
 		if (!classes.known.wizard) return;
 		// This changeeval is called before the class feature updates the limited feature, so we need to use setTimeOut to do the change after
-		var func = function() {
+		var func = function () {
 			if (!classes.known.wizard) return;
 			var hasAG = CurrentMagicItems.known.indexOf("arcane grimoire") !== -1;
 			var lvls = Math.ceil(classes.known.wizard.level / 2);
@@ -7339,7 +7339,7 @@ MagicItemsList["bloodwell vial"] = { // contains contributions by lizrdgizrd
 	type: "wondrous item",
 	attunement: true,
 	prerequisite: "Requires attunement by a sorcerer",
-	prereqeval: function(v) { return classes.known.sorcerer ? true : false; },
+	prereqeval: function (v) { return classes.known.sorcerer ? true : false; },
 	description: "While I wear or hold this vial to which I added a few drops of my blood, I gain a bonus to my spell attack rolls and to the saving throw DCs of my sorcerer spells. While I'm attuned to it, it can't be opened. Once per dawn, when I roll any Hit Dice to recover HP while carrying this vial, I can regain 5 sorcery points.",
 	descriptionFull: "To attune to this vial, you must place a few drops of your blood into it. The vial can't be opened while your attunement to it lasts. If your attunement to the vial ends, the contained blood turns to ash. You can use the vial as a spellcasting focus for your spells while wearing or holding it, and you gain a bonus to spell attack rolls and to the saving throw DCs of your sorcerer spells. The bonus is determined by the vial's rarity." +
 	"\n   In addition, when you roll any Hit Dice to recover hit points while you are carrying the vial, you can regain 5 sorcery points. This property of the vial can't be used again until the next dawn.",
@@ -7393,7 +7393,7 @@ MagicItemsList["moon sickle"] = {
 	type: "weapon (sickle)",
 	attunement: true,
 	prerequisite: "Requires attunement by a druid or ranger",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.druid || classes.known.ranger || classes.known.rangerua ? true : false;
 	},
 	description: "This silver-bladed sickle glimmers softly with moonlight. I gain a bonus to attack and damage rolls made with it. While I'm holding it, I gain a bonus to spell attack rolls and saving throw DCs of my druid and ranger spells, and spells I cast that restore HP add 1d4 to the number of HP restored.",
@@ -7439,7 +7439,7 @@ MagicItemsList["moon sickle"] = {
 		rarity: "rare",
 		description: "This silver-bladed sickle glimmers softly with moonlight. I gain a +2 bonus to attack and damage rolls made with it. While I'm holding it, I gain a +2 bonus to spell attack rolls and saving throw DCs of my druid and ranger spells, and spells I cast that restore HP add 1d4 to the number of HP restored.",
 		calcChanges: {
-				spellCalc: [
+			spellCalc: [
 				function (type, spellcasters, ability) {
 					if (type !== "prepare" && (spellcasters.indexOf("druid") !== -1 || spellcasters.indexOf("ranger") !== -1)) return 2;
 				},
@@ -7469,7 +7469,7 @@ MagicItemsList["rhythm maker's drum"] = {
 	type: "wondrous item (instrument)",
 	attunement: true,
 	prerequisite: "Requires attunement by a bard",
-	prereqeval: function(v) { return classes.known.bard ? true : false; },
+	prereqeval: function (v) { return classes.known.bard ? true : false; },
 	description: "While holding this drum, I gain a bonus to spell attack rolls and to the spell saving throw DCs of my bard spells.\nAs an action once per dawn, I can play the drum to regain one use of my Bardic Inspiration feature.",
 	descriptionFull: "While holding this drum, you gain a bonus to spell attack rolls and to the spell saving throw DCs or your bard spells. The bonus is determined by the drum's rarity." +
 	"\n   As an action, you can play the drum to regain one use of your Bardic Inspiration feature. This property of the drum can't be used again until the next dawn.",
@@ -7526,7 +7526,7 @@ MagicItemsList["alchemical compendium"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "I can use this tome with spells as my spellbook and spellcasting focus. It has 3 charges, regaining 1d3 at dawn. With 1 charge \u0026 1 min of study, I can change a prepared spell to a transmutation spell within. As an action, I can touch an unattended, nonmagical object and use charges to transform it into another. See tooltip.",
 	descriptionLong: "I can use this acrid smelling, stained, heavy book with metal fittings as my spellbook and, while held, as my spellcasting focus. It contains several spells and has 3 charges, regaining 1d3 at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to a transmutation spell within. As an action, I can touch an unattended, nonmagical object and use charges to transform it into another. For 1 charge, the object can be up to 1 ft on a side. I can spend additional charges to increase these dimensions by 2 ft per charge. The new object must have no higher gp value than the original.",
 	descriptionFull: "Acrid odors cling to this stained, heavy volume. The book's metal fittings are copper, iron, lead, silver, and gold, some frozen mid-transition from one metal to another. When found, the book contains the following spells: enlarge/reduce, feather fall, flesh to stone, gaseous form, magic weapon, and polymorph. It functions as a spellbook for you." +
@@ -7551,7 +7551,7 @@ MagicItemsList["astromancy archive"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "As bonus action, I can (un)fold this disc into an armillary sphere. I can use it as a spellcasting focus and spellbook with 3 charges, regains 1d3 at dawn. For 1 charge \u0026 1 min of study, I can swap a prepared spell for a divination spell within. As a reaction, I can use 1 charge to add/subtract d4 from attack/check/save in 30 ft.",
 	descriptionLong: "As a bonus action, I can unfold this brass disc of articulated, concentric rings into an armillary sphere or back into a disc. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to a divination spell within. As a reaction when I see a creature within 30 ft roll for an attack, check, or save, I can expend 1 change to add or subtract 1d4 from the roll. This happens after I see the roll but before the roll's effects are applied.",
 	descriptionFull: "This brass disc of articulated, concentric rings unfolds into an armillary sphere. As a bonus action, you can unfold it into the sphere or back into a disc. When found, it contains the following spells, which are wizard spells for you while you are attuned to it: augury, divination, find the path, foresight, locate creature, and locate object. It functions as a spellbook for you, with spells encoded on the rings." +
@@ -7585,7 +7585,7 @@ MagicItemsList["atlas of endless horizons"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "This spellbook starts with 7 spells and is a wizard spellcasting focus. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to a conjuration spell within. As a reaction when hit by an attack, I can use 1 charge to teleport up to 10 ft, making it miss if I'm out of range.",
 	descriptionLong: "This thick book is bound in dark leather, crisscrossed with inlaid silver lines suggesting a map or chart. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 expended charges daily at dawn. I can study the book for 1 minute and expend 1 charge to replace one of my prepared wizard spells with a conjuration spell in this book. As a reaction when I am hit by an attack, I can expend 1 charge to teleport up to 10 ft to an unoccupied space I can see. If my new position is out of range of the attack, it misses me.",
 	descriptionFull: "This thick book is bound in dark leather, crisscrossed with inlaid silver lines suggesting a map or chart. When found, the book contains the following spells, which are wizard spells for you while you are attuned to the book: arcane gate, dimension door, gate, misty step, plane shift, teleportation circle, and word of recall. It functions as a spellbook for you." +
@@ -7615,7 +7615,7 @@ MagicItemsList["crystalline chronicle"] = {
 	rarity: "very rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "I can use this orb with spells as a wizard spellcasting focus and spellbook. It lets me use Mage Hand, Mind Sliver, and Message. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to another within. I can use 1 charge to ignore components of a wizard spell (max 100 gp).",
 	descriptionLong: "This grapefruit sized, etched crystal sphere hums pulses with irregular flares of inner light. I can retrieve and store information within the crystal as a spellbook by touching it. It contains several spells and has 3 charges, regaining 1d3 at dawn. While holding it, I can use it as a spellcasting focus for my wizard spells, I know the Mage Hand, Mind Sliver, and Message cantrips, I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to another within, and when I cast a wizard spell, I can expend 1 charge to cast it without verbal, somatic, or material components of up to 100 gp value.",
 	descriptionFull: "An etched crystal sphere the size of a grapefruit hums faintly and pulses with irregular flares of inner light. While you are touching the crystal, you can retrieve and store information and spells within the crystal at the same rate as reading and writing. When found, the crystal contains the following spells: detect thoughts, intellect fortress, Rary's telepathic bond, sending, telekinesis, Tasha's mind whip, and Tenser's floating disk. It functions as a spellbook for you, with its spells and other writing psychically encoded within it." +
@@ -7639,7 +7639,7 @@ MagicItemsList["duplicitous manuscript"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "This spellbook starts with 7 spells and is a wizard spellcasting focus. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to an illusion spell within. As a reaction when a save or Investigation check is made vs. my illusion spells, I can use 1 charge to impose disadv.",
 	descriptionLong: "This book appears to be a volume of romance fiction to anyone but me. As an action, I can change its appearance and plot. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 expended charges at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an illusion spell within. As a reaction while holding it when a creature I can see makes a save or an Intelligence (Investigation) check against an illusion spell I cast, I can expend 1 charge to impose disadvantage on the roll.",
 	descriptionFull: "To you, this book is a magical spellbook. To anyone else, the book appears to be a volume of verbose romance fiction. As an action, you can change the book's appearance and alter the plot of the romance." +
@@ -7668,7 +7668,7 @@ MagicItemsList["fulminating treatise"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "I can use this tome as a wizard spellcasting focus and spellbook. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min study, I can change a prepared spell to an evocation spell within. As a reaction when my evocation spell damages a creature, I can use 1 charge to deal it 2d6 force damage and knock it prone.",
 	descriptionLong: "This thick, scorched book reeks of smoke and ozone, and sparks of energy crackles along the edges of its pages. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 expended charges at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an evocation spell within. As a reaction while holding it when a creature I can see takes damage from an evocation spell I cast, I can expend 1 charge to deal the creature an extra 2d6 force damage and knock it prone if it's Large or smaller.",
 	descriptionFull: "This thick, scorched spellbook reeks of smoke and ozone, and sparks of energy crackles along the edges of its pages. When found, the book contains the following spells: contingency, fireball, gust of wind, Leomund's tiny hut, magic missile, thunderwave, and wall of force. It functions as a spellbook for you." +
@@ -7693,7 +7693,7 @@ MagicItemsList["heart weaver's primer"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "I can use this book as a wizard spellcasting focus and spellbook. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to an enchantment spell in it. When I cast an enchantment spell, I can use 1 charge to grant disadv. on the first save one target makes against the spell.",
 	descriptionLong: "This pristine book smells faintly of a random scent I find pleasing. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells that I can prepare as wizards spells. It has 3 charges and it regains 1d3 expended charges daily at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an enchantment spell within the book. When I cast an enchantment spell while holding the book, I can expend 1 charge to impose disadvantage on the first saving throw one target makes against the spell.",
 	descriptionFull: "This pristine book smells faintly of a random scent you find pleasing. When found, the book contains the following spells: antipathy/sympathy, charm person, dominate person, enthrall, hypnotic pattern, modify memory, and suggestion. It functions as a spellbook for you." +
@@ -7722,7 +7722,7 @@ MagicItemsList["libram of souls and flesh"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "This spellbook starts with 7 spells and is a wizard spellcasting focus. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to a necromancy spell within. As an action, I can use 1 charge to appear undead for 10 min, causing undead I haven't damage to be indifferent.",
 	descriptionLong: "With covers made of skin and fittings of bone, this tome is cold to the touch, and fainlty whispers. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to a necromancy spell within. As an action, I can expend 1 charge to appear undead for 10 minutes, fooling even spells. For the duration, undead are indifferent to me, unless I have damaged them. The effect ends early if I deal damage or force a creature to make a save.",
 	descriptionFull: "With covers made of skin and fittings of bone, this tome is cold to the touch, and it whispers faintly. When found, the book contains the following spells, which are wizard spells for you while you are attuned to the book: animate dead, circle of death, false life, finger of death, speak with dead, summon undead, and vampiric touch. It functions as a spellbook for you." +
@@ -7752,7 +7752,7 @@ MagicItemsList["planecaller's codex"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "This spellbook starts with 6 spells and is a wizard spellcasting focus. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to a conjuration spell within. When I cast a conjuration spell to summon or create one creature, I can give it adv. on attacks for 1 min for 1 charge.",
 	descriptionLong: "The pages of this book are bound in fiend hide, and its cover is embossed with a diagram of the multiverse. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 expended charges daily at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to a conjuration spell within the book. When I hold the book and cast a conjuration spell that summons or creates one creature, I can expend 1 charge to grant that creature advantage on attack rolls for 1 minute.",
 	descriptionFull: "The pages of this book are bound in fiend hide, and its cover is embossed with a diagram of the Great Wheel of the multiverse. When found, the book contains the following spells: banishment, find familiar, gate, magic circle, planar binding, and summon elemental. It functions as a spellbook for you." +
@@ -7776,7 +7776,7 @@ MagicItemsList["protective verses"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
-	prereqeval: function(v) { return classes.known.wizard ? true : false; },
+	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "I can use this book with an iron lock as a spellcasting focus and spellbook. As an action, I can use Arcane Lock it. It has 3 charges, regains 1d3 at dawn. For 1 charge \u0026 1 min study, I can change a prepared spell to an abjuration within. I can use 1 charge when I cast an abjuration spell to give a creature in 30 ft 2d10 temp HP.",
 	descriptionLong: "This leather-bound spellbook is reinforced with iron and silver fittings and an iron lock (DC 20 to open). As an action, I can touch the book's cover and cause it to lock as if I cast arcane lock on it. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 charges at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an abjuration spell within. When I hold the book and cast an abjuration, I can expend 1 charge to grant a creature I can see within 30 ft 2d10 temporary hit points.",
 	descriptionFull: "This leather-bound spellbook is reinforced with iron and silver fittings and an iron lock (DC 20 to open). As an action, you can touch the book's cover and cause it to lock as if you cast arcane lock on it. When found, the book contains the following spells: arcane lock, dispel magic, globe of invulnerability, glyph of warding, Mordenkainen's private sanctum, protection from evil, and symbol. It functions as a spellbook for you." +
@@ -7802,7 +7802,7 @@ MagicItemsList["astral shard"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a sorcerer",
-	prereqeval: function(v) { return classes.known.sorcerer ? true : false; },
+	prereqeval: function (v) { return classes.known.sorcerer ? true : false; },
 	description: "I can use this crystal swirling with silver mist as a spellcasting focus for my sorcerer spells while I hold or wear it. As an action, I can attach or detach it to a Tiny object. Immediately after I cast a spell with a metamagic option while I hold or wear this shard, I can teleport to an unoccupied space I can see within 30 ft.",
 	descriptionFull: "This crystal is a solidified shard of the Astral Plane, swirling with silver mist. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus for your sorcerer spells while you hold or wear it." +
 	"\n   When you use a Metamagic option on a spell while you are holding or wearing the shard, immediately after casting the spell you can teleport to an unoccupied space you can see within 30 feet of you.",
@@ -7816,7 +7816,7 @@ MagicItemsList["elemental essence shard"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a sorcerer",
-	prereqeval: function(v) { return classes.known.sorcerer ? true : false; },
+	prereqeval: function (v) { return classes.known.sorcerer ? true : false; },
 	description: "I can use this flickering crystal as a spellcasting focus for my sorcerer spells while I hold or wear it. As an action, I can attach or detach it to a Tiny object. It holds the essence of an Elemental Plane, which grants me additional benefits when I use a Metamagic option on a spell.",
 	descriptionFull: "This crackling crystal contains the essence of an elemental plane. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus while you hold or wear it." +
 	"\n   Roll a d4 and consult the Elemental Essence Shards table to determine the shard's essence and property. When you use a Metamagic option on a spell while you are holding or wearing the shard, you can use that property." +
@@ -7860,7 +7860,7 @@ MagicItemsList["far realm shard"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a sorcerer",
-	prereqeval: function(v) { return classes.known.sorcerer ? true : false; },
+	prereqeval: function (v) { return classes.known.sorcerer ? true : false; },
 	description: "As an action, I can attach/detach this crystal to an object. While I hold or wear it, it works as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option, I can have a creature I can see in 30 ft make a Cha save (my spell save DC) or take 3d6 psychic damage \u0026 be frightened of me until my next turn starts.",
 	descriptionFull: "This writhing crystal is steeped in the warped essence of the Far Realm. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus while you hold or wear it." +
 	"\n   When you use a Metamagic option on a spell while you are holding or wearing the shard, you can cause a slimy tentacle to rip through the fabric of reality and strike one creature you can see within 30 feet of you. The creature must succeed on a Charisma saving throw against your spell save DC or take 3d6 psychic damage and become frightened of you until the start of your next turn.",
@@ -7874,7 +7874,7 @@ MagicItemsList["outer essence shard"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a sorcerer",
-	prereqeval: function(v) { return classes.known.sorcerer ? true : false; },
+	prereqeval: function (v) { return classes.known.sorcerer ? true : false; },
 	description: "I can use this flickering crystal as a spellcasting focus for my sorcerer spells while I hold or wear it. As an action, I can attach or detach it to a Tiny object. It holds the essence of an Outer Plane, which grants me additional benefits when I use a Metamagic option on a spell.",
 	descriptionFull: "This flickering crystal holds the essence of an Outer Plane. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus while you hold or wear it." +
 	"\n   Roll a d4 and consult the Outer Essence Shards table to determine the shard's essence and property. When you use a Metamagic option on a spell while you are holding or wearing the shard, you can use that property." +
@@ -7918,7 +7918,7 @@ MagicItemsList["shadowfell shard"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a sorcerer",
-	prereqeval: function(v) { return classes.known.sorcerer ? true : false; },
+	prereqeval: function (v) { return classes.known.sorcerer ? true : false; },
 	description: "As an action, I can attach/detach this dull crystal to a Tiny object. While I hold or wear it, I can use it as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option on a spell, I can curse a target of that spell to have disadv. on checks and saves with an ability score of my choice until my next turn ends.",
 	descriptionFull: "This dull, cold crystal sits heavy and leaden, saturated by the Shadowfell's despair. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus while you hold or wear it." +
 	"\n   When you use a Metamagic option on a spell while you are holding or wearing the shard, you can momentarily curse one creature targeted by the spell; choose one ability score, and until the end of your next turn, the creature has disadvantage on ability checks and saving throws that use that ability.",
@@ -7932,7 +7932,7 @@ MagicItemsList["feywild shard"] = {
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a sorcerer",
-	prereqeval: function(v) { return classes.known.sorcerer ? true : false; },
+	prereqeval: function (v) { return classes.known.sorcerer ? true : false; },
 	description: "As an action, I can attach/detach this warm crystal that glints with sunset colors to a Tiny object. While I hold or wear it, I can use it as a spellcasting focus for my sorcerer spells, and once per dawn when I use a Metamagic option on a spell, I can choose to roll on the Wild Magic Surge table (see Notes for the table).",
 	descriptionFull: "This warm crystal glints with the sunset colors of the Feywild sky and evokes whispers of emotional memory. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus while you hold or wear it." +
 	"\n   When you use a Metamagic option on a spell while you are holding or wearing the shard, you can roll on the Wild Magic Surge table in the Player's Handbook. If the result is a spell, it is too wild to be affected by your Metamagic, and if it normally requires concentration, it doesn't require concentration in this case; the spell lasts for its full duration." +
@@ -7968,7 +7968,7 @@ MagicItemsList["reveler's concertina"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a bard",
-	prereqeval: function(v) { return classes.known.bard ? true : false; },
+	prereqeval: function (v) { return classes.known.bard ? true : false; },
 	description: "While holding this concertina, I gain a +2 bonus to the saving throw DC of my bard spells.\nOnce per dawn, I can use the concertina to cast Otto's Irresistible Dance.",
 	descriptionFull: "While holding this concertina, you gain a +2 bonus to the saving throw DC of your bard spells." +
 	"\n   As an action, you can use the concertina to cast Otto's irresistible dance from the item. This property of the concertina can't be used again until the next dawn.",
@@ -7998,7 +7998,7 @@ MagicItemsList["lyre of building"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a bard",
-	prereqeval: function(v) { return classes.known.bard ? true : false; },
+	prereqeval: function (v) { return classes.known.bard ? true : false; },
 	description: "While holding this lyre, I can cast mending as an action. As a reaction, I can protect a structure or object that takes damage from that damage type until the my next turn starts. As an action, I can play the lyre to cast Fabricate, Move Earth, Passwall, or Summon Construct from it, each spell once per dawn.",
 	descriptionFull: "While holding this lyre, you can cast mending as an action. You can also play the lyre as a reaction when an object or a structure you can see within 300 feet of you takes damage, causing it to be immune to that damage and any further damage of the same type until the start of your next turn." +
 	"\n   In addition, you can play the lyre as an action to cast fabricate, move earth, passwall, or summon construct, and that spell can't be cast from it again until the next dawn.",
@@ -8036,7 +8036,7 @@ MagicItemsList["bell branch"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a druid or warlock",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.druid || classes.known.warlock ? true : false;
 	},
 	description: "This silver branch with bells has 3 charges, regains 1d3 at dawn. I can use it as my spellcasting focus. As a bonus action, I can use 1 charge to detect the presence of aberrations, celestials, fiends, constructs, elementals, fey, or undead in 60 ft not behind total cover. I can use 1 charge to cast Protection from Evil and Good.",
@@ -8064,7 +8064,7 @@ MagicItemsList["cauldron of rebirth"] = {
 	rarity: "very rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a druid or warlock",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.druid || classes.known.warlock ? true : false;
 	},
 	description: "After a long rest, I can use this Tiny pot to create a potion of greater healing that lasts up to 24 hours. As an action, I can have it grow to fit a Medium creature, or shrink it back down. I can place a dead creature inside with 200 lb salt (10 gp) for 8 hours to Raise Dead. Once used, it can't do this again for 7 days.",
@@ -8083,7 +8083,7 @@ MagicItemsList["devotee's censer"] = {
 	rarity: "rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a cleric or paladin",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.cleric || classes.known.paladin ? true : false;
 	},
 	description: "I can use this magic flail, perforated with tiny holes, as a holy symbol. Attacks with it deal +1d8 radiant damage. As a bonus action once per dawn, I can speak the command word to cause it to emanate incense out to 10 ft for 1 minute. At the start of each of my turns, all creatures in the incense heal 1d4 hit points.",
@@ -8109,7 +8109,7 @@ MagicItemsList["guardian emblem"] = {
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a cleric or paladin",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.cleric || classes.known.paladin ? true : false;
 	},
 	description: "As an action, I can attach or detach this symbol of a deity to a shield or a suit of armor. It has 3 charges, regaining all at dawn. As a reaction when I or a creature I can see within 30 ft suffers a critical hit while I wear the armor or wield the shield that bears the emblem, I can expend 1 charge to turn it into a normal hit.",
@@ -8131,7 +8131,7 @@ MagicItemsList["nature's mantle"] = {
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a druid or ranger.",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.druid || classes.known.ranger || classes.known.rangerua ? true : false;
 	},
 	description: "This cloak shifts color and texture to blend with the terrain surrounding me. While wearing the cloak, I can use it as a spellcasting focus for my druid and ranger spells. While I am in an area that is lightly obscured, I can Hide as a bonus action even if I am being directly observed.",

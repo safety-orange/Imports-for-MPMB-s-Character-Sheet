@@ -204,7 +204,7 @@ FeatsList["adept of the black robes"] = {
 	"\n   " + toUni("Ambitious Magic") + ". You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
 	"\n   " + toUni("Life Channel") + ". You can channel your life force into the power of your magic. When a creature you can see within 60 feet fails on a saving throw against a spell that deals damage that you cast, you can expend a number of Hit Dice equal to the level of the spell. Roll the expended Hit Dice and add them together. The damage that the creature takes increases by an amount equal to that total.",
 	prerequisite: "4th level, Initiate of High Sorcery (Nuitari) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery");
 		return v.characterLevel >= 4 && iHghSrcyInit !== -1 && CurrentFeats.choices[iHghSrcyInit] === "nuitari";
 	},
@@ -226,7 +226,7 @@ FeatsList["adept of the red robes"] = {
 	"\n   " + toUni("Insightful Magic") + ". You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the illusion or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
 	"\n   " + toUni("Magical Balance") + ". When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. you can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th level, Initiate of High Sorcery (Lunitari) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery");
 		return v.characterLevel >= 4 && iHghSrcyInit !== -1 && CurrentFeats.choices[iHghSrcyInit] === "lunitari";
 	},
@@ -251,7 +251,7 @@ FeatsList["adept of the white robes"] = {
 	"\n   " + toUni("Protective Magic") + ". You learn one 2nd-level spell of you choice. The 2nd-level spell must be from the abjuration or divination school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
 	"\n   " + toUni("Protective Ward") + ". When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d6s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier.",
 	prerequisite: "4th level, Initiate of High Sorcery (Solinari) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery");
 		return v.characterLevel >= 4 && iHghSrcyInit !== -1 && CurrentFeats.choices[iHghSrcyInit] === "solinari";
 	},
@@ -372,7 +372,7 @@ FeatsList["knight of the crown"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase your Strength, Dexterity, or Constitution by 1, to a maximum of 20." +
 	"\n   " + toUni("Commanding Rally") + ". As a bonus action, you can command one ally within 30 feet of yourself to attack. If that ally can see or hear you, they can immediately make one weapon attack as a reaction. If the attack hits, the ally can roll a d8 and add the number rolled as a bonus to the attack's damage roll. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th level, Squire of Solamnia feat",
-	prereqeval: function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia") !== -1; },
+	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia") !== -1; },
 	limfeaname: "Commanding Rally (Knight of the Crown)",
 	usages: "Proficiency bonus per ",
 	usagescalc: "event.value = Number(How('Proficiency Bonus'));",
@@ -400,7 +400,7 @@ FeatsList["knight of the rose"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase your Constitution, Wisdom, or Charisma by 1, to a maximum of 20." +
 	"\n   " + toUni("Bolstering Rally") + ". As a bonus action, you can encourage one creature you can see within 30 feet of yourself (you can choose yourself). If the target can see or hear you, the target gains temporary hit points equal to 1d8 + your proficiency bonus + the ability modifier of the ability score increased by this feat. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th level, Squire of Solamnia feat",
-	prereqeval: function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia") !== -1; },
+	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia") !== -1; },
 	limfeaname: "Bolstering Rally (Knight of the Rose)",
 	usages: "Proficiency bonus per ",
 	usagescalc: "event.value = Number(How('Proficiency Bonus'));",
@@ -428,7 +428,7 @@ FeatsList["knight of the sword"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20." +
 	"\n   " + toUni("Demoralizing Strike") + ". Once per turn, when you hit a creature with a weapon attack roll, you can attempt to frighten that target. The target must make a Wisdom saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the target is frightened of you until the end of your next turn. On a successful save, the target has disadvantage on the next attack roll it makes before the end of its next turn. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th level, Squire of Solamnia feat",
-	prereqeval: function(v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia") !== -1; },
+	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia") !== -1; },
 	limfeaname: "Demoralizing Strike (Knight of the Sword)",
 	usages: "Proficiency bonus per ",
 	usagescalc: "event.value = Number(How('Proficiency Bonus'));",
@@ -463,25 +463,25 @@ AddSubClass("sorcerer", "lunar sorcery", {
 			spellcastingExtra: [
 				// full moon
 				"shield",
-"lesser restoration",
-"dispel magic",
-"death ward",
-"rary's telepathic bond",
+				"lesser restoration",
+				"dispel magic",
+				"death ward",
+				"rary's telepathic bond",
 				// new moon
 				"ray of sickness",
-"blindness/deafness",
-"vampiric touch",
-"confusion",
-"hold monster",
+				"blindness/deafness",
+				"vampiric touch",
+				"confusion",
+				"hold monster",
 				// crescent moon
 				"color spray",
-"alter self",
-"phantom steed",
-"hallucinatory terrain",
-"mislead",
+				"alter self",
+				"phantom steed",
+				"hallucinatory terrain",
+				"mislead",
 			],
 			spellcastingExtraApplyNonconform: true,
-			description: levels.map(function(n) {
+			description: levels.map(function (n) {
 				var phases = {
 					"\u25CB Full: ": ["Shield", "Lesser Restoration", "Dispel Magic", "Death Ward", "Rary's Telepathic Bond"],
 					"\u25CF New: ": ["Ray of Sickness", "Blindness/deafness", "Vampiric Touch", "Confusion", "Hold Monster"],
@@ -688,7 +688,7 @@ MagicItemsList["flying citadel helm"] = {
 	rarity: "very rare",
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
-	prereqeval: function(v) { return v.isSpellcaster; },
+	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This ornate chair allows me to maneuver a flying citadel while concentrating (as if a spell). I can move the citadel through the air 80 ft/round or 8 miles/h, steer it, and see and hear from its highest point as though I was at that location. As an action or bonus action, I can transfer attunement to a willing spellcaster.",
 	descriptionFull: "The function of this ornate chair is to propel and maneuver a flying citadel on which it has been installed. The chair has AC 15, 18 hit points, and immunity to poison and psychic damage. It is destroyed if reduced to 0 hit points." +
 	"\n   The sensation of being attuned to a flying citadel helm is akin to the pins-and-needles effect one experiences after one's arm or leg falls asleep, but not as intense." +

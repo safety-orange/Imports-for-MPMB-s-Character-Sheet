@@ -71,10 +71,10 @@ RaceList["abyssal tiefling-ua"] = {
 	variants: RaceList.tiefling && RaceList.tiefling.variants ? RaceList.tiefling.variants : [],
 };
 //now do the variants
-var UATOBM_addAbyssalTiefling = function(){
+var UATOBM_addAbyssalTiefling = function (){
 	var replaceTraitTxt = ["+1 Intelligence, +2 Charisma", "+1 Constitution, +2 Charisma"];
 	var replaceNameTxt = ["tiefling", "abyssal tiefling"];
-	RaceList["abyssal tiefling-ua"].variants.forEach( function(nVar) {
+	RaceList["abyssal tiefling-ua"].variants.forEach( function (nVar) {
 		if (!RaceSubList["tiefling-" + nVar]) return;
 		RaceSubList["abyssal tiefling-ua-" + nVar] = newObj(RaceSubList["tiefling-" + nVar]);
 		var thisVar = RaceSubList["abyssal tiefling-ua-" + nVar];
@@ -86,7 +86,7 @@ var UATOBM_addAbyssalTiefling = function(){
 }();
 
 /*	Adds 5 spells for summoning fiends to the Sorcerer and the Wizard spell lists
-	
+
 	This code was contributed by David
 */
 SpellsList["conjure lesser demon-ua"] = { // Still valid 2021-09-21

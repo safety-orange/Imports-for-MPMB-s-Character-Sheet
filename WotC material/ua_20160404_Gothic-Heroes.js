@@ -292,7 +292,7 @@ AddSubClass("fighter", "monster hunter-ua", { // Still valid 2021-09-21
 			source: [["UA:GH", 2]],
 			minlevel: 3,
 			usages: 1,
-			recovery: "long rest",			
+			recovery: "long rest",
 			description: desc([
 				"I can cast Detect Magic as a ritual and Protection from Evil & Good once per long rest",
 				"I gain the ability to speak one of the following languages: Abyssal, Celestial, or Infernal",

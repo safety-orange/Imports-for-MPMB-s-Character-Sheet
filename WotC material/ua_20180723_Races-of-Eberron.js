@@ -239,7 +239,7 @@ RaceList["envoy warforged-ua"] = {
 	scorestxt: "+1 Constitution and +1 to two other ability scores of my choice",
 	scores: [0, 0, 1, 0, 0, 0],
 	trait: "Envoy Warforged (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B.), medium (13+Dex+Prof B.), heavy (16+Prof B.; Stealth disadv.). I can use a shield.\nIntegrated Tool: I have expertise with one tool and it is integrated into my body.",
-	eval: function() {
+	eval: function () {
 		var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
 		if (tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0)) {
 			CurrentRace.armorAdd.select = "Heavy Plating";
@@ -314,7 +314,7 @@ RaceList["juggernaut warforged-ua"] = {
 	scores: [2, 0, 1, 0, 0, 0],
 	trait: "Juggernaut Warforged (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4.") + "\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B.), medium (13+Dex+Prof B.), heavy (16+Prof B.; Stealth disadv.). I can use a shield.\nPowerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
 	carryingCapacity: 2,
-	eval: function() {
+	eval: function () {
 		var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
 		if (tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0)) {
 			CurrentRace.armorAdd.select = "Heavy Plating";
@@ -380,7 +380,7 @@ RaceList["skirmisher warforged-ua"] = {
 	weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	scores: [0, 2, 1, 0, 0, 0],
 	trait: "Skirmisher Warforged (+2 Dexterity, +1 Constitution)\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B.), medium (13+Dex+Prof B.), heavy (16+Prof B.; Stealth disadv.). I can use a shield.\nLight Step: If I travel alone for an hour or more, I can move stealthily at a normal pace.",
-	eval: function() {
+	eval: function () {
 		var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
 		if (tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0)) {
 			CurrentRace.armorAdd.select = "Heavy Plating";

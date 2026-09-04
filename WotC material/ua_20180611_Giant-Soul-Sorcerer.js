@@ -202,10 +202,10 @@ AddSubClass("sorcerer", "giant soul-ua", {
 				"\u2022 I gain advantage on Strength checks and Strength saving throws",
 				"\u2022 I add my Constitution modifier to the damage of my melee weapon attacks (min +1)",
 			]),
-			additional: levels.map(function(n) {
+			additional: levels.map(function (n) {
 				return n < 14 ? "" : "+" + n + " HP";
 			}),
-			usages: levels.map(function(n) {
+			usages: levels.map(function (n) {
 				return n < 14 ? "" : n < 18 ? 1 : 2;
 			}),
 			recovery: "short rest",

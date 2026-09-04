@@ -292,7 +292,7 @@ AddSubClass("rangerua", "beast master-ua", {
 			minlevel: 3,
 			description: desc("I call an animal by spending 8 hours and 50 gp; I can revive it with 8 hours and 25 gp"),
 			additional: ["", "", "", "+1 HD for companion", "+2 HD for companion", "+3 HD for companion", "+4 HD for companion", "+5 HD for companion", "+6 HD for companion", "+7 HD for companion", "+8 HD for companion", "+9 HD for companion", "+10 HD for companion", "+11 HD for companion", "+12 HD for companion", "+13 HD for companion", "+14 HD for companion", "+15 HD for companion", "+16 HD for companion", "+17 HD for companion"],
-			creaturesAdd: [["Animal Companion", false, function(AddRemove, prefix) {
+			creaturesAdd: [["Animal Companion", false, function (AddRemove, prefix) {
 				if (!AddRemove) return;
 				var compOptions = ["Ape", "Black Bear", "Boar", "Giant Badger", "Giant Weasel", "Mule", "Panther", "Wolf"];
 				var selectedRace = AskUserOptions("Select Animal Companion", "Select which beast you would like to have as your animal companion.\nYou can change the beast at any time using the \"Companion Options\" button at the top of the Companion page.", compOptions, "radio", true);
@@ -338,7 +338,7 @@ CompanionList.companionrr = {
 	nameOrigin: "Beast Conclave 3",
 	nameMenu: "Animal Companion (Beast Conclave feature)",
 	source: [["UA:RR", 5]],
-	includeCheck: function(sCrea, objCrea, iCreaCR) {
+	includeCheck: function (sCrea, objCrea, iCreaCR) {
 		// Only specific animals
 		return /^(ape|black bear|boar|giant badger|giant weasel|mule|panther|wolf)$/i.test(sCrea);
 	},
@@ -360,7 +360,7 @@ CompanionList.companionrr = {
 			description: "As a reaction, the companion can halve the damage of an attack from an attacker that it can see.",
 			minlevel: 15,
 		}],
-		hdLinked: function(prefix) {
+		hdLinked: function (prefix) {
 			var iTotalHD = CurrentCompRace[prefix] && CurrentCompRace[prefix].hd ? CurrentCompRace[prefix].hd[0] : 0;
 			var bRngLvls = false;
 			["rangerua", "ranger", "spell-less ranger"].forEach(function (n) {
@@ -419,7 +419,7 @@ CompanionList.companionrr = {
 		joinString: "\n   ",
 		minlevel: 15,
 	}],
-	attributesChange: function(sCrea, objCrea) {
+	attributesChange: function (sCrea, objCrea) {
 		// Add Prof to attack damage
 		for (var i = 0; i < objCrea.attacks.length; i++) {
 			var oAtk = objCrea.attacks[i];
@@ -452,7 +452,7 @@ CompanionList.companionrr = {
 		}
 		objCrea.saves = aSaves;
 	},
-	eval: function(prefix, lvl) {
+	eval: function (prefix, lvl) {
 		// Set the alignment to be the same as the main character
 		var iAlignInx = tDoc.getField("Alignment").currentValueIndices;
 		if (iAlignInx !== -1) {
@@ -638,7 +638,7 @@ AddSubClass("rangerua", "deep stalker-ua", {
 
 // By popular demand, the XGtE, TCoE, FToD ranger subclasses, if they exist, are added as an option to the Revised Ranger
 // Note that there are no rules by WotC that support doing this!
-var UARR_AddRangerSubclassesToRevisedRanger = function() {
+var UARR_AddRangerSubclassesToRevisedRanger = function () {
 	var aSources = ["X", "T", "FToD"];
 	var aRngrSubs = ClassList.ranger.subclasses[1];
 	for (var i = 0; i < aRngrSubs.length; i++) {

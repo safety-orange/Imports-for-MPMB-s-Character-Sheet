@@ -237,12 +237,12 @@ var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden-ua", 
 					minlevel: 7,
 					description: "When the drake is summoned, it gains either a 40 ft swimming speed and can breathe underwater, or a 40 ft flying speed and has wings. The drake's bite deals an extra 1d6 damage of its chosen Draconic Essence type.",
 					addMod: [{ type: "", field: "BlueText.Comp.Use.Attack.1.Damage Die", mod: "1d6", text: "The drake's bite attack deals an extra 1d6 damage of the type chosen for its Draconic Essence." }],
-					eval: function(prefix, lvl) {
+					eval: function (prefix, lvl) {
 						var sMoveStr = (typePF ? ",\n" : ", ") + "fly/swim 40 ft";
 						if (What("Unit System") === "metric") sMoveStr = ConvertToMetric(sMoveStr, 0.5);
 						tDoc.getField(prefix + "Comp.Use.Speed").value += sMoveStr;
 					},
-					removeeval: function(prefix, lvl) {
+					removeeval: function (prefix, lvl) {
 						var sMoveStr = (typePF ? ",\n" : ", ") + "fly/swim 40 ft";
 						if (What("Unit System") === "metric") sMoveStr = ConvertToMetric(sMoveStr, 0.5);
 						Value(prefix + "Comp.Use.Speed", What(prefix + "Comp.Use.Speed").replace(sMoveStr, ""));
@@ -252,10 +252,10 @@ var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden-ua", 
 					minlevel: 15,
 					description: "The drake's size is now Large and its bite attack deals an extra 1d6 damage (for a total of +2d6) of its chosen Draconic Essence type.",
 					addMod: [{ type: "", field: "BlueText.Comp.Use.Attack.1.Damage Die", mod: "1d6", text: "The drake's bite attack deals another extra 1d6 damage (for a total of +2d6) of the type chosen for its Draconic Essence." }],
-					eval: function(prefix, lvl) {
+					eval: function (prefix, lvl) {
 						PickDropdown(prefix + "Comp.Desc.Size", 2); // Large
 					},
-					removeeval: function(prefix, lvl) {
+					removeeval: function (prefix, lvl) {
 						PickDropdown(prefix + "Comp.Desc.Size", 4); // Small
 					},
 				}],

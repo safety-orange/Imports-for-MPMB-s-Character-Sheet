@@ -403,7 +403,7 @@ MagicItemsList["shield guardian amulet"] = {
 	attunement: true,
 	notLegalAL: true,
 	prerequisite: "Requires attunement by a humanoid",
-	prereqeval: function(v) { return !CurrentRace.known || !RaceList[CurrentRace.known] || !/creature type/i.test(RaceList[CurrentRace.known].trait); },
+	prereqeval: function (v) { return !CurrentRace.known || !RaceList[CurrentRace.known] || !/creature type/i.test(RaceList[CurrentRace.known].trait); },
 	description: "A shield guardian is magically linked to this amulet. It has AC 10, 10 HP, and immunity to poison and psychic damage. I know the distance and direction of the guardian while I'm wearing the amulet and I'm on the same plane as it. While within 10 ft of it, I can use the amulet to reactivate it with a DC 20 Arcana check.",
 	descriptionFull: "The amulet is a 4-inch-wide disk composed of silver-framed wood, with a rune carved into its face. A detect magic spell reveals a magical aura of enchantment around the amulet." +
 	"\n   Every shield guardian has an amulet magically linked to it. A shield guardian can have only one corresponding amulet, and if that amulet is destroyed, the shield guardian is incapacitated until a replacement amulet is created." +
@@ -425,7 +425,7 @@ Gains:
  P.S. multiattack is a weird one, going with the interpretation here: https://rpg.stackexchange.com/questions/70694
 */
 var MM_lycanthrope = {
-	createDefaultTraits: function(sLycanName, sLycanPlural) {
+	createDefaultTraits: function (sLycanName, sLycanPlural) {
 		// the traits of a human
 		var obj = {
 			name: "Human " + sLycanName,
@@ -441,7 +441,7 @@ var MM_lycanthrope = {
 		}
 		return obj;
 	},
-	createMessage: function(sLycanName, aOtherGains) {
+	createMessage: function (sLycanName, aOtherGains) {
 		var aGained = [
 			"Its speed in nonhumanoid form.",
 			"Natural attacks in nonhumanoid form (e.g. bite/claw).",

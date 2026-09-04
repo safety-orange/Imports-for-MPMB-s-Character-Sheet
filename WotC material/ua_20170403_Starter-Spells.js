@@ -12,7 +12,7 @@ SourceList["UA:SS"] = {
 };
 
 /*	Adds 17 spells of lower levels to all class' spell lists
-	
+
 	This code was contributed by SoilentBrad
 */
 SpellsList["cause fear-uass"] = {

@@ -87,11 +87,11 @@ AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the St
 			changes: "With my Pact of the Star Chain boon I can cast Augury only as a ritual, thus requiring 10 extra minutes to cast it.",
 		},
 	},
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return classes.known.warlock && classes.known.warlock.subclass.indexOf("the seeker") !== -1 ? true : "skip";
 	},
 });
-RunFunctionAtEnd(function() {
+RunFunctionAtEnd(function () {
 	var theTheurgySubclass = AddSubClass("wizard", "theurgy-ua", { // Still valid 2021-09-21
 		regExpSearch: /^((?=.*mystic)(?=.*theurge))|(?=.*(theurgy|theurgist)).*$/i,
 		subname: "Theurgy",
@@ -111,7 +111,7 @@ RunFunctionAtEnd(function() {
 				]),
 				calcChanges: {
 					spellList: [
-						function(spList, spName, spType) {
+						function (spList, spName, spType) {
 							if (spName !== "wizard" || spType.indexOf("bonus") !== -1 || !CurrentSpells.wizard.extra || !CurrentSpells.wizard.selectSp || !spList.level || !spList.level[1]) return;
 							var domainSpells = CurrentSpells.wizard.extra;
 							// now stop this function if even one of the domain spells is not already in the spellbook
@@ -194,7 +194,7 @@ RunFunctionAtEnd(function() {
 		var aDomain = ClassSubList[ClassList.cleric.subclasses[1][i]];
 		if (!aDomain) continue;
 		var dSource = aDomain.source ? aDomain.source : aDomain.features["subclassfeature1"] && aDomain.features["subclassfeature1"].source ? aDomain.features["subclassfeature1"].source : [["UA:TF", 0], ["UA:WR", 0]];
-		
+
 		var suffix = 1;
 		var entryDoNm = aDomain.subname;
 		while (MTfeat["subclassfeature2"].choices.indexOf(entryDoNm) !== -1) {

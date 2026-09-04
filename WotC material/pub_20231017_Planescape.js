@@ -309,7 +309,7 @@ FeatsList["agent of order"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase one ability score of your choice by 1, to a maximum of 20." +
 	"\n   " + toUni("Stasis Strike") + ". Once per turn, when you damage a creature you can see within 60 feet of yourself, you can deal an extra 1d8 force damage to the target, and it must make a Wisdom saving throw (DC equal to 8 + your proficiency bonus + the modifier of the spellcasting ability you chose for the Scion of the Outer Planes feat) as spectral bindings try to ensnare it. On a successful save, the target escapes. On a failed save, the target has the restrained condition until the start of your next turn. These bindings manifest as chains or some other symbol of stasis. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th-level, Scion of the Outer Planes (Lawful Outer Plane) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "lawful outer plane (force, guidance)";
 	},
@@ -326,7 +326,7 @@ FeatsList["baleful scion"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase one ability score of your choice by 1, to a maximum of 20." +
 	"\n   " + toUni("Life-Draining Grasp") + ". Once per turn, when you damage a creature you can see within 60 feet of yourself, you can also deal necrotic damage to it. The necrotic damage equals 1d6 + your proficiency bonus, and you regain a number of hit points equal to this necrotic damage dealt. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th-level, Scion of the Outer Planes (Evil Outer Plane) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "evil outer plane (necrotic, chill touch)";
 	},
@@ -349,7 +349,7 @@ FeatsList["cohort of chaos"] = {
 	"\n  4\tWailing Winds: Winds swirl in a 15-foot-radius sphere centered on you. You and any other creatures in that area have disadvantage on Wisdom saving throws." +
 	"\n\n   You can also forcibly release a chaotic flare as a bonus action, rolling on the table as normal to determine the effects. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th-level, Scion of the Outer Planes (Chaotic Outer Plane) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "chaotic outer plane (poison, minor illusion)";
 	},
@@ -380,7 +380,7 @@ FeatsList["outlands envoy"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase one ability score of your choice by 1, to a maximum of 20." +
 	"\n   " + toUni("Crossroads Emissary") + ". You learn the misty step and tongues spells. You can cast each spell once using this feat without a spell slot, and you must finish a long rest before you can cast that spell in this way again. When you cast tongues using this feat, you require no material components. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the one chosen when you gained the Scion of the Outer Planes feat.",
 	prerequisite: "4th-level, Scion of the Outer Planes (the Outlands) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "the outlands (psychic, mage hand)";
 	},
@@ -410,7 +410,7 @@ FeatsList["planar wanderer"] = {
 	"\n   " + toUni("Portal Cracker") + ". Your experience with portals allows you to open them without a portal key. As an action, you can concentrate on a portal you're aware of that is within 5 feet of yourself and make a DC 20 Intelligence (Arcana) check. On a failed check, you take 3d8 psychic damage and can't use this benefit on that portal again until you finish a long rest. On a successful check, you can force the portal open or closed for 1 hour. For that duration, the portal doesn't respond to its portal key unless a creature employing the key succeeds on a DC 20 Intelligence (Arcana) check as an action." +
 	"\n   " + toUni("Portal Sense") + ". You know the direction to the last planar portal you used while you and the portal are on the same plane of existence. Moreover, as an action, you can detect the location of any portals within 30 feet of you that aren't behind total cover. Once you detect a portal with this action, you can't use the action again until you finish a long rest.",
 	prerequisite: "4th-level, Scion of the Outer Planes feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		return v.characterLevel >= 4 && CurrentFeats.known.indexOf("scion of the outer planes") !== -1;
 	},
 	dmgres: ["Acid/Cold/Fire"],
@@ -445,7 +445,7 @@ FeatsList["righteous heritor"] = {
 	"\n   " + toUni("Ability Score Increase") + ". Increase one ability score of your choice by 1, to a maximum of 20." +
 	"\n   " + toUni("Soothe Pain") + ". When you or a creature within 30 feet of you takes damage, you can use your reaction to reduce that damage by 1d10 + your proficiency bonus. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th-level, Scion of the Outer Planes (Good Outer Plane) feat",
-	prereqeval: function(v) {
+	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes");
 		return v.characterLevel >= 4 && iParentFeat !== -1 && CurrentFeats.choices[iParentFeat] === "good outer plane (radiant, sacred flame)";
 	},

@@ -268,7 +268,7 @@ var EGtW_Vestiges_Replace = function (sDescr) {
 		.replace(/you are/ig, "I am").replace(/\byou\b/ig, "I")
 		.replace(/(by|giving|grants|of|to|for) I\b/ig, "$1 me")
 		.replace(/your/g, "my").replace(/Your/g, "My")
-		.replace(/   >>(.*?)<<\. /g, function(a, match) { return "\n" + match.toUpperCase() + "\n   "; });
+		.replace(/   >>(.*?)<<\. /g, function (a, match) { return "\n" + match.toUpperCase() + "\n   "; });
 }
 var EGtW_JewelOfThreePrayersFullDescription = [
 	"The Jewel of Three Prayers is a Vestige of Divergence. In ancient times, Alyxian the Apotheon bore this amulet as a symbol of his covenant with three Prime Deities: Sehanine the Moon Weaver, Avandra the Change Bringer, and Corellon the Arch Heart.[[ When the jewel is found, only Sehanine's power thrums within its dormant heart. The power of the other two deities waits to be reawakened by a hero \u2014 or heroes \u2014 who can follow in Alyxian's footsteps.]]",
@@ -301,7 +301,7 @@ MagicItemsList["jewel of three prayers"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "The golden chain of this intricate jewel magically resizes to function as a necklace for the creature that wears it. In ancient times, Alyxian the Apotheon bore this amulet as a symbol of his covenant with three Prime Deities: Sehanine the Moon Weaver, Avandra the Change Bringer, and Corellon the Arch Heart.",
-	descriptionFull: EGtW_JewelOfThreePrayersFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }).replace(/\[\[|\]\]/g, ""),
+	descriptionFull: EGtW_JewelOfThreePrayersFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }).replace(/\[\[|\]\]/g, ""),
 	toNotesPage: [{
 		name: "Features",
 		note: EGtW_Vestiges_Replace(EGtW_JewelOfThreePrayersFullDescription).replace(/\[\[.*?\]\]/, ""),

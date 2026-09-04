@@ -4,7 +4,7 @@ RequiredSheetVersion("13.0.8");
 
 // Define the source
 SourceList["PS:D"] = {
-	name: "Plane Shift: Dominaria", 
+	name: "Plane Shift: Dominaria",
 	abbreviation: "PS:D",
 	group: "Plane Shift",
 	campaignSetting: "Magic: The Gathering",

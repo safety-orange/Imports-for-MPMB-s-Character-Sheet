@@ -4,7 +4,7 @@ RequiredSheetVersion("14.0.5-beta");
 
 // Define the source
 SourceList["PS:X"] = {
-	name: "Plane Shift: Ixalan", 
+	name: "Plane Shift: Ixalan",
 	abbreviation: "PS:X",
 	group: "Plane Shift",
 	campaignSetting: "Magic: The Gathering",

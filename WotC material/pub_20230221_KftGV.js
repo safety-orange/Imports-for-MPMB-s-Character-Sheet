@@ -28,10 +28,10 @@ MagicItemsList["constantori's portrait"] = {
 	rarity: "very rare",
 	attunement: true,
 	description: "As an action, I can telepathically contact this sentient painting over any distance while on the same plane. It can't contact me. Maintaining contact requires concentration like on a spell. I can command the painting to guard an area. It can cast Magic Missile 3 times per dawn. See Notes page.",
-	descriptionFull: KftGV_ConstantoriPortrait.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: KftGV_ConstantoriPortrait.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	toNotesPage: [{
 		name: "Features",
-		note: desc(KftGV_ConstantoriPortrait).replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/\bf(oo|ee)t\b/ig, "ft").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(contact) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(KftGV_ConstantoriPortrait).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/\bf(oo|ee)t\b/ig, "ft").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(contact) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 	action: [["action", " (contact)"]],
 	usages: 3,

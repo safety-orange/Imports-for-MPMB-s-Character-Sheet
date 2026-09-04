@@ -58,7 +58,7 @@ MagicItemsList["azuredge"] = {
 	rarity: "legendary",
 	storyItemAL: true,
 	description: "This battleaxe is sentient, adds +3 to hit and damage, and deals +2d6 radiant damage vs. fiends/undead. As an action, I can stop or start its glow of bright light in a 30-ft radius and dim light for another 30 ft. It has 3 charges, regaining all at dawn, which can be used to throw it, after which it returns to my hand. See Notes.",
-	descriptionFull: WDH_azuredgeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	descriptionFull: WDH_azuredgeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 	attunement: true,
 	weight: 4,
 	action: [["action", " (glow/end)"]],
@@ -83,7 +83,7 @@ MagicItemsList["azuredge"] = {
 	}],
 	toNotesPage: [{
 		name: "Features",
-		note: "\n   " + WDH_azuredgeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: "\n   " + WDH_azuredgeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 }
 MagicItemsList["badge of the watch"] = { // contains contributions by Pengsloth
@@ -116,11 +116,11 @@ if (MagicItemsList["staff of power"]) {
 		rarity: "legendary",
 		storyItemAL: true,
 		description: "This +2 quarterstaff gives me a +2 bonus on saves, AC, and spell attacks. It has 20 charges, regaining 2d8+4 at dawn, which can be used to cast spells, deal +1d6 force damage in melee, drain magic from a target hit in melee, or animate walking statues. It is sentient and has more features, see Notes page.",
-		descriptionFull: WDH_blackstaffFullDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+		descriptionFull: WDH_blackstaffFullDescription.replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
 		attunement: true,
 		weight: 4,
 		prerequisite: "Requires attunement by the Blackstaff heir, who must be a wizard",
-		prereqeval: function(v) { return classes.known.wizard ? true : false; },
+		prereqeval: function (v) { return classes.known.wizard ? true : false; },
 		usages: 20,
 		recovery: "dawn",
 		additional: "regains 2d8+4",
@@ -168,7 +168,7 @@ if (MagicItemsList["staff of power"]) {
 		},
 		toNotesPage: [{
 			name: "Features",
-			note: "\n   " + WDH_blackstaffFullDescription.replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I "),
+			note: "\n   " + WDH_blackstaffFullDescription.replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I "),
 		}, {
 			name: "Sentient Item Features",
 			note: sentientItemConflictTxt,

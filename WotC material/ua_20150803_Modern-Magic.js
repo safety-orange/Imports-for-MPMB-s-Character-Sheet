@@ -247,7 +247,7 @@ AddWarlockInvocation("Arcane Gunslinger (prereq: Pact of the Blade)", { // Still
 	]),
 	source: [["UA:MM", 3]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function(v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	calcChanges: {
 		atkAdd: [
 			function (fields, v) {
@@ -262,7 +262,7 @@ AddWarlockInvocation("Arcane Gunslinger (prereq: Pact of the Blade)", { // Still
 });
 
 /*	Adds 14 spells that are, according to the article, 'suitable' for the Sorcerer, Warlock, or Wizard spell list. 1 of those is also considered suitable for the Paladin spell list.
-	
+
 	Strangely enough, adding all these spells to the Warlock spell list makes the Ghost in the Machine's Expanded Spell List class feature completely useless
 */
 SpellsList["arcane hacking-ua"] = { // Still valid 2021-09-21

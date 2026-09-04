@@ -90,7 +90,7 @@ if (!SourceList.T) {
 			scores: [0, 0, 0, 0, 0, 1],
 		},
 	};
-	RunFunctionAtEnd(function() {
+	RunFunctionAtEnd(function () {
 		if (!ClassList.fighter || !ClassList.fighter.features["fighting style"]) return;
 		var FtngStyles = ClassList.fighter.features["fighting style"];
 		FeatsList["fighting initiate"] = {
@@ -99,7 +99,7 @@ if (!SourceList.T) {
 			descriptionFull: "Your martial training has helped you develop a particular style of fighting. As a result, you learn one Fighting Style option of your choice from the fighter class. If you already have a style, the one you choose must be different.\n   Whenever you gain a level, you can replace this feat's fighting style with another one from the fighter class that you don't have.", // only slightly different than TCoE: allowed to switch style every level instead of only at ASI
 			description: "I learn one Fighting Style from the fighter class, which must be one that I don't yet know. I can replace this fighting style for another whenever I gain a level.",
 			prerequisite: "Proficiency with a martial weapon",
-			prereqeval: function(v) {
+			prereqeval: function (v) {
 				return v.martialWeaponsProf || v.otherWeaponsProf.some(function (n) {
 					return WeaponsList[n] && /Martial/i.test(WeaponsList[n].type);
 				});
@@ -162,7 +162,7 @@ if (!SourceList.T) {
 				FeatsList["fighting initiate"][sNameLC][attr] = FtngStyles[sNameLC][attr];
 			}
 			if (!FeatsList["fighting initiate"][sNameLC].prereqeval) {
-				FeatsList["fighting initiate"][sNameLC].prereqeval = function(v) {
+				FeatsList["fighting initiate"][sNameLC].prereqeval = function (v) {
 					var knownStyles = GetFightingStyleSelection();
 					return knownStyles[v.choice] ? false : true;
 				};

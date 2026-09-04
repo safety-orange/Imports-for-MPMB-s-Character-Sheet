@@ -156,7 +156,7 @@ AddSubClass("sorcerer", "phoenix sorcery-ua", { // Still valid 2021-09-21
 				"If I have Mantle of Flame active, this damage is my sorcerer level + twice my Cha mod",
 				"If I use this feature, my Mantle of Flame immediately ends",
 			]),
-			additional: levels.map( function(n) {
+			additional: levels.map( function (n) {
 				if (n < 6) return "";
 				return Math.floor(n / 2) + "+Cha \u007Cor\u007C " + n + "+2\xD7Cha";
 			}),
@@ -226,7 +226,7 @@ AddSubClass("sorcerer", "sea sorcery-ua", { // Still valid 2021-09-21
 				"As a reaction when that happens, I reduce the damage by my sorcerer level + Charisma",
 				"I can then also move up to 30 ft without provoking opportunity attacks",
 			]),
-			additional: levels.map( function(n) {
+			additional: levels.map( function (n) {
 				if (n < 6) return "";
 				return n + " + Charisma score";
 			}),
@@ -321,7 +321,7 @@ AddSubClass("sorcerer", "stone sorcery-ua", { // Still valid 2021-09-21
 				"I teleport to an empty space next to it and make one melee weapon attack against it",
 				"If this attack hits, the attack deals extra force damage",
 			]),
-			additional: levels.map( function(n) {
+			additional: levels.map( function (n) {
 				if (n < 6) return "";
 				return (Math.floor(n / 4) + 2) + " damage reduction; +" + (n < 11 ? 1 : n < 17 ? 2 : 3) + "d10 force damage";
 			}),
@@ -335,7 +335,7 @@ AddSubClass("sorcerer", "stone sorcery-ua", { // Still valid 2021-09-21
 				"Once per casting of a spell that deals damage, I can choose one creature damaged by it",
 				"That creature takes extra force damage equal to half my sorcerer level",
 			]),
-			additional: levels.map( function(n) {
+			additional: levels.map( function (n) {
 				return n < 14 ? "" : Math.floor(n / 2) + " force damage";
 			}),
 		},

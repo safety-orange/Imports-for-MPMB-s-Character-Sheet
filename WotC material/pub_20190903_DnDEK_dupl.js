@@ -23,7 +23,7 @@ SourceList["DnDEK"] = {
 };
 
 ClassList["sidekick-expert"] = {
-	loadSidekickStats: function(AddRemove, scoresA) {
+	loadSidekickStats: function (AddRemove, scoresA) {
 		// (re)set the default ability scores
 		initiateCurrentStats();
 		var expectedA = AddRemove ? [8,8,8,8,8,8] : scoresA;
@@ -40,7 +40,7 @@ ClassList["sidekick-expert"] = {
 		if (What("Race") == expectedV[0]) Value("Race", setV[0]);
 		if (What("Background") == expectedV[1]) Value("Background", setV[1]);
 	},
-	fixSidekickLevelDeps: function(aClass, lvlA) {
+	fixSidekickLevelDeps: function (aClass, lvlA) {
 		// First add an extra HD
 		for (var i = 1; i <= 3; i++) {
 			var lvlFld = "HD" + i + " Level";
@@ -132,7 +132,7 @@ ClassList["sidekick-expert"] = {
 			description: desc("I can use a bonus action to take the Dash, Disengage, or Hide action"),
 			action: [["bonus action", ""]],
 		},
-		"expertise": function() {
+		"expertise": function () {
 			var a = {
 				name: "Expertise",
 				source: [["DnDEK", 64]],
@@ -150,7 +150,7 @@ ClassList["sidekick-expert"] = {
 					description: "",
 					source: a.source,
 					skills: [[a.extrachoices[i], "only"]],
-					prereqeval: function(v) {
+					prereqeval: function (v) {
 						return v.skillProfsLC.indexOf(v.choice) === -1 ? false : v.skillExpertiseLC.indexOf(v.choice) === -1 ? true : "markButDisable";
 					},
 				}
