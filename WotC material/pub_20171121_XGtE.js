@@ -5446,7 +5446,7 @@ MagicItemsList["wand of pyrotechnics"] = {
 	source: [["X", 140]],
 	type: "wand",
 	rarity: "common",
-	description: "This wand has 7 charges, regaining 1d6+1 at dawn, 5% chance it is destroyed when its last charge is used. As an action, I can expend 1 charge to create a harmless burst of sound light at a point I can see up to 60 ft away, with the noise travelling 300 ft. The light is as bright as a torch flame but lasts only a second.",
+	description: "This wand has 7 charges, regaining 1d6+1 at dawn, 5% chance it is destroyed when its last charge is used. As an action, I can expend 1 charge to create a harmless burst of sound \x26 light at a point I can see up to 60 ft away, with the noise travelling 300 ft. The light is as bright as a torch flame but lasts only a second.",
 	descriptionFull: "This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges and create a harmless burst of multicolored light at a point you can see up to 60 feet away. The burst of light is accompanied by a crackling noise that can be heard up to 300 feet away. The light is as bright as a torch flame but lasts only a second.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand erupts in a harmless pyrotechnic display and is destroyed.",
 	weight: 1,
 	action: [["action", ""]],

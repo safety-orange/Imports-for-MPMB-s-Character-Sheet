@@ -1,5 +1,5 @@
 var iFileName = "pub_20231017_Planescape.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.0.15-beta");
 // This file adds the Character Options content from the "Planescape: Adventures in the Multiverse" set (the "Sigil and the Outlands" book) to MPMB's Character Record Sheet
 
 // Define the source
@@ -477,10 +477,10 @@ MagicItemsList["mimir"] = {
 	recovery: "dawn",
 	additional: "Legend Lore",
 	spellcastingBonus: [{
-		name: "once per dawn",
+		name: "Once per dawn",
 		spells: ["legend lore"],
 		selection: ["legend lore"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 };
 MagicItemsList["portal compass"] = {

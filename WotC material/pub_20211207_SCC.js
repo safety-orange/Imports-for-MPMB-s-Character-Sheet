@@ -1,5 +1,5 @@
 var iFileName = "pub_20211207_SCC.js";
-RequiredSheetVersion("14.0.5-beta", 15);
+RequiredSheetVersion("14.0.15-beta", 15);
 // This file adds all the player-material from Strixhaven: A Curriculum of Chaos to MPMB's Character Record Sheet
 
 // Define the source
@@ -754,7 +754,7 @@ MagicItemsList["masque charm"] = {
 		name: "Once per sunset",
 		spells: ["disguise self"],
 		selection: ["disguise self"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	fixedDC: 13,
 }

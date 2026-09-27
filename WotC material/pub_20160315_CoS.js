@@ -1,5 +1,5 @@
 var iFileName = "pub_20160315_CoS.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.15-beta");
 // This file adds the backgrounds from the Curse of Strahd adventure book and the optional backgrounds from the Adventurers League season 4 (Curse of Strahd) to MPMB's Character Record Sheet
 
 // Define the sources
@@ -662,7 +662,7 @@ MagicItemsList["icon of ravenloft"] = {
 		name: "Once per dawn",
 		spells: ["augury", "cure wounds"],
 		selection: ["augury", "cure wounds"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 		times: 2,
 	}],
 	spellChanges: {
@@ -712,7 +712,7 @@ MagicItemsList["lost sword"] = {
 		name: "Once per dawn",
 		spells: ["crusader's mantle"],
 		selection: ["protection from evil and good"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	toNotesPage: [{
 		name: "Features",

@@ -1,5 +1,5 @@
 var iFileName = "pub_20230815_GotG.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.0.15-beta");
 // This file adds the player-material from Bigby Presents: Glory of the Giants to MPMB's Character Record Sheet
 
 SourceList["GotG"] = {
@@ -787,10 +787,10 @@ MagicItemsList["armor of safeguarding"] = {
 		},
 	},
 	spellcastingBonus: [{
-		name: "Beacon of Hope",
+		name: "Once per dawn",
 		spells: ["beacon of hope"],
 		selection: ["beacon of hope"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"beacon of hope": {
@@ -855,10 +855,10 @@ MagicItemsList["crown of the wrath bringer"] = {
 	additional: "Fear",
 	fixedDC: 15,
 	spellcastingBonus: [{
-		name: "Fear",
+		name: "Once per dawn",
 		spells: ["fear"],
 		selection: ["fear"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"fear": {
@@ -1069,7 +1069,7 @@ MagicItemsList["lucent destroyer"] = {
 		name: "Once per dawn",
 		spells: ["sunbeam"],
 		selection: ["sunbeam"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 };
 MagicItemsList["mistral mantle"] = {
@@ -1086,10 +1086,10 @@ MagicItemsList["mistral mantle"] = {
 	dmgres: ["Cold"],
 	fixedDC: 14,
 	spellcastingBonus: [{
-		name: "Sleet Storm",
+		name: "Once per dawn",
 		spells: ["sleet storm"],
 		selection: ["sleet storm"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	usages: 1,
 	recovery: "dawn",
@@ -1374,10 +1374,10 @@ MagicItemsList["stonebreaker's breastplate"] = {
 	action: [["action", ""]],
 	fixedDC: 14,
 	spellcastingBonus: [{
-		name: "Wall of Stone",
+		name: "Once per dawn",
 		spells: ["wall of stone"],
 		selection: ["wall of stone"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	usages: 1,
 	recovery: "dawn",
@@ -1438,10 +1438,10 @@ MagicItemsList["wayfarer's boots"] = {
 	speed: { walk: { spd: "+10", enc: "+10" } },
 	advantages: [["Survival", true]],
 	spellcastingBonus: [{
-		name: "Expeditious Retreat",
+		name: "Once per dawn",
 		spells: ["expeditious retreat"],
 		selection: ["expeditious retreat"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	usages: 1,
 	recovery: "dawn",
@@ -1500,10 +1500,10 @@ MagicItemsList["zephyr armor"] = {
 	savetxt: { text: ["Adv. on Dex saves"] },
 	fixedDC: 13,
 	spellcastingBonus: [{
-		name: "Wind Wall",
+		name: "Once per dawn",
 		spells: ["wind wall"],
 		selection: ["wind wall"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	usages: 1,
 	recovery: "dawn",

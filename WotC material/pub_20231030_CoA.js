@@ -1,5 +1,5 @@
 var iFileName = "pub_20231030_CoA.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.15-beta");
 // This file adds the magic items from the Chains of Asmodeus adventure from Extra Life to MPMB's Character Record Sheet
 
 SourceList["CoA"] = {
@@ -333,7 +333,7 @@ MagicItemsList["ring of collecting"] = {
 		name: "Once per dawn",
 		spells: ["leomund's tiny hut"],
 		selection: ["leomund's tiny hut"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"leomund's tiny hut": {

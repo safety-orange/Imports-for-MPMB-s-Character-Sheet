@@ -1,5 +1,5 @@
 var iFileName = "pub_20211019_FToD.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.0.15-beta");
 // This file adds all the player-material from Fizban's Treasury of Dragons to MPMB's Character Record Sheet
 
 // Define the source
@@ -922,7 +922,7 @@ MagicItemsList["dragon wing bow"] = function () {
 		calcChanges: {
 			atkAdd: [
 				function (fields, v) {
-					if (v.theWea.isMagicWeapon || !v.isRangedWeapon || !/bow/i.test(v.baseWeaponName) || !/\bdragon wing\b/i.test(v.WeaponTextName)) return;
+					if (v.theWea.dragonWingBowProcessed || v.theWea.isMagicWeapon || !v.isRangedWeapon || !/bow/i.test(v.baseWeaponName) || !/\bdragon wing\b/i.test(v.WeaponTextName)) return;
 					var oBowUse = false;
 					for (var i = 0; i < CurrentMagicItems.known.length; i++) {
 						if (CurrentMagicItems.known[i] !== "dragon wing bow") continue;
@@ -931,6 +931,7 @@ MagicItemsList["dragon wing bow"] = function () {
 						if (oBow && oBow.dragonWingBowDragonType && v.WeaponTextName.toLowerCase().indexOf(oBow.dragonWingBowDragonType) !== -1) oBowUse = oBow;
 						// save the first one found in case none match(ed)
 						if (oBowUse === false) oBowUse = oBow;
+						v.theWea.dragonWingBowProcessed = true;
 					}
 					if (oBowUse) {
 						v.theWea.isMagicWeapon = true;
@@ -1159,7 +1160,7 @@ MagicItemsList["topaz annihilator"] = {
 		name: "Once per dawn",
 		spells: ["disintegrate"],
 		selection: ["disintegrate"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 }
 var FToD_HoardItems = {
@@ -1443,7 +1444,7 @@ var FToD_HoardItems = {
 			name: "Once per dawn",
 			spells: ["hold monster", "rime's binding ice"],
 			selection: ["hold monster", "rime's binding ice"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 2,
 		}],
 	},
@@ -1461,7 +1462,7 @@ var FToD_HoardItems = {
 			name: "Once per dawn",
 			spells: ["rary's telepathic bond", "raulothim's psychic lance"],
 			selection: ["rary's telepathic bond", "raulothim's psychic lance"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 2,
 		}],
 	},
@@ -1479,7 +1480,7 @@ var FToD_HoardItems = {
 			name: "Once per dawn",
 			spells: ["fizban's platinum shield", "legend lore"],
 			selection: ["fizban's platinum shield", "legend lore"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 2,
 		}],
 	},

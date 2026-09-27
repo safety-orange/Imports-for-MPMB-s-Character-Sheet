@@ -1,5 +1,5 @@
 var iFileName = "pub_20210316_CM.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.15-beta");
 // This file adds the content from the Candlekeep Mysteries adventure to MPMB's Character Record Sheet
 // All content in this file contains contributions by Ratatoskr589
 
@@ -46,7 +46,7 @@ MagicItemsList["radiance (wand)"] = {
 		name: "Once per dawn, self only",
 		spells: ["enhance ability"],
 		selection: ["enhance ability"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"enhance ability": {
@@ -184,7 +184,7 @@ MagicItemsList["watchful helm"] = {
 		name: "Once per dawn",
 		spells: ["see invisibility"],
 		selection: ["see invisibility"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"see invisibility": {

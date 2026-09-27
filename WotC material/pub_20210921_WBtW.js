@@ -1,5 +1,5 @@
 var iFileName = "pub_20210921_WBtW.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.0.15-beta");
 // This file adds the content from The Wild Beyond the Witchlight adventure to MPMB's Character Record Sheet
 
 SourceList.WBtW = {
@@ -464,7 +464,7 @@ MagicItemsList["steel"] = {
 		name: "Once per dawn",
 		spells: ["revivify"],
 		selection: ["revivify"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 }
 MagicItemsList["woodcutter's axe"] = {

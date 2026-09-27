@@ -1,5 +1,5 @@
 var iFileName = "pub_20230919_PaBTSO.js";
-RequiredSheetVersion("13.2.0");
+RequiredSheetVersion("14.0.15-beta");
 // This file adds the magic items from the Phandelver and Below: The Shattered Obelisk adventure from the D&D 5e starter set to MPMB's Character Record Sheet
 
 // Define the source
@@ -251,7 +251,7 @@ MagicItemsList["luminous war pick"] = {
 		name: "Once per dawn",
 		spells: ["daylight"],
 		selection: ["daylight"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	usages: 1,
 	recovery: "dawn",

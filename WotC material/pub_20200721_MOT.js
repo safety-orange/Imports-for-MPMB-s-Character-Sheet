@@ -1,5 +1,5 @@
 var iFileName = "pub_20200721_MOT.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.15-beta");
 // This file adds the content from Mythic Odysseys of Theros to MPMB's Character Record Sheet
 
 // Define the source
@@ -801,7 +801,7 @@ MagicItemsList["siren song lyre"] = {
 		name: "Once per dawn",
 		spells: ["animal friendship", "charm person", "enthrall", "suggestion"],
 		selection: ["animal friendship", "charm person", "enthrall", "suggestion"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 		times: 4,
 	}],
 };

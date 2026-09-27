@@ -1,5 +1,5 @@
 var iFileName = "pub_20231114_BoMT.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.0.15-beta");
 // This file adds the Character Options content from the "The Book of Many Things" book (from the "The Deck of Many Things" set) to MPMB's Character Record Sheet
 
 // Define the source
@@ -423,7 +423,7 @@ MagicItemsList["antimagic armor"] = {
 		name: "Once per dawn",
 		spells: ["antimagic field"],
 		selection: ["antimagic field"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	extraLimitedFeatures: [{
 		name: "Adv. save vs. spell (Antimagic Armor)",
@@ -780,7 +780,7 @@ MagicItemsList["card sharp's deck"] = {
 		name: "Once per dawn",
 		spells: ["spray of cards"],
 		selection: ["spray of cards"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"spray of cards": {
@@ -922,7 +922,7 @@ MagicItemsList["deck of oracles"] = {
 		name: "Once per dawn",
 		spells: ["divination"],
 		selection: ["divination"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 };
 MagicItemsList["deck of wild cards"] = {
@@ -1036,7 +1036,7 @@ MagicItemsList["euryale's aegis"] = {
 		name: "Once per dawn",
 		spells: ["lesser restoration", "locate creature", "transport via plants"],
 		selection: ["lesser restoration", "locate creature", "transport via plants"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 		times: 3,
 	}],
 	extraLimitedFeatures: [{
@@ -1533,7 +1533,7 @@ MagicItemsList["rod of hellish flames"] = {
 		name: "Once per dawn",
 		spells: ["hellish rebuke"],
 		selection: ["hellish rebuke"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"hellish rebuke": {
@@ -1563,7 +1563,7 @@ MagicItemsList["rogue's mantle"] = {
 		name: "Once per dawn",
 		spells: ["antagonize"],
 		selection: ["antagonize"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 };
 MagicItemsList["ruinous flail"] = {
@@ -1618,7 +1618,7 @@ MagicItemsList["sage's signet"] = {
 			name: "Once per dawn",
 			spells: ["augury", "enlarge/reduce", "polymorph"],
 			selection: ["augury", "enlarge/reduce", "polymorph"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 3,
 		}],
 		spellChanges: BoMT["sage's signet"],
@@ -1632,7 +1632,7 @@ MagicItemsList["sage's signet"] = {
 			name: "Once per dawn",
 			spells: ["augury", "aura of vitality", "mass cure wounds"],
 			selection: ["augury", "aura of vitality", "mass cure wounds"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 3,
 		}],
 		spellChanges: BoMT["sage's signet"],
@@ -1646,7 +1646,7 @@ MagicItemsList["sage's signet"] = {
 			name: "Once per dawn",
 			spells: ["augury", "destructive wave", "fireball"],
 			selection: ["augury", "destructive wave", "fireball"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 3,
 		}],
 		spellChanges: BoMT["sage's signet"],
@@ -1660,7 +1660,7 @@ MagicItemsList["sage's signet"] = {
 			name: "Once per dawn",
 			spells: ["augury", "fear", "hex"],
 			selection: ["augury", "fear", "hex"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 3,
 		}],
 		spellChanges: BoMT["sage's signet"],
@@ -1674,7 +1674,7 @@ MagicItemsList["sage's signet"] = {
 			name: "Once per dawn",
 			spells: ["augury", "charm person", "hypnotic pattern"],
 			selection: ["augury", "charm person", "hypnotic pattern"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 3,
 		}],
 		spellChanges: BoMT["sage's signet"],
@@ -1688,7 +1688,7 @@ MagicItemsList["sage's signet"] = {
 			name: "Once per dawn",
 			spells: ["augury", "freedom of movement", "pass without trace"],
 			selection: ["augury", "freedom of movement", "pass without trace"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 3,
 		}],
 		spellChanges: BoMT["sage's signet"],
@@ -1744,7 +1744,7 @@ MagicItemsList["skull helm"] = {
 		name: "Once per dawn",
 		spells: ["spirit of death"],
 		selection: ["spirit of death"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"spirit of death": {
@@ -1857,7 +1857,7 @@ MagicItemsList["stonemaker war pick"] = {
 		name: "Once per dawn",
 		spells: ["meld into stone"],
 		selection: ["meld into stone"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	weaponOptions: [{
 		baseWeapon: "war pick",

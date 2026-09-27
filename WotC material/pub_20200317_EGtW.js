@@ -1,5 +1,5 @@
 var iFileName = "pub_20200317_EGtW.js";
-RequiredSheetVersion("14.0.5-beta", 15);
+RequiredSheetVersion("14.0.15-beta", 15);
 // This file adds the content from Explorer's Guide to Wildemount to MPMB's Character Record Sheet
 
 // Define the source
@@ -2311,7 +2311,7 @@ MagicItemsList["duskcrusher"] = {
 		name: "Once per dawn",
 		spells: ["sunbeam"],
 		selection: ["sunbeam"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 };
 MagicItemsList["dust of deliciousness"] = {
@@ -2354,7 +2354,7 @@ MagicItemsList["goggles of object reading"] = {
 		name: "Once per dawn",
 		spells: ["identify"],
 		selection: ["identify"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 };
 MagicItemsList["hunter's coat"] = {
@@ -2834,7 +2834,7 @@ MagicItemsList["danoth's visor"] = {
 			name: "Once per dawn",
 			spells: ["antimagic field"],
 			selection: ["antimagic field"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 		}],
 		savetxt: { immune: ["illusions"] },
 	},
@@ -2956,7 +2956,7 @@ MagicItemsList["hide of the feral guardian"] = {
 		name: "Once per dawn",
 		spells: ["polymorph"],
 		selection: ["polymorph"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	choices: ["Dormant", "Awakened", "Exalted"],
 	choicesNotInMenu: true,
@@ -3119,7 +3119,7 @@ MagicItemsList["infiltrator's key"] = {
 			name: "Once per dawn",
 			spells: ["alter self", "invisibility", "knock", "pass without trace"],
 			selection: ["alter self", "invisibility", "knock", "pass without trace"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 4,
 		}],
 	},
@@ -3144,7 +3144,7 @@ MagicItemsList["infiltrator's key"] = {
 			name: "Once per dawn",
 			spells: ["alter self", "invisibility", "knock", "pass without trace", "dimension door", "gaseous form", "mislead"],
 			selection: ["alter self", "invisibility", "knock", "pass without trace", "dimension door", "gaseous form", "mislead"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 7,
 		}],
 		extraLimitedFeatures: [{
@@ -3236,7 +3236,7 @@ MagicItemsList["stormgirdle"] = {
 			name: "Once per dawn",
 			spells: ["control weather"],
 			selection: ["control weather"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 		}],
 	},
 };
@@ -3284,7 +3284,7 @@ MagicItemsList["verminshroud"] = {
 			name: "Once per dawn",
 			spells: ["polymorph"],
 			selection: ["polymorph"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 		}],
 		spellChanges: {
 			"polymorph": {
@@ -3309,7 +3309,7 @@ MagicItemsList["verminshroud"] = {
 			name: "Once per dawn",
 			spells: ["polymorph", "insect plague"],
 			selection: ["polymorph", "insect plague"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 2,
 		}],
 		spellChanges: {
@@ -3335,7 +3335,7 @@ MagicItemsList["verminshroud"] = {
 			name: "Once per dawn",
 			spells: ["polymorph", "insect plague"],
 			selection: ["polymorph", "insect plague"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 2,
 		}],
 		spellChanges: {

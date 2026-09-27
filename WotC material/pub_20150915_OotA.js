@@ -1,5 +1,5 @@
 var iFileName = "pub_20150915_OotA.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.15-beta");
 // This file adds all the beasts and background features from the Out of the Abyss adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -191,7 +191,7 @@ MagicItemsList["dawnbringer"] = {
 		name: "Once per dawn",
 		spells: ["lesser restoration"],
 		selection: ["lesser restoration"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	toNotesPage: [{
 		name: "Features",
@@ -278,7 +278,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		spellList: [
 			function (spList, spName, spType) {
 				// only continue for spell gems
-				if (!/spell gem/i.test(CurrentSpells[spName].name)) return;
+				if (spList.spellGemProcessed || !/spell gem/i.test(CurrentSpells[spName].name)) return;
 				// create the notspells array if it didn't already exist
 				if (!spList.notspells) spList.notspells = [];
 				// now add all the spells of this spell gem's level that have a casting time of 1 reaction or 1 bonus action
@@ -286,6 +286,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 					var aSp = SpellsList[spell];
 					if (aSp.level <= spList.level[1] && aSp.time && /1 (rea|bns)/i.test(aSp.time)) spList.notspells.push(spell);
 				}
+				spList.spellGemProcessed = true;
 			}, "",
 		],
 	},

@@ -1,5 +1,5 @@
 var iFileName = "pub_20150407_PotA.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.15-beta");
 // This file adds the magic items from the Princes of the Apocalypse adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -166,7 +166,7 @@ MagicItemsList["drown"] = {
 		name: "Once per dawn",
 		spells: ["dominate monster"],
 		selection: ["dominate monster"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"dominate monster": {
@@ -224,7 +224,7 @@ MagicItemsList["ironfang"] = {
 		name: "Once per dawn",
 		spells: ["dominate monster"],
 		selection: ["dominate monster"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}, {
 		name: "1 charge",
 		spells: ["shatter"],
@@ -382,7 +382,7 @@ MagicItemsList["tinderstrike"] = {
 		name: "Once per dawn",
 		spells: ["dominate monster"],
 		selection: ["dominate monster"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"dominate monster": {
@@ -442,7 +442,7 @@ MagicItemsList["windvane"] = {
 		name: "Once per dawn",
 		spells: ["dominate monster"],
 		selection: ["dominate monster"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"dominate monster": {

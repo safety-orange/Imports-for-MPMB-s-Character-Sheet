@@ -1,5 +1,5 @@
 var iFileName = "pub_20201117_TCoE.js";
-RequiredSheetVersion("14.0.9-beta", 15);
+RequiredSheetVersion("14.0.15-beta", 15);
 // This file adds the content from Tasha's Cauldron of Everything to MPMB's Character Record Sheet
 
 /*	ACKNOWLEDGEMENTS
@@ -6974,7 +6974,7 @@ MagicItemsList["masquerade tattoo"] = {
 		name: "Disguise Self",
 		spells: ["disguise self"],
 		selection: ["disguise self"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 }
 MagicItemsList["shadowfell brand tattoo"] = { // contains contributions by lizrdgizrd
@@ -7012,7 +7012,7 @@ MagicItemsList["spellwrought tattoo"] = {
 	calcChanges: {
 		spellAdd: [
 			function (spellKey, spellObj, spName) {
-				if (/^spellwrought tattoo/i.test(spName)) {
+				if (/^spellwrought tattoo/i.test(spName) && !spellObj.spellwroughtTattooProcessed) {
 					if (spellObj.components) spellObj.components = spellObj.components.replace(/,?[RM][\u0192\u2020]?/ig, "");
 					if (spellObj.compMaterial) spellObj.compMaterial = "Spell cast using a Spellwrought Tattoo, require no material components";
 					spellObj.ritual = false;
@@ -7020,6 +7020,7 @@ MagicItemsList["spellwrought tattoo"] = {
 						if (!spellObj[attr]) return;
 						spellObj[attr] = spellObj[attr].replace(/ \(\d+k? ?gp( cons\.?)?\)/i, "");
 					});
+					spellObj.spellwroughtTattooProcessed = true;
 					return true;
 				}
 			},
@@ -7980,7 +7981,7 @@ MagicItemsList["reveler's concertina"] = {
 		name: "Otto's Irresistible Dance",
 		spells: ["otto's irresistible dance"],
 		selection: ["otto's irresistible dance"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	calcChanges: {
 		spellCalc: [
@@ -8013,7 +8014,7 @@ MagicItemsList["lyre of building"] = {
 		name: "Once per dawn",
 		spells: ["fabricate", "move earth", "passwall", "summon construct"],
 		selection: ["fabricate", "move earth", "passwall", "summon construct"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 		times: 4,
 	}],
 	spellChanges: {

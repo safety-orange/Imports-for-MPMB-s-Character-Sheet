@@ -1,5 +1,5 @@
 var iFileName = "pub_20141209_DMG.js";
-RequiredSheetVersion("13.2.0");
+RequiredSheetVersion("14.0.15-beta");
 // This file adds all the player-material from the Dungeon Master's Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -398,7 +398,7 @@ MagicItemsList["driftglobe"] = {
 		name: "On globe",
 		spells: ["daylight"],
 		selection: ["daylight"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"light": {
@@ -443,7 +443,7 @@ MagicItemsList["elixir of health"] = {
 	type: "potion",
 	rarity: "rare",
 	magicItemTable: "C",
-	description: "Once as an action, I can drink this potion or administer it to another to cure any disease, and removing the blinded, deafened, paralyzed, and poisoned conditions. The potion's clear red liquid has tiny bubbles of light in it.",
+	description: "Once as an action, I can drink this potion or administer it to another to cure any disease, and removing the blinded, deafened, paralyzed, and poisoned conditions. The potion's clear, red liquid has tiny bubbles of light in it.",
 	descriptionFull: "When you drink this potion, it cures any disease afflicting you, and it removes the blinded, deafened, paralyzed, and poisoned conditions. The clear red liquid has tiny bubbles of light in it.",
 	weight: 0.5,
 }
@@ -478,7 +478,7 @@ MagicItemsList["instrument of the bards"] = {
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "control weather", "cure wounds", "wall of thorns"],
 			selection: ["fly", "invisibility", "levitate", "protection from evil and good", "control weather", "cure wounds", "wall of thorns"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 7,
 			spellcastingAbility: "class",
 		}],
@@ -503,7 +503,7 @@ MagicItemsList["instrument of the bards"] = {
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "cure wounds", "dispel magic", "protection from energy"],
 			selection: ["fly", "invisibility", "levitate", "protection from evil and good", "cure wounds", "dispel magic", "protection from energy"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 7,
 			spellcastingAbility: "class",
 		}],
@@ -528,7 +528,7 @@ MagicItemsList["instrument of the bards"] = {
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "stone shape", "wall of fire", "wind wall"],
 			selection: ["fly", "invisibility", "levitate", "protection from evil and good", "stone shape", "wall of fire", "wind wall"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 7,
 			spellcastingAbility: "class",
 		}],
@@ -543,7 +543,7 @@ MagicItemsList["instrument of the bards"] = {
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "animal friendship", "protection from energy", "protection from poison"],
 			selection: ["fly", "invisibility", "levitate", "protection from evil and good", "animal friendship", "protection from energy", "protection from poison"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 7,
 			spellcastingAbility: "class",
 		}],
@@ -564,7 +564,7 @@ MagicItemsList["instrument of the bards"] = {
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "entangle", "faerie fire", "shillelagh", "speak with animals"],
 			selection: ["fly", "invisibility", "levitate", "protection from evil and good", "entangle", "faerie fire", "shillelagh", "speak with animals"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 8,
 			spellcastingAbility: "class",
 		}],
@@ -579,7 +579,7 @@ MagicItemsList["instrument of the bards"] = {
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "barkskin", "cure wounds", "fog cloud"],
 			selection: ["fly", "invisibility", "levitate", "protection from evil and good", "barkskin", "cure wounds", "fog cloud"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 7,
 			spellcastingAbility: "class",
 		}],
@@ -594,7 +594,7 @@ MagicItemsList["instrument of the bards"] = {
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "confusion", "control weather", "fire storm"],
 			selection: ["fly", "invisibility", "levitate", "protection from evil and good", "confusion", "control weather", "fire storm"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 7,
 			spellcastingAbility: "class",
 		}],
@@ -649,8 +649,8 @@ MagicItemsList["potion of longevity"] = {
 	type: "potion",
 	rarity: "very rare",
 	magicItemTable: "D",
-	description: "Once as an action, I can drink this potion or administer it to another to reduce the consumer's physical age is by 1d6+6 years, to a minimum of 13 years. Subsequent consumptions of this type of potion have a 10% cumulative chance to instead age the consumer by 1d6+6 years.",
-	descriptionLong: "Once as an action, I can drink this potion or administer it to another to reduce the consumer's physical age is by 1d6+6 years, to a minimum of 13 years. Subsequent consumptions of this type of potion have a 10% cumulative chance to instead age the consumer by 1d6+6 years. Suspended in this amber liquid are a scorpion's tail, an adder's fang, a dead spider, and a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened.",
+	description: "Once as an action, I can drink this potion or administer it to another to reduce the consumer's physical age by 1d6+6 years, to a minimum of 13 years. Subsequent consumptions of this type of potion have a 10% cumulative chance to instead age the consumer by 1d6+6 years. It contains a tiny beating heart.",
+	descriptionLong: "Once as an action, I can drink this potion or administer it to another to reduce the consumer's physical age by 1d6+6 years, to a minimum of 13 years. Subsequent consumptions of this type of potion have a 10% cumulative chance to instead age the consumer by 1d6+6 years. Suspended in this amber liquid are a scorpion's tail, an adder's fang, a dead spider, and a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened.",
 	descriptionFull: "When you drink this potion, your physical age is reduced by 1d6+6 years, to a minimum of 13 years. Each time you subsequently drink a potion of longevity, there is 10 percent cumulative chance that you instead age by 1d6+6 years. Suspended in this amber liquid are a scorpion's tail, an adder's fang, a dead spider, and a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened.",
 	weight: 0.5,
 }
@@ -827,7 +827,7 @@ MagicItemsList["sending stones"] = {
 		name: "To other stone bearer only",
 		spells: ["sending"],
 		selection: ["sending"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	usages: 1,
 	recovery: "dawn",
@@ -1129,7 +1129,7 @@ MagicItemsList["blackrazor"] = {
 		name: "Once per day",
 		spells: ["haste"],
 		selection: ["haste"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"haste": {
@@ -1269,7 +1269,7 @@ MagicItemsList["whelm"] = {
 		name: "Once per dawn",
 		spells: ["detect evil and good", "locate object"],
 		selection: ["detect evil and good", "locate object"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 }
 
@@ -1412,7 +1412,7 @@ WeaponsList["laser pistol"] = {
 	damage: [3, 6, "radiant"],
 	range: "40/120 ft",
 	weight: 2,
-	description: "Ammunition, reload (50 shots), two-handed",
+	description: "Ammunition, reload (50 shots)",
 	abilitytodamage: true,
 	ammo: "energy cell",
 	defaultExcluded: true,

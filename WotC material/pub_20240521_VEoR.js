@@ -1,5 +1,5 @@
 var iFileName = "pub_20240521_VEoR.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.0.15-beta");
 // This file adds the magic item from the Vecna: Eve of Ruin adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -26,6 +26,6 @@ MagicItemsList["chime of exile"] = {
 		name: "Once per dawn",
 		spells: ["banishment"],
 		selection: ["banishment"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 };

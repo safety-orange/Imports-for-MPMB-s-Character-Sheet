@@ -79,7 +79,7 @@ MagicItemsList["azuredge"] = {
 		name: "Once per dawn",
 		spells: ["crusader's mantle"],
 		selection: ["protection from evil and good"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	toNotesPage: [{
 		name: "Features",

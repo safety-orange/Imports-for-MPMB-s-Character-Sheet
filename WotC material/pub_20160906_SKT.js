@@ -1,5 +1,5 @@
 var iFileName = "pub_20160906_SKT.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.0.15-beta");
 // This file adds the beasts from the Storm King's Thunder adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -361,7 +361,7 @@ MagicItemsList["gurt's greataxe"] = {
 		name: "Deals cold damage",
 		spells: ["heat metal"],
 		selection: ["heat metal"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"heat metal": {

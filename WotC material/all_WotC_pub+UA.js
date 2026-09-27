@@ -1,7 +1,7 @@
-if (sheetVersion < 14000014) { throw "This add-on script was made for a newer version of the sheet (v14.0.14-beta). Please use this required version or a later version (but lower than v15.0.0) and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
-if (sheetVersion >= 15000000) { throw "This add-on script was made for a lower version of the sheet (one before v15.0.0). Please use the required version (v14.0.14-beta) or a later version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion < 14000015) { throw "This add-on script was made for a newer version of the sheet (v14.0.15-beta). Please use this required version or a later version (but lower than v15.0.0) and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion >= 15000000) { throw "This add-on script was made for a lower version of the sheet (one before v15.0.0). Please use the required version (v14.0.15-beta) or a later version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
 var iFileName = "all_WotC_pub+UA.js";
-RequiredSheetVersion("14.0.14-beta", "15.0.0");
+RequiredSheetVersion("14.0.15-beta", "15.0.0");
 
 // pub_20140715_LMoP.js
 // This file adds the magic items from the Lost Mines of Phandelver adventure from the D&D 5e starter set to MPMB's Character Record Sheet
@@ -6879,7 +6879,7 @@ MagicItemsList["driftglobe"] = {
 		name: "On globe",
 		spells: ["daylight"],
 		selection: ["daylight"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"light": {
@@ -6924,7 +6924,7 @@ MagicItemsList["elixir of health"] = {
 	type: "potion",
 	rarity: "rare",
 	magicItemTable: "C",
-	description: "Once as an action, I can drink this potion or administer it to another to cure any disease, and removing the blinded, deafened, paralyzed, and poisoned conditions. The potion's clear red liquid has tiny bubbles of light in it.",
+	description: "Once as an action, I can drink this potion or administer it to another to cure any disease, and removing the blinded, deafened, paralyzed, and poisoned conditions. The potion's clear, red liquid has tiny bubbles of light in it.",
 	descriptionFull: "When you drink this potion, it cures any disease afflicting you, and it removes the blinded, deafened, paralyzed, and poisoned conditions. The clear red liquid has tiny bubbles of light in it.",
 	weight: 0.5,
 }
@@ -6959,7 +6959,7 @@ MagicItemsList["instrument of the bards"] = {
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "control weather", "cure wounds", "wall of thorns"],
 			selection: ["fly", "invisibility", "levitate", "protection from evil and good", "control weather", "cure wounds", "wall of thorns"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 7,
 			spellcastingAbility: "class",
 		}],
@@ -6984,7 +6984,7 @@ MagicItemsList["instrument of the bards"] = {
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "cure wounds", "dispel magic", "protection from energy"],
 			selection: ["fly", "invisibility", "levitate", "protection from evil and good", "cure wounds", "dispel magic", "protection from energy"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 7,
 			spellcastingAbility: "class",
 		}],
@@ -7009,7 +7009,7 @@ MagicItemsList["instrument of the bards"] = {
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "stone shape", "wall of fire", "wind wall"],
 			selection: ["fly", "invisibility", "levitate", "protection from evil and good", "stone shape", "wall of fire", "wind wall"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 7,
 			spellcastingAbility: "class",
 		}],
@@ -7024,7 +7024,7 @@ MagicItemsList["instrument of the bards"] = {
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "animal friendship", "protection from energy", "protection from poison"],
 			selection: ["fly", "invisibility", "levitate", "protection from evil and good", "animal friendship", "protection from energy", "protection from poison"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 7,
 			spellcastingAbility: "class",
 		}],
@@ -7045,7 +7045,7 @@ MagicItemsList["instrument of the bards"] = {
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "entangle", "faerie fire", "shillelagh", "speak with animals"],
 			selection: ["fly", "invisibility", "levitate", "protection from evil and good", "entangle", "faerie fire", "shillelagh", "speak with animals"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 8,
 			spellcastingAbility: "class",
 		}],
@@ -7060,7 +7060,7 @@ MagicItemsList["instrument of the bards"] = {
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "barkskin", "cure wounds", "fog cloud"],
 			selection: ["fly", "invisibility", "levitate", "protection from evil and good", "barkskin", "cure wounds", "fog cloud"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 7,
 			spellcastingAbility: "class",
 		}],
@@ -7075,7 +7075,7 @@ MagicItemsList["instrument of the bards"] = {
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "confusion", "control weather", "fire storm"],
 			selection: ["fly", "invisibility", "levitate", "protection from evil and good", "confusion", "control weather", "fire storm"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 7,
 			spellcastingAbility: "class",
 		}],
@@ -7130,8 +7130,8 @@ MagicItemsList["potion of longevity"] = {
 	type: "potion",
 	rarity: "very rare",
 	magicItemTable: "D",
-	description: "Once as an action, I can drink this potion or administer it to another to reduce the consumer's physical age is by 1d6+6 years, to a minimum of 13 years. Subsequent consumptions of this type of potion have a 10% cumulative chance to instead age the consumer by 1d6+6 years.",
-	descriptionLong: "Once as an action, I can drink this potion or administer it to another to reduce the consumer's physical age is by 1d6+6 years, to a minimum of 13 years. Subsequent consumptions of this type of potion have a 10% cumulative chance to instead age the consumer by 1d6+6 years. Suspended in this amber liquid are a scorpion's tail, an adder's fang, a dead spider, and a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened.",
+	description: "Once as an action, I can drink this potion or administer it to another to reduce the consumer's physical age by 1d6+6 years, to a minimum of 13 years. Subsequent consumptions of this type of potion have a 10% cumulative chance to instead age the consumer by 1d6+6 years. It contains a tiny beating heart.",
+	descriptionLong: "Once as an action, I can drink this potion or administer it to another to reduce the consumer's physical age by 1d6+6 years, to a minimum of 13 years. Subsequent consumptions of this type of potion have a 10% cumulative chance to instead age the consumer by 1d6+6 years. Suspended in this amber liquid are a scorpion's tail, an adder's fang, a dead spider, and a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened.",
 	descriptionFull: "When you drink this potion, your physical age is reduced by 1d6+6 years, to a minimum of 13 years. Each time you subsequently drink a potion of longevity, there is 10 percent cumulative chance that you instead age by 1d6+6 years. Suspended in this amber liquid are a scorpion's tail, an adder's fang, a dead spider, and a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened.",
 	weight: 0.5,
 }
@@ -7308,7 +7308,7 @@ MagicItemsList["sending stones"] = {
 		name: "To other stone bearer only",
 		spells: ["sending"],
 		selection: ["sending"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	usages: 1,
 	recovery: "dawn",
@@ -7610,7 +7610,7 @@ MagicItemsList["blackrazor"] = {
 		name: "Once per day",
 		spells: ["haste"],
 		selection: ["haste"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"haste": {
@@ -7750,7 +7750,7 @@ MagicItemsList["whelm"] = {
 		name: "Once per dawn",
 		spells: ["detect evil and good", "locate object"],
 		selection: ["detect evil and good", "locate object"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 }
 
@@ -7893,7 +7893,7 @@ WeaponsList["laser pistol"] = {
 	damage: [3, 6, "radiant"],
 	range: "40/120 ft",
 	weight: 2,
-	description: "Ammunition, reload (50 shots), two-handed",
+	description: "Ammunition, reload (50 shots)",
 	abilitytodamage: true,
 	ammo: "energy cell",
 	defaultExcluded: true,
@@ -8289,7 +8289,7 @@ MagicItemsList["drown"] = {
 		name: "Once per dawn",
 		spells: ["dominate monster"],
 		selection: ["dominate monster"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"dominate monster": {
@@ -8347,7 +8347,7 @@ MagicItemsList["ironfang"] = {
 		name: "Once per dawn",
 		spells: ["dominate monster"],
 		selection: ["dominate monster"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}, {
 		name: "1 charge",
 		spells: ["shatter"],
@@ -8505,7 +8505,7 @@ MagicItemsList["tinderstrike"] = {
 		name: "Once per dawn",
 		spells: ["dominate monster"],
 		selection: ["dominate monster"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"dominate monster": {
@@ -8565,7 +8565,7 @@ MagicItemsList["windvane"] = {
 		name: "Once per dawn",
 		spells: ["dominate monster"],
 		selection: ["dominate monster"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"dominate monster": {
@@ -10656,7 +10656,7 @@ MagicItemsList["dawnbringer"] = {
 		name: "Once per dawn",
 		spells: ["lesser restoration"],
 		selection: ["lesser restoration"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	toNotesPage: [{
 		name: "Features",
@@ -10743,7 +10743,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		spellList: [
 			function (spList, spName, spType) {
 				// only continue for spell gems
-				if (!/spell gem/i.test(CurrentSpells[spName].name)) return;
+				if (spList.spellGemProcessed || !/spell gem/i.test(CurrentSpells[spName].name)) return;
 				// create the notspells array if it didn't already exist
 				if (!spList.notspells) spList.notspells = [];
 				// now add all the spells of this spell gem's level that have a casting time of 1 reaction or 1 bonus action
@@ -10751,6 +10751,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 					var aSp = SpellsList[spell];
 					if (aSp.level <= spList.level[1] && aSp.time && /1 (rea|bns)/i.test(aSp.time)) spList.notspells.push(spell);
 				}
+				spList.spellGemProcessed = true;
 			}, "",
 		],
 	},
@@ -13254,7 +13255,7 @@ MagicItemsList["icon of ravenloft"] = {
 		name: "Once per dawn",
 		spells: ["augury", "cure wounds"],
 		selection: ["augury", "cure wounds"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 		times: 2,
 	}],
 	spellChanges: {
@@ -13304,7 +13305,7 @@ MagicItemsList["lost sword"] = {
 		name: "Once per dawn",
 		spells: ["crusader's mantle"],
 		selection: ["protection from evil and good"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	toNotesPage: [{
 		name: "Features",
@@ -13763,7 +13764,7 @@ MagicItemsList["gurt's greataxe"] = {
 		name: "Deals cold damage",
 		spells: ["heat metal"],
 		selection: ["heat metal"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"heat metal": {
@@ -16654,7 +16655,7 @@ MagicItemsList["bookmark"] = {
 		name: "Once per dawn",
 		spells: ["compulsion", "dimension door"],
 		selection: ["compulsion", "dimension door"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 		times: 2,
 	}],
 	spellChanges: {
@@ -21240,7 +21241,7 @@ MagicItemsList["wand of pyrotechnics"] = {
 	source: [["X", 140]],
 	type: "wand",
 	rarity: "common",
-	description: "This wand has 7 charges, regaining 1d6+1 at dawn, 5% chance it is destroyed when its last charge is used. As an action, I can expend 1 charge to create a harmless burst of sound light at a point I can see up to 60 ft away, with the noise travelling 300 ft. The light is as bright as a torch flame but lasts only a second.",
+	description: "This wand has 7 charges, regaining 1d6+1 at dawn, 5% chance it is destroyed when its last charge is used. As an action, I can expend 1 charge to create a harmless burst of sound \x26 light at a point I can see up to 60 ft away, with the noise travelling 300 ft. The light is as bright as a torch flame but lasts only a second.",
 	descriptionFull: "This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges and create a harmless burst of multicolored light at a point you can see up to 60 feet away. The burst of light is accompanied by a crackling noise that can be heard up to 300 feet away. The light is as bright as a torch flame but lasts only a second.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand erupts in a harmless pyrotechnic display and is destroyed.",
 	weight: 1,
 	action: [["action", ""]],
@@ -22165,7 +22166,7 @@ MagicItemsList["azuredge"] = {
 		name: "Once per dawn",
 		spells: ["crusader's mantle"],
 		selection: ["protection from evil and good"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	toNotesPage: [{
 		name: "Features",
@@ -30092,7 +30093,7 @@ MagicItemsList["ventilating lungs"] = {
 		name: "Once per dawn",
 		spells: ["gust of wind"],
 		selection: ["gust of wind"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	savetxt: { adv_vs: ["gases", "vapors"] },
 }
@@ -32019,7 +32020,7 @@ MagicItemsList["duskcrusher"] = {
 		name: "Once per dawn",
 		spells: ["sunbeam"],
 		selection: ["sunbeam"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 };
 MagicItemsList["dust of deliciousness"] = {
@@ -32049,7 +32050,7 @@ MagicItemsList["goggles of object reading"] = {
 		name: "Once per dawn",
 		spells: ["identify"],
 		selection: ["identify"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 };
 MagicItemsList["hunter's coat"] = {
@@ -32516,7 +32517,7 @@ MagicItemsList["danoth's visor"] = {
 			name: "Once per dawn",
 			spells: ["antimagic field"],
 			selection: ["antimagic field"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 		}],
 		savetxt: { immune: ["illusions"] },
 	},
@@ -32638,7 +32639,7 @@ MagicItemsList["hide of the feral guardian"] = {
 		name: "Once per dawn",
 		spells: ["polymorph"],
 		selection: ["polymorph"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	choices: ["Dormant", "Awakened", "Exalted"],
 	choicesNotInMenu: true,
@@ -32801,7 +32802,7 @@ MagicItemsList["infiltrator's key"] = {
 			name: "Once per dawn",
 			spells: ["alter self", "invisibility", "knock", "pass without trace"],
 			selection: ["alter self", "invisibility", "knock", "pass without trace"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 4,
 		}],
 	},
@@ -32826,7 +32827,7 @@ MagicItemsList["infiltrator's key"] = {
 			name: "Once per dawn",
 			spells: ["alter self", "invisibility", "knock", "pass without trace", "dimension door", "gaseous form", "mislead"],
 			selection: ["alter self", "invisibility", "knock", "pass without trace", "dimension door", "gaseous form", "mislead"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 7,
 		}],
 		extraLimitedFeatures: [{
@@ -32918,7 +32919,7 @@ MagicItemsList["stormgirdle"] = {
 			name: "Once per dawn",
 			spells: ["control weather"],
 			selection: ["control weather"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 		}],
 	},
 };
@@ -32966,7 +32967,7 @@ MagicItemsList["verminshroud"] = {
 			name: "Once per dawn",
 			spells: ["polymorph"],
 			selection: ["polymorph"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 		}],
 		spellChanges: {
 			"polymorph": {
@@ -32991,7 +32992,7 @@ MagicItemsList["verminshroud"] = {
 			name: "Once per dawn",
 			spells: ["polymorph", "insect plague"],
 			selection: ["polymorph", "insect plague"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 2,
 		}],
 		spellChanges: {
@@ -33017,7 +33018,7 @@ MagicItemsList["verminshroud"] = {
 			name: "Once per dawn",
 			spells: ["polymorph", "insect plague"],
 			selection: ["polymorph", "insect plague"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 2,
 		}],
 		spellChanges: {
@@ -33790,7 +33791,7 @@ MagicItemsList["siren song lyre"] = {
 		name: "Once per dawn",
 		spells: ["animal friendship", "charm person", "enthrall", "suggestion"],
 		selection: ["animal friendship", "charm person", "enthrall", "suggestion"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 		times: 4,
 	}],
 };
@@ -40862,7 +40863,7 @@ MagicItemsList["masquerade tattoo"] = {
 		name: "Disguise Self",
 		spells: ["disguise self"],
 		selection: ["disguise self"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 }
 MagicItemsList["shadowfell brand tattoo"] = { // contains contributions by lizrdgizrd
@@ -40900,7 +40901,7 @@ MagicItemsList["spellwrought tattoo"] = {
 	calcChanges: {
 		spellAdd: [
 			function (spellKey, spellObj, spName) {
-				if (/^spellwrought tattoo/i.test(spName)) {
+				if (/^spellwrought tattoo/i.test(spName) && !spellObj.spellwroughtTattooProcessed) {
 					if (spellObj.components) spellObj.components = spellObj.components.replace(/,?[RM][\u0192\u2020]?/ig, "");
 					if (spellObj.compMaterial) spellObj.compMaterial = "Spell cast using a Spellwrought Tattoo, require no material components";
 					spellObj.ritual = false;
@@ -40908,6 +40909,7 @@ MagicItemsList["spellwrought tattoo"] = {
 						if (!spellObj[attr]) return;
 						spellObj[attr] = spellObj[attr].replace(/ \(\d+k? ?gp( cons\.?)?\)/i, "");
 					});
+					spellObj.spellwroughtTattooProcessed = true;
 					return true;
 				}
 			},
@@ -41868,7 +41870,7 @@ MagicItemsList["reveler's concertina"] = {
 		name: "Otto's Irresistible Dance",
 		spells: ["otto's irresistible dance"],
 		selection: ["otto's irresistible dance"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	calcChanges: {
 		spellCalc: [
@@ -41901,7 +41903,7 @@ MagicItemsList["lyre of building"] = {
 		name: "Once per dawn",
 		spells: ["fabricate", "move earth", "passwall", "summon construct"],
 		selection: ["fabricate", "move earth", "passwall", "summon construct"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 		times: 4,
 	}],
 	spellChanges: {
@@ -42075,7 +42077,7 @@ MagicItemsList["radiance (wand)"] = {
 		name: "Once per dawn, self only",
 		spells: ["enhance ability"],
 		selection: ["enhance ability"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"enhance ability": {
@@ -42213,7 +42215,7 @@ MagicItemsList["watchful helm"] = {
 		name: "Once per dawn",
 		spells: ["see invisibility"],
 		selection: ["see invisibility"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"see invisibility": {
@@ -43497,7 +43499,7 @@ MagicItemsList["steel"] = {
 		name: "Once per dawn",
 		spells: ["revivify"],
 		selection: ["revivify"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 }
 MagicItemsList["woodcutter's axe"] = {
@@ -44647,7 +44649,7 @@ MagicItemsList["dragon wing bow"] = function () {
 		calcChanges: {
 			atkAdd: [
 				function (fields, v) {
-					if (v.theWea.isMagicWeapon || !v.isRangedWeapon || !/bow/i.test(v.baseWeaponName) || !/\bdragon wing\b/i.test(v.WeaponTextName)) return;
+					if (v.theWea.dragonWingBowProcessed || v.theWea.isMagicWeapon || !v.isRangedWeapon || !/bow/i.test(v.baseWeaponName) || !/\bdragon wing\b/i.test(v.WeaponTextName)) return;
 					var oBowUse = false;
 					for (var i = 0; i < CurrentMagicItems.known.length; i++) {
 						if (CurrentMagicItems.known[i] !== "dragon wing bow") continue;
@@ -44656,6 +44658,7 @@ MagicItemsList["dragon wing bow"] = function () {
 						if (oBow && oBow.dragonWingBowDragonType && v.WeaponTextName.toLowerCase().indexOf(oBow.dragonWingBowDragonType) !== -1) oBowUse = oBow;
 						// save the first one found in case none match(ed)
 						if (oBowUse === false) oBowUse = oBow;
+						v.theWea.dragonWingBowProcessed = true;
 					}
 					if (oBowUse) {
 						v.theWea.isMagicWeapon = true;
@@ -44884,7 +44887,7 @@ MagicItemsList["topaz annihilator"] = {
 		name: "Once per dawn",
 		spells: ["disintegrate"],
 		selection: ["disintegrate"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 }
 var FToD_HoardItems = {
@@ -45168,7 +45171,7 @@ var FToD_HoardItems = {
 			name: "Once per dawn",
 			spells: ["hold monster", "rime's binding ice"],
 			selection: ["hold monster", "rime's binding ice"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 2,
 		}],
 	},
@@ -45186,7 +45189,7 @@ var FToD_HoardItems = {
 			name: "Once per dawn",
 			spells: ["rary's telepathic bond", "raulothim's psychic lance"],
 			selection: ["rary's telepathic bond", "raulothim's psychic lance"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 2,
 		}],
 	},
@@ -45204,7 +45207,7 @@ var FToD_HoardItems = {
 			name: "Once per dawn",
 			spells: ["fizban's platinum shield", "legend lore"],
 			selection: ["fizban's platinum shield", "legend lore"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 2,
 		}],
 	},
@@ -46289,7 +46292,7 @@ MagicItemsList["masque charm"] = {
 		name: "Once per sunset",
 		spells: ["disguise self"],
 		selection: ["disguise self"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	fixedDC: 13,
 }
@@ -50783,10 +50786,10 @@ MagicItemsList["armor of safeguarding"] = {
 		},
 	},
 	spellcastingBonus: [{
-		name: "Beacon of Hope",
+		name: "Once per dawn",
 		spells: ["beacon of hope"],
 		selection: ["beacon of hope"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"beacon of hope": {
@@ -50851,10 +50854,10 @@ MagicItemsList["crown of the wrath bringer"] = {
 	additional: "Fear",
 	fixedDC: 15,
 	spellcastingBonus: [{
-		name: "Fear",
+		name: "Once per dawn",
 		spells: ["fear"],
 		selection: ["fear"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"fear": {
@@ -51065,7 +51068,7 @@ MagicItemsList["lucent destroyer"] = {
 		name: "Once per dawn",
 		spells: ["sunbeam"],
 		selection: ["sunbeam"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 };
 MagicItemsList["mistral mantle"] = {
@@ -51082,10 +51085,10 @@ MagicItemsList["mistral mantle"] = {
 	dmgres: ["Cold"],
 	fixedDC: 14,
 	spellcastingBonus: [{
-		name: "Sleet Storm",
+		name: "Once per dawn",
 		spells: ["sleet storm"],
 		selection: ["sleet storm"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	usages: 1,
 	recovery: "dawn",
@@ -51370,10 +51373,10 @@ MagicItemsList["stonebreaker's breastplate"] = {
 	action: [["action", ""]],
 	fixedDC: 14,
 	spellcastingBonus: [{
-		name: "Wall of Stone",
+		name: "Once per dawn",
 		spells: ["wall of stone"],
 		selection: ["wall of stone"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	usages: 1,
 	recovery: "dawn",
@@ -51434,10 +51437,10 @@ MagicItemsList["wayfarer's boots"] = {
 	speed: { walk: { spd: "+10", enc: "+10" } },
 	advantages: [["Survival", true]],
 	spellcastingBonus: [{
-		name: "Expeditious Retreat",
+		name: "Once per dawn",
 		spells: ["expeditious retreat"],
 		selection: ["expeditious retreat"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	usages: 1,
 	recovery: "dawn",
@@ -51496,10 +51499,10 @@ MagicItemsList["zephyr armor"] = {
 	savetxt: { text: ["Adv. on Dex saves"] },
 	fixedDC: 13,
 	spellcastingBonus: [{
-		name: "Wind Wall",
+		name: "Once per dawn",
 		spells: ["wind wall"],
 		selection: ["wind wall"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	usages: 1,
 	recovery: "dawn",
@@ -51620,7 +51623,7 @@ MagicItemsList["luminous war pick"] = {
 		name: "Once per dawn",
 		spells: ["daylight"],
 		selection: ["daylight"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	usages: 1,
 	recovery: "dawn",
@@ -52241,10 +52244,10 @@ MagicItemsList["mimir"] = {
 	recovery: "dawn",
 	additional: "Legend Lore",
 	spellcastingBonus: [{
-		name: "once per dawn",
+		name: "Once per dawn",
 		spells: ["legend lore"],
 		selection: ["legend lore"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 };
 MagicItemsList["portal compass"] = {
@@ -52643,7 +52646,7 @@ MagicItemsList["ring of collecting"] = {
 		name: "Once per dawn",
 		spells: ["leomund's tiny hut"],
 		selection: ["leomund's tiny hut"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"leomund's tiny hut": {
@@ -53301,7 +53304,7 @@ MagicItemsList["antimagic armor"] = {
 		name: "Once per dawn",
 		spells: ["antimagic field"],
 		selection: ["antimagic field"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	extraLimitedFeatures: [{
 		name: "Adv. save vs. spell (Antimagic Armor)",
@@ -53658,7 +53661,7 @@ MagicItemsList["card sharp's deck"] = {
 		name: "Once per dawn",
 		spells: ["spray of cards"],
 		selection: ["spray of cards"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"spray of cards": {
@@ -53800,7 +53803,7 @@ MagicItemsList["deck of oracles"] = {
 		name: "Once per dawn",
 		spells: ["divination"],
 		selection: ["divination"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 };
 MagicItemsList["deck of wild cards"] = {
@@ -53914,7 +53917,7 @@ MagicItemsList["euryale's aegis"] = {
 		name: "Once per dawn",
 		spells: ["lesser restoration", "locate creature", "transport via plants"],
 		selection: ["lesser restoration", "locate creature", "transport via plants"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 		times: 3,
 	}],
 	extraLimitedFeatures: [{
@@ -54411,7 +54414,7 @@ MagicItemsList["rod of hellish flames"] = {
 		name: "Once per dawn",
 		spells: ["hellish rebuke"],
 		selection: ["hellish rebuke"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"hellish rebuke": {
@@ -54441,7 +54444,7 @@ MagicItemsList["rogue's mantle"] = {
 		name: "Once per dawn",
 		spells: ["antagonize"],
 		selection: ["antagonize"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 };
 MagicItemsList["ruinous flail"] = {
@@ -54496,7 +54499,7 @@ MagicItemsList["sage's signet"] = {
 			name: "Once per dawn",
 			spells: ["augury", "enlarge/reduce", "polymorph"],
 			selection: ["augury", "enlarge/reduce", "polymorph"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 3,
 		}],
 		spellChanges: BoMT["sage's signet"],
@@ -54510,7 +54513,7 @@ MagicItemsList["sage's signet"] = {
 			name: "Once per dawn",
 			spells: ["augury", "aura of vitality", "mass cure wounds"],
 			selection: ["augury", "aura of vitality", "mass cure wounds"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 3,
 		}],
 		spellChanges: BoMT["sage's signet"],
@@ -54524,7 +54527,7 @@ MagicItemsList["sage's signet"] = {
 			name: "Once per dawn",
 			spells: ["augury", "destructive wave", "fireball"],
 			selection: ["augury", "destructive wave", "fireball"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 3,
 		}],
 		spellChanges: BoMT["sage's signet"],
@@ -54538,7 +54541,7 @@ MagicItemsList["sage's signet"] = {
 			name: "Once per dawn",
 			spells: ["augury", "fear", "hex"],
 			selection: ["augury", "fear", "hex"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 3,
 		}],
 		spellChanges: BoMT["sage's signet"],
@@ -54552,7 +54555,7 @@ MagicItemsList["sage's signet"] = {
 			name: "Once per dawn",
 			spells: ["augury", "charm person", "hypnotic pattern"],
 			selection: ["augury", "charm person", "hypnotic pattern"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 3,
 		}],
 		spellChanges: BoMT["sage's signet"],
@@ -54566,7 +54569,7 @@ MagicItemsList["sage's signet"] = {
 			name: "Once per dawn",
 			spells: ["augury", "freedom of movement", "pass without trace"],
 			selection: ["augury", "freedom of movement", "pass without trace"],
-			firstCol: "oncelr",
+			firstCol: "onceday",
 			times: 3,
 		}],
 		spellChanges: BoMT["sage's signet"],
@@ -54622,7 +54625,7 @@ MagicItemsList["skull helm"] = {
 		name: "Once per dawn",
 		spells: ["spirit of death"],
 		selection: ["spirit of death"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	spellChanges: {
 		"spirit of death": {
@@ -54735,7 +54738,7 @@ MagicItemsList["stonemaker war pick"] = {
 		name: "Once per dawn",
 		spells: ["meld into stone"],
 		selection: ["meld into stone"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	weaponOptions: [{
 		baseWeapon: "war pick",
@@ -55171,7 +55174,7 @@ MagicItemsList["chime of exile"] = {
 		name: "Once per dawn",
 		spells: ["banishment"],
 		selection: ["banishment"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 };
 

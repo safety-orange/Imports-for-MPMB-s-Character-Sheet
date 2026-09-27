@@ -1,5 +1,5 @@
 var iFileName = "pub_20191119_ERftLW.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.0.15-beta", 15);
 // This file adds the content from Eberron: Rising from the Last War to MPMB's Character Record Sheet
 
 // Define the source
@@ -3291,7 +3291,7 @@ MagicItemsList["ventilating lungs"] = {
 		name: "Once per dawn",
 		spells: ["gust of wind"],
 		selection: ["gust of wind"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 	}],
 	savetxt: { adv_vs: ["gases", "vapors"] },
 }

@@ -1,5 +1,5 @@
 var iFileName = "pub_20170919_ToA.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.0.15-beta");
 // This file adds the backgrounds and beasts from the Tomb of Annihilation adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -767,7 +767,7 @@ MagicItemsList["bookmark"] = {
 		name: "Once per dawn",
 		spells: ["compulsion", "dimension door"],
 		selection: ["compulsion", "dimension door"],
-		firstCol: "oncelr",
+		firstCol: "onceday",
 		times: 2,
 	}],
 	spellChanges: {
