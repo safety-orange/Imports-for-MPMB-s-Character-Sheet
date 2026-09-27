@@ -71,7 +71,7 @@ AddSubClass("sorcerer", "shadow", {
 					compMaterial: "",
 					duration: "1min/conc,1h",
 					description: "Bestial Spirit; obeys commands; enemies in 5 ft Disadv on saves vs my spells; see Beasts of Ill Omen",
-					changes: "I can cast Summon Beast only by expending 3 Sorcery Points, not by using spell slots. It then doesn't require a Material component and enemies within 5 ft of the summoned spirit have Disadvantage on saves against my spells. I can also choose to cast it in a way that it doesn't require concentration, but then it has a duration of 1 minute and ends early if I cast it again.",
+					changes: "I can cast *Summon Beast* only by expending 3 Sorcery Points, not by using spell slots. It then doesn't require a Material component and enemies within 5 ft of the summoned spirit have Disadvantage on saves against my spells. I can also choose to cast it in a way that it doesn't require concentration, but then it has a duration of 1 minute and ends early if I cast it again.",
 					firstCol: 3,
 				},
 			},

@@ -204,7 +204,7 @@ AddWarlockInvocation("Chains of Carceri (req: lvl 15+, Pact of the Chain)", {
 			components: "V,S",
 			compMaterial: "",
 			description: "1 Celestial, Fiend, or Elemental, save or paralyzed; extra save at end of each turn",
-			changes: "With the Chains of Carceri invocation I can cast Hold Monster without a material component, but only on a Celestial, Fiend, or Elemental.",
+			changes: "With the Chains of Carceri invocation I can cast *Hold Monster* without a material component, but only on a Celestial, Fiend, or Elemental.",
 		},
 	},
 });
@@ -349,7 +349,7 @@ AddSubClass("wizard", "necromancy", {
 			spellChanges: {
 				"animate dead": {
 					description: "Turn corpses into 2+2/SL Skeletons or Zombies; control for 24h; Bns command within 60 ft",
-					changes: "My Undead Thralls class feature allows me to animate one more corpse than normal with Animate Dead.",
+					changes: "My Undead Thralls class feature allows me to animate one more corpse than normal with *Animate Dead*.",
 				},
 			},
 		},

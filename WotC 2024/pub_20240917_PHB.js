@@ -1396,7 +1396,7 @@ AddSubClass("fighter", "psi warrior", {
 			spellChanges: {
 				telekinesis: {
 					components: "",
-					changes: "My Telekinetic Master feature allows me to cast Telekinesis without requiring components or expending a spell slot once per Long Rest or by expending a Psionic Energy Die.",
+					changes: "My Telekinetic Master feature allows me to cast *Telekinesis* without requiring components or expending a spell slot once per Long Rest or by expending a Psionic Energy Die.",
 				},
 			},
 			action: [["bonus action", "Weapon attack if conc on Telekinesis"]],
@@ -1559,7 +1559,7 @@ AddSubClass("monk", "shadow", {
 					compMaterial: "",
 					description: "15-ft rad darkness; blocks other's vision/nonmagical light; dispels magical light SL \u22642; my SoT move it",
 					descriptionMetric: "4,5m rad darkness; blocks other's vision/nonmagical light; dispels magical light SL \u22642; my SoT move it",
-					changes: "With the Shadow Arts feature I can cast Darkness without spell components, can see through it, and can move it to a space within 60 ft of me at the start of each of my turns.",
+					changes: "With the Shadow Arts feature I can cast *Darkness* without spell components, can see through it, and can move it to a space within 60 ft of me at the start of each of my turns.",
 				},
 			},
 			"shadow arts: darkness": {
@@ -2341,7 +2341,7 @@ AddSubClass("ranger", "fey wanderer", {
 			spellChanges: {
 				"misty step": {
 					description: "Teleport myself and 1 willing crea I can see within 5 ft up to 30 ft to an unoccupied space I can see",
-					changes: "I can bring along one willing creature that I can see within 5 ft when I cast Misty Step. I can cast Misty Step without using a spell slot a number of times equal to my Wisdom modifier (min 1) per Long Rest.",
+					changes: "I can bring along one willing creature that I can see within 5 ft when I cast *Misty Step*. I can cast *Misty Step* without using a spell slot a number of times equal to my Wisdom modifier (min 1) per Long Rest.",
 					firstCol: "oncelr+markedbox",
 				},
 			},
@@ -2507,7 +2507,7 @@ AddSubClass("rogue", "arcane trickster", {
 				"mage hand": {
 					time: "Bns",
 					description: "(In)visible hand, carries \u226410lb; Bns to control \x26 move 30ft; make Sleight of Hand checks; ends if recast",
-					changes: "My Mage Hand Legerdemain class feature makes Mage Hand a Bonus Action to cast and control, enables Dexterity (Sleight of Hand) checks and can make the spectral hand invisible.",
+					changes: "My Mage Hand Legerdemain class feature makes *Mage Hand* a Bonus Action to cast and control, enables Dexterity (Sleight of Hand) checks and can make the spectral hand invisible.",
 				},
 			},
 			spellcastingBonus: [{
@@ -3289,7 +3289,7 @@ AddSubClass("warlock", "great old one", {
 				"hex": {
 					description: "1 crea +1d6 Necro. dmg my atks, Dis 1 abi chks/saves; if 0HP: Bns change crea; SL2: 4h, 3: 8h; 5: 24h",
 					descriptionShorter: "1 crea +1d6 Necro. dmg my atks, Dis 1 abi chks/saves; 0HP: Bns change; SL2:4h, 3:8h; 5:24h",
-					changes: "My Eldritch Hex class feature causes Hex to also impose Disadvantage on the ability that I chose.",
+					changes: "My Eldritch Hex class feature causes *Hex* to also impose Disadvantage on the ability that I chose.",
 				},
 			},
 		},
@@ -5999,7 +5999,7 @@ FeatsList["telekinetic"] = {
 			components: "",
 			range: "60 ft",
 			description: "(in)visible hand does simple task, carry \u226410lb; Act: control again \x26 move 30ft; ends if recast/out range",
-			changes: "I can cast Mage Hand without Verbal or Somatic components, can make the spectral hand Invisible, and can the range and distance it can be away from me increases by +30 ft.",
+			changes: "I can cast *Mage Hand* without Verbal or Somatic components, can make the spectral hand Invisible, and can the range and distance it can be away from me increases by +30 ft.",
 		},
 	},
 	choices: ["Intelligence", "Wisdom", "Charisma"],
@@ -6047,7 +6047,7 @@ FeatsList["telepathic"] = {
 	spellChanges: {
 		"detect thoughts": {
 			components: "(V,S,M)",
-			changes: "My Telepathic feat allows me to cast Detect Thoughts once per Long Rest without requiring a spell slot or components, or by using a spell slot to cast it with components as normal.",
+			changes: "My Telepathic feat allows me to cast *Detect Thoughts* once per Long Rest without requiring a spell slot or components, or by using a spell slot to cast it with components as normal.",
 		},
 	},
 	choices: ["Intelligence", "Wisdom", "Charisma"],
