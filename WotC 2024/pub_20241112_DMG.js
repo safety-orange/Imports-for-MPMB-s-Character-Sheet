@@ -91,6 +91,11 @@ FeatsList["blessing of wound closure"] = {
 	descriptionFull: "This Blessing grants you the benefits of a *Periapt of Wound Closure*.",
 };
 // Supernatural Gifts - Charms
+var DMG24_CharmSpellChanges = {
+	components: "",
+	compMaterial: "Spells cast from a Charm require no spell components.",
+	changes: "If a Charm lets a character cast a spell, the character can do so without expending a spell slot or providing any spell components.",
+};
 FeatsList["charm of animal conjuring"] = {
 	name: "Charm of Animal Conjuring",
 	source: [["DMG24", 99]],
@@ -100,12 +105,16 @@ FeatsList["charm of animal conjuring"] = {
 	usages: 3,
 	recovery: "\u2013",
 	spellFirstColTitle: "Ch",
+	allowUpCasting: false,
 	spellcastingBonus: [{
 		name: "3 times",
-		spells: "conjure animals",
-		selection: "conjure animals",
+		spells: ["conjure animals"],
+		selection: ["conjure animals"],
 		firstCol: 1,
 	}],
+	spellChanges: {
+		"conjure animals": DMG24_CharmSpellChanges,
+	},
 };
 FeatsList["charm of darkvision"] = {
 	name: "Charm of Darkvision",
@@ -118,10 +127,13 @@ FeatsList["charm of darkvision"] = {
 	spellFirstColTitle: "Ch",
 	spellcastingBonus: [{
 		name: "3 times",
-		spells: "darkvision",
-		selection: "darkvision",
+		spells: ["darkvision"],
+		selection: ["darkvision"],
 		firstCol: 1,
 	}],
+	spellChanges: {
+		"darkvision": DMG24_CharmSpellChanges,
+	},
 };
 FeatsList["charm of feather falling"] = {
 	name: "Charm of Feather Falling",
@@ -134,7 +146,7 @@ FeatsList["charm of heroism"] = {
 	name: "Charm of Heroism",
 	source: [["DMG24", 99]],
 	type: "supernatural gift (charm)",
-	description: "As a Magic action, I can use this charm to gain 10 Temporary Hit Points that last for 1 hour. For the same duration, I'm under the effect of the *Bless* spell (no Concentration required). *Bless* allows me to add +1d4 on all my attack rolls and saving throws. Once I use it, the charm vanishes from me.",
+	description: "As a Magic action, I can use this Charm to gain 10 Temporary Hit Points that last for 1 hour. For the same duration, I'm under the effect of the *Bless* spell (no Concentration required). *Bless* allows me to add +1d4 on all my attack rolls and saving throws. Once I use it, the Charm vanishes from me.",
 	descriptionFull: "This Charm allows you to give yourself the benefit of a *Potion of Heroism* as a Magic action. Once you do so, the Charm vanishes from you.",
 	action: [["action", ""]],
 };
@@ -158,6 +170,10 @@ FeatsList["charm of restoration"] = {
 		selection: ["greater restoration"],
 		firstCol: 2,
 	}],
+	spellChanges: {
+		"lesser restoration": DMG24_CharmSpellChanges,
+		"greater restoration": DMG24_CharmSpellChanges,
+	},
 };
 FeatsList["charm of the slayer"] = {
 	name: "Charm of the Slayer",
@@ -165,15 +181,16 @@ FeatsList["charm of the slayer"] = {
 	type: "supernatural gift (charm)",
 	description: "Select one of the choices.",
 	descriptionFull: "One weapon in your possession becomes a *Dragon Slayer* or *Giant Slayer* (DM's choice) for the next 9 days. The Charm then vanishes from you, and the weapon returns to normal.",
+	allowDuplicates: true,
 	choices: ["Dragon Slayer", "Giant Slayer"],
 	"dragon slayer": {
 		name: "Charm of the Dragon Slayer",
-		description: "One weapon in my possession becomes a *Dragon Slayer* for the next 9 days. The charm then vanishes, and the weapon reverts back. I gain a +1 bonus to attack and damage rolls made with a *Dragon Slayer* weapon. The weapon deals an extra 3d6 damage of the weapon's type if the target is a Dragon.",
+		description: "One weapon in my possession becomes a *Dragon Slayer* for the next 9 days. The Charm then vanishes, and the weapon reverts back. I gain a +1 bonus to attack and damage rolls made with a *Dragon Slayer* weapon. The weapon deals an extra 3d6 damage of the weapon's type if the target is a Dragon.",
 		calcChanges: MagicItemsList["dragon slayer"].calcChanges,
 	},
 	"giant slayer": {
 		name: "Charm of the Giant Slayer",
-		description: "One of my weapons becomes a *Giant Slayer* for the next 9 days. The charm then vanishes, and the weapon reverts back. The weapon gain a +1 bonus to attack and damage. When I hit a Giant with it, the Giant takes +2d6 damage of the weapon's type and must make a DC 15 Strength save or be knocked Prone.",
+		description: "One of my weapons becomes a *Giant Slayer* for the next 9 days. The Charm then vanishes, and the weapon reverts back. The weapon gain a +1 bonus to attack and damage. When I hit a Giant with it, the Giant takes +2d6 damage of the weapon's type and must make a DC 15 Strength save or be knocked Prone.",
 		calcChanges: MagicItemsList["giant slayer"].calcChanges,
 	},
 };
@@ -181,8 +198,101 @@ FeatsList["charm of vitality"] = {
 	source: [["DMG24", 99]],
 	type: "supernatural gift (charm)",
 	name: "Charm of Vitality",
-	description: "As a Magic action, I can activate this charm to remove any Exhaustion levels I have and the Poisoned condition from me. For the next 24 hours, I regain the maximum number of Hit Points for any Hit Point Die spend. Once I activate it, the charm vanishes from me.",
+	description: "As a Magic action, I can activate this Charm to remove any Exhaustion levels I have and the Poisoned condition from me. For the next 24 hours, I regain the maximum number of Hit Points for any Hit Point Die spend. Once I activate it, the Charm vanishes from me.",
 	descriptionFull: "This Charm allows you to give yourself the benefit of a *Potion of Vitality* as a Magic action. Once you do so, the Charm vanishes from you.",
+};
+// Supernatural Gifts - Bastion Charms
+FeatsList["arcane study charm"] = {
+	name: "Charm from Arcane Study",
+	sortname: "Arcane Study Charm",
+	source: [["DMG24", 336]],
+	type: "supernatural gift (charm)",
+	description: "After spending a Long Rest in my Bastion with an Arcane Study, I gain a magical Charm that lasts for 7 days or until I use it. The Charm allows me to cast *Identify* without expending a spell slot or using Material components. I can't gain this Charm again while I still have it.",
+	descriptionFull: "After spending a Long Rest in your Bastion with an Arcane Study, you gain a magical Charm that lasts for 7 days or until you use it. The Charm allows you to cast *Identify* without expending a spell slot or using Material components. You can't gain this Charm again while you still have it.",
+	spellFirstColTitle: "Us",
+	spellcastingBonus: [{
+		name: "One-time use",
+		spells: ["identify"],
+		selection: ["identify"],
+		firstCol: "checkbox",
+	}],
+	spellChanges: {
+		"identify": DMG24_CharmSpellChanges,
+	},
+};
+FeatsList["observatory charm"] = {
+	name: "Charm from Observatory",
+	sortname: "Observatory Charm",
+	source: [["DMG24", 343]],
+	type: "supernatural gift (charm)",
+	description: "After spending a Long Rest in my Observatory in my Bastion, I gain a magical Charm that lasts for 7 days or until I use it. The Charm allows me to cast *Contact Other Plane* without expending a spell slot. I can't gain this Charm again while I still have it.",
+	descriptionFull: "You can use your Observatory to peer into the far corners of Wildspace and the Astral Plane. After spending a Long Rest in your Observatory in your Bastion, you gain a magical Charm that lasts for 7 days or until you use it. The Charm allows you to cast *Contact Other Plane* without expending a spell slot. You can't gain this Charm again while you still have it.",
+	spellFirstColTitle: "Us",
+	spellcastingBonus: [{
+		name: "One-time use",
+		spells: ["contact other plane"],
+		selection: ["contact other plane"],
+		firstCol: "checkbox",
+	}],
+	spellChanges: {
+		"contact other plane": DMG24_CharmSpellChanges,
+	},
+};
+FeatsList["reliquary charm"] = {
+	name: "Charm from Reliquary",
+	sortname: "Reliquary Charm",
+	source: [["DMG24", 344]],
+	type: "supernatural gift (charm)",
+	description: "After spending a Long Rest in my Bastion with a Reliquary, I gain a magical Charm that lasts for 7 days or until I use it. The Charm allows me to cast *Greater Restoration* once without expending a spell slot or using Material components. I can't gain this Charm again while I still have it.",
+	descriptionFull: "After spending a Long Rest in your Bastion with a Reliquary, you gain a magical Charm that lasts for 7 days or until you use it. The Charm allows you to cast *Greater Restoration* once without expending a spell slot or using Material components. You can't gain this Charm again while you still have it.",
+	spellFirstColTitle: "Us",
+	spellcastingBonus: [{
+		name: "One-time use",
+		spells: ["greater restoration"],
+		selection: ["greater restoration"],
+		firstCol: "checkbox",
+	}],
+	spellChanges: {
+		"greater restoration": DMG24_CharmSpellChanges,
+	},
+};
+FeatsList["sanctuary charm"] = {
+	name: "Charm from Sanctuary",
+	sortname: "Sanctuary Charm",
+	source: [["DMG24", 345]],
+	type: "supernatural gift (charm)",
+	description: "After spending a Long Rest in my Bastion with a Sanctuary, I gain a magical Charm that lasts for 7 days or until I use it. The Charm allows me to cast *Healing Word* once without expending a spell slot. I can't gain this Charm again while I still have it.",
+	descriptionFull: "After spending a Long Rest in your Bastion with a Sanctuary, you gain a magical Charm that lasts for 7 days or until you use it. The Charm allows you to cast *Healing Word* once without expending a spell slot. You can't gain this Charm again while you still have it.",
+	spellFirstColTitle: "Us",
+	allowUpCasting: false,
+	spellcastingBonus: [{
+		name: "One-time use",
+		spells: ["healing word"],
+		selection: ["healing word"],
+		firstCol: "checkbox",
+	}],
+	spellChanges: {
+		"healing word": DMG24_CharmSpellChanges,
+	},
+};
+FeatsList["sanctum charm"] = {
+	name: "Charm from Sanctum",
+	sortname: "Sanctum Charm",
+	source: [["DMG24", 346]],
+	type: "supernatural gift (charm)",
+	description: "After spending a Long Rest in my Bastion with a Sanctum, I gain a magical Charm that lasts for 7 days or until I use it. The Charm allows me to cast *Heal* once without expending a spell slot. I can't gain this Charm again while I still have it.",
+	descriptionFull: "After spending a Long Rest in your Bastion with a Sanctum, you gain a magical Charm that lasts for 7 days or until you use it. The Charm allows you to cast *Heal* once without expending a spell slot. You can't gain this Charm again while you still have it.",
+	spellFirstColTitle: "Us",
+	allowUpCasting: false,
+	spellcastingBonus: [{
+		name: "One-time use",
+		spells: ["heal"],
+		selection: ["heal"],
+		firstCol: "checkbox",
+	}],
+	spellChanges: {
+		"heal": DMG24_CharmSpellChanges,
+	},
 };
 
 // Magic Items
