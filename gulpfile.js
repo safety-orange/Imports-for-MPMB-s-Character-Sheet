@@ -9,9 +9,9 @@ const rename  = require("gulp-rename");
 const replace = require("gulp-replace");
 const uglify  = require("gulp-uglify");
 
-const stableVersion = '"14.0.15-beta"';
+const stableVersion = '"14.1.0"';
 const stableMaxVers = '"15.0.0"';
-const betaVersion   = '"24.0.15-beta"';
+const betaVersion   = '"24.1.0"';
 const betaMaxVers   = false;
 const betaFolder    = "/v24";
 const parentFolder  = "WotC material";

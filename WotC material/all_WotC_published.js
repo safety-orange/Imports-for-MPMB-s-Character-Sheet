@@ -1,7 +1,7 @@
-if (sheetVersion < 14000015) { throw "This add-on script was made for a newer version of the sheet (v14.0.15-beta). Please use this required version or a later version (but lower than v15.0.0) and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
-if (sheetVersion >= 15000000) { throw "This add-on script was made for a lower version of the sheet (one before v15.0.0). Please use the required version (v14.0.15-beta) or a later version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion < 14001000) { throw "This add-on script was made for a newer version of the sheet (v14.1.0). Please use this required version or a later version (but lower than v15.0.0) and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion >= 15000000) { throw "This add-on script was made for a lower version of the sheet (one before v15.0.0). Please use the required version (v14.1.0) or a later version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
 var iFileName = "all_WotC_published.js";
-RequiredSheetVersion("14.0.15-beta", "15.0.0");
+RequiredSheetVersion("14.1.0", "15.0.0");
 
 // pub_20140715_LMoP.js
 // This file adds the magic items from the Lost Mines of Phandelver adventure from the D&D 5e starter set to MPMB's Character Record Sheet
@@ -31917,11 +31917,11 @@ MagicItemsList["butcher's bib"] = {
 	calcChanges: {
 		atkAdd: [
 			function (fields, v) {
-				if (!v.isDC && !v.isSpell && !v.CritChance && /slash/i.test(v.theWea.damage[2])) {
+				if ((v.isWeapon || v.baseWeaponName === "unarmed strike") && !v.isDC && !v.CritChance && /slash/i.test(fields.Damage_Type)) {
 					fields.Description += (fields.Description ? "; " : "") + "Crit on 19-20";
 					v.CritChance = 19;
 				}
-				if (!v.isDC && v.isMeleeWeapon) {
+				if (!v.isDC && (v.isMeleeWeapon || v.baseWeaponName === "unarmed strike")) {
 					fields.Description += (fields.Description ? "; " : "") + "Reroll damage once per turn";
 				}
 			},
@@ -35515,7 +35515,7 @@ ClassList["sidekick-warrior-tcoe"] = {
 			calcChanges: {
 				atkAdd: [
 					function (fields, v) {
-						if (!v.isDC && !v.isSpell && !v.CritChance && classes.known["sidekick-warrior"]) {
+						if ((v.isWeapon || v.baseWeaponName === "unarmed strike") && !v.isDC && !v.CritChance && classes.known["sidekick-warrior"]) {
 							fields.Description += (fields.Description ? "; " : "") + "Crit on 19-20";
 							v.CritChance = 19;
 						};

@@ -262,7 +262,7 @@ ClassList["sidekick-warrior"] = {
 			calcChanges: {
 				atkAdd: [
 					function (fields, v) {
-						if (!v.isDC && !v.isSpell && !v.CritChance && classes.known["sidekick-warrior"]) {
+						if ((v.isWeapon || v.baseWeaponName === "unarmed strike") && !v.isDC && !v.CritChance && classes.known["sidekick-warrior"]) {
 							fields.Description += (fields.Description ? "; " : "") + "Crit on 19-20";
 							v.CritChance = 19;
 						};
