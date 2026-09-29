@@ -963,7 +963,7 @@ MagicItemsList["enspelled armor"] = function (){
 			name: "Enspelled Armor (" + entry.name + ")",
 			nameTest: RegExp("^(?=.*enspelled)(?=.*(" + entry.nameTestPart + "))(?=.*\\u180C).*$", "i"),
 			rarity: entry.rarity,
-			description: "Bound to this armor is a " + entry.spellString + " of the Abjuration or Illusion school of magic. The armor has 6 charges and regains 1d6 expended charges daily at dawn. While wearing the armor, I can expend 1 charge to cast its " + entry.spellCantrip + ". The " + entry.spellCantrip + "'s saving throw DC is " + entry.saveDC + ", and its attack bonus is +" + entry.attackBonus + ".",
+			description: "Bound to this armor is a " + entry.spellString + " from the Abjuration or Illusion school of magic. The armor has 6 charges and regains 1d6 expended charges daily at dawn. While wearing the armor, I can expend 1 charge to cast its " + entry.spellCantrip + ". The " + entry.spellCantrip + "'s saving throw DC is " + entry.saveDC + ", and its attack bonus is +" + entry.attackBonus + ".",
 			extraLimitedFeatures: [{
 				name: "Enspelled Armor: " + entry.limitedFeatureName,
 				usages: 6,
@@ -1015,7 +1015,7 @@ MagicItemsList["enspelled staff"] = function (){
 			name: "Enspelled Staff (" + entry.name + ")",
 			nameTest: RegExp("^(?=.*enspelled)(?=.*staff)(?=.*(" + entry.nameTestPart + ")).*$", "i"),
 			rarity: entry.rarity,
-			description: "Bound to this staff is a " + entry.spellString + ". It has 6 charges and regains 1d6 expended charges daily at dawn. While holding the staff, I can expend 1 charge to cast its " + entry.spellCantrip + ". The " + entry.spellCantrip + "'s saving throw DC is " + entry.saveDC + ", and its attack bonus is +" + entry.attackBonus + ". If I expend the last charge, roll 1d20. On a 1, the staff becomes a nonmagical Quarterstaff.",
+			description: "Bound to this staff is a " + entry.spellString + ". It has 6 charges and regains 1d6 expended charges daily at dawn. While holding the staff, I can expend 1 charge to cast its " + entry.spellCantrip + ". The " + entry.spellCantrip + "'s saving throw DC is " + entry.saveDC + ", and its attack bonus is +" + entry.attackBonus + ". If I expend the last charge, I roll 1d20. On a 1, the staff becomes a nonmagical Quarterstaff.",
 			extraLimitedFeatures: [{
 				name: "Enspelled Staff: " + entry.limitedFeatureName,
 				usages: 6,
@@ -1058,7 +1058,7 @@ MagicItemsList["enspelled weapon"] = function (){
 			name: "Enspelled Weapon (" + entry.name + ")",
 			nameTest: RegExp("^(?=.*enspelled)(?=.*(" + entry.nameTestPart + "))(?=.*\\uFEFF).*$", "i"),
 			rarity: entry.rarity,
-			description: "Bound to this weapon is a " + entry.spellString + " of the Conjuration, Divination, Evocation, Necromancy, or Transmutation school. The weapon has 6 charges and regains 1d6 daily at dawn. While holding the weapon, I can expend 1 charge to cast its " + entry.spellCantrip + ". The " + entry.spellCantrip + "'s saving throw DC is " + entry.saveDC + ", and its attack bonus is +" + entry.attackBonus + ".",
+			description: "Bound to this weapon is a " + entry.spellString + " from the Conjuration, Divination, Evocation, Necromancy, or Transmutation school. The weapon has 6 charges and regains 1d6 daily at dawn. While holding the weapon, I can expend 1 charge to cast its " + entry.spellCantrip + ". The " + entry.spellCantrip + "'s saving throw DC is " + entry.saveDC + ", and its attack bonus is +" + entry.attackBonus + ".",
 			extraLimitedFeatures: [{
 				name: "Enspelled Weapon: " + entry.limitedFeatureName,
 				usages: 6,
@@ -2033,7 +2033,7 @@ MagicItemsList["staff of flowers"] = {
 	type: "Staff",
 	rarity: "Common",
 	magicItemTable: ["Arcana", "Relics"],
-	description: "This staff has 10 charges and regains 1d6+4 at dawn. As a Magic action while holding it, I can use 1 charge to cause a nonmagical flower of my choice sprout from the staff or a patch of earth or soil within 5 ft. The flower grows or withers as normal. If I use the last charge, I roll 1d20. On a 1 the staff turns into flower petals" + (typePF ? "." : " and is lost forever."),
+	description: "This staff has 10 charges and regains 1d6+4 at dawn. As a Magic action while holding it, I can use 1 charge to cause a nonmagical flower of my choice sprout from the staff or a patch of earth or soil within 5 ft. The flower grows" + (typePF ? "/" : " or ") + "withers as normal. If I use the last charge, I roll 1d20. On a 1, the staff turns into flower petals" + (typePF ? "." : " and is lost forever."),
 	descriptionFull: [
 		"This wooden staff has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause a flower to sprout from a patch of earth or soil within 5 feet of yourself, or from the staff itself. Unless you choose a specific kind of flower, the staff creates a mild-scented daisy. The flower is harmless and nonmagical, and it grows or withers as a normal flower would.",
 		"***Regaining Charges***. The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff turns into flower petals and is lost forever.",
@@ -2065,12 +2065,14 @@ MagicItemsList["staff of the adder"] = {
 		name: "Staff of the Adder's Snake Head",
 		source: [["DMG24", 309]],
 		ability: 5,
-		type: "Natural",
+		type: "Magic Item",
 		damage: ["1d6+3d6", "", "Pierc.+Poison"],
 		range: "Melee",
 		weight: 4,
 		description: "1d6 Piercing damage + 3d6 Poison damage; max 1 attack during Attack action",
 		abilitytodamage: false,
+		isNotWeapon: true,
+		isAlwaysProf: true,
 		selectNow: true,
 	}],
 };
@@ -2081,7 +2083,7 @@ MagicItemsList["sword of answering"] = {
 	rarity: "Legendary",
 	magicItemTable: "Armaments",
 	attunement: true,
-	description: "I gain a +3 bonus to attack and damage rolls made with this longsword. As a Reaction when a creature in my reach deals damage to me, I can make one melee attack against it with the sword with Advantage, and any damage dealt with this special attack ignores any Immunity or Resistance the target has.",
+	description: "As a Reaction while I hold this +3 Longsword, I can make one melee attack with it against any creature in my reach that deals damage to me. I have Advantage on the attack roll, and any damage dealt with this special attack ignores any Immunity or Resistance the target has to that damage.",
 	descriptionFull: "You gain a +3 bonus to attack rolls and damage rolls made with this sword. In addition, while you hold the sword, you can take a Reaction to make one melee attack with it against any creature in your reach that deals damage to you. You have Advantage on the attack roll, and any damage dealt with this special attack ignores any Immunity or Resistance the target has to that damage.",
 	weight: 3,
 	action: [["reaction", ""]],
@@ -2090,6 +2092,7 @@ MagicItemsList["sword of answering"] = {
 		regExpSearch: /^(?=.*sword)(?=.*answering).*$/i,
 		name: "Sword of Answering",
 		source: [["DMG24", 313]],
+		description: "Versatile (1d10); Reaction when damaged: 1 attack (Adv, ignore Resistance/Immunity)",
 		modifiers: [3, 3],
 		selectNow: true,
 	}],
@@ -2103,10 +2106,7 @@ MagicItemsList["sword of vengeance"] = {
 	magicItemTable: "Armaments",
 	attunement: true,
 	cursed: true,
-	description: [
-		"I gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.",
-		"***Curse***. I can't part with it and have Disadvantage on attacks with other weapons. If I take damage in combat, I must make a DC 15 Wis save or I will attack the attacker until either they or I drop to 0 HP or I can't reach them to attack in melee anymore.",
-	],
+	description: "I gain a +1 bonus to attack rolls and damage rolls made with this magic weapon." + (typePF ? " " : "\n") + "***Curse***. I can't part with it and have Disadv" + (typePF ? "" : "antage") + " on attacks with other weapons. " + (typePF ? "If" : "Whenever") + " I take damage in combat, I must make a DC 15 Wis" + (typePF ? " save" : "dom saving throw") + " or attack the attacker until one of us drops to 0 HP or I can't reach them to attack in melee.",
 	descriptionFull: [
 		"You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.",
 		"***Curse***. This weapon is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the weapon, keeping it on your person at all times. While attuned to this weapon, you have Disadvantage on attack rolls made with weapons other than this one.",
@@ -2219,6 +2219,7 @@ MagicItemsList["tentacle rod"] = {
 		modifiers: [9, ""],
 		weight: 2,
 		isAlwaysProf: false,
+		isNotWeapon: true,
 		selectNow: true,
 	}],
 };
@@ -2288,7 +2289,7 @@ MagicItemsList["wand of conducting"] = {
 	type: "Wand",
 	rarity: "Common",
 	magicItemTable: ["Arcana", "Implements"],
-	description: "This wand has 3 charges and regains all at dawn. As a Magic action, I can expend 1 charge to create orchestral music by waving it around. The music can be heard out to 120 ft and ends when I stop waving the wand. If I use the last charge, roll 1d20. On a 1, a sad tuba sound plays as the wand crumbles into dust.",
+	description: "This wand has 3 charges and regains all at dawn. As a Magic action, I can expend 1 charge to create orchestral music by waving it around. The music can be heard out to 120 ft and ends when I stop waving the wand. If I use the last charge, I roll 1d20. On a 1, a sad tuba sound plays as the wand crumbles into dust.",
 	descriptionFull: [
 		"This wand has 3 charges. While holding it, you can take a Magic action to expend 1 charge and create orchestral music by waving it around. The music can be heard out to 120 feet and ends when you stop waving the wand.",
 		"***Regaining Charges***. The wand regains all expended charges daily at dawn. If you expend the wand's last charge, roll 1d20. On a 1, a sad tuba sound plays as the wand crumbles into dust and is destroyed.",
@@ -2304,7 +2305,7 @@ MagicItemsList["wand of pyrotechnics"] = {
 	type: "Wand",
 	rarity: "Common",
 	magicItemTable: ["Arcana", "Implements"],
-	description: "This wand has 7 charges and regains 1d6+1 at dawn. As a Magic action, I can expend 1 charge to create a harmless burst of light \x26 sound at a point I can see within 120 ft. The noise travels 300 ft. The light is as bright as a torch flame but lasts only a second. If I use the last charge, roll 1d20. On a 1, the wand is destroyed.",
+	description: "This wand has 7 charges and regains 1d6+1 at dawn. As a Magic action, I can expend 1 charge to create a harmless burst of light \x26 sound at a point I can see within 120 ft. The noise travels 300 ft. The light is as bright as a torch flame but lasts only a second. If I use the last charge, I roll 1d20. On a 1, the wand is destroyed.",
 	descriptionFull: [
 		"This wand has 7 charges. While holding it, you can take a Magic action to expend 1 charge and create a harmless burst of multicolored light at a point you can see up to 120 feet away. The burst of light is accompanied by a crackling noise that can be heard up to 300 feet away. The light is as bright as a torch flame but lasts only a second.",
 		"***Regaining Charges***. The wand regains 1d6 + 1 expended charges daily at dawn. If you expend the wand's last charge, roll 1d20. On a 1, the wand erupts in a harmless pyrotechnic display and is destroyed.",
@@ -2321,7 +2322,7 @@ MagicItemsList["wave"] = {
 	type: "Weapon (Trident)",
 	rarity: "Artifact",
 	attunement: true,
-	description: "This sentient +3 Trident gives me Advantage on Initiative and gives me air underwater. When I roll a 20 to hit with it, it deals +21 Necrotic damage. Once per dawn, I can cast a level 9 *Globe of Invulnerability* from it. I can cast *Dominate Beast* on one with Swim speed from it by using 1 of its 3 charges. See Notes page.",
+	description: "This sentient +3 Trident, gives me Advantage on Initiative and allows me to breathe underwater by forming a bubble of air around my head. When I roll a 20 to hit with it, it deals +21 Necrotic damage. Once per dawn, I can cast a level 9 *Globe of Invulnerability* from it. See Notes page for other properties.",
 	descriptionFull: [
 		"Held in the dungeon of White Plume Mountain, *Wave* is engraved with images of waves, shells, and sea creatures.",
 		"You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon. When you roll a 20 on the d20 for an attack roll with this weapon, the target takes an extra 21 Necrotic damage.",
@@ -2402,7 +2403,7 @@ MagicItemsList["whelm"] = {
 		var knownIdx = CurrentMagicItems.known.indexOf("belt of dwarvenkind");
 		return /dwarf/.test(CurrentRace.known) || isMagicItemAttuned(knownIdx);
 	},
-	description: "This sentient +3 Warhammer has Thrown (60/180 ft). As a Magic action once per dawn, I can have chosen creatures within 60 ft make a DC 20 Con save or be Stunned for 1 min, repeating the save at the end of their turns. When thrown, it deals +1d8 Force damage and returns to me after. See Notes page.",
+	description: "This sentient +3 Warhammer has Thrown (60/180 ft). As a Magic action once per dawn, I can have creatures I choose within 60 ft make a DC 20 Con save or be Stunned for 1 min, repeating the save at the end of their turns. When thrown, it deals +1d8 Force damage and returns to my hand. See Notes page for properties.",
 	descriptionFull: [
 		"*Whelm* is a powerful weapon forged by dwarves and lost in the dungeon of White Plume Mountain.",
 		"You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon.",
@@ -2471,11 +2472,12 @@ MagicItemsList["wraps of unarmed power"] = {
 			700,
 		],
 	},
+	weaponsAdd: { select: ["Unarmed Strike"] },
 	"+1 wraps of unarmed power (uncommon)": {
 		name: "Wraps of Unarmed Power +1",
 		nameTest: "+1 Wraps of Unarmed Power",
 		rarity: "Uncommon",
-		description: "While wearing these wraps, I gain a +1 bonus to the attack and damage rolls of my Unarmed Strikes and I can have them deal Force damage instead of their normal damage.",
+		description: "While wearing these wraps, I gain a +1 bonus to the attack and damage rolls of my Unarmed Strikes and can have them deal Force damage instead of their normal damage.",
 		calcChanges: {
 			atkCalc: [
 				function (fields, v, output) {
@@ -2491,7 +2493,7 @@ MagicItemsList["wraps of unarmed power"] = {
 		name: "Wraps of Unarmed Power +2",
 		nameTest: "+2 Wraps of Unarmed Power",
 		rarity: "Rare",
-		description: "While wearing these wraps, I gain a +2 bonus to the attack and damage rolls of my Unarmed Strikes and I can have them deal Force damage instead of their normal damage.",
+		description: "While wearing these wraps, I gain a +2 bonus to the attack and damage rolls of my Unarmed Strikes and can have them deal Force damage instead of their normal damage.",
 		calcChanges: {
 			atkCalc: [
 				function (fields, v, output) {
@@ -2507,7 +2509,7 @@ MagicItemsList["wraps of unarmed power"] = {
 		name: "Wraps of Unarmed Power +3",
 		nameTest: "+3 Wraps of Unarmed Power",
 		rarity: "Very Rare",
-		description: "While wearing these wraps, I gain a +3 bonus to the attack and damage rolls of my Unarmed Strikes and I can have them deal Force damage instead of their normal damage.",
+		description: "While wearing these wraps, I gain a +3 bonus to the attack and damage rolls of my Unarmed Strikes and can have them deal Force damage instead of their normal damage.",
 		calcChanges: {
 			atkCalc: [
 				function (fields, v, output) {
