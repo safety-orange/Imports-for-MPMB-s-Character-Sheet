@@ -8,8 +8,8 @@
   },
   "scripts": {
     "minify": "gulp",
-    "minifyStable": "gulp minifyStable",
-    "minifyBeta": "gulp minifyBeta"
+    "minify5e": "gulp minify5e",
+    "minify2024": "gulp minify2024"
   },
   "private": true,
   "author": "safety-orange",

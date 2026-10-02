@@ -28,6 +28,6 @@ jobs:
           draft: ${{ github.event.release.unpublished }}
           prerelease: ${{ github.event.release.prerelease }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifacts: "./WotC material/all_WotC_*.js"
+          artifacts: "./WotC 5e/all_WotC_*.js,./WotC 2024/all_WotC_*.js"
           tag: ${{ github.event.release.tag_name }}
           body: ${{ github.event.release.body }}

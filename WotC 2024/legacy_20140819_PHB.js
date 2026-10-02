@@ -1,0 +1,670 @@
+var iFileName = "legacy_20140819_PHB.js";
+RequiredSheetVersion("24.1.0");
+// This file adds options from the 2014 Player's Handbook to MPMB's Character Record Sheet that have not been replaced with new options in the 2024 Player's Handbook or other rulebooks for the 2024 rules
+
+// Define the source
+SourceList["P"] = {
+	name: "2014 Player's Handbook (incomplete)",
+	abbreviation: "PHB'14",
+	abbreviationSpellsheet: "P",
+	group: "Legacy Sources",
+	url: "https://dnd.wizards.com/products/rpg_playershandbook",
+	date: "2014/08/19",
+	defaultExcluded: true,
+};
+
+// Races
+RaceList["half-elf"] = {
+	regExpSearch: /^(?=.*half)(?=.*(elf|elv|drow|silvanesti|qualinesti|grugach|kagonesti)).*$/i,
+	name: "Half-elf",
+	source: [["SRD", 6], ["P", 39]],
+	plural: "Half-elves",
+	size: 3,
+	speed: {
+		walk: { spd: 30, enc: 20 },
+	},
+	languageProfs: ["Common", "Elvish", 1],
+	vision: [["Darkvision", 60]],
+	savetxt: {
+		text: ["Magic can't put me to sleep"],
+		adv_vs: ["charmed"],
+	},
+	skillstxt: "Choose any two skills",
+	age: " reach adulthood around age 20 and often live over 180 years",
+	height: " range from 5 to 6 feet tall (4'9\" + 2d8\")",
+	weight: " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
+	heightMetric: " range from 1,5 to 1,8 metres tall (145 + 5d8 cm)",
+	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
+	scorestxt: "+2 Charisma and +1 to two other ability scores of my choice",
+	trait: "Half-Elf" +
+	"\n##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being charmed, and magic can't put me to sleep." +
+	"\n##\u25C6 Skill Versatility##. I gain proficiency in two skills of my choice.",
+};
+RaceList["half-orc"] = {
+	regExpSearch: /^(?=.*half)(?=.*\bor(c|k)).*$/i,
+	name: "Half-orc",
+	source: [["SRD", 7], ["P", 41]],
+	plural: "Half-orcs",
+	size: 3,
+	speed: {
+		walk: { spd: 30, enc: 20 },
+	},
+	languageProfs: ["Common", "Orc"],
+	vision: [["Darkvision", 60]],
+	skills: ["Intimidation"],
+	age: " reach adulthood around age 14 and rarely live longer than 75 years",
+	height: " range from 5 to well over 6 feet tall (4'10\" + 2d10\")",
+	weight: " weigh around 215 lb (140 + 2d10 \xD7 2d6 lb)",
+	heightMetric: " range from 1,5 to well over 1,8 metres tall (150 + 5d10 cm)",
+	weightMetric: " weigh around 100 kg (65 + 5d10 \xD7 4d6 / 10 kg)",
+	features: {
+		"relentless endurance": {
+			name: "Relentless Endurance",
+			minlevel: 1,
+			usages: 1,
+			recovery: "long rest",
+		},
+		"savage attacks": {
+			name: "Savage Attacks",
+			minlevel: 1,
+			calcChanges: {
+				atkAdd: [
+					function (fields, v) {
+						if (v.isMeleeWeapon && (/d\d+/).test(fields.Damage_Die)) {
+							if (v.extraCritM) {
+								v.extraCritM += 1;
+								var extraCritRegex = /\d+(d\d+ extra on a crit(ical)?( hit)? in melee)/i;
+								fields.Description = fields.Description.replace(extraCritRegex, v.extraCritM + "$1");
+							} else {
+								v.extraCritM = 1;
+								fields.Description += (fields.Description ? "; " : "") + v.extraCritM + fields.Damage_Die.replace(/.*(d\d+).*/, "$1") + " extra on a crit in melee";
+							};
+						};
+					},
+					"My melee weapon attacks roll 1 additional dice on a critical hit.",
+					900,
+				],
+			},
+		},
+	},
+	trait: "Half-Orc" +
+	"\n##\u25C6 Relentless Endurance##. When I am reduced to 0 hit points but not killed outright, I can drop to 1 hit point instead. I can't use this feature again until I finish a Long Rest." +
+	"\n##\u25C6 Savage Attacks##. When I score a critical hit with a melee weapon attack, I can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.",
+};
+
+// Eldritch Invocations
+AddWarlockInvocation("Beast Speech", {
+	name: "Beast Speech",
+	source: [["SRD", 48], ["P", 110]],
+	description: desc("I can cast Speak with Animals without using a spell slot."),
+	spellcastingBonus: [{
+		name: "Beast Speech",
+		spells: ["speak with animals"],
+		selection: ["speak with animals"],
+		firstCol: "atwill",
+	}],
+});
+AddWarlockInvocation("Beguiling Influence", {
+	name: "Beguiling Influence",
+	source: [["SRD", 48], ["P", 110]],
+	description: desc("I gain proficiencies with the Deception and Persuasion skills."),
+	skills: ["Deception", "Persuasion"],
+});
+AddWarlockInvocation("Bewitching Whispers (req: lvl 7+)", {
+	name: "Bewitching Whispers",
+	source: [["SRD", 48], ["P", 110]],
+	minlevel: 7,
+	submenu: "[Warlock level  7+]",
+	description: desc("Once per Long Rest, I can cast Compulsion using a Pact Magic spell slot."),
+	spellcastingBonus: [{
+		name: "Bewitching Whispers",
+		spells: ["compulsion"],
+		selection: ["compulsion"],
+		firstCol: "oncelr",
+	}],
+});
+AddWarlockInvocation("Book of Ancient Secrets (req: Pact of the Tome)", {
+	name: "Book of Ancient Secrets",
+	description: desc("My Book of Shadows is inscribed with two 1st-level Ritual spells of my choice. When I come across other Ritual spell, I can inscribe them as well. I can cast these inscribed spells as Rituals, they are not automatically prepared. (Select only these inscribed spells in the 'Spells' column.)"),
+	source: [["SRD", 48], ["P", 110]],
+	submenu: "[improves Pact of the Tome]",
+	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the tome") !== -1; },
+	eval: function () {
+		var oSpells = CurrentSpells["warlock-book of shadows"];
+		if (!oSpells) return;
+		// Change into a "book" caster that has access to ritual spells from any level
+		oSpells.known.spells = "book";
+		oSpells.typeSp = "book";
+		oSpells.typeList = 2;
+		oSpells.list.level = [0, 9];
+		// Make it so that all cantrips are always displayed
+		oSpells.known.cantripsPrepare = true;
+		oSpells.preparedCantrips = true;
+		// Add it so that all 1st-level ritual spells are always displayed
+		oSpells.extra = CreateSpellList({ ritual: true, level: [1, 1] });
+		oSpells.extraSpecial = true;
+		SetStringifieds("spells"); CurrentUpdates.types.push("spells");
+		// cleanup old versions of this invocation
+		if (CurrentSpells["warlock-book of ancient secrets"] || CurrentSpells["book of ancient secrets"]) {
+			var oSpellsOld = CurrentSpells["book of ancient secrets"] ? CurrentSpells["book of ancient secrets"] : CurrentSpells["warlock-book of ancient secrets"];
+			if (oSpellsOld.selectSp) oSpells.selectSp = oSpellsOld.selectSp;
+			if (oSpellsOld.offsetBo) oSpells.offsetBo = oSpellsOld.offsetBo;
+			if (oSpellsOld.selectBo) oSpells.selectBo = oSpellsOld.selectBo;
+			delete CurrentSpells["warlock-book of ancient secrets"];
+			delete CurrentSpells["book of ancient secrets"];
+		};
+	},
+	removeeval: function () {
+		if (CurrentSpells["book of ancient secrets"]) delete CurrentSpells["book of ancient secrets"];
+		var oSpells = CurrentSpells["warlock-book of shadows"];
+		if (!oSpells) return;
+		oSpells.known.spells = "list";
+		oSpells.typeSp = "list";
+		oSpells.list.level = [0, 1];
+		delete oSpells.known.cantripsPrepare;
+		delete oSpells.preparedCantrips;
+		delete oSpells.extra;
+		delete oSpells.extraSpecial;
+		SetStringifieds("spells"); CurrentUpdates.types.push("spells");
+	},
+	calcChanges: {
+		spellAdd: [
+			function (spellKey, spellObj, spName) {
+				if (spName !== "warlock-book of shadows") return;
+				var oSpells = CurrentSpells[spName];
+				if (oSpells.selectSp.indexOf(spellKey)) {
+					spellObj.firstCol = SpellRitualTag;
+					if (!/.*(\d+ ?h\b|special|see b).*/i.test(spellObj.time)) {
+						var numMinutes = Number(spellObj.time.replace(/(\d+) ?min.*/, "$1"));
+						if (isNaN(numMinutes)) numMinutes = 0;
+						spellObj.time = (numMinutes + 10) + " min";
+					};
+					return true;
+				};
+			},
+			"By the Book of Ancient Secrets invocation, I can cast any Ritual spells I've added to my Book of Shadows, but only as a Ritual. Ritual spell always have a casting time of 10 minutes or more. The sheet assumes any Ritual spells above 1st-level are manual additions.",
+		],
+	},
+});
+AddWarlockInvocation("Chains of Carceri (req: lvl 15+, Pact of the Chain)", {
+	name: "Chains of Carceri",
+	source: [["SRD", 49], ["P", 110]],
+	minlevel: 15,
+	submenu: ["[Warlock level 15+]", "[improves Pact of the Chain]"],
+	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the chain") !== -1; },
+	description: desc("I can cast Hold Monster without expending a spell slot or material components, but only on a Celestial, Fiend, or Elemental. I can only target a specific individual once per Long Rest."),
+	spellcastingBonus: [{
+		name: "Chains of Carceri",
+		spells: ["hold monster"],
+		selection: ["hold monster"],
+		firstCol: "atwill",
+	}],
+	spellChanges: {
+		"hold monster": {
+			components: "V,S",
+			compMaterial: "",
+			description: "1 Celestial, Fiend, or Elemental, save or paralyzed; extra save at end of each turn",
+			changes: "With the Chains of Carceri invocation I can cast *Hold Monster* without a material component, but only on a Celestial, Fiend, or Elemental.",
+		},
+	},
+});
+AddWarlockInvocation("Dreadful Word (req: lvl 7+)", {
+	name: "Dreadful Word",
+	source: [["SRD", 49], ["P", 110]],
+	minlevel: 7,
+	submenu: "[Warlock level  7+]",
+	description: desc("Once per Long Rest, I can cast Confusion using a Pact Magic spell slot."),
+	spellcastingBonus: [{
+		name: "Dreadful Word",
+		spells: ["confusion"],
+		selection: ["confusion"],
+		firstCol: "oncelr",
+	}],
+});
+AddWarlockInvocation("Eldritch Sight", {
+	name: "Eldritch Sight",
+	source: [["SRD", 49], ["P", 110]],
+	description: desc("I can cast Detect Magic without expending a spell slot."),
+	spellcastingBonus: [{
+		name: "Eldritch Sight",
+		spells: ["detect magic"],
+		selection: ["detect magic"],
+		firstCol: "atwill",
+	}],
+});
+AddWarlockInvocation("Eyes of the Rune Keeper", {
+	name: "Eyes of the Rune Keeper",
+	source: [["SRD", 49], ["P", 111]],
+	description: " [I can read all writing]",
+});
+AddWarlockInvocation("Minions of Chaos", {
+	name: "Minions of Chaos",
+	source: [["SRD", 49], ["P", 111]],
+	minlevel: 9,
+	submenu: "[Warlock level  9+]",
+	description: desc("Once per Long Rest, I can cast Conjure Elemental using a Pact Magic spell slot."),
+	spellcastingBonus: [{
+		name: "Minions of Chaos",
+		spells: ["conjure elemental"],
+		selection: ["conjure elemental"],
+		firstCol: "oncelr",
+	}],
+});
+AddWarlockInvocation("Mire the Mind", {
+	name: "Mire the Mind",
+	source: [["SRD", 49], ["P", 111]],
+	minlevel: 5,
+	submenu: "[Warlock level  5+]",
+	description: desc("Once per Long Rest, I can cast Slow using a Pact Magic spell slot."),
+	spellcastingBonus: [{
+		name: "Mire the Mind",
+		spells: ["slow"],
+		selection: ["slow"],
+		firstCol: "oncelr",
+	}],
+});
+AddWarlockInvocation("Sculptor of Flesh", {
+	name: "Sculptor of Flesh",
+	source: [["SRD", 50], ["P", 111]],
+	minlevel: 7,
+	submenu: "[Warlock level  7+]",
+	description: desc("Once per Long Rest, I can cast Polymorph using a Pact Magic spell slot."),
+	spellcastingBonus: [{
+		name: "Sculptor of Flesh",
+		spells: ["polymorph"],
+		selection: ["polymorph"],
+		firstCol: "oncelr",
+	}],
+});
+AddWarlockInvocation("Sign of Ill Omen", {
+	name: "Sign of Ill Omen",
+	source: [["SRD", 50], ["P", 111]],
+	minlevel: 5,
+	submenu: "[Warlock level  5+]",
+	description: desc("Once per Long Rest, I can cast Bestow Curse using a Pact Magic spell slot."),
+	spellcastingBonus: [{
+		name: "Sign of Ill Omen",
+		spells: ["bestow curse"],
+		selection: ["bestow curse"],
+		firstCol: "oncelr",
+	}],
+});
+AddWarlockInvocation("Thief of Five Fates", {
+	name: "Thief of Five Fates",
+	source: [["SRD", 50], ["P", 111]],
+	description: desc("Once per Long Rest, I can cast Bane using a Pact Magic spell slot."),
+	spellcastingBonus: [{
+		name: "Thief of Five Fates",
+		spells: ["bane"],
+		selection: ["bane"],
+		firstCol: "oncelr",
+	}],
+});
+AddWarlockInvocation("Voice of the Chain Master", {
+	name: "Voice of the Chain Master",
+	source: [["SRD", 50], ["P", 111]],
+	submenu: "[improves Pact of the Chain]",
+	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the chain") !== -1; },
+	description: desc("While on the same plane as my familiar, I can communicate telepathically with it and I can perceive through its senses. While doing the latter, I can speak through it with my voice."),
+});
+
+// Subclasses
+AddSubClass("wizard", "necromancy", {
+	regExpSearch: /necromancy|necromancer|necromantic/i,
+	subname: "School of Necromancy",
+	subnameShort: "Necromancy",
+	fullname: "Necromancer",
+	source: [["P", 118]],
+	features: {
+		"subclassfeature3": {
+			name: "Necromancy Savant",
+			source: [["P", 118]],
+			minlevel: 3,
+			description: desc("I halve the gp and time needed to copy necromancy spells into my spellbook"),
+		},
+		"subclassfeature3.1": {
+			name: "Grim Harvest",
+			source: [["P", 118]],
+			minlevel: 3,
+			description: desc([
+				"Once per turn, when I kill something with a 1st-level or higher spell, I regain hit points",
+				"The number of hit points regained is 2\xD7 the spell's level (or 3\xD7 with necromancy spells)",
+				"This doesn't occur for constructs/undead",
+			]),
+		},
+		"subclassfeature6": {
+			name: "Undead Thralls",
+			source: [["P", 119]],
+			minlevel: 6,
+			description: desc([
+				"I add Animate Dead to my spellbook and can have an additional target when casting it",
+				"Undead created by my necromancy spells have the following benefits:",
+				"They add my proficiency bonus to damage and my wizard level to their HP maximums",
+			]),
+			spellcastingBonus: [{
+				name: "Undead Thralls",
+				spells: ["animate dead"],
+				selection: ["animate dead"],
+			}],
+			spellChanges: {
+				"animate dead": {
+					description: "Turn corpses into 2+2/SL Skeletons or Zombies; control for 24h; Bns command within 60 ft",
+					changes: "My Undead Thralls class feature allows me to animate one more corpse than normal with *Animate Dead*.",
+				},
+			},
+		},
+		"subclassfeature10": {
+			name: "Inured to Undead",
+			source: [["P", 119]],
+			minlevel: 10,
+			description: desc("I have resistance to necrotic damage and my hit point maximum can't be reduced"),
+			dmgres: ["Necrotic"],
+		},
+		"subclassfeature14": {
+			name: "Command Undead",
+			source: [["P", 11]],
+			minlevel: 14,
+			description: desc([
+				"As an action, an undead within 60 ft that I can see must make a Charisma save",
+				"If its Int is > 7, it has Adv on the save; If its Int is > 11, it repeats the save every hour",
+				"If failed, it becomes friendly to me and obeys my commands until I use this on another",
+				"On success, it becomes permanently immune to my further attempts",
+			]),
+			action: [["action", ""]],
+		},
+	},
+});
+CompanionList["undead_thrall"] = {
+	name: "Undead Thralls",
+	nameOrigin: "School of Necromancy 6",
+	nameMenu: "Undead Thrall (School of Necromancy feature)",
+	source: [["P", 119]],
+	includeCheck: function (sCrea, objCrea, iCreaCR, bIsAL) {
+		return /undead/i.test(objCrea.type);
+	},
+	attributesChange: function (sCrea, objCrea) {
+		objCrea.hp += classes.known.wizard ? classes.known.wizard.level : classes.totallevel;
+		if (!objCrea.attacks) return;
+		objCrea.attacks = objCrea.attacks.map(function (oAtk) {
+			if (oAtk.abilitytodamage !== false && !oAtk.dc) {
+				if (!oAtk.modifiers) {
+					oAtk.modifiers = ["", "oProf"];
+				} else {
+					oAtk.modifiers[1] += "+oProf";
+				}
+			}
+			return oAtk;
+		});
+	},
+	calcChanges: {
+		hp: function (totalHD, HDobj, prefix) {
+			if (classes.known.wizard) {
+				return [classes.known.wizard.level, "Undead Thralls (wizard level)"];
+			} else {
+				return [classes.totallevel, "Undead Thralls (character level)"];
+			}
+		},
+	},
+	notes: [{
+		name: "Undead I create with a necromancy spell",
+		description: "add my wizard level to their hit point maximum and add my proficiency bonus to their weapon damage rolls.",
+		joinString: " ",
+	}],
+	eval: function (prefix, lvl) {
+		// Set HP to use average value, so that the level bonus is automatically included
+		var sHPfld = prefix + "Comp.Use.HP.Max";
+		var aHPsets = How(sHPfld).split(",");
+		aHPsets[3] = "average";
+		AddTooltip(sHPfld, undefined, aHPsets.toString());
+	},
+};
+/** INCOMPLETE - still missing:
+ * Knowledge Domain
+ * Nature Domain
+ * Tempest Domain
+ */
+
+// Background Features
+BackgroundFeatureList["shelter of the faithful"] = { // from Acolyte
+	description: "I command the respect of those who share my faith. I can perform the religious ceremonies of my faith. My companions and I can expect free healing and care at an establishment of my faith, though I must provide any material components needed for spells. Those who share my religion will support me at a modest lifestyle.",
+	source: [["SRD", 61], ["P", 127]],
+};
+BackgroundFeatureList["false identity"] = { // from Charlatan
+	description: "I have created a second identity that includes documentation, established acquaintances, and disguises that allow me to assume that persona. Additionally, I can forge documents, including official papers and personal letters, as long as I have seen an example of the kind of document or the handwriting I am trying to copy.",
+	source: [["P", 128]],
+};
+BackgroundFeatureList["criminal contact"] = { // from Criminal
+	description: "I have a reliable and trustworthy contact who acts as my liaison to a network of other criminals. I know how to get messages to and from my contact, even over great distances; specifically, I know the local messengers, corrupt caravan masters, and seedy sailors who can deliver my messages.",
+	source: [["P", 129]],
+};
+BackgroundFeatureList["by popular demand"] = { // from Entertainer
+	description: "I can always find a place to perform (inn/tavern/circus/etc.), where I receive free lodging and food of a modest or comfortable standard, as long as I perform each night. In addition, my performance makes me something of a local figure. When strangers recognize me in a town where I have performed, they typically take a liking to me.",
+	source: [["P", 130]],
+};
+BackgroundFeatureList["are you entertained?"] = { // from Gladiator
+	description: "I can always find a place to perform (arena/pit fight), where I receive free lodging and food of a modest or comfortable standard, as long as I perform each night. In addition, my performance makes me something of a local figure. When strangers recognize me in a town where I have performed, they typically take a liking to me.",
+	source: [["P", 131]],
+};
+BackgroundFeatureList["rustic hospitality"] = { // from Folk Hero
+	description: "Since I come from the ranks of the common folk, I fit in among them with ease. I can find a place to hide, rest, or recuperate among other commoners, unless I have shown myself to be a danger to them. They will shield me from the law or anyone else searching for me, though they will not risk their lives for me.",
+	source: [["P", 131]],
+};
+BackgroundFeatureList["guild membership"] = { // from Guild Artisan
+	description: "5 gp membership fees per month: The guild offers lodging if possible. In case of being accused of a crime, the guild will support me if a good case can be made for my innocence or the crime is justifiable. I can also gain access to powerful political figures through the guild, as long as I'm in good standing and the guild is paid enough.",
+	source: [["P", 133]],
+};
+BackgroundFeatureList["discovery"] = { // from Hermit
+	description: "The quiet seclusion of my extended hermitage gave me access to a unique and powerful discovery. The exact nature of this revelation depends on the nature of my seclusion. It might be a great truth, a hidden site, a long forgotten fact, or unearthed some relic of the past that could rewrite history.",
+	source: [["P", 134]],
+};
+BackgroundFeatureList["position of privilege"] = { // from Noble
+	description: "I am welcome in high society, and people assume I have the right to be wherever I am. The common folk make every effort to accommodate me and avoid my displeasure, and other people of high birth treat me as a member of the same social sphere. I can secure an audience with a local noble if I need to.",
+	source: [["P", 135]],
+};
+BackgroundFeatureList["retainers"] = { // from Knight
+	description: "I have the service of three retainers loyal to my family, one of whom is another noble and my squire. My other retainers are commoners who can perform mundane tasks for me, but they do not fight for me, will not follow me into obviously dangerous areas (such as dungeons), and will leave if they are frequently endangered or abused.",
+	source: [["P", 136]],
+};
+BackgroundFeatureList["wanderer"] = { // from Outlander
+	description: "I have an excellent memory for maps and geography, and I can always recall the general layout of terrain, settlements, and other features around me. In addition, I can find food and fresh water for myself and up to five other people each day, provided that the land offers berries, small game, water, and so forth.",
+	source: [["P", 136]],
+};
+BackgroundFeatureList["researcher"] = { // from Researcher
+	description: "When I attempt to learn or recall a piece of lore, if I do not know that information, I often know where and from whom I can obtain it. Usually, this information comes from a library, scriptorium, university, or a sage or other learned person or creature. Unearthing the deepest secrets of the multiverse can require an adventure or even a whole campaign.",
+	source: [["P", 138]],
+};
+BackgroundFeatureList["ship's passage"] = { // from Sailor
+	description: "When I need to, I can secure free passage on a sailing ship for myself and my companions. I might sail on the ship I served on, or another ship I have good relations with. Because I'm calling in a favor, I can't be certain of a schedule or route that will meet my every need. My companions and I are expected to assist the crew during the voyage.",
+	source: [["P", 139]],
+};
+BackgroundFeatureList["bad reputation"] = { // from Pirate
+	description: "No matter where I go, people are afraid of me due to my reputation. When I am in a civilized settlement, I can get away with minor criminal offenses, such as refusing to pay for food at a tavern or breaking down doors at a local shop, since most people will not report my activity to the authorities.",
+	source: [["P", 139]],
+};
+BackgroundFeatureList["military rank"] = { // from Soldier
+	description: "I have a military rank from my career as a soldier. Soldiers loyal to my former military organization still recognize my authority and influence. I can invoke my rank to influence soldiers and temporarily requisition simple equipment or horses. I can usually gain access to friendly military encampments and fortresses where my rank is recognized.",
+	source: [["P", 140]],
+};
+BackgroundFeatureList["city secrets"] = { // from Urchin
+	description: "I know the secret patterns and flow to cities and can find passages through the urban sprawl that others would miss. When I am not in combat, I (and companions I lead) can travel between any two locations in the city twice as fast as my speed would normally allow.",
+	source: [["P", 141]],
+};
+
+// Feats
+FeatsList["dungeon delver"] = {
+	name: "Dungeon Delver",
+	source: [["P", 166]],
+	description: "I have Adv on Wis (Perception) and Int (Investigation) checks made to detect the presence of secret doors. I have resistance to damage dealt by traps and advantage on saves to avoid or resist traps. Travelling at a fast pace doesn't impose -5 on my passive Perception.",
+	descriptionFull: [
+		"Alert to the hidden traps and secret doors found in many dungeons, you gain the following benefits:",
+		" \u2022 You have advantage on Wisdom (Perception) and Intelligence (Investigation) checks made to detect the presence of secret doors.",
+		" \u2022 You have advantage on saving throws made to avoid or resist traps.",
+		" \u2022 You have resistance to the damage dealt by traps.",
+		" \u2022 Traveling at a fast pace doesn't impose the normal -5 penalty on your passive Wisdom (Perception) score.",
+	],
+	dmgres: ["Traps"],
+	savetxt: { adv_vs: ["traps"] },
+	vision: [
+		["Adv on Perception and Investigation for secret doors", 0],
+		["No -5 for travelling at fast pace", 0],
+	],
+};
+FeatsList["linguist"] = {
+	name: "Linguist",
+	source: [["P", 167]],
+	description: "",
+	calculate: "event.value = \"I can ably create written ciphers that others can't decipher unless I teach them, they succeed on an Intelligence check DC \" + (Number(What('Int')) + Number(How('Proficiency Bonus'))) + ' (Intelligence score + proficiency bonus), or they use magic to decipher it. I learn three languages of my choice. [+1 Intelligence]';",
+	descriptionFull: [
+		"You have studied languages and codes, gaining the following benefits:",
+		" \u2022 Increase your Intelligence score by 1, to a maximum of 20.",
+		" \u2022 You learn three languages of your choice.",
+		" \u2022 You can ably create written ciphers. Others can't decipher a code you create unless you teach them, they succeed on an Intelligence check (DC equal to your Intelligence score + your proficiency bonus), or they use magic to decipher it.",
+	],
+	scores: [0, 0, 0, 1, 0, 0],
+	languageProfs: [3],
+};
+FeatsList["martial adept"] = {
+	name: "Martial Adept",
+	source: [["P", 168]],
+	description: "",
+	calculate: "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master (2nd page \"Choose Feature\" button). The saving throw DC for this is ' + (8 + Number(How('Proficiency Bonus')) + Math.max(Number(What('Str Mod')), Number(What('Dex Mod')))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a short rest.';",
+	descriptionFull: [
+		"You have martial training that allows you to perform special combat maneuvers. You gain the following benefits:",
+		" \u2022 You learn two maneuvers of your choice from among those available to the Battle Master archetype in the fighter class. If a maneuver you use requires your target to make a saving throw to resist the maneuver's effects, the saving throw DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice).",
+		" \u2022 You gain one superiority die, which is a d6 (this die is added to any superiority dice you have from another source). This die is used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest.",
+	],
+	bonusClassExtrachoices: [{
+		"class": "fighter",
+		subclass: "fighter-battle master",
+		feature: "subclassfeature3.1",
+		bonus: 2,
+	}],
+	extraLimitedFeatures: [{
+		name: "Superiority Dice",
+		usages: 1,
+		additional: "d6",
+		recovery: "short rest",
+		addToExisting: true,
+	}],
+};
+
+// Adventuring Gear
+[{
+	key: "abacus",
+	infoname: "Abacus [2 gp]",
+	name: "Abacus",
+	weight: 2,
+}, {
+	key: "bit and bridle",
+	infoname: "Bit and bridle [2 gp]",
+	name: "Bit and bridle",
+	weight: 1,
+}, {
+	key: "chalk (1 piece)",
+	infoname: "Chalk (1 piece) [1 cp]",
+	name: "Chalk, pieces of",
+}, {
+	key: "common",
+	infoname: "Common [5 sp]",
+	name: "Common clothes",
+	weight: 3,
+	type: "clothes",
+}, {
+	key: "totem",
+	infoname: "Totem [1 gp]",
+	name: "Totem druidic focus",
+	type: "druidic focus",
+}, {
+	key: "fishing tackle",
+	infoname: "Fishing tackle [1 gp]",
+	name: "Fishing tackle",
+	weight: 4,
+}, {
+	key: "hammer",
+	infoname: "Hammer [1 gp]",
+	name: "Hammer",
+	weight: 3,
+}, {
+	key: "hammer, sledge",
+	infoname: "Hammer, sledge [2 gp]",
+	name: "Sledge hammer",
+	weight: 10,
+}, {
+	key: "hourglass",
+	infoname: "Hourglass [25 gp]",
+	name: "Hourglass",
+	weight: 1,
+}, {
+	key: "small knife",
+	infoname: "Small Knife [1 sp]",
+	name: "Small Knife",
+	weight: 0.25,
+}, {
+	key: "mess kit",
+	infoname: "Mess kit [2 sp]",
+	name: "Mess kit",
+	weight: 1,
+}, {
+	key: "pick, miner's",
+	infoname: "Pick, miner's [2 gp]",
+	name: "Miner's pick",
+	weight: 10,
+}, {
+	key: "piton",
+	infoname: "Piton [5 cp]",
+	name: "Piton",
+	weight: 0.25,
+}, {
+	key: "rope, hempen (50 feet)",
+	infoname: "Rope, hempen (50 feet) [1 gp]",
+	name: "Hempen rope, feet of",
+	amount: 50,
+	weight: 0.2,
+}, {
+	key: "rope, silk (50 feet)",
+	infoname: "Rope, silk (50 feet) [10 gp]",
+	name: "Silk rope, feet of",
+	amount: 50,
+	weight: 0.1,
+}, {
+	key: "saddle, pack",
+	infoname: "Pack [5 gp]",
+	name: "Pack saddle",
+	weight: 15,
+	type: "saddle",
+}, {
+	key: "saddlebags",
+	infoname: "Saddlebags [4 gp]",
+	name: "Saddlebags",
+	weight: 8,
+}, {
+	key: "scale, merchant's",
+	infoname: "Scale, merchant's [5 gp]",
+	name: "Merchant's scale",
+	weight: 3,
+}, {
+	key: "sealing wax",
+	infoname: "Sealing wax [5 cp]",
+	name: "Sealing wax",
+}, {
+	key: "signet ring",
+	infoname: "Signet ring [5 gp]",
+	name: "Signet ring",
+}, {
+	key: "soap",
+	infoname: "Soap [2 cp]",
+	name: "Soap",
+}, {
+	key: "whetstone",
+	infoname: "Whetstone [1 cp]",
+	name: "Whetstone",
+	weight: 1,
+}].forEach(function (obj) {
+	GearList[obj.key] = {
+		infoname: obj.infoname,
+		source: [["P", 150]],
+		name: obj.name,
+		amount: obj.amount !== undefined ? obj.amount : "",
+		weight: obj.weight !== undefined ? obj.weight : "",
+	}
+})
