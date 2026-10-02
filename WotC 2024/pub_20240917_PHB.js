@@ -1,5 +1,5 @@
 var iFileName = "pub_20240917_PHB.js";
-RequiredSheetVersion("24.0.9-beta");
+RequiredSheetVersion("24.1.0");
 // This file adds material from the 2024 Player's Handbook that isn't in the SRD v5.2.1 to MPMB's Character Record Sheet for 5.5e
 
 /* Star characters that work well on the sheet
@@ -472,7 +472,7 @@ AddSubClass("cleric", "light", {
 			}),
 			spellcastingExtra: ["burning hands", "faerie fire", "scorching ray", "see invisibility", "daylight", "fireball", "arcane eye", "wall of fire", "flame strike", "scrying"],
 			additional: levels.map(function (n) {
-				return "1 Channel Divinity; 2d10+" + n;
+				return n < 3 ? "" : "1 Channel Divinity; 2d10+" + n;
 			}),
 			action: [["action", " (Channel Divinity)"]],
 		},
@@ -1771,7 +1771,7 @@ AddSubClass("monk", "elements", {
 
 // Paladin Subclasses
 AddSubClass("paladin", "glory", {
-	regExpSearch: /^(?=.*glory)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
+	regExpSearch: /^(?=.*glory)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper))))).*$/i,
 	subname: "Oath of Glory",
 	subnameShort: "Glory",
 	source: [["PHB24", 114]],
@@ -1858,7 +1858,7 @@ AddSubClass("paladin", "glory", {
 	},
 });
 AddSubClass("paladin", "ancients", {
-	regExpSearch: /^(((?=.*(ancient|nature|natural|green|fey|horned))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))))|((?=.*(green|fey|horned))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*(ancient|nature|natural|green|fey|horned))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine|green))(?=.*(knight|warrior|warlord|trooper))))).*$/i,
 	subname: "Oath of the Ancients",
 	subnameShort: "Ancients",
 	source: [["PHB24", 115]],
@@ -1931,7 +1931,7 @@ AddSubClass("paladin", "ancients", {
 	},
 });
 AddSubClass("paladin", "vengeance", {
-	regExpSearch: /^(((?=.*(vengeance|wrath|justice))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))))|((?=.*dark)(?=.*knight))|(?=.*avenger)).*$/i,
+	regExpSearch: /^(((?=.*(vengeance|wrath|justice))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper)))))|((?=.*dark)(?=.*knight))|(?=.*avenger)).*$/i,
 	subname: "Oath of Vengeance",
 	subnameShort: "Vengeance",
 	source: [["PHB24", 116]],

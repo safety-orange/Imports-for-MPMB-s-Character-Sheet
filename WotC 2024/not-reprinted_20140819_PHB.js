@@ -1,5 +1,5 @@
 var iFileName = "not-reprinted_20140819_PHB.js";
-RequiredSheetVersion("24.0.5-beta");
+RequiredSheetVersion("24.1.0");
 // This file adds options from the 2014 Player's Handbook to MPMB's Character Record Sheet that have not been replaced with new options in the 2024 Player's Handbook or other rulebooks for the 2024 rules
 
 // Define the source

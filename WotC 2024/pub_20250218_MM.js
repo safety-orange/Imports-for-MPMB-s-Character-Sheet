@@ -1,5 +1,5 @@
 var iFileName = "pub_20250218_MM.js";
-RequiredSheetVersion("24.0.1-beta");
+RequiredSheetVersion("24.1.0");
 // This file adds material from the 2025 Monster Manual that isn't in the SRD v5.2.1 to MPMB's Character Record Sheet for 5.5e
 
 // Define the source

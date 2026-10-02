@@ -1,5 +1,5 @@
 var iFileName = "pub_20260616_RHW.js";
-RequiredSheetVersion("24.0.9-beta");
+RequiredSheetVersion("24.1.0");
 // This file adds material from Ravenloft: The Horrors Within to MPMB's Character Record Sheet for 5.5e
 
 SourceList["RHW"] = {
