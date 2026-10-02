@@ -1,5 +1,5 @@
 var iFileName = "ua_20191003_Cleric-Druid-and-Wizard.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("14.1.0");
 // This file adds the content from the Unearthed Arcana: Cleric, Druid, and Wizard article to MPMB's Character Record Sheet
 
 // Define the source
@@ -38,7 +38,7 @@ AddSubClass("cleric", "twilight domain-ua", {
 			additional: "extend to others",
 			usages: "Wis mod per ",
 			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
-			recovery: "long rest",
+			recovery: typePF ? "LR" : "long rest",
 			action: [["action", ""]],
 		},
 		"subclassfeature1.2": {
@@ -316,7 +316,7 @@ AddSubClass("wizard", "onomancy-ua", {
 			additional: "with true name",
 			usages: "Int mod per ",
 			usagescalc: "event.value = Math.max(1, What('Int Mod'));",
-			recovery: "long rest",
+			recovery: typePF ? "LR" : "long rest",
 		},
 		"subclassfeature6": {
 			name: "Resonants",

@@ -180,7 +180,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 					"The target takes extra necrotic damage and must make a Constitution save",
 					"If failed, the damage of the target's attacks is halved until the start of my next turn",
 				]),
-				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 necrotic damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 necrotic" + (typePF ? "" : " damage"); }),
 			},
 			"bursting arrow [evocation]": {
 				name: "Bursting Arrow [Evocation]",
@@ -196,7 +196,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 					"The brambles give it -10 ft speed and do it slashing damage every round it moves",
 					"These can be removed by it or another as an action with Strength (Athletics) vs. my DC",
 				]),
-				additional: levels.map( function (n) { return n < 3 ? "" : (n < 18 ? 2 : 4) + "d6 poison/slash. damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : (n < 18 ? 2 : 4) + "d6 poison|slashing" + (typePF ? "" : " dmg"); }),
 			},
 			"mind-scrambling arrow [enchantment]": {
 				name: "Mind-Scrambling Arrow [Enchantment]",
@@ -206,7 +206,10 @@ AddSubClass("fighter", "arcane archer2-ua", {
 					"If failed, it can't attack or harm one of my allies within 30 ft of it that I choose",
 					"This lasts until the start of my next turn or until the chosen ally harms the target",
 				]),
-				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 damage"; }),
+				additional: levels.map(function (n) {
+					if (n < 3) return "";
+					return (typePF ? "" : "+") + (n < 18 ? 2 : 4) + "d6 " + (typePF ? "dmg" : "damage");
+				}),
 			},
 			"piercing arrow [transmutation]": {
 				name: "Piercing Arrow [Transmutation]",
@@ -217,7 +220,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 					"The damage is the same as a normal hit from my attack, plus extra piercing damage",
 					"A creature can make a Dexterity save to reduce the damage by half",
 				]),
-				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 1 : 2) + "d6 piercing damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 1 : 2) + "d6 piercing" + (typePF ? "" : " damage"); }),
 			},
 			"seeking arrow [divination]": {
 				name: "Seeking Arrow [Divination]",

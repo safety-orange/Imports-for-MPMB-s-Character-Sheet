@@ -355,7 +355,9 @@ AddSubClass("wizard", "artificer-ua", {
 				"2nd: +1 ammunition (20 pieces), 3rd: +1 weapon or +1 shield, 4th: +1 armor,",
 				"5th: +2 weapon or +2 ammunition (20 pieces), 6th: +3 armor.",
 			]),
-			additional: ["", "", "", "", "", "1 weapon or armor", "1 weapon or armor", "1 weapon or armor", "1 weapon or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor"],
+			additional: levels.map(function (n) {
+				return n < 6 ? "" : (n < 10 ? 1 : "2\xD7") + " weapon/armor";
+			}),
 		},
 		"subclassfeature10": {
 			name: "Superior Artificer",

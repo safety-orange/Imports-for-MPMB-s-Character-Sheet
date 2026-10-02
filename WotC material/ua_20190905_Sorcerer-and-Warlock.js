@@ -1,5 +1,5 @@
 var iFileName = "ua_20190905_Sorcerer-and-Warlock.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.1.0");
 // This file adds the content from the Unearthed Arcana: Sorcerer and Warlock article to MPMB's Character Record Sheet
 
 // Define the source
@@ -133,7 +133,7 @@ AddSubClass("warlock", "the lurker in the deep-ua", {
 				"The 10-ft long tentacle lasts for 1 minute or until I summon another",
 			]),
 			action: [["bonus action", " (summon/move)"]],
-			recovery: "long rest",
+			recovery: typePF ? "LR" : "long rest",
 			additional: levels.map(function (n) {
 				return (n < 10 ? 1 : 2) + "d8";
 			}),
@@ -203,7 +203,7 @@ AddSubClass("warlock", "the lurker in the deep-ua", {
 			additional: levels.map(function (n) {
 				return n < 10 ? "" : n + " temp HP";
 			}),
-			recovery: "short rest",
+			recovery: typePF ? "SR" : "short rest",
 			usages: 1,
 		},
 		"subclassfeature14": {

@@ -293,7 +293,7 @@ var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden-ua", 
 				"I can do this once per long rest, or by expending a 3rd-level or higher spell slot (SS 3+)",
 			]),
 			additional: levels.map(function (n) {
-				return n < 11 ? "" : (n < 15 ? 6 : 8) + "d6 damage";
+				return n < 11 ? "" : (n < 15 ? 6 : 8) + "d6 " + (typePF ? "dmg" : "damage");
 			}),
 			action: [["action", ""]],
 			usages: 1,

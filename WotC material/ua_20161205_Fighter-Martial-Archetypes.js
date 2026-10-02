@@ -29,7 +29,7 @@ AddSubClass("fighter", "arcane archer-ua", {
 				"This arrow lasts until the end of my turn or until I hit or miss a target with it",
 			]),
 			additional: levels.map(function (n) {
-				return n < 3 ? "" : (n < 18 ? "+2" : "+4") + "d6 force damage";
+				return n < 3 ? "" : (n < 18 ? "+2" : "+4") + "d6 force " + (typePF ? "dmg" : "damage");
 			}),
 			usages: 2,
 			recovery: "short rest",

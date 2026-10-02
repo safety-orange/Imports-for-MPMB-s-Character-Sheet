@@ -12,7 +12,7 @@ SourceList["UA:GO"] = {
 };
 
 AddSubClass("barbarian", "giant-ua", {
-	regExpSearch: /^((?=.*(marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n))|((?=.*(warrior|fighter))(?=.*(feral|tribal))))(?=.*giant).*$/i,
+	regExpSearch: /^((?=.*(marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n))|((?=.*warrior)(?=.*(feral|tribal))))(?=.*giant).*$/i,
 	subname: "Path of the Giant",
 	subnameShort: "Giant",
 	source: [["UA:GO", 1]],

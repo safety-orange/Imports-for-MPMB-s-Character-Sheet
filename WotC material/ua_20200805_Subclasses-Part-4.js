@@ -1,5 +1,5 @@
 var iFileName = "ua_20200805_Subclasses-Part-4.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion("14.1.0");
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 4 article to MPMB's Character Record Sheet
 // This file contains contributions by AelarTheElfRogue
 
@@ -192,7 +192,7 @@ AddSubClass("warlock", "the undead-ua",{
 			}),
 			usages: "Prof Bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
-			recovery: "long rest",
+			recovery: typePF ? "LR" : "long rest",
 			action: [["bonus action", ""]],
 			savetxt: { immune: ["frightened (Form of Dread)"] },
 		},

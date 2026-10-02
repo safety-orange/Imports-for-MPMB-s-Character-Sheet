@@ -1165,7 +1165,7 @@ AddSubClass("fighter", "echo knight", { // contains contributions by Smashman, @
 			description: desc([
 				"When I use the Attack action, I can make one extra melee attack from my echo's position",
 			]),
-			usages: "Constitution modifier per ",
+			usages: "Constitution " + (typePF ? "mod" : "modifier") + " per ",
 			usagescalc: "event.value = Math.max(1, What('Con Mod'));",
 			recovery: "long rest",
 		},
@@ -1202,7 +1202,7 @@ AddSubClass("fighter", "echo knight", { // contains contributions by Smashman, @
 				"When my echo is destroyed by taking damage, I gain 2d6 + my Con mod in temp HP",
 				"I can only gain these temporary hit points if I don't already have temporary hit points",
 			]),
-			usages: "Constitution modifier per ",
+			usages: "Constitution " + (typePF ? "mod" : "modifier") + " per ",
 			usagescalc: "event.value = Math.max(1, What('Con Mod'));",
 			recovery: "long rest",
 		},
@@ -1379,7 +1379,19 @@ AddSubClass("wizard", "graviturgy magic", { // contains contributions by bassbog
 });
 
 // Add option to allow Dunamancy spells for the other spellcastingclasses
-AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Access to Dunamancy Spells", {
+// With v14 it is possible to have class features not appear in the field if no `description` is defined, so we can make features just for the purpose of adding optional features to the 3rd page
+var makeOptionalClassFeatureBase = function (sClass, iLevel) {
+	var sKey = "optional_" + iLevel;
+	if (!ClassList[sClass].features[sKey]) {
+		ClassList[sClass].features[sKey] = {
+			extraname: "Optional level " + iLevel + " " + ClassList[sClass].name + " features",
+			minlevel: iLevel,
+			extrachoices: [],
+		}
+	}
+	return ClassList[sClass].features[sKey];
+}
+AddFeatureChoice(makeOptionalClassFeatureBase("bard", 1), true, "Access to Dunamancy Spells", {
 	name: "Dunamancy Spells",
 	extraname: "Optional Bard 1",
 	source: [["W", 186]],
@@ -1396,8 +1408,8 @@ AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Access to Dunamanc
 			"This optional class feature expands the spell list of the bard class with all dunamancy spells (spell level in brackets): Sapping Sting (cantrip), Gift of Alacrity (1), Magnify Gravity (1), Fortune's Favor (2), Immovable Object (2), Wristpocket (2), Pulse Wave (3), Gravity Sinkhole (4), Temporal Shunt (5), Gravity Fissure (6), Tether Essence (7), Dark Star (8), Reality Break (8),Ravenous Void (9), and Time Ravage (9).",
 		],
 	},
-}, "Optional 1st-level bard features");
-AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Access to Dunamancy Spells", {
+});
+AddFeatureChoice(makeOptionalClassFeatureBase("cleric", 1), true, "Access to Dunamancy Spells", {
 	name: "Dunamancy Spells",
 	extraname: "Optional Cleric 1",
 	source: [["W", 186]],
@@ -1414,8 +1426,8 @@ AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Access to Dunama
 			"This optional class feature expands the spell list of the cleric class with all dunamancy spells (spell level in brackets): Sapping Sting (cantrip), Gift of Alacrity (1), Magnify Gravity (1), Fortune's Favor (2), Immovable Object (2), Wristpocket (2), Pulse Wave (3), Gravity Sinkhole (4), Temporal Shunt (5), Gravity Fissure (6), Tether Essence (7), Dark Star (8), Reality Break (8),Ravenous Void (9), and Time Ravage (9).",
 		],
 	},
-}, "Optional 1st-level cleric features");
-AddFeatureChoice(ClassList.druid.features.spellcasting, true, "Access to Dunamancy Spells", {
+});
+AddFeatureChoice(makeOptionalClassFeatureBase("druid", 1), true, "Access to Dunamancy Spells", {
 	name: "Dunamancy Spells",
 	extraname: "Optional Druid 1",
 	source: [["W", 186]],
@@ -1432,8 +1444,8 @@ AddFeatureChoice(ClassList.druid.features.spellcasting, true, "Access to Dunaman
 			"This optional class feature expands the spell list of the druid class with all dunamancy spells (spell level in brackets): Sapping Sting (cantrip), Gift of Alacrity (1), Magnify Gravity (1), Fortune's Favor (2), Immovable Object (2), Wristpocket (2), Pulse Wave (3), Gravity Sinkhole (4), Temporal Shunt (5), Gravity Fissure (6), Tether Essence (7), Dark Star (8), Reality Break (8),Ravenous Void (9), and Time Ravage (9).",
 		],
 	},
-}, "Optional 1st-level druid features");
-AddFeatureChoice(ClassList.paladin.features.spellcasting, true, "Access to Dunamancy Spells", {
+});
+AddFeatureChoice(makeOptionalClassFeatureBase("paladin", 2), true, "Access to Dunamancy Spells", {
 	name: "Dunamancy Spells",
 	extraname: "Optional Paladin 2",
 	source: [["W", 186]],
@@ -1450,7 +1462,7 @@ AddFeatureChoice(ClassList.paladin.features.spellcasting, true, "Access to Dunam
 			"This optional class feature expands the spell list of the paladin class with all dunamancy spells (spell level in brackets): Gift of Alacrity (1), Magnify Gravity (1), Fortune's Favor (2), Immovable Object (2), Wristpocket (2), Pulse Wave (3), Gravity Sinkhole (4), and Temporal Shunt (5).",
 		],
 	},
-}, "Optional 2nd-level paladin features");
+});
 var EGtW_Ranger_Dunamancy_Spells = {
 	name: "Dunamancy Spells",
 	extraname: "Optional Ranger 2",
@@ -1469,12 +1481,12 @@ var EGtW_Ranger_Dunamancy_Spells = {
 		],
 	},
 };
-AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Access to Dunamancy Spells", EGtW_Ranger_Dunamancy_Spells, "Optional 2nd-level ranger features");
+AddFeatureChoice(makeOptionalClassFeatureBase("ranger", 2), true, "Access to Dunamancy Spells", EGtW_Ranger_Dunamancy_Spells);
 RunFunctionAtEnd(function () {
 	if (!ClassList["rangerua"]) return;
-	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Access to Dunamancy Spells", EGtW_Ranger_Dunamancy_Spells, "Optional 2nd-level ranger features");
+	AddFeatureChoice(makeOptionalClassFeatureBase("rangerua", 2), true, "Access to Dunamancy Spells", EGtW_Ranger_Dunamancy_Spells);
 });
-AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Access to Dunamancy Spells", {
+AddFeatureChoice(makeOptionalClassFeatureBase("sorcerer", 1), true, "Access to Dunamancy Spells", {
 	name: "Dunamancy Spells",
 	extraname: "Optional Sorcerer 1",
 	source: [["W", 186]],
@@ -1491,8 +1503,8 @@ AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Access to Duna
 			"This optional class feature expands the spell list of the sorcerer class with all dunamancy spells (spell level in brackets): Sapping Sting (cantrip), Gift of Alacrity (1), Magnify Gravity (1), Fortune's Favor (2), Immovable Object (2), Wristpocket (2), Pulse Wave (3), Gravity Sinkhole (4), Temporal Shunt (5), Gravity Fissure (6), Tether Essence (7), Dark Star (8), Reality Break (8),Ravenous Void (9), and Time Ravage (9).",
 		],
 	},
-}, "Optional sorcerer features");
-AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Access to Dunamancy Spells", {
+});
+AddFeatureChoice(makeOptionalClassFeatureBase("warlock", 1), true, "Access to Dunamancy Spells", {
 	name: "Dunamancy Spells",
 	extraname: "Optional Warlock 1",
 	source: [["W", 186]],
@@ -1509,8 +1521,8 @@ AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Access to Duna
 			"This optional class feature expands the spell list of the warlock class with all dunamancy spells (spell level in brackets): Sapping Sting (cantrip), Gift of Alacrity (1), Magnify Gravity (1), Fortune's Favor (2), Immovable Object (2), Wristpocket (2), Pulse Wave (3), Gravity Sinkhole (4), Temporal Shunt (5), Gravity Fissure (6), Tether Essence (7), Dark Star (8), Reality Break (8),Ravenous Void (9), and Time Ravage (9).",
 		],
 	},
-}, "Optional 1st-level warlock features");
-AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Access to Dunamancy Spells", {
+});
+AddFeatureChoice(makeOptionalClassFeatureBase("wizard", 1), true, "Access to Dunamancy Spells", {
 	name: "Dunamancy Spells",
 	extraname: "Optional Wizard 1",
 	source: [["W", 186]],
@@ -1527,10 +1539,10 @@ AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Access to Dunama
 			"This optional class feature expands the spell list of the wizard class with all dunamancy spells (spell level in brackets): Sapping Sting (cantrip), Gift of Alacrity (1), Magnify Gravity (1), Fortune's Favor (2), Immovable Object (2), Wristpocket (2), Pulse Wave (3), Gravity Sinkhole (4), Temporal Shunt (5), Gravity Fissure (6), Tether Essence (7), Dark Star (8), Reality Break (8),Ravenous Void (9), and Time Ravage (9).",
 		],
 	},
-}, "Optional 1st-level wizard features");
+});
 RunFunctionAtEnd(function () {
 	if (!ClassList.artificer) return;
-	AddFeatureChoice(ClassList.artificer.features.spellcasting, true, "Access to Dunamancy Spells", {
+	AddFeatureChoice(makeOptionalClassFeatureBase("artificer", 1), true, "Access to Dunamancy Spells", {
 		name: "Dunamancy Spells",
 		extraname: "Optional Artificer 1",
 		source: [["W", 186]],
@@ -1546,7 +1558,7 @@ RunFunctionAtEnd(function () {
 				"This optional class feature expands the spell list of the artificer class with all dunamancy spells (spell level in brackets): Sapping Sting (cantrip), Gift of Alacrity (1), Magnify Gravity (1), Fortune's Favor (2), Immovable Object (2), Wristpocket (2), Pulse Wave (3), Gravity Sinkhole (4), Temporal Shunt (5).",
 			],
 		},
-	}, "Optional 1st-level artificer features");
+	});
 });
 
 // Backgrounds (includes contributions by remcovandalen)

@@ -80,7 +80,10 @@ AddSubClass("monk", "way of the kensei-ua", {
 			name: "Precise Strike",
 			source: [["UA:MMT", 1]],
 			minlevel: 6,
-			description: "As a bonus action, I can focus my attention on one creature I can see within 30 ft" + "\n   " + "This turn, I double my proficiency bonus on my next weapon attack against that mark",
+			description: desc([
+				"As a bonus action, I can focus my attention on one creature I can see within 30 ft",
+				"This turn, I double my proficiency bonus on my next weapon attack against that mark",
+			]),
 			usages: 1,
 			recovery: "short rest",
 			action: [["bonus action", ""]],

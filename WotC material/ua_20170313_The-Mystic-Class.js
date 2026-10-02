@@ -1,5 +1,5 @@
 var iFileName = "ua_20170313_The-Mystic-Class.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.1.0");
 // This file adds the content from the Unearthed Arcana: The Mystic Class article to MPMB's Character Record Sheet
 // WARNING: there are no published multiclassing rules for Mystic; the ones provided here are extrapolated from other classes
 
@@ -416,7 +416,7 @@ AddSubClass("mystic", "immortal-ua", {
 			]),
 			additional: levels.map(function (n) {
 				if (n < 14) return "";
-				return "HP: " + n + " + Constitution modifier";
+				return "HP: " + n + " + Constitution " + (typePF ? "mod" : "modifier");
 			}),
 		},
 	},
@@ -459,7 +459,7 @@ AddSubClass("mystic", "nomad-ua", {
 				"I can teleport to any empty space that I had occupied since the start of my last turn",
 			]),
 			usages: 1,
-			recovery: "short rest",
+			recovery: typePF ? "SR" : "short rest",
 			action: [["reaction", ""]],
 		},
 		"subclassfeature6": {

@@ -192,7 +192,7 @@ AddSubClass("fighter", "cavalier2-ua", {
 	},
 });
 AddSubClass("paladin", "oath of conquest2-ua", {
-	regExpSearch: /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
+	regExpSearch: /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper))))))).*$/i,
 	subname: "Oath of Conquest",
 	subnameShort: "Conquest",
 	source: [["UA:RCO", 3]],
@@ -325,7 +325,8 @@ AddSubClass("warlock", "the celestial-ua", {
 			]),
 			additional: levels.map(function (n) {
 				if (n < 10) return "";
-				return "Me: " + n + "+Cha mod; Allies: " + Math.floor(n / 2) + "+Cha mod";
+				var chaM = typePF ? "+Cha m" : "+Cha mod";
+				return "Me: " + n + chaM + "; Allies: " + Math.floor(n / 2) + chaM;
 			}),
 		},
 		"subclassfeature14": {

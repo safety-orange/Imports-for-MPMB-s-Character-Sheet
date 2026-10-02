@@ -173,7 +173,7 @@ AddSubClass("cleric", "unity domain-ua", {
 				"This resistance lasts until the end of the current turn",
 			]),
 			additional: levels.map(function (n) {
-				return n < 6 ? "" : n < 17 ? "the bonded must be within 30 ft" : "the bonded must be on the same plane";
+				return n < 6 ? "" : n < 17 ? "bonded must be within 30 ft" : "bonded must be on the same plane";
 			}),
 		},
 		"subclassfeature8": {

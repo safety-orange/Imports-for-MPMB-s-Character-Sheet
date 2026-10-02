@@ -1,5 +1,5 @@
 var iFileName = "pub_20230815_GotG.js";
-RequiredSheetVersion("14.0.15-beta");
+RequiredSheetVersion("14.1.0");
 // This file adds the player-material from Bigby Presents: Glory of the Giants to MPMB's Character Record Sheet
 
 SourceList["GotG"] = {
@@ -11,7 +11,7 @@ SourceList["GotG"] = {
 };
 
 AddSubClass("barbarian", "giant", {
-	regExpSearch: /^((?=.*(marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n))|((?=.*(warrior|fighter))(?=.*(feral|tribal))))(?=.*giant).*$/i,
+	regExpSearch: /^((?=.*(marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n))|((?=.*warrior)(?=.*(feral|tribal))))(?=.*giant).*$/i,
 	subname: "Path of the Giant",
 	subnameShort: "Giant",
 	source: [["GotG", 11]],

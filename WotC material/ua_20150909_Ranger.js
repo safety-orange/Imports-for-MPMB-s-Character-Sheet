@@ -20,7 +20,7 @@ SourceList["UA:R"] = {
 
 // Define a new class, called "Playtest Ranger" and its 3 subclasses
 ClassList["ua-playtest-ranger"] = {
-	regExpSearch: /^(?=.*playtest)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*playtest)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	name: "Playtest Ranger",
 	source: [["UA:R", 0]],
 	primaryAbility: "Dexterity and Wisdom",
@@ -84,7 +84,7 @@ ClassList["ua-playtest-ranger"] = {
 	},
 };
 AddSubClass("ua-playtest-ranger", "guardian-ua", {
-	regExpSearch: /^(?=.*guardian)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*guardian)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	subname: "Guardian",
 	source: [["UA:R", 3]],
 	features: {
@@ -111,7 +111,7 @@ AddSubClass("ua-playtest-ranger", "guardian-ua", {
 	},
 });
 AddSubClass("ua-playtest-ranger", "seeker-ua", {
-	regExpSearch: /^(?=.*seeker)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*seeker)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	subname: "Seeker",
 	source: [["UA:R", 4]],
 	features: {
@@ -141,7 +141,7 @@ AddSubClass("ua-playtest-ranger", "seeker-ua", {
 	},
 });
 AddSubClass("ua-playtest-ranger", "stalker-ua", {
-	regExpSearch: /^(?=.*stalker)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*stalker)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	subname: "Stalker",
 	source: [["UA:R", 4]],
 	features: {

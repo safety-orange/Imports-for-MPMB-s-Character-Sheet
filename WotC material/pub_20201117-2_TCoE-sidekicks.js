@@ -509,7 +509,7 @@ ClassList["sidekick-spellcaster-tcoe"] = {
 				"I gain this at 4th level and again at 8th, 12th, 16th, and 18th level",
 			]),
 			additional: levels.map(function (n) {
-				return n < 4 ? "" : (n < 8 ? 1 : n < 12 ? 2 : n < 16 ? 3 : n < 18 ? 4 : 5) + "\xD7 2 points increase";
+				return n < 4 ? "" : (n < 8 ? 1 : n < 12 ? 2 : n < 16 ? 3 : n < 18 ? 4 : 5) + "\xD7 2 points" + (typePF ? "" : " increase");
 			}),
 		},
 		"potent cantrips": {

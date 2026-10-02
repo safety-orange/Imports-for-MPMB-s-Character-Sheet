@@ -1,5 +1,5 @@
 var iFileName = "ua_20170206_Sorcerous-Origins.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.1.0");
 // This file adds the content from the Unearthed Arcana: Sorcerous Origins article to MPMB's Character Record Sheet
 
 // Define the source
@@ -158,10 +158,10 @@ AddSubClass("sorcerer", "phoenix sorcery-ua", { // Still valid 2021-09-21
 			]),
 			additional: levels.map( function (n) {
 				if (n < 6) return "";
-				return Math.floor(n / 2) + "+Cha \u007Cor\u007C " + n + "+2\xD7Cha";
+				return Math.floor(n / 2) + "+Cha |or| " + n + "+2\xD7Cha";
 			}),
 			action: [["reaction", ""]],
-			recovery: "long rest",
+			recovery: typePF ? "LR" : "long rest",
 			usages: 1,
 		},
 		"subclassfeature14": {
@@ -323,7 +323,7 @@ AddSubClass("sorcerer", "stone sorcery-ua", { // Still valid 2021-09-21
 			]),
 			additional: levels.map( function (n) {
 				if (n < 6) return "";
-				return (Math.floor(n / 4) + 2) + " damage reduction; +" + (n < 11 ? 1 : n < 17 ? 2 : 3) + "d10 force damage";
+				return (Math.floor(n / 4) + 2) + " damage reduction; +" + (n < 11 ? 1 : n < 17 ? 2 : 3) + "d10 force " + (typePF ? "dmg" : "damage");
 			}),
 			action: [["bonus action", ""], ["reaction", "Aegis Teleport"]],
 		},

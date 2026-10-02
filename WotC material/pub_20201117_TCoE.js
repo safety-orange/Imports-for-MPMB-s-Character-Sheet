@@ -1,5 +1,5 @@
 var iFileName = "pub_20201117_TCoE.js";
-RequiredSheetVersion("14.0.15-beta", 15);
+RequiredSheetVersion("14.1.0", 15);
 // This file adds the content from Tasha's Cauldron of Everything to MPMB's Character Record Sheet
 
 /*	ACKNOWLEDGEMENTS
@@ -60,8 +60,7 @@ RaceList["custom lineage"] = {
 	},
 	languageProfs: ["Common", 1],
 	scorestxt: "+2 to one ability score of my choice",
-	eval: function () { AddString("Feat Note 1", "Custom lineage bonus feat", "; "); },
-	removeeval: function () { RemoveString("Feat Note 1", "Custom lineage bonus feat"); },
+	featsAdd: [{ type: /^(?!.*(blessing|boon|charm|gift|fighting style)).*$/i }],
 	trait: "Custom Lineage (+2 to one ability score of my choice)" + desc([
 		"Size: I am Small or Medium (my choice).",
 		"Feat: I gain one feat of my choice for which I qualify.",
@@ -75,7 +74,7 @@ AddRacialVariant("custom lineage", "darkvision", {
 	trait: "Custom Lineage (+2 to one ability score of my choice)" + desc([
 		"Size: I am Small or Medium (my choice).",
 		"Feat: I gain one feat of my choice for which I qualify.",
-		"Variable Trait: I have darkvision with a range of 60 ft.",
+		"Variable Trait: I have Darkvision with a range of 60 ft.",
 	]),
 });
 AddRacialVariant("custom lineage", "skill proficiency", {
@@ -93,12 +92,13 @@ AddRacialVariant("custom lineage", "skill proficiency", {
 // >>>>>>>>>>>>>>>>>>>>>>> //
 // >>> Artificer Class >>> //
 // >>>>>>>>>>>>>>>>>>>>>>> //
-// [dupl_start] reprints from Eberron: Rising from the Last War (after 2020 errata)
-if (!SourceList["E:RLW"]) {
+// [dupl_start] reprints from Eberron: Rising from the Last War (after 2020 errata), but use the TCoE version in the all_WotC file because it was sold more
+if (!SourceList["E:RLW"] || !ClassList.artificer) {
+// dupl_end
 	ClassList.artificer = {
 		regExpSearch: /^(?=.*artificer)(?!.*wizard).*$/i,
 		name: "Artificer",
-		source: [["E:RLW", 54], ["T", 9]],
+		source: [["T", 9], ["E:RLW", 54]],
 		primaryAbility: "Intelligence",
 		abilitySave: 4,
 		prereqs: "Intelligence 13",
@@ -138,7 +138,7 @@ if (!SourceList["E:RLW"]) {
 		features: {
 			"magical tinkering": {
 				name: "Magical Tinkering",
-				source: [["E:RLW", 55], ["T", 11]],
+				source: [["T", 11], ["E:RLW", 55]],
 				minlevel: 1,
 				description: desc([
 					"As an action, I use thieves/artisan's tools to give 1 property to a nonmagical tiny object:",
@@ -151,7 +151,7 @@ if (!SourceList["E:RLW"]) {
 				"infuse item": {
 					name: "Infuse Item",
 					extraname: "Artificer 2",
-					source: [["E:RLW", 57]],
+					source: [["T", 12], ["E:RLW", 57]],
 					description: desc([
 						"When I finish a long rest, I can turn nonmagical objects into magic items using my infusions",
 						"I can attune to it immediately; If I infuse too many items, the oldest loses its magic",
@@ -171,7 +171,7 @@ if (!SourceList["E:RLW"]) {
 			},
 			"spellcasting": {
 				name: "Spellcasting",
-				source: [["E:RLW", 55], ["T", 11]],
+				source: [["T", 11], ["E:RLW", 55]],
 				minlevel: 1,
 				description: desc([
 					"I can cast prepared artificer cantrips/spells, using Intelligence as my spellcasting ability",
@@ -208,13 +208,13 @@ if (!SourceList["E:RLW"]) {
 				extraname: "Artificer Spellcasting",
 				"don't change component column on spell sheet": {
 					name: "[Meta] Don't alter spell sheets",
-					source: [["E:RLW", 55], ["T", 11]],
+					source: [["T", 11], ["E:RLW", 55]],
 					description: desc("The automation will not add M\u0192 to each artificer spell on the generated spell sheets"),
 				},
 			},
 			"infuse item": {
 				name: "Infuse Item",
-				source: [["E:RLW", 57], ["T", 12]],
+				source: [["T", 12], ["E:RLW", 57]],
 				minlevel: 2,
 				description: desc('Use the "Choose Feature" button above to add Artificer Infusions to the third page'),
 				additional: levels.map(function (n) {
@@ -227,21 +227,22 @@ if (!SourceList["E:RLW"]) {
 				}),
 				"boots of the winding path (prereq: level 6 artificer)": {
 					name: "Boots of the Winding Path",
-					source: [["E:RLW", 62], ["T", 21]],
+					source: [["T", 21], ["E:RLW", 62]],
 					description: desc([
 						"The wearer can use a bonus action to teleport up to 15 ft to an unoccupied space it can see",
 						"It must be a space that the wearer had occupied some time during the current turn",
 					]),
-					additional: "pair of boots; requires attunement",
+					additional: typePF ? "two boots; attunement" : "pair of boots; requires attunement",
 					prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 					magicitemsAdd: ["Boots of the Winding Path"],
 				},
 				"enhanced arcane focus": {
 					name: "Enhanced Arcane Focus",
-					source: [["E:RLW", 62], ["T", 21]],
+					source: [["T", 21], ["E:RLW", 62]],
 					description: desc("The holder has a bonus to spell attack rolls and ignores half cover with spell attacks"),
 					additional: levels.map(function (n) {
-						return "rod/staff/wand; attunement; +" + (n < 10 ? 1 : 2);
+						var attune = typePF ? "attune" : "attunement";
+						return "rod/staff/wand; " + attune + "; +" + (n < 10 ? 1 : 2);
 					}),
 					eval: function (lvl, chc) {
 						AddMagicItem("Enhanced Arcane Focus +" + (classes.known.artificer.level < 10 ? 1 : 2));
@@ -252,7 +253,7 @@ if (!SourceList["E:RLW"]) {
 				},
 				"enhanced defense (armor)": {
 					name: "Enhanced Defense",
-					source: [["E:RLW", 62], ["T", 21]],
+					source: [["T", 21], ["E:RLW", 62]],
 					description: "",
 					additional: levels.map(function (n) {
 						return "armor/shield; +" + (n < 10 ? 1 : 2) + " magical";
@@ -269,7 +270,7 @@ if (!SourceList["E:RLW"]) {
 				},
 				"enhanced defense (shield)": {
 					name: "Enhanced Defense",
-					source: [["E:RLW", 62], ["T", 21]],
+					source: [["T", 21], ["E:RLW", 62]],
 					description: "",
 					additional: levels.map(function (n) {
 						return "armor/shield; +" + (n < 10 ? 1 : 2) + " magical";
@@ -286,10 +287,11 @@ if (!SourceList["E:RLW"]) {
 				},
 				"enhanced weapon": {
 					name: "Enhanced Weapon",
-					source: [["E:RLW", 62], ["T", 21]],
+					source: [["T", 21], ["E:RLW", 62]],
 					description: "",
 					additional: levels.map(function (n) {
-						return "simple/martial weapon; +" + (n < 10 ? 1 : 2) + " magical";
+						var weapon = typePF ? "" : " weapon";
+						return "simple/martial" + weapon + "; +" + (n < 10 ? 1 : 2) + " magical";
 					}),
 					eval: function (lvl, chc) {
 						AddMagicItem("Weapon +" + (classes.known.artificer.level < 10 ? 1 : 2));
@@ -300,7 +302,7 @@ if (!SourceList["E:RLW"]) {
 				},
 				"homunculus servant": {
 					name: "Homunculus Servant",
-					source: [["E:RLW", 62], ["T", 21]],
+					source: [["T", 21], ["E:RLW", 62]],
 					description: desc([
 						"The item I infuse becomes the heart of a homunculus that immediately forms around it",
 						"I determine its appearance; It is friendly to me and my allies and obeys my commands",
@@ -311,7 +313,7 @@ if (!SourceList["E:RLW"]) {
 					creaturesAdd: [["Homunculus Servant"]],
 					creatureOptions: [{
 						name: "Homunculus Servant",
-						source: [["E:RLW", 62], ["T", 22]],
+						source: [["T", 22], ["E:RLW", 62]],
 						size: 5,
 						type: "Construct",
 						alignment: "Neutral",
@@ -376,7 +378,7 @@ if (!SourceList["E:RLW"]) {
 				},
 				"radiant weapon (prereq: level 6 artificer)": {
 					name: "Radiant Weapon",
-					source: [["E:RLW", 62], ["T", 22]],
+					source: [["T", 22], ["E:RLW", 62]],
 					description: desc([
 						"The weapon has a +1 bonus to attack and damage rolls made with it and it sheds light",
 						"As a bonus action, its wielder can start/stop the light, 30-ft radius bright + 30 ft dim light",
@@ -384,24 +386,24 @@ if (!SourceList["E:RLW"]) {
 						"As a reaction when hit by an attack, the wielder can expend 1 charge to blind its attacker",
 						"The attacker makes a Con save (my spell save DC) or is blinded until its next turn ends",
 					]),
-					additional: "simple/martial weapon; requires attunement",
+					additional: typePF ? "simple/martial; attunement" : "simple/martial weapon; requires attunement",
 					prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 					magicitemsAdd: ["Radiant Weapon"],
 				},
 				"repeating shot": {
 					name: "Repeating Shot",
-					source: [["E:RLW", 62], ["T", 22]],
+					source: [["T", 22], ["E:RLW", 62]],
 					description: desc([
 						"The weapon requiring ammunition has a +1 bonus to attack and damage rolls made with it",
 						"It magically produces one piece of ammunition whenever it is used to make a ranged attack",
 						"Thus, it doesn't require ammunition and ignores the loading property if it has it",
 					]),
-					additional: "weapon with ammo; requires attunement",
+					additional: "weapon with ammo; " + (typePF ? "" : "requires ") + "attunement",
 					magicitemsAdd: ["Repeating Shot"],
 				},
 				"repulsion shield (prereq: level 6 artificer)": {
 					name: "Repulsion Shield",
-					source: [["E:RLW", 63], ["T", 23]],
+					source: [["T", 23], ["E:RLW", 63]],
 					description: desc([
 						"The shield gives its wearer an extra +1 bonus to AC; It has 4 charges, regaining 1d4 daily",
 						"As a reaction when hit in melee, the wearer can use 1 charge to push the attacker 15 ft",
@@ -412,7 +414,7 @@ if (!SourceList["E:RLW"]) {
 				},
 				"resistant armor (prereq: level 6 artificer)": {
 					name: "Resistant Armor",
-					source: [["E:RLW", 63], ["T", 23]],
+					source: [["T", 23], ["E:RLW", 63]],
 					description: desc([
 						"The armor gives its wearer resistance to one type of damage, chosen at the time of infusion",
 						"Choose from: acid,	cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder",
@@ -423,21 +425,22 @@ if (!SourceList["E:RLW"]) {
 				},
 				"returning weapon": {
 					name: "Returning Weapon",
-					source: [["E:RLW", 63], ["T", 23]],
-					description: "After being used for a ranged attack, the weapon returns immediately; +1 magical bonus",
-					additional: "weapon with the thrown property",
+					source: [["T", 23], ["E:RLW", 63]],
+					description: desc("After being used for a ranged attack, the weapon returns immediately; +1 magical bonus"),
+					additional: "weapon with " + (typePF ? "" : "the ") + "thrown property",
 					magicitemsAdd: ["Returning Weapon"],
 				},
 			},
 			"the right tool for the job": {
 				name: "The Right Tool for the Job",
-				source: [["E:RLW", 57], ["T", 13]],
+				source: [["T", 13], ["E:RLW", 57]],
 				minlevel: 3,
-				description: " [using thieves' or artisan's tools]" + desc("In 1 hour (during a rest) I can create a set of artisan's tools that last until I do so again"),
+				description: " [using thieves' or artisan's tools]" +
+					desc("In 1 hour (during a rest) I can create a set of artisan's tools that last until I do so again"),
 			},
 			"subclassfeature3": {
 				name: "Artificer Specialist",
-				source: [["E:RLW", 57], ["T", 13]],
+				source: [["T", 13], ["E:RLW", 57]],
 				minlevel: 3,
 				description: desc([
 					'Choose a specialism and put it in the "Class" field on the first page',
@@ -446,7 +449,7 @@ if (!SourceList["E:RLW"]) {
 			},
 			"tool expertise": {
 				name: "Tool Expertise",
-				source: [["E:RLW", 57], ["T", 13]],
+				source: [["T", 13], ["E:RLW", 57]],
 				minlevel: 6,
 				description: " [expertise with all tools I'm proficient with]",
 				skillstxt: "Expertise with all tools I'm proficient with",
@@ -455,7 +458,7 @@ if (!SourceList["E:RLW"]) {
 			},
 			"flash of genius": {
 				name: "Flash of Genius",
-				source: [["E:RLW", 57], ["T", 13]],
+				source: [["T", 13], ["E:RLW", 57]],
 				minlevel: 7,
 				description: desc("As a reaction when I or another in 30 ft make a check/save, I can add my Int mod to it"),
 				action: [["reaction", ""]],
@@ -465,7 +468,7 @@ if (!SourceList["E:RLW"]) {
 			},
 			"magic item adept": {
 				name: "Magic Item Adept",
-				source: [["E:RLW", 57], ["T", 13]],
+				source: [["T", 13], ["E:RLW", 57]],
 				minlevel: 10,
 				description: desc("It takes me half the normal time and gold to craft common and uncommon magic items"),
 				additional: levels.map(function (n) {
@@ -474,7 +477,7 @@ if (!SourceList["E:RLW"]) {
 			},
 			"spell-storing item": {
 				name: "Spell-Storing Item",
-				source: [["E:RLW", 58], ["T", 13]],
+				source: [["T", 13], ["E:RLW", 58]],
 				minlevel: 11,
 				description: desc([
 					"When I finish a long rest, I can infuse a 1st-/2nd-level artificer spell into an item I touch",
@@ -489,15 +492,16 @@ if (!SourceList["E:RLW"]) {
 			},
 			"magic item savant": {
 				name: "Magic Item Savant",
-				source: [["E:RLW", 58], ["T", 14]],
+				source: [["T", 14], ["E:RLW", 58]],
 				minlevel: 14,
 				description: " [ignore class/race/spell/level attune require.]",
 			},
 			"soul of artifice": {
 				name: "Soul of Artifice",
-				source: [["E:RLW", 58], ["T", 14]],
+				source: [["T", 14], ["E:RLW", 58]],
 				minlevel: 20,
-				description: " [+1 on all saves per attuned magic item]\n   As a reaction when I'm reduced to 0 HP, I can end one infusion to drop to 1 HP instead",
+				description: desc("As a reaction when I'm reduced to 0 HP, I can end one infusion to drop to 1 HP instead"),
+				additional: "+1 on all saves per attuned magic item",
 				action: [["reaction", ""]],
 				savetxt: {
 					text: ["+1 to all saves per attuned magic item"],
@@ -625,11 +629,11 @@ if (!SourceList["E:RLW"]) {
 		regExpSearch: /^(?=.*alchemist)(?!.*wizard).*$/i,
 		subname: "Alchemist",
 		fullname: "Alchemist",
-		source: [["E:RLW", 58], ["T", 14]],
+		source: [["T", 14], ["E:RLW", 58]],
 		features: {
 			"subclassfeature3": {
 				name: "Tools Proficiency",
-				source: [["E:RLW", 58], ["T", 14]],
+				source: [["T", 14], ["E:RLW", 58]],
 				minlevel: 3,
 				description: " [proficient with alchemist's supplies]",
 				toolProfs: ["Alchemist's supplies"],
@@ -637,7 +641,7 @@ if (!SourceList["E:RLW"]) {
 			},
 			"subclassfeature3.1": {
 				name: "Experimental Elixir",
-				source: [["E:RLW", 58], ["T", 14]],
+				source: [["T", 14], ["E:RLW", 58]],
 				minlevel: 3,
 				description: desc([
 					"When I finish a long rest I can produce a number of elixirs in empty flasks I touch",
@@ -669,7 +673,7 @@ if (!SourceList["E:RLW"]) {
 			},
 			"subclassfeature5": {
 				name: "Alchemical Savant",
-				source: [["E:RLW", 58], ["T", 15]],
+				source: [["T", 15], ["E:RLW", 58]],
 				minlevel: 5,
 				description: desc([
 					"When I cast spells using alchemist's supplies as my spellcasting focus, I can enhance them",
@@ -698,7 +702,7 @@ if (!SourceList["E:RLW"]) {
 			},
 			"subclassfeature9": {
 				name: "Restorative Reagents",
-				source: [["E:RLW", 59], ["T", 15]],
+				source: [["T", 15], ["E:RLW", 59]],
 				minlevel: 9,
 				description: desc([
 					"Drinking my experimental elixirs now also grants 2d6 + my Int mod in temp HP (min 1)",
@@ -724,7 +728,7 @@ if (!SourceList["E:RLW"]) {
 			},
 			"subclassfeature15": {
 				name: "Chemical Mastery",
-				source: [["E:RLW", 59], ["T", 15]],
+				source: [["T", 15], ["E:RLW", 59]],
 				minlevel: 15,
 				additional: "each spell 1\xD7 per long rest",
 				description: desc([
@@ -764,11 +768,11 @@ if (!SourceList["E:RLW"]) {
 		regExpSearch: /^(?=.*artillerist)(?!.*wizard).*$/i,
 		subname: "Artillerist",
 		fullname: "Artillerist",
-		source: [["E:RLW", 59], ["T", 17]],
+		source: [["T", 17], ["E:RLW", 59]],
 		features: {
 			"subclassfeature3": {
 				name: "Tools Proficiency",
-				source: [["E:RLW", 59], ["T", 17]],
+				source: [["T", 17], ["E:RLW", 59]],
 				minlevel: 3,
 				description: " [proficient with woodcarver's tools]",
 				toolProfs: ["Woodcarver's tools"],
@@ -776,7 +780,7 @@ if (!SourceList["E:RLW"]) {
 			},
 			"subclassfeature3.1": {
 				name: "Eldritch Cannon",
-				source: [["E:RLW", 59], ["T", 17]],
+				source: [["T", 17], ["E:RLW", 59]],
 				minlevel: 3,
 				description: desc([
 					"As an action, I can use woodcarver's or smith's tools to create an eldritch cannon in 5 ft",
@@ -796,7 +800,7 @@ if (!SourceList["E:RLW"]) {
 				creaturesAdd: [["Eldritch Cannon"]],
 				creatureOptions: [{
 					name: "Eldritch Cannon",
-					source: [["E:RLW", 59], ["T", 17]],
+					source: [["T", 17], ["E:RLW", 59]],
 					size: [4, 5],
 					type: "Object",
 					alignment: "",
@@ -901,7 +905,7 @@ if (!SourceList["E:RLW"]) {
 			},
 			"subclassfeature5": {
 				name: "Arcane Firearm",
-				source: [["E:RLW", 59], ["T", 18]],
+				source: [["T", 18], ["E:RLW", 59]],
 				minlevel: 5,
 				description: " [lasts until I use this feature again]" + desc([
 					"After a long rest, I can use woodcarver's tools to enhance a wand, staff, or rod",
@@ -940,14 +944,14 @@ if (!SourceList["E:RLW"]) {
 			},
 			"subclassfeature9": {
 				name: "Explosive Cannon",
-				source: [["E:RLW", 60], ["T", 18]],
+				source: [["T", 18], ["E:RLW", 60]],
 				minlevel: 9,
 				description: desc("My eldritch cannons deal +1d8 damage; As an action, I can detonate a cannon in 60 ft"),
 				action: [["action", "Eldritch Cannon (detonate)"]],
 			},
 			"subclassfeature15": {
 				name: "Fortified Position",
-				source: [["E:RLW", 60], ["T", 18]],
+				source: [["T", 18], ["E:RLW", 60]],
 				minlevel: 15,
 				description: " [cannons grant half cover in 10 ft to allies]" + desc([
 					"I can now have two cannons at the same time and activate both with one bonus action",
@@ -962,12 +966,12 @@ if (!SourceList["E:RLW"]) {
 		regExpSearch: /^(?=.*battle)(?=.*smith)(?!.*wizard).*$/i,
 		subname: "Battle Smith",
 		fullname: "Battle Smith",
-		source: [["E:RLW", 60], ["T", 18]],
+		source: [["T", 18], ["E:RLW", 60]],
 		attacks: [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 		features: {
 			"subclassfeature3": {
 				name: "Battle Ready \u0026 Tool Proficiency",
-				source: [["E:RLW", 61], ["T", 19]],
+				source: [["T", 19], ["E:RLW", 61]],
 				minlevel: 3,
 				description: desc([
 					"I gain proficiency with martial weapons and smith's tools",
@@ -989,7 +993,7 @@ if (!SourceList["E:RLW"]) {
 			},
 			"subclassfeature3.1": {
 				name: "Steel Defender",
-				source: [["E:RLW", 61], ["T", 19]],
+				source: [["T", 19], ["E:RLW", 61]],
 				minlevel: 3,
 				description: desc([
 					"When I end a long rest, I can use smith's tools to create a steel defender",
@@ -1002,7 +1006,7 @@ if (!SourceList["E:RLW"]) {
 				creaturesAdd: [["Steel Defender"]],
 				creatureOptions: [{
 					name: "Steel Defender",
-					source: [["E:RLW", 61], ["T", 19]],
+					source: [["T", 19], ["E:RLW", 61]],
 					size: 3,
 					type: "Construct",
 					alignment: "Neutral",
@@ -1106,7 +1110,7 @@ if (!SourceList["E:RLW"]) {
 			},
 			"subclassfeature9": {
 				name: "Arcane Jolt",
-				source: [["E:RLW", 61], ["T", 20]],
+				source: [["T", 20], ["E:RLW", 61]],
 				minlevel: 9,
 				description: function () {
 					var descr9 = desc([
@@ -1138,7 +1142,7 @@ if (!SourceList["E:RLW"]) {
 			},
 			"subclassfeature15": {
 				name: "Improved Defender",
-				source: [["E:RLW", 61], ["T", 20]],
+				source: [["T", 20], ["E:RLW", 61]],
 				minlevel: 15,
 				description: desc([
 					"My defender's Deflect Attack now deals its attacker 1d4 + my Int mod force damage",
@@ -1151,7 +1155,7 @@ if (!SourceList["E:RLW"]) {
 	// Add the new special magic items for the artificer class (infusions)
 	MagicItemsList["boots of the winding path"] = {
 		name: "Boots of the Winding Path",
-		source: [["E:RLW", 62], ["T", 21], ["UA:A2", 9], ["UA:A3", 12]],
+		source: [["T", 21], ["E:RLW", 62], ["UA:A2", 9], ["UA:A3", 12]],
 		type: "wondrous item",
 		description: "While wearing these boots, I can teleport up to 15 ft as a bonus action to an unoccupied space I can see, as long as I occupied that space at some point during the current turn.",
 		descriptionFull: "While wearing these boots, a creature can teleport up to 15 feet as a bonus action to an unoccupied space the creature can see. The creature must have occupied that space at some point during the current turn.",
@@ -1161,7 +1165,7 @@ if (!SourceList["E:RLW"]) {
 	MagicItemsList["enhanced arcane focus, +1 or +2"] = {
 		name: "Enhanced Arcane Focus, +1 or +2",
 		nameTest: /^(?=.*enhanced)(?=.*(arcane focus|rod|wand|staff)).*$/i,
-		source: [["E:RLW", 62], ["T", 21]],
+		source: [["T", 21], ["E:RLW", 62]],
 		type: "wondrous item",
 		description: "While I am holding this arcane focus (rod, staff, or wand), I gain a +1 bonus to spell attack rolls (or +2 if the artificer that created it is level 10 or higher). In addition, I ignore half cover when making a spell attack.",
 		descriptionFull: "While holding this rod, staff, or wand, a creature gains a +1 bonus to spell attack rolls. In addition, the creature ignores half cover when making a spell attack.\n   The bonus increases to +2 when it is created by someone with 10 levels or more in the artificer class.",
@@ -1200,7 +1204,7 @@ if (!SourceList["E:RLW"]) {
 	MagicItemsList["radiant weapon"] = {
 		name: "Radiant Weapon",
 		nameTest: "Radiant",
-		source: [["E:RLW", 62], ["T", 22]],
+		source: [["T", 22], ["E:RLW", 62]],
 		type: "weapon (any)",
 		description: "This item adds a +1 on its to hit and damage, has 4 charges, and regains 1d4 at dawn. As a bonus action, I can have it start/stop shedding light, bright in 30 ft, dim in another 30 ft. As a reaction if hit by an attack, I can use 1 charge to blind the attacker until the end of its next turn unless it makes a Con save (my spell DC).",
 		descriptionFull: "This magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, the wielder can take a bonus action to cause it to shed bright light in a 30-foot radius and dim light for an additional 30 feet. The wielder can extinguish the light as a bonus action.\n   The weapon has 4 charges. As a reaction immediately after being hit by an attack, the wielder can expend 1 charge and cause the attacker to be blinded until the end of the attacker's next turn, unless the attacker succeeds on a Constitution saving throw against your spell save DC. The weapon regains 1d4 expended charges daily at dawn.",
@@ -1236,7 +1240,7 @@ if (!SourceList["E:RLW"]) {
 	}
 	MagicItemsList["repeating shot"] = {
 		name: "Repeating Shot",
-		source: [["E:RLW", 62], ["T", 22], ["UA:A3", 13]],
+		source: [["T", 22], ["E:RLW", 62], ["UA:A3", 13]],
 		type: "weapon (any with ammunition)",
 		description: "When I use this magic weapon to make a ranged attack, it magically produces one piece of ammunition and grants a +1 bonus to its attack and damage rolls. Thus, it doesn't require ammunition and ignores the loading property if it has it. The produced ammunition vanishes once it hits or misses a target.",
 		descriptionFull: "This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.\n   If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic ammunition when you make a ranged attack with it. The ammunition created by the weapon vanishes the instant after it hits or misses a target.",
@@ -1270,7 +1274,7 @@ if (!SourceList["E:RLW"]) {
 	}
 	MagicItemsList["repulsion shield"] = {
 		name: "Repulsion Shield",
-		source: [["E:RLW", 63], ["T", 23]],
+		source: [["T", 23], ["E:RLW", 63]],
 		type: "shield",
 		description: "I gain an additional +1 bonus to Armor Class while wielding this shield. The shield has 4 charges and regains 1d4 expended charges daily at dawn. As a reaction immediately after being hit by a melee attack, I can expend 1 charge to push the attacker up to 15 ft away.",
 		descriptionFull: "A creature gains a +1 bonus to Armor Class while wielding this shield.\n   The shield has 4 charges. While holding it, the wielder can use a reaction immediately after being hit by a melee attack to expend 1 of the shield's charges and push the attacker up to 15 feet away. The shield regains 1d4 expended charges daily at dawn.",
@@ -1285,7 +1289,7 @@ if (!SourceList["E:RLW"]) {
 	MagicItemsList["returning weapon"] = {
 		name: "Returning Weapon",
 		nameTest: "Returning",
-		source: [["E:RLW", 63], ["T", 23], ["UA:A3", 14], ["UA:A2", 10]],
+		source: [["T", 23], ["E:RLW", 63], ["UA:A3", 14], ["UA:A2", 10]],
 		type: "weapon (any thrown)",
 		description: "This magic weapon grants a +1 bonus to attack and damage rolls I make with it. It returns to my hand immediately after I use it to make a ranged attack.",
 		descriptionFull: "This magic weapon grants a +1 bonus to attack and damage rolls made with it, and it returns to the wielder's hand immediately after it is used to make a ranged attack.",
@@ -1317,7 +1321,9 @@ if (!SourceList["E:RLW"]) {
 			],
 		},
 	}
-} // dupl_end
+// [dupl_start] reprints from Eberron: Rising from the Last War (after 2020 errata)
+}
+// dupl_end
 
 // New Artificer Infusions
 AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Arcane Propulsion Armor (prereq: level 14 artificer)", {
@@ -1673,13 +1679,27 @@ RunFunctionAtEnd(function () {
 	}
 });
 
+// [dupl_start] EGtW creates the same function
+// With v14 it is possible to have class features not appear in the field if no `description` is defined, so we can make features just for the purpose of adding optional features to the 3rd page
+var makeOptionalClassFeatureBase = function (sClass, iLevel) {
+	var sKey = "optional_" + iLevel;
+	if (!ClassList[sClass].features[sKey]) {
+		ClassList[sClass].features[sKey] = {
+			extraname: "Optional level " + iLevel + " " + ClassList[sClass].name + " features",
+			minlevel: iLevel,
+			extrachoices: [],
+		}
+	}
+	return ClassList[sClass].features[sKey];
+} // dupl_end
 
 // >>>>>>>>>>>>>>>>>>>>>>>>> //
 // >>> Barbarian Options >>> //
 // >>>>>>>>>>>>>>>>>>>>>>>>> //
 
 // Barbarian Optional Class Features
-AddFeatureChoice(ClassList.barbarian.features["danger sense"], true, "Primal Knowledge", {
+var TCoE_barbarianOptional3 = makeOptionalClassFeatureBase("barbarian", 3);
+AddFeatureChoice(TCoE_barbarianOptional3, true, "Primal Knowledge", {
 	name: "Primal Knowledge",
 	extraname: "Optional Barbarian 3",
 	source: [["T", 24]],
@@ -1689,8 +1709,9 @@ AddFeatureChoice(ClassList.barbarian.features["danger sense"], true, "Primal Kno
 	]),
 	skillstxt: "Choose one from Animal Handling, Athletics, Intimidation, Nature, Perception and Survival.\nChoose another from this list at 10th level",
 	prereqeval: function (v) { return classes.known.barbarian.level >= 3 ? true : "skip"; },
-}, "Optional 3rd-level barbarian features");
-AddFeatureChoice(ClassList.barbarian.features["feral instinct"], true, "Instinctive Pounce", {
+});
+var TCoE_barbarianOptional7 = makeOptionalClassFeatureBase("barbarian", 7);
+AddFeatureChoice(TCoE_barbarianOptional7, true, "Instinctive Pounce", {
 	name: "Instinctive Pounce",
 	extraname: "Optional Barbarian 7",
 	source: [["T", 24]],
@@ -1698,7 +1719,7 @@ AddFeatureChoice(ClassList.barbarian.features["feral instinct"], true, "Instinct
 		"As part of the bonus action I use to enter rage, I can move up to half my speed",
 	]),
 	action: [["bonus action", "Rage (start & half move / end)", "Rage (start/end)"]],
-}, "Optional 7th-level barbarian features");
+});
 
 // Barbarian Subclasses
 AddSubClass("barbarian", "path of the beast", {
@@ -1899,7 +1920,8 @@ AddSubClass("barbarian", "path of wild magic", {
 // >>>>>>>>>>>>>>>>>>>> //
 
 // Bard Optional Class Features
-AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Additional Bard Spells", {
+var TCoE_bardOptional1 = makeOptionalClassFeatureBase("bard", 1);
+AddFeatureChoice(TCoE_bardOptional1, true, "Additional Bard Spells", {
 	name: "Additional Bard Spells",
 	source: [["T", 27]],
 	extraname: "Optional Bard 1",
@@ -1914,8 +1936,9 @@ AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Additional Bard Sp
 			"This optional class feature expands the spell list of the bard class with the following spells (spell level in brackets): Color Spray (1), Command (1), Aid (2), Enlarge/Reduce (2), Mirror Image (2), Mass Healing Word (3), Slow (3), Phantasmal Killer (4), Rary's Telepathic Bond (5), Heroes' Feast (6), Prismatic Spray (7), Antipathy/Sympathy (8), and Prismatic Wall (9).",
 		],
 	},
-}, "Optional 1st-level bard features");
-AddFeatureChoice(ClassList.bard.features["jack of all trades"], true, "Magical Inspiration", {
+});
+var TCoE_bardOptional2 = makeOptionalClassFeatureBase("bard", 2);
+AddFeatureChoice(TCoE_bardOptional2, true, "Magical Inspiration", {
 	name: "Magical Inspiration",
 	extraname: "Optional Bard 2",
 	source: [["T", 27]],
@@ -1923,8 +1946,9 @@ AddFeatureChoice(ClassList.bard.features["jack of all trades"], true, "Magical I
 		"A bardic inspiration die recipient can also use it when casting a damaging or healing spell",
 		"They can expend the die and add it to healing or damage dealt to one target of the spell",
 	]),
-}, "Optional 2nd-level bard features");
-AddFeatureChoice(ClassList.bard.features["song of rest"], true, "Bardic Versatility", {
+});
+var TCoE_bardOptional4 = makeOptionalClassFeatureBase("bard", 4);
+AddFeatureChoice(TCoE_bardOptional4, true, "Bardic Versatility", {
 	name: "Bardic Versatility",
 	extraname: "Optional Bard 4",
 	source: [["T", 28]],
@@ -1932,8 +1956,7 @@ AddFeatureChoice(ClassList.bard.features["song of rest"], true, "Bardic Versatil
 		"Whenever I gain an ASI from the bard class, I can change one cantrip or expertise choice",
 		"I can select another cantrip from the bard spell list or another skill I'm proficient with",
 	]),
-	prereqeval: function (v) { return classes.known.bard.level >= 4 ? true : "skip"; },
-}, "Optional 4th-level bard features");
+});
 
 // Bard Subclasses
 AddSubClass("bard", "college of creation", {
@@ -2130,7 +2153,8 @@ if (!SourceList.MOT) {
 // >>>>>>>>>>>>>>>>>>>>>> //
 
 // Cleric Optional Class Features
-AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Additional Cleric Spells", {
+var TCoE_clericOptional1 = makeOptionalClassFeatureBase("cleric", 1);
+AddFeatureChoice(TCoE_clericOptional1, true, "Additional Cleric Spells", {
 	name: "Additional Cleric Spells",
 	extraname: "Optional Cleric 1",
 	source: [["T", 30]],
@@ -2145,8 +2169,9 @@ AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Additional Cleri
 			"This optional class feature expands the spell list of the cleric class with the following spells (spell level in brackets): Aura of Vitality (3), Aura of Life (4), Aura of Purity (4), Sunbeam (6), Sunburst (8), and Power Word Heal (9).",
 		],
 	},
-}, "Optional 1st-level cleric features");
-AddFeatureChoice(ClassList.cleric.features["channel divinity"], true, "Harness Divine Power", {
+});
+var TCoE_clericOptional2 = makeOptionalClassFeatureBase("cleric", 2);
+AddFeatureChoice(TCoE_clericOptional2, true, "Harness Divine Power", {
 	name: "Channel Divinity: Harness Divine Power",
 	extraname: "Optional Cleric 2",
 	source: [["T", 30]],
@@ -2159,15 +2184,16 @@ AddFeatureChoice(ClassList.cleric.features["channel divinity"], true, "Harness D
 	usages: levels.map(function (n) {
 		return n < 3 ? "" : n < 6 ? 1 : n < 18 ? 2 : 3;
 	}),
-	recovery: "long rest",
-}, "Optional 2nd-level cleric features");
-AddFeatureChoice(ClassList.cleric.features["turn undead"], true, "Cantrip Versatility", {
+	recovery: typePF ? "LR" : "long rest",
+});
+var TCoE_clericOptional4 = makeOptionalClassFeatureBase("cleric", 4);
+AddFeatureChoice(TCoE_clericOptional4, true, "Cantrip Versatility", {
 	name: "Cantrip Versatility",
 	extraname: "Optional Cleric 4",
 	source: [["T", 31]],
-	description: " [ASI = Ability Score Improvement]\n   Whenever I gain an ASI from the cleric class, I can change one cleric cantrip for another",
-	prereqeval: function (v) { return classes.known.cleric.level >= 4 ? true : "skip"; },
-}, "Optional 4th-level cleric features");
+	description: " [ASI = Ability Score Improvement]" +
+		desc("Whenever I gain an ASI from the cleric class, I can change one cleric cantrip for another"),
+});
 // Cleric subclass alternative feature, so only run this after we are sure all subclasses have been added
 RunFunctionAtEnd(function () {
 	for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
@@ -2241,7 +2267,7 @@ if (!SourceList.G) {
 					"When I cast an enchantment spell using a spell slot, I can reduce its casting time",
 					"If the spell normally has a casting time of an action, I can now cast it as a bonus action",
 				]),
-				usages: "Wisdom modifier per ",
+				usages: "Wisdom " + (typePF ? "mod" : "modifier") + " per ",
 				usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
 				recovery: "long rest",
 				calcChanges: {
@@ -2467,7 +2493,8 @@ AddSubClass("cleric", "twilight domain", {
 // >>>>>>>>>>>>>>>>>>>>> //
 
 // Druid Optional Class Features
-AddFeatureChoice(ClassList.druid.features.spellcasting, true, "Additional Druid Spells", {
+var TCoE_druidOptional1 = makeOptionalClassFeatureBase("druid", 1);
+AddFeatureChoice(TCoE_druidOptional1, true, "Additional Druid Spells", {
 	name: "Additional Druid Spells",
 	extraname: "Optional Druid 1",
 	source: [["T", 35]],
@@ -2482,8 +2509,9 @@ AddFeatureChoice(ClassList.druid.features.spellcasting, true, "Additional Druid 
 			"This optional class feature expands the spell list of the druid class with the following spells (spell level in brackets): Protection from Evil and Good (1), Augury (2), Continual Flame (2), Enlarge/Reduce (2), Aura of Vitality (3), Elemental Weapon (3), Revivify (3), Divination (4), Fire Shield (4), Cone of Cold (5), Flesh to Stone (6), Symbol (7), and Incendiary Cloud (8).",
 		],
 	},
-}, "Optional 1st-level druid features");
-var TCoE_Wild_Companion = {
+});
+var TCoE_druidOptional2 = makeOptionalClassFeatureBase("druid", 2);
+AddFeatureChoice(TCoE_druidOptional2, true, "Wild Companion", {
 	name: "Wild Companion",
 	extraname: "Optional Druid 2",
 	source: [["T", 35], ["UA:CFV", 4]],
@@ -2509,18 +2537,15 @@ var TCoE_Wild_Companion = {
 			changes: "By using my Wild Companion class feature, I can expend a use of wild shape to cast Find Familiar without material components. The familiar created this way always has the Fey type and disappears after a number of hours equal to half my druid level.",
 		},
 	},
-}
-AddFeatureChoice(ClassList.druid.features["subclassfeature2.wild shape"], true, "Wild Companion", TCoE_Wild_Companion, "Optional 2nd-level druid features");
-if (ClassSubList["druid-circle of the moon"]) {
-	AddFeatureChoice(ClassSubList["druid-circle of the moon"].features["subclassfeature2.wild shape"], true, "Wild Companion", TCoE_Wild_Companion, "Optional 2nd-level druid features");
-}
-AddFeatureChoice(ClassList.druid.features.druidic, true, "Cantrip Versatility", {
+});
+var TCoE_druidOptional4 = makeOptionalClassFeatureBase("druid", 4);
+AddFeatureChoice(TCoE_druidOptional4, true, "Cantrip Versatility", {
 	name: "Cantrip Versatility",
 	extraname: "Optional Druid 4",
 	source: [["T", 35]],
-	description: " [ASI = Ability Score Improvement]\n   Whenever I gain an ASI from the druid class, I can change one druid cantrip for another",
-	prereqeval: function (v) { return classes.known.druid.level >= 4 ? true : "skip"; },
-}, "Optional 4th-level druid features");
+	description: " [ASI = Ability Score Improvement]" +
+		desc("Whenever I gain an ASI from the druid class, I can change one druid cantrip for another"),
+});
 
 // Druid Subclasses
 // [dupl_start] reprints from Guildmasters' Guide to Ravnica
@@ -2975,13 +3000,14 @@ AddFightingStyle(["fighter"], "Unarmed Fighting", {
 		],
 	},
 });
-AddFeatureChoice(ClassList.fighter.features["action surge"], true, "Martial Versatility", {
+var TCoE_fighterOptional4 = makeOptionalClassFeatureBase("fighter", 4);
+AddFeatureChoice(TCoE_fighterOptional4, true, "Martial Versatility", {
 	name: "Martial Versatility",
 	extraname: "Optional Fighter 4",
 	source: [["T", 42]],
-	description: " [ASI = Ability Score Improvement]\n   Whenever I gain an ASI from the fighter class, I can change a fighting style or a maneuver",
-	prereqeval: function (v) { return classes.known.fighter.level >= 4 ? true : "skip"; },
-}, "Optional 4th-level fighter features");
+	description: " [ASI = Ability Score Improvement]" +
+		desc("Whenever I gain an ASI from the fighter class, I can change a fighting style or a maneuver"),
+});
 // Fighter alternative class features and enhancements (only if Battle Master subclass exists)
 if (ClassSubList["fighter-battle master"]) {
 	AddFightingStyle(["fighter"], "Superior Technique", {
@@ -3008,7 +3034,8 @@ if (ClassSubList["fighter-battle master"]) {
 		}],
 	});
 	// New Maneuver options
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Ambush", {
+	var TCoE_battleMasterManeuvers = ClassSubList["fighter-battle master"].features["subclassfeature3.1"];
+	AddFeatureChoice(TCoE_battleMasterManeuvers, true, "Ambush", {
 		name: "Ambush",
 		source: [["T", 42], ["UA:CFV", 5]],
 		description: desc([
@@ -3016,7 +3043,7 @@ if (ClassSubList["fighter-battle master"]) {
 			"I can't do this if I'm incapacitated",
 		]),
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Bait and Switch", {
+	AddFeatureChoice(TCoE_battleMasterManeuvers, true, "Bait and Switch", {
 		name: "Bait and Switch",
 		source: [["T", 42]],
 		description: desc([
@@ -3026,7 +3053,7 @@ if (ClassSubList["fighter-battle master"]) {
 			"Me or my ally (my choice) can then add the superiority die to AC until my next turn starts",
 		]),
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Brace", {
+	AddFeatureChoice(TCoE_battleMasterManeuvers, true, "Brace", {
 		name: "Brace",
 		source: [["T", 42]],
 		description: desc([
@@ -3035,12 +3062,12 @@ if (ClassSubList["fighter-battle master"]) {
 		]),
 		action: [["reaction", ""]],
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Commanding Presence", {
+	AddFeatureChoice(TCoE_battleMasterManeuvers, true, "Commanding Presence", {
 		name: "Commanding Presence",
 		source: [["T", 42]],
 		description: desc("When I make a Performance, Intimidation, or Persuasion check, I can add a superiority die"),
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Grappling Strike", {
+	AddFeatureChoice(TCoE_battleMasterManeuvers, true, "Grappling Strike", {
 		name: "Grappling Strike",
 		source: [["T", 42]],
 		description: desc([
@@ -3049,7 +3076,7 @@ if (ClassSubList["fighter-battle master"]) {
 		]),
 		action: [["bonus action", " (after melee hit)"]],
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Quick Toss", {
+	AddFeatureChoice(TCoE_battleMasterManeuvers, true, "Quick Toss", {
 		name: "Quick Toss",
 		source: [["T", 42]],
 		description: desc([
@@ -3058,7 +3085,7 @@ if (ClassSubList["fighter-battle master"]) {
 		]),
 		action: [["bonus action", ""]],
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Tactical Assessment", {
+	AddFeatureChoice(TCoE_battleMasterManeuvers, true, "Tactical Assessment", {
 		name: "Tactical Assessment",
 		source: [["T", 42]],
 		description: desc("When I make an Investigation, History, or Insight check, I can add a superiority die to it"),
@@ -3086,7 +3113,7 @@ AddSubClass("fighter", "psi warrior", {
 				return n < 3 ? "" : n < 5 ? "d6" : n < 11 ? "d8" : n < 17 ? "d10" : "d12";
 			}),
 			action: [["bonus action", "Regain 1 Psionic Energy Die"]],
-			usages: "Proficiency Bonus \xD7 2 per ",
+			usages: (typePF ? "Prof" : "Proficiency") + " Bonus \xD7 2 per ",
 			usagescalc: "event.value = Number(How('Proficiency Bonus'))*2",
 			recovery: "long rest",
 			extraLimitedFeatures: [{
@@ -3129,7 +3156,7 @@ AddSubClass("fighter", "psi warrior", {
 			limfeaname: "Telekinetic Movement",
 			action: [["action", ""]],
 			usages: 1,
-			recovery: "short rest",
+			recovery: typePF ? "SR" : "short rest",
 			altResource: "PsiD",
 		},
 		"subclassfeature7.1": {
@@ -3143,14 +3170,14 @@ AddSubClass("fighter", "psi warrior", {
 			limfeaname: "Psi-Powered Leap",
 			action: [["bonus action", ""]],
 			usages: 1,
-			recovery: "short rest",
+			recovery: typePF ? "SR" : "short rest",
 			altResource: "PsiD",
 		},
 		"subclassfeature7.2": {
 			name: "Telekinetic Adept: Telekinetic Thrust",
 			source: [["T", 43]],
 			minlevel: 7,
-			additional: "DC 8 + Prof B. + Int mod",
+			additional: typePF ? "DC 8+Prof+Int m." : "DC 8 + Prof B + Int mod",
 			description: desc([
 				"When I deal damage with my Psionic Strike, I can have the target make a Strength save",
 				"If failed, I knock the target prone or move it up to 10 ft in any direction horizontally",
@@ -3355,13 +3382,17 @@ AddSubClass("fighter", "rune knight", {
 				" \u2022 My weapon and unarmed strike attacks deal extra damage",
 			]),
 			additional: levels.map(function (n) {
-				return n < 3 ? "" : (n < 18 ? "Large" : "Huge") + ", +1d" + (n < 10 ? 6 : n < 18 ? 8 : 10) + " damage"
+				if (n < 3) return "";
+				var size = n < 18 ? "Large" : "Huge";
+				var die = n < 10 ? 6 : n < 18 ? 8 : 10;
+				var dmg = typePF ? " dmg" : " damage";
+				return size + ", +1d" + die + dmg;
 			}),
 			action: [["bonus action", ""]],
 			savetxt: { text: ["Adv. on Str saves in Giant's Might"] },
 			usages: "Prof Bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
-			recovery: "long rest",
+			recovery: typePF ? "LR" : "long rest",
 			calcChanges: {
 				atkAdd: [
 					function (fields, v) {
@@ -3428,7 +3459,8 @@ AddSubClass("fighter", "rune knight", {
 // >>>>>>>>>>>>>>>>>>>> //
 
 // Monk Optional Class Features
-AddFeatureChoice(ClassList.monk.features.ki, true, "Dedicated Weapon", {
+var TCoE_monkOptional2 = makeOptionalClassFeatureBase("monk", 2);
+AddFeatureChoice(TCoE_monkOptional2, true, "Dedicated Weapon", {
 	name: "Dedicated Weapon",
 	extraname: "Optional Monk 2",
 	source: [["T", 48]],
@@ -3448,8 +3480,9 @@ AddFeatureChoice(ClassList.monk.features.ki, true, "Dedicated Weapon", {
 			1,
 		],
 	},
-}, "Optional 2nd-level monk features");
-AddFeatureChoice(ClassList.monk.features["unarmored movement"], true, "Ki-Fueled Attack", {
+});
+var TCoE_monkOptional3 = makeOptionalClassFeatureBase("monk", 3);
+AddFeatureChoice(TCoE_monkOptional3, true, "Ki-Fueled Attack", {
 	name: "Ki-Fueled Attack",
 	extraname: "Optional Monk 3",
 	source: [["T", 48]],
@@ -3458,21 +3491,24 @@ AddFeatureChoice(ClassList.monk.features["unarmored movement"], true, "Ki-Fueled
 		"This attack has to be in the same turn and with an unarmed strike or a monk weapon",
 	]),
 	action: [["bonus action", ""]],
-}, "Optional 3rd-level monk features");
-AddFeatureChoice(ClassList.monk.features["deflect missiles"], true, "Quickened Healing (2 ki points)", {
+});
+var TCoE_monkOptional4 = makeOptionalClassFeatureBase("monk", 4);
+AddFeatureChoice(TCoE_monkOptional4, true, "Quickened Healing (2 ki points)", {
 	name: "Quickened Healing",
 	extraname: "Optional Monk 4",
 	source: [["T", 49]],
-	description: " [2 ki points]\n   As an action, I can regain HP equal to the roll of my martial arts die + Proficiency Bonus",
+	description: desc("As an action, I can regain HP equal to the roll of my martial arts die + Proficiency Bonus"),
+	additional: "2 ki points",
 	action: [["action", ""]],
-}, "Optional 4th-level monk features");
-AddFeatureChoice(ClassList.monk.features["slow fall"], true, "Focused Aim (1-3 ki points)", {
+});
+var TCoE_monkOptional5 = makeOptionalClassFeatureBase("monk", 5);
+AddFeatureChoice(TCoE_monkOptional5, true, "Focused Aim (1-3 ki points)", {
 	name: "Focused Aim",
 	extraname: "Optional Monk 5",
 	source: [["T", 49]],
-	description: " [1-3 ki points]\n   When I miss an attack roll, I can spend ki to increase the roll by +2 per ki point (max +6)",
-	prereqeval: function (v) { return classes.known.monk.level >= 5 ? true : "skip"; },
-}, "Optional 5th-level monk features");
+	description: desc("When I miss an attack roll, I can spend ki to increase the roll by +2 per ki point (max +6)"),
+	additional: "1-3 ki points",
+});
 
 // Monk Subclasses
 AddSubClass("monk", "way of mercy", {
@@ -3700,7 +3736,8 @@ AddSubClass("monk", "way of the astral self", {
 // >>>>>>>>>>>>>>>>>>>>>>> //
 
 // Paladin Optional Class Features
-AddFeatureChoice(ClassList.paladin.features.spellcasting, true, "Additional Paladin Spells", {
+var TCoE_paladinOptional2 = makeOptionalClassFeatureBase("paladin", 2);
+AddFeatureChoice(TCoE_paladinOptional2, true, "Additional Paladin Spells", {
 	name: "Additional Paladin Spells",
 	extraname: "Optional Paladin 2",
 	source: [["T", 52]],
@@ -3715,7 +3752,7 @@ AddFeatureChoice(ClassList.paladin.features.spellcasting, true, "Additional Pala
 			"This optional class feature expands the spell list of the paladin class with the following spells (spell level in brackets): Gentle Repose (2), Prayer of Healing (2), and Warding Bond (2).",
 		],
 	},
-}, "Optional 2nd-level paladin features");
+});
 // Blind Fighting & Interception already added in the Fighter Options section
 AddFightingStyle(["paladin"], "Blessed Warrior", {
 	name: "Blessed Warrior Fighting Style",
@@ -3731,7 +3768,8 @@ AddFightingStyle(["paladin"], "Blessed Warrior", {
 		times: 2,
 	}],
 });
-AddFeatureChoice(ClassList.paladin.features["subclassfeature3.0-channel divinity"], true, "Harness Divine Power", {
+var TCoE_paladinOptional3 = makeOptionalClassFeatureBase("paladin", 3);
+AddFeatureChoice(TCoE_paladinOptional3, true, "Harness Divine Power", {
 	name: "Channel Divinity: Harness Divine Power",
 	extraname: "Optional Paladin 3",
 	source: [["T", 52]],
@@ -3744,21 +3782,22 @@ AddFeatureChoice(ClassList.paladin.features["subclassfeature3.0-channel divinity
 	usages: levels.map(function (n) {
 		return n < 3 ? "" : n < 7 ? 1 : n < 15 ? 2 : 3;
 	}),
-	recovery: "long rest",
-}, "Optional 3rd-level paladin features");
-AddFeatureChoice(ClassList.paladin.features["divine health"], true, "Martial Versatility", {
+	recovery: typePF ? "LR" : "long rest",
+});
+var TCoE_paladinOptional4 = makeOptionalClassFeatureBase("paladin", 4);
+AddFeatureChoice(TCoE_paladinOptional4, true, "Martial Versatility", {
 	name: "Martial Versatility",
 	extraname: "Optional Paladin 4",
 	source: [["T", 53]],
-	description: " [ASI = Ability Score Improvement]\n   Whenever I gain an ASI from the paladin class, I can change my paladin fighting style",
-	prereqeval: function (v) { return classes.known.paladin.level >= 4 ? true : "skip"; },
-}, "Optional 4th-level paladin features");
+	description: " [ASI = Ability Score Improvement]" +
+		desc("Whenever I gain an ASI from the paladin class, I can change my paladin fighting style"),
+});
 
 // Paladin Subclasses
 // [dupl_start] reprints from Mythic Odysseys of Theros
 if (!SourceList.MOT) {
 	AddSubClass("paladin", "oath of glory", {
-		regExpSearch: /^(?=.*glory)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
+		regExpSearch: /^(?=.*glory)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper))))).*$/i,
 		subname: "Oath of Glory",
 		subnameShort: "Glory",
 		source: [["T", 53], ["MOT", 29]],
@@ -3831,7 +3870,7 @@ if (!SourceList.MOT) {
 	});
 } // dupl_end
 AddSubClass("paladin", "oath of the watchers", {
-	regExpSearch: /^(?=.*watchers)((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*watchers)((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	subname: "Oath of the Watchers",
 	subnameShort: "Watchers",
 	source: [["T", 54]],
@@ -4001,9 +4040,9 @@ var TCoE_Additional_Ranger_Spells = {
 			"This optional class feature expands the spell list of the ranger class with the following spells (spell level in brackets): Entangle (1), Searing Smite (1), Aid (2), Enhance Ability (2), Gust of Wind (2), Magic Weapon (2), Elemental Weapon (3), Meld into Stone (3), Revivify (3), Dominate Beast (4), and Greater Restoration (5).",
 		],
 	},
-	prereqeval: function (v) { return (classes.known.ranger && classes.known.ranger.level >= 2) || (classes.known.rangerau && classes.known.rangerau.level >= 2) ? true : "skip"; },
 };
-AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Additional Ranger Spells (prereq: level 2 ranger)", TCoE_Additional_Ranger_Spells, "Optional ranger features");
+var TCoE_rangerOptional2 = makeOptionalClassFeatureBase("ranger", 2);
+AddFeatureChoice(TCoE_rangerOptional2, true, "Additional Ranger Spells", TCoE_Additional_Ranger_Spells);
 // Blind Fighting & Thrown Weapon Fighting already added in the Fighter Options section
 AddFightingStyle(["ranger"], "Druidic Warrior", {
 	name: "Druidic Warrior Fighting Style",
@@ -4024,9 +4063,8 @@ var TCoE_Ranger_Spellcasting_Focus = {
 	extraname: "Optional Ranger 2",
 	source: [["T", 57], ["UA:CFV", 8]],
 	description: desc("I can use a druidic focus as a spellcasting focus for my ranger spells"),
-	prereqeval: function (v) { return (classes.known.ranger && classes.known.ranger.level >= 2) || (classes.known.rangerau && classes.known.rangerau.level >= 2) ? true : "skip"; },
 };
-AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Spellcasting Focus (prereq: level 2 ranger)", TCoE_Ranger_Spellcasting_Focus, "Optional ranger features");
+AddFeatureChoice(TCoE_rangerOptional2, true, "Spellcasting Focus", TCoE_Ranger_Spellcasting_Focus);
 var TCoE_Primal_Awareness = {
 	name: "Primal Awareness",
 	source: [["T", 57]],
@@ -4061,10 +4099,11 @@ var TCoE_Ranger_Martial_Versatility = {
 	name: "Martial Versatility",
 	extraname: "Optional Ranger 4",
 	source: [["T", 57]],
-	description: " [ASI = Ability Score Improvement]\n   Whenever I gain an ASI from the ranger class, I can change my ranger fighting style",
-	prereqeval: function (v) { return (classes.known.ranger && classes.known.ranger.level >= 4) || (classes.known.rangerau && classes.known.rangerau.level >= 4) ? true : "skip"; },
+	description: " [ASI = Ability Score Improvement]" +
+		desc("Whenever I gain an ASI from the ranger class, I can change my ranger fighting style"),
 };
-AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Martial Versatility (prereq: level 4 ranger)", TCoE_Ranger_Martial_Versatility, "Optional ranger features");
+var TCoE_rangerOptional4 = makeOptionalClassFeatureBase("ranger", 4);
+AddFeatureChoice(TCoE_rangerOptional4, true, "Martial Versatility", TCoE_Ranger_Martial_Versatility);
 var TCoE_Natures_Veil = {
 	name: "Nature's Veil",
 	source: [["T", 57]],
@@ -4101,10 +4140,12 @@ RunFunctionAtEnd(function () {
 	// Now add the alternative class feature as another choice
 	AddFeatureChoice(ClassList.rangerua.features["favored enemy"], false, "[alternative feature] Favored Foe", TCoE_Favored_Foe);
 
-	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Additional Ranger Spells (prereq: level 2 ranger)", TCoE_Additional_Ranger_Spells, "Optional ranger features");
-	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Spellcasting Focus (prereq: level 2 ranger)", TCoE_Ranger_Spellcasting_Focus, "Optional ranger features");
+	var TCoE_rangeruaOptional2 = makeOptionalClassFeatureBase("rangerua", 2);
+	AddFeatureChoice(TCoE_rangeruaOptional2, true, "Additional Ranger Spells", TCoE_Additional_Ranger_Spells);
+	AddFeatureChoice(TCoE_rangeruaOptional2, true, "Spellcasting Focus", TCoE_Ranger_Spellcasting_Focus);
 	CreateClassFeatureVariant("rangerua", "primeval awareness", "Primal Awareness", TCoE_Primal_Awareness);
-	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Martial Versatility (prereq: level 4 ranger)", TCoE_Ranger_Martial_Versatility, "Optional ranger features");
+	var TCoE_rangeruaOptional4 = makeOptionalClassFeatureBase("rangerua", 4);
+	AddFeatureChoice(TCoE_rangeruaOptional4, true, "Martial Versatility", TCoE_Ranger_Martial_Versatility);
 	CreateClassFeatureVariant("rangerua", "hide in plain sight", "Nature's Veil", TCoE_Natures_Veil);
 });
 
@@ -4379,17 +4420,17 @@ var TCoE_Ranger_Subclass_Fey_Wanderer = AddSubClass("ranger", "fey wanderer", {
 			choices: ["Deception proficiency", "Performance proficiency", "Persuasion proficiency"],
 			"deception proficiency": {
 				name: "Otherworldly Glamour",
-				description: " [Deception proficiency]\n   I can add my Wisdom modifier to any Charisma check I make (minimum of +1)",
+				description: " [Deception proficiency]" + desc("I can add my Wisdom modifier to any Charisma check I make (minimum of +1)"),
 				skills: ["Deception"],
 			},
 			"performance proficiency": {
 				name: "Otherworldly Glamour",
-				description: " [Performance proficiency]\n   I can add my Wisdom modifier to any Charisma check I make (minimum of +1)",
+				description: " [Performance proficiency]" + desc("I can add my Wisdom modifier to any Charisma check I make (minimum of +1)"),
 				skills: ["Performance"],
 			},
 			"persuasion proficiency": {
 				name: "Otherworldly Glamour",
-				description: " [Persuasion proficiency]\n   I can add my Wisdom modifier to any Charisma check I make (minimum of +1)",
+				description: " [Persuasion proficiency]" + desc("I can add my Wisdom modifier to any Charisma check I make (minimum of +1)"),
 				skills: ["Persuasion"],
 			},
 		},
@@ -4514,7 +4555,8 @@ var TCoE_Ranger_Subclass_Swarmkeeper = AddSubClass("ranger", "swarmkeeper", {
 			name: "Mighty Swarm",
 			source: [["T", 60]],
 			minlevel: 11,
-			description: " [improves Gathered Swarm, see above]\n   Now 1d8 damage, knocks prone on failed save, or grants me half cover until next turn",
+			description: " [improves Gathered Swarm, see above]" +
+				desc("Now 1d8 damage, knocks prone on failed save, or grants me half cover until next turn"),
 		},
 		"subclassfeature15": {
 			name: "Swarming Dispersal",
@@ -4542,7 +4584,8 @@ if (ClassList.rangerua) {
 // >>>>>>>>>>>>>>>>>>>>> //
 
 // Rogue Optional Class Features
-AddFeatureChoice(ClassList.rogue.features["thieves cant"], true, "Steady Aim", {
+var TCoE_rogueOptional3 = makeOptionalClassFeatureBase("rogue", 3);
+AddFeatureChoice(TCoE_rogueOptional3, true, "Steady Aim", {
 	name: "Steady Aim",
 	extraname: "Optional Rogue 3",
 	source: [["T", 62]],
@@ -4551,8 +4594,7 @@ AddFeatureChoice(ClassList.rogue.features["thieves cant"], true, "Steady Aim", {
 		"This attack roll has to be in the same turn and my speed is 0 until the end of the turn",
 	]),
 	action: [["bonus action", ""]],
-	prereqeval: function (v) { return classes.known.rogue.level >= 3 ? true : "skip"; },
-}, "Optional 3rd-level rogue features");
+});
 
 // Rogue Subclasses
 AddSubClass("rogue", "phantom", {
@@ -4563,7 +4605,6 @@ AddSubClass("rogue", "phantom", {
 	features: {
 		"subclassfeature3": {
 			name: "Whispers of the Dead",
-			source: [["UA:SR", 1]],
 			source: [["T", 62]],
 			minlevel: 3,
 			description: desc([
@@ -4583,7 +4624,7 @@ AddSubClass("rogue", "phantom", {
 				if (n >= 9) a.push("I can do this my Proficiency Bonus per long rest, or by destroying a soul trinket (ST)");
 				return desc(a);
 			}),
-			usages: "Proficiency bonus per ",
+			usages: (typePF ? "Prof" : "Proficiency") + " Bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
 			recovery: "long rest",
 			additional: levels.map(function (n) {
@@ -4661,7 +4702,7 @@ AddSubClass("rogue", "soulknife", {
 				return n < 3 ? "" : n < 5 ? "d6" : n < 11 ? "d8" : n < 17 ? "d10" : "d12";
 			}),
 			action: [["bonus action", "Regain 1 Psionic Energy Die"]],
-			usages: "Proficiency Bonus \xD7 2 per ",
+			usages: (typePF ? "Prof" : "Proficiency") + " Bonus \xD7 2 per ",
 			usagescalc: "event.value = Number(How('Proficiency Bonus'))*2",
 			recovery: "long rest",
 			extraLimitedFeatures: [{
@@ -4796,7 +4837,8 @@ AddSubClass("rogue", "soulknife", {
 // >>>>>>>>>>>>>>>>>>>>>>>> //
 
 // Sorcerer Optional Class Features
-AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Additional Sorcerer Spells", {
+var TCoE_sorcererOptional1 = makeOptionalClassFeatureBase("sorcerer", 1);
+AddFeatureChoice(TCoE_sorcererOptional1, true, "Additional Sorcerer Spells", {
 	name: "Additional Sorcerer Spells",
 	extraname: "Optional Sorcerer 1",
 	source: [["T", 65]],
@@ -4811,7 +4853,7 @@ AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Additional Sor
 			"This optional class feature expands the spell list of the sorcerer class with the following spells (spell level in brackets): Grease (1), Flame Blade (2), Flaming Sphere (2), Magic Weapon (2), Vampiric Touch (3), Fire Shield (4), Bigby's Hand (5), Flesh to Stone (6), Otiluke's Freezing Sphere (6), and Demiplane (8).",
 		],
 	},
-}, "Optional sorcerer features");
+});
 // Metamagic options
 AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Seeking Spell", {
 	name: "Seeking Spell",
@@ -4832,7 +4874,8 @@ AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Transmuted Spe
 	]),
 });
 // Other optional features
-AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Sorcerous Versatility (prereq: level 4 sorcerer)", {
+var TCoE_sorcererOptional4 = makeOptionalClassFeatureBase("sorcerer", 4);
+AddFeatureChoice(TCoE_sorcererOptional4, true, "Sorcerous Versatility", {
 	name: "Sorcerous Versatility",
 	extraname: "Optional Sorcerer 4",
 	source: [["T", 66]],
@@ -4840,15 +4883,15 @@ AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Sorcerous Vers
 		"Whenever I gain an ASI from the sorcerer class, I can change a cantrip or Metamagic choice",
 		"I can select either another cantrip from the sorcerer spell list or another Metamagic option",
 	]),
-	prereqeval: function (v) { return classes.known.sorcerer.level >= 4 ? true : "skip"; },
-}, "Optional sorcerer features");
-AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Magical Guidance (prereq: level 5 sorcerer)", {
+});
+var TCoE_sorcererOptional5 = makeOptionalClassFeatureBase("sorcerer", 5);
+AddFeatureChoice(TCoE_sorcererOptional5, true, "Magical Guidance", {
 	name: "Magical Guidance",
 	extraname: "Optional Sorcerer 5",
 	source: [["T", 66]],
-	description: " [1 sorcery point]\n   When I make an ability check that fails, I can reroll the d20 and must use the new roll",
-	prereqeval: function (v) { return classes.known.sorcerer.level >= 5 ? true : "skip"; },
-}, "Optional sorcerer features");
+	description: desc("When I make an ability check that fails, I can reroll the d20 and must use the new roll"),
+	additional: "1 sorcery point",
+});
 
 // Sorcerer Subclasses
 AddSubClass("sorcerer", "aberrant mind", {
@@ -5109,7 +5152,8 @@ AddSubClass("sorcerer", "clockwork soul", {
 // >>>>>>>>>>>>>>>>>>>>>>> //
 
 // Warlock Optional Class Features
-AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Additional Warlock Spells", {
+var TCoE_warlockOptional1 = makeOptionalClassFeatureBase("warlock", 1);
+AddFeatureChoice(TCoE_warlockOptional1, true, "Additional Warlock Spells", {
 	name: "Additional Warlock Spells",
 	extraname: "Optional Warlock 1",
 	source: [["T", 70]],
@@ -5124,7 +5168,7 @@ AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Additional War
 			"This optional class feature expands the spell list of the warlock class with the following spells (spell level in brackets): Mislead (5), Planar Binding (5), Teleportation Circle (5), Gate (9), and Weird (9).",
 		],
 	},
-}, "Optional 1st-level warlock features");
+});
 AddWarlockPactBoon("Pact of the Talisman", {
 	name: "Pact of the Talisman",
 	source: [["T", 70]],
@@ -5138,7 +5182,8 @@ AddWarlockPactBoon("Pact of the Talisman", {
 	usagescalc: "event.value = How('Proficiency Bonus')",
 	recovery: "long rest",
 });
-AddFeatureChoice(ClassList.warlock.features["pact boon"], true, "Eldritch Versatility", {
+var TCoE_warlockOptional4 = makeOptionalClassFeatureBase("warlock", 4);
+AddFeatureChoice(TCoE_warlockOptional4, true, "Eldritch Versatility", {
 	name: "Eldritch Versatility",
 	extraname: "Optional Warlock 4",
 	source: [["T", 70]],
@@ -5148,8 +5193,7 @@ AddFeatureChoice(ClassList.warlock.features["pact boon"], true, "Eldritch Versat
 		" \u2022 I can replace my pact boon for another",
 		" \u2022 If I have Mystic Arcanum, I can replace one spell from it with another of the same level",
 	]),
-	prereqeval: function (v) { return classes.known.warlock.level >= 4 ? true : "skip"; },
-}, "Optional 4th-level warlock features");
+});
 // Eldritch Invocation options
 AddWarlockInvocation("Bond of the Talisman (prereq: level 12 warlock, Pact of the Talisman)", {
 	name: "Bond of the Talisman",
@@ -5324,7 +5368,7 @@ AddSubClass("warlock", "the fathomless", {
 				"The 10-ft long tentacle lasts for 1 minute or until I summon another",
 			]),
 			action: [["bonus action", " (summon/move)"]],
-			usages: "Proficiency bonus per ",
+			usages: (typePF ? "Prof" : "Proficiency") + " Bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
 			recovery: "long rest",
 			additional: levels.map(function (n) {
@@ -5403,7 +5447,7 @@ AddSubClass("warlock", "the fathomless", {
 			]),
 			action: [["action", ""]],
 			additional: levels.map(function (n) {
-				return n < 10 ? "" : n + " temp HP; 1\xD7 per long rest no SS";
+				return n < 10 ? "" : n + " temp HP; 1\xD7 per " + (typePF ? "LR" : "long rest") + " no SS";
 			}),
 			spellcastingBonus: [{
 				name: "Grasping Tentacles",
@@ -5531,7 +5575,8 @@ AddSubClass("warlock", "the genie", {
 			choicesNotInMenu: true,
 			"dao (earth)": {
 				name: "Dao's Wrath",
-				description: " [once on each of my turns]\n   When I hit an attack, I can have it deal my Prof Bonus in extra bludgeoning damage",
+				description: " [once on each of my turns]" +
+					desc("When I hit an attack, I can have it deal my Prof Bonus in extra bludgeoning damage"),
 				calcChanges: {
 					atkAdd: [
 						function (fields, v) {
@@ -5545,7 +5590,8 @@ AddSubClass("warlock", "the genie", {
 			},
 			"djinni (air)": {
 				name: "Djinni's Wrath",
-				description: " [once on each of my turns]\n   When I hit an attack, I can have it deal my Proficiency Bonus in extra thunder damage",
+				description: " [once on each of my turns]" +
+					desc("When I hit an attack, I can have it deal my Proficiency Bonus in extra thunder damage"),
 				calcChanges: {
 					atkAdd: [
 						function (fields, v) {
@@ -5559,7 +5605,8 @@ AddSubClass("warlock", "the genie", {
 			},
 			"efreeti (fire)": {
 				name: "Efreeti's Wrath",
-				description: " [once on each of my turns]\n   When I hit an attack, I can have it deal my Proficiency Bonus in extra fire damage",
+				description: " [once on each of my turns]" +
+					desc("When I hit an attack, I can have it deal my Proficiency Bonus in extra fire damage"),
 				calcChanges: {
 					atkAdd: [
 						function (fields, v) {
@@ -5573,7 +5620,8 @@ AddSubClass("warlock", "the genie", {
 			},
 			"marid (water)": {
 				name: "Marid's Wrath",
-				description: " [once on each of my turns]\n   When I hit an attack, I can have it deal my Proficiency Bonus in extra cold damage",
+				description: " [once on each of my turns]" +
+					desc("When I hit an attack, I can have it deal my Proficiency Bonus in extra cold damage"),
 				calcChanges: {
 					atkAdd: [
 						function (fields, v) {
@@ -5636,7 +5684,7 @@ AddSubClass("warlock", "the genie", {
 			additional: "Fly 10 min",
 			usages: "Prof Bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
-			recovery: "long rest",
+			recovery: typePF ? "LR" : "long rest",
 		},
 		"subclassfeature10": {
 			name: "Sanctuary Vessel",
@@ -5675,7 +5723,8 @@ AddSubClass("warlock", "the genie", {
 // >>>>>>>>>>>>>>>>>>>>>> //
 
 // Wizard Optional Class Features
-AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Additional Wizard Spells", {
+var TCoE_wizardOptional1 = makeOptionalClassFeatureBase("wizard", 1);
+AddFeatureChoice(TCoE_wizardOptional1, true, "Additional Wizard Spells", {
 	name: "Additional Wizard Spells",
 	extraname: "Optional Wizard 1",
 	source: [["T", 75]],
@@ -5690,8 +5739,9 @@ AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Additional Wizar
 			"This optional class feature expands the spell list of the wizard class with the following spells (spell level in brackets): Augury (2), Enhance Ability (2), Speak with Dead (3), and Divination (4).",
 		],
 	},
-}, "Optional 1st-level wizard features");
-AddFeatureChoice(ClassList.wizard.features["arcane recovery"], true, "Cantrip Formulas", {
+});
+var TCoE_wizardOptional3 = makeOptionalClassFeatureBase("wizard", 3);
+AddFeatureChoice(TCoE_wizardOptional3, true, "Cantrip Formulas", {
 	name: "Cantrip Formulas",
 	extraname: "Optional Wizard 3",
 	source: [["T", 76]],
@@ -5699,9 +5749,8 @@ AddFeatureChoice(ClassList.wizard.features["arcane recovery"], true, "Cantrip Fo
 		"I have scribed arcane formulas in my spellbook with which I formulate cantrips in my mind",
 		"Whenever I finish a long rest, I can use this to change a wizard cantrip I know for another",
 	]),
-	prereqeval: function (v) { return classes.known.wizard.level >= 3 ? true : "skip"; },
 	spellcastingPreparedCantrips: { "class": ["wizard"] },
-}, "Optional 3rd-level wizard features");
+});
 
 // Wizard Subclasses
 // [dupl_start] reprints from Sword Coast Adventure Guide (after 2020 errata)

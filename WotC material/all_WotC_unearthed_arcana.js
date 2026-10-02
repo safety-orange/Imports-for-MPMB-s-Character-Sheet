@@ -359,7 +359,9 @@ AddSubClass("wizard", "artificer-ua", {
 				"2nd: +1 ammunition (20 pieces), 3rd: +1 weapon or +1 shield, 4th: +1 armor,",
 				"5th: +2 weapon or +2 ammunition (20 pieces), 6th: +3 armor.",
 			]),
-			additional: ["", "", "", "", "", "1 weapon or armor", "1 weapon or armor", "1 weapon or armor", "1 weapon or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor", "2 weapons or armor"],
+			additional: levels.map(function (n) {
+				return n < 6 ? "" : (n < 10 ? 1 : "2\xD7") + " weapon/armor";
+			}),
 		},
 		"subclassfeature10": {
 			name: "Superior Artificer",
@@ -484,7 +486,7 @@ RunFunctionAtEnd(function () {
 
 // A version of the ranger, the spell-less ranger
 ClassList["spell-less ranger"] = {
-	regExpSearch: /^(?=.*spell.?less)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*spell.?less)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	name: "Spell-less Ranger",
 	source: [["UA:MC", 6]],
 	primaryAbility: "Dexterity and Wisdom",
@@ -749,7 +751,7 @@ if (ClassSubList["ranger-beast master"]) {
 	var UAMC_SLR_Beast_Master = newObj(ClassSubList["ranger-beast master"]);
 	UAMC_SLR_Beast_Master.source = ["UA:MC", 6];
 	delete UAMC_SLR_Beast_Master.fullname;
-	UAMC_SLR_Beast_Master.regExpSearch = /^(?=.*spell.?less)(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural|green))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i;
+	UAMC_SLR_Beast_Master.regExpSearch = /^(?=.*spell.?less)(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural|green))(?=.*(knight|warrior|warlord|trooper)))).*$/i;
 	UAMC_SLR_Beast_Master.features["subclassfeature15"] = {
 		name: "Beastly Coordination",
 		source: [["UA:MC", 7]],
@@ -1340,7 +1342,7 @@ SourceList["UA:R"] = {
 
 // Define a new class, called "Playtest Ranger" and its 3 subclasses
 ClassList["ua-playtest-ranger"] = {
-	regExpSearch: /^(?=.*playtest)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*playtest)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	name: "Playtest Ranger",
 	source: [["UA:R", 0]],
 	primaryAbility: "Dexterity and Wisdom",
@@ -1404,7 +1406,7 @@ ClassList["ua-playtest-ranger"] = {
 	},
 };
 AddSubClass("ua-playtest-ranger", "guardian-ua", {
-	regExpSearch: /^(?=.*guardian)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*guardian)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	subname: "Guardian",
 	source: [["UA:R", 3]],
 	features: {
@@ -1431,7 +1433,7 @@ AddSubClass("ua-playtest-ranger", "guardian-ua", {
 	},
 });
 AddSubClass("ua-playtest-ranger", "seeker-ua", {
-	regExpSearch: /^(?=.*seeker)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*seeker)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	subname: "Seeker",
 	source: [["UA:R", 4]],
 	features: {
@@ -1461,7 +1463,7 @@ AddSubClass("ua-playtest-ranger", "seeker-ua", {
 	},
 });
 AddSubClass("ua-playtest-ranger", "stalker-ua", {
-	regExpSearch: /^(?=.*stalker)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*stalker)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	subname: "Stalker",
 	source: [["UA:R", 4]],
 	features: {
@@ -3255,7 +3257,7 @@ SourceList["UA:RR"] = {
 
 //adds an alternative ranger class, including three subclasses
 ClassList.rangerua = {
-	regExpSearch: /^((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	name: "Ranger",
 	source: [["UA:RR", 2]],
 	primaryAbility: "Dexterity and Wisdom",
@@ -3300,7 +3302,7 @@ ClassList.rangerua = {
 				"I also learn one language of my choice, typically one associated with the favored enemy",
 			]),
 			additional: levels.map(function (n) {
-				return (n < 6 ? "+2" : "+4") + " weapon attack damage";
+				return (n < 6 ? "+2" : "+4") + " weapon" + (typePF ? "" : " attack") + " damage";
 			}),
 			choices: ["Beasts", "Fey", "Humanoids", "Monstrosities", "Undead"],
 			"beasts": {
@@ -3421,7 +3423,7 @@ ClassList.rangerua = {
 				"I get all the bonuses from Favored Enemy for this creature type as well",
 				"Additionally, I have adv. on saves vs. spells and abilities of this greater favored enemy",
 			]),
-			additional: "+4 weapon attack damage",
+			additional: "+4 weapon" + (typePF ? "" : " attack") + " damage",
 			choices: ["Aberrations", "Celestials", "Constructs", "Dragons", "Elementals", "Fiends", "Giants"],
 			"aberrations": {
 				name: "Greater Favored Enemy: Aberrations",
@@ -3523,7 +3525,7 @@ ClassList.rangerua = {
 };
 
 AddSubClass("rangerua", "beast master-ua", {
-	regExpSearch: /^(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	subname: "Beast Conclave",
 	source: [["UA:RR", 5]],
 	attacks: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -4903,7 +4905,7 @@ AddSubClass("fighter", "arcane archer-ua", {
 				"This arrow lasts until the end of my turn or until I hit or miss a target with it",
 			]),
 			additional: levels.map(function (n) {
-				return n < 3 ? "" : (n < 18 ? "+2" : "+4") + "d6 force damage";
+				return n < 3 ? "" : (n < 18 ? "+2" : "+4") + "d6 force " + (typePF ? "dmg" : "damage");
 			}),
 			usages: 2,
 			recovery: "short rest",
@@ -5378,7 +5380,10 @@ AddSubClass("monk", "way of the kensei-ua", {
 			name: "Precise Strike",
 			source: [["UA:MMT", 1]],
 			minlevel: 6,
-			description: "As a bonus action, I can focus my attention on one creature I can see within 30 ft" + "\n   " + "This turn, I double my proficiency bonus on my next weapon attack against that mark",
+			description: desc([
+				"As a bonus action, I can focus my attention on one creature I can see within 30 ft",
+				"This turn, I double my proficiency bonus on my next weapon attack against that mark",
+			]),
 			usages: 1,
 			recovery: "short rest",
 			action: [["bonus action", ""]],
@@ -5507,7 +5512,7 @@ SourceList["UA:PSO"] = {
 
 // Adds 2 subclasses for the Paladin
 AddSubClass("paladin", "oath of conquest-ua", {
-	regExpSearch: /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
+	regExpSearch: /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper))))))).*$/i,
 	subname: "Oath of Conquest",
 	subnameShort: "Conquest",
 	source: [["UA:PSO", 1]],
@@ -5560,7 +5565,7 @@ AddSubClass("paladin", "oath of conquest-ua", {
 	},
 });
 AddSubClass("paladin", "oath of treachery-ua", { // Still valid 2021-09-21
-	regExpSearch: /^((?=.*blackguard)|(((?=.*(treachery|tyranny|tyrant))(?=.*paladin))|((?=.*(profane|unholy))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
+	regExpSearch: /^((?=.*blackguard)|(((?=.*(treachery|tyranny|tyrant))(?=.*paladin))|((?=.*(profane|unholy))(?=.*(knight|warrior|warlord|trooper))))).*$/i,
 	subname: "Oath of Treachery",
 	subnameShort: "Treachery",
 	source: [["UA:PSO", 2]],
@@ -6046,10 +6051,10 @@ AddSubClass("sorcerer", "phoenix sorcery-ua", { // Still valid 2021-09-21
 			]),
 			additional: levels.map( function (n) {
 				if (n < 6) return "";
-				return Math.floor(n / 2) + "+Cha \u007Cor\u007C " + n + "+2\xD7Cha";
+				return Math.floor(n / 2) + "+Cha |or| " + n + "+2\xD7Cha";
 			}),
 			action: [["reaction", ""]],
-			recovery: "long rest",
+			recovery: typePF ? "LR" : "long rest",
 			usages: 1,
 		},
 		"subclassfeature14": {
@@ -6211,7 +6216,7 @@ AddSubClass("sorcerer", "stone sorcery-ua", { // Still valid 2021-09-21
 			]),
 			additional: levels.map( function (n) {
 				if (n < 6) return "";
-				return (Math.floor(n / 4) + 2) + " damage reduction; +" + (n < 11 ? 1 : n < 17 ? 2 : 3) + "d10 force damage";
+				return (Math.floor(n / 4) + 2) + " damage reduction; +" + (n < 11 ? 1 : n < 17 ? 2 : 3) + "d10 force " + (typePF ? "dmg" : "damage");
 			}),
 			action: [["bonus action", ""], ["reaction", "Aegis Teleport"]],
 		},
@@ -7281,7 +7286,7 @@ AddSubClass("mystic", "immortal-ua", {
 			]),
 			additional: levels.map(function (n) {
 				if (n < 14) return "";
-				return "HP: " + n + " + Constitution modifier";
+				return "HP: " + n + " + Constitution " + (typePF ? "mod" : "modifier");
 			}),
 		},
 	},
@@ -7324,7 +7329,7 @@ AddSubClass("mystic", "nomad-ua", {
 				"I can teleport to any empty space that I had occupied since the start of my last turn",
 			]),
 			usages: 1,
-			recovery: "short rest",
+			recovery: typePF ? "SR" : "short rest",
 			action: [["reaction", ""]],
 		},
 		"subclassfeature6": {
@@ -10940,7 +10945,7 @@ AddSubClass("monk", "way of the drunken master-ua", {
 	},
 });
 AddSubClass("paladin", "oath of redemption-ua", {
-	regExpSearch: /^((?=.*redeemer)|((?=.*redemption)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
+	regExpSearch: /^((?=.*redeemer)|((?=.*redemption)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper))))))).*$/i,
 	subname: "Oath of Redemption",
 	subnameShort: "Redemption",
 	source: [["UA:AToS", 1]],
@@ -12105,7 +12110,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 					"The target takes extra necrotic damage and must make a Constitution save",
 					"If failed, the damage of the target's attacks is halved until the start of my next turn",
 				]),
-				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 necrotic damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 necrotic" + (typePF ? "" : " damage"); }),
 			},
 			"bursting arrow [evocation]": {
 				name: "Bursting Arrow [Evocation]",
@@ -12121,7 +12126,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 					"The brambles give it -10 ft speed and do it slashing damage every round it moves",
 					"These can be removed by it or another as an action with Strength (Athletics) vs. my DC",
 				]),
-				additional: levels.map( function (n) { return n < 3 ? "" : (n < 18 ? 2 : 4) + "d6 poison/slash. damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : (n < 18 ? 2 : 4) + "d6 poison|slashing" + (typePF ? "" : " dmg"); }),
 			},
 			"mind-scrambling arrow [enchantment]": {
 				name: "Mind-Scrambling Arrow [Enchantment]",
@@ -12131,7 +12136,10 @@ AddSubClass("fighter", "arcane archer2-ua", {
 					"If failed, it can't attack or harm one of my allies within 30 ft of it that I choose",
 					"This lasts until the start of my next turn or until the chosen ally harms the target",
 				]),
-				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 damage"; }),
+				additional: levels.map(function (n) {
+					if (n < 3) return "";
+					return (typePF ? "" : "+") + (n < 18 ? 2 : 4) + "d6 " + (typePF ? "dmg" : "damage");
+				}),
 			},
 			"piercing arrow [transmutation]": {
 				name: "Piercing Arrow [Transmutation]",
@@ -12142,7 +12150,7 @@ AddSubClass("fighter", "arcane archer2-ua", {
 					"The damage is the same as a normal hit from my attack, plus extra piercing damage",
 					"A creature can make a Dexterity save to reduce the damage by half",
 				]),
-				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 1 : 2) + "d6 piercing damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 1 : 2) + "d6 piercing" + (typePF ? "" : " damage"); }),
 			},
 			"seeking arrow [divination]": {
 				name: "Seeking Arrow [Divination]",
@@ -12569,7 +12577,7 @@ AddSubClass("fighter", "cavalier2-ua", {
 	},
 });
 AddSubClass("paladin", "oath of conquest2-ua", {
-	regExpSearch: /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
+	regExpSearch: /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper))))))).*$/i,
 	subname: "Oath of Conquest",
 	subnameShort: "Conquest",
 	source: [["UA:RCO", 3]],
@@ -12702,7 +12710,8 @@ AddSubClass("warlock", "the celestial-ua", {
 			]),
 			additional: levels.map(function (n) {
 				if (n < 10) return "";
-				return "Me: " + n + "+Cha mod; Allies: " + Math.floor(n / 2) + "+Cha mod";
+				var chaM = typePF ? "+Cha m" : "+Cha mod";
+				return "Me: " + n + chaM + "; Allies: " + Math.floor(n / 2) + chaM;
 			}),
 		},
 		"subclassfeature14": {
@@ -16060,7 +16069,7 @@ AddSubClass("warlock", "the lurker in the deep-ua", {
 				"The 10-ft long tentacle lasts for 1 minute or until I summon another",
 			]),
 			action: [["bonus action", " (summon/move)"]],
-			recovery: "long rest",
+			recovery: typePF ? "LR" : "long rest",
 			additional: levels.map(function (n) {
 				return (n < 10 ? 1 : 2) + "d8";
 			}),
@@ -16130,7 +16139,7 @@ AddSubClass("warlock", "the lurker in the deep-ua", {
 			additional: levels.map(function (n) {
 				return n < 10 ? "" : n + " temp HP";
 			}),
-			recovery: "short rest",
+			recovery: typePF ? "SR" : "short rest",
 			usages: 1,
 		},
 		"subclassfeature14": {
@@ -16231,7 +16240,7 @@ AddSubClass("bard", "college of eloquence-ua", {
 	},
 });
 AddSubClass("paladin", "oath of heroism-ua", {
-	regExpSearch: /^(?=.*\bhero)((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*\bhero)((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	subname: "Oath of Heroism",
 	subnameShort: "Heroism",
 	source: [["UA:BnP", 2]],
@@ -16331,7 +16340,7 @@ AddSubClass("cleric", "twilight domain-ua", {
 			additional: "extend to others",
 			usages: "Wis mod per ",
 			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
-			recovery: "long rest",
+			recovery: typePF ? "LR" : "long rest",
 			action: [["action", ""]],
 		},
 		"subclassfeature1.2": {
@@ -16609,7 +16618,7 @@ AddSubClass("wizard", "onomancy-ua", {
 			additional: "with true name",
 			usages: "Int mod per ",
 			usagescalc: "event.value = Math.max(1, What('Int Mod'));",
-			recovery: "long rest",
+			recovery: typePF ? "LR" : "long rest",
 		},
 		"subclassfeature6": {
 			name: "Resonants",
@@ -16937,7 +16946,7 @@ var UAFRnR_rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua",
 			}),
 			usages: "Wis mod per ",
 			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
-			recovery: "long rest",
+			recovery: typePF ? "LR" : "long rest",
 		},
 		"subclassfeature7": {
 			name: "Writhing Tide",
@@ -17143,7 +17152,8 @@ CreateClassFeatureVariant("barbarian", "fast movement", "Instinctive Pounce (ua)
 });
 
 // Bard alternative class features enhancements
-AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Expanded Spell List (ua)", {
+var UACFV_bardOptional1 = makeOptionalClassFeatureBase("bard", 1);
+AddFeatureChoice(UACFV_bardOptional1, true, "Expanded Spell List (ua)", {
 	name: "Expanded Bard Spell List",
 	extraname: "Optional Bard 1",
 	source: [["UA:CFV", 3]],
@@ -17158,8 +17168,8 @@ AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Expanded Spell Lis
 			"This alternative class feature enhancement expands the spell list of the bard class with the following spells (spell level in brackets): Cause Fear (1), Color Spray (1), Command (1), Aid (2), Enlarge/Reduce (2), Mind Spike (2), Mirror Image (2), Phantasmal Force (2), Mass Healing Word (3), Slow (3), Tiny Servant (3), Phantasmal Killer (4), Contact Other Plane (5), Rary's Telepathic Bond (5), Heroes' Feast (6), Mental Prison (6), Scatter (6), Tenser's Transformation (6), Power Word Pain (7), Prismatic Spray (7), Antipathy/Sympathy (8), Maze (8), and Prismatic Wall (9).",
 		],
 	},
-}, "Optional 1st-level bard features");
-AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Magical Inspiration (ua)", {
+});
+AddFeatureChoice(UACFV_bardOptional1, true, "Magical Inspiration (ua)", {
 	name: "Magical Inspiration",
 	extraname: "Optional Bard 1",
 	source: [["UA:CFV", 3]],
@@ -17167,22 +17177,23 @@ AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Magical Inspiratio
 		"A bardic inspiration die recipient can also use it when casting a damaging or healing spell",
 		"They can expend the die and add its result to one damage or healing roll of the spell",
 	]),
-}, "Optional 1st-level bard features");
-AddFeatureChoice(ClassList.bard.features.spellcasting, true, "Spell Versatility (ua)", {
+});
+AddFeatureChoice(UACFV_bardOptional1, true, "Spell Versatility (ua)", {
 	name: "Spell Versatility",
 	extraname: "Optional Bard 1",
 	source: [["UA:CFV", 3]],
 	description: desc("After a long rest, I can swap a bard cantrip or spell I know for another of the same level"),
-}, "Optional 1st-level bard features");
+});
 
 // Cleric alternative class features and enhancements
-AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Cantrip Versatility (ua)", {
+var UACFV_clericOptional1 = makeOptionalClassFeatureBase("cleric", 1);
+AddFeatureChoice(UACFV_clericOptional1, true, "Cantrip Versatility (ua)", {
 	name: "Cantrip Versatility",
 	extraname: "Optional Cleric 1",
 	source: [["UA:CFV", 3]],
 	description: desc("Whenever I gain a cleric level, I can replace a cleric cantrip I know with another"),
-}, "Optional 1st-level cleric features");
-AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Expanded Spell List (ua)", {
+});
+AddFeatureChoice(UACFV_clericOptional1, true, "Expanded Spell List (ua)", {
 	name: "Expanded Cleric Spell List",
 	extraname: "Optional Cleric 1",
 	source: [["UA:CFV", 3]],
@@ -17197,13 +17208,15 @@ AddFeatureChoice(ClassList.cleric.features.spellcasting, true, "Expanded Spell L
 			"This alternative class feature enhancement expands the spell list of the cleric class with the following spells (spell level in brackets): Cause Fear (1), Wrathful Smite (1), Branding Smite (2), Aura of Vitality (3), Aura of Life (4), Aura of Purity (4), Skill Empowerment (5), Wall of Light (5), and Power Word Heal (9).",
 		],
 	},
-}, "Optional 1st-level cleric features");
-AddFeatureChoice(ClassList.cleric.features["channel divinity"], true, "Harness Divine Power (ua)", {
+});
+var UACFV_clericOptional2 = makeOptionalClassFeatureBase("cleric", 2);
+AddFeatureChoice(UACFV_clericOptional2, true, "Harness Divine Power (ua)", {
 	name: "Channel Divinity:\xA0Harness Divine Power",
+	extraname: "Optional Cleric 2",
 	source: [["UA:CFV", 4]],
 	description: desc("As a bonus action, I can use my holy symbol and a prayer to regain 1 used level 1 spell slot"),
 	action: [["bonus action", ""]],
-}, "Optional 2nd-level cleric features");
+});
 // Cleric subclass alternative feature, so only run this after we are sure all subclasses have been added
 RunFunctionAtEnd(function () {
 	for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
@@ -17232,13 +17245,14 @@ RunFunctionAtEnd(function () {
 });
 
 // Druid alternative class features and enhancements
-AddFeatureChoice(ClassList.druid.features.spellcasting, true, "Cantrip Versatility (ua)", {
+var UACFV_druidOptional1 = makeOptionalClassFeatureBase("druid", 1);
+AddFeatureChoice(UACFV_druidOptional1, true, "Cantrip Versatility (ua)", {
 	name: "Cantrip Versatility",
 	extraname: "Optional Druid 1",
 	source: [["UA:CFV", 4]],
 	description: desc("Whenever I gain a druid level, I can replace a druid cantrip I know with another"),
-}, "Optional 1st-level druid features");
-AddFeatureChoice(ClassList.druid.features.spellcasting, true, "Expanded Spell List (ua)", {
+});
+AddFeatureChoice(UACFV_druidOptional1, true, "Expanded Spell List (ua)", {
 	name: "Expanded Druid Spell List",
 	extraname: "Optional Druid 1",
 	source: [["UA:CFV", 4]],
@@ -17253,14 +17267,15 @@ AddFeatureChoice(ClassList.druid.features.spellcasting, true, "Expanded Spell Li
 			"This alternative class feature enhancement expands the spell list of the druid class with the following spells (spell level in brackets): Ceremony (1), Protection from Evil and Good (1), Augury (2), Continual Flame (2), Enlarge/Reduce (2), Aura of Vitality (3), Elemental Weapon (3), Revivify (3), Thunder Step (3), Wall of Sand (3), Divination (4), Fire Shield (4), Cone of Cold (5), Dawn (5), Immolation (5), Flesh to Stone (6), Symbol (7), Incendiary Cloud (8), Mass Polymorph (9), and Power Word Heal (9).",
 		],
 	},
-}, "Optional 1st-level druid features");
+});
 // The enhancement option for fighting styles has to be added to each class separately
-AddFeatureChoice(ClassList.fighter.features["fighting style"], true, "Martial Versatility (ua)", {
+var UACFV_fighterOptional1 = makeOptionalClassFeatureBase("fighter", 1);
+AddFeatureChoice(UACFV_fighterOptional1, true, "Martial Versatility (ua)", {
 	name: "Martial Versatility",
 	extraname: "Optional Fighter 1",
 	source: [["UA:CFV", 12]],
 	description: desc("Whenever I gain a fighter level, I can swap a fighting style I know for another I'm allowed"),
-}, "Optional 1st-level fighter features");
+});
 // All the other fighting styles are available for all three classes, fighter, paladin, and ranger, so add them to all three here
 AddFightingStyle(["fighter", "ranger", "paladin"], "Blind Fighting (ua)", {
 	name: "Blind Fighting Style",
@@ -17329,14 +17344,15 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Unarmed Fighting (ua)", {
 });
 if (ClassSubList["fighter-battle master"]) {
 	// Fighter alternative class features and enhancements (only if Battle Master subclass exists)
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Maneuver Versatility (ua)", {
+	var UACFV_battleMasterManeuvers = ClassSubList["fighter-battle master"].features["subclassfeature3.1"];
+	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3"], true, "Maneuver Versatility (ua)", {
 		name: "Maneuver Versatility",
 		extraname: "Optional Battle Master 3",
 		source: [["UA:CFV", 5]],
 		description: desc("Whenever I finish a long rest, I can replace a Maneuver I know with another"),
-	}, "Optional 3rd-level battle master features");
+	}, "Optional level 3 Battle Master features");
 		// New Maneuver options
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Bait and Switch (ua)", {
+	AddFeatureChoice(UACFV_battleMasterManeuvers, true, "Bait and Switch (ua)", {
 		name: "Bait and Switch",
 		source: [["UA:CFV", 5]],
 		description: desc([
@@ -17345,7 +17361,7 @@ if (ClassSubList["fighter-battle master"]) {
 			"The ally then adds the superiority die to its AC until the start of my next turn",
 		]),
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Brace (ua)", {
+	AddFeatureChoice(UACFV_battleMasterManeuvers, true, "Brace (ua)", {
 		name: "Brace",
 		source: [["UA:CFV", 5]],
 		description: desc([
@@ -17355,7 +17371,7 @@ if (ClassSubList["fighter-battle master"]) {
 		limfeaname: "Brace\xA0",
 		action: [["reaction", ""]],
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Restraining Strike", {
+	AddFeatureChoice(UACFV_battleMasterManeuvers, true, "Restraining Strike", {
 		name: "Restraining Strike",
 		source: [["UA:CFV", 5]],
 		description: desc([
@@ -17365,12 +17381,12 @@ if (ClassSubList["fighter-battle master"]) {
 		]),
 		action: [["bonus action", " (after melee weapon hit)"]],
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Silver Tongue", {
+	AddFeatureChoice(UACFV_battleMasterManeuvers, true, "Silver Tongue", {
 		name: "Silver Tongue",
 		source: [["UA:CFV", 5]],
 		description: desc("When I make a Cha (Deception) or Cha (Persuasion) check, I can add a superiority die to it"),
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Snipe", {
+	AddFeatureChoice(UACFV_battleMasterManeuvers, true, "Snipe", {
 		name: "Snipe",
 		source: [["UA:CFV", 5]],
 		description: desc([
@@ -17379,7 +17395,7 @@ if (ClassSubList["fighter-battle master"]) {
 		]),
 		action: [["bonus action", ""]],
 	});
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Studious Eye", {
+	AddFeatureChoice(UACFV_battleMasterManeuvers, true, "Studious Eye", {
 		name: "Studious Eye",
 		source: [["UA:CFV", 5]],
 		description: desc("When I make a Wis (Insight) or Int (Investigation) check, I can add a superiority die to it"),
@@ -17450,36 +17466,40 @@ RunFunctionAtEnd(function () {
 	}
 });
 // Ki enhancements
-AddFeatureChoice(ClassList.monk.features.ki, true, "Ki-Fueled Strike (ua)", {
+var UACFV_monkOptional2 = makeOptionalClassFeatureBase("monk", 2);
+AddFeatureChoice(UACFV_monkOptional2, true, "Ki-Fueled Strike (ua)", {
 	name: "Ki-Fueled Strike",
 	extraname: "Optional Monk 2",
 	source: [["UA:CFV", 6]],
 	description: desc("If I spend any ki points during my action, I can make an unarmed strike as a bonus action"),
 	action: [["bonus action", ""]],
-}, "Optional 2nd-level monk features");
-AddFeatureChoice(ClassList.monk.features.ki, true, "Distant Eye (1 ki point) (ua)", {
+});
+AddFeatureChoice(UACFV_monkOptional2, true, "Distant Eye (1 ki point) (ua)", {
 	name: "Distant Eye",
 	extraname: "Optional Monk 2",
 	source: [["UA:CFV", 6]],
-	description: " [1 ki point]\n   My ranged weapon attacks during this turn ignore the disadvantage from long range",
-}, "Optional 2nd-level monk features");
-AddFeatureChoice(ClassList.monk.features.ki, true, "Quickened Healing (2 ki points) (ua)", {
+	description: desc("My ranged weapon attacks during this turn ignore the disadvantage from long range"),
+	additional: "1 ki point",
+});
+AddFeatureChoice(UACFV_monkOptional2, true, "Quickened Healing (2 ki points) (ua)", {
 	name: "Quickened Healing",
 	extraname: "Optional Monk 2",
 	source: [["UA:CFV", 6]],
-	description: " [2 ki points]\n   As an action, I can regain a number of hit points equal to the roll of my martial arts die",
+	description: desc("As an action, I can regain a number of hit points equal to the roll of my martial arts die"),
+	additional: "2 ki points",
 	action: [["action", ""]],
-}, "Optional 2nd-level monk features");
+});
 
 // Paladin alternative class features and enhancements
 // The enhancement option for fighting styles has to be added to each class separately
-AddFeatureChoice(ClassList.paladin.features.spellcasting, true, "Martial Versatility (ua)", {
+var UACFV_paladinOptional2 = makeOptionalClassFeatureBase("paladin", 2);
+AddFeatureChoice(UACFV_paladinOptional2, true, "Martial Versatility (ua)", {
 	name: "Martial Versatility",
 	extraname: "Optional Paladin 2",
 	source: [["UA:CFV", 12]],
 	description: desc("Whenever I gain a paladin level, I can swap a fighting style I know for another I'm allowed"),
-}, "Optional 2nd-level paladin features");
-AddFeatureChoice(ClassList.paladin.features.spellcasting, true, "Expanded Spell List (ua)", {
+});
+AddFeatureChoice(UACFV_paladinOptional2, true, "Expanded Spell List (ua)", {
 	name: "Expanded Paladin Spell List",
 	extraname: "Optional Paladin 2",
 	source: [["UA:CFV", 6]],
@@ -17494,14 +17514,15 @@ AddFeatureChoice(ClassList.paladin.features.spellcasting, true, "Expanded Spell 
 			"This alternative class feature enhancement expands the spell list of the paladin class with the following spells (spell level in brackets): Gentle Repose (2), Prayer of Healing (2), Warding Bond (2), Life Transference (3), Spirit Guardians (3), Dawn (5), and Flame Strike (5).",
 		],
 	},
-}, "Optional 2nd-level paladin features");
-AddFeatureChoice(ClassList.paladin.features["subclassfeature3.0-channel divinity"], true, "Harness Divine Power (ua)", {
+});
+var UACFV_paladinOptional3 = makeOptionalClassFeatureBase("paladin", 3);
+AddFeatureChoice(UACFV_paladinOptional3, true, "Harness Divine Power (ua)", {
 	name: "Channel Divinity:\xA0Harness Divine Power",
 	extraname: "Optional Paladin 3",
 	source: [["UA:CFV", 6]],
 	description: desc("As a bonus action, I can use my holy symbol and a prayer to regain 1 used level 1 spell slot"),
 	action: [["bonus action", ""]],
-}, "Optional 3rd-level paladin features");
+});
 
 // Ranger alternative class features and enhancements
 var UACFV_Deft_Explorer = {
@@ -17589,7 +17610,8 @@ var UACFV_Ranger_Martial_Versatility = {
 	source: [["UA:CFV", 12]],
 	description: desc("Whenever I gain a ranger level, I can swap a fighting style I know for another I'm allowed"),
 };
-AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Martial Versatility (ua)", UACFV_Ranger_Martial_Versatility, "Optional 2nd-level ranger features");
+var UACFV_rangerOptional2 = makeOptionalClassFeatureBase("ranger", 2);
+AddFeatureChoice(UACFV_rangerOptional2, true, "Martial Versatility (ua)", UACFV_Ranger_Martial_Versatility);
 var UACFV_Ranger_Expanded_Spell_List = {
 	name: "Expanded Ranger Spell List",
 	extraname: "Optional Ranger 2",
@@ -17606,14 +17628,14 @@ var UACFV_Ranger_Expanded_Spell_List = {
 		],
 	},
 };
-AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Expanded Spell List (ua)", UACFV_Ranger_Expanded_Spell_List, "Optional 2nd-level ranger features");
+AddFeatureChoice(UACFV_rangerOptional2, true, "Expanded Spell List (ua)", UACFV_Ranger_Expanded_Spell_List);
 var UACFV_Ranger_Spell_Versatility = {
 	name: "Spell Versatility",
 	extraname: "Optional Ranger 2",
 	source: [["UA:CFV", 8]],
 	description: desc("When I finish a long rest, I can replace a ranger spell I know with another of the same level"),
 };
-AddFeatureChoice(ClassList.ranger.features.spellcasting, true, "Spell Versatility (ua)", UACFV_Ranger_Spell_Versatility, "Optional 2nd-level ranger features");
+AddFeatureChoice(UACFV_rangerOptional2, true, "Spell Versatility (ua)", UACFV_Ranger_Spell_Versatility);
 var UACFV_Primal_Awareness = {
 	name: "Primal Awareness",
 	source: [["UA:CFV", 8]],
@@ -17782,7 +17804,7 @@ if (ClassSubList["ranger-beast master"]) {
 			},
 			companionApply: "companion",
 		}],
-	}, "Optional 3rd-level beast master features");
+	}, "Optional level 3 Beast Master features");
 }
 
 // Add the Ranger alternative class features also to the Revised Ranger, if it exists
@@ -17807,15 +17829,17 @@ if (ClassList["rangerua"]) {
 	AddFeatureChoice(ClassList.rangerua.features["favored enemy"], false, "[alternative feature] Favored Foe (ua)", UACFV_Favored_Foe);
 
 	// The enhancement option for fighting styles has to be added to each class separately
-	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Martial Versatility (ua)", UACFV_Ranger_Martial_Versatility, "Optional 2nd-level ranger features");
-	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Expanded Spell List (ua)", UACFV_Ranger_Expanded_Spell_List, "Optional 2nd-level ranger features");
-	AddFeatureChoice(ClassList.rangerua.features.spellcasting, true, "Spell Versatility (ua)", UACFV_Ranger_Spell_Versatility, "Optional 2nd-level ranger features");
+	var UACFV_rangeruaOptional2 = makeOptionalClassFeatureBase("rangerua", 2);
+	AddFeatureChoice(UACFV_rangeruaOptional2, true, "Martial Versatility (ua)", UACFV_Ranger_Martial_Versatility);
+	AddFeatureChoice(UACFV_rangeruaOptional2, true, "Expanded Spell List (ua)", UACFV_Ranger_Expanded_Spell_List);
+	AddFeatureChoice(UACFV_rangeruaOptional2, true, "Spell Versatility (ua)", UACFV_Ranger_Spell_Versatility);
 		CreateClassFeatureVariant("rangerua", "primeval awareness", "Primal Awareness (ua)", UACFV_Primal_Awareness);
 	CreateClassFeatureVariant("rangerua", "hide in plain sight", "Fade Away (ua)", UACFV_Fade_Away);
 }
 
 // Rogue alternative class feature enhancement
-AddFeatureChoice(ClassList.rogue.features["cunning action"], true, "Cunning Action: Aim (ua)", {
+var UACFV_rogueOptional2 = makeOptionalClassFeatureBase("rogue", 2);
+AddFeatureChoice(UACFV_rogueOptional2, true, "Cunning Action: Aim (ua)", {
 	name: "Cunning Action: Aim",
 	extraname: "Optional Rogue 2",
 	source: [["UA:CFV", 9]],
@@ -17824,10 +17848,11 @@ AddFeatureChoice(ClassList.rogue.features["cunning action"], true, "Cunning Acti
 		"If I don't move in my turn, I give myself adv. on my next attack in the current turn",
 		"After I use cunning action to aim, my speed is 0 until the end of the current turn",
 	]),
-}, "Optional 2nd-level rogue features");
+});
 
 // Sorcerer alternative class features and enhancements
-AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Expanded Spell List (ua)", {
+var UACFV_sorcererOptional1 = makeOptionalClassFeatureBase("sorcerer", 1);
+AddFeatureChoice(UACFV_sorcererOptional1, true, "Expanded Spell List (ua)", {
 	name: "Expanded Sorcerer Spell List",
 	extraname: "Optional Sorcerer 1",
 	source: [["UA:CFV", 9]],
@@ -17842,34 +17867,38 @@ AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Expanded Spell
 			"This alternative class feature enhancement expands the spell list of the sorcerer class with the following spells (spell level in brackets): Primal Savagery (cantrip), Grease (1), Protection from Evil and Good (1), Flame Blade (2), Flaming Sphere (2), Vampiric Touch (3), Fire Shield (4), Flesh to Stone (6), Demiplane (8), and Foresight (9).",
 		],
 	},
-}, "Optional sorcerer features");
-AddFeatureChoice(ClassList.sorcerer.features.spellcasting, true, "Spell Versatility (ua)", {
+});
+AddFeatureChoice(UACFV_sorcererOptional1, true, "Spell Versatility (ua)", {
 	name: "Spell Versatility",
 	extraname: "Optional Sorcerer 1",
 	source: [["UA:CFV", 10]],
 	description: desc("After a long rest, I can swap a sorcerer cantrip/spell I know for another of the same level"),
 }, "Optional sorcerer features");
 // Font of Magic options
-AddFeatureChoice(ClassList.sorcerer.features["font of magic"], true, "Empowering Reserves", {
+var UACFV_sorcererOptional2 = makeOptionalClassFeatureBase("sorcerer", 2);
+AddFeatureChoice(UACFV_sorcererOptional2, true, "Empowering Reserves", {
 	name: "Empowering Reserves",
 	extraname: "Optional Sorcerer 2",
 	source: [["UA:CFV", 10]],
-	description: " [2 sorcery points]\n   When I make an ability check on my turn, I can gain advantage on the check",
-}, "Optional 2nd-level sorcerer features");
-AddFeatureChoice(ClassList.sorcerer.features["font of magic"], true, "Imbuing Touch", {
+	description: desc("When I make an ability check on my turn, I can gain advantage on the check"),
+	additional: "2 sorcery points",
+});
+AddFeatureChoice(UACFV_sorcererOptional2, true, "Imbuing Touch", {
 	name: "Imbuing Touch",
 	extraname: "Optional Sorcerer 2",
 	source: [["UA:CFV", 10]],
-	description: " [2 sorcery points]\n   As an action, I can touch a nonmagical weapon and make it count as magical for 1 minute",
+	description: desc("As an action, I can touch a nonmagical weapon and make it count as magical for 1 minute"),
+	additional: "2 sorcery points",
 	action: [["action", " (2 sorcery points)"]],
-}, "Optional 2nd-level sorcerer features");
-AddFeatureChoice(ClassList.sorcerer.features["font of magic"], true, "Sorcerous Fortitude (ua)", {
+});
+AddFeatureChoice(UACFV_sorcererOptional2, true, "Sorcerous Fortitude (ua)", {
 	name: "Sorcerous Fortitude",
 	extraname: "Optional Sorcerer 2",
 	source: [["UA:CFV", 10]],
-	description: " [1+ sorcery points]\n   As an action, I can gain 1d4 temporary hit points per sorcery point I spend",
+	description: desc("As an action, I can gain 1d4 temporary hit points per sorcery point I spend"),
+	additional: "1+ sorcery points",
 	action: [["action", " (1+ sorcery points)"]],
-}, "Optional 2nd-level sorcerer features");
+});
 // Metamagic options
 AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Elemental Spell (ua)", {
 	name: "Elemental Spell",
@@ -17900,13 +17929,14 @@ AddFeatureChoice(ClassList.sorcerer.features["metamagic"], true, "Unerring Spell
 });
 
 // Warlock alternative class features and enhancements
-AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Spell Versatility (ua)", {
+var UACFV_warlockOptional1 = makeOptionalClassFeatureBase("warlock", 1);
+AddFeatureChoice(UACFV_warlockOptional1, true, "Spell Versatility (ua)", {
 	name: "Spell Versatility",
 	extraname: "Optional Warlock 1",
 	source: [["UA:CFV", 10]],
 	description: desc("After a long rest, I can swap a warlock cantrip or spell I know for another of the same level"),
-}, "Optional 1st-level warlock features");
-AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Expanded Spell List (ua)", {
+});
+AddFeatureChoice(UACFV_warlockOptional1, true, "Expanded Spell List (ua)", {
 	name: "Expanded Warlock Spell List",
 	extraname: "Optional Warlock 1",
 	source: [["UA:CFV", 10]],
@@ -17921,7 +17951,7 @@ AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Expanded Spell
 			"This alternative class feature enhancement expands the spell list of the warlock class with the following spells (spell level in brackets): Thunderwave (1), Knock (2), Animate Dead (3), Life Transference (3), Greater Invisibility (4), Phantasmal Killer (4), Mislead (5), Modify Memory (5), Planar Binding (5), Teleportation Circle (5), Create Homunculus (6), Magic Jar (6), Project Image (7), Abi-Dalzim's Horrid Wilting (8), Gate (9), Shapechange (9), and Weird (9).",
 		],
 	},
-}, "Optional 1st-level warlock features");
+});
 // New Eldritch Invocations
 AddWarlockInvocation("Bond of the Talisman (prereq: level 12 warlock, Pact of the Talisman) (ua)", {
 	name: "Bond of the\xA0Talisman",
@@ -18093,13 +18123,14 @@ AddWarlockPactBoon("Pact of the Talisman (ua)", {
 });
 
 // Wizard alternative class features and enhancements
-AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Cantrip Versatility (ua)", {
+var UACFV_wizardOptional1 = makeOptionalClassFeatureBase("wizard", 1);
+AddFeatureChoice(UACFV_wizardOptional1, true, "Cantrip Versatility (ua)", {
 	name: "Cantrip Versatility",
 	extraname: "Optional Wizard 1",
 	source: [["UA:CFV", 12]],
 	description: desc("Whenever I gain a wizard level, I can replace a wizard cantrip I know with another"),
-}, "Optional 1st-level wizard features");
-AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Expanded Spell List (ua)", {
+});
+AddFeatureChoice(UACFV_wizardOptional1, true, "Expanded Spell List (ua)", {
 	name: "Expanded Wizard Spell List",
 	extraname: "Optional Wizard 1",
 	source: [["UA:CFV", 12]],
@@ -18114,7 +18145,7 @@ AddFeatureChoice(ClassList.wizard.features.spellcasting, true, "Expanded Spell L
 			"This alternative class feature enhancement expands the spell list of the wizard class with the following spells (spell level in brackets): Augury (2), Enhance Ability (2), Speak with Dead (3), and Divination (4).",
 		],
 	},
-}, "Optional 1st-level wizard features");
+});
 
 // ua_20191125_Fighter-Rogue-and-Wizard.js
 // This file adds the content from the Unearthed Arcana: Fighter, Rogue, and Wizard (psionics) article to MPMB's Character Record Sheet
@@ -18185,7 +18216,7 @@ AddSubClass("fighter", "psychic warrior-ua", {
 				"If its save succeeds, it takes half damage and isn't moved; DC 8 + Prof Bonus + Int mod",
 			]),
 			action: [["bonus action", ""]],
-			usages: "Intelligence modifier per ",
+			usages: "Intelligence " + (typePF ? "mod" : "modifier") + " per ",
 			usagescalc: "event.value = Math.max(1, What('Int Mod'));",
 			recovery: "long rest",
 		},
@@ -18212,7 +18243,7 @@ AddSubClass("fighter", "psychic warrior-ua", {
 				"The target also has to make a Constitution save (DC 8 + my Prof Bonus + my Int mod)",
 				"If it fails, it falls prone and has disadv. on its next ability check until my next turn starts",
 			]),
-			usages: "Intelligence modifier per ",
+			usages: "Intelligence " + (typePF ? "mod" : "modifier") + " per ",
 			usagescalc: "event.value = Math.max(1, What('Int Mod'));",
 			recovery: "long rest",
 		},
@@ -18926,7 +18957,7 @@ AddSubClass("monk", "way of mercy-ua", {
 	},
 });
 AddSubClass("paladin", "oath of the watchers-ua", {
-	regExpSearch: /^(?=.*watchers)((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*watchers)((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	subname: "Oath of the Watchers",
 	subnameShort: "Watchers",
 	source: [["UA:SP1", 3]],
@@ -19249,7 +19280,7 @@ AddSubClass("cleric", "unity domain-ua", {
 				"This resistance lasts until the end of the current turn",
 			]),
 			additional: levels.map(function (n) {
-				return n < 6 ? "" : n < 17 ? "the bonded must be within 30 ft" : "the bonded must be on the same plane";
+				return n < 6 ? "" : n < 17 ? "bonded must be within 30 ft" : "bonded must be on the same plane";
 			}),
 		},
 		"subclassfeature8": {
@@ -19455,7 +19486,7 @@ RunFunctionAtEnd(function () {
 					"Power armor now counts as armor, boots, bracers, and a weapon for holding infusions",
 					"I can infuse two of those after a rest without counting towards the number of items",
 				]),
-				additional: "+2 infused items, if used on power armor",
+				additional: typePF ? "+2 infused items if on power armor" : "+2 infused items, if used on power armor",
 			},
 			"subclassfeature15": {
 				name: "Perfected Armor",
@@ -19483,7 +19514,7 @@ RunFunctionAtEnd(function () {
 				choicesNotInMenu: true,
 				"guardian": {
 					name: "Perfected Armor: Guardian",
-					additional: "Intelligence modifier per long rest",
+					additional: (typePF ? "Int mod per" : "Intelligence modifier per") + " long rest",
 					description: desc([
 						"As a reaction when a creature I can see ends its turn in 30 ft, I have it make a Str save",
 						"If it fails, I pull it up to 30 ft towards me to an empty space",
@@ -19906,7 +19937,7 @@ AddSubClass("rogue", "phantom-ua", {
 				];
 				return desc(a);
 			}),
-			usages: "Proficiency bonus per ",
+			usages: (typePF ? "Prof" : "Proficiency") + " Bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
 			recovery: "long rest",
 			additional: levels.map(function (n) {
@@ -20364,7 +20395,7 @@ AddSubClass("warlock", "the undead-ua",{
 			}),
 			usages: "Prof Bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
-			recovery: "long rest",
+			recovery: typePF ? "LR" : "long rest",
 			action: [["bonus action", ""]],
 			savetxt: { immune: ["frightened (Form of Dread)"] },
 		},
@@ -20716,7 +20747,7 @@ var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden-ua", 
 				"I can do this once per long rest, or by expending a 3rd-level or higher spell slot (SS 3+)",
 			]),
 			additional: levels.map(function (n) {
-				return n < 11 ? "" : (n < 15 ? 6 : 8) + "d6 damage";
+				return n < 11 ? "" : (n < 15 ? 6 : 8) + "d6 " + (typePF ? "dmg" : "damage");
 			}),
 			action: [["action", ""]],
 			usages: 1,
@@ -21788,7 +21819,7 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 			name: "Lunar Phenomenon",
 			source: [["UA:HoK", 3]],
 			minlevel: 18,
-			additional: "per phase: 1\xD7 per long rest or 5 SP",
+			additional: "per phase: 1\xD7 per " + (typePF ? "LR" : "long rest") + " or 5 SP",
 			description: desc([
 				"As a bonus action, or as part of changing phase, I can use a power of the (new) phase:",
 				"\u25CB Full: Chosen creatures within 30 ft of me must make a Constitution save or be blinded",
@@ -22529,7 +22560,7 @@ SourceList["UA:GO"] = {
 };
 
 AddSubClass("barbarian", "giant-ua", {
-	regExpSearch: /^((?=.*(marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n))|((?=.*(warrior|fighter))(?=.*(feral|tribal))))(?=.*giant).*$/i,
+	regExpSearch: /^((?=.*(marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n))|((?=.*warrior)(?=.*(feral|tribal))))(?=.*giant).*$/i,
 	subname: "Path of the Giant",
 	subnameShort: "Giant",
 	source: [["UA:GO", 1]],

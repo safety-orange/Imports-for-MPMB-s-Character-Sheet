@@ -1,5 +1,5 @@
 var iFileName = "pub_20140818_PHB.js";
-RequiredSheetVersion("14.0.6-beta");
+RequiredSheetVersion("14.1.0");
 // This file adds all material from the Player's Handbook to MPMB's Character Record Sheet
 
 // Define the source
@@ -181,12 +181,12 @@ AddRacialVariant("human", "variant", {
 	scorestxt: "+1 to two different ability scores of my choice",
 	scores: [0, 0, 0, 0, 0, 0],
 	trait: "Human (+1 to two different ability scores of my choice)\n\nSkills: I gain proficiency in one skill of my choice.\n\nFeat: I gain one feat of my choice.",
-	featsAdd: [{ type: /^(?!.*(blessing|boon|gift|fighting style)).*$/i }],
+	featsAdd: [{ type: /^(?!.*(blessing|boon|charm|gift|fighting style)).*$/i }],
 });
 
 // Add the subclasses that are not in the SRD
 AddSubClass("barbarian", "totem warrior", {
-	regExpSearch: /^(?=.*totem)(?=.*(warrior|fighter|marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n)).*$/i,
+	regExpSearch: /^(?=.*totem)(?=.*(warrior|marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n)).*$/i,
 	subname: "Path of the Totem Warrior",
 	fullname: "Totem Warrior",
 	source: [["P", 50]],
@@ -440,7 +440,9 @@ AddSubClass("cleric", "light domain", {
 				"As an action, in 30 ft, magical darkness is dispelled and hostiles must make a Con save",
 				"Each takes radiant damage, saves for half, and negates with total cover",
 			]),
-			additional: ["", "2d10 + 2 damage", "2d10 + 3 damage", "2d10 + 4 damage", "2d10 + 5 damage", "2d10 + 6 damage", "2d10 + 7 damage", "2d10 + 8 damage", "2d10 + 9 damage", "2d10 + 10 dmg", "2d10 + 11 dmg", "2d10 + 12 dmg", "2d10 + 13 dmg", "2d10 + 14 dmg", "2d10 + 15 dmg", "2d10 + 16 dmg", "2d10 + 17 dmg", "2d10 + 18 dmg", "2d10 + 19 dmg", "2d10 + 20 dmg"],
+			additional: levels.map(function (n) {
+				return n < 2 ? "" : "2d10+" + n + (typePF ? "dmg" : "damage");
+			}),
 			action: [["action", ""]],
 		},
 		"subclassfeature6": {
@@ -519,7 +521,7 @@ AddSubClass("cleric", "nature domain", {
 			minlevel: 8,
 			description: desc("Once per turn, when I hit a creature with a weapon attack, I can do extra damage"),
 			additional: levels.map(function (n) {
-				return n < 8 ? "" : "+" + (n < 14 ? 1 : 2) + "d8 cold/fire/lightning damage (choice)";
+				return n < 8 ? "" : "+" + (n < 14 ? 1 : 2) + "d8 cold, fire, or lightning damage";
 			}),
 			calcChanges: {
 				atkAdd: [
@@ -635,7 +637,13 @@ AddSubClass("cleric", "trickery domain", {
 				"I can cast spells as though I were in a duplicate's space, using my own senses",
 				"I have advantage on attacks if the target is within 5 ft of a duplicate and me",
 			]),
-			additional: levels.map(function (n) { return n < 2 ? "" : (n < 17 ? 1 : 2) + " illusory duplicate" + (n < 17 ? "" : "s"); }),
+			additional: levels.map(function (n) {
+				if (n < 2) return "";
+				var nr = n < 17 ? 1 : 2;
+				var illusory = typePF ? "" : " illusory";
+				var duplicates = " duplicate" + (nr === 1 ? "" : "s");
+				return nr + illusory + duplicates;
+			}),
 			action: [["action", ""], ["bonus action", "Move Duplicate(s)"]],
 		},
 		"subclassfeature6": {
@@ -1244,7 +1252,7 @@ AddSubClass("monk", "way of the four elements", {
 			"fist of unbroken air": {
 				name: "Fist of Unbroken Air",
 				source: [["P", 81]],
-				additional: "2 ki points; +1d10/extra ki point",
+				additional: "2 ki points; +1d10/extra ki" + (typePF ? "" : " point"),
 				description: desc([
 					"As an action, target within 30 ft takes 3d10 bludgeoning damage (spend ki for more)",
 					"It is also pushed up to 20 ft away from me and knocked prone",
@@ -1531,7 +1539,7 @@ AddSubClass("monk", "way of shadow", {
 	},
 });
 AddSubClass("paladin", "oath of the ancients", {
-	regExpSearch: /^(((?=.*(ancient|nature|natural|green|fey|horned))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))))|((?=.*(green|fey|horned))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*(ancient|nature|natural|green|fey|horned))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine|green))(?=.*(knight|warrior|warlord|trooper))))).*$/i,
 	subname: "Oath of the Ancients",
 	subnameshort: "Ancients",
 	source: [["P", 87]],
@@ -1595,7 +1603,7 @@ AddSubClass("paladin", "oath of the ancients", {
 	},
 });
 AddSubClass("paladin", "oath of vengeance", {
-	regExpSearch: /^(((?=.*(vengeance|wrath|justice))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))))|((?=.*dark)(?=.*knight))|(?=.*avenger)).*$/i,
+	regExpSearch: /^(((?=.*(vengeance|wrath|justice))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper)))))|((?=.*dark)(?=.*knight))|(?=.*avenger)).*$/i,
 	subname: "Oath of Vengeance",
 	subnameshort: "Vengeance",
 	source: [["P", 88]],
@@ -1657,7 +1665,7 @@ AddSubClass("paladin", "oath of vengeance", {
 	},
 });
 AddSubClass("ranger", "beast master", {
-	regExpSearch: /^(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural|green))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural|green))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	subname: "Beast Master",
 	fullname: "Beast Master",
 	source: [["P", 93]],
@@ -2096,7 +2104,7 @@ AddSubClass("wizard", "abjuration", {
 				return n < 2 ? "" : "Ward " + (typePF ? "" : "max ") + "HP: " + (n * 2) + "+Int mod";
 			}),
 			usages: 1,
-			recovery: typePF ? "LR" : "long rest",
+			recovery: "LR",
 		},
 		"subclassfeature6": {
 			name: "Projected Ward",

@@ -54,7 +54,7 @@ AddSubClass("monk", "way of the drunken master-ua", {
 	},
 });
 AddSubClass("paladin", "oath of redemption-ua", {
-	regExpSearch: /^((?=.*redeemer)|((?=.*redemption)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
+	regExpSearch: /^((?=.*redeemer)|((?=.*redemption)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper))))))).*$/i,
 	subname: "Oath of Redemption",
 	subnameShort: "Redemption",
 	source: [["UA:AToS", 1]],

@@ -1,5 +1,5 @@
 var iFileName = "pub_20191119_ERftLW.js";
-RequiredSheetVersion("14.0.15-beta", 15);
+RequiredSheetVersion("14.1.0", 15);
 // This file adds the content from Eberron: Rising from the Last War to MPMB's Character Record Sheet
 
 // Define the source
@@ -1416,6 +1416,7 @@ BackgroundFeatureList["house connections"] = {
 };
 
 // Artificer class
+// [dupl_start] ha been reprinted in Tasha's Cauldron of Everything and as that book was sold more, prefer to use that version
 ClassList.artificer = {
 	regExpSearch: /^(?=.*artificer)(?!.*wizard).*$/i,
 	name: "Artificer",
@@ -1472,7 +1473,7 @@ ClassList.artificer = {
 			"infuse item": {
 				name: "Infuse Item",
 				extraname: "Artificer 2",
-				source: [["E:RLW", 57]],
+				source: [["E:RLW", 57], ["T", 12]],
 				description: desc([
 					"When I finish a long rest, I can turn nonmagical objects into magic items using my infusions",
 					"I can attune to it immediately; If I infuse too many items, the oldest loses its magic",
@@ -1553,7 +1554,7 @@ ClassList.artificer = {
 					"The wearer can use a bonus action to teleport up to 15 ft to an unoccupied space it can see",
 					"It must be a space that the wearer had occupied some time during the current turn",
 				]),
-				additional: "pair of boots; requires attunement",
+				additional: typePF ? "two boots; attunement" : "two boots; require attunement",
 				prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 				magicitemsAdd: ["Boots of the Winding Path"],
 			},
@@ -1562,7 +1563,8 @@ ClassList.artificer = {
 				source: [["E:RLW", 62], ["T", 21]],
 				description: desc("The holder has a bonus to spell attack rolls and ignores half cover with spell attacks"),
 				additional: levels.map(function (n) {
-					return "rod/staff/wand; attunement; +" + (n < 10 ? 1 : 2);
+					var attune = typePF ? "attune" : "attunement";
+					return "rod/staff/wand; " + attune + "; +" + (n < 10 ? 1 : 2);
 				}),
 				eval: function (lvl, chc) {
 					AddMagicItem("Enhanced Arcane Focus +" + (classes.known.artificer.level < 10 ? 1 : 2));
@@ -1610,7 +1612,8 @@ ClassList.artificer = {
 				source: [["E:RLW", 62], ["T", 21]],
 				description: "",
 				additional: levels.map(function (n) {
-					return "simple/martial weapon; +" + (n < 10 ? 1 : 2) + " magical";
+					var weapon = typePF ? "" : " weapon";
+					return "simple/martial" + weapon + "; +" + (n < 10 ? 1 : 2) + " magical";
 				}),
 				eval: function (lvl, chc) {
 					AddMagicItem("Weapon +" + (classes.known.artificer.level < 10 ? 1 : 2));
@@ -1705,7 +1708,7 @@ ClassList.artificer = {
 					"As a reaction when hit by an attack, the wielder can expend 1 charge to blind its attacker",
 					"The attacker makes a Con save (my spell save DC) or is blinded until its next turn ends",
 				]),
-				additional: "simple/martial weapon; requires attunement",
+				additional: typePF ? "simple/martial; attunement" : "simple/martial; requires attunement",
 				prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 				magicitemsAdd: ["Radiant Weapon"],
 			},
@@ -1717,7 +1720,7 @@ ClassList.artificer = {
 					"It magically produces one piece of ammunition whenever it is used to make a ranged attack",
 					"Thus, it doesn't require ammunition and ignores the loading property if it has it",
 				]),
-				additional: "weapon with ammo; requires attunement",
+				additional: "weapon with ammo; " + (typePF ? "" : "requires ") + "attunement",
 				magicitemsAdd: ["Repeating Shot"],
 			},
 			"repulsion shield (prereq: level 6 artificer)": {
@@ -1745,8 +1748,8 @@ ClassList.artificer = {
 			"returning weapon": {
 				name: "Returning Weapon",
 				source: [["E:RLW", 63], ["T", 23]],
-				description: "After being used for a ranged attack, the weapon returns immediately; +1 magical bonus",
-				additional: "weapon with the thrown property",
+				description: desc("After being used for a ranged attack, the weapon returns immediately; +1 magical bonus"),
+				additional: "weapon with " + (typePF ? "" : "the ") + "thrown property",
 				magicitemsAdd: ["Returning Weapon"],
 			},
 		},
@@ -2638,6 +2641,7 @@ MagicItemsList["returning weapon"] = {
 		],
 	},
 }
+// dupl_end
 
 // Magic Items
 MagicItemsList["arcane propulsion arm"] = {

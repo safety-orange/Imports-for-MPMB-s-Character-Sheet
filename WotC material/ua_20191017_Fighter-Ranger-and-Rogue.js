@@ -1,5 +1,5 @@
 var iFileName = "ua_20191017_Fighter-Ranger-and-Rogue.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion("14.1.0");
 // This file adds the content from the Unearthed Arcana: Fighter, Ranger, and Rogue article to MPMB's Character Record Sheet
 
 // Define the source
@@ -242,7 +242,7 @@ var UAFRnR_rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua",
 			}),
 			usages: "Wis mod per ",
 			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
-			recovery: "long rest",
+			recovery: typePF ? "LR" : "long rest",
 		},
 		"subclassfeature7": {
 			name: "Writhing Tide",

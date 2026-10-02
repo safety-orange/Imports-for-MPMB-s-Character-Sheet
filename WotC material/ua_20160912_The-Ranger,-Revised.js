@@ -13,7 +13,7 @@ SourceList["UA:RR"] = {
 
 //adds an alternative ranger class, including three subclasses
 ClassList.rangerua = {
-	regExpSearch: /^((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	name: "Ranger",
 	source: [["UA:RR", 2]],
 	primaryAbility: "Dexterity and Wisdom",
@@ -58,7 +58,7 @@ ClassList.rangerua = {
 				"I also learn one language of my choice, typically one associated with the favored enemy",
 			]),
 			additional: levels.map(function (n) {
-				return (n < 6 ? "+2" : "+4") + " weapon attack damage";
+				return (n < 6 ? "+2" : "+4") + " weapon" + (typePF ? "" : " attack") + " damage";
 			}),
 			choices: ["Beasts", "Fey", "Humanoids", "Monstrosities", "Undead"],
 			"beasts": {
@@ -179,7 +179,7 @@ ClassList.rangerua = {
 				"I get all the bonuses from Favored Enemy for this creature type as well",
 				"Additionally, I have adv. on saves vs. spells and abilities of this greater favored enemy",
 			]),
-			additional: "+4 weapon attack damage",
+			additional: "+4 weapon" + (typePF ? "" : " attack") + " damage",
 			choices: ["Aberrations", "Celestials", "Constructs", "Dragons", "Elementals", "Fiends", "Giants"],
 			"aberrations": {
 				name: "Greater Favored Enemy: Aberrations",
@@ -281,7 +281,7 @@ ClassList.rangerua = {
 };
 
 AddSubClass("rangerua", "beast master-ua", {
-	regExpSearch: /^(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	subname: "Beast Conclave",
 	source: [["UA:RR", 5]],
 	attacks: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],

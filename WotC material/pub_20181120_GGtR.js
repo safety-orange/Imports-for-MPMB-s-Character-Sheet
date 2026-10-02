@@ -1,5 +1,5 @@
 var iFileName = "pub_20181120_GGtR.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.1.0");
 // This file adds all material from the Guildmasters' Guide to Ravnica to MPMB's Character Record Sheet
 
 // Define the source
@@ -394,7 +394,7 @@ AddSubClass("cleric", "order domain", {
 				"When I cast an enchantment spell using a spell slot, I can reduce its casting time",
 				"If the spell normally has a casting time of an action, I can now cast it as a bonus action",
 			]),
-			usages: "Wisdom modifier per ",
+			usages: "Wisdom " + (typePF ? "mod" : "modifier") + " per ",
 			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
 			recovery: "long rest",
 			calcChanges: {

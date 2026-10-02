@@ -13,7 +13,7 @@ SourceList["UA:PSO"] = {
 
 // Adds 2 subclasses for the Paladin
 AddSubClass("paladin", "oath of conquest-ua", {
-	regExpSearch: /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
+	regExpSearch: /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper))))))).*$/i,
 	subname: "Oath of Conquest",
 	subnameShort: "Conquest",
 	source: [["UA:PSO", 1]],
@@ -66,7 +66,7 @@ AddSubClass("paladin", "oath of conquest-ua", {
 	},
 });
 AddSubClass("paladin", "oath of treachery-ua", { // Still valid 2021-09-21
-	regExpSearch: /^((?=.*blackguard)|(((?=.*(treachery|tyranny|tyrant))(?=.*paladin))|((?=.*(profane|unholy))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
+	regExpSearch: /^((?=.*blackguard)|(((?=.*(treachery|tyranny|tyrant))(?=.*paladin))|((?=.*(profane|unholy))(?=.*(knight|warrior|warlord|trooper))))).*$/i,
 	subname: "Oath of Treachery",
 	subnameShort: "Treachery",
 	source: [["UA:PSO", 2]],

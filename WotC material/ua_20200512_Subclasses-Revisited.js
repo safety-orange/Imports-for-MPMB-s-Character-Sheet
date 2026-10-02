@@ -1,5 +1,5 @@
 var iFileName = "ua_20200512_Subclasses-Revisited.js";
-RequiredSheetVersion("13.0.8", 15);
+RequiredSheetVersion("14.1.0");
 // This file adds the content from the Unearthed Arcana: Fighter, Ranger, and Rogue article to MPMB's Character Record Sheet
 // This file contains contributions by Undrhil and Metacomet10
 
@@ -38,7 +38,7 @@ AddSubClass("rogue", "phantom-ua", {
 				];
 				return desc(a);
 			}),
-			usages: "Proficiency bonus per ",
+			usages: (typePF ? "Prof" : "Proficiency") + " Bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
 			recovery: "long rest",
 			additional: levels.map(function (n) {
@@ -288,7 +288,7 @@ if (!SourceList.T) {
 				additional: "Fly 10 min",
 				usages: "Prof Bonus per ",
 				usagescalc: "event.value = How('Proficiency Bonus');",
-				recovery: "long rest",
+				recovery: typePF ? "LR" : "long rest",
 			},
 			"subclassfeature10": {
 				name: "Sanctuary Vessel",

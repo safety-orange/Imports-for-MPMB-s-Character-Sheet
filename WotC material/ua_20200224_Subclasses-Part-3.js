@@ -103,7 +103,7 @@ RunFunctionAtEnd(function () {
 					"Power armor now counts as armor, boots, bracers, and a weapon for holding infusions",
 					"I can infuse two of those after a rest without counting towards the number of items",
 				]),
-				additional: "+2 infused items, if used on power armor",
+				additional: typePF ? "+2 infused items if on power armor" : "+2 infused items, if used on power armor",
 			},
 			"subclassfeature15": {
 				name: "Perfected Armor",
@@ -131,7 +131,7 @@ RunFunctionAtEnd(function () {
 				choicesNotInMenu: true,
 				"guardian": {
 					name: "Perfected Armor: Guardian",
-					additional: "Intelligence modifier per long rest",
+					additional: (typePF ? "Int mod per" : "Intelligence modifier per") + " long rest",
 					description: desc([
 						"As a reaction when a creature I can see ends its turn in 30 ft, I have it make a Str save",
 						"If it fails, I pull it up to 30 ft towards me to an empty space",

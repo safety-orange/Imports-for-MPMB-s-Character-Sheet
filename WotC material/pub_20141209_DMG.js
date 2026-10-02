@@ -1,5 +1,5 @@
 var iFileName = "pub_20141209_DMG.js";
-RequiredSheetVersion("14.0.15-beta");
+RequiredSheetVersion("14.1.0");
 // This file adds all the player-material from the Dungeon Master's Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -254,7 +254,7 @@ AddSubClass("cleric", "death domain", {
 	},
 });
 AddSubClass("paladin", "oathbreaker", {
-	regExpSearch: /^((?=.*blackguard)|((?=.*(oath.*breaker|breaker.*oath))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))))).*$/i,
+	regExpSearch: /^((?=.*blackguard)|((?=.*(oath.*breaker|breaker.*oath))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper)))))).*$/i,
 	subname: "Oathbreaker",
 	source: [["D", 97]],
 	features: {

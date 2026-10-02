@@ -1,5 +1,5 @@
 var iFileName = "pub_20211019_FToD.js";
-RequiredSheetVersion("14.0.15-beta");
+RequiredSheetVersion("14.1.0");
 // This file adds all the player-material from Fizban's Treasury of Dragons to MPMB's Character Record Sheet
 
 // Define the source
@@ -468,7 +468,7 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 			}),
 			action: [["action", ""]],
 			usages: 1,
-			recovery: "long rest",
+			recovery: typePF ? "LR" : "long rest",
 			altResource: "SS 3+",
 			weaponOptions: [{
 				regExpSearch: /^(?=.*drake)(?=.*breath).*$/i,
@@ -508,9 +508,9 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 				"I can give myself or the drake resistance to that instance of damage",
 			]),
 			action: [["reaction", ""]],
-			usages: "proficiency bonus per ",
+			usages: "Proficiency Bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
-			recovery: "long rest",
+			recovery: typePF ? "LR" : "long rest",
 			additional: "reaction",
 		},
 	},

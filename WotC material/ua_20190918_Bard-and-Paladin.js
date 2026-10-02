@@ -77,7 +77,7 @@ AddSubClass("bard", "college of eloquence-ua", {
 	},
 });
 AddSubClass("paladin", "oath of heroism-ua", {
-	regExpSearch: /^(?=.*\bhero)((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*\bhero)((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	subname: "Oath of Heroism",
 	subnameShort: "Heroism",
 	source: [["UA:BnP", 2]],

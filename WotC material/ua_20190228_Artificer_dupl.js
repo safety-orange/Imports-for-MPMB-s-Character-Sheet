@@ -238,7 +238,7 @@ ClassList["artificer-ua2"] = {
 			"returning weapon": {
 				name: "Returning Weapon",
 				source: [["UA:A2", 10]],
-				description: "After being used for a ranged attack, the weapon returns immediately; +1 magical bonus",
+				description: desc("After being used for a ranged attack, the weapon returns immediately; +1 magical bonus"),
 				additional: "simple/martial weapon with the thrown property",
 				eval: function (lvl, chc) { AddMagicItem("Returning Weapon"); },
 				removeeval: function (lvl, chc) {

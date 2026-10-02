@@ -102,7 +102,7 @@ RunFunctionAtEnd(function () {
 
 // A version of the ranger, the spell-less ranger
 ClassList["spell-less ranger"] = {
-	regExpSearch: /^(?=.*spell.?less)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*spell.?less)((?=.*(ranger|strider))|((?=.*(nature|natural))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	name: "Spell-less Ranger",
 	source: [["UA:MC", 6]],
 	primaryAbility: "Dexterity and Wisdom",
@@ -367,7 +367,7 @@ if (ClassSubList["ranger-beast master"]) {
 	var UAMC_SLR_Beast_Master = newObj(ClassSubList["ranger-beast master"]);
 	UAMC_SLR_Beast_Master.source = ["UA:MC", 6];
 	delete UAMC_SLR_Beast_Master.fullname;
-	UAMC_SLR_Beast_Master.regExpSearch = /^(?=.*spell.?less)(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural|green))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i;
+	UAMC_SLR_Beast_Master.regExpSearch = /^(?=.*spell.?less)(?=.*(animal|beast))((?=.*(master|ranger|strider))|((?=.*(nature|natural|green))(?=.*(knight|warrior|warlord|trooper)))).*$/i;
 	UAMC_SLR_Beast_Master.features["subclassfeature15"] = {
 		name: "Beastly Coordination",
 		source: [["UA:MC", 7]],

@@ -432,15 +432,26 @@ AddSubClass("cleric", "arcana domain", {
 			name: "Channel Divinity: Arcane Abjuration",
 			source: [["S", 125]],
 			minlevel: 2,
-			description: desc([
-				"As an action, one celestial, elemental, fey, or fiend within 30 ft must make a Wis save",
-				"If it fails and is able to see/hear me, it is turned for 1 min or until it takes damage",
-				"Turned: move away, never within 30 ft of me, no reactions or actions other than Dash",
-				"Turned: may Dodge instead of Dash when nowhere to move and unable to escape bonds",
-				"If its CR is low enough and it is not on its home plane, it is banished for 1 min instead",
-				"Banished: sent to home plane, reappearing where it was if the effect ends before 1 min",
-			]),
-			additional: ["", "", "", "", "CR 1/2 or lower", "CR 1/2 or lower", "CR 1/2 or lower", "CR 1 or lower", "CR 1 or lower", "CR 1 or lower", "CR 2 or lower", "CR 2 or lower", "CR 2 or lower", "CR 3 or lower", "CR 3 or lower", "CR 3 or lower", "CR 4 or lower", "CR 4 or lower", "CR 4 or lower", "CR 4 or lower"],
+			description: levels.map(function (n) {
+				var text = [
+					"As an action, one celestial, elemental, fey, or fiend within 30 ft must make a Wis save",
+					"If it fails and is able to see/hear me, it is turned for 1 min or until it takes damage",
+					"Turned: move away, never within 30 ft of me, no reactions or actions other than Dash",
+					"Turned: may Dodge instead of Dash when nowhere to move and unable to escape bonds",
+				];
+				if (n >= 5) {
+					text.push(
+						"If its CR is low enough and it is not on its home plane, it is banished for 1 min instead",
+						"Banished: sent to home plane, reappearing where it was if the effect ends before 1 min"
+					)
+				}
+				return desc(text);
+			}),
+			additional: levels.map(function (n) {
+				if (n < 5) return "";
+				var cr = n < 8 ? "\xBD" : n < 11 ? 1 : n < 14 ? 2 : n < 17 ? 3 : 4;
+				return typePF ? "banish CR\u2264" + cr : "banish CR " + cr + " or less";
+			}),
 			action: [["action", ""]],
 		},
 		"subclassfeature6": {
@@ -722,7 +733,7 @@ AddSubClass("monk", "way of the sun soul", {
 	},
 });
 AddSubClass("paladin", "oath of the crown", {
-	regExpSearch: /^(?=.*(crown|king|country))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
+	regExpSearch: /^(?=.*(crown|king|country))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper))))).*$/i,
 	subname: "Oath of the Crown",
 	subnameShort: "Crown",
 	source: [["S", 133]],

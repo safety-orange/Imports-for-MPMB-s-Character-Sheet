@@ -224,7 +224,7 @@ AddSubClass("monk", "way of mercy-ua", {
 	},
 });
 AddSubClass("paladin", "oath of the watchers-ua", {
-	regExpSearch: /^(?=.*watchers)((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper)))).*$/i,
+	regExpSearch: /^(?=.*watchers)((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper)))).*$/i,
 	subname: "Oath of the Watchers",
 	subnameShort: "Watchers",
 	source: [["UA:SP1", 3]],

@@ -1,5 +1,5 @@
 var iFileName = "pub_20210518_VRGtR.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.1.0");
 // This file adds all the player-material from Van Richten's Guide to Ravenloft to MPMB's Character Record Sheet
 
 // Define the source
@@ -361,7 +361,7 @@ AddSubClass("warlock", "the undead",{
 			}),
 			usages: "Prof Bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
-			recovery: "long rest",
+			recovery: typePF ? "LR" : "long rest",
 			action: [["bonus action", ""]],
 			savetxt: { immune: ["frightened (Form of Dread)"] },
 		},
@@ -386,7 +386,7 @@ AddSubClass("warlock", "the undead",{
 				"After this, I gain 1 level of exhaustion and must complete 1d4 long rests to do so again",
 			]),
 			additional: levels.map(function (n) {
-				return n < 10 ? "" : "2d10+" + n + " damage, 1\xD7 per 1d4 long rests"
+				return n < 10 ? "" : "2d10+" + n + " damage, 1\xD7 per 1d4 " + (typePF ? "LRs" : "long rests");
 			}),
 			action: [["reaction", ""]],
 			dmgres: [["Necrotic"]],

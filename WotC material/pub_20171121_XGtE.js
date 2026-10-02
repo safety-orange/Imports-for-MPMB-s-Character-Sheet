@@ -1,5 +1,5 @@
 var iFileName = "pub_20171121_XGtE.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.1.0");
 // This file adds the backgrounds and beasts from Xanathar's Guide to Everything to MPMB's Character Record Sheet
 
 // Define the source
@@ -945,7 +945,7 @@ AddSubClass("fighter", "arcane archer", {
 					"The target takes extra necrotic damage and must make a Constitution save",
 					"If failed, the damage of the target's attacks are halved until the start of my next turn",
 				]),
-				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 necrotic damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 2 : 4) + "d6 necrotic" + (typePF ? "" : " damage"); }),
 			},
 			"grasping arrow [conjuration]": {
 				name: "Grasping Arrow [Conjuration]",
@@ -955,7 +955,7 @@ AddSubClass("fighter", "arcane archer", {
 					"The brambles give it -10 ft speed and do it slashing damage every round it moves",
 					"These can be removed by it or another as an action with Strength (Athletics) vs. my DC",
 				]),
-				additional: levels.map( function (n) { return n < 3 ? "" : (n < 18 ? 2 : 4) + "d6 poison/slash. damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : (n < 18 ? 2 : 4) + "d6 poison" + (typePF ? "|slashing" : "/slashing dmg"); }),
 			},
 			"piercing arrow [transmutation]": {
 				name: "Piercing Arrow [Transmutation]",
@@ -966,7 +966,7 @@ AddSubClass("fighter", "arcane archer", {
 					"The damage is the same as a normal hit from my attack, plus extra piercing damage",
 					"A creature can make a Dexterity save to reduce the damage by half",
 				]),
-				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 1 : 2) + "d6 piercing damage"; }),
+				additional: levels.map( function (n) { return n < 3 ? "" : "+" + (n < 18 ? 1 : 2) + "d6 piercing" + (typePF ? "" : " damage"); }),
 			},
 			"seeking arrow [divination]": {
 				name: "Seeking Arrow [Divination]",
@@ -1062,7 +1062,7 @@ AddSubClass("fighter", "cavalier", {
 				"This takes a bonus action, but has adv. and adds half my fighter level to the damage",
 				"A mark ends early if I'm incapacitated, die, or somebody else marks the target",
 			]),
-			usages: "Strength modifier per ",
+			usages: typePF ? "Str mod per " : "Strength modifier per ",
 			usagescalc: "event.value = Math.max(1, What('Str Mod'));",
 			recovery: "long rest",
 			additional: levels.map(function (n) {
@@ -1231,7 +1231,7 @@ AddSubClass("monk", "way of the drunken master", {
 			source: [["X", 34]],
 			minlevel: 6,
 			description: desc("1 ki point: as a reaction if missed in melee, attacker instead hits other I see within 5 ft"),
-			additional: "Standing up from prone costs only 5 ft",
+			additional: "Getting up from prone costs only 5 ft",
 			action: [["reaction", ""]],
 		},
 		"subclassfeature11": {
@@ -1469,7 +1469,7 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList.S || SourceList.S.
 
 // Add 2 subclasses for the Paladin
 AddSubClass("paladin", "oath of conquest", {
-	regExpSearch: /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
+	regExpSearch: /^((?=.*(knight tyrant|iron mongers))|((?=.*(conquest|tyranny|tyrant))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper))))))).*$/i,
 	subname: "Oath of Conquest",
 	subnameShort: "Conquest",
 	source: [["X", 37]],
@@ -1530,7 +1530,7 @@ AddSubClass("paladin", "oath of conquest", {
 	},
 });
 AddSubClass("paladin", "oath of redemption", {
-	regExpSearch: /^((?=.*redeemer)|((?=.*redemption)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))))).*$/i,
+	regExpSearch: /^((?=.*redeemer)|((?=.*redemption)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper))))))).*$/i,
 	subname: "Oath of Redemption",
 	subnameShort: "Redemption",
 	source: [["X", 38]],
@@ -2264,7 +2264,7 @@ AddSubClass("sorcerer", "shadow magic", {
 				"The target has disadvantage on saves vs. my spells while the hound is within 5 ft of it",
 				"It disappears if reduced to 0 HP, if the target is reduced to 0 HP, or after 5 minutes",
 			]),
-			additional: levels.map(function (n) { return n < 6 ? "" : "3 sorcery points; " + Math.floor(n / 2) + " temporary HP"; }),
+			additional: levels.map(function (n) { return n < 6 ? "" : "3 sorcery points; " + Math.floor(n / 2) + (typePF ? " temp" : " temporary") + " HP"; }),
 			action: [["bonus action", " (3 sorcery points)"]],
 			creaturesAdd: [["Hound of Ill Omen", true]],
 			creatureOptions: [{
@@ -2502,7 +2502,11 @@ AddSubClass("warlock", "the celestial", {
 				"When I finish a short or long rest, I and up to five allies gain temporary hit points",
 				"I get my warlock level + Cha mod, while my allies get half my warlock level + Cha mod",
 			]),
-			additional: levels.map(function (n) { return n < 10 ? "" : "Me: " + n + "+Cha mod; Allies: " + Math.floor(n / 2) + "+Cha mod"; }),
+			additional: levels.map(function (n) {
+				if (n < 10) return "";
+				var chaM = typePF ? "+Cha m." : "+Cha mod";
+				return "Me: " + n + chaM + "; Allies: " + Math.floor(n / 2) + chaM;
+			}),
 		},
 		"subclassfeature14": {
 			name: "Searing Vengeance",
@@ -2947,9 +2951,9 @@ AddSubClass("wizard", "war magic", {
 				"When I deal damage with a wizard spell, I can spend a power surge to do extra damage",
 				"One target takes half my wizard level in force damage; I can do this only once per turn",
 			]),
-			usages: "Resets to 1 after ",
+			usages: "Resets to 1 after a ",
 			usagescalc: "event.value = !event.value || event.value == 'Resets to 1 after ' ? 1 : event.value;",
-			recovery: "long rest",
+			recovery: typePF ? "LR" : "long rest",
 			additional: levels.map( function (n) { return n < 6 ? "" : "+" + Math.floor(n / 2) + " force damage"; }),
 		},
 		"subclassfeature10": {

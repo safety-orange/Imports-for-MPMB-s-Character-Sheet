@@ -1,5 +1,5 @@
 var iFileName = "pub_20221206_Dragonlance.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.1.0");
 // This file adds the Character Options content from Dragonlance: Shadow of the Dragon Queen to MPMB's Character Record Sheet
 
 SourceList["D:SotDQ"] = {
@@ -617,7 +617,7 @@ AddSubClass("sorcerer", "lunar sorcery", {
 			name: "Lunar Phenomenon",
 			source: [["D:SotDQ", 0]],
 			minlevel: 18,
-			additional: "per phase: 1\xD7 per long rest or 5 SP",
+			additional: "per phase: 1\xD7 per " + (typePF ? "LR" : "long rest") + " or 5 SP",
 			description: desc([
 				"As a bonus action, or as part of changing phase, I can use a power of the (new) phase:",
 				"\u25CB Full: Chosen creatures within 30 ft of me must make a Constitution save or be blinded",
