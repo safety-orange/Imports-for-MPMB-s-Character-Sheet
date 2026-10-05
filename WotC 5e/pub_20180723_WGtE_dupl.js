@@ -5,7 +5,7 @@ RequiredSheetVersion("14.0.5-beta");
 // nor the updated version of November 2019 that uses the identical rules to Eberron: Rising from the Last War.
 
 // Define the sources
-SourceList.WGtE = {
+SourceList["WGtE"] = {
 	name: "Wayfinder's Guide to Eberron (2018)",
 	abbreviation: "WGtE",
 	group: "Playtest Material",
@@ -1579,7 +1579,7 @@ if (!SourceList["UA:D"]) {
 		source: [["WGtE", 112], ["UA:D", 9]],
 		prerequisite: "Not having a dragonmark",
 		prereqeval: function (v) { return !/dragonmark/i.test(CurrentRace.known); },
-		descriptionFull: "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it (see the table below for examples). You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again. Constitution is your spellcasting ability for these spells.\n \u2022 You can increase the power of your aberrant spells at the risk of your own vitality. When you cast a spell with your aberrant mark, you can use one of your Hit Dice to increase the spell's level by 1. Immediately after you cast the spell, roll the Hit Die. You take damage equal to the number rolled.\n\n" + toUni("1d8") + "\t" + toUni("Aberrant Mark Flaw") + "\n1\tYour mark is a source of constant physical pain.\n2\tYour mark whispers to you, though you may not understand what it says.\n3\tIn times of stress, your mark may trigger a cantrip effect involuntarily.\n4\tThe skin around your mark has an unusual appearance: burned, scaly, withered, etc.\n5\tMundane animals become uneasy around you.\n6\tYou have dramatic mood swings any time you use your mark.\n7\tYour appearance changes in a minor way every time you use your mark.\n8\tYou have horrific nightmares after you use your mark.",
+		descriptionFull: "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it (see the table below for examples). You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again. Constitution is your spellcasting ability for these spells.\n \u2022 You can increase the power of your aberrant spells at the risk of your own vitality. When you cast a spell with your aberrant mark, you can use one of your Hit Dice to increase the spell's level by 1. Immediately after you cast the spell, roll the Hit Die. You take damage equal to the number rolled.\n\n***1d8***\t***Aberrant Mark Flaw***\n1\tYour mark is a source of constant physical pain.\n2\tYour mark whispers to you, though you may not understand what it says.\n3\tIn times of stress, your mark may trigger a cantrip effect involuntarily.\n4\tThe skin around your mark has an unusual appearance: burned, scaly, withered, etc.\n5\tMundane animals become uneasy around you.\n6\tYou have dramatic mood swings any time you use your mark.\n7\tYour appearance changes in a minor way every time you use your mark.\n8\tYou have horrific nightmares after you use your mark.",
 		description: "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
 		scores: [0, 0, 1, 0, 0, 0],
 		spellcastingAbility: 3,
@@ -1650,7 +1650,7 @@ if (!SourceList["UA:MIoE"]) {
 			type: "wondrous item",
 			rarity: "common",
 			description: "This rod, wand, or staff is cut from a tree infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal the associated damage type add a +1 bonus to one of their damage rolls.",
-			descriptionFull: "An imbued wood focus is a rod, staff, or wand cut from a tree infused with extraplanar energy. If you're a spell­caster, you can use this orb as a spellcasting focus.\n   When you cast a damage-dealing spell using this item as your spellcasting focus, you gain a +1 bonus to one damage roll of the spell, provided the damage is of the type associated with the item's wood. The types of wood and their associated damage types are listed in the table below.\n\n" + toUni("Wood\t\t\tDamage Type") + "\nFernian Ash\t\tFire\nIrian Rosewood\t\tRadiant\nKythrian Manchineel  \tAcid or Poison\nLamannian Oak\t\tLightning or Thunder\nMabaran Ebony\t\tNecrotic\nRisian Pine\t\tCold\nShavarran Birch\t\tForce\nXorian Wenge\t\tPsychic",
+			descriptionFull: "An imbued wood focus is a rod, staff, or wand cut from a tree infused with extraplanar energy. If you're a spellcaster, you can use this orb as a spellcasting focus.\n   When you cast a damage-dealing spell using this item as your spellcasting focus, you gain a +1 bonus to one damage roll of the spell, provided the damage is of the type associated with the item's wood. The types of wood and their associated damage types are listed in the table below.\n\n**Wood**\t\t\t**Damage Type***\nFernian Ash\t\tFire\nIrian Rosewood\t\tRadiant\nKythrian Manchineel  \tAcid or Poison\nLamannian Oak\t\tLightning or Thunder\nMabaran Ebony\t\tNecrotic\nRisian Pine\t\tCold\nShavarran Birch\t\tForce\nXorian Wenge\t\tPsychic",
 			attunement: true,
 			allowDuplicates: true,
 			weight: 2,
@@ -1939,14 +1939,14 @@ if (!SourceList["UA:MIoE"]) {
 		type: "wondrous item",
 		rarity: "rare",
 		description: "I can embed this sentient small metal sphere studded with dragonshards into my chest. I can communicate telepathically with it. It can serve me as an advisor and a translator, as it knowns 6 languages. It also knows spells and/or skills that I can have it use as a bonus action. See Notes page.",
-		descriptionFull: ERftLW_docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+		descriptionFull: ERftLW_docentFullDescription.join("\n   "),
 		attunement: true,
 		prerequisite: "Requires attunement by a warforged",
 		prereqeval: function (v) { return /warforged/i.test(CurrentRace.known); },
 		action: [["bonus action", ""]],
 		toNotesPage: [{
 			name: "Features",
-			note: desc(ERftLW_docentFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+			note: desc(ERftLW_docentFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 		}],
 	}
 	MagicItemsList["feather token-ua"] = {
@@ -1964,7 +1964,7 @@ if (!SourceList["UA:MIoE"]) {
 		rarity: "common",
 		description: "Glamerweave clothing is imbued with cosmetic illusions that have no impact on combat. Most of the time, these patterns are contained within the cloth, but higher-end glamerweave can have more dramatic effects. A gown could appear to be wreathed in flames, or a hat orbited by illusory butterflies.",
 		descriptionFull: "Glamerweave clothing is imbued with cosmetic illusions. Traditionally, these patterns are contained within the cloth, but higher-end glamerweave can have more dramatic effects. You could have a gown that appears to be wreathed in flames, or a hat that's orbited by illusory butterflies. Regardless of the design, these are cosmetic effects and have no impact on combat.\n\n" + [
-			toUni("1d8\tDescription"),
+			"**1d8**\t**Description**",
 			"  1\tA hat orbited by the twelve moons",
 			"  2\tLong gloves wreathed in cold flames",
 			"  3\tA traveler's cloak lined with glittering stars",
@@ -2028,7 +2028,7 @@ MagicItemsList["bag of bounty-ua"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	description: "As an action three times per dawn, I can cast Create Food and Water, but can try and create fine food with a Cha check. If I'm proficient with cook's utensils, I add my proficiency bonus. Meal quality: modest (DC 10), comfortable (DC 13), wealthy (DC 15), aristocratic (DC 18). Failure results in a sour and squalid meal. ",
-	descriptionFull: "This is a sturdy leather sack with tiny Siberys shards embedded into the lining. If you have the Mark of Hospitality you can use an action to cast create food and water, drawing a feast from within the bag. You shape this meal with your thoughts. You can create the standard bland fare without requiring any sort of check, but you can attempt to create finer food by making a Charisma check; if you're proficient with cook's utensils, add your bonus to this check. A failed check results in a sour and squalid meal.\n\n" + toUni("DC\tFood Quality") + "\nNo roll\tPoor\n10\tModest\n13\tComfortable\n15\tWealthy\n18\tAristocratic\n\nA bag of bounty can be used up to three times over the course of a day. After that, the bag can't be used again until the next dawn.",
+	descriptionFull: "This is a sturdy leather sack with tiny Siberys shards embedded into the lining. If you have the Mark of Hospitality you can use an action to cast create food and water, drawing a feast from within the bag. You shape this meal with your thoughts. You can create the standard bland fare without requiring any sort of check, but you can attempt to create finer food by making a Charisma check; if you're proficient with cook's utensils, add your bonus to this check. A failed check results in a sour and squalid meal.\n\n**DC**\t**Food Quality**\nNo roll\tPoor\n10\tModest\n13\tComfortable\n15\tWealthy\n18\tAristocratic\n\nA bag of bounty can be used up to three times over the course of a day. After that, the bag can't be used again until the next dawn.",
 	prerequisite: "Can only be used by someone with a Dragonmark of Hospitality",
 	prereqeval: function (v) {
 		return /^(?=.*dragonmark)(?=.*hospitality).*$/i.test(CurrentRace.known);

@@ -2,7 +2,7 @@ var iFileName = "pub_20220315_CotN.js";
 RequiredSheetVersion("14.0.5-beta");
 // This file adds all the magic items from Critical Role: Call of the Netherdeep to MPMB's Character Record Sheet
 
-SourceList.CotN = {
+SourceList["CotN"] = {
 	name: "Critical Role: Call of the Netherdeep [magic items]",
 	abbreviation: "CotN",
 	abbreviationSpellsheet: "MO",
@@ -151,13 +151,13 @@ MagicItemsList["ring of red fury"] = {
 		"This ring has a stripe of ruidium running through it. While wearing the ring, you gain the following benefits:",
 		"\u2022 You can breathe water.",
 		"\u2022 You gain a swimming speed equal to your walking speed.",
-		toUni("Ruidium Rage") + ". As a bonus action, you can use the ring to gain the following benefits, which last for 1 minute or until you are incapacitated:",
+		"***Ruidium Rage***. As a bonus action, you can use the ring to gain the following benefits, which last for 1 minute or until you are incapacitated:",
 		"\u2022 You have advantage on Strength checks and Strength saving throws.",
 		"\u2022 When you hit with an attack, you can add your proficiency bonus to the damage roll.",
 		"\u2022 Difficult terrain doesn't cost you extra movement, and you are immune to the paralyzed and restrained conditions.",
 		"You can't use this property of the ring again until you finish a long rest.",
-		toUni("Ruidium Corruption") + ". When you use the Ruidium Rage property of the ring, you must make a DC 20 Charisma saving throw. On a failed save, you gain 1 level of exhaustion. If you are not already suffering from ruidium corruption, you become corrupted when you fail this save.",
-		toUni("If Ruidium Is Destroyed") + ". If the Apotheon is killed or redeemed, all the ruidium in Exandria is destroyed instantly, and the ring of red fury becomes a Ring of Free Action.",
+		"***Ruidium Corruption***. When you use the Ruidium Rage property of the ring, you must make a DC 20 Charisma saving throw. On a failed save, you gain 1 level of exhaustion. If you are not already suffering from ruidium corruption, you become corrupted when you fail this save.",
+		"***If Ruidium Is Destroyed***. If the Apotheon is killed or redeemed, all the ruidium in Exandria is destroyed instantly, and the ring of red fury becomes a Ring of Free Action.",
 	].join("\n   "),
 	speed: { swim: { spd: "walk", enc: "walk" } },
 	action: [["bonus action", ""]],
@@ -176,8 +176,8 @@ MagicItemsList["ruidium armor"] = {
 		"\u2022 You have resistance to psychic damage.",
 		"\u2022 You can breathe water.",
 		"\u2022 You gain a swimming speed equal to your walking speed.",
-		toUni("Ruidium Corruption") + ". When you roll a 1 on a saving throw while wearing this armor, you must make a DC 15 Charisma saving throw. On a failed save, you gain 1 level of exhaustion. If you are not already suffering from ruidium corruption, you become corrupted when you fail this save.",
-		toUni("If Ruidium Is Destroyed") + ". If the Apotheon is killed or redeemed, all the ruidium in Exandria is destroyed instantly, and ruidium armor becomes +1 armor.",
+		"***Ruidium Corruption***. When you roll a 1 on a saving throw while wearing this armor, you must make a DC 15 Charisma saving throw. On a failed save, you gain 1 level of exhaustion. If you are not already suffering from ruidium corruption, you become corrupted when you fail this save.",
+		"***If Ruidium Is Destroyed***. If the Apotheon is killed or redeemed, all the ruidium in Exandria is destroyed instantly, and ruidium armor becomes +1 armor.",
 	].join("\n   "),
 	allowDuplicates: true,
 	chooseGear: {
@@ -205,9 +205,9 @@ MagicItemsList["ruidium shield"] = {
 		"\u2022 You have resistance to psychic damage.",
 		"\u2022 You can breathe water.",
 		"\u2022 You gain a swimming speed equal to your walking speed.",
-		toUni("Psychic Reflection") + ". When you take psychic damage while holding the shield, you can use your reaction to choose another creature you can see within 30 feet of you. That creature takes the psychic damage you would have taken.",
-		toUni("Ruidium Corruption") + ". When you use the shield's Psychic Reflection property, you must make a DC 20 Charisma saving throw. On a failed save, you gain 1 level of exhaustion. If you are not already suffering from ruidium corruption, you become corrupted when you fail this save.",
-		toUni("If Ruidium Is Destroyed") + ". If the Apotheon is killed or redeemed, all the ruidium in Exandria is destroyed instantly, and a ruidium shield becomes a +2 shield.",
+		"***Psychic Reflection***. When you take psychic damage while holding the shield, you can use your reaction to choose another creature you can see within 30 feet of you. That creature takes the psychic damage you would have taken.",
+		"***Ruidium Corruption***. When you use the shield's Psychic Reflection property, you must make a DC 20 Charisma saving throw. On a failed save, you gain 1 level of exhaustion. If you are not already suffering from ruidium corruption, you become corrupted when you fail this save.",
+		"***If Ruidium Is Destroyed***. If the Apotheon is killed or redeemed, all the ruidium in Exandria is destroyed instantly, and a ruidium shield becomes a +2 shield.",
 	].join("\n   "),
 	weight: 6,
 	shieldAdd: "Ruidium Shield",
@@ -228,9 +228,9 @@ MagicItemsList["ruidium weapon"] = {
 		"This magic weapon has a dull, rusty color or has veins of ruidium running through it. While this weapon is on your person, you gain the following benefits:",
 		"\u2022 You can breathe water.",
 		"\u2022 You gain a swimming speed equal to your walking speed.",
-		toUni("Ruidium Strike") + ". A creature you hit with this weapon takes an extra 2d6 psychic damage.",
-		toUni("Ruidium Corruption") + ". When you roll a 1 on an attack roll made with this weapon, you must make a DC 20 Charisma saving throw. On a failed save, you gain 1 level of exhaustion. If you are not already suffering from ruidium corruption, you become corrupted when you fail this save.",
-		toUni("If Ruidium Is Destroyed") + ". If the Apotheon is killed or redeemed, all the ruidium in Exandria is destroyed instantly, and a ruidium weapon becomes a +2 weapon.",
+		"***Ruidium Strike***. A creature you hit with this weapon takes an extra 2d6 psychic damage.",
+		"***Ruidium Corruption***. When you roll a 1 on an attack roll made with this weapon, you must make a DC 20 Charisma saving throw. On a failed save, you gain 1 level of exhaustion. If you are not already suffering from ruidium corruption, you become corrupted when you fail this save.",
+		"***If Ruidium Is Destroyed***. If the Apotheon is killed or redeemed, all the ruidium in Exandria is destroyed instantly, and a ruidium weapon becomes a +2 weapon.",
 	].join("\n   "),
 	allowDuplicates: true,
 	chooseGear: {
@@ -301,7 +301,7 @@ MagicItemsList["jewel of three prayers"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "The golden chain of this intricate jewel magically resizes to function as a necklace for the creature that wears it. In ancient times, Alyxian the Apotheon bore this amulet as a symbol of his covenant with three Prime Deities: Sehanine the Moon Weaver, Avandra the Change Bringer, and Corellon the Arch Heart.",
-	descriptionFull: EGtW_JewelOfThreePrayersFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }).replace(/\[\[|\]\]/g, ""),
+	descriptionFull: EGtW_JewelOfThreePrayersFullDescription.join("\n   ").replace(/\[\[|\]\]/g, ""),
 	toNotesPage: [{
 		name: "Features",
 		note: EGtW_Vestiges_Replace(EGtW_JewelOfThreePrayersFullDescription).replace(/\[\[.*?\]\]/, ""),

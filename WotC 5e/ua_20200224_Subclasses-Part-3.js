@@ -220,7 +220,7 @@ RunFunctionAtEnd(function () {
 // Add the new Artificer infusions
 if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 	// [dupl_start] the same as in Tasha's Cauldron of Everything
-	if (!SourceList.T) {
+	if (!SourceList["T"]) {
 		AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Helm of Awareness (prereq: level 10 artificer)", {
 			name: "Helm of Awareness",
 			source: [["T", 21], ["UA:SP3", 3]],

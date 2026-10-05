@@ -4,7 +4,7 @@ RequiredSheetVersion("14.0.5-beta");
 // Includes many contributions by Nod_Hero and BraabHimself
 
 // Define the source
-SourceList.MotM = {
+SourceList["MotM"] = {
 	name: "Mordenkainen Presents: Monsters of the Multiverse",
 	abbreviation: "MotM",
 	group: "Primary Sources",

@@ -1,9 +1,9 @@
 var iFileName = "pub_20180529_MToF.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion(14);
 // This file adds all the player-material from Mordenkainen's Tome of Foes to MPMB's Character Record Sheet
 
 // Define the source
-SourceList.MToF = {
+SourceList["MToF"] = {
 	name: "Mordenkainen's Tome of Foes",
 	abbreviation: "MToF",
 	group: "Primary Sources",

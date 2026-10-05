@@ -118,8 +118,8 @@ FeatsList["cartomancer"] = {
 	source: [["BoMT", 49]],
 	description: 'I can use a card deck as a spellcasting focus. I learn and can do stage magic with Prestidigitation. I conceal its components as card tricks when doing so. When I finish a long rest, I can store a spell from my class\' spell list into a card, see "Hidden Ace" notes.',
 	descriptionFull: "You have learned to channel your magic through a deck of cards. You can use a card deck as your spellcasting focus, and you gain the following benefits:" +
-	"\n   " + toUni("Card Tricks") + ". You learn the Prestidigitation cantrip and can use it to create illusions that duplicate the effects of stage magic. When you use Prestidigitation in this way, you can conceal the verbal and somatic components of the spell as ordinary conversation and card handling." +
-	"\n   " + toUni("Hidden Ace") + ". When you finish a long rest, you can choose one spell from your class's spell list and imbue that spell into a card. The chosen spell must have a casting time of 1 action, and it must be a level for which you have spell slots. The card remains imbued with this spell for 8 hours. While the card is imbued with the spell, you can use a bonus action to flourish the card and cast the spell within. The card then immediately loses its magic.",
+	"\n   ***Card Tricks***. You learn the Prestidigitation cantrip and can use it to create illusions that duplicate the effects of stage magic. When you use Prestidigitation in this way, you can conceal the verbal and somatic components of the spell as ordinary conversation and card handling." +
+	"\n   ***Hidden Ace***. When you finish a long rest, you can choose one spell from your class's spell list and imbue that spell into a card. The chosen spell must have a casting time of 1 action, and it must be a level for which you have spell slots. The card remains imbued with this spell for 8 hours. While the card is imbued with the spell, you can use a bonus action to flourish the card and cast the spell within. The card then immediately loses its magic.",
 	prerequisite: "4th-level, Spellcasting feature",
 	prereqeval: function (v) { return v.characterLevel >= 4 && v.isSpellcastingClass; },
 	spellcastingBonus: [{
@@ -151,8 +151,7 @@ FeatsList["cartomancer"] = {
 var BoMT = {
 	toDescrFull: function (sDescr) {
 		if (typeof sDescr !== "string") sDescr = sDescr.join("\n   ");
-		return sDescr.replace(/\[\[.*?\]\]/g, "$1")
-			.replace(/>>(.*?)<</g, function (a, match) { return toUni(match); });
+		return sDescr.replace(/\[\[.*?\]\]/g, "$1");
 	},
 	to1stPerson: function (sDescr, joinStr) {
 		if (typeof sDescr === "string") sDescr = [sDescr];
@@ -565,7 +564,7 @@ MagicItemsList["blasted goggles"] = {
 	attunement: true,
 	description: "These tinker's goggles have 3 charges, regaining 1d3 daily at dawn. As an action, I can use 1 charge to shoot a beam of light: a creature I can see within 120 ft must make a DC 15 Dexterity save or take 3d6 fire damage. If this is a natural 20, I'm blinded for 24 hours. Cursed: I can't remove these or end attunement.",
 	descriptionFull: "These tinker's goggles have 3 charges. As an action, you can expend 1 charge to shoot a beam of fiery light from the goggles at a creature you can see within 120 feet of yourself. The target must succeed on a DC 15 Dexterity saving throw or take 3d6 fire damage. The goggles regain 1d3 expended charges daily at dawn." +
-	"\n   " + toUni("Cursed") + ". The goggles are cursed, and becoming attuned to them extends the curse to you. You can't remove the goggles or end your attunement to them until you are targeted by a Remove Curse spell or similar magic." +
+	"\n   ***Cursed***. The goggles are cursed, and becoming attuned to them extends the curse to you. You can't remove the goggles or end your attunement to them until you are targeted by a Remove Curse spell or similar magic." +
 	"\n   Whenever you use the goggles' fiery beam and the target rolls a 20 on the d20 for the saving throw, the goggles expose you to a flash of violent bright light. As a result, you have the blinded condition for 24 hours.",
 	usages: 3,
 	recovery: "dawn",
@@ -680,8 +679,8 @@ MagicItemsList["bow of melodies"] = {
 	description: "This bow has multiple strings. I can use these to play one of two melodies on each attack, imbuing it with magic. Melody of Precision: If I'm proficient with Performance, I add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: the attack deals my Charisma modifier in extra thunder damage.",
 	descriptionFull: "This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic." +
 	"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack." +
-	"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead." +
-	"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
+	"\n   ***Melody of Precision***. If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead." +
+	"\n   ***Melody of Reverberation***. The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
 	chooseGear: {
 		type: "weapon",
 		prefixOrSuffix: "prefix",
@@ -725,8 +724,8 @@ MagicItemsList["breastplate of balance"] = {
 	description: "This burnished copper breastplate with merchant's scales on the chest has 4 charges, regaining 1d4 at dawn. As a reaction when I or another I can see within 60 ft is about to roll a d20 with (dis)advantage, I can use 1 charge to prevent this (dis)advantage. As a bonus action, I can use 2 charges to cast Lesser Restoration.",
 	descriptionFull: "This burnished copper breastplate looks as if it were made of interlocking gears. Merchant's scales are emblazoned across the chest." +
 	"\n   The armor has 4 charges. You can use the charges in the following ways while wearing the armor:" +
-	"\n   " + toUni("Equalize") + ". When you or a creature you can see within 60 feet of yourself is about to roll a d20 with advantage or disadvantage, you can expend 1 charge and take a reaction to prevent the roll from being affected by advantage or disadvantage." +
-	"\n   " + toUni("Expunge Imbalance") + ". As a bonus action, you can expend 2 charges to cast the Lesser Restoration spell from the armor." +
+	"\n   ***Equalize***. When you or a creature you can see within 60 feet of yourself is about to roll a d20 with advantage or disadvantage, you can expend 1 charge and take a reaction to prevent the roll from being affected by advantage or disadvantage." +
+	"\n   ***Expunge Imbalance***. As a bonus action, you can expend 2 charges to cast the Lesser Restoration spell from the armor." +
 	"\n   The armor regains 1d4 expended charges daily at dawn.",
 	weight: 20,
 	action: [["reaction", " (if dis./adv.)"]],
@@ -758,8 +757,8 @@ MagicItemsList["card sharp's deck"] = {
 	rarity: "uncommon",
 	description: 'The cards of this deck shimmer around the edges. As an action, I can throw a card as ranged spell attack using Dexterity. This "Deadly Deal" attack has 120 ft range and deals 1d8 force damage. As an action once per dawn, I can shuffle the deck to cast Spray of Cards at 3rd level with it (save DC 15).',
 	descriptionFull: "The cards of this deck shimmer around the edges. While holding this deck, you can use the following properties:" +
-	"\n   " + toUni("Deadly Deal") + ". As an action, you can use this deck to make a ranged spell attack by throwing a spectral card and using Dexterity for the attack roll. The card has a range of 120 feet and deals 1d8 force damage on a hit." +
-	"\n   " + toUni("Spray of Cards") + ". As an action, you can shuffle the deck and cast the Spray of Cards spell at 3rd level from the deck (spell save DC 15). Once the deck has cast the spell, it can't cast the spell again until the next dawn.",
+	"\n   ***Deadly Deal***. As an action, you can use this deck to make a ranged spell attack by throwing a spectral card and using Dexterity for the attack roll. The card has a range of 120 feet and deals 1d8 force damage on a hit." +
+	"\n   ***Spray of Cards***. As an action, you can shuffle the deck and cast the Spray of Cards spell at 3rd level from the deck (spell save DC 15). Once the deck has cast the spell, it can't cast the spell again until the next dawn.",
 	action: [["action", ""]],
 	weaponOptions: [{
 		regExpSearch: /^(?=.*deadly)(?=.*deal).*$/i,
@@ -823,9 +822,9 @@ MagicItemsList["crown of whirling comets"] = {
 	descriptionLong: "This delicate silver tiara decorated with stellar iconography has gems on the tiara's points that detach and closely orbit my head. It has 6 charges, regaining 1d6 used charges daily at dawn. As a bonus action, I can use 1 charge to gain a flying speed equal to my walking speed and I can hover, for 10 minutes. As an action, I can expend any number of charges to launch one frigid starlight bolt per charge used to a creature I can see within 120 ft. Each bolt automatically hits and deals 2d4 cold damage. Bolts can be used to hit the same or different targets. As an action, I can use 3 charges to cast Ice Storm (save DC 16).",
 	descriptionFull: "This delicate silver tiara is decorated with stellar iconography. While you wear the crown, the gems on the tiara's points detach and closely orbit your head." +
 	"\n   The crown has 6 charges for the following properties, which you can use while wearing the crown:" +
-	"\n   " + toUni("Star Flight") + ". As a bonus action, you can spend 1 charge to gain the power of flight for 10 minutes. For the duration, you gain a flying speed equal to your walking speed, and you can hover. While flying, you glow faintly with starlight." +
-	"\n   " + toUni("Starlight Strike") + ". As an action, you can spend any number of charges to launch bolts of frigid starlight. You launch a number of bolts equal to the number of charges spent, and you can direct the bolts to target one creature or several, so long as all creatures are within 120 feet of you and you can see them. The bolts automatically strike their targets, and each bolt deals 2d4 cold damage." +
-	"\n   " + toUni("Whirling Hail") + ". As an action, you can spend 3 charges and cast the Ice Storm spell (save DC 16)." +
+	"\n   ***Star Flight***. As a bonus action, you can spend 1 charge to gain the power of flight for 10 minutes. For the duration, you gain a flying speed equal to your walking speed, and you can hover. While flying, you glow faintly with starlight." +
+	"\n   ***Starlight Strike***. As an action, you can spend any number of charges to launch bolts of frigid starlight. You launch a number of bolts equal to the number of charges spent, and you can direct the bolts to target one creature or several, so long as all creatures are within 120 feet of you and you can see them. The bolts automatically strike their targets, and each bolt deals 2d4 cold damage." +
+	"\n   ***Whirling Hail***. As an action, you can spend 3 charges and cast the Ice Storm spell (save DC 16)." +
 	"\n   The crown regains 1d6 expended charges daily at dawn.",
 	action: [["bonus action", " (fly)"], ["action", " (bolts)"]],
 	usages: 6,
@@ -849,9 +848,9 @@ MagicItemsList["deck of dimensions"] = {
 	description: "This deck has 6 charges, regaining 1d6 used at dawn. As a bonus action, I can use 1 charge to throw a card to an empty spot either within 60 ft and teleport to it, or within 5 ft and teleport to it once in the next 8 hours as an action. I can use 3 charges to cast Arcane Gate, but can't use the deck while the gate is active.",
 	descriptionLong: "These cards are decorated with intricate designs of different planes of existence. The deck has 6 charges, regaining 1d6 used charges daily at dawn. As a bonus action, I can use 1 charge to throw a card to an empty space either within 60 ft and teleport to it now, or within 5 ft and leave it there to use an action within the next 24 hours to speak the card's name and teleport to it. Once I teleport to a card, or 8 hours passed, the card vanishes and returns to the deck. As an action, I can use 3 charges to cast Arcane Gate, but the fluttering cards of the deck make up the gate, rendering the deck useless while it's active.",
 	descriptionFull: "The backs of the cards in this deck are decorated with intricate designs representing different planes of existence. The deck has 6 charges. While holding it, you can expend 1 or more of its charges to use the following properties:" +
-	"\n   " + toUni("Marked Card") + ". As a bonus action, you can expend 1 charge to draw a card from the deck and place it in an unoccupied space within 5 feet of you. The card then becomes marked with an invisible sigil. Once within the next 24 hours, as an action, you can speak the marked card's name and teleport to the card's location, along with any equipment you are wearing or carrying, appearing in the closest unoccupied space to the card. After you teleport in this way, or after 8 hours, the card returns to the deck, and the mark on it fades." +
-	"\n   " + toUni("Riffling Portal") + ". As an action, you can expend 3 charges to cast the Arcane Gate spell from the deck. The deck vanishes, and fluttering cards create the spell's portal rings. When the spell ends, the deck reappears in your possession." +
-	"\n   " + toUni("Shuffling Stride") + ". As a bonus action, you can expend 1 charge to throw a card from the deck to an unoccupied space within 60 feet of yourself and teleport, along with any equipment you're wearing or carrying, to that space. The card then vanishes and returns to the deck." +
+	"\n   ***Marked Card***. As a bonus action, you can expend 1 charge to draw a card from the deck and place it in an unoccupied space within 5 feet of you. The card then becomes marked with an invisible sigil. Once within the next 24 hours, as an action, you can speak the marked card's name and teleport to the card's location, along with any equipment you are wearing or carrying, appearing in the closest unoccupied space to the card. After you teleport in this way, or after 8 hours, the card returns to the deck, and the mark on it fades." +
+	"\n   ***Riffling Portal***. As an action, you can expend 3 charges to cast the Arcane Gate spell from the deck. The deck vanishes, and fluttering cards create the spell's portal rings. When the spell ends, the deck reappears in your possession." +
+	"\n   ***Shuffling Stride***. As a bonus action, you can expend 1 charge to throw a card from the deck to an unoccupied space within 60 feet of yourself and teleport, along with any equipment you're wearing or carrying, to that space. The card then vanishes and returns to the deck." +
 	"\n   The deck regains 1d6 expended charges daily at dawn.",
 	action: [["bonus action", " (throw card)"], ["action", " (teleport back)"]],
 	usages: 6,
@@ -974,8 +973,8 @@ MagicItemsList["donjon's sundering sphere"] = {
 	descriptionLong: "Attuning to this marble-size crystal sphere includes attaching it to the hilt of a nonmagical melee weapon weapon, that then becomes a magic weapon with a +1 bonus to attack and damage rolls. While wielding it, I have advantage on save against being send to an extradimensional space or another plane of existence. Once per dawn when I hit a creature with this weapon, I can have it make a DC 16 Charisma save or be banished to a harmless demiplane until its next turn ends. It returns to the space it left, or the nearest empty space. When I end my attunement to the sphere, it detaches from the weapon.",
 	descriptionFull: "This marble-size crystal sphere glows with extraplanar energy." +
 	"\n   As part of attuning to this item, you press the crystal sphere to the hilt of a nonmagical melee weapon of your choice, magically attaching the sphere to the weapon. The weapon becomes a magic weapon with a +1 bonus to attack and damage rolls. While wielding this weapon, you gain the following benefits:" +
-	"\n   " + toUni("Dimensional Anchor") + ". You have advantage on saving throws against spells or effects that would send you to an extradimensional space, a demiplane, or another plane of existence against your will." +
-	"\n   " + toUni("Isolating Smite") + ". When you hit a creature with this weapon, you can force the creature to make a DC 16 Charisma saving throw. On a failed save, the creature is banished to a harmless demiplane until the end of its next turn. When the banished creature returns, it reappears in the space it left or the nearest unoccupied space if that space is occupied. Once this property is used, it can't be used again until the next dawn." +
+	"\n   ***Dimensional Anchor***. You have advantage on saving throws against spells or effects that would send you to an extradimensional space, a demiplane, or another plane of existence against your will." +
+	"\n   ***Isolating Smite***. When you hit a creature with this weapon, you can force the creature to make a DC 16 Charisma saving throw. On a failed save, the creature is banished to a harmless demiplane until the end of its next turn. When the banished creature returns, it reappears in the space it left or the nearest unoccupied space if that space is occupied. Once this property is used, it can't be used again until the next dawn." +
 	"\n   When you end your attunement to the sphere, the sphere harmlessly detaches from the weapon, and the weapon reverts to a nonmagical piece of equipment.",
 	savetxt: {
 		adv_vs: ["being send to other plane/dimension"],
@@ -1022,9 +1021,9 @@ MagicItemsList["euryale's aegis"] = {
 	descriptionLong: "This gleaming brass shield bears a relief of the legendary medusa druid Euryale. It grants me poison resistance and immunity to being petrified. I can use it to cast 3 spells, each once per dawn: Lesser Restoration, Locate Creature, and Transport via Plants.\nAs a bonus action once per dawn, I can try to petrify a creature I can see within 30 ft. It must make a DC 20 Constitution save or be restrained while its body turns to stone. When its next turn starts, it must then make a DC 20 Constitution save again or be petrified for 24 hours. On a successful save, the restrained condition ends.",
 	descriptionFull: "This gleaming brass shield bears a relief of the legendary medusa druid Euryale." +
 	"\n   While wielding this shield, you gain the following benefits:" +
-	"\n   " + toUni("Blessing of Euryale") + ". You have resistance to poison damage and are immune to the petrified condition." +
-	"\n   " + toUni("Petrifying Heraldry") + ". As a bonus action, you can make the front of the shield flare with a medusa's petrifying magic, causing the relief's eyes to glow brightly. Choose one creature you can see within 30 feet of you. The creature must succeed on a DC 20 Constitution saving throw, or it has the restrained condition as its body turns to stone. The restrained creature must make another DC 20 Constitution saving throw at the start of its next turn. On a failed save, the creature has the petrified condition for 24 hours. On a successful save, the restrained condition ends. Once this bonus action is used, it can't be used again until the next dawn." +
-	"\n   " + toUni("Spellcasting") + ". While wielding the shield, you can use an action to cast one of the following spells from it: Lesser Restoration, Locate Creature, Transport via Plants. Once you use the shield to cast a spell, the shield can't cast that spell again until the next dawn.",
+	"\n   ***Blessing of Euryale***. You have resistance to poison damage and are immune to the petrified condition." +
+	"\n   ***Petrifying Heraldry***. As a bonus action, you can make the front of the shield flare with a medusa's petrifying magic, causing the relief's eyes to glow brightly. Choose one creature you can see within 30 feet of you. The creature must succeed on a DC 20 Constitution saving throw, or it has the restrained condition as its body turns to stone. The restrained creature must make another DC 20 Constitution saving throw at the start of its next turn. On a failed save, the creature has the petrified condition for 24 hours. On a successful save, the restrained condition ends. Once this bonus action is used, it can't be used again until the next dawn." +
+	"\n   ***Spellcasting***. While wielding the shield, you can use an action to cast one of the following spells from it: Lesser Restoration, Locate Creature, Transport via Plants. Once you use the shield to cast a spell, the shield can't cast that spell again until the next dawn.",
 	weight: 6,
 	action: [["bonus action", " - Petrify"]],
 	shieldAdd: "Euryale's Aegis",
@@ -1058,8 +1057,8 @@ MagicItemsList["fabulist gem"] = {
 	description: "As a bonus action, I can use this glittering red gem to change the appearance of what I'm wearing, the color, pattern, or to something different entirely. This doesn't pass physical inspection. As an action once per dawn, I can create a pile of coins up to 100 gp on a surface within 10 ft. They last for 1 hour.",
 	descriptionFull: "This glittering red gem is commonly found embedded in a ring or brooch." +
 	"\n   While wearing the gem, you gain the following benefits." +
-	"\n   " + toUni("Counterfeit Coins") + ". You can use your action to magically create a pile of coins, worth no more than 100 gp total, in an unoccupied space within 10 feet of yourself. The pile must appear on a surface that can support it. After 1 hour, the coins vanish, regardless of where they are. Once this action is used, it can't be used again until the next dawn." +
-	"\n   " + toUni("Illusory Fashion") + ". As a bonus action, you can magically change the appearance of your clothing and armor. You can change the style, color, and apparent quality of what you're wearing, or you can make it appear as if you were wearing different garments entirely. In either case, the changes wrought by this magic fail to pass physical inspection.",
+	"\n   ***Counterfeit Coins***. You can use your action to magically create a pile of coins, worth no more than 100 gp total, in an unoccupied space within 10 feet of yourself. The pile must appear on a surface that can support it. After 1 hour, the coins vanish, regardless of where they are. Once this action is used, it can't be used again until the next dawn." +
+	"\n   ***Illusory Fashion***. As a bonus action, you can magically change the appearance of your clothing and armor. You can change the style, color, and apparent quality of what you're wearing, or you can make it appear as if you were wearing different garments entirely. In either case, the changes wrought by this magic fail to pass physical inspection.",
 	action: [["action", " - Counterfeit Coins"], ["bonus action", " - Illusory Fashion"]],
 	extraLimitedFeatures: [{
 		name: "Fabulist Gem - Counterfeit Coins",
@@ -1085,8 +1084,8 @@ MagicItemsList["fate cutter shears"] = {
 	attunement: true,
 	description: "The blades of these pruning shears bear many nicks and dents but still cut cleanly. They function as a magic dagger that deal +1d6 force damage. Once per dawn when I hit a creature with them, I can cut their fate. Until that target finishes a long rest, attack rolls against them score a critical hit on a roll of 19 or 20.",
 	descriptionFull: "The blades of these pruning shears bear many nicks and dents but still cut cleanly. The shears function as a magic dagger. The weapon has the following properties:" +
-	"\n   " + toUni("Ever Sharp") + ". When you hit with an attack using the shears, the target takes an extra 1d6 force damage." +
-	"\n   " + toUni("Sever Threads") + ". When you hit a creature with the shears, you can cut that creature's fate. Until the target finishes a long rest, attack rolls against it score a critical hit on a roll of 19 or 20 on the d20. Once this property is used, it can't be used again until the next dawn.",
+	"\n   ***Ever Sharp***. When you hit with an attack using the shears, the target takes an extra 1d6 force damage." +
+	"\n   ***Sever Threads***. When you hit a creature with the shears, you can cut that creature's fate. Until the target finishes a long rest, attack rolls against it score a critical hit on a roll of 19 or 20 on the d20. Once this property is used, it can't be used again until the next dawn.",
 	weight: 1,
 	usages: 1,
 	recovery: "dawn",
@@ -1194,8 +1193,8 @@ MagicItemsList["fool's blade"] = {
 	descriptionLong: "This magic weapon appears ordinary, but bears strong illusion magic that allows me to deceive opponents. I have a +2 bonus to attack and damage rolls with it.\nFool's Feint: As a bonus action once per dawn, I can feint a creature within 5 ft, giving me advantage on attack rolls against it until the start of my next turn.\nMisdirect: As a reaction once per dawn when a creature within 60 ft targets me with an attack roll, I can have it make a DC 15 Intelligence save. On a failed save, the attack instead targets another creature of my choice that is within the attacker's reach.",
 	descriptionFull: "This weapon appears ordinary, but it bears strong illusion magic that allows its wielder to skillfully deceive opponents." +
 	"\n   You have a +2 bonus to attack and damage rolls made with this magic weapon. While wielding it, you also gain the following benefits:" +
-	"\n   " + toUni("Fool's Feint") + ". As a bonus action, you can feint, choosing a creature within 5 feet of you as your target. Until the start of your next turn, you have advantage on attack rolls against the target. Once this bonus action is used, it can't be used again until the next dawn." +
-	"\n   " + toUni("Misdirect") + ". When a creature within 60 feet of you targets you with an attack roll, you can use your reaction to require that creature to make a DC 15 Intelligence saving throw. On a failed save, the attack instead targets another creature of your choice that is within the attacker's reach. Once this reaction has been used, it can't be used again until the next dawn.",
+	"\n   ***Fool's Feint***. As a bonus action, you can feint, choosing a creature within 5 feet of you as your target. Until the start of your next turn, you have advantage on attack rolls against the target. Once this bonus action is used, it can't be used again until the next dawn." +
+	"\n   ***Misdirect***. When a creature within 60 feet of you targets you with an attack roll, you can use your reaction to require that creature to make a DC 15 Intelligence saving throw. On a failed save, the attack instead targets another creature of your choice that is within the attacker's reach. Once this reaction has been used, it can't be used again until the next dawn.",
 	action: [["bonus action", " - Feint"], ["reaction", " - Misdirect"]],
 	chooseGear: {
 		type: "weapon",
@@ -1398,9 +1397,9 @@ MagicItemsList["jester's mask"] = {
 	"\u2022 Marvelous Escape: As a reaction once per dawn when a creature hits me with an attack roll, I can teleport in a puff of smoke and sparkles instead of taking damage. I teleport to an empty space I can see within 30 ft, along with anything I'm wearing or carrying." +
 	"\u2022 Topsy-Turvy: Once per dawn when I roll a 1 on a d20, I can treat it as a 20 instead.",
 	descriptionFull: "This colorful, harlequin domino mask is edged with pearls. While wearing this mask, you gain the following benefits:" +
-	"\n   " + toUni("Charismatic Focus") + ". You can use the mask as a spellcasting focus. You gain a +3 bonus to any spell attack rolls and spell saving throw DCs that use Charisma as the spellcasting ability." +
-	"\n   " + toUni("Marvelous Escape") + ". When a creature hits you with an attack roll, you can use your reaction to disappear in a puff of smoke and colorful sparkles. You take no damage and instead teleport, along with anything you are wearing or carrying, to an unoccupied space you can see within 30 feet of yourself. Once this reaction is used, it can't be used again until the next dawn." +
-	"\n   " + toUni("Topsy-Turvy") + ". When you roll a 1 on a d20, you can treat the roll as if you rolled a 20 instead. Once this property is used, it can't be used again until the next dawn.",
+	"\n   ***Charismatic Focus***. You can use the mask as a spellcasting focus. You gain a +3 bonus to any spell attack rolls and spell saving throw DCs that use Charisma as the spellcasting ability." +
+	"\n   ***Marvelous Escape***. When a creature hits you with an attack roll, you can use your reaction to disappear in a puff of smoke and colorful sparkles. You take no damage and instead teleport, along with anything you are wearing or carrying, to an unoccupied space you can see within 30 feet of yourself. Once this reaction is used, it can't be used again until the next dawn." +
+	"\n   ***Topsy-Turvy***. When you roll a 1 on a d20, you can treat the roll as if you rolled a 20 instead. Once this property is used, it can't be used again until the next dawn.",
 	action: [["reaction", " (escape)"]],
 	extraLimitedFeatures: [{
 		name: "Jester's Mask - Marvelous Escape",
@@ -1515,9 +1514,9 @@ MagicItemsList["rod of hellish flames"] = {
 	description: "I can use this black iron rod as an arcane focus and it grants me resistance to fire and necrotic damage. Once per dawn I can use it to cast Hellish Rebuke as a 4th-level spell (save DC 16). When I cast a spell that deals fire or necrotic damage, I can once per dawn use it to maximize the damage instead of rolling.",
 	descriptionFull: "Glowing cinders orbit the flanged head of this black iron rod." +
 	"\n   This rod can be used as an arcane focus. While holding this rod, you gain the following benefits:" +
-	"\n   " + toUni("Hellish Resistance") + ". You have resistance to fire and necrotic damage." +
-	"\n   " + toUni("Searing Rebuke") + ". You can cast the Hellish Rebuke spell as a 4th-level spell (save DC 16) from the rod. Once you use the rod to cast the spell, the rod can't cast the spell again until the next dawn." +
-	"\n   " + toUni("Surge of Brimstone") + ". Whenever you cast a spell that deals fire or necrotic damage, you can use the rod to deal the maximum damage instead of rolling. Once this property is used, it can't be used again until the next dawn.",
+	"\n   ***Hellish Resistance***. You have resistance to fire and necrotic damage." +
+	"\n   ***Searing Rebuke***. You can cast the Hellish Rebuke spell as a 4th-level spell (save DC 16) from the rod. Once you use the rod to cast the spell, the rod can't cast the spell again until the next dawn." +
+	"\n   ***Surge of Brimstone***. Whenever you cast a spell that deals fire or necrotic damage, you can use the rod to deal the maximum damage instead of rolling. Once this property is used, it can't be used again until the next dawn.",
 	weight: 2,
 	extraLimitedFeatures: [{
 		name: "Rod of Hellish Flames (Hellish Rebuke)",
@@ -1550,9 +1549,9 @@ MagicItemsList["rogue's mantle"] = {
 	attunement: true,
 	description: "This dark, hooded mantle of thick cloth gives me +60 ft darkvision. As a bonus action, I can use it to teleport 30 ft from and into dim light or darkness, to an empty space I can see. I then have advantage on my first attack before my turn ends. Also, I can use it to cast Antagonize once per dawn (save DC 15).",
 	descriptionFull: "This dark, hooded mantle of thick cloth is infused with secretive and deceptive magic. While wearing it, you gain the following benefits:" +
-	"\n   " + toUni("Darkvision") + ". You gain darkvision within a range of 60 feet. If you already have darkvision, the mantle increases your darkvision's range by 60 feet instead." +
-	"\n   " + toUni("Move in Shadows") + ". While you are in dim light or darkness, you can use a bonus action to teleport, along with anything you are wearing or carrying, up to 30 feet to an unoccupied space you can see that is also in dim light or darkness. You then have advantage on the first melee attack you make before the end of the turn." +
-	"\n   " + toUni("Willful Enmity") + ". You can cast the Antagonize spell (save DC 15) from the mantle. Once the mantle has cast the spell, it can't cast the spell again until the next dawn.",
+	"\n   ***Darkvision***. You gain darkvision within a range of 60 feet. If you already have darkvision, the mantle increases your darkvision's range by 60 feet instead." +
+	"\n   ***Move in Shadows***. While you are in dim light or darkness, you can use a bonus action to teleport, along with anything you are wearing or carrying, up to 30 feet to an unoccupied space you can see that is also in dim light or darkness. You then have advantage on the first melee attack you make before the end of the turn." +
+	"\n   ***Willful Enmity***. You can cast the Antagonize spell (save DC 15) from the mantle. Once the mantle has cast the spell, it can't cast the spell again until the next dawn.",
 	usages: 1,
 	recovery: "dawn",
 	additional: "Antagonize",
@@ -1702,7 +1701,7 @@ MagicItemsList["shield of the tortoise"] = {
 	attunement: true,
 	description: "This +1 shield curses me as soon as I attune to it. While I'm cursed by it, I can't discard it, I can't break my attunement to it, and I am sluggish. Sluggish means that my speed is halved and when I roll initiative, I always treat the roll on the d20 as a 1. I can't change my initiative by any means.",
 	descriptionFull: "While you are wielding this shield, you gain a +1 bonus to AC. This bonus is in addition to the shield's normal bonus to AC." +
-	"\n   " + toUni("Curse") + ". This item is cursed. Attuning to it extends the curse to you until you are targeted by a Remove Curse spell or similar magic. You cannot discard the shield, and remain attuned to it, as long as you are cursed. As long as you are cursed, you are sluggish. Your speed is halved. When you roll initiative, treat the roll on your d20 as a 1. You can't change your initiative by any means.",
+	"\n   ***Curse***. This item is cursed. Attuning to it extends the curse to you until you are targeted by a Remove Curse spell or similar magic. You cannot discard the shield, and remain attuned to it, as long as you are cursed. As long as you are cursed, you are sluggish. Your speed is halved. When you roll initiative, treat the roll on your d20 as a 1. You can't change your initiative by any means.",
 	weight: 6,
 	shieldAdd: ["Shield of the Tortoise", 3, 6],
 	speed: { allModes: { bonus: "/2" } },
@@ -1717,7 +1716,7 @@ MagicItemsList["shrieking greaves"] = {
 	descriptionLong: "These black leg guards are decorated with monstrous skulls screaming in terror. They have 3 charges, regaining 1d3 used charges daily at dawn. As a bonus action, I can use 1 charge to increase my walking speed by 30 ft, and gain advantage on Dexterity saves. These effects last for 1 minute. The greaves are cursed, and I can't remove or end my attunement to them. They give me disadvantage on saves against being frightened. When I start my turn frightened, they release an ear-piercing scream. I and all within 10 ft of me take 2d8 thunder damage and can make a DC 15 Constitution save to halve this damage.",
 	descriptionFull: "Each of these black leg guards is decorated with a motif of monstrous skulls screaming in terror." +
 	"\n   The greaves have 3 charges. While wearing these greaves, you can use a bonus action to expend 1 charge to increase your walking speed by 30 feet, and you have advantage on Dexterity saving throws. These effects last for 1 minute. The greaves regain 1d3 expended charges daily at dawn." +
-	"\n   " + toUni("Curse") + ". " + BoMT.toDescrFull(BoMT["shrieking greaves"]),
+	"\n   ***Curse***. " + BoMT.toDescrFull(BoMT["shrieking greaves"]),
 	action: [["bonus action", ""]],
 	usages: 3,
 	recovery: "dawn",
@@ -1841,8 +1840,8 @@ MagicItemsList["stonemaker war pick"] = {
 	attunement: true,
 	description: "This war pick adds +1 to attack and damage rolls. I can use it to cast Meld into Stone once per dawn. If I score a critical hit with it against a creature that has 100 HP or fewer, I can use 1 charge to have the target make a DC 15 Con save or be petrified for 8 hours. It has 1d6+1 charges that can't be replenished.",
 	descriptionFull: "You gain a +1 bonus to attack and damage rolls made with this magic war pick. It has the following special properties:" +
-	"\n   " + toUni("Meld into Stone") + ". You can cast the Meld into Stone spell from this war pick. Once this property is used, it can't be used again until the next dawn." +
-	"\n   " + toUni("Petrification") + ". The war pick has 1d6 + 1 charges. If you score a critical hit against a creature that has fewer than 100 hit points, you can expend 1 charge from the war pick to have that creature make a DC 15 Constitution saving throw. On a failed save, the creature has the petrified condition for 8 hours. When the war pick has no charges remaining, it loses this property.",
+	"\n   ***Meld into Stone***. You can cast the Meld into Stone spell from this war pick. Once this property is used, it can't be used again until the next dawn." +
+	"\n   ***Petrification***. The war pick has 1d6 + 1 charges. If you score a critical hit against a creature that has fewer than 100 hit points, you can expend 1 charge from the war pick to have that creature make a DC 15 Constitution saving throw. On a failed save, the creature has the petrified condition for 8 hours. When the war pick has no charges remaining, it loses this property.",
 	weight: 2,
 	extraLimitedFeatures: [{
 		name: "Stonemaker War Pick - Meld into Stone",
@@ -1879,8 +1878,8 @@ MagicItemsList["sun staff"] = {
 	prereqeval: function (v) { return classes.known.cleric || classes.known.druid || classes.known.wizard ? true : false; },
 	description: "This +1 quarterstaff deals +1d8 fire damage on an attack. I can use it as a spellcasting focus. Once per dawn when I cast a spell using a spell slot, I can reroll my Prof Bonus of fire or radiant damage dice. As a bonus action, I can toggle it glowing with sunlight: 15-ft radius bright light and dim light for another 15 ft.",
 	descriptionFull: "Veins of sunstone run through this wooden staff. This staff can be wielded as a magic quarterstaff that grants a +1 bonus to attack and damage rolls made with it. When you hit with an attack roll using this staff, the target takes an extra 1d8 fire damage." +
-	"\n   " + toUni("Solar Focus") + ". You can use the staff as a spellcasting focus. While holding the staff, you can reroll a number of damage dice up to your proficiency bonus when you use a spell slot to cast a spell that deals fire or radiant damage. You must use the new rolls. Once this property is used, it can't be used again until the next dawn." +
-	"\n   " + toUni("Sunny Glow") + ". As a bonus action, you can cause the staff to glow with sunlight. While glowing, the staff sheds bright light in a 15-foot radius and dim light for an additional 15 feet. The light lasts until you use another bonus action to extinguish it.",
+	"\n   ***Solar Focus***. You can use the staff as a spellcasting focus. While holding the staff, you can reroll a number of damage dice up to your proficiency bonus when you use a spell slot to cast a spell that deals fire or radiant damage. You must use the new rolls. Once this property is used, it can't be used again until the next dawn." +
+	"\n   ***Sunny Glow***. As a bonus action, you can cause the staff to glow with sunlight. While glowing, the staff sheds bright light in a 15-foot radius and dim light for an additional 15 feet. The light lasts until you use another bonus action to extinguish it.",
 	weight: 4,
 	action: [["bonus action", " (glow on/off)"]],
 	usages: 1,
@@ -1987,7 +1986,7 @@ MagicItemsList["voidwalker armor"] = {
 	attunement: true,
 	description: "This black studded leather armor bears a red sheen. As a bonus action once per dawn, I can summon a projection of myself in an empty space within 30 ft. It's a translucent copy of me, immune to all damage and conditions, that I can make attacks and cast spells from. The projection disappears at the end of my turn.",
 	descriptionFull: "This black studded leather armor bears a red sheen. While wearing this armor, you can use a bonus action to summon a projection of yourself in an unoccupied space within 30 feet of yourself. The projection is a translucent copy of you that has immunity to all damage and conditions, and you can make attacks and cast spells with a range other than self as if standing in the projection's space. The projection disappears at the end of your turn. Once you use this bonus action, it can't be used again until the next dawn." +
-	"\n   " + toUni("Curse") + ". " + BoMT.toDescrFull(BoMT["voidwalker armor"]),
+	"\n   ***Curse***. " + BoMT.toDescrFull(BoMT["voidwalker armor"]),
 	weight: 13,
 	usages: 1,
 	recovery: "dawn",
@@ -2014,7 +2013,7 @@ MagicItemsList["warrior's passkey"] = {
 	attunement: true,
 	description: "This silver skeleton key is warm to the touch. I can use it to cast Knock while in its key form. As a bonus action, I can transform it into a magic +1 longsword that deals 1d10 force damage and I'm proficient with. The sword reverts back to a key if it leaves my grasp, I use a bonus action to do so, or my attunement ends.",
 	descriptionFull: "This silver skeleton key is warm to the touch. While holding the key in its key form, you can use an action to cast the Knock spell from the key." +
-	"\n   " + toUni("Transforming the Key") + ". While holding the key, you can use a bonus action to transform it into a magic longsword. You are considered proficient with the sword, and you have a +1 bonus to attack and damage rolls made with it. On a hit, the sword deals 1d10 force damage. The item remains in its sword form until it leaves your grasp or you use another bonus action to revert it to its key form." +
+	"\n   ***Transforming the Key***. While holding the key, you can use a bonus action to transform it into a magic longsword. You are considered proficient with the sword, and you have a +1 bonus to attack and damage rolls made with it. On a hit, the sword deals 1d10 force damage. The item remains in its sword form until it leaves your grasp or you use another bonus action to revert it to its key form." +
 	"\n   If you end your attunement to the item while it's in its sword form, it automatically reverts to its key form.",
 	action: [["bonus action", " (transform)"]],
 	weaponOptions: [{
@@ -2046,7 +2045,7 @@ MagicItemsList["weapon of throne's command"] = {
 	description: "This +1 weapon grants me proficiency with Intimidation and Persuasion. It has 5 charges, regaining 1d4 at dawn. As a bonus action, I can expend charges to cast a spell from it with save DC 16: Command (1 charge), Zone of Truth (2), Compulsion (4), Banishment (4), or Dominate Person (5).",
 	descriptionLong: "This weapon is bedecked in ornate gold filigree and deep-blue and maroon jewels. I gain a +1 bonus to attack and damage rolls made with this weapon. Additionally, I gain proficiency in the Intimidation and Persuasion skills if I don't already have it. The weapon has 5 charges, regaining 1d4 expended charges daily at dawn. As a bonus action, I can expend 1 or more of its charges to cast one of the following spells (save DC 16): Command (1 charge), Zone of Truth (2 charges), Compulsion (4 charges), Banishment (4 charges), or Dominate Person (5 charges).",
 	descriptionFull: "This weapon is bedecked in ornate gold filigree and deep-blue and maroon jewels. You gain a +1 bonus to attack and damage rolls made with this weapon. Additionally, you gain proficiency in the Intimidation and Persuasion skills if you don't already have it." +
-	"\n   " + toUni("Spellcasting") + ". The weapon has 5 charges. You can use a bonus action and expend 1 or more of its charges to cast one of the following spells (save DC 16): Command (1 charge), Zone of Truth (2 charges), Compulsion (4 charges), Banishment (4 charges), or Dominate Person (5 charges)." +
+	"\n   ***Spellcasting***. The weapon has 5 charges. You can use a bonus action and expend 1 or more of its charges to cast one of the following spells (save DC 16): Command (1 charge), Zone of Truth (2 charges), Compulsion (4 charges), Banishment (4 charges), or Dominate Person (5 charges)." +
 	"\n   The weapon regains 1d4 expended charges daily at dawn.",
 	skills: ["Intimidation", "Persuasion"],
 	chooseGear: {

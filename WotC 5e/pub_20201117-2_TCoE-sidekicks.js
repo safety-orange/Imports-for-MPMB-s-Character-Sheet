@@ -1,5 +1,5 @@
 var iFileName = "pub_20201117-2_TCoE-sidekicks.js";
-RequiredSheetVersion("13.1.7");
+RequiredSheetVersion(14);
 // This file adds the sidekick classes from Tasha's Cauldron of Everything (p142-147) to MPMB's Character Record Sheet
 
 /* - NOTICE -
@@ -12,13 +12,13 @@ RequiredSheetVersion("13.1.7");
 */
 
 // Define the source, if it doesn't yet exist
-if (!SourceList.T) {
-	SourceList.T = {
+if (!SourceList["T"]) {
+	SourceList["T"] = {
 		name: "Tasha's Cauldron of Everything",
 		abbreviation: "TCoE",
 		abbreviationSpellsheet: "T",
 		group: "Primary Sources",
-		url: "https://dnd.wizards.com/products/tashas-cauldron-everything",
+		url: "https://marketplace.dndbeyond.com/category/tashas-cauldron-of-everything?pid=SRC-00067",
 		date: "2020/11/17",
 	};
 }

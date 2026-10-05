@@ -3,7 +3,7 @@ RequiredSheetVersion("14.0.15-beta", 15);
 // This file adds all the player-material from Strixhaven: A Curriculum of Chaos to MPMB's Character Record Sheet
 
 // Define the source
-SourceList.SCC = {
+SourceList["SCC"] = {
 	name: "Strixhaven: A Curriculum of Chaos",
 	abbreviation: "SCC",
 	abbreviationSpellsheet: "SC",
@@ -735,10 +735,10 @@ MagicItemsList["murgaxor's orb"] = {
 	rarity: "legendary",
 	attunement: true,
 	description: "This sentient, chaotic evil orb bears a curse. It can communicate telepathically with any creature touching it. It can cast Suggestion on my turn, possibly on me. I have no control over it. Any Humanoid I touch while holding the orb must make a DC 10 Wisdom save or become cursed. See the Notes page.",
-	descriptionFull: SCC_Murgaxors_Orb_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: SCC_Murgaxors_Orb_Full_Description.join("\n   "),
 	toNotesPage: [{
 		name: "Features",
-		note: desc(SCC_Murgaxors_Orb_Full_Description).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(targeting) you/ig, "$1 me").replace(/you /ig, "I ").replace(/feet/ig, "ft") + "\n\n" + sentientItemConflictTxt,
+		note: desc(SCC_Murgaxors_Orb_Full_Description).replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(targeting) you/ig, "$1 me").replace(/you /ig, "I ").replace(/feet/ig, "ft") + "\n\n" + sentientItemConflictTxt,
 	}],
 }
 MagicItemsList["masque charm"] = {
@@ -834,11 +834,11 @@ CreatureList["fractal mascot"] = { // Quandrix
 		description: "+1d4 damage if the fractal is Medium or bigger",
 	}],
 	actions: [{
-		name: "Augment (bonus action)",
-		description: "The fractal can increase its size by one category as a bonus action. While the fractal is Medium or bigger, it makes Strength checks and Strength saving throws with advantage. The fractal can become no larger than Huge via this bonus action.",
+		name: "Augment",
+		description: "As a bonus action, the fractal can increase its size by one category. While the fractal is Medium or bigger, it makes Strength checks and Strength saving throws with advantage. The fractal can become no larger than Huge via this bonus action.",
 	}, {
-		name: "Diminish (bonus action)",
-		description: "The fractal can decreases its size by one category as a bonus action. While the fractal is Tiny, it makes attack rolls, Dexterity checks, and Dexterity saving throws with advantage. The fractal can become no smaller than 1 ft in height via this bonus action.",
+		name: "Diminish",
+		description: "As a bonus action, the fractal can decreases its size by one category. While the fractal is Tiny, it makes attack rolls, Dexterity checks, and Dexterity saving throws with advantage. The fractal can become no smaller than 1 ft in height via this bonus action.",
 	}],
 	traits: [{
 		name: "Relative Density",
@@ -880,8 +880,8 @@ CreatureList["inkling mascot"] = { // Silverquill
 		name: "Ink Spray (1/Day)",
 		description: "As an action, the inkling can spray viscous ink at one creature within 15 ft of itself. The target must succeed on a DC 12 Constitution saving throw or be blinded until the end of the inkling's next turn.",
 	}, {
-		name: "Shadow Stealth (bonus action)",
-		description: "While in dim light or darkness, the inkling can take the Hide action as a bonus action.",
+		name: "Shadow Stealth",
+		description: "As a bonus action while in dim light or darkness, the inkling can take the Hide action.",
 	}],
 	traits: [{
 		name: "Amorphous",

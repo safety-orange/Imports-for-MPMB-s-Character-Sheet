@@ -1,5 +1,5 @@
 var iFileName = "pub_20190917_DiA.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion(14);
 // This file adds all material from the Baldur's Gate: Descent into Avernus adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -346,7 +346,7 @@ MagicItemsList["infernal puzzle box"] = {
 	weight: 3,
 }
 // [dupl_start] reprint from Mordenkainen's Tome of Foes
-if (!SourceList.MToF) {
+if (!SourceList["MToF"]) {
 	MagicItemsList["infernal tack"] = {
 		name: "Infernal Tack",
 		source: [["MToF", 167], ["DiA", 224]],
@@ -441,11 +441,11 @@ MagicItemsList["shield of the hidden lord"] = {
 	rarity: "legendary",
 	storyItemAL: true,
 	description: 'This shield grants me +2 bonus to AC and resistance to fire damage. It has 3 charges, regaining all at dawn. I can expend 1 charge to cast Fireball or 2 charges to cast Wall of Fire from it at DC 21. The shield is sentient and can communicate telepathically with any creature within 120 ft of it. See "Notes" page for more.',
-	descriptionFull: DiA_shieldOfTheHiddenLordFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: DiA_shieldOfTheHiddenLordFullDescription.join("\n   "),
 	attunement: true,
 	toNotesPage: [{
 		name: "Features",
-		note: desc(DiA_shieldOfTheHiddenLordFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(to) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(DiA_shieldOfTheHiddenLordFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(to) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 	weight: 6,
 	shieldAdd: ["Shield of the Hidden Lord", 4, 6],
@@ -490,10 +490,10 @@ MagicItemsList["soul coin"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	description: "Each coin traps a unique soul, whose rage or despair is felt by me while I hold it. A coin has 3 charges. As an action, I can expend 1 charge to either siphon the soul's essence to grant me 1d10 temporary HP or telepathically ask the soul a question which it must answer truthfully. See \"Notes\" page for more.",
-	descriptionFull: DiA_soulCoinFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: DiA_soulCoinFullDescription.join("\n   "),
 	toNotesPage: [{
 		name: "Features",
-		note: desc(DiA_soulCoinFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(answer) you/ig, "$1 me").replace(/you /ig, "I "),
+		note: desc(DiA_soulCoinFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(answer) you/ig, "$1 me").replace(/you /ig, "I "),
 	}],
 	weight: 0.3,
 	usages: 3,

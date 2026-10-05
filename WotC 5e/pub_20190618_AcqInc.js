@@ -1,5 +1,5 @@
 var iFileName = "pub_20190618_AcqInc.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion(14);
 // This file adds all material from the Acquisitions Incorporated book to MPMB's Character Record Sheet
 
 // Define the source

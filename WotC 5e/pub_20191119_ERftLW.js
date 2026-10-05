@@ -80,7 +80,7 @@ FeatsList["revenant blade"] = {
 	},
 };
 // [dupl_start] reprints from Volo's Guide to Monsters
-if (!SourceList.V) {
+if (!SourceList["V"]) {
 	RaceList["bugbear"] = {
 		regExpSearch: /bugbear/i,
 		name: "Bugbear",
@@ -1237,7 +1237,7 @@ FeatsList["aberrant dragonmark"] = {
 	source: [["E:RLW", 52]],
 	prerequisite: "No other dragonmark",
 	prereqeval: function (v) { return !/dragonmark/i.test(CurrentRace.known); },
-	descriptionFull: "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip of your choice from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it through your mark. Once you cast it, you must finish a short or long rest before you can cast it again through the mark. Constitution is your spellcasting ability for these spells.\n \u2022 When you cast the 1st-level spell through your mark, you can expend one of your Hit Dice and roll it. If you roll an even number, you gain a number of temporary hit points equal to the number rolled. If you roll an odd number, one random creature within 30 feet of you (not including you) takes force damage equal to the number rolled. If no other creatures are in range, you take the damage.\n\nYou also develop a random flaw from the Aberrant Dragonmark Flaws table.\n\n" + toUni("d8\tFlaw") + "\n  1\tYour mark is a source of constant physical pain.\n  2\tYour mark whispers to you. Its meaning can be unclear.\n  3\tWhen you're stressed, the mark hisses audibly.\n  4\tThe skin around the mark is burned, scaly, or withered.\n  5\tAnimals are uneasy around you.\n  6\tYou have a mood swing any time you use your mark.\n  7\tYour looks change slightly whenever you use the mark.\n  8\tYou have horrific nightmares after you use your mark.",
+	descriptionFull: "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip of your choice from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it through your mark. Once you cast it, you must finish a short or long rest before you can cast it again through the mark. Constitution is your spellcasting ability for these spells.\n \u2022 When you cast the 1st-level spell through your mark, you can expend one of your Hit Dice and roll it. If you roll an even number, you gain a number of temporary hit points equal to the number rolled. If you roll an odd number, one random creature within 30 feet of you (not including you) takes force damage equal to the number rolled. If no other creatures are in range, you take the damage.\n\nYou also develop a random flaw from the Aberrant Dragonmark Flaws table.\n\n**d8**\t**Flaw**\n  1\tYour mark is a source of constant physical pain.\n  2\tYour mark whispers to you. Its meaning can be unclear.\n  3\tWhen you're stressed, the mark hisses audibly.\n  4\tThe skin around the mark is burned, scaly, or withered.\n  5\tAnimals are uneasy around you.\n  6\tYou have a mood swing any time you use your mark.\n  7\tYour looks change slightly whenever you use the mark.\n  8\tYou have horrific nightmares after you use your mark.",
 	description: "I learn a sorcerer cantrip, and a 1st-level spell that I can cast once per short rest. They use Con as spellcasting ability. I can expend and roll an HD when I cast the level 1 spell. If even, I gain it in temp HP. If odd, a random target in 30 ft takes it in force damage. [+1 Con]",
 	scores: [0, 0, 1, 0, 0, 0],
 	spellcastingAbility: 3,
@@ -2695,7 +2695,7 @@ MagicItemsList["belashyrra's beholder crown"] = {
 	rarity: "legendary",
 	description: "This symbiotic crown of dark purple and mauve stone attaches to my skull and removing it requires ending a curse. It allows me to see normally in magical and normal darkness (devil's sight) out to 120 ft. It has 10 charges, regaining 1d6+3 at dawn, which I can use to cast several spells with spell save DC 16.",
 	descriptionLong: "This symbiotic crown of dark purple and mauve stone attaches to my skull once I attune to it and removing it requires ending a curse. It allows me to see normally in magical and normal darkness (devil's sight) out to 120 ft. It has 10 charges, regaining 1d6+3 at dawn, which I can use to cast several spells with spell save DC 16. These are: Charm Person (1 charge), Disintegrate (6 charges), Fear (3 charges), Finger of Death (7 charges), Flesh to Stone (6 charges), Hold Person (2 charges), Ray of Enfeeblement (2 charges), Sleep (1 charge), Slow (3 charges), and Telekinesis (5 charges).",
-	descriptionFull: "This symbiotic crown is carved from dark purple and mauve stone, with ten points like stalks set with gemstones resembling the eyestalks of a beholder. To attune to this item, you must wear it on your head for the entire attunement period, during which the crown's hidden tendrils burrow into your scalp to bond with your skull.\n   While wearing the crown, you can see normally in darkness, both magical and nonmagical, to a distance of 120 feet.\n   " + toUni("Spells") + ". The crown has 10 charges. While wearing it, you can use an action to expend some of its charges to cast one of the following spells from it (spell save DC 16): charm person (1 charge), disintegrate (6 charges), fear (3 charges), finger of death (7 charges), flesh to stone (6 charges), hold person (2 charges), ray of enfeeblement (2 charges), sleep (1 charge), slow (3 charges), telekinesis (5 charges).\n   The crown regains 1d6 + 3 expended charges daily at dawn.\n   " + toUni("Symbiotic Nature") + ". The crown can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the crown ends, and it detaches from you.\n   The daelkyr Belashyrra made these crowns. While on the same plane of existence as the crown, Belashyrra can see through its eyestalks.",
+	descriptionFull: "This symbiotic crown is carved from dark purple and mauve stone, with ten points like stalks set with gemstones resembling the eyestalks of a beholder. To attune to this item, you must wear it on your head for the entire attunement period, during which the crown's hidden tendrils burrow into your scalp to bond with your skull.\n   While wearing the crown, you can see normally in darkness, both magical and nonmagical, to a distance of 120 feet.\n   ***Spells***. The crown has 10 charges. While wearing it, you can use an action to expend some of its charges to cast one of the following spells from it (spell save DC 16): charm person (1 charge), disintegrate (6 charges), fear (3 charges), finger of death (7 charges), flesh to stone (6 charges), hold person (2 charges), ray of enfeeblement (2 charges), sleep (1 charge), slow (3 charges), telekinesis (5 charges).\n   The crown regains 1d6 + 3 expended charges daily at dawn.\n   ***Symbiotic Nature***. The crown can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the crown ends, and it detaches from you.\n   The daelkyr Belashyrra made these crowns. While on the same plane of existence as the crown, Belashyrra can see through its eyestalks.",
 	attunement: true,
 	usages: 10,
 	recovery: "dawn",
@@ -2764,13 +2764,13 @@ MagicItemsList["docent"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	description: "I can embed this sentient small metal sphere studded with dragonshards into my chest or eye socket. I can communicate telepathically with it and it uses my senses. It can serve me as an advisor and a translator. It knowns 6 languages, a spells, an Intelligence skill, and can stabilize me. See Notes page.",
-	descriptionFull: ERftLW_docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: ERftLW_docentFullDescription.join("\n   "),
 	attunement: true,
 	prerequisite: "Requires attunement by a warforged",
 	prereqeval: function (v) { return /warforged/i.test(CurrentRace.known); },
 	toNotesPage: [{
 		name: "Features",
-		note: desc(ERftLW_docentFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/(with|stabilizes|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(ERftLW_docentFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/(with|stabilizes|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 }
 MagicItemsList["dyrrn's tentacle whip"] = {
@@ -2780,7 +2780,7 @@ MagicItemsList["dyrrn's tentacle whip"] = {
 	type: "weapon (whip)",
 	rarity: "very rare",
 	description: "This magic whip embeds itself in my arm once I attune to it and removing it requires ending a curse. It has a +2 bonus to attack and damage rolls, deals +1d6 psychic damage, but has disadv. vs. aberrations. On a roll of 20 to hit, the target is stunned until it next turn ends. As a bonus action, I can draw/sheath it in my arm",
-	descriptionFull: "This long, whip-like strand of tough muscle bears a sharp stinger at one end. To attune to this symbiotic weapon, you wrap the whip around your wrist for the entire attunement period, during which time the whip painfully embeds its tendrils into your arm.\n   You gain a +2 bonus to attack and damage rolls made with this magic whip, but attack rolls made against aberrations with this weapon have disadvantage. A creature hit by this weapon takes an extra 1d6 psychic damage. When you roll a 20 on the d20 for an attack roll with this weapon, the target is stunned until the end of its next turn.\n   As a bonus action, you can sheathe the whip by causing it to retract into your arm, or draw the whip out of your arm again.\n   " + toUni("Symbiotic Nature") + ". The whip can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the whip ends, and it detaches from you.",
+	descriptionFull: "This long, whip-like strand of tough muscle bears a sharp stinger at one end. To attune to this symbiotic weapon, you wrap the whip around your wrist for the entire attunement period, during which time the whip painfully embeds its tendrils into your arm.\n   You gain a +2 bonus to attack and damage rolls made with this magic whip, but attack rolls made against aberrations with this weapon have disadvantage. A creature hit by this weapon takes an extra 1d6 psychic damage. When you roll a 20 on the d20 for an attack roll with this weapon, the target is stunned until the end of its next turn.\n   As a bonus action, you can sheathe the whip by causing it to retract into your arm, or draw the whip out of your arm again.\n   ***Symbiotic Nature***. The whip can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the whip ends, and it detaches from you.",
 	attunement: true,
 	weight: 3,
 	action: [["bonus action", "Tentacle Whip (draw/sheath)"]],
@@ -2800,7 +2800,7 @@ MagicItemsList["earworm"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	description: "This symbiont bonds to my skull once I attune to it and removing it to end the attunement requires ending a curse. It has 4 charges, regaining 1d4 at dawn, which I can use to cast Detect Thoughts (2 charges) or Dissonant Whispers (1 charge) with DC 15. It allows me to speak, read, and write deep speech.",
-	descriptionFull: "To attune to this symbiont, you must hold it against the skin behind your ear for the entire attunement period, whereupon it burrows into your head and bonds to your skull. While the earworm is inside you, you can speak, read, and write Deep Speech.\n   " + toUni("Spells") + ". The earworm has 4 charges. You can cast the following spells from it, expending the necessary number of charges (spell save DC 15): detect thoughts (2 charges) or dissonant whispers (1 charge). Each time you use the earworm to cast the detect thoughts spell, it sends the information gleaned to the nearest daelkyr, or to the next nearest earworm until it reaches a daelkyr.\n   The earworm regains 1d4 expended charges daily at dawn.\n   " + toUni("Symbiotic Nature") + ". The earworm can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the earworm ends, and it exits your body.",
+	descriptionFull: "To attune to this symbiont, you must hold it against the skin behind your ear for the entire attunement period, whereupon it burrows into your head and bonds to your skull. While the earworm is inside you, you can speak, read, and write Deep Speech.\n   ***Spells***. The earworm has 4 charges. You can cast the following spells from it, expending the necessary number of charges (spell save DC 15): detect thoughts (2 charges) or dissonant whispers (1 charge). Each time you use the earworm to cast the detect thoughts spell, it sends the information gleaned to the nearest daelkyr, or to the next nearest earworm until it reaches a daelkyr.\n   The earworm regains 1d4 expended charges daily at dawn.\n   ***Symbiotic Nature***. The earworm can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the earworm ends, and it exits your body.",
 	attunement: true,
 	languageProfs: ["Deep Speech"],
 	usages: 4,
@@ -2866,7 +2866,7 @@ MagicItemsList["glamerweave"] = {
 	source: [["E:RLW", 277]],
 	type: "wondrous item",
 	description: "Glamerweave is clothing imbued with harmless illusory magic. As a bonus action while wearing these clothes, I can turn the pattern within the cloth into a moving illusory pattern. For the uncommon version, this pattern extends beyond the cloth and gives me +1d4 on a Performance or Persuasion check.",
-	descriptionFull: "Glamerweave is clothing imbued with harmless illusory magic. While wearing the common version of these clothes, you can use a bonus action to create a moving illusory pattern within the cloth.\n   Uncommon glamerweave can have the pattern rise from the cloth. For example, a glamerweave gown might be wreathed in harmless, illusory flames, while a glam­erweave hat might have illusory butterflies fluttering around it.\n   When you make a Charisma (Performance) or Cha­risma (Persuasion) check while wearing the uncommon version of glamerweave, you can roll a d4 and add the number rolled to the check. Once you use this property, it can't be used again until the next dawn. ",
+	descriptionFull: "Glamerweave is clothing imbued with harmless illusory magic. While wearing the common version of these clothes, you can use a bonus action to create a moving illusory pattern within the cloth.\n   Uncommon glamerweave can have the pattern rise from the cloth. For example, a glamerweave gown might be wreathed in harmless, illusory flames, while a glamerweave hat might have illusory butterflies fluttering around it.\n   When you make a Charisma (Performance) or Charisma (Persuasion) check while wearing the uncommon version of glamerweave, you can roll a d4 and add the number rolled to the check. Once you use this property, it can't be used again until the next dawn. ",
 	action: [["bonus action", ""]],
 	choices: ["Common (moving illusory pattern)", "Uncommon (pattern rises from the cloth)"],
 	"common (moving illusory pattern)": {
@@ -2896,7 +2896,7 @@ MagicItemsList["imbued wood focus"] = {
 	type: "wondrous item",
 	rarity: "common",
 	description: "This rod, wand, or staff is cut from a tree infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal the associated damage type add a +1 bonus to one of their damage rolls.",
-	descriptionFull: "An imbued wood focus is a rod, staff, or wand cut from a tree infused with extraplanar energy. If you're a spell­caster, you can use this orb as a spellcasting focus.\n   When you cast a damage-dealing spell using this item as your spellcasting focus, you gain a +1 bonus to one damage roll of the spell, provided the damage is of the type associated with the item's wood. The types of wood and their associated damage types are listed in the table below.\n\n" + toUni("Wood\t\t\tDamage Type") + "\nFernian Ash\t\tFire\nIrian Rosewood\t\tRadiant\nKythrian Manchineel  \tAcid or Poison\nLamannian Oak\t\tLightning or Thunder\nMabaran Ebony\t\tNecrotic\nRisian Pine\t\tCold\nShavarran Birch\t\tForce\nXorian Wenge\t\tPsychic",
+	descriptionFull: "An imbued wood focus is a rod, staff, or wand cut from a tree infused with extraplanar energy. If you're a spellcaster, you can use this orb as a spellcasting focus.\n   When you cast a damage-dealing spell using this item as your spellcasting focus, you gain a +1 bonus to one damage roll of the spell, provided the damage is of the type associated with the item's wood. The types of wood and their associated damage types are listed in the table below.\n\n**Wood**\t\t\t**Damage Type**\nFernian Ash\t\tFire\nIrian Rosewood\t\tRadiant\nKythrian Manchineel  \tAcid or Poison\nLamannian Oak\t\tLightning or Thunder\nMabaran Ebony\t\tNecrotic\nRisian Pine\t\tCold\nShavarran Birch\t\tForce\nXorian Wenge\t\tPsychic",
 	attunement: true,
 	allowDuplicates: true,
 	weight: 2,
@@ -3089,7 +3089,7 @@ MagicItemsList["kyrzin's ooze"] = {
 	rarity: "very rare",
 	description: "Once I attune to this opalescent goo by drinking it, it can only be removed by ending a curse. It gives me resistance to acid and poison damage and immunity to the poisoned condition. Each as an action once per short rest, I can exhale acid breath or become amorphous for 1 minute along with my equipment.",
 	descriptionLong: "I can only attune to this opalescent, symbiotic goo by drinking it. I can't remove it or end the attunement voluntarily, but it seeps out of me if the curse is removed. It gives me resistance to acid and poison damage and immunity to the poisoned condition. As an action once per dawn, I can become amorphous for 1 minute along with my equipment and can move through a space as narrow as 1 inch wide. As an action once per dawn, I can exhale a 30-ft line, 5-ft wide acid breath that deals 8d8 acid damage (Dexterity save DC 15 halves). If I die while it is inside me, it turns my corpse into a black pudding.",
-	descriptionFull: "This opalescent, symbiotic goo comes sealed in a jar and slowly shifts and moves, as if endlessly exploring the jar's interior. To attune to this item, you must first drink the contents of the jar, unlocking the following properties.\n   " + toUni("Resistant") + ". While attuned to Kyrzin's ooze, you have resistance to poison and acid damage, and you're immune to the poisoned condition.\n   " + toUni("Amorphous") + ". As an action, you can speak a command word and cause your body to assume the amorphous qualities of an ooze. For the next minute, you (along with any equipment you're wearing or carrying) can move through a space as narrow as 1 inch wide without squeezing. Once you use this property, it can't be used again until the next dawn.\n   " + toUni("Acid Breath") + ". As an action, you can exhale acid in a 30-foot line that is 5 feet wide. Each creature in that line must make a DC 15 Dexterity saving throw, taking 36 (8d8) acid damage on a failed save, or half as much damage on a successful one. Once you use this property, it can't be used again until the next dawn.\n   " + toUni("Symbiotic Nature") + ". The ooze can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the ooze ends, as it seeps out of you.\n   If you die while the ooze is inside you, it bursts out and engulfs you, turning your corpse into a black pudding allied with the daelkyr.",
+	descriptionFull: "This opalescent, symbiotic goo comes sealed in a jar and slowly shifts and moves, as if endlessly exploring the jar's interior. To attune to this item, you must first drink the contents of the jar, unlocking the following properties.\n   ***Resistant***. While attuned to Kyrzin's ooze, you have resistance to poison and acid damage, and you're immune to the poisoned condition.\n   ***Amorphous***. As an action, you can speak a command word and cause your body to assume the amorphous qualities of an ooze. For the next minute, you (along with any equipment you're wearing or carrying) can move through a space as narrow as 1 inch wide without squeezing. Once you use this property, it can't be used again until the next dawn.\n   ***Acid Breath***. As an action, you can exhale acid in a 30-foot line that is 5 feet wide. Each creature in that line must make a DC 15 Dexterity saving throw, taking 36 (8d8) acid damage on a failed save, or half as much damage on a successful one. Once you use this property, it can't be used again until the next dawn.\n   ***Symbiotic Nature***. The ooze can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the ooze ends, as it seeps out of you.\n   If you die while the ooze is inside you, it bursts out and engulfs you, turning your corpse into a black pudding allied with the daelkyr.",
 	attunement: true,
 	dmgres: ["Acid", "Poison"],
 	savetxt: { immune: ["poisoned condition"] },
@@ -3125,7 +3125,7 @@ MagicItemsList["living armor"] = {
 	type: "armor (any)",
 	rarity: "very rare",
 	description: "This armor of black chitin attaches itself to me once I attune to it and removing it requires ending a curse. It gives me +1 AC and resistance to necrotic, poison, and psychic damage. Whenever I finish a long rest, I must either feed it half my remaining HD (rounding up) or take 1 level of exhaustion.",
-	descriptionFull: "This hideous armor is formed from black chitin, beneath which veins pulse and red sinews glisten. To attune to this item, you must wear it for the entire attunement period, during which tendrils on the inside burrow into you.\n   While wearing this armor, you have a +1 bonus to Armor Class, and you have resistance to the following damage types: necrotic, poison, and psychic.\n   " + toUni("Symbiotic Nature") + ". The armor can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the armor ends, and it detaches from you.\n   The armor requires fresh blood be fed to it. Immediately after you finish any long rest, you must either feed half of your remaining Hit Dice to the armor (round up) or take 1 level of exhaustion.",
+	descriptionFull: "This hideous armor is formed from black chitin, beneath which veins pulse and red sinews glisten. To attune to this item, you must wear it for the entire attunement period, during which tendrils on the inside burrow into you.\n   While wearing this armor, you have a +1 bonus to Armor Class, and you have resistance to the following damage types: necrotic, poison, and psychic.\n   ***Symbiotic Nature***. The armor can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the armor ends, and it detaches from you.\n   The armor requires fresh blood be fed to it. Immediately after you finish any long rest, you must either feed half of your remaining Hit Dice to the armor (round up) or take 1 level of exhaustion.",
 	attunement: true,
 	dmgres: ["Necrotic", "Poison", "Psychic"],
 	chooseGear: {
@@ -3141,7 +3141,7 @@ MagicItemsList["living gloves"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	description: "These gloves made of thin chitin and sinew bond with my skin once I attune to them and removing them requires ending a curse. Once I attune to them, I can choose to become proficient and gain expertise with either sleight of hand, thieves' tools, or an artisan's tools or musical instrument of my choice.",
-	descriptionFull: "These symbiotic gloves\u2014made of thin chitin and sinew\u2014pulse with a life of their own. To attune to them, you must wear them for the entire attunement period, during which the gloves bond with your skin.\n   While attuned to these gloves, you gain one of the following proficiencies (your choice when you attune to the gloves):\n \u2022 Sleight of Hand\n \u2022 Thieves' tools\n \u2022 One kind of artisan's tools of your choice\n \u2022 One kind of musical instrument of your choice\n\nWhen you make an ability check using the chosen proficiency, you add double your proficiency bonus to the check, instead of your normal proficiency bonus.\n   " + toUni("Symbiotic Nature") + ". The gloves can't be removed from you while you're attuned to them, and you can't voluntarily end your attunement to them. If you're targeted by a spell that ends a curse, your attunement to the gloves ends, and they can be removed.",
+	descriptionFull: "These symbiotic gloves\u2014made of thin chitin and sinew\u2014pulse with a life of their own. To attune to them, you must wear them for the entire attunement period, during which the gloves bond with your skin.\n   While attuned to these gloves, you gain one of the following proficiencies (your choice when you attune to the gloves):\n \u2022 Sleight of Hand\n \u2022 Thieves' tools\n \u2022 One kind of artisan's tools of your choice\n \u2022 One kind of musical instrument of your choice\n\nWhen you make an ability check using the chosen proficiency, you add double your proficiency bonus to the check, instead of your normal proficiency bonus.\n   ***Symbiotic Nature***. The gloves can't be removed from you while you're attuned to them, and you can't voluntarily end your attunement to them. If you're targeted by a spell that ends a curse, your attunement to the gloves ends, and they can be removed.",
 	attunement: true,
 	choices: ["Proficiency and expertise with Sleight of Hand", "Proficiency and expertise with Thieves' Tools", "Proficiency and expertise with chosen artisan's tools", "Proficiency and expertise with chosen musical instrument"],
 	choicesNotInMenu: true,
@@ -3182,7 +3182,7 @@ MagicItemsList["orb of shielding"] = {
 	type: "wondrous item",
 	rarity: "common",
 	description: "An orb of shielding is made from crystal or stone aligned to one of the planes. I can use it as my spellcasting focus. While I am holding the orb and take damage of the type associated with the material the orb is made from, I can use my reaction to reduce the damage by 1d4 (to a minimum of 0).",
-	descriptionFull: "An orb of shielding is a polished, spherical chunk of crystal or stone aligned to one of the planes of existence. If you're a spellcaster, you can use this orb as a spellcasting focus.\n   If you're holding the orb when you take damage of the type associated with the orb's material, you can use your reaction to reduce the damage by 1d4 (to a minimum of 0). The materials and their associated damage types are listed in the Orb of Shielding table.\n\n" + toUni("Planar Material\t\tDamage Type") + "\nFernian Basalt\t\tFire\nIrian Quartz\t\tRadiant\nKythrian Skarn\t\tAcid or Poison\nLamannian Flint\t\tLightning or Thunder\nMabaran Obsidian      \tNecrotic\nRisian Shale\t\tCold\nShavarran Chert\t\tForce\nXorian Marble\t\tPsychic",
+	descriptionFull: "An orb of shielding is a polished, spherical chunk of crystal or stone aligned to one of the planes of existence. If you're a spellcaster, you can use this orb as a spellcasting focus.\n   If you're holding the orb when you take damage of the type associated with the orb's material, you can use your reaction to reduce the damage by 1d4 (to a minimum of 0). The materials and their associated damage types are listed in the Orb of Shielding table.\n\n**Planar Material**\t**Damage Type**\nFernian Basalt\t\tFire\nIrian Quartz\t\tRadiant\nKythrian Skarn\t\tAcid or Poison\nLamannian Flint\t\tLightning or Thunder\nMabaran Obsidian      \tNecrotic\nRisian Shale\t\tCold\nShavarran Chert\t\tForce\nXorian Marble\t\tPsychic",
 	attunement: true,
 	allowDuplicates: true,
 	weight: 3,
@@ -3447,12 +3447,28 @@ CreatureList["valenar hawk"] = { // contributed by Nod_Hero
 		name: "Bonding",
 		description: "The hawk can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the hawk bonds with a different creature or until the bonded creature dies. While bonded, the hawk and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
 	}],
-	eval: function (prefix, lvl) {
-		AddString(prefix + "Cnote.Left", ERftLW_Valenar_Ancestral_Traits, true);
-	},
-	removeeval: function (prefix, lvl) {
-		RemoveString(prefix + "Cnote.Left", ERftLW_Valenar_Ancestral_Traits, true);
-	},
+	notes: [{
+		name: "[Variant] Ancestral Traits (E:RLW 313)",
+		description: [
+			"Each Valenar animal can be customized with an ancestral gift, a supernatural trait granted by its ancestral spirit. Choose a trait or roll on the table below for each Valenar animal.",
+			" **d8**\t**Trait**",
+			"  1\t***Bestow Luck (1/Day)***. As a bonus action, the animal chooses one creature it can see",
+			"\twithin 30 ft of it. The next ability check, attack roll, or saving throw the target",
+			"\tmakes in the next hour has advantage.",
+			"  2\t***Burst of Speed (Recharge 6)***. The animal can take the Dash action as a bonus action.",
+			"  3\t***Camouflage***. The animal has advantage on Dexterity (Stealth) checks it makes while",
+			"\toutdoors.",
+			"  4\t***Lie Detector***. The animal knows when a creature within 15 ft of it tells a lie.",
+			"  5\t***Fey Ancestry***. The animal has advantage on saving throws against being charmed or",
+			"\tfrightened, and magic can't put it to sleep.",
+			"  6\t***Fey Step (1/Day)***. The animal, along with anything it is wearing or carrying,",
+			"\tteleports up to 30 ft to an unoccupied space it can see.",
+			"  7\t***Quickness (Recharge 6)***. The animal can take the Dodge action as a bonus action.",
+			"  8\t***Shrouded Step***. The animal can't be tracked except by magical means, and it leaves",
+			"\tbehind no tracks or other traces of its passage.",
+		].join("\n"),
+		joinString: "\n",
+	}],
 };
 CreatureList["valenar hound"] = { // contributed by Nod_Hero
 	name: "Valenar Hound",
@@ -3488,12 +3504,7 @@ CreatureList["valenar hound"] = { // contributed by Nod_Hero
 		name: "Bonding",
 		description: "The hound can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the hound bonds with a different creature or until the bonded creature dies. While bonded, the hound and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
 	}],
-	eval: function (prefix, lvl) {
-		AddString(prefix + "Cnote.Left", ERftLW_Valenar_Ancestral_Traits, true);
-	},
-	removeeval: function (prefix, lvl) {
-		RemoveString(prefix + "Cnote.Left", ERftLW_Valenar_Ancestral_Traits, true);
-	},
+	notes: CreatureList["valenar hawk"].notes,
 };
 CreatureList["valenar steed"] = { // contributed by Nod_Hero
 	name: "Valenar Steed",
@@ -3524,10 +3535,5 @@ CreatureList["valenar steed"] = { // contributed by Nod_Hero
 		name: "Bonding",
 		description: "The steed can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the steed bonds with a different creature or until the bonded creature dies. While bonded, the steed and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
 	}],
-	eval: function (prefix, lvl) {
-		AddString(prefix + "Cnote.Left", ERftLW_Valenar_Ancestral_Traits, true);
-	},
-	removeeval: function (prefix, lvl) {
-		RemoveString(prefix + "Cnote.Left", ERftLW_Valenar_Ancestral_Traits, true);
-	},
+	notes: CreatureList["valenar hawk"].notes,
 };

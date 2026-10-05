@@ -1,5 +1,5 @@
 var iFileName = "ua_20200114_Subclasses-Part-1.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion(14);
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 1 article to MPMB's Character Record Sheet
 
 // Define the source

@@ -1,5 +1,5 @@
 var iFileName = "pub_20181107_LLoK.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion(14);
 // This file adds the magic items from the Lost Laboratory of Kwalish adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -22,7 +22,7 @@ MagicItemsList["blade of the medusa"] = {
 	magicItemTable: "H",
 	description: "I'm unwilling to part with this magic blade. When I attack a creature with it and roll a 20 to hit, it must make a DC 15 Con save or be restrained, and on a roll of 1, I must make that save. At the end of each of the target's turns, it can save again, ending the effect with 3 successes, or petrified for 1 hour after 3 failures.",
 	descriptionLong: "I'm unwilling to part with this magic sword. When I attack a creature with it and roll a 20 to hit, it must make a DC 15 Constitution save or be restrained. However, if I roll of 1 on the attack roll, I must make that same save. At the end of each of the effected target's turns, it can make the save again. If it successfully saves against this effect three times, the effect ends. However, if it failed three times, it is turned to stone and petrified for 1 hour. A creature is immune to this effect if it is immune to damage of the weapon's type, does not have a body made of flesh, or has legendary actions.",
-	descriptionFull: "When you attack a creature with this magic weapon and roll a 20 on the attack roll, the creature must make a DC 15 Constitution saving throw in addition to suffering the attack's normal effects. On a failed save, the creature is restrained and must make another Constitution saving throw at the end of each of its turns. If it successfully saves against this effect three times, the effect ends. If it fails its saves three times, it is turned to stone and subjected to the petrified condition for 1 hour.\n   A creature is immune to this effect if it is immune to damage of the weapon's type, does not have a body made of flesh, or has legendary actions.\n   " + toUni("Curse") + ". This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with a remove curse spell or similar magic, you are unwilling to part with the weapon. Whenever you attack a creature with this weapon and roll a 1 on the attack roll, you must succeed on a DC 15 Constitution saving throw or be restrained and forced to make additional saves against being petrified, as above.",
+	descriptionFull: "When you attack a creature with this magic weapon and roll a 20 on the attack roll, the creature must make a DC 15 Constitution saving throw in addition to suffering the attack's normal effects. On a failed save, the creature is restrained and must make another Constitution saving throw at the end of each of its turns. If it successfully saves against this effect three times, the effect ends. If it fails its saves three times, it is turned to stone and subjected to the petrified condition for 1 hour.\n   A creature is immune to this effect if it is immune to damage of the weapon's type, does not have a body made of flesh, or has legendary actions.\n   ***Curse***. This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with a remove curse spell or similar magic, you are unwilling to part with the weapon. Whenever you attack a creature with this weapon and roll a 1 on the attack roll, you must succeed on a DC 15 Constitution saving throw or be restrained and forced to make additional saves against being petrified, as above.",
 	attunement: true,
 	chooseGear: {
 		type: "weapon",
@@ -77,7 +77,7 @@ MagicItemsList["gambler's blade"] = {
 	rarity: "rare",
 	magicItemTable: "H",
 	description: "I am unwilling to part with this sword until I'm freed of its curse. Each day at dawn, I can choose its magical bonus to attack and damage rolls of +1, +2, or +3. However, I take a corresponding penalty (-1, -2, or -3) to my death saving throws.",
-	descriptionFull: "Choose a magical bonus of +1 to +3. This sword gains that bonus to its attack and damage rolls. For each point of bonus you choose for the sword, you take a corresponding penalty (-1 to -3) to your death saving throws. You can change this magical bonus each day at dawn.\n   " + toUni("Curse") + ". This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with a remove curse spell or similar magic, you are unwilling to part with the weapon.",
+	descriptionFull: "Choose a magical bonus of +1 to +3. This sword gains that bonus to its attack and damage rolls. For each point of bonus you choose for the sword, you take a corresponding penalty (-1 to -3) to your death saving throws. You can change this magical bonus each day at dawn.\n   ***Curse***. This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with a remove curse spell or similar magic, you are unwilling to part with the weapon.",
 	attunement: true,
 	chooseGear: {
 		type: "weapon",
@@ -212,7 +212,7 @@ MagicItemsList["leather golem armor"] = {
 	rarity: "rare",
 	magicItemTable: "G",
 	description: "I am unwilling to part with this leather armor until its curse is lifted from me, see Notes page. The curse makes me go berserk and have an aversion to fire. It gives me a +1 bonus to AC and saves vs. spells and magical effects. I have resistance to lightning damage and when I suffer such damage, I gain 5 temporary HP.",
-	descriptionFull: LLoK_leatherGolemArmorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: LLoK_leatherGolemArmorFullDescription.join("\n   "),
 	attunement: true,
 	weight: 10,
 	dmgres: ["Lightning"],
@@ -229,7 +229,7 @@ MagicItemsList["leather golem armor"] = {
 	savetxt: { text: ["+1 vs. spells and magical effects"] },
 	toNotesPage: [{
 		name: "Features",
-		note: desc(LLoK_leatherGolemArmorFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I "),
+		note: desc(LLoK_leatherGolemArmorFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I "),
 	}],
 }
 var LLoK_polymorphBladeFullDescription = [
@@ -256,7 +256,7 @@ MagicItemsList["polymorph blade"] = {
 	rarity: "very rare",
 	magicItemTable: "H",
 	description: "I'm unwilling to part with this magic sword. When I attack a creature with it and roll a 20 to hit, the creature must make a DC 15 Wisdom save or be polymorphed for 1 hour into a random beast (see Notes page). However, on a roll of 1 to hit, I am the one being polymorphed for 1 hour without a save.",
-	descriptionFull: LLoK_polymorphBladeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: LLoK_polymorphBladeFullDescription.join("\n   "),
 	attunement: true,
 	chooseGear: {
 		type: "weapon",
@@ -281,7 +281,7 @@ MagicItemsList["polymorph blade"] = {
 	},
 	toNotesPage: [{
 		name: "Features",
-		note: desc(LLoK_polymorphBladeFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I "),
+		note: desc(LLoK_polymorphBladeFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/you /ig, "I "),
 	}],
 }
 var LLoK_poweredArmorFullDescription = [

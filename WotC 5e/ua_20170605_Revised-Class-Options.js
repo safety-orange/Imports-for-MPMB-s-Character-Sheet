@@ -348,7 +348,7 @@ AddSubClass("warlock", "the celestial-ua", {
 // Add Warlock invocations, revised versions from previous Unearthed Arcana articles, and new ones
 // Most probably still valid 2021-09-21, have to check
 // dupl_start
-if (!SourceList.X || SourceList.X.abbreviation !== "XGtE") {
+if (!SourceList["X"] || SourceList["X"].abbreviation !== "XGtE") {
 	AddWarlockInvocation("Aspect of the Moon (prereq: Pact of the Tome)", {
 		name: "Aspect of the Moon",
 		description: desc("I don't need sleep nor can be forced to by any means; I can rest while doing light activity"),

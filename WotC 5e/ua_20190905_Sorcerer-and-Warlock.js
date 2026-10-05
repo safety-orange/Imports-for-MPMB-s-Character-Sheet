@@ -226,7 +226,7 @@ AddSubClass("warlock", "the lurker in the deep-ua", {
 });
 
 // [dupl_start] (mostly) the same as in Tasha's Cauldron of Everything
-if (!SourceList.T) {
+if (!SourceList["T"]) {
 	SpellsList["mind sliver"] = {
 		name: "Mind Sliver",
 		classes: ["sorcerer", "warlock", "wizard"],

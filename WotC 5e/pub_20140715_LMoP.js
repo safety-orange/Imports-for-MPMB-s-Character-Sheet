@@ -1,5 +1,5 @@
 var iFileName = "pub_20140715_LMoP.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion(14);
 // This file adds the magic items from the Lost Mines of Phandelver adventure from the D&D 5e starter set to MPMB's Character Record Sheet
 
 // Define the source
@@ -140,6 +140,7 @@ MagicItemsList["staff of defense"] = { // changed to the new version introduced 
 	spellChanges: {
 		"shield": {
 			time: "1 a",
+			timeFull: "",
 			changes: "Cast as an action.",
 		},
 	},

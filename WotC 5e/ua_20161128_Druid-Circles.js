@@ -1,5 +1,5 @@
 var iFileName = "ua_20161128_Druid-Circles.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion(14);
 // This file adds the content from the Unearthed Arcana: Druid Circles article to MPMB's Character Record Sheet
 
 // Define the source

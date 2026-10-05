@@ -3,7 +3,7 @@ RequiredSheetVersion("14.0.5-beta");
 // This file adds all the player-material from the Monster Manual to MPMB's Character Record Sheet
 
 // Define the source
-SourceList.M = {
+SourceList["M"] = {
 	name: "Monster Manual",
 	abbreviation: "MM",
 	group: "Core Sources",

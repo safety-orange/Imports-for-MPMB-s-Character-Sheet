@@ -1,5 +1,5 @@
 var iFileName = "pub_20190521_GoS.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion(14);
 // This file adds all material from the Ghosts of Saltmarsh adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -306,7 +306,7 @@ MagicItemsList["cursed luckstone"] = {
 	rarity: "uncommon",
 	magicItemTable: "C",
 	description: "This flat, gray-and-black river stone is inscribed with an arcane symbol. It is cursed and attuning to it curses me. Once per dawn while it is on my person, I can gain adv. on one ability check of my choice, but disadv. on my next two ability checks. Discarding the stone will cause it to teleport back into my pocket.",
-	descriptionFull: "This flat, gray-and-black river stone is inscribed with an unknown arcane symbol and feels cool to the touch. While carrying the stone, you can gain advantage on one ability check of your choice. The stone can't be used this way again until the next dawn.\n   " + toUni("Curse") + "This item is cursed. Attuning to it curses you until you are targeted by a remove curse spell or similar magic. As long as you remain cursed, you cannot discard the stone, which immediately teleports back into your pocket or pack. After you use the stone's magic, your next two ability checks are made with disadvantage.",
+	descriptionFull: "This flat, gray-and-black river stone is inscribed with an unknown arcane symbol and feels cool to the touch. While carrying the stone, you can gain advantage on one ability check of your choice. The stone can't be used this way again until the next dawn.\n   ***Curse***This item is cursed. Attuning to it curses you until you are targeted by a remove curse spell or similar magic. As long as you remain cursed, you cannot discard the stone, which immediately teleports back into your pocket or pack. After you use the stone's magic, your next two ability checks are made with disadvantage.",
 	attunement: true,
 	usages: 1,
 	recovery: "dawn",

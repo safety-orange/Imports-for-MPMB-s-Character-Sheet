@@ -1,9 +1,9 @@
 var iFileName = "pub_20151103_SCAG.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion(14);
 // This file adds all the player-material from Sword Coast Adventure Guide to MPMB's Character Record Sheet
 
 // Define the source
-SourceList.S = {
+SourceList["S"] = {
 	name: "Sword Coast Adventure Guide",
 	abbreviation: "SCAG",
 	group: "Campaign Sourcebooks",

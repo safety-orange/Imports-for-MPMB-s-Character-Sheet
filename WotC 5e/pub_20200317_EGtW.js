@@ -3,7 +3,7 @@ RequiredSheetVersion("14.0.15-beta", 15);
 // This file adds the content from Explorer's Guide to Wildemount to MPMB's Character Record Sheet
 
 // Define the source
-SourceList.W = {
+SourceList["W"] = {
 	name: "Explorer's Guide to Wildemount",
 	abbreviation: "EGtW",
 	abbreviationSpellsheet: "W",
@@ -473,7 +473,7 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 }
 
 // [dupl_start] reprints from Volo's Guide to Monsters
-if (!SourceList.V) {
+if (!SourceList["V"]) {
 	RaceList["fallen aasimar"] = {
 		regExpSearch: /^((?=.*aasimar)|((?=.*planetouched)(?=.*(celestial|angel))))(?=.*fallen).*$/i,
 		name: "Fallen Aasimar",
@@ -816,7 +816,7 @@ if (!SourceList.V) {
 	};
 }
 // reprints from Elemental Evil Player's Companion
-if (!SourceList.E) {
+if (!SourceList["E"]) {
 	RaceList["aarakocra"] = {
 		regExpSearch: /aarakocra/i,
 		name: "Aarakocra",
@@ -1017,7 +1017,7 @@ if (!SourceList.E) {
 	};
 }
 // reprint from Mordenkainen's Tome of Foes
-if (!SourceList.MToF) {
+if (!SourceList["MToF"]) {
 	RaceList["sea elf"] = {
 		regExpSearch: /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
 		name: "Sea elf",
@@ -2073,8 +2073,8 @@ MagicItemsList["acheron blade"] = {
 	attunement: true,
 	description: "This sword gives a +1 to hit and damage rolls. While I'm holding it, I'm immune to effects that turn undead. As an action, once per dusk, I can use it to gain 1d4+4 temporary HP. Once per dusk, I can give a creature hit with it disadvantage on their next save until the end of my next turn (frighten effect).",
 	descriptionFull: "The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1 bonus to attack and damage rolls made with this magic weapon. While the sword is on your person, you are immune to effects that turn undead." +
-	"\n   " + toUni("Dark Blessing") + ". While holding the sword, you can use an action to give yourself 1d4 + 4 temporary hit points. This property can't be used again until the next dusk." +
-	"\n   " + toUni("Disheartening Strike") + ". When you hit a creature with an attack using this weapon, you can fill the target with unsettling dread: the target has disadvantage on the next saving throw it makes before the end of your next turn. The creature ignores this effect if it's immune to the frightened condition. Once you use this property, you can't do so again until the next dusk",
+	"\n   ***Dark Blessing***. While holding the sword, you can use an action to give yourself 1d4 + 4 temporary hit points. This property can't be used again until the next dusk." +
+	"\n   ***Disheartening Strike***. When you hit a creature with an attack using this weapon, you can fill the target with unsettling dread: the target has disadvantage on the next saving throw it makes before the end of your next turn. The creature ignores this effect if it's immune to the frightened condition. Once you use this property, you can't do so again until the next dusk",
 	action: [["action", " (Dark Blessing)"]],
 	savetxt: { immune: ["Effects that turn undead"] },
 	extraLimitedFeatures: [{
@@ -2143,11 +2143,11 @@ MagicItemsList["arcane cannon"] = {
 	rarity: "very rare",
 	notLegalAL: true,
 	description: "This Large magical cannon requires no ammunition and doesn't need to be loaded, but takes 5 minutes to recharge once fired. It takes one action to aim it and another action to fire it. When I fire it, I can choose the effect, an acid jet, fire jet, frost shot, lightning shot, or poison spray. See Notes page.",
-	descriptionFull: EGtW_ArcaneCannonFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: EGtW_ArcaneCannonFullDescription.join("\n   "),
 	action: [["action", " (Aim or Fire)"]],
 	toNotesPage: [{
 		name: "Effects",
-		note: "\n" + EGtW_ArcaneCannonFullDescription.join("\n \u2022 ").replace(/>>(.*?)<<\./g, function (a, match) { return match.toUpperCase() + ":"; }).replace(/\byou\b/ig, "I").replace(/\bf(oo|ee)t\b/ig, "ft"),
+		note: "\n" + EGtW_ArcaneCannonFullDescription.join("\n \u2022 ").replace(/>>(.*?)<<\./g, "***$1***:").replace(/\byou\b/ig, "I").replace(/\bf(oo|ee)t\b/ig, "ft"),
 	}],
 };
 MagicItemsList["battering shield"] = {
@@ -2428,7 +2428,7 @@ MagicItemsList["luxon beacon"] = {
 	rarity: "legendary",
 	notLegalAL: true,
 	description: "Once per dawn, a creature can touch this crystal for 1 minute to gain a Fragment of Possibility. Once for the next 8 hours, it can roll an extra d20 for an attack, check, save, or being attacked, before the outcome is determined. Creatures consecuted to the Luxon that die within 100 miles of it are reincarnated. See notes.",
-	descriptionFull: EGtW_LuxonBeaconFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: EGtW_LuxonBeaconFullDescription.join("\n   "),
 	extraLimitedFeatures: [{
 		name: "Luxon Beacon (Fragment of Possibility)",
 		usages: 1,
@@ -2492,7 +2492,7 @@ MagicItemsList["orb of the veil"] = { // no automation for halving the fire dama
 	notLegalAL: true,
 	attunement: true,
 	description: "This orb increases my Wisdom and maximum by 2, grants me +60 ft darkvision, and adv. on Wisdom checks to find hidden doors and paths. It is cursed and once attuned to it, I become unwilling to part with it, nonmagical flames within 30 ft of me extinguish, and fire damage I deal is halved (not automated).",
-	descriptionFull: "This onyx sphere bears deep, spiraling grooves and dangles from an iron chain. While the orb is on your person, you gain the following benefits:\n Your Wisdom score increases by 2, as does your maximum for that score.\n You gain darkvision out to a range of 60 feet. If you already have darkvision, the orb increases its range by 60 feet.\n You have advantage on Wisdom checks to find hidden doors and paths.\n   " + toUni("Curse") + ". The orb is cursed, and becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the orb, keeping it on your person at all times. All nonmagical flames within 30 feet of you automatically extinguish, and fire damage dealt by you is halved.",
+	descriptionFull: "This onyx sphere bears deep, spiraling grooves and dangles from an iron chain. While the orb is on your person, you gain the following benefits:\n Your Wisdom score increases by 2, as does your maximum for that score.\n You gain darkvision out to a range of 60 feet. If you already have darkvision, the orb increases its range by 60 feet.\n You have advantage on Wisdom checks to find hidden doors and paths.\n   ***Curse***. The orb is cursed, and becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the orb, keeping it on your person at all times. All nonmagical flames within 30 feet of you automatically extinguish, and fire damage dealt by you is halved.",
 	vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
 	scores: [0, 0, 0, 0, 2, 0],
 	scoresMaximum: [0, 0, 0, 0, "+2", 0],
@@ -2629,7 +2629,7 @@ MagicItemsList["staff of dunamancy"] = {
 	description: "This staff has 10 charges, regains 1d6+4 at dawn. If I use its last charge, roll a d20. On a 1, it is destroyed. As an action, I can use its charges to cast Fortune's Favor (2), Pulse Wave (3), or Gravity Sinkhole (4), using my spellcasting ability. Once per dawn, I can turn a failed save vs. a spell that targets only me into a success.",
 	descriptionFull: "This staff of polished gray wood bears numerous runes carved along its length. The staff has 10 charges and regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff turns into dust and is destroyed." +
 	"\n   While holding the staff, you can use an action to expend 2 or more of its charges to cast one of the following spells from it, using your spell save DC and spell attack bonus: fortune's favor (2 charges), pulse wave (3 charges), or gravity sinkhole (4 charges)." +
-	"\n   " + toUni("New Possibility") + ". If you are holding the staff and fail a saving throw against a spell that targets only you, you can turn your failed save into a successful one. This property can't be used again until the next dawn.",
+	"\n   ***New Possibility***. If you are holding the staff and fail a saving throw against a spell that targets only you, you can turn your failed save into a successful one. This property can't be used again until the next dawn.",
 	extraLimitedFeatures: [{
 		name: "Staff of Dunamancy (regains 1d6+4)",
 		usages: 10,
@@ -2800,7 +2800,7 @@ MagicItemsList["danoth's visor"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "These mithral-frame goggles with clear diamond lenses were used by the evoker Danoth Oro to spot invisible enemies and scout areas from afar. See notes page for more information.",
-	descriptionFull: EGtW_DanothsVisorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: EGtW_DanothsVisorFullDescription.join("\n   "),
 	toNotesPage: [{
 		name: "Features",
 		note: EGtW_Vestiges_Replace(EGtW_DanothsVisorFullDescription),
@@ -2870,7 +2870,7 @@ MagicItemsList["grimoire infinitus"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This spellbook with unlimited gilded pages and silver-plated covers can be used by a wizard to prepare and store spells. It holds several spells already. When I use to prepare wizards spells, I can prepare 1 additional spell.",
-	descriptionFull: EGtW_GrimoireInfinitusFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: EGtW_GrimoireInfinitusFullDescription.join("\n   "),
 	weight: 3,
 	toNotesPage: [{
 		name: "Features",
@@ -2952,7 +2952,7 @@ MagicItemsList["hide of the feral guardian"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This magic studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then also grants me a bonus to melee attack and damage rolls. Once per dawn, I can use it to cast Polymorph on myself.",
-	descriptionFull: EGtW_HideFeralGuardianFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: EGtW_HideFeralGuardianFullDescription.join("\n   "),
 	weight: 13,
 	toNotesPage: [{
 		name: "Features",
@@ -3101,7 +3101,7 @@ MagicItemsList["infiltrator's key"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This mithral skeleton key was forged using the blood of twelve master thieves executed for trying to steal magic items during the Age of Arcanum. See notes page for more information.",
-	descriptionFull: EGtW_InfiltratorsKeyFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: EGtW_InfiltratorsKeyFullDescription.join("\n   "),
 	toNotesPage: [{
 		name: "Features",
 		note: EGtW_Vestiges_Replace(EGtW_InfiltratorsKeyFullDescription),
@@ -3190,7 +3190,7 @@ MagicItemsList["stormgirdle"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "A wide belt of leather branded with the symbol of Kord. While attuned to and wearing this belt, I am resistant to lightning and thunder damage. My Strength score becomes 21, provided my Strength is not already 21 or higher. As an action, I can become a Storm Avatar for 1 minute. See notes page for more info.",
-	descriptionFull: EGtW_StormgirdleFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: EGtW_StormgirdleFullDescription.join("\n   "),
 	toNotesPage: [{
 		name: "Features",
 		note: EGtW_Vestiges_Replace(EGtW_StormgirdleFullDescription),
@@ -3274,7 +3274,7 @@ MagicItemsList["verminshroud"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This patchy cloak was pieced together from the pelts of rats found feasting on the dead in Blightshore and is dotted with the bloated corpses of magically preserved insects along its seams. See notes page for more info.",
-	descriptionFull: EGtW_VerminshroudFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: EGtW_VerminshroudFullDescription.join("\n   "),
 	toNotesPage: [{
 		name: "Features",
 		note: EGtW_Vestiges_Replace(EGtW_VerminshroudFullDescription),
@@ -3391,7 +3391,7 @@ MagicItemsList["wreath of the prism"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This loop of golden thorns is inset with dozens of gems that represent the five colors of Tiamat. I gain darkvision to 60 ft, or extend my darkvision by 60 ft. When I hit a beast, dragon, or monstrosity with an attack, I can cast dominate monster on that creature, depending on its CR. See notes page for info.",
-	descriptionFull: EGtW_WreathPrismFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: EGtW_WreathPrismFullDescription.join("\n   "),
 	toNotesPage: [{
 		name: "Features",
 		note: EGtW_Vestiges_Replace(EGtW_WreathPrismFullDescription),
@@ -3463,10 +3463,10 @@ MagicItemsList["hollow one"] = {
 	description : "I don't age and aging effects don't work on me. When I roll a 16 or higher on a death save, I regain 1 HP. I register as undead for spells and other effects. As an action once per long rest, I can unsettle a creature I can see within 15 ft, giving it disadv. on the next save it makes in the next minute (frightening effect).",
 	descriptionLong : "The void left behind by my departed soul is filled with the strange magic of Blightshore.\nI don't age and aging effects don't work on me. When I roll a 16 or higher on a death save, I regain 1 HP. Although my creature type is unchanged, I register as undead for spells and other effects. As an action once per long rest, I can unsettle a creature I can see within 15 ft, giving it disadvantage on the next save it makes in the next minute. Constructs, undead, and creatures that can't be frightened are immune to this feature.",
 	descriptionFull : "As a Hollow One, the void left behind by your departed soul is filled with the strange magic of Blightshore. Becoming a Hollow One is a supernatural gift that bestows upon you the following traits.\n"+
-	toUni("Ageless") + ". You don't age, and effects that would cause you to age don't work on you.\n"+
-	toUni("Cling to Life") + ". When you make a death saving throw and roll 16 or higher, you regain 1 hit point.\n"+
-	toUni("Revenance") + ". You retain your creature type, yet you register as undead to spells and other effects that detect the presence of the undead creature type.\n"+
-	toUni("Unsettling Presence") + ". As an action, you can unsettle a creature you can see within 15 feet of you. The target has disadvantage on the next saving throw it makes within the next minute. Constructs, undead, and creatures that can't be frightened are immune to this feature. Once you use this feature, you can't use it again until you finish a long rest.",
+	"***Ageless***. You don't age, and effects that would cause you to age don't work on you.\n"+
+	"***Cling to Life***. When you make a death saving throw and roll 16 or higher, you regain 1 hit point.\n"+
+	"***Revenance***. You retain your creature type, yet you register as undead to spells and other effects that detect the presence of the undead creature type.\n"+
+	"***Unsettling Presence***. As an action, you can unsettle a creature you can see within 15 feet of you. The target has disadvantage on the next saving throw it makes within the next minute. Constructs, undead, and creatures that can't be frightened are immune to this feature. Once you use this feature, you can't use it again until you finish a long rest.",
 	savetxt : { text : ["Can't be aged", "Regain 1 HP on 16+ death save"] },
 	action : [["action", "Unsettling Presence"]],
 	extraLimitedFeatures : [{

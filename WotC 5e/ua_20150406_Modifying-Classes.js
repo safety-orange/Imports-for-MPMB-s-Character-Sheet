@@ -11,8 +11,8 @@ SourceList["UA:MC"] = {
 	date: "2015/04/06",
 };
 // Also needs the PHB source, as the spell-less ranger uses stuff from there
-if (!SourceList.P) {
-	SourceList.P = {
+if (!SourceList["P"]) {
+	SourceList["P"] = {
 		name: "Player's Handbook",
 		abbreviation: "PHB",
 		group: "Primary Sources",

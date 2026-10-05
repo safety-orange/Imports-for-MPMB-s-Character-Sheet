@@ -3,7 +3,7 @@ RequiredSheetVersion("14.1.0");
 // This file adds all the player-material from Fizban's Treasury of Dragons to MPMB's Character Record Sheet
 
 // Define the source
-SourceList.FToD = {
+SourceList["FToD"] = {
 	name: "Fizban's Treasury of Dragons",
 	abbreviation: "FToD",
 	abbreviationSpellsheet: "FD",
@@ -525,8 +525,8 @@ FeatsList["gift of the chromatic dragon"] = {
 	name: "Gift of the Chromatic Dragon",
 	source: [["FToD", 17], ["UA:DO", 4]],
 	descriptionFull: "You've manifested some of the power of chromatic dragons, granting you the following benefits:" +
-	"\n   " + toUni("Chromatic Infusion") + ". As a bonus action, you can touch a simple or martial weapon and infuse it with one of the following damage types: acid, cold, fire, lightning, or poison. For the next minute, the weapon deals an extra 1d4 damage of the chosen type when it hits. After you use this bonus action, you can't do so again until you finish a long rest." +
-	"\n   " + toUni("Reactive Resistance") + ". When you take acid, cold, fire, lightning, or poison damage, you can use your reaction to give yourself resistance to that instance of damage. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	"\n   ***Chromatic Infusion***. As a bonus action, you can touch a simple or martial weapon and infuse it with one of the following damage types: acid, cold, fire, lightning, or poison. For the next minute, the weapon deals an extra 1d4 damage of the chosen type when it hits. After you use this bonus action, you can't do so again until you finish a long rest." +
+	"\n   ***Reactive Resistance***. When you take acid, cold, fire, lightning, or poison damage, you can use your reaction to give yourself resistance to that instance of damage. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	description: "As a bonus action once per long rest, I can touch a simple or martial weapon and infuse it to deal +1d4 acid, cold, fire, poison, or lightning damage for 1 minute. As a reaction when I take acid, cold, fire, lightning, or poison damage, I can gain resistance to that damage instance. I can do this my Prof Bonus per long rest.",
 	action: [
 		["bonus action", "Chromatic Gift (Chromatic Infusion)"],
@@ -547,8 +547,8 @@ FeatsList["gift of the gem dragon"] = {
 	name: "Gift of the Gem Dragon",
 	source: [["FToD", 17], ["UA:DO", 5]],
 	descriptionFull: "You've manifested some of the power of gem dragons, granting you the following benefits:" +
-	"\n   " + toUni("Ability Score Increase") + ". Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20." +
-	"\n   " + toUni("Telekinetic Reprisal") + ". When you take damage from a creature that is within 10 feet of you, you can use your reaction to emanate telekinetic energy. The creature that dealt damage to you must make a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the creature takes 2d8 force damage and is pushed up to 10 feet away from you. On a successful save, the creature takes half as much damage and isn't pushed. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	"\n   ***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20." +
+	"\n   ***Telekinetic Reprisal***. When you take damage from a creature that is within 10 feet of you, you can use your reaction to emanate telekinetic energy. The creature that dealt damage to you must make a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the creature takes 2d8 force damage and is pushed up to 10 feet away from you. On a successful save, the creature takes half as much damage and isn't pushed. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	description: "As a reaction when I take damage from a creature that is within 10 ft, I can have it take 2d8 force damage and push it up to 10 ft away. If it succeeds on a Str save (DC 8 + Prof Bonus + chosen ability score modifier), it halves the damage and isn't pushed. I can do this my Prof Bonus per long rest. [+1 Int, Wis or Cha]",
 	action: [["reaction", ""]],
 	usages: "Proficiency bonus per ",
@@ -572,8 +572,8 @@ FeatsList["gift of the metallic dragon"] = {
 	name: "Gift of the Metallic Dragon",
 	source: [["FToD", 17]],
 	descriptionFull: "You've manifested some of the power of metallic dragons, granting you the following benefits:" +
-	"\n   " + toUni("Draconic Healing") + ". You learn the cure wounds spell. You can cast this spell without expending a spell slot. Once you cast this spell in this way, you can't do so again until you finish a long rest. You can also cast this spell using spell slots you have. The spell's spellcasting ability is Intelligence, Wisdom, or Charisma when you cast it with this feat (choose when you gain the feat)." +
-	"\n   " + toUni("Protective Wings") + ". You can manifest protective wings that can shield you or others. When you or another creature you can see within 5 feet of you is hit by an attack roll, you can use your reaction to manifest spectral wings from your back for a moment. You grant a bonus to the target's AC equal to your proficiency bonus against that attack roll, potentially causing it to miss. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	"\n   ***Draconic Healing***. You learn the cure wounds spell. You can cast this spell without expending a spell slot. Once you cast this spell in this way, you can't do so again until you finish a long rest. You can also cast this spell using spell slots you have. The spell's spellcasting ability is Intelligence, Wisdom, or Charisma when you cast it with this feat (choose when you gain the feat)." +
+	"\n   ***Protective Wings***. You can manifest protective wings that can shield you or others. When you or another creature you can see within 5 feet of you is hit by an attack roll, you can use your reaction to manifest spectral wings from your back for a moment. You grant a bonus to the target's AC equal to your proficiency bonus against that attack roll, potentially causing it to miss. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	description: "I know Cure Wounds. I can cast it using spell slots and once per long rest without a spell slot. As a reaction when I or another I can see within 5 ft is hit by an attack, I can add my Proficiency Bonus to AC, potentially causing the attack to miss. I can do this my Proficiency Bonus per long rest.",
 	spellcastingAbility: [4, 5, 6],
 	allowUpCasting: true,
@@ -627,9 +627,9 @@ SpellsList["draconic transformation"] = {
 	description: "Blindsight 30 ft; 60 ft fly speed; at cast and 1 bns: 60-ft cone all 6d8 Force damage, save half (500gp)",
 	descriptionShorter: "Blindsight 30 ft; 60 ft fly; at cast and 1 bns: 60-ft cone all 6d8 Force dmg, save half (500gp)",
 	descriptionFull: "With a roar, you draw on the magic of dragons to transform yourself, taking on various draconic features. You gain the following benefits until the spell ends:" +
-	"\n   " + toUni("Blindsight") + ". You have blindsight with a range of 30 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature, unless the creature successfully hides from you." +
-	"\n   " + toUni("Breath Weapon") + ". When you cast this spell, and as a bonus action on subsequent turns for the duration, you can exhale shimmering energy in a 60-foot cone. Each creature in that area must make a Dexterity saving throw, taking 6d8 force damage on a failed save, or half as much damage on a successful one." +
-	"\n   " + toUni("Wings") + ". Incorporeal wings sprout from your back, giving you a flying speed of 60 feet.",
+	"\n   ***Blindsight***. You have blindsight with a range of 30 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature, unless the creature successfully hides from you." +
+	"\n   ***Breath Weapon***. When you cast this spell, and as a bonus action on subsequent turns for the duration, you can exhale shimmering energy in a 60-foot cone. Each creature in that area must make a Dexterity saving throw, taking 6d8 force damage on a failed save, or half as much damage on a successful one." +
+	"\n   ***Wings***. Incorporeal wings sprout from your back, giving you a flying speed of 60 feet.",
 };
 SpellsList["fizban's platinum shield"] = {
 	name: "Fizban's Platinum Shield",
@@ -645,9 +645,9 @@ SpellsList["fizban's platinum shield"] = {
 	duration: "Conc, 1 min",
 	description: "1 crea Acid, Cold, Fire, Lightn. \u0026 Poison resist., half cover, better Dex saves; 1 bns change crea (500gp)",
 	descriptionFull: "You create a field of silvery light that surrounds a creature of your choice within range (you can choose yourself). The field sheds dim light out to 5 feet. While surrounded by the field, a creature gains the following benefits:" +
-	"\n   " + toUni("Cover") + ". The creature has half cover." +
-	"\n   " + toUni("Damage Resistance") + ". The creature has resistance to acid, cold, fire, lightning, and poison damage." +
-	"\n   " + toUni("Evasion") + ". If the creature is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the creature instead takes no damage if it succeeds on the saving throw, and only half damage if it fails." +
+	"\n   ***Cover***. The creature has half cover." +
+	"\n   ***Damage Resistance***. The creature has resistance to acid, cold, fire, lightning, and poison damage." +
+	"\n   ***Evasion***. If the creature is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the creature instead takes no damage if it succeeds on the saving throw, and only half damage if it fails." +
 	"\n   As a bonus action on subsequent turns, you can move the field to another creature within 60 feet of the field.",
 };
 SpellsList["nathair's mischief"] = {
@@ -666,7 +666,7 @@ SpellsList["nathair's mischief"] = {
 	description: "20-ft cube of magic, roll d4 for effect; At start of my turn, move cube 10 ft and reroll effect; see book",
 	descriptionFull: "You fill a 20-foot cube you can see within range with fey and draconic magic. Roll on the Mischievous Surge table to determine the magical effect produced, and roll again at the start of each of your turns until the spell ends. You can move the cube up to 10 feet before you roll." +
 	"\n\nMischievous Surge" +
-	toUni("\nd4\tEffect") +
+	"\n**d4**\t**Effect**" +
 	"\n  1\tThe smell of apple pie fills the air, and each creature in the cube must succeed on a Wisdom saving throw or become charmed by you until the start of your next turn." +
 	"\n  2\tBouquets of flowers appear all around, and each creature in the cube must succeed on a Dexterity saving throw or be blinded until the start of your next turn as the flowers spray water in their faces." +
 	"\n  3\tEach creature in the cube must succeed on a Wisdom saving throw or begin giggling until the start of your next turn. A giggling creature is incapacitated and uses all its movement to move in a random direction." +
@@ -738,9 +738,9 @@ MagicItemsList["amethyst lodestone"] = {
 		" \u2022 3 charges, action: I cast Reverse Gravity (DC 18).",
 	descriptionFull: "This fist-sized chunk of amethyst is infused with an amethyst dragon's ability to bend gravitational forces. While you are carrying the lodestone, you have advantage on Strength saving throws." +
 	"\n   The lodestone has 6 charges for the following properties, which you can use while you are holding the stone. The stone regains 1d6 expended charges daily at dawn." +
-	"\n   " + toUni("Flight") + ". As a bonus action, you can expend 1 charge to gain the power of flight for 10 minutes. For the duration, you gain a flying speed equal to your walking speed, and you can hover." +
-	"\n   " + toUni("Gravitational Thrust") + ". As an action, you can expend 1 charge to focus gravity around a creature you can see within 60 feet of you. The target must succeed on a DC 18 Strength saving throw or be pushed up to 20 feet in a direction of your choice." +
-	"\n   " + toUni("Reverse Gravity") + ". As an action, you can expend 3 charges to cast reverse gravity from the stone (save DC 18).",
+	"\n   ***Flight***. As a bonus action, you can expend 1 charge to gain the power of flight for 10 minutes. For the duration, you gain a flying speed equal to your walking speed, and you can hover." +
+	"\n   ***Gravitational Thrust***. As an action, you can expend 1 charge to focus gravity around a creature you can see within 60 feet of you. The target must succeed on a DC 18 Strength saving throw or be pushed up to 20 feet in a direction of your choice." +
+	"\n   ***Reverse Gravity***. As an action, you can expend 3 charges to cast reverse gravity from the stone (save DC 18).",
 	usages: 6,
 	recovery: "dawn",
 	additional: "regains 1d6",
@@ -1018,8 +1018,8 @@ AddFeatureChoice(MagicItemsList["figurine of wondrous power"], false, "Gold Cana
 	description: "As an action, I can speak the command word and throw this statuette to an empty space within 60 ft, where it becomes a giant canary for 8 hours (or once a year an adult gold dragon for 1 hour), until I use the command again, or it drops to 0 hp. It is friendly, understands my languages, and obeys my commands.",
 	descriptionLong: "As an action, I can speak the command word and throw this gold statuette of a canary to an unoccupied space within 60 ft, where it becomes a giant canary for up to 8 hours, until I use an action to repeat the command word, or it reaches 0 HP. It is friendly to me and my allies, understands my languages, and obeys my spoken commands. If I issue no commands, the creature defends itself but takes no other actions. Once per year, I can have it become an adult gold dragon for up to 1 hour. When it reverts back to a figurine, it can't be used again until the next dawn (canary) or 1 year has passed (dragon).",
 	descriptionFull: "This gold statuette is carved in the likeness of a canary and is small enough to fit in a pocket. If you use an action to speak the command word and throw the figurine to a point on the ground within 60 feet of you, the figurine becomes a living creature in one of two forms (you choose). If there isn't enough space for the creature where it would appear, the figurine doesn't become a creature. The two forms are as follows:" +
-	"\n   " + toUni("Giant Canary Form") + ". The figurine becomes a giant canary for up to 8 hours and can be ridden as a mount. Once the figurine has become a giant canary, it can't be used this way again until the next dawn." +
-	"\n   " + toUni("Gold Dragon Form") + ". While you are missing half or more of your hit points, you can speak a different command word and the figurine becomes an adult gold dragon (see its stat block in the Monster Manual) for up to 1 hour. The dragon can't use any legendary actions or lair actions. Once the figurine has become an adult gold dragon, it can't be used this way again until 1 year has passed." +
+	"\n   ***Giant Canary Form***. The figurine becomes a giant canary for up to 8 hours and can be ridden as a mount. Once the figurine has become a giant canary, it can't be used this way again until the next dawn." +
+	"\n   ***Gold Dragon Form***. While you are missing half or more of your hit points, you can speak a different command word and the figurine becomes an adult gold dragon (see its stat block in the Monster Manual) for up to 1 hour. The dragon can't use any legendary actions or lair actions. Once the figurine has become an adult gold dragon, it can't be used this way again until 1 year has passed." +
 	"\n   In either form, the creature is friendly to you and your companions. It understands your languages and obeys your spoken commands. If you issue no commands, the creature defends itself but takes no other actions." +
 	"\n   The creature exists for a duration specific to each form. At the end of the duration, the creature reverts to its figurine form. It reverts to a figurine early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature becomes a figurine again, its property can't be used again until a certain amount of time has passed, as specified in the description.",
 	extraLimitedFeatures: [{
@@ -1041,9 +1041,9 @@ MagicItemsList["platinum scarf"] = {
 	description: "As an action, I can pull a scale from this scarf, of which it has 3 per dawn. When I do so, I can choose the effect: heal 10d4 HP to a creature I touch, or for 1 hour it becomes a shield (+1 shield that grants radiant damage immunity) or a light hammer (deals 2d4 radiant damage and +2d4 to chromatic dragons).",
 	descriptionFull: "This scarf is made of sturdy cloth and covered in platinum-colored scales." +
 	"\n   As an action, you can pull a scale from the scarf and speak a command word. When you do so, choose one of the following effects:" +
-	"\n   " + toUni("Breath of Life") + ". The scale disappears, and you or a creature you touch regains 10d4 hit points." +
-	"\n   " + toUni("Platinum Shield") + ". For 1 hour or until you dismiss it (no action required), the scale becomes a +1 shield, which you or another creature can use. A creature wielding the shield has immunity to radiant damage." +
-	"\n   " + toUni("Radiant Hammer") + ". For 1 hour or until you dismiss it (no action required), the scale becomes a magic light hammer, which you or another creature can use. The weapon deals 2d4 radiant damage, instead of the bludgeoning damage normal for a light hammer. It deals an extra 2d4 radiant damage to chromatic dragons." +
+	"\n   ***Breath of Life***. The scale disappears, and you or a creature you touch regains 10d4 hit points." +
+	"\n   ***Platinum Shield***. For 1 hour or until you dismiss it (no action required), the scale becomes a +1 shield, which you or another creature can use. A creature wielding the shield has immunity to radiant damage." +
+	"\n   ***Radiant Hammer***. For 1 hour or until you dismiss it (no action required), the scale becomes a magic light hammer, which you or another creature can use. The weapon deals 2d4 radiant damage, instead of the bludgeoning damage normal for a light hammer. It deals an extra 2d4 radiant damage to chromatic dragons." +
 	"\n   Once three scales have been pulled from the scarf, no more scales can be removed until the next dawn, when all the missing scales grow back. If you pull off a scale but don't speak a command word, it disappears after 1 minute.",
 	usages: 3,
 	recovery: "dawn",
@@ -1337,7 +1337,7 @@ var FToD_HoardItems = {
 		var aTypes = [["Slumbering", "uncommon"], ["Stirring", "rare"], ["Wakened", "very rare"], ["Ascendant", "legendary"]];
 		var aDragons = [["Black", "acid"], ["Blue", "lightning"], ["Green", "poison"], ["Red", "fire"], ["White", "cold"], ["Amethyst", "force"], ["Crystal", "radiant"], ["Emerald", "psychic"], ["Sapphire", "thunder"], ["Topaz", "necrotic"], ["Brass", "fire"], ["Bronze", "lightning"], ["Copper", "acid"], ["Gold", "fire"], ["Silver", "cold"]];
 		var aVowels = ["a", "e"];
-		var sDescriptionFull = FToD_HoardItems["dragon's wrath weapon"].join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); });
+		var sDescriptionFull = FToD_HoardItems["dragon's wrath weapon"].join("\n   ");
 		var sNotesDescription = FToD_HoardItems.to1stPerson(FToD_HoardItems["dragon's wrath weapon"]);
 		for (var t = 0; t < aTypes.length; t++) {
 			var sItemType = aTypes[t][0];
@@ -1532,7 +1532,7 @@ MagicItemsList["dragon-touched focus"] = {
 	prerequisite: "Requires attunement by a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "",
-	descriptionFull: FToD_HoardItems["dragon-touched focus"].join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: FToD_HoardItems["dragon-touched focus"].join("\n   "),
 	toNotesPage: [{
 		name: "Full Text",
 		note: FToD_HoardItems.to1stPerson(FToD_HoardItems["dragon-touched focus"]),
@@ -1632,7 +1632,7 @@ MagicItemsList["dragon vessel"] = {
 	type: "wondrous item",
 	attunement: true,
 	description: "As a bonus action once per dawn, if this magical container is empty, I can speak the command word to fill the vessel with one liquid of my choice. The list of options depends on the level and rarity of the item.",
-	descriptionFull: FToD_HoardItems["dragon vessel"].join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: FToD_HoardItems["dragon vessel"].join("\n   "),
 	toNotesPage: [{
 		name: "Full Text",
 		note: FToD_HoardItems.to1stPerson(FToD_HoardItems["dragon vessel"]),
@@ -1671,7 +1671,7 @@ MagicItemsList["scaled ornament"] = function (n) {
 		type: "wondrous item",
 		attunement: true,
 		description: "This ornament can be jewelry, a cloak, or another wearable accessory. It appears to be fashioned from a dragon's scale, tooth, or claw, or it incorporates images in those shapes.",
-		descriptionFull: FToD_HoardItems["scaled ornament"].join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+		descriptionFull: FToD_HoardItems["scaled ornament"].join("\n   "),
 		toNotesPage: [{
 			name: "Full Text",
 			note: FToD_HoardItems.to1stPerson(FToD_HoardItems["scaled ornament"]),

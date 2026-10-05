@@ -1,5 +1,5 @@
 var iFileName = "pub_20190903_DnDEK.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion(14);
 // This file adds the sidekick rules from the Dungeons & Dragons Essentials Kit adventures to MPMB's Character Record Sheet
 /* - NOTICE -
 	These sidekick classes are available as normal classes because the sheet doesn't support classes for the companion page

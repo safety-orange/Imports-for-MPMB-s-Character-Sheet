@@ -1,5 +1,5 @@
 var iFileName = "pub_20180918_WDH.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion(14);
 // This file adds the magic items from the Waterdeep: Dragon Heist adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -58,7 +58,7 @@ MagicItemsList["azuredge"] = {
 	rarity: "legendary",
 	storyItemAL: true,
 	description: "This battleaxe is sentient, adds +3 to hit and damage, and deals +2d6 radiant damage vs. fiends/undead. As an action, I can stop or start its glow of bright light in a 30-ft radius and dim light for another 30 ft. It has 3 charges, regaining all at dawn, which can be used to throw it, after which it returns to my hand. See Notes.",
-	descriptionFull: WDH_azuredgeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: WDH_azuredgeFullDescription.join("\n   "),
 	attunement: true,
 	weight: 4,
 	action: [["action", " (glow/end)"]],
@@ -83,7 +83,7 @@ MagicItemsList["azuredge"] = {
 	}],
 	toNotesPage: [{
 		name: "Features",
-		note: "\n   " + WDH_azuredgeFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: "\n   " + WDH_azuredgeFullDescription.join("\n   ").replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 }
 MagicItemsList["badge of the watch"] = { // contains contributions by Pengsloth
@@ -116,7 +116,7 @@ if (MagicItemsList["staff of power"]) {
 		rarity: "legendary",
 		storyItemAL: true,
 		description: "This +2 quarterstaff gives me a +2 bonus on saves, AC, and spell attacks. It has 20 charges, regaining 2d8+4 at dawn, which can be used to cast spells, deal +1d6 force damage in melee, drain magic from a target hit in melee, or animate walking statues. It is sentient and has more features, see Notes page.",
-		descriptionFull: WDH_blackstaffFullDescription.replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+		descriptionFull: WDH_blackstaffFullDescription,
 		attunement: true,
 		weight: 4,
 		prerequisite: "Requires attunement by the Blackstaff heir, who must be a wizard",
@@ -168,7 +168,7 @@ if (MagicItemsList["staff of power"]) {
 		},
 		toNotesPage: [{
 			name: "Features",
-			note: "\n   " + WDH_blackstaffFullDescription.replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you /ig, "I "),
+			note: "\n   " + WDH_blackstaffFullDescription.replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/you /ig, "I "),
 		}, {
 			name: "Sentient Item Features",
 			note: sentientItemConflictTxt,
@@ -256,7 +256,7 @@ MagicItemsList["lord's ensemble"] = {
 	prerequisite: "Requires attunement by a creature with a humanoid build",
 	description: "While wearing this helm, amulet, and ring, my identity can't be determined. I move through difficult terrain as normal terrain. Magic can't be used to reduce my speed, paralyze me, restrain me, read my thoughts, or learn my alignment, creature type, or if I'm lying. I'm hidden from scrying and Divination magic.",
 	descriptionLong: "This set of a helm, amulet, and ring can be worn and attuned to as a single magic item, but only while within Waterdeep. The helm magically alters my voice to sound genderless, and makes me immune to magic that reads my thoughts, determines if I'm lying, or reveals my alignment or creature type. Creatures can't speak telepathically with me unless I allow it. The amulet causes me to be hidden from Divination magic and magical scrying sensors. The robe makes me look nondescript, makes difficult terrain not cost me extra movement, and stops magic from reducing my speed or me to be paralyze or restrained.",
-	descriptionFull: "The Masked Lords of Waterdeep don this ensemble when meeting with one another. This raiment renders each lord indistinguishable from the others. The ensemble consists of three pieces\u2014a helm, an amulet, and a robe\u2014that function as a single magic item when worn together, but only within the city of Waterdeep and its sewers. You become attuned to the ensemble as a single item.\n   " + toUni("Lord's Helm") + ". This bucket helm covers your head and conceals your face. Screens over the eyes help to shroud your identity without blinding you. While you wear the helm, your voice is magically altered to sound genderless, and you are immune to magic that allows other creatures to read your thoughts, to determine whether you are lying, to know your alignment, or to know your creature type. Creatures can communicate telepathically with you only if you allow it.\n   " + toUni("Lord's Amulet") + ". This amulet bears the crest of Waterdeep. It functions as an amulet of proof against detection and location.\n   " + toUni("Lord's Robe") + ". This elegant robe functions as a ring of free action, and it creates the illusion that you have a nondescript, androgynous humanoid build and stand 6 feet tall.",
+	descriptionFull: "The Masked Lords of Waterdeep don this ensemble when meeting with one another. This raiment renders each lord indistinguishable from the others. The ensemble consists of three pieces\u2014a helm, an amulet, and a robe\u2014that function as a single magic item when worn together, but only within the city of Waterdeep and its sewers. You become attuned to the ensemble as a single item.\n   ***Lord's Helm***. This bucket helm covers your head and conceals your face. Screens over the eyes help to shroud your identity without blinding you. While you wear the helm, your voice is magically altered to sound genderless, and you are immune to magic that allows other creatures to read your thoughts, to determine whether you are lying, to know your alignment, or to know your creature type. Creatures can communicate telepathically with you only if you allow it.\n   ***Lord's Amulet***. This amulet bears the crest of Waterdeep. It functions as an amulet of proof against detection and location.\n   ***Lord's Robe***. This elegant robe functions as a ring of free action, and it creates the illusion that you have a nondescript, androgynous humanoid build and stand 6 feet tall.",
 	attunement: true,
 	savetxt: { immune: ["paralyzed", "restrained"] },
 }

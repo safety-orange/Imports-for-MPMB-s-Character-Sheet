@@ -80,7 +80,7 @@ if (!SourceList["LMoP"]) {
 		rarity: "rare",
 		magicItemTable: "G",
 		description: "Attacks with this black adamantine quarterstaff topped with a spider deal +1d6 poison damage on a hit. It has 10 charges and regains 1d6+4 expended charges at dawn. If I use its last charge, roll a d20. On a 1, it is destroyed. I can use its charges to cast Spider Climb (1 charge) or Web (2 charges, spell save DC 15).",descriptionFull: "The top of this magic quarterstaff is shaped like a spider. It deals an extra 1d6 poison damage on a hit when used to make a weapon attack." +
-		toUni("\n   Spells") + ". The staff has 10 charges. While holding it, you can expend the requisite number of charges to cast one of the following spells from the staff: spider climb (1 charge) or web (2 charges; spell save DC 15)." +
+		"***\n   Spells***. The staff has 10 charges. While holding it, you can expend the requisite number of charges to cast one of the following spells from the staff: spider climb (1 charge) or web (2 charges; spell save DC 15)." +
 		"\n   The staff regains 1d6+4 expended charges daily at dusk. If you expend the staff's last charge, roll a d20. On a 1, the staff crumbles to dust and is destroyed.",
 		attunement: true,
 		prerequisite: "Requires attunement by a bard, sorcerer, warlock, or wizard",
@@ -119,7 +119,7 @@ if (!SourceList["LMoP"]) {
 		magicItemTable: "G",
 		description: "This slender, hollow staff is made of glass yet is as strong as oak. While holding it, I gain a +1 bonus to AC. It has 10 charges and regains 1d6+4 expended charges at dawn. If I use its last charge, roll a d20. On a 1, it is destroyed. I can use its charges to cast Mage Armor (1 charge) or Shield (2 charges) as an action.",
 		descriptionFull: "This slender, hollow staff is made of glass yet is as strong as oak. It weighs 3 pounds. While holding the staff, you have a +1 bonus to your Armor Class." +
-		toUni("\n   Spells") + ". The staff has 10 charges. While holding it, you can expend the requisite number of charges to cast one of the following spells from the staff: mage armor (1 charge) or shield (2 charges)." +
+		"***\n   Spells***. The staff has 10 charges. While holding it, you can expend the requisite number of charges to cast one of the following spells from the staff: mage armor (1 charge) or shield (2 charges)." +
 		"\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the staff's last charge, roll a d20. On a 1, the staff shatters and is destroyed.",
 		attunement: true,
 		prerequisite: "Requires attunement by a bard, sorcerer, warlock, or wizard",
@@ -273,13 +273,13 @@ MagicItemsList["mind crystal"] = {
 	description: "When you cast a spell that has a casting time of 1 action while holding a mind crystal, I can modify it in a specific way determined by the type of mind crystal. I can't use a mind crystal and a Metamagic option on the same spell. Once a mind crystal is used, it becomes a nonmagical gem worth 50 gp.",
 	descriptionFull: "These gemstones contain a crystallized bit of spellcasting magic. Different types of mind crystals exist, each with a different single-use effect." +
 	"\n   When you cast a spell that has a casting time of 1 action while holding a mind crystal, you can modify the spell in a specific way. You can use only a single mind crystal to modify the spell, and you can't use a mind crystal and a Metamagic option on the same spell. Once you use a mind crystal, it becomes a nonmagical gem worth 50 gp." +
-	toUni("\n   Careful") + ". (Uncommon) Choose up to three creatures affected by the spell. The chosen creatures automatically succeed on their saving throws against the spell." +
-	toUni("\n   Distant") + ". (Uncommon) If the spell has a range of 5 feet or more and doesn't have a range of self, the spell's range increases by 100 feet. If the spell has a range of touch, its range becomes 30 feet." +
-	toUni("\n   Empowered") + ". (Uncommon) When you roll damage for the spell, you can reroll up to three damage dice. You must use the new rolls." +
-	toUni("\n   Extended") + ". (Uncommon) If the spell has a duration of 1 minute or longer, double the spell's duration, to a maximum duration of 24 hours." +
-	toUni("\n   Heightened") + ". (Rare) Choose one creature affected by the spell. That creature has disadvantage on the first saving throw it makes against the spell." +
-	toUni("\n   Quickened") + ". (Rare) You change the spell's casting time to 1 bonus action for this casting." +
-	toUni("\n   Subtle") + ". (Common) You cast the spell without any somatic or verbal components for this casting.",
+	"***\n   Careful***. (Uncommon) Choose up to three creatures affected by the spell. The chosen creatures automatically succeed on their saving throws against the spell." +
+	"***\n   Distant***. (Uncommon) If the spell has a range of 5 feet or more and doesn't have a range of self, the spell's range increases by 100 feet. If the spell has a range of touch, its range becomes 30 feet." +
+	"***\n   Empowered***. (Uncommon) When you roll damage for the spell, you can reroll up to three damage dice. You must use the new rolls." +
+	"***\n   Extended***. (Uncommon) If the spell has a duration of 1 minute or longer, double the spell's duration, to a maximum duration of 24 hours." +
+	"***\n   Heightened***. (Rare) Choose one creature affected by the spell. That creature has disadvantage on the first saving throw it makes against the spell." +
+	"***\n   Quickened***. (Rare) You change the spell's casting time to 1 bonus action for this casting." +
+	"***\n   Subtle***. (Common) You cast the spell without any somatic or verbal components for this casting.",
 	allowDuplicates: true,
 	choices: ["Careful", "Distant", "Empowered", "Extended", "Heightened", "Quickened", "Subtle"],
 	"careful": {

@@ -3,7 +3,7 @@ RequiredSheetVersion("14.1.0");
 // This file adds all the player-material from Van Richten's Guide to Ravenloft to MPMB's Character Record Sheet
 
 // Define the source
-SourceList.VRGtR = {
+SourceList["VRGtR"] = {
 	name: "Van Richten's Guide to Ravenloft",
 	abbreviation: "VRGtR",
 	group: "Campaign Sourcebooks",
@@ -563,7 +563,7 @@ BackgroundList["haunted one"] = { // Reprint from Curse of Strahd, but re-define
 	],
 };
 // [dupl_start] reprints from Curse of Strahd
-if (!SourceList.CoS) {
+if (!SourceList["CoS"]) {
 	PacksList.monsterhunter = {
 		name: "Monster hunter's pack (33 gp)",
 		source: [["CoS", 209], ["VRGtR", 34]],
@@ -684,7 +684,7 @@ MagicItemsList["harkon's bite"] = {
 	attunement: true,
 	description: "This necklace with a dire wolf tooth gives me a +1 on checks and saves. Curse: I can't remove it once I'm attuned to it. If I don or remove the necklace, even if I'm not attuned, I'm afflicted with werewolf lycanthropy (MM 211). This lasts until the dawn after the next full moon, unless I'm still wearing the necklace at dawn.",
 	descriptionFull: "A dire wolf tooth dangles from this simple cord necklace. While you wear it, the necklace grants you a +1 bonus to ability checks and saving throws." +
-	"\n   " + toUni("Curse") + ". Attuning to Harkon's Bite curses you until either Harkon Lukas removes the necklace from you or you are targeted by a remove curse spell or similar magic. As long as you remain cursed, you cannot remove the necklace." +
+	"\n   ***Curse***. Attuning to Harkon's Bite curses you until either Harkon Lukas removes the necklace from you or you are targeted by a remove curse spell or similar magic. As long as you remain cursed, you cannot remove the necklace." +
 	"\n   Upon donning or removing the necklace, whether you are attuned to it or not, you are afflicted with werewolf lycanthropy as detailed in the Monster Manual. The curse lasts until the dawn after the next full moon. If you are still wearing the necklace at this time, you are afflicted with the lycanthropy again.",
 	addMod: [
 		{ type: "save", field: "all", mod: 1, text: "I gain a +1 bonus on all my saving throws." },
@@ -708,10 +708,10 @@ MagicItemsList["nepenthe"] = {
 	prerequisite: "Requires attunement by a paladin",
 	prereqeval: function (v) { return classes.known.paladin ? true : false; },
 	description: "This sentient holy avenger longsword gives me a +3 bonus to attack and damage rolls. It does +2d10 radiant damage against fiends and undead. While holding the drawn sword, I have a 10-ft radius aura (30-ft if level 17 paladin) that grants me and my allies adv. on saves against spells and magical effects.",
-	descriptionFull: VRGtR_nepentheFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: VRGtR_nepentheFullDescription.join("\n   "),
 	toNotesPage: [{
 		name: "Features",
-		note: desc(VRGtR_nepentheFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/(to|around) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(VRGtR_nepentheFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/(to|around) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 	weaponOptions: [{
 		baseWeapon: "longsword",
@@ -747,9 +747,9 @@ MagicItemsList["living shadow"] = {
 	description : "I learn the Mage Hand cantrip and require no components to cast it. My Prof Bonus per long rest, I can gain +10 ft reach for one melee attack. The first time I roll a 1 on a d20 after a short rest, my shadow will act up. The next time I or another I can see in 30 ft rolls a d20, I roll a d4. If even: add to roll, odd: subtract.",
 	descriptionLong : "I learn the Mage Hand cantrip and require no components to cast it. The hand created by the spell is shadowy but is not bound to your actual shadow. My proficiency bonus per long rest, when I make a melee attack, I can gain +10 ft reach for that attack as my shadow stretches and delivers the attack. The first time after a short rest when I roll a 1 on an attack, check, or save, my shadow will act up. The next time I or a creature I can see within 30 ft rolls for an attack, check, or save, roll a d4. If the number is odd, reduce the total by that number. If it is even, increase the total by that number instead.",
 	descriptionFull : "The shadow you cast is animate and ever-present, even when lighting conditions would otherwise prevent it. Your shadow occasionally moves out of sync with you. Sometimes it appears to be undertaking random but mundane tasks, while at other times it acts out your darker impulses, threatening or even attacking other shadows. With effort, you can bend this shadow puppetry to your will.\n"+
-	toUni("Grasping Shadow") + ". You learn the mage hand cantrip if you don't already know it, and require no components to cast it. The hand created by the spell is shadowy but is not bound to your actual shadow. Your spellcasting ability for this spell is Intelligence, Wisdom, or Charisma (your choice when you gain this Dark Gift).\n"+
-	toUni("Shadow Strike") + ". When you make a melee attack roll, you can increase your reach for that attack by 10 feet. Your shadow stretches and delivers the attack as if it were you. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.\n"+
-	toUni("Ominous Will") + ". Immediately after you make an attack roll, an ability check, or a saving throw and roll a 1 on the d20, your shadow exerts a will of its own and might assist or hinder you or those around you. The next time you or a creature within 30 feet of you that you can see makes an attack roll, an ability check, or a saving throw, roll a d4. If the number is odd, reduce the total by the number rolled. If the number is even, increase the total by the number rolled. Once this effect occurs, it can't happen again until you finish a short or long rest.",
+	"***Grasping Shadow***. You learn the mage hand cantrip if you don't already know it, and require no components to cast it. The hand created by the spell is shadowy but is not bound to your actual shadow. Your spellcasting ability for this spell is Intelligence, Wisdom, or Charisma (your choice when you gain this Dark Gift).\n"+
+	"***Shadow Strike***. When you make a melee attack roll, you can increase your reach for that attack by 10 feet. Your shadow stretches and delivers the attack as if it were you. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.\n"+
+	"***Ominous Will***. Immediately after you make an attack roll, an ability check, or a saving throw and roll a 1 on the d20, your shadow exerts a will of its own and might assist or hinder you or those around you. The next time you or a creature within 30 feet of you that you can see makes an attack roll, an ability check, or a saving throw, roll a d4. If the number is odd, reduce the total by the number rolled. If the number is even, increase the total by the number rolled. Once this effect occurs, it can't happen again until you finish a short or long rest.",
 	action : [["action", "Unsettling Presence"]],
 	extraLimitedFeatures : [{
 		name : "Shadow Strike",

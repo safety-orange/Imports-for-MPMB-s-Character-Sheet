@@ -14,7 +14,7 @@ SourceList["UA:F2"] = {
 
 // [dupl_start] (mostly) the same as in Tasha's Cauldron of Everything
 // feats that allow a change every level in UA, but not/different in TCoE are not added again, because the difference is so small
-if (!SourceList.T) {
+if (!SourceList["T"]) {
 	FeatsList["artificer initiate"] = {
 		name: "Artificer Initiate",
 		source: [["T", 79], ["UA:F2", 1]],

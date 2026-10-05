@@ -1,5 +1,5 @@
 var iFileName = "ua_20151005_Prestige Classes and Rune Magic.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion(14);
 // This file adds the content from the Unearthed Arcana: Prestige Classes and Rune Magic article to MPMB's Character Record Sheet
 
 // Define the source

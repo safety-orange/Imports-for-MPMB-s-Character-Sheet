@@ -2,7 +2,7 @@ var iFileName = "pub_20210921_WBtW.js";
 RequiredSheetVersion("14.0.15-beta");
 // This file adds the content from The Wild Beyond the Witchlight adventure to MPMB's Character Record Sheet
 
-SourceList.WBtW = {
+SourceList["WBtW"] = {
 	name: "The Wild Beyond the Witchlight",
 	abbreviation: "WBtW",
 	group: "Adventure Books",
@@ -239,7 +239,7 @@ var WBtW_Sentient_Item_toNotes = function (sDescr, skipConflict) {
 		.replace(/(by|of|to|for) I\b|\bI to|\bI an?\b/ig, "$1 me")
 		.replace(/\bI (to|a|an)\b/ig, "me $1")
 		.replace(/your/g, "my").replace(/Your/g, "My")
-		.replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); });
+		.replace(/>>(.*?)<</g, "***$1***");
 	return skipConflict ? theR : theR + "\n\n" + sentientItemConflictTxt
 }
 MagicItemsList["bobbing lily pad"] = {
@@ -261,7 +261,7 @@ MagicItemsList["chromatic rose"] = {
 	descriptionFull: "This magic rose comes in one of five colors, as noted in the table below. While a rose is held, it gains a harmless visual effect as indicated on the table." +
 	"\n   While holding the rose by its stem, you gain resistance to damage of the type associated with the rose's color. If you would take more than 10 damage of this type from a single source (after applying the resistance), the rose disintegrates, and you take no damage instead." +
 	"\n   As an action, you can blow the petals from the rose to produce a 20-foot cone of acid, lightning, poisonous gas, fire, or cold, as dictated by the rose's damage type. Each creature in the cone must make a DC 15 Constitution saving throw, taking 3d10 damage of the appropriate type on a failed save, or half as much damage on a successful one. Using this property destroys the rose." +
-	toUni("\n Color\tVisual Effect\tDamage Type") +
+	"\n **Color**\t**Visual Effect**\t**Damage Type**" +
 	"\n Black\tDrips acid\tAcid" +
 	"\n Blue\tCrackles with lightning\tLightning" +
 	"\n Green\tIssues green gas\tPoison" +
@@ -316,8 +316,8 @@ MagicItemsList["eldritch staff"] = {
 	descriptionLong: "This magic quarterstaff grants a +1 bonus to attack and damage rolls made with it. It has 10 charges and regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff is destroyed in an otherwise harmless burst of eldritch energy. When I hit with it in melee, I can expend up to 3 charges, dealing +1d8 lightning damage per charge. As a reaction when I'm damaged while holding the staff, I can use 3 charges to become invisible and teleport 60 ft to an empty space I can see. I then remain invisible until the start of my next turn or until I attack, cast a spell, or deal damage.",
 	descriptionFull: "This staff can be wielded as a magic quarterstaff that grants a +1 bonus to attack and damage rolls made with it." +
 	"\n   The staff has 10 charges and regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff is destroyed in an otherwise harmless burst of eldritch energy." +
-	"\n   " + toUni("Eldritch Attack") + ". When you hit with a melee attack using the staff, you can expend up to 3 of its charges. For each charge you expend, the target takes an extra 1d8 lightning damage." +
-	"\n   " + toUni("Eldritch Escape") + ". If you take damage while holding the staff, you can use your reaction to expend 3 of the staff's charges, whereupon you turn invisible and teleport yourself, along with any equipment you are wearing or carrying, up to 60 feet to an unoccupied space that you can see. You remain invisible until the start of your next turn or until you attack, cast a spell, or deal damage.",
+	"\n   ***Eldritch Attack***. When you hit with a melee attack using the staff, you can expend up to 3 of its charges. For each charge you expend, the target takes an extra 1d8 lightning damage." +
+	"\n   ***Eldritch Escape***. If you take damage while holding the staff, you can use your reaction to expend 3 of the staff's charges, whereupon you turn invisible and teleport yourself, along with any equipment you are wearing or carrying, up to 60 feet to an unoccupied space that you can see. You remain invisible until the start of your next turn or until you attack, cast a spell, or deal damage.",
 	weight: 4,
 	action: [["reaction", " (if damaged)"]],
 	usages: 10,
@@ -402,7 +402,7 @@ MagicItemsList["snicker-snack"] = {
 	prerequisite: "Requires attunement by a non-evil creature",
 	prereqeval: function (v) { return !/evil/i.test(What("Alignment")); },
 	description: "I have a +3 bonus on attack and damage rolls with this sentient magic greatsword and can use Cha instead of Str. It ignores slashing resistance. On a 20 to hit, it cuts off " + (typePF ? "a head" : "one head, possibly killing it instantly") + ". If the target has legendary actions, no head, too wide neck, or is immune to slashing damage, it takes +6d8 damage instead. See Notes.",
-	descriptionFull: WBtW_Snicker_Snack_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: WBtW_Snicker_Snack_Full_Description.join("\n   "),
 	weight: 6,
 	toNotesPage: [{
 		name: "Features",
@@ -444,7 +444,7 @@ MagicItemsList["steel"] = {
 	prerequisite: "Requires attunement by a good-aligned creature",
 	prereqeval: function (v) { return /good/i.test(What("Alignment")); },
 	description: "This sentient longsword adds +2 to attack and damage rolls made with it. As an action once per dawn, I can use it to cast Revivify on a target I touch with the sword. Steel is lawful good and frets over my well-being and doesn't like to back down from a fight. It has Int 8, Wis 11, and Cha 15. See Notes page.",
-	descriptionFull: WBtW_Steel_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: WBtW_Steel_Full_Description.join("\n   "),
 	weight: 3,
 	toNotesPage: [{
 		name: "Features",
@@ -506,7 +506,7 @@ MagicItemsList["witchlight vane"] = {
 	prerequisite: "Requires attunement by a mister light or his handpicked successor",
 	description: "I can use this sentient ornate rod as a +3 mace that deals an extra 1d8 radiant damage on a hit. It can sense the mood of every creature in the carnival. As an action, I can pinpoint the happiest in the carnival. I can use it to cast spells. I can't be blinded, deafened, petrified, or stunned. See Notes page.",
 	descriptionLong: "This sentient ornate rod is topped by a pair of butterfly wings and incorporates bits of red glass into its length. I can use it as a +3 mace that deals an extra 1d8 radiant damage on a hit. It can sense the mood of every creature in the carnival. As an action, I can use it to pinpoint the happiest in the carnival. I can use it to cast Dancing Light, Ray of Frost, and Polymorph. After I use it to cast Polymorph, roll a d8. On a roll of 3 or 8, the vane can't be used to cast Polymorph again until the next dawn. It makes me vulnerable to lightning damage, but I can't be blinded, deafened, petrified, or stunned. See Notes page.",
-	descriptionFull: WBtW_Witchlight_Vane_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: WBtW_Witchlight_Vane_Full_Description.join("\n   "),
 	weight: 3,
 	toNotesPage: [{
 		name: "Features",
@@ -560,7 +560,7 @@ MagicItemsList["witchlight watch"] = {
 	prerequisite: "Requires attunement by a mister witch or his handpicked successor",
 	description: "As an action once per 8 hours, I can use this ornate pocket watch to initiate the (un)packing of the carnival over the next hour. I can use it to cast Fire Bolt, Message, and Invisibility. After it casts Invisibility, I roll a d8. On a roll of 3 or 8, I can't cast this again until the next dawn. See Notes page.",
 	descriptionLong: "This ornate pocket watch is fastened to the end of a gold chain and glows with a faint golden light when opened. As an action once per 8 hours, I can use this ornate pocket watch to initiate the (un)packing of the carnival over the next hour, provided the carnival and I are on the same plane of existence. I can use it to cast Fire Bolt, Message, and Invisibility. After I use it to cast Invisibility, roll a d8. On a roll of 3 or 8, it can't be used to cast Invisibility again until the next dawn. As long as I'm attuned to it, I'm 30 lb heavier and must eat and drink eight times the normal amount each day. See Notes page.",
-	descriptionFull: WBtW_Witchlight_Watch_Full_Description.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: WBtW_Witchlight_Watch_Full_Description.join("\n   "),
 	toNotesPage: [{
 		name: "Features",
 		note: WBtW_Sentient_Item_toNotes(WBtW_Witchlight_Watch_Full_Description, true),
@@ -588,7 +588,7 @@ MagicItemsList["witchlight watch"] = {
 	}],
 }
 // [dupl_start] reprints from Xanathar's Guide to Everything
-if (!SourceList.X) {
+if (!SourceList["X"]) {
 	MagicItemsList["cloak of many fashions"] = {
 		name: "Cloak of Many Fashions",
 		source: [["X", 136], ["WBtW", 208]],

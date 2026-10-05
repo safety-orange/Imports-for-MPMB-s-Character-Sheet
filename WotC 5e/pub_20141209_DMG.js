@@ -3,7 +3,7 @@ RequiredSheetVersion("14.1.0");
 // This file adds all the player-material from the Dungeon Master's Guide to MPMB's Character Record Sheet
 
 // Define the source
-SourceList.D = {
+SourceList["D"] = {
 	name: "Dungeon Master's Guide",
 	abbreviation: "DMG",
 	group: "Core Sources",
@@ -344,7 +344,7 @@ MagicItemsList["alchemy jug"] = {
 	descriptionFull: "This ceramic jug appears to be able to hold a gallon of liquid and weighs 12 pounds whether full or empty. Sloshing sounds can be heard from within the jug when it is shaken, even if the jug is empty." +
 	"\n   You can use an action and name one liquid from the table below to cause the jug to produce the chosen liquid. Afterward, you can uncork the jug as an action and pour that liquid out, up to 2 gallons per minute. The maximum amount of liquid the jug can produce depends on the liquid you named." +
 	"\n   Once the jug starts producing a liquid, it can't produce a different one, or more of one that has reached its maximum, until the next dawn.\n\n" +
-	toUni("Max        \tLiquid\t\tMax        \tLiquid") +
+	"**Max**        \t**Liquid**\t\t**Max**        \t**Liquid**" +
 	"\n8 ounces  \tAcid\t\t1 quart   \tOil" +
 	"\n1/2 ounce\tBasic poison\t2 gallons  \tVinegar" +
 	"\n4 gallons  \tBeer\t\t8 gallons  \tWater, fresh" +
@@ -775,7 +775,7 @@ MagicItemsList["scroll of protection"] = {
 	magicItemTable: "C",
 	description: "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 min that moves with me and stops a creature type from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected.",
 	descriptionFull: "Each scroll of protection works against a specific type of creature chosen by the DM or determined randomly by rolling on the following table.\n\n" + [
-		toUni("d100\tCreature Type\td100\tCreature Type"),
+		"**d100**\t**Creature Type**\t**d100**\t**Creature Type**",
 		"01-10\tAberrations\t41-50\tFey",
 		"11-20\tBeasts\t\t51-75\tFiends",
 		"21-30\tCelestials   \t76-80\tPlants",
@@ -887,7 +887,7 @@ MagicItemsList["sword of answering"] = {
 	magicItemTable: "I",
 	description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has a gem set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
 	descriptionFull: 'In the world of Greyhawk, only nine of these blades are known to exist. Each is patterned after the legendary sword Fragarach, which is variously translated as "Final Word." Each of the nine swords has its own name and alignment, and each bears a different gem in its pommel.\n   You gain a +3 bonus to attack and damage rolls made with this sword. In addition, while you hold the sword, you can use your reaction to make one melee attack with it against any creature in your reach that deals damage to you. You have advantage on the attack roll, and any damage dealt with this special attack ignores any damage immunity or resistance the target has.\n\n' + [
-		toUni("Name\t\tAlignment\tGem"),
+		"**Name**\t\t**Alignment**\t**Gem**",
 		"Answerer    \tChaotic good\tEmerald",
 		"Back Talker\tChaotic evil\tJet",
 		"Concluder    \tLawful neutral\tAmethyst",
@@ -974,7 +974,7 @@ MagicItemsList["sword of vengeance"] = {
 	magicItemTable: "F",
 	attunement: true,
 	description: "This sword gives +1 to hit and damage and is cursed. I can't part with this sword and have disadv. on attacks with other weapons. If I take damage in combat, I must make a DC 15 Wis save or I will attack the attacker until it drops to 0 HP or I can't attack it in melee anymore.",
-	descriptionFull: "You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   " + toUni("Curse") + ". This sword is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the sword, keeping it on your person at all times. While attuned to this weapon, you have disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the sword is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage in combat. On a failed save you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting banishment on the sword forces the vengeful spirit to leave it. The sword then becomes a +1 weapon with no other properties.",
+	descriptionFull: "You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   ***Curse***. This sword is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the sword, keeping it on your person at all times. While attuned to this weapon, you have disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the sword is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage in combat. On a failed save you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting banishment on the sword forces the vengeful spirit to leave it. The sword then becomes a +1 weapon with no other properties.",
 	chooseGear: {
 		type: "weapon",
 		prefixOrSuffix: "prefix",
@@ -1102,7 +1102,7 @@ MagicItemsList["blackrazor"] = {
 	rarity: "legendary",
 	notLegalAL: true,
 	description: "This sentient greatsword adds +3 to hit and damage and makes me immune to being charmed or frightened. Once per day it can cast Haste on me as it sees fit. If I use it to bring a creature to 0 HP, it devours the creature's soul, granting me temporary HP equal to the creature's max HP for 24 hours. See Notes page.",
-	descriptionFull: DMG_blackrazorFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: DMG_blackrazorFullDescription.join("\n   "),
 	attunement: true,
 	prerequisite: "Requires attunement by a creature of non-lawful alignment",
 	prereqeval: function (v) { return !/lawful/i.test(What("Alignment")); },
@@ -1119,7 +1119,7 @@ MagicItemsList["blackrazor"] = {
 	}],
 	toNotesPage: [{
 		name: "Features",
-		note: desc(DMG_blackrazorFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|reduces|grants) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(DMG_blackrazorFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|reduces|grants) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 	savetxt: { immune: ["charmed", "frightened"] },
 	usages: 1,
@@ -1158,7 +1158,7 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 		rarity: "legendary",
 		notLegalAL: true,
 		description: "This sentient trident adds +3 to hit and damage and if I score a critical hit with it, the target takes extra necrotic damage equal to half its max HP. It also functions as a trident of fish command, a weapon of warning, cap of water breathing while I hold it, and I can use it as a cube of force. See Notes page.",
-		descriptionFull: DMG_waveFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+		descriptionFull: DMG_waveFullDescription.join("\n   "),
 		attunement: true,
 		prerequisite: "Requires attunement by a creature that worships a god of the sea",
 		prereqeval: function (v) { return /deep sashelas|sekolah|ulutiu|umberlee|valkur|poseidon|neptune|aegir|nehalennia|njord/i.test(What("Faith/Deity")); },
@@ -1174,7 +1174,7 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 		}],
 		toNotesPage: [{
 			name: "Features",
-			note: desc(DMG_waveFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/you/ig, "I") + "\n\n" + sentientItemConflictTxt,
+			note: desc(DMG_waveFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/you/ig, "I") + "\n\n" + sentientItemConflictTxt,
 		}, {
 			name: "Contained Items",
 			note: [
@@ -1231,7 +1231,7 @@ MagicItemsList["whelm"] = {
 	rarity: "legendary",
 	notLegalAL: true,
 	description: "This sentient warhammer adds +3 to hit and damage, has the thrown property, deals extra damage when thrown, and returns to my hand when thrown. I can use it to create a shock wave. It makes me afraid of the outdoors, so while I can see the daytime sky, I have disadv. on attacks, saves, and checks. See Notes page.",
-	descriptionFull: DMG_whelmFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: DMG_whelmFullDescription.join("\n   "),
 	attunement: true,
 	prerequisite: "Requires attunement by a dwarf",
 	prereqeval: function (v) { return CurrentRace.known.indexOf("dwarf") !== -1; },
@@ -1248,7 +1248,7 @@ MagicItemsList["whelm"] = {
 	}],
 	toNotesPage: [{
 		name: "Features",
-		note: desc(DMG_whelmFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|causes|alerts) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(DMG_whelmFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|causes|alerts) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 	action: [["action", " (Shock Wave)"]],
 	extraLimitedFeatures: [{

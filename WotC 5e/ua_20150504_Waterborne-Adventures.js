@@ -1,5 +1,5 @@
 var iFileName = "ua_20150504_Waterborne-Adventures.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion(14);
 // This file adds the content from the Unearthed Arcana: Waterborne Adventures article to MPMB's Character Record Sheet
 
 // Define the source

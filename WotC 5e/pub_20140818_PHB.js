@@ -3,7 +3,7 @@ RequiredSheetVersion("14.1.0");
 // This file adds all material from the Player's Handbook to MPMB's Character Record Sheet
 
 // Define the source
-SourceList.P = {
+SourceList["P"] = {
 	name: "Player's Handbook",
 	abbreviation: "PHB",
 	abbreviationSpellsheet: "P",

@@ -39,12 +39,12 @@ RequiredSheetVersion("14.1.0", 15);
 */
 
 // Define the source
-SourceList.T = {
+SourceList["T"] = {
 	name: "Tasha's Cauldron of Everything",
 	abbreviation: "TCoE",
 	abbreviationSpellsheet: "T",
 	group: "Primary Sources",
-	url: "https://dnd.wizards.com/products/tashas-cauldron-everything",
+	url: "https://marketplace.dndbeyond.com/category/tashas-cauldron-of-everything?pid=SRC-00067",
 	date: "2020/11/17",
 };
 
@@ -2087,7 +2087,7 @@ AddSubClass("bard", "college of creation", {
 	},
 });
 // [dupl_start] reprints from Mythic Odysseys of Theros
-if (!SourceList.MOT) {
+if (!SourceList["MOT"]) {
 	AddSubClass("bard", "college of eloquence", {
 		regExpSearch: /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*eloquence).*$/i,
 		subname: "College of Eloquence",
@@ -2105,7 +2105,7 @@ if (!SourceList.MOT) {
 				source: [["T", 30], ["MOT", 28]],
 				minlevel: 3,
 				description: desc([
-					"As a bonus action, I expend a Bardic Inspiration use & choose a target I can see in 60 ft",
+					"As a bonus action, I expend a Bardic Inspiration use \x26 choose a target I can see in 60 ft",
 					"It subtracts my inspiration die from the next save it makes before my next turn starts",
 				]),
 				action: [["bonus action", ""]],
@@ -2223,7 +2223,7 @@ RunFunctionAtEnd(function () {
 
 // Cleric Subclasses
 // [dupl_start] reprints from Guildmasters' Guide to Ravnica
-if (!SourceList.G) {
+if (!SourceList["G"]) {
 	AddSubClass("cleric", "order domain", {
 		regExpSearch: /^(?=.*(cleric|priest|clergy|acolyte))(?=.*order).*$/i,
 		subname: "Order Domain",
@@ -2549,7 +2549,7 @@ AddFeatureChoice(TCoE_druidOptional4, true, "Cantrip Versatility", {
 
 // Druid Subclasses
 // [dupl_start] reprints from Guildmasters' Guide to Ravnica
-if (!SourceList.G) {
+if (!SourceList["G"]) {
 	AddSubClass("druid", "circle of spores", {
 		regExpSearch: /^(?=.*(druid|shaman))(?=.*spores).*$/i,
 		subname: "Circle of Spores",
@@ -3795,7 +3795,7 @@ AddFeatureChoice(TCoE_paladinOptional4, true, "Martial Versatility", {
 
 // Paladin Subclasses
 // [dupl_start] reprints from Mythic Odysseys of Theros
-if (!SourceList.MOT) {
+if (!SourceList["MOT"]) {
 	AddSubClass("paladin", "oath of glory", {
 		regExpSearch: /^(?=.*glory)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper))))).*$/i,
 		subname: "Oath of Glory",
@@ -5754,7 +5754,7 @@ AddFeatureChoice(TCoE_wizardOptional3, true, "Cantrip Formulas", {
 
 // Wizard Subclasses
 // [dupl_start] reprints from Sword Coast Adventure Guide (after 2020 errata)
-if (!SourceList.S) {
+if (!SourceList["S"]) {
 	AddSubClass("wizard", "bladesinging", {
 		regExpSearch: /(bladesinging|bladesinger)/i,
 		subname: "Tradition of Bladesinging",
@@ -6357,7 +6357,7 @@ FeatsList["telepathic"] = {
 // >>> New Spells >>> //
 // >>>>>>>>>>>>>>>>>> //
 // [dupl_start] reprint spells from Sword Coast Adventure Guide (after 2020 errata)
-if (!SourceList.S) {
+if (!SourceList["S"]) {
 	SpellsList["booming blade"] = {
 		name: "Booming Blade",
 		classes: ["artificer", "sorcerer", "warlock", "wizard"],
@@ -6476,7 +6476,7 @@ if (!SourceList.S) {
 	};
 }
 // reprint spell from Icewind Dale: Rime of the Frostmaiden
-if (!SourceList.F) {
+if (!SourceList["F"]) {
 	SpellsList["blade of disaster"] = {
 		name: "Blade of Disaster",
 		classes: ["sorcerer", "warlock", "wizard"],
@@ -6779,12 +6779,6 @@ var TCoE_magicTattoosDescription = desc([
 	"Very Rare  \tTwo limbs or the chest or upper back",
 	"Legendary  \tTwo limbs and the torso",
 ], "\n  ");
-magicTattoosTxt = { // a public variable to be used for any magical tattoo that uses these rules
-	base: TCoE_magicTattoosDescription,
-	unicode: TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
-	uppercase: TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/\byou\b/ig, "I"),
-	plain: TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, "$1").replace(/your/g, "my").replace(/\byou\b/ig, "I"),
-};
 MagicItemsList["absorbing tattoo"] = function () {
 	var oObj = {
 		name: "Absorbing Tattoo",
@@ -6794,8 +6788,8 @@ MagicItemsList["absorbing tattoo"] = function () {
 		attunement: true,
 		description: "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing. It grants me resistance to a damage type. As a reaction once per dawn when I take that type of damage, I can gain immunity against that instance of damage and recover half the damage as HP.",
 		descriptionFull: "Produced by a special needle, this magic tattoo features designs that emphasize one color." +
-		"\n   " + toUni("Damage Resistance") + ". While the tattoo is on your skin, you have resistance to a type of damage associated with that color, as shown on the table below. The DM chooses the color or determines it randomly." +
-		toUni("\nd10\tDamage Type\tColor") +
+		"\n   ***Damage Resistance***. While the tattoo is on your skin, you have resistance to a type of damage associated with that color, as shown on the table below. The DM chooses the color or determines it randomly." +
+		"\n**d10**\t**Damage Type**\t**Color**" +
 		"\n   1\tAcid\t\tGreen" +
 		"\n   2\tCold\t\tBlue" +
 		"\n   3\tFire\t\tRed" +
@@ -6806,7 +6800,7 @@ MagicItemsList["absorbing tattoo"] = function () {
 		"\n   8\tPsychic\t\tSilver" +
 		"\n   9\tRadiant\t\tGold" +
 		"\n 10\tThunder\t\tOrange" +
-		"\n\n   " + toUni("Damage Absorption") + ". When you take damage of the chosen type, you can use your reaction to gain immunity against that instance of the damage, and you regain a number of hit points equal to half the damage you would have taken. Once this reaction is used, it can't be used again until the next dawn." + magicTattoosTxt.unicode,
+		"\n\n   ***Damage Absorption***. When you take damage of the chosen type, you can use your reaction to gain immunity against that instance of the damage, and you regain a number of hit points equal to half the damage you would have taken. Once this reaction is used, it can't be used again until the next dawn." + TCoE_magicTattoosDescription,
 		usages: 1,
 		recovery: "dawn",
 		additional: "Immunity",
@@ -6831,12 +6825,12 @@ MagicItemsList["barrier tattoo"] = {
 	type: "wondrous item (tattoo)",
 	description: "This magic tattoo depicts protective imagery and uses ink that resembles liquid metal. While not wearing armor, this tattoo grants me an Armor Class related to the rarity of the tattoo.",
 	descriptionFull: "Produced by a special needle, this magic tattoo depicts protective imagery and uses ink that resembles liquid metal." +
-	"\n   " + toUni("Protection") + ". While you aren't wearing armor, the tattoo grants you an Armor Class depending on the tattoo's rarity, as shown below. You can use a shield and still gain this benefit." +
-	toUni("\nTattoo Rarity\tAC") +
+	"\n   ***Protection***. While you aren't wearing armor, the tattoo grants you an Armor Class depending on the tattoo's rarity, as shown below. You can use a shield and still gain this benefit." +
+	"\n**Tattoo Rarity**\t**AC**" +
 	"\n  Uncommon\t12 + your Dexterity modifier" +
 	"\n  Rare\t\t15 + your Dexterity modifier (maximum of +2)" +
 	"\n  Very Rare\t18\n" +
-	magicTattoosTxt.unicode,
+	TCoE_magicTattoosDescription,
 	attunement: true,
 	choices: ["AC 12+Dex (uncommon)", "AC 15+Dex (rare)", "AC 18 (very rare)"],
 	"ac 12+dex (uncommon)": {
@@ -6889,9 +6883,9 @@ MagicItemsList["blood fury tattoo"] = {
 	attunement: true,
 	description: "This magical tattoo has 10 charges, regaining all at dawn. As a reaction when a creature I can see damages me, I can use 1 charge to make a melee attack with advantage against it. When I hit a creature with a melee attack, I can use 1 charge to deal it 4d6 necrotic damage and regain the same amount in hit points.",
 	descriptionFull: "Produced by a special needle, this magic tattoo evokes fury in its form and colors." +
-	"\n   " + toUni("Bloodthirsty Strikes") + ". The tattoo has 10 charges, and it regains all expended charges daily at dawn. While this tattoo is on your skin, you gain the following benefits:" +
+	"\n   ***Bloodthirsty Strikes***. The tattoo has 10 charges, and it regains all expended charges daily at dawn. While this tattoo is on your skin, you gain the following benefits:" +
 	"\n \u2022 When you hit a creature with a weapon attack, you can expend a charge to deal an extra 4d6 necrotic damage to the target, and you regain a number of hit points equal to the necrotic damage dealt." +
-	"\n \u2022 When a creature you can see damages you, you can expend a charge and use your reaction to make a melee attack against that creature, with advantage on your attack roll." + magicTattoosTxt.unicode,
+	"\n \u2022 When a creature you can see damages you, you can expend a charge and use your reaction to make a melee attack against that creature, with advantage on your attack roll." + TCoE_magicTattoosDescription,
 	usages: 10,
 	recovery: "dawn",
 	action: [["reaction", " (after taking damage)"]],
@@ -6904,7 +6898,7 @@ MagicItemsList["coiling grasp tattoo"] = {
 	attunement: true,
 	description: "This magical tattoo features intertwining designs. As an action, I can have a creature I can see within 15 ft make a DC 14 Str save or take 3d6 force damage and be grappled. It can use its action to try and escape (DC 14 Athletics/Acrobatics). Grapple ends if I halt it, use it again, or if the target is more than 15 ft away.",
 	descriptionFull: "Produced by a special needle, this magic tattoo has long intertwining designs." +
-	"\n   " + toUni("Grasping Tendrils") + ". While the tattoo is on your skin, you can, as an action, cause the tattoo to extrude into inky tendrils, which reach for a creature you can see within 15 feet of you. The creature must succeed on a DC 14 Strength saving throw or take 3d6 force damage and be grappled by you. As an action, the creature can escape the grapple by succeeding on a DC 14 Strength (Athletics) or Dexterity (Acrobatics) check. The grapple also ends if you halt it (no action required), if the creature is ever more than 15 feet away from you, or if you use this tattoo on a different creature." + magicTattoosTxt.unicode,
+	"\n   ***Grasping Tendrils***. While the tattoo is on your skin, you can, as an action, cause the tattoo to extrude into inky tendrils, which reach for a creature you can see within 15 feet of you. The creature must succeed on a DC 14 Strength saving throw or take 3d6 force damage and be grappled by you. As an action, the creature can escape the grapple by succeeding on a DC 14 Strength (Athletics) or Dexterity (Acrobatics) check. The grapple also ends if you halt it (no action required), if the creature is ever more than 15 feet away from you, or if you use this tattoo on a different creature." + TCoE_magicTattoosDescription,
 	action: [["action", ""]],
 	weaponOptions: [{
 		regExpSearch: /^(?=.*coiling grasp)(?=.*tattoo).*$/i,
@@ -6929,8 +6923,8 @@ MagicItemsList["eldritch claw tattoo"] = {
 	attunement: true,
 	description: "This magical tattoo featuring clawlike forms makes my unarmed strikes magical with a +1 bonus to attack and damage. As a bonus action once per dawn, I can have it empower me for 1 minute so that all my melee attacks with weapons and unarmed strikes have 15 ft reach and deal an extra 1d6 force damage.",
 	descriptionFull: "Produced by a special needle, this magic tattoo depicts clawlike forms and other jagged shapes." +
-	"\n   " + toUni("Magical Strikes") + ". While the tattoo is on your skin, your unarmed strikes are considered magical for the purpose of overcoming immunity and resistance to nonmagical attacks, and you gain a +1 bonus to attack and damage rolls with unarmed strikes." +
-	"\n   " + toUni("Eldritch Maul") + ". As a bonus action, you can empower the tattoo for 1 minute. For the duration, each of your melee attacks with a weapon or an unarmed strike can reach a target up to 15 feet away from you, as inky tendrils launch toward the target. In addition, your melee attacks deal an extra 1d6 force damage on a hit. Once used, this bonus action can't be used again until the next dawn." + magicTattoosTxt.unicode,
+	"\n   ***Magical Strikes***. While the tattoo is on your skin, your unarmed strikes are considered magical for the purpose of overcoming immunity and resistance to nonmagical attacks, and you gain a +1 bonus to attack and damage rolls with unarmed strikes." +
+	"\n   ***Eldritch Maul***. As a bonus action, you can empower the tattoo for 1 minute. For the duration, each of your melee attacks with a weapon or an unarmed strike can reach a target up to 15 feet away from you, as inky tendrils launch toward the target. In addition, your melee attacks deal an extra 1d6 force damage on a hit. Once used, this bonus action can't be used again until the next dawn." + TCoE_magicTattoosDescription,
 	usages: 1,
 	recovery: "dawn",
 	additional: "Eldritch Maul",
@@ -6968,10 +6962,10 @@ MagicItemsList["ghost step tattoo"] = {
 	attunement: true,
 	description: "As a bonus action 3 times per day, I can become incorporeal until my next turn ends. While incorporeal, I can't be grappled or restrained, gain nonmagical bludgeoning, piercing, and slashing damage resistance, and can move through creatures or objects as difficult terrain (1d10 force damage if I end my turn in one).",
 	descriptionFull: "Produced by a special needle, this tattoo shifts and wavers on the skin, parts of it appearing blurred." +
-	"\n   " + toUni("Ghostly Form") + ". The tattoo has 3 charges, and it regains all expended charges daily at dawn. As a bonus action while the tattoo is on your skin, you can expend 1 of the tattoo's charges to become incorporeal until the end of your next turn. For the duration, you gain the following benefits:" +
+	"\n   ***Ghostly Form***. The tattoo has 3 charges, and it regains all expended charges daily at dawn. As a bonus action while the tattoo is on your skin, you can expend 1 of the tattoo's charges to become incorporeal until the end of your next turn. For the duration, you gain the following benefits:" +
 	"\n \u2022 You have resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks." +
 	"\n \u2022 You can't be grappled or restrained." +
-	"\n \u2022 You can move through creatures and solid objects as if they were difficult terrain. If you end your turn in a solid object, you take 1d10 force damage. If the effect ends while you are inside a solid object, you instead are shunted to the nearest unoccupied space, and you take 1d10 force damage for every 5 feet traveled." + magicTattoosTxt.unicode,
+	"\n \u2022 You can move through creatures and solid objects as if they were difficult terrain. If you end your turn in a solid object, you take 1d10 force damage. If the effect ends while you are inside a solid object, you instead are shunted to the nearest unoccupied space, and you take 1d10 force damage for every 5 feet traveled." + TCoE_magicTattoosDescription,
 	usages: 3,
 	recovery: "dawn",
 	action: [["bonus action", ""]],
@@ -6984,8 +6978,8 @@ MagicItemsList["illuminator's tattoo"] = { // contains contributions by lizrdgiz
 	attunement: true,
 	description: "While this beautiful calligraphy tattoo is on my skin, I can write with my fingertip as if it is an ink pen that never runs out of ink. As an action, I can touch writing up to one page and speak a creature's name, making it invisible to everyone else but me and the creature for up to 24 hours or until I or the creature touch it.",
 	descriptionFull: "Produced by a special needle, this magic tattoo features beautiful calligraphy, images of writing implements, and the like." +
-	"\n   " + toUni("Magical Scribing") + ". While this tattoo is on your skin, you can write with your fingertip as if it were an ink pen that never runs out of ink." +
-	"\n   As an action, you can touch a piece of writing up to one page in length and speak a creature's name. The writing becomes invisible to everyone other than you and the named creature for the next 24 hours. Either of you can dismiss the invisibility by touching the script (no action required). Once used, this action can't be used again until the next dawn." + magicTattoosTxt.unicode,
+	"\n   ***Magical Scribing***. While this tattoo is on your skin, you can write with your fingertip as if it were an ink pen that never runs out of ink." +
+	"\n   As an action, you can touch a piece of writing up to one page in length and speak a creature's name. The writing becomes invisible to everyone other than you and the named creature for the next 24 hours. Either of you can dismiss the invisibility by touching the script (no action required). Once used, this action can't be used again until the next dawn." + TCoE_magicTattoosDescription,
 	usages: 1,
 	recovery: "dawn",
 	action: [["action", ""]],
@@ -6998,8 +6992,8 @@ MagicItemsList["lifewell tattoo"] = {
 	attunement: true,
 	description: "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring symbols of life and rebirth. It grants me resistance to necrotic damage. The first time per dawn when I would be reduced to 0 hit points, I drop to 1 hit point instead.",
 	descriptionFull: "Produced by a special needle, this magic tattoo features symbols of life and rebirth." +
-	"\n   " + toUni("Necrotic Resistance") + ". You have resistance to necrotic damage." +
-	"\n   " + toUni("Life Ward") + ". When you would be reduced to 0 hit points, you drop to 1 hit point instead. Once used, this property can't be used again until the next dawn." + magicTattoosTxt.unicode,
+	"\n   ***Necrotic Resistance***. You have resistance to necrotic damage." +
+	"\n   ***Life Ward***. When you would be reduced to 0 hit points, you drop to 1 hit point instead. Once used, this property can't be used again until the next dawn." + TCoE_magicTattoosDescription,
 	usages: 1,
 	recovery: "dawn",
 	dmgres: ["Necrotic"],
@@ -7012,8 +7006,8 @@ MagicItemsList["masquerade tattoo"] = {
 	attunement: true,
 	description: "When I attune to this magic needle, it disappears and I gain a magical tattoo. As a bonus action, I can change its size, color, pattern, and location on my skin to whatever I want, but it's always obviously a tattoo. As an action once per dawn, I can use the tattoo to cast Disguise Self (DC 13 to discern the disguise).",
 	descriptionFull: "Produced by a special needle, this magic tattoo appears on your body as whatever you desire." +
-	"\n   " + toUni("Fluid Ink") + ". As a bonus action, you can shape the tattoo into any color or pattern and move it to any area of your skin. Whatever form it takes, it is always obviously a tattoo. It can range in size from no smaller than a copper piece to an intricate work of art that covers all your skin." +
-	"\n   " + toUni("Disguise Self") + ". As an action, you can use the tattoo to cast the disguise self spell (DC 13 to discern the disguise). Once the spell is cast from the tattoo, it can't be cast from the tattoo again until the next dawn." + magicTattoosTxt.unicode,
+	"\n   ***Fluid Ink***. As a bonus action, you can shape the tattoo into any color or pattern and move it to any area of your skin. Whatever form it takes, it is always obviously a tattoo. It can range in size from no smaller than a copper piece to an intricate work of art that covers all your skin." +
+	"\n   ***Disguise Self***. As an action, you can use the tattoo to cast the disguise self spell (DC 13 to discern the disguise). Once the spell is cast from the tattoo, it can't be cast from the tattoo again until the next dawn." + TCoE_magicTattoosDescription,
 	usages: 1,
 	recovery: "dawn",
 	additional: "Disguise Self",
@@ -7034,8 +7028,8 @@ MagicItemsList["shadowfell brand tattoo"] = { // contains contributions by lizrd
 	attunement: true,
 	description: "When I attune to this magic needle, it disappears and I gain a dark, abstract magical tattoo. It gives me darkvision with a range of 60 ft and advantage on Dexterity (Stealth) checks. As a reaction once per sunset when I take damage, I can become insubstantial for a moment, halving the damage I take.",
 	descriptionFull: "Produced by a special needle, this magic tattoo is dark in color and abstract." +
-	"\n   " + toUni("Shadow Essence") + ". You gain darkvision with a range of 60 feet, and you have advantage on Dexterity (Stealth) checks." +
-	"\n   " + toUni("Shadowy Defense") + ". When you take damage, you can use your reaction to become insubstantial for a moment, halving the damage you take. Then the reaction can't be used again until the next sunset." + magicTattoosTxt.unicode,
+	"\n   ***Shadow Essence***. You gain darkvision with a range of 60 feet, and you have advantage on Dexterity (Stealth) checks." +
+	"\n   ***Shadowy Defense***. When you take damage, you can use your reaction to become insubstantial for a moment, halving the damage you take. Then the reaction can't be used again until the next sunset." + TCoE_magicTattoosDescription,
 	usages: 1,
 	recovery: "sunset",
 	action: [["reaction", " (halve damage)"]],
@@ -7049,14 +7043,14 @@ MagicItemsList["spellwrought tattoo"] = {
 	description: "When I hold this magic needle against my skin and speak the command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its spell, requiring no material components. The tattoo glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 	descriptionFull: "Produced by a special needle, this magic tattoo contains a single spell of up to 5th level, wrought on your skin by a magic needle. To use the tattoo, you must hold the needle against your skin and speak the command word. The needle turns into ink that becomes the tattoo, which appears on the skin in whatever design you like. Once the tattoo is there, you can cast its spell, requiring no material components. The tattoo glows faintly while you cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes from your skin." +
 	"\n   The level of the spell in the tattoo determines the spell's saving throw DC, attack bonus, spellcasting ability modifier, and the tattoo's rarity, as shown in the table below.\n" +
-	toUni("\n Spell\t\t     Spellcasting\tSave\tAttack" +
-	"\n Level\tRarity\t     Ability Mod.\t DC\tBonus") +
+	"\n **Spell**\t\t     **Spellcasting**\t**Save**\t**Attack**" +
+	"\n **Level**\t**Rarity**\t     **Ability Mod.**\t **DC**\t**Bonus**" +
 	"\nCantrip\tCommon\t\t+3\t 13\t  +5" +
 	"\n  1st\tCommon\t\t+3\t 13\t  +5" +
 	"\n  2nd\tUncommon\t+3\t 13\t  +5" +
 	"\n  3rd\tUncommon\t+4\t 15\t  +7" +
 	"\n  4th\tRare\t\t+4\t 15\t  +7" +
-	"\n  5th\tRare\t\t+5\t 17\t  +9" + magicTattoosTxt.unicode.replace(/[\s\S]*in your space\.\n */, "\n"),
+	"\n  5th\tRare\t\t+5\t 17\t  +9" + TCoE_magicTattoosDescription.replace(/[\s\S]*in your space\.\n */, "\n"),
 	allowDuplicates: true,
 	calcChanges: {
 		spellAdd: [
@@ -7870,15 +7864,15 @@ MagicItemsList["elemental essence shard"] = {
 	description: "I can use this flickering crystal as a spellcasting focus for my sorcerer spells while I hold or wear it. As an action, I can attach or detach it to a Tiny object. It holds the essence of an Elemental Plane, which grants me additional benefits when I use a Metamagic option on a spell.",
 	descriptionFull: "This crackling crystal contains the essence of an elemental plane. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus while you hold or wear it." +
 	"\n   Roll a d4 and consult the Elemental Essence Shards table to determine the shard's essence and property. When you use a Metamagic option on a spell while you are holding or wearing the shard, you can use that property." +
-	toUni("\n d4\tEssence") +
+	"\n **d4**\t**Essence**" +
 	"\n  1\tAir" +
 	"\n  2\tEarth" +
 	"\n  3\tFire" +
 	"\n  4\tWater\n" +
-	"\n   " + toUni("Air") + ". You can immediately fly up to 60 feet without provoking opportunity attacks." +
-	"\n   " + toUni("Earth") + ". You gain resistance to a damage type of your choice until the start of your next turn." +
-	"\n   " + toUni("Fire") + ". One target of the spell that you can see catches fire. The burning target takes 2d10 fire damage at the start of its next turn, and then the flames go out." +
-	"\n   " + toUni("Water") + ". You create a wave of water that bursts out from you in a 10-foot radius. Each creature of your choice that you can see in that area takes 2d6 cold damage and must succeed on a Strength saving throw against your spell save DC or be pushed 10 feet away from you and fall prone.",
+	"\n   ***Air***. You can immediately fly up to 60 feet without provoking opportunity attacks." +
+	"\n   ***Earth***. You gain resistance to a damage type of your choice until the start of your next turn." +
+	"\n   ***Fire***. One target of the spell that you can see catches fire. The burning target takes 2d10 fire damage at the start of its next turn, and then the flames go out." +
+	"\n   ***Water***. You create a wave of water that bursts out from you in a 10-foot radius. Each creature of your choice that you can see in that area takes 2d6 cold damage and must succeed on a Strength saving throw against your spell save DC or be pushed 10 feet away from you and fall prone.",
 	weight: 1, // as crystal arcane focus
 	action: [["action", " (attach/detach)"]],
 	choices: ["Air Essence", "Earth Essence", "Fire Essence", "Water Essence"],
@@ -7928,15 +7922,15 @@ MagicItemsList["outer essence shard"] = {
 	description: "I can use this flickering crystal as a spellcasting focus for my sorcerer spells while I hold or wear it. As an action, I can attach or detach it to a Tiny object. It holds the essence of an Outer Plane, which grants me additional benefits when I use a Metamagic option on a spell.",
 	descriptionFull: "This flickering crystal holds the essence of an Outer Plane. As an action, you can attach the shard to a Tiny object (such as a weapon or a piece of jewelry) or detach it. It falls off if your attunement to it ends. You can use the shard as a spellcasting focus while you hold or wear it." +
 	"\n   Roll a d4 and consult the Outer Essence Shards table to determine the shard's essence and property. When you use a Metamagic option on a spell while you are holding or wearing the shard, you can use that property." +
-	toUni("\n d4\tEssence") +
+	"\n **d4**\t**Essence**" +
 	"\n  1\tLawful" +
 	"\n  2\tChaotic" +
 	"\n  3\tGood" +
 	"\n  4\tEvil\n" +
-	"\n   " + toUni("Lawful") + ". You can end one of the following conditions affecting yourself or one creature you can see within 30 feet of you: charmed, blinded, deafened, frightened, poisoned, or stunned." +
-	"\n   " + toUni("Chaotic") + ". Choose one creature who takes damage from the spell. That target has disadvantage on attack rolls and ability checks made before the start of your next turn." +
-	"\n   " + toUni("Good") + ". You or one creature of your choice that you can see within 30 feet of you gains 3d6 temporary hit points." +
-	"\n   " + toUni("Evil") + ". Choose one creature who takes damage from the spell. That target takes an extra 3d6 necrotic damage.",
+	"\n   ***Lawful***. You can end one of the following conditions affecting yourself or one creature you can see within 30 feet of you: charmed, blinded, deafened, frightened, poisoned, or stunned." +
+	"\n   ***Chaotic***. Choose one creature who takes damage from the spell. That target has disadvantage on attack rolls and ability checks made before the start of your next turn." +
+	"\n   ***Good***. You or one creature of your choice that you can see within 30 feet of you gains 3d6 temporary hit points." +
+	"\n   ***Evil***. Choose one creature who takes damage from the spell. That target takes an extra 3d6 necrotic damage.",
 	weight: 1, // as crystal arcane focus
 	action: [["action", " (attach/detach)"]],
 	choices: ["Lawful Essence", "Chaotic Essence", "Good Essence", "Evil Essence"],

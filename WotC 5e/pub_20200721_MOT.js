@@ -3,7 +3,7 @@ RequiredSheetVersion("14.0.15-beta");
 // This file adds the content from Mythic Odysseys of Theros to MPMB's Character Record Sheet
 
 // Define the source
-SourceList.MOT = {
+SourceList["MOT"] = {
 	name: "Mythic Odysseys of Theros",
 	abbreviation: "MOT",
 	group: "Campaign Sourcebooks",
@@ -90,7 +90,7 @@ RaceList["satyr"] = { // includes contributions by BraabHimself
 	]),
 };
 // [dupl_start] Add centaur and minotaur race from Guildmasters' Guide to Ravnica, if not already present
-if (!SourceList.G) {
+if (!SourceList["G"]) {
 	RaceList["centaur"] = {
 		regExpSearch: /centaur/i,
 		name: "Centaur",
@@ -268,7 +268,7 @@ AddSubClass("bard", "college of eloquence", { // includes contributions by /u/Ho
 			source: [["T", 30], ["MOT", 28]],
 			minlevel: 3,
 			description: desc([
-				"As a bonus action, I expend a Bardic Inspiration use & choose a target I can see in 60 ft",
+				"As a bonus action, I expend a Bardic Inspiration use \x26 choose a target I can see in 60 ft",
 				"It subtracts my inspiration die from the next save it makes before my next turn starts",
 			]),
 			action: [["bonus action", ""]],
@@ -511,7 +511,7 @@ MagicItemsList["helm of the gods"] = {
 	descriptionFull: "While wearing this helm, you know whether there is a celestial or fiend within 30 feet of you, as well as where the creature is located, provided the creature isn't behind total cover." +
 	"\n   Whenever you finish a long rest while wearing the helm, you can pray to one of the gods listed on the Helm of the Gods table and store the listed spell in the helm, replacing any spell that is already stored there. The save DC for the spell is 13." +
 	"\n   The helm has 3 charges. To cast a spell from the helm, you must expend 1 charge, and the helm regains 1d3 charges daily at dawn." +
-	toUni("\n God\t\tSpell") +
+	"\n **God**\t**Spell**" +
 	"\n Athreos\t\tprotection from evil and good" +
 	"\n Ephara\t\tsanctuary" +
 	"\n Erebos\t\tinflict wounds" +
@@ -717,9 +717,9 @@ MagicItemsList["potion of aqueous form"] = {
 	description: "Once as an action, I can drink this potion or administer it to another. The consumer of the potion turns into a pool of water and gains several benefits and limitations while in this form. They revert back to their true form after 10 minutes, if they become incapacitated, or if they die. See Notes page.",
 	descriptionFull: "When you drink this potion, you transform into a pool of water. You return to your true form after 10 minutes or if you are incapacitated or die." +
 	"\n   You're under the following effects while in this form:" +
-	"\n\n" + toUni("Liquid Movement") + ". You have a swimming speed of 30 feet. You can move over or through other liquids. You can enter and occupy the space of another creature. You can rise up to your normal height, and you can pass through even Tiny openings. You extinguish nonmagical flames in any space you enter." +
-	"\n\n" + toUni("Watery Resilience") + ". You have resistance to nonmagical damage. You also have advantage on Strength, Dexterity, and Constitution saving throws." +
-	"\n\n" + toUni("Limitations") + ". You can't talk, attack, cast spells, or activate magic items. Any objects you were carrying or wearing meld into your new form and are inaccessible, though you continue to be affected by anything you're wearing, such as armor.",
+	"\n\n***Liquid Movement***. You have a swimming speed of 30 feet. You can move over or through other liquids. You can enter and occupy the space of another creature. You can rise up to your normal height, and you can pass through even Tiny openings. You extinguish nonmagical flames in any space you enter." +
+	"\n\n***Watery Resilience***. You have resistance to nonmagical damage. You also have advantage on Strength, Dexterity, and Constitution saving throws." +
+	"\n\n***Limitations***. You can't talk, attack, cast spells, or activate magic items. Any objects you were carrying or wearing meld into your new form and are inaccessible, though you continue to be affected by anything you're wearing, such as armor.",
 	toNotesPage: [{
 		name: "Effects",
 		popupName: "Potion of Aqueous Form Effects",
@@ -742,7 +742,7 @@ var MOT_PyxisOfPandemoniumFullDescription = [
 	"A creature that touches this ornate wooden vessel for 1 minute gains the benefits of a short rest. That creature also gains the effects of the bless spell until the creature finishes a short or long rest. The creature can't gain these benefits again until it finishes a long rest.",
 	"If the vessel is opened, roll on the Pyxis of Pandemonium table to determine what happens. Any spells cast by the vessel have a spell save DC of 17. One minute after the vessel is opened, it disappears. It reappears, sealed, in a random location on the same plane of existence 24 hours later.",
 	">>Curse<<. Any creature that gains the benefit of a short rest from the vessel hears cloying telepathic whispers emanating it. That creature must make a DC 17 Wisdom saving throw. On a failed save, the creature is charmed by the vessel for 1 hour. The charmed creature does everything it can to open the vessel as soon as possible. On a successful save, the creature is immune to the vessel's whispers for 24 hours.\n",
-	toUni("d8\tCalamity"),
+	"**d8**\t**Calamity**",
 	" 1\t>>Androphagia<<. Each creature within 60 feet of the vessel must succeed on a DC 17 Wisdom saving throw or go berserk for l minute. The berserk creature must begin its turn using the Attack action to make one melee or ranged attack (its choice) against the creature nearest to it. The berserk creature can repeat the save at the end of its turn, ending the effect on itself on a success.",
 	" 2\t>>Bile Blight<<. The vessel casts the harm spell on each creature within 30 feet of it.",
 	" 3\t>>Flood<<. The vessel casts the tsunami spell at a point of the DM's choice within 120 feet of it.",
@@ -760,11 +760,11 @@ MagicItemsList["pyxis of pandemonium"] = {
 	notLegalAL: true,
 	description: "Once per long rest, I gain the benefits of a short rest by touching this ornate vessel for 1 minute. I also gain the benefit of Bless until I finish my next rest. After benefiting from this vessel, I have to make a DC 17 Wis save or become charmed by the vessel for 1 hour. If charmed, I must do everything to open it. See Notes.",
 	descriptionLong: "Once per long rest, I can touch this ornate wooden vessel for 1 minute to gain the benefits of a short rest. I then also gain the benefit of the Bless spell until I finish my next rest. After I gain the benefits of a short rest from this vessel, I must make a DC 17 Wisdom save or become charmed by it for 1 hour. On a success, I am immune to its charm for 24 hours. If charmed, I will do everything I can to open the vessel as soon as possible. Once opened, the vessel causes a random effect to occur, then it disappears after 1 minute and reappears, sealed, in random location on the same plane. See Notes.",
-	descriptionFull: MOT_PyxisOfPandemoniumFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: MOT_PyxisOfPandemoniumFullDescription.join("\n   "),
 	toNotesPage: [{
 		name: "Effects",
 		source: [["MOT", 197]],
-		note: desc(MOT_PyxisOfPandemoniumFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/\bf(oo|ee)t\b/ig, "ft"),
+		note: desc(MOT_PyxisOfPandemoniumFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/\bf(oo|ee)t\b/ig, "ft"),
 	}],
 	usages: 1,
 	recovery: "long rest",
@@ -821,7 +821,7 @@ MagicItemsList["sling bullets of althemone"] = {
 	rarity: "very rare",
 	notLegalAL: true,
 	description: "These bullets come in a pouch containing 1d4 + 4 bullets. Attacks made with these sling bullets add +2 to hit and damage. If a bullet misses, it teleports back to its pouch. On a hit, the bullet's effect happens and the bullet loses its magic. I roll on the table to determine each bullet's magical effect, see Notes.",
-	descriptionFull: MOT_SlingBulletsOfAlthemoneFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: MOT_SlingBulletsOfAlthemoneFullDescription.join("\n   "),
 	calcChanges: {
 		atkAdd: [
 			function (fields, v) {
@@ -843,7 +843,7 @@ MagicItemsList["sling bullets of althemone"] = {
 	toNotesPage: [{
 		name: "Magic Sling Bullets Table",
 		source: [["MOT", 198]],
-		note: desc(MOT_SlingBulletsOfAlthemoneFullDescription.slice(2)).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/\bf(oo|ee)t\b/ig, "ft").replace(/\byou\b/ig, "I").replace(/your/g, "my"),
+		note: desc(MOT_SlingBulletsOfAlthemoneFullDescription.slice(2)).replace(/>>(.*?)<</g, "***$1***").replace(/\bf(oo|ee)t\b/ig, "ft").replace(/\byou\b/ig, "I").replace(/your/g, "my"),
 	}],
 	weight: 1.5, // assuming an averyage of 6,5 bullets (0.4875) and a pouch (1)
 };

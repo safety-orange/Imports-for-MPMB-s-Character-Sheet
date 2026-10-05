@@ -1,5 +1,5 @@
 var iFileName = "ua_20160912_The-Ranger,-Revised.js";
-RequiredSheetVersion("13.1.0");
+RequiredSheetVersion(14);
 // This file adds the content from the Unearthed Arcana: The Ranger, Revised article to MPMB's Character Record Sheet
 
 // Define the source
@@ -469,7 +469,7 @@ CompanionList.companionrr = {
 		AddToModFld(prefix + "Comp.Use.AC", "Prof", false, "Animal Companion", "An beast conclave's animal companion adds its proficiency bonus (Prof) to its AC.");
 		// Alert player of things that have to be done manually
 		app.alert({
-			cMsg: toUni("Pick Two Skills") + "\nThe Ranger's Animal Companion that you have just added, gains proficiency with two additional skills to those already selected. Because there is no automation for selecting these proficiencies, please do so manually.\n\n" + toUni("Ability Score Improvements") + "\nThe Ranger's Animal Companion gains Ability Score Improvements (ASI) whenever your character gains them. An animal companion can't use these to take feats. There is no automation for adding these ASIs either, so please don't forget to increase the ability scores for the animal companion when you get the reminder pop-up for ASI changes.\nAlso, remember that any DCs for abilities that the beast possesses are based on ability scores modifier and that they might need to be manually changed when increasing ability scores modifiers.\nThe 'Notes' section on the companion page automatically keeps track of how many points you can increase the ability scores with and what the base value of those scores are according to the Monster Manual.",
+			cMsg: "***Pick Two Skills***\nThe Ranger's Animal Companion that you have just added, gains proficiency with two additional skills to those already selected. Because there is no automation for selecting these proficiencies, please do so manually.\n\n***Ability Score Improvements***\nThe Ranger's Animal Companion gains Ability Score Improvements (ASI) whenever your character gains them. An animal companion can't use these to take feats. There is no automation for adding these ASIs either, so please don't forget to increase the ability scores for the animal companion when you get the reminder pop-up for ASI changes.\nAlso, remember that any DCs for abilities that the beast possesses are based on ability scores modifier and that they might need to be manually changed when increasing ability scores modifiers.\nThe 'Notes' section on the companion page automatically keeps track of how many points you can increase the ability scores with and what the base value of those scores are according to the Monster Manual.",
 			nIcon: 3,
 			cTitle: "Don't forget the Skills and Ability Score Improvements!",
 		});

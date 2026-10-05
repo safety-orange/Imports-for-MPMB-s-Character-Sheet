@@ -1,5 +1,5 @@
 var iFileName = "ua_20151217_That-Old-Black-Magic.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion(14);
 // This file adds the content from the Unearthed Arcana: That Old Black Magic article to MPMB's Character Record Sheet
 
 // Define the source

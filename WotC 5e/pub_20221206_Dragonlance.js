@@ -134,8 +134,8 @@ FeatsList["initiate of high sorcery"] = {
 	description: "I learn a wizard cantrip and two 1st-levels spell from a list depending on my chosen moon. I can cast each spell once per long rest at its lowest levels without expending a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 	descriptionFull: "You've received training from magic-users affiliated with the Mages of High Sorcery." +
 	"\n   Choose one of the three moons of Krynn to influence your magic: the black moon, Nuitari; the red moon, Lunitari; or the white moon, Solinari. You learn one cantrip of your choice from the wizard spell list and two 1st-level spells based on the moon you choose, as specified in the Lunar Spells table." +
-	"\n\n" + toUni("Lunar Spells") +
-	"\n" + toUni("Moon\t1st-Level Spell") +
+	"\n\n***Lunar Spells***" +
+	"\n**Moon**\t**1st-Level Spell**" +
 	"\nNuitari\tChoose two from dissonant whispers, false life," +
 	"\n\thex, and ray of sickness" +
 	"\nLunitari\tChoose two from color spray, disguise self," +
@@ -201,8 +201,8 @@ FeatsList["adept of the black robes"] = {
 	source: [["D:SotDQ", 31], ["UA:HoKR", 4]],
 	description: "I learn one 2nd-level Ench or Necro spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. When a creature I can see within 60 ft fails its save vs. my damaging spell, I can expend HD up to the spell's level and add the rolls to the damage of the spell for that one creature.",
 	descriptionFull: "You chose the moon Nuitari to influence your magic, and your ambition and loyalty to the Order of the Black Robes have been recognized, granting you these benefits:" +
-	"\n   " + toUni("Ambitious Magic") + ". You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
-	"\n   " + toUni("Life Channel") + ". You can channel your life force into the power of your magic. When a creature you can see within 60 feet fails on a saving throw against a spell that deals damage that you cast, you can expend a number of Hit Dice equal to the level of the spell. Roll the expended Hit Dice and add them together. The damage that the creature takes increases by an amount equal to that total.",
+	"\n   ***Ambitious Magic***. You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
+	"\n   ***Life Channel***. You can channel your life force into the power of your magic. When a creature you can see within 60 feet fails on a saving throw against a spell that deals damage that you cast, you can expend a number of Hit Dice equal to the level of the spell. Roll the expended Hit Dice and add them together. The damage that the creature takes increases by an amount equal to that total.",
 	prerequisite: "4th level, Initiate of High Sorcery (Nuitari) feat",
 	prereqeval: function (v) {
 		var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery");
@@ -223,8 +223,8 @@ FeatsList["adept of the red robes"] = {
 	source: [["D:SotDQ", 32], ["UA:HoKR", 4]],
 	description: "I learn a 2nd-level Illusion or Transmutation spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. When I roll 9 or lower on the d20 for an attack or ability check, I can treat the roll as a 10. I can do this a number of times per long rest equal to my proficiency bonus.",
 	descriptionFull: "You chose the moon Lunitari to influence your magic, and your dedication to maintaining the balance between all things has been recognized by the Order of the Red Robes, granting you these benefits:" +
-	"\n   " + toUni("Insightful Magic") + ". You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the illusion or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
-	"\n   " + toUni("Magical Balance") + ". When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. you can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	"\n   ***Insightful Magic***. You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the illusion or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
+	"\n   ***Magical Balance***. When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. you can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th level, Initiate of High Sorcery (Lunitari) feat",
 	prereqeval: function (v) {
 		var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery");
@@ -248,8 +248,8 @@ FeatsList["adept of the white robes"] = {
 	source: [["D:SotDQ", 32], ["UA:HoKR", 4]],
 	description: "I learn one 2nd-level Abjur or Div spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. As a reaction when I or a creature I can see within 30 ft is damaged, I can expend a spell slot and roll d6s equal to its level to reduce the damage by that much + my spellcasting modifier.",
 	descriptionFull: "You chose the moon Solinari to influence your magic, and your oath to use magic to make the world a better place has been recognized by the Order of the White Robes, granting you these benefits:" +
-	"\n   " + toUni("Protective Magic") + ". You learn one 2nd-level spell of you choice. The 2nd-level spell must be from the abjuration or divination school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
-	"\n   " + toUni("Protective Ward") + ". When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d6s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier.",
+	"\n   ***Protective Magic***. You learn one 2nd-level spell of you choice. The 2nd-level spell must be from the abjuration or divination school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
+	"\n   ***Protective Ward***. When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d6s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier.",
 	prerequisite: "4th level, Initiate of High Sorcery (Solinari) feat",
 	prereqeval: function (v) {
 		var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery");
@@ -274,7 +274,7 @@ FeatsList["divinely favored"] = {
 	description: "I learn a cleric cantrip, a 1st-level spell based on my alignment, and Augury. I can cast the spells each once per long rest at their lowest level without a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this. I can use a holy symbol as a spellcasting focus for any spell that uses the chosen ability.",
 	descriptionFull: "A god chose you to carry a spark of their power." +
 	"\n   You learn one cantrip of your choice from the cleric spell list and one 1st-level spell based on the alignment of your character, as specified in the table below. You also learn the augury spell." +
-	"\n\n" + toUni("Alignment\t1st-level Spell") +
+	"\n\n**Alignment**\t**1st-level Spell**" +
 	"\n Evil\t\tChoose one 1st level warlock spell" +
 	"\n Good\t\tChoose one 1st-level cleric spell" +
 	"\n Neutral\t\tChoose one 1st-level druid spell" +
@@ -353,8 +353,8 @@ FeatsList["squire of solamnia"] = {
 	source: [["D:SotDQ", 34]],
 	description: "Mounting or dismounting costs me only 5-ft of movement. Once per turn, I can grant myself advantage on a weapon attack, adding +1d8 to the damage roll if it hits. I can use this benefit my proficiency bonus per long rest, but a use is expended only if the attack hits.",
 	descriptionFull: "Your training in the ways of the Knights of Solamnia grants you these benefits:" +
-	"\n   " + toUni("Mount Up") + ". Mounting or dismounting costs you only 5 feet of movement." +
-	"\n   " + toUni("Precise Strike") + ". Once per turn, when you make a weapon attack roll against a creature, you can cause the attack roll to have advantage. If the attack hits, you roll a d8 and add the number rolled as a bonus to the attack's damage roll. You can use this benefit a number of times equal to your proficiency bonus, but a use is expended only if the attack hits. You regain all expended uses when you finish a long rest.",
+	"\n   ***Mount Up***. Mounting or dismounting costs you only 5 feet of movement." +
+	"\n   ***Precise Strike***. Once per turn, when you make a weapon attack roll against a creature, you can cause the attack roll to have advantage. If the attack hits, you roll a d8 and add the number rolled as a bonus to the attack's damage roll. You can use this benefit a number of times equal to your proficiency bonus, but a use is expended only if the attack hits. You regain all expended uses when you finish a long rest.",
 	prerequisite: "Dragonlance Campaign, plus Fighter, Paladin, or Knight of Solamnia background",
 	prereqeval: function (v) {
 		return classes.known.fighter || classes.known.paladin || CurrentBackground.known.indexOf("knight of solamnia") !== -1 || /squire of solamnia/i.test(What("Background Feature"));
@@ -369,8 +369,8 @@ FeatsList["knight of the crown"] = {
 	source: [["D:SotDQ", 32]],
 	description: "As a bonus action, I can use Commanding Rally on one ally within 30 ft that can see or hear me to immediately make one weapon attack as a reaction. +1d8 is added to the damage roll, if it hits. I can do this my proficiency bonus per long rest. [+1 Strength, Dexterity, or Constitution]",
 	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Crown, a group that extols the virtues of cooperation, loyalty, and obedience. You excel in group combat and gain these benefits:" +
-	"\n   " + toUni("Ability Score Increase") + ". Increase your Strength, Dexterity, or Constitution by 1, to a maximum of 20." +
-	"\n   " + toUni("Commanding Rally") + ". As a bonus action, you can command one ally within 30 feet of yourself to attack. If that ally can see or hear you, they can immediately make one weapon attack as a reaction. If the attack hits, the ally can roll a d8 and add the number rolled as a bonus to the attack's damage roll. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	"\n   ***Ability Score Increase***. Increase your Strength, Dexterity, or Constitution by 1, to a maximum of 20." +
+	"\n   ***Commanding Rally***. As a bonus action, you can command one ally within 30 feet of yourself to attack. If that ally can see or hear you, they can immediately make one weapon attack as a reaction. If the attack hits, the ally can roll a d8 and add the number rolled as a bonus to the attack's damage roll. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th level, Squire of Solamnia feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia") !== -1; },
 	limfeaname: "Commanding Rally (Knight of the Crown)",
@@ -397,8 +397,8 @@ FeatsList["knight of the rose"] = {
 	source: [["D:SotDQ", 33]],
 	description: "As a bonus action, I can use Bolstering Rally on myself or an ally within 30 ft that I can see and can see or hear me. They gain 1d8 + my proficiency bonus + the modifier of the ability chosen to increase temporary hit points. I can do this my proficiency bonus per long rest. [+1 Constitution, Wisdom, or Charisma]",
 	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Rose, a group known for leadership, justice, and wisdom. Your resolve grants you these benefits:" +
-	"\n   " + toUni("Ability Score Increase") + ". Increase your Constitution, Wisdom, or Charisma by 1, to a maximum of 20." +
-	"\n   " + toUni("Bolstering Rally") + ". As a bonus action, you can encourage one creature you can see within 30 feet of yourself (you can choose yourself). If the target can see or hear you, the target gains temporary hit points equal to 1d8 + your proficiency bonus + the ability modifier of the ability score increased by this feat. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	"\n   ***Ability Score Increase***. Increase your Constitution, Wisdom, or Charisma by 1, to a maximum of 20." +
+	"\n   ***Bolstering Rally***. As a bonus action, you can encourage one creature you can see within 30 feet of yourself (you can choose yourself). If the target can see or hear you, the target gains temporary hit points equal to 1d8 + your proficiency bonus + the ability modifier of the ability score increased by this feat. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th level, Squire of Solamnia feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia") !== -1; },
 	limfeaname: "Bolstering Rally (Knight of the Rose)",
@@ -425,8 +425,8 @@ FeatsList["knight of the sword"] = {
 	source: [["D:SotDQ", 33]],
 	description: "Once per turn, when I hit a creature with a weapon attack, I can have it make a Wisdom save DC (8 + Prof Bonus + mod of the ability increased by this feat) or be frightened of me until my next turn ends. On a successful save, the target has disadv. on its next attack before its next turn ends. I can do this my proficiency bonus per long rest. [+1 Int/Wis/Cha]",
 	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Sword, a group devoted to heroism and courage. Bravery steels your spirit, granting you these benefits:" +
-	"\n   " + toUni("Ability Score Increase") + ". Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20." +
-	"\n   " + toUni("Demoralizing Strike") + ". Once per turn, when you hit a creature with a weapon attack roll, you can attempt to frighten that target. The target must make a Wisdom saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the target is frightened of you until the end of your next turn. On a successful save, the target has disadvantage on the next attack roll it makes before the end of its next turn. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	"\n   ***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20." +
+	"\n   ***Demoralizing Strike***. Once per turn, when you hit a creature with a weapon attack roll, you can attempt to frighten that target. The target must make a Wisdom saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the target is frightened of you until the end of your next turn. On a successful save, the target has disadvantage on the next attack roll it makes before the end of its next turn. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	prerequisite: "4th level, Squire of Solamnia feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia") !== -1; },
 	limfeaname: "Demoralizing Strike (Knight of the Sword)",
@@ -697,8 +697,8 @@ MagicItemsList["flying citadel helm"] = {
 	"\n \u2022 You can steer the citadel, albeit in a somewhat clumsy fashion, in much the way that a rudder or oars can be used to maneuver a seafaring ship." +
 	"\n \u2022 At any time, you can see and hear from the highest point outside the citadel as though you were at that location." +
 	"\n\n   If no creature attuned to the helm is maintaining concentration, the citadel remains motionless in its space." +
-	"\n   " + toUni("Transfer Attunement") + ". You can use an action or a bonus action to touch a willing spellcaster, whereupon that creature attunes to the flying citadel helm immediately, and your attunement to the flying citadel helm ends." +
-	"\n   " + toUni("Crash") + ". Should the flying citadel helm be destroyed, the citadel it is installed on loses power and begins to crumble. If the crumbling citadel is in the air, it descends at a rate of 30 feet per round, or 300 feet per minute. Any creature on the citadel or on the ground within 120 feet of the citadel when it lands must make a DC 20 Dexterity saving throw, taking 39 (6d12) bludgeoning damage on a failed save, or half as much damage on a successful one.",
+	"\n   ***Transfer Attunement***. You can use an action or a bonus action to touch a willing spellcaster, whereupon that creature attunes to the flying citadel helm immediately, and your attunement to the flying citadel helm ends." +
+	"\n   ***Crash***. Should the flying citadel helm be destroyed, the citadel it is installed on loses power and begins to crumble. If the crumbling citadel is in the air, it descends at a rate of 30 feet per round, or 300 feet per minute. Any creature on the citadel or on the ground within 120 feet of the citadel when it lands must make a DC 20 Dexterity saving throw, taking 39 (6d12) bludgeoning damage on a failed save, or half as much damage on a successful one.",
 	action: [
 		["action", " (Transfer Attunement)"],
 		["bonus action", " (Transfer Attunement)"],

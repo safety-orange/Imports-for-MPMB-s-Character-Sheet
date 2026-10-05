@@ -1,5 +1,5 @@
 var iFileName = "ua_20180810_Magic-Items-of-Eberron.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion(14);
 // This file adds the content from the Unearthed Arcana: Magic Items of Eberron to MPMB's Character Record Sheet
 // Note that this content also appears in the script for Wayfinder's Guide to Eberron and thus both sources are included for all things here
 
@@ -46,7 +46,7 @@ if (!SourceList["E:RLW"]) {
 		type: "wondrous item",
 		rarity: "common",
 		description: "This rod, wand, or staff is cut from a tree infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal the associated damage type add a +1 bonus to one of their damage rolls.",
-		descriptionFull: "An imbued wood focus is a rod, staff, or wand cut from a tree infused with extraplanar energy. If you're a spell­caster, you can use this orb as a spellcasting focus.\n   When you cast a damage-dealing spell using this item as your spellcasting focus, you gain a +1 bonus to one damage roll of the spell, provided the damage is of the type associated with the item's wood. The types of wood and their associated damage types are listed in the table below.\n\n" + toUni("Wood\t\t\tDamage Type") + "\nFernian Ash\t\tFire\nIrian Rosewood\t\tRadiant\nKythrian Manchineel  \tAcid or Poison\nLamannian Oak\t\tLightning or Thunder\nMabaran Ebony\t\tNecrotic\nRisian Pine\t\tCold\nShavarran Birch\t\tForce\nXorian Wenge\t\tPsychic",
+		descriptionFull: "An imbued wood focus is a rod, staff, or wand cut from a tree infused with extraplanar energy. If you're a spellcaster, you can use this orb as a spellcasting focus.\n   When you cast a damage-dealing spell using this item as your spellcasting focus, you gain a +1 bonus to one damage roll of the spell, provided the damage is of the type associated with the item's wood. The types of wood and their associated damage types are listed in the table below.\n\n**Wood**\t**Damage Type**\nFernian Ash\t\tFire\nIrian Rosewood\t\tRadiant\nKythrian Manchineel  \tAcid or Poison\nLamannian Oak\t\tLightning or Thunder\nMabaran Ebony\t\tNecrotic\nRisian Pine\t\tCold\nShavarran Birch\t\tForce\nXorian Wenge\t\tPsychic",
 		attunement: true,
 		allowDuplicates: true,
 		weight: 2,
@@ -335,14 +335,14 @@ MagicItemsList["docent-ua"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	description: "I can embed this sentient small metal sphere studded with dragonshards into my chest. I can communicate telepathically with it. It can serve me as an advisor and a translator, as it knowns 6 languages. It also knows spells and/or skills that I can have it use as a bonus action. See Notes page.",
-	descriptionFull: UAMIoE_docentFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: UAMIoE_docentFullDescription.join("\n   "),
 	attunement: true,
 	prerequisite: "Requires attunement by a warforged",
 	prereqeval: function (v) { return /warforged/i.test(CurrentRace.known); },
 	action: [["bonus action", ""]],
 	toNotesPage: [{
 		name: "Features",
-		note: desc(UAMIoE_docentFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(UAMIoE_docentFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 }
 MagicItemsList["feather token-ua"] = {
@@ -360,7 +360,7 @@ MagicItemsList["glamerweave-ua"] = {
 	rarity: "common",
 	description: "Glamerweave clothing is imbued with cosmetic illusions that have no impact on combat. Most of the time, these patterns are contained within the cloth, but higher-end glamerweave can have more dramatic effects. A gown could appear to be wreathed in flames, or a hat orbited by illusory butterflies.",
 	descriptionFull: "Glamerweave clothing is imbued with cosmetic illusions. Traditionally, these patterns are contained within the cloth, but higher-end glamerweave can have more dramatic effects. You could have a gown that appears to be wreathed in flames, or a hat that's orbited by illusory butterflies. Regardless of the design, these are cosmetic effects and have no impact on combat.\n\n" + [
-		toUni("1d8\tDescription"),
+		"**1d8**\t**Description**",
 		"  1\tA hat orbited by the twelve moons",
 		"  2\tLong gloves wreathed in cold flames",
 		"  3\tA traveler's cloak lined with glittering stars",

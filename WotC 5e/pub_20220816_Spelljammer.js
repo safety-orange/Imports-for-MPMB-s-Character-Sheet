@@ -371,7 +371,7 @@ MagicItemsList["spelljamming helm"] = {
 	prerequisite: "Requires attunement by a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "While attuned to  this ornate chair and sitting in it, I can propel and maneuver the ship on which it has been installed through space, air, or water up to the ship's speed. I need to maintain concentration as if concentrating on a spell to do so. The ship can move faster in space if nothing is nearby. See Notes page.",
-	descriptionFull: SJAAG_SpelljammingHelm.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: SJAAG_SpelljammingHelm.join("\n   "),
 	action: [["action", " (Transfer Attunement)"]],
 	toNotesPage: [{
 		name: "Features",

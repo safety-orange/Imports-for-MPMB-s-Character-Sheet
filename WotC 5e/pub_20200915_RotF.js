@@ -639,7 +639,7 @@ MagicItemsList["hook of fisher's delight"] = { // contains contributions by Braa
 	type: "wondrous item",
 	rarity: "rare",
 	description: "For this tiny silver fishhook to work, I must attach it to the end of a fishing line and immerse it in at least 10 cu ft of water. Then, at the end of each uninterrupted hour of immersion, I roll a d6. On a 6, a magical fish appears on the hook; roll a d20 to determine the fish's properties on the table on the Notes page.",
-	descriptionFull: IDRotF_HookOfFishersDelightFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: IDRotF_HookOfFishersDelightFullDescription.join("\n   "),
 	toNotesPage: [{
 		name: "Fish Properties Table",
 		note: desc(IDRotF_HookOfFishersDelightFullDescription).replace(/>>|<</g, "").replace(/\byou\b/ig, "I").replace(/\bf(oo|ee)t\b/ig, "ft"),
@@ -656,7 +656,7 @@ MagicItemsList["lantern of tracking"] = function () { // contains contributions 
 		descriptionFull: [
 			"This hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet." +
 			"\n   Each lantern of tracking is designed to track down a certain type of creature, which is determined by rolling on the Lantern of Tracking table. Once determined, this creature type can't be changed. While the lantern is within 300 feet of any creature of that type, its flame turns bright green. The lantern doesn't pinpoint the creature's exact location, however.\n",
-			toUni("d10\tCreature Type"),
+			"**d10**\t**Creature Type**",
 			"  1\tAberrations",
 			"  2\tCelestials",
 			"  3\tConstructs",
@@ -727,8 +727,8 @@ MagicItemsList["psi crystal"] = { // contains contributions by BraabHimself
 	descriptionFull: "This crystal grants you telepathy for as long as you remain attuned to it. See the introduction of the Monster Manual for rules on how this telepathy works." +
 	"\n   The crystal also glows with a purplish inner light while you are attuned to it." +
 	"\n   The higher your intelligence, the greater the light's intensity and the greater the range of the telepathy (see the table below)." +
-	toUni("\n\nIntelligence\tRange of   \tLight" +
-	"\n    Score\t\tTelepathy  \tIntensity") +
+	"\n\n**Intelligence**\t**Range of**   \t**Light**" +
+	"\n    **Score**\t\t**Telepathy**  \t**Intensity**" +
 	"\n      3-7\t\t  15 feet\t\tDim light out to a range of 5 ft" +
 	"\n      8-11\t\t  30 feet\t\tBright light in a 5-ft radius and dim light for an additional 5 ft" +
 	"\n    12-15\t\t  60 feet\t\tBright light in a 10-ft radius and dim light for an additional 10 ft" +
@@ -796,7 +796,7 @@ MagicItemsList["ythryn mythallar"] = { // contains contributions by BraabHimself
 	"\n    \u2022 While you're on the same plane of existence as the Ythryn mythallar, you can use an action to cause it to fly in any direction you choose at a speed of 30 feet. All matter within 500 feet of the device moves with it. The Ythryn mythallar and all structures held aloft by it hover in place when not in motion." +
 	"\n   \u2022 As an action, you can cause one magic item you are holding within 30 feet of the Ythryn mythallar to immediately regain all its expended charges or uses. A magic item recharged in this manner can't be recharged by the Ythryn mythallar again until after the item regains expended charges or uses on its own." +
 	"\n   \u2022 You can use the Ythryn mythallar to cast the control weather spell without requiring any components and without the need for you to be outdoors. This casting of the spell has a 50-mile radius. For the duration of the spell's casting time, you must be within 30 feet of the Ythryn mythallar or the spell fails." +
-	"\n" + toUni("Touching the Mythallar") + ". Any creature that touches the globe of the mythallar must make a DC 22 Constitution saving throw, taking 180 (20d10 + 70) radiant damage on a failed save, or half as much damage on a successful one. Undead have disadvantage on this saving throw. Any object that touches the globe, other than an artifact or the mythallar's cradle, is disintegrated instantly (no save).",
+	"\n***Touching the Mythallar***. Any creature that touches the globe of the mythallar must make a DC 22 Constitution saving throw, taking 180 (20d10 + 70) radiant damage on a failed save, or half as much damage on a successful one. Undead have disadvantage on this saving throw. Any object that touches the globe, other than an artifact or the mythallar's cradle, is disintegrated instantly (no save).",
 	toNotesPage: [{
 		name: "Properties",
 		note: [

@@ -3,7 +3,7 @@ RequiredSheetVersion("14.1.0");
 // This file adds all material from the Guildmasters' Guide to Ravnica to MPMB's Character Record Sheet
 
 // Define the source
-SourceList.G = {
+SourceList["G"] = {
 	name: "Guildmasters' Guide to Ravnica",
 	abbreviation: "GGtR",
 	group: "Campaign Sourcebooks",
@@ -1306,7 +1306,7 @@ SpellsList["encode thoughts"] = {
 	descriptionFull: "Putting a finger to your head, you pull a memory, an idea, or a message from your mind and transform it into a tangible string of glowing energy called a thought strand, which persists for the duration or until you cast this spell again. The thought strand appears in an unoccupied space within 5 feet of you as a Tiny, weightless, semisolid object that can be held and carried like a ribbon. It is otherwise stationary." + "\n   " + "If you cast this spell while concentrating on a spell or an ability that allows you to read or manipulate the thoughts of others (such as detect thoughts or modify memory), you can transform the thoughts or memories you read, rather than your own, into a thought strand." + "\n   " + "Casting this spell while holding a thought strand allows you to instantly receive whatever memory, idea, or message the thought strand contains. (Casting detect thoughts on the strand has the same effect.)",
 };
 // [dupl_start] Chaos Bolt reprinted from Xanathar's Guide to Everything
-if (!SourceList.X) {
+if (!SourceList["X"]) {
 	SpellsList["chaos bolt"] = {
 		name: "Chaos Bolt",
 		classes: ["sorcerer"],
@@ -1319,7 +1319,7 @@ if (!SourceList.X) {
 		duration: "Instantaneous",
 		description: "Spell atk 2d8+1d6+1d6/SL dmg, d8s set dmg type, see B; double on d8s: new atk vs. crea in 30 ft",
 		descriptionShorter: "Spell atk 2d8+1d6+1d6/SL dmg, d8s set dmg type, see B; double on d8s: new atk vs. crea in 30 ft",
-		descriptionFull: "You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack's damage type, as shown below." + "\n\n" + toUni("d8") + "\t" + toUni("Damage Type") + "\n  1\tAcid" + "\n  2\tCold" + "\n  3\tFire" + "\n  4\tForce" + "\n  5\tLightning" + "\n  6\tPoison" + "\n  7\tPsychic" + "\n  8\tThunder" + "\n\n   " + "If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again." + "\n   " + "A creature can be targeted only once by each casting of this spell." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, each target takes 1d6 extra damage of the type rolled for each slot level above 1st.",
+		descriptionFull: "You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack's damage type, as shown below." + "\n\n**d8**\t**Damage Type**\n  1\tAcid" + "\n  2\tCold" + "\n  3\tFire" + "\n  4\tForce" + "\n  5\tLightning" + "\n  6\tPoison" + "\n  7\tPsychic" + "\n  8\tThunder" + "\n\n   " + "If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again." + "\n   " + "A creature can be targeted only once by each casting of this spell." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, each target takes 1d6 extra damage of the type rolled for each slot level above 1st.",
 		dynamicDamageBonus: {
 			multipleDmgTypes: {
 				dmgTypes: ["acid", "cold", "fire", "force", "lightning", "poison", "psychic", "thunder"],
@@ -1900,7 +1900,7 @@ MagicItemsList["guild signet"] = {
 	rarity: "uncommon",
 	description: "This signet ring bears a symbol of its associated guild. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast the spell within (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 	descriptionFull: "This ring, adorned with the symbol of a guild, allows you to cast one spell closely associated with that guild, as shown in the table below. A guild signet is sometimes awarded to a guild member whose renown score in that guild is 5 or higher, as a reward for performing special services for the guild. Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.\n   A signet has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, you can expend 1 charge to cast the associated spell (save DC 13).\n\n" +
-	toUni("Guild \tAssociated Spell") +
+	"**Guild **\t**Associated Spell**" +
 	"\nAzorius\tensnaring strike" +
 	"\nBoros\theroism" +
 	"\nDimir\tdisguise self" +
@@ -2048,33 +2048,33 @@ MagicItemsList["mizzium apparatus"] = {
 	description: "I can use this harness as an arcane focus and to attempt to cast a spells that I do not know or have prepared but is on my class' spell list. This requires an Int (Arcana) check DC 10 + twice the spell slot level and components and a spell slot as appropriate for the spell. On a failure, I cast a random spell, see Notes page.",
 	descriptionLong: "This apparatus is a collection of leather straps, flexible tubing, glass cylinders, and plates, bracers, and fittings made from a magic-infused metal alloy called mizzium, all assembled into a harness. I can use it as an arcane focus. In addition, I can use it to attempt to cast a spell that I do not know or have prepared but is on my class' spell list. I use components and a spell slot as appropriate for the spell as normal, but I must succeed on an Intelligence (Arcana) check DC 10 + twice the spell slot level. On a failure, I cast a random spell, see Notes page. The DC for cantrips is 10, and on a failure nothing happens.",
 	descriptionFull: "Innovation is a dangerous pursuit, at least the way the mages of the Izzet League engage in it. As protection against the risk of an experiment going awry, they have developed a device to help channel and control their magic. This apparatus is a collection of leather straps, flexible tubing, glass cylinders, and plates, bracers, and fittings made from a magic-infused metal alloy called mizzium, all assembled into a harness. The item weighs 8 pounds.\n   While you are wearing the mizzium apparatus, you can use it as an arcane focus. In addition, you can attempt to cast a spell that you do not know or have prepared. The spell you choose must be on your class's spell list and of a level for which you have a spell slot, and you must provide the spell's components.\n   You expend a spell slot to cast the spell as normal, but before resolving it you must make an Intelligence (Arcana) check. The DC is 10 + twice the level of the spell slot you expend to cast the spell.\n   On a successful check, you cast the spell as normal, using your spell save DC and spellcasting ability modifier. On a failed check, you cast a different spell from the one you intended. Randomly determine the spell you cast by rolling on the table for the level of the spell slot you expended. If the slot is 6th level or higher, roll on the table for 5th-level spells.\n   If you try to cast a cantrip you don't know, the DC for the Intelligence (Arcana) check is 10, and on a failed check, there is no effect.\n\n" + [
-		toUni("d6\t1st-level spell"),
+		"**d6**\t**1st-level spell**",
 		" 1\tBurning Hands",
 		" 2\tChaos Bolt",
 		" 3\tColor Spray",
 		" 4\tFaerie Fire",
 		" 5\tFog Cloud",
 		" 6\tThunderwave\n",
-		toUni("d6\t2nd-level spell"),
+		"**d6**\t**2nd-level spell**",
 		" 1\tBlur",
 		" 2\tGust of Wind",
 		" 3\tHeat Metal",
 		" 4\tMelf's Acid Arrow",
 		" 5\tScorching Ray",
 		" 6\tShatter\n",
-		toUni("d6\t3rd-level spell"),
+		"**d6**\t**3rd-level spell**",
 		" 1\tFear",
 		" 2\tFeign Death",
 		" 3\tFireball",
 		" 4\tGaseous Form",
 		" 5\tSleet Storm",
 		" 6\tStinking Cloud\n",
-		toUni("d4\t4th-level spell"),
+		"**d4**\t**4th-level spell**",
 		" 1\tConfusion",
 		" 2\tConjure Minor Elementals",
 		" 3\tEvard's Black Tentacles",
 		" 4\tIce Storm\n",
-		toUni("d4\t5th-level spell"),
+		"**d4**\t**5th-level spell**",
 		" 1\tAnimate Objects",
 		" 2\tCloudkill",
 		" 3\tCone of Cold",
@@ -2138,7 +2138,7 @@ MagicItemsList["mizzium mortar"] = {
 	rarity: "rare",
 	description: "This 4-ft-long, 6-inch-diameter tube has 4 charges, regaining 1d4 at dawn. As an action, I can expend 1 charge to have all in a 30-ft cone take 5d4 fire damage. As an action, I can expend 3 charges to have all in a 20-ft radius, 40-ft high cylinder in 60 ft take 5d8 fire damage. For both effects DC 15 Dex save halves.",
 	descriptionLong: "This 4-ft-long, 6-inch-diameter mizzium tube has 4 charges, regaining 1d4 expended charges at dawn. The end that's pointed toward a target is open, and a glowing ball of molten metal can be seen at the other end as long as the mortar has at least 1 charge remaining. As an action, I can expend 1 charge to create a spray of molten mizzium in a 30-ft cone. All within the cone take 5d4 fire damage, DC 15 Dexterity saving throw halves. As an action, I can expend 3 charges to create a 20-ft radius, 40-ft high cylinder within 60 ft of me that deals 5d8 fire damage to all within, DC 15 Dexterity saving throw halves.",
-	descriptionFull: "This short tube, about 2 feet long and 6 inches in diameter, is made from mizzium, a magically enhanced metal alloy forged by the Izzet League. The end that's pointed toward a target is open, and a glowing ball of molten metal can be seen at the other end as long as the mortar has at least 1 charge remaining.\n   The mortar has 4 charges for the following properties. It regains 1d4 expended charges daily at dawn.\n   " + toUni("Molten Spray") + ". You can expend 1 charge as an action to loose a 30-foot cone of molten mizzium. Each creature in the area must make a DC 15 Dexterity saving throw, taking 5d4 fire damage on a failed save, or half as much damage on a successful one.\n   " + toUni("Mizzium Bombard") + ". You can expend 3 charges as an action to launch a hail of molten projectiles in a 20-foot-radius, 40-foot-high cylinder centered on a point you can see within 60 feet of you. Each creature in the area must make a DC 15 Dexterity saving throw. A creature takes 5d8 fire damage on a failed save, or half as much damage on a successful one.",
+	descriptionFull: "This short tube, about 2 feet long and 6 inches in diameter, is made from mizzium, a magically enhanced metal alloy forged by the Izzet League. The end that's pointed toward a target is open, and a glowing ball of molten metal can be seen at the other end as long as the mortar has at least 1 charge remaining.\n   The mortar has 4 charges for the following properties. It regains 1d4 expended charges daily at dawn.\n   ***Molten Spray***. You can expend 1 charge as an action to loose a 30-foot cone of molten mizzium. Each creature in the area must make a DC 15 Dexterity saving throw, taking 5d4 fire damage on a failed save, or half as much damage on a successful one.\n   ***Mizzium Bombard***. You can expend 3 charges as an action to launch a hail of molten projectiles in a 20-foot-radius, 40-foot-high cylinder centered on a point you can see within 60 feet of you. Each creature in the area must make a DC 15 Dexterity saving throw. A creature takes 5d8 fire damage on a failed save, or half as much damage on a successful one.",
 	weight: 1,
 	usages: 4,
 	recovery: "dawn",
@@ -2210,7 +2210,7 @@ MagicItemsList["rakdos riteknife"] = {
 	rarity: "legendary",
 	description: "This has +1 to hit/damage and imprisons souls of any killed with it, up to 5. It deals +1d4 necr. per stored soul. As a bonus action, I can release souls to regain 1d10 HP per soul. Once per long rest as a reaction after I deal damage with it, I can release 5 souls to have the target make a DC 15 Con save or die if below 75 HP.",
 	descriptionLong: "This magical dagger has a +1 bonus on attack and damage rolls made with it. When used to slay a creature, it imprisons its soul. It can store up to five souls. While it holds souls, it deals +1d4 necrotic damage per stored soul. [Siphon Vitality] As a bonus action, I can release one or more soul to regain 1d10 HP per soul released. [Annihilation] As a reaction after I deal damage with it, I can release five souls to have the target of the attack make a DC 15 Constitution saving throw or die if below 75 HP. If the target dies, I can't use this property again until I finish a long rest.",
-	descriptionFull: "You gain a +1 bonus to attack and damage rolls made with this magic weapon. Its blade is cruelly serrated, and its hilt resembles a demonic head and wings. Whenever you slay a creature with an attack using the dagger, the creature's soul is imprisoned inside the dagger, and that creature can be restored to life only by a Wish spell. The dagger can hold a maximum of five souls.\n   For each soul imprisoned in the dagger, your attacks with it deal an extra 1d4 necrotic damage on a hit. While the dagger is within 5 feet of you, your dreams are haunted by whispers from the trapped souls.\n   The dagger has the following additional properties.\n   " + toUni("Siphon Vitality") + ". As a bonus action, you can release any number of stored souls from the dagger to regain 1d10 hit points per soul released.\n   " + toUni("Annihilation") + ". If the dagger holds five souls, you can use this property: As a reaction immediately after you hit a creature with the dagger and deal damage to that target, you can release all five souls. If the target now has fewer than 75 hit points, it must succeed on a DC 15 Constitution saving throw or die. If the target dies, you can't use this property again until you finish a long rest.",
+	descriptionFull: "You gain a +1 bonus to attack and damage rolls made with this magic weapon. Its blade is cruelly serrated, and its hilt resembles a demonic head and wings. Whenever you slay a creature with an attack using the dagger, the creature's soul is imprisoned inside the dagger, and that creature can be restored to life only by a Wish spell. The dagger can hold a maximum of five souls.\n   For each soul imprisoned in the dagger, your attacks with it deal an extra 1d4 necrotic damage on a hit. While the dagger is within 5 feet of you, your dreams are haunted by whispers from the trapped souls.\n   The dagger has the following additional properties.\n   ***Siphon Vitality***. As a bonus action, you can release any number of stored souls from the dagger to regain 1d10 hit points per soul released.\n   ***Annihilation***. If the dagger holds five souls, you can use this property: As a reaction immediately after you hit a creature with the dagger and deal damage to that target, you can release all five souls. If the target now has fewer than 75 hit points, it must succeed on a DC 15 Constitution saving throw or die. If the target dies, you can't use this property again until you finish a long rest.",
 	attunement: true,
 	weight: 1,
 	action: [["bonus action", " (Siphon Vitality)"], ["reaction", " (Annihilation)"]],

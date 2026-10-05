@@ -131,8 +131,8 @@ if (!SourceList["D:SotDQ"]) {
 		"\n   Choose one of three moons of Krynn to influence your magic: the black moon, Nuitari; the red moon, Lunitari; or the white moon, Solinari. You learn one cantrip of your choice from the wizard spell list and two 1st-level spells based on the moon you choose, as specified in the Lunar Spells table." +
 		"\n   You can cast each of the chosen 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have." +
 		"\n   Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat)." +
-		"\n\n" + toUni("Lunar Spells") +
-		"\n" + toUni("Moon\t1st-level Spell") +
+		"\n\n***Lunar Spells***" +
+		"\n**Moon**\t**1st-level Spell**" +
 		"\nNuitari\tChoose two from dissonant whispers, false life," +
 		"\n\thex, and ray of sickness" +
 		"\nLunitari\tChoose two from color spray, disguise self," +
@@ -196,8 +196,8 @@ if (!SourceList["D:SotDQ"]) {
 		source: [["D:SotDQ", 31], ["UA:HoKR", 4]],
 		description: "I learn one 2nd-level Ench or Necro spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. When a creature I can see within 60 ft fails its save vs. my damaging spell, I can expend HD up to the spell's level and add the rolls to the damage of the spell for that one creature.",
 		descriptionFull: "You chose the moon Nuitari to influence your magic, and your ambition and loyalty to the Order of the Black Robes has been recognized, granting you these benefits:" +
-		"\n   " + toUni("Ambitious Magic") + ". You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
-		"\n   " + toUni("Life Channel") + ". You can channel your lifeforce into the power of your magic. When a creature you can see within 60 feet fails on a saving throw against a spell that deals damage that you cast, you can expend a number of Hit Dice equal to the level of the spell. Roll the expended Hit Dice and add them together. The damage that the creature takes increases by an amount equal to that total.",
+		"\n   ***Ambitious Magic***. You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
+		"\n   ***Life Channel***. You can channel your lifeforce into the power of your magic. When a creature you can see within 60 feet fails on a saving throw against a spell that deals damage that you cast, you can expend a number of Hit Dice equal to the level of the spell. Roll the expended Hit Dice and add them together. The damage that the creature takes increases by an amount equal to that total.",
 		prerequisite: "4th level, Initiate of High Sorcery (Nuitari) feat",
 		prereqeval: function (v) {
 			var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery");
@@ -218,8 +218,8 @@ if (!SourceList["D:SotDQ"]) {
 		source: [["D:SotDQ", 32], ["UA:HoKR", 4]],
 		description: "I learn a 2nd-level Illusion or Transmutation spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. When I roll 9 or lower on the d20 for an attack or ability check, I can treat the roll as a 10. I can do this a number of times per long rest equal to my proficiency bonus.",
 		descriptionFull: "You chose the moon Lunitari to influence your magic, and your dedication to maintaining the balance between all things has been recognized by the Order of the Red Robes, granting you these benefits:" +
-		"\n   " + toUni("Insightful Magic") + ". You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the illusion or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
-		"\n   " + toUni("Magical Balance") + ". When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. you can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+		"\n   ***Insightful Magic***. You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the illusion or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
+		"\n   ***Magical Balance***. When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. you can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 		prerequisite: "4th level, Initiate of High Sorcery (Lunitari) feat",
 		prereqeval: function (v) {
 			var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery");
@@ -243,8 +243,8 @@ if (!SourceList["D:SotDQ"]) {
 		source: [["D:SotDQ", 32], ["UA:HoKR", 4]],
 		description: "I learn one 2nd-level Abjur or Div spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. As a reaction when I or a creature I can see within 30 ft is damaged, I can expend a spell slot and roll d6s equal to its level to reduce the damage by that much + my spellcasting modifier.",
 		descriptionFull: "You chose the moon Solinari to influence your magic, and your oath to use magic to make the world a better place has been recognized by the Order of the White Robes, granting you these benefits:" +
-		"\n   " + toUni("Protective Magic") + ". You learn one 2nd-level spell of you choice. The 2nd-level spell must be from the abjuration or divination school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
-		"\n   " + toUni("Protective Ward") + ". When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d6s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier.",
+		"\n   ***Protective Magic***. You learn one 2nd-level spell of you choice. The 2nd-level spell must be from the abjuration or divination school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
+		"\n   ***Protective Ward***. When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d6s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier.",
 		prerequisite: "4th level, Initiate of High Sorcery (Solinari) feat",
 		prereqeval: function (v) {
 			var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery");
@@ -271,7 +271,7 @@ if (!SourceList["D:SotDQ"]) {
 		"\n   You learn one cantrip of your choice from the cleric spell list and one 1st-level spell based on the alignment of your character, as specified in the table below. You also learn the augury spell." +
 		"\n   You can cast the chosen 1st-level spell and the augury spell without a spell slot, and you must finish a long rest before you can cast either of these spells in this way again. You can also cast these spells using spell slots you have of the appropriate level." +
 		"\n   Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat)." +
-		"\n\n" + toUni("Alignment\t1st-level Spell") +
+		"\n\n**Alignment**\t**1st-level Spell**" +
 		"\n Evil\t\tChoose one 1st level warlock spell" +
 		"\n Good\t\tChoose one 1st-level cleric spell" +
 		"\n Neutral\t\tChoose one 1st-level druid spell" +
@@ -370,9 +370,9 @@ FeatsList["squire of solamnia-ua2"] = {
 	description: "Mounting/dismounting costs a 5-ft move. I learn one Knightly Maneuver: Lunging Attack, Precision Attack, or Pushing Attack. I can change which I know after each long rest. The DC is 8 + Prof B + Str or Dex mod (my choice). I gain Prof Bonus of Superiority Dice (d6) to use with these, regaining them after a long rest.",
 	calculate: "event.value = 'Mounting/dismounting costs a 5-ft move. I learn one Knightly Maneuver: Lunging Attack, Precision Attack, or Pushing Attack. DC is ' + (8 + Number(How('Proficiency Bonus')) + Math.max(Number(What('Str Mod')), Number(What('Dex Mod')))) + ' (8 + Prof Bonus + Str/Dex mod). I can change which I know after each long rest. I gain Prof Bonus of Superiority Dice (d6) to use with these, regaining them after a long rest.';",
 	descriptionFull: "Your training in the ways of the Knights of Solamnia grants you these benefits:" +
-	"\n   " + toUni("Mount Up") + ". Mounting or dismounting costs you only 5 feet of movement." +
-	"\n   " + toUni("Squire Maneuvers") + ". You learn the Lunging Attack, Precision Attack, or Pushing Attack maneuver from the Battle Master subclass of the fighter in the Player's Handbook (choose the maneuver when you gain this feat). If the maneuver requires a saving throw, the save's DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice). Whenever you finish a long rest, you can replace the maneuver you learned from this feat with another one from the list above." +
-	"\n   " + toUni("Superiority Dice") + ". You gain a number of superiority dice equal to your proficiency bonus. These dice are d6s, and you can use them only with the maneuver you gain from this feat and with any maneuvers you gain from feats that have this feat as a prerequisite. A superiority die is expended when you use it, and you regain all expended superiority dice when you finish a long rest.",
+	"\n   ***Mount Up***. Mounting or dismounting costs you only 5 feet of movement." +
+	"\n   ***Squire Maneuvers***. You learn the Lunging Attack, Precision Attack, or Pushing Attack maneuver from the Battle Master subclass of the fighter in the Player's Handbook (choose the maneuver when you gain this feat). If the maneuver requires a saving throw, the save's DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice). Whenever you finish a long rest, you can replace the maneuver you learned from this feat with another one from the list above." +
+	"\n   ***Superiority Dice***. You gain a number of superiority dice equal to your proficiency bonus. These dice are d6s, and you can use them only with the maneuver you gain from this feat and with any maneuvers you gain from feats that have this feat as a prerequisite. A superiority die is expended when you use it, and you regain all expended superiority dice when you finish a long rest.",
 	prerequisite: "Fighter or Paladin Class or Knight of Solamnia Background",
 	prereqeval: function (v) {
 		return classes.known.fighter || classes.known.paladin || CurrentBackground.known.indexOf("knight of solamnia") !== -1;
@@ -393,9 +393,9 @@ FeatsList["knight of the crown-ua2"] = {
 	source: [["UA:HoKR", 5]],
 	description: "I learn one extra Knightly Maneuver: Distracting Strike or Goading Attack. I can change which one of these I know after each long rest. I gain two extra Knightly Superiority Dice and the dice become d8s. [+1 Strength or Dexterity]",
 	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Crown, a group that extols the virtues of cooperation, loyalty, and obedience. You excel in group combat and gain these benefits:" +
-	"\n   " + toUni("Ability Score Increase") + ". Increase your Strength or Dexterity score by 1, to a maximum of 20." +
-	"\n   " + toUni("Crown Maneuvers") + ". You learn the Distracting Strike or the Goading Attack maneuver from the Battle Master subclass of the fighter in the Player's Handbook (choose the maneuver when you gain this feat). If the maneuver requires a saving throw, the save's DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice). Whenever you finish a long rest, you can replace the maneuver you learned from this feat with the other maneuver offered by it." +
-	"\n   " + toUni("Superiority Dice") + ". You gain two superiority dice, which you add to the dice you have from the Squire of Solamnia feat. All the dice are now d8s.",
+	"\n   ***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20." +
+	"\n   ***Crown Maneuvers***. You learn the Distracting Strike or the Goading Attack maneuver from the Battle Master subclass of the fighter in the Player's Handbook (choose the maneuver when you gain this feat). If the maneuver requires a saving throw, the save's DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice). Whenever you finish a long rest, you can replace the maneuver you learned from this feat with the other maneuver offered by it." +
+	"\n   ***Superiority Dice***. You gain two superiority dice, which you add to the dice you have from the Squire of Solamnia feat. All the dice are now d8s.",
 	prerequisite: "4th level, Squire of Solamnia feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua2") !== -1; },
 	scorestxt: "+1 Strength or Dexterity",
@@ -410,9 +410,9 @@ FeatsList["knight of the sword-ua2"] = {
 	source: [["UA:HoKR", 5]],
 	description: "I learn one extra Knightly Maneuver: Maneuvering Attack or Menacing Attack. I can change which one of these I know after each long rest. I gain two extra Knightly Superiority Dice and the dice become d8s. [+1 Intelligence, Wisdom, or Charisma]",
 	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Sword, a group devoted to heroism and courage. Bravery steels your spirit, granting you these benefits:" +
-	"\n   " + toUni("Ability Score Increase") + ". Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20." +
-	"\n   " + toUni("Sword Maneuvers") + ". You learn the Maneuvering Attack or the Menacing Attack maneuver from the Battle Master subclass of the fighter in the Player's Handbook (choose the maneuver when you gain this feat). If the maneuver requires a saving throw, the save's DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice). Whenever you finish a long rest, you can replace the maneuver you learned from this feat with the other maneuver offered by it." +
-	"\n   " + toUni("Superiority Dice") + ". You gain two superiority dice, which you add to the dice you have from the Squire of Solamnia feat. All the dice are now d8s.",
+	"\n   ***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20." +
+	"\n   ***Sword Maneuvers***. You learn the Maneuvering Attack or the Menacing Attack maneuver from the Battle Master subclass of the fighter in the Player's Handbook (choose the maneuver when you gain this feat). If the maneuver requires a saving throw, the save's DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice). Whenever you finish a long rest, you can replace the maneuver you learned from this feat with the other maneuver offered by it." +
+	"\n   ***Superiority Dice***. You gain two superiority dice, which you add to the dice you have from the Squire of Solamnia feat. All the dice are now d8s.",
 	prerequisite: "4th level, Squire of Solamnia feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua2") !== -1; },
 	scorestxt: "+1 Intelligence, Wisdom, or Charisma",
@@ -427,9 +427,9 @@ FeatsList["knight of the rose-ua2"] = {
 	source: [["UA:HoKR", 5]],
 	description: "I learn one extra Knightly Maneuver: Commander's Strike or Rally. I can change which one of these I know after each long rest. I gain two extra Knightly Superiority Dice and the dice become d8s. [+1 Constitution or Charisma]",
 	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Rose, a group known for leadership, justice, and wisdom. Your resolve grants you these benefits:" +
-	"\n   " + toUni("Ability Score Increase") + ". Increase your Constitution or Charisma score by 1, to a maximum of 20." +
-	"\n   " + toUni("Rose Maneuvers") + ". You learn the Commander's Strike or Rally maneuver from the Battle Master subclass of the fighter in the Player's Handbook (choose the maneuver when you gain this feat). Whenever you finish a long rest, you can replace the maneuver you learned from this feat with the other maneuver offered by it." +
-	"\n   " + toUni("Superiority Dice") + ". You gain two superiority dice, which you add to the dice you have from the Squire of Solamnia feat. All the dice are now d8s.",
+	"\n   ***Ability Score Increase***. Increase your Constitution or Charisma score by 1, to a maximum of 20." +
+	"\n   ***Rose Maneuvers***. You learn the Commander's Strike or Rally maneuver from the Battle Master subclass of the fighter in the Player's Handbook (choose the maneuver when you gain this feat). Whenever you finish a long rest, you can replace the maneuver you learned from this feat with the other maneuver offered by it." +
+	"\n   ***Superiority Dice***. You gain two superiority dice, which you add to the dice you have from the Squire of Solamnia feat. All the dice are now d8s.",
 	prerequisite: "4th level, Squire of Solamnia feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua2") !== -1; },
 	scorestxt: "+1 Constitution or Charisma",

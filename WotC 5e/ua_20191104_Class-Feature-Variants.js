@@ -165,7 +165,7 @@ AddFeatureChoice(UACFV_druidOptional1, true, "Expanded Spell List (ua)", {
 	},
 });
 // [dupl_start] the same as in Tasha's Cauldron of Everything
-if (!SourceList.T) {
+if (!SourceList["T"]) {
 	var TCoE_druidOptional2 = makeOptionalClassFeatureBase("druid", 2);
 	AddFeatureChoice(TCoE_druidOptional2, true, "Wild Companion", {
 		name: "Wild Companion",
@@ -214,7 +214,7 @@ AddFightingStyle(["fighter", "ranger", "paladin"], "Blind Fighting (ua)", {
 	]),
 });
 // [dupl_start] the same as in Tasha's Cauldron of Everything
-if (!SourceList.T) {
+if (!SourceList["T"]) {
 	AddFightingStyle(["fighter", "paladin"], "Interception", {
 		name: "Interception Fighting Style",
 		source: [["T", 41], ["UA:CFV", 12]],
@@ -293,7 +293,7 @@ if (ClassSubList["fighter-battle master"]) {
 		description: desc("Whenever I finish a long rest, I can replace a Maneuver I know with another"),
 	}, "Optional level 3 Battle Master features");
 	// [dupl_start] the same as in Tasha's Cauldron of Everything
-	if (!SourceList.T) {
+	if (!SourceList["T"]) {
 		AddFightingStyle(["fighter"], "Superior Technique", {
 			name: "Superior Technique",
 			source: [["T", 41], ["UA:CFV", 5]],
@@ -468,7 +468,7 @@ AddFeatureChoice(UACFV_monkOptional2, true, "Quickened Healing (2 ki points) (ua
 
 // Paladin alternative class features and enhancements
 // [dupl_start] the same as in Tasha's Cauldron of Everything
-if (!SourceList.T) {
+if (!SourceList["T"]) {
 	AddFightingStyle(["paladin"], "Blessed Warrior", {
 		name: "Blessed Warrior Fighting Style",
 		source: [["T", 52], ["UA:CFV", 6]],
@@ -597,7 +597,7 @@ var UACFV_Favored_Foe = {
 CreateClassFeatureVariant("ranger", "favored enemy", "Favored Foe (ua)", UACFV_Favored_Foe);
 // Now some easier alternatives/enhancements
 // [dupl_start] the same as in Tasha's Cauldron of Everything
-if (!SourceList.T) {
+if (!SourceList["T"]) {
 	AddFightingStyle(["ranger"], "Druidic Warrior", {
 		name: "Druidic Warrior Fighting Style",
 		source: [["T", 57], ["UA:CFV", 7]],
@@ -647,7 +647,7 @@ var UACFV_Ranger_Spell_Versatility = {
 };
 AddFeatureChoice(UACFV_rangerOptional2, true, "Spell Versatility (ua)", UACFV_Ranger_Spell_Versatility);
 // [dupl_start] the same as in Tasha's Cauldron of Everything
-if (!SourceList.T) {
+if (!SourceList["T"]) {
 	var TCoE_Ranger_Spellcasting_Focus = {
 		name: "Spellcasting Focus",
 		extraname: "Optional Ranger 2",
@@ -854,7 +854,7 @@ if (ClassList["rangerua"]) {
 	AddFeatureChoice(UACFV_rangeruaOptional2, true, "Expanded Spell List (ua)", UACFV_Ranger_Expanded_Spell_List);
 	AddFeatureChoice(UACFV_rangeruaOptional2, true, "Spell Versatility (ua)", UACFV_Ranger_Spell_Versatility);
 	// [dupl_start] the same as in Tasha's Cauldron of Everything
-	if (!SourceList.T) {
+	if (!SourceList["T"]) {
 		AddFeatureChoice(UACFV_rangeruaOptional2, true, "Spellcasting Focus", TCoE_Ranger_Spellcasting_Focus);
 	} // dupl_end
 	CreateClassFeatureVariant("rangerua", "primeval awareness", "Primal Awareness (ua)", UACFV_Primal_Awareness);

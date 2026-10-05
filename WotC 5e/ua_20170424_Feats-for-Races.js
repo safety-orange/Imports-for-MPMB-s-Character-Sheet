@@ -1,5 +1,5 @@
 var iFileName = "ua_20170424_Feats-for-Races.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion(14);
 // This file adds the content from the Unearthed Arcana: Feats for Races article to MPMB's Character Record Sheet
 
 // Define the source
@@ -323,7 +323,7 @@ FeatsList["wonder maker-ua"] = {
 	source: [["UA:FR", 4]],
 	prerequisite: "Being a Rock Gnome",
 	prereqeval: function (v) { return CurrentRace.known.indexOf("rock gnome") !== -1; },
-	descriptionFull: "You master the tinker techniques of your people. You gain the following benefits:\n \u2022 When you make a check using your proficiency with tinker's tools, you add double your proficiency bonus to the check.\n \u2022 When you make a device with your Tinker trait, you have the following additional options for what you make:\n \u2022 " + toUni("Alarm") + ". This device senses when a creature moves to within 15 feet of it without speaking aloud a password chosen when you create it. One round after a creature moves into range, the alarm makes a shrill ringing that lasts for 1 minute and can be heard from up to 300 feet away.\n \u2022 " + toUni("Calculator") + ". This device makes doing sums easy.\n \u2022 " + toUni("Lifter") + ". This device can be used as a block and tackle, allowing its user to hoist five times the weight the user can normally lift.\n \u2022 " + toUni("Timekeeper") + ". This pocket watch keeps accurate time.\n \u2022 " + toUni("Weather Sensor") + ". When used as an action, this device predicts weather conditions in a 1-mile radius over the next 4 hours, showing one symbol (clouds, sun/moon, rain, or snow) for each hour.",
+	descriptionFull: "You master the tinker techniques of your people. You gain the following benefits:\n \u2022 When you make a check using your proficiency with tinker's tools, you add double your proficiency bonus to the check.\n \u2022 When you make a device with your Tinker trait, you have the following additional options for what you make:\n \u2022 ***Alarm***. This device senses when a creature moves to within 15 feet of it without speaking aloud a password chosen when you create it. One round after a creature moves into range, the alarm makes a shrill ringing that lasts for 1 minute and can be heard from up to 300 feet away.\n \u2022 ***Calculator***. This device makes doing sums easy.\n \u2022 ***Lifter***. This device can be used as a block and tackle, allowing its user to hoist five times the weight the user can normally lift.\n \u2022 ***Timekeeper***. This pocket watch keeps accurate time.\n \u2022 ***Weather Sensor***. When used as an action, this device predicts weather conditions in a 1-mile radius over the next 4 hours, showing one symbol (clouds, sun/moon, rain, or snow) for each hour.",
 	description: "I gain expertise with Tinker's Tools. I get additional Tinker options: Alarm (audible to 300 ft for 1 min), Calculator, Lifter (as block and tackle that multiplies max lift weight by 5), Timekeeper (pocket watch), Weather Sensor (predict for 1-mile, 4 hours) [+1 Dex or Int]",
 	scorestxt: "+1 Dexterity or Intelligence",
 	eval: function () {

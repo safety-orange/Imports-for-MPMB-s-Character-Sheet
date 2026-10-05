@@ -1,5 +1,5 @@
 var iFileName = "ua_20160606_Feats.js";
-RequiredSheetVersion("13.0.8");
+RequiredSheetVersion(14);
 // This file adds the content from the Unearthed Arcana: Feats article to MPMB's Character Record Sheet
 
 // Define the source

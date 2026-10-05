@@ -1,5 +1,5 @@
 var iFileName = "ua_20210414_Draconic-Options.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion(14);
 // This file adds the content from the Unearthed Arcana 2021: Draconic Options article to MPMB's Character Record Sheet
 
 // Define the source
@@ -241,7 +241,7 @@ AddRacialVariant("draconic kobold-ua", "tail", {
 });
 
 // [dupl_start] Draconic Feats and Spell (that were virtually unchanged in Fizban's Treasury of Dragons)
-if (!SourceList.FToD) {
+if (!SourceList["FToD"]) {
 	FeatsList["gift of the chromatic dragon"] = {
 		name: "Gift of the Chromatic Dragon",
 		source: [["FToD", 17], ["UA:DO", 4]],
@@ -323,7 +323,7 @@ if (!SourceList.FToD) {
 		description: "20-ft cube of magic, roll d4 for effect; At start of my turn, move cube 10 ft and reroll effect; see book",
 		descriptionFull: "You fill a 20-foot cube centered on a point you choose within range with fey and draconic magic. Roll on the Mischievous Surge table to determine the magical effect produced. At the start of each of your turns, you can move the cube up to 10 feet and reroll on the table." +
 		"\n\nMischievous Surge" +
-		toUni("\nd4\tEffect") +
+		"\n**d4**\t**Effect**" +
 		"\n  1\tThe smell of apple pie fills the air, and each creature in the cube must succeed on a Wisdom saving throw or become charmed by you until the start of your next turn." +
 		"\n  2\tBouquets of flowers appear all around, and each creature in the cube must succeed on a Dexterity saving throw or be blinded until the start of your next turn as the flowers spray water in their faces." +
 		"\n  3\tEach creature in the cube must succeed on a Wisdom saving throw or begin giggling until the start of your next turn. A giggling creature is incapacitated and uses all its movement to move in a random direction." +

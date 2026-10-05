@@ -1,5 +1,5 @@
 var iFileName = "pub_20240716_QftIS.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion(14);
 // This file adds the futuristic and magic item from the Quests from the Infinite Staircase adventure anthology to MPMB's Character Record Sheet
 
 // Define the source
@@ -18,8 +18,7 @@ try {
 	var QftIS = {
 		toDescrFull: function (sDescr) {
 			if (typeof sDescr !== "string") sDescr = sDescr.join("\n   ");
-			return sDescr.replace(/\[\[.*?\]\]/g, "$1")
-				.replace(/>>(.*?)<</g, function (a, match) { return toUni(match); });
+			return sDescr.replace(/\[\[.*?\]\]/g, "$1");
 		},
 		to1stPerson: function (sDescr, joinStr) {
 			if (typeof sDescr === "string") sDescr = [sDescr];
@@ -45,7 +44,7 @@ try {
 	} // dupl_end
 }
 QftIS.replaceEnergyCellPlain = ">>Replacing the Energy Cell<<. While the >>THING<< has charges remaining, its energy cell can't be removed. Once the >>THING<< has 0 charges, you can replace the energy cell with a new cell by using an action or a bonus action."
-QftIS.replaceEnergyCell = "\n   " + QftIS.replaceEnergyCellPlain.replace(">>Replacing the Energy Cell<<", toUni("Replacing the Energy Cell"));
+QftIS.replaceEnergyCell = "\n   " + QftIS.replaceEnergyCellPlain.replace(">>Replacing the Energy Cell<<", "***Replacing the Energy Cell***");
 
 // Futuristic items added as magic items, but set to be excluded by default
 MagicItemsList["antigravity belt"] = {
@@ -57,7 +56,7 @@ MagicItemsList["antigravity belt"] = {
 	description: "This belt has 10 charges per energy cell, which can be replaced as a (bonus) action if empty. As a bonus action, I can use charges to activate it for 1 min per charge, causing me to float in place. As a bonus action and when activating it, I can move 20 ft vertically. I can push off to move horizontally at half my speed.",
 	descriptionLong: "Metal tubes ring the lower edge of this wide belt powered by an energy cell stored in a metal case near the buckle. It has 10 charges per energy cell, which can be replaced as a (bonus) action when empty. As a bonus action, I can expend charges to activate the belt for 1 min per charge. While active, I float in place. As a bonus action and as part of activating it, I can ascend or descend up to 20 ft vertically. I can move myself horizontally by being pushed or towed or by scooting myself along a surface at half my walking speed. I can deactivate it as a bonus action; If I'm still levitating when it deactivates, I fall.",
 	descriptionFull: "Metal tubes ring the lower edge of this wide belt. It is powered by an energy cell stored in a metal case near the buckle. Placing a full energy cell in the belt gives the belt 10 charges." +
-	"\n   " + toUni("Activating the Belt") + ". As a bonus action, you can expend any number of the belt's charges to activate it; the belt remains active for 1 minute per charge expended. You can use a bonus action to deactivate the belt early, but doing so doesn't recover any expended charges." +
+	"\n   ***Activating the Belt***. As a bonus action, you can expend any number of the belt's charges to activate it; the belt remains active for 1 minute per charge expended. You can use a bonus action to deactivate the belt early, but doing so doesn't recover any expended charges." +
 	"\n   When you activate the belt, and as a bonus action while it remains active, you can rise or descend vertically up to 20 feet. You remain floating in place while the property is active, and you can move yourself horizontally by being pushed or towed or by scooting yourself along a surface, such as a wall or ceiling, at half your walking speed. If you are still levitating when the belt deactivates, you fall." +
 	QftIS.replaceEnergyCell.replace(/>>THING<</g, "belt"),
 	usages: 10,
@@ -77,8 +76,8 @@ MagicItemsList["robot controller"] = {
 	descriptionFull: "This small handheld device features a glass pane with a glowing display that responds to your touch." +
 	"\n   The controller is powered by an energy cell stored in the device. Placing a full energy cell in the device gives the device 3 charges." +
 	"\n   As an action while holding this device, you can expend 1 of its charges to cause one of the following effects:" +
-	"\n \u2022 " + toUni("Control") + ". One Construct of your choice within 60 feet of you must succeed on a DC 15 Wisdom saving throw or have the charmed condition for 1 minute. While charmed in this way, the Construct obeys your verbal commands, and you and the Construct can communicate remotely with each other through the device. Whenever the charmed Construct takes damage, it can repeat the saving throw, ending the effect on itself on a success." +
-	"\n \u2022 " + toUni("Disrupt") + ". Constructs of your choice within 30 feet of you must succeed on a DC 15 Wisdom saving throw or have the incapacitated condition for 1 minute. An incapacitated Construct can repeat the saving throw at the end of its turns, ending the effect on itself on a success.",
+	"\n \u2022 ***Control***. One Construct of your choice within 60 feet of you must succeed on a DC 15 Wisdom saving throw or have the charmed condition for 1 minute. While charmed in this way, the Construct obeys your verbal commands, and you and the Construct can communicate remotely with each other through the device. Whenever the charmed Construct takes damage, it can repeat the saving throw, ending the effect on itself on a success." +
+	"\n \u2022 ***Disrupt***. Constructs of your choice within 30 feet of you must succeed on a DC 15 Wisdom saving throw or have the incapacitated condition for 1 minute. An incapacitated Construct can repeat the saving throw at the end of its turns, ending the effect on itself on a success.",
 	usages: 3,
 	recovery: "E-Cell",
 	action: [["action", ""], ["bonus action", "Replace Energy Cell"]],

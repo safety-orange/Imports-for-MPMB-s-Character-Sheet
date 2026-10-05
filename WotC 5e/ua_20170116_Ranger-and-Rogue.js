@@ -1,5 +1,5 @@
 var iFileName = "ua_20170116_Ranger-and-Rogue.js";
-RequiredSheetVersion("13.2.0");
+RequiredSheetVersion(14);
 // This file adds the content from the Unearthed Arcana: Ranger and Rogue article to MPMB's Character Record Sheet
 
 // Define the source

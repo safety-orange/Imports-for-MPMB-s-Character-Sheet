@@ -1,5 +1,5 @@
 var iFileName = "pub_20230221_KftGV.js";
-RequiredSheetVersion("13.1.1");
+RequiredSheetVersion(14);
 // This file adds the magic items from the Keys from the Golden Vault adventure book to MPMB's Character Record Sheet
 
 SourceList["KftGV"] = {
@@ -28,10 +28,10 @@ MagicItemsList["constantori's portrait"] = {
 	rarity: "very rare",
 	attunement: true,
 	description: "As an action, I can telepathically contact this sentient painting over any distance while on the same plane. It can't contact me. Maintaining contact requires concentration like on a spell. I can command the painting to guard an area. It can cast Magic Missile 3 times per dawn. See Notes page.",
-	descriptionFull: KftGV_ConstantoriPortrait.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+	descriptionFull: KftGV_ConstantoriPortrait.join("\n   "),
 	toNotesPage: [{
 		name: "Features",
-		note: desc(KftGV_ConstantoriPortrait).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/\bf(oo|ee)t\b/ig, "ft").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(contact) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
+		note: desc(KftGV_ConstantoriPortrait).replace(/>>(.*?)<</g, "***$1***").replace(/\bf(oo|ee)t\b/ig, "ft").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(contact) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
 	}],
 	action: [["action", " (contact)"]],
 	usages: 3,
@@ -53,11 +53,11 @@ MagicItemsList["shard of xeluan"] = {
 	attunement: true,
 	description: "While holding this 1-ft long obsidian shard, I can use it as a spellcasting focus, and I gain a +1 bonus to my spell attack rolls. While it is on my person, I gain +4 Strength up to 22. Attuning to this shard extends its curse to me: When I roll a 1 on a check, attack, or save, I must roll on its misfortunes table, see Notes.",
 	descriptionFull: "This 1-foot-long shard of obsidian has veins of silver and gold beneath its cold surface." +
-	"\n   " + toUni("Empowered Magic") + ". While holding the shard, you can use it as a spellcasting focus, and it gives you a +1 bonus to your spell attack rolls." +
-	"\n   " + toUni("Enhanced Strength") + ". Your Strength score increases by 4 while the shard is on your person. The shard can't raise your Strength score above 22." +
-	"\n   " + toUni("Curse") + ". Attuning to this item extends its curse to you. You remain cursed until you are targeted by a remove curse spell or similar magic, or until the shard is reattached to Xeluan's petrified heart." +
+	"\n   ***Empowered Magic***. While holding the shard, you can use it as a spellcasting focus, and it gives you a +1 bonus to your spell attack rolls." +
+	"\n   ***Enhanced Strength***. Your Strength score increases by 4 while the shard is on your person. The shard can't raise your Strength score above 22." +
+	"\n   ***Curse***. Attuning to this item extends its curse to you. You remain cursed until you are targeted by a remove curse spell or similar magic, or until the shard is reattached to Xeluan's petrified heart." +
 	"\n   The shard's curse causes misfortune to befall you. When you roll a 1 on an attack roll, an ability check, or a saving throw, roll on the Shard Misfortunes table to determine the misfortune. For as long as this misfortune lasts, no other shard misfortunes befall you." +
-	"\n\n " + toUni("d6\tMisfortune") +
+	"\n\n **d6**\t**Misfortune**" +
 	"\n  1\tYou accidentally cut yourself with the shard and are poisoned until the next dawn." +
 	"\n  2\tYou experience a vision of an ancient calamity\u2014a beautiful city threatened by crumbling mountains and erupting volcanoes\u2014and are stunned until the end of your next turn." +
 	"\n  3\tFor a few seconds, the ground shakes under you. You and each creature within 10 feet of you must succeed on a DC 16 Dexterity saving throw or be knocked prone." +
@@ -92,11 +92,11 @@ MagicItemsList["shard of xeluan"] = {
 
 var KftGV_ShardSolitaire = {
 	descriptionFull: "This gemstone contains an unstable extradimensional rift. Its facets are ribboned with iridescent veins that seem to move of their own accord. Five types of shard solitaire are known to exist, each one a different type of gemstone: black sapphire, diamond, jacinth, rainbow pearl, and ruby." +
-	"\n   " + toUni("Rift Step") + ". As a bonus action, while wearing or holding the shard solitaire, you can teleport yourself, along with anything you're wearing or carrying, to an unoccupied space you can see within 30 feet of yourself." +
+	"\n   ***Rift Step***. As a bonus action, while wearing or holding the shard solitaire, you can teleport yourself, along with anything you're wearing or carrying, to an unoccupied space you can see within 30 feet of yourself." +
 	"\n   When you use this property, you can tap into the unstable power of the stone's extradimensional rift to increase the teleport distance by up to 30 feet, but if you teleport more than 30 feet using Rift Step, you must succeed on a DC 16 Constitution saving throw or take 3d10 force damage immediately after you teleport." +
-	"\n   " + toUni("Spellcasting") + ". The stone has 6 charges and regains 1d6 expended charges daily at dawn. ",
+	"\n   ***Spellcasting***. The stone has 6 charges and regains 1d6 expended charges daily at dawn. ",
 	descriptionTable: "The Shard Solitaire Types table lists the spells common to all shard solitaires, as well as the spells specific to each kind of stone. As an action, you can cast one of the stone's spells by expending the requisite number of charges, requiring no material components (save DC 16)." +
-	"\n\n " + toUni("Shard Solitaire\tSpells") +
+	"\n\n **Shard Solitaire**\t**Spells**" +
 	"\n  All\t\tBanishment (3 charges; the target is banished to the stone's extradimensional space" +
 	"\n\t\tfor the spell's duration), Mirror Image (1 charge)" +
 	"\n  Black sapphire\tBlight (3 charges), Finger of Death (6 charges)" +

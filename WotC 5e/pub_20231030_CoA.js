@@ -105,7 +105,7 @@ CoA_Corruption = {
 			"   Once the character reaches Stage Four, the only two cures are the Wish spell, which counts as beyond the scope of the spell, or by signing an infernal contract with Asmodeus to reclaim their soul.",
 		].join("\n"),
 	}],
-	description: "\n   " + toUni("Corrupting") + '. This item corrupts. See the "Infernal Item Corruption" rules (CoA 271).',
+	description: "\n   " + '***Corrupting***. This item corrupts. See the "Infernal Item Corruption" rules (CoA 271).',
 }
 
 MagicItemsList["amulet of appearance"] = {
@@ -139,7 +139,7 @@ MagicItemsList["amulet of duplicity"] = {
 	descriptionLong: "When I die, the amulet leaves a copy of my naked corpse in my place while I'm transported to an extradimensional space, stable at 0 hp. After 24 hours, I regain 1 hp and am returned to the place I left with different facial features. Only a Wish spell can restore my true identity. I have disadvantage on Charisma (Persuasion) checks to reveal myself. The amulet is cursed. Identifying it only shows it prevents death and one can't explain its power once attuned. When unattuned, one immediately forgets what the amulet does. A Remove Curse spell reveals the details of the curse but doesn't lift it from the amulet.",
 	descriptionFull: "When you die, you're transported to an extradimensional space where you're stabilized at 0 hit points and kept in that state. The amulet creates a perfect copy of your corpse and places it where you were just before you died, but without any of your worn or carried items. After 24 hours, you regain 1 hit point and are returned to the location of your near-death. Everything about you is the same, except that your facial features are entirely different from before. Only a Wish spell can restore your true identity." +
 	"\n   Until then, you have disadvantage on any Charisma (Persuasion) checks to attempt to reveal who you really are." +
-	"\n   " + toUni("Curse") + ". An Identify spell or similar reveals only that the amulet can prevent death. Once you attune to the amulet, you can't describe its ability to any other creature, and if unattuned, you immediately forget what the amulet does. A Remove Curse spell reveals the details of the curse but does not remove it from the amulet.",
+	"\n   ***Curse***. An Identify spell or similar reveals only that the amulet can prevent death. Once you attune to the amulet, you can't describe its ability to any other creature, and if unattuned, you immediately forget what the amulet does. A Remove Curse spell reveals the details of the curse but does not remove it from the amulet.",
 }
 MagicItemsList["bracers of asmodeus"] = {
 	name: "Bracers of Asmodeus",
@@ -150,7 +150,7 @@ MagicItemsList["bracers of asmodeus"] = {
 	cursed: true,
 	description: "These are cursed, corrupting, and give +2 AC while not wearing armor or using a shield. I can't unattune to them. They make me obsessed with scheming, manipulation, and always bartering for better deals, often using blackmail. If I decline an opportunity to make money at another's expense, I take 3d10 necrotic damage.",
 	descriptionFull: "You have a +2 bonus to AC while wearing these bracers, if you do not wear armor or use a shield at the same time." +
-	"\n   " + toUni("Curse") + ". While attuned to the bracers, you become obsessed with plotting, scheming, and manipulation. You always barter for better deals, often using secrets or leveraging other offers in the process. If you ever decline an opportunity to better yourself financially at another's expense, you immediately take 3d10 necrotic damage. Only the Remove Curse spell allows you to end attunement to this item." +
+	"\n   ***Curse***. While attuned to the bracers, you become obsessed with plotting, scheming, and manipulation. You always barter for better deals, often using secrets or leveraging other offers in the process. If you ever decline an opportunity to better yourself financially at another's expense, you immediately take 3d10 necrotic damage. Only the Remove Curse spell allows you to end attunement to this item." +
 	CoA_Corruption.description,
 	eval: function () { CoA_Corruption.process(true,  "bracers of asmodeus") },
 	removeeval: function () { CoA_Corruption.process(false, "bracers of asmodeus") },
@@ -170,7 +170,7 @@ MagicItemsList["canian fork"] = {
 	cursed: true,
 	description: "This magic, cursed, corrupting trident gives me +3 bonus to attack and damage rolls made with. I can't willing to part with it and can't unattune to it without Remove Curse. I'm vulnerable to radiant damage. When I receive magical healing I have to succeed on a DC 15 Con save or the healing has no effect.",
 	descriptionFull: "You have a +3 bonus to attack and damage rolls made with this magic weapon. In addition, you can make one additional attack with it as a bonus action on each of your turns." +
-	"\n   " + toUni("Curse") + ". You're unwilling to part with this weapon while attuned to it. You're also vulnerable to radiant damage and each time you receive magical healing, you must make a DC 15 Constitution saving throw." +
+	"\n   ***Curse***. You're unwilling to part with this weapon while attuned to it. You're also vulnerable to radiant damage and each time you receive magical healing, you must make a DC 15 Constitution saving throw." +
 	"\n   On a failed save, the healing has no effect. Only the Remove Curse spell allows you to end attunement to this item." +
 	CoA_Corruption.description,
 	eval: function () { CoA_Corruption.process(true,  "canian fork") },
@@ -207,7 +207,7 @@ MagicItemsList["demonbone polearm"] = {
 	description: "As a reaction when damaged by a creature in reach, I can attack it once with this +2 polearm. It is cursed, I can't unattune to it and have disadv. with other weapons. If I take damage, I must make a DC 15 Wis save or go berserk: I attack those near to me until none remain in 60 ft or I'm calmed with a DC 15 Persuasion" + (typePF ? "." : "check."),
 	descriptionLong: "I have a +2 bonus on attack and damage rolls made with this magic quarterstaff. As a reaction when I'm damaged by a creature in this weapon's reach, I can make one melee attack against it. This weapon is cursed, I'm unwilling to part with it, can't unattune to it without Remove Curse, and have disadvantage with other weapons. When I take damage, I must make a DC 15 Wisdom save or go berserk: I attack the nearest creature using this weapon with all my attacks, moving to the next nearest until none remain that I can sea or hear within 60 ft of me. I can also be calmed with a DC 15 Charisma (Persuasion) check.",
 	descriptionFull: "You have a +2 bonus to attack and damage rolls made with this magic weapon. In addition, when you're damaged by a creature in reach, you may use your reaction to make one melee attack against it with this weapon." +
-	"\n   " + toUni("Curse") + ". You're unwilling to part with this weapon while attuned to it. While attuned, you have disadvantage on attack rolls with weapons other than this one." +
+	"\n   ***Curse***. You're unwilling to part with this weapon while attuned to it. While attuned, you have disadvantage on attack rolls with weapons other than this one." +
 	"\n   Whenever a hostile creature damages you, you must succeed on a DC 15 Wisdom saving throw or go berserk. While berserk, you must use your action on each of your turns to attack the creature nearest to you with the weapon. If you can make extra attacks as part of the Attack action, you use those extra attacks, moving to attack the next nearest creature after you fell your current target. If you have multiple possible targets, you attack one at random." +
 	"\n   You're berserk until you start your turn with no creatures within 60 feet of you that you can see or hear. Alternatively, an ally can use an action to make a DC 15 Charisma (Persuasion) check and if successful, you're no longer berserk. Only the Remove Curse spell allows you to end attunement to this item." +
 	CoA_Corruption.description,
@@ -259,7 +259,7 @@ MagicItemsList["infernal amulet"] = {
 	cursed: true,
 	description: "While wearing this amulet, I can use it as a spellcasting focus for my spells, and it grants a +2 bonus to my spell save DC and spell attack bonus. It is cursed and corrupting. I'm unwilling to part with it and require Remove Curse to unattune to it. It gives me disadvantage on Strength saving throws and Strenght checks.",
 	descriptionFull: "While wearing this amulet, you can use it as a spellcasting focus for your spells, and it grants a +2 bonus to your spell save DC and spell attack bonus." +
-	"\n   " + toUni("Curse") + ". You're unwilling to part with this amulet while attuned to it and you wear it always. While wearing the amulet you have disadvantage on Strength saving throws and Strength checks. Only the Remove Curse spell allows you to remove the item and end attunement." +
+	"\n   ***Curse***. You're unwilling to part with this amulet while attuned to it and you wear it always. While wearing the amulet you have disadvantage on Strength saving throws and Strength checks. Only the Remove Curse spell allows you to remove the item and end attunement." +
 	CoA_Corruption.description,
 	eval: function () { CoA_Corruption.process(true,  "infernal amulet") },
 	removeeval: function () { CoA_Corruption.process(false, "infernal amulet") },
@@ -283,7 +283,7 @@ MagicItemsList["infernal plate armor"] = {
 	cursed: true,
 	description: "While wearing this armor, I gain a +2 bonus to AC. This armor is cursed and corrupting. I can't take it off or unattune to it without Remove Curse. It makes me vulnerable to the following damage types: force, lightning, psychic, radiant, and thunder.",
 	descriptionFull: "While wearing this armor, you gain a +2 bonus to AC." +
-	"\n   " + toUni("Curse") + ". Once you wear this armor, and are attuned to it, you can't remove it. Only the Remove Curse spell allows you to end the attunement and finally doff it. While wearing the armor, you're vulnerable to the following damage types: force, lightning, psychic, radiant, and thunder." +
+	"\n   ***Curse***. Once you wear this armor, and are attuned to it, you can't remove it. Only the Remove Curse spell allows you to end the attunement and finally doff it. While wearing the armor, you're vulnerable to the following damage types: force, lightning, psychic, radiant, and thunder." +
 	CoA_Corruption.description,
 	eval: function () { CoA_Corruption.process(true,  "infernal plate armor") },
 	removeeval: function () { CoA_Corruption.process(false, "infernal plate armor") },
@@ -431,10 +431,10 @@ if (!MagicItemsList["soul coin"]) {
 		type: "wondrous item",
 		rarity: "uncommon",
 		description: "Each coin traps a unique soul, whose rage or despair is felt by me while I hold it. A coin has 3 charges. As an action, I can expend 1 charge to either siphon the soul's essence to grant me 1d10 temporary HP or telepathically ask the soul a question which it must answer truthfully. See \"Notes\" page for more.",
-		descriptionFull: DiA_soulCoinFullDescription.join("\n   ").replace(/>>(.*?)<</g, function (a, match) { return toUni(match); }),
+		descriptionFull: DiA_soulCoinFullDescription.join("\n   "),
 		toNotesPage: [{
 			name: "Features",
-			note: desc(DiA_soulCoinFullDescription).replace(/>>(.*?)<</g, function (a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(answer) you/ig, "$1 me").replace(/you /ig, "I "),
+			note: desc(DiA_soulCoinFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(answer) you/ig, "$1 me").replace(/you /ig, "I "),
 		}],
 		weight: 0.3,
 		usages: 3,
@@ -452,7 +452,7 @@ MagicItemsList["stygian spear"] = {
 	cursed: true,
 	description: "This +2 weapon deals +1d6 damage when thrown. It returns to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune, and have disadv. with other weapons. On a 1 to hit, I attack the closest ally with adv. and deal +2d6 poison damage.",
 	descriptionFull: "You have a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately." +
-	"\n   " + toUni("Curse") + ". You're unwilling to part with this weapon while attuned to it. In addition, you have disadvantage on attack rolls made with weapons other than this one." +
+	"\n   ***Curse***. You're unwilling to part with this weapon while attuned to it. In addition, you have disadvantage on attack rolls made with weapons other than this one." +
 	"\n   Whenever you roll a 1 on an attack roll using this weapon, your target changes to your closest ally." +
 	"\n   If there are multiple allies, randomly determine which is the target. Make a new attack roll with advantage against your ally. If the attack hits, in addition to the standard damage you deal an extra 2d6 poison damage. Only the Remove Curse spell allows you to end attunement to this item." +
 	CoA_Corruption.description,
@@ -501,7 +501,7 @@ MagicItemsList["sword of retribution"] = {
 	description: "Damage from this +3 sword can be regained only through resting. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune, and have disadv. with other weapons. After a long rest, I must make a DC 11 Con save or only get the benefits of a short rest due to nightmares.",
 	descriptionLong: "I gain a +3 bonus to attack and damage rolls made with this sword. Hit points lost to this weapon's damage can be regained only through a short or long rest, rather than by regeneration, magic, or any other means. It is cursed and corrupting. I'm unwilling to part with it, require Remove Curse to unattune to it, and gives me disadvantage on attacks with other weapons. When I sleep, I experience nightmares of the past of the vengeful spirit possessing the sword, culminating in its death. After a long rest, I must make a DC 11 Constitution saving throw or only gain the benefits of a short rest.",
 	descriptionFull: "You gain a +3 bonus to attack and damage rolls made with this sword. Hit points lost to this weapon's damage can be regained only through a short or long rest, rather than by regeneration, magic, or any other means." +
-	"\n   " + toUni("Curse") + ". You're unwilling to part with this weapon while attuned to it. While attuned to this weapon, you also have disadvantage on attack rolls made with weapons other than this one." +
+	"\n   ***Curse***. You're unwilling to part with this weapon while attuned to it. While attuned to this weapon, you also have disadvantage on attack rolls made with weapons other than this one." +
 	"\n   The vengeful spirit possessing the sword shares its history and lust for vengeance with the wielder. After each successful long rest, you experience nightmares of the spirit's past, culminating in its death. When you wake, you must make a DC 11 Constitution saving throw. On a failed save, you only gain the benefits of a short rest. Only the Remove Curse spell allows you to end attunement to this item." +
 	CoA_Corruption.description,
 	eval: function () { CoA_Corruption.process(true,  "sword of retribution") },

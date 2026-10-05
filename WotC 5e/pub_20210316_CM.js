@@ -3,7 +3,7 @@ RequiredSheetVersion("14.0.15-beta");
 // This file adds the content from the Candlekeep Mysteries adventure to MPMB's Character Record Sheet
 // All content in this file contains contributions by Ratatoskr589
 
-SourceList.CM = {
+SourceList["CM"] = {
 	name: "Candlekeep Mysteries",
 	abbreviation: "CM",
 	group: "Adventure Books",
@@ -201,7 +201,7 @@ MagicItemsList["staff of fate"] = {
 	attunement: true,
 	description: "This +3 crystal quarterstaff has 6 charges. If I use its last charge, I roll a d20. On a 10+ it regains 1d6 charges, but on a 9 or less it becomes nonmagical. As a bonus action, I can expend 1 charge to give myself or a creature I can see a d4 that can be added to a check, save, attack, or damage roll before my next turn starts.",
 	descriptionFull: "This transparent crystal staff can be wielded as a magic quarterstaff that grants a +3 bonus to attack and damage rolls made with it." +
-	"\n   " + toUni("Altered Outcome") + ". The staff has 6 charges. As a bonus action, you can expend 1 of the staff's charges to give yourself or one other creature that you can see a d4. The recipient can roll this d4 and add the number rolled to one ability check, attack roll, damage roll, or saving throw it makes before the start of your next turn. If this extra die is not used before then, it is lost." +
+	"\n   ***Altered Outcome***. The staff has 6 charges. As a bonus action, you can expend 1 of the staff's charges to give yourself or one other creature that you can see a d4. The recipient can roll this d4 and add the number rolled to one ability check, attack roll, damage roll, or saving throw it makes before the start of your next turn. If this extra die is not used before then, it is lost." +
 	"\n   If you expend the staff's last charge, roll a d20. On a roll of 9 or lower, the staff becomes a nonmagical quarterstaff that breaks the first time it scores a hit and deals damage. On a roll of 10 or higher, the staff regains 1d6 of its expended charges.",
 	weight: 4,
 	extraLimitedFeatures: [{

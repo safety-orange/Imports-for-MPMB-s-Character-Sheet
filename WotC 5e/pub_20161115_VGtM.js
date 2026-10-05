@@ -3,7 +3,7 @@ RequiredSheetVersion("14.0.5-beta");
 // This file adds all the player-material from Volo's Guide to Monsters to MPMB's Character Record Sheet
 
 // Define the source
-SourceList.V = {
+SourceList["V"] = {
 	name: "Volo's Guide to Monsters",
 	abbreviation: "VGtM",
 	group: "Primary Sources",

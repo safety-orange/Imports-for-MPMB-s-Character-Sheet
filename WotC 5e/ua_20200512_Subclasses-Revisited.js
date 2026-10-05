@@ -94,7 +94,7 @@ AddSubClass("rogue", "phantom-ua", {
 });
 
 // [dupl_start] the same as in Tasha's Cauldron of Everything
-if (!SourceList.T) {
+if (!SourceList["T"]) {
 	AddSubClass("warlock", "the genie", {
 		regExpSearch: /^(?=.*warlock)(?=.*(genie|dao|djinni|efreeti|marid)).*$/i,
 		subname: "the Genie",

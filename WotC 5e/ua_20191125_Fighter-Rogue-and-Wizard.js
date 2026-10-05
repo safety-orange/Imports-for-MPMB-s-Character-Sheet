@@ -1,5 +1,5 @@
 var iFileName = "ua_20191125_Fighter-Rogue-and-Wizard.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion(14);
 // This file adds the content from the Unearthed Arcana: Fighter, Rogue, and Wizard (psionics) article to MPMB's Character Record Sheet
 
 // Define the source
@@ -479,7 +479,7 @@ SpellsList["mental barrier-ua"] = {
 	descriptionFull: "You protect your mind with a wall of looping, repetitive thought. Until the start of your next turn, you have advantage on Intelligence, Wisdom, and Charisma saving throws, and you have resistance to psychic damage.",
 };
 // [dupl_start] (mostly) the same as in Tasha's Cauldron of Everything
-if (!SourceList.T) {
+if (!SourceList["T"]) {
 	// almost duplicate from UA:SnW, but now also on the Bard's spell list
 	// too much alike to the final TCoE version, so don't include it if TCoE is available
 	SpellsList["mind sliver"] = {
