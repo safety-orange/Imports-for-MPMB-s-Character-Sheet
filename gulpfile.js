@@ -34,6 +34,8 @@ const editions = {
 		version: '"24.1.0"',
 		maxVersion: false,
 		types: ["pub", "legacy", "ua"],
+		// Types whose source files are in a subfolder; the output files still go to the edition's folder
+		subfolders: { legacy: "legacy" },
 		combos: [
 			["pub", "ua"],
 			["pub", "legacy"],
@@ -91,8 +93,15 @@ function validate() {
 	});
 }
 
+// The folder that contains the source files of this type, which can be a subfolder of the edition's folder
+function sourceFolderFor(edition, type) {
+	const { folder, subfolders } = editions[edition];
+	return subfolders && subfolders[type] ? `${folder}/${subfolders[type]}` : folder;
+}
+
 // Whether the folder contains any source files of this type (excluding duplicates and work in progress)
 function hasSourceFiles(folder, type) {
+	if (!fs.existsSync(folder)) return false;
 	return fs.readdirSync(folder).some(file =>
 		file.startsWith(`${type}_`) && file.endsWith(".js") && !/_(dupl|wip)\.js$/.test(file)
 	);
@@ -101,14 +110,15 @@ function hasSourceFiles(folder, type) {
 function concatAndMin(edition, type) {
 	const { folder, version: requiredVersion, maxVersion } = editions[edition];
 	const fileName = `${fileHeadFor(edition)}${types[type]}`;
-	if (!hasSourceFiles(folder, type)) {
+	const sourceFolder = sourceFolderFor(edition, type);
+	if (!hasSourceFiles(sourceFolder, type)) {
 		log.info(`Skipping type '${type}' for ${editionLabel(edition)}, no source files found`);
 		return Promise.resolve();
 	}
 	log.info(`Minifying and concatenating type '${type}' for ${editionLabel(edition)}`);
 	const tooOldCheck = getTooOldCheck(requiredVersion, maxVersion);
 	const tooNewCheck = getTooNewCheck(requiredVersion, maxVersion);
-	return src([`${folder}/${type}_*.js`, `!${folder}/${type}_*_dupl.js`, `!${folder}/${type}_*_wip.js`])
+	return src([`${sourceFolder}/${type}_*.js`, `!${sourceFolder}/${type}_*_dupl.js`, `!${sourceFolder}/${type}_*_wip.js`])
 		.pipe(replace(/var iFileName ?= ?['"](.*?)['"];/g,"// $1"))
 		.pipe(replace(/RequiredSheetVersion\(.*?\)[,;][\r\n]*/g, ""))
 		.pipe(replace(/\/\/.*?dupl_start[\s\S]*?dupl_end.*?[\r\n]*/ig,""))
@@ -130,7 +140,7 @@ function combine(edition, combo, minified) {
 	const newLine = minified ? "" : "\n";
 	const fileHead = fileHeadFor(edition);
 	const fileName = `${fileHead}${comboName}${ext}`;
-	const missing = combo.filter(type => !hasSourceFiles(folder, type));
+	const missing = combo.filter(type => !hasSourceFiles(sourceFolderFor(edition, type), type));
 	if (missing.length) {
 		log.info(`Skipping ${minified ? "minified" : "unminified"} '${comboName}' for ${editionLabel(edition)}, no source files found for type(s): ${missing.join(", ")}`);
 		return Promise.resolve();

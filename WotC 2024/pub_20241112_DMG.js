@@ -2214,7 +2214,7 @@ MagicItemsList["tentacle rod"] = {
 		type: "Magic Item",
 		damage: [1, 6, "psychic"],
 		range: "Melee (15 ft)",
-		description: "3 attacks as an Action; All 3 hit same target: DC 15 Dex save or Restrained, see item",
+		description: "3 attacks as an action; All 3 hit same target: DC 15 Dex save or Restrained, see item",
 		abilitytodamage: false,
 		modifiers: [9, ""],
 		weight: 2,

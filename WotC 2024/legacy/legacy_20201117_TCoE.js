@@ -3,12 +3,12 @@ RequiredSheetVersion("24.1.0");
 // This file adds options from Tasha's Cauldron of Everything to MPMB's Character Record Sheet that have not been replaced with new options published specifically for the 2024 (5.5e) rules
 
 // Define the source
-SourceList.T = {
+SourceList["T"] = {
 	name: "Tasha's Cauldron of Everything (incomplete)",
 	abbreviation: "TCoE",
 	abbreviationSpellsheet: "T",
 	group: "Legacy Sources",
-	url: "https://dnd.wizards.com/products/tashas-cauldron-everything",
+	url: "https://marketplace.dndbeyond.com/category/tashas-cauldron-of-everything?pid=SRC-00067",
 	date: "2020/11/17",
 	defaultExcluded: true,
 };

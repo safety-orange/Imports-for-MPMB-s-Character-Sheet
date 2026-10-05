@@ -1924,7 +1924,7 @@ AddSubClass("paladin", "ancients", {
 				"As a Bonus Action, I can give my Aura of Protection these benefits for 1 minute.",
 				" \u2022 ***Diminish Defiance***. Enemies in my aura have Disadv on saves vs my spells and CD options.",
 				" \u2022 ***Regeneration***. At the start of each of my turns I regain 10 Hit Points.",
-				" \u2022 ***Swift Spells***. I can cast spells with a casting time of an Action " + (typePF ? "using" : "as") + " a Bonus Action instead.",
+				" \u2022 ***Swift Spells***. I can cast spells with a casting time of an action " + (typePF ? "using" : "as") + " a Bonus Action instead.",
 				"I can end it for free. I can expend a level 5+ spell slot (SS 5+) to restore use of this feature.",
 			]),
 			recovery: "Long Rest",
@@ -2165,7 +2165,7 @@ AddSubClass("ranger", "beast master", {
 					attacks: [{
 						name: "Beast's Strike",
 						ability: 2, // will be overridden by useSpellMod
-						damage: [1, 4, "Slashing"],
+						damage: [1, 4, "slashing"],
 						modifiers: ["", "Dex+oWis"],
 						range: "Melee (5 ft)",
 						description: "",
@@ -4383,7 +4383,7 @@ RaceList["aasimar"] = {
 			source: [["PHB24", 186]],
 			minlevel: 1,
 			usages: 1,
-			recovery: "long rest",
+			recovery: "Long Rest",
 			action: [["action", ""]],
 			additional: ProficiencyBonusList.map(function (n) { return n + "d4 healing"; }),
 		},
@@ -4392,7 +4392,7 @@ RaceList["aasimar"] = {
 			source: [["PHB24", 186]],
 			minlevel: 3,
 			usages: 1,
-			recovery: "long rest",
+			recovery: "Long Rest",
 			additional: ProficiencyBonusList.map(function (n) { return "+" + n + " damage"; }),
 			action: [["bonus action", ""]],
 			toNotesPage: [{
@@ -4407,7 +4407,7 @@ RaceList["aasimar"] = {
 					" **\u2022 Necrotic Shroud**. My eyes briefly become pools of darkness, and flightless wings sprout from my back temporarily. Creatures other than my allies within 10 ft of me must succeed on a Charisma saving throw (DC 8 + Cha mod + Prof Bonus) or have the Frightened condition until the end of my next turn.",
 					"While transformed like this, the extra damage on attacks/spells mentioned above is Necrotic.",
 				],
-				additional: "1\xD7 per long rest",
+				additional: "1\xD7 per Long Rest",
 			}],
 		},
 	},
@@ -4497,9 +4497,9 @@ FeatsList["lucky"] = {
 		"***Disadvantage***. When a creature rolls a d20 for an attack roll against you, you can spend 1 Luck Point to impose Disadvantage on that roll.",
 	],
 	limfeaname: "Luck Points",
-	usages: "Proficiency bonus per ",
+	usages: "Proficiency Bonus per ",
 	usagescalc: "event.value = Number(How('Proficiency Bonus'));",
-	recovery: "long rest",
+	recovery: "Long Rest",
 };
 FeatsList["musician"] = {
 	name: "Musician",
@@ -5118,7 +5118,7 @@ FeatsList["mage slayer"] = {
 	extraLimitedFeatures: [{
 		name: "Guarded Mind (Mage Slayer)",
 		usages: 1,
-		recovery: "short rest",
+		recovery: "Short Rest",
 	}],
 	choices: ["Strength", "Dexterity"],
 	choicesNotInMenu: true,
@@ -5555,7 +5555,7 @@ FeatsList["ritual caster"] = {
 	extraLimitedFeatures: [{
 		name: "Quick Ritual",
 		usages: 1,
-		recovery: "long rest",
+		recovery: "Long Rest",
 	}],
 	choices: ["Intelligence", "Wisdom", "Charisma"],
 	choicesNotInMenu: true,
@@ -6289,11 +6289,11 @@ FeatsList["boon of recovery"] = {
 	extraLimitedFeatures: [{
 		name: "Last Stand",
 		usages: 1,
-		recovery: "long rest",
+		recovery: "Long Rest",
 	}, {
 		name: "Recover Vitality (d10)",
 		usages: 10,
-		recovery: "long rest",
+		recovery: "Long Rest",
 	}],
 };
 FeatsList["boon of skill"] = {
@@ -9630,7 +9630,7 @@ MagicItemsList["tentacle rod"] = {
 		type: "Magic Item",
 		damage: [1, 6, "psychic"],
 		range: "Melee (15 ft)",
-		description: "3 attacks as an Action; All 3 hit same target: DC 15 Dex save or Restrained, see item",
+		description: "3 attacks as an action; All 3 hit same target: DC 15 Dex save or Restrained, see item",
 		abilitytodamage: false,
 		modifiers: [9, ""],
 		weight: 2,

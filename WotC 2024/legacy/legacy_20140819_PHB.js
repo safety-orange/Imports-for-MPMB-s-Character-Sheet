@@ -4,11 +4,11 @@ RequiredSheetVersion("24.1.0");
 
 // Define the source
 SourceList["P"] = {
-	name: "2014 Player's Handbook (incomplete)",
+	name: "2014 Player's Handbook",
 	abbreviation: "PHB'14",
 	abbreviationSpellsheet: "P",
 	group: "Legacy Sources",
-	url: "https://dnd.wizards.com/products/rpg_playershandbook",
+	url: "https://marketplace.dndbeyond.com/core-rules/players-handbook?pid=SRC-00002",
 	date: "2014/08/19",
 	defaultExcluded: true,
 };
@@ -27,7 +27,7 @@ RaceList["half-elf"] = {
 	vision: [["Darkvision", 60]],
 	savetxt: {
 		text: ["Magic can't put me to sleep"],
-		adv_vs: ["charmed"],
+		adv_vs: ["Charmed"],
 	},
 	skillstxt: "Choose any two skills",
 	age: " reach adulthood around age 20 and often live over 180 years",
@@ -35,10 +35,11 @@ RaceList["half-elf"] = {
 	weight: " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
 	heightMetric: " range from 1,5 to 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
-	scorestxt: "+2 Charisma and +1 to two other ability scores of my choice",
-	trait: "Half-Elf" +
-	"\n##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being charmed, and magic can't put me to sleep." +
-	"\n##\u25C6 Skill Versatility##. I gain proficiency in two skills of my choice.",
+	trait: [
+		"**Half-Elf**",
+		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
+		"##\u25C6 Skill Versatility##. I gain proficiency in two skills of my choice.",
+	].join("\n"),
 };
 RaceList["half-orc"] = {
 	regExpSearch: /^(?=.*half)(?=.*\bor(c|k)).*$/i,
@@ -62,7 +63,7 @@ RaceList["half-orc"] = {
 			name: "Relentless Endurance",
 			minlevel: 1,
 			usages: 1,
-			recovery: "long rest",
+			recovery: "Long Rest",
 		},
 		"savage attacks": {
 			name: "Savage Attacks",
@@ -87,16 +88,18 @@ RaceList["half-orc"] = {
 			},
 		},
 	},
-	trait: "Half-Orc" +
-	"\n##\u25C6 Relentless Endurance##. When I am reduced to 0 hit points but not killed outright, I can drop to 1 hit point instead. I can't use this feature again until I finish a Long Rest." +
-	"\n##\u25C6 Savage Attacks##. When I score a critical hit with a melee weapon attack, I can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.",
+	trait: [
+		"**Half-Orc**",
+		"##\u25C6 Relentless Endurance##. When I am reduced to 0 hit points but not killed outright, I can drop to 1 hit point instead. I can't use this feature again until I finish a Long Rest.",
+		"##\u25C6 Savage Attacks##. When I score a critical hit with a melee weapon attack, I can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.",
+	].join("\n"),
 };
 
 // Eldritch Invocations
 AddWarlockInvocation("Beast Speech", {
 	name: "Beast Speech",
 	source: [["SRD", 48], ["P", 110]],
-	description: desc("I can cast Speak with Animals without using a spell slot."),
+	description: desc("I can cast *Speak with Animals* without using a spell slot."),
 	spellcastingBonus: [{
 		name: "Beast Speech",
 		spells: ["speak with animals"],
@@ -115,7 +118,7 @@ AddWarlockInvocation("Bewitching Whispers (req: lvl 7+)", {
 	source: [["SRD", 48], ["P", 110]],
 	minlevel: 7,
 	submenu: "[Warlock level  7+]",
-	description: desc("Once per Long Rest, I can cast Compulsion using a Pact Magic spell slot."),
+	description: desc("Once per Long Rest, I can cast *Compulsion* using a Pact Magic spell slot."),
 	spellcastingBonus: [{
 		name: "Bewitching Whispers",
 		spells: ["compulsion"],
@@ -192,7 +195,7 @@ AddWarlockInvocation("Chains of Carceri (req: lvl 15+, Pact of the Chain)", {
 	minlevel: 15,
 	submenu: ["[Warlock level 15+]", "[improves Pact of the Chain]"],
 	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the chain") !== -1; },
-	description: desc("I can cast Hold Monster without expending a spell slot or material components, but only on a Celestial, Fiend, or Elemental. I can only target a specific individual once per Long Rest."),
+	description: desc("I can cast *Hold Monster* without expending a spell slot or material components, but only on a Celestial, Fiend, or Elemental. I can only target a specific individual once per Long Rest."),
 	spellcastingBonus: [{
 		name: "Chains of Carceri",
 		spells: ["hold monster"],
@@ -203,7 +206,7 @@ AddWarlockInvocation("Chains of Carceri (req: lvl 15+, Pact of the Chain)", {
 		"hold monster": {
 			components: "V,S",
 			compMaterial: "",
-			description: "1 Celestial, Fiend, or Elemental, save or paralyzed; extra save at end of each turn",
+			description: "1 Celestial, Fiend, or Elemental, save or Paralyzed; extra save at end of each turn",
 			changes: "With the Chains of Carceri invocation I can cast *Hold Monster* without a material component, but only on a Celestial, Fiend, or Elemental.",
 		},
 	},
@@ -213,7 +216,7 @@ AddWarlockInvocation("Dreadful Word (req: lvl 7+)", {
 	source: [["SRD", 49], ["P", 110]],
 	minlevel: 7,
 	submenu: "[Warlock level  7+]",
-	description: desc("Once per Long Rest, I can cast Confusion using a Pact Magic spell slot."),
+	description: desc("Once per Long Rest, I can cast *Confusion* using a Pact Magic spell slot."),
 	spellcastingBonus: [{
 		name: "Dreadful Word",
 		spells: ["confusion"],
@@ -224,7 +227,7 @@ AddWarlockInvocation("Dreadful Word (req: lvl 7+)", {
 AddWarlockInvocation("Eldritch Sight", {
 	name: "Eldritch Sight",
 	source: [["SRD", 49], ["P", 110]],
-	description: desc("I can cast Detect Magic without expending a spell slot."),
+	description: desc("I can cast *Detect Magic* without expending a spell slot."),
 	spellcastingBonus: [{
 		name: "Eldritch Sight",
 		spells: ["detect magic"],
@@ -242,7 +245,7 @@ AddWarlockInvocation("Minions of Chaos", {
 	source: [["SRD", 49], ["P", 111]],
 	minlevel: 9,
 	submenu: "[Warlock level  9+]",
-	description: desc("Once per Long Rest, I can cast Conjure Elemental using a Pact Magic spell slot."),
+	description: desc("Once per Long Rest, I can cast *Conjure Elemental* using a Pact Magic spell slot."),
 	spellcastingBonus: [{
 		name: "Minions of Chaos",
 		spells: ["conjure elemental"],
@@ -255,7 +258,7 @@ AddWarlockInvocation("Mire the Mind", {
 	source: [["SRD", 49], ["P", 111]],
 	minlevel: 5,
 	submenu: "[Warlock level  5+]",
-	description: desc("Once per Long Rest, I can cast Slow using a Pact Magic spell slot."),
+	description: desc("Once per Long Rest, I can cast *Slow* using a Pact Magic spell slot."),
 	spellcastingBonus: [{
 		name: "Mire the Mind",
 		spells: ["slow"],
@@ -268,7 +271,7 @@ AddWarlockInvocation("Sculptor of Flesh", {
 	source: [["SRD", 50], ["P", 111]],
 	minlevel: 7,
 	submenu: "[Warlock level  7+]",
-	description: desc("Once per Long Rest, I can cast Polymorph using a Pact Magic spell slot."),
+	description: desc("Once per Long Rest, I can cast *Polymorph* using a Pact Magic spell slot."),
 	spellcastingBonus: [{
 		name: "Sculptor of Flesh",
 		spells: ["polymorph"],
@@ -281,7 +284,7 @@ AddWarlockInvocation("Sign of Ill Omen", {
 	source: [["SRD", 50], ["P", 111]],
 	minlevel: 5,
 	submenu: "[Warlock level  5+]",
-	description: desc("Once per Long Rest, I can cast Bestow Curse using a Pact Magic spell slot."),
+	description: desc("Once per Long Rest, I can cast *Bestow Curse* using a Pact Magic spell slot."),
 	spellcastingBonus: [{
 		name: "Sign of Ill Omen",
 		spells: ["bestow curse"],
@@ -292,7 +295,7 @@ AddWarlockInvocation("Sign of Ill Omen", {
 AddWarlockInvocation("Thief of Five Fates", {
 	name: "Thief of Five Fates",
 	source: [["SRD", 50], ["P", 111]],
-	description: desc("Once per Long Rest, I can cast Bane using a Pact Magic spell slot."),
+	description: desc("Once per Long Rest, I can cast *Bane* using a Pact Magic spell slot."),
 	spellcastingBonus: [{
 		name: "Thief of Five Fates",
 		spells: ["bane"],
@@ -309,120 +312,110 @@ AddWarlockInvocation("Voice of the Chain Master", {
 });
 
 // Subclasses
-AddSubClass("wizard", "necromancy", {
-	regExpSearch: /necromancy|necromancer|necromantic/i,
-	subname: "School of Necromancy",
-	subnameShort: "Necromancy",
-	fullname: "Necromancer",
-	source: [["P", 118]],
+AddSubClass("cleric", "nature domain", {
+	regExpSearch: /^(?=.*(cleric|priest|clergy|acolyte))(?=.*\b(nature|natural|animal|element(s|al)?)\b).*$/i,
+	subname: "Nature Domain",
+	source: [["P", 62]],
 	features: {
-		"subclassfeature3": {
-			name: "Necromancy Savant",
-			source: [["P", 118]],
+		"subclassfeature3.0": {
+			name: "Bonus Proficiency",
+			source: [["P", 62]],
 			minlevel: 3,
-			description: desc("I halve the gp and time needed to copy necromancy spells into my spellbook"),
+			description: desc("I gain proficiency with heavy armor"),
+			armorProfs: [false, false, true, false],
+			spellcastingExtra: ["animal friendship", "speak with animals", "barkskin", "spike growth", "plant growth", "wind wall", "dominate beast", "grasping vine", "insect plague", "tree stride"],
 		},
 		"subclassfeature3.1": {
-			name: "Grim Harvest",
-			source: [["P", 118]],
+			name: "Acolyte of Nature",
+			source: [["P", 62]],
+			minlevel: 3,
+			description: desc("I learn a druid cantrip and proficiency with a skill: Animal Handling, Nature, Survival"),
+			skillstxt: "Choose one from Animal Handling, Nature, or Survival",
+			spellcastingBonus: [{
+				name: "Acolyte of Nature",
+				"class": "druid",
+				level: [0, 0],
+			}],
+		},
+		"subclassfeature3.2": {
+			name: "Charm Animals and Plants",
+			source: [["P", 62]],
 			minlevel: 3,
 			description: desc([
-				"Once per turn, when I kill something with a 1st-level or higher spell, I regain hit points",
-				"The number of hit points regained is 2\xD7 the spell's level (or 3\xD7 with necromancy spells)",
-				"This doesn't occur for constructs/undead",
+				"As an action, all Beasts and Plants within 30 ft that I can see must make a Wis save",
+				"If failed, each is Charmed and friendly to allies and me for 1 min or until damaged",
 			]),
+			additional: "1 Channel Divinity",
+			action: [["action", ""]],
 		},
 		"subclassfeature6": {
-			name: "Undead Thralls",
-			source: [["P", 119]],
+			name: "Dampen Elements",
+			source: [["P", 62]],
 			minlevel: 6,
 			description: desc([
-				"I add Animate Dead to my spellbook and can have an additional target when casting it",
-				"Undead created by my necromancy spells have the following benefits:",
-				"They add my proficiency bonus to damage and my wizard level to their HP maximums",
+				"As a Reaction, if an ally in 30 ft or I takes Acid/Cold/Fire/Lightning/Thunder damage,",
+				"I can grant resistance against that instance of damage",
 			]),
-			spellcastingBonus: [{
-				name: "Undead Thralls",
-				spells: ["animate dead"],
-				selection: ["animate dead"],
-			}],
-			spellChanges: {
-				"animate dead": {
-					description: "Turn corpses into 2+2/SL Skeletons or Zombies; control for 24h; Bns command within 60 ft",
-					changes: "My Undead Thralls class feature allows me to animate one more corpse than normal with *Animate Dead*.",
-				},
-			},
+			action: [["reaction", ""]],
 		},
-		"subclassfeature10": {
-			name: "Inured to Undead",
-			source: [["P", 119]],
-			minlevel: 10,
-			description: desc("I have resistance to necrotic damage and my hit point maximum can't be reduced"),
-			dmgres: ["Necrotic"],
-		},
-		"subclassfeature14": {
-			name: "Command Undead",
-			source: [["P", 11]],
-			minlevel: 14,
-			description: desc([
-				"As an action, an undead within 60 ft that I can see must make a Charisma save",
-				"If its Int is > 7, it has Adv on the save; If its Int is > 11, it repeats the save every hour",
-				"If failed, it becomes friendly to me and obeys my commands until I use this on another",
-				"On success, it becomes permanently immune to my further attempts",
-			]),
-			action: [["action", ""]],
+		"subclassfeature17": {
+			name: "Master of Nature",
+			source: [["P", 62]],
+			minlevel: 17,
+			description: desc("As a Bonus Action, I can command creatures that are Charmed by my Channel Divinity"),
+			action: [["bonus action", ""]],
 		},
 	},
 });
-CompanionList["undead_thrall"] = {
-	name: "Undead Thralls",
-	nameOrigin: "School of Necromancy 6",
-	nameMenu: "Undead Thrall (School of Necromancy feature)",
-	source: [["P", 119]],
-	includeCheck: function (sCrea, objCrea, iCreaCR, bIsAL) {
-		return /undead/i.test(objCrea.type);
-	},
-	attributesChange: function (sCrea, objCrea) {
-		objCrea.hp += classes.known.wizard ? classes.known.wizard.level : classes.totallevel;
-		if (!objCrea.attacks) return;
-		objCrea.attacks = objCrea.attacks.map(function (oAtk) {
-			if (oAtk.abilitytodamage !== false && !oAtk.dc) {
-				if (!oAtk.modifiers) {
-					oAtk.modifiers = ["", "oProf"];
-				} else {
-					oAtk.modifiers[1] += "+oProf";
-				}
-			}
-			return oAtk;
-		});
-	},
-	calcChanges: {
-		hp: function (totalHD, HDobj, prefix) {
-			if (classes.known.wizard) {
-				return [classes.known.wizard.level, "Undead Thralls (wizard level)"];
-			} else {
-				return [classes.totallevel, "Undead Thralls (character level)"];
-			}
+AddSubClass("cleric", "tempest domain", {
+	regExpSearch: /^(?=.*(cleric|priest|clergy|acolyte))(?=.*\b(tempest|destruction|storm)\b).*$/i,
+	subname: "Tempest Domain",
+	source: [["P", 62]],
+	features: {
+		"subclassfeature3.0": {
+			name: "Bonus Proficiency",
+			source: [["P", 62]],
+			minlevel: 3,
+			description: desc("I gain proficiency with martial weapons and heavy armor"),
+			armorProfs: [false, false, true, false],
+			weaponProfs: [false, true],
+			spellcastingExtra: ["fog cloud", "thunderwave", "gust of wind", "shatter", "call lightning", "sleet storm", "control water", "ice storm", "destructive wave", "insect plague"],
+		},
+		"subclassfeature3.1": {
+			name: "Wrath of the Storm",
+			source: [["P", 62]],
+			minlevel: 3,
+			description: desc([
+				"As a Reaction, when a creature I can see within 5 ft hits me, I can thunderously rebuke",
+				"It takes 2d8 Lightning or Thunder damage (my choice) that a Dex save can halve",
+			]),
+			usages: "Wisdom modifier per ",
+			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
+			recovery: "Long Rest",
+			action: [["reaction", ""]],
+		},
+		"subclassfeature3.2": {
+			name: "Destructive Wrath",
+			source: [["P", 62]],
+			minlevel: 3,
+			description: desc("Instead of rolling, I can do maximum damage when I do Lightning or Thunder damage"),
+			additional: "1 Channel Divinity",
+		},
+		"subclassfeature6": {
+			name: "Thunderbolt Strike",
+			source: [["P", 62]],
+			minlevel: 6,
+			description: desc("When I deal Lightning damage to a Large or smaller foe, I can push it up to 10 ft away"),
+		},
+		"subclassfeature17": {
+			name: "Stormborn",
+			source: [["P", 62]],
+			minlevel: 17,
+			description: desc("Whenever I'm not underground or indoors, I have a Fly Speed equal to my current speed"),
+			speed: { fly: { spd: "walk", enc: "walk" } },
 		},
 	},
-	notes: [{
-		name: "Undead I create with a necromancy spell",
-		description: "add my wizard level to their hit point maximum and add my proficiency bonus to their weapon damage rolls.",
-		joinString: " ",
-	}],
-	eval: function (prefix, lvl) {
-		// Set HP to use average value, so that the level bonus is automatically included
-		var sHPfld = prefix + "Comp.Use.HP.Max";
-		var aHPsets = How(sHPfld).split(",");
-		aHPsets[3] = "average";
-		AddTooltip(sHPfld, undefined, aHPsets.toString());
-	},
-};
-/** INCOMPLETE - still missing:
- * Knowledge Domain
- * Nature Domain
- * Tempest Domain
- */
+});
 
 // Background Features
 BackgroundFeatureList["shelter of the faithful"] = { // from Acolyte
@@ -494,7 +487,7 @@ BackgroundFeatureList["city secrets"] = { // from Urchin
 FeatsList["dungeon delver"] = {
 	name: "Dungeon Delver",
 	source: [["P", 166]],
-	description: "I have Adv on Wis (Perception) and Int (Investigation) checks made to detect the presence of secret doors. I have resistance to damage dealt by traps and advantage on saves to avoid or resist traps. Travelling at a fast pace doesn't impose -5 on my passive Perception.",
+	description: "I have Adv on Wis (Perception) and Int (Investigation) checks made to detect the presence of secret doors. I have resistance to damage dealt by traps and Advantage on saves to avoid or resist traps. Travelling at a fast pace doesn't impose -5 on my passive Perception.",
 	descriptionFull: [
 		"Alert to the hidden traps and secret doors found in many dungeons, you gain the following benefits:",
 		" \u2022 You have advantage on Wisdom (Perception) and Intelligence (Investigation) checks made to detect the presence of secret doors.",
@@ -527,7 +520,7 @@ FeatsList["martial adept"] = {
 	name: "Martial Adept",
 	source: [["P", 168]],
 	description: "",
-	calculate: "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master (2nd page \"Choose Feature\" button). The saving throw DC for this is ' + (8 + Number(How('Proficiency Bonus')) + Math.max(Number(What('Str Mod')), Number(What('Dex Mod')))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a short rest.';",
+	calculate: "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master (2nd page \"Choose Feature\" button). The saving throw DC for this is ' + (8 + Number(How('Proficiency Bonus')) + Math.max(Number(What('Str Mod')), Number(What('Dex Mod')))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a Short Rest.';",
 	descriptionFull: [
 		"You have martial training that allows you to perform special combat maneuvers. You gain the following benefits:",
 		" \u2022 You learn two maneuvers of your choice from among those available to the Battle Master archetype in the fighter class. If a maneuver you use requires your target to make a saving throw to resist the maneuver's effects, the saving throw DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice).",
@@ -543,7 +536,7 @@ FeatsList["martial adept"] = {
 		name: "Superiority Dice",
 		usages: 1,
 		additional: "d6",
-		recovery: "short rest",
+		recovery: "Short Rest",
 		addToExisting: true,
 	}],
 };
