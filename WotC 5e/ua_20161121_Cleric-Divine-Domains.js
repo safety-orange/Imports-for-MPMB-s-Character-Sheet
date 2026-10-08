@@ -1,5 +1,5 @@
 var iFileName = "ua_20161121_Cleric-Divine-Domains.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Cleric Divine Domains article to MPMB's Character Record Sheet
 
 // Define the source
@@ -117,13 +117,13 @@ AddSubClass("cleric", "grave domain-ua", {
 			action: [["bonus action", ""]],
 			description: desc([
 				"Spells I cast to heal a living creature at 0 HP have their dice count as their max result",
-				"As a bonus action, I can cast the Spare the Dying cantrip, if I know it",
+				"As a bonus action, I can cast the *Spare the Dying* cantrip, if I know it",
 			]),
 			spellChanges: {
 				"spare the dying": {
 					time: "1 bns",
 					range: "Touch",
-					changes: "I can cast spare the dying as a bonus action instead of an action.",
+					changes: "I can cast *spare the dying* as a bonus action instead of an action.",
 				},
 			},
 		},

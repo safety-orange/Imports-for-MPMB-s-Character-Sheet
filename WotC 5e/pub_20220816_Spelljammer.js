@@ -1,5 +1,5 @@
 var iFileName = "pub_20220816_Spelljammer.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.1.3", 15);
 /*
 	This file adds the Character Options content from the "Spelljammer: Adventures in Space" set
 	(the "Astral Adventurer's Guide" book and the "Boo's Astral Menagerie" book)
@@ -133,9 +133,11 @@ RaceList["astral elf"] = {
 			action: [["bonus action", ""]],
 		},
 	},
-	trait: "Astral Elf (my creature type is humanoid, elf)" +
-	"\n \u2022 Starlight Step: A number of times per long rest equal to my proficiency bonus, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see." +
-	"\n \u2022 Astral Trance: I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours if I spend those hours in a trancelike meditation, during which I remain conscious. Whenever I finish this trance, I gain proficiency with one skill, and one weapon or tool of my choice. They last until I finish my next long rest.",
+	trait: [
+		"**Astral Elf** (my creature type is humanoid, elf)",
+		"##\u25C6 Starlight Step##. A number of times per long rest equal to my proficiency bonus, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see.",
+		"##\u25C6 Astral Trance##. I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours if I spend those hours in a trancelike meditation, during which I remain conscious. Whenever I finish this trance, I gain proficiency with one skill, and one weapon or tool of my choice. They last until I finish my next long rest.",
+	],
 };
 RaceList["autognome"] = {
 	regExpSearch: /autognome/i,
@@ -167,19 +169,20 @@ RaceList["autognome"] = {
 		immune: ["disease"],
 	},
 	toolProfs: [["Tool of my choice", 2]],
-	trait: typePF ?
-		"Autognome (my creature type is Construct)" +
-		"\n \u2022 Armored Casing: My base AC is 13 + my Dexterity modifier." +
-		"\n \u2022 Built for Success: For my Prof B per long rest, I can add +1d4 to an attack, check, or save, after I see the roll, but before the effect." +
-		"\n \u2022 Mechanical Nature: I don't need to eat, drink or breathe." +
-		"\n \u2022 Sentry's Rest: I only need 6 hours to finish a long rest if I stay in an inactive and motionless state during which I'm conscious." +
-		"\n \u2022 Healing Machine: Cure Wounds, Healing Word, and Spare the Dying work on me. If Mending is cast on me, I can expend one HD like during a short rest to regain hit points."
-		:
-		"Autognome (my creature type is Construct; I don't need to eat, drink or breathe)" +
-		"\n \u2022 Armored Casing: While I'm not wearing armor, my AC is 13 + my Dexterity modifier." +
-		"\n \u2022 Built for Success: For my Prof B per long rest, I can add +1d4 to an attack, check, or save. I can do this after seeing the d20 roll, but before knowing the roll's effects." +
-		"\n \u2022 Sentry's Rest: I only need 6 hours to finish a long rest if I stay inactive and motionless." +
-		"\n \u2022 Healing Machine: Cure Wounds, Healing Word, and Spare the Dying work on me. If Mending is cast on me, I can expend one HD like during a short rest to regain hit points.",
+	trait: typePF ? [
+		"**Autognome** (my creature type is Construct)",
+		"##\u25C6 Armored Casing##. My base AC is 13 + my Dexterity modifier.",
+		"##\u25C6 Built for Success##. For my Prof B per long rest, I can add +1d4 to an attack, check, or save, after I see the roll, but before the effect.",
+		"##\u25C6 Mechanical Nature##. I don't need to eat, drink or breathe.",
+		"##\u25C6 Sentry's Rest##. I only need 6 hours to finish a long rest if I stay in an inactive and motionless state during which I'm conscious.",
+		"##\u25C6 Healing Machine##. *Cure Wounds*, *Healing Word*, and *Spare the Dying* work on me. If *Mending* is cast on me, I can expend one HD like during a short rest to regain hit points.",
+	] : [
+		"**Autognome** (my creature type is Construct; I don't need to eat, drink or breathe)",
+		"##\u25C6 Armored Casing##. While I'm not wearing armor, my AC is 13 + my Dexterity modifier.",
+		"##\u25C6 Built for Success##. For my Prof B per long rest, I can add +1d4 to an attack, check, or save. I can do this after seeing the d20 roll, but before knowing the roll's effects.",
+		"##\u25C6 Sentry's Rest##. I only need 6 hours to finish a long rest if I stay inactive and motionless.",
+		"##\u25C6 Healing Machine##. *Cure Wounds*, *Healing Word*, and *Spare the Dying* work on me. If *Mending* is cast on me, I can expend one HD like during a short rest to regain hit points.",
+	],
 };
 RaceList["giff"] = {
 	regExpSearch: /giff|hippofolk/i,
@@ -217,10 +220,12 @@ RaceList["giff"] = {
 			"I ignore the loading quality of firearms and attacking at long range with a firearm doesn't impose disadvantage on my attack roll.",
 		],
 	},
-	trait: "Giff" +
-	"\n \u2022 Astral Spark: My proficiency bonus times per long rest, when I hit a target with a simple or martial weapon, I can once per turn deal extra force damage equal to my prof" + (typePF ? "iciency" : ".") + " bonus." +
-	"\n \u2022 Firearms Mastery: I am proficient with firearms, ignore their loading property, and they don't impose disadvantage at long range." +
-	"\n \u2022 Hippo Build: I have advantage on Strength saves and checks. In addition, I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.",
+	trait: [
+		"**Giff**",
+		"##\u25C6 Astral Spark##. My proficiency bonus times per long rest, when I hit a target with a simple or martial weapon, I can once per turn deal extra force damage equal to my prof" + (typePF ? "iciency" : ".") + " bonus.",
+		"##\u25C6 Firearms Mastery##. I am proficient with firearms, ignore their loading property, and they don't impose disadvantage at long range.",
+		"##\u25C6 Hippo Build##. I have advantage on Strength saves and checks. In addition, I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.",
+	],
 };
 RaceList["hadozee"] = {
 	regExpSearch: /hadozee/i,
@@ -248,10 +253,12 @@ RaceList["hadozee"] = {
 			action: [["reaction", ""]],
 		},
 	},
-	trait: "Hadozee" +
-	"\n \u2022 Dexterous Feet: As a bonus action, I can manipulate an object, open or close a door or container, or pick up or set down a Tiny object." +
-	"\n \u2022 Glide: As a reaction when I fall at least 10 ft above the ground, I can extend my skin membranes to glide my walking speed horizontally, and take 0 damage from the fall." +
-	"\n \u2022 Hadozee Dodge: A number of times equal to my proficiency bonus per long rest, as a reaction when I take damage, I can reduce the damage by 1d6 + my proficiency bonus.",
+	trait: [
+		"**Hadozee**",
+		"##\u25C6 Dexterous Feet##. As a bonus action, I can manipulate an object, open or close a door or container, or pick up or set down a Tiny object.",
+		"##\u25C6 Glide##. As a reaction when I fall at least 10 ft above the ground, I can extend my skin membranes to glide my walking speed horizontally, and take 0 damage from the fall.",
+		"##\u25C6 Hadozee Dodge##. A number of times equal to my proficiency bonus per long rest, as a reaction when I take damage, I can reduce the damage by 1d6 + my proficiency bonus.",
+	],
 };
 RaceList["plasmoid"] = {
 	regExpSearch: /plasmoid/i,
@@ -274,10 +281,11 @@ RaceList["plasmoid"] = {
 		["action", "Reshape Body"],
 		["bonus action", "Extrude/Reabsorb Pseudopod"],
 	],
-	trait: "Plasmoid (my creature type is Ooze)" +
-	(typePF ? "\n" : "") + " \u2022 Hold Breath: I can hold my breath for 1 hour." +
-	"\n \u2022 Amorphous: I can squeeze through a 1-inch wide space without my equipment or clothes. " + (typePF ? "I have advantage on grapple checks." : "I also have advantage on ability checks I make to initiate or escape a grapple.") +
-	"\n \u2022 Shape Self: As an action, I can reshape my body to have a head and limbs, or back to a limbless blob. As a bonus action, I can extrude/reabsorb a pseudopod up to 6 inch wide and 10 ft long. As part of the bonus action, it can manipulate objects, open/close doors, or pick up/set down a Tiny object. It can carry up to 10 lb, but not attack or use magic items.",
+	trait: [
+		"**Plasmoid** (my creature type is Ooze)" + (typePF ? "\r" : " ") + "##\u25C6 Hold Breath##. I can hold my breath for 1 hour.",
+		"##\u25C6 Amorphous##. I can squeeze through a 1-inch wide space without my equipment or clothes. " + (typePF ? "I have advantage on grapple checks." : "I also have advantage on ability checks I make to initiate or escape a grapple."),
+		"##\u25C6 Shape Self##. As an action, I can reshape my body to have a head and limbs, or back to a limbless blob. As a bonus action, I can extrude/reabsorb a pseudopod up to 6 inch wide and 10 ft long. As part of the bonus action, it can manipulate objects, open/close doors, or pick up/set down a Tiny object. It can carry up to 10 lb, but not attack or use magic items.",
+	],
 };
 RaceList["thri-kreen"] = {
 	regExpSearch: /thri.?kreen/i,
@@ -305,11 +313,13 @@ RaceList["thri-kreen"] = {
 		selectNow: true,
 	}],
 	action: [["action", "Chameleon Carapace"]],
-	trait: "Thri-kreen (my creature type is Monstrosity)" +
-	"\n \u2022 Chameleon Carapace: My base AC is 13 + Dex mod. As an action, " + (typePF ? "I can gain adv. on Stealth checks to hide in my current surroundings." : "I can have it match my current surroundings, granting me adv. on Stealth checks to hide in those surroundings.") +
-	"\n \u2022 Secondary Arms: " + (typePF ? "I have two slightly smaller arms below my primary pair of arms. I can use these secondary arms" : "Able") + " to manipulate objects, hold Tiny objects, or wield light weapons." +
-	"\n \u2022 Sleepless: I don't " + (typePF ? "" : "require ") + "sleep. I rest by refraining from strenuous activity." +
-	"\n \u2022 " + (typePF ? "Thri-kreen " : "") + "Telepathy: I can't speak, but can communicate telepathically to any willing creatures within 120 ft that understand at least one language. Any can break this (no action).",
+	trait: [
+		"**Thri-kreen** (my creature type is Monstrosity)",
+		"##\u25C6 Chameleon Carapace##. My base AC is 13 + Dex mod. As an action, " + (typePF ? "I can gain adv. on Stealth checks to hide in my current surroundings." : "I can have it match my current surroundings, granting me adv. on Stealth checks to hide in those surroundings."),
+		"##\u25C6 Secondary Arms##. " + (typePF ? "I have two slightly smaller arms below my primary pair of arms. I can use these secondary arms" : "Able") + " to manipulate objects, hold Tiny objects, or wield light weapons.",
+		"##\u25C6 Sleepless##. I don't " + (typePF ? "" : "require ") + "sleep. I rest by refraining from strenuous activity.",
+		"\u2022 " + (typePF ? "Thri-kreen " : "") + "Telepathy: I can't speak, but can communicate telepathically to any willing creatures within 120 ft that understand at least one language. Any can break this (no action).",
+	],
 };
 
 // Spells from Astral Adventurer's Guide
@@ -324,7 +334,10 @@ SpellsList["air bubble"] = {
 	components: "S",
 	duration: "24 h",
 	description: "Create spectral globe of fresh air around a head of 1+2/SL willing creatures, lasts for the duration",
-	descriptionFull: "You create a spectral globe around the head of a willing creature you can see within range. The globe is filled with fresh air that lasts until the spell ends. If the creature has more than one head, the globe of air appears around only one of its heads (which is all the creature needs to avoid suffocation, assuming that all its heads share the same respiratory system)." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you can create two additional globes of fresh air for each slot level above 2nd.",
+	descriptionFull: [
+		"You create a spectral globe around the head of a willing creature you can see within range. The globe is filled with fresh air that lasts until the spell ends. If the creature has more than one head, the globe of air appears around only one of its heads (which is all the creature needs to avoid suffocation, assuming that all its heads share the same respiratory system).",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 3rd level or higher, you can create two additional globes of fresh air for each slot level above 2nd.",
+	],
 };
 SpellsList["create spelljamming helm"] = {
 	name: "Create Spelljamming Helm",
@@ -339,7 +352,7 @@ SpellsList["create spelljamming helm"] = {
 	compMaterial: "A crystal rod worth at least 5,000 gp, which the spell consumes",
 	duration: "Instantaneous",
 	description: "One Large or smaller unoccupied chair I touch transforms into a spelljamming helm (5000gp cons.)",
-	descriptionFull: "Holding the rod used in the casting of the spell, you touch a Large or smaller chair that is unoccupied. The rod disappears, and the chair is transformed into a spelljamming helm.",
+	descriptionFull: "Holding the rod used in the casting of the spell, you touch a Large or smaller chair that is unoccupied. The rod disappears, and the chair is transformed into a *spelljamming helm*.",
 };
 
 // Magic Items from Astral Adventurer's Guide
@@ -364,12 +377,12 @@ MagicItemsList["spelljamming helm"] = {
 	description: "While attuned to  this ornate chair and sitting in it, I can propel and maneuver the ship on which it has been installed through space, air, or water up to the ship's speed. I need to maintain concentration as if concentrating on a spell to do so. The ship can move faster in space if nothing is nearby. See Notes page.",
 	descriptionFull: [
 		"The function of this ornate chair is to propel and maneuver a ship on which it has been installed through space and air. It can also propel and maneuver a ship on water or underwater, provided the ship is built for such travel. The ship in question must weigh 1 ton or more.",
-		"The sensation of being attuned to a spelljamming helm is akin to the pins-and-needles effect one experiences after one's arm or leg falls asleep, but not as painful.",
-		"While attuned to a spelljamming helm and sitting in it, you gain the following abilities for as long as you maintain concentration (as if concentrating on a spell):",
-		" \u2022 You can use the spelljamming helm to move the ship through space, air, or water up to the ship's speed. If the ship is in space and no other objects weighing 1 ton or more are within 1 mile of it, you can use the spelljamming helm to move the vessel fast enough to travel 100 million miles in 24 hours.",
+		"The sensation of being attuned to a *spelljamming helm* is akin to the pins-and-needles effect one experiences after one's arm or leg falls asleep, but not as painful.",
+		"While attuned to a *spelljamming helm* and sitting in it, you gain the following abilities for as long as you maintain concentration (as if concentrating on a spell):",
+		" \u2022 You can use the *spelljamming helm* to move the ship through space, air, or water up to the ship's speed. If the ship is in space and no other objects weighing 1 ton or more are within 1 mile of it, you can use the *spelljamming helm* to move the vessel fast enough to travel 100 million miles in 24 hours.",
 		" \u2022 You can steer the vessel, albeit in a somewhat clumsy fashion, in much the way that a rudder or oars can be used to maneuver a seafaring ship.",
 		" \u2022 At any time, you can see and hear what's happening on and around the vessel as though you were standing in a location of your choice aboard it.",
-		"***Transfer Attunement***. You can use an action to touch a willing spellcaster. That creature attunes to the spelljamming helm immediately, and your attunement to it ends.",
+		"***Transfer Attunement***. You can use an action to touch a willing spellcaster. That creature attunes to the *spelljamming helm* immediately, and your attunement to it ends.",
 	],
 	action: [["action", " (Transfer Attunement)"]],
 	toNotesPage: [{

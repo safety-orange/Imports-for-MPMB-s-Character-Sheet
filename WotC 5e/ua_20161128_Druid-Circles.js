@@ -1,5 +1,5 @@
 var iFileName = "ua_20161128_Druid-Circles.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Druid Circles article to MPMB's Character Record Sheet
 
 // Define the source
@@ -62,9 +62,9 @@ AddSubClass("druid", "circle of dreams-ua", {
 			source: [["UA:DC", 1]],
 			minlevel: 14,
 			description: desc([
-				"When I use a spell slot with a spell to restores HP, I can use Dispel Magic on the target",
-				"The Dispel Magic counts as if being cast with the same spell slot as the healing spell",
-				"Each creature effected by the Dispel Magic costs as one use of this feature",
+				"When I use a spell slot with a spell to restores HP, I can use *Dispel Magic* on the target",
+				"The *Dispel Magic* counts as if being cast with the same spell slot as the healing spell",
+				"Each creature effected by the *Dispel Magic* costs as one use of this feature",
 			]),
 			usages: 3,
 			recovery: "long rest",
@@ -130,7 +130,7 @@ AddSubClass("druid", "circle of the shepherd-ua", {
 			name: "Guardian Spirit",
 			source: [["UA:DC", 2]],
 			minlevel: 10,
-			description: desc("Whenever I finish a long rest, I gain the benefits of a Death Ward spell for 24 hours"),
+			description: desc("Whenever I finish a long rest, I gain the benefits of a *Death Ward* spell for 24 hours"),
 			spellcastingBonus: [{
 				name: "Guardian Spirit",
 				spells: ["death ward"],
@@ -144,7 +144,7 @@ AddSubClass("druid", "circle of the shepherd-ua", {
 					compMaterial: "",
 					description: "Once, when I drops to 0 HP I drops to 1 HP instead; or negates first instantaneous kill effect",
 					duration: "24 h",
-					changes: "Whenever I finish a long rest, I gain the benefits of a Death Ward spell for 24 hours.",
+					changes: "Whenever I finish a long rest, I gain the benefits of a *Death Ward* spell for 24 hours.",
 				},
 			},
 		},
@@ -154,7 +154,7 @@ AddSubClass("druid", "circle of the shepherd-ua", {
 			minlevel: 14,
 			description: desc([
 				"When I am reduced to 0 HP or incapacitated against my will, I can summon protectors",
-				"I gain the benefits of a Conjure Animals spell as if cast with a 9th-level spell slot",
+				"I gain the benefits of a *Conjure Animals* spell as if cast with a 9th-level spell slot",
 				"It summons 4 beast of my choice with CR 2 or lower within 20 ft of me for 1 hour",
 				"If they receive no commands from me, they protect me from harm and attack foes",
 			]),
@@ -188,7 +188,7 @@ AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 			source: [["UA:DC", 3]],
 			minlevel: 6,
 			description: desc([
-				"Once per short rest, I can cast Speak with Dead without spell slots or material comp.",
+				"Once per short rest, I can cast *Speak with Dead* without spell slots or material comp.",
 				"The target and I can understand each other, regardless of language or intelligence",
 			]),
 			usages: 1,
@@ -221,7 +221,7 @@ AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 			name: "Paths of the Dead",
 			source: [["UA:DC", 3]],
 			minlevel: 14,
-			description: desc("Once per short rest, I can cast Etherealness without needing a spell slot"),
+			description: desc("Once per short rest, I can cast *Etherealness* without needing a spell slot"),
 			usages: 1,
 			recovery: "short rest",
 			spellcastingBonus: [{
@@ -233,7 +233,7 @@ AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 			spellChanges: {
 				"etherealness": {
 					description: "I go to Ethereal Plane; move there, but able to perceive 60 ft into the normal plane",
-					changes: "Using my Paths of the Dead class feature I can cast Etherealness once per short rest without needing a spell slot, thus can only target 1 creature.",
+					changes: "Using my Paths of the Dead class feature I can cast *Etherealness* once per short rest without needing a spell slot, thus can only target 1 creature.",
 				},
 			},
 		},

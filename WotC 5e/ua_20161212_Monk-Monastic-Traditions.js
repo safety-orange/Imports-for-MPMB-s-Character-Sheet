@@ -1,5 +1,5 @@
 var iFileName = "ua_20161212_Monk-Monastic-Traditions.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Monk Monastic Traditions article to MPMB's Character Record Sheet
 
 // Define the source
@@ -131,7 +131,7 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 			name: "Path of Tranquility",
 			source: [["UA:MMT", 2]],
 			minlevel: 3,
-			description: desc("I cast Sanctuary on me, no material comp., lasts 8 hours, hostiles must save every hour"),
+			description: desc("I cast *Sanctuary* on me, no material comp., lasts 8 hours, hostiles must save every hour"),
 			usages: 1,
 			recovery: "1 min",
 			spellcastingBonus: [{
@@ -145,7 +145,7 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 					compMaterial: "",
 					time: "8 h",
 					description: "I'm warded; any who want to attack/target must first make save; doesn't protect vs. area spells",
-					changes: "Using my Path of Tranquility class feature I can cast Sanctuary without requiring material components and lasting for 8 hours, but it only affects myself and hostiles can attempt a new save every hour.",
+					changes: "Using my Path of Tranquility class feature I can cast *Sanctuary* without requiring material components and lasting for 8 hours, but it only affects myself and hostiles can attempt a new save every hour.",
 				},
 			},
 		},

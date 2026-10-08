@@ -1,5 +1,5 @@
 var iFileName = "pub_20180723_WGtE.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.1.3");
 // This file adds the content from Wayfinder's Guide to Eberron to MPMB's Character Record Sheet
 // Be aware that this script is for the version from 9th of October 2018, not the original version,
 // nor the updated version of November 2019 that uses the identical rules to Eberron: Rising from the Last War.
@@ -34,7 +34,12 @@ if (!SourceList["UA:RoE"]) {
 		weightMetric: " weigh around 65 kg (52 + 5d4 \xD7 4d4 / 10 kg)",
 		scorestxt: "+2 Charisma, and +1 Dexterity or +1 Intelligence",
 		scores: [0, 0, 0, 0, 0, 2],
-		trait: "Changeling (+2 Charisma, and +1 Dexterity or +1 Intelligence)\nChange Appearance: As an action, I can polymorph to or from a humanoid form of my size I have seen, not changing my equipment. I revert back if I die and have adv. on Deception.\nUnsettling Visage: As a reaction once per short rest when I'm attacked by a seen attacker, I can impose disadv. Doing this reveals my shapeshifting nature to all within 30 ft.\nDivergent Persona: I have proficiency with one tool, and an alternate persona. While in the alternate form, my proficiency bonus with that tool is doubled.",
+		trait: [
+			"**Changeling** (+2 Charisma, and +1 Dexterity or +1 Intelligence)",
+			"##Change Appearance##. As an action, I can polymorph to or from a humanoid form of my size I have seen, not changing my equipment. I revert back if I die and have adv. on Deception.",
+			"##Unsettling Visage##. As a reaction once per short rest when I'm attacked by a seen attacker, I can impose disadv. Doing this reveals my shapeshifting nature to all within 30 ft.",
+			"##Divergent Persona##. I have proficiency with one tool, and an alternate persona. While in the alternate form, my proficiency bonus with that tool is doubled.",
+		],
 		action: [["action", "Change Appearance"]],
 		features: {
 			"unsettling visage": {
@@ -68,7 +73,13 @@ if (!SourceList["UA:RoE"]) {
 		weightMetric: " weigh around 65 kg (50 + 5d6 \xD7 2d6 / 10 kg)",
 		scorestxt: "+1 Wisdom, +1 Charisma, and +1 to one other ability score of my choice",
 		scores: [0, 0, 0, 0, 1, 1],
-		trait: "Kalashtar (+1 Wisdom, +1 Charisma, and +1 to one other" + (typePF ? "" : " ability score of my choice") + ")\nDual Mind: As a reaction after I roll a Wis" + (typePF ? " save, I can gain adv." : "dom saving throw, I can gain advantage") + " on it.\nMind Link: I can speak telepathically to any creature I can see within 60 ft, as long as it can speak at least one language. As a bonus action, I can give that creature the ability to speak telepathically back to me until the start of my next turn.\nPsychic Glamour: I have adv. on Insight, Intimidation, Performance, or Persuasion checks.\nSevered from Dreams: I don't dream and thus immune to spells that affect dreams.",
+		trait: [
+			"**Kalashtar** (+1 Wisdom, +1 Charisma, and +1 to one other" + (typePF ? "" : " ability score of my choice") + ")",
+			"##Dual Mind##. As a reaction after I roll a Wis" + (typePF ? " save, I can gain adv." : "dom saving throw, I can gain advantage") + " on it.",
+			"##Mind Link##. I can speak telepathically to any creature I can see within 60 ft, as long as it can speak at least one language. As a bonus action, I can give that creature the ability to speak telepathically back to me until the start of my next turn.",
+			"##Psychic Glamour##. I have adv. on Insight, Intimidation, Performance, or Persuasion checks.",
+			"##Severed from Dreams##. I don't dream and thus immune to spells that affect dreams.",
+		],
 		action: [["bonus action", "Mind Link"], ["reaction", "Dual Mind"]],
 	};
 
@@ -92,7 +103,13 @@ if (!SourceList["UA:RoE"]) {
 		heightMetric: " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 		weightMetric: " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 		scores: [0, 1, 2, 0, 0, 0],
-		trait: "Beasthide Shifter: (+1 Dexterity, +2 Constitution)\n\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to 1d6 + my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I have a +1 bonus to AC",
+		trait: [
+			"**Beasthide Shifter** (+1 Dexterity, +2 Constitution)",
+			"##\u25C6 Shifting##. As a bonus action once per short rest, I can assume a more bestial appearance.",
+			"This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.",
+			"When I shift, I gain temporary HP equal to 1d6 + my level + my Constitution modifier (minimum 1 temporary hit point).",
+			"While transformed like this, I have a +1 bonus to AC",
+		],
 		features: {
 			"shift": {
 				name: "Shift",
@@ -131,7 +148,13 @@ if (!SourceList["UA:RoE"]) {
 		heightMetric: " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 		weightMetric: " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 		scores: [2, 1, 0, 0, 0, 0],
-		trait: "Longtooth Shifter: (+2 Strength, +1 Dexterity)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I use my elongated fangs to make unarmed strikes, dealing 1d6 piercing damage. As a bonus action, I can maken one attack with my fangs.",
+		trait: [
+			"**Longtooth Shifter** (+2 Strength, +1 Dexterity)",
+			"##\u25C6 Shifting##. As a bonus action once per short rest, I can assume a more bestial appearance.",
+			"This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.",
+			"When I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).",
+			"While transformed like this, I use my elongated fangs to make unarmed strikes, dealing 1d6 piercing damage. As a bonus action, I can maken one attack with my fangs.",
+		],
 		action: ["bonus action", "Attack with Longtooth Fangs"],
 		features: {
 			"shift": {
@@ -162,7 +185,14 @@ if (!SourceList["UA:RoE"]) {
 		heightMetric: " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 		weightMetric: " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 		scores: [0, 2, 0, 0, 0, 1],
-		trait: "Swiftstride Shifter: (+2 Dexterity, +1 Charisma)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").\nWhile transformed like this, my walking speed increases with 5 ft.\nAs a reaction when an enemy ends its turn within 5 ft of me while I'm shifted, I can move 10 ft without provoking opportunity attacks.",
+		trait: [
+			"**Swiftstride Shifter** (+2 Dexterity, +1 Charisma)",
+			"##\u25C6 Shifting##. As a bonus action once per short rest, I can assume a more bestial appearance.",
+			"This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.",
+			"When I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").",
+			"While transformed like this, my walking speed increases with 5 ft.",
+			"As a reaction when an enemy ends its turn within 5 ft of me while I'm shifted, I can move 10 ft without provoking opportunity attacks.",
+		],
 		action: ["reaction", "Stride (while shifted)"],
 		features: {
 			"shift": {
@@ -193,7 +223,12 @@ if (!SourceList["UA:RoE"]) {
 		heightMetric: " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 		weightMetric: " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 		scores: [0, 1, 0, 0, 2, 0],
-		trait: "Wildhunt Shifter: (+1 Dexterity, +2 Wisdom)\nShifting: As a bonus action once per short rest, I can transform and get adv. on Wis checks." + (typePF ? " " : "\n") + "This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").\nMark the Scent: As a bonus action once per short rest, I can mark a creature that I can see within 10 ft. Until the end of my next long rest, my proficiency bonus is doubled for checks to find this target, and I always know its location if it is within 60 ft of me.",
+		trait: [
+			"**Wildhunt Shifter** (+1 Dexterity, +2 Wisdom)",
+			"##Shifting##. As a bonus action once per short rest, I can transform and get adv. on Wis checks. This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.",
+			"When I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").",
+			"##Mark the Scent##. As a bonus action once per short rest, I can mark a creature that I can see within 10 ft. Until the end of my next long rest, my proficiency bonus is doubled for checks to find this target, and I always know its location if it is within 60 ft of me.",
+		],
 		features: {
 			"shift": {
 				name: "Shift",
@@ -239,7 +274,13 @@ if (!SourceList["UA:RoE"]) {
 		weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 		scorestxt: "+1 Constitution and +1 to two other ability scores of my choice",
 		scores: [0, 0, 1, 0, 0, 0],
-		trait: "Envoy Warforged (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nIntegrated Tool: I have expertise with one tool and it is integrated into my body.",
+		trait: [
+			"**Envoy Warforged** (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")",
+			"##Warforged Resilience##. I do not need to sleep, eat, drink, or breathe.",
+			"##Sentry's Rest##. To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.",
+			"##Integrated Protection##. My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.",
+			"##Integrated Tool##. I have expertise with one tool and it is integrated into my body.",
+		],
 		eval: function () {
 			var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
 			if (tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0)) {
@@ -313,7 +354,13 @@ if (!SourceList["UA:RoE"]) {
 		heightMetric: " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
 		weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 		scores: [2, 0, 1, 0, 0, 0],
-		trait: "Juggernaut Warforged (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4.") + "\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nPowerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
+		trait: [
+			"**Juggernaut Warforged** (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4."),
+			"##Warforged Resilience##. I do not need to sleep, eat, drink, or breathe.",
+			"##Sentry's Rest##. To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.",
+			"##Integrated Protection##. My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.",
+			"##Powerful Build##. I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
+		],
 		carryingCapacity: 2,
 		eval: function () {
 			var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
@@ -380,7 +427,13 @@ if (!SourceList["UA:RoE"]) {
 		heightMetric: " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
 		weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 		scores: [0, 2, 1, 0, 0, 0],
-		trait: "Skirmisher Warforged (+2 Dexterity, +1 Constitution)\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nLight Step: If I travel alone for an hour or more, I can move stealthily at a normal pace.",
+		trait: [
+			"**Skirmisher Warforged** (+2 Dexterity, +1 Constitution)",
+			"##Warforged Resilience##. I do not need to sleep, eat, drink, or breathe.",
+			"##Sentry's Rest##. To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.",
+			"##Integrated Protection##. My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.",
+			"##Light Step##. If I travel alone for an hour or more, I can move stealthily at a normal pace.",
+		],
 		eval: function () {
 			var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
 			if (tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0)) {
@@ -434,7 +487,7 @@ if (RaceList["wood elf"]) {
 		plural: "Aereni wood elves",
 		weaponProfs: "",
 		skillstxt: "Proficiency and expertise with any one skill or tool",
-		trait: "Aereni " + RaceList["wood elf"].trait,
+		trait: [].concat(RaceList["wood elf"].trait).map(function (sTrait, i) { return i ? sTrait : sTrait.replace(/^(\*\*)?/, "$1Aereni "); }),
 	});
 	AddRacialVariant("wood elf", "valenar", {
 		regExpSearch: /valenar/i,
@@ -442,7 +495,7 @@ if (RaceList["wood elf"]) {
 		source: [["WGtE", 73]],
 		plural: "Valenar wood elves",
 		weaponProfs: [false, false, ["scimitar", "double-bladed scimitar", "longbow", "shortbow"]],
-		trait: "Valenar " + RaceList["wood elf"].trait,
+		trait: [].concat(RaceList["wood elf"].trait).map(function (sTrait, i) { return i ? sTrait : sTrait.replace(/^(\*\*)?/, "$1Valenar "); }),
 	});
 }
 AddRacialVariant("high elf", "aereni", {
@@ -452,7 +505,7 @@ AddRacialVariant("high elf", "aereni", {
 	plural: "Aereni high elves",
 	weaponProfs: "",
 	skillstxt: "Proficiency and expertise with any one skill or tool",
-	trait: "Aereni " + RaceList["high elf"].trait,
+	trait: [].concat(RaceList["high elf"].trait).map(function (sTrait, i) { return i ? sTrait : sTrait.replace(/^(\*\*)?/, "$1Aereni "); }),
 });
 AddRacialVariant("high elf", "valenar", {
 	regExpSearch: /valenar/i,
@@ -460,7 +513,7 @@ AddRacialVariant("high elf", "valenar", {
 	source: [["WGtE", 73]],
 	plural: "Valenar high elves",
 	weaponProfs: [false, false, ["scimitar", "double-bladed scimitar", "longbow", "shortbow"]],
-	trait: "Valenar " + RaceList["high elf"].trait,
+	trait: [].concat(RaceList["high elf"].trait).map(function (sTrait, i) { return i ? sTrait : sTrait.replace(/^(\*\*)?/, "$1Valenar "); }),
 });
 
 // Double bladed scimitar
@@ -487,7 +540,12 @@ FeatsList["revenant blade-wgte"] = {
 	source: [["WGtE", 74]],
 	prerequisite: "Being an Elf",
 	prereqeval: function (v) { return /^(?!.*half)(?=.*(elf|eladrin|avariel|grugach|shadar-kai)).*$/i.test(CurrentRace.known); },
-	descriptionFull: "You are descended from a master of the double blade and their skills have passed on to you. You gain the following benefits:\n \u2022 Increase your Dexterity or Strength score by 1, to a maximum of 20.\n \u2022 While wielding a double-bladed weapon with two hands, the weapon has the finesse trait for your attacks with it, and you gain +1 AC.\n \u2022 On your turn, when you use a bonus action to make a melee attack with the blade at the opposite end of the weapon, the weapon's damage die for this attack increases to 2d4, instead of 1d4.",
+	descriptionFull: [
+		"You are descended from a master of the double blade and their skills have passed on to you. You gain the following benefits:",
+		" \u2022 Increase your Dexterity or Strength score by 1, to a maximum of 20.",
+		" \u2022 While wielding a double-bladed weapon with two hands, the weapon has the finesse trait for your attacks with it, and you gain +1 AC.",
+		" \u2022 On your turn, when you use a bonus action to make a melee attack with the blade at the opposite end of the weapon, the weapon's damage die for this attack increases to 2d4, instead of 1d4.",
+	],
 	description: "As a bonus action with the Attack action, I can make an extra with a double-bladed weapon for 2d4 slashing damage. I treat double-bladed weapons as having the finesse trait. +1 AC while wielding a double-bladed weapon with two hands. [+1 Strength or Dexterity]",
 	scorestxt: "+1 Strength or Dexterity",
 	action: [["bonus action", " (with Attack action)"]],
@@ -732,7 +790,12 @@ RaceList["dragonmark passage human-wgte"] = { // different than UA: Dragonmarks
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scorestxt: "+2 Dexterity and +1 to another ability score of my choice",
 	scores: [0, 2, 0, 0, 0, 0],
-	trait: "Human, Dragonmark of Passage (+2 Dexterity and +1 to another ability score)\n   Intuitive Motion: I can add my Intuition Die (1d4) to my Strength (Athletics) checks and any ability checks involving operating or maintaining a land vehicle.\n   Determined Stride: When I use the Dash action, difficult terrain doesn't cost me extra movement for that turn.\n   Shared Passage: As a bonus action once per long rest, I can teleport myself and a willing ally within 5 ft a distance up to my walking speed to an unoccupied space I can see.",
+	trait: [
+		"**Human, Dragonmark of Passage** (+2 Dexterity and +1 to another ability score)",
+		"##\u25C6 Intuitive Motion##. I can add my Intuition Die (1d4) to my Strength (Athletics) checks and any ability checks involving operating or maintaining a land vehicle.",
+		"##\u25C6 Determined Stride##. When I use the Dash action, difficult terrain doesn't cost me extra movement for that turn.",
+		"##\u25C6 Shared Passage##. As a bonus action once per long rest, I can teleport myself and a willing ally within 5 ft a distance up to my walking speed to an unoccupied space I can see.",
+	],
 	features: {
 		"shared passage": {
 			name: "Shared Passage",
@@ -767,7 +830,11 @@ if (!SourceList["UA:D"]) {
 		weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 		scorestxt: "+1 Intelligence, +1 Charisma, and +1 to any one ability score of my choice",
 		scores: [0, 0, 0, 1, 0, 1],
-		trait: "Half-Elf, Dragonmark of Detection (+1 Intelligence, +1 Charisma, and +1 to any one ability score of my choice)\n" + (typePF ? "\n" : "   ") + "Deductive Intuition: I can add my Intuition Die (1d4) to my Intelligence (Investigation) and Wisdom (Insight) checks.\n" + (typePF ? "\n" : "   ") + "Sense Threats: I can cast Detect Magic and Detect Poison and Disease as rituals using Intelligence as my spellcasting ability.",
+		trait: [
+			"**Half-Elf, Dragonmark of Detection** (+1 Intelligence, +1 Charisma, and +1 to any one ability score of my choice)",
+			"##\u25C6 Deductive Intuition##. I can add my Intuition Die (1d4) to my Intelligence (Investigation) and Wisdom (Insight) checks.",
+			"##\u25C6 Sense Threats##. I can cast *Detect Magic* and *Detect Poison and Disease* as rituals using Intelligence as my spellcasting ability.",
+		],
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
 			name: "Sense Threats",
@@ -806,7 +873,12 @@ if (!SourceList["UA:D"]) {
 		weightMetric: " weigh around 100 kg (65 + 5d10 \xD7 4d6 / 10 kg)",
 		scorestxt: "+1 Strength, +1 Wisdom, and +1 to any one ability score of my choice",
 		scores: [1, 0, 0, 0, 1, 0],
-		trait: "Half-Orc, Dragonmark of Finding (+1 Str" + (typePF ? ", +1 Wis, +1 to one ability" : "ength, +1 Wisdom, +1 to any one ability score") + ")\n   Hunter's Intuition: I add my Intuition Die (1d4) to my Perception and Survival checks.\n   Imprint Prey: As a bonus action once per short rest, I imprint a target I can see in 30 ft or with a Survival check when tracking it, lasting until it dies or I use this again. I double my Intuition Die for tracking it, sense its general location in 60 ft, my attacks vs. it ignore half cover and don't have disadv. if I can't see it, and it has no adv. vs. me if I can't see it.\n" + (typePF ? "Nature's Voice: cast Locate Animals/Plants as a ritual from 3rd level." : "   Nature's Voice: Once I reach 3rd level, I can cast Locate Animals or Plants as a ritual."),
+		trait: [
+			"**Half-Orc, Dragonmark of Finding** (+1 Str" + (typePF ? ", +1 Wis, +1 to an ability" : "ength, +1 Wisdom, +1 to any one ability score") + ")",
+			"##Hunter's Intuition##. I add my Intuition Die (1d4) to my Perception and Survival checks.",
+			"##Imprint Prey##. As a bonus action once per short rest, I imprint a target I can see in 30 ft or with a Survival check when tracking it, lasting until it dies or I use this again. I double my Intuition Die for tracking it, sense its general location in 60 ft, my attacks vs. it ignore half cover and don't have disadv. if I can't see it, and it has no adv. vs. me if I can't see it.",
+			(typePF ? "##Nature's Voice##. cast *Locate Animals/Plants* as a ritual from 3rd level." : "##Nature's Voice##. Once I reach 3rd level, I can cast *Locate Animals or Plants* as a ritual."),
+		],
 		features: {
 			"imprint prey": {
 				name: "Imprint Prey",
@@ -851,7 +923,13 @@ if (!SourceList["UA:D"]) {
 		weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 		scorestxt: "+1 Dexterity, +1 Wisdom, and +1 to any one ability score of my choice",
 		scores: [0, 1, 0, 0, 1, 0],
-		trait: "Human, Dragonmark of Handling (+1 Dex" + (typePF ? ", +1 Wis, +1 to one ability" : "terity, +1 Wisdom, +1 to any one ability score") + ")\n   Wild Intuition: I can add my Intuition Die (1d4) to my Wisdom (Animal Handling) and Intelligence (Nature) checks.\n   Expert Handling: I can use the Help action to aid an ally animal companion or mount even when they are within 30 ft of me, rather than just within 5 ft.\n   Primal Connection: Once per short rest, I can cast Animal Friendship using Wisdom " + (typePF ? "as my spellcasting ability" : "") + ".\n   " + (typePF ? "The Bigger They Are: My spells that normally affect only beasts now also affect monstrosities with an Intelligence of 3 or lower." : "Bigger They Are: My spells that affect only beasts, also affect monstrosities with Int < 4."),
+		trait: [
+			"**Human, Dragonmark of Handling** (+1 Dex" + (typePF ? ", +1 Wis, +1 to any" : "terity, +1 Wisdom, +1 to any one ability score") + ")",
+			"##Wild Intuition##. I can add my Intuition Die (1d4) to my Wisdom (Animal Handling) and Intelligence (Nature) checks.",
+			"##Expert Handling##. I can use the Help action to aid an ally animal companion or mount even when they are within 30 ft of me, rather than just within 5 ft.",
+			"##Primal Connection##. Once per short rest, I can cast *Animal Friendship* using Wisdom " + (typePF ? "as my spellcasting ability" : "") + ".",
+			(typePF ? "##The Bigger They Are##. My spells that normally affect only beasts now also affect monstrosities with an Intelligence of 3 or lower." : "##Bigger They Are##. My spells that affect only beasts, also affect monstrosities with Int < 4."),
+		],
 		spellcastingAbility: 5,
 		features: {
 			"animal friendship": {
@@ -911,13 +989,13 @@ if (!SourceList["UA:D"]) {
 		heightMetric: " average about 90 cm tall (80 + 5d4)",
 		weightMetric: " weigh around 18 kg (16 + 5d4 / 10 kg)",
 		scores: [0, 2, 0, 0, 1, 0],
-		trait: "Halfling, Dragonmark of Healing (+2 Dexterity, +1 Wisdom)" + (typePF ? "\n  " : "") +
-			" Lucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll." + desc([
-			"Halfling Nimbleness: I can move through the space of Medium and larger creatures.",
-			"Medical Intuition: I " + (typePF ? "" : "can") + " add my Intuition Die (1d4) to " + (typePF ? "Medicine" : "my Wisdom (Medicine)") + " checks.",
-			"Healing Touch: As an action once per short rest, I can spend one of my Hit Dice to heal myself or a creature I touch. I heal the roll of the die plus my Wisdom modifier.",
-			"Jorasco's Blessing: I know the Spare the Dying cantrip.",
-		]),
+		trait: [
+			"**Halfling, Dragonmark of Healing** (+2 Dexterity, +1 Wisdom)" + (typePF ? "\r" : " ") + "##Lucky##. When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.",
+			"##Halfling Nimbleness##. I can move through the space of Medium and larger creatures.",
+			"##Medical Intuition##. I " + (typePF ? "" : "can") + " add my Intuition Die (1d4) to " + (typePF ? "Medicine" : "my Wisdom (Medicine)") + " checks.",
+			"##Healing Touch##. As an action once per short rest, I can spend one of my Hit Dice to heal myself or a creature I touch. I heal the roll of the die plus my Wisdom modifier.",
+			"##Jorasco's Blessing##. I know the *Spare the Dying* cantrip.",
+		],
 		features: {
 			"healing touch": {
 				name: "Healing Touch",
@@ -953,7 +1031,13 @@ if (!SourceList["UA:D"]) {
 		heightMetric: " average about 90 cm tall (80 + 5d4)",
 		weightMetric: " weigh around 18 kg (16 + 5d4 / 10 kg)",
 		scores: [0, 2, 0, 0, 0, 1],
-		trait: "Halfling, Dragonmark of Hospitality (+2 Dexterity, +1 Charisma)\nLucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.\nHalfling Nimbleness: I can move through the space of Medium and larger creatures.\nEver Hospitable: I can add my Intuition Die (1d4) to my Charisma (Persuasion) checks and ability checks involving brewer's supplies or cook's utensils.\nInnkeeper's Charms: I know Friends and Prestidigitation with Cha as my spellcasting ability.",
+		trait: [
+			"**Halfling, Dragonmark of Hospitality** (+2 Dexterity, +1 Charisma)",
+			"##Lucky##. When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.",
+			"##Halfling Nimbleness##. I can move through the space of Medium and larger creatures.",
+			"##Ever Hospitable##. I can add my Intuition Die (1d4) to my Charisma (Persuasion) checks and ability checks involving brewer's supplies or cook's utensils.",
+			"##Innkeeper's Charms##. I know *Friends* and *Prestidigitation* with Cha as my spellcasting ability.",
+		],
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
 			name: "Innkeeper's Charms",
@@ -982,7 +1066,12 @@ if (!SourceList["UA:D"]) {
 		weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 		scorestxt: "+1 Dexterity, +1 Intelligence, and another +1 to either Dexterity or Intelligence",
 		scores: [0, 1, 0, 1, 0, 0],
-		trait: "Human, Dragonmark of Making (+1 Dex" + (typePF ? ", +2 Int or +2 Dex, +1 Int" : "terity, +1 Intelligence, +1 to Dex or Int, my choice") + ")\nArtisan's Intuition: I can add my Intuition Die (1d4) to ability checks with artisan's tools.\nMagecraft: I can create a magic item that gives me the ability to cast one wizard cantrip of my choice, using Intelligence as my spellcasting ability. This works while the item is in my possession. At the end of a long rest, I can replace it with a new item and cantrip.\nSpellsmith: Once per long rest, I can spend 1 minute to make a nonmagical armor or weapon gain a +1 bonus for the next hour. Maker's Gift: I know the mending cantrip.",
+		trait: [
+			"**Human, Dragonmark of Making** (+1 Dex" + (typePF ? ", +2 Int or +2 Dex, +1 Int" : "terity, +1 Intelligence, +1 to Dex or Int, my choice") + ")",
+			"##\u25C6 Artisan's Intuition##. I can add my Intuition Die (1d4) to ability checks with artisan's tools.",
+			"##\u25C6 Magecraft##. I can create a magic item that gives me the ability to cast one wizard cantrip of my choice, using Intelligence as my spellcasting ability. This works while the item is in my possession. At the end of a long rest, I can replace it with a new item and cantrip.",
+			"##\u25C6 Spellsmith##. Once per long rest, I can spend 1 minute to make a nonmagical armor or weapon gain a +1 bonus for the next hour. Maker's Gift: I know the *mending* cantrip.",
+		],
 		features: {
 			"spellsmith": {
 				name: "Spellsmith",
@@ -1035,7 +1124,13 @@ if (!SourceList["UA:D"]) {
 		heightMetric: " are 90 to 120 cm tall (2'11\" + 5d4)",
 		weightMetric: " weigh around 18 kg (16 + 5d4 / 10 kg)",
 		scores: [0, 0, 0, 2, 0, 1],
-		trait: "Gnome, Dragonmark of Scribing (+2 Intelligence, +1 Charisma)\n   Gifted Scribe: I can add my Intuition Die (1d4) to ability checks involving calligrapher's supplies or forgery kits. I am proficient with both of these tools.\n   Whispering Wind: I know the Message cantrip.\n   Scribe's Insight: I can cast Comprehend Languages once per long rest.\nIntelligence is my spellcasting ability for the spells gained from being a gnome, dragonmark of scribing.",
+		trait: [
+			"**Gnome, Dragonmark of Scribing** (+2 Intelligence, +1 Charisma)",
+			"##\u25C6 Gifted Scribe##. I can add my Intuition Die (1d4) to ability checks involving calligrapher's supplies or forgery kits. I am proficient with both of these tools.",
+			"##\u25C6 Whispering Wind##. I know the *Message* cantrip.",
+			"##\u25C6 Scribe's Insight##. I can cast *Comprehend Languages* once per long rest.",
+			"Intelligence is my spellcasting ability for the spells gained from being a gnome, dragonmark of scribing.",
+		],
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
 			name: "Whispering Wind",
@@ -1077,7 +1172,12 @@ if (!SourceList["UA:D"]) {
 		weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 		scorestxt: "+1 Strength, +1 Wisdom, and +1 to any one ability score of my choice",
 		scores: [1, 0, 0, 0, 1, 0],
-		trait: "Human, Dragonmark of Sentinel (+1 Str" + (typePF ? ", +1 Wis, +1 to one ability" : "ength, +1 Wisdom, +1 to any one ability score") + ")\n   Sentinel's Intuition: I can add my Intuition Die (1d4) to Initiative rolls and my Wisdom (Perception) checks.\n   Sentinel's Shield: I know the Blade Ward cantrip. I can cast Shield once per short rest.\n   Vigilant Guardian: As an action, I can designate an ally as my ward, gaining adv. on Insight and Perception checks to spot threats to it. As a reaction when I see my ward being attacked while within 5 ft, I can swap places with it, becoming the target of the attack.",
+		trait: [
+			"**Human, Dragonmark of Sentinel** (+1 Str" + (typePF ? ", +1 Wis, +1 to one ability" : "ength, +1 Wisdom, +1 to any one ability score") + ")",
+			"##\u25C6 Sentinel's Intuition##. I can add my Intuition Die (1d4) to Initiative rolls and my Wisdom (Perception) checks.",
+			"##\u25C6 Sentinel's Shield##. I know the *Blade Ward* cantrip. I can cast *Shield* once per short rest.",
+			"##\u25C6 Vigilant Guardian##. As an action, I can designate an ally as my ward, gaining adv. on Insight and Perception checks to spot threats to it. As a reaction when I see my ward being attacked while within 5 ft, I can swap places with it, becoming the target of the attack.",
+		],
 		action: [["action", "Vigilant Guardian (designate ward)"], ["reaction", "Vigilant Guardian (swap with ward)"]],
 		features: {
 			"shield": {
@@ -1125,7 +1225,13 @@ if (!SourceList["UA:D"]) {
 		heightMetric: " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 		weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 		scores: [0, 2, 0, 0, 0, 1],
-		trait: "Elf, Dragonmark of Shadow (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nGift of the Shadows: I can add my Intuition Die (1d4) to Performance and Stealth checks.\nShape Shadows: I know the Minor Illusion cantrip using Charisma as my spellcasting ability.\nSlip Into Shadow: As a bonus action once per short rest, I can use the Hide action even while I have no cover or if I'm being observed.",
+		trait: [
+			"**Elf, Dragonmark of Shadow** (+2 Dexterity, +1 Charisma)",
+			"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).",
+			"##\u25C6 Gift of the Shadows##. I can add my Intuition Die (1d4) to Performance and Stealth checks.",
+			"##\u25C6 Shape Shadows##. I know the *Minor Illusion* cantrip using Charisma as my spellcasting ability.",
+			"##\u25C6 Slip Into Shadow##. As a bonus action once per short rest, I can use the Hide action even while I have no cover or if I'm being observed.",
+		],
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
 			name: "Shape Shadows",
@@ -1180,7 +1286,11 @@ if (!SourceList["UA:D"]) {
 		weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 		scorestxt: "+1 Dexterity, +1 Charisma, and +1 to any one ability score of my choice",
 		scores: [0, 1, 0, 0, 0, 1],
-		trait: "Half-Elf, Dragonmark of Storm (+1 Dexterity, +1 Charisma, and +1 to any one ability score of my choice)\n" + (typePF ? "\n" : "   ") + "Windwright's Intuition: I can add my Intuition Die (1d4) to my Dexterity (Acrobatics) checks and any ability checks involving operating or maintaining a water or air vehicle.\n" + (typePF ? "\n" : "   ") + "Headwinds: I know the Gust cantrip. Once I reach 3rd level, I can cast Gust of Wind once per long rest. Charisma is my spellcasting ability for these spells.",
+		trait: [
+			"**Half-Elf, Dragonmark of Storm** (+1 Dexterity, +1 Charisma, and +1 to any one ability score of my choice)",
+			"##\u25C6 Windwright's Intuition##. I can add my Intuition Die (1d4) to my Dexterity (Acrobatics) checks and any ability checks involving operating or maintaining a water or air vehicle.",
+			"##\u25C6 Headwinds##. I know the *Gust* cantrip. Once I reach 3rd level, I can cast *Gust of Wind* once per long rest. Charisma is my spellcasting ability for these spells.",
+		],
 		spellcastingAbility: 6, // Not mentioned in WGtE, but essential!
 		spellcastingBonus: [{
 			name: "Headwinds (level 1)",
@@ -1226,7 +1336,12 @@ if (!SourceList["UA:D"]) {
 		heightMetric: " stand between 1,2 and 1,5 metres tall (120 + 5d4 cm)",
 		weightMetric: " weigh around 75 kg (60 + 5d4 \xD7 4d6 / 10 kg)",
 		scores: [0, 1, 2, 1, 0, 0],
-		trait: "Dwarf, Dragonmark of Warding (+1 Dex" + (typePF ? ", +2 Con, +1 Int" : "terity, +2 Constitution, +1 Intelligence") + ")\n   Stonecunning: When I make an Intelligence (History) check related to the origin of stonework, I am considered having expertise in the History skill.\n   Master of Locks: I can add my Intuition Die (1d4) to Intelligence (History), Intelligence (Investigation), and ability checks with thieves' tools, if it involves lock or trap mechanisms.\n   Wards and Seals: I can cast Alarm as a ritual. Once I reach 3rd level, I can cast Arcane Lock once per long rest. Intelligence is my spellcasting ability for these.",
+		trait: [
+			"**Dwarf, Dragonmark of Warding** (+1 Dex" + (typePF ? ", +2 Con, +1 Int" : "terity, +2 Constitution, +1 Intelligence") + ")",
+			"##\u25C6 Stonecunning##. When I make an Intelligence (History) check related to the origin of stonework, I am considered having expertise in the History skill.",
+			"##\u25C6 Master of Locks##. I can add my Intuition Die (1d4) to Intelligence (History), Intelligence (Investigation), and ability checks with thieves' tools, if it involves lock or trap mechanisms.",
+			"##\u25C6 Wards and Seals##. I can cast *Alarm* as a ritual. Once I reach 3rd level, I can cast *Arcane Lock* once per long rest. Intelligence is my spellcasting ability for these.",
+		],
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
 			name: "Wards and Seals (level 1)",
@@ -1261,7 +1376,12 @@ if (!SourceList["UA:D"]) {
 	FeatsList["greater dragonmark-ua"] = {
 		name: "Greater Dragonmark",
 		source: [["WGtE", 110], ["UA:D", 7]],
-		descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase one ability score by 1, to a maximum of 20. The abilities available to you are based on your mark, as shown on the Greater Dragonmark Benefits table.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn a set of spells, each of which you can cast once without expending a spell slot or using a material component. The list of spells, the spellcasting ability for them, and the type of rest you must complete to regain the use of these spells are shown on the Greater Dragonmark Benefits table.",
+		descriptionFull: [
+			"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+			" \u2022 Increase one ability score by 1, to a maximum of 20. The abilities available to you are based on your mark, as shown on the Greater Dragonmark Benefits table.",
+			" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+			" \u2022 You learn a set of spells, each of which you can cast once without expending a spell slot or using a material component. The list of spells, the spellcasting ability for them, and the type of rest you must complete to regain the use of these spells are shown on the Greater Dragonmark Benefits table.",
+		],
 		description: "Select the type of greater dragonmark using the square button on this feat line.\nMy Intuition Die increases with one step (for example d4 to d6), I gain spellcating abilities, and an increase to one ability score.",
 		eval: function () {
 			var raceTrait = What("Racial Traits");
@@ -1279,8 +1399,13 @@ if (!SourceList["UA:D"]) {
 		"detection": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Detection",
 			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*detection).*$/i.test(CurrentRace.known); },
-			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Charisma or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells See Invisibility and True Seeing, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast See Invisibility and True Seeing each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Charisma or Intelligence]",
+			descriptionFull: [
+				"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+				" \u2022 Increase your Charisma or Intelligence score by 1, to a maximum of 20.",
+				" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+				" \u2022 You learn the spells *See Invisibility* and *True Seeing*, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+			],
+			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *See Invisibility* and *True Seeing* each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Charisma or Intelligence]",
 			scorestxt: "+1 Charisma or Intelligence",
 			spellcastingBonus: [{
 				name: "1\xD7 per long",
@@ -1307,8 +1432,13 @@ if (!SourceList["UA:D"]) {
 		"finding": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Finding",
 			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*finding).*$/i.test(CurrentRace.known); },
-			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity, Strength, or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Locate Creature and Find the Path, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Locate Creature and Find the Path each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 " + (typePF ? "Strength, Dexterity, or Wisdom]" : "Str, Dex, or Wis]"),
+			descriptionFull: [
+				"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+				" \u2022 Increase your Dexterity, Strength, or Wisdom score by 1, to a maximum of 20.",
+				" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+				" \u2022 You learn the spells *Locate Creature* and *Find the Path*, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+			],
+			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Locate Creature* and *Find the Path* each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 " + (typePF ? "Strength, Dexterity, or Wisdom]" : "Str, Dex, or Wis]"),
 			scorestxt: "+1 Strength, Dexterity, or Wisdom",
 			spellcastingBonus: [{
 				name: "1\xD7 per long",
@@ -1335,8 +1465,13 @@ if (!SourceList["UA:D"]) {
 		"handling": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Handling",
 			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*handling).*$/i.test(CurrentRace.known); },
-			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Beast Sense and Dominate Beast, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Beast Sense and Dominate Beast each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
+			descriptionFull: [
+				"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+				" \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.",
+				" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+				" \u2022 You learn the spells *Beast Sense* and *Dominate Beast*, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+			],
+			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Beast Sense* and *Dominate Beast* each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 			scorestxt: "+1 Dexterity or Wisdom",
 			spellcastingBonus: [{
 				name: "1\xD7 per long",
@@ -1350,8 +1485,13 @@ if (!SourceList["UA:D"]) {
 		"healing": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Healing",
 			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*healing).*$/i.test(CurrentRace.known); },
-			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Mass Healing Word and Greater Restoration, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Mass Healing Word and Greater Restoration each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
+			descriptionFull: [
+				"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+				" \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.",
+				" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+				" \u2022 You learn the spells *Mass Healing Word* and *Greater Restoration*, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+			],
+			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Mass Healing Word* and *Greater Restoration* each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 			scorestxt: "+1 Dexterity or Wisdom",
 			spellcastingBonus: [{
 				name: "1\xD7 per long",
@@ -1373,8 +1513,13 @@ if (!SourceList["UA:D"]) {
 		"hospitality": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Hospitality",
 			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*hospitality).*$/i.test(CurrentRace.known); },
-			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Sanctuary and Mordenkainen's Magnificent Mansion, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sanctuary and " + (typePF ? "Mordenkainen's " : "") + "Magnificent Mansion each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
+			descriptionFull: [
+				"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+				" \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.",
+				" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+				" \u2022 You learn the spells *Sanctuary* and *Mordenkainen's Magnificent Mansion*, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+			],
+			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Sanctuary* and " + (typePF ? "Mordenkainen's " : "") + "*Magnificent Mansion* each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 			scorestxt: "+1 Dexterity or Charisma",
 			spellcastingBonus: [{
 				name: "1\xD7 per long",
@@ -1401,8 +1546,13 @@ if (!SourceList["UA:D"]) {
 		"making": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Making",
 			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*making).*$/i.test(CurrentRace.known); },
-			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Fabricate and Creation, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Fabricate and Creation each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Dexterity or Intelligence]",
+			descriptionFull: [
+				"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+				" \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.",
+				" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+				" \u2022 You learn the spells *Fabricate* and *Creation*, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+			],
+			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Fabricate* and *Creation* each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Dexterity or Intelligence]",
 			scorestxt: "+1 Dexterity or Intelligence",
 			spellcastingBonus: [{
 				name: "1\xD7 per long",
@@ -1423,8 +1573,13 @@ if (!SourceList["UA:D"]) {
 		"passage": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Passage",
 			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*passage).*$/i.test(CurrentRace.known); },
-			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Constitution score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Blink and Teleportation Circle, each of which you can cast once without expending a spell slot or using a material component. Constitution is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Blink and Teleportation Circle each once per long rest without using spell slots or requiring material components. Constitution is my spellcasting ability for these. [+1 Dexterity or Constitution]",
+			descriptionFull: [
+				"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+				" \u2022 Increase your Dexterity or Constitution score by 1, to a maximum of 20.",
+				" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+				" \u2022 You learn the spells *Blink* and *Teleportation Circle*, each of which you can cast once without expending a spell slot or using a material component. Constitution is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+			],
+			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Blink* and *Teleportation Circle* each once per long rest without using spell slots or requiring material components. Constitution is my spellcasting ability for these. [+1 Dexterity or Constitution]",
 			scorestxt: "+1 Dexterity or Constitution",
 			spellcastingBonus: [{
 				name: "1\xD7 per long",
@@ -1446,8 +1601,13 @@ if (!SourceList["UA:D"]) {
 		"scribing": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Scribing",
 			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*scribing).*$/i.test(CurrentRace.known); },
-			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Sending and Tongues, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
-			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sending and Tongues each once per short rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Intelligence or Charisma]",
+			descriptionFull: [
+				"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+				" \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.",
+				" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+				" \u2022 You learn the spells *Sending* and *Tongues*, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
+			],
+			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Sending* and *Tongues* each once per short rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Intelligence or Charisma]",
 			scorestxt: "+1 Intelligence or Charisma",
 			spellcastingBonus: [{
 				name: "1\xD7 per short",
@@ -1473,8 +1633,13 @@ if (!SourceList["UA:D"]) {
 		"sentinel": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Sentinel",
 			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*sentinel).*$/i.test(CurrentRace.known); },
-			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Strength or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Compelled Duel, Warding Bond, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
-			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Compelled Duel and Warding Bond each once per short rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Strength or Wisdom]",
+			descriptionFull: [
+				"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+				" \u2022 Increase your Strength or Wisdom score by 1, to a maximum of 20.",
+				" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+				" \u2022 You learn the spells *Compelled Duel*, *Warding Bond*, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
+			],
+			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Compelled Duel* and *Warding Bond* each once per short rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Strength or Wisdom]",
 			scorestxt: "+1 Strength or Wisdom",
 			spellcastingBonus: [{
 				name: "1\xD7 per short",
@@ -1496,8 +1661,13 @@ if (!SourceList["UA:D"]) {
 		"shadow": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Shadow",
 			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*shadow).*$/i.test(CurrentRace.known); },
-			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Nondetection and Mislead, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Nondetection and Mislead each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
+			descriptionFull: [
+				"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+				" \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.",
+				" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+				" \u2022 You learn the spells *Nondetection* and *Mislead*, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+			],
+			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Nondetection* and *Mislead* each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 			scorestxt: "+1 Dexterity or Charisma",
 			spellcastingBonus: [{
 				name: "1\xD7 per long",
@@ -1519,8 +1689,13 @@ if (!SourceList["UA:D"]) {
 		"storm": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Storm",
 			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*storm).*$/i.test(CurrentRace.known); },
-			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Control Water and Control Winds, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Control Water and Control Winds each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
+			descriptionFull: [
+				"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+				" \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.",
+				" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+				" \u2022 You learn the spells *Control Water* and *Control Winds*, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+			],
+			description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Control Water* and *Control Winds* each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 			scorestxt: "+1 Dexterity or Charisma",
 			spellcastingBonus: [{
 				name: "1\xD7 per long",
@@ -1541,8 +1716,14 @@ if (!SourceList["UA:D"]) {
 		"warding": {
 			prerequisite: "Being level 8 or higher and possessing the Dragonmark of Warding",
 			prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*warding).*$/i.test(CurrentRace.known); },
-			descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Knock, Glyph of Warding and Leomund's Secret Chest*, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.\n\n* To cast Leomund's Secret Chest using this feat, you must have a Siberys dragonshard with a value of at least 100 gp. While you have this dragonshard in hand, it serves as the spell's focus, and you can use it to summon and dismiss the chest.",
-			description: "My Intuition Die increases one step. I can cast Knock, Secret Chest, and Glyph of Warding each once per long rest without spell slot or material component. Secret Chest requires a 100 gp Siberys dragonshard as a focus. These use Int as spellcasting ability. [+1 Dex or Int]",
+			descriptionFull: [
+				"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+				" \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.",
+				" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+				" \u2022 You learn the spells *Knock*, *Glyph of Warding* and Leomund's Secret Chest*, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+				"* To cast *Leomund's Secret Chest* using this feat, you must have a Siberys dragonshard with a value of at least 100 gp. While you have this dragonshard in hand, it serves as the spell's focus, and you can use it to summon and dismiss the chest.",
+			],
+			description: "My Intuition Die increases one step. I can cast *Knock*, *Secret Chest*, and *Glyph of Warding* each once per long rest without spell slot or material component. *Secret Chest* requires a 100 gp Siberys dragonshard as a focus. These use Int as spellcasting ability. [+1 Dex or Int]",
 			scorestxt: "+1 Dexterity or Intelligence",
 			spellcastingBonus: [{
 				name: "1\xD7 per long",
@@ -1567,7 +1748,7 @@ if (!SourceList["UA:D"]) {
 				"leomund's secret chest": {
 					compMaterial: "A Siberys dragonshard with a value of at least 100 gp",
 					description: "Hide chest with content in Ethereal Plane for 60 days, after that chance of loss; 1 a reappear (100gp)",
-					changes: "Leomund's Secret Chest cast through my Greater Dragonmark of Warding requires a Siberys dragonshard as a focus instead of an exquisite chest and its tiny replica.",
+					changes: "*Leomund's Secret Chest* cast through my Greater Dragonmark of Warding requires a Siberys dragonshard as a focus instead of an exquisite chest and its tiny replica.",
 				},
 			},
 		},
@@ -1579,7 +1760,23 @@ if (!SourceList["UA:D"]) {
 		source: [["WGtE", 112], ["UA:D", 9]],
 		prerequisite: "Not having a dragonmark",
 		prereqeval: function (v) { return !/dragonmark/i.test(CurrentRace.known); },
-		descriptionFull: "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it (see the table below for examples). You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again. Constitution is your spellcasting ability for these spells.\n \u2022 You can increase the power of your aberrant spells at the risk of your own vitality. When you cast a spell with your aberrant mark, you can use one of your Hit Dice to increase the spell's level by 1. Immediately after you cast the spell, roll the Hit Die. You take damage equal to the number rolled.\n\n**1d8**\t**Aberrant Mark Flaw**\n1\tYour mark is a source of constant physical pain.\n2\tYour mark whispers to you, though you may not understand what it says.\n3\tIn times of stress, your mark may trigger a cantrip effect involuntarily.\n4\tThe skin around your mark has an unusual appearance: burned, scaly, withered, etc.\n5\tMundane animals become uneasy around you.\n6\tYou have dramatic mood swings any time you use your mark.\n7\tYour appearance changes in a minor way every time you use your mark.\n8\tYou have horrific nightmares after you use your mark.",
+		descriptionFull: [
+			"You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it (see the table below for examples). You gain the following benefits:",
+			" \u2022 Increase your Constitution score by 1, to a maximum of 20.",
+			" \u2022 You learn a cantrip from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again. Constitution is your spellcasting ability for these spells.",
+			" \u2022 You can increase the power of your aberrant spells at the risk of your own vitality. When you cast a spell with your aberrant mark, you can use one of your Hit Dice to increase the spell's level by 1. Immediately after you cast the spell, roll the Hit Die. You take damage equal to the number rolled.",
+			[
+				["1d8", "Aberrant Mark Flaw"],
+				["1", "Your mark is a source of constant physical pain."],
+				["2", "Your mark whispers to you, though you may not understand what it says."],
+				["3", "In times of stress, your mark may trigger a cantrip effect involuntarily."],
+				["4", "The skin around your mark has an unusual appearance: burned, scaly, withered, etc."],
+				["5", "Mundane animals become uneasy around you."],
+				["6", "You have dramatic mood swings any time you use your mark."],
+				["7", "Your appearance changes in a minor way every time you use your mark."],
+				["8", "You have horrific nightmares after you use your mark."],
+			],
+		],
 		description: "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
 		scores: [0, 0, 1, 0, 0, 0],
 		spellcastingAbility: 3,
@@ -1611,7 +1808,12 @@ if (!SpellsList["gust"]) {
 		duration: "Instantaneous",
 		save: "Str",
 		description: "Crea \u2264Medium save or push 5 ft; or push unattended 5 lb obj 10 ft; or harmless sensory effect",
-		descriptionFull: "You seize the air and compel it to create one of the following effects at a point you can see within range." + "\n " + "\u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you." + "\n " + "\u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage." + "\n " + "\u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze.",
+		descriptionFull: [
+			"You seize the air and compel it to create one of the following effects at a point you can see within range.",
+			" \u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you.",
+			" \u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage.",
+			" \u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze.",
+		],
 	};
 }
 
@@ -1625,7 +1827,7 @@ if (!SourceList["UA:MIoE"]) {
 			type: "wondrous item",
 			rarity: "common",
 			description: "This stone sphere is 1 ft in diameter and engraved with mystic sigils. As an action while touching it, I can activate it to remove dirt and grime from my garments and my person.",
-			descriptionFull: "A cleansing stone is a stone sphere one foot in diameter, engraved with mystic sigils. When touching the stone, you can use an action to activate it and remove dirt and grime from your garments and your person. Cleansing stones are often embedded into pedestals in public squares in Aundair or found in high-end Ghallanda inns.",
+			descriptionFull: "A *cleansing stone* is a stone sphere one foot in diameter, engraved with mystic sigils. When touching the stone, you can use an action to activate it and remove dirt and grime from your garments and your person. Cleansing stones are often embedded into pedestals in public squares in Aundair or found in high-end Ghallanda inns.",
 			action: [["action", ""]],
 			weight: 88, // using average marble/limestone density of 2.711 g/cm3
 		}
@@ -1634,8 +1836,8 @@ if (!SourceList["UA:MIoE"]) {
 			source: [["E:RLW", 277], ["WGtE", 115], ["UA:MIoE", 2]],
 			type: "wondrous item",
 			rarity: "common",
-			description: "This bullseye lantern is powered by a dragonshard imbued with the effect of a Continual Flame spell. The light never goes out, but it can be shuttered off. It casts bright light in a 60-ft cone and dim light for an additional 60 ft.",
-			descriptionFull: "An everbright lantern contains an Eberron dragonshard imbued with the effect of a continual flame spell. This bright light is mounted inside a normal bullseye lantern, allowing the light to be shuttered off. An everbright lantern provides clear illumination in a 60-foot cone and shadowy illumination in a 120-foot cone, just like a mundane bullseye lantern, but its flame never goes out.",
+			description: "This bullseye lantern is powered by a dragonshard imbued with the effect of a *Continual Flame* spell. The light never goes out, but it can be shuttered off. It casts bright light in a 60-ft cone and dim light for an additional 60 ft.",
+			descriptionFull: "An *everbright lantern* contains an Eberron dragonshard imbued with the effect of a *continual flame* spell. This bright light is mounted inside a normal bullseye lantern, allowing the light to be shuttered off. An *everbright lantern* provides clear illumination in a 60-foot cone and shadowy illumination in a 120-foot cone, just like a mundane bullseye lantern, but its flame never goes out.",
 			weight: 2,
 		}
 		MagicItemsList["imbued wood focus"] = {
@@ -1650,7 +1852,21 @@ if (!SourceList["UA:MIoE"]) {
 			type: "wondrous item",
 			rarity: "common",
 			description: "This rod, wand, or staff is cut from a tree infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal the associated damage type add a +1 bonus to one of their damage rolls.",
-			descriptionFull: "An imbued wood focus is a rod, staff, or wand cut from a tree infused with extraplanar energy. If you're a spellcaster, you can use this orb as a spellcasting focus.\n   When you cast a damage-dealing spell using this item as your spellcasting focus, you gain a +1 bonus to one damage roll of the spell, provided the damage is of the type associated with the item's wood. The types of wood and their associated damage types are listed in the table below.\n\n**Wood**\t\t\t**Damage Type***\nFernian Ash\t\tFire\nIrian Rosewood\t\tRadiant\nKythrian Manchineel  \tAcid or Poison\nLamannian Oak\t\tLightning or Thunder\nMabaran Ebony\t\tNecrotic\nRisian Pine\t\tCold\nShavarran Birch\t\tForce\nXorian Wenge\t\tPsychic",
+			descriptionFull: [
+				"An *imbued wood focus* is a rod, staff, or wand cut from a tree infused with extraplanar energy. If you're a spellcaster, you can use this orb as a spellcasting focus.",
+				"When you cast a damage-dealing spell using this item as your spellcasting focus, you gain a +1 bonus to one damage roll of the spell, provided the damage is of the type associated with the item's wood. The types of wood and their associated damage types are listed in the table below.",
+				[
+					["Wood", "", "", "Damage Type"],
+					["Fernian Ash", "", "Fire"],
+					["Irian Rosewood", "", "Radiant"],
+					["Kythrian Manchineel  ", "Acid or Poison"],
+					["Lamannian Oak", "", "Lightning or Thunder"],
+					["Mabaran Ebony", "", "Necrotic"],
+					["Risian Pine", "", "Cold"],
+					["Shavarran Birch", "", "Force"],
+					["Xorian Wenge", "", "Psychic"],
+				],
+			],
 			attunement: true,
 			allowDuplicates: true,
 			weight: 2,
@@ -1829,15 +2045,17 @@ if (!SourceList["UA:MIoE"]) {
 			type: "wondrous item",
 			rarity: "common",
 			description: "An orb of shielding is made from crystal or stone aligned to one of the planes. I can use it as my spellcasting focus. While I am holding the orb and take damage of the type associated with the material the orb is made from, I can use my reaction to reduce the damage by 1d4 (to a minimum of 0).",
-			descriptionFull: "An orb of shielding is made from crystal or stone aligned to one of the planes. While you are holding the orb and take damage of the type associated with the material your orb is made from, you can use your reaction to reduce the damage by 1d4. The materials and their associated damage types are listed below.\n" +
-			"\n \u2022 Fernian basalt: Fire damage" +
-			"\n \u2022 Irian quartz: Radiant damage" +
-			"\n \u2022 Kythrian skarn: Acid or poison damage" +
-			"\n \u2022 Lamannian flint: Lightning or thunder damage" +
-			"\n \u2022 Mabaran obsidian: Necrotic damage" +
-			"\n \u2022 Quori celestine, Xorian marble: Psychic damage" +
-			"\n \u2022 Risian shale: Cold damage" +
-			"\n \u2022 Shavaran chert: Force damage",
+			descriptionFull: [
+				"An *orb of shielding* is made from crystal or stone aligned to one of the planes. While you are holding the orb and take damage of the type associated with the material your orb is made from, you can use your reaction to reduce the damage by 1d4. The materials and their associated damage types are listed below.",
+				" \u2022 Fernian basalt: Fire damage",
+				" \u2022 Irian quartz: Radiant damage",
+				" \u2022 Kythrian skarn: Acid or poison damage",
+				" \u2022 Lamannian flint: Lightning or thunder damage",
+				" \u2022 Mabaran obsidian: Necrotic damage",
+				" \u2022 Quori celestine, Xorian marble: Psychic damage",
+				" \u2022 Risian shale: Cold damage",
+				" \u2022 Shavaran chert: Force damage",
+			],
 			attunement: true,
 			allowDuplicates: true,
 			weight: 3,
@@ -1910,7 +2128,7 @@ if (!SourceList["UA:MIoE"]) {
 		type: "ring",
 		rarity: "common",
 		description: "If I'm reduced to zero hit points while attuned to this ring, I instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
-		descriptionFull: "If you are reduced to zero hit points while attuned to a band of loyalty, you instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
+		descriptionFull: "If you are reduced to zero hit points while attuned to a *band of loyalty*, you instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
 		attunement: true,
 	}
 	MagicItemsList["docent-ua"] = {
@@ -1960,8 +2178,8 @@ if (!SourceList["UA:MIoE"]) {
 		source: [["WGtE", 115], ["UA:MIoE", 2]],
 		type: "wondrous item",
 		rarity: "common",
-		description: "Once as a bonus action while the token is in my possession, I can use it to cast Feather Fall. This small metal disk is inscribed with the image of a feather and only holds sufficient charge for a single use, after which it loses its power.",
-		descriptionFull: "This small metal disk is inscribed with the image of a feather. While the token is in your possession, you can cast feather fall as a bonus action. A feather token only holds sufficient charge for a single use, after which it loses its power. While it's an expensive form of insurance, frequent airship travelers and citizens of Sharn often appreciate the security it provides.",
+		description: "Once as a bonus action while the token is in my possession, I can use it to cast *Feather Fall*. This small metal disk is inscribed with the image of a feather and only holds sufficient charge for a single use, after which it loses its power.",
+		descriptionFull: "This small metal disk is inscribed with the image of a feather. While the token is in your possession, you can cast *feather fall* as a bonus action. A *feather token* only holds sufficient charge for a single use, after which it loses its power. While it's an expensive form of insurance, frequent airship travelers and citizens of Sharn often appreciate the security it provides.",
 	}
 	MagicItemsList["glamerweave-ua"] = {
 		name: "Glamerweave",
@@ -1969,17 +2187,20 @@ if (!SourceList["UA:MIoE"]) {
 		type: "wondrous item",
 		rarity: "common",
 		description: "Glamerweave clothing is imbued with cosmetic illusions that have no impact on combat. Most of the time, these patterns are contained within the cloth, but higher-end glamerweave can have more dramatic effects. A gown could appear to be wreathed in flames, or a hat orbited by illusory butterflies.",
-		descriptionFull: "Glamerweave clothing is imbued with cosmetic illusions. Traditionally, these patterns are contained within the cloth, but higher-end glamerweave can have more dramatic effects. You could have a gown that appears to be wreathed in flames, or a hat that's orbited by illusory butterflies. Regardless of the design, these are cosmetic effects and have no impact on combat.\n\n" + [
-			"**1d8**\t**Description**",
-			"  1\tA hat orbited by the twelve moons",
-			"  2\tLong gloves wreathed in cold flames",
-			"  3\tA traveler's cloak lined with glittering stars",
-			"  4\tA scarlet gown that glows with inner radiance",
-			"  5\tA cloth shirt that appears to be a chain shirt",
-			"  6\tA silver gown surrounded by drifting snowflakes",
-			"  7\tA robe with two dragons wrestling across the back",
-			"  8\tA cloak that slowly and subtly shifts colors",
-		].join("\n"),
+		descriptionFull: [
+			"*Glamerweave* clothing is imbued with cosmetic illusions. Traditionally, these patterns are contained within the cloth, but higher-end *glamerweave* can have more dramatic effects. You could have a gown that appears to be wreathed in flames, or a hat that's orbited by illusory butterflies. Regardless of the design, these are cosmetic effects and have no impact on combat.",
+			[
+				["1d8", "Description"],
+				["  1", "A hat orbited by the twelve moons"],
+				["  2", "Long gloves wreathed in cold flames"],
+				["  3", "A traveler's cloak lined with glittering stars"],
+				["  4", "A scarlet gown that glows with inner radiance"],
+				["  5", "A cloth shirt that appears to be a chain shirt"],
+				["  6", "A silver gown surrounded by drifting snowflakes"],
+				["  7", "A robe with two dragons wrestling across the back"],
+				["  8", "A cloak that slowly and subtly shifts colors"],
+			],
+		],
 	}
 	MagicItemsList["shiftweave-ua"] = {
 		name: "Shiftweave",
@@ -1987,7 +2208,7 @@ if (!SourceList["UA:MIoE"]) {
 		type: "wondrous item",
 		rarity: "common",
 		description: "Up to five different outfits are embedded into these clothes that have transmutation magic woven into their fabric. As an action, I can speak a command word to transform the outfit into one of the other designs contained within.",
-		descriptionFull: "Transmutation magic is woven into the fabric of shiftweave clothing. When a suit of shiftweave is created, up to five different outfits can be embedded into the cloth. By taking an action and uttering a command word, you can transform your shiftweave outfit into one of the other designs contained within it. To determine the price of a suit of shiftweave, combine the value of all of the outfits it contains and add 25 gp to that amount.",
+		descriptionFull: "Transmutation magic is woven into the fabric of *shiftweave* clothing. When a suit of *shiftweave* is created, up to five different outfits can be embedded into the cloth. By taking an action and uttering a command word, you can transform your *shiftweave* outfit into one of the other designs contained within it. To determine the price of a suit of *shiftweave*, combine the value of all of the outfits it contains and add 25 gp to that amount.",
 		action: [["action", ""]],
 	}
 	MagicItemsList["armblade-ua"] = {
@@ -1996,7 +2217,10 @@ if (!SourceList["UA:MIoE"]) {
 		type: "weapon (any one-handed melee weapon)",
 		rarity: "common",
 		description: "As a warforged, I can integrate this weapon in my forearm by attuning to it. While attached, it can't be disarmed or removed against my will, but I can't use that hand for other actions. I can spend one minute to end the attunement and remove the armblade. The weapon isn't inherently magical.",
-		descriptionFull: "An armblade is a weapon designed to integrate with the forearm of a warforged. If you're a warforged, you can attach an armblade by attuning to it. An attached armblade cannot be disarmed or removed from you against your will, but while the weapon is attached you cannot use that hand for other actions. You can spend one minute to end the attunement and remove the armblade.\n   An armblade isn't inherently considered to be a magic weapon for purposes of overcoming damage resistance. However, any sort of magical melee weapon could be created as an armblade, so you could acquire a vicious armblade or a vorpal armblade.",
+		descriptionFull: [
+			"An *armblade* is a weapon designed to integrate with the forearm of a warforged. If you're a warforged, you can attach an *armblade* by attuning to it. An attached *armblade* cannot be disarmed or removed from you against your will, but while the weapon is attached you cannot use that hand for other actions. You can spend one minute to end the attunement and remove the *armblade*.",
+			"An *armblade* isn't inherently considered to be a magic weapon for purposes of overcoming damage resistance. However, any sort of magical melee weapon could be created as an *armblade*, so you could acquire a vicious *armblade* or a vorpal *armblade*.",
+		],
 		attunement: true,
 		prerequisite: "Requires attunement by a warforged",
 		prereqeval: function (v) {
@@ -2018,8 +2242,14 @@ if (!SourceList["UA:MIoE"]) {
 		type: "wondrous item",
 		rarity: "common",
 		description: "As a warforged, I can integrate this sheath in my forearm by attuning to it. It can only be removed if I spend a minute to end the attunement. As an action, I can insert a wand in it. The wand doesn't count to the number of items I can attune to. As a bonus action, I can then retract/extend it while keeping my hand free.",
-		descriptionLong: "As a warforged, I can integrate this sheath in my forearm by attuning to it. It can only be removed if I spend a minute to end the attunement. As an action, I can insert a wand in it. I still need to attune to this wand if it requires me to do so, but the wand wand then doesn't count towards the number of items I can attune to. When I take the wand out of the sheath, I lose attunement with it. As a bonus action, I can retract or extend a wand in the sheath. While retracted, the wand can't be damaged. While extended, I can use the wand as if holding it, but my hand remains free for other actions.",
-		descriptionFull: "A wand sheath is designed to integrate with the forearm of a warforged. If you're a warforged, you can attach a wand sheath by attuning to it. While the wand sheath is attached, it cannot be removed from you against your will. You can spend one minute to end the attunement and remove the wand sheath.\n   You can insert a wand into the sheath as an action. While the wand is sheathed, you gain the following benefits:\n \u2022 You can retract the wand into your forearm or extend it from your forearm as a bonus action. While it is retracted, it cannot be damaged or removed.\n \u2022 While the wand is extended, you can use it as if you were holding it, but your hand remains free for other actions.\n \u2022 If the sheathed wand requires attunement, you must attune to the wand before you can use it. However, the wand sheath and the attached wand only count as a single item for purposes of the maximum number of items you can be attuned to. If you remove the wand from the sheath, you immediately lose your attunement to the wand.",
+		descriptionLong: "As a warforged, I can integrate this sheath in my forearm by attuning to it. It can only be removed if I spend a minute to end the attunement. As an action, I can insert a wand in it. I still need to attune to this wand if it requires me to do so, but the wand then doesn't count towards the number of items I can attune to. When I take the wand out of the sheath, I lose attunement with it. As a bonus action, I can retract or extend a wand in the sheath. While retracted, the wand can't be damaged. While extended, I can use the wand as if holding it, but my hand remains free for other actions.",
+		descriptionFull: [
+			"A *wand sheath* is designed to integrate with the forearm of a warforged. If you're a warforged, you can attach a *wand sheath* by attuning to it. While the *wand sheath* is attached, it cannot be removed from you against your will. You can spend one minute to end the attunement and remove the *wand sheath*.",
+			"You can insert a wand into the sheath as an action. While the wand is sheathed, you gain the following benefits:",
+			" \u2022 You can retract the wand into your forearm or extend it from your forearm as a bonus action. While it is retracted, it cannot be damaged or removed.",
+			" \u2022 While the wand is extended, you can use it as if you were holding it, but your hand remains free for other actions.",
+			" \u2022 If the sheathed wand requires attunement, you must attune to the wand before you can use it. However, the *wand sheath* and the attached wand only count as a single item for purposes of the maximum number of items you can be attuned to. If you remove the wand from the sheath, you immediately lose your attunement to the wand.",
+		],
 		attunement: true,
 		prerequisite: "Requires attunement by a warforged",
 		prereqeval: function (v) {
@@ -2033,8 +2263,19 @@ MagicItemsList["bag of bounty-ua"] = {
 	source: [["WGtE", 116]],
 	type: "wondrous item",
 	rarity: "uncommon",
-	description: "As an action three times per dawn, I can cast Create Food and Water, but can try and create fine food with a Cha check. If I'm proficient with cook's utensils, I add my proficiency bonus. Meal quality: modest (DC 10), comfortable (DC 13), wealthy (DC 15), aristocratic (DC 18). Failure results in a sour and squalid meal. ",
-	descriptionFull: "This is a sturdy leather sack with tiny Siberys shards embedded into the lining. If you have the Mark of Hospitality you can use an action to cast create food and water, drawing a feast from within the bag. You shape this meal with your thoughts. You can create the standard bland fare without requiring any sort of check, but you can attempt to create finer food by making a Charisma check; if you're proficient with cook's utensils, add your bonus to this check. A failed check results in a sour and squalid meal.\n\n**DC**\t**Food Quality**\nNo roll\tPoor\n10\tModest\n13\tComfortable\n15\tWealthy\n18\tAristocratic\n\nA bag of bounty can be used up to three times over the course of a day. After that, the bag can't be used again until the next dawn.",
+	description: "As an action three times per dawn, I can cast *Create Food and Water*, but can try and create fine food with a Cha check. If I'm proficient with cook's utensils, I add my proficiency bonus. Meal quality: modest (DC 10), comfortable (DC 13), wealthy (DC 15), aristocratic (DC 18). Failure results in a sour and squalid meal. ",
+	descriptionFull: [
+		"This is a sturdy leather sack with tiny Siberys shards embedded into the lining. If you have the Mark of Hospitality you can use an action to cast *create food and water*, drawing a feast from within the bag. You shape this meal with your thoughts. You can create the standard bland fare without requiring any sort of check, but you can attempt to create finer food by making a Charisma check; if you're proficient with cook's utensils, add your bonus to this check. A failed check results in a sour and squalid meal.",
+		[
+			["DC", "Food Quality"],
+			["No roll", "Poor"],
+			["10", "Modest"],
+			["13", "Comfortable"],
+			["15", "Wealthy"],
+			["18", "Aristocratic"],
+		],
+		"A *bag of bounty* can be used up to three times over the course of a day. After that, the bag can't be used again until the next dawn.",
+	],
 	prerequisite: "Can only be used by someone with a Dragonmark of Hospitality",
 	prereqeval: function (v) {
 		return /^(?=.*dragonmark)(?=.*hospitality).*$/i.test(CurrentRace.known);
@@ -2062,7 +2303,11 @@ MagicItemsList["inquisitive's goggles-ua"] = {
 	rarity: "uncommon",
 	description: "I can add my Intuition Die to my Wis (Insight) checks. When I examine an object, I can make a Wis (Perception) check to sense the aura of the last living creature to touch it (DC is 13 + days since last contact). On a success, I learn the creature's species and I can immediately use my Imprint Prey ability to target it.",
 	descriptionLong: "The lenses of these garish goggles are carved from Siberys dragonshards. It allows me to can add my Intuition Die to my Wisdom (Insight) checks. When I examine an object, I can use it to make a Wisdom (Perception) check to identify the aura of the last living creature to touch the object.The DC is 13 + the number of days since the last contact occurred. If the check is successful, I learn the species of the creature and I can immediately use my Imprint Prey ability to target this creature.",
-	descriptionFull: "The lenses of these goggles are carved from Siberys dragonshards. While garish in appearance, these goggles are a boon to any Tharashk inquisitive. To attune to the goggles, you must possess the Mark of Finding. As long as this condition is met, you gain the following benefits:\n \u2022 You can add your Intuition die from the Hunter's Intuition trait of the mark when you make Wisdom (Insight) checks.\n \u2022 When you examine an object, you can make a Wisdom (Perception) check to identify the aura of the last living creature to touch the object. The DC is 13 + the number of days since the last contact occurred. If the check is successful, you learn the species of the creature and you can immediately use your Imprint Prey ability to target this creature.",
+	descriptionFull: [
+		"The lenses of these goggles are carved from Siberys dragonshards. While garish in appearance, these goggles are a boon to any Tharashk inquisitive. To attune to the goggles, you must possess the Mark of Finding. As long as this condition is met, you gain the following benefits:",
+		" \u2022 You can add your Intuition die from the Hunter's Intuition trait of the mark when you make Wisdom (Insight) checks.",
+		" \u2022 When you examine an object, you can make a Wisdom (Perception) check to identify the aura of the last living creature to touch the object. The DC is 13 + the number of days since the last contact occurred. If the check is successful, you learn the species of the creature and you can immediately use your Imprint Prey ability to target this creature.",
+	],
 	attunement: true,
 	prerequisite: "Requires attunement by someone with a Dragonmark of Finding",
 	prereqeval: function (v) {
@@ -2074,8 +2319,8 @@ MagicItemsList["keycharm-ua"] = {
 	source: [["WGtE", 115]],
 	type: "wondrous item",
 	rarity: "common",
-	description: "When I cast Alarm, Arcane Lock, Glyph of Warding, or a similar abjuration effect, I can tie it to the keycharm. Whoever holds the keycharm is considered to be the owner of this effect. For example, they receive the notification from Alarm, can safely avoid a Glyph of Warding, or can circumvent the Arcane Lock.",
-	descriptionFull: "This simple object plays a vital role in the work of House Kundarak. If you possess the Mark of Warding, when you cast alarm, arcane lock, glyph of warding, or similar abjuration effects, you can tie the effect to the keycharm. Whoever holds the keycharm is considered to the owner of this enchantment; they receive the notification from alarm, they can safely avoid a glyph, and they can deactivate any associated effect.",
+	description: "When I cast *Alarm*, *Arcane Lock*, *Glyph of Warding*, or a similar abjuration effect, I can tie it to the keycharm. Whoever holds the keycharm is considered to be the owner of this effect. For example, they receive the notification from *Alarm*, can safely avoid a *Glyph of Warding*, or can circumvent the *Arcane Lock*.",
+	descriptionFull: "This simple object plays a vital role in the work of House Kundarak. If you possess the Mark of Warding, when you cast *alarm*, *arcane lock*, *glyph of warding*, or similar abjuration effects, you can tie the effect to the *keycharm*. Whoever holds the *keycharm* is considered to the owner of this enchantment; they receive the notification from alarm, they can safely avoid a glyph, and they can deactivate any associated effect.",
 	prerequisite: "Can only be used by someone with a Dragonmark of Warding",
 	prereqeval: function (v) {
 		return /^(?=.*dragonmark)(?=.*warding).*$/i.test(CurrentRace.known);
@@ -2099,8 +2344,8 @@ MagicItemsList["scribe's pen-ua"] = {
 	source: [["WGtE", 115]],
 	type: "wondrous item",
 	rarity: "common",
-	description: "I can use this quill to write on any surface. This can be visible(traced in glowing mystical lines) or invisible to any creature without the Mark of Scribing. Detect Magic reveals the invisible writing. As an action, I or others with the Mark of Scribing can make it (in)visible. Marks on living creatures fade within a week.",
-	descriptionFull: "If you possess the Mark of Scribing, you can use this quill to write on any surface. This can be visible\u2014traced in glowing mystical lines\u2014or invisible to any creature without the Mark of Scribing. Invisible writing will be revealed by Detect Magic, See Invisibility, or True Seeing. Any creature with the Mark of Scribing can also reveal your writing or make it invisible as an action. If you mark a living creature, the mark will fade within a week.",
+	description: "I can use this quill to write on any surface. This can be visible(traced in glowing mystical lines) or invisible to any creature without the Mark of Scribing. *Detect Magic* reveals the invisible writing. As an action, I or others with the Mark of Scribing can make it (in)visible. Marks on living creatures fade within a week.",
+	descriptionFull: "If you possess the Mark of Scribing, you can use this quill to write on any surface. This can be visible\u2014traced in glowing mystical lines\u2014or invisible to any creature without the Mark of Scribing. Invisible writing will be revealed by *Detect Magic*, *See Invisibility*, or *True Seeing*. Any creature with the Mark of Scribing can also reveal your writing or make it invisible as an action. If you mark a living creature, the mark will fade within a week.",
 	prerequisite: "Can only be used by someone with a Dragonmark of Scribing",
 	prereqeval: function (v) {
 		return /^(?=.*dragonmark)(?=.*scribing).*$/i.test(CurrentRace.known);
@@ -2113,7 +2358,10 @@ if (!SourceList["E:RLW"]) {
 		type: "wondrous item",
 		rarity: "uncommon",
 		description: "I can telepathically control the elemental bound into the elemental galleon or airship that has this wheel mounted at its helm. If I use a wheel of wind and water that is mounted on a mundane sailing ship, I can create an area of ideal conditions around the vessel, increasing its speed by 5 miles per hour.",
-		descriptionFull: "When mounted at the helm of an elemental galleon or airship, this wheel allows a creature that possesses the Mark of Storm to telepathically control the elemental bound inside the vessel.\n   If a wheel of wind and water is mounted on a mundane sailing ship, a creature with the Mark of Storm who is using the wheel can create an area of ideal conditions around the vessel, increasing its speed by 5 miles per hour.",
+		descriptionFull: [
+			"When mounted at the helm of an elemental galleon or airship, this wheel allows a creature that possesses the Mark of Storm to telepathically control the elemental bound inside the vessel.",
+			"If a *wheel of wind and water* is mounted on a mundane sailing ship, a creature with the Mark of Storm who is using the wheel can create an area of ideal conditions around the vessel, increasing its speed by 5 miles per hour.",
+		],
 		prerequisite: "Can only be used by someone with a Dragonmark of Storm",
 		prereqeval: function (v) {
 			return /^(?=.*dragonmark)(?=.*storm).*$/i.test(CurrentRace.known);

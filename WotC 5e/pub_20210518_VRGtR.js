@@ -1,5 +1,5 @@
 var iFileName = "pub_20210518_VRGtR.js";
-RequiredSheetVersion("14.1.0");
+RequiredSheetVersion("14.1.3", 15);
 // This file adds all the player-material from Van Richten's Guide to Ravenloft to MPMB's Character Record Sheet
 
 // Define the source
@@ -23,10 +23,11 @@ RaceList["dhampir"] = {
 		walk: { spd: 35, enc: 25 },
 	},
 	scoresGeneric: true,
-	trait: "Dhampir" + (typePF ? "\n " : "\t") +
-	"\u2022 Deathless Nature: I don't need to breathe." +
-	"\n \u2022 Spider Climb: Climbing speed equal to walking speed. At 3rd level, I can move up, down, and across vertical surfaces and upside down along ceilings, while leaving my hands free." +
-	"\n \u2022 Vampiric Bite: Uses Constitution and has adv. on the attack roll if I'm at or below half HP. My Proficiency Bonus per long rest, when I hit a creature other than a construct or undead, I can empower myself. I either regain HP or gain a bonus on my next ability check or attack roll. The bonus is equal to the piercing damage dealt.",
+	trait: [
+		"**Dhampir**" + (typePF ? "\r" : " ") + "##\u25C6 Deathless Nature##. I don't need to breathe.",
+		"##\u25C6 Spider Climb##. Climbing speed equal to walking speed. At 3rd level, I can move up, down, and across vertical surfaces and upside down along ceilings, while leaving my hands free.",
+		"##\u25C6 Vampiric Bite##. Uses Constitution and has adv. on the attack roll if I'm at or below half HP. My Proficiency Bonus per long rest, when I hit a creature other than a construct or undead, I can empower myself. I either regain HP or gain a bonus on my next ability check or attack roll. The bonus is equal to the piercing damage dealt.",
+	],
 	features: {
 		"spider climb": { // So it doesn't interfere with inherited speeds by useFromPreviousRace
 			name: "Spider Climb",
@@ -84,16 +85,17 @@ RaceList["hexblood"] = {
 		walk: { spd: 30, enc: 20 },
 	},
 	scoresGeneric: true,
-	trait: "Hexblood" + (typePF ? "\n " : "\t") +
-	"\u2022 Fey: My creature type is fey, rather than humanoid." +
-	"\n \u2022 Eerie Token: As a bonus action once per long rest, I can harmlessly remove a lock of my hair, one of my nails or teeth and imbue this token with magic until I finish a long rest. While the token is imbued in this way, I can telepathically speak to a creature holding it or see and hear around it. See the Notes page for more information." +
-	"\n \u2022 Hex Magic: I known Disguise Self and Hex. I can cast each spell once per long rest without using a spell slot, or by using a spell slot as normal.",
+	trait: [
+		"**Hexblood**" + (typePF ? "\r" : " ") + "##\u25C6 Fey##. My creature type is fey, rather than humanoid.",
+		"##\u25C6 Eerie Token##. As a bonus action once per long rest, I can harmlessly remove a lock of my hair, one of my nails or teeth and imbue this token with magic until I finish a long rest. While the token is imbued in this way, I can telepathically speak to a creature holding it or see and hear around it. See the Notes page for more information.",
+		"##\u25C6 Hex Magic##. I know *Disguise Self* and *Hex*. I can cast each spell once per long rest without using a spell slot, or by using a spell slot as normal.",
+	],
 	toNotesPage: [{
 		name: "Hexblood's Eerie Token",
 		note: ["As a bonus action, I can harmlessly remove a lock of my hair, one of my nails, or one of my teeth. This token is imbued with magic until I finish a long rest. While the token is imbued in this way, I can take these actions:" +
-		"\n\u2022 Telepathic Message",
+		"\n \u2022 Telepathic Message",
 		"As an action, I can send a telepathic message to the creature holding or carrying the token, as long as I'm within 10 miles of it. The message can contain up to twenty-five words." +
-		"\n\u2022 Remote Viewing",
+		"\n \u2022 Remote Viewing",
 		"If I'm within 10 miles of the token, I can enter a trance as an action. The trance lasts for 1 minute, but it ends early if I dismiss it (no action required) or I'm incapacitated. During this trance, I can see and hear from the token as if I were located where it is. While I'm using my senses at the token's location, I'm blinded and deafened in regard to my own surroundings. When the trance ends, the token is harmlessly destroyed.",
 		"\nOnce I create a token using this feature, I can't do so again until I finish a long rest, at which point my missing part regrows."],
 	}],
@@ -147,9 +149,11 @@ RaceList["reborn"] = {
 		walk: { spd: 30, enc: 20 },
 	},
 	scoresGeneric: true,
-	trait: "Reborn" +
-	"\n \u2022 Deathless Nature: I don't need to sleep, eat, drink, or breathe. I have adv. on saves vs. disease, poison, and death saves. I have resistance to poison damage. Magic can't put me to sleep and I can finish a long rest in 4 hours if I spend it in an inactive, motionless state." +
-	"\n \u2022 Knowledge from a Past Life: When I make an ability check that uses a skill, I can add +1d6 to the roll after seeing the d20 result. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.",
+	trait: [
+		"**Reborn**",
+		"##\u25C6 Deathless Nature##. I don't need to sleep, eat, drink, or breathe. I have adv. on saves vs. disease, poison, and death saves. I have resistance to poison damage. Magic can't put me to sleep and I can finish a long rest in 4 hours if I spend it in an inactive, motionless state.",
+		"##\u25C6 Knowledge from a Past Life##. When I make an ability check that uses a skill, I can add +1d6 to the roll after seeing the d20 result. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.",
+	],
 	dmgres: ["Poison"],
 	savetxt: {
 		text: ["Magic can't put me to sleep"],
@@ -192,7 +196,7 @@ AddSubClass("bard", "college of spirits",{
 			source: [["VRGtR", 28]],
 			minlevel: 3,
 			description: desc([
-				"I learn the Guidance cantrip and can cast it with a range of 60 ft",
+				"I learn the *Guidance* cantrip and can cast it with a range of 60 ft",
 			]),
 			spellcastingBonus: [{
 				name: "Guiding Whispers",
@@ -202,7 +206,7 @@ AddSubClass("bard", "college of spirits",{
 			spellChanges: {
 				"guidance": {
 					range: "60 ft",
-					changes: "I can cast Guidance with a range of 60 ft.",
+					changes: "I can cast *Guidance* with a range of 60 ft.",
 				},
 			},
 		},
@@ -683,9 +687,11 @@ MagicItemsList["harkon's bite"] = {
 	rarity: "uncommon",
 	attunement: true,
 	description: "This necklace with a dire wolf tooth gives me a +1 on checks and saves. Curse: I can't remove it once I'm attuned to it. If I don or remove the necklace, even if I'm not attuned, I'm afflicted with werewolf lycanthropy (MM 211). This lasts until the dawn after the next full moon, unless I'm still wearing the necklace at dawn.",
-	descriptionFull: "A dire wolf tooth dangles from this simple cord necklace. While you wear it, the necklace grants you a +1 bonus to ability checks and saving throws." +
-	"\n   ***Curse***. Attuning to Harkon's Bite curses you until either Harkon Lukas removes the necklace from you or you are targeted by a remove curse spell or similar magic. As long as you remain cursed, you cannot remove the necklace." +
-	"\n   Upon donning or removing the necklace, whether you are attuned to it or not, you are afflicted with werewolf lycanthropy as detailed in the Monster Manual. The curse lasts until the dawn after the next full moon. If you are still wearing the necklace at this time, you are afflicted with the lycanthropy again.",
+	descriptionFull: [
+		"A dire wolf tooth dangles from this simple cord necklace. While you wear it, the necklace grants you a +1 bonus to ability checks and saving throws.",
+		"***Curse***. Attuning to *Harkon's Bite* curses you until either Harkon Lukas removes the necklace from you or you are targeted by a *remove curse* spell or similar magic. As long as you remain cursed, you cannot remove the necklace.",
+		"Upon donning or removing the necklace, whether you are attuned to it or not, you are afflicted with werewolf lycanthropy as detailed in the Monster Manual. The curse lasts until the dawn after the next full moon. If you are still wearing the necklace at this time, you are afflicted with the lycanthropy again.",
+	],
 	addMod: [
 		{ type: "save", field: "all", mod: 1, text: "I gain a +1 bonus on all my saving throws." },
 		{ type: "skill", field: "all", mod: 1, text: "I gain a +1 bonus on all my ability checks." },

@@ -1,5 +1,5 @@
 var iFileName = "ua_20200512_Subclasses-Revisited.js";
-RequiredSheetVersion("14.1.0");
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Fighter, Ranger, and Rogue article to MPMB's Character Record Sheet
 // This file contains contributions by Undrhil and Metacomet10
 
@@ -115,7 +115,7 @@ if (!SourceList["T"]) {
 								spList.notspells.push("wish");
 							}
 						},
-						"The Genie patron adds Wish as a spell available for my 9th-level Mystic Arcanum selection.",
+						"The Genie patron adds *Wish* as a spell available for my 9th-level Mystic Arcanum selection.",
 					],
 				},
 				choices: ["Dao (earth)", "Djinni (air)", "Efreeti (fire)", "Marid (water)"],
@@ -308,7 +308,7 @@ if (!SourceList["T"]) {
 				minlevel: 14,
 				additional: "1\xD7 per 1d4 long rests",
 				description: desc([
-					"As an action, I can cast a 6th-level or lower spell with a casting time time of one action",
+					"As an action, I can cast a 6th-level or lower spell with a casting time of one action",
 					"This can be any spell; It doesn't require any costly components, it simply takes effect",
 				]),
 				action: [["action", ""]],

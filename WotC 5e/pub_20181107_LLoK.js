@@ -1,5 +1,5 @@
 var iFileName = "pub_20181107_LLoK.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the magic items from the Lost Laboratory of Kwalish adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -25,7 +25,7 @@ MagicItemsList["blade of the medusa"] = {
 	descriptionFull: [
 		"When you attack a creature with this magic weapon and roll a 20 on the attack roll, the creature must make a DC 15 Constitution saving throw in addition to suffering the attack's normal effects. On a failed save, the creature is restrained and must make another Constitution saving throw at the end of each of its turns. If it successfully saves against this effect three times, the effect ends. If it fails its saves three times, it is turned to stone and subjected to the petrified condition for 1 hour.",
 		"A creature is immune to this effect if it is immune to damage of the weapon's type, does not have a body made of flesh, or has legendary actions.",
-		"***Curse***. This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with a remove curse spell or similar magic, you are unwilling to part with the weapon. Whenever you attack a creature with this weapon and roll a 1 on the attack roll, you must succeed on a DC 15 Constitution saving throw or be restrained and forced to make additional saves against being petrified, as above.",
+		"***Curse***. This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with a *remove curse* spell or similar magic, you are unwilling to part with the weapon. Whenever you attack a creature with this weapon and roll a 1 on the attack roll, you must succeed on a DC 15 Constitution saving throw or be restrained and forced to make additional saves against being petrified, as above.",
 	],
 	attunement: true,
 	chooseGear: {
@@ -56,11 +56,11 @@ MagicItemsList["galder's bubble pipe"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	magicItemTable: "G",
-	description: "This finely carved pipe has 3 charges to cast spells and regains all charges at dawn. As an action, I can expend all 3 charges to summon a **Steam Mephit**. It acts on its own initiative, is friendly to me, obeys my verbal commands, and disappears after 1 minute or if it ends its turn more than 60 ft from the pipe.",
+	description: "This finely carved pipe has 3 charges to cast spells and regains all charges at dawn. As an action, I can expend all 3 charges to summon a Steam Mephit. It acts on its own initiative, is friendly to me, obeys my verbal commands, and disappears after 1 minute or if it ends its turn more than 60 ft from the pipe.",
 	descriptionFull: [
 		"This finely carved pipe blows odorless bubbles instead of smoke when used. The pipe has 3 charges, and it regains all spent charges daily at dawn. While you hold the pipe, you can expend charges to gain access to the following properties:",
-		" \u2022 You can cast Fog Cloud as an action (1 charge).",
-		" \u2022 You can cast Misty Step as a bonus action (2 charges).",
+		" \u2022 You can cast *Fog Cloud* as an action (1 charge).",
+		" \u2022 You can cast *Misty Step* as a bonus action (2 charges).",
 		" \u2022 You can summon a steam mephit as an action (3 charges). The mephit is friendly to you, obeys your verbal commands, and acts on its own turn in the initiative order. It disappears in a harmless puff of steam after 1 minute or if it ends its turn more than 60 feet from the pipe.",
 	],
 	attunement: true,
@@ -88,7 +88,7 @@ MagicItemsList["gambler's blade"] = {
 	description: "I am unwilling to part with this sword until I'm freed of its curse. Each day at dawn, I can choose its magical bonus to attack and damage rolls of +1, +2, or +3. However, I take a corresponding penalty (-1, -2, or -3) to my death saving throws.",
 	descriptionFull: [
 		"Choose a magical bonus of +1 to +3. This sword gains that bonus to its attack and damage rolls. For each point of bonus you choose for the sword, you take a corresponding penalty (-1 to -3) to your death saving throws. You can change this magical bonus each day at dawn.",
-		"***Curse***. This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with a remove curse spell or similar magic, you are unwilling to part with the weapon.",
+		"***Curse***. This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with a *remove curse* spell or similar magic, you are unwilling to part with the weapon.",
 	],
 	attunement: true,
 	chooseGear: {
@@ -124,7 +124,7 @@ MagicItemsList["heward's hireling armor"] = {
 	descriptionFull: [
 		"A number of Kwalish's experiments were attempts to research the works of the legendary mage Heward, who first crafted what he named hireling armor. While wearing this armor, you gain a +1 bonus to AC. In addition, the armor's animated straps can assist with the drawing and sheathing of weapons, such that you can draw or stow two one-handed weapons when you would normally be able to draw or stow only one.",
 		"This armor also has six pockets, each of which is an extradimensional space. Each pocket can hold up to 20 pounds of material, not exceeding a volume of 2 cubic feet. The armor always weighs 10 pounds, regardless of its pockets' contents. Placing an object into one of the armor's pockets follows the normal rules for interacting with objects. Retrieving an item from a pocket of the armor requires you to use an action. When you reach into a pocket for a specific item, the item is always magically on top.",
-		"Placing the armor inside an extradimensional space created by a bag of holding, a Heward's handy haversack, or a similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it and deposited in a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
+		"Placing the armor inside an extradimensional space created by a *bag of holding*, a *Heward's handy haversack*, or a similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it and deposited in a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
 	],
 	weight: 10,
 	action: [["action", " (retrieve item)"]],
@@ -158,7 +158,7 @@ if (MagicItemsList["ioun stone"]) {
 		magicItemTable: "G",
 		description: "As an action, I can make this faceted sphere orbit my head at 1d3 ft or retrieve it. Others can catch it as an action with an attack or Acrobatics check (AC/DC 24). It has 10 HP and resistance to all damage. While it orbits my head, I gain a +1 bonus on Intelligence checks.",
 		descriptionFull: [
-			"An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.",
+			"An *Ioun stone* is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of *Ioun stone* exist, each type a distinct combination of shape and color.",
 			"When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.",
 			"A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.",
 			"You gain a +1 bonus to Intelligence checks while this faceted sphere orbits your head.",
@@ -177,7 +177,7 @@ if (MagicItemsList["ioun stone"]) {
 		magicItemTable: "G",
 		description: "As an action, I can make this polished, steely sphere orbit my head at 1d3 ft or retrieve it. Others can catch it as an action with an attack or Acrobatics check (AC/DC 24). It has resistance to all damage and 10 HP. While it orbits my head, I gain proficiency in the History skill, or a +1 bonus with it if I'm already proficient.",
 		descriptionFull: [
-			"An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.",
+			"An *Ioun stone* is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of *Ioun stone* exist, each type a distinct combination of shape and color.",
 			"When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.",
 			"A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.",
 			"You gain proficiency in the History skill, or a +1 bonus to checks with that skill if already proficient, while this polished, steely sphere orbits your head.",
@@ -192,7 +192,7 @@ if (MagicItemsList["ioun stone"]) {
 		magicItemTable: "G",
 		description: "As an action, I can make this burnished, brassy stone orbit my head at 1d3 ft or retrieve it. Others can catch it as an action with an attack or Acrobatics check (AC/DC 24). It has resistance to all damage and 10 HP. While it orbits my head, I gain proficiency in the Nature skill, or a +1 bonus with it if I'm already proficient.",
 		descriptionFull: [
-			"An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.",
+			"An *Ioun stone* is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of *Ioun stone* exist, each type a distinct combination of shape and color.",
 			"When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.",
 			"A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.",
 			"You gain proficiency in the Nature skill, or a +1 bonus to checks with that skill if already proficient, while this burnished, brassy stone orbits your head.",
@@ -207,7 +207,7 @@ if (MagicItemsList["ioun stone"]) {
 		magicItemTable: "G",
 		description: "As an action, I can make this tiny golden gem orbit my head at 1d3 ft or retrieve it. Others can catch it as an action with an attack or Acrobatics check (AC/DC 24). It has resistance to all damage and 10 HP. While it orbits my head, I gain proficiency in the Religion skill, or a +1 bonus with it if I'm already proficient.",
 		descriptionFull: [
-			"An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.",
+			"An *Ioun stone* is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of *Ioun stone* exist, each type a distinct combination of shape and color.",
 			"When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.",
 			"A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.",
 			"You gain proficiency in the Religion skill, or a +1 bonus to checks with that skill if already proficient, while this tiny golden gem orbits your head.",
@@ -222,7 +222,7 @@ if (MagicItemsList["ioun stone"]) {
 		magicItemTable: "G",
 		description: "As an action, I can make this pulsating bit of red jeweled crystal orbit my head at 1d3 ft or retrieve it. Others can catch it as an action with an attack or Acrobatics check (AC/DC 24). It has 10 HP and resistance to all damage. While it orbits my head, I am fluent in one additional language chosen by the DM.",
 		descriptionFull: [
-			"An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.",
+			"An *Ioun stone* is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of *Ioun stone* exist, each type a distinct combination of shape and color.",
 			"When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.",
 			"A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.",
 			"You are fluent in one additional language while this pulsating bit of red jeweled crystal orbits your head. The DM chooses the language bestowed by the stone.",
@@ -234,7 +234,7 @@ if (MagicItemsList["ioun stone"]) {
 		rarity: "rare",
 		description: "As an action, I can make this silvery gem orbit my head at 1d3 ft or retrieve it. Others can catch it as an action with an attack or Acrobatics check (AC/DC 24). It has 10 HP and resistance to all damage. While it orbits my head, I gain a +1 bonus to Intelligence saving throws.",
 		descriptionFull: [
-			"An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.",
+			"An *Ioun stone* is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of *Ioun stone* exist, each type a distinct combination of shape and color.",
 			"When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.",
 			"A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.",
 			"You gain a +1 bonus to Intelligence saving throws while this silvery gem orbits your head.",
@@ -254,9 +254,9 @@ MagicItemsList["leather golem armor"] = {
 		" \u2022 You gain a +1 bonus to AC and to saving throws against spells and other magical effects.",
 		" \u2022 **Immutable Form**. You are immune to any spell or effect that would alter your form.",
 		" \u2022 **Lightning Absorption**. You gain resistance to lightning damage. Whenever you take lightning damage, you gain 5 temporary hit points.",
-		"***Curse***. This armor is cursed, and it extends to whomever becomes attuned to it. Until the curse is broken with a remove curse spell or similar magic, you are unwilling to part with the armor. In addition, while you wear the cursed armor, you gain the following properties:",
+		"***Curse***. This armor is cursed, and it extends to whomever becomes attuned to it. Until the curse is broken with a *remove curse* spell or similar magic, you are unwilling to part with the armor. In addition, while you wear the cursed armor, you gain the following properties:",
 		" \u2022 **Aversion of Fire**. If you take fire damage, you have disadvantage on attack rolls and ability checks until the end of your next turn.",
-		" \u2022 **Berserk**. Whenever you suffer a critical hit, roll a d6. On a 6, you go beserk because of the armor. On each of your turns while berserk, you attack the nearest creature you can see. If no creature is near enough to move to and attack, you attack an object, with preference for an object smaller than yourself. Once you go beserk because of the armor, it cannot be removed. You continue to attack until you are incapacitated or until another creature is able to change your state of mind with appropriate magic (such as a calm emotions spell) or a successful DC 15 Charisma (Persuasion) check.",
+		" \u2022 **Berserk**. Whenever you suffer a critical hit, roll a d6. On a 6, you go beserk because of the armor. On each of your turns while berserk, you attack the nearest creature you can see. If no creature is near enough to move to and attack, you attack an object, with preference for an object smaller than yourself. Once you go beserk because of the armor, it cannot be removed. You continue to attack until you are incapacitated or until another creature is able to change your state of mind with appropriate magic (such as a *calm emotions* spell) or a successful DC 15 Charisma (Persuasion) check.",
 	],
 	attunement: true,
 	weight: 10,
@@ -286,7 +286,7 @@ MagicItemsList["polymorph blade"] = {
 	magicItemTable: "H",
 	description: "I'm unwilling to part with this magic sword. When I attack a creature with it and roll a 20 to hit, the creature must make a DC 15 Wisdom save or be polymorphed for 1 hour into a random beast (see Notes page). However, on a roll of 1 to hit, I am the one being polymorphed for 1 hour without a save.",
 	descriptionFull: [
-		"When you attack a creature with this magic weapon and roll a 20 on the attack roll, the creature must make a DC 15 Wisdom saving throw in addition to suffering the attack's normal effects. On a failed save, the creature also suffers the effects of a polymorph spell. Roll a d20 and consult the following table to determine the form the target creature is transformed into.",
+		"When you attack a creature with this magic weapon and roll a 20 on the attack roll, the creature must make a DC 15 Wisdom saving throw in addition to suffering the attack's normal effects. On a failed save, the creature also suffers the effects of a *polymorph* spell. Roll a d20 and consult the following table to determine the form the target creature is transformed into.",
 		[
 			["d20", "New Form   ", "d20", "New Form"],
 			["  1", "Tyrannosaurus", " 11", "Wolf"],
@@ -301,7 +301,7 @@ MagicItemsList["polymorph blade"] = {
 			["10", "Crocodile     ", " 20", "Rabbit"],
 		],
 		"A creature is immune to this effect if it is immune to damage of the weapon's type, is a shapechanger, or has legendary actions.",
-		"***Curse***. This weapon is cursed, and it extends to whomever becomes attuned to it. Until the curse is broken with a Remove Curse spell or similar magic, you are unwilling to part with the weapon. Whenever you attack a creature with this weapon and roll a 1 on the attack roll, you suffer the effect of a polymorph spell for 1 hour, rolling on the table to determine your new form.",
+		"***Curse***. This weapon is cursed, and it extends to whomever becomes attuned to it. Until the curse is broken with a *Remove Curse* spell or similar magic, you are unwilling to part with the weapon. Whenever you attack a creature with this weapon and roll a 1 on the attack roll, you suffer the effect of a *polymorph* spell for 1 hour, rolling on the table to determine your new form.",
 	],
 	attunement: true,
 	chooseGear: {
@@ -338,7 +338,7 @@ MagicItemsList["powered armor-llk"] = {
 	notLegalAL: true,
 	description: "This unusual plate armor looks like a heavily muscled warrior with a helm without openings. It gives me a +1 bonus to AC, increases my Strength to 18, and adv. on death saves. As a bonus action, I can use charges from its energy cell or expend my own HP to have it do various things, see Notes page.",
 	descriptionFull: [
-		"Powered armor resembles a suit of unusual plate armor, with finely articulated joints connected by an oily, black, leather-like material. The armor has been worked to create the appearance of a heavily muscled warrior, and its great helm is unusual in that it has no openings\u2014only a broad glass plate in the front with a second piece of glass above it. Strange plates, tubing, and large metal bosses adorn the armor in seemingly random fashion. On the back of the armor's left gauntlet is a rectangular metal box, from which projects a short rod tipped with a cone-shaped red crystal.",
+		"*Powered armor* resembles a suit of unusual plate armor, with finely articulated joints connected by an oily, black, leather-like material. The armor has been worked to create the appearance of a heavily muscled warrior, and its great helm is unusual in that it has no openings\u2014only a broad glass plate in the front with a second piece of glass above it. Strange plates, tubing, and large metal bosses adorn the armor in seemingly random fashion. On the back of the armor's left gauntlet is a rectangular metal box, from which projects a short rod tipped with a cone-shaped red crystal.",
 		"While wearing this armor, you gain the following benefits:",
 		" \u2022 You have a +1 bonus to AC.",
 		" \u2022 Your Strength score is 18 (this has no effect if your Strength is already 18 or higher).",
@@ -403,7 +403,7 @@ SpellsList["flock of familiars"] = {
 	duration: "Conc, 1 h",
 	description: "Summon 3+1/SL familiars as Find Familiar; can see through their eyes and deliver touch spells; see B",
 	descriptionFull: [
-		"You temporarily summon three familiars\u2014spirits that take animal forms of your choice. Each familiar uses the same rules and options for a familiar conjured by the find familiar spell. All the familiars conjured by this spell must be the same type of creature (celestials, fey, or fiends; your choice). If you already have a familiar conjured by the find familiar spell or similar means, then one fewer familiars are conjured by this spell.",
+		"You temporarily summon three familiars\u2014spirits that take animal forms of your choice. Each familiar uses the same rules and options for a familiar conjured by the *find familiar* spell. All the familiars conjured by this spell must be the same type of creature (celestials, fey, or fiends; your choice). If you already have a familiar conjured by the *find familiar* spell or similar means, then one fewer familiars are conjured by this spell.",
 		"Familiars summoned by this spell can telepathically communicate with you and share their visual or auditory senses while they are within 1 mile of you.",
 		"When you cast a spell with a range of touch, one of the familiars conjured by this spell can deliver the spell, as normal. However, you can cast a touch spell through only one familiar per turn.",
 		"***At Higher Levels***. When you cast this spell using a spell slot of 3rd level or higher, you conjure an additional familiar for each slot level above 2nd.",

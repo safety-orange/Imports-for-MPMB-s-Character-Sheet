@@ -1,5 +1,5 @@
 var iFileName = "ua_20151102_Light,-Dark,-Underdark!.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Light, Dark, Underdark! article to MPMB's Character Record Sheet
 
 // Define the source
@@ -105,8 +105,8 @@ AddSubClass("sorcerer", "shadow sorcerer-ua", {
 			source: [["UA:LDU", 2]],
 			minlevel: 1,
 			description: desc([
-				"I have 60 ft darkvision and can cast Darkness by spending 1 sorcery point",
-				"I can see through any darkness spell I cast using this ability",
+				"I have 60 ft darkvision and can cast *Darkness* by spending 1 sorcery point",
+				"I can see through any *darkness* spell I cast using this ability",
 			]),
 			additional: "1 sorcery point",
 			vision: [["Darkvision", 60]],
@@ -120,7 +120,7 @@ AddSubClass("sorcerer", "shadow sorcerer-ua", {
 			spellChanges: {
 				"darkness": {
 					description: "15-ft rad darkness on point/obj; I see normally; darkvision doesn't work; only magical light of SL 3+",
-					changes: "Using my Eyes of the Dark class feature I can cast Darkness by spending 1 sorcery point and I can see through that Darkness without issue.",
+					changes: "Using my Eyes of the Dark class feature I can cast *Darkness* by spending 1 sorcery point and I can see through that *Darkness* without issue.",
 				},
 			},
 		},
@@ -188,7 +188,7 @@ AddSubClass("warlock", "the undying light-ua", {
 			minlevel: 1,
 			description: desc([
 				"I add my Cha modifier to cantrips/spells I cast that deal fire or radiant damage",
-				"I have resistance to radiant damage and know the Light and Sacred Flame cantrips",
+				"I have resistance to radiant damage and know the *Light* and *Sacred Flame* cantrips",
 			]),
 			spellcastingBonus: [{
 				name: "Radiant Soul",

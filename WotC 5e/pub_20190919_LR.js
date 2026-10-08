@@ -1,5 +1,5 @@
 var iFileName = "pub_20190919_LR.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the Locathah from the Locathah Rising adventure from Extra Life to MPMB's Character Record Sheet
 
 SourceList["LR"] = {
@@ -39,5 +39,11 @@ RaceList.locathah = {
 	weight: " average about 150 pounds",
 	heightMetric: " stand between 1,5 and 1,8 metres tall",
 	weightMetric: " weigh around 70 kg",
-	trait: "Locathah (+2 Strength, +1 Dexterity)\n   Limited Amphibiousness: I can breathe air and water, but need to be submerged at least once every 4 hours to avoid suffocating.\n   Leviathan Will: I have advantage on saving throws against being charmed, frightened, paralyzed, poisoned, stunned, or put to sleep.\n   Natural Armor: I have an AC of 12 + Dexterity modifier + shield.\n   Observant & Athletic: I have proficiency in the Athletics and Perception skills.",
+	trait: [
+		"**Locathah** (+2 Strength, +1 Dexterity)",
+		"##\u25C6 Limited Amphibiousness##. I can breathe air and water, but need to be submerged at least once every 4 hours to avoid suffocating.",
+		"##\u25C6 Leviathan Will##. I have advantage on saving throws against being charmed, frightened, paralyzed, poisoned, stunned, or put to sleep.",
+		"##\u25C6 Natural Armor##. I have an AC of 12 + Dexterity modifier + shield.",
+		"##\u25C6 Observant & Athletic##. I have proficiency in the Athletics and Perception skills.",
+	],
 };

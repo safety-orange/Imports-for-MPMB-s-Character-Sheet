@@ -1,5 +1,5 @@
 var iFileName = "ua_20190918_Bard-and-Paladin.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Bard and Paladin article to MPMB's Character Record Sheet
 
 // Define the source
@@ -34,7 +34,7 @@ AddSubClass("bard", "college of eloquence-ua", {
 			name: "Soothing Words",
 			source: [["UA:BnP", 1]],
 			minlevel: 3,
-			description: desc("I can cast Calm Emotions without expending a spell slot"),
+			description: desc("I can cast *Calm Emotions* without expending a spell slot"),
 			spellcastingBonus: [{
 				name: "Soothing Words",
 				spells: ["calm emotions"],

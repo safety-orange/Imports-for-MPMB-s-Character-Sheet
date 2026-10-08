@@ -1,5 +1,5 @@
 var iFileName = "ua_20191017_Fighter-Ranger-and-Rogue.js";
-RequiredSheetVersion("14.1.0");
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Fighter, Ranger, and Rogue article to MPMB's Character Record Sheet
 
 // Define the source
@@ -214,7 +214,7 @@ var UAFRnR_rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua",
 			source: [["UA:FRnR", 3]],
 			minlevel: 3,
 			description: desc([
-				"I learn Mage Hand; When I cast it, the hand takes the form of swarming nature spirits",
+				"I learn *Mage Hand*; When I cast it, the hand takes the form of swarming nature spirits",
 				"I get bonus spells known, which do not count against the number of spells I can know",
 			]),
 			spellcastingBonus: [{
@@ -364,7 +364,7 @@ AddSubClass("rogue", "the revived-ua", {
 			source: [["UA:FRnR", 5]],
 			minlevel: 9,
 			description: desc([
-				"I can cast Speak with Dead without a spell slot or material components using Intelligence",
+				"I can cast *Speak with Dead* without a spell slot or material components using Intelligence",
 				"Doing this gives me a random proficiency (roll 1d3) that lasts until I finish my next rest:",
 				"[1] language of my choice; [2] skill or tool of my choice; [3] saving throw of my choice",
 			]),
@@ -379,7 +379,7 @@ AddSubClass("rogue", "the revived-ua", {
 				"speak with dead": {
 					components: "V,S",
 					compMaterial: "",
-					changes: "Using Connect with the Dead, I can cast Speak with Dead once per short rest without using a spell slot or material component.",
+					changes: "Using Connect with the Dead, I can cast *Speak with Dead* once per short rest without using a spell slot or material component.",
 				},
 			},
 			usages: 1,

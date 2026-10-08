@@ -1,5 +1,5 @@
 var iFileName = "ua_20200114_Subclasses-Part-1.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 1 article to MPMB's Character Record Sheet
 
 // Define the source
@@ -349,7 +349,7 @@ AddSubClass("warlock", "the noble genie-ua", {
 				" \u2022 A creature I can see in 60 ft heals 8d6 HP and 1 disease or condition affecting it ends",
 				"   This condition can be blinded, charmed, deafened, frightened, paralyzed, or poisoned",
 				" \u2022 A creature I can see in 60 ft has disadv. on attacks \u0026 saves until my next turn starts",
-				" \u2022 I can cast Legend Lore without using material components",
+				" \u2022 I can cast *Legend Lore* without using material components",
 				"I can regain a use of this by sacrificing 500 gp of nonmagical treasure to my patron",
 			]),
 			action: [["action", ""]],
@@ -366,7 +366,7 @@ AddSubClass("warlock", "the noble genie-ua", {
 					components: "V,S",
 					compMaterial: "",
 					description: "Learn summary of lore of named or described person, place, or object",
-					changes: "When I use my Collector's Call feature to cast Legend Lore, it doesn't require any material components.",
+					changes: "When I use my Collector's Call feature to cast *Legend Lore*, it doesn't require any material components.",
 				},
 			},
 		},

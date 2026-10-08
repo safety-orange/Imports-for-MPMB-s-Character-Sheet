@@ -1,5 +1,5 @@
 var iFileName = "ua_20170116_Ranger-and-Rogue.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Ranger and Rogue article to MPMB's Character Record Sheet
 
 // Define the source
@@ -57,7 +57,7 @@ var UARnR_theHorizonWalkerSubclass = {
 			name: "Ethereal Step",
 			source: [["UA:RnR", 1]],
 			minlevel: 7,
-			description: desc("As a bonus action, I can cast the Etherealness spell, which lasts until the end of the turn"),
+			description: desc("As a bonus action, I can cast the *Etherealness* spell, which lasts until the end of the turn"),
 			usages: 1,
 			recovery: "short rest",
 			action: [["bonus action", ""]],
@@ -72,7 +72,7 @@ var UARnR_theHorizonWalkerSubclass = {
 					time: "1 bns",
 					duration: "1 rnd",
 					description: "I go to Ethereal Plane; move there, but able to perceive 60 ft into the normal plane",
-					changes: "Using my Ethereal Step class feature I can cast Etherealness as a bonus action once per short rest, but it only affects myself and lasts until the end of my turn.",
+					changes: "Using my Ethereal Step class feature I can cast *Etherealness* as a bonus action once per short rest, but it only affects myself and lasts until the end of my turn.",
 				},
 			},
 		},

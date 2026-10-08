@@ -1,5 +1,5 @@
 var iFileName = "pub_20221206_Dragonlance.js";
-RequiredSheetVersion("14.1.0");
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the Character Options content from Dragonlance: Shadow of the Dragon Queen to MPMB's Character Record Sheet
 
 SourceList["D:SotDQ"] = {
@@ -40,9 +40,11 @@ RaceList["kender"] = {
 			action: [["bonus action", ""]],
 		},
 	},
-	trait: "Kender" +
-	"\n \u2022 Fearless: I have adv. on saves against the frightened condition. Once per long rest when I fail " + (typePF ? "such a save" : "a save to avoid being frightened") + ", I can choose to succeed" + (typePF ? "." : " instead") +
-	"\n \u2022 Taunt: As a bonus action, I can taunt a creature within 60 ft of me that can hear and understand me. They must make a Wisdom " + (typePF ? "saving throw or have disadvantage" : "save (DC 8 + Prof B + Int/Wis/Cha mod; one-time choice) or have disadv.") + " on attack rolls not made against me until the start of my next turn. I can do this a number of times per long rest equal to my proficiency bonus." + (typePF ? " The DC equals 8 + my proficiency bonus + Intelligence, Wisdom, or Charisma modifier (one-time choice when selecting this race)." : ""),
+	trait: [
+		"**Kender**",
+		"##\u25C6 Fearless##. I have adv. on saves against the frightened condition. Once per long rest when I fail " + (typePF ? "such a save" : "a save to avoid being frightened") + ", I can choose to succeed" + (typePF ? "." : " instead"),
+		"##\u25C6 Taunt##. As a bonus action, I can taunt a creature within 60 ft of me that can hear and understand me. They must make a Wisdom " + (typePF ? "saving throw or have disadvantage" : "save (DC 8 + Prof B + Int/Wis/Cha mod; one-time choice) or have disadv.") + " on attack rolls not made against me until the start of my next turn. I can do this a number of times per long rest equal to my proficiency bonus." + (typePF ? " The DC equals 8 + my proficiency bonus + Intelligence, Wisdom, or Charisma modifier (one-time choice when selecting this race)." : ""),
+	],
 };
 
 BackgroundList["knight of solamnia"] = {
@@ -132,26 +134,30 @@ FeatsList["initiate of high sorcery"] = {
 	name: "Initiate of High Sorcery",
 	source: [["D:SotDQ", 32], ["UA:HoKR", 4]],
 	description: "I learn a wizard cantrip and two 1st-levels spell from a list depending on my chosen moon. I can cast each spell once per long rest at its lowest levels without expending a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
-	descriptionFull: "You've received training from magic-users affiliated with the Mages of High Sorcery." +
-	"\n   Choose one of the three moons of Krynn to influence your magic: the black moon, Nuitari; the red moon, Lunitari; or the white moon, Solinari. You learn one cantrip of your choice from the wizard spell list and two 1st-level spells based on the moon you choose, as specified in the Lunar Spells table." +
-	"\n\n***Lunar Spells***" +
-	"\n**Moon**\t**1st-Level Spell**" +
-	"\nNuitari\tChoose two from dissonant whispers, false life," +
-	"\n\thex, and ray of sickness" +
-	"\nLunitari\tChoose two from color spray, disguise self," +
-	"\n\tfeather fall, and longstrider" +
-	"\nSolinari\tChoose two from comprehend languages, detect" +
-	"\n\tevil and good, protection from evil and good, and" +
-	"\n\tshield" +
-	"\n\n   You can cast each of the chosen 1st-level spells without a spell slot, and you must finish a long rest before you can cast them in this way again. You can also cast the spells using any spell slots you have." +
-	"\n   Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+	descriptionFull: [
+		"You've received training from magic-users affiliated with the Mages of High Sorcery.",
+		"Choose one of the three moons of Krynn to influence your magic: the black moon, Nuitari; the red moon, Lunitari; or the white moon, Solinari. You learn one cantrip of your choice from the wizard spell list and two 1st-level spells based on the moon you choose, as specified in the Lunar Spells table.",
+		"***Lunar Spells***",
+		[
+			["Moon", "1st-Level Spell"],
+			["Nuitari", "Choose two from *dissonant whispers*, *false life*,"],
+			["", "*hex*, and *ray of sickness*"],
+			["Lunitari", "Choose two from *color spray*, *disguise self*,"],
+			["", "*feather fall*, and *longstrider*"],
+			["Solinari", "Choose two from *comprehend languages*, detect"],
+			["", "evil and good, *protection from evil and good*, and"],
+			["", "shield"],
+		],
+		"You can cast each of the chosen 1st-level spells without a spell slot, and you must finish a long rest before you can cast them in this way again. You can also cast the spells using any spell slots you have.",
+		"Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+	],
 	prerequisite: "Dragonlance Campaign, plus Sorcerer, Wizard, or Mage of High Sorcery background",
 	prereqeval: function (v) {
 		return classes.known.wizard || classes.known.sorcerer || CurrentBackground.known.indexOf("mage of high sorcery") !== -1 || /initiate of high sorcery/i.test(What("Background Feature"));
 	},
 	choices: ["Nuitari", "Lunitari", "Solinari"],
 	"nuitari": {
-		description: "I learn a wizard cantrip and two 1st-level spells (Dissonant Whispers, False Life, Hex, or Ray of Sickness). I can cast each spell once per long rest at its lowest level without expending a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+		description: "I learn a wizard cantrip and two 1st-level spells (*Dissonant Whispers*, *False Life*, *Hex*, or *Ray of Sickness*). I can cast each spell once per long rest at its lowest level without expending a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility: [4,5,6],
 		allowUpCasting: true,
 		spellcastingBonus: [{
@@ -166,7 +172,7 @@ FeatsList["initiate of high sorcery"] = {
 		}],
 	},
 	"lunitari": {
-		description: "I learn a wizard cantrip and two 1st-level spells (Color Spray, Disguise Self, Feather Fall, Longstrider). I can cast each spell once per long rest at its lowest level without expending a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+		description: "I learn a wizard cantrip and two 1st-level spells (*Color Spray*, *Disguise Self*, *Feather Fall*, *Longstrider*). I can cast each spell once per long rest at its lowest level without expending a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility: [4,5,6],
 		allowUpCasting: true,
 		spellcastingBonus: [{
@@ -181,7 +187,7 @@ FeatsList["initiate of high sorcery"] = {
 		}],
 	},
 	"solinari": {
-		description: "I learn a wizard cantrip and two 1st-level spells (Comprehend Languages, Detect Evil and Good, Protection from Evil and Good, Shield). I can cast each spell once per long rest at its lowest level without expending a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+		description: "I learn a wizard cantrip and two 1st-level spells (*Comprehend Languages*, *Detect Evil and Good*, *Protection from Evil and Good*, *Shield*). I can cast each spell once per long rest at its lowest level without expending a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility: [4,5,6],
 		allowUpCasting: true,
 		spellcastingBonus: [{
@@ -200,9 +206,11 @@ FeatsList["adept of the black robes"] = {
 	name: "Adept of the Black Robes",
 	source: [["D:SotDQ", 31], ["UA:HoKR", 4]],
 	description: "I learn one 2nd-level Ench or Necro spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. When a creature I can see within 60 ft fails its save vs. my damaging spell, I can expend HD up to the spell's level and add the rolls to the damage of the spell for that one creature.",
-	descriptionFull: "You chose the moon Nuitari to influence your magic, and your ambition and loyalty to the Order of the Black Robes have been recognized, granting you these benefits:" +
-	"\n   ***Ambitious Magic***. You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
-	"\n   ***Life Channel***. You can channel your life force into the power of your magic. When a creature you can see within 60 feet fails on a saving throw against a spell that deals damage that you cast, you can expend a number of Hit Dice equal to the level of the spell. Roll the expended Hit Dice and add them together. The damage that the creature takes increases by an amount equal to that total.",
+	descriptionFull: [
+		"You chose the moon Nuitari to influence your magic, and your ambition and loyalty to the Order of the Black Robes have been recognized, granting you these benefits:",
+		"***Ambitious Magic***. You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.",
+		"***Life Channel***. You can channel your life force into the power of your magic. When a creature you can see within 60 feet fails on a saving throw against a spell that deals damage that you cast, you can expend a number of Hit Dice equal to the level of the spell. Roll the expended Hit Dice and add them together. The damage that the creature takes increases by an amount equal to that total.",
+	],
 	prerequisite: "4th level, Initiate of High Sorcery (Nuitari) feat",
 	prereqeval: function (v) {
 		var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery");
@@ -222,9 +230,11 @@ FeatsList["adept of the red robes"] = {
 	name: "Adept of the Red Robes",
 	source: [["D:SotDQ", 32], ["UA:HoKR", 4]],
 	description: "I learn a 2nd-level Illusion or Transmutation spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. When I roll 9 or lower on the d20 for an attack or ability check, I can treat the roll as a 10. I can do this a number of times per long rest equal to my proficiency bonus.",
-	descriptionFull: "You chose the moon Lunitari to influence your magic, and your dedication to maintaining the balance between all things has been recognized by the Order of the Red Robes, granting you these benefits:" +
-	"\n   ***Insightful Magic***. You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the illusion or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
-	"\n   ***Magical Balance***. When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. you can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You chose the moon Lunitari to influence your magic, and your dedication to maintaining the balance between all things has been recognized by the Order of the Red Robes, granting you these benefits:",
+		"***Insightful Magic***. You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the illusion or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.",
+		"***Magical Balance***. When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. you can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "4th level, Initiate of High Sorcery (Lunitari) feat",
 	prereqeval: function (v) {
 		var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery");
@@ -247,9 +257,11 @@ FeatsList["adept of the white robes"] = {
 	name: "Adept of the White Robes",
 	source: [["D:SotDQ", 32], ["UA:HoKR", 4]],
 	description: "I learn one 2nd-level Abjur or Div spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. As a reaction when I or a creature I can see within 30 ft is damaged, I can expend a spell slot and roll d6s equal to its level to reduce the damage by that much + my spellcasting modifier.",
-	descriptionFull: "You chose the moon Solinari to influence your magic, and your oath to use magic to make the world a better place has been recognized by the Order of the White Robes, granting you these benefits:" +
-	"\n   ***Protective Magic***. You learn one 2nd-level spell of you choice. The 2nd-level spell must be from the abjuration or divination school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat." +
-	"\n   ***Protective Ward***. When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d6s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier.",
+	descriptionFull: [
+		"You chose the moon Solinari to influence your magic, and your oath to use magic to make the world a better place has been recognized by the Order of the White Robes, granting you these benefits:",
+		"***Protective Magic***. You learn one 2nd-level spell of you choice. The 2nd-level spell must be from the abjuration or divination school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.",
+		"***Protective Ward***. When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d6s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier.",
+	],
 	prerequisite: "4th level, Initiate of High Sorcery (Solinari) feat",
 	prereqeval: function (v) {
 		var iHghSrcyInit = CurrentFeats.known.indexOf("initiate of high sorcery");
@@ -271,20 +283,24 @@ FeatsList["adept of the white robes"] = {
 FeatsList["divinely favored"] = {
 	name: "Divinely Favored",
 	source: [["D:SotDQ", 32], ["UA:HoKR", 4]],
-	description: "I learn a cleric cantrip, a 1st-level spell based on my alignment, and Augury. I can cast the spells each once per long rest at their lowest level without a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this. I can use a holy symbol as a spellcasting focus for any spell that uses the chosen ability.",
-	descriptionFull: "A god chose you to carry a spark of their power." +
-	"\n   You learn one cantrip of your choice from the cleric spell list and one 1st-level spell based on the alignment of your character, as specified in the table below. You also learn the augury spell." +
-	"\n\n**Alignment**\t**1st-level Spell**" +
-	"\n Evil\t\tChoose one 1st level warlock spell" +
-	"\n Good\t\tChoose one 1st-level cleric spell" +
-	"\n Neutral\t\tChoose one 1st-level druid spell" +
-	"\n\n   You can cast the chosen 1st-level spell and the augury spell without a spell slot, and you must finish a long rest before you can cast either of these spells in this way again. You can also cast these spells using spell slots you have of the appropriate level." +
-	"\n   Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat)." +
-	"\n\n   In addition, you can use a holy symbol as a spellcasting focus for any spell you cast that uses the spellcasting ability you choose when you select this feat.",
+	description: "I learn a cleric cantrip, a 1st-level spell based on my alignment, and *Augury*. I can cast the spells each once per long rest at their lowest level without a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this. I can use a holy symbol as a spellcasting focus for any spell that uses the chosen ability.",
+	descriptionFull: [
+		"A god chose you to carry a spark of their power.",
+		"You learn one cantrip of your choice from the cleric spell list and one 1st-level spell based on the alignment of your character, as specified in the table below. You also learn the *augury* spell.",
+		[
+			["Alignment", "1st-level Spell"],
+			[" Evil", "", "Choose one 1st level warlock spell"],
+			[" Good", "", "Choose one 1st-level cleric spell"],
+			[" Neutral", "", "Choose one 1st-level druid spell"],
+		],
+		"You can cast the chosen 1st-level spell and the *augury* spell without a spell slot, and you must finish a long rest before you can cast either of these spells in this way again. You can also cast these spells using spell slots you have of the appropriate level.",
+		"Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+		"In addition, you can use a holy symbol as a spellcasting focus for any spell you cast that uses the spellcasting ability you choose when you select this feat.",
+	],
 	choices: ["Evil (warlock spell)", "Good (cleric spell)", "Neutral (druid spell)"],
 	"evil (warlock spell)": {
 		name: "Divinely Favored [Evil]",
-		description: "I learn a cleric cantrip, a 1st-level warlock spell, and Augury. I can cast each spell once per long rest at their lowest level without a spell slot, or by using a spell slot as normal. I choose Int, Wis, or Cha as my spellcasting ability for this. I can use a holy symbol as a spellcasting focus for any spell that uses the chosen ability.",
+		description: "I learn a cleric cantrip, a 1st-level warlock spell, and *Augury*. I can cast each spell once per long rest at their lowest level without a spell slot, or by using a spell slot as normal. I choose Int, Wis, or Cha as my spellcasting ability for this. I can use a holy symbol as a spellcasting focus for any spell that uses the chosen ability.",
 		spellcastingAbility: [4,5,6],
 		allowUpCasting: true,
 		spellcastingBonus: [{
@@ -305,7 +321,7 @@ FeatsList["divinely favored"] = {
 	},
 	"good (cleric spell)": {
 		name: "Divinely Favored [Good]",
-		description: "I learn a cleric cantrip, a 1st-level cleric spell, and Augury. I can cast each spell once per long rest at their lowest level without a spell slot, or by using a spell slot as normal. I choose Int, Wis, or Cha as my spellcasting ability for this. I can use a holy symbol as a spellcasting focus for any spell that uses the chosen ability.",
+		description: "I learn a cleric cantrip, a 1st-level cleric spell, and *Augury*. I can cast each spell once per long rest at their lowest level without a spell slot, or by using a spell slot as normal. I choose Int, Wis, or Cha as my spellcasting ability for this. I can use a holy symbol as a spellcasting focus for any spell that uses the chosen ability.",
 		spellcastingAbility: [4,5,6],
 		allowUpCasting: true,
 		spellcastingBonus: [{
@@ -326,7 +342,7 @@ FeatsList["divinely favored"] = {
 	},
 	"neutral (druid spell)": {
 		name: "Divinely Favored [Neutral]",
-		description: "I learn a cleric cantrip, a 1st-level druid spell, and Augury. I can cast each spell once per long rest at their lowest level without a spell slot, or by using a spell slot as normal. I choose Int, Wis, or Cha as my spellcasting ability for this. I can use a holy symbol as a spellcasting focus for any spell that uses the chosen ability.",
+		description: "I learn a cleric cantrip, a 1st-level druid spell, and *Augury*. I can cast each spell once per long rest at their lowest level without a spell slot, or by using a spell slot as normal. I choose Int, Wis, or Cha as my spellcasting ability for this. I can use a holy symbol as a spellcasting focus for any spell that uses the chosen ability.",
 		spellcastingAbility: [4,5,6],
 		allowUpCasting: true,
 		spellcastingBonus: [{
@@ -352,9 +368,11 @@ FeatsList["squire of solamnia"] = {
 	name: "Squire of Solamnia",
 	source: [["D:SotDQ", 34]],
 	description: "Mounting or dismounting costs me only 5-ft of movement. Once per turn, I can grant myself advantage on a weapon attack, adding +1d8 to the damage roll if it hits. I can use this benefit my proficiency bonus per long rest, but a use is expended only if the attack hits.",
-	descriptionFull: "Your training in the ways of the Knights of Solamnia grants you these benefits:" +
-	"\n   ***Mount Up***. Mounting or dismounting costs you only 5 feet of movement." +
-	"\n   ***Precise Strike***. Once per turn, when you make a weapon attack roll against a creature, you can cause the attack roll to have advantage. If the attack hits, you roll a d8 and add the number rolled as a bonus to the attack's damage roll. You can use this benefit a number of times equal to your proficiency bonus, but a use is expended only if the attack hits. You regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"Your training in the ways of the Knights of Solamnia grants you these benefits:",
+		"***Mount Up***. Mounting or dismounting costs you only 5 feet of movement.",
+		"***Precise Strike***. Once per turn, when you make a weapon attack roll against a creature, you can cause the attack roll to have advantage. If the attack hits, you roll a d8 and add the number rolled as a bonus to the attack's damage roll. You can use this benefit a number of times equal to your proficiency bonus, but a use is expended only if the attack hits. You regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "Dragonlance Campaign, plus Fighter, Paladin, or Knight of Solamnia background",
 	prereqeval: function (v) {
 		return classes.known.fighter || classes.known.paladin || CurrentBackground.known.indexOf("knight of solamnia") !== -1 || /squire of solamnia/i.test(What("Background Feature"));
@@ -368,9 +386,11 @@ FeatsList["knight of the crown"] = {
 	name: "Knight of the Crown",
 	source: [["D:SotDQ", 32]],
 	description: "As a bonus action, I can use Commanding Rally on one ally within 30 ft that can see or hear me to immediately make one weapon attack as a reaction. +1d8 is added to the damage roll, if it hits. I can do this my proficiency bonus per long rest. [+1 Strength, Dexterity, or Constitution]",
-	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Crown, a group that extols the virtues of cooperation, loyalty, and obedience. You excel in group combat and gain these benefits:" +
-	"\n   ***Ability Score Increase***. Increase your Strength, Dexterity, or Constitution by 1, to a maximum of 20." +
-	"\n   ***Commanding Rally***. As a bonus action, you can command one ally within 30 feet of yourself to attack. If that ally can see or hear you, they can immediately make one weapon attack as a reaction. If the attack hits, the ally can roll a d8 and add the number rolled as a bonus to the attack's damage roll. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You are a Knight of Solamnia aligned with the Order of the Crown, a group that extols the virtues of cooperation, loyalty, and obedience. You excel in group combat and gain these benefits:",
+		"***Ability Score Increase***. Increase your Strength, Dexterity, or Constitution by 1, to a maximum of 20.",
+		"***Commanding Rally***. As a bonus action, you can command one ally within 30 feet of yourself to attack. If that ally can see or hear you, they can immediately make one weapon attack as a reaction. If the attack hits, the ally can roll a d8 and add the number rolled as a bonus to the attack's damage roll. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "4th level, Squire of Solamnia feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia") !== -1; },
 	limfeaname: "Commanding Rally (Knight of the Crown)",
@@ -396,9 +416,11 @@ FeatsList["knight of the rose"] = {
 	name: "Knight of the Rose",
 	source: [["D:SotDQ", 33]],
 	description: "As a bonus action, I can use Bolstering Rally on myself or an ally within 30 ft that I can see and can see or hear me. They gain 1d8 + my proficiency bonus + the modifier of the ability chosen to increase temporary hit points. I can do this my proficiency bonus per long rest. [+1 Constitution, Wisdom, or Charisma]",
-	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Rose, a group known for leadership, justice, and wisdom. Your resolve grants you these benefits:" +
-	"\n   ***Ability Score Increase***. Increase your Constitution, Wisdom, or Charisma by 1, to a maximum of 20." +
-	"\n   ***Bolstering Rally***. As a bonus action, you can encourage one creature you can see within 30 feet of yourself (you can choose yourself). If the target can see or hear you, the target gains temporary hit points equal to 1d8 + your proficiency bonus + the ability modifier of the ability score increased by this feat. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You are a Knight of Solamnia aligned with the Order of the Rose, a group known for leadership, justice, and wisdom. Your resolve grants you these benefits:",
+		"***Ability Score Increase***. Increase your Constitution, Wisdom, or Charisma by 1, to a maximum of 20.",
+		"***Bolstering Rally***. As a bonus action, you can encourage one creature you can see within 30 feet of yourself (you can choose yourself). If the target can see or hear you, the target gains temporary hit points equal to 1d8 + your proficiency bonus + the ability modifier of the ability score increased by this feat. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "4th level, Squire of Solamnia feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia") !== -1; },
 	limfeaname: "Bolstering Rally (Knight of the Rose)",
@@ -424,9 +446,11 @@ FeatsList["knight of the sword"] = {
 	name: "Knight of the Sword",
 	source: [["D:SotDQ", 33]],
 	description: "Once per turn, when I hit a creature with a weapon attack, I can have it make a Wisdom save DC (8 + Prof Bonus + mod of the ability increased by this feat) or be frightened of me until my next turn ends. On a successful save, the target has disadv. on its next attack before its next turn ends. I can do this my proficiency bonus per long rest. [+1 Int/Wis/Cha]",
-	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Sword, a group devoted to heroism and courage. Bravery steels your spirit, granting you these benefits:" +
-	"\n   ***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20." +
-	"\n   ***Demoralizing Strike***. Once per turn, when you hit a creature with a weapon attack roll, you can attempt to frighten that target. The target must make a Wisdom saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the target is frightened of you until the end of your next turn. On a successful save, the target has disadvantage on the next attack roll it makes before the end of its next turn. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You are a Knight of Solamnia aligned with the Order of the Sword, a group devoted to heroism and courage. Bravery steels your spirit, granting you these benefits:",
+		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma by 1, to a maximum of 20.",
+		"***Demoralizing Strike***. Once per turn, when you hit a creature with a weapon attack roll, you can attempt to frighten that target. The target must make a Wisdom saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the target is frightened of you until the end of your next turn. On a successful save, the target has disadvantage on the next attack roll it makes before the end of its next turn. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "4th level, Squire of Solamnia feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia") !== -1; },
 	limfeaname: "Demoralizing Strike (Knight of the Sword)",
@@ -529,7 +553,7 @@ AddSubClass("sorcerer", "lunar sorcery", {
 			name: "Moon Fire",
 			source: [["D:SotDQ", 0]],
 			minlevel: 1,
-			description: desc("I know the Sacred Flame cantrip and can use it on 2 creatures within 5 ft of each other"),
+			description: desc("I know the *Sacred Flame* cantrip and can use it on 2 creatures within 5 ft of each other"),
 			spellcastingBonus: [{
 				name: "Moon Fire",
 				spells: ["sacred flame"],
@@ -541,7 +565,7 @@ AddSubClass("sorcerer", "lunar sorcery", {
 					description: "Up to 2 creas I see, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus; +1d8 at CL 5/11/17",
 					descriptionShorter: "Up to 2 creas I see, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus; +1d8 CL 5/11/17",
 					descriptionCantripDie: "Up to 2 creas I see, max 5 ft apart, save or `CD`d8 Radiant dmg; no bonus for cover on save",
-					changes: "When I cast Sacred Flame, I can target one creature as normal or target two creatures within range that are within 5 feet of each other.",
+					changes: "When I cast *Sacred Flame*, I can target one creature as normal or target two creatures within range that are within 5 feet of each other.",
 				},
 			},
 			calcChanges: {
@@ -551,7 +575,7 @@ AddSubClass("sorcerer", "lunar sorcery", {
 							fields.Description = fields.Description.replace("1 creature", "up to 2 creatures within 5 ft");
 						}
 					},
-					"When I cast Sacred Flame, I can target one creature as normal or target two creatures within range that are within 5 feet of each other.",
+					"When I cast *Sacred Flame*, I can target one creature as normal or target two creatures within range that are within 5 feet of each other.",
 				],
 			},
 		},
@@ -690,15 +714,17 @@ MagicItemsList["flying citadel helm"] = {
 	prerequisite: "Requires attunement by a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This ornate chair allows me to maneuver a flying citadel while concentrating (as if a spell). I can move the citadel through the air 80 ft/round or 8 miles/h, steer it, and see and hear from its highest point as though I was at that location. As an action or bonus action, I can transfer attunement to a willing spellcaster.",
-	descriptionFull: "The function of this ornate chair is to propel and maneuver a flying citadel on which it has been installed. The chair has AC 15, 18 hit points, and immunity to poison and psychic damage. It is destroyed if reduced to 0 hit points." +
-	"\n   The sensation of being attuned to a flying citadel helm is akin to the pins-and-needles effect one experiences after one's arm or leg falls asleep, but not as intense." +
-	"\n   While attuned to a flying citadel helm and sitting in it, you gain the following abilities for as long as you maintain concentration (as if concentrating on a spell):" +
-	"\n \u2022 You can use the flying citadel helm to move the citadel through the air, up to 80 feet per round, or up to 8 miles per hour." +
-	"\n \u2022 You can steer the citadel, albeit in a somewhat clumsy fashion, in much the way that a rudder or oars can be used to maneuver a seafaring ship." +
-	"\n \u2022 At any time, you can see and hear from the highest point outside the citadel as though you were at that location." +
-	"\n\n   If no creature attuned to the helm is maintaining concentration, the citadel remains motionless in its space." +
-	"\n   ***Transfer Attunement***. You can use an action or a bonus action to touch a willing spellcaster, whereupon that creature attunes to the flying citadel helm immediately, and your attunement to the flying citadel helm ends." +
-	"\n   ***Crash***. Should the flying citadel helm be destroyed, the citadel it is installed on loses power and begins to crumble. If the crumbling citadel is in the air, it descends at a rate of 30 feet per round, or 300 feet per minute. Any creature on the citadel or on the ground within 120 feet of the citadel when it lands must make a DC 20 Dexterity saving throw, taking 39 (6d12) bludgeoning damage on a failed save, or half as much damage on a successful one.",
+	descriptionFull: [
+		"The function of this ornate chair is to propel and maneuver a flying citadel on which it has been installed. The chair has AC 15, 18 hit points, and immunity to poison and psychic damage. It is destroyed if reduced to 0 hit points.",
+		"The sensation of being attuned to a *flying citadel helm* is akin to the pins-and-needles effect one experiences after one's arm or leg falls asleep, but not as intense.",
+		"While attuned to a *flying citadel helm* and sitting in it, you gain the following abilities for as long as you maintain concentration (as if concentrating on a spell):",
+		" \u2022 You can use the *flying citadel helm* to move the citadel through the air, up to 80 feet per round, or up to 8 miles per hour.",
+		" \u2022 You can steer the citadel, albeit in a somewhat clumsy fashion, in much the way that a rudder or oars can be used to maneuver a seafaring ship.",
+		" \u2022 At any time, you can see and hear from the highest point outside the citadel as though you were at that location.",
+		"If no creature attuned to the helm is maintaining concentration, the citadel remains motionless in its space.",
+		"***Transfer Attunement***. You can use an action or a bonus action to touch a willing spellcaster, whereupon that creature attunes to the *flying citadel helm* immediately, and your attunement to the *flying citadel helm* ends.",
+		"***Crash***. Should the *flying citadel helm* be destroyed, the citadel it is installed on loses power and begins to crumble. If the crumbling citadel is in the air, it descends at a rate of 30 feet per round, or 300 feet per minute. Any creature on the citadel or on the ground within 120 feet of the citadel when it lands must make a DC 20 Dexterity saving throw, taking 39 (6d12) bludgeoning damage on a failed save, or half as much damage on a successful one.",
+	],
 	action: [
 		["action", " (Transfer Attunement)"],
 		["bonus action", " (Transfer Attunement)"],

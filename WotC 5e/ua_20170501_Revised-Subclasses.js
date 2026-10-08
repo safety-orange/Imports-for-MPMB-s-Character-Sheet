@@ -1,5 +1,5 @@
 var iFileName = "ua_20170501_Revised-Subclasses.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Revised Subclasses article to MPMB's Character Record Sheet
 
 // Define the source
@@ -45,7 +45,7 @@ AddSubClass("barbarian", "ancestral guardian2-ua", {
 			name: "Consult the Spirits",
 			source: [["UA:RS", 1]],
 			minlevel: 10,
-			description: desc("Through consulting my ancestral spirits, I can cast Clairvoyance without a spell slot"),
+			description: desc("Through consulting my ancestral spirits, I can cast *Clairvoyance* without a spell slot"),
 			spellcastingBonus: [{
 				name: "Consult the Spirits",
 				spells: ["clairvoyance"],
@@ -368,7 +368,7 @@ AddSubClass("sorcerer", "favoured soul-uars", {
 			description: desc([
 				"When I select my 1st level or higher spells, I can also pick spells from the cleric spell list",
 				"These cleric spells count as sorcerer spells for me",
-				"I also learn Cure Wounds, which doesn't count against my number of spells known",
+				"I also learn *Cure Wounds*, which doesn't count against my number of spells known",
 			]),
 			spellcastingBonus: [{
 				name: "Divine Magic",

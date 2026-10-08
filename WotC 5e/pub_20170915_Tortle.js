@@ -1,5 +1,5 @@
 var iFileName = "pub_20170915_Tortle.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the Tortle Race from the Tortle Package from Extra Life to MPMB's Character Record Sheet
 
 // Define the source
@@ -47,9 +47,11 @@ RaceList.tortle = {
 	weightMetric: " weigh around 190 kg (180 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [2, 0, 0, 0, 1, 0],
 	action: [["action", "Shell Defense (start)"], ["bonus action", "Shell Defense (end)"]],
-	trait: "Tortle (+2 Strength, +1 Wisdom)" +
-	"\n \u2022 Claws: My unarmed strikes with my claws deal 1d4 slashing damage." +
-	"\n \u2022 Hold Breath: I can hold my breath for up to 1 hour at a time." +
-	"\n \u2022 Natural Armor: I have a base AC of 17, but I can't add my Dex to it or wear armor." +
-	"\n \u2022 Shell Defense: As an action, I can withdraw into my shell and gain +4 AC and adv. on Str and Con saves, but I count as prone, have speed 0, have disadv. on Dex saves, and can't take reactions. The only action I can take is a bonus action to emerge from the shell.",
+	trait: [
+		"**Tortle** (+2 Strength, +1 Wisdom)",
+		"##\u25C6 Claws##. My unarmed strikes with my claws deal 1d4 slashing damage.",
+		"##\u25C6 Hold Breath##. I can hold my breath for up to 1 hour at a time.",
+		"##\u25C6 Natural Armor##. I have a base AC of 17, but I can't add my Dex to it or wear armor.",
+		"##\u25C6 Shell Defense##. As an action, I can withdraw into my shell and gain +4 AC and adv. on Str and Con saves, but I count as prone, have speed 0, have disadv. on Dex saves, and can't take reactions. The only action I can take is a bonus action to emerge from the shell.",
+	],
 };

@@ -1,5 +1,5 @@
 var iFileName = "ua_20201026_Subclasses-Part-5.js";
-RequiredSheetVersion("14.0.0-beta");
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 5 article to MPMB's Character Record Sheet
 // This file contains contributions by WondrousLittleWizard
 
@@ -167,7 +167,7 @@ var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden-ua", 
 			source: [["UA:SP5", 3]],
 			minlevel: 3,
 			description: desc([
-				"I learn the Draconic language and the Thaumaturgy cantrip",
+				"I learn the Draconic language and the *Thaumaturgy* cantrip",
 			]),
 			languageProfs: ["Draconic"],
 			spellcastingBonus: [{

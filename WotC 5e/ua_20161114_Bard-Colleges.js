@@ -1,5 +1,5 @@
 var iFileName = "ua_20161114_Bard-Colleges.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Bard Colleges article to MPMB's Character Record Sheet
 
 // Define the source
@@ -53,8 +53,8 @@ AddSubClass("bard", "college of glamour-ua", {
 			action: [["bonus action", ""]],
 			description: desc([
 				"As a bonus action, I take on an appearance of unearthly beauty for 1 minute",
-				"As a bonus action during this time, I can cast Command without using a spell slot",
-				"Creatures charmed by me automatically fail their saves against these Command spells",
+				"As a bonus action during this time, I can cast *Command* without using a spell slot",
+				"Creatures charmed by me automatically fail their saves against these *Command* spells",
 			]),
 			spellcastingBonus: [{
 				name: "Mantle of Majesty",
@@ -66,7 +66,7 @@ AddSubClass("bard", "college of glamour-ua", {
 				"command": {
 					time: "1 bns",
 					description: "1 crea save (fails save if charmed) or follow one word command, e.g. approach, drop, flee, halt",
-					changes: "Using my Mantle of Majesty class feature, I can cast Command as a bonus action once per long rest without using a spell slot, thus only affect a single target.",
+					changes: "Using my Mantle of Majesty class feature, I can cast *Command* as a bonus action once per long rest without using a spell slot, thus only affect a single target.",
 				},
 			},
 		},
@@ -78,7 +78,7 @@ AddSubClass("bard", "college of glamour-ua", {
 			usages: 1,
 			action: [["action", ""]],
 			description: desc([
-				"As an action, I can cast Sanctuary on myself without using a spell slot",
+				"As an action, I can cast *Sanctuary* on myself without using a spell slot",
 				"If a creature fails its save to this, I gain adv. on all Cha checks against it for 1 min",
 				"In addition, the target has disadv. on saves it makes against my spells on my next turn",
 			]),
@@ -92,7 +92,7 @@ AddSubClass("bard", "college of glamour-ua", {
 				"sanctuary": {
 					time: "Self",
 					description: "Any trying to atk/target me must save or fail, dis. on save vs. spell I cast next turn, I adv. on Cha vs. it",
-					changes: "Using my Unbreakable Majesty class feature, I can cast Sanctuary once per short rest without using a spell slot, but only on myself.",
+					changes: "Using my Unbreakable Majesty class feature, I can cast *Sanctuary* once per short rest without using a spell slot, but only on myself.",
 				},
 			},
 		},
@@ -148,7 +148,7 @@ AddSubClass("bard", "college of whispers-ua", {
 				description: desc([
 					"As an action, I can don a shadow that I captured as a disguise for 1 hour or until I stop it",
 					"I take on the creature's appearance and I can access its surface memories, but not secrets",
-					"I have access to information that it would would freely share with a casual acquaintance",
+					"I have access to information that it would freely share with a casual acquaintance",
 					"This is enough that I can pass myself off as the creature by drawing on its memories",
 					"Anybody can see through the disguise with a Wis (Insight) check vs. my Cha (Deception) +5",
 					"The knowledge disappears when the disguise ends",

@@ -1,5 +1,5 @@
 var iFileName = "pub_20200721_MOT.js";
-RequiredSheetVersion("14.0.15-beta");
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the content from Mythic Odysseys of Theros to MPMB's Character Record Sheet
 
 // Define the source
@@ -48,11 +48,12 @@ RaceList["leonin"] = { // includes contributions by BraabHimself
 			action: [["bonus action", ""]],
 		},
 	},
-	trait: "Leonin (+2 Constitution +1 Strength)" + desc([
-		"Claws: I can use my claws to make unarmed strikes that deal 1d4 slashing damage.",
-		"Daunting Roar: As a bonus action once per short rest, I can let out a menacing roar. Creatures of my choice within 10 ft of me that can hear me must make a Wisdom saving throw (DC 8 + Constitution modifier + Proficiency Bonus) or become frightened of me until the end of my next turn.",
-		"Hunter's Instincts: I'm proficient in either Athletics, Intimidation, Perception, or Survival.",
-	]),
+	trait: [
+		"**Leonin** (+2 Constitution +1 Strength)",
+		"##\u25C6 Claws##. I can use my claws to make unarmed strikes that deal 1d4 slashing damage.",
+		"##\u25C6 Daunting Roar##. As a bonus action once per short rest, I can let out a menacing roar. Creatures of my choice within 10 ft of me that can hear me must make a Wisdom saving throw (DC 8 + Constitution modifier + Proficiency Bonus) or become frightened of me until the end of my next turn.",
+		"##\u25C6 Hunter's Instincts##. I'm proficient in either Athletics, Intimidation, Perception, or Survival.",
+	],
 };
 RaceList["satyr"] = { // includes contributions by BraabHimself
 	regExpSearch: /satyr|goat\s*(wo)?man/i,
@@ -82,12 +83,13 @@ RaceList["satyr"] = { // includes contributions by BraabHimself
 	scores: [0, 1, 0, 0, 0, 2],
 	skills: ["Performance", "Persuasion"],
 	toolProfs: [["Musical instrument", 1]],
-	trait: "Satyr (+1 Dexterity, +2 Charisma)" + desc([
-		"Fey: My creature type is fey, rather than humanoid.",
-		"Ram: I can use my head for unarmed strikes that deal 1d4 bludgeoning damage.",
-		"Magic Resistance: I have advantage on saves against spells and other magical effects.",
-		"Mirthful Leaps: Whenever I make a long or high jump, I can roll a d8 and add the number rolled to the number of feet I cover, even when making a standing jump. This extra distance costs movement as normal.",
-	]),
+	trait: [
+		"**Satyr** (+1 Dexterity, +2 Charisma)",
+		"##\u25C6 Fey##. My creature type is fey, rather than humanoid.",
+		"##\u25C6 Ram##. I can use my head for unarmed strikes that deal 1d4 bludgeoning damage.",
+		"##\u25C6 Magic Resistance##. I have advantage on saves against spells and other magical effects.",
+		"##\u25C6 Mirthful Leaps##. Whenever I make a long or high jump, I can roll a d8 and add the number rolled to the number of ft I cover, even when making a standing jump. This extra distance costs movement as normal.",
+	],
 };
 // [dupl_start] Add centaur and minotaur race from Guildmasters' Guide to Ravnica, if not already present
 if (!SourceList["G"]) {
@@ -119,12 +121,13 @@ if (!SourceList["G"]) {
 		heightMetric: " stand around 2 metres tall, with their equine bodies reaching about 1,5 metres at the withers (183 + 3d8 cm)",
 		weightMetric: " weigh around 300 kg (270 + 3d8 \xD7 4d12 / 10 kg)",
 		scores: [2, 0, 0, 0, 1, 0],
-		trait: "Centaur (+2 Strength +1 Wisdom)" + desc([
-			"Fey: My creature type is fey, rather than humanoid.",
-			"Hooves: I can use my hooves for unarmed strikes that deal 1d4 bludgeoning damage.",
-			"Charge: If I move 30 ft straight toward a creature and then hit it with a melee weapon attack on the same turn, I can make a hooves attack against it as a bonus action.",
-			"Equine Build: I count as one size larger for my carrying capacity and the weight I can push, drag, or lift. Because of my hooves, 1 ft of movement while climbing costs me 4 ft.",
-		], "\n \u2022 "),
+		trait: [
+			"**Centaur** (+2 Strength +1 Wisdom)",
+			"##\u25C6 Fey##. My creature type is fey, rather than humanoid.",
+			"##\u25C6 Hooves##. I can use my hooves for unarmed strikes that deal 1d4 bludgeoning damage.",
+			"##\u25C6 Charge##. If I move 30 ft straight toward a creature and then hit it with a melee weapon attack on the same turn, I can make a hooves attack against it as a bonus action.",
+			"##\u25C6 Equine Build##. I count as one size larger for my carrying capacity and the weight I can push, drag, or lift. Because of my hooves, 1 ft of movement while climbing costs me 4 ft.",
+		],
 		carryingCapacity: 2,
 	};
 	RaceList["minotaur"] = {
@@ -155,11 +158,12 @@ if (!SourceList["G"]) {
 		weightMetric: " weigh around 135 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
 		scores: [2, 0, 1, 0, 0, 0],
 		abilitySave: 1,
-		trait: "Minotaur (+2 Strength +1 Constitution)" + desc([
-			"Horns: I can use my horns for unarmed strikes that deal 1d6 piercing damage.",
-			"Goring Rush: When taking a Dash action and moving at least 20 ft, I can make a horns attack as a bonus action.",
-			"Hammering Horns: As a bonus action after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is up to than one size larger than me. It must make a Str save (DC 8 + Str mod + Prof Bonus) or be pushed up to 10 ft away from me.",
-		]),
+		trait: [
+			"**Minotaur** (+2 Strength +1 Constitution)",
+			"##\u25C6 Horns##. I can use my horns for unarmed strikes that deal 1d6 piercing damage.",
+			"##\u25C6 Goring Rush##. When taking a Dash action and moving at least 20 ft, I can make a horns attack as a bonus action.",
+			"##\u25C6 Hammering Horns##. As a bonus action after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is up to than one size larger than me. It must make a Str save (DC 8 + Str mod + Prof Bonus) or be pushed up to 10 ft away from me.",
+		],
 		features: {
 			"goring rush": {
 				name: "Goring Rush",
@@ -195,7 +199,12 @@ if (!RaceList["triton"]) {
 		heightMetric: " are around 1,6 metres tall (135 + 5d10 cm)",
 		weightMetric: " weigh around 70 kg (40 + 5d10 \xD7 4d4 / 10 kg)",
 		scores: [1, 0, 1, 0, 0, 1],
-		trait: "Triton (+1 Strength, +1 Constitution, and +1 Charisma)\nControl Air and Water: I can cast the Fog Cloud spell. Once I reach 3rd level, I can cast the Gust of Wind spell. Once I reach 5th level, I can cast the Wall of Water spell. All three spells can be used once per long rest. Charisma is my spellcasting ability for these spells.\nEmissary of the Sea: I can communicate simple ideas to beasts that can breathe water.\nGuardians of the Depths: Adapted to even the most extreme ocean depths, I have resistance to cold damage." + (typePF ? "\n" : " ") + "Amphibious: I can breathe air and water.",
+		trait: [
+			"**Triton** (+1 Strength, +1 Constitution, and +1 Charisma)",
+			"##Control Air and Water##. I can cast the *Fog Cloud* spell. Once I reach 3rd level, I can cast the *Gust of Wind* spell. Once I reach 5th level, I can cast the *Wall of Water* spell. All three spells can be used once per long rest. Charisma is my spellcasting ability for these spells.",
+			"##Emissary of the Sea##. I can communicate simple ideas to beasts that can breathe water.",
+			"##Guardians of the Depths##. Adapted to even the most extreme ocean depths, I have resistance to cold damage." + (typePF ? "\r" : " ") + "##Amphibious##. I can breathe air and water.",
+		],
 		spellcastingAbility: 6,
 		features: {
 			"fog cloud": {
@@ -246,7 +255,10 @@ if (!SpellsList["wall of water"]) {
 		duration: "Conc, 10 min",
 		description: "30\xD71\xD710ft (l\xD7w\xD7h) or 20-ft rad 20-ft high; dif. ter.; range wea dis.; Fire dmg half; Cold dmg freezes",
 		descriptionMetric: "9\xD70,3\xD73m (l\xD7w\xD7h) or 6-m rad 6-m high; dif. ter.; ranged wea dis.; Fire dmg half; Cold dmg freezes",
-		descriptionFull: "You conjure up a wall of water on the ground at a point you can see within range. You can make the wall up to 30 feet long, 10 feet high, and 1 foot thick, or you can make a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall vanishes when the spell ends. The wall's space is difficult terrain." + "\n   " + "Any ranged weapon attack that enters the wall's space has disadvantage on the attack roll, and fire damage is halved if the fire effect passes through the wall to reach its target. Spells that deal cold damage that pass through the wall cause the area of the wall they pass through to freeze solid (at least a 5-foot square section is frozen). Each 5-foot-square frozen section has AC 5 and 15 hit points. Reducing a frozen section to 0 hit points destroys it. When a section is destroyed, the wall's water doesn't fill it.",
+		descriptionFull: [
+			"You conjure up a wall of water on the ground at a point you can see within range. You can make the wall up to 30 feet long, 10 feet high, and 1 foot thick, or you can make a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall vanishes when the spell ends. The wall's space is difficult terrain.",
+			"Any ranged weapon attack that enters the wall's space has disadvantage on the attack roll, and fire damage is halved if the fire effect passes through the wall to reach its target. Spells that deal cold damage that pass through the wall cause the area of the wall they pass through to freeze solid (at least a 5-foot square section is frozen). Each 5-foot-square frozen section has AC 5 and 15 hit points. Reducing a frozen section to 0 hit points destroys it. When a section is destroyed, the wall's water doesn't fill it.",
+		],
 	};
 }; // dupl_end
 
@@ -483,7 +495,7 @@ CreatureList["anvilwrought raptor"] = {
 	}],
 	variant: [{
 		name: "Variant: Familiar",
-		description: "The anvilwrought can serve another creature as a familiar, forming a magical, telepathic bond with its willing master. While the two are bonded, the master can sense what the anvilwrought senses, as long as they are within 1 mile of each other.",
+		description: "The anvilwrought can serve another creature as a familiar, forming a magical, *telepathic bond* with its willing master. While the two are bonded, the master can sense what the anvilwrought senses, as long as they are within 1 mile of each other.",
 	}],
 };
 
@@ -495,8 +507,10 @@ MagicItemsList["flying chariot"] = {
 	rarity: "rare",
 	notLegalAL: true,
 	description: "I gain +1 AC while riding this chariot, as do any passengers and the creatures pulling it. If this chariot is pulled by one or more flying creatures, they too can fly.\n(The AC bonus is not added to the automation, as it is too situational.)",
-	descriptionFull: "The chariot's riders and creatures pulling the chariot gain a + 1 bonus to their AC." +
-	"\n   If this magic chariot is pulled by one or more flying creatures, it too can fly.",
+	descriptionFull: [
+		"The chariot's riders and creatures pulling the chariot gain a + 1 bonus to their AC.",
+		"If this magic chariot is pulled by one or more flying creatures, it too can fly.",
+	],
 	weight: 100,
 };
 MagicItemsList["helm of the gods"] = {
@@ -507,26 +521,30 @@ MagicItemsList["helm of the gods"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "While wearing this helm, I know the location of all celestials and fiends within 30 ft, provided they aren't behind total cover. The helm has 3 charges, regaining 1d3 charges at dawn. I can use 1 charge to cast the spell stored in the helm (DC 13). After I finish a long rest, I can pray to a god to change the stored spell.",
-	descriptionLong: "While wearing this helm, I know the location of all celestials/fiends within 30 ft not behind total cover. The helm has 3 charges, regaining 1d3 at dawn. I can use 1 charge to cast the spell stored in it (DC 13). After a long rest, I can pray to a god to change the stored spell: Athreos: Protection from Evil/Good, Ephara: Sanctuary, Erebos: Inflict Wounds, Heliod: Guiding Bolt, Iroas: Heroism, Karametra: Goodberry, Keranos: Thunderous Smite, Klothys: Entangle, Kruphix: Dissonant Whispers, Mogis: Hellish Rebuke, Nylea: Faerie Fire, Pharika: Lesser Restoration, Phenax: Charm Person, Purphoros: Searing Smite, Thassa: Identify",
-	descriptionFull: "While wearing this helm, you know whether there is a celestial or fiend within 30 feet of you, as well as where the creature is located, provided the creature isn't behind total cover." +
-	"\n   Whenever you finish a long rest while wearing the helm, you can pray to one of the gods listed on the Helm of the Gods table and store the listed spell in the helm, replacing any spell that is already stored there. The save DC for the spell is 13." +
-	"\n   The helm has 3 charges. To cast a spell from the helm, you must expend 1 charge, and the helm regains 1d3 charges daily at dawn." +
-	"\n **God**\t**Spell**" +
-	"\n Athreos\t\tprotection from evil and good" +
-	"\n Ephara\t\tsanctuary" +
-	"\n Erebos\t\tinflict wounds" +
-	"\n Heliod\t\tguiding bolt" +
-	"\n Iroas\t\theroism" +
-	"\n Karametra\tgoodberry" +
-	"\n Keranos\t\tthunderous smite" +
-	"\n Klothys\t\tentagle" +
-	"\n Kruphix\t\tdissonant whispers" +
-	"\n Mogis\t\thellish rebuke" +
-	"\n Nylea\t\tfaerie fire" +
-	"\n Pharika\t\tlesser restoration" +
-	"\n Phenax\t\tcharm person" +
-	"\n Purphoros\tsearing smite" +
-	"\n Thassa\t\tidentify",
+	descriptionLong: "While wearing this helm, I know the location of all celestials/fiends within 30 ft not behind total cover. The helm has 3 charges, regaining 1d3 at dawn. I can use 1 charge to cast the spell stored in it (DC 13). After a long rest, I can pray to a god to change the stored spell: Athreos: Protection from Evil/Good, Ephara: Sanctuary, Erebos: *Inflict Wounds*, Heliod: *Guiding Bolt*, Iroas: Heroism, Karametra: Goodberry, Keranos: *Thunderous Smite*, Klothys: Entangle, Kruphix: *Dissonant Whispers*, Mogis: *Hellish Rebuke*, Nylea: *Faerie Fire*, Pharika: *Lesser Restoration*, Phenax: *Charm Person*, Purphoros: *Searing Smite*, Thassa: Identify",
+	descriptionFull: [
+		"While wearing this helm, you know whether there is a celestial or fiend within 30 feet of you, as well as where the creature is located, provided the creature isn't behind total cover.",
+		"Whenever you finish a long rest while wearing the helm, you can pray to one of the gods listed on the Helm of the Gods table and store the listed spell in the helm, replacing any spell that is already stored there. The save DC for the spell is 13.",
+		"The helm has 3 charges. To cast a spell from the helm, you must expend 1 charge, and the helm regains 1d3 charges daily at dawn.",
+		[
+			[" God", "Spell"],
+			[" Athreos", "", "*protection from evil and good*"],
+			[" Ephara", "", "sanctuary"],
+			[" Erebos", "", "*inflict wounds*"],
+			[" Heliod", "", "*guiding bolt*"],
+			[" Iroas", "", "heroism"],
+			[" Karametra", "goodberry"],
+			[" Keranos", "", "*thunderous smite*"],
+			[" Klothys", "", "entagle"],
+			[" Kruphix", "", "*dissonant whispers*"],
+			[" Mogis", "", "*hellish rebuke*"],
+			[" Nylea", "", "*faerie fire*"],
+			[" Pharika", "", "*lesser restoration*"],
+			[" Phenax", "", "*charm person*"],
+			[" Purphoros", "*searing smite*"],
+			[" Thassa", "", "identify"],
+		],
+	],
 	usages: 3,
 	recovery: "dawn",
 	additional: "regains 1d3",
@@ -665,8 +683,10 @@ MagicItemsList["molten bronze skin"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This armor appears as a jug of molten bronze. When I attune to it, it adheres and contours to my skin. It can be worn under clothes and doesn't impede bodily functions. This armor can't be removed unless I choose to do so. It grants me resistance to fire damage, and doesn't impose disadv. on Dex (Stealth) checks.",
-	descriptionFull: "This magical armor appears as a jug of molten bronze. When you attune to it, the bronze adheres and contours to your skin. The armor can be worn under normal clothes, but it doesn't impede bodily functions. Once you put it on, it can't be removed unless you choose to do so." +
-	"\n   While wearing the armor, you have resistance to fire damage. The armor also doesn't impose disadvantage on Dexterity (Stealth) checks.",
+	descriptionFull: [
+		"This magical armor appears as a jug of molten bronze. When you attune to it, the bronze adheres and contours to your skin. The armor can be worn under normal clothes, but it doesn't impede bodily functions. Once you put it on, it can't be removed unless you choose to do so.",
+		"While wearing the armor, you have resistance to fire damage. The armor also doesn't impose disadvantage on Dexterity (Stealth) checks.",
+	],
 	dmgres: ["Fire"],
 	choices: ["Breastplate", "Half Plate", "Plate"],
 	choicesNotInMenu: true,
@@ -715,56 +735,59 @@ MagicItemsList["potion of aqueous form"] = {
 	rarity: "rare",
 	notLegalAL: true,
 	description: "Once as an action, I can drink this potion or administer it to another. The consumer of the potion turns into a pool of water and gains several benefits and limitations while in this form. They revert back to their true form after 10 minutes, if they become incapacitated, or if they die. See Notes page.",
-	descriptionFull: "When you drink this potion, you transform into a pool of water. You return to your true form after 10 minutes or if you are incapacitated or die." +
-	"\n   You're under the following effects while in this form:" +
-	"\n\n***Liquid Movement***. You have a swimming speed of 30 feet. You can move over or through other liquids. You can enter and occupy the space of another creature. You can rise up to your normal height, and you can pass through even Tiny openings. You extinguish nonmagical flames in any space you enter." +
-	"\n\n***Watery Resilience***. You have resistance to nonmagical damage. You also have advantage on Strength, Dexterity, and Constitution saving throws." +
-	"\n\n***Limitations***. You can't talk, attack, cast spells, or activate magic items. Any objects you were carrying or wearing meld into your new form and are inaccessible, though you continue to be affected by anything you're wearing, such as armor.",
+	descriptionFull: [
+		"When you drink this potion, you transform into a pool of water. You return to your true form after 10 minutes or if you are incapacitated or die.",
+		"You're under the following effects while in this form:",
+		"***Liquid Movement***. You have a swimming speed of 30 feet. You can move over or through other liquids. You can enter and occupy the space of another creature. You can rise up to your normal height, and you can pass through even Tiny openings. You extinguish nonmagical flames in any space you enter.",
+		"***Watery Resilience***. You have resistance to nonmagical damage. You also have advantage on Strength, Dexterity, and Constitution saving throws.",
+		"***Limitations***. You can't talk, attack, cast spells, or activate magic items. Any objects you were carrying or wearing meld into your new form and are inaccessible, though you continue to be affected by anything you're wearing, such as armor.",
+	],
 	toNotesPage: [{
 		name: "Effects",
 		popupName: "Potion of Aqueous Form Effects",
 		note: [
 			"The consumer of the potion is under the following effects:",
-			"\u2022 They have a swimming speed of 30 ft",
-			"\u2022 They can move over or through other liquids",
-			"\u2022 They can enter and occupy the space of another creature",
-			"\u2022 They can rise up to their normal height and pass through tiny openings",
-			"\u2022 They extinguish nonmagical flames in any space they enter",
-			"\u2022 They have resistance to nonmagical damage",
-			"\u2022 They have advantage on Strength, Dexterity, and Constitution saving throws",
-			"\u2022 They can't talk, attack, cast spells, or activate magic items",
-			"\u2022 Their equipment merges into their new form, but still gain their benefits",
+			" \u2022 They have a swimming speed of 30 ft",
+			" \u2022 They can move over or through other liquids",
+			" \u2022 They can enter and occupy the space of another creature",
+			" \u2022 They can rise up to their normal height and pass through tiny openings",
+			" \u2022 They extinguish nonmagical flames in any space they enter",
+			" \u2022 They have resistance to nonmagical damage",
+			" \u2022 They have advantage on Strength, Dexterity, and Constitution saving throws",
+			" \u2022 They can't talk, attack, cast spells, or activate magic items",
+			" \u2022 Their equipment merges into their new form, but still gain their benefits",
 		],
 	}],
 	weight: 0.5,
 };
-var MOT_PyxisOfPandemoniumFullDescription = [
-	"A creature that touches this ornate wooden vessel for 1 minute gains the benefits of a short rest. That creature also gains the effects of the bless spell until the creature finishes a short or long rest. The creature can't gain these benefits again until it finishes a long rest.",
-	"If the vessel is opened, roll on the Pyxis of Pandemonium table to determine what happens. Any spells cast by the vessel have a spell save DC of 17. One minute after the vessel is opened, it disappears. It reappears, sealed, in a random location on the same plane of existence 24 hours later.",
-	">>Curse<<. Any creature that gains the benefit of a short rest from the vessel hears cloying telepathic whispers emanating it. That creature must make a DC 17 Wisdom saving throw. On a failed save, the creature is charmed by the vessel for 1 hour. The charmed creature does everything it can to open the vessel as soon as possible. On a successful save, the creature is immune to the vessel's whispers for 24 hours.\n",
-	"**d8**\t**Calamity**",
-	" 1\t>>Androphagia<<. Each creature within 60 feet of the vessel must succeed on a DC 17 Wisdom saving throw or go berserk for l minute. The berserk creature must begin its turn using the Attack action to make one melee or ranged attack (its choice) against the creature nearest to it. The berserk creature can repeat the save at the end of its turn, ending the effect on itself on a success.",
-	" 2\t>>Bile Blight<<. The vessel casts the harm spell on each creature within 30 feet of it.",
-	" 3\t>>Flood<<. The vessel casts the tsunami spell at a point of the DM's choice within 120 feet of it.",
-	" 4\t>>Medusa's Gaze<<. The vessel casts the flesh to stone spell on each creature within 30 feet of it.",
-	" 5\t>>Labyrinth<<. The vessel casts the maze spell on each creature within 30 feet of it.",
-	" 6\t>>Nightmare<<. Tendrils of shadow seep from the vessel and form into 1d4 shadow demons (see the Monster Manual for their stat block), which appear in unoccupied spaces within 30 feet of it and are hostile.",
-	" 7\t>>Swarming Insects<<. The vessel casts the insect plague spell, centered on itself and with a radius of 30 feet.",
-	" 8\t>>Unbridled Revel<<. The vessel casts the Otto's irresistible dance spell on each creature within 30 feet of it.",
-];
 MagicItemsList["pyxis of pandemonium"] = {
 	name: "Pyxis of Pandemonium",
 	source: [["MOT", 197]],
 	type: "wondrous item",
 	rarity: "legendary",
 	notLegalAL: true,
-	description: "Once per long rest, I gain the benefits of a short rest by touching this ornate vessel for 1 minute. I also gain the benefit of Bless until I finish my next rest. After benefiting from this vessel, I have to make a DC 17 Wis save or become charmed by the vessel for 1 hour. If charmed, I must do everything to open it. See Notes.",
-	descriptionLong: "Once per long rest, I can touch this ornate wooden vessel for 1 minute to gain the benefits of a short rest. I then also gain the benefit of the Bless spell until I finish my next rest. After I gain the benefits of a short rest from this vessel, I must make a DC 17 Wisdom save or become charmed by it for 1 hour. On a success, I am immune to its charm for 24 hours. If charmed, I will do everything I can to open the vessel as soon as possible. Once opened, the vessel causes a random effect to occur, then it disappears after 1 minute and reappears, sealed, in random location on the same plane. See Notes.",
-	descriptionFull: MOT_PyxisOfPandemoniumFullDescription.join("\n   "),
+	description: "Once per long rest, I gain the benefits of a short rest by touching this ornate vessel for 1 minute. I also gain the benefit of *Bless* until I finish my next rest. After benefiting from this vessel, I have to make a DC 17 Wis save or become charmed by the vessel for 1 hour. If charmed, I must do everything to open it. See Notes.",
+	descriptionLong: "Once per long rest, I can touch this ornate wooden vessel for 1 minute to gain the benefits of a short rest. I then also gain the benefit of the *Bless* spell until I finish my next rest. After I gain the benefits of a short rest from this vessel, I must make a DC 17 Wisdom save or become charmed by it for 1 hour. On a success, I am immune to its charm for 24 hours. If charmed, I will do everything I can to open the vessel as soon as possible. Once opened, the vessel causes a random effect to occur, then it disappears after 1 minute and reappears, sealed, in random location on the same plane. See Notes.",
+	descriptionFull: [
+		"A creature that touches this ornate wooden vessel for 1 minute gains the benefits of a short rest. That creature also gains the effects of the *bless* spell until the creature finishes a short or long rest. The creature can't gain these benefits again until it finishes a long rest.",
+		"If the vessel is opened, roll on the Pyxis of Pandemonium table to determine what happens. Any spells cast by the vessel have a spell save DC of 17. One minute after the vessel is opened, it disappears. It reappears, sealed, in a random location on the same plane of existence 24 hours later.",
+		"***Curse***. Any creature that gains the benefit of a short rest from the vessel hears cloying telepathic whispers emanating from it. That creature must make a DC 17 Wisdom saving throw. On a failed save, the creature is charmed by the vessel for 1 hour. The charmed creature does everything it can to open the vessel as soon as possible. On a successful save, the creature is immune to the vessel's whispers for 24 hours.\n",
+		[
+			["d8", "Calamity"],
+			[" 1", "**Androphagia**. Each creature within 60 feet of the vessel must succeed on a DC 17 Wisdom saving throw or go berserk for 1 minute. The berserk creature must begin its turn using the Attack action to make one melee or ranged attack (its choice) against the creature nearest to it. The berserk creature can repeat the save at the end of its turn, ending the effect on itself on a success."],
+			[" 2", "**Bile Blight**. The vessel casts the *harm* spell on each creature within 30 feet of it."],
+			[" 3", "**Flood**. The vessel casts the *tsunami* spell at a point of the DM's choice within 120 feet of it."],
+			[" 4", "**Medusa's Gaze**. The vessel casts the *flesh to stone* spell on each creature within 30 feet of it."],
+			[" 5", "**Labyrinth**. The vessel casts the *maze* spell on each creature within 30 feet of it."],
+			[" 6", "**Nightmare**. Tendrils of shadow seep from the vessel and form into 1d4 shadow demons (see the Monster Manual for their stat block), which appear in unoccupied spaces within 30 feet of it and are hostile."],
+			[" 7", "**Swarming Insects**. The vessel casts the *insect plague* spell, centered on itself and with a radius of 30 feet."],
+			[" 8", "**Unbridled Revel**. The vessel casts the *Otto's irresistible dance* spell on each creature within 30 feet of it."],
+		],
+	],
 	toNotesPage: [{
-		name: "Effects",
+		name: "Pyxis of Pandemonium",
 		source: [["MOT", 197]],
-		note: desc(MOT_PyxisOfPandemoniumFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/\bf(oo|ee)t\b/ig, "ft"),
+		useDescriptionFull: true,
 	}],
 	usages: 1,
 	recovery: "long rest",
@@ -776,8 +799,11 @@ MagicItemsList["siren song lyre"] = {
 	rarity: "rare",
 	notLegalAL: true,
 	attunement: true,
-	description: "As an action, I can play this lyre and cast one of the following spells from it: Animal Friendship, Charm Person, Enthrall, or Suggestion. The DC for these spells is 13. Once I cast a spell, I can't use the lyre to cast that spell again until the next dawn.",
-	descriptionFull: "You can use an action to play this lyre and cast one of the following spells from it: animal friendship, charm person, enthrall, suggestion. If the spell requires a saving throw, the spell save DC is 13.\n   Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn.",
+	description: "As an action, I can play this lyre and cast one of the following spells from it: *Animal Friendship*, *Charm Person*, *Enthrall*, or *Suggestion*. The DC for these spells is 13. Once I cast a spell, I can't use the lyre to cast that spell again until the next dawn.",
+	descriptionFull: [
+		"You can use an action to play this lyre and cast one of the following spells from it: *animal friendship*, *charm person*, *enthrall*, *suggestion*. If the spell requires a saving throw, the spell save DC is 13.",
+		"Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn.",
+	],
 	weight: 2,
 	fixedDC: 13,
 	extraLimitedFeatures: [{
@@ -809,7 +835,7 @@ var MOT_SlingBulletsOfAlthemoneFullDescription = [
 	"The sling bullets come in a pouch, which contains 1d4 + 4 bullets. Roll on the Magic Sling Bullets table for each bullet to determine its magical property.",
 	"You have a +2 bonus to attack and damage rolls made with each of these bullets. If a bullet misses its target, the bullet teleports back into the pouch. Once a bullet hits a target, the bullet loses its magic.\n",
 	">>d4  Bullet<<",
-	"1   >>Banishment<<. A creature that takes damage from this bullet must succeed on a DC 15 Charisma saving throw or be banished as though affected by the banishment spell.",
+	"1   >>Banishment<<. A creature that takes damage from this bullet must succeed on a DC 15 Charisma saving throw or be banished as though affected by the *banishment* spell.",
 	"2   >>Fulguration<<. On a hit, this bullet deals an extra 2d8 lightning damage to its target. All other creatures within 10 feet of the target must each succeed on a DC 15 Constitution saving throw or take 1d8 thunder damage.",
 	"3   >>Stunning<<. On a hit, this bullet deals an extra ldlO force damage, and the target is stunned until the end of your next turn.",
 	"4   >>Tracking<<. A creature that takes damage from this bullet is marked with a glowing rune where the bullet hit. The mark lasts 24 hours. While the creature is marked, you always know the direction to it.",
@@ -854,8 +880,10 @@ MagicItemsList["two-birds sling"] = {
 	rarity: "rare",
 	notLegalAL: true,
 	description: "This sling adds +1 to hit and damage rolls made with it. On a hit, I can cause the ammunition to ricochet towards a second target within 10 ft of the first, rolling a ranged attack against the second target as well.",
-	descriptionFull: "You have a +l bonus to attack and damage rolls made with this weapon." +
-	"\n   When you make a ranged attack with this sling and hit a target, you can cause the ammunition to ricochet toward a second target within 10 feet of the first, and then make a ranged attack against the second target.",
+	descriptionFull: [
+		"You have a +l bonus to attack and damage rolls made with this weapon.",
+		"When you make a ranged attack with this sling and hit a target, you can cause the ammunition to ricochet toward a second target within 10 feet of the first, and then make a ranged attack against the second target.",
+	],
 	weaponOptions: [{
 		baseWeapon: "sling",
 		regExpSearch: /^(?=.*two-birds)(?=.*sling).*$/i,

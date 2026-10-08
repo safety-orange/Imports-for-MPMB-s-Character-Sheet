@@ -1,5 +1,5 @@
 var iFileName = "ua_20180611_Giant-Soul-Sorcerer.js";
-RequiredSheetVersion("14.0.13-beta");
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Giant Soul Sorcerer article to MPMB's Character Record Sheet
 
 // Define the source
@@ -42,7 +42,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			"cloud giant": {
 				name: "Mark of Ordning: Cloud Giant",
 				description: desc([
-					"I add Minor Illusion, Fog Cloud and Invisibility to my known sorcerer spells",
+					"I add *Minor Illusion*, *Fog Cloud* and *Invisibility* to my known sorcerer spells",
 					"These do not count against the number of cantrips/spells I can know",
 				]),
 				spellcastingBonus: [{
@@ -55,7 +55,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			"fire giant": {
 				name: "Mark of Ordning: Fire Giant",
 				description: desc([
-					"I add Fire Bolt, Burning Hands, and Flaming Sphere to my known sorcerer spells",
+					"I add *Fire Bolt*, *Burning Hands*, and *Flaming Sphere* to my known sorcerer spells",
 					"These do not count against the number of cantrips/spells I can know",
 				]),
 				spellcastingBonus: [{
@@ -68,7 +68,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			"frost giant": {
 				name: "Mark of Ordning: Frost Giant",
 				description: desc([
-					"I add Ray of Frost, Armor of Agathys, and Hold Person to my known sorcerer spells",
+					"I add *Ray of Frost*, *Armor of Agathys*, and *Hold Person* to my known sorcerer spells",
 					"These do not count against the number of cantrips/spells I can know",
 				]),
 				spellcastingBonus: [{
@@ -81,7 +81,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			"hill giant": {
 				name: "Mark of Ordning: Hill Giant",
 				description: desc([
-					"I add Shillelagh, Heroism, and Enlarge/Reduce to my known sorcerer spells",
+					"I add *Shillelagh*, *Heroism*, and *Enlarge/Reduce* to my known sorcerer spells",
 					"These do not count against the number of cantrips/spells I can know",
 				]),
 				spellcastingBonus: [{
@@ -94,7 +94,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			"stone giant": {
 				name: "Mark of Ordning: Stone Giant",
 				description: desc([
-					"I add Resistance, Entangle, and Spike Growth to my known sorcerer spells",
+					"I add *Resistance*, *Entangle*, and *Spike Growth* to my known sorcerer spells",
 					"These do not count against the number of cantrips/spells I can know",
 				]),
 				spellcastingBonus: [{
@@ -107,7 +107,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			"storm giant": {
 				name: "Mark of Ordning: Storm Giant",
 				description: desc([
-					"I add Thunderwave, Shocking Grasp, and Gust of Wind to my known sorcerer spells",
+					"I add *Thunderwave*, *Shocking Grasp*, and *Gust of Wind* to my known sorcerer spells",
 					"These do not count against the number of cantrips/spells I can know",
 				]),
 				spellcastingBonus: [{
@@ -142,7 +142,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 						function (fields, v, output) {
 							if (v.baseWeaponName == "fire bolt") output.extraDmg += Math.max(What("Con Mod"), 1);
 						},
-						"I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells: Fire Bolt, Burning Hands, and Flaming Sphere",
+						"I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells: *Fire Bolt*, *Burning Hands*, and *Flaming Sphere*",
 					],
 					spellAdd: [
 						function (spellKey, spellObj, spName) {
@@ -151,7 +151,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 								return true;
 							};
 						},
-						"I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells: Fire Bolt, Burning Hands, and Flaming Sphere",
+						"I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells: *Fire Bolt*, *Burning Hands*, and *Flaming Sphere*",
 					],
 				},
 			},

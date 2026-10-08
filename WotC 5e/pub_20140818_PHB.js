@@ -1,5 +1,5 @@
 var iFileName = "pub_20140818_PHB.js";
-RequiredSheetVersion("14.1.0");
+RequiredSheetVersion("14.1.3", 15);
 // This file adds all material from the Player's Handbook to MPMB's Character Record Sheet
 
 // Define the source
@@ -36,7 +36,10 @@ RaceList["mountain dwarf"] = {
 	heightMetric: " stand between 1,2 and 1,5 metres tall (120 + 5d4 cm)",
 	weightMetric: " weigh around 75 kg (60 + 5d4 \xD7 4d6 / 10 kg)",
 	scores: [2, 0, 2, 0, 0, 0],
-	trait: "Mountain Dwarf (+2 Strength, +2 Constitution)\n\nStonecunning:\n   Whenever I make an Intelligence (History) check related to the origin of stonework, I am considered proficient in the History skill and add double my proficiency bonus to the check, instead of my normal proficiency bonus.",
+	trait: [
+		"**Mountain Dwarf** (+2 Strength, +2 Constitution)",
+		"##\u25C6 Stonecunning##. Whenever I make an Intelligence (History) check related to the origin of stonework, I am considered proficient in the History skill and add double my proficiency bonus to the check, instead of my normal proficiency bonus.",
+	],
 };
 RaceList["dark elf"] = {
 	regExpSearch: /^(?!.*half)((?=.*drow)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(dark|underdarks?|deep|depths?)\b))).*$/i,
@@ -62,7 +65,12 @@ RaceList["dark elf"] = {
 	heightMetric: " range from under 1,5 to 1,7 metres tall (135 + 5d6 cm)",
 	weightMetric: " weigh around 45 kg (35 + 5d6 \xD7 2d6 / 10 kg)",
 	scores: [0, 2, 0, 0, 0, 1],
-	trait: "Drow (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nDrow Magic: 1st level: Dancing Lights cantrip; 3rd level: Faerie Fire; 5th level: Darkness. Both spells can be used once per long rest. Charisma is my spellcasting ability for these.", // errata to specify once per day is long rest
+	trait: [
+		"**Drow** (+2 Dexterity, +1 Charisma)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).",
+		"##\u25C6 Sunlight Sensitivity##. Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.",
+		"##\u25C6 Drow Magic##. 1st level: *Dancing Lights* cantrip; 3rd level: *Faerie Fire*; 5th level: Darkness. Both spells can be used once per long rest. Charisma is my spellcasting ability for these.",
+	], // errata to specify once per day is long rest
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Drow Magic (level 1)",
@@ -122,7 +130,11 @@ RaceList["wood elf"] = {
 	heightMetric: " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric: " weigh around 60 kg (45 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 1, 0],
-	trait: "Wood Elf (+2 Dexterity, +1 Wisdom)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nMask of the Wild: I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
+	trait: [
+		"**Wood Elf** (+2 Dexterity, +1 Wisdom)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
+		"##\u25C6 Mask of the Wild##. I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
+	],
 };
 RaceList["forest gnome"] = {
 	regExpSearch: /^((?=.*\bgnomes?\b)(?=.*\b(woods?|forests?|wilds?|green)\b)).*$/i,
@@ -143,7 +155,11 @@ RaceList["forest gnome"] = {
 	heightMetric: " are 90 to 120 cm tall (2'11\" + 5d4)",
 	weightMetric: " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores: [0, 1, 0, 2, 0, 0],
-	trait: "Forest Gnome (+1 Dexterity, +2 Intelligence)" + (typePF ? "\n" : " ") + "\nNatural Illusionist:\n   I know the Minor Illusion cantrip. Intelligence is my spellcasting ability for it.\n\nSpeak with Small Beasts:\n   Through sounds and gestures, I can communicate simple ideas with Small or smaller beasts.",
+	trait: [
+		"**Forest Gnome** (+1 Dexterity, +2 Intelligence)",
+		"##\u25C6 Natural Illusionist##. I know the *Minor Illusion* cantrip. Intelligence is my spellcasting ability for it.",
+		"##\u25C6 Speak with Small Beasts##. Through sounds and gestures, I can communicate simple ideas with Small or smaller beasts.",
+	],
 	spellcastingAbility: 4,
 	spellcastingBonus: [{
 		name: "Natural Illusionist",
@@ -170,7 +186,11 @@ RaceList["stout halfling"] = {
 	heightMetric: " average about 90 cm tall (80 + 5d4)",
 	weightMetric: " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores: [0, 2, 1, 0, 0, 0],
-	trait: "Stout Halfling (+2 Dexterity, +1 Constitution)\n\nLucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.\n\nHalfling Nimbleness: I can move through the space of any creature that is of a size larger than me.",
+	trait: [
+		"**Stout Halfling** (+2 Dexterity, +1 Constitution)",
+		"##\u25C6 Lucky##. When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.",
+		"##\u25C6 Halfling Nimbleness##. I can move through the space of any creature that is of a size larger than me.",
+	],
 };
 
 // Add racial variants that are not part of the SRD
@@ -180,7 +200,11 @@ AddRacialVariant("human", "variant", {
 	skillstxt: "Choose any one skill",
 	scorestxt: "+1 to two different ability scores of my choice",
 	scores: [0, 0, 0, 0, 0, 0],
-	trait: "Human (+1 to two different ability scores of my choice)\n\nSkills: I gain proficiency in one skill of my choice.\n\nFeat: I gain one feat of my choice.",
+	trait: [
+		"**Human** (+1 to two different ability scores of my choice)",
+		"##\u25C6 Skills##. I gain proficiency in one skill of my choice.",
+		"##\u25C6 Feat##. I gain one feat of my choice.",
+	],
 	featsAdd: [{ type: /^(?!.*(blessing|boon|charm|gift|fighting style)).*$/i }],
 });
 
@@ -195,7 +219,7 @@ AddSubClass("barbarian", "totem warrior", {
 			name: "Spirit Seeker",
 			source: [["P", 50]],
 			minlevel: 3,
-			description: desc("I can cast Beast Sense and Speak with Animals as rituals (PHB 217 \u0026 277)"),
+			description: desc("I can cast *Beast Sense* and *Speak with Animals* as rituals"),
 			spellcastingBonus: [{
 				name: "Spirit Seeker",
 				spells: ["beast sense", "speak with animals"],
@@ -268,7 +292,7 @@ AddSubClass("barbarian", "totem warrior", {
 			name: "Spirit Walker",
 			source: [["P", 50]],
 			minlevel: 10,
-			description: desc("I can cast Commune with Nature as a ritual"),
+			description: desc("I can cast *Commune with Nature* as a ritual"),
 			spellcastingBonus: [{
 				name: "Spirit Walker",
 				spells: ["commune with nature"],
@@ -371,7 +395,7 @@ AddSubClass("cleric", "knowledge domain", {
 			description: desc([
 				"As an action, one creature within 60 ft I can see must make a Wisdom save",
 				"If it fails, I can read its surface thoughts for 1 min, as long as it's within 60 ft of me",
-				"As an action, I can end this and cast Suggestion on it (it fails its save automatically)",
+				"As an action, I can end this and cast *Suggestion* on it (it fails its save automatically)",
 				"If it succeeded on its save, I can't use this feature again on it until I finish a long rest",
 			]),
 			action: [["action", ""]],
@@ -412,7 +436,7 @@ AddSubClass("cleric", "light domain", {
 			name: "Bonus Cantrip",
 			source: [["P", 61]],
 			minlevel: 1,
-			description: desc("I learn the Light cantrip if I didn't already know it"),
+			description: desc("I learn the *Light* cantrip if I didn't already know it"),
 			spellcastingBonus: [{
 				name: "Bonus Cantrip (Light)",
 				spells: ["light"],
@@ -828,7 +852,7 @@ AddSubClass("druid", "circle of the moon", {
 			name: "Thousand Forms",
 			source: [["P", 69]],
 			minlevel: 14,
-			description: desc("I can cast Alter Self at will without using a spell slot"),
+			description: desc("I can cast *Alter Self* at will without using a spell slot"),
 			spellcastingBonus: [{
 				name: "Thousand Forms",
 				spells: ["alter self"],
@@ -1146,7 +1170,7 @@ AddSubClass("monk", "way of the four elements", {
 				name: "Breath of Winter",
 				source: [["P", 81]],
 				additional: "6 ki points",
-				description: desc("As an action, I can cast Cone of Cold without material components"),
+				description: desc("As an action, I can cast *Cone of Cold* without material components"),
 				spellcastingBonus: [{
 					name: "Breath of Winter",
 					spells: ["cone of cold"],
@@ -1160,7 +1184,7 @@ AddSubClass("monk", "way of the four elements", {
 						components: "V,S",
 						compMaterial: "",
 						allowUpCasting: false,
-						changes: "With the Breath of Winter discipline, I can cast Cone of Cold without a material component.",
+						changes: "With the Breath of Winter discipline, I can cast *Cone of Cold* without a material component.",
 					},
 				},
 			},
@@ -1168,7 +1192,7 @@ AddSubClass("monk", "way of the four elements", {
 				name: "Clench of the North Wind",
 				source: [["P", 81]],
 				additional: "3 ki points",
-				description: desc("As an action, I can cast Hold Person without material components"),
+				description: desc("As an action, I can cast *Hold Person* without material components"),
 				spellcastingBonus: [{
 					name: "Clench of the North Wind",
 					spells: ["hold person"],
@@ -1182,7 +1206,7 @@ AddSubClass("monk", "way of the four elements", {
 						components: "V,S",
 						compMaterial: "",
 						allowUpCasting: false,
-						changes: "With the Clench of the North Wind discipline, I can cast Hold Person without a material component.",
+						changes: "With the Clench of the North Wind discipline, I can cast *Hold Person* without a material component.",
 					},
 				},
 			},
@@ -1190,7 +1214,7 @@ AddSubClass("monk", "way of the four elements", {
 				name: "Eternal Mountain Defense",
 				source: [["P", 81]],
 				additional: "5 ki points",
-				description: desc("As an action, I can cast Stoneskin on myself without material components"),
+				description: desc("As an action, I can cast *Stoneskin* on myself without material components"),
 				spellcastingBonus: [{
 					name: "Eternal Mountain Defense",
 					spells: ["stoneskin"],
@@ -1205,7 +1229,7 @@ AddSubClass("monk", "way of the four elements", {
 						components: "V,S",
 						compMaterial: "",
 						description: "I gain resistance to nonmagical Bludgeoning, Piercing, and Slashing damage",
-						changes: "With the Eternal Mountain Defense discipline, I can cast Stoneskin without a material component but only on myself.",
+						changes: "With the Eternal Mountain Defense discipline, I can cast *Stoneskin* without a material component but only on myself.",
 					},
 				},
 			},
@@ -1234,7 +1258,7 @@ AddSubClass("monk", "way of the four elements", {
 				name: "Fist of Four Thunders",
 				source: [["P", 81]],
 				additional: "2 ki points",
-				description: desc("As an action, I can cast Thunderwave"),
+				description: desc("As an action, I can cast *Thunderwave*"),
 				spellcastingBonus: [{
 					name: "Fist of Four Thunders",
 					spells: ["thunderwave"],
@@ -1245,7 +1269,7 @@ AddSubClass("monk", "way of the four elements", {
 				spellChanges: {
 					"thunderwave": {
 						allowUpCasting: false,
-						changes: "With the Fist of Four Thunders discipline, I can cast Thunderwave.",
+						changes: "With the Fist of Four Thunders discipline, I can cast *Thunderwave*.",
 					},
 				},
 			},
@@ -1264,7 +1288,7 @@ AddSubClass("monk", "way of the four elements", {
 				name: "Flames of the Phoenix",
 				source: [["P", 81]],
 				additional: "4 ki points",
-				description: desc("As an action, I can cast Fireball without material components"),
+				description: desc("As an action, I can cast *Fireball* without material components"),
 				spellcastingBonus: [{
 					name: "Flames of the Phoenix",
 					spells: ["fireball"],
@@ -1278,7 +1302,7 @@ AddSubClass("monk", "way of the four elements", {
 						components: "V,S",
 						compMaterial: "",
 						allowUpCasting: false,
-						changes: "With the Flames of the Phoenix discipline, I can cast Fireball without a material component.",
+						changes: "With the Flames of the Phoenix discipline, I can cast *Fireball* without a material component.",
 					},
 				},
 			},
@@ -1286,7 +1310,7 @@ AddSubClass("monk", "way of the four elements", {
 				name: "Gong of the Summit",
 				source: [["P", 81]],
 				additional: "3 ki points",
-				description: desc("As an action, I can cast Shatter without material components"),
+				description: desc("As an action, I can cast *Shatter* without material components"),
 				spellcastingBonus: [{
 					name: "Gong of the Summit",
 					spells: ["shatter"],
@@ -1300,7 +1324,7 @@ AddSubClass("monk", "way of the four elements", {
 						components: "V,S",
 						compMaterial: "",
 						allowUpCasting: false,
-						changes: "With the Gong of the Summit discipline, I can cast Shatter without a material component.",
+						changes: "With the Gong of the Summit discipline, I can cast *Shatter* without a material component.",
 					},
 				},
 			},
@@ -1308,7 +1332,7 @@ AddSubClass("monk", "way of the four elements", {
 				name: "Mist Stance",
 				source: [["P", 81]],
 				additional: "4 ki points",
-				description: desc("As an action, I can cast Gaseous Form on myself without material components"),
+				description: desc("As an action, I can cast *Gaseous Form* on myself without material components"),
 				spellcastingBonus: [{
 					name: "Mist Stance",
 					spells: ["gaseous form"],
@@ -1323,7 +1347,7 @@ AddSubClass("monk", "way of the four elements", {
 						components: "V,S",
 						compMaterial: "",
 						description: "I turn into a misty cloud with fly 10 ft, resist. to nonmagical dmg, adv. on Str/Dex/saves",
-						changes: "With the Mist Stance discipline, I can cast Gaseous Form without a material component, but only on myself.",
+						changes: "With the Mist Stance discipline, I can cast *Gaseous Form* without a material component, but only on myself.",
 					},
 				},
 			},
@@ -1331,7 +1355,7 @@ AddSubClass("monk", "way of the four elements", {
 				name: "Ride the Wind",
 				source: [["P", 81]],
 				additional: "4 ki points",
-				description: desc("As an action, I can cast Fly on myself without material components"),
+				description: desc("As an action, I can cast *Fly* on myself without material components"),
 				spellcastingBonus: [{
 					name: "Ride the Wind",
 					spells: ["fly"],
@@ -1346,7 +1370,7 @@ AddSubClass("monk", "way of the four elements", {
 						components: "V,S",
 						compMaterial: "",
 						description: "I gain 60 ft flying speed",
-						changes: "With the Ride the Wind discipline, I can cast Fly without a material component but only on myself.",
+						changes: "With the Ride the Wind discipline, I can cast *Fly* without a material component but only on myself.",
 					},
 				},
 			},
@@ -1354,7 +1378,7 @@ AddSubClass("monk", "way of the four elements", {
 				name: "River of Hungry Flame",
 				source: [["P", 81]],
 				additional: "5 ki points",
-				description: desc("As an action, I can cast Wall of Fire without material components"),
+				description: desc("As an action, I can cast *Wall of Fire* without material components"),
 				spellcastingBonus: [{
 					name: "River of Hungry Flame",
 					spells: ["wall of fire"],
@@ -1368,7 +1392,7 @@ AddSubClass("monk", "way of the four elements", {
 						components: "V,S",
 						compMaterial: "",
 						allowUpCasting: false,
-						changes: "With the River of Hungry Flame discipline, I can cast Wall of Fire without a material component.",
+						changes: "With the River of Hungry Flame discipline, I can cast *Wall of Fire* without a material component.",
 					},
 				},
 			},
@@ -1376,7 +1400,7 @@ AddSubClass("monk", "way of the four elements", {
 				name: "Rush of the Gale Spirits",
 				source: [["P", 81]],
 				additional: "2 ki points",
-				description: desc("As an action, I can cast Gust of Wind without material components"),
+				description: desc("As an action, I can cast *Gust of Wind* without material components"),
 				spellcastingBonus: [{
 					name: "Rush of the Gale Spirits",
 					spells: ["gust of wind"],
@@ -1388,7 +1412,7 @@ AddSubClass("monk", "way of the four elements", {
 					"gust of wind": {
 						components: "V,S",
 						compMaterial: "",
-						changes: "With the Rush of the Gale Spirits discipline, I can cast Gust of Wind without a material component.",
+						changes: "With the Rush of the Gale Spirits discipline, I can cast *Gust of Wind* without a material component.",
 					},
 				},
 			},
@@ -1406,7 +1430,7 @@ AddSubClass("monk", "way of the four elements", {
 				name: "Sweeping Cinder Strike",
 				source: [["P", 81]],
 				additional: "2 ki points",
-				description: desc("As an action, I can cast Burning Hands"),
+				description: desc("As an action, I can cast *Burning Hands*"),
 				spellcastingBonus: [{
 					name: "Sweeping Cinder Strike",
 					spells: ["burning hands"],
@@ -1419,7 +1443,7 @@ AddSubClass("monk", "way of the four elements", {
 						components: "V,S",
 						compMaterial: "",
 						allowUpCasting: false,
-						changes: "With the Sweeping Cinder Strike discipline, I can cast Burning Hands.",
+						changes: "With the Sweeping Cinder Strike discipline, I can cast *Burning Hands*.",
 					},
 				},
 			},
@@ -1438,7 +1462,7 @@ AddSubClass("monk", "way of the four elements", {
 				name: "Wave of Rolling Earth",
 				source: [["P", 81]],
 				additional: "6 ki points",
-				description: desc("As an action, I can cast Wall of Stone without material components"),
+				description: desc("As an action, I can cast *Wall of Stone* without material components"),
 				spellcastingBonus: [{
 					name: "Wave of Rolling Earth",
 					spells: ["wall of stone"],
@@ -1451,7 +1475,7 @@ AddSubClass("monk", "way of the four elements", {
 					"wall of stone": {
 						components: "V,S",
 						compMaterial: "",
-						changes: "With the Wave of Rolling Earth discipline, I can cast Wall of Stone without a material component.",
+						changes: "With the Wave of Rolling Earth discipline, I can cast *Wall of Stone* without a material component.",
 					},
 				},
 			},
@@ -1468,7 +1492,7 @@ AddSubClass("monk", "way of shadow", {
 			name: "Shadow Arts",
 			source: [["P", 80]],
 			minlevel: 3,
-			description: desc("I know the Minor Illusion cantrip and can cast certain spells by using ki (see page 3)"),
+			description: desc("I know the *Minor Illusion* cantrip and can cast certain spells by using ki (see page 3)"),
 			spellcastingBonus: [{
 				name: "Shadow Arts",
 				spells: ["minor illusion"],
@@ -1481,7 +1505,7 @@ AddSubClass("monk", "way of shadow", {
 				source: [["P", 80]],
 				additional: "2 ki points",
 				description: desc([
-					"As an action, I can cast Darkness, Darkvision, Pass Without Trace, or Silence",
+					"As an action, I can cast *Darkness*, *Darkvision*, *Pass Without Trace*, or *Silence*",
 					"I don't require spell slots or material components to cast these spells like this, just ki points",
 				]),
 				action: [["action", ""]],
@@ -1756,7 +1780,7 @@ AddSubClass("rogue", "arcane trickster", {
 			source: [["P", 98]],
 			minlevel: 3,
 			description: desc([
-				"As a bonus action, I can direct my Mage Hand",
+				"As a bonus action, I can direct my *Mage Hand*",
 				"With a Dex (Sleight of Hand) vs. Wis (Perception) checks, I can do so discreetly",
 				"I can make it invisible and perform the following tasks:",
 				" \u2022 Stow/retrieve an object the hand is holding in a container worn/carried by another",
@@ -1766,7 +1790,7 @@ AddSubClass("rogue", "arcane trickster", {
 			spellChanges: {
 				"mage hand": {
 					description: "Invisible hand, carries 10 lb; 1 bns to control, use thieves' tools, or stow/retrieve obj; only 1 instance",
-					changes: "My Mage Hand Legerdemain class feature expands my use of the Mage Hand cantrip and makes the spectral hand invisible.",
+					changes: "My *Mage Hand* Legerdemain class feature expands my use of the *Mage Hand* cantrip and makes the spectral hand invisible.",
 				},
 			},
 		},
@@ -1780,7 +1804,7 @@ AddSubClass("rogue", "arcane trickster", {
 			name: "Versatile Trickster",
 			source: [["P", 98]],
 			minlevel: 13,
-			description: desc("As a bonus action, gain adv. on attacks this turn on creature within 5 ft of Mage Hand"),
+			description: desc("As a bonus action, gain adv. on attacks this turn on creature within 5 ft of *Mage Hand*"),
 			action: [["bonus action", ""]],
 		},
 		"subclassfeature17": {
@@ -1875,15 +1899,15 @@ AddSubClass("sorcerer", "wild magic", {
 						["01\u201302", "For the next minute, I roll on this table at the start of each of my turns, ignoring this result on subsequent rolls."],
 						["03\u201304", "For the next minute, I can see any invisible creature if I have line of sight to it."],
 						["05\u201306", "A modron chosen and controlled by the DM appears in an unoccupied space within 5 ft of me, then disappears 1 minute later."],
-						["07\u201308", "I cast Fireball as a 3rd-level spell centered on myself."],
-						["09\u201310", "I cast Magic Missile as a 5th-level spell."],
+						["07\u201308", "I cast *Fireball* as a 3rd-level spell centered on myself."],
+						["09\u201310", "I cast *Magic Missile* as a 5th-level spell."],
 						["11\u201312", "Roll a d10. My height changes by a number of inches equal to the roll. If the roll is odd, I shrink. If the roll is even, I grow."],
-						["13\u201314", "I cast Confusion centered on myself."],
+						["13\u201314", "I cast *Confusion* centered on myself."],
 						["15\u201316", "For the next minute, I regain 5 hit points at the start of each of my turns."],
 						["17\u201318", "I grow a long beard made of feathers that remains until I sneeze, at which point the feathers explode out from my face."],
-						["19\u201320", "I cast Grease centered on myself."],
+						["19\u201320", "I cast *Grease* centered on myself."],
 						["21\u201322", "Creatures have disadvantage on saving throws against the next spell I cast in the next minute that involves a saving throw."],
-						["23\u201324", "My skin turns a vibrant shade of blue. A remove curse spell can end this effect."],
+						["23\u201324", "My skin turns a vibrant shade of blue. A *remove curse* spell can end this effect."],
 						["25\u201326", "An eye appears on my forehead for the next minute."],
 						["27\u201328", "For the next minute, all my spells with a casting time feet of 1 action have a casting time of 1 bonus action."],
 						["29\u201330", "I teleport up to 60 ft to an unoccupied space of my choice that I can see."],
@@ -1894,7 +1918,7 @@ AddSubClass("sorcerer", "wild magic", {
 						["39\u201340", "I regain 2d10 hit points."],
 						["41\u201342", "I turn into a potted plant until the start of my next turn. While a plant, I am incapacitated and have vulnerability to all damage. If I drop to 0 hit points, my pot breaks, and my form reverts."],
 						["43\u201344", "For the next minute, I can teleport up to 20 ft as a bonus action on each of my turns."],
-						["45\u201346", "I cast Levitate on myself."],
+						["45\u201346", "I cast *Levitate* on myself."],
 						["47\u201348", "A unicorn controlled by the DM appears in a space within 5 ft of me, then disappears 1 minute later."],
 						["49\u201350", "I can't speak for the next minute. Whenever I try, pink bubbles float out of my mouth."],
 					],
@@ -1907,13 +1931,13 @@ AddSubClass("sorcerer", "wild magic", {
 				note: [
 					[
 						["d100", "Effect"],
-						["51\u201352", "A spectral shield hovers near me for the next minute, granting me a +2 bonus to AC and immunity to magic missile."],
+						["51\u201352", "A spectral shield hovers near me for the next minute, granting me a +2 bonus to AC and immunity to *magic missile*."],
 						["53\u201354", "I am immune to being intoxicated by alcohol for the next 5d6 days."],
 						["55\u201356", "My hair falls out but grows back within 24 hours."],
 						["57\u201358", "For the next minute, any flammable object I touch that isn't being worn or carried by another creature bursts into flame."],
 						["59\u201360", "I regain my lowest-level expended spell slot."],
 						["61\u201362", "For the next minute, I must shout when I speak."],
-						["63\u201364", "I cast Fog Cloud centered on myself."],
+						["63\u201364", "I cast *Fog Cloud* centered on myself."],
 						["65\u201366", "Up to three creatures I choose within 30 ft of me take 4d10 lightning damage."],
 						["67\u201368", "I am frightened by the nearest creature until the end of my next turn."],
 						["69\u201370", "Each creature within 30 ft of me becomes invisible for the next minute. The invisibility ends on a creature when it attacks or casts a spell."],
@@ -1921,13 +1945,13 @@ AddSubClass("sorcerer", "wild magic", {
 						["73\u201374", "A random creature within 60 ft of me becomes poisoned for 1d4 hours."],
 						["75\u201376", "I glow with bright light in a 30-ft radius for the next minute. Any creature that ends its turn within 5 ft of me is blinded until the end of its next turn."],
 						["79\u201380", "Illusory butterflies and flower petals flutter in the air within 10 ft of me for the next minute."],
-						["77\u201378", "I cast Polymorph on myself. If I fail the saving throw, I turn into a sheep for the spell's duration."],
+						["77\u201378", "I cast *Polymorph* on myself. If I fail the saving throw, I turn into a sheep for the spell's duration."],
 						["81\u201382", "I can take one additional action immediately."],
 						["83\u201384", "Each creature within 30 ft of me takes 1d10 necrotic damage. I regain hit points equal to the sum of the necrotic damage dealt."],
-						["85\u201386", "I cast Mirror Image."],
-						["87\u201388", "I cast Fly on a random creature within 60 ft of me."],
+						["85\u201386", "I cast *Mirror Image*."],
+						["87\u201388", "I cast *Fly* on a random creature within 60 ft of me."],
 						["89\u201390", "I become Invisible for the next minute. During that time, other creatures can't hear me. The invisibility ends if I attack or cast a spell."],
-						["91\u201392", "If I die within the next minute, I immediately come back to life as if by the Reincarnate spell."],
+						["91\u201392", "If I die within the next minute, I immediately come back to life as if by the *Reincarnate* spell."],
 						["93\u201394", "My size increases by one size category for the next minute."],
 						["95\u201396", "I and all creatures within 30 ft of me gain vulnerability to piercing damage for the next minute."],
 						["97\u201398", "I am surrounded by faint, ethereal music for the next minute."],
@@ -2071,7 +2095,7 @@ AddSubClass("warlock", "the great old one", {
 			description: desc([
 				"As an action, I can charm an incapacitated humanoid by touch",
 				"While it is charmed, I can communicate with it telepathically if it is on the same plane",
-				"This lasts until the charm is removed (can be by Remove Curse) or I use this again",
+				"This lasts until the charm is removed (can be by *Remove Curse*) or I use this again",
 			]),
 			action: [["action", ""]],
 		},
@@ -2374,7 +2398,7 @@ AddSubClass("wizard", "illusion", {
 			source: [["P", 118]],
 			minlevel: 2,
 			description: desc([
-				"I gain the knowledge of the Minor Illusion cantrip (or another if I already knew it)",
+				"I gain the knowledge of the *Minor Illusion* cantrip (or another if I already knew it)",
 				"When I cast it, I can create both a sound and an image with a single casting",
 			]),
 			spellcastingBonus: [{
@@ -2385,7 +2409,7 @@ AddSubClass("wizard", "illusion", {
 			spellChanges: {
 				"minor illusion": {
 					description: "5-ft cube illusion includes visible and audible; Int(Investigation) check vs. Spell DC; see book",
-					changes: "My Improved Minor Illusion class feature allows me to make both a sound and an image with a single casting.",
+					changes: "My Improved *Minor Illusion* class feature allows me to make both a sound and an image with a single casting.",
 				},
 			},
 		},
@@ -2446,7 +2470,7 @@ AddSubClass("wizard", "necromancy", {
 			source: [["P", 119]],
 			minlevel: 6,
 			description: desc([
-				"I add Animate Dead to my spellbook and can have an additional target when casting it",
+				"I add *Animate Dead* to my spellbook and can have an additional target when casting it",
 				"Undead created by my necromancy spells have the following benefits:",
 				"They add my proficiency bonus to damage and my wizard level to their HP maximums",
 			]),
@@ -2458,7 +2482,7 @@ AddSubClass("wizard", "necromancy", {
 			spellChanges: {
 				"animate dead": {
 					description: "Turn corpses into 2+2/SL Skeletons or Zombies; control for 24h; bns a command within 60 ft",
-					changes: "My Undead Thralls class feature allows me to animate one more corpse than normal with Animate Dead.",
+					changes: "My Undead Thralls class feature allows me to animate one more corpse than normal with *Animate Dead*.",
 				},
 			},
 		},
@@ -2525,7 +2549,7 @@ AddSubClass("wizard", "transmutation", {
 			source: [["P", 119]],
 			minlevel: 10,
 			description: desc([
-				"I add Polymorph to my spellbook; I can cast it on myself without using a spell slot",
+				"I add *Polymorph* to my spellbook; I can cast it on myself without using a spell slot",
 				"When I do that, I can only transform into a beast with a challenge rating of 1 or lower",
 			]),
 			recovery: "short rest",
@@ -2545,7 +2569,7 @@ AddSubClass("wizard", "transmutation", {
 					name: "Polymorph (special)",
 					range: "Self",
 					description: "I transformed into a beast of my choice with a CR 1 or lower; see book",
-					changes: "Using my Shapechanger class feature, I can cast Polymorph once per short rest without using a spell slot, but when I do so I can only cast it on myself and transform into a beast.",
+					changes: "Using my Shapechanger class feature, I can cast *Polymorph* once per short rest without using a spell slot, but when I do so I can only cast it on myself and transform into a beast.",
 				},
 			},
 		},
@@ -2561,7 +2585,7 @@ AddSubClass("wizard", "transmutation", {
 				"##\u2022 Panacea##.",
 				"  One touched has all curses, diseases, and poisons removed and is healed to max HP",
 				"##\u2022 Restore Life##.",
-				"  I cast Raise Dead without using spell slots or needing to have it in my spellbook",
+				"  I cast *Raise Dead* without using spell slots or needing to have it in my spellbook",
 				"##\u2022 Restore Youth##.",
 				"  A touched creature's apparent age is reduced by 3d10 years (to a minimum of 13)",
 			]),
@@ -3623,35 +3647,59 @@ BackgroundFeatureList["wanderer"] = {
 FeatsList["actor"] = {
 	name: "Actor",
 	source: [["P", 165]],
-	descriptionFull: "Skilled at mimicry and dramatics, you gain the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You have advantage on Charisma (Deception) and Charisma (Performance) checks when trying to pass yourself off as a different person.\n \u2022 You can mimic the speech of another person or the sounds made by other creatures. You must have heard the person speaking, or heard the creature make the sound, for at least 1 minute. A successful Wisdom (Insight) check contested by your Charisma (Deception) check allows a listener to determine that the effect is faked.",
+	descriptionFull: [
+		"Skilled at mimicry and dramatics, you gain the following benefits:",
+		" \u2022 Increase your Charisma score by 1, to a maximum of 20.",
+		" \u2022 You have advantage on Charisma (Deception) and Charisma (Performance) checks when trying to pass yourself off as a different person.",
+		" \u2022 You can mimic the speech of another person or the sounds made by other creatures. You must have heard the person speaking, or heard the creature make the sound, for at least 1 minute. A successful Wisdom (Insight) check contested by your Charisma (Deception) check allows a listener to determine that the effect is faked.",
+	],
 	description: "Advantage on Charisma (Deception) and (Performance) if trying to pass as another. I can mimic a person's speech or other creature's sounds if I've heard it for at least 1 minute. Wisdom (Insight) vs. Charisma (Deception) to determine the sound is faked. [+1 Charisma]",
 	scores: [0, 0, 0, 0, 0, 1],
 };
 FeatsList["alert"] = {
 	name: "Alert",
 	source: [["P", 165]],
-	descriptionFull: "Always on the lookout for danger, you gain the following benefits:\n \u2022 You gain a +5 bonus to initiative.\n \u2022 You can't be surprised while you are conscious.\n \u2022 Other creatures don't gain advantage on attack rolls against you as a result of being unseen by you.",
+	descriptionFull: [
+		"Always on the lookout for danger, you gain the following benefits:",
+		" \u2022 You gain a +5 bonus to initiative.",
+		" \u2022 You can't be surprised while you are conscious.",
+		" \u2022 Other creatures don't gain advantage on attack rolls against you as a result of being unseen by you.",
+	],
 	description: "I can't be surprised while I'm conscious. I have a +5 bonus on initiative rolls. Other creatures don't gain advantage on attack rolls against me as a result of being hidden from me.",
 	addMod: { type: "skill", field: "Init", mod: 5, text: "I have a +5 bonus on initiative rolls." },
 };
 FeatsList["athlete"] = {
 	name: "Athlete",
 	source: [["P", 165]],
-	descriptionFull: "You have undergone extensive physical training to gain the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 When you are prone, standing up uses only 5 feet of your movement.\n \u2022 Climbing doesn't cost you extra movement.\n \u2022 You can make a running long jump or a running high jump after moving only 5 feet on foot, rather than 10 feet.",
+	descriptionFull: [
+		"You have undergone extensive physical training to gain the following benefits:",
+		" \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+		" \u2022 When you are prone, standing up uses only 5 feet of your movement.",
+		" \u2022 Climbing doesn't cost you extra movement.",
+		" \u2022 You can make a running long jump or a running high jump after moving only 5 feet on foot, rather than 10 feet.",
+	],
 	description: "Standing up from prone uses only 5 ft of movement. Climbing doesn't cost me extra movement. I can make a running long jump or a running high jump after moving only 5 feet on foot, rather than 10 feet. [+1 Strength or Dexterity]",
 	scorestxt: "+1 Strength or Dexterity",
 };
 FeatsList["charger"] = {
 	name: "Charger",
 	source: [["P", 165]],
-	descriptionFull: "When you use your action to Dash, you can use a bonus action to make one melee weapon attack or to shove a creature.\n   If you move at least 10 feet in a straight line immediately before taking this bonus action, you either gain a +5 bonus to the attack's damage roll (if you chose to make a melee attack and hit) or push the target up to 10 feet away from you (if you chose to shove and you succeed).",
+	descriptionFull: [
+		"When you use your action to Dash, you can use a bonus action to make one melee weapon attack or to shove a creature.",
+		"If you move at least 10 feet in a straight line immediately before taking this bonus action, you either gain a +5 bonus to the attack's damage roll (if you chose to make a melee attack and hit) or push the target up to 10 feet away from you (if you chose to shove and you succeed).",
+	],
 	description: "As a bonus action after taking the Dash action, I can make one melee weapon attack or shove a creature. If I move at least 10 ft in a straight line before this bonus action, I add +5 damage to the attack or increase the distance up to 10 ft for the shove.",
 	action: [["bonus action", " (after Dash action)"]],
 };
 FeatsList["crossbow expert"] = {
 	name: "Crossbow Expert",
 	source: [["P", 165]],
-	descriptionFull: "Thanks to extensive practice with the crossbow, you gain the following benefits:\n \u2022 You ignore the loading quality of crossbows with which you are proficient.\n \u2022 Being within 5 feet of a hostile creature doesn't impose disadvantage on your ranged attack rolls.\n \u2022 When you use the Attack action and attack with a one-handed weapon, you can use a bonus action to attack with a hand crossbow you are holding.",
+	descriptionFull: [
+		"Thanks to extensive practice with the crossbow, you gain the following benefits:",
+		" \u2022 You ignore the loading quality of crossbows with which you are proficient.",
+		" \u2022 Being within 5 feet of a hostile creature doesn't impose disadvantage on your ranged attack rolls.",
+		" \u2022 When you use the Attack action and attack with a one-handed weapon, you can use a bonus action to attack with a hand crossbow you are holding.",
+	],
 	description: "I ignore the loading quality of crossbows I'm proficient with. I don't suffer disadv. on ranged attack rolls for being within 5 ft of a hostile. When I attack with a one-handed weapon in my Attack action, I can use a bonus action to attack with a hand crossbow I'm holding.",
 	action: [["bonus action", " (with Attack action)"]],
 	calcChanges: {
@@ -3677,7 +3725,12 @@ FeatsList["defensive duelist"] = {
 FeatsList["dual wielder"] = {
 	name: "Dual Wielder",
 	source: [["P", 165]],
-	descriptionFull: "You master fighting with two weapons, gaining the following benefits:\n \u2022 You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.\n \u2022 You can use two-weapon fighting even when the one-handed melee weapons you are wielding aren't light.\n \u2022 You can draw or stow two one-handed weapons when you would normally be able to draw or stow only one.",
+	descriptionFull: [
+		"You master fighting with two weapons, gaining the following benefits:",
+		" \u2022 You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.",
+		" \u2022 You can use two-weapon fighting even when the one-handed melee weapons you are wielding aren't light.",
+		" \u2022 You can draw or stow two one-handed weapons when you would normally be able to draw or stow only one.",
+	],
 	description: "I can use two-weapon fighting even when the one-handed melee weapons I'm wielding aren't light. I can draw or stow two one-handed weapons when I would normally be able to draw or stow only one. +1 AC while wielding separate melee weapons in each hand.",
 	extraAC: {
 		mod: 1,
@@ -3688,7 +3741,13 @@ FeatsList["dual wielder"] = {
 FeatsList["dungeon delver"] = {
 	name: "Dungeon Delver",
 	source: [["P", 166]],
-	descriptionFull: "Alert to the hidden traps and secret doors found in many dungeons, you gain the following benefits:\n \u2022 You have advantage on Wisdom (Perception) and Intelligence (Investigation) checks made to detect the presence of secret doors.\n \u2022 You have advantage on saving throws made to avoid or resist traps.\n \u2022 You have resistance to the damage dealt by traps.\n \u2022 Traveling at a fast pace doesn't impose the normal -5 penalty on your passive Wisdom (Perception) score.",
+	descriptionFull: [
+		"Alert to the hidden traps and secret doors found in many dungeons, you gain the following benefits:",
+		" \u2022 You have advantage on Wisdom (Perception) and Intelligence (Investigation) checks made to detect the presence of secret doors.",
+		" \u2022 You have advantage on saving throws made to avoid or resist traps.",
+		" \u2022 You have resistance to the damage dealt by traps.",
+		" \u2022 Traveling at a fast pace doesn't impose the normal -5 penalty on your passive Wisdom (Perception) score.",
+	],
 	description: "I have adv. on Wis (Perception) and Int (Investigation) checks made to detect the presence of secret doors. I have resistance to damage dealt by traps and advantage on saves to avoid or resist traps. Travelling at a fast pace doesn't impose -5 on my passive Perception.",
 	dmgres: ["Traps"],
 	savetxt: { adv_vs: ["traps"] },
@@ -3697,14 +3756,22 @@ FeatsList["dungeon delver"] = {
 FeatsList["durable"] = {
 	name: "Durable",
 	source: [["P", 166]],
-	descriptionFull: "Hardy and resilient, you gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 When you roll a Hit Die to regain hit points, the minimum number of hit points you regain from the roll equals twice your Constitution modifier (minimum of 2).",
+	descriptionFull: [
+		"Hardy and resilient, you gain the following benefits:",
+		" \u2022 Increase your Constitution score by 1, to a maximum of 20.",
+		" \u2022 When you roll a Hit Die to regain hit points, the minimum number of hit points you regain from the roll equals twice your Constitution modifier (minimum of 2).",
+	],
 	description: "When I roll a hit die to regain hit points, the minimum number of hit points I regain from the roll equals twice my Constitution modifier (minimum of 2). [+1 Constitution]",
 	scores: [0, 0, 1, 0, 0, 0],
 };
 FeatsList["elemental adept"] = {
 	name: "Elemental Adept",
 	source: [["P", 166]],
-	descriptionFull: "When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder.\n   Spells you cast ignore resistance to damage of the chosen type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can treat any 1 on a damage die as a 2.\n\nYou can select this feat multiple times. Each time you do so, you must choose a different damage type.",
+	descriptionFull: [
+		"When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder.",
+		"Spells you cast ignore resistance to damage of the chosen type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can treat any 1 on a damage die as a 2.",
+		"You can select this feat multiple times. Each time you do so, you must choose a different damage type.",
+	],
 	description: "Choose one of the damage types: acid, cold, fire, lightning, or thunder. Spells I cast ignore resistance to damage from this damage type. For any spell I cast that deals this damage type, I can treat any 1 on a damage die as a 2.",
 	prerequisite: "The ability to cast at least one spell",
 	prereqeval: function (v) { return v.isSpellcaster; },
@@ -3729,7 +3796,11 @@ FeatsList["elemental adept"] = {
 FeatsList["great weapon master"] = {
 	name: "Great Weapon Master",
 	source: [["P", 167]],
-	descriptionFull: "You've learned to put the weight of a weapon to your advantage, letting its momentum empower your strikes. You gain the following benefits:\n \u2022 On your turn, when you score a critical hit with a melee weapon or reduce a creature to 0 hit points with one, you can make one melee weapon attack as a bonus action.\n \u2022 Before you make a melee attack with a heavy weapon that you are proficient with, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage.",
+	descriptionFull: [
+		"You've learned to put the weight of a weapon to your advantage, letting its momentum empower your strikes. You gain the following benefits:",
+		" \u2022 On your turn, when you score a critical hit with a melee weapon or reduce a creature to 0 hit points with one, you can make one melee weapon attack as a bonus action.",
+		" \u2022 Before you make a melee attack with a heavy weapon that you are proficient with, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage.",
+	],
 	description: "If I score a critical hit or reduce a creature to 0 hit points with a melee weapon in my turn, I can make one melee weapon attack as a bonus action. With a heavy melee weapon, I can choose to take a -5 penalty on the attack roll for +10 on the attack's damage.",
 	action: [["bonus action", " (after crit or take-down)"]],
 	calcChanges: {
@@ -3747,14 +3818,22 @@ FeatsList["great weapon master"] = {
 FeatsList["healer"] = {
 	name: "Healer",
 	source: [["P", 167]],
-	descriptionFull: "You are an able physician, allowing you to mend wounds quickly and get your allies back in the fight. You gain the following benefits:\n \u2022 When you use a healer's kit to stabilize a dying creature, that creature also regains 1 hit point.\n \u2022 As an action, you can spend one use of a healer's kit to tend to a creature and restore 1d6+4 hit points to it, plus additional hit points equal to the creature's maximum number of Hit Dice. The creature can't regain hit points from this feat again until it finishes a short or long rest.",
+	descriptionFull: [
+		"You are an able physician, allowing you to mend wounds quickly and get your allies back in the fight. You gain the following benefits:",
+		" \u2022 When you use a healer's kit to stabilize a dying creature, that creature also regains 1 hit point.",
+		" \u2022 As an action, you can spend one use of a healer's kit to tend to a creature and restore 1d6+4 hit points to it, plus additional hit points equal to the creature's maximum number of Hit Dice. The creature can't regain hit points from this feat again until it finishes a short or long rest.",
+	],
 	description: "Using a healer's kit to stabilize someone gives them 1 hit point as well. As an action, I can spend one use of a healer's kit to restore 1d6 + 4 + (creature's HD) hit points. After that, the creature can't gain hit points from this feat again until it finishes a short rest.",
 	action: [["action", " (1d6+4+HD with healing kit)"]],
 };
 FeatsList["heavily armored"] = {
 	name: "Heavily Armored",
 	source: [["P", 167]],
-	descriptionFull: "You have trained to master the use of heavy armor, gaining the following benefits:\n \u2022 Increase your Strength score by 1, to a maximum of 20.\n \u2022 You gain proficiency with heavy armor.",
+	descriptionFull: [
+		"You have trained to master the use of heavy armor, gaining the following benefits:",
+		" \u2022 Increase your Strength score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency with heavy armor.",
+	],
 	description: "I gain proficiency with heavy armor. [+1 Strength]",
 	prerequisite: "Proficiency with medium armor",
 	prereqeval: function (v) { return v.mediumArmorProf; },
@@ -3764,7 +3843,10 @@ FeatsList["heavily armored"] = {
 FeatsList["heavy armor master"] = {
 	name: "Heavy Armor Master",
 	source: [["P", 167]],
-	descriptionFull: "You can use your armor to deflect strikes that would kill others. You gain the following benefits:\n \u2022 While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from nonmagical weapons is reduced by 3.",
+	descriptionFull: [
+		"You can use your armor to deflect strikes that would kill others. You gain the following benefits:",
+		" \u2022 While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from nonmagical weapons is reduced by 3.",
+	],
 	description: "While wearing heavy armor, bludgeoning, piercing, and slashing damage taken from nonmagical weapons is reduced by 3. [+1 Strength]",
 	prerequisite: "Proficiency with heavy armor",
 	prereqeval: function (v) { return v.heavyArmorProf; },
@@ -3781,14 +3863,24 @@ FeatsList["inspiring leader"] = {
 FeatsList["keen mind"] = {
 	name: "Keen Mind",
 	source: [["P", 167]],
-	descriptionFull: "You have a mind that can track time, direction, and detail with uncanny precision. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You always know which way is north.\n \u2022 You always know the number of hours left before the next sunrise or sunset.\n \u2022 You can accurately recall anything you have seen or heard within the past month.",
+	descriptionFull: [
+		"You have a mind that can track time, direction, and detail with uncanny precision. You gain the following benefits:",
+		" \u2022 Increase your Intelligence score by 1, to a maximum of 20.",
+		" \u2022 You always know which way is north.",
+		" \u2022 You always know the number of hours left before the next sunrise or sunset.",
+		" \u2022 You can accurately recall anything you have seen or heard within the past month.",
+	],
 	description: "I always know which way is north and the number of hours left before the next sunrise or sunset. I can accurately recall anything I have seen or heard within the past month. [+1 Intelligence]",
 	scores: [0, 0, 0, 1, 0, 0],
 };
 FeatsList["lightly armored"] = {
 	name: "Lightly Armored",
 	source: [["P", 167]],
-	descriptionFull: "You have trained to master the use of light armor, gaining the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with light armor.",
+	descriptionFull: [
+		"You have trained to master the use of light armor, gaining the following benefits:",
+		" \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency with light armor.",
+	],
 	description: "I gain proficiency with light armor. [+1 Strength or Dexterity]",
 	scorestxt: "+1 Strength or Dexterity",
 	armorProfs: [true, false, false, false],
@@ -3796,7 +3888,12 @@ FeatsList["lightly armored"] = {
 FeatsList["linguist"] = {
 	name: "Linguist",
 	source: [["P", 167]],
-	descriptionFull: "You have studied languages and codes, gaining the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You learn three languages of your choice.\n \u2022 You can ably create written ciphers. Others can't decipher a code you create unless you teach them, they succeed on an Intelligence check (DC equal to your Intelligence score + your proficiency bonus), or they use magic to decipher it.",
+	descriptionFull: [
+		"You have studied languages and codes, gaining the following benefits:",
+		" \u2022 Increase your Intelligence score by 1, to a maximum of 20.",
+		" \u2022 You learn three languages of your choice.",
+		" \u2022 You can ably create written ciphers. Others can't decipher a code you create unless you teach them, they succeed on an Intelligence check (DC equal to your Intelligence score + your proficiency bonus), or they use magic to decipher it.",
+	],
 	calculate: "event.value = \"I can ably create written ciphers that others can't decipher unless I teach them, they succeed on an Intelligence check DC \" + (Number(What('Int')) + Number(How('Proficiency Bonus'))) + ' (Intelligence score + proficiency bonus), or they use magic to decipher it. I learn three languages of my choice. [+1 Intelligence]';",
 	scores: [0, 0, 0, 1, 0, 0],
 	languageProfs: [3],
@@ -3804,7 +3901,12 @@ FeatsList["linguist"] = {
 FeatsList["lucky"] = {
 	name: "Lucky",
 	source: [["P", 167]],
-	descriptionFull: "You have inexplicable luck that seems to kick in at just the right moment.\n   You have 3 luck points. Whenever you make an attack roll, an ability check, or a saving throw, you can spend one luck point to roll an additional d20. You can choose to spend one of your luck points after you roll the die, but before the outcome is determined. You choose which of the d20s is used for the attack roll, ability check, or saving throw.\n   You can also spend one luck point when an attack roll is made against you. Roll a d20, and then choose whether the attack uses the attacker's roll or yours. If more than one creature spends a luck point to influence the outcome of a roll, the points cancel each other out; no additional dice are rolled.\n   You regain your expended luck points when you finish a long rest.",
+	descriptionFull: [
+		"You have inexplicable luck that seems to kick in at just the right moment.",
+		"You have 3 luck points. Whenever you make an attack roll, an ability check, or a saving throw, you can spend one luck point to roll an additional d20. You can choose to spend one of your luck points after you roll the die, but before the outcome is determined. You choose which of the d20s is used for the attack roll, ability check, or saving throw.",
+		"You can also spend one luck point when an attack roll is made against you. Roll a d20, and then choose whether the attack uses the attacker's roll or yours. If more than one creature spends a luck point to influence the outcome of a roll, the points cancel each other out; no additional dice are rolled.",
+		"You regain your expended luck points when you finish a long rest.",
+	],
 	description: "Use one of three luck points to roll an extra d20 for attacking, being attacked, an ability check, or a saving throw before the outcome is determined. If more than one creature uses luck, no extra dice are rolled. I regain expended luck points when I finish a long rest.",
 	usages: 3,
 	recovery: "long rest",
@@ -3813,7 +3915,12 @@ FeatsList["lucky"] = {
 FeatsList["mage slayer"] = {
 	name: "Mage Slayer",
 	source: [["P", 168]],
-	descriptionFull: "You have practiced techniques useful in melee combat against spellcasters, gaining the following benefits:\n \u2022 When a creature within 5 feet of you casts a spell, you can use your reaction to make a melee weapon attack against that creature.\n \u2022 When you damage a creature that is concentrating on a spell, that creature has disadvantage on the saving throw it makes to maintain its concentration.\n \u2022 You have advantage on saving throws against spells cast by creatures within 5 feet of you.",
+	descriptionFull: [
+		"You have practiced techniques useful in melee combat against spellcasters, gaining the following benefits:",
+		" \u2022 When a creature within 5 feet of you casts a spell, you can use your reaction to make a melee weapon attack against that creature.",
+		" \u2022 When you damage a creature that is concentrating on a spell, that creature has disadvantage on the saving throw it makes to maintain its concentration.",
+		" \u2022 You have advantage on saving throws against spells cast by creatures within 5 feet of you.",
+	],
 	description: "As a reaction, I can make a melee weapon attack on a creature within 5 ft of me that casts a spell. Concentration checks from damage from me are made with disadvantage. I have advantage on saving throws against spells cast by creatures within 5 feet of me.",
 	savetxt: { adv_vs: ["spells cast within 5 ft"] },
 	action: [["reaction", "Melee weapon attack (if spell cast in 5 ft)"]],
@@ -3821,7 +3928,11 @@ FeatsList["mage slayer"] = {
 FeatsList["magic initiate"] = {
 	name: "Magic Initiate",
 	source: [["P", 168]],
-	descriptionFull: "Choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You learn two cantrips of your choice from that class's spell list.\n   In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.\n   Your spellcasting ability for these spells depends on the class you chose: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid: or Intelligence for wizard.",
+	descriptionFull: [
+		"Choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You learn two cantrips of your choice from that class's spell list.",
+		"In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.",
+		"Your spellcasting ability for these spells depends on the class you chose: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid: or Intelligence for wizard.",
+	],
 	description: "Select a spellcasting class using the square button on this feat line. I learn two cantrips and one 1st-level spell of my choice from that class' spell list. I can cast the 1st-level spell at its lowest level once per long rest without using a spell slot.",
 	calcChanges: {
 		spellAdd: [
@@ -3931,7 +4042,11 @@ FeatsList["magic initiate"] = {
 FeatsList["martial adept"] = {
 	name: "Martial Adept",
 	source: [["P", 168]],
-	descriptionFull: "You have martial training that allows you to perform special combat maneuvers. You gain the following benefits:\n \u2022 You learn two maneuvers of your choice from among those available to the Battle Master archetype in the fighter class. If a maneuver you use requires your target to make a saving throw to resist the maneuver's effects, the saving throw DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice).\n \u2022 You gain one superiority die, which is a d6 (this die is added to any superiority dice you have from another source). This die is used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest.",
+	descriptionFull: [
+		"You have martial training that allows you to perform special combat maneuvers. You gain the following benefits:",
+		" \u2022 You learn two maneuvers of your choice from among those available to the Battle Master archetype in the fighter class. If a maneuver you use requires your target to make a saving throw to resist the maneuver's effects, the saving throw DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice).",
+		" \u2022 You gain one superiority die, which is a d6 (this die is added to any superiority dice you have from another source). This die is used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest.",
+	],
 	description: "",
 	calculate: "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master (2nd page \"Choose Feature\" button). The saving throw DC for this is ' + (8 + Number(How('Proficiency Bonus')) + Math.max(Number(What('Str Mod')), Number(What('Dex Mod')))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a short rest.';",
 	bonusClassExtrachoices: [{
@@ -3951,7 +4066,11 @@ FeatsList["martial adept"] = {
 FeatsList["medium armor master"] = {
 	name: "Medium Armor Master",
 	source: [["P", 168]],
-	descriptionFull: "You have practiced moving in medium armor to gain the following benefits:\n \u2022 Wearing medium armor doesn't impose disadvantage on your Dexterity (Stealth) checks.\n \u2022 When you wear medium armor, you can add 3, rather than 2, to your AC if you have a Dexterity of 16 or higher.",
+	descriptionFull: [
+		"You have practiced moving in medium armor to gain the following benefits:",
+		" \u2022 Wearing medium armor doesn't impose disadvantage on your Dexterity (Stealth) checks.",
+		" \u2022 When you wear medium armor, you can add 3, rather than 2, to your AC if you have a Dexterity of 16 or higher.",
+	],
 	description: "Wearing medium armor doesn't impose disadvantage on my Dexterity (Stealth) checks. When I wear medium armor, I can add up to 3, rather than 2, to my AC if my Dexterity is 16 or higher.",
 	prerequisite: "Proficiency with medium armor",
 	prereqeval: function (v) { return v.mediumArmorProf; },
@@ -3967,14 +4086,23 @@ FeatsList["medium armor master"] = {
 FeatsList["mobile"] = {
 	name: "Mobile",
 	source: [["P", 168]],
-	descriptionFull: "You are exceptionally speedy and agile. You gain the following benefits:\n \u2022 Your speed increases by 10 feet.\n \u2022 When you use the Dash action, difficult terrain doesn't cost you extra movement on that turn.\n \u2022 When you make a melee attack against a creature, you don't provoke opportunity attacks from that creature for the rest of the turn, whether you hit or not.",
+	descriptionFull: [
+		"You are exceptionally speedy and agile. You gain the following benefits:",
+		" \u2022 Your speed increases by 10 feet.",
+		" \u2022 When you use the Dash action, difficult terrain doesn't cost you extra movement on that turn.",
+		" \u2022 When you make a melee attack against a creature, you don't provoke opportunity attacks from that creature for the rest of the turn, whether you hit or not.",
+	],
 	description: "When I use the Dash action, difficult terrain doesn't cost me extra movement that turn. When I make a melee attack against a creature, I don't provoke opportunity attacks from that creature for the rest of the turn, whether I hit or not. [+10 ft speed]",
 	speed: { allModes: { bonus: "+10" } },
 };
 FeatsList["moderately armored"] = {
 	name: "Moderately Armored",
 	source: [["P", 168]],
-	descriptionFull: "You have trained to master the use of medium armor and shields, gaining the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with medium armor and shields.",
+	descriptionFull: [
+		"You have trained to master the use of medium armor and shields, gaining the following benefits:",
+		" \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency with medium armor and shields.",
+	],
 	description: "I gain proficiency with medium armor and shields. [+1 Strength or Dexterity]",
 	prerequisite: "Proficiency with light armor",
 	prereqeval: function (v) { return v.lightArmorProf; },
@@ -3984,13 +4112,23 @@ FeatsList["moderately armored"] = {
 FeatsList["mounted combatant"] = {
 	name: "Mounted Combatant",
 	source: [["P", 168]],
-	descriptionFull: "You are a dangerous foe to face while mounted. While you are mounted and aren't incapacitated, you gain the following benefits:\n \u2022 You have advantage on melee attack rolls against any unmounted creature that is smaller than your mount.\n \u2022 You can force an attack targeted at your mount to target you instead.\n \u2022 If your mount is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.",
+	descriptionFull: [
+		"You are a dangerous foe to face while mounted. While you are mounted and aren't incapacitated, you gain the following benefits:",
+		" \u2022 You have advantage on melee attack rolls against any unmounted creature that is smaller than your mount.",
+		" \u2022 You can force an attack targeted at your mount to target you instead.",
+		" \u2022 If your mount is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.",
+	],
 	description: "I have advantage on melee attack rolls against unmounted creatures smaller than my mount. I can force attacks targeting my mount to target me instead. When a Dex save would halve damage, my mount takes no damage on success and half damage on failure.",
 };
 FeatsList["observant"] = {
 	name: "Observant",
 	source: [["P", 168]],
-	descriptionFull: "Quick to notice details of your environment, you gain the following benefits:\n \u2022 Increase your Intelligence or Wisdom score by 1, to a maximum of 20.\n \u2022 If you can see a creature's mouth while it is speaking a language you understand, you can interpret what it's saying by reading its lips.\n \u2022 You have a +5 bonus to your passive Wisdom (Perception) and passive Intelligence (Investigation) scores.",
+	descriptionFull: [
+		"Quick to notice details of your environment, you gain the following benefits:",
+		" \u2022 Increase your Intelligence or Wisdom score by 1, to a maximum of 20.",
+		" \u2022 If you can see a creature's mouth while it is speaking a language you understand, you can interpret what it's saying by reading its lips.",
+		" \u2022 You have a +5 bonus to your passive Wisdom (Perception) and passive Intelligence (Investigation) scores.",
+	],
 	description: "If I can see a creature's mouth while it is speaking a language I understand, I can interpret what it's saying by reading its lips. I have a +5 bonus to passive Wisdom (Perception) and passive Intelligence (Investigation) scores. [+1 Intelligence or Wisdom]",
 	scorestxt: "+1 Intelligence or Wisdom",
 	addMod: { type: "skill", field: "passive perception", mod: 5, text: "I have a +5 bonus to passive Wisdom (Perception)." },
@@ -3998,7 +4136,11 @@ FeatsList["observant"] = {
 FeatsList["polearm master"] = {
 	name: "Polearm Master",
 	source: [["P", 168]],
-	descriptionFull: "You can keep your enemies at bay with reach weapons. You gain the following benefits:\n \u2022 When you take the Attack action and attack with only a glaive, halberd, quarterstaff, or spear, you can use a bonus action to make a melee attack with the opposite end of the weapon; this attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and the attack deals bludgeoning damage.\n \u2022 While you are wielding a glaive, halberd, pike, quarterstaff, or spear, other creatures provoke an opportunity attack from you when they enter your reach.",
+	descriptionFull: [
+		"You can keep your enemies at bay with reach weapons. You gain the following benefits:",
+		" \u2022 When you take the Attack action and attack with only a glaive, halberd, quarterstaff, or spear, you can use a bonus action to make a melee attack with the opposite end of the weapon; this attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and the attack deals bludgeoning damage.",
+		" \u2022 While you are wielding a glaive, halberd, pike, quarterstaff, or spear, other creatures provoke an opportunity attack from you when they enter your reach.",
+	],
 	description: "As a bonus action when I do the Attack action with a glaive/" + (typePF ? " " : "") + "halberd/quarterstaff/spear, I can make a 1d4 bludgeoning attack with its butt end." + (typePF ? "\n" : " ") + "While wielding a glaive/halberd/" + (typePF ? "" : " ") + "pike/quarterstaff/spear, I get an opportunity attack when a creature enters my reach.",
 	weaponOptions: [{
 		regExpSearch: /^(?=.*(polearm|(glaive|guandao|bisento|naginata)|(halberd|\bji\b|kamayari)|(quarterstaff|\bstaff\b|\bbo\b)|(spear|qiang|\byaris?\b)))(?=.*butt)(?=.*end).*$/i,
@@ -4018,7 +4160,11 @@ FeatsList["polearm master"] = {
 FeatsList["resilient"] = {
 	name: "Resilient",
 	source: [["P", 168]],
-	descriptionFull: "Choose one ability score. You gain the following benefits:\n \u2022 Increase the chosen ability score by 1, to a maximum of 20.\n \u2022 You gain proficiency in saving throws using the chosen ability.",
+	descriptionFull: [
+		"Choose one ability score. You gain the following benefits:",
+		" \u2022 Increase the chosen ability score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in saving throws using the chosen ability.",
+	],
 	description: "Select an ability score using the square button on this feat line. I gain proficiency with the saving throw of that ability score and a +1 added to it.",
 	choices: ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
 	"strength": {
@@ -4055,7 +4201,11 @@ FeatsList["resilient"] = {
 FeatsList["ritual caster"] = {
 	name: "Ritual Caster",
 	source: [["P", 169]],
-	descriptionFull: "You have learned a number of spells that you can cast as rituals. These spells are written in a ritual book, which you must have in hand while casting one of them.\n   When you choose this feat, you acquire a ritual book holding two 1st-level spells of your choice. Choose one of the following classes: bard, cleric, druid, sorcerer, warlock, or wizard. You must choose your spells from that class's spell list, and the spells you choose must have the ritual tag. The class you choose also determines your spellcasting ability for these spells: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; or Intelligence for wizard.\n   If you come across a spell in written form, such as a magical spell scroll or a wizard's spellbook, you might be able to add it to your ritual book. The spell must be on the spell list for the class you chose, the spell's level can be no higher than half your level (rounded up), and it must have the ritual tag. The process of copying the spell into your ritual book takes 2 hours per level of the spell, and costs 50 gp per level. The cost represents material components you expend as you experiment with the spell to master it, as well as the fine inks you need to record it.",
+	descriptionFull: [
+		"You have learned a number of spells that you can cast as rituals. These spells are written in a ritual book, which you must have in hand while casting one of them.",
+		"When you choose this feat, you acquire a ritual book holding two 1st-level spells of your choice. Choose one of the following classes: bard, cleric, druid, sorcerer, warlock, or wizard. You must choose your spells from that class's spell list, and the spells you choose must have the ritual tag. The class you choose also determines your spellcasting ability for these spells: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; or Intelligence for wizard.",
+		"If you come across a spell in written form, such as a magical *spell scroll* or a wizard's spellbook, you might be able to add it to your ritual book. The spell must be on the spell list for the class you chose, the spell's level can be no higher than half your level (rounded up), and it must have the ritual tag. The process of copying the spell into your ritual book takes 2 hours per level of the spell, and costs 50 gp per level. The cost represents material components you expend as you experiment with the spell to master it, as well as the fine inks you need to record it.",
+	],
 	description: "Select a spellcasting class using the square button on this feat line. I gain a book with two 1st-level ritual spells from that class' spell list. I can transcribe more ritual spells into this book and cast them as rituals only.",
 	prerequisite: "Intelligence or Wisdom 13 or higher",
 	prereqeval: function (v) { return What("Int") >= 13 || What("Wis") >= 13; },
@@ -4133,14 +4283,24 @@ FeatsList["savage attacker"] = {
 FeatsList["sentinel"] = {
 	name: "Sentinel",
 	source: [["P", 169]],
-	descriptionFull: "You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:\n \u2022 When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.\n \u2022 Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.\n \u2022 When a creature within 5 feet of you makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.",
+	descriptionFull: [
+		"You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:",
+		" \u2022 When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.",
+		" \u2022 Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.",
+		" \u2022 When a creature within 5 feet of you makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.",
+	],
 	description: "Creatures I hit with opportunity attacks have 0 speed for this turn. The Disengage action doesn't work on me. When a creature within 5 ft makes an attack against a target other than me, I can use my reaction to make a melee weapon attack against the attacker.",
 	action: [["reaction", " (after attack on ally)"]],
 };
 FeatsList["sharpshooter"] = {
 	name: "Sharpshooter",
 	source: [["P", 170]],
-	descriptionFull: "You have mastered ranged weapons and can make shots that others find impossible. You gain the following benefits:\n \u2022 Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.\n \u2022 Your ranged weapon attacks ignore half cover and three-quarters cover.\n \u2022 Before you make an attack with a ranged weapon that you are proficient with, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage.",
+	descriptionFull: [
+		"You have mastered ranged weapons and can make shots that others find impossible. You gain the following benefits:",
+		" \u2022 Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.",
+		" \u2022 Your ranged weapon attacks ignore half cover and three-quarters cover.",
+		" \u2022 Before you make an attack with a ranged weapon that you are proficient with, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage.",
+	],
 	description: "My ranged weapon attacks don't have disadvantage on long range and ignore half cover and three-quarters cover. With a ranged weapon that I am proficient with, I can choose to take a -5 penalty on the attack roll for +10 on the attack's damage.",
 	calcChanges: {
 		atkAdd: [
@@ -4164,7 +4324,12 @@ FeatsList["sharpshooter"] = {
 FeatsList["shield master"] = {
 	name: "Shield Master",
 	source: [["P", 170]],
-	descriptionFull: "You use shields not just for protection but also for offense. You gain the following benefits while you are wielding a shield:\n \u2022 If you take the Attack action on your turn, you can use a bonus action to try to shove a creature within 5 feet of you with your shield.\n \u2022 If you aren't incapacitated, you can add your shield's AC bonus to any Dexterity saving throw you make against a spell or other harmful effect that targets only you.\n \u2022 If you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you can use your reaction to take no damage if you succeed on the saving throw, interposing your shield between yourself and the source of the effect.",
+	descriptionFull: [
+		"You use shields not just for protection but also for offense. You gain the following benefits while you are wielding a shield:",
+		" \u2022 If you take the Attack action on your turn, you can use a bonus action to try to shove a creature within 5 feet of you with your shield.",
+		" \u2022 If you aren't incapacitated, you can add your shield's AC bonus to any Dexterity saving throw you make against a spell or other harmful effect that targets only you.",
+		" \u2022 If you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you can use your reaction to take no damage if you succeed on the saving throw, interposing your shield between yourself and the source of the effect.",
+	],
 	description: "As a bonus action, when I use the Attack action, I can shove someone within 5 ft with my shield. I add my shield's AC bonus to Dex saves vs. effects targeting only me. As a reaction, if I succeed on a Dex save for half damage, I can interpose my shield to avoid the damage.",
 	action: [["bonus action", "Shove with shield (with Attack action)"], ["reaction", "Interpose shield (if Dex save half dmg)"]],
 };
@@ -4178,7 +4343,12 @@ FeatsList["skilled"] = {
 FeatsList["skulker"] = {
 	name: "Skulker",
 	source: [["P", 170]],
-	descriptionFull: "You are expert at slinking through shadows. You gain the following benefits:\n \u2022 You can try to hide when you are lightly obscured from the creature from which you are hiding.\n \u2022 When you are hidden from a creature and miss it with a ranged weapon attack, making the attack doesn't reveal your position.\n \u2022 Dim light doesn't impose disadvantage on your Wisdom (Perception) checks relying on sight.",
+	descriptionFull: [
+		"You are expert at slinking through shadows. You gain the following benefits:",
+		" \u2022 You can try to hide when you are lightly obscured from the creature from which you are hiding.",
+		" \u2022 When you are hidden from a creature and miss it with a ranged weapon attack, making the attack doesn't reveal your position.",
+		" \u2022 Dim light doesn't impose disadvantage on your Wisdom (Perception) checks relying on sight.",
+	],
 	description: "I can try to hide when I am lightly obscured. My position is not revealed when I am hidden from a creature and miss it with a ranged weapon attack. Dim light doesn't impose disadvantage on my Wisdom (Perception) checks relying on sight.",
 	prerequisite: "Dexterity 13 or higher",
 	prereqeval: function (v) { return What("Dex") >= 13; },
@@ -4187,7 +4357,12 @@ FeatsList["skulker"] = {
 FeatsList["spell sniper"] = {
 	name: "Spell Sniper",
 	source: [["P", 170]],
-	descriptionFull: "You have learned techniques to enhance your attacks with certain kinds of spells, gaining the following benefits:\n \u2022 When you cast a spell that requires you to make an attack roll, the spell's range is doubled.\n \u2022 Your ranged spell attacks ignore half cover and three-quarters cover.\n \u2022 You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. Your spellcasting ability for this cantrip depends on the spell list you chose from: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; or Intelligence for wizard.",
+	descriptionFull: [
+		"You have learned techniques to enhance your attacks with certain kinds of spells, gaining the following benefits:",
+		" \u2022 When you cast a spell that requires you to make an attack roll, the spell's range is doubled.",
+		" \u2022 Your ranged spell attacks ignore half cover and three-quarters cover.",
+		" \u2022 You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. Your spellcasting ability for this cantrip depends on the spell list you chose from: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; or Intelligence for wizard.",
+	],
 	description: "Select a spellcasting class using the square button on this feat line. I learn one cantrip requiring an attack roll from the spell list of the chosen class. Any spell I cast requiring an attack roll has its range doubled and ignores half and 3/4 cover.",
 	prerequisite: "The ability to cast at least one spell",
 	prereqeval: function (v) { return v.isSpellcaster; },
@@ -4305,7 +4480,13 @@ FeatsList["spell sniper"] = {
 FeatsList["tavern brawler"] = {
 	name: "Tavern Brawler",
 	source: [["P", 170]],
-	descriptionFull: "Accustomed to rough-and-tumble fighting using whatever weapons happen to be at hand, you gain the following benefits:\n \u2022 Increase your Strength or Constitution score by 1, to a maximum of 20.\n \u2022 You are proficient with improvised weapons.\n \u2022 Your unarmed strike uses a d4 for damage.\n \u2022 When you hit a creature with an unarmed strike or an improvised weapon on your turn, you can use a bonus action to attempt to grapple the target.",
+	descriptionFull: [
+		"Accustomed to rough-and-tumble fighting using whatever weapons happen to be at hand, you gain the following benefits:",
+		" \u2022 Increase your Strength or Constitution score by 1, to a maximum of 20.",
+		" \u2022 You are proficient with improvised weapons.",
+		" \u2022 Your unarmed strike uses a d4 for damage.",
+		" \u2022 When you hit a creature with an unarmed strike or an improvised weapon on your turn, you can use a bonus action to attempt to grapple the target.",
+	],
 	description: "I am proficient with improvised weapons. My unarmed strike does 1d4 damage. When I hit a creature with an unarmed strike or improvised weapon on my turn, I can attempt to grapple the target as a bonus action. [+1 Strength or Constitution]",
 	scorestxt: "+1 Strength or Constitution",
 	action: ["bonus action", "Grapple (on hit with unarmed/improv.)"],
@@ -4341,7 +4522,12 @@ FeatsList["war caster"] = {
 	source: [["P", 170]],
 	prerequisite: "The ability to cast at least one spell",
 	prereqeval: function (v) { return v.isSpellcaster; },
-	descriptionFull: "You have practiced casting spells in the midst of combat, learning techniques that grant you the following benefits:\n \u2022 You have advantage on Constitution saving throws that you make to maintain your concentration on a spell when you take damage.\n \u2022 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.\n \u2022 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a spell at the creature, rather than making an opportunity attack. The spell must have a casting time of 1 action and must target only that creature.",
+	descriptionFull: [
+		"You have practiced casting spells in the midst of combat, learning techniques that grant you the following benefits:",
+		" \u2022 You have advantage on Constitution saving throws that you make to maintain your concentration on a spell when you take damage.",
+		" \u2022 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.",
+		" \u2022 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a spell at the creature, rather than making an opportunity attack. The spell must have a casting time of 1 action and must target only that creature.",
+	],
 	description: "Advantage on Con saves to maintain concentration on spells when damaged. Perform somatic components even when holding weapons or shield in one or both hands. Cast spell of 1 action casting time that targets only one creature instead of an opportunity attack.",
 	action: [["reaction", " - Opportunity Spell"]],
 	savetxt: { text: "Adv. on Con (Concentration) saves when damaged" },
@@ -4349,7 +4535,11 @@ FeatsList["war caster"] = {
 FeatsList["weapon master"] = {
 	name: "Weapon Master",
 	source: [["P", 170]],
-	descriptionFull: "You have practiced extensively with a variety of weapons, gaining the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with four simple or martial weapons of your choice.",
+	descriptionFull: [
+		"You have practiced extensively with a variety of weapons, gaining the following benefits:",
+		" \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency with four simple or martial weapons of your choice.",
+	],
 	description: "I gain proficiency with four simple or martial weapons of my choice.\n[+1 Strength or Dexterity]",
 	scorestxt: "+1 Strength or Dexterity",
 };
@@ -4380,7 +4570,11 @@ SpellsList["arcane gate"] = {
 	components: "V,S",
 	duration: "Conc, 10 min",
 	description: "Two portals, up to 500 ft apart, teleport any to other side; portals are filled with opaque mist",
-	descriptionFull: "You create linked teleportation portals that remain open for the duration. Choose two points on the ground that you can see, one point within 10 feet of you and one point within 500 feet of you. A circular portal, 10 feet in diameter, opens over each point. If the portal would open in the space occupied by a creature, the spell fails, and the casting is lost." + "\n   " + "The portals are two-dimensional glowing rings filled with mist, hovering inches from the ground and perpendicular to it at the points you choose. A ring is visible only from one side (your choice), which is the side that functions as a portal." + "\n   " + "Any creature or object entering the portal exits from the other portal as if the two were adjacent to each other, passing through a portal from the non-portal side has no effect. The mist that fills each portal is opaque and blocks vision through it. On your turn, you can rotate the rings as a bonus action so that the active side faces in a different direction.",
+	descriptionFull: [
+		"You create linked teleportation portals that remain open for the duration. Choose two points on the ground that you can see, one point within 10 feet of you and one point within 500 feet of you. A circular portal, 10 feet in diameter, opens over each point. If the portal would open in the space occupied by a creature, the spell fails, and the casting is lost.",
+		"The portals are two-dimensional glowing rings filled with mist, hovering inches from the ground and perpendicular to it at the points you choose. A ring is visible only from one side (your choice), which is the side that functions as a portal.",
+		"Any creature or object entering the portal exits from the other portal as if the two were adjacent to each other, passing through a portal from the non-portal side has no effect. The mist that fills each portal is opaque and blocks vision through it. On your turn, you can rotate the rings as a bonus action so that the active side faces in a different direction.",
+	],
 };
 SpellsList["armor of agathys"] = {
 	name: "Armor of Agathys",
@@ -4394,7 +4588,10 @@ SpellsList["armor of agathys"] = {
 	compMaterial: "A cup of water",
 	duration: "1 h",
 	description: "5+5/SL temp HP; as long as temp HP last any crea that hits in melee takes 5+5/SL Cold dmg",
-	descriptionFull: "A protective magical force surrounds you, manifesting as a spectral frost that covers you and your gear. You gain 5 temporary hit points for the duration. If a creature hits you with a melee attack while you have these hit points, the creature takes 5 cold damage." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, both the temporary hit points and the cold damage increase by 5 for each slot level above 1st.",
+	descriptionFull: [
+		"A protective magical force surrounds you, manifesting as a spectral frost that covers you and your gear. You gain 5 temporary hit points for the duration. If a creature hits you with a melee attack while you have these hit points, the creature takes 5 cold damage.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 2nd level or higher, both the temporary hit points and the cold damage increase by 5 for each slot level above 1st.",
+	],
 };
 SpellsList["arms of hadar"] = {
 	name: "Arms of Hadar",
@@ -4408,7 +4605,10 @@ SpellsList["arms of hadar"] = {
 	duration: "Instantaneous",
 	save: "Str",
 	description: "2d6+1d6/SL Necrotic dmg; save halves; on failed save no reactions until next turn",
-	descriptionFull: "You invoke the power of Hadar, the Dark Hunger. Tendrils of dark energy erupt from you and batter all creatures within 10 feet of you. Each creature in that area must make a Strength saving throw. On a failed save, a target takes 2d6 necrotic damage and can't take reactions until its next turn. On a successful save, the creature takes half damage, but suffers no other effect." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.",
+	descriptionFull: [
+		"You invoke the power of Hadar, the Dark Hunger. Tendrils of dark energy erupt from you and batter all creatures within 10 feet of you. Each creature in that area must make a Strength saving throw. On a failed save, a target takes 2d6 necrotic damage and can't take reactions until its next turn. On a successful save, the creature takes half damage, but suffers no other effect.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.",
+	],
 };
 SpellsList["aura of life"] = {
 	name: "Aura of Life",
@@ -4501,7 +4701,10 @@ SpellsList["blinding smite"] = {
 	duration: "Conc, 1 min",
 	save: "Con",
 	description: "Next melee weapon hit +3d8 Radiant dmg; save or blinded; extra save at end of every turn",
-	descriptionFull: "The next time you hit a creature with a melee weapon attack during this spell's duration, you weapon flares with a bright light, and the attack deals an extra 3d8 radiant damage to the target. Additionally, the target must succeed on a Constitution saving throw or be blinded until the spell ends." + "\n   " + "A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.",
+	descriptionFull: [
+		"The next time you hit a creature with a melee weapon attack during this spell's duration, you weapon flares with a bright light, and the attack deals an extra 3d8 radiant damage to the target. Additionally, the target must succeed on a Constitution saving throw or be blinded until the spell ends.",
+		"A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.",
+	],
 };
 SpellsList["chromatic orb"] = {
 	name: "Chromatic Orb",
@@ -4515,7 +4718,10 @@ SpellsList["chromatic orb"] = {
 	compMaterial: "A diamond worth at least 50 gp",
 	duration: "Instantaneous",
 	description: "Spell attack for 3d8+1d8/SL Acid, Cold, Fire, Lightning, Poison or Thunder dmg (50gp)",
-	descriptionFull: "You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make a ranged spell attack against the target. If the attack hits, the creature takes 3d8 damage of the type you chose." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st.",
+	descriptionFull: [
+		"You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make a ranged spell attack against the target. If the attack hits, the creature takes 3d8 damage of the type you chose.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st.",
+	],
 	dynamicDamageBonus: {
 		multipleDmgTypes: {
 			dmgTypes: ["acid", "cold", "fire", "lightning", "poison", "thunder"],
@@ -4548,7 +4754,10 @@ SpellsList["cloud of daggers"] = {
 	compMaterial: "A sliver of glass",
 	duration: "Conc, 1 min",
 	description: "5-ft cube 4d4+2d4/SL Slashing dmg to all that enter or start turn in area",
-	descriptionFull: "You fill the air with spinning daggers in a cube 5 feet on each side, centered on a point you choose within range. A creature takes 4d4 slashing damage when it enters the spell's area for the first time on a turn or starts its turn there." + AtHigherLevels + "when you cast this spell using a spell slot of 3rd level or higher, the damage increases by 2d4 for each slot level above 2nd.",
+	descriptionFull: [
+		"You fill the air with spinning daggers in a cube 5 feet on each side, centered on a point you choose within range. A creature takes 4d4 slashing damage when it enters the spell's area for the first time on a turn or starts its turn there.",
+		"***At Higher Levels***. when you cast this spell using a spell slot of 3rd level or higher, the damage increases by 2d4 for each slot level above 2nd.",
+	],
 };
 SpellsList["compelled duel"] = {
 	name: "Compelled Duel",
@@ -4562,7 +4771,10 @@ SpellsList["compelled duel"] = {
 	duration: "Conc, 1 min",
 	save: "Wis",
 	description: "1 crea save or dis. on attacks vs. not-me and save if moving more than 30 ft away",
-	descriptionFull: "You attempt to compel a creature into a duel. One creature that you can see within range must make a Wisdom saving throw. On a failed save, the creature is drawn to you, compelled by your divine demand. For the duration, it has disadvantage on attack rolls against creatures other than you, and must make a Wisdom saving throw each time it attempts to move to a space that is more than 30 feet away from you, if it succeeds on this saving throw, this spell doesn't restrict the target's movement for that turn." + "\n   " + "The spell ends if you attack any other creature, if you cast a spell that targets a hostile creature other than the target, if a creature friendly to you damages the target or casts a harmful spell on it, or if you end your turn more than 30 feet away from the target.",
+	descriptionFull: [
+		"You attempt to compel a creature into a duel. One creature that you can see within range must make a Wisdom saving throw. On a failed save, the creature is drawn to you, compelled by your divine demand. For the duration, it has disadvantage on attack rolls against creatures other than you, and must make a Wisdom saving throw each time it attempts to move to a space that is more than 30 feet away from you, if it succeeds on this saving throw, this spell doesn't restrict the target's movement for that turn.",
+		"The spell ends if you attack any other creature, if you cast a spell that targets a hostile creature other than the target, if a creature friendly to you damages the target or casts a harmful spell on it, or if you end your turn more than 30 feet away from the target.",
+	],
 };
 SpellsList["conjure barrage"] = {
 	name: "Conjure Barrage",
@@ -4607,7 +4819,11 @@ SpellsList["cordon of arrows"] = {
 	duration: "8 h",
 	save: "Dex",
 	description: "4+2/SL arrows/bolts attack first crea in 30 ft one at a time for 1d6 Piercing dmg; save halves",
-	descriptionFull: "You plant four pieces of nonmagical ammunition - arrows or crossbow bolts - in the ground within range and lay magic upon them to protect an area. Until the spell ends, whenever a creature other than you comes within 30 feet of the ammunition for the first time on a turn or ends its turn there, one piece of ammunition flies up to strike it. The creature must succeed on a Dexterity saving throw or take 1d6 piercing damage. The piece of ammunition is then destroyed. The spell ends when no ammunition remains." + "\n   " + "When you cast this spell, you can designate any creatures you choose, and the spell ignores them." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the amount of ammunition that can be affected increases by two for each slot level above 2nd.",
+	descriptionFull: [
+		"You plant four pieces of nonmagical ammunition - arrows or crossbow bolts - in the ground within range and lay magic upon them to protect an area. Until the spell ends, whenever a creature other than you comes within 30 feet of the ammunition for the first time on a turn or ends its turn there, one piece of ammunition flies up to strike it. The creature must succeed on a Dexterity saving throw or take 1d6 piercing damage. The piece of ammunition is then destroyed. The spell ends when no ammunition remains.",
+		"When you cast this spell, you can designate any creatures you choose, and the spell ignores them.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 3rd level or higher, the amount of ammunition that can be affected increases by two for each slot level above 2nd.",
+	],
 };
 SpellsList["crown of madness"] = {
 	name: "Crown of Madness",
@@ -4621,7 +4837,11 @@ SpellsList["crown of madness"] = {
 	duration: "Conc, 1 min",
 	save: "Wis",
 	description: "1 humanoid save or charmed and must melee attack against crea chosen by me; extra save/rnd",
-	descriptionFull: "One humanoid of your choice that you can see within range must succeed on a Wisdom saving throw or become charmed by you for the duration. While the target is charmed in this way, a twisted crown of jagged iron appears on its head, and a madness glows in its eyes." + "\n   " + "The charmed target must use its action before moving on each of its turns to make a melee attack against a creature other than itself that you mentally choose. The target can act normally on its turn if you choose no creature or if none are within its reach." + "\n   " + "On your subsequent turns, you must use your action to maintain control over the target, or the spell ends. Also, the target can make a Wisdom saving throw at the end of each of its turns. On a success, the spell ends.",
+	descriptionFull: [
+		"One humanoid of your choice that you can see within range must succeed on a Wisdom saving throw or become charmed by you for the duration. While the target is charmed in this way, a twisted crown of jagged iron appears on its head, and a madness glows in its eyes.",
+		"The charmed target must use its action before moving on each of its turns to make a melee attack against a creature other than itself that you mentally choose. The target can act normally on its turn if you choose no creature or if none are within its reach.",
+		"On your subsequent turns, you must use your action to maintain control over the target, or the spell ends. Also, the target can make a Wisdom saving throw at the end of each of its turns. On a success, the spell ends.",
+	],
 };
 SpellsList["crusader's mantle"] = {
 	name: "Crusader's Mantle",
@@ -4670,7 +4890,10 @@ SpellsList["dissonant whispers"] = {
 	duration: "Instantaneous",
 	save: "Wis",
 	description: "1 crea 3d6+1d6/SL Psychic dmg and flee; save halves and no fleeing; deaf crea are immune",
-	descriptionFull: "You whisper a discordant melody that only one creature of your choice within range can hear, wracking it with terrible pain. The target must make a Wisdom saving throw. On a failed save, it takes 3d6 psychic damage and must immediately use its reaction, if available, to move as far as its speed allows away from you. The creature doesn't move into obviously dangerous ground, such as a fire or a pit. On a successful save, the target takes half as much damage and doesn't have to move away. A deafened creature automatically succeeds on the save." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.",
+	descriptionFull: [
+		"You whisper a discordant melody that only one creature of your choice within range can hear, wracking it with terrible pain. The target must make a Wisdom saving throw. On a failed save, it takes 3d6 psychic damage and must immediately use its reaction, if available, to move as far as its speed allows away from you. The creature doesn't move into obviously dangerous ground, such as a fire or a pit. On a successful save, the target takes half as much damage and doesn't have to move away. A deafened creature automatically succeeds on the save.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.",
+	],
 };
 SpellsList["elemental weapon"] = {
 	name: "Elemental Weapon",
@@ -4684,7 +4907,10 @@ SpellsList["elemental weapon"] = {
 	duration: "Conc, 1 h",
 	description: "+1 magical weapon; +1d4 Acid, Cold, Fire, Lightning, or Thunder dmg; SL5: +2/+2d4, SL7: +3/+3d4",
 	descriptionShorter: "+1 wea; +1d4 Acid/Cold/Fire/Lightning/Thunder dmg; SL5: +2/+2d4, SL7: +3/+3d4",
-	descriptionFull: "A nonmagical weapon you touch becomes a magic weapon. Choose one of the following damage types - acid, cold, fire, lightning, or thunder. For the duration, the weapon has a +1 bonus to attack rolls and deals an extra 1d4 damage of the chosen type when it hits." + AtHigherLevels + "When you cast this spell using a spell slot of 5th or 6th level, the bonus to attack rolls increases to +2 and the extra damage increases to 2d4. When you use a spell slot of 7th level or higher, the bonus increases to +3 and the extra damage increases to 3d4.",
+	descriptionFull: [
+		"A nonmagical weapon you touch becomes a magic weapon. Choose one of the following damage types - acid, cold, fire, lightning, or thunder. For the duration, the weapon has a +1 bonus to attack rolls and deals an extra 1d4 damage of the chosen type when it hits.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 5th or 6th level, the bonus to attack rolls increases to +2 and the extra damage increases to 2d4. When you use a spell slot of 7th level or higher, the bonus increases to +3 and the extra damage increases to 3d4.",
+	],
 	dynamicDamageBonus: {
 		multipleDmgTypes: {
 			dmgTypes: ["acid", "cold", "fire", "lightning", "thunder"],
@@ -4705,7 +4931,11 @@ SpellsList["ensnaring strike"] = {
 	save: "Str",
 	description: "Next crea hit save (Large adv.) or restrained, 1d6+1d6/SL Piercing dmg/rnd; Str check to escape",
 	descriptionShorter: "Next crea hit save (Large adv.) or restrained, 1d6+1d6/SL Piercing dmg/rnd; Str chk escape",
-	descriptionFull: "The next time you hit a creature with a weapon attack before this spell ends, a writhing mass of thorny vines appears at the point of impact, and the target must succeed on a Strength saving throw or be restrained by the magical vines until the spell ends. A Large or larger creature has advantage on this saving throw. If the target succeeds on the save, the vines shrivel away." + "\n   " + "While restrained by this spell, the target takes 1d6 piercing damage at the start of each of its turns. A creature restrained by the vines or one that can touch the creature can use its action to make a Strength check against your spell save DC. On a success, the target is freed." + AtHigherLevels + "If you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.",
+	descriptionFull: [
+		"The next time you hit a creature with a weapon attack before this spell ends, a writhing mass of thorny vines appears at the point of impact, and the target must succeed on a Strength saving throw or be restrained by the magical vines until the spell ends. A Large or larger creature has advantage on this saving throw. If the target succeeds on the save, the vines shrivel away.",
+		"While restrained by this spell, the target takes 1d6 piercing damage at the start of each of its turns. A creature restrained by the vines or one that can touch the creature can use its action to make a Strength check against your spell save DC. On a success, the target is freed.",
+		"***At Higher Levels***. If you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.",
+	],
 };
 SpellsList["feign death"] = {
 	name: "Feign Death",
@@ -4720,7 +4950,10 @@ SpellsList["feign death"] = {
 	compMaterial: "A pinch of graveyard dirt",
 	duration: "1 h (D)",
 	description: "Willing creature appears dead; it is blinded, incapacitated, has dmg resist. all but Psychic, and speed 0",
-	descriptionFull: "You touch a willing creature and put it into a cataleptic state that is indistinguishable from death." + "\n   " + "For the spell's duration, or until you use an action to touch the target and dismiss the spell, the target appears dead to all outward inspection and to spells used to determine the target's status. The target is blinded and incapacitated, and its speed drops to 0. The target has resistance to all damage except psychic damage. If the target is diseased or poisoned when you cast the spell, or becomes diseased or poisoned while under the spell's effect, the disease and poison have no effect until the spell ends.",
+	descriptionFull: [
+		"You touch a willing creature and put it into a cataleptic state that is indistinguishable from death.",
+		"For the spell's duration, or until you use an action to touch the target and dismiss the spell, the target appears dead to all outward inspection and to spells used to determine the target's status. The target is blinded and incapacitated, and its speed drops to 0. The target has resistance to all damage except psychic damage. If the target is diseased or poisoned when you cast the spell, or becomes diseased or poisoned while under the spell's effect, the disease and poison have no effect until the spell ends.",
+	],
 };
 SpellsList["friends"] = {
 	name: "Friends",
@@ -4748,7 +4981,10 @@ SpellsList["grasping vine"] = {
 	duration: "Conc, 1 min",
 	save: "Dex",
 	description: "Conjure vine with 30 ft reach; bns a to direct to 1 crea save or pulled 20 ft to vine",
-	descriptionFull: "You conjure a vine that sprouts from the ground in an unoccupied space of your choice that you can see within range. When you cast this spell, you can direct the vine to lash out at a creature within 30 feet of it that you can see. That creature must succeed on a Dexterity saving throw or be pulled 20 feet directly toward the vine." + "\n   " + "Until the spell ends, you can direct the vine to lash out at the same creature or another one as a bonus action on each of your turns.",
+	descriptionFull: [
+		"You conjure a vine that sprouts from the ground in an unoccupied space of your choice that you can see within range. When you cast this spell, you can direct the vine to lash out at a creature within 30 feet of it that you can see. That creature must succeed on a Dexterity saving throw or be pulled 20 feet directly toward the vine.",
+		"Until the spell ends, you can direct the vine to lash out at the same creature or another one as a bonus action on each of your turns.",
+	],
 };
 SpellsList["hail of thorns"] = {
 	name: "Hail of Thorns",
@@ -4762,7 +4998,10 @@ SpellsList["hail of thorns"] = {
 	duration: "Conc, 1 min",
 	save: "Dex",
 	description: "Next ranged weapon hit, all within 5 ft of target 1d10+1d10/SL Piercing dmg; save halves",
-	descriptionFull: "The next time you hit a creature with a ranged weapon attack before the spell ends, this spell creates a rain of thorns that sprouts from your ranged weapon or ammunition. In addition to the normal effect of the attack, the target of the attack and each creature within 5 feet of it must make a Dexterity saving throw. A creature takes 1d10 piercing damage on a failed save, or half as much damage on a successful one." + AtHigherLevels + "If you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d10 for each slot level above 1st (to a maximum of 6d10).",
+	descriptionFull: [
+		"The next time you hit a creature with a ranged weapon attack before the spell ends, this spell creates a rain of thorns that sprouts from your ranged weapon or ammunition. In addition to the normal effect of the attack, the target of the attack and each creature within 5 feet of it must make a Dexterity saving throw. A creature takes 1d10 piercing damage on a failed save, or half as much damage on a successful one.",
+		"***At Higher Levels***. If you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d10 for each slot level above 1st (to a maximum of 6d10).",
+	],
 	dynamicDamageBonus: { multipleDmgMoments: false },
 };
 SpellsList["hex"] = {
@@ -4778,7 +5017,12 @@ SpellsList["hex"] = {
 	duration: "Conc, 1 h",
 	description: "1 crea +1d6 Necrotic dmg from my atks; dis. on chosen ability checks; SL3: conc, 8h; SL5: conc, 24h",
 	descriptionShorter: "1 crea +1d6 Necrotic dmg from my atks; dis. chosen abi chks; SL3: conc, 8h; SL5: conc, 24h",
-	descriptionFull: "You place a curse on a creature that you can see within range. Until the spell ends, you deal an extra 1d6 necrotic damage to the target whenever you hit it with an attack. Also, choose one ability when you cast the spell. The target has disadvantage on ability checks made with the chosen ability." + "\n   " + "If the target drops to 0 hit points before this spell ends, you can use a bonus action on a subsequent turn of yours to curse a new creature." + "\n   " + "A remove curse cast on the target ends this spell early." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd or 4th level, you can maintain your concentration on the spell for up to 8 hours. When you use a spell slot of 5th level or higher, you can maintain your concentration on the spell for up to 24 hours.",
+	descriptionFull: [
+		"You place a curse on a creature that you can see within range. Until the spell ends, you deal an extra 1d6 necrotic damage to the target whenever you hit it with an attack. Also, choose one ability when you cast the spell. The target has disadvantage on ability checks made with the chosen ability.",
+		"If the target drops to 0 hit points before this spell ends, you can use a bonus action on a subsequent turn of yours to curse a new creature.",
+		"A *remove curse* cast on the target ends this spell early.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 3rd or 4th level, you can maintain your concentration on the spell for up to 8 hours. When you use a spell slot of 5th level or higher, you can maintain your concentration on the spell for up to 24 hours.",
+	],
 };
 SpellsList["hunger of hadar"] = {
 	name: "Hunger of Hadar",
@@ -4793,7 +5037,10 @@ SpellsList["hunger of hadar"] = {
 	duration: "Conc, 1 min",
 	save: "Dex",
 	description: "20-ft rad all: blind while in, start turn in 2d6 Cold dmg, end turn in save or 2d6 Acid dmg",
-	descriptionFull: "You open a gateway to the dark between the stars, a region infested with unknown horrors. A 20-foot-radius sphere of blackness and bitter cold appears, centered on a point with range and lasting for the duration. This void is filled with a cacophony of soft whispers and slurping noises that can be heard up to 30 feet away. No light, magical or otherwise, can illuminate the area, and creatures fully within the area are blinded." + "\n   " + "The void creates a warp in the fabric of space, and the area is difficult terrain. Any creature that starts its turn in the area takes 2d6 cold damage. Any creature that ends its turn in the area must succeed on a Dexterity saving throw or take 2d6 acid damage as milky, otherworldly tentacles rub against it.",
+	descriptionFull: [
+		"You open a gateway to the dark between the stars, a region infested with unknown horrors. A 20-foot-radius sphere of blackness and bitter cold appears, centered on a point with range and lasting for the duration. This void is filled with a cacophony of soft whispers and slurping noises that can be heard up to 30 feet away. No light, magical or otherwise, can illuminate the area, and creatures fully within the area are blinded.",
+		"The void creates a warp in the fabric of space, and the area is difficult terrain. Any creature that starts its turn in the area takes 2d6 cold damage. Any creature that ends its turn in the area must succeed on a Dexterity saving throw or take 2d6 acid damage as milky, otherworldly tentacles rub against it.",
+	],
 };
 SpellsList["lightning arrow"] = {
 	name: "Lightning Arrow",
@@ -4808,7 +5055,12 @@ SpellsList["lightning arrow"] = {
 	save: "Dex",
 	description: "Next rngd wea atk 4d8+1d8/SL Lightn. dmg, miss half; 10 ft all 2d8+1d8/SL Lightn. dmg, save half",
 	descriptionShorter: "Next atk 4d8+1d8/SL Lightn. dmg, miss h" + (typePF ? "a" : "") + "lf; 10 ft all 2d8+1d8/SL Lightn. dmg, save half",
-	descriptionFull: "The next time you make a ranged weapon attack during the spell's duration, the weapon's ammunition, or the weapon itself if it's a thrown weapon, transforms into a bolt of lightning. Make the attack roll as normal. The target takes 4d8 lightning damage on a hit, or half as much damage on a miss, instead of the weapon's normal damage." + "\n   " + "Whether you hit or miss, each creature within 10 feet of the target must make a Dexterity saving throw. Each of these creatures takes 2d8 lightning damage on a failed save, or half as much damage on a successful one." + "\n   " + "The piece of ammunition or weapon then returns to its normal form." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage for both effects of the spell increases by 1d8 for each slot level above 3rd.",
+	descriptionFull: [
+		"The next time you make a ranged weapon attack during the spell's duration, the weapon's ammunition, or the weapon itself if it's a thrown weapon, transforms into a bolt of lightning. Make the attack roll as normal. The target takes 4d8 lightning damage on a hit, or half as much damage on a miss, instead of the weapon's normal damage.",
+		"Whether you hit or miss, each creature within 10 feet of the target must make a Dexterity saving throw. Each of these creatures takes 2d8 lightning damage on a failed save, or half as much damage on a successful one.",
+		"The piece of ammunition or weapon then returns to its normal form.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 4th level or higher, the damage for both effects of the spell increases by 1d8 for each slot level above 3rd.",
+	],
 	dynamicDamageBonus: {
 		multipleDmgMoments: false,
 		skipDmgGroupIfNotMultiple: /(atk .*?lightn\. dmg.*?)/i,
@@ -4828,7 +5080,13 @@ SpellsList["phantasmal force"] = {
 	save: "Int",
 	description: "1 crea save or sees 10 ft cube illusion that does 1d6 Psychic dmg/rnd; Int(Investigation) vs. spell DC",
 	descriptionShorter: "1 crea save or sees 10 ft cube illusion that does 1d6 Psychic dmg/rnd; Investigation vs. DC",
-	descriptionFull: "You craft an illusion that takes root in the mind of a creature that you can see within range. The target must make an Intelligence saving throw. On a failed save, you create a phantasmal object, creature, or other visible phenomenon of your choice that is no larger than a 10-foot cube and that is perceivable only to the target for the duration. This spell has no effect on undead or constructs." + "\n   " + "The phantasm includes sound, temperature, and other stimuli, also evident only to the creature." + "\n   " + "The target can use its action to examine the phantasm with an Intelligence (Investigation) check against your spell save DC. If the check succeeds, the target realizes that the phantasm is an illusion, and the spell ends." + "\n   " + "While a target is affected by the spell, the target treats the phantasm as if it were real. The target rationalizes any illogical outcomes from interacting with the phantasm. For example, a target attempting to walk across a phantasmal bridge that spans a chasm falls once it steps onto the bridge. If the target survives the fall, it still believes that the bridge exists and comes up with some other explanation for its fall - it was pushed, it slipped, or a strong wind might have knocked it off." + "\n   " + "An affected target is so convinced of the phantasm's reality that it can even take damage from the illusion. A phantasm created to appear as a creature can attack the target. Similarly, a phantasm created to appear as fire, a pool of acid, or lava can burn the target. Each round on your turn, the phantasm can deal 1d6 psychic damage to the target if it is in the phantasm's area or within 5 feet of the phantasm, provided that the illusion is of a creature or hazard that could logically deal damage, such as by attacking. The target perceives the damage as a type appropriate to the illusion.",
+	descriptionFull: [
+		"You craft an illusion that takes root in the mind of a creature that you can see within range. The target must make an Intelligence saving throw. On a failed save, you create a phantasmal object, creature, or other visible phenomenon of your choice that is no larger than a 10-foot cube and that is perceivable only to the target for the duration. This spell has no effect on undead or constructs.",
+		"The phantasm includes sound, temperature, and other stimuli, also evident only to the creature.",
+		"The target can use its action to examine the phantasm with an Intelligence (Investigation) check against your spell save DC. If the check succeeds, the target realizes that the phantasm is an illusion, and the spell ends.",
+		"While a target is affected by the spell, the target treats the phantasm as if it were real. The target rationalizes any illogical outcomes from interacting with the phantasm. For example, a target attempting to walk across a phantasmal bridge that spans a chasm falls once it steps onto the bridge. If the target survives the fall, it still believes that the bridge exists and comes up with some other explanation for its fall - it was pushed, it slipped, or a strong wind might have knocked it off.",
+		"An affected target is so convinced of the phantasm's reality that it can even take damage from the illusion. A phantasm created to appear as a creature can attack the target. Similarly, a phantasm created to appear as fire, a pool of acid, or lava can burn the target. Each round on your turn, the phantasm can deal 1d6 psychic damage to the target if it is in the phantasm's area or within 5 feet of the phantasm, provided that the illusion is of a creature or hazard that could logically deal damage, such as by attacking. The target perceives the damage as a type appropriate to the illusion.",
+	],
 };
 SpellsList["power word heal"] = {
 	name: "Power Word Heal",
@@ -4856,7 +5114,10 @@ SpellsList["ray of sickness"] = {
 	duration: "Instantaneous",
 	save: "Con",
 	description: "Spell attack for 2d8+1d8/SL Poison dmg; save or also poisoned until end of my next turn",
-	descriptionFull: "A ray of sickening greenish energy lashes out toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 poison damage and must make a Constitution saving throw. On a failed save, it is also poisoned until the end of your next turn." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st.",
+	descriptionFull: [
+		"A ray of sickening greenish energy lashes out toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 poison damage and must make a Constitution saving throw. On a failed save, it is also poisoned until the end of your next turn.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st.",
+	],
 };
 SpellsList["searing smite"] = {
 	name: "Searing Smite",
@@ -4871,7 +5132,10 @@ SpellsList["searing smite"] = {
 	save: "Con",
 	description: "Next melee weapon hit +1d6+1d6/SL Fire dmg and target ignites: start of turn save to end or 1d6 dmg",
 	descriptionShorter: "Next melee wea hit +1d6+1d6/SL Fire dmg \u0026 ignites: start of turn save to end or 1d6 dmg",
-	descriptionFull: "The next time you hit a creature with a melee weapon attack during the spell's duration, your weapon flares with white-hot intensity, and the attack deals an extra 1d6 fire damage to the target and causes the target to ignite in flames. At the start of each of its turns until the spell ends, the target must make a Constitution saving throw. On a failed save, it takes 1d6 fire damage. On a successful save, the spell ends. If the target or a creature within 5 feet of it uses an action to put out the flames, or if some other effect douses the flames (such as the target being submerged in water), the spell ends." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the initial extra damage dealt by the attack increases by 1d6 for each slot above the 1st.",
+	descriptionFull: [
+		"The next time you hit a creature with a melee weapon attack during the spell's duration, your weapon flares with white-hot intensity, and the attack deals an extra 1d6 fire damage to the target and causes the target to ignite in flames. At the start of each of its turns until the spell ends, the target must make a Constitution saving throw. On a failed save, it takes 1d6 fire damage. On a successful save, the spell ends. If the target or a creature within 5 feet of it uses an action to put out the flames, or if some other effect douses the flames (such as the target being submerged in water), the spell ends.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 2nd level or higher, the initial extra damage dealt by the attack increases by 1d6 for each slot above the 1st.",
+	],
 	dynamicDamageBonus: {
 		extraDmgGroupsSameType: /(end or )((?:\+?\d+d?\d*)+)/i,
 	},
@@ -4902,7 +5166,10 @@ SpellsList["swift quiver"] = {
 	compMaterial: "A quiver containing at least one piece of ammunition",
 	duration: "Conc, 1 min",
 	description: "Quiver gives nonmagical ammo; bns a to make 2 atks with weapon that uses ammo from that quiver",
-	descriptionFull: "You transmute your quiver so it produces an endless supply of nonmagical ammunition, which seems to leap into your hand when you reach for it." + "\n   " + "On each of your turns until the spell ends, you can use a bonus action to make two attacks with a weapon that uses ammunition from the quiver. Each time you make such a ranged attack, your quiver magically replaces the piece of ammunition you used with a similar piece of nonmagical ammunition. Any pieces of ammunition created by this spell disintegrate when the spell ends. If the quiver leaves your possession, the spell ends.",
+	descriptionFull: [
+		"You transmute your quiver so it produces an endless supply of nonmagical ammunition, which seems to leap into your hand when you reach for it.",
+		"On each of your turns until the spell ends, you can use a bonus action to make two attacks with a weapon that uses ammunition from the quiver. Each time you make such a ranged attack, your quiver magically replaces the piece of ammunition you used with a similar piece of nonmagical ammunition. Any pieces of ammunition created by this spell disintegrate when the spell ends. If the quiver leaves your possession, the spell ends.",
+	],
 };
 SpellsList["telepathy"] = {
 	name: "Telepathy",
@@ -4916,7 +5183,10 @@ SpellsList["telepathy"] = {
 	compMaterial: "A pair of linked silver rings",
 	duration: "24 h",
 	description: "1 willing crea Int>0 and I telepathic link; share words, sensory information if on same plane",
-	descriptionFull: "You create a telepathic link between yourself and a willing creature with which you are familiar. The creature can be anywhere on the same plane of existence as you. The spell ends if you or the target are no longer on the same plane." + "\n   " + "Until the spell ends, you and the target can instantaneously share words, images, sounds, and other sensory messages with one another through the link, and the target recognizes you as the creature it is communicating with. The spell enables a creature with an Intelligence score of at least 1 to understand the meaning of your words and take in the scope of any sensory messages you send to it.",
+	descriptionFull: [
+		"You create a telepathic link between yourself and a willing creature with which you are familiar. The creature can be anywhere on the same plane of existence as you. The spell ends if you or the target are no longer on the same plane.",
+		"Until the spell ends, you and the target can instantaneously share words, images, sounds, and other sensory messages with one another through the link, and the target recognizes you as the creature it is communicating with. The spell enables a creature with an Intelligence score of at least 1 to understand the meaning of your words and take in the scope of any sensory messages you send to it.",
+	],
 };
 SpellsList["thorn whip"] = {
 	name: "Thorn Whip",
@@ -4931,7 +5201,10 @@ SpellsList["thorn whip"] = {
 	duration: "Instantaneous",
 	description: "Melee spell atk for 1d6 Piercing dmg and pull crea up to 10 ft towards me; +1d6 at CL 5, 11, and 17",
 	descriptionCantripDie: "Melee spell attack for `CD`d6 Piercing dmg and pull crea up to 10 ft towards me",
-	descriptionFull: "You create a long, vine-like whip covered in thorns that lashes out at your command toward a creature in range. Make a melee spell attack against the target. If the attack hits, the creature takes 1d6 piercing damage, and if the creature is Large or smaller, you pull the creature up to 10 feet closer to you." + "\n   " + "This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+	descriptionFull: [
+		"You create a long, vine-like whip covered in thorns that lashes out at your command toward a creature in range. Make a melee spell attack against the target. If the attack hits, the creature takes 1d6 piercing damage, and if the creature is Large or smaller, you pull the creature up to 10 feet closer to you.",
+		"This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+	],
 };
 SpellsList["thunderous smite"] = {
 	name: "Thunderous Smite",
@@ -4962,7 +5235,12 @@ SpellsList["tsunami"] = {
 	descriptionShorter: "300\xD750\xD7300ft (l\xD7w\xD7h) wave moves away at 50 ft/rnd; 6d10 Bludg. dmg; save half; see B",
 	descriptionMetric: "90\xD715\xD790m (l\xD7w\xD7h) wall of water moves away at 15 m/rnd; 6d10 Bludg. dmg; save halves; see B",
 	descriptionShorterMetric: "90\xD715\xD790m (l\xD7w\xD7h) wave moves away at 15 m/rnd; 6d10 Bludg. dmg; save half; see B",
-	descriptionFull: "A wall of water springs into existence at a point you choose within range. You can make the wall up to 300 feet long, 300 feet high, and 50 feet thick. The wall lasts for the duration." + "\n   " + "When the wall appears, each creature within its area must make a Strength saving throw. On a failed save, a creature takes 6d10 bludgeoning damage, or half as much damage on a successful save." + "\n   " + "At the start of each of your turns after the wall appears, the wall, along with any creatures in it, moves 50 feet away from you. Any Huge or smaller creature inside the wall or whose space the wall enters when it moves must succeed on a Strength saving throw or take 5d10 bludgeoning damage. A creature can take this damage only once per round. At the end of the turn, the wall's height is reduced by 50 feet, and the damage creatures take from the spell on subsequent rounds is reduced by 1d10. When the wall reaches 0 feet in height, the spell ends." + "\n   " + "A creature caught in the wall can move by swimming. Because of the force of the wave, though, the creature must make a successful Strength (Athletics) check against your spell save DC in order to move at all. If it fails the check, it can't move. A creature that moves out of the area falls to the ground.",
+	descriptionFull: [
+		"A wall of water springs into existence at a point you choose within range. You can make the wall up to 300 feet long, 300 feet high, and 50 feet thick. The wall lasts for the duration.",
+		"When the wall appears, each creature within its area must make a Strength saving throw. On a failed save, a creature takes 6d10 bludgeoning damage, or half as much damage on a successful save.",
+		"At the start of each of your turns after the wall appears, the wall, along with any creatures in it, moves 50 feet away from you. Any Huge or smaller creature inside the wall or whose space the wall enters when it moves must succeed on a Strength saving throw or take 5d10 bludgeoning damage. A creature can take this damage only once per round. At the end of the turn, the wall's height is reduced by 50 feet, and the damage creatures take from the spell on subsequent rounds is reduced by 1d10. When the wall reaches 0 feet in height, the spell ends.",
+		"A creature caught in the wall can move by swimming. Because of the force of the wave, though, the creature must make a successful Strength (Athletics) check against your spell save DC in order to move at all. If it fails the check, it can't move. A creature that moves out of the area falls to the ground.",
+	],
 };
 SpellsList["witch bolt"] = {
 	name: "Witch Bolt",
@@ -4977,7 +5255,10 @@ SpellsList["witch bolt"] = {
 	duration: "Conc, 1 min",
 	description: "Rngd spell atk 1d12+1d12/SL Lightn. dmg; 1 a 1d12 Lightn. dmg; ends if out of range or I do other a",
 	descriptionShorter: "Rngd atk 1d12+1d12/SL Lightn. dmg; 1 a 1d12 Lightn. dmg; end: out of range/do other a",
-	descriptionFull: "A beam of crackling, blue energy lances out toward a creature within range, forming a sustained arc of lightning between you and the target. Make a ranged spell attack against that creature. On a hit, the target takes 1d12 lightning damage, and on each of your turns for the duration, you can use your action to deal 1d12 lightning damage to the target automatically. The spell ends if you use your action to do anything else. The spell also ends if the target is ever outside the spell's range or if it has total cover from you." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, the initial damage increases by 1d12 for each slot level above 1st.",
+	descriptionFull: [
+		"A beam of crackling, blue energy lances out toward a creature within range, forming a sustained arc of lightning between you and the target. Make a ranged spell attack against that creature. On a hit, the target takes 1d12 lightning damage, and on each of your turns for the duration, you can use your action to deal 1d12 lightning damage to the target automatically. The spell ends if you use your action to do anything else. The spell also ends if the target is ever outside the spell's range or if it has total cover from you.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 2nd level or higher, the initial damage increases by 1d12 for each slot level above 1st.",
+	],
 	dynamicDamageBonus: {
 		multipleDmgMoments: false,
 		extraDmgGroupsSameType: /(1 a )(.*?)( Lightn. dmg)/i,

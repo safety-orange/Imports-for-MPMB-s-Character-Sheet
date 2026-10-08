@@ -1,5 +1,5 @@
 var iFileName = "pub_20210921_WBtW.js";
-RequiredSheetVersion("14.0.15-beta");
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the content from The Wild Beyond the Witchlight adventure to MPMB's Character Record Sheet
 
 SourceList["WBtW"] = {
@@ -86,7 +86,7 @@ BackgroundList["feylost"] = {
 		note: [
 			"Whenever I'm sound asleep or in a deep trance during a long rest, a spirit of the Feywild might pay me a visit, if the DM wishes it. Determine the spirit's form by rolling on the table below. No harm ever comes to me as a result of such visits, which can last for minutes or hours, and I remember each visit when I wake up. Conversations that occur with a visitor can contain any number of things, from messages and insights to nonsense and red herrings, at the DM's discretion. Such conversations are always conducted in a language I can understand, even if the Feywild visitor can't speak that language normally.\n",
 			"d8\tVisitor",
-			" 1\tAwakened creature (beast or plant that had the Awaken spell cast on it)",
+			" 1\tAwakened creature (beast or plant that had the *Awaken* spell cast on it)",
 			" 2\tCentaur",
 			" 3\tDryad",
 			" 4\tFaerie dragon",
@@ -194,10 +194,11 @@ RaceList["fairy"] = {
 			}],
 		},
 	},
-	trait: "Fairy" +
-		(typePF ? "\n \u2022 Fey: My " : " (") + "creature type is fey, rather than humanoid" + (typePF ? "." : ")") +
-		"\n \u2022 Flight: I have a flying speed equal to my walking speed. To use this speed, I can't be wearing medium or heavy armor." +
-		"\n \u2022 Fairy Magic: I know the Druidcraft cantrip. At 3rd level, I can cast Faerie Fire. At 5th level, I can cast Enlarge/Reduce. I can cast each spell without using a spell slot once per long rest, as well as by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
+	trait: [
+		"**Fairy**" + (typePF ? "\r##\u25C6 Fey##. My " : " (") + "creature type is fey, rather than humanoid" + (typePF ? "." : ")"),
+		"##\u25C6 Flight##. I have a flying speed equal to my walking speed. To use this speed, I can't be wearing medium or heavy armor.",
+		"##\u25C6 Fairy Magic##. I know the *Druidcraft* cantrip. At 3rd level, I can cast *Faerie Fire*. At 5th level, I can cast *Enlarge/Reduce*. I can cast each spell without using a spell slot once per long rest, as well as by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
+	],
 };
 RaceList["harengon"] = {
 	regExpSearch: /harengon/i,
@@ -225,11 +226,13 @@ RaceList["harengon"] = {
 			}),
 		},
 	},
-	trait: "Harengon" +
-		"\n \u2022 Hare-Trigger: I can add my proficiency bonus to my initiative rolls." +
-		"\n \u2022 Leporine Senses: I have proficiency in the Perception skill." +
-		"\n \u2022 Lucky Footwork: As a reaction when I fail a Dexterity saving throw, I can add +1d4 to the result, potentially making it a success. I can't do this if I'm prone or my speed is 0." +
-		"\n \u2022 Rabbit Hop: As a bonus action if my speed isn't 0, I can jump 5 ft times my Prof Bonus without provoking opportunity attacks. I can do this my Prof Bonus times per long rest.",
+	trait: [
+		"**Harengon**",
+		"##\u25C6 Hare-Trigger##. I can add my proficiency bonus to my initiative rolls.",
+		"##\u25C6 Leporine Senses##. I have proficiency in the Perception skill.",
+		"##\u25C6 Lucky Footwork##. As a reaction when I fail a Dexterity saving throw, I can add +1d4 to the result, potentially making it a success. I can't do this if I'm prone or my speed is 0.",
+		"##\u25C6 Rabbit Hop##. As a bonus action if my speed isn't 0, I can jump 5 ft times my Prof Bonus without provoking opportunity attacks. I can do this my Prof Bonus times per long rest.",
+	],
 };
 
 // Magic Items
@@ -240,8 +243,10 @@ MagicItemsList["bobbing lily pad"] = {
 	rarity: "very rare",
 	attunement: true,
 	description: "This 10-ft diameter vehicle float on water and has a walking, flying, and swimming speed of 20 ft, and it can hover. While I ride it, it moves according to my spoken directions. The lily pad can transport up to 600 lb, but moves at only half speed when carrying more than 300 lb.",
-	descriptionFull: "This magic vehicle is a 10-foot-diameter leaf that floats on water. It has tendrils that propel it across land and across the water's surface (but not underwater), as well as through the air. It has a walking, flying, and swimming speed of 20 feet, and it can hover. It moves according to your spoken directions while you are riding it." +
-	"\n   The lily pad can transport up to 300 pounds without hindrance. It can carry up to twice this weight, but it moves at half speed if it carries more than its normal capacity.",
+	descriptionFull: [
+		"This magic vehicle is a 10-foot-diameter leaf that floats on water. It has tendrils that propel it across land and across the water's surface (but not underwater), as well as through the air. It has a walking, flying, and swimming speed of 20 feet, and it can hover. It moves according to your spoken directions while you are riding it.",
+		"The lily pad can transport up to 300 pounds without hindrance. It can carry up to twice this weight, but it moves at half speed if it carries more than its normal capacity.",
+	],
 }
 MagicItemsList["chromatic rose"] = {
 	name: "Chromatic Rose",
@@ -249,15 +254,19 @@ MagicItemsList["chromatic rose"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	description: "While I hold this magic rose, it grants me resistance to a damage type determined by its color. If I would take 10+ damage from a single source (after resistance), the rose disintegrates and I take no damage. As an action, I can destroy it by blowing on its petals, causing a 20-ft cone that deals 3d10 damage.",
-	descriptionFull: "This magic rose comes in one of five colors, as noted in the table below. While a rose is held, it gains a harmless visual effect as indicated on the table." +
-	"\n   While holding the rose by its stem, you gain resistance to damage of the type associated with the rose's color. If you would take more than 10 damage of this type from a single source (after applying the resistance), the rose disintegrates, and you take no damage instead." +
-	"\n   As an action, you can blow the petals from the rose to produce a 20-foot cone of acid, lightning, poisonous gas, fire, or cold, as dictated by the rose's damage type. Each creature in the cone must make a DC 15 Constitution saving throw, taking 3d10 damage of the appropriate type on a failed save, or half as much damage on a successful one. Using this property destroys the rose." +
-	"\n **Color**\t**Visual Effect**\t**Damage Type**" +
-	"\n Black\tDrips acid\tAcid" +
-	"\n Blue\tCrackles with lightning\tLightning" +
-	"\n Green\tIssues green gas\tPoison" +
-	"\n Red\tWreathed in fire\tFire" +
-	"\n White\tCovered in frost\tCold",
+	descriptionFull: [
+		"This magic rose comes in one of five colors, as noted in the table below. While a rose is held, it gains a harmless visual effect as indicated on the table.",
+		"While holding the rose by its stem, you gain resistance to damage of the type associated with the rose's color. If you would take more than 10 damage of this type from a single source (after applying the resistance), the rose disintegrates, and you take no damage instead.",
+		"As an action, you can blow the petals from the rose to produce a 20-foot cone of acid, lightning, poisonous gas, fire, or cold, as dictated by the rose's damage type. Each creature in the cone must make a DC 15 Constitution saving throw, taking 3d10 damage of the appropriate type on a failed save, or half as much damage on a successful one. Using this property destroys the rose.",
+		[
+			[" Color", "Visual Effect", "Damage Type"],
+			[" Black", "Drips acid", "Acid"],
+			[" Blue", "Crackles with lightning", "Lightning"],
+			[" Green", "Issues green gas", "Poison"],
+			[" Red", "Wreathed in fire", "Fire"],
+			[" White", "Covered in frost", "Cold"],
+		],
+	],
 	allowDuplicates: true,
 	action: [["action", "Destroy Chromatic Rose for Cone"]],
 	choices: ["Black (acid)", "Blue (lightning)", "Green (poison)", "Red (fire)", "White (cold)"],
@@ -294,8 +303,10 @@ MagicItemsList["dust of corrosion"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	description: "Once as an action, I can throw this dust in the air, affecting a 10-ft cube that extends from me. Objects made of nonmagical ferrous metal in the area corrode and turn to dust. Creatures in the area (partly) made out of ferrous metal take 4d8 necrotic damage and can make a DC 13 Con save to halve this damage.",
-	descriptionFull: "As an action, you can throw this dust into the air, filling a 10-foot cube that extends out from you. Surfaces and objects made of nonmagical ferrous metal in the area instantly corrode and turn to dust, becoming useless and unsalvageable. Any creature in the area that is made wholly or partly out of ferrous metal must make a DC 13 Constitution saving throw, taking 4d8 necrotic damage on a failed save, or half as much damage on a successful one." +
-	"\n   Found in a small packet, this dust is made from finely ground rust monster antennae. There is enough dust in each packet for one use.",
+	descriptionFull: [
+		"As an action, you can throw this dust into the air, filling a 10-foot cube that extends out from you. Surfaces and objects made of nonmagical ferrous metal in the area instantly corrode and turn to dust, becoming useless and unsalvageable. Any creature in the area that is made wholly or partly out of ferrous metal must make a DC 13 Constitution saving throw, taking 4d8 necrotic damage on a failed save, or half as much damage on a successful one.",
+		"Found in a small packet, this dust is made from finely ground rust monster antennae. There is enough dust in each packet for one use.",
+	],
 }
 MagicItemsList["eldritch staff"] = {
 	name: "Eldritch Staff",
@@ -305,10 +316,12 @@ MagicItemsList["eldritch staff"] = {
 	attunement: true,
 	description: "This +1 quarterstaff has 10 charges, regaining 1d6+4 charges at dawn. 5% chance it's destroyed If I use its last charge. When I hit with it, I can deal +1d8 lightning damage per charge (max 3). As a reaction when I'm damaged, I can use 3 charges to teleport 60 ft and become invisible until my next turn starts, or I attack/cast.",
 	descriptionLong: "This magic quarterstaff grants a +1 bonus to attack and damage rolls made with it. It has 10 charges and regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff is destroyed in an otherwise harmless burst of eldritch energy. When I hit with it in melee, I can expend up to 3 charges, dealing +1d8 lightning damage per charge. As a reaction when I'm damaged while holding the staff, I can use 3 charges to become invisible and teleport 60 ft to an empty space I can see. I then remain invisible until the start of my next turn or until I attack, cast a spell, or deal damage.",
-	descriptionFull: "This staff can be wielded as a magic quarterstaff that grants a +1 bonus to attack and damage rolls made with it." +
-	"\n   The staff has 10 charges and regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff is destroyed in an otherwise harmless burst of eldritch energy." +
-	"\n   ***Eldritch Attack***. When you hit with a melee attack using the staff, you can expend up to 3 of its charges. For each charge you expend, the target takes an extra 1d8 lightning damage." +
-	"\n   ***Eldritch Escape***. If you take damage while holding the staff, you can use your reaction to expend 3 of the staff's charges, whereupon you turn invisible and teleport yourself, along with any equipment you are wearing or carrying, up to 60 feet to an unoccupied space that you can see. You remain invisible until the start of your next turn or until you attack, cast a spell, or deal damage.",
+	descriptionFull: [
+		"This staff can be wielded as a magic quarterstaff that grants a +1 bonus to attack and damage rolls made with it.",
+		"The staff has 10 charges and regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff is destroyed in an otherwise harmless burst of eldritch energy.",
+		"***Eldritch Attack***. When you hit with a melee attack using the staff, you can expend up to 3 of its charges. For each charge you expend, the target takes an extra 1d8 lightning damage.",
+		"***Eldritch Escape***. If you take damage while holding the staff, you can use your reaction to expend 3 of the staff's charges, whereupon you turn invisible and teleport yourself, along with any equipment you are wearing or carrying, up to 60 feet to an unoccupied space that you can see. You remain invisible until the start of your next turn or until you attack, cast a spell, or deal damage.",
+	],
 	weight: 4,
 	action: [["reaction", " (if damaged)"]],
 	usages: 10,
@@ -330,8 +343,10 @@ MagicItemsList["ornithopter of flying"] = {
 	type: "wondrous item",
 	rarity: "very rare",
 	description: "This contraption can lift up to 300 lb in the air. It has a flying speed of 30 ft and moves according to my spoken directions while I am riding it. It can't hover. If the ornithopter loses its rider while airborne, it falls and can't fly again for 1d6 + 4 days. It is 8 ft long, has a 14-ft wingspan, and weighs 25 lb.",
-	descriptionFull: "You can use this contraption to fly, provided your weight (including whatever you are wearing or carrying) doesn't exceed 300 pounds. The ornithopter has a flying speed of 30 feet, and it moves according to your spoken directions while you are riding it. It can't hover. If the ornithopter loses its rider while airborne, it falls and can't fly again for 1d6 + 4 days." +
-	"\n   The ornithopter is 8 feet long, has a 14-foot wingspan, and weighs 25 pounds.",
+	descriptionFull: [
+		"You can use this contraption to fly, provided your weight (including whatever you are wearing or carrying) doesn't exceed 300 pounds. The ornithopter has a flying speed of 30 feet, and it moves according to your spoken directions while you are riding it. It can't hover. If the ornithopter loses its rider while airborne, it falls and can't fly again for 1d6 + 4 days.",
+		"The ornithopter is 8 feet long, has a 14-foot wingspan, and weighs 25 pounds.",
+	],
 	weight: 25,
 }
 MagicItemsList["pixie dust"] = {
@@ -340,8 +355,10 @@ MagicItemsList["pixie dust"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	description: "Once as an action, I can sprinkle this dust on myself or another creature I can see within 5 ft. The recipient gains a flying speed of 30 ft and the ability to hover for 1 minute. If the creature is airborne when this effect ends, it falls safely to the ground, taking no damage and landing on its feet.",
-	descriptionFull: "As an action, you can sprinkle this dust on yourself or another creature you can see within 5 feet of you. The recipient gains a flying speed of 30 feet and the ability to hover for 1 minute. If the creature is airborne when this effect ends, it falls safely to the ground, taking no damage and landing on its feet." +
-	"\n   A small packet holds enough pixie dust for one use.",
+	descriptionFull: [
+		"As an action, you can sprinkle this dust on yourself or another creature you can see within 5 feet of you. The recipient gains a flying speed of 30 feet and the ability to hover for 1 minute. If the creature is airborne when this effect ends, it falls safely to the ground, taking no damage and landing on its feet.",
+		"A small packet holds enough *pixie dust* for one use.",
+	],
 }
 MagicItemsList["potion of advantage"] = {
 	name: "Potion of Advantage",
@@ -349,8 +366,10 @@ MagicItemsList["potion of advantage"] = {
 	type: "potion",
 	rarity: "uncommon",
 	description: "Once as an action, I can drink this potion of a sparkling, golden mist that moves and pours like water or administer it to another. The consumer of the potion gains advantage on one ability check, attack roll, or saving throw of its choice that it makes within the next hour.",
-	descriptionFull: "When you drink this potion, you gain advantage on one ability check, attack roll, or saving throw of your choice that you make within the next hour." +
-	"\n   This potion takes the form of a sparkling, golden mist that moves and pours like water.",
+	descriptionFull: [
+		"When you drink this potion, you gain advantage on one ability check, attack roll, or saving throw of your choice that you make within the next hour.",
+		"This potion takes the form of a sparkling, golden mist that moves and pours like water.",
+	],
 }
 
 MagicItemsList["scissors of shadow snipping"] = {
@@ -365,8 +384,8 @@ MagicItemsList["scissors of shadow snipping"] = {
 	descriptionFull: [
 		"As an action, you make a few snips with these iron shears and cause the shadow of a Humanoid creature you can see within 5 feet of you to detach from its source. If the creature is unwilling to give up its shadow, it can make a DC 15 Charisma saving throw, retaining its shadow on a success. Whether or not the shadow is snipped, this property of the scissors can't be used again until the next dawn.",
 		"The detached shadow is rooted to the spot where it was snipped until you use a bonus action to cause it to behave in one of the following ways, either of which is possible only if you can see the shadow:",
-		"\u2022 You control the shadow's movements and can make the shadow move up to 30 feet across a solid or liquid surface, in any direction you choose (including along vertical surfaces), provided it remains within your sight at all times. The shadow is harmless and unable to be harmed, and it is invisible in darkness. It can't speak, and it doesn't require air, sleep, or nourishment.",
-		"\u2022 You can relinquish control of the shadow, at which point it becomes autonomous and behaves as the DM wishes. It uses the shadow stat block in the Monster Manual, but its creature type is Fey instead of Undead. A creature whose Strength is reduced to 0 by this shadow's Strength Drain attack does not die but falls unconscious instead. The creature regains consciousness and all its Strength after finishing a short or long rest.",
+		" \u2022 You control the shadow's movements and can make the shadow move up to 30 feet across a solid or liquid surface, in any direction you choose (including along vertical surfaces), provided it remains within your sight at all times. The shadow is harmless and unable to be harmed, and it is invisible in darkness. It can't speak, and it doesn't require air, sleep, or nourishment.",
+		" \u2022 You can relinquish control of the shadow, at which point it becomes autonomous and behaves as the DM wishes. It uses the shadow stat block in the Monster Manual, but its creature type is Fey instead of Undead. A creature whose Strength is reduced to 0 by this shadow's Strength Drain attack does not die but falls unconscious instead. The creature regains consciousness and all its Strength after finishing a short or long rest.",
 		"A creature whose shadow has detached from it is cursed. If a shadowless creature is subjected to any spell that ends a curse, or if its detached shadow is reduced to 0 hit points, the detached shadow disappears, and the creature regains its normal shadow instantly.",
 	],
 	toNotesPage: [{
@@ -387,10 +406,10 @@ MagicItemsList["snicker-snack"] = {
 	prereqeval: function (v) { return !/evil/i.test(What("Alignment")); },
 	description: "I have a +3 bonus on attack and damage rolls with this sentient magic greatsword and can use Cha instead of Str. It ignores slashing resistance. On a 20 to hit, it cuts off " + (typePF ? "a head" : "one head, possibly killing it instantly") + ". If the target has legendary actions, no head, too wide neck, or is immune to slashing damage, it takes +6d8 damage instead. See Notes.",
 	descriptionFull: [
-		"You gain a +3 bonus to attack and damage rolls made with this magic vorpal sword. In addition, the weapon ignores resistance to slashing damage. When you use this weapon to attack a creature that has at least one head and roll a 20 on the attack roll, you cut off one of the creature's heads. The creature dies if it can't survive without the lost head. A creature is immune to this effect if it is immune to slashing damage, it doesn't have or need a head, it has legendary actions, or the DM decides that the creature is too big for its head to be cut off with this weapon. Such a creature instead takes an extra 6d8 slashing damage from the hit.",
-		"While attuned to Snicker-Snack, you have proficiency with greatswords, and you can use your Charisma modifier instead of your Strength modifier for attack and damage rolls made with the weapon.",
-		"***Sentience***. Snicker-Snack is a sentient, chaotic good greatsword with an Intelligence of 9, a Wisdom of 14, and a Charisma of 18. It has hearing and darkvision out to a range of 120 feet. It can speak, read, and understand Common, and its voice sounds silvery and melodic. Snicker-Snack craves the destruction of evil Dragons and urges you to seek out these creatures and slay them.",
-		"***Personality***. Snicker-Snack has a fickle personality. It ends its attunement to you if you miss on attack rolls with the weapon three times in a row. Each time you finish a long rest after that happens, you can attempt to regain the sword's trust by making a contested Charisma check against Snicker-Snack. If you win the contest, your attunement to the weapon is instantly restored. Your attunement to the weapon can't be restored in any other way.",
+		"You gain a +3 bonus to attack and damage rolls made with this magic *vorpal sword*. In addition, the weapon ignores resistance to slashing damage. When you use this weapon to attack a creature that has at least one head and roll a 20 on the attack roll, you cut off one of the creature's heads. The creature dies if it can't survive without the lost head. A creature is immune to this effect if it is immune to slashing damage, it doesn't have or need a head, it has legendary actions, or the DM decides that the creature is too big for its head to be cut off with this weapon. Such a creature instead takes an extra 6d8 slashing damage from the hit.",
+		"While attuned to *Snicker-Snack*, you have proficiency with greatswords, and you can use your Charisma modifier instead of your Strength modifier for attack and damage rolls made with the weapon.",
+		"***Sentience***. *Snicker-Snack* is a sentient, chaotic good greatsword with an Intelligence of 9, a Wisdom of 14, and a Charisma of 18. It has hearing and darkvision out to a range of 120 feet. It can speak, read, and understand Common, and its voice sounds silvery and melodic. *Snicker-Snack* craves the destruction of evil Dragons and urges you to seek out these creatures and slay them.",
+		"***Personality***. *Snicker-Snack* has a fickle personality. It ends its attunement to you if you miss on attack rolls with the weapon three times in a row. Each time you finish a long rest after that happens, you can attempt to regain the sword's trust by making a contested Charisma check against *Snicker-Snack*. If you win the contest, your attunement to the weapon is instantly restored. Your attunement to the weapon can't be restored in any other way.",
 	],
 	weight: 6,
 	toNotesPage: [
@@ -434,7 +453,7 @@ MagicItemsList["steel"] = {
 	attunement: true,
 	prerequisite: "Requires attunement by a good-aligned creature",
 	prereqeval: function (v) { return /good/i.test(What("Alignment")); },
-	description: "This sentient longsword adds +2 to attack and damage rolls made with it. As an action once per dawn, I can use it to cast Revivify on a target I touch with the sword. Steel is lawful good and frets over my well-being and doesn't like to back down from a fight. It has Int 8, Wis 11, and Cha 15. See Notes page.",
+	description: "This sentient longsword adds +2 to attack and damage rolls made with it. As an action once per dawn, I can use it to cast *Revivify* on a target I touch with the sword. Steel is lawful good and frets over my well-being and doesn't like to back down from a fight. It has Int 8, Wis 11, and Cha 15. See Notes page.",
 	descriptionFull: [
 		"You have a +2 bonus to attack and damage rolls made with this magic weapon.",
 		"***Revivify***. You can use an action to cast the *revivify* spell from the sword. You must touch the target with the sword to cast the spell. Once this property of the weapon is used, it can't be used again until the next dawn.",
@@ -473,8 +492,10 @@ MagicItemsList["woodcutter's axe"] = {
 	type: "weapon (greataxe)",
 	rarity: "rare",
 	description: "I have a +1 bonus to attack and damage rolls made with this magic greataxe. When I use this axe to make an attack against a plant (an ordinary plant or a creature with the Plant type) or a wooden object that isn't being worn or carried, the attack deals an extra 2d6 slashing damage on a hit.",
-	descriptionFull: "You have a +1 bonus to attack and damage rolls made with this magic weapon." +
-	"\n   When you use this axe to make an attack against a plant (an ordinary plant or a creature with the Plant type) or a wooden object that isn't being worn or carried, the attack deals an extra 2d6 slashing damage on a hit.",
+	descriptionFull: [
+		"You have a +1 bonus to attack and damage rolls made with this magic weapon.",
+		"When you use this axe to make an attack against a plant (an ordinary plant or a creature with the Plant type) or a wooden object that isn't being worn or carried, the attack deals an extra 2d6 slashing damage on a hit.",
+	],
 	weight: 7,
 	weaponOptions: [{
 		baseWeapon: "greataxe",
@@ -494,7 +515,7 @@ MagicItemsList["witchlight vane"] = {
 	attunement: true,
 	prerequisite: "Requires attunement by a mister light or his handpicked successor",
 	description: "I can use this sentient ornate rod as a +3 mace that deals an extra 1d8 radiant damage on a hit. It can sense the mood of every creature in the carnival. As an action, I can pinpoint the happiest in the carnival. I can use it to cast spells. I can't be blinded, deafened, petrified, or stunned. See Notes page.",
-	descriptionLong: "This sentient ornate rod is topped by a pair of butterfly wings and incorporates bits of red glass into its length. I can use it as a +3 mace that deals an extra 1d8 radiant damage on a hit. It can sense the mood of every creature in the carnival. As an action, I can use it to pinpoint the happiest in the carnival. I can use it to cast Dancing Light, Ray of Frost, and Polymorph. After I use it to cast Polymorph, roll a d8. On a roll of 3 or 8, the vane can't be used to cast Polymorph again until the next dawn. It makes me vulnerable to lightning damage, but I can't be blinded, deafened, petrified, or stunned. See Notes page.",
+	descriptionLong: "This sentient ornate rod is topped by a pair of butterfly wings and incorporates bits of red glass into its length. I can use it as a +3 mace that deals an extra 1d8 radiant damage on a hit. It can sense the mood of every creature in the carnival. As an action, I can use it to pinpoint the happiest in the carnival. I can use it to cast Dancing *Light*, *Ray of Frost*, and *Polymorph*. After I use it to cast *Polymorph*, roll a d8. On a roll of 3 or 8, the vane can't be used to cast *Polymorph* again until the next dawn. It makes me vulnerable to lightning damage, but I can't be blinded, deafened, petrified, or stunned. See Notes page.",
 	descriptionFull: [
 		"This ornate rod is topped by a pair of butterfly wings and incorporates bits of red glass into its length. It weighs 3 pounds.",
 		"***Magic Weapon***. In the hands of one who is attuned to it, the vane can be wielded as a magic mace that grants a +3 bonus to attack and damage rolls made with it. In addition, the vane deals an extra 1d8 radiant damage on a hit.",
@@ -552,13 +573,13 @@ MagicItemsList["witchlight watch"] = {
 	rarity: "legendary",
 	attunement: true,
 	prerequisite: "Requires attunement by a mister witch or his handpicked successor",
-	description: "As an action once per 8 hours, I can use this ornate pocket watch to initiate the (un)packing of the carnival over the next hour. I can use it to cast Fire Bolt, Message, and Invisibility. After it casts Invisibility, I roll a d8. On a roll of 3 or 8, I can't cast this again until the next dawn. See Notes page.",
-	descriptionLong: "This ornate pocket watch is fastened to the end of a gold chain and glows with a faint golden light when opened. As an action once per 8 hours, I can use this ornate pocket watch to initiate the (un)packing of the carnival over the next hour, provided the carnival and I are on the same plane of existence. I can use it to cast Fire Bolt, Message, and Invisibility. After I use it to cast Invisibility, roll a d8. On a roll of 3 or 8, it can't be used to cast Invisibility again until the next dawn. As long as I'm attuned to it, I'm 30 lb heavier and must eat and drink eight times the normal amount each day. See Notes page.",
+	description: "As an action once per 8 hours, I can use this ornate pocket watch to initiate the (un)packing of the carnival over the next hour. I can use it to cast *Fire Bolt*, *Message*, and *Invisibility*. After it casts *Invisibility*, I roll a d8. On a roll of 3 or 8, I can't cast this again until the next dawn. See Notes page.",
+	descriptionLong: "This ornate pocket watch is fastened to the end of a gold chain and glows with a faint golden light when opened. As an action once per 8 hours, I can use this ornate pocket watch to initiate the (un)packing of the carnival over the next hour, provided the carnival and I are on the same plane of existence. I can use it to cast *Fire Bolt*, *Message*, and *Invisibility*. After I use it to cast *Invisibility*, roll a d8. On a roll of 3 or 8, it can't be used to cast *Invisibility* again until the next dawn. As long as I'm attuned to it, I'm 30 lb heavier and must eat and drink eight times the normal amount each day. See Notes page.",
 	descriptionFull: [
 		"This ornate pocket watch is fastened to the end of a gold chain. It glows with a faint golden light when opened, and it makes a soft ticking noise that can be heard only by the creature holding it. The face of the watch shows a miniature painting of the Witchlight Carnival ringed by a tiny henge, orbited at night by a mote of light small enough to slip through the eye of a needle. This light causes the henge to cast shadows, and these shadows allow the watch's owner to track the passage of time.",
 		"***Carnival Setup and Takedown***. The creature attuned to the watch can use an action to initiate the packing up or the unpacking of the Witchlight Carnival, provided the creature and the carnival are on the same plane of existence. In the span of 1 hour, all objects that are elements of the carnival are magically whisked about until everything is packed up and ready for travel, or unpacked and assembled. The watch has no effect on creatures, which can move about freely and safely while the carnival is being set up or taken down. Once the process of packing up or unpacking the carnival begins, it can't be stopped until the task is complete. When the watch is used to pack up or unpack the carnival, this property cannot be used again until 8 hours have elapsed.",
 		"***Additional Properties***. The pocket watch has the following additional properties:",
-		" \u2022 While carrying the watch, the creature attuned to it can cast the fire bolt, invisibility, or message spell as an action, requiring no spell components and using Intelligence as the spellcasting ability. After the watch's invisibility spell is cast, roll a d8; on a roll of 3 or 8, the watch can't be used to cast this spell again until the next dawn.",
+		" \u2022 While carrying the watch, the creature attuned to it can cast the *fire bolt*, *invisibility*, or *message* spell as an action, requiring no spell components and using Intelligence as the spellcasting ability. After the watch's *invisibility* spell is cast, roll a d8; on a roll of 3 or 8, the watch can't be used to cast this spell again until the next dawn.",
 		" \u2022 The creature attuned to the watch gains 30 pounds. This extra weight vanishes when the attunement ends.",
 		" \u2022 The creature attuned to the watch must eat and drink eight times the normal amount each day.",
 	],
@@ -613,8 +634,11 @@ if (!SourceList["X"]) {
 		source: [["X", 138], ["WBtW", 212]],
 		type: "wondrous item (instrument)",
 		rarity: "common",
-		description: "As an action while I'm playing this musical instrument, I can write a magical message on a nonmagical surface that I can see within 30 ft. The message can be up to 6 (or 7) words in a language I know and fades away after 24 hours or when Dispel Magic is cast on it. The instrument can be used like this 3 times per dawn.",
-		descriptionFull: "This musical instrument has 3 charges. While you are playing it, you can use an action to expend 1 charge from the instrument and write a magical message on a nonmagical object or surface that you can see within 30 feet of you. The message can be up to six words long and is written in a language you know. If you are a bard, you can scribe an additional seven words and choose to make the message glow faintly, allowing it to be seen in nonmagical darkness. Casting Dispel Magic on the message erases it. Otherwise, the message fades away after 24 hours.\n   The instrument regains all expended charges daily at dawn.",
+		description: "As an action while I'm playing this musical instrument, I can write a magical message on a nonmagical surface that I can see within 30 ft. The message can be up to 6 (or 7) words in a language I know and fades away after 24 hours or when *Dispel Magic* is cast on it. The instrument can be used like this 3 times per dawn.",
+		descriptionFull: [
+			"This musical instrument has 3 charges. While you are playing it, you can use an action to expend 1 charge from the instrument and write a magical message on a nonmagical object or surface that you can see within 30 feet of you. The message can be up to six words long and is written in a language you know. If you are a bard, you can scribe an additional seven words and choose to make the message glow faintly, allowing it to be seen in nonmagical darkness. Casting *Dispel Magic* on the message erases it. Otherwise, the message fades away after 24 hours.",
+			"The instrument regains all expended charges daily at dawn.",
+		],
 		attunement: true,
 		weight: 3, // same as instrument of the bards
 		choices: ["Bard (15-ft radius)", "Not a Bard (5-ft radius)"],
@@ -623,11 +647,11 @@ if (!SourceList["X"]) {
 		},
 		"bard (15-ft radius)": {
 			name: "Instrument\u200A of Scribing",
-			description: "As an action while I'm playing this musical instrument, I can write a magical message on a nonmagical surface that I can see within 30 ft. The message can be up to 7 words in a language I know and I can have it glow faintly. Dispel Magic erases it, otherwise it fades away after 24 hours. This can be used 3 times per dawn.",
+			description: "As an action while I'm playing this musical instrument, I can write a magical message on a nonmagical surface that I can see within 30 ft. The message can be up to 7 words in a language I know and I can have it glow faintly. *Dispel Magic* erases it, otherwise it fades away after 24 hours. This can be used 3 times per dawn.",
 		},
 		"not a bard (5-ft radius)": {
 			name: "Instrument\u200A\u200A of Scribing",
-			description: "As an action while I'm playing this musical instrument, I can write a magical message on a nonmagical surface that I can see within 30 ft. The message can be up to 6 words in a language I know and fades away after 24 hours or when Dispel Magic is cast on it. The instrument can be used like this 3 times per dawn.",
+			description: "As an action while I'm playing this musical instrument, I can write a magical message on a nonmagical surface that I can see within 30 ft. The message can be up to 6 words in a language I know and fades away after 24 hours or when *Dispel Magic* is cast on it. The instrument can be used like this 3 times per dawn.",
 		},
 	}
 	MagicItemsList["orb of direction"] = {
@@ -673,7 +697,10 @@ if (!SourceList["X"]) {
 		type: "wand",
 		rarity: "common",
 		description: "This wand has 3 charges, regain all at dawn. As an action, I can expend 1 of its charges and target a humanoid I can see within 30 ft. The target must succeed on a DC 10 Charisma save or be forced to scowl for 1 minute. If I expend the wand's last charge, roll a d20. On a 1, the wand transforms into a wand of smiles.",
-		descriptionFull: "This wand has 3 charges. While holding it, you can use an action to expend 1 of its charges and target a humanoid you can see within 30 feet of you. The target must succeed on a DC 10 Charisma saving throw or be forced to scowl for 1 minute.\n   The wand regains all expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand transforms into a wand of smiles.",
+		descriptionFull: [
+			"This wand has 3 charges. While holding it, you can use an action to expend 1 of its charges and target a humanoid you can see within 30 feet of you. The target must succeed on a DC 10 Charisma saving throw or be forced to scowl for 1 minute.",
+			"The wand regains all expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand transforms into a *wand of smiles*.",
+		],
 		weight: 1,
 		action: [["action", ""]],
 		usages: 3,
@@ -685,7 +712,10 @@ if (!SourceList["X"]) {
 		type: "wand",
 		rarity: "common",
 		description: "This wand has 3 charges, regain all at dawn. As an action, I can expend 1 of its charges and target a humanoid I can see within 30 ft. The target must succeed on a DC 10 Charisma save or be forced to smile for 1 minute. If I expend the wand's last charge, roll a d20. On a 1, the wand transforms into a wand of scowls.",
-		descriptionFull: "This wand has 3 charges. While holding it, you can use an action to expend 1 of its charges and target a humanoid you can see within 30 feet of you. The target must succeed on a DC 10 Charisma saving throw or be forced to smile for 1 minute.\n   The wand regains all expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand transforms into a wand of scowls.",
+		descriptionFull: [
+			"This wand has 3 charges. While holding it, you can use an action to expend 1 of its charges and target a humanoid you can see within 30 feet of you. The target must succeed on a DC 10 Charisma saving throw or be forced to smile for 1 minute.",
+			"The wand regains all expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand transforms into a *wand of scowls*.",
+		],
 		weight: 1,
 		action: [["action", ""]],
 		usages: 3,

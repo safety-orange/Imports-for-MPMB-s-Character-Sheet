@@ -1,5 +1,5 @@
 var iFileName = "ua_20170605_Revised-Class-Options.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Revised Class Options article to MPMB's Character Record Sheet
 
 // Define the source
@@ -83,7 +83,7 @@ AddSubClass("druid", "circle of the shepherd2-ua", {
 			source: [["UA:RCO", 2]],
 			minlevel: 14,
 			description: desc([
-				"When I am reduced to 0 HP or incapacitated against my will, I can cast Conjure Animals",
+				"When I am reduced to 0 HP or incapacitated against my will, I can cast *Conjure Animals*",
 				"This is done as if using a 9th-level spell slot to summon 4 beast of my choice up to CR 2",
 				"They appear within 20 ft of me, last 1 hour, and protect me from harm and attack foes",
 			]),
@@ -101,7 +101,7 @@ AddSubClass("druid", "circle of the shepherd2-ua", {
 					range: "20 ft",
 					duration: "1 h",
 					description: "Summon 4 CR 2 beasts; protect me from harm and attack foes",
-					changes: "Using my Faithful Summons class feature when I'm reduced to 0 HP, I can cast Conjure Animals as if using a 9th-level spell slot. This then summons 4 beast of my choice up to CR 2 within 20 ft of me without needing concentration.",
+					changes: "Using my Faithful Summons class feature when I'm reduced to 0 HP, I can cast *Conjure Animals* as if using a 9th-level spell slot. This then summons 4 beast of my choice up to CR 2 within 20 ft of me without needing concentration.",
 				},
 			},
 		},
@@ -262,7 +262,7 @@ AddSubClass("warlock", "the celestial-ua", {
 			name: "Bonus Cantrips",
 			source: [["UA:RCO", 5]],
 			minlevel: 1,
-			description: desc("I know the Light and Sacred Flame cantrips"),
+			description: desc("I know the *Light* and *Sacred Flame* cantrips"),
 			spellcastingBonus: [{
 				name: "Bonus Cantrips",
 				spells: ["light"],
@@ -376,7 +376,7 @@ if (!SourceList["X"] || SourceList["X"].abbreviation !== "XGtE") {
 		name: "Gift of the Depths",
 		description: desc([
 			"I can breathe underwater and I have a swim speed equal to my walking speed",
-			"Once per long rest, I can cast Water Breathing without using a spell slot (PHB 287)",
+			"Once per long rest, I can cast *Water Breathing* without using a spell slot (PHB 287)",
 		]),
 		source: [["X", 57], ["UA:RCO", 6]],
 		submenu: "[warlock level  5+]",
@@ -398,7 +398,7 @@ if (!SourceList["X"] || SourceList["X"].abbreviation !== "XGtE") {
 	});
 	AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
 		name: "Grasp of Hadar",
-		description: desc("Once per turn when my Eldritch Blast hits a creature, I can move it 10 ft closer to me"),
+		description: desc("Once per turn when my *Eldritch Blast* hits a creature, I can move it 10 ft closer to me"),
 		source: [["X", 57], ["UA:RCO", 6]],
 		submenu: "[improves Eldritch Blast]",
 		prereqeval: function (v) { return v.hasEldritchBlast; },
@@ -407,13 +407,13 @@ if (!SourceList["X"] || SourceList["X"].abbreviation !== "XGtE") {
 				function (fields, v) {
 					if (v.baseWeaponName == "eldritch blast") fields.Description += "; Target moved 10 ft to me";
 				},
-				"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me.",
+				"When I hit a creature with my *Eldritch Blast* cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me.",
 			],
 		},
 	});
 	AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
 		name: "Shroud of Shadow",
-		description: desc("I can cast Invisibility at will, without using spell slots (PHB 254)"),
+		description: desc("I can cast *Invisibility* at will, without using spell slots (PHB 254)"),
 		source: [["X", 57], ["UA:RCO", 6]],
 		submenu: "[warlock level 15+]",
 		spellcastingBonus: [{
@@ -426,7 +426,7 @@ if (!SourceList["X"] || SourceList["X"].abbreviation !== "XGtE") {
 		spellChanges: {
 			"invisibility": {
 				description: "1 crea invisible; attacking/casting makes the crea visible; anything worn/carried also invisible",
-				changes: "With the Shroud of Shadow invocation I can cast Invisibility at will, but when I do so I am unable to cast it using a higher level spell slot.",
+				changes: "With the Shroud of Shadow invocation I can cast *Invisibility* at will, but when I do so I am unable to cast it using a higher level spell slot.",
 			},
 		},
 	});
@@ -447,7 +447,7 @@ if (!SourceList["X"] || SourceList["X"].abbreviation !== "XGtE") {
 	});
 	AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 		name: "Trickster's Escape",
-		description: desc("Once per long rest, I can cast Freedom of Movement on myself without using a spell slot"),
+		description: desc("Once per long rest, I can cast *Freedom of Movement* on myself without using a spell slot"),
 		source: [["X", 57], ["UA:RCO", 7]],
 		submenu: "[warlock level  7+]",
 		spellcastingBonus: [{
@@ -461,7 +461,7 @@ if (!SourceList["X"] || SourceList["X"].abbreviation !== "XGtE") {
 			"freedom of movement": {
 				range: "Self",
 				description: "Magic can't reduce my speed, paralyze or restrain me; I can use 5 ft to escape nonmagical restrains",
-				changes: "With the Trickster's Escape invocation I can cast Freedom of Movement, but only on myself.",
+				changes: "With the Trickster's Escape invocation I can cast *Freedom of Movement*, but only on myself.",
 			},
 		},
 	});
@@ -481,7 +481,7 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", { // Still valid 2021-09-21
 	name: "Frost Lance",
 	description: desc([
-		"Once per turn when my Eldritch Blast hits a creature, I can reduce its speed by 10 ft",
+		"Once per turn when my *Eldritch Blast* hits a creature, I can reduce its speed by 10 ft",
 		"This speed reduction lasts until the end of my next turn",
 	]),
 	source: [["UA:RCO", 6]],
@@ -492,7 +492,7 @@ AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", { // Still 
 			function (fields, v) {
 				if (v.baseWeaponName == "eldritch blast") fields.Description += "; 1 target -10 ft speed";
 			},
-			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn.",
+			"When I hit a creature with my *Eldritch Blast* cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn.",
 		],
 	},
 });
@@ -553,8 +553,8 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, Eldritch Blast cantrip)", {
 	name: "Kiss of Mephistopheles",
 	description: desc([
-		"As a bonus action when my Eldritch Blast hits, I can cast Fireball using a warlock spell slot",
-		"The origin of the Fireball is the creature that was hit with my Eldritch Blast attack",
+		"As a bonus action when my *Eldritch Blast* hits, I can cast *Fireball* using a warlock spell slot",
+		"The origin of the *Fireball* is the creature that was hit with my *Eldritch Blast* attack",
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[improves Eldritch Blast]",

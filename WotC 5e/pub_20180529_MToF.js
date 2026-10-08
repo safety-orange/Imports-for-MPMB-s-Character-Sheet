@@ -1,5 +1,5 @@
 var iFileName = "pub_20180529_MToF.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3", 15);
 // This file adds all the player-material from Mordenkainen's Tome of Foes to MPMB's Character Record Sheet
 
 // Define the source
@@ -31,7 +31,13 @@ RaceList["baalzebul tiefling"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 0, 1, 0, 2],
-	trait: "Baalzebul Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Maladomini:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast Ray of Sickness once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Crown of Madness once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait: [
+		"**Baalzebul Tiefling** (+1 Intelligence, +2 Charisma)",
+		"##\u25C6 Legacy of Maladomini##. I know the *Thaumaturgy* cantrip.",
+		"At 3rd level, I can cast *Ray of Sickness* once per long rest as a 2nd-level spell.",
+		"At 5th level, I can also cast *Crown of Madness* once per long rest.",
+		"Charisma is my spellcasting ability for these spells.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Legacy of Maladomini (1)",
@@ -52,7 +58,7 @@ RaceList["baalzebul tiefling"] = {
 			spellChanges: {
 				"ray of sickness": {
 					description: "Spell attack for 3d8 Poison dmg; save or also poisoned until end of my next turn",
-					changes: "Using Legacy of Maladomini, I cast Ray of Sickness as if I'm using a 2nd-level spell slot.",
+					changes: "Using Legacy of Maladomini, I cast *Ray of Sickness* as if I'm using a 2nd-level spell slot.",
 				},
 			},
 		},
@@ -87,7 +93,13 @@ RaceList["dispater tiefling"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 1, 0, 0, 0, 2],
-	trait: "Dispater Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Dis:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast Disguise Self once per long rest.\n   At 5th level, I can also cast Detect Thoughts once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait: [
+		"**Dispater Tiefling** (+1 Dexterity, +2 Charisma)",
+		"##\u25C6 Legacy of Dis##. I know the *Thaumaturgy* cantrip.",
+		"At 3rd level, I can cast *Disguise Self* once per long rest.",
+		"At 5th level, I can also cast *Detect Thoughts* once per long rest.",
+		"Charisma is my spellcasting ability for these spells.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Legacy of Dis (level 1)",
@@ -137,7 +149,13 @@ RaceList["fierna tiefling"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 0, 0, 1, 2],
-	trait: "Fierna Tiefling (+1 Wisdom, +2 Charisma)\n\nLegacy of Phlegethos:\n   I know the Friends cantrip.\n   At 3rd level, I can cast Charm Person once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Suggestion once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait: [
+		"**Fierna Tiefling** (+1 Wisdom, +2 Charisma)",
+		"##\u25C6 Legacy of Phlegethos##. I know the *Friends* cantrip.",
+		"At 3rd level, I can cast *Charm Person* once per long rest as a 2nd-level spell.",
+		"At 5th level, I can also cast *Suggestion* once per long rest.",
+		"Charisma is my spellcasting ability for these spells.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Legacy of Phlegethos (1)",
@@ -158,7 +176,7 @@ RaceList["fierna tiefling"] = {
 			spellChanges: {
 				"charm person": {
 					description: "2 humanoids, max 30 ft apart, save or charmed; adv. on save if me/ally is fighting it",
-					changes: "Using Legacy of Phlegethos, I cast Charm Person as if I'm using a 2nd-level spell slot.",
+					changes: "Using Legacy of Phlegethos, I cast *Charm Person* as if I'm using a 2nd-level spell slot.",
 				},
 			},
 		},
@@ -193,7 +211,13 @@ RaceList["glasya tiefling"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 1, 0, 0, 0, 2],
-	trait: "Glasya Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Malbolge:\n   I know the Minor Illusion cantrip.\n   At 3rd level, I can cast Disguise Self once per long rest.\n   At 5th level, I can also cast Invisibility once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait: [
+		"**Glasya Tiefling** (+1 Dexterity, +2 Charisma)",
+		"##\u25C6 Legacy of Malbolge##. I know the *Minor Illusion* cantrip.",
+		"At 3rd level, I can cast *Disguise Self* once per long rest.",
+		"At 5th level, I can also cast *Invisibility* once per long rest.",
+		"Charisma is my spellcasting ability for these spells.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Legacy of Malbolge (1)",
@@ -243,7 +267,13 @@ RaceList["levistus tiefling"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 1, 0, 0, 2],
-	trait: "Levistus Tiefling (+1 Constitution, +2 Charisma)\n\nLegacy of Stygia:\n   I know the Ray of Frost cantrip.\n   At 3rd level, I can cast Armor of Agathys once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Darkness once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait: [
+		"**Levistus Tiefling** (+1 Constitution, +2 Charisma)",
+		"##\u25C6 Legacy of Stygia##. I know the *Ray of Frost* cantrip.",
+		"At 3rd level, I can cast *Armor of Agathys* once per long rest as a 2nd-level spell.",
+		"At 5th level, I can also cast *Darkness* once per long rest.",
+		"Charisma is my spellcasting ability for these spells.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Legacy of Stygia (1)",
@@ -264,7 +294,7 @@ RaceList["levistus tiefling"] = {
 			spellChanges: {
 				"armor of agathys": {
 					description: "10 temp HP; as long as temp HP last any crea that hits in melee takes 10 Cold dmg",
-					changes: "Using Legacy of Stygia, I cast Armor of Agathys as if I'm using a 2nd-level spell slot.",
+					changes: "Using Legacy of Stygia, I cast *Armor of Agathys* as if I'm using a 2nd-level spell slot.",
 				},
 			},
 		},
@@ -299,7 +329,13 @@ RaceList["mammon tiefling"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 0, 1, 0, 2],
-	trait: "Mammon Tiefling (+1 Intelligence, +2 Charisma)\nLegacy of Minauros:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast Tenser's Floating Disk once per short rest.\n   At 5th level, I can also cast Arcane Lock without a material component once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait: [
+		"**Mammon Tiefling** (+1 Intelligence, +2 Charisma)",
+		"##\u25C6 Legacy of Minauros##. I know the *Mage Hand* cantrip.",
+		"At 3rd level, I can cast *Tenser's Floating Disk* once per short rest.",
+		"At 5th level, I can also cast *Arcane Lock* without a material component once per long rest.",
+		"Charisma is my spellcasting ability for these spells.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Legacy of Minauros (1)",
@@ -356,7 +392,13 @@ RaceList["mephistopheles tiefling"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 0, 1, 0, 2],
-	trait: "Mephistopheles Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Cania:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast Burning Hands once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Flame Blade once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait: [
+		"**Mephistopheles Tiefling** (+1 Intelligence, +2 Charisma)",
+		"##\u25C6 Legacy of Cania##. I know the *Mage Hand* cantrip.",
+		"At 3rd level, I can cast *Burning Hands* once per long rest as a 2nd-level spell.",
+		"At 5th level, I can also cast *Flame Blade* once per long rest.",
+		"Charisma is my spellcasting ability for these spells.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Legacy of Cania (level 1)",
@@ -377,7 +419,7 @@ RaceList["mephistopheles tiefling"] = {
 			spellChanges: {
 				"burning hands": {
 					description: "All in area 4d6 Fire dmg; save halves; unattended flammable objects ignite",
-					changes: "Using Legacy of Cania, I cast Burning Hands as if I'm using a 2nd-level spell slot.",
+					changes: "Using Legacy of Cania, I cast *Burning Hands* as if I'm using a 2nd-level spell slot.",
 				},
 			},
 		},
@@ -412,7 +454,13 @@ RaceList["zariel tiefling"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [1, 0, 0, 0, 0, 2],
-	trait: "Zariel Tiefling (+1 Strength, +2 Charisma)\n\nLegacy of Avernus:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast Searing Smite once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Branding Smite once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait: [
+		"**Zariel Tiefling** (+1 Strength, +2 Charisma)",
+		"##\u25C6 Legacy of Avernus##. I know the *Thaumaturgy* cantrip.",
+		"At 3rd level, I can cast *Searing Smite* once per long rest as a 2nd-level spell.",
+		"At 5th level, I can also cast *Branding Smite* once per long rest.",
+		"Charisma is my spellcasting ability for these spells.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Legacy of Avernus (1)",
@@ -433,7 +481,7 @@ RaceList["zariel tiefling"] = {
 			spellChanges: {
 				"searing smite": {
 					description: "Next melee weapon hit +2d6 Fire dmg and target ignites; save to end spell or 1d6 Fire dmg",
-					changes: "Using Legacy of Avernus, I cast Searing Smite as if I'm using a 2nd-level spell slot.",
+					changes: "Using Legacy of Avernus, I cast *Searing Smite* as if I'm using a 2nd-level spell slot.",
 				},
 			},
 		},
@@ -475,11 +523,12 @@ RaceList["eladrin-mtof"] = {
 	weightMetric: " weigh around 55 kg (40 + 5d12 \xD7 2d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 0, 1],
 	abilitySave: 6,
-	trait: "Eladrin (+2 Dexterity, +1 Charisma)" + desc([
-		"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).",
-		"Fey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see. Once I reach 3rd level, this gains an additional effect, based on the current season I'm aligned with. See the third page notes section for the effects.",
-		"Shifting Seasons: After I finish a long rest, I can align myself with a season of my choice.",
-	]),
+	trait: [
+		"**Eladrin** (+2 Dexterity, +1 Charisma)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).",
+		"##\u25C6 Fey Step##. Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see. Once I reach 3rd level, this gains an additional effect, based on the current season I'm aligned with. See the third page notes section for the effects.",
+		"##\u25C6 Shifting Seasons##. After I finish a long rest, I can align myself with a season of my choice.",
+	],
 	features: {
 		"fey step": {
 			name: "Fey Step",
@@ -495,19 +544,20 @@ RaceList["eladrin-mtof"] = {
 		popupName: "Eladrin Shifting Season Features",
 		additional: "save DC 8 + Cha mod + Prof Bonus",
 		page3notes: true,
-		note: "\n  \u2022 Autumn (Eladrin Season, MToF 62)" + desc([
+		note: [
+			" \u2022 Autumn (Eladrin Season, MToF 62)",
 			" After using Fey Step, up to 2 creatures I can see within 10 ft of me must make a Wis save",
 			" If failed, a target is charmed by me for 1 minute, or until I or my allies damage it",
-		]) + "\n  \u2022 Winter (Eladrin Season, MToF 62)" + desc([
+			" \u2022 Winter (Eladrin Season, MToF 62)",
 			" When I use Fey Step, one target in 5 ft of where I teleported from must make a Wis save",
 			" If failed, it is frightened of me until the end of my next turn",
-		]) + "\n  \u2022 Spring (Eladrin Season, MToF 62)" + desc([
+			" \u2022 Spring (Eladrin Season, MToF 62)",
 			" When I use Fey Step, I can instead teleport one willing creature I touch within 5 ft of me",
 			" It teleports to an unoccupied space of my choice that I can see within 30 ft of me",
-		]) + "\n  \u2022 Summer (Eladrin Season, MToF 62)" + desc([
+			" \u2022 Summer (Eladrin Season, MToF 62)",
 			" After using Fey Step, each creature of my choice within 5 ft of me takes fire damage",
 			" This fire damage is equal to my Charisma modifier (minimum 1)",
-		]),
+		],
 	}],
 };
 RaceList["sea elf"] = {
@@ -535,11 +585,12 @@ RaceList["sea elf"] = {
 	heightMetric: " range from under 1,5 to almost 1,8 metres tall (140 + 5d8 cm)",
 	weightMetric: " weigh around 52 kg (40 + 5d8 \xD7 2d4 / 10 kg)",
 	scores: [0, 2, 1, 0, 0, 0],
-	trait: "Sea Elf (+2 Dexterity, +1 Constitution)" + desc([
-		"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
+	trait: [
+		"**Sea Elf** (+2 Dexterity, +1 Constitution)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
 		"Child of the Sea. I have 30 ft swimming speed and can breathe air and water.",
-		"Friend of the Sea: Through sounds and gestures, I can communicate simple ideas with any beast that has an inborn swimming speed.",
-	]),
+		"##\u25C6 Friend of the Sea##. Through sounds and gestures, I can communicate simple ideas with any beast that has an inborn swimming speed.",
+	],
 };
 RaceList["shadar-kai elf"] = {
 	regExpSearch: /^(?!.*half)((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
@@ -565,11 +616,12 @@ RaceList["shadar-kai elf"] = {
 	heightMetric: " range from under 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 52 kg (40 + 5d8 \xD7 2d4 / 10 kg)",
 	scores: [0, 2, 1, 0, 0, 0],
-	trait: "Shadar-kai (+2 Dexterity, +1 Constitution)" + desc([
-		"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).",
-		"Blessing of the Raven Queen: Once per long rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see.",
+	trait: [
+		"**Shadar-kai** (+2 Dexterity, +1 Constitution)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).",
+		"##\u25C6 Blessing of the Raven Queen##. Once per long rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see.",
 		"Once I reach 3rd level, after I use the Blessing of the Raven Queen, I appear translucent and have resistance to all damage until the start of my next turn.",
-	]),
+	],
 	features: {
 		"blessing of the raven queen": {
 			name: "Blessing of the Raven Queen",
@@ -601,13 +653,14 @@ RaceList["githyanki-mtof"] = {
 	heightMetric: " are more leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
 	weightMetric: " weigh around 61 kg (45 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [2, 0, 0, 1, 0, 0],
-	trait: "Githyanki (+2 Strength, +1 Intelligence)\n" + (typePF ? "\n" : "") + "Githyanki Psionics:" + desc([
-		"I know the Mage Hand cantrip, but the hand is invisible.",
-		"At 3rd level, I can cast Jump once per long rest.",
-		"At 5th level, I can also cast Misty Step once per long rest.",
+	trait: [
+		"**Githyanki** (+2 Strength, +1 Intelligence)",
+		"##\u25C6 Githyanki Psionics##. I know the *Mage Hand* cantrip, but the hand is invisible.",
+		"At 3rd level, I can cast *Jump* once per long rest.",
+		"At 5th level, I can also cast *Misty Step* once per long rest.",
 		"Intelligence is my spellcasting ability for these spells.",
 		"I don't require components to cast these spells.",
-	]),
+	],
 	spellcastingAbility: 4,
 	spellcastingBonus: [{
 		name: "Githyanki Psionics (1)",
@@ -619,7 +672,7 @@ RaceList["githyanki-mtof"] = {
 		"mage hand": {
 			components: "",
 			description: "Create invisible spectral hand for simple tasks or carry up to 10 lb; 1 a to control; can't have multiple",
-			changes: "Using Githyanki Psionics, I can cast Mage Hand without requiring components and the spectral hand is invisible.",
+			changes: "Using Githyanki Psionics, I can cast *Mage Hand* without requiring components and the spectral hand is invisible.",
 		},
 	},
 	features: {
@@ -636,7 +689,7 @@ RaceList["githyanki-mtof"] = {
 				"jump": {
 					components: "",
 					compMaterial: "",
-					changes: "Using Githyanki Psionics, I can cast Jump once per long rest without requiring components.",
+					changes: "Using Githyanki Psionics, I can cast *Jump* once per long rest without requiring components.",
 				},
 			},
 		},
@@ -652,7 +705,7 @@ RaceList["githyanki-mtof"] = {
 			spellChanges: {
 				"misty step": {
 					components: SpellsList["misty step"].components + "*",
-					changes: "Using Githyanki Psionics, I can cast Misty Step once per long rest without requiring components.",
+					changes: "Using Githyanki Psionics, I can cast *Misty Step* once per long rest without requiring components.",
 				},
 			},
 		},
@@ -683,13 +736,14 @@ RaceList["githzerai-mtof"] = {
 	heightMetric: " are more leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [0, 0, 0, 1, 2, 0],
-	trait: "Githzerai (+1 Intelligence, +2 Wisdom)\n" + (typePF ? "\n" : "") + "Githzerai Psionics:" + desc([
-		"I know the Mage Hand cantrip, but the hand is invisible.",
-		"At 3rd level, I can cast Shield once per long rest.",
-		"At 5th level, I can also cast Detect Thoughts once per long rest.",
+	trait: [
+		"**Githzerai** (+1 Intelligence, +2 Wisdom)",
+		"##\u25C6 Githzerai Psionics##. I know the *Mage Hand* cantrip, but the hand is invisible.",
+		"At 3rd level, I can cast *Shield* once per long rest.",
+		"At 5th level, I can also cast *Detect Thoughts* once per long rest.",
 		"Wisdom is my spellcasting ability for these spells.",
 		"I don't require components to cast these spells.",
-	]),
+	],
 	savetxt: { adv_vs: ["charmed", "frightened"] },
 	spellcastingAbility: 5,
 	spellcastingBonus: [{
@@ -702,7 +756,7 @@ RaceList["githzerai-mtof"] = {
 		"mage hand": {
 			components: "",
 			description: "Create invisible spectral hand for simple tasks or carry up to 10 lb; 1 a to control; can't have multiple",
-			changes: "Using Githzerai Psionics, I can cast Mage Hand without requiring components and the spectral hand is invisible.",
+			changes: "Using Githzerai Psionics, I can cast *Mage Hand* without requiring components and the spectral hand is invisible.",
 		},
 	},
 	features: {
@@ -718,7 +772,7 @@ RaceList["githzerai-mtof"] = {
 			spellChanges: {
 				"shield": {
 					components: "",
-					changes: "Using Githzerai Psionics, I can cast Shield once per long rest without requiring components.",
+					changes: "Using Githzerai Psionics, I can cast *Shield* once per long rest without requiring components.",
 				},
 			},
 		},
@@ -735,7 +789,7 @@ RaceList["githzerai-mtof"] = {
 				"detect thoughts": {
 					components: "",
 					compMaterial: "",
-					changes: "Using Githzerai Psionics, I can cast Detect Thoughts once per long rest without requiring components.",
+					changes: "Using Githzerai Psionics, I can cast *Detect Thoughts* once per long rest without requiring components.",
 				},
 			},
 		},
@@ -766,7 +820,12 @@ if (!RaceList["gray dwarf"]) {
 		heightMetric: " stand between 1,2 and 1,5 metres tall (110 + 5d4 cm)",
 		weightMetric: " weigh around 70 kg (55 + 5d4 \xD7 4d6 / 10 kg)",
 		scores: [1, 0, 2, 0, 0, 0],
-		trait: "Duergar (+2 Constitution, +1 Strength)\nStonecunning: Whenever I make an Int (History) check related to the origin of stonework, I am considered proficient in the skill and add double my proficiency bonus to the check.\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nDuergar Magic: 3rd: Enlarge/Reduce to enlarge; 5th: Invisibility. If not in direct sunlight," + (!typePF ? "\n" : " ") + "I can cast both spells on myself once per long rest without material components, using Int.",
+		trait: [
+			"**Duergar** (+2 Constitution, +1 Strength)",
+			"##\u25C6 Stonecunning##. Whenever I make an Int (History) check related to the origin of stonework, I am considered proficient in the skill and add double my proficiency bonus to the check.",
+			"##\u25C6 Sunlight Sensitivity##. Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.",
+			"##\u25C6 Duergar Magic##. 3rd: Enlarge/Reduce to enlarge; 5th: Invisibility. If not in direct sunlight, I can cast both spells on myself once per long rest without material components, using Int.",
+		],
 		spellcastingAbility: 4,
 		features: {
 			"enlarge": {
@@ -785,7 +844,7 @@ if (!RaceList["gray dwarf"]) {
 						components: "V,S",
 						compMaterial: "",
 						description: "I'm enlarged, adv. on Str checks/aves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
-						changes: "Using Duergar Magic, I cast Enlarge/Reduce while I'm not in direct sunlight, but only to enlarge myself.",
+						changes: "Using Duergar Magic, I cast *Enlarge/Reduce* while I'm not in direct sunlight, but only to enlarge myself.",
 					},
 				},
 			},
@@ -832,7 +891,10 @@ if (!RaceList["deep gnome"]) {
 		heightMetric: " stand between 90 and 105 cm tall (85 + 5d4 cm)",
 		weightMetric: " weigh around 50 kg (35 + 5d4 \xD7 4d4 / 10 kg)",
 		scores: [0, 1, 0, 2, 0, 0],
-		trait: "Svirfneblin (+1 Dexterity, +2 Intelligence)\n\nStone Camouflage:\n   I have advantage on Dexterity (stealth) checks to hide in rocky terrain.",
+		trait: [
+			"**Svirfneblin** (+1 Dexterity, +2 Intelligence)",
+			"##\u25C6 Stone Camouflage##. I have advantage on Dexterity (stealth) checks to hide in rocky terrain.",
+		],
 	};
 }
 // Feat reprint from Elemental Evil Player's Companion
@@ -842,8 +904,11 @@ if (!FeatsList["svirfneblin magic"]) {
 		source: [["E", 7], ["S", 115], ["MToF", 114]],
 		prerequisite: "Being a Svirfneblin (Deep Gnome)",
 		prereqeval: function (v) { return CurrentRace.known === "deep gnome"; },
-		descriptionFull: "You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast Nondetection on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: Blindness/Deafness, Blur, and Disguise Self. You regain the ability to cast these spells when you finish a long rest.\n   Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
-		description: "I can cast Nondetection on myself at will, without a material component. I can also cast the spells Blindness/Deafness, Blur, and Disguise Self once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
+		descriptionFull: [
+			"You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast *Nondetection* on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: *Blindness/Deafness*, *Blur*, and *Disguise Self*. You regain the ability to cast these spells when you finish a long rest.",
+			"Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
+		],
+		description: "I can cast *Nondetection* on myself at will, without a material component. I can also cast the spells *Blindness/Deafness*, *Blur*, and *Disguise Self* once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
 		spellcastingBonus: [{
 			name: "at will (self only)",
 			spellcastingAbility: 4,
@@ -863,7 +928,7 @@ if (!FeatsList["svirfneblin magic"]) {
 				components: "V,S",
 				compMaterial: "",
 				description: "I am hidden from all divination magic",
-				changes: "Using Svirfneblin Magic, I can cast Nondetection without a material component, but only on myself.",
+				changes: "Using Svirfneblin Magic, I can cast *Nondetection* without a material component, but only on myself.",
 			},
 		},
 	};
@@ -911,9 +976,13 @@ MagicItemsList["infernal tack"] = {
 	type: "wondrous item",
 	rarity: "legendary",
 	notLegalAL: true,
-	description: "While wearing the spurs of this set, the nightmare equipped with the bridle, bit, reins, saddle, and stirrups is under my command. As an action, I can have it appear in 20 ft at the start of my next turn. It acts on as my ally on my initiative, remains for 1 day, until I or it dies, or I dismiss it as an action. If it dies, it reforms in 24 h.",
+	description: "While wearing the spurs of this set, a nightmare equipped with the bridle, bit, reins, saddle, and stirrups is under my command. As an action, I can have it appear in 20 ft at the start of my next turn. It acts as my ally on my initiative, remains for 1 day until it or I die, or I dismiss it as an action. If it dies, it reforms in 24 h.",
 	descriptionLong: "This tack consists of a bridle, bit, reins, saddle, stirrups, and spurs. A nightmare equipped with the tack serves whoever wears the spurs until the wearer dies or the tack is removed. As an action, I can clash the spurs together or scrape them through blood, causing the nightmare to appear within 20 ft at the start of my next turn. It acts as my ally on my initiative count, remains for 1 day, until I or it dies, or until I dismiss it as an action. If it dies, it reforms within 24 hours, after which I can summon it again. The tack doesn't create a nightmare from thin air; one must first be subdued so the tack can be placed on it.",
-	descriptionFull: "A narzugon binds a nightmare to its service with infernal tack, which consists of a bridle, bit, reins, saddle, stirrups, and spurs. A nightmare equipped with infernal tack must serve whoever wears the spurs until the wearer dies or the tack is removed.\n   You can use an action to call a nightmare equipped with infernal tack by clashing the spurs together or scraping them through blood. The nightmare appears at the start of your next turn, within 20 feet of you. It acts as your ally and takes its turn on your initiative count. It remains for 1 day, until you or it dies, or until you dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which you can summon it again.\n   The tack doesn't conjure a nightmare from thin air; one must first be subdued so the tack can be placed on it. No nightmare accepts this forced servitude willingly, but some eventually form strong loyalties to their masters and become true partners in evil.",
+	descriptionFull: [
+		"A narzugon binds a nightmare to its service with *infernal tack*, which consists of a bridle, bit, reins, saddle, stirrups, and spurs. A nightmare equipped with *infernal tack* must serve whoever wears the spurs until the wearer dies or the tack is removed.",
+		"You can use an action to call a nightmare equipped with *infernal tack* by clashing the spurs together or scraping them through blood. The nightmare appears at the start of your next turn, within 20 feet of you. It acts as your ally and takes its turn on your initiative count. It remains for 1 day, until you or it dies, or until you dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which you can summon it again.",
+		"The tack doesn't conjure a nightmare from thin air; one must first be subdued so the tack can be placed on it. No nightmare accepts this forced servitude willingly, but some eventually form strong loyalties to their masters and become true partners in evil.",
+	],
 	attunement: true,
 	weight: 26, // riding saddle (25) + bit and bridle (1)
 	prerequisite: "Requires attunement by a creature of evil alignment",

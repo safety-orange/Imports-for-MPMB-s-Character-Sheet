@@ -1,5 +1,5 @@
 var iFileName = "ua_20170313_The-Mystic-Class.js";
-RequiredSheetVersion("14.1.0");
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: The Mystic Class article to MPMB's Character Record Sheet
 // WARNING: there are no published multiclassing rules for Mystic; the ones provided here are extrapolated from other classes
 
@@ -681,7 +681,11 @@ PsionicsList["delusion-ua-psy"] = {
 	range: "60 ft",
 	duration: "1 min",
 	description: "1 crea either hears a sound (whisper-scream), or sees up to 5-ft cube object that disappears on touch",
-	descriptionFull: "As an action, you plant a false belief in the mind of one creature that you can see within 60 feet of you. You can create a sound or an image. Only the target of this talent perceives the sound or image you create." + "\n   " + "If you create a sound, its volume can range from a whisper to a scream. It can be your voice, someone else's voice, a creature's roar, a musical instrument, or any other sound you pick. It lasts for 1 minute." + "\n   " + "If you create an object, it must fit within a 5-foot cube and can't move or be reflective. The image can't create any effect that influences a sense other than sight. The image lasts for 1 minute, and it disappears if the creature touches it.",
+	descriptionFull: [
+		"As an action, you plant a false belief in the mind of one creature that you can see within 60 feet of you. You can create a sound or an image. Only the target of this talent perceives the sound or image you create.",
+		"If you create a sound, its volume can range from a whisper to a scream. It can be your voice, someone else's voice, a creature's roar, a musical instrument, or any other sound you pick. It lasts for 1 minute.",
+		"If you create an object, it must fit within a 5-foot cube and can't move or be reflective. The image can't create any effect that influences a sense other than sight. The image lasts for 1 minute, and it disappears if the creature touches it.",
+	],
 };
 PsionicsList["energy beam-ua-psy"] = {
 	name: "Energy Beam",
@@ -695,7 +699,10 @@ PsionicsList["energy beam-ua-psy"] = {
 	save: "Dex",
 	description: "1 crea save or 1d8 Acid, Cold, Fire, Lightning, or Thunder dmg; +1d8 at CL 5, 11, and 17",
 	descriptionCantripDie: "1 crea save or `CD`d8 Acid, Cold, Fire, Lightning, or Thunder dmg",
-	descriptionFull: "As an action, you target one creature you can see within 90 feet of you. The target must succeed on a Dexterity saving throw or take 1d8 acid, cold, fire, lightning, or thunder damage (your choice)." + "\n   " + "The talent's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)",
+	descriptionFull: [
+		"As an action, you target one creature you can see within 90 feet of you. The target must succeed on a Dexterity saving throw or take 1d8 acid, cold, fire, lightning, or thunder damage (your choice).",
+		"The talent's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)",
+	],
 };
 PsionicsList["light step-ua-psy"] = {
 	name: "Light Step",
@@ -719,7 +726,10 @@ PsionicsList["mind meld-ua-psy"] = {
 	range: "120 ft",
 	duration: "This turn end",
 	description: "I communicate telepathically with 1 willing crea (int > 1) and gain access to 1 memory of theirs",
-	descriptionFull: "As a bonus action, you can communicate telepathically with one willing creature you can see within 120 feet of you. The target must have an Intelligence of at least 2, otherwise this talent fails and the action is wasted." + "\n   " + "This communication can occur until the end of the current turn. You don't need to share a language with the target for it to understand your telepathic utterances, and it understands you even if it lacks a language. You also gain access to one memory of the target's choice, gaining perfect recall of one thing it saw or did.",
+	descriptionFull: [
+		"As a bonus action, you can communicate telepathically with one willing creature you can see within 120 feet of you. The target must have an Intelligence of at least 2, otherwise this talent fails and the action is wasted.",
+		"This communication can occur until the end of the current turn. You don't need to share a language with the target for it to understand your telepathic utterances, and it understands you even if it lacks a language. You also gain access to one memory of the target's choice, gaining perfect recall of one thing it saw or did.",
+	],
 };
 PsionicsList["mind slam-ua-psy"] = {
 	name: "Mind Slam",
@@ -733,7 +743,10 @@ PsionicsList["mind slam-ua-psy"] = {
 	save: "Con",
 	description: "1 crea save or 1d6 Force dmg, and knocked prone if Large or smaller; +1d6 at CL 5, 11, and 17",
 	descriptionCantripDie: "1 crea save or `CD`d6 Force dmg, and knocked prone if Large or smaller",
-	descriptionFull: "As an action, you target one creature you can see within 60 feet of you. The target must succeed on a Constitution saving throw or take 1d6 force damage. If it takes any of this damage and is Large or smaller, it is knocked prone." + "\n   " + "The talent's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)",
+	descriptionFull: [
+		"As an action, you target one creature you can see within 60 feet of you. The target must succeed on a Constitution saving throw or take 1d6 force damage. If it takes any of this damage and is Large or smaller, it is knocked prone.",
+		"The talent's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)",
+	],
 };
 PsionicsList["mind thrust-ua-psy"] = {
 	name: "Mind Thrust",
@@ -747,7 +760,10 @@ PsionicsList["mind thrust-ua-psy"] = {
 	save: "Int",
 	description: "1 crea save or 1d10 Psychic dmg; +1d10 at CL 5, 11, and 17",
 	descriptionCantripDie: "1 crea save or `CD`d10 Psychic dmg",
-	descriptionFull: "As an action, you target one creature you can see within 120 feet of you. The target must succeed on an Intelligence saving throw or take 1d10 psychic damage." + "\n   " + "The talent's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).",
+	descriptionFull: [
+		"As an action, you target one creature you can see within 120 feet of you. The target must succeed on an Intelligence saving throw or take 1d10 psychic damage.",
+		"The talent's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).",
+	],
 };
 PsionicsList["mystic charm-ua-psy"] = {
 	name: "Mystic Charm",
@@ -772,7 +788,11 @@ PsionicsList["mystic hand-ua-psy"] = {
 	range: "30 ft",
 	duration: "This turn end",
 	description: "Move 1 unattended object (up to 10 lbs) up to 30 ft, or manipulate an object",
-	descriptionFull: "You can use your action to manipulate or move one object within 30 feet of you. The object can't weigh more than 10 pounds, and you can't affect an object being worn or carried by another creature. If the object is loose, you can move it up to 30 feet in any direction." + "\n   " + "This talent allows you to open an unlocked door, pour out a beer stein, and so on." + "\n   " + "The object falls to the ground at the end of your turn if you leave it suspended in midair.",
+	descriptionFull: [
+		"You can use your action to manipulate or move one object within 30 feet of you. The object can't weigh more than 10 pounds, and you can't affect an object being worn or carried by another creature. If the object is loose, you can move it up to 30 feet in any direction.",
+		"This talent allows you to open an unlocked door, pour out a beer stein, and so on.",
+		"The object falls to the ground at the end of your turn if you leave it suspended in midair.",
+	],
 };
 PsionicsList["psychic hammer-ua-psy"] = {
 	name: "Psychic Hammer",
@@ -786,7 +806,10 @@ PsionicsList["psychic hammer-ua-psy"] = {
 	save: "Str",
 	description: "1 crea save or 1d6 Force dmg and moved up to 10 ft in chosen direction; +1d6 at CL 5, 11, and 17",
 	descriptionCantripDie: "1 crea save or `CD`d6 Force dmg and moved up to 10 ft in chosen direction",
-	descriptionFull: "As an action, you try to grasp one creature you can see within 120 feet of you, with a hand crafted from telekinetic energy. The target must succeed on a Strength saving throw or take 1d6 force damage. If it takes any of this damage and is Large or smaller, you can move it up to 10 feet in a straight line in a direction of your choice. You can't lift the target off the ground unless it is already airborne or underwater." + "\n   " + "The talent's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+	descriptionFull: [
+		"As an action, you try to grasp one creature you can see within 120 feet of you, with a hand crafted from telekinetic energy. The target must succeed on a Strength saving throw or take 1d6 force damage. If it takes any of this damage and is Large or smaller, you can move it up to 10 feet in a straight line in a direction of your choice. You can't lift the target off the ground unless it is already airborne or underwater.",
+		"The talent's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+	],
 };
 
 // Psionic Disciplines for the Mystic
@@ -803,7 +826,10 @@ PsionicsList["adaptive body-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I don't need to eat, breathe, or sleep; I can long rest with 8 hours of light activity, without sleep",
-	descriptionFull: "You can alter your body to match your surroundings, allowing you to withstand punishing environments. With greater psi energy, you can extend this protection to others." + PsychicFocus + "While focused on this discipline, you don't need to eat, breathe, or sleep. To gain the benefits of a long rest, you can spend 8 hours engaged in light activity, rather than sleeping during any of it.",
+	descriptionFull: [
+		"You can alter your body to match your surroundings, allowing you to withstand punishing environments. With greater psi energy, you can extend this protection to others.",
+		"***Psychic Focus***. While focused on this discipline, you don't need to eat, breathe, or sleep. To gain the benefits of a long rest, you can spend 8 hours engaged in light activity, rather than sleeping during any of it.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["ab1-environmental adaptation", "ab2-adaptive shield", "ab3-energy adaptation", "ab4-energy immunity"],
 };
@@ -874,7 +900,10 @@ PsionicsList["aura sight-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advantage on Wisdom (Insight) checks",
-	descriptionFull: "You refocus your sight to see the energy that surrounds all creatures. You perceive auras, energy signatures that can reveal key elements of a creature's nature." + PsychicFocus + "While focused on this discipline, you have advantage on Wisdom (Insight) checks.",
+	descriptionFull: [
+		"You refocus your sight to see the energy that surrounds all creatures. You perceive auras, energy signatures that can reveal key elements of a creature's nature.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Wisdom (Insight) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["as1-asses foe", "as2-read moods", "as3-view aura", "as4-perceive the unseen"],
 };
@@ -943,7 +972,10 @@ PsionicsList["bestial form-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advantage on Wisdom (Animal Handling) checks",
-	descriptionFull: "You transform your body, gaining traits of different beasts." + PsychicFocus + "While focused on this discipline, you have advantage on Wisdom (Animal Handling) checks.",
+	descriptionFull: [
+		"You transform your body, gaining traits of different beasts.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Wisdom (Animal Handling) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["bf1-bestial claws", "bf2-bestial transformation", "bf3-bt - amphibious", "bf4-bt - climbing", "bf5-bt - flight", "bf6-bt - keen senses", "bf7-bt - perfect senses", "bf8-bt - swimming", "bf9-bt - tough hide"],
 };
@@ -1077,7 +1109,10 @@ PsionicsList["brute force-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advantage on Strength (Athletics) checks",
-	descriptionFull: "You augment your natural strength with psionic energy, granting you the ability to achieve incredible feats of might." + PsychicFocus + "While focused on this discipline, you have advantage on Strength (Athletics) checks.",
+	descriptionFull: [
+		"You augment your natural strength with psionic energy, granting you the ability to achieve incredible feats of might.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Strength (Athletics) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["bf1-brute strike", "bf2-knock back", "bf3-mighty leap", "bf4-feat of strength"],
 };
@@ -1148,7 +1183,10 @@ PsionicsList["celerity-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "My walking speed increases by 10 ft",
-	descriptionFull: "You channel psionic power into your body, honing your reflexes and agility to an incredible degree. The world seems to slow down while you continue to move as normal." + PsychicFocus + "While focused on this discipline, your walking speed increases by 10 feet.",
+	descriptionFull: [
+		"You channel psionic power into your body, honing your reflexes and agility to an incredible degree. The world seems to slow down while you continue to move as normal.",
+		"***Psychic Focus***. While focused on this discipline, your walking speed increases by 10 feet.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["c1-rapid step", "c2-agile defense", "c3-blur of motion", "c4-surge of speed", "c5-surge of action"],
 };
@@ -1230,7 +1268,10 @@ PsionicsList["corrosive metabolism-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain resistance to Acid and Poison damage",
-	descriptionFull: "Your control over your body allows you to deliver acid or poison attacks." + PsychicFocus + "While focused on this discipline, you have resistance to acid and poison damage.",
+	descriptionFull: [
+		"Your control over your body allows you to deliver acid or poison attacks.",
+		"***Psychic Focus***. While focused on this discipline, you have resistance to acid and poison damage.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["cm1-corrosive touch", "cm2-venom strike", "cm3-acid spray", "cm4-breath of the black dragon", "cm5-breath of the green dragon"],
 };
@@ -1259,7 +1300,7 @@ PsionicsList["cm2-venom strike"] = {
 	duration: "Instantaneous",
 	save: "Con",
 	description: "1 crea 1d6/PP Poison damage; save halves; if save failed, poisoned until end of my next turn",
-	descriptionFull: "As an action, you create a poison spray that targets one creature you can see within 30 feet of you. The target must make a Constitution saving throw. On a failed save, it takes 1d6 poison damage per psi point spent and is poisoned until the end of your next turn. On a successful save, the target takes half as much damage and isn't poisoned.",
+	descriptionFull: "As an action, you create a *poison spray* that targets one creature you can see within 30 feet of you. The target must make a Constitution saving throw. On a failed save, it takes 1d6 poison damage per psi point spent and is poisoned until the end of your next turn. On a successful save, the target takes half as much damage and isn't poisoned.",
 	firstCol: "1-7",
 };
 PsionicsList["cm3-acid spray"] = {
@@ -1319,7 +1360,10 @@ PsionicsList["crown of despair-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advantage on Charisma (Intimidation) checks",
-	descriptionFull: "You have learned to harvest seeds of despair in a creature's psyche, wracking it with self-doubt and inaction." + PsychicFocus + "While focused on this discipline, you have advantage on Charisma (Intimidation) checks.",
+	descriptionFull: [
+		"You have learned to harvest seeds of despair in a creature's psyche, wracking it with self-doubt and inaction.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Charisma (Intimidation) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["cd1-crowned in sorrow", "cd2-call to inaction", "cd3-visions of despair", "cd4-dolorous mind"],
 };
@@ -1392,7 +1436,10 @@ PsionicsList["crown of disgust-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "5-ft rad around me is difficult terrain for creatures that aren't immune to being frightened",
-	descriptionFull: "You cause a creature to be flooded with emotions of disgust." + PsychicFocus + "While you are focused on this discipline, the area in a 5-foot radius around you is difficult terrain for any enemy that isn't immune to being frightened.",
+	descriptionFull: [
+		"You cause a creature to be flooded with emotions of disgust.",
+		"***Psychic Focus***. While you are focused on this discipline, the area in a 5-foot radius around you is difficult terrain for any enemy that isn't immune to being frightened.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["cd1-eye of horror", "cd2-wall of repulsion", "cd3-visions of disgust", "cd4-world of horror"],
 };
@@ -1450,7 +1497,10 @@ PsionicsList["cd4-world of horror"] = {
 	duration: "Conc, 1 min",
 	save: "Cha",
 	description: "6 crea 8d6 Psychic dmg, frightened, \u0026 do only melee atks; save halves, no other effects; save each rnd",
-	descriptionFull: "As an action, choose up to six creatures within 60 feet of you. Each target must make a Charisma saving throw. On a failed save, a target takes 8d6 psychic damage, and it is frightened until your concentration ends. On a successful save, a target takes half as much damage." + "\n   " + "While frightened by this effect, a target's speed is reduced to 0, and the target can use its action, and any bonus action it might have, only to make melee attacks. The frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+	descriptionFull: [
+		"As an action, choose up to six creatures within 60 feet of you. Each target must make a Charisma saving throw. On a failed save, a target takes 8d6 psychic damage, and it is frightened until your concentration ends. On a successful save, a target takes half as much damage.",
+		"While frightened by this effect, a target's speed is reduced to 0, and the target can use its action, and any bonus action it might have, only to make melee attacks. The frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+	],
 	firstCol: 7,
 };
 //the crown of rage discipline
@@ -1466,7 +1516,10 @@ PsionicsList["crown of rage-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "Any crea within range has disadvantage on melee attack rolls against targets other than me",
-	descriptionFull: "You place a mote of pure fury within a creature's mind, causing its bloodlust to overcome its senses and for it to act as you wish it to." + PsychicFocus + "While you are focused on this discipline, any enemy within 5 feet of you that makes a melee attack roll against creatures other than you does so with disadvantage.",
+	descriptionFull: [
+		"You place a mote of pure fury within a creature's mind, causing its bloodlust to overcome its senses and for it to act as you wish it to.",
+		"***Psychic Focus***. While you are focused on this discipline, any enemy within 5 feet of you that makes a melee attack roll against creatures other than you does so with disadvantage.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["cr1-primal fury", "cr2-fighting words", "cr3-mindless courage", "cr4-punishing fury"],
 };
@@ -1539,7 +1592,10 @@ PsionicsList["diminution-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I have advantage on Dexterity (Stealth) checks",
-	descriptionFull: "You manipulate the matter that composes your body, drastically reducing your size without surrendering any of your might." + PsychicFocus + "While focused on this discipline, you have advantage on Dexterity (Stealth) checks.",
+	descriptionFull: [
+		"You manipulate the matter that composes your body, drastically reducing your size without surrendering any of your might.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Dexterity (Stealth) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["d1-miniature form", "d2-toppling shift", "d3-sudden shift", "d4-microscopic form"],
 };
@@ -1612,7 +1668,10 @@ PsionicsList["giant growth-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "My reach increases by 5 ft",
-	descriptionFull: "You infuse yourself with psionic energy to grow to tremendous size, bolstering your strength and durability." + PsychicFocus + "While focused on this discipline, your reach increases by 5 feet.",
+	descriptionFull: [
+		"You infuse yourself with psionic energy to grow to tremendous size, bolstering your strength and durability.",
+		"***Psychic Focus***. While focused on this discipline, your reach increases by 5 feet.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["gg1-ogre form", "gg2-giant form"],
 };
@@ -1655,7 +1714,10 @@ PsionicsList["intellect fortress-ua-psy"] = {
 	components: "Psi-F",
 	duration: "While focused",
 	description: "I gain resistance to Psychic damage",
-	descriptionFull: "You forge an indomitable wall of psionic energy around your mind-one that allows you to launch counterattacks against your opponents." + PsychicFocus + "While focused on this discipline, you have resistance to psychic damage.",
+	descriptionFull: [
+		"You forge an indomitable wall of psionic energy around your mind-one that allows you to launch counterattacks against your opponents.",
+		"***Psychic Focus***. While focused on this discipline, you have resistance to psychic damage.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["if1-psychic backlash", "if2-psychic parry", "if3-psychic redoubt"],
 };
@@ -1712,7 +1774,10 @@ PsionicsList["iron durability-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain a +1 bonus to AC",
-	descriptionFull: "You transform your body to become a living metal, allowing you to shrug off attacks that would cripple weaker creatures." + PsychicFocus + "While focused on this discipline, you gain a +1 bonus to AC.",
+	descriptionFull: [
+		"You transform your body to become a living metal, allowing you to shrug off attacks that would cripple weaker creatures.",
+		"***Psychic Focus***. While focused on this discipline, you gain a +1 bonus to AC.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["id1-iron hide", "id2-steel hide", "id3-iron resistance"],
 };
@@ -1769,7 +1834,10 @@ PsionicsList["mantle of awe-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain a bonus to Charisma checks, bonus equals half my Intelligence modifier (min 1)",
-	descriptionFull: "You learn to use psionic energy to manipulate others with a subtle combination of psi and your own, natural charm." + PsychicFocus + "While focused on this discipline, you gain a bonus to Charisma checks. The bonus equals half your Intelligence modifier (minimum of +1).",
+	descriptionFull: [
+		"You learn to use psionic energy to manipulate others with a subtle combination of psi and your own, natural charm.",
+		"***Psychic Focus***. While focused on this discipline, you gain a bonus to Charisma checks. The bonus equals half your Intelligence modifier (minimum of +1).",
+	],
 	firstCol: "checkbox",
 	dependencies: ["moa1-charming presence", "moa2-center of attention", "moa3-invoke awe"],
 };
@@ -1783,7 +1851,10 @@ PsionicsList["moa1-charming presence"] = {
 	range: "30 ft",
 	duration: "10 min",
 	description: "2d8/PP HP of conscious, not in combat, not immune to charm crea charmed; use HP max, not current",
-	descriptionFull: "As an action, you exert an aura of sympathetic power. Roll 2d8 per psi point spent on this ability; the total is how many hit points worth of creatures this option can affect. Creatures within 30 feet of you are affected in ascending order of their hit point maximums, ignoring incapacitated creatures, creatures immune to being charmed, and creatures engaged in combat." + "\n   " + "Starting with the creature that has the lowest hit point maximum, each creature affected by this option is charmed by you for 10 minutes, regarding you as a friendly acquaintance. Subtract each creature's hit point maximum from the total before moving on to the next creature. A creature's hit point maximum must be equal to or less than the remaining total for that creature to be affected.",
+	descriptionFull: [
+		"As an action, you exert an aura of sympathetic power. Roll 2d8 per psi point spent on this ability; the total is how many hit points worth of creatures this option can affect. Creatures within 30 feet of you are affected in ascending order of their hit point maximums, ignoring incapacitated creatures, creatures immune to being charmed, and creatures engaged in combat.",
+		"Starting with the creature that has the lowest hit point maximum, each creature affected by this option is charmed by you for 10 minutes, regarding you as a friendly acquaintance. Subtract each creature's hit point maximum from the total before moving on to the next creature. A creature's hit point maximum must be equal to or less than the remaining total for that creature to be affected.",
+	],
 	firstCol: "1-7",
 };
 PsionicsList["moa2-center of attention"] = {
@@ -1827,7 +1898,10 @@ PsionicsList["mantle of command-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "When ending a turn I didn't move in, use my rea to have 1 ally within 30 ft move half its speed",
-	descriptionFull: "You exert an aura of trust and authority, enhancing the coordination among your allies." + PsychicFocus + "While focused on this discipline, when you end your turn and didn't move during it, you can use your reaction to allow one ally you can see within 30 feet of you to move up to half their speed, following a path of your choice. To move in this way, the ally mustn't be incapacitated.",
+	descriptionFull: [
+		"You exert an aura of trust and authority, enhancing the coordination among your allies.",
+		"***Psychic Focus***. While focused on this discipline, when you end your turn and didn't move during it, you can use your reaction to allow one ally you can see within 30 feet of you to move up to half their speed, following a path of your choice. To move in this way, the ally mustn't be incapacitated.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mc1-coordinated movement", "mc2-commander's sight", "mc3-command to strike", "mc4-strategic mind", "mc5-overwhelming attack"],
 };
@@ -1909,7 +1983,10 @@ PsionicsList["mantle of courage-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "My and allies within 10 ft that can see me have advantage on saves vs. being frightened",
-	descriptionFull: "You focus your mind on courage, radiating confidence and bravado to your allies." + PsychicFocus + "While focused on this discipline, you and allies within 10 feet of you who can see you have advantage on saving throws against being frightened.",
+	descriptionFull: [
+		"You focus your mind on courage, radiating confidence and bravado to your allies.",
+		"***Psychic Focus***. While focused on this discipline, you and allies within 10 feet of you who can see you have advantage on saving throws against being frightened.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mc1-incite courage", "mc2-aura of victory", "mc3-pillar of confidence"],
 };
@@ -1965,7 +2042,10 @@ PsionicsList["mantle of fear-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advantage on Charisma (Intimidation) checks",
-	descriptionFull: "You tap into a well of primal fear and turn yourself into a beacon of terror to your enemies." + PsychicFocus + "While focused on this discipline, you have advantage on Charisma (Intimidation) checks.",
+	descriptionFull: [
+		"You tap into a well of primal fear and turn yourself into a beacon of terror to your enemies.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Charisma (Intimidation) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mf1-incite fear", "mf2-unsettling aura", "mf3-incite panic"],
 };
@@ -2023,7 +2103,10 @@ PsionicsList["mantle of fury-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "Me and allies within 10 ft at start of my turn gain +5 ft walking speed for that turn",
-	descriptionFull: "You allow the primal fury lurking deep within your mind to burst forth, catching you and your allies in an implacable bloodthirst." + PsychicFocus + "While focused on this discipline in combat, you and any ally who starts their turn within 10 feet of you gains a 5-foot increase to their walking speed during that turn.",
+	descriptionFull: [
+		"You allow the primal fury lurking deep within your mind to burst forth, catching you and your allies in an implacable bloodthirst.",
+		"***Psychic Focus***. While focused on this discipline in combat, you and any ally who starts their turn within 10 feet of you gains a 5-foot increase to their walking speed during that turn.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mf1-incite fury", "mf2-mindless charge", "mf3-aura of bloodletting", "mf4-overwhelming fury"],
 };
@@ -2093,7 +2176,10 @@ PsionicsList["mantle of joy-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advantage on Charisma (Persuasion) checks",
-	descriptionFull: "You tap into the joy within you, radiating it outward in soothing, psychic energy that brings hope and comfort to creatures around you." + PsychicFocus + "While focused on this discipline, you have advantage on Charisma (Persuasion) checks.",
+	descriptionFull: [
+		"You tap into the joy within you, radiating it outward in soothing, psychic energy that brings hope and comfort to creatures around you.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Charisma (Persuasion) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mj1-soothing presence", "mj2-comforting aura", "mj3-aura of jubilation", "mj4-beacon of recovery"],
 };
@@ -2162,7 +2248,10 @@ PsionicsList["mastery of air-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I take no falling damage and ignore difficult terrain when walking",
-	descriptionFull: "You become one with the power of elemental air." + PsychicFocus + "While focused on this discipline, you take no falling damage, and you ignore difficult terrain when walking.",
+	descriptionFull: [
+		"You become one with the power of elemental air.",
+		"***Psychic Focus***. While focused on this discipline, you take no falling damage, and you ignore difficult terrain when walking.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["ma1-wind step", "ma2-wind stream", "ma3-cloak of air", "ma4-wind form", "ma5-misty form", "ma6-animate air"],
 };
@@ -2259,7 +2348,10 @@ PsionicsList["mastery of fire-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain resistance to Fire damage and gain a +2 bonus on rolls for Fire damage",
-	descriptionFull: "You align your mind with the energy of elemental fire." + PsychicFocus + "While focused on this discipline, you gain resistance to fire damage, and you gain a +2 bonus to rolls for fire damage.",
+	descriptionFull: [
+		"You align your mind with the energy of elemental fire.",
+		"***Psychic Focus***. While focused on this discipline, you gain resistance to fire damage, and you gain a +2 bonus to rolls for fire damage.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mf1-combustion", "mf2-rolling flame", "mf3-detonation", "mf4-fire storm", "mf5-animate fire"],
 };
@@ -2343,7 +2435,10 @@ PsionicsList["mastery of force-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advantage on Strength checks",
-	descriptionFull: "As a student of psionic power, you perceive the potential energy that flows through all things. You reach out with your mind, transforming the potential into the actual. Objects and creatures move at your command." + PsychicFocus + ". While focused on this discipline, you have advantage on Strength checks.",
+	descriptionFull: [
+		"As a student of psionic power, you perceive the potential energy that flows through all things. You reach out with your mind, transforming the potential into the actual. Objects and creatures move at your command.",
+		"***Psychic Focus***. . While focused on this discipline, you have advantage on Strength checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mf1-push", "mf2-move", "mf3-inertial armor", "mf4-telekinetic barrier", "mf5-grasp", "mf6-crush (with grasp)" , "mf7-move (with grasp)"],
 };
@@ -2372,7 +2467,19 @@ PsionicsList["mf2-move"] = {
 	duration: "Instantaneous",
 	save: "Dex",
 	description: "Move obj 60 ft, after which it falls; crea under obj DC 10 save or 1d6+1d6/PP Bludg. dmg; see book",
-	descriptionFull: "Choose one object you can see within 60 feet of you that isn't being worn or carried by another creature and that isn't secured in place. It can't be larger than 20 feet on a side, and its maximum weight depends on the psi points spent on this ability, as shown below." + "\n   " + "As an action, you move the object up to 60 feet, and you must keep the object within sight during this movement. If the object ends this movement in the air, it falls. If the object would fall on a creature, the creature must succeed on a DC 10 Dexterity saving throw or take damage as listed on the table below.\n\n  **Psi**\t**Maximum**    **Bludgeoning**\n**Points**\t **Weight**\t        **Damage**\n    2\t     25 lbs.  \t             2d6" + "\n    3\t     50 lbs.  \t             4d6" + "\n    5\t   250 lbs.  \t             6d6" + "\n    6\t   500 lbs.  \t             7d6" + "\n    7\t 1000 lbs.  \t             8d6",
+	descriptionFull: [
+		"Choose one object you can see within 60 feet of you that isn't being worn or carried by another creature and that isn't secured in place. It can't be larger than 20 feet on a side, and its maximum weight depends on the psi points spent on this ability, as shown below.",
+		"As an action, you move the object up to 60 feet, and you must keep the object within sight during this movement. If the object ends this movement in the air, it falls. If the object would fall on a creature, the creature must succeed on a DC 10 Dexterity saving throw or take damage as listed on the table below.",
+		[
+			["  Psi", "Maximum    Bludgeoning"],
+			["**Points**", " **Weight**", "        **Damage**"],
+			["    2", "     25 lbs.  ", "             2d6"],
+			["    3", "     50 lbs.  ", "             4d6"],
+			["    5", "   250 lbs.  ", "             6d6"],
+			["    6", "   500 lbs.  ", "             7d6"],
+			["    7", " 1000 lbs.  ", "             8d6"],
+		],
+	],
 	firstCol: "2-7",
 };
 PsionicsList["mf3-inertial armor"] = {
@@ -2412,7 +2519,11 @@ PsionicsList["mf5-grasp"] = {
 	duration: "Conc, 1 min",
 	description: "1 crea save or grappled; escape Athl./Acro. vs. my spell atk +1/PP; if grappled I can Crush/Move",
 	save: "Str",
-	descriptionFull: "You attempt to grasp a creature in telekinetic energy and hold it captive. As an action, choose one creature you can see within 60 feet of you. The target must succeed on a Strength saving throw or be grappled by you until your concentration ends or until the target leaves your reach, which is 60 feet for this grapple." + "\n   " + "The grappled target can escape by succeeding on a Strength (Athletics) or Dexterity (Acrobatics) check contested by your psionic ability plus your proficiency bonus. When a target attempts to escape in this way, you can spend psi points to boost your check, abiding by your psi limit. You gain a +1 bonus per psi point spent." + "\n   " + "While a target is grappled in this manner, you create one of the following effects as an action: ***Crush*** (1–7 psi) The target takes 1d6 bludgeoning damage per psi point spent.***Move*** (1–7 psi) You move the target up to 5 feet per psi point spent. You can move it in the air and hold it there. It falls if the grapple ends.",
+	descriptionFull: [
+		"You attempt to grasp a creature in telekinetic energy and hold it captive. As an action, choose one creature you can see within 60 feet of you. The target must succeed on a Strength saving throw or be grappled by you until your concentration ends or until the target leaves your reach, which is 60 feet for this grapple.",
+		"The grappled target can escape by succeeding on a Strength (Athletics) or Dexterity (Acrobatics) check contested by your psionic ability plus your proficiency bonus. When a target attempts to escape in this way, you can spend psi points to boost your check, abiding by your psi limit. You gain a +1 bonus per psi point spent.",
+		"While a target is grappled in this manner, you create one of the following effects as an action: ***Crush*** (1–7 psi) The target takes 1d6 bludgeoning damage per psi point spent.***Move*** (1–7 psi) You move the target up to 5 feet per psi point spent. You can move it in the air and hold it there. It falls if the grapple ends.",
+	],
 	firstCol: 3,
 };
 PsionicsList["mf6-crush (with grasp)"] = {
@@ -2425,7 +2536,10 @@ PsionicsList["mf6-crush (with grasp)"] = {
 	range: "60 ft",
 	duration: "Instantaneous",
 	description: "1 creature grappled by Grasp takes 1d6/PP Bludgeoning damage",
-	descriptionFull: "While the target is grappled by Grasp from the Mastery of Force discipline, you can use Crush on it as an action:" + "\n  " + "The target takes 1d6 bludgeoning damage per psi point spent.",
+	descriptionFull: [
+		"While the target is grappled by Grasp from the Mastery of Force discipline, you can use Crush on it as an action:",
+		"The target takes 1d6 bludgeoning damage per psi point spent.",
+	],
 	firstCol: "1-7",
 };
 PsionicsList["mf7-move (with grasp)"] = {
@@ -2438,7 +2552,10 @@ PsionicsList["mf7-move (with grasp)"] = {
 	range: "60 ft",
 	duration: "Instantaneous",
 	description: "1 creature grappled by Grasp moved up to 5 ft/PP; can hold it aloft, but it falls when grapple ends",
-	descriptionFull: "While the target is grappled by Grasp from the Mastery of Force discipline, you can use Move on it as an action:" + "\n  " + "You move the target up to 5 feet per psi point spent. You can move it in the air and hold it there. It falls if the grapple ends.",
+	descriptionFull: [
+		"While the target is grappled by Grasp from the Mastery of Force discipline, you can use Move on it as an action:",
+		"You move the target up to 5 feet per psi point spent. You can move it in the air and hold it there. It falls if the grapple ends.",
+	],
 	firstCol: "1-7",
 };
 //the mastery of ice discipline (contributed by Justin W.)
@@ -2454,7 +2571,10 @@ PsionicsList["mastery of ice-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain resistance to Cold damage",
-	descriptionFull: "You master the power of ice, shaping it to meet you demands." + PsychicFocus + "While focused on this discipline, you have resistance to cold damage.",
+	descriptionFull: [
+		"You master the power of ice, shaping it to meet you demands.",
+		"***Psychic Focus***. While focused on this discipline, you have resistance to cold damage.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mi1-ice spike", "mi2-ice sheet", "mi3-frozen sanctuary", "mi4-frozen rain", "mi5-ice barrier"],
 };
@@ -2510,7 +2630,11 @@ PsionicsList["mi4-frozen rain"] = {
 	duration: "Conc, 1 min",
 	save: "Con",
 	description: "20-ft rad all 6d6(+1d6/extra PP) Cold dmg \u0026 spd 0; save half \u0026 no spd 0; 1 a Athl. vs DC for no spd 0",
-	descriptionFull: "As an action, choose a point you can see within 120 feet of you. The air in a 20-foot-radius sphere centered on that point becomes deathly cold and saturated with moisture. Each creature in that area must make a Constitution saving throw. On a failed save, a target takes 6d6 cold damage, and its speed is reduced to 0 until your concentration ends. On a successful save, a target takes half as much damage." + "\n   " + "As an action, a target that has its speed reduced can end the effect early if it succeeds on a Strength (Athletics) check with a DC equal to this effect's save DC." + "\n   " + "You can increase this effect's damage by 1d6 per each additional psi point spent on it.",
+	descriptionFull: [
+		"As an action, choose a point you can see within 120 feet of you. The air in a 20-foot-radius sphere centered on that point becomes deathly cold and saturated with moisture. Each creature in that area must make a Constitution saving throw. On a failed save, a target takes 6d6 cold damage, and its speed is reduced to 0 until your concentration ends. On a successful save, a target takes half as much damage.",
+		"As an action, a target that has its speed reduced can end the effect early if it succeeds on a Strength (Athletics) check with a DC equal to this effect's save DC.",
+		"You can increase this effect's damage by 1d6 per each additional psi point spent on it.",
+	],
 	firstCol: "5-7",
 };
 PsionicsList["mi5-ice barrier"] = {
@@ -2541,7 +2665,10 @@ PsionicsList["mastery of light and darkness-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I can see through natural and magical darkness out to 30 ft",
-	descriptionFull: "You claim dominion over light and darkness with your mind." + PsychicFocus + "While focused on this discipline, natural and magical darkness within 30 feet of you has no effect on your vision.",
+	descriptionFull: [
+		"You claim dominion over light and darkness with your mind.",
+		"***Psychic Focus***. While focused on this discipline, natural and magical darkness within 30 feet of you has no effect on your vision.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mld1-darkness", "mld2-light", "mld3-shadow beasts", "mld4-radiant beam"],
 };
@@ -2596,7 +2723,10 @@ PsionicsList["mld4-radiant beam"] = {
 	duration: "Conc, 1 min",
 	save: "Dex",
 	description: "1 crea 6d6(+1d6/extra PP) Radiant dmg, blinded, save each turn to end blind; save halves \u0026 not blind",
-	descriptionFull: "As an action, you project a beam of light at one creature you can see within 60 feet of you. The target must make a Dexterity saving throw. On a failed save, it takes 6d6 radiant damage and is blinded until your concentration ends. On a successful save, it takes half as much damage. A blinded target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success." + "\n   " + "You can increase this effect's damage by 1d6 per each additional psi point spent on it.",
+	descriptionFull: [
+		"As an action, you project a beam of light at one creature you can see within 60 feet of you. The target must make a Dexterity saving throw. On a failed save, it takes 6d6 radiant damage and is blinded until your concentration ends. On a successful save, it takes half as much damage. A blinded target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+		"You can increase this effect's damage by 1d6 per each additional psi point spent on it.",
+	],
 	firstCol: "5-7",
 };
 //the mastery of water discipline (contributed by Justin W.)
@@ -2612,7 +2742,10 @@ PsionicsList["mastery of water-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain a swimming speed equal to my walking speed and I can breathe underwater",
-	descriptionFull: "Your mind becomes one with elemental water, attuning your thoughts to its ebb and flow." + PsychicFocus + "While focused on this discipline, you have a swimming speed equal to your walking speed, and you can breathe underwater.",
+	descriptionFull: [
+		"Your mind becomes one with elemental water, attuning your thoughts to its ebb and flow.",
+		"***Psychic Focus***. While focused on this discipline, you have a swimming speed equal to your walking speed, and you can breathe underwater.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mwa1-dessicate", "mwa2-watery grasp", "mwa3-water whip", "mwa4-water breathing","mwa5-water sphere","mwa6-animate water"],
 };
@@ -2712,7 +2845,10 @@ PsionicsList["mastery of weather-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain resistance to Lightning and Thunder damage",
-	descriptionFull: "Your mind reaches into the sky, reshaping the stuff of storms to serve your needs." + PsychicFocus + "While focused on this discipline, you have resistance to lightning and thunder damage.",
+	descriptionFull: [
+		"Your mind reaches into the sky, reshaping the stuff of storms to serve your needs.",
+		"***Psychic Focus***. While focused on this discipline, you have resistance to lightning and thunder damage.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mw1-cloud steps", "mw2-hungry lightning", "mw3-wall of clouds", "mw4-whirlwind", "mw5-lightning leap", "mw6-wall of thunder", "mw7-thunder clap"],
 };
@@ -2781,7 +2917,10 @@ PsionicsList["mw5-lightning leap"] = {
 	duration: "Instantaneous",
 	save: "Dex",
 	description: "60-ft long 5-ft wide all 6d6(+1d6/extra PP) Lightning dmg; save halves; I teleport to spot on line",
-	descriptionFull: "As an action, you let loose a line of lightning that is 60 feet long and 5 feet wide. Each creature in the line must make a Dexterity saving throw, taking 6d6 lightning damage on a failed save, or half as much damage on a successful one. You can then teleport to an unoccupied space touched by the line." + "\n   " + "You can increase this ability's damage by 1d6 per additional psi point spent on it.",
+	descriptionFull: [
+		"As an action, you let loose a line of lightning that is 60 feet long and 5 feet wide. Each creature in the line must make a Dexterity saving throw, taking 6d6 lightning damage on a failed save, or half as much damage on a successful one. You can then teleport to an unoccupied space touched by the line.",
+		"You can increase this ability's damage by 1d6 per additional psi point spent on it.",
+	],
 	firstCol: "5-7",
 };
 PsionicsList["mw6-wall of thunder"] = {
@@ -2827,7 +2966,10 @@ PsionicsList["mastery of wood and earth-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain a +1 bonus to AC",
-	descriptionFull: "You attune your mind to seize control of wood and earth." + PsychicFocus + "While focused on this discipline, you have a +1 bonus to AC.",
+	descriptionFull: [
+		"You attune your mind to seize control of wood and earth.",
+		"***Psychic Focus***. While focused on this discipline, you have a +1 bonus to AC.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mwe1-animate weapon", "mwe2-warp weapon", "mwe3-warp armor", "mwe4-wall of wood", "mwe5-armored form", "mwe6-animate earth"],
 };
@@ -2925,7 +3067,10 @@ PsionicsList["nomadic arrow-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "My ranged weapon attacks ignore disadvantage, but can't get adv. if it was subject to dis.",
-	descriptionFull: "You imbue a ranged weapon with a strange semblance of sentience, allowing it to unerringly find its mark." + PsychicFocus + "While you are focused on this discipline, any attack roll you make for a ranged weapon attack ignores disadvantage. If disadvantage would normally apply to the roll, that roll also can't benefit from advantage.",
+	descriptionFull: [
+		"You imbue a ranged weapon with a strange semblance of sentience, allowing it to unerringly find its mark.",
+		"***Psychic Focus***. While you are focused on this discipline, any attack roll you make for a ranged weapon attack ignores disadvantage. If disadvantage would normally apply to the roll, that roll also can't benefit from advantage.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["na1-speed dart", "na2-seeking missile", "na3-faithful archer"],
 };
@@ -2982,7 +3127,10 @@ PsionicsList["nomadic chameleon-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advantage on Dexterity (Stealth) checks",
-	descriptionFull: "You create a screen of psychic power that distorts your appearance, allowing you to blend into the background or even turn invisible." + PsychicFocus + "While focused on this discipline, you have advantage on Dexterity (Stealth) checks.",
+	descriptionFull: [
+		"You create a screen of psychic power that distorts your appearance, allowing you to blend into the background or even turn invisible.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Dexterity (Stealth) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["nc1-chameleon", "nc2-step from sight", "nc3-enduring invisibility"],
 };
@@ -3009,7 +3157,10 @@ PsionicsList["nc2-step from sight"] = {
 	range: "60 ft",
 	duration: "Conc, 1 min",
 	description: "I (+1 crea/extra PP) become invisible; attacking/targeting/affecting other crea makes a crea visible",
-	descriptionFull: "As a bonus action, cloak yourself from sight. You can target one additional creature for every additional psi point you spend on this ability. The added targets must be visible to you and within 60 feet of you." + "\n   " + "Each target turns invisible and remains so until your concentration ends or until immediately after it targets, damages, or otherwise affects any creature with an attack, a spell, or another ability.",
+	descriptionFull: [
+		"As a bonus action, cloak yourself from sight. You can target one additional creature for every additional psi point you spend on this ability. The added targets must be visible to you and within 60 feet of you.",
+		"Each target turns invisible and remains so until your concentration ends or until immediately after it targets, damages, or otherwise affects any creature with an attack, a spell, or another ability.",
+	],
 	firstCol: "3-7",
 };
 PsionicsList["nc3-enduring invisibility"] = {
@@ -3038,7 +3189,10 @@ PsionicsList["nomadic mind-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain proficiency with one skill, tool, or language",
-	descriptionFull: "You dispatch part of your psyche into the noosphere, the collective vista of minds and knowledge possessed by living things." + PsychicFocus + "Whenever you focus on this discipline, you choose one skill or tool and have proficiency with it until your focus ends. Alternatively, you gain the ability to read and write one language of your choice until your focus ends.",
+	descriptionFull: [
+		"You dispatch part of your psyche into the noosphere, the collective vista of minds and knowledge possessed by living things.",
+		"***Psychic Focus***. Whenever you focus on this discipline, you choose one skill or tool and have proficiency with it until your focus ends. Alternatively, you gain the ability to read and write one language of your choice until your focus ends.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["nm1-wandering mind", "nm2-find creature", "nm3-item lore", "nm4-psychic speech", "nm5-wandering eye", "nm6-phasing eye"],
 };
@@ -3078,7 +3232,7 @@ PsionicsList["nm3-item lore"] = {
 	range: "5 ft",
 	duration: "Instantaneous",
 	description: "1 magical item or magic-imbued crea/obj; learn properties, how to use, and spells affecting it",
-	descriptionFull: "You carefully study an item. If you concentrate for this option's full duration while remaining within 5 feet of the item, you then gain the benefits of an identify spell cast on that item.",
+	descriptionFull: "You carefully study an item. If you concentrate for this option's full duration while remaining within 5 feet of the item, you then gain the benefits of an *identify* spell cast on that item.",
 	firstCol: 3,
 };
 PsionicsList["nm4-psychic speech"] = {
@@ -3134,7 +3288,10 @@ PsionicsList["nomadic step-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "1/turn; after I teleport, increase speed by 10 ft until end of my turn",
-	descriptionFull: "You exert your mind on the area around you, twisting the intraplanar pathways you perceive to allow instantaneous travel." + PsychicFocus + "After you teleport on your turn while focused on this discipline, your walking speed increases by 10 feet until the end of the turn, as you are propelled by the magic of your teleportation. You can receive this increase only once per turn.",
+	descriptionFull: [
+		"You exert your mind on the area around you, twisting the intraplanar pathways you perceive to allow instantaneous travel.",
+		"***Psychic Focus***. After you teleport on your turn while focused on this discipline, your walking speed increases by 10 feet until the end of the turn, as you are propelled by the magic of your teleportation. You can receive this increase only once per turn.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["ns1-step of a dozen paces", "ns2-nomadic anchor", "ns3-defensive step", "ns4-there and back again", "ns5-transposition", "ns6-baleful transposition", "ns7-phantom caravan", "ns8-nomad's gate"],
 };
@@ -3258,7 +3415,10 @@ PsionicsList["precognition-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advangage on initiative rolls",
-	descriptionFull: "By analyzing information around you, from subtle hints to seemingly disconnected facts, you learn to weave a string of probabilities in an instant that gives you extraordinary insights." + PsychicFocus + "While focused on this discipline, you have advantage on initiative rolls.",
+	descriptionFull: [
+		"By analyzing information around you, from subtle hints to seemingly disconnected facts, you learn to weave a string of probabilities in an instant that gives you extraordinary insights.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on initiative rolls.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["p1-precognitive hunch", "p2-all-around sight", "p3-danger sense", "p4-victory before battle"],
 };
@@ -3328,7 +3488,10 @@ PsionicsList["psionic restoration-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "While focused, I can touch a creature with 0 HP as a bonus action and stabilize it",
-	descriptionFull: "You wield psionic energy to cure wounds and restore health to yourself and others." + PsychicFocus + "While focused on this discipline, you can use a bonus action to touch a creature that has 0 hit points and stabilize it.",
+	descriptionFull: [
+		"You wield psionic energy to *cure wounds* and restore health to yourself and others.",
+		"***Psychic Focus***. While focused on this discipline, you can use a bonus action to touch a creature that has 0 hit points and stabilize it.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["pr1-mend wounds", "pr2-restore health", "pr3-restore life", "pr4-restore vigor"],
 };
@@ -3397,7 +3560,10 @@ PsionicsList["psionic weapon-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "1 weapon or unarmed strike does Psychic dmg and counts as magical; no Str or Dex to dmg until CL6",
-	descriptionFull: "You have learned how to channel psionic energy into your attacks, lending them devastating power." + PsychicFocus + "Whenever you focus on this discipline, choose one weapon you're holding or your unarmed strike. When you attack with it while focused on this discipline, its damage is psychic and magical, rather than its normal damage type. Until you reach 6th level as a mystic, you don't add your Strength or Dexterity modifier to the psychic attack's damage rolls.",
+	descriptionFull: [
+		"You have learned how to channel psionic energy into your attacks, lending them devastating power.",
+		"***Psychic Focus***. Whenever you focus on this discipline, choose one weapon you're holding or your unarmed strike. When you attack with it while focused on this discipline, its damage is psychic and magical, rather than its normal damage type. Until you reach 6th level as a mystic, you don't add your Strength or Dexterity modifier to the psychic attack's damage rolls.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["pw1-ethereal weapon", "pw2-lethal strike", "pw3-augmented weapon"],
 };
@@ -3453,7 +3619,10 @@ PsionicsList["psychic assault-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain a +2 bonus to damage rolls with psionic talents that deal Psychic damage",
-	descriptionFull: "You wield your mind like a weapon, unleashing salvos of psionic energy." + PsychicFocus + "While focused on this discipline, you gain a +2 bonus to damage rolls with psionic talents that deal psychic damage.",
+	descriptionFull: [
+		"You wield your mind like a weapon, unleashing salvos of psionic energy.",
+		"***Psychic Focus***. While focused on this discipline, you gain a +2 bonus to damage rolls with psionic talents that deal psychic damage.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["pa1-psionic blast", "pa2-ego whip", "pa3-id insinuation", "pa4-psychic blast", "pa5-psychic crush"],
 };
@@ -3539,7 +3708,10 @@ PsionicsList["psychic disruption-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I have advantage on Charisma (Deception) checks",
-	descriptionFull: "You create psychic static that disrupts other creatures' ability to think clearly." + PsychicFocus + "While focused on this discipline, you have advantage on Charisma (Deception) checks.",
+	descriptionFull: [
+		"You create psychic static that disrupts other creatures' ability to think clearly.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Charisma (Deception) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["pd1-distracting haze", "pd2-daze", "pd3-mind storm"],
 };
@@ -3598,7 +3770,10 @@ PsionicsList["psychic inquisition-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I know when a creature telepathically communicating with me is lying",
-	descriptionFull: "You reach into a creature's mind to uncover information or plant ideas within it." + PsychicFocus + "While focused on this discipline, you know when a creature communicating with you via telepathy is lying.",
+	descriptionFull: [
+		"You reach into a creature's mind to uncover information or plant ideas within it.",
+		"***Psychic Focus***. While focused on this discipline, you know when a creature communicating with you via telepathy is lying.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["pi1-hammer of inquisition", "pi2-forceful query", "pi3-ransack mind", "pi4-phantom idea"],
 };
@@ -3641,7 +3816,12 @@ PsionicsList["pi3-ransack mind"] = {
 	duration: "12/24/48 h",
 	save: "Int",
 	description: "1 crea 3 saves if in range for full duration; learn key memories from 12/24/48 h (1/2/3 failed saves)",
-	descriptionFull: "While you concentrate on this ability, you probe one creature's mind. The creature must remain within 30 feet of you, and you must be able to see it. If you reach the ability's full duration, the target must make three Intelligence saving throws, and you learn information from it based on the number of saving throws it fails." + "\n   " + "With one failed saving throw, you learn its key memories from the past 12 hours." + "\n   " + "With two failed saving throws, you learn its key memories from the past 24 hours." + "\n   " + "With three failed saving throws, you learn its key memories from the past 48 hours.",
+	descriptionFull: [
+		"While you concentrate on this ability, you probe one creature's mind. The creature must remain within 30 feet of you, and you must be able to see it. If you reach the ability's full duration, the target must make three Intelligence saving throws, and you learn information from it based on the number of saving throws it fails.",
+		"With one failed saving throw, you learn its key memories from the past 12 hours.",
+		"With two failed saving throws, you learn its key memories from the past 24 hours.",
+		"With three failed saving throws, you learn its key memories from the past 48 hours.",
+	],
 	firstCol: 5,
 };
 PsionicsList["pi4-phantom idea"] = {
@@ -3655,7 +3835,10 @@ PsionicsList["pi4-phantom idea"] = {
 	duration: "4/24/48 h",
 	save: "Int",
 	description: "1 crea 3 saves if in range for full duration; implant memory lasting 4/24/48 h (1/2/3 failed saves)",
-	descriptionFull: "While you concentrate on this ability, you probe one creature's mind. The creature must remain within 30 feet of you, and you must be able to see it. If you reach the ability's full duration, the target must make three Intelligence saving throws, and you plant a memory or an idea in it, which lasts for a number of hours based on the number of saving throws it fails. You choose whether the idea or memory is trivial (such as “I had porridge for breakfast” or “Ale is the worst”) or personality-defining (“I failed to save my village from orc marauders and am therefore a coward” or “Magic is a scourge, so I renounce it”)." + "\n   " + "With one failed saving throw, the idea or memory lasts for the next 4 hours. With two failed saving throws, it lasts for 24 hours. With three failed saving throws, it lasts for 48 hours.",
+	descriptionFull: [
+		"While you concentrate on this ability, you probe one creature's mind. The creature must remain within 30 feet of you, and you must be able to see it. If you reach the ability's full duration, the target must make three Intelligence saving throws, and you plant a memory or an idea in it, which lasts for a number of hours based on the number of saving throws it fails. You choose whether the idea or memory is trivial (such as “I had porridge for breakfast” or “Ale is the worst”) or personality-defining (“I failed to save my village from orc marauders and am therefore a coward” or “Magic is a scourge, so I renounce it”).",
+		"With one failed saving throw, the idea or memory lasts for the next 4 hours. With two failed saving throws, it lasts for 24 hours. With three failed saving throws, it lasts for 48 hours.",
+	],
 	firstCol: 6,
 };
 //the psychic phantoms discipline (contributed by Justin W.)
@@ -3671,7 +3854,10 @@ PsionicsList["psychic phantoms-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advantage on Charisma (Deception) checks",
-	descriptionFull: "Your power reaches into a creature's mind and causes it false perceptions." + PsychicFocus + "While focused on this discipline, you have advantage on Charisma (Deception) checks.",
+	descriptionFull: [
+		"Your power reaches into a creature's mind and causes it false perceptions.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Charisma (Deception) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["pp1-distracting figment", "pp2-phantom foe", "pp3-phantom betrayal", "pp4-phantom riches"],
 };
@@ -3744,7 +3930,10 @@ PsionicsList["telepathic contact-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "Use telepathy class feature with up to 6 crea; If no telepathy feature, gain telepathy 120 ft instead",
-	descriptionFull: "By channeling psionic power, you gain the ability to control other creatures by substituting your will for their own." + PsychicFocus + "While focused on this discipline, you gain the ability to use your Telepathy class feature with up to six creatures at once. If you don't have that feature from the mystic class, you instead gain it while focused on this discipline.",
+	descriptionFull: [
+		"By channeling psionic power, you gain the ability to control other creatures by substituting your will for their own.",
+		"***Psychic Focus***. While focused on this discipline, you gain the ability to use your Telepathy class feature with up to six creatures at once. If you don't have that feature from the mystic class, you instead gain it while focused on this discipline.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["tc1-exacting query", "tc2-occluded mind", "tc3-broken will", "tc4-psychic grip", "tc5-psychic domination"],
 };
@@ -3831,7 +4020,10 @@ PsionicsList["third eye-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain darkvision 60 ft; if already darkvision of 60 ft or more, increase range by 10 ft instead",
-	descriptionFull: "You create a third, psychic eye in your mind which you cast out into the world. It channels thoughts and knowledge back to you, greatly enhancing your senses." + PsychicFocus + "While focused on this discipline, you have darkvision with a range of 60 feet. If you already have darkvision with that range or greater, increase its range by 10 feet.",
+	descriptionFull: [
+		"You create a third, psychic eye in your mind which you cast out into the world. It channels thoughts and knowledge back to you, greatly enhancing your senses.",
+		"***Psychic Focus***. While focused on this discipline, you have darkvision with a range of 60 feet. If you already have darkvision with that range or greater, increase its range by 10 feet.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["te1-tremorsense", "te2-unwavering eye", "te3-piercing sight", "te4-truesight"],
 };

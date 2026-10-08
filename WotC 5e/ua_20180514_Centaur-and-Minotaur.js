@@ -1,5 +1,5 @@
 var iFileName = "ua_20180514_Centaur-and-Minotaur.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Centaur and Minotaur article to MPMB's Character Record Sheet
 
 // Define the source
@@ -41,12 +41,13 @@ RaceList["centaur-ua"] = {
 	heightMetric: " stand between 2,1 and 2,4 metres tall (front hooves to their crowns) and 1,8 to 2,4 metres long (from their chests to the back of their rumps)",
 	weightMetric: " weigh anywhere from 430 to 550 kg",
 	scores: [2, 0, 0, 0, 1, 0],
-	trait: "Centaur (+2 Strength +1 Wisdom)" + desc([
-		"Hooves: I can use my hooves in melee (1d6 bludgeoning damage).",
-		"Charge: Once per short rest, if I move 20 ft straight toward a creature and then hit it with a melee weapon attack on the same turn, I can roll the weapon's damage dice twice.",
-		"Equine Build: I count as one size larger for my carrying capacity. While climbing, 1 ft of movement costs me 5 ft. A medium or smaller creature can ride me as a mount.",
-		"Hybrid Nature: I am affected by effects that work on either humanoids or monstrosities.",
-	]),
+	trait: [
+		"**Centaur** (+2 Strength +1 Wisdom)",
+		"##\u25C6 Hooves##. I can use my hooves in melee (1d6 bludgeoning damage).",
+		"##\u25C6 Charge##. Once per short rest, if I move 20 ft straight toward a creature and then hit it with a melee weapon attack on the same turn, I can roll the weapon's damage dice twice.",
+		"##\u25C6 Equine Build##. I count as one size larger for my carrying capacity. While climbing, 1 ft of movement costs me 5 ft. A medium or smaller creature can ride me as a mount.",
+		"##\u25C6 Hybrid Nature##. I am affected by effects that work on either humanoids or monstrosities.",
+	],
 	features: {
 		"charge": {
 			name: "Charge",
@@ -90,12 +91,13 @@ RaceList["minotaur-uacnm"] = {
 	weightMetric: " weigh around 135 kg",
 	scores: [2, 0, 1, 0, 0, 0],
 	abilitySave: 1,
-	trait: "Minotaur (+2 Strength +1 Constitution)" + desc([
-		"Horns: I have horns that I can use in melee (1d6 piercing damage).",
-		"Goring Rush: When taking a Dash action, I can make a horns attack as a bonus action.",
-		"Hammering Horns: As a reaction after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is no more than one size larger than me. It must make a Str save (DC 8 + Str mod + Prof Bonus) or be pushed up to 5 ft away from me.",
-		"Hybrid Nature: I am affected by effects that work on either humanoids or monstrosities.",
-	]),
+	trait: [
+		"**Minotaur** (+2 Strength +1 Constitution)",
+		"##\u25C6 Horns##. I have horns that I can use in melee (1d6 piercing damage).",
+		"##\u25C6 Goring Rush##. When taking a Dash action, I can make a horns attack as a bonus action.",
+		"##\u25C6 Hammering Horns##. As a reaction after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is no more than one size larger than me. It must make a Str save (DC 8 + Str mod + Prof Bonus) or be pushed up to 5 ft away from me.",
+		"##\u25C6 Hybrid Nature##. I am affected by effects that work on either humanoids or monstrosities.",
+	],
 	features: {
 		"goring rush": {
 			name: "Goring Rush",

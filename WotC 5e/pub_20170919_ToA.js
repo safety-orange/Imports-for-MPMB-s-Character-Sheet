@@ -1,5 +1,5 @@
 var iFileName = "pub_20170919_ToA.js";
-RequiredSheetVersion("14.0.15-beta");
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the backgrounds and beasts from the Tomb of Annihilation adventure book to MPMB's Character Record Sheet
 
 // Define the source
@@ -33,7 +33,7 @@ AddRacialVariant("human", "yuan-ti transformed", {
 	spellChanges: {
 		"animal friendship": {
 			description: "1 snake (beast) with less than 4 Int save or charmed for the duration",
-			changes: "Using Innate Spellcasting, I can cast Animal Friendship at will, but only to target snakes.",
+			changes: "Using Innate Spellcasting, I can cast *Animal Friendship* at will, but only to target snakes.",
 		},
 	},
 	features: {
@@ -48,7 +48,12 @@ AddRacialVariant("human", "yuan-ti transformed", {
 			}],
 		},
 	},
-	trait: "Yuan-ti Human (+1 to all ability scores)\n   Madness: I suffer from an indefinite madness (DMG 258).\n   Innate Spellcasting: I know the Poison Spray cantrip and can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest. Charisma is my spellcasting ability for these spells.\n   Magic Resistance: I have advantage on saves against spells and other magical effects.",
+	trait: [
+		"**Yuan-ti Human** (+1 to all ability scores)",
+		"##\u25C6 Madness##. I suffer from an indefinite madness (DMG 258).",
+		"##\u25C6 Innate Spellcasting##. I know the *Poison Spray* cantrip and can cast *Animal Friendship* on snakes at will. Once I reach 3rd level, I can cast *Suggestion* once per long rest. Charisma is my spellcasting ability for these spells.",
+		"##\u25C6 Magic Resistance##. I have advantage on saves against spells and other magical effects.",
+	],
 });
 if (RaceSubList["human-variant"]) {
 	AddRacialVariant("human", "yuan-ti transformed variant", {
@@ -74,7 +79,7 @@ if (RaceSubList["human-variant"]) {
 		spellChanges: {
 			"animal friendship": {
 				description: "1 snake (beast) with less than 4 Int save or charmed for the duration",
-				changes: "Using Innate Spellcasting, I can cast Animal Friendship at will, but only to target snakes.",
+				changes: "Using Innate Spellcasting, I can cast *Animal Friendship* at will, but only to target snakes.",
 			},
 		},
 		features: {
@@ -89,7 +94,13 @@ if (RaceSubList["human-variant"]) {
 				}],
 			},
 		},
-		trait: "Yuan-ti Human (+1 to two different ability scores of my choice)\n   Skill & Feat: I gain proficiency in one skill of my choice and I gain one feat of my choice.\n   Madness: I suffer from an indefinite madness (DMG 258).\n   Innate Spellcasting: I know the Poison Spray cantrip and can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest. Charisma is my spellcasting ability for these spells.\n   Magic Resistance: I have advantage on saves against spells and other magical effects.",
+		trait: [
+			"**Yuan-ti Human** (+1 to two different ability scores of my choice)",
+			"##\u25C6 Skill & Feat##. I gain proficiency in one skill of my choice and I gain one feat of my choice.",
+			"##\u25C6 Madness##. I suffer from an indefinite madness (DMG 258).",
+			"##\u25C6 Innate Spellcasting##. I know the *Poison Spray* cantrip and can cast *Animal Friendship* on snakes at will. Once I reach 3rd level, I can cast *Suggestion* once per long rest. Charisma is my spellcasting ability for these spells.",
+			"##\u25C6 Magic Resistance##. I have advantage on saves against spells and other magical effects.",
+		],
 		eval: RaceSubList["human-variant"].eval,
 		removeeval: RaceSubList["human-variant"].removeeval,
 	});
@@ -679,7 +690,7 @@ MagicItemsList["bob"] = { // contributed by Nod_Hero
 	type: "weapon (battleaxe)",
 	rarity: "uncommon",
 	description: "Dwarvish runes on the head of this rusty battleaxe read 'Bob'. It adds a +1 bonus to attack and damage rolls made with it, floats on water and other liquids, and grants me advantage on Strength (Athletics) checks made to swim.",
-	descriptionFull: "Etched into the haft of the battleaxe are Dethek (Dwarvish) runes that spell the weapon's name: Bob. It floats on water and other liquids, adds a +1 bonus to attack and damage rolls made with it, and grants its bearer advantage on Strength (Athletics) checks made to swim.",
+	descriptionFull: "Etched into the haft of the battleaxe are Dethek (Dwarvish) runes that spell the weapon's name: *Bob*. It floats on water and other liquids, adds a +1 bonus to attack and damage rolls made with it, and grants its bearer advantage on Strength (Athletics) checks made to swim.",
 	weight: 4,
 	weaponOptions: [{
 		baseWeapon: "battleaxe",
@@ -712,7 +723,20 @@ MagicItemsList["amulet of the black skull"] = {
 	rarity: "very rare",
 	magicItemTable: "G",
 	description: "The obsidian amulet has 6 charges, regaining 1d6 at dawn. As an action, I can expend a charge to teleport to a location within 100 ft that I'm familiar with. If I'm not undead, I must make a DC 16 Con save whenever I do so and if I fail, I'm transformed (see table on Notes page) as I arrive at the destination.",
-	descriptionFull: "This amulet is carved from obsidian and shaped like a screaming humanoid skull, with ruby eyes and emeralds for teeth. It hangs from an iron chain necklace.\n   The amulet has 6 charges and regains 1d6 charges daily at dawn. While wearing the amulet, you can use an action to expend 1 of its charges to transport yourself and anything you are wearing or carrying to a location within 100 feet of you. The destination you choose doesn't need to be in your line of sight, but it must be familiar to you (in other words, a place you have seen or visited), and it must be on the same plane of existence as you. This effect isn't subject to the magic restrictions placed on the Tomb of the Nine Gods; thus, the amulet can be used to enter and exit the tomb.\n   If you aren't undead, you must make a DC 16 Constitution saving throw each time you use the amulet to teleport. On a failed saving throw, the black skull cackles as you are transformed in transit. The transformation takes effect as soon as you arrive at the destination, and is determined randomly by rolling percentile dice and consulting the Black Skull Transformation table.\n\n**d100**\t**Transformation**\n01-20\tThe symbol of Acererak is burned into your flesh, a curse that can only be removed with a Remove Curse spell or similar magic. Until the curse ends, your hit points can't be restored by magic.\n21-35\tYou grow larger as if affected by an Enlarge/Reduce spell, except the effect lasts for 1 hour.\n36-50\tYou grow smaller as if affected by an Enlarge/Reduce spell, except the effect lasts for 1 hour.\n51-70\tYou arrive at the destination wearing nothing but the amulet of the black skull. Everything else that you were wearing or carrying appears in a random unoccupied space within 100 feet of you.\n71-95\tYou are paralyzed for 1 minute or until this effect is ended with a Lesser Restoration spell or similar magic.\n96-00\tYou become petrified. This effect can be ended only with a Greater Restoration spell or similar magic.",
+	descriptionFull: [
+		"This amulet is carved from obsidian and shaped like a screaming humanoid skull, with ruby eyes and emeralds for teeth. It hangs from an iron chain necklace.",
+		"The amulet has 6 charges and regains 1d6 charges daily at dawn. While wearing the amulet, you can use an action to expend 1 of its charges to transport yourself and anything you are wearing or carrying to a location within 100 feet of you. The destination you choose doesn't need to be in your line of sight, but it must be familiar to you (in other words, a place you have seen or visited), and it must be on the same plane of existence as you. This effect isn't subject to the magic restrictions placed on the Tomb of the Nine Gods; thus, the amulet can be used to enter and exit the tomb.",
+		"If you aren't undead, you must make a DC 16 Constitution saving throw each time you use the amulet to teleport. On a failed saving throw, the black skull cackles as you are transformed in transit. The transformation takes effect as soon as you arrive at the destination, and is determined randomly by rolling percentile dice and consulting the Black Skull Transformation table.",
+		[
+			["d100", "Transformation"],
+			["01-20", "The symbol of Acererak is burned into your flesh, a curse that can only be removed with a *Remove Curse* spell or similar magic. Until the curse ends, your hit points can't be restored by magic."],
+			["21-35", "You grow larger as if affected by an *Enlarge/Reduce* spell, except the effect lasts for 1 hour."],
+			["36-50", "You grow smaller as if affected by an *Enlarge/Reduce* spell, except the effect lasts for 1 hour."],
+			["51-70", "You arrive at the destination wearing nothing but the *amulet of the black skull*. Everything else that you were wearing or carrying appears in a random unoccupied space within 100 feet of you."],
+			["71-95", "You are paralyzed for 1 minute or until this effect is ended with a *Lesser Restoration* spell or similar magic."],
+			["96-00", "You become petrified. This effect can be ended only with a *Greater Restoration* spell or similar magic."],
+		],
+	],
 	attunement: true,
 	weight: 1,
 	action: [["action", ""]],
@@ -725,12 +749,12 @@ MagicItemsList["amulet of the black skull"] = {
 			"This amulet is carved from obsidian and shaped like a screaming humanoid skull, with ruby eyes and emeralds for teeth. It hangs from an iron chain necklace.",
 			"If I'm not undead, I must make a DC 16 Constitution save each time I use the amulet to teleport. On a failure, the black skull cackles as I'm transformed in transit. The transformation is random (see table below) and takes effect as soon as I arrive at the destination.",
 			"d100\tTRANSFORMATION",
-			"01-20\tThe symbol of Acererak is burned into my flesh, a curse that can only be removed with a Remove Curse spell or similar magic. Until the curse ends, my hit points can't be restored by magic.",
-			"21-35\tI grow larger as if affected by an Enlarge/Reduce spell, except the effect lasts for 1 hour.",
-			"36-50\tI grow smaller as if affected by an Enlarge/Reduce spell, except the effect lasts for 1 hour.",
+			"01-20\tThe symbol of Acererak is burned into my flesh, a curse that can only be removed with a *Remove Curse* spell or similar magic. Until the curse ends, my hit points can't be restored by magic.",
+			"21-35\tI grow larger as if affected by an *Enlarge/Reduce* spell, except the effect lasts for 1 hour.",
+			"36-50\tI grow smaller as if affected by an *Enlarge/Reduce* spell, except the effect lasts for 1 hour.",
 			"51-70\tI arrive at the destination wearing nothing but the amulet of the black skull. Everything else that I was wearing or carrying appears in a random unoccupied space within 100 ft.",
-			"71-95\tI am paralyzed for 1 minute or until this effect is ended with a Lesser Restoration spell or similar magic.",
-			"96-00\tI become petrified. This effect can be ended only with a Greater Restoration spell or similar magic.",
+			"71-95\tI am paralyzed for 1 minute or until this effect is ended with a *Lesser Restoration* spell or similar magic.",
+			"96-00\tI become petrified. This effect can be ended only with a *Greater Restoration* spell or similar magic.",
 		],
 	}],
 }
@@ -740,8 +764,14 @@ MagicItemsList["bookmark"] = {
 	type: "weapon (dagger)",
 	rarity: "legendary",
 	notLegalAL: true,
-	description: "This dagger adds +3 to hit and damage. As a bonus action while holding it, I can have it shed bright light in a 20-ft radius and dim light for another 20 ft, go dark, act as a compass, cast Dimension Door once per dawn, or cast Compulsion once per dawn, which effects only spiders of the beast type within 90 ft.",
-	descriptionFull: "This +3 dagger belongs to Artus Cimber. While you have the dagger drawn, you can use a bonus action to activate one of the following properties:\n \u2022 Cause a blue gem set into the dagger's pommel to shed bright light in a 20-foot radius and dim light for an additional 20 feet, or make the gem go dark.\n \u2022 Turn the dagger into a compass that, while resting on your palm, points north.\n \u2022 Cast Dimension Door from the dagger. Once this property is used, it can't be used again until the next dawn.\n \u2022 Cast Compulsion (save DC 15) from the dagger. The range of the spell increases to 90 feet but it targets only spiders that are beasts. Once this property is used, it can't be used again until the next dawn.",
+	description: "This dagger adds +3 to hit and damage. As a bonus action while holding it, I can have it shed bright light in a 20-ft radius and dim light for another 20 ft, go dark, act as a compass, cast *Dimension Door* once per dawn, or cast *Compulsion* once per dawn, which effects only spiders of the beast type within 90 ft.",
+	descriptionFull: [
+		"This +3 dagger belongs to Artus Cimber. While you have the dagger drawn, you can use a bonus action to activate one of the following properties:",
+		" \u2022 Cause a blue gem set into the dagger's pommel to shed bright light in a 20-foot radius and dim light for an additional 20 feet, or make the gem go dark.",
+		" \u2022 Turn the dagger into a compass that, while resting on your palm, points north.",
+		" \u2022 Cast *Dimension Door* from the dagger. Once this property is used, it can't be used again until the next dawn.",
+		" \u2022 Cast *Compulsion* (save DC 15) from the dagger. The range of the spell increases to 90 feet but it targets only spiders that are beasts. Once this property is used, it can't be used again until the next dawn.",
+	],
 	attunement: true,
 	weight: 1,
 	action: [["bonus action", ""]],
@@ -785,8 +815,14 @@ MagicItemsList["ghost lantern"] = {
 	type: "wondrous item",
 	rarity: "legendary",
 	magicItemTable: "C",
-	description: "As a bonus action, I can command the spirit in the lantern to shed bright light in 30-ft radius and dim light for another 30 ft. I can order the spirit to act as my Mage Hand. If I fall unconscious within 10 ft of the lantern, the spirit stabilizes me. Casting Dispel Evil and Good on it releases the spirit and makes it nonmagical.",
-	descriptionFull: "A restless spirit is trapped inside this lantern. While holding the lantern, you can command the spirit as a bonus action to shed bright light in a 30-foot radius and dim light for an additional 30 feet.\n   While holding the lantern, you can use an action to order the spirit to leave the lantern and duplicate the effect of the Mage Hand spell. The spirit returns to the lantern when the spell ends.\n   If you fall unconscious within 10 feet of the lantern, the spirit emerges from it, magically stabilizes you with a touch, and then quickly returns to the lantern.\n   The spirit is bound to the lantern and can't be harmed, turned, or raised from the dead.\n   Casting a Dispel Evil and Good spell on the lantern releases the spirit to the afterlife and renders the lantern nonmagical.",
+	description: "As a bonus action, I can command the spirit in the lantern to shed bright light in 30-ft radius and dim light for another 30 ft. I can order the spirit to act as my *Mage Hand*. If I fall unconscious within 10 ft of the lantern, the spirit stabilizes me. Casting *Dispel Evil and Good* on it releases the spirit and makes it nonmagical.",
+	descriptionFull: [
+		"A restless spirit is trapped inside this lantern. While holding the lantern, you can command the spirit as a bonus action to shed bright light in a 30-foot radius and dim light for an additional 30 feet.",
+		"While holding the lantern, you can use an action to order the spirit to leave the lantern and duplicate the effect of the *Mage Hand* spell. The spirit returns to the lantern when the spell ends.",
+		"If you fall unconscious within 10 feet of the lantern, the spirit emerges from it, magically stabilizes you with a touch, and then quickly returns to the lantern.",
+		"The spirit is bound to the lantern and can't be harmed, turned, or raised from the dead.",
+		"Casting a *Dispel Evil and Good* spell on the lantern releases the spirit to the afterlife and renders the lantern nonmagical.",
+	],
 	attunement: true,
 	weight: 1,
 	action: [["bonus action", ""]],
@@ -803,8 +839,8 @@ MagicItemsList["mask of the beast"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	magicItemTable: "C",
-	description: "This wooden mask is shaped in the likeness of a beast's visage and has 3 charges. While wearing the mask I can expend 1 charge and use the mask to cast the Animal Friendship spell as an action. The mask regains all expended charges at dawn.",
-	descriptionFull: "This wooden mask is shaped in the likeness of a beast's visage and has 3 charges. While wearing the mask you can expend 1 charge and use the mask to cast the Animal Friendship spell as an action. The mask regains all expended charges at dawn.",
+	description: "This wooden mask is shaped in the likeness of a beast's visage and has 3 charges. While wearing the mask I can expend 1 charge and use the mask to cast the *Animal Friendship* spell as an action. The mask regains all expended charges at dawn.",
+	descriptionFull: "This wooden mask is shaped in the likeness of a beast's visage and has 3 charges. While wearing the mask you can expend 1 charge and use the mask to cast the *Animal Friendship* spell as an action. The mask regains all expended charges at dawn.",
 	weight: 1,
 	usages: 3,
 	recovery: "dawn",
@@ -822,8 +858,14 @@ MagicItemsList["scorpion armor"] = {
 	type: "armor (plate)",
 	rarity: "rare",
 	magicItemTable: "I",
-	description: "This suit of plate armor fashioned from giant scorpion chitin doesn't impose disadv. on stealth or saves against extreme heat. It gives me +5 bonus on initiative while I'm not incapacitated. Whenever I don or doff it, I take 10d10+45 poison damage, DC 15 Con save halves. Only a Wish can remove this curse.",
-	descriptionFull: "This suit of plate armor is fashioned from giant scorpion chitin. While wearing this armor, you gain the following benefits:\n \u2022 The armor improves your combat readiness, granting you a +5 bonus to initiative as long as you aren't incapacitated.\n \u2022 The armor doesn't impose disadvantage on your Dexterity (Stealth) checks.\n \u2022 The armor doesn't impose disadvantage on saving throws made to resist the effects of extreme heat (see chapter 5 of the Dungeon Master's Guide).\n\n***Curse***. This armor is cursed. Whenever you don or doff it, you must make a DC 15 Constitution saving throw, taking 100 (10d10+45) poison damage on a failed save, or half as much damage on a successful one. Only a Wish spell can remove the armor's curse.",
+	description: "This suit of plate armor fashioned from giant scorpion chitin doesn't impose disadv. on stealth or saves against extreme heat. It gives me +5 bonus on initiative while I'm not incapacitated. Whenever I don or doff it, I take 10d10+45 poison damage, DC 15 Con save halves. Only a *Wish* can remove this curse.",
+	descriptionFull: [
+		"This suit of plate armor is fashioned from giant scorpion chitin. While wearing this armor, you gain the following benefits:",
+		" \u2022 The armor improves your combat readiness, granting you a +5 bonus to initiative as long as you aren't incapacitated.",
+		" \u2022 The armor doesn't impose disadvantage on your Dexterity (Stealth) checks.",
+		" \u2022 The armor doesn't impose disadvantage on saving throws made to resist the effects of extreme heat (see chapter 5 of the Dungeon Master's Guide).",
+		"***Curse***. This armor is cursed. Whenever you don or doff it, you must make a DC 15 Constitution saving throw, taking 100 (10d10+45) poison damage on a failed save, or half as much damage on a successful one. Only a *Wish* spell can remove the armor's curse.",
+	],
 	attunement: true,
 	weight: 65,
 	cursed: true,

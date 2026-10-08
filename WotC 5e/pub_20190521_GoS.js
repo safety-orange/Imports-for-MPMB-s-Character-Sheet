@@ -1,5 +1,5 @@
 var iFileName = "pub_20190521_GoS.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3", 15);
 // This file adds all material from the Ghosts of Saltmarsh adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -280,8 +280,11 @@ MagicItemsList["charm of plant command"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	magicItemTable: "C",
-	description: "This fist-sized charm is made from a bundle of dried plant stems wrapped in silver thread. It has 3 charges, regain all at dawn. As an action, I can expend 1 charge to cast Speak With Plants. While that spell lasts, I also have adv. on Charisma checks made to influence the behavior, demeanor, and attitude of plants.",
-	descriptionFull: "This fist-sized charm is made from a bundle of dried plant stems wrapped in silver thread. Hung on a leather thong, it is typically worn around the neck or attached to a belt.\n   This charm has 3 charges. While you bear the charm, you can expend 1 charge as an action to cast the Speak With Plants spell. For the duration of the spell, you also have advantage on Charisma checks made to influence the behavior, demeanor, and attitude of plants. The charm regains all expended charges at dawn each day.",
+	description: "This fist-sized charm is made from a bundle of dried plant stems wrapped in silver thread. It has 3 charges, regain all at dawn. As an action, I can expend 1 charge to cast *Speak With Plants*. While that spell lasts, I also have adv. on Charisma checks made to influence the behavior, demeanor, and attitude of plants.",
+	descriptionFull: [
+		"This fist-sized charm is made from a bundle of dried plant stems wrapped in silver thread. Hung on a leather thong, it is typically worn around the neck or attached to a belt.",
+		"This charm has 3 charges. While you bear the charm, you can expend 1 charge as an action to cast the *Speak With Plants* spell. For the duration of the spell, you also have advantage on Charisma checks made to influence the behavior, demeanor, and attitude of plants. The charm regains all expended charges at dawn each day.",
+	],
 	attunement: true,
 	usages: 3,
 	recovery: "dawn",
@@ -306,7 +309,10 @@ MagicItemsList["cursed luckstone"] = {
 	rarity: "uncommon",
 	magicItemTable: "C",
 	description: "This flat, gray-and-black river stone is inscribed with an arcane symbol. It is cursed and attuning to it curses me. Once per dawn while it is on my person, I can gain adv. on one ability check of my choice, but disadv. on my next two ability checks. Discarding the stone will cause it to teleport back into my pocket.",
-	descriptionFull: "This flat, gray-and-black river stone is inscribed with an unknown arcane symbol and feels cool to the touch. While carrying the stone, you can gain advantage on one ability check of your choice. The stone can't be used this way again until the next dawn.\n   ***Curse***This item is cursed. Attuning to it curses you until you are targeted by a remove curse spell or similar magic. As long as you remain cursed, you cannot discard the stone, which immediately teleports back into your pocket or pack. After you use the stone's magic, your next two ability checks are made with disadvantage.",
+	descriptionFull: [
+		"This flat, gray-and-black river stone is inscribed with an unknown arcane symbol and feels cool to the touch. While carrying the stone, you can gain advantage on one ability check of your choice. The stone can't be used this way again until the next dawn.",
+		"***Curse***This item is cursed. Attuning to it curses you until you are targeted by a *remove curse* spell or similar magic. As long as you remain cursed, you cannot discard the stone, which immediately teleports back into your pocket or pack. After you use the stone's magic, your next two ability checks are made with disadvantage.",
+	],
 	attunement: true,
 	usages: 1,
 	recovery: "dawn",
@@ -340,7 +346,7 @@ MagicItemsList["pressure capsule"] = {
 	type: "wondrous item",
 	rarity: "common",
 	description: "Consuming this capsule of beeswax, sand, and enchanted water plants will prevent the effects of swimming at depths greater than 100 ft for 1 hour. Thus, a creature without a swimming speed does not multiply the time spend swimming at depth for the purpose of determining exhaustion.",
-	descriptionFull: "This small capsule is made of beeswax blended with sand and a variety of enchanted water plants. A creature who consumes a pressure capsule ignores the effects of swimming at depths greater than 100 feet for 1 hour (see \"Unusual Environments\" in chapter 5 of the Dungeon Master's Guide).", // addition of 1 hour duration from AL content catalogue v8.08
+	descriptionFull: "This small capsule is made of beeswax blended with sand and a variety of enchanted water plants. A creature who consumes a *pressure capsule* ignores the effects of swimming at depths greater than 100 feet for 1 hour (see \"Unusual Environments\" in chapter 5 of the Dungeon Master's Guide).", // addition of 1 hour duration from AL content catalogue v8.08
 }
 MagicItemsList["sekolahian worshiping statuette"] = {
 	name: "Sekolahian Worshiping Statuette",

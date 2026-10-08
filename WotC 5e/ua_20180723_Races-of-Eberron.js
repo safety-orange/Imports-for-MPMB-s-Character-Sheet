@@ -1,5 +1,5 @@
 var iFileName = "ua_20180723_Races-of-Eberron.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Races of Eberron article to MPMB's Character Record Sheet
 // Note that this content also appears in the script for Wayfinder's Guide to Eberron and thus both sources are included for all things here
 
@@ -33,7 +33,12 @@ RaceList["changeling-ua2"] = {
 	weightMetric: " weigh around 65 kg (52 + 5d4 \xD7 4d4 / 10 kg)",
 	scorestxt: "+2 Charisma, and +1 Dexterity or +1 Intelligence",
 	scores: [0, 0, 0, 0, 0, 2],
-	trait: "Changeling (+2 Charisma, and +1 Dexterity or +1 Intelligence)\nChange Appearance: As an action, I can polymorph to or from a humanoid form of my size I have seen, not changing my equipment. I revert back if I die and have adv. on Deception.\nUnsettling Visage: As a reaction once per short rest when I'm attacked by a seen attacker, I can impose disadv. Doing this reveals my shapeshifting nature to all within 30 ft.\nDivergent Persona: I have proficiency with one tool, and an alternate persona. While in the alternate form, my proficiency bonus with that tool is doubled.",
+	trait: [
+		"**Changeling** (+2 Charisma, and +1 Dexterity or +1 Intelligence)",
+		"##Change Appearance##. As an action, I can polymorph to or from a humanoid form of my size I have seen, not changing my equipment. I revert back if I die and have adv. on Deception.",
+		"##Unsettling Visage##. As a reaction once per short rest when I'm attacked by a seen attacker, I can impose disadv. Doing this reveals my shapeshifting nature to all within 30 ft.",
+		"##Divergent Persona##. I have proficiency with one tool, and an alternate persona. While in the alternate form, my proficiency bonus with that tool is doubled.",
+	],
 	action: [["action", "Change Appearance"]],
 	features: {
 		"unsettling visage": {
@@ -67,7 +72,13 @@ RaceList["kalashtar-ua"] = { //this code includes contributions by /u/SoilentBra
 	weightMetric: " weigh around 65 kg (50 + 5d6 \xD7 2d6 / 10 kg)",
 	scorestxt: "+1 Wisdom, +1 Charisma, and +1 to one other ability score of my choice",
 	scores: [0, 0, 0, 0, 1, 1],
-	trait: "Kalashtar (+1 Wisdom, +1 Charisma, and +1 to one other" + (typePF ? "" : " ability score of my choice") + ")\nDual Mind: As a reaction after I roll a Wis" + (typePF ? " save, I can gain adv." : "dom saving throw, I can gain advantage") + " on it.\nMind Link: I can speak telepathically to any creature I can see within 60 ft, as long as it can speak at least one language. As a bonus action, I can give that creature the ability to speak telepathically back to me until the start of my next turn.\nPsychic Glamour: I have adv. on Insight, Intimidation, Performance, or Persuasion checks.\nSevered from Dreams: I don't dream and thus immune to spells that affect dreams.",
+	trait: [
+		"**Kalashtar** (+1 Wisdom, +1 Charisma, and +1 to one other" + (typePF ? "" : " ability score of my choice") + ")",
+		"##Dual Mind##. As a reaction after I roll a Wis" + (typePF ? " save, I can gain adv." : "dom saving throw, I can gain advantage") + " on it.",
+		"##Mind Link##. I can speak telepathically to any creature I can see within 60 ft, as long as it can speak at least one language. As a bonus action, I can give that creature the ability to speak telepathically back to me until the start of my next turn.",
+		"##Psychic Glamour##. I have adv. on Insight, Intimidation, Performance, or Persuasion checks.",
+		"##Severed from Dreams##. I don't dream and thus immune to spells that affect dreams.",
+	],
 	action: [["bonus action", "Mind Link"], ["reaction", "Dual Mind"]],
 };
 
@@ -91,7 +102,13 @@ RaceList["beasthide shifter-ua"] = {
 	heightMetric: " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric: " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 1, 2, 0, 0, 0],
-	trait: "Beasthide Shifter: (+1 Dexterity, +2 Constitution)\n\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to 1d6 + my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I have a +1 bonus to AC",
+	trait: [
+		"**Beasthide Shifter** (+1 Dexterity, +2 Constitution)",
+		"##\u25C6 Shifting##. As a bonus action once per short rest, I can assume a more bestial appearance.",
+		"This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.",
+		"When I shift, I gain temporary HP equal to 1d6 + my level + my Constitution modifier (minimum 1 temporary hit point).",
+		"While transformed like this, I have a +1 bonus to AC",
+	],
 	features: {
 		"shift": {
 			name: "Shift",
@@ -130,7 +147,13 @@ RaceList["longtooth shifter-ua"] = {
 	heightMetric: " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric: " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [2, 1, 0, 0, 0, 0],
-	trait: "Longtooth Shifter: (+2 Strength, +1 Dexterity)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I use my elongated fangs to make unarmed strikes, dealing 1d6 piercing damage. As a bonus action, I can maken one attack with my fangs.",
+	trait: [
+		"**Longtooth Shifter** (+2 Strength, +1 Dexterity)",
+		"##\u25C6 Shifting##. As a bonus action once per short rest, I can assume a more bestial appearance.",
+		"This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.",
+		"When I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).",
+		"While transformed like this, I use my elongated fangs to make unarmed strikes, dealing 1d6 piercing damage. As a bonus action, I can maken one attack with my fangs.",
+	],
 	action: ["bonus action", "Attack with Longtooth Fangs"],
 	features: {
 		"shift": {
@@ -161,7 +184,14 @@ RaceList["swiftstride shifter-ua"] = {
 	heightMetric: " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric: " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 0, 1],
-	trait: "Swiftstride Shifter: (+2 Dexterity, +1 Charisma)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").\nWhile transformed like this, my walking speed increases with 5 ft.\nAs a reaction when an enemy ends its turn within 5 ft of me while I'm shifted, I can move 10 ft without provoking opportunity attacks.",
+	trait: [
+		"**Swiftstride Shifter** (+2 Dexterity, +1 Charisma)",
+		"##\u25C6 Shifting##. As a bonus action once per short rest, I can assume a more bestial appearance.",
+		"This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.",
+		"When I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").",
+		"While transformed like this, my walking speed increases with 5 ft.",
+		"As a reaction when an enemy ends its turn within 5 ft of me while I'm shifted, I can move 10 ft without provoking opportunity attacks.",
+	],
 	action: ["reaction", "Stride (while shifted)"],
 	features: {
 		"shift": {
@@ -192,7 +222,12 @@ RaceList["wildhunt shifter-ua"] = {
 	heightMetric: " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric: " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 1, 0, 0, 2, 0],
-	trait: "Wildhunt Shifter: (+1 Dexterity, +2 Wisdom)\nShifting: As a bonus action once per short rest, I can transform and get adv. on Wis checks." + (typePF ? " " : "\n") + "This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").\nMark the Scent: As a bonus action once per short rest, I can mark a creature that I can see within 10 ft. Until the end of my next long rest, my proficiency bonus is doubled for checks to find this target, and I always know its location if it is within 60 ft of me.",
+	trait: [
+		"**Wildhunt Shifter** (+1 Dexterity, +2 Wisdom)",
+		"##Shifting##. As a bonus action once per short rest, I can transform and get adv. on Wis checks. This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.",
+		"When I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").",
+		"##Mark the Scent##. As a bonus action once per short rest, I can mark a creature that I can see within 10 ft. Until the end of my next long rest, my proficiency bonus is doubled for checks to find this target, and I always know its location if it is within 60 ft of me.",
+	],
 	features: {
 		"shift": {
 			name: "Shift",
@@ -238,7 +273,13 @@ RaceList["envoy warforged-ua"] = {
 	weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	scorestxt: "+1 Constitution and +1 to two other ability scores of my choice",
 	scores: [0, 0, 1, 0, 0, 0],
-	trait: "Envoy Warforged (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nIntegrated Tool: I have expertise with one tool and it is integrated into my body.",
+	trait: [
+		"**Envoy Warforged** (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")",
+		"##Warforged Resilience##. I do not need to sleep, eat, drink, or breathe.",
+		"##Sentry's Rest##. To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.",
+		"##Integrated Protection##. My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.",
+		"##Integrated Tool##. I have expertise with one tool and it is integrated into my body.",
+	],
 	eval: function () {
 		var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
 		if (tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0)) {
@@ -312,7 +353,13 @@ RaceList["juggernaut warforged-ua"] = {
 	heightMetric: " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
 	weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	scores: [2, 0, 1, 0, 0, 0],
-	trait: "Juggernaut Warforged (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4.") + "\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nPowerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
+	trait: [
+		"**Juggernaut Warforged** (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4."),
+		"##Warforged Resilience##. I do not need to sleep, eat, drink, or breathe.",
+		"##Sentry's Rest##. To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.",
+		"##Integrated Protection##. My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.",
+		"##Powerful Build##. I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
+	],
 	carryingCapacity: 2,
 	eval: function () {
 		var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
@@ -379,7 +426,13 @@ RaceList["skirmisher warforged-ua"] = {
 	heightMetric: " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
 	weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	scores: [0, 2, 1, 0, 0, 0],
-	trait: "Skirmisher Warforged (+2 Dexterity, +1 Constitution)\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nLight Step: If I travel alone for an hour or more, I can move stealthily at a normal pace.",
+	trait: [
+		"**Skirmisher Warforged** (+2 Dexterity, +1 Constitution)",
+		"##Warforged Resilience##. I do not need to sleep, eat, drink, or breathe.",
+		"##Sentry's Rest##. To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.",
+		"##Integrated Protection##. My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.",
+		"##Light Step##. If I travel alone for an hour or more, I can move stealthily at a normal pace.",
+	],
 	eval: function () {
 		var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
 		if (tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0)) {

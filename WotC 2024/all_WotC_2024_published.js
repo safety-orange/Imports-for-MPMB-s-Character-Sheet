@@ -1,7 +1,7 @@
-if (sheetVersion < 24001000) { throw "This add-on script was made for a newer version of the sheet (v24.1.0). Please use the latest version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion < 24001003) { throw "This add-on script was made for a newer version of the sheet (v24.1.3). Please use the latest version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
 
 var iFileName = "all_WotC_2024_published.js";
-RequiredSheetVersion("24.1.0");
+RequiredSheetVersion("24.1.3");
 
 // pub_20240917_PHB.js
 // This file adds material from the 2024 Player's Handbook that isn't in the SRD v5.2.1 to MPMB's Character Record Sheet for 5.5e

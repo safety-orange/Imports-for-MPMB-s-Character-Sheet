@@ -1,5 +1,5 @@
 var iFileName = "ua_20190514_Artificer.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the second Unearthed Arcana: Artificer article of 2019 to MPMB's Character Record Sheet
 // It doesn't change anything compared to the UA article of 2019/02/28, but adds additional options: more spells, subclasses, and magic items
 
@@ -505,7 +505,7 @@ AddSubClass("artificer-ua3", "alchemist", {
 			name: "Alchemical Mastery: Lesser Restoration",
 			source: [["UA:A3", 7]],
 			minlevel: 6,
-			description: desc("I can cast Lesser Restoration without a spell slot if I use alchemist's supplies as a focus"),
+			description: desc("I can cast *Lesser Restoration* without a spell slot if I use alchemist's supplies as a focus"),
 			usages: "Int mod per ",
 			recovery: "long rest",
 			usagescalc: "event.value = Math.max(1, What('Int Mod'));",
@@ -519,7 +519,7 @@ AddSubClass("artificer-ua3", "alchemist", {
 				"lesser restoration": {
 					components: "V,S,M\u0192",
 					compMaterial: "Alchemist's supplies",
-					changes: "When using my Alchemical Mastery class feature, I can cast Lesser Restoration a number of times per long rest equal to my Intelligence modifier. To do so, I have to use alchemist's supplies as my spellcasting focus",
+					changes: "When using my Alchemical Mastery class feature, I can cast *Lesser Restoration* a number of times per long rest equal to my Intelligence modifier. To do so, I have to use alchemist's supplies as my spellcasting focus",
 				},
 			},
 		},
@@ -529,7 +529,7 @@ AddSubClass("artificer-ua3", "alchemist", {
 			minlevel: 14,
 			description: desc([
 				"I always have resistance to acid and poison damage and immunity to being poisoned",
-				"Once per long rest, I can cast Greater Restoration without a spell slot or material comp.",
+				"Once per long rest, I can cast *Greater Restoration* without a spell slot or material comp.",
 				"To do so, I have to use alchemist's supplies as my spellcasting focus",
 			]),
 			dmgres: ["Acid", "Poison"],
@@ -548,7 +548,7 @@ AddSubClass("artificer-ua3", "alchemist", {
 					components: "V,S,M\u0192",
 					compMaterial: "Alchemist's supplies",
 					description: "Reduce exhaustion 1 lvl or end charm, petrify, curse, one ability score reduction, or max HP reduction",
-					changes: "When using my Chemical Savant class feature and alchemist's supplies as my spellcasting focus, I can cast Greater Restoration once per long rest without using a spell slot or requiring material components.",
+					changes: "When using my Chemical Savant class feature and alchemist's supplies as my spellcasting focus, I can cast *Greater Restoration* once per long rest without using a spell slot or requiring material components.",
 				},
 			},
 		},
@@ -590,7 +590,7 @@ CreatureList["alchemical homunculus-ua"] = {
 		description: "The homunculus obeys the commands of its creator and has the same proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It only takes the Dodge action, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Acidic Spittle, Alchemical Salve, Dash, Disengage, or Help action.",
 	}, {
 		name: "Healing",
-		description: "The homunculus regains 2d6 HP whenever the Mending spell is cast on it.",
+		description: "The homunculus regains 2d6 HP whenever the *Mending* spell is cast on it.",
 	}],
 	actions: [{
 		name: "Alchemical Salve (3/Day)",
@@ -921,7 +921,7 @@ CreatureList["arcane turret-ua"] = {
 	}],
 	features: [{
 		name: "Healing",
-		description: "The turret regains 2d6 HP whenever Mending is cast on it.",
+		description: "The turret regains 2d6 HP whenever *Mending* is cast on it.",
 	}, {
 		name: "Turret Type",
 		description: "Upon creation, the creator decides what type of turret it is: Flamethrower, Force Ballista, or Defender. What feature/attack it can use depends on its type.",
@@ -1085,7 +1085,7 @@ CreatureList["iron defender-ua"] = {
 	}],
 	actions: [{
 		name: "Healing",
-		description: "The iron defender regains 2d6 HP whenever the Mending spell is cast on it.",
+		description: "The iron defender regains 2d6 HP whenever the *Mending* spell is cast on it.",
 	}, {
 		name: "Vigilant",
 		description: "The iron defender can't be surprised.",
@@ -1110,7 +1110,11 @@ SpellsList["arcane weapon-ua"] = {
 	components: "V,S",
 	duration: "Conc, 1 h",
 	description: "1 wea +1d6 dmg (acid, cold, fire, lightn., poison, or thunder); 1 bns change dmg type; SL3: conc, 8 h",
-	descriptionFull: "You channel arcane energy into one simple or martial weapon you're holding, and choose one damage type: acid, cold, fire, lightning, poison, or thunder. Until the spell ends, you deal an extra 1d6 damage of the chosen type to any target you hit with the weapon. If the weapon isn't magical, it becomes a magic weapon for the spell's duration.\n   As a bonus action, you can change the damage type, choosing from the options above." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you can maintain your concentration on the spell for up to 8 hours. ",
+	descriptionFull: [
+		"You channel arcane energy into one simple or martial weapon you're holding, and choose one damage type: acid, cold, fire, lightning, poison, or thunder. Until the spell ends, you deal an extra 1d6 damage of the chosen type to any target you hit with the weapon. If the weapon isn't magical, it becomes a magic weapon for the spell's duration.",
+		"As a bonus action, you can change the damage type, choosing from the options above.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 3rd level or higher, you can maintain your concentration on the spell for up to 8 hours. ",
+	],
 };
 
 // Add the new magic items
@@ -1130,7 +1134,10 @@ MagicItemsList["many-handed pouch-ua"] = {
 	source: [["UA:A3", 13], ["UA:A2", 9]],
 	type: "wondrous item",
 	description: "These 2-5 pouches all share one interdimensional space of the same capacity as a single pouch. Thus, reaching into any of the pouches allows access to the same storage space. A pouch only functions if it is within 100 miles of another pouch of its set.",
-	descriptionFull: "The infused pouches all share one interdimensional space of the same capacity as a single pouch. Thus, reaching into any of the pouches allows access to the same storage space. A pouch operates as long as it is within 100 miles of another one of the pouches; the pouch is otherwise empty and won't accept any contents.\n   If this infusion ends, the items stored in the shared space move into one of the pouches, determined at random. The rest of the pouches become empty.",
+	descriptionFull: [
+		"The infused pouches all share one interdimensional space of the same capacity as a single pouch. Thus, reaching into any of the pouches allows access to the same storage space. A pouch operates as long as it is within 100 miles of another one of the pouches; the pouch is otherwise empty and won't accept any contents.",
+		"If this infusion ends, the items stored in the shared space move into one of the pouches, determined at random. The rest of the pouches become empty.",
+	],
 }
 MagicItemsList["radiant weapon-ua"] = {
 	name: "Radiant Weapon",
@@ -1138,7 +1145,10 @@ MagicItemsList["radiant weapon-ua"] = {
 	source: [["UA:A3", 13], ["UA:A2", 9]],
 	type: "weapon (any)",
 	description: "This magic weapon adds a +1 on its attacks and damage. As a bonus action, I can start or stop it shedding light, bright in 30 ft and dim for another 30 ft. Once per short rest as a reaction when hit by a melee attack, I can blind the attacker until the end of its next turn unless it makes a Con save (my spell DC).",
-	descriptionFull: "This magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, the wielder can take a bonus action to cause it to shed bright light in a 30-foot radius and dim light for an additional 30 feet. The wielder can extinguish the light as a bonus action.\n   As a reaction immediately after being hit by a melee attack, the wielder can cause the attacker to be blinded until the end of the attacker's next turn, unless the attacker succeeds on a Constitution saving throw against your spell save DC. Once used, this reaction can't be used again until the wielder finishes a short or long rest.",
+	descriptionFull: [
+		"This magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, the wielder can take a bonus action to cause it to shed bright light in a 30-foot radius and dim light for an additional 30 feet. The wielder can extinguish the light as a bonus action.",
+		"As a reaction immediately after being hit by a melee attack, the wielder can cause the attacker to be blinded until the end of the attacker's next turn, unless the attacker succeeds on a Constitution saving throw against your spell save DC. Once used, this reaction can't be used again until the wielder finishes a short or long rest.",
+	],
 	attunement: true,
 	usages: 1,
 	recovery: "short rest",
@@ -1189,7 +1199,10 @@ if (!MagicItemsList["repeating shot"]) {
 		source: [["E:RLW", 62], ["T", 22], ["UA:A3", 13]],
 		type: "weapon (any with ammunition)",
 		description: "When I use this magic weapon to make a ranged attack, it magically produces one piece of ammunition and grants a +1 bonus to its attack and damage rolls. Thus, it doesn't require ammunition and ignores the loading property if it has it. The produced ammunition vanishes once it hits or misses a target.",
-		descriptionFull: "This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.\n   The weapon requires no ammunition; it magically produces one piece of ammunition each time you make a ranged attack with it, unless you manually load it. The ammunition produced by the weapon vanishes the instant after the it hits or misses a target.",
+		descriptionFull: [
+			"This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.",
+			"The weapon requires no ammunition; it magically produces one piece of ammunition each time you make a ranged attack with it, unless you manually load it. The ammunition produced by the weapon vanishes the instant after the it hits or misses a target.",
+		],
 		attunement: true,
 		chooseGear: {
 			type: "weapon",
@@ -1395,7 +1408,7 @@ var UAA3_SetArtificerSpells = function (){
 		["slippers of spider climbing", 12],
 		["winged boots", 12],
 		["amulet of health", 16],
-		["belt of giant strength", 16, "hill (str 21, rare)"],
+		["belt of giant strength", 16, "hill giant (str 21, rare)"],
 		["boots of levitation", 16],
 		["boots of speed", 16],
 		["bracers of defense", 16],

@@ -1,5 +1,5 @@
 var iFileName = "ua_20170109_Artificer.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Artificer article to MPMB's Character Record Sheet
 // WARNING: there are no published multiclassing rules for Artificer; the ones provided here are extrapolated from other classes
 
@@ -60,7 +60,7 @@ ClassList["artificer-ua"] = {
 			name: "Magic Item Analysis",
 			source: [["UA:A", 2]],
 			minlevel: 1,
-			description: desc("I can cast Detect Magic and Identify as rituals without requiring material components"),
+			description: desc("I can cast *Detect Magic* and *Identify* as rituals without requiring material components"),
 			spellcastingBonus: [{
 				name: "Magic Item Analysis",
 				spells: ["detect magic"],
@@ -364,7 +364,7 @@ AddSubClass("artificer-ua", "gunsmith", {
 			name: "Master Smith",
 			source: [["UA:A", 6]],
 			minlevel: 1,
-			description: desc(["I gain proficiency with smith's tools and I learn the mending cantrip"]),
+			description: desc(["I gain proficiency with smith's tools and I learn the *mending* cantrip"]),
 			spellcastingBonus: [{
 				name: "Master Smith",
 				spells: ["mending"],
@@ -679,7 +679,7 @@ CompanionList.mechanicalserv = {
 		name: "The mechanical servant has the statistics",
 		description: [
 			"of a chosen large beast of challenge rating 2 or lower",
-			"It has the Construct type, understands any language that I know, and has 60 ft Darkvision",
+			"It has the Construct type, understands any language that I know, and has 60 ft *Darkvision*",
 			"In addition, it is immune to poison damage, being poisoned, and being charmed",
 		].join("\n   "),
 		joinString: " ",

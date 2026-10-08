@@ -389,7 +389,7 @@ AddSubClass("cleric", "tempest domain", {
 				"As a Reaction, when a creature I can see within 5 ft hits me, I can thunderously rebuke",
 				"It takes 2d8 Lightning or Thunder damage (my choice) that a Dex save can halve",
 			]),
-			usages: "Wisdom modifier per ",
+			usages: "Wisdom mod" + (typePF ? "" : "ifier") + " per ",
 			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
 			recovery: "Long Rest",
 			action: [["reaction", ""]],

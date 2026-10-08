@@ -2,7 +2,7 @@
 // Contains contributions by Thravieus Windhelm / PoetOfGod (GitHub) / @PoetOfGod#6077 (Discord)
 
 var iFileName = "ua_20220308_Heroes-of-Krynn.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.1.3");
 
 SourceList["UA:HoK"] = {
 	name: "Unearthed Arcana: Heroes of Krynn",
@@ -59,10 +59,11 @@ RaceList["kender-ua"] = {
 			}],
 		},
 	},
-	trait: "Kender" +
-	(typePF ? "\n " : "\t") + "\u2022 Brave: I have adv. on saves to avoid or end being frightened." +
-	"\n \u2022 Taunt: As a bonus action, I can have a creature that can hear and understand me within 60 ft make a Wisdom save (DC 8 + Prof B + Cha mod) or gain disadv. on attacks until my next turn starts. I can do this a number of times per long rest equal to my Prof Bonus." +
-	'\n \u2022 Kender Ace: Starting at 3rd-level, as a bonus action, I can reach into a container and roll on the Kender Aces table to determine the item I pull out, see the "Notes" section. I can do this a number of times per long rest equal to my proficiency bonus.',
+	trait: [
+		"**Kender**" + (typePF ? "\r" : " ") + "##\u25C6 Brave##. I have adv. on saves to avoid or end being frightened.",
+		"##\u25C6 Taunt##. As a bonus action, I can have a creature that can hear and understand me within 60 ft make a Wisdom save (DC 8 + Prof B + Cha mod) or gain disadv. on attacks until my next turn starts. I can do this a number of times per long rest equal to my Prof Bonus.",
+		"##\u25C6 Kender Ace##. Starting at 3rd-level, as a bonus action, I can reach into a container and roll on the Kender Aces table to determine the item I pull out, see the \"Notes\" section. I can do this a number of times per long rest equal to my proficiency bonus.",
+	],
 };
 
 // Subclass
@@ -75,7 +76,7 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 			name: "Moon Fire",
 			source: [["UA:HoK", 2]],
 			minlevel: 1,
-			description: desc("I know the Sacred Flame cantrip and can use it on 2 creatures within 5 ft of each other"),
+			description: desc("I know the *Sacred Flame* cantrip and can use it on 2 creatures within 5 ft of each other"),
 			spellcastingBonus: [{
 				name: "Moon Fire",
 				spells: ["sacred flame"],
@@ -87,7 +88,7 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 					description: "Up to 2 creas I see, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus; +1d8 at CL 5/11/17",
 					descriptionShorter: "Up to 2 creas I see, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus; +1d8 CL 5/11/17",
 					descriptionCantripDie: "Up to 2 creas I see, max 5 ft apart, save or `CD`d8 Radiant dmg; no bonus for cover on save",
-					changes: "When I cast Sacred Flame, I can target one creature as normal or target two creatures within range that are within 5 feet of each other.",
+					changes: "When I cast *Sacred Flame*, I can target one creature as normal or target two creatures within range that are within 5 feet of each other.",
 				},
 			},
 			calcChanges: {
@@ -97,7 +98,7 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 							fields.Description = fields.Description.replace("1 creature", "up to 2 creatures within 5 ft");
 						}
 					},
-					"When I cast Sacred Flame, I can target one creature as normal or target two creatures within range that are within 5 feet of each other.",
+					"When I cast *Sacred Flame*, I can target one creature as normal or target two creatures within range that are within 5 feet of each other.",
 				],
 			},
 		},
@@ -313,12 +314,33 @@ FeatsList["initiate of high sorcery-ua"] = {
 	name: "Initiate of High Sorcery",
 	source: [["UA:HoK", 6]],
 	description: "I learn a cantrip and a first level spell from a list depending on my chosen moon. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
-	descriptionFull: "You've received training from magic-users affiliated with the Mages of High Sorcery.\n   Choose one of three moons of Krynn, each of which is associated with a distinct type of magic: the black moon, Nuitari; the red moon, Lunitari; or the white moon, Solinari. You learn one cantrip and one 1st-level spell based on the moon you choose, as specified in the Lunar Spells table.\n   You can cast the chosen 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have.\n   Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).\n\n**Lunar Spells**\n**Moon**\t**Cantrips**\t\t**1st-level Spell**\nNuitari\tChoose one from\tChoose one 1st-level wizard\n\tchill touch, mage\tspell from the evocation or\n\thand, and vicious\tnecromany school of magic.\n\tmockery\nLunitari\tChoose one from\tChoose one 1st-level wizard\n\tguidance,\t\tspell from the school of\n\tmessage, and\tdivination or transmutation.\n\tprestidigitation\nSolinari\tChoose one from\tChoose one 1st-level wizard\n\tproduce flame,\tspell from the abjuration or\n\tresistance, and\tconjuration school of magic.\n\tspare the dying",
+	descriptionFull: [
+		"You've received training from magic-users affiliated with the Mages of High Sorcery.",
+		"Choose one of three moons of Krynn, each of which is associated with a distinct type of magic: the black moon, Nuitari; the red moon, Lunitari; or the white moon, Solinari. You learn one cantrip and one 1st-level spell based on the moon you choose, as specified in the Lunar Spells table.",
+		"You can cast the chosen 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have.",
+		"Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+		"**Lunar Spells**",
+		[
+			["Moon", "Cantrips", "", "1st-level Spell"],
+			["Nuitari", "Choose one from", "Choose one 1st-level wizard"],
+			["", "*chill touch*, mage", "spell from the evocation or"],
+			["", "hand, and vicious", "necromany school of magic."],
+			["", "mockery"],
+			["Lunitari", "Choose one from", "Choose one 1st-level wizard"],
+			["", "guidance,", "", "spell from the school of"],
+			["", "message, and", "divination or transmutation."],
+			["", "prestidigitation"],
+			["Solinari", "Choose one from", "Choose one 1st-level wizard"],
+			["", "*produce flame*,", "spell from the abjuration or"],
+			["", "resistance, and", "conjuration school of magic."],
+			["", "*spare the dying*"],
+		],
+	],
 	prerequisite: "Apprentice of High Sorcery",
 	choices: ["Intelligence - Nuitari", "Intelligence - Lunitari", "Intelligence - Solinari", "Wisdom - Nuitari", "Wisdom - Lunitari", "Wisdom - Solinari", "Charisma - Nuitari", "Charisma - Lunitari", "Charisma - Solinari"],
 	// nine choices, one for each ability and moon
 	"intelligence - nuitari": {
-		description: "I learn a cantrip (Chill Touch, Mage Hand, or Vicious Mockery) and a 1st-level Evoc/Necro spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Intelligence as my spellcasting ability for this.",
+		description: "I learn a cantrip (*Chill Touch*, *Mage Hand*, or *Vicious Mockery*) and a 1st-level Evoc/Necro spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Intelligence as my spellcasting ability for this.",
 		allowUpCasting: true,
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
@@ -333,7 +355,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 		}],
 	},
 	"intelligence - lunitari": {
-		description: "I learn a cantrip (Guidance, Message, or Prestidigitation) and a 1st-level Div/Trans spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Intelligence as my spellcasting ability for this.",
+		description: "I learn a cantrip (*Guidance*, *Message*, or *Prestidigitation*) and a 1st-level Div/Trans spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Intelligence as my spellcasting ability for this.",
 		allowUpCasting: true,
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
@@ -348,7 +370,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 		}],
 	},
 	"intelligence - solinari": {
-		description: "I learn a cantrip (Produce Flame, Resistance, or Spare the Dying) and a 1st-level Abjur/Conj spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Intelligence as my spellcasting ability for this.",
+		description: "I learn a cantrip (*Produce Flame*, *Resistance*, or *Spare the Dying*) and a 1st-level Abjur/Conj spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Intelligence as my spellcasting ability for this.",
 		allowUpCasting: true,
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
@@ -363,7 +385,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 		}],
 	},
 	"wisdom - nuitari": {
-		description: "I learn a cantrip (Chill Touch, Mage Hand, or Vicious Mockery) and a 1st-level Evoc/Necro spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Wisdom as my spellcasting ability for this.",
+		description: "I learn a cantrip (*Chill Touch*, *Mage Hand*, or *Vicious Mockery*) and a 1st-level Evoc/Necro spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Wisdom as my spellcasting ability for this.",
 		allowUpCasting: true,
 		spellcastingAbility: 5,
 		spellcastingBonus: [{
@@ -378,7 +400,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 		}],
 	},
 	"wisdom - lunitari": {
-		description: "I learn a cantrip (Guidance, Message, or Prestidigitation) and a 1st-level Div/Trans spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Wisdom as my spellcasting ability for this.",
+		description: "I learn a cantrip (*Guidance*, *Message*, or *Prestidigitation*) and a 1st-level Div/Trans spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Wisdom as my spellcasting ability for this.",
 		allowUpCasting: true,
 		spellcastingAbility: 5,
 		spellcastingBonus: [{
@@ -393,7 +415,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 		}],
 	},
 	"wisdom - solinari": {
-		description: "I learn a cantrip (Produce Flame, Resistance, or Spare the Dying) and a 1st-level Abjur/Conj spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Wisdom as my spellcasting ability for this.",
+		description: "I learn a cantrip (*Produce Flame*, *Resistance*, or *Spare the Dying*) and a 1st-level Abjur/Conj spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Wisdom as my spellcasting ability for this.",
 		allowUpCasting: true,
 		spellcastingAbility: 5,
 		spellcastingBonus: [{
@@ -408,7 +430,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 		}],
 	},
 	"charisma - nuitari": {
-		description: "I learn a cantrip (Chill Touch, Mage Hand, or Vicious Mockery) and a 1st-level Evoc/Necro spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Charisma as my spellcasting ability for this.",
+		description: "I learn a cantrip (*Chill Touch*, *Mage Hand*, or *Vicious Mockery*) and a 1st-level Evoc/Necro spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Charisma as my spellcasting ability for this.",
 		allowUpCasting: true,
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
@@ -423,7 +445,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 		}],
 	},
 	"charisma - lunitari": {
-		description: "I learn a cantrip (Guidance, Message, or Prestidigitation) and a 1st-level Div/Trans spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Charisma as my spellcasting ability for this.",
+		description: "I learn a cantrip (*Guidance*, *Message*, or *Prestidigitation*) and a 1st-level Div/Trans spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Charisma as my spellcasting ability for this.",
 		allowUpCasting: true,
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
@@ -438,7 +460,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 		}],
 	},
 	"charisma - solinari": {
-		description: "I learn a cantrip (Produce Flame, Resistance, or Spare the Dying) and a 1st-level Abjur/Conj spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Charisma as my spellcasting ability for this.",
+		description: "I learn a cantrip (*Produce Flame*, *Resistance*, or *Spare the Dying*) and a 1st-level Abjur/Conj spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Charisma as my spellcasting ability for this.",
 		allowUpCasting: true,
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
@@ -457,7 +479,11 @@ FeatsList["adept of the black robes-ua"] = {
 	name: "Adept of the Black Robes",
 	source: [["UA:HoK", 5]],
 	description: "I learn one 2nd-level Evoc or Necro spell. I can cast this spell 1/LR w/out using a spell slot, and can cast it normally. Choose an ability for this spell. If creature I can see within 60 ft fails a save vs my spell I can spend HD equal to spell's level. I roll half that many HD and the creature takes that much additional damage.",
-	descriptionFull: "Your ambition and loyalty to the Order of the Black Robes has been recognized, granting you these benefits:\n***Ambitious Magic.*** You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.\n***Life Channel.*** You can channel your lifeforce into the power of your magic. When a creature you can see within 60 feet fails on a saving throw against a spell you cast, you can expend a number of Hit Dice equal to the level of the spell. Roll a number of Hit Die equal to half the number of Hit Dice expended (rounded up) and the damage the triggering creature takes increases by an amount equal to the total rolled of those dice.",
+	descriptionFull: [
+		"Your ambition and loyalty to the Order of the Black Robes has been recognized, granting you these benefits:",
+		"***Ambitious Magic.*** You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.",
+		"***Life Channel.*** You can channel your lifeforce into the power of your magic. When a creature you can see within 60 feet fails on a saving throw against a spell you cast, you can expend a number of Hit Dice equal to the level of the spell. Roll a number of Hit Die equal to half the number of Hit Dice expended (rounded up) and the damage the triggering creature takes increases by an amount equal to the total rolled of those dice.",
+	],
 	prerequisite: "4th-level, Initiate of High Sorcery feat, Any Non-Good Alignment",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("initiate of high sorcery-ua") !== -1 && !/good/i.test(What("Alignment")); },
 	spellcastingBonus: [{
@@ -493,7 +519,11 @@ FeatsList["adept of the red robes-ua"] = {
 	name: "Adept of the Red Robes",
 	source: [["UA:HoK", 5]],
 	description: "I learn one 2nd-level Div or Trans spell. I can cast this spell 1/LR w/out using a spell slot, and can cast it normally. Int is my ability for this spell. If I roll less than a 10 on an atk, check, or save, I can use my reaction to treat it as a 10. I can do this a number of times equal to my proficiency bonus per long rest.",
-	descriptionFull: "Your pursuit of truth and dedication to maintaining the balance between all things has been recognized by the Order of the Red Robes, granting you these benefits:\n***Insightful Magic.*** You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the divination or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.\n***Magical Balance.*** When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. you can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"Your pursuit of truth and dedication to maintaining the balance between all things has been recognized by the Order of the Red Robes, granting you these benefits:",
+		"***Insightful Magic.*** You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the divination or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.",
+		"***Magical Balance.*** When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. you can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "4th level, Initiate of High Sorcery feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("initiate of high sorcery-ua") !== -1; },
 	spellcastingBonus: [{
@@ -533,7 +563,11 @@ FeatsList["adept of the white robes-ua"] = {
 	name: "Adept of the White Robes",
 	source: [["UA:HoK", 5]],
 	description: "I learn one 2nd-level Abjur or Conj spell. I can cast this spell 1/LR w/out using a spell slot, and can cast it normally. Choose an ability for this spell. When a creature w/in 30 ft takes damage I can use a reaction to expend a spell slot and roll d4s equal to the spell's level and reduce the damage by that much + my SC ability mod.",
-	descriptionFull: "Your oath to use magic to make the world a better place has been recognized by the Order of the White Robes, granting you these benefits:\n***Protective Magic.*** You learn one 2nd-level spell of you choice. The 2nd-level spell must be from the abjuration or conjuration school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.\n***Protective Ward.*** When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d4s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier.",
+	descriptionFull: [
+		"Your oath to use magic to make the world a better place has been recognized by the Order of the White Robes, granting you these benefits:",
+		"***Protective Magic.*** You learn one 2nd-level spell of you choice. The 2nd-level spell must be from the abjuration or conjuration school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.",
+		"***Protective Ward.*** When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d4s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier.",
+	],
 	prerequisite: "4th level, Initiate of High Sorcery feat, Any Non-Evil Alignment",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("initiate of high sorcery-ua") !== -1 && !/evil/i.test(What("Alignment")); },
 	spellcastingBonus: [{
@@ -570,12 +604,25 @@ FeatsList["adept of the white robes-ua"] = {
 FeatsList["divinely favored-ua"] = {
 	name: "Divinely Favored",
 	source: [["UA:HoK", 5]],
-	description: "I learn Thaumaturgy and one 1st-level spell based on my alignment. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. I choose Int, Wis, or Cha as my spellcasting ability for this. I can use a holy symbol as a spellcasting focus for any spells that use the chosen ability.",
-	descriptionFull: "A god has chosen you to carry a spark of their divine power.\n   You learn the thaumaturgy cantrip and one 1st-level spell based on the alignment of your character, as specified in the Alignment Spells table.\n   You can cast the chosen 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have.\n   Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).\n\n***Alignment Spells***\n***Alignment***   ***1st-level Spell***\nEvil\t	 Choose one 1st level warlock or wizard spell.\nGood\t	 Choose one 1st-level cleric or wizard spell.\nNeutral\t	 Choose one 1st-level druid or wizard spell.\n\n   In addition, you can use a holy symbol as a spellcasting focus for any spell you cast that uses the spellcasting ability you choose when you select this feat.",
+	description: "I learn *Thaumaturgy* and one 1st-level spell based on my alignment. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. I choose Int, Wis, or Cha as my spellcasting ability for this. I can use a holy symbol as a spellcasting focus for any spells that use the chosen ability.",
+	descriptionFull: [
+		"A god has chosen you to carry a spark of their divine power.",
+		"You learn the *thaumaturgy* cantrip and one 1st-level spell based on the alignment of your character, as specified in the Alignment Spells table.",
+		"You can cast the chosen 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have.",
+		"Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+		"***Alignment Spells***",
+		[
+			["Alignment", "	 1st-level Spell"],
+			["Evil", "	 Choose one 1st level warlock or wizard spell."],
+			["Good", "	 Choose one 1st-level cleric or wizard spell."],
+			["Neutral", "	 Choose one 1st-level druid or wizard spell."],
+		],
+		"In addition, you can use a holy symbol as a spellcasting focus for any spell you cast that uses the spellcasting ability you choose when you select this feat.",
+	],
 	choices: ["Intelligence - Good", "Intelligence - Neutral", "Intelligence - Evil", "Wisdom - Good", "Wisdom - Neutral", "Wisdom - Evil", "Charisma - Good", "Charisma - Neutral", "Charisma - Evil"],
 	// nine choices, one for each alignment and ability pair
 	"intelligence - good": {
-		description: "I learn Thaumaturgy and one 1st-level cleric or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Intelligence is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Intelligence.",
+		description: "I learn *Thaumaturgy* and one 1st-level cleric or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Intelligence is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Intelligence.",
 		allowUpCasting: true,
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
@@ -591,7 +638,7 @@ FeatsList["divinely favored-ua"] = {
 		}],
 	},
 	"intelligence - neutral": {
-		description: "I learn Thaumaturgy and one 1st-level druid or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Intelligence is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Intelligence.",
+		description: "I learn *Thaumaturgy* and one 1st-level druid or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Intelligence is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Intelligence.",
 		allowUpCasting: true,
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
@@ -607,7 +654,7 @@ FeatsList["divinely favored-ua"] = {
 		}],
 	},
 	"intelligence - evil": {
-		description: "I learn Thaumaturgy and one 1st-level warlock or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Intelligence is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Intelligence.",
+		description: "I learn *Thaumaturgy* and one 1st-level warlock or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Intelligence is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Intelligence.",
 		allowUpCasting: true,
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
@@ -623,7 +670,7 @@ FeatsList["divinely favored-ua"] = {
 		}],
 	},
 	"wisdom - good": {
-		description: "I learn Thaumaturgy and one 1st-level cleric or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Wisdom is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Wisdom.",
+		description: "I learn *Thaumaturgy* and one 1st-level cleric or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Wisdom is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Wisdom.",
 		allowUpCasting: true,
 		spellcastingAbility: 5,
 		spellcastingBonus: [{
@@ -639,7 +686,7 @@ FeatsList["divinely favored-ua"] = {
 		}],
 	},
 	"wisdom - neutral": {
-		description: "I learn Thaumaturgy and one 1st-level druid or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Wisdom is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Wisdom.",
+		description: "I learn *Thaumaturgy* and one 1st-level druid or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Wisdom is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Wisdom.",
 		allowUpCasting: true,
 		spellcastingAbility: 5,
 		spellcastingBonus: [{
@@ -655,7 +702,7 @@ FeatsList["divinely favored-ua"] = {
 		}],
 	},
 	"wisdom - evil": {
-		description: "I learn Thaumaturgy and one 1st-level warlock or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Wisdom is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Wisdom.",
+		description: "I learn *Thaumaturgy* and one 1st-level warlock or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Wisdom is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Wisdom.",
 		allowUpCasting: true,
 		spellcastingAbility: 5,
 		spellcastingBonus: [{
@@ -671,7 +718,7 @@ FeatsList["divinely favored-ua"] = {
 		}],
 	},
 	"charisma - good": {
-		description: "I learn Thaumaturgy and one 1st-level cleric or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Charisma is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Charisma.",
+		description: "I learn *Thaumaturgy* and one 1st-level cleric or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Charisma is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Charisma.",
 		allowUpCasting: true,
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
@@ -687,7 +734,7 @@ FeatsList["divinely favored-ua"] = {
 		}],
 	},
 	"charisma - neutral": {
-		description: "I learn Thaumaturgy and one 1st-level druid or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Charisma is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Charisma.",
+		description: "I learn *Thaumaturgy* and one 1st-level druid or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Charisma is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Charisma.",
 		allowUpCasting: true,
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
@@ -703,7 +750,7 @@ FeatsList["divinely favored-ua"] = {
 		}],
 	},
 	"charisma - evil": {
-		description: "I learn Thaumaturgy and one 1st-level warlock or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Charisma is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Charisma.",
+		description: "I learn *Thaumaturgy* and one 1st-level warlock or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Charisma is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Charisma.",
 		allowUpCasting: true,
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
@@ -722,8 +769,13 @@ FeatsList["divinely favored-ua"] = {
 FeatsList["divine communications-ua"] = {
 	name: "Divine Communications",
 	source: [["UA:HoK", 5]],
-	description: "I learn Augury and Commune. I can cast these spells without a spell slot, then must wait 1d4 long rests before doing so again, and I can cast it normally. My chosen ability from Divinely Favored is my spellcasting ability for these spells",
-	descriptionFull: "Your connection to your god deepens, granting you these benefits:\n***Ability Score Increase.*** Increase the ability score of the spellcasting ability chosen when you gained the Divinely Favored feat by 1, to a maximum of 20.\n***Celestial Tongues.*** You learn to speak, read, and write Celestial, and two other languages of your choice.\n***Divine Omens.*** You can cast the augury and commune spell without a spell slot, and you must finish 1d4 long rests before you can cast it in this way again. You can also cast the spell using the spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gained the Divinely Favored feat.",
+	description: "I learn *Augury* and *Commune*. I can cast these spells without a spell slot, then must wait 1d4 long rests before doing so again, and I can cast it normally. My chosen ability from Divinely Favored is my spellcasting ability for these spells",
+	descriptionFull: [
+		"Your connection to your god deepens, granting you these benefits:",
+		"***Ability Score Increase.*** Increase the ability score of the spellcasting ability chosen when you gained the Divinely Favored feat by 1, to a maximum of 20.",
+		"***Celestial Tongues.*** You learn to speak, read, and write Celestial, and two other languages of your choice.",
+		"***Divine Omens.*** You can cast the *augury* and *commune* spell without a spell slot, and you must finish 1d4 long rests before you can cast it in this way again. You can also cast the spell using the spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gained the Divinely Favored feat.",
+	],
 	prerequisite: "4th level, Divinely Favored feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("divinely favored-ua") !== -1; },
 	languageProfs: ["Celestial", 2],
@@ -742,17 +794,17 @@ FeatsList["divine communications-ua"] = {
 		}
 	},
 	"intelligence": {
-		description: "I learn Augury and Commune. I can cast these spells without a spell slot, then must wait 1d4 long rests before doing so again, and I can cast it normally. Intelligence is my spellcasting ability for these spells",
+		description: "I learn *Augury* and *Commune*. I can cast these spells without a spell slot, then must wait 1d4 long rests before doing so again, and I can cast it normally. Intelligence is my spellcasting ability for these spells",
 		spellcastingAbility: 4,
 		scores: [0, 0, 0, 1, 0, 0],
 	},
 	"wisdom": {
-		description: "I learn Augury and Commune. I can cast these spells without a spell slot, then must wait 1d4 long rests before doing so again, and I can cast it normally. Wisdom is my spellcasting ability for these spells",
+		description: "I learn *Augury* and *Commune*. I can cast these spells without a spell slot, then must wait 1d4 long rests before doing so again, and I can cast it normally. Wisdom is my spellcasting ability for these spells",
 		spellcastingAbility: 5,
 		scores: [0, 0, 0, 0, 1, 0],
 	},
 	"charisma": {
-		description: "I learn Augury and Commune. I can cast these spells without a spell slot, then must wait 1d4 long rests before doing so again, and I can cast it normally. Charisma is my spellcasting ability for these spells",
+		description: "I learn *Augury* and *Commune*. I can cast these spells without a spell slot, then must wait 1d4 long rests before doing so again, and I can cast it normally. Charisma is my spellcasting ability for these spells",
 		spellcastingAbility: 6,
 		scores: [0, 0, 0, 0, 0, 1],
 	},
@@ -762,8 +814,13 @@ FeatsList["divine communications-ua"] = {
 FeatsList["squire of solamnia-ua"] = {
 	name: "Squire of Solamnia",
 	source: [["UA:HoK", 6]],
-	description: "As a reaction once per long rest when I see another creature 30 ft make a save, I can give them advantage if they can hear and understand me. I gain proficiency with with medium armor and martial weapons. I have advantage on saves to avoid falling off a mount.",
-	descriptionFull: "Your training in the ways of the Knights of Solamnia grants you these benefits:\n***Martial Training.*** You gain proficiency with medium armor and martial weapons.\n***Defensive Rider.*** You have advantage on saving throws made to avoid falling off a mount.\n***Encouraging Rally.*** When another creature you can see within 30 feet of you makes a saving throw, you can use your reaction to inspire them. If the target can hear you and understands you, it gains advantage on the saving throw. Once you use this reaction, you can't do so again until you finish a long rest.",
+	description: "As a reaction once per long rest when I see another creature 30 ft make a save, I can give them advantage if they can hear and understand me. I gain proficiency with medium armor and martial weapons. I have advantage on saves to avoid falling off a mount.",
+	descriptionFull: [
+		"Your training in the ways of the Knights of Solamnia grants you these benefits:",
+		"***Martial Training.*** You gain proficiency with medium armor and martial weapons.",
+		"***Defensive Rider.*** You have advantage on saving throws made to avoid falling off a mount.",
+		"***Encouraging Rally.*** When another creature you can see within 30 feet of you makes a saving throw, you can use your reaction to inspire them. If the target can hear you and understands you, it gains advantage on the saving throw. Once you use this reaction, you can't do so again until you finish a long rest.",
+	],
 	prerequisite: "Squireship in the Knights of Solamnia",
 	armorProfs: [false, true, false, false],
 	weaponProfs: [false, true],
@@ -779,7 +836,11 @@ FeatsList["knight of the crown-ua"] = {
 	name: "Knight of the Crown",
 	source: [["UA:HoK", 6]],
 	description: "When a creature within 30 ft makes an attack roll against another creature within 5 ft, I can use my reaction to grant advantage on the attack roll. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.",
-	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Crown, a group that extols the virtues of cooperation, loyalty, and obedience. You excel in group combat and gain these benefits:\n***Ability Score Increase.*** Increase your Strength or Dexterity score by 1, to a maximum of 20.\n***Tactical Teamwork.*** When a creature you can see within 30 feet of you makes an attack roll against another creature that is within 5 feet of you, you can use your reaction to grant advantage on the attack roll. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You are a Knight of Solamnia aligned with the Order of the Crown, a group that extols the virtues of cooperation, loyalty, and obedience. You excel in group combat and gain these benefits:",
+		"***Ability Score Increase.*** Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+		"***Tactical Teamwork.*** When a creature you can see within 30 feet of you makes an attack roll against another creature that is within 5 feet of you, you can use your reaction to grant advantage on the attack roll. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "4th level, Squire of Solamnia feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua") !== -1; },
 	scorestxt: "+1 Strength or Dexterity",
@@ -792,7 +853,11 @@ FeatsList["knight of the sword-ua"] = {
 	name: "Knight of the Sword",
 	source: [["UA:HoK", 6]],
 	description: "I gain proficiency in the chosen ability saving throw. After I or a creature I can see within 30 feet fails an Int, Wis, or Cha save, I can expend a HD. I roll that die and increase the save by that much. Once I change a fail into a success, I can't do so again until a long rest.",
-	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Sword, a group devoted to heroism and courage. Bravery steels your spirit, granting you these benefits:\n***Disciplined Spirit.*** You gain proficiency in Intelligence, Wisdom, or Charisma saving throws (your choice when you take this feat).\n***Willpower.*** Immediately after you or a creature you can see within 30 feet of you fail an Intelligence, Wisdom, or Charisma saving throw, you can expend a Hit Die. The saving throw increases by an amount equal to a roll of that Hit Die, potentially turning a failure into a success. Once you turn a failed saving throw into a successful one using this feat, you can't do so again until you finish a long rest.",
+	descriptionFull: [
+		"You are a Knight of Solamnia aligned with the Order of the Sword, a group devoted to heroism and courage. Bravery steels your spirit, granting you these benefits:",
+		"***Disciplined Spirit.*** You gain proficiency in Intelligence, Wisdom, or Charisma saving throws (your choice when you take this feat).",
+		"***Willpower.*** Immediately after you or a creature you can see within 30 feet of you fail an Intelligence, Wisdom, or Charisma saving throw, you can expend a Hit Die. The saving throw increases by an amount equal to a roll of that Hit Die, potentially turning a failure into a success. Once you turn a failed saving throw into a successful one using this feat, you can't do so again until you finish a long rest.",
+	],
 	prerequisite: "4th level, Squire of Solamnia feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua") !== -1; },
 	choices: ["Intelligence", "Wisdom", "Charisma"],
@@ -812,7 +877,11 @@ FeatsList["knight of the rose-ua"] = {
 	name: "Knight of the Rose",
 	source: [["UA:HoK", 6]],
 	description: "When I roll initiative I can choose up to 3 other creatures I can see within 30 ft. They gain temp HP equal to a roll of my HD + my proficiency bonus + the modifier of the score increased by this feat. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.",
-	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Rose, a group known for leadership, justice, and wisdom. Your resolve grants you these benefits:\n***Ability Score Increase.*** Increase your Constitution or Charisma score by 1, to a maximum of 20.\n***Bolstering Rally.*** When you roll initiative, you can choose up to three other creatures you can see within 30 feet of you. Each creature can gain temporary hit points equal to a roll of your Hit Die + your proficiency bonus + the ability modifier of the ability score increased by this feat. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You are a Knight of Solamnia aligned with the Order of the Rose, a group known for leadership, justice, and wisdom. Your resolve grants you these benefits:",
+		"***Ability Score Increase.*** Increase your Constitution or Charisma score by 1, to a maximum of 20.",
+		"***Bolstering Rally.*** When you roll initiative, you can choose up to three other creatures you can see within 30 feet of you. Each creature can gain temporary hit points equal to a roll of your Hit Die + your proficiency bonus + the ability modifier of the ability score increased by this feat. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "4th level, Squire of Solamnia feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua") !== -1; },
 	scorestxt: "+1 Constitution or Charisma",

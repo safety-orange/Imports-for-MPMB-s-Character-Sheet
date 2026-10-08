@@ -1,5 +1,5 @@
 var iFileName = "ua_20210126_Gothic-Lineages.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana 2021: Gothic Lineages article to MPMB's Character Record Sheet
 // This file contains contributions by Metacomet10, MarvinTheParanoidAndroid, and CountVladmir
 
@@ -46,10 +46,11 @@ RaceList["dhampir-ua"] = {
 		recovery: "long rest",
 	}],
 	scorestxt: "+2 to one ability score, and +1 to a different score of my choice",
-	trait: "Dhampir" + (typePF ? "\n " : "\t") +
-	"\u2022 Type: My creature type is both Humanoid and Undead." +
-	"\n \u2022 Spider Climb: Climbing speed equal to walking speed. At 3rd level, I can move up, down, and across vertical surfaces and upside down along ceilings, while leaving my hands free." +
-	"\n \u2022 Vampiric Bite: Uses Constitution and has adv. on the attack roll if I'm at or below half HP. My Proficiency Bonus per long rest, when I hit a creature other than a construct or undead, I can empower myself. I either regain HP or gain a bonus on my next ability check or attack roll. The bonus is equal to the piercing damage dealt.",
+	trait: [
+		"**Dhampir**" + (typePF ? "\r" : " ") + "##\u25C6 Type##. My creature type is both Humanoid and Undead.",
+		"##\u25C6 Spider Climb##. Climbing speed equal to walking speed. At 3rd level, I can move up, down, and across vertical surfaces and upside down along ceilings, while leaving my hands free.",
+		"##\u25C6 Vampiric Bite##. Uses Constitution and has adv. on the attack roll if I'm at or below half HP. My Proficiency Bonus per long rest, when I hit a creature other than a construct or undead, I can empower myself. I either regain HP or gain a bonus on my next ability check or attack roll. The bonus is equal to the piercing damage dealt.",
+	],
 };
 RaceList["hexblood-ua"] = {
 	regExpSearch: /hexblood/i,
@@ -61,10 +62,11 @@ RaceList["hexblood-ua"] = {
 		walk: { spd: 30, enc: 20 },
 	},
 	scorestxt: "+2 to one ability score, and +1 to a different score of my choice",
-	trait: "Hexblood" + (typePF ? "\n " : "\t") +
-	"\u2022 Fey Resilience: I'm both Humanoid and Fey. I have adv. on saves vs. charms." +
-	"\n \u2022 Magic Token: As an action once per long rest, I can harmlessly remove a lock of my hair, one of my nails or teeth and imbue this token with magic until I finish a long rest. While the token is imbued in this way, I can telepathically speak to a creature holding it or see and hear around it. See the Notes page for more information." +
-	"\n \u2022 Hex Magic: I known Disguise Self and Hex. I can cast each spell once per long rest without using a spell slot, or by using a spell slot.",
+	trait: [
+		"**Hexblood**" + (typePF ? "\r" : " ") + "##\u25C6 Fey Resilience##. I'm both Humanoid and Fey. I have adv. on saves vs. charms.",
+		"##\u25C6 Magic Token##. As an action once per long rest, I can harmlessly remove a lock of my hair, one of my nails or teeth and imbue this token with magic until I finish a long rest. While the token is imbued in this way, I can telepathically speak to a creature holding it or see and hear around it. See the Notes page for more information.",
+		"##\u25C6 Hex Magic##. I know *Disguise Self* and *Hex*. I can cast each spell once per long rest without using a spell slot, or by using a spell slot.",
+	],
 	toNotesPage: [{
 		name: "Hexblood's Magic Token",
 		note: ["As an action, I can harmlessly pull out one of my nails, a tooth, or a lock of hair. This token is imbued with magic until I finish a long rest.",
@@ -147,10 +149,10 @@ RaceList["reborn-ua"] = {
 AddRacialVariant("reborn-ua", "undead", {
 	regExpSearch: /undead/i,
 	source: [["UA:GL", 5]],
-	trait: RaceList["reborn-ua"].trait.replace("Humanoid, as well as Construct or Undead (my choice)", "both Humanoid and Undead").replace("  ", "\t"),
+	trait: [].concat(RaceList["reborn-ua"].trait).map(function (sTrait) { return sTrait.replace("Humanoid, as well as Construct or Undead (my choice)", "both Humanoid and Undead"); }),
 });
 AddRacialVariant("reborn-ua", "construct", {
 	regExpSearch: /construct/i,
 	source: [["UA:GL", 5]],
-	trait: RaceList["reborn-ua"].trait.replace("Humanoid, as well as Construct or Undead (my choice)", "both Humanoid and Construct").replace("  ", "\t"),
+	trait: [].concat(RaceList["reborn-ua"].trait).map(function (sTrait) { return sTrait.replace("Humanoid, as well as Construct or Undead (my choice)", "both Humanoid and Construct"); }),
 });

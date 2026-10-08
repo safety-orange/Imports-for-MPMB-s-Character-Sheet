@@ -1,5 +1,5 @@
 var iFileName = "pub_20140819_HotDQ+20141104_RoT.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the background features and magic items from the Hoard of the Dragon Queen and Rise of Tiamat adventure books to MPMB's Character Record Sheet
 
 // Define the source
@@ -46,8 +46,8 @@ MagicItemsList["dragongleam"] = {
 	type: "weapon (spear)",
 	rarity: "rare",
 	magicItemTable: "F",
-	description: "This rusty spear is engraved with draconic runes on its crossguard which read \"Tiamat's Eyes Shine\". The spear has 10 charges. As an action while holding it, I can say this command and expend 1 charge to cast Daylight. The spear loses its magic once all charges are expended.",
-	descriptionFull: "This rusty spear is engraved with draconic runes on its crossguard which read \"Tiamat's Eyes Shine\". The spear has 10 charges. While holding it, you can say the command and expend 1 charge as an action to cast the Daylight spell. The spear loses this property if it has no charges left.",
+	description: "This rusty spear is engraved with draconic runes on its crossguard which read \"Tiamat's Eyes Shine\". The spear has 10 charges. As an action while holding it, I can say this command and expend 1 charge to cast *Daylight*. The spear loses its magic once all charges are expended.",
+	descriptionFull: "This rusty spear is engraved with draconic runes on its crossguard which read \"Tiamat's Eyes Shine\". The spear has 10 charges. While holding it, you can say the command and expend 1 charge as an action to cast the *Daylight* spell. The spear loses this property if it has no charges left.",
 	weight: 3,
 	usages: 10,
 	recovery: "\u2013",
@@ -107,7 +107,7 @@ MagicItemsList["dragon mask"] = {
 	rarity: "legendary",
 	storyItemAL: true,
 	description: "This mask reshapes to fit my head. It grants me the ability to absorb associated damage type, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. a dragon type, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, see Notes page.",
-	descriptionFull: "Each dragon mask is a legendary wondrous item that reshapes to fit the face and head of a wearer attuned to it. While you are wearing any dragon mask and attuned to it, you gain the following benefits." + HotDQ_tempDragonMaskNoteTxt[0].replace(/You have resistance against DTYPE damage.*?\n/, "You have resistance against the mask's damage type. If you already have resistance to that damage type from another source, you instead have immunity to that damage type. If you already have immunity to that damage type from another source, whenever you are subjected to damage of that type, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.\n").replace("DCOLOUR dragons", "dragons that share the mask's color"),
+	descriptionFull: "Each *dragon mask* is a legendary wondrous item that reshapes to fit the face and head of a wearer attuned to it. While you are wearing any *dragon mask* and attuned to it, you gain the following benefits." + HotDQ_tempDragonMaskNoteTxt[0].replace(/You have resistance against DTYPE damage.*?\n/, "You have resistance against the mask's damage type. If you already have resistance to that damage type from another source, you instead have immunity to that damage type. If you already have immunity to that damage type from another source, whenever you are subjected to damage of that type, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.\n").replace("DCOLOUR dragons", "dragons that share the mask's color"),
 	attunement: true,
 	languageProfs: ["Draconic"],
 	vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
@@ -221,7 +221,7 @@ MagicItemsList["dragon mask"] = {
 		source: [["RoT", 94], ["ToD", 179]],
 		description: "This mask reshapes to fit my head. It allows to absorb acid, cold, fire, lightning, and poison damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (5/day), adv. on Cha checks vs. dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
 		descriptionLong: "This mask gives me a draconic visage and covers my face, neck, and shoulders. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb acid, cold, fire, lightning, and poison damage, depending on how resistant I'm already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against dragons, lets me add my Charisma modifier to AC while not wearing armor, and more. 5 times per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
-		descriptionFull: "When two or more of the dragon masks are assembled they magically transform into the Mask of the Dragon Queen. Each mask shrinks to become the modeled head of a chromatic dragon, appearing to roar its devotion to Tiamat where all the masks brought together are arranged crown-like on the wearer's head. Below the five masks, a new mask shapes itself, granting the wearer a draconic visage that covers the face, neck, and shoulders. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + HotDQ_tempDragonMaskNoteTxt[0].replace(/You have resistance against DTYPE damage.*?\n/, "You have resistance against acid, cold, fire, lightning, and poison damage. If you already have resistance to a damage type from another source, you instead have immunity to that damage type. If you already have immunity to a damage type from another source, whenever you are subjected to that damage type, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.\n").replace("DCOLOUR ", "").replace("***(1/Day)***", "***(5/Day)***") + "\n\n   It can have the properties of any one of the colored masks, but only can have one active at a time. These are the following:\n   ***Water Breathing (black and green)***. You can breathe underwater.\n   ***Lingering Shock (blue)***. If you deal lightning damage to a creature, it can't take reactions until its next turn.\n   ***Dragon Fire (red)***. If you deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire.\n   ***Winter's Fury (white)***. While your current hit points are equal to or less than half your hit point maximum, you deal an extra 1d8 cold damage with your melee attacks.",
+		descriptionFull: "When two or more of the dragon masks are assembled they magically transform into the *Mask of the Dragon Queen*. Each mask shrinks to become the modeled head of a chromatic dragon, appearing to roar its devotion to Tiamat where all the masks brought together are arranged crown-like on the wearer's head. Below the five masks, a new mask shapes itself, granting the wearer a draconic visage that covers the face, neck, and shoulders. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + HotDQ_tempDragonMaskNoteTxt[0].replace(/You have resistance against DTYPE damage.*?\n/, "You have resistance against acid, cold, fire, lightning, and poison damage. If you already have resistance to a damage type from another source, you instead have immunity to that damage type. If you already have immunity to a damage type from another source, whenever you are subjected to that damage type, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.\n").replace("DCOLOUR ", "").replace("***(1/Day)***", "***(5/Day)***") + "\n\n   It can have the properties of any one of the colored masks, but only can have one active at a time. These are the following:\n   ***Water Breathing (black and green)***. You can breathe underwater.\n   ***Lingering Shock (blue)***. If you deal lightning damage to a creature, it can't take reactions until its next turn.\n   ***Dragon Fire (red)***. If you deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire.\n   ***Winter's Fury (white)***. While your current hit points are equal to or less than half your hit point maximum, you deal an extra 1d8 cold damage with your melee attacks.",
 		dmgres: ["Acid", "Cold", "Fire", "Lightning", "Poison"],
 		changeeval: function () {
 			MagicItemsList["dragon mask"].incrementDamageRes("", "acid");
@@ -252,7 +252,12 @@ MagicItemsList["hazirawn"] = {
 	rarity: "legendary",
 	storyItemAL: true,
 	description: "This sentient, neutral evil, greatsword functions depend on whether you are attuned to it or not.",
-	descriptionFull: "A sentient (neutral evil) greatsword, Hazirawn is capable of speech in Common and Netherese. Even if you aren't attuned to the sword, you gain a +1 bonus on attack and damage rolls made with this weapon and you deal an extra 1d6 necrotic damage when you hit with the weapon.\n   ***Increased Potency***. While you are attuned to this weapon, its bonus on attack and damage rolls increases to +2, and a hit deals an extra 2d6 necrotic damage (instead of 1d6).\n   ***Spells***. Hazirawn has 4 charges to cast spells. As long as the sword is attuned to you and you are holding it in your hand, you can cast Detect Magic (1 charge), Detect Evil and Good (1 charge), or Detect Thoughts (2 charges). Each night at midnight, Hazirawn regains 1d4 expended charges.\n   ***Wounding***. While you are attuned to the weapon, any creature that you hit with Hazirawn can't regain hit points for 1 minute. The target can make a DC 15 Constitution saving throw at the end of each of its turns, ending this effect early on a success.",
+	descriptionFull: [
+		"A sentient (neutral evil) greatsword, *Hazirawn* is capable of speech in Common and Netherese. Even if you aren't attuned to the sword, you gain a +1 bonus on attack and damage rolls made with this weapon and you deal an extra 1d6 necrotic damage when you hit with the weapon.",
+		"***Increased Potency***. While you are attuned to this weapon, its bonus on attack and damage rolls increases to +2, and a hit deals an extra 2d6 necrotic damage (instead of 1d6).",
+		"***Spells***. *Hazirawn* has 4 charges to cast spells. As long as the sword is attuned to you and you are holding it in your hand, you can cast *Detect Magic* (1 charge), *Detect Evil and Good* (1 charge), or *Detect Thoughts* (2 charges). Each night at midnight, *Hazirawn* regains 1d4 expended charges.",
+		"***Wounding***. While you are attuned to the weapon, any creature that you hit with *Hazirawn* can't regain hit points for 1 minute. The target can make a DC 15 Constitution saving throw at the end of each of its turns, ending this effect early on a success.",
+	],
 	weight: 6,
 	choices: ["not attuned", "attuned"],
 	"not attuned": {
@@ -309,7 +314,10 @@ MagicItemsList["insignia of claws"] = {
 	rarity: "uncommon",
 	magicItemTable: "F",
 	description: "The jewels in the insignia flare with purple light when I enter combat, empowering my fists. While wearing the insignia, I gain a +1 bonus to the attack rolls and the damage rolls of my unarmed strikes and natural weapons. Such attacks are considered to be magical.",
-	descriptionFull: "The jewels in the insignia of the Cult of the Dragon flare with purple light when you enter combat, empowering your natural fists or natural weapons.\n   While wearing the insignia you gain a +1 bonus to the attack rolls and the damage rolls you make with unarmed strikes and natural weapons. Such attacks are considered to be magical.",
+	descriptionFull: [
+		"The jewels in the insignia of the Cult of the Dragon flare with purple light when you enter combat, empowering your natural fists or natural weapons.",
+		"While wearing the insignia you gain a +1 bonus to the attack rolls and the damage rolls you make with unarmed strikes and natural weapons. Such attacks are considered to be magical.",
+	],
 	calcChanges: {
 		atkAdd: [
 			function (fields, v) {
@@ -335,8 +343,11 @@ MagicItemsList["wand of winter"] = {
 	rarity: "rare",
 	attunement: true,
 	magicItemTable: "G",
-	description: "This wand looks and feels like an icicle and has 7 charges, regaining 1d6+1 expended charges at dawn. If I use its last charge, roll a d20. On a 20, it melts away. I can use its charges to cast spells with DC 15/+5 to hit: Ray of Frost (0 charges: 1d8, 1 charge: 2d8), Sleet Storm (3 charges), or Ice Storm (4 charges).",
-	descriptionFull: "This wand looks and feels like an icicle. You must be attuned to the wand to use it.\n   The wand has 7 charges, which are used to fuel the spells within it. With the wand in hand, you can use your action to cast one of the following spells from the wand, even if you are incapable of casting spells: Ray of Frost (no charges, or 1 charge to cast at 5th level; +5 to hit with ranged spell attack), Sleet Storm (3 charges; spell save DC 15), or Ice Storm (4 charges; spell save DC 15). No components are required. The wand regains 1d6+1 expended charges each day at dawn. If you expend the wand's last charge, roll a d20. On a 20, the wand melts away, forever destroyed.",
+	description: "This wand looks and feels like an icicle and has 7 charges, regaining 1d6+1 expended charges at dawn. If I use its last charge, roll a d20. On a 20, it melts away. I can use its charges to cast spells with DC 15/+5 to hit: *Ray of Frost* (0 charges: 1d8, 1 charge: 2d8), *Sleet Storm* (3 charges), or *Ice Storm* (4 charges).",
+	descriptionFull: [
+		"This wand looks and feels like an icicle. You must be attuned to the wand to use it.",
+		"The wand has 7 charges, which are used to fuel the spells within it. With the wand in hand, you can use your action to cast one of the following spells from the wand, even if you are incapable of casting spells: *Ray of Frost* (no charges, or 1 charge to cast at 5th level; +5 to hit with ranged spell attack), *Sleet Storm* (3 charges; spell save DC 15), or *Ice Storm* (4 charges; spell save DC 15). No components are required. The wand regains 1d6+1 expended charges each day at dawn. If you expend the wand's last charge, roll a d20. On a 20, the wand melts away, forever destroyed.",
+	],
 	weight: 1,
 	usages: 7,
 	recovery: "dawn",
@@ -389,7 +400,11 @@ MagicItemsList["dragontooth dagger"] = {
 	rarity: "rare",
 	magicItemTable: "H",
 	description: "This dagger is fashioned from the tooth of a dragon. Its handle is its leather wrapped root and there is no crossguard. It adds a +1 bonus to attack and damage rolls made with it and deals +1d6 acid damage on a hit. Against the enemies of the Cult of the Dragon this increases to a +2 bonus and +2d6 acid damage.",
-	descriptionFull: "A dagger fashioned from the tooth of a dragon. While the blade is obviously a fang or predator's tooth, the handle is leather wrapped around the root of the tooth, and there is no crossguard.\n   You gain a +1 bonus to attack and damage rolls made with this weapon. On a hit with this weapon, the target takes an extra 1d6 acid damage.\n   ***Draconic Potency***. Against enemies of the Cult of the Dragon, the dagger's bonus to attack and damage rolls increases to 2, and the extra acid damage increases to 2d6.",
+	descriptionFull: [
+		"A dagger fashioned from the tooth of a dragon. While the blade is obviously a fang or predator's tooth, the handle is leather wrapped around the root of the tooth, and there is no crossguard.",
+		"You gain a +1 bonus to attack and damage rolls made with this weapon. On a hit with this weapon, the target takes an extra 1d6 acid damage.",
+		"***Draconic Potency***. Against enemies of the Cult of the Dragon, the dagger's bonus to attack and damage rolls increases to 2, and the extra acid damage increases to 2d6.",
+	],
 	weight: 1,
 	weaponOptions: [{
 		baseWeapon: "dagger",

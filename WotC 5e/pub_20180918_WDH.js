@@ -1,5 +1,5 @@
 var iFileName = "pub_20180918_WDH.js";
-RequiredSheetVersion("14.1.3");
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the magic items from the Waterdeep: Dragon Heist adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -48,15 +48,15 @@ MagicItemsList["azuredge"] = {
 	description: "This battleaxe is sentient, adds +3 to hit and damage, and deals +2d6 radiant damage vs. fiends/undead. As an action, I can stop or start its glow of bright light in a 30-ft radius and dim light for another 30 ft. It has 3 charges, regaining all at dawn, which can be used to throw it, after which it returns to my hand. See Notes.",
 	descriptionFull: [
 		"Forged by the archwizard Ahghairon, this intelligent battleaxe was crafted to defend Waterdeep. Its current wielder is a former member of Force Grey named Meloon Wardragon, but the weapon is searching for a new owner.",
-		"Azuredge has a solid steel handle etched with tiny runes, wrapped in blue dragon hide with a star sapphire set into the pommel. The axe head is forged from silver, electrum, and steel alloys whose edges constantly shimmer with a deep blue luminescence.",
-		"You gain a +3 bonus to attack and damage rolls made with this magic weapon. The Shield spell provides no defense against the axe, which passes through that spell's barrier of magical force.",
+		"*Azuredge* has a solid steel handle etched with tiny runes, wrapped in blue dragon hide with a star sapphire set into the pommel. The axe head is forged from silver, electrum, and steel alloys whose edges constantly shimmer with a deep blue luminescence.",
+		"You gain a +3 bonus to attack and damage rolls made with this magic weapon. The *Shield* spell provides no defense against the axe, which passes through that spell's barrier of magical force.",
 		"When you hit a fiend or an undead with the axe, cold blue flames erupt from its blade and deal an extra 2d6 radiant damage to the target.",
 		"***Hurling***. The battleaxe has 3 charges. You can expend 1 charge and make a ranged attack with the axe, hurling it as if it had the thrown property with a normal range of 60 feet and a long range of 180 feet. Whether it hits or misses, the axe flies back to you at the end of the current turn, landing in your open hand or at your feet in your space (as you choose). The axe regains all expended charges daily at dawn.",
 		"***Illumination***. While holding the axe, you can use an action to cause the axe to glow blue or to quench the glow. This glow sheds bright light in a 30-foot radius and dim light for an additional 30 feet.",
-		"***Sentience***. Azuredge is a sentient lawful neutral weapon with an Intelligence of 12, a Wisdom of 15, and a Charisma of 15. It has hearing and darkvision out to a range of 120 feet.",
+		"***Sentience***. *Azuredge* is a sentient lawful neutral weapon with an Intelligence of 12, a Wisdom of 15, and a Charisma of 15. It has hearing and darkvision out to a range of 120 feet.",
 		"The weapon communicates telepathically with its wielder and can speak, read, and understand Common. It has a calm, delicate voice. The weapon can sense the presence of non-lawful creatures within 120 feet of it.",
-		"***Personality***. Azuredge is sworn to protect Waterdeep, and it desires to be wielded by a law-abiding person willing to dedicate everything to the city's defense. The weapon is patient and takes its time finding its ideal wielder.",
-		"If someone tries to use Azuredge against its will, the axe can become ten times heavier than normal, and can magically adhere to any Medium or larger object or surface it comes into contact with. Once it does so, the axe can't be wielded. Nothing short of a Wish spell can separate the axe from the item or surface to which it is adhered without destroying one or the other, though the axe can choose to end the effect at any time.",
+		"***Personality***. *Azuredge* is sworn to protect Waterdeep, and it desires to be wielded by a law-abiding person willing to dedicate everything to the city's defense. The weapon is patient and takes its time finding its ideal wielder.",
+		"If someone tries to use *Azuredge* against its will, the axe can become ten times heavier than normal, and can magically adhere to any Medium or larger object or surface it comes into contact with. Once it does so, the axe can't be wielded. Nothing short of a *Wish* spell can separate the axe from the item or surface to which it is adhered without destroying one or the other, though the axe can choose to end the effect at any time.",
 	],
 	attunement: true,
 	weight: 4,
@@ -99,7 +99,12 @@ MagicItemsList["badge of the watch"] = { // contains contributions by Pengsloth
 	description: "While wearing this badge and not using a shield, I gain +2 AC. If it is more than 5 ft away from me for over 1 min, it vanishes and reappears within 5 ft of the Open Lord. While holding the badge, the Open Lord knows my location if we are both on the same plane and can, as an action end my attunement to it.",
 	prerequisite: "Requires attunement by someone designated by the Open Lord of Waterdeep",
 	prereqeval: function () { return false; },
-	descriptionFull: "A badge of the Watch is given only to those who have earned the trust of the Open Lord of Waterdeep. The badge, signifying the rank of captain in Waterdeep's City Watch, bears the emblem of Waterdeep and is meant to be worn or carried.\n   While wearing the badge, you gain a +2 bonus to AC if you aren't using a shield.\n   If the badge is more than 5 feet away from you for more than 1 minute, it vanishes and harmlessly reappears on a surface within 5 feet of the Open Lord. While holding the badge, the Open Lord knows your location, provided the two of you are on the same plane of existence and your attunement to the badge hasn't ended.\n   As an action, the Open Lord can touch the badge and end your attunement to it.",
+	descriptionFull: [
+		"A *badge of the Watch* is given only to those who have earned the trust of the Open Lord of Waterdeep. The badge, signifying the rank of captain in Waterdeep's City Watch, bears the emblem of Waterdeep and is meant to be worn or carried.",
+		"While wearing the badge, you gain a +2 bonus to AC if you aren't using a shield.",
+		"If the badge is more than 5 feet away from you for more than 1 minute, it vanishes and harmlessly reappears on a surface within 5 feet of the Open Lord. While holding the badge, the Open Lord knows your location, provided the two of you are on the same plane of existence and your attunement to the badge hasn't ended.",
+		"As an action, the Open Lord can touch the badge and end your attunement to it.",
+	],
 	attunement: true,
 	extraAC: [{
 		mod: 2,
@@ -239,8 +244,12 @@ MagicItemsList["dragonstaff of ahghairon"] = { // contains contributions by Peng
 	type: "staff",
 	rarity: "legendary",
 	storyItemAL: true,
-	description: "This staff has 10 charges, regaining 1d10 at dawn, which can be used to cast Command. Dragons have disadv. on their save against it. The staff gives me adv. on saves against the spells and breath weapons of dragons. I can touch a dragon with the staff, allowing it to ignore the effects of Ahghairon's Dragonward.",
-	descriptionFull: "While holding the dragonstaff of Ahghairon, you have advantage on saving throws against the spells and breath weapons of dragons, as well as the breath weapons of other creatures of the dragon type (such as dragon turtles).\n   A creature of the dragon type that you touch with the staff can move through the city of Waterdeep, ignoring Ahghairon's dragonward (see \"Ahghairon's Dragonward,\" in the Introduction of Waterdeep: Dragon Heist). This effect lasts until the creature is touched again by the staff or until a time you proclaim when you confer the benefit.\n   The staff has 10 charges. While holding it, you can expend 1 charge as an action to cast the Command spell. If you target a dragon with this casting, the dragon has disadvantage on its saving throw. The staff regains 1d10 charges daily at dawn.",
+	description: "This staff has 10 charges, regaining 1d10 at dawn, which can be used to cast *Command*. Dragons have disadv. on their save against it. The staff gives me adv. on saves against the spells and breath weapons of dragons. I can touch a dragon with the staff, allowing it to ignore the effects of Ahghairon's Dragonward.",
+	descriptionFull: [
+		"While holding the *dragonstaff of Ahghairon*, you have advantage on saving throws against the spells and breath weapons of dragons, as well as the breath weapons of other creatures of the dragon type (such as dragon turtles).",
+		"A creature of the dragon type that you touch with the staff can move through the city of Waterdeep, ignoring Ahghairon's dragonward (see \"Ahghairon's Dragonward,\" in the Introduction of Waterdeep: Dragon Heist). This effect lasts until the creature is touched again by the staff or until a time you proclaim when you confer the benefit.",
+		"The staff has 10 charges. While holding it, you can expend 1 charge as an action to cast the *Command* spell. If you target a dragon with this casting, the dragon has disadvantage on its saving throw. The staff regains 1d10 charges daily at dawn.",
+	],
 	attunement: true,
 	savetxt: { adv_vs: ["dragon breath weapons", "dragon spells"] },
 	usages: 10,
@@ -267,8 +276,12 @@ MagicItemsList["feather of diatryma summoning"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	magicItemTable: "D",
-	description: "As an action once per 7 days, I can speak the command word and throw this feather to an empty large space in 5 ft, where it becomes a diatryma (axe beak stats) for 6 hours, until I speak the command again, or it reaches 0 HP. It is friendly, understands my languages, obeys my commands, and can be used as a mount.",
-	descriptionFull: "This bright plume is made from the feather of a diatryma (pronounced dee-ah-TRY-mah), a Large, colorful, flightless bird native to the Underdark. If you use an action to speak the command word and throw the feather into a Large unoccupied space on the ground within 5 feet of you, the feather becomes a living diatryma for up to 6 hours, after which it reverts to its feather form. It reverts to feather form early if it drops to 0 hit points or if you use an action to speak the command word again while touching the bird.\n   When the diatryma reverts to feather form, the magic of the feather can't be used again until 7 days have passed.\n   The diatryma uses the statistics of an axe beak, except that its beak deals piercing damage instead of slashing damage. The creature is friendly to you and your companions, and it can be used as a mount. It understands your languages and obeys your spoken commands. If you issue no commands, the diatryma defends itself but takes no other actions.",
+	description: "As an action once per 7 days, I can speak the command word and throw this feather to an empty large space in 5 ft, where it becomes a diatryma (axe beak stats) for 6 hours, until I speak the command again, or it has 0 HP. It is friendly, understands my languages, obeys my commands, and can be used as a mount.",
+	descriptionFull: [
+		"This bright plume is made from the feather of a diatryma (pronounced dee-ah-TRY-mah), a Large, colorful, flightless bird native to the Underdark. If you use an action to speak the command word and throw the feather into a Large unoccupied space on the ground within 5 feet of you, the feather becomes a living diatryma for up to 6 hours, after which it reverts to its feather form. It reverts to feather form early if it drops to 0 hit points or if you use an action to speak the command word again while touching the bird.",
+		"When the diatryma reverts to feather form, the magic of the feather can't be used again until 7 days have passed.",
+		"The diatryma uses the statistics of an axe beak, except that its beak deals piercing damage instead of slashing damage. The creature is friendly to you and your companions, and it can be used as a mount. It understands your languages and obeys your spoken commands. If you issue no commands, the diatryma defends itself but takes no other actions.",
+	],
 	attunement: true,
 	usages: 1,
 	recovery: "7 days",
@@ -281,7 +294,12 @@ MagicItemsList["knave's eye patch"] = { // contains contributions by Pengsloth
 	rarity: "rare",
 	magicItemTable: "G",
 	description: "While wearing this eye patch I have advantage on Perception checks that rely on sight, I am unaffected by Sunlight Sensitivity if I have it, and I am immune to magic that would read my thoughts or determine whether I'm lying. Creatures can communicate telepathically with me only if I allow it.",
-	descriptionFull: "While wearing this eye patch, you gain these benefits:\n \u2022 You have advantage on Wisdom (Perception) checks that rely on sight.\n \u2022 If you have the Sunlight Sensitivity trait, you are unaffected by the trait.\n \u2022 You are immune to magic that allows other creatures to read your thoughts or determine whether you are lying. Creatures can communicate telepathically with you only if you allow it.",
+	descriptionFull: [
+		"While wearing this eye patch, you gain these benefits:",
+		" \u2022 You have advantage on Wisdom (Perception) checks that rely on sight.",
+		" \u2022 If you have the Sunlight Sensitivity trait, you are unaffected by the trait.",
+		" \u2022 You are immune to magic that allows other creatures to read your thoughts or determine whether you are lying. Creatures can communicate telepathically with you only if you allow it.",
+	],
 	attunement: true,
 	vision: [["Adv. on Perception checks relying on sight", 0]],
 }
@@ -294,7 +312,12 @@ MagicItemsList["lord's ensemble"] = {
 	prerequisite: "Requires attunement by a creature with a humanoid build",
 	description: "While wearing this helm, amulet, and ring, my identity can't be determined. I move through difficult terrain as normal terrain. Magic can't be used to reduce my speed, paralyze me, restrain me, read my thoughts, or learn my alignment, creature type, or if I'm lying. I'm hidden from scrying and Divination magic.",
 	descriptionLong: "This set of a helm, amulet, and ring can be worn and attuned to as a single magic item, but only while within Waterdeep. The helm magically alters my voice to sound genderless, and makes me immune to magic that reads my thoughts, determines if I'm lying, or reveals my alignment or creature type. Creatures can't speak telepathically with me unless I allow it. The amulet causes me to be hidden from Divination magic and magical scrying sensors. The robe makes me look nondescript, makes difficult terrain not cost me extra movement, and stops magic from reducing my speed or me to be paralyze or restrained.",
-	descriptionFull: "The Masked Lords of Waterdeep don this ensemble when meeting with one another. This raiment renders each lord indistinguishable from the others. The ensemble consists of three pieces\u2014a helm, an amulet, and a robe\u2014that function as a single magic item when worn together, but only within the city of Waterdeep and its sewers. You become attuned to the ensemble as a single item.\n   ***Lord's Helm***. This bucket helm covers your head and conceals your face. Screens over the eyes help to shroud your identity without blinding you. While you wear the helm, your voice is magically altered to sound genderless, and you are immune to magic that allows other creatures to read your thoughts, to determine whether you are lying, to know your alignment, or to know your creature type. Creatures can communicate telepathically with you only if you allow it.\n   ***Lord's Amulet***. This amulet bears the crest of Waterdeep. It functions as an amulet of proof against detection and location.\n   ***Lord's Robe***. This elegant robe functions as a ring of free action, and it creates the illusion that you have a nondescript, androgynous humanoid build and stand 6 feet tall.",
+	descriptionFull: [
+		"The Masked Lords of Waterdeep don this ensemble when meeting with one another. This raiment renders each lord indistinguishable from the others. The ensemble consists of three pieces\u2014a helm, an amulet, and a robe\u2014that function as a single magic item when worn together, but only within the city of Waterdeep and its sewers. You become attuned to the ensemble as a single item.",
+		"***Lord's Helm***. This bucket helm covers your head and conceals your face. Screens over the eyes help to shroud your identity without blinding you. While you wear the helm, your voice is magically altered to sound genderless, and you are immune to magic that allows other creatures to read your thoughts, to determine whether you are lying, to know your alignment, or to know your creature type. Creatures can communicate telepathically with you only if you allow it.",
+		"***Lord's Amulet***. This amulet bears the crest of Waterdeep. It functions as an *amulet of proof against detection and location*.",
+		"***Lord's Robe***. This elegant robe functions as a *ring of free action*, and it creates the illusion that you have a nondescript, androgynous humanoid build and stand 6 feet tall.",
+	],
 	attunement: true,
 	savetxt: { immune: ["paralyzed", "restrained"] },
 }
@@ -305,7 +328,12 @@ MagicItemsList["paper bird"] = {
 	rarity: "uncommon",
 	magicItemTable: "B",
 	description: "I can write up to 50 words on a sheet of the 1d6+3 in this box and speak a creature's name, causing the parchment to fold into a Tiny bird and fly to that creature on the same plane if it isn't stopped. It has 60 ft fly speed, 1 HP, AC 13, Dex 16, 1 in all other ability scores, and immunity to poison and psychic damage.",
-	descriptionFull: "After you write a message of fifty words or fewer on this magic sheet of parchment and speak a creature's name, the parchment magically folds into a Tiny paper bird and flies to the recipient whose name you uttered. The recipient must be on the same plane of existence as you, otherwise the bird turns into ash as it takes flight.\n   The bird is an object that has 1 hit point, an Armor Class of 13, a flying speed of 60 feet, a Dexterity of 16 (+3), and a score of 1 (\u22125) in all other abilities, and it is immune to poison and psychic damage.\n   It travels to within 5 feet of its intended recipient by the most direct route, whereupon it turns into a nonmagical and inanimate sheet of parchment that can be unfolded only by the intended recipient. If the bird's hit points or speed is reduced to 0 or if it is otherwise immobilized, it turns into ash.\n   Paper birds usually come in small, flat boxes containing 1d6 + 3 sheets of the parchment.",
+	descriptionFull: [
+		"After you write a message of fifty words or fewer on this magic sheet of parchment and speak a creature's name, the parchment magically folds into a Tiny *paper bird* and flies to the recipient whose name you uttered. The recipient must be on the same plane of existence as you, otherwise the bird turns into ash as it takes flight.",
+		"The bird is an object that has 1 hit point, an Armor Class of 13, a flying speed of 60 feet, a Dexterity of 16 (+3), and a score of 1 (\u22125) in all other abilities, and it is immune to poison and psychic damage.",
+		"It travels to within 5 feet of its intended recipient by the most direct route, whereupon it turns into a nonmagical and inanimate sheet of parchment that can be unfolded only by the intended recipient. If the bird's hit points or speed is reduced to 0 or if it is otherwise immobilized, it turns into ash.",
+		"Paper birds usually come in small, flat boxes containing 1d6 + 3 sheets of the parchment.",
+	],
 	usages: "1d6+3",
 	recovery: "\u2013",
 }
@@ -326,14 +354,16 @@ MagicItemsList["smokepowder"] = {
 	rarity: "uncommon",
 	magicItemTable: "B",
 	description: "The Forgotten Realms version of gunpowder.",
-	descriptionFull: "Smokepowder is a magical explosive chiefly used to propel a bullet out of the barrel of a firearm. It is stored in airtight wooden kegs or tiny, waterproof leather packets. A packet contains enough smokepowder for five shots, and a keg holds enough smokepowder for five hundred shots." +
-		"\n   If smokepowder is set on fire, dropped, or otherwise handled roughly, it explodes and deals fire damage to each creature or object within 20 feet of it: 1d6 for a packet, 9d6 for a keg. A successful DC 12 Dexterity saving throw halves the damage." +
-		"\n   Casting Dispel Magic on smokepowder renders it permanently inert.",
+	descriptionFull: [
+		"*Smokepowder* is a magical explosive chiefly used to propel a bullet out of the barrel of a firearm. It is stored in airtight wooden kegs or tiny, waterproof leather packets. A packet contains enough *smokepowder* for five shots, and a keg holds enough *smokepowder* for five hundred shots.",
+		"If *smokepowder* is set on fire, dropped, or otherwise handled roughly, it explodes and deals fire damage to each creature or object within 20 feet of it: 1d6 for a packet, 9d6 for a keg. A successful DC 12 Dexterity saving throw halves the damage.",
+		"Casting *Dispel Magic* on *smokepowder* renders it permanently inert.",
+	],
 	allowDuplicates: true,
 	choices: ["Keg (500 shots)", "Packet (5 shots)"],
 	"packet (5 shots)": {
 		name: "Smokepowder Packet",
-		description: "This magical explosive is used to propel a bullet out of a firearm. These tiny, waterproof leather packets contain enough for five shots. Casting dispel magic on it renders it permanently inert. If it is set on fire, dropped, or handled roughly, it explodes and deals 1d6 fire damage to all within 20 ft, DC 12 Dex save halves.",
+		description: "This magical explosive is used to propel a bullet out of a firearm. These tiny, waterproof leather packets contain enough for five shots. Casting *dispel magic* on it renders it permanently inert. If it is set on fire, dropped, or handled roughly, it explodes and deals 1d6 fire damage to all within 20 ft, DC 12 Dex save halves.",
 		usages: 5,
 		recovery: "\u2013",
 		additional: "shots",
@@ -342,7 +372,7 @@ MagicItemsList["smokepowder"] = {
 	},
 	"keg (500 shots)": {
 		name: "Smokepowder Keg",
-		description: "This magical explosive is used to propel a bullet out of a firearm. This airtight wooden kegs contain enough for five hundred shots. Casting dispel magic on it renders it permanently inert. If it is set on fire, dropped, or handled roughly, it explodes and deals 9d6 fire damage to all within 20 ft, DC 12 Dex save halves.",
+		description: "This magical explosive is used to propel a bullet out of a firearm. This airtight wooden kegs contain enough for five hundred shots. Casting *dispel magic* on it renders it permanently inert. If it is set on fire, dropped, or handled roughly, it explodes and deals 9d6 fire damage to all within 20 ft, DC 12 Dex save halves.",
 		usages: 500,
 		recovery: "\u2013",
 		additional: "shots",

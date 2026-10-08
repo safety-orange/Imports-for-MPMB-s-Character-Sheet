@@ -1,5 +1,5 @@
 var iFileName = "ua_20171113_Elf-Subraces.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Elf Subraces article to MPMB's Character Record Sheet
 
 // Define the source
@@ -36,7 +36,11 @@ RaceList["avariel-ua"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 0, 0],
-	trait: "Avariel (+2 Dexterity)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nFlight: I have a flying speed of 30 feet. To use this speed, I can't be wearing medium or heavy armor.",
+	trait: [
+		"**Avariel** (+2 Dexterity)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
+		"##\u25C6 Flight##. I have a flying speed of 30 ft. To use this speed, I can't be wearing medium or heavy armor.",
+	],
 };
 RaceList["grugach elf-ua"] = {
 	regExpSearch: /^(?!.*half)((?=.*grugach)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(wilds?|wilderness)\b))).*$/i,
@@ -62,7 +66,11 @@ RaceList["grugach elf-ua"] = {
 	heightMetric: " range from well under to well over 1,5 metres tall (135 + 5d6 cm)",
 	weightMetric: " weigh around 45 kg (35 + 5d6 \xD7 2d6 / 10 kg)",
 	scores: [1, 2, 0, 0, 0, 0],
-	trait: "Grugach (+1 Strength, +2 Dexterity)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nCantrip: I know one cantrip of my choice from the druid spell list. Wisdom is my spellcasting ability for it.",
+	trait: [
+		"**Grugach** (+1 Strength, +2 Dexterity)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
+		"##\u25C6 Cantrip##. I know one cantrip of my choice from the druid spell list. Wisdom is my spellcasting ability for it.",
+	],
 	spellcastingAbility: 5,
 	spellcastingBonus: [{
 		name: "Grugach Cantrip",
@@ -105,11 +113,12 @@ if (!RaceList["sea elf"]) {
 		heightMetric: " range from under 1,5 to almost 1,8 metres tall (140 + 5d8 cm)",
 		weightMetric: " weigh around 52 kg (40 + 5d8 \xD7 2d4 / 10 kg)",
 		scores: [0, 2, 1, 0, 0, 0],
-		trait: "Sea Elf (+2 Dexterity, +1 Constitution)" + desc([
-			"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
+		trait: [
+			"**Sea Elf** (+2 Dexterity, +1 Constitution)",
+			"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
 			"Child of the Sea. I have 30 ft swimming speed and can breathe air and water.",
-			"Friend of the Sea: Through sounds and gestures, I can communicate simple ideas with any beast that has an inborn swimming speed.",
-		]), // edited to be the same as in MToF instead of "Small or smaller beasts that have an inborn swimming speed."
+			"##\u25C6 Friend of the Sea##. Through sounds and gestures, I can communicate simple ideas with any beast that has an inborn swimming speed.",
+		], // edited to be the same as in MToF instead of "Small or smaller beasts that have an inborn swimming speed."
 	};
 } // dupl_end
 RaceList["shadar-kai elf-ua"] = {
@@ -135,7 +144,11 @@ RaceList["shadar-kai elf-ua"] = {
 	heightMetric: " range from under 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 52 kg (40 + 5d8 \xD7 2d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 0, 1],
-	trait: "Shadar-kai (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nBlessing of the Raven Queen: Once per short rest, as a bonus action, I can magically teleport up to 15 ft to an unoccupied space I can see, and, until the start of my next turn, I have resistance to all damage and appear translucent." + (typePF ? "\n" : " ") + "Cantrip: I know one cantrip: Chill Touch, Spare the Dying, or Thaumaturgy. Charisma is my spellcasting ability for it.",
+	trait: [
+		"**Shadar-kai** (+2 Dexterity, +1 Charisma)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).",
+		"##\u25C6 Blessing of the Raven Queen##. Once per short rest, as a bonus action, I can magically teleport up to 15 ft to an unoccupied space I can see, and, until the start of my next turn, I have resistance to all damage and appear translucent." + (typePF ? "\r" : " ") + "##\u25C6 Cantrip##. I know one cantrip: *Chill Touch*, *Spare the Dying*, or *Thaumaturgy*. Charisma is my spellcasting ability for it.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Shadar-kai Cantrip",

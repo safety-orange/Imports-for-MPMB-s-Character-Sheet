@@ -1,5 +1,5 @@
 var iFileName = "ua_20210311_Folk-of-the-Feywild.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana 2021: Folk of the Feywild article to MPMB's Character Record Sheet
 // This file contains contributions by CountVladmir and othercrow
 
@@ -49,11 +49,13 @@ RaceList["fairy-ua"] = {
 			}],
 		},
 	},
-	trait: "Fairy" +
-	"\n \u2022 Fey: My creature type is fey, rather than humanoid." +
-	"\n \u2022 Fairy Flight: I have a magical flying speed equal to my walking speed and can hover." +
-	"\n \u2022 Fairy Magic: I know the Druidcraft and Faerie Fire spells, and can cast the latter without using a spell slot once per long rest, as well as using slots as normal." +
-	"\n \u2022 Fey Passage: I can squeeze through a space as narrow as 1 inch wide.",
+	trait: [
+		"**Fairy**",
+		"##\u25C6 Fey##. My creature type is fey, rather than humanoid.",
+		"##\u25C6 Fairy Flight##. I have a magical flying speed equal to my walking speed and can hover.",
+		"##\u25C6 Fairy Magic##. I know the *Druidcraft* and *Faerie Fire* spells, and can cast the latter without using a spell slot once per long rest, as well as using slots as normal.",
+		"##\u25C6 Fey Passage##. I can squeeze through a space as narrow as 1 inch wide.",
+	],
 };
 
 RaceList["feywild hobgoblin-ua"] = {
@@ -104,10 +106,12 @@ RaceList["feywild hobgoblin-ua"] = {
 			}],
 		},
 	},
-	trait: "Feywild hobgoblin" +
-	"\n \u2022 Fey Gift: I can take the Help action as a bonus action my Proficiency Bonus per long rest." +
-	"\n \u2022 Fortune from the Many: When I miss an attack or fail an ability check or a save, I can gain a bonus to the roll equal to the number of allies I can see within 30 ft of me (max +5). I can do this a number of times per long rest equal to my Proficiency Bonus." +
-	'\n \u2022 From 3rd-level onwards, whenever I take the Help action, I can choose to produce an additional effect: Hospitality, Passage, or Spite. See the 3rd page "Notes" section.',
+	trait: [
+		"**Feywild hobgoblin**",
+		"##\u25C6 Fey Gift##. I can take the Help action as a bonus action my Proficiency Bonus per long rest.",
+		"##\u25C6 Fortune from the Many##. When I miss an attack or fail an ability check or a save, I can gain a bonus to the roll equal to the number of allies I can see within 30 ft of me (max +5). I can do this a number of times per long rest equal to my Proficiency Bonus.",
+		"\u2022 From 3rd-level onwards, whenever I take the Help action, I can choose to produce an additional effect: Hospitality, Passage, or Spite. See the 3rd page \"Notes\" section.",
+	],
 };
 
 RaceList["owlfolk-ua"] = {
@@ -131,10 +135,12 @@ RaceList["owlfolk-ua"] = {
 		selection: ["detect magic"],
 	}],
 	action: [["reaction", "Nimble Flight"]],
-	trait: "Owlfolk" +
-	"\n \u2022 Magic Sight: I know the spell Detect Magic and can cast as a ritual or by using spell slots as normal." +
-	"\n \u2022 Nimble Flight: My wings give me a flying speed equal to my walking speed. As a reaction when I fall, I can make a Dexterity saving throw (DC 10) to stop falling and fly in place until the start of my next turn." +
-	"\n \u2022 Silent Feathers: I have proficiency in the Stealth skill.",
+	trait: [
+		"**Owlfolk**",
+		"##\u25C6 Magic Sight##. I know the spell *Detect Magic* and can cast as a ritual or by using spell slots as normal.",
+		"##\u25C6 Nimble Flight##. My wings give me a flying speed equal to my walking speed. As a reaction when I fall, I can make a Dexterity saving throw (DC 10) to stop falling and fly in place until the start of my next turn.",
+		"##\u25C6 Silent Feathers##. I have proficiency in the Stealth skill.",
+	],
 };
 
 RaceList["rabbitfolk-ua"] = {
@@ -151,9 +157,11 @@ RaceList["rabbitfolk-ua"] = {
 	languageProfs: ["Common", 1],
 	scorestxt: "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
 	action: [["reaction", "Lucky Footwork"]],
-	trait: "Rabbitfolk" +
-	"\n \u2022 Hare-Trigger: I add my proficiency bonus to initiative rolls." +
-	"\n \u2022 Leporine Senses: I have proficiency in the Perception skill." +
-	"\n \u2022 Lucky Footwork: As a reaction when I fail a Dexterity saving throw, I can add +1d4 to the result, potentially making it a success." +
-	"\n \u2022 Rabbit Hop: Once during each of my turns when I walk at least 5 ft, I can hop an extra 1d12 ft without it costing any extra movement. I can only do this if my speed isn't 0.",
+	trait: [
+		"**Rabbitfolk**",
+		"##\u25C6 Hare-Trigger##. I add my proficiency bonus to initiative rolls.",
+		"##\u25C6 Leporine Senses##. I have proficiency in the Perception skill.",
+		"##\u25C6 Lucky Footwork##. As a reaction when I fail a Dexterity saving throw, I can add +1d4 to the result, potentially making it a success.",
+		"##\u25C6 Rabbit Hop##. Once during each of my turns when I walk at least 5 ft, I can hop an extra 1d12 ft without it costing any extra movement. I can only do this if my speed isn't 0.",
+	],
 };

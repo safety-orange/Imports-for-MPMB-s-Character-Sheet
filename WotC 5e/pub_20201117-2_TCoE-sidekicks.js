@@ -1,5 +1,5 @@
 var iFileName = "pub_20201117-2_TCoE-sidekicks.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the sidekick classes from Tasha's Cauldron of Everything (p142-147) to MPMB's Character Record Sheet
 
 /* - NOTICE -
@@ -599,14 +599,14 @@ ClassList["sidekick-spellcaster-tcoe"] = {
 			"enchantment": {
 				name: "Empowered Enchantments",
 				description: desc([
-					"Whenever I cast a enchantment spell by expending a spell slot, I can empower its effect",
+					"Whenever I cast an enchantment spell by expending a spell slot, I can empower its effect",
 					"I then add my spellcasting ability modifier to the damage or healing I roll for that spell",
 				]),
 			},
 			"evocation": {
 				name: "Empowered Evocations",
 				description: desc([
-					"Whenever I cast a evocation spell by expending a spell slot, I can empower its effect",
+					"Whenever I cast an evocation spell by expending a spell slot, I can empower its effect",
 					"I then add my spellcasting ability modifier to the damage or healing I roll for that spell",
 				]),
 			},

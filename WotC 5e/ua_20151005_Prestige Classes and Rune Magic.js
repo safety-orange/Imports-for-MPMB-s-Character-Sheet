@@ -1,5 +1,5 @@
 var iFileName = "ua_20151005_Prestige Classes and Rune Magic.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Prestige Classes and Rune Magic article to MPMB's Character Record Sheet
 
 // Define the source
@@ -74,7 +74,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 					"   If the weapon deals its maximum damage, the target is also knocked prone",
 					"   I can expend a spell slot to also give the weapon a magic bonus of slot level dived by 3",
 					"   These effects last for 24 hours or until I use Crushing Brand again",
-					"- Earthen Step (complex): I can cast Meld Into Stone as a bonus action once per short rest",
+					"- Earthen Step (complex): I can cast *Meld Into Stone* as a bonus action once per short rest",
 					"- Overwhelming Bolt (complex): As an action, I expend spell slot and touch a creature",
 					"   It takes 2d8+1d8/SL bludg. dmg and is prone; DC 12+SL Str save for half \u0026 not prone",
 				]),
@@ -89,7 +89,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 				spellChanges: {
 					"levitate": {
 						time: "1 bns",
-						changes: "Using my Orb of the Stein Rune, I can cast Meld Into Stone as a bonus action once per short rest.",
+						changes: "Using my Orb of the Stein Rune, I can cast *Meld Into Stone* as a bonus action once per short rest.",
 					},
 				},
 				extraLimitedFeatures: [{
@@ -112,7 +112,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 					"   These effects last for 24 hours or until I use Howling Brand again",
 					"- Shrieking Bolt (complex): As an action, I expend spell slot to target a creature I can see",
 					"   It 2d8+1d8/SL bludg. dmg \u0026 pushed 10 ft; DC 12+SL Str save for half \u0026 not pushed",
-					"- Wind Walker (complex): I can cast Levitate as a bonus action once per short rest",
+					"- Wind Walker (complex): I can cast *Levitate* as a bonus action once per short rest",
 				]),
 				action: [["action", "Vind Rune (Wind Step, Shrieking Bolt)"], ["reaction", "Vind Rune (Wind's Grasp)"]],
 				savetxt: { adv_vs: ["inhaled poison"] },
@@ -125,7 +125,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 				spellChanges: {
 					"levitate": {
 						time: "1 bns",
-						changes: "Using my Pennant of the Vind Rune, I can cast Levitate as a bonus action once per short rest.",
+						changes: "Using my Pennant of the Vind Rune, I can cast *Levitate* as a bonus action once per short rest.",
 					},
 				},
 				extraLimitedFeatures: [{
@@ -148,7 +148,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 					"- Ice Brand (complex): During a short rest, I can augment a weapon, or 20 ammo pieces",
 					"   The weapon or ammo deals cold damage; It lasts for 24 hours or until I use this again",
 					"   I can expend a spell slot to also give the weapon a magic bonus of slot level dived by 3",
-					"- Winter's Howl (complex): I can cast Sleet Storm as an action once per short rest",
+					"- Winter's Howl (complex): I can cast *Sleet Storm* as an action once per short rest",
 				]),
 				dmgres: ["Fire"],
 				action: ["action", "Kalt Rune (Touch, Mantle, Bolt, Howl)"],

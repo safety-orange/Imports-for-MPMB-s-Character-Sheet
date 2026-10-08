@@ -1,5 +1,5 @@
 var iFileName = "pub_20191112_Adventure-with-Muk.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the Dankwood Goblin race from the Adventure with Muk from Extra Life to MPMB's Character Record Sheet
 // Be aware that this race is not legal in adventurers league!
 
@@ -31,7 +31,9 @@ RaceList["dankwood goblin"] = {
 	weightMetric: " weigh between 20 and 30 kg (17 + 5d4 \xD7 2 / 10 kg)",
 	scores: [0, 2, 0, 0, 1, 0],
 	action: [["bonus action", "Nimble Escape (disengage/hide)"]],
-	trait: "Dankwood Goblin (+2 Dexterity, +1 Wisdom)" +
-	"\n   Speak with Small Beasts: Through sounds and gestures, I can communicate simple ideas with Small or smaller beasts. Dankwood goblins love animals and often keep squirrels, badgers, rabbits, moles, woodpeckers, and other creatures as beloved pets." +
-	"\n   Nimble Escape: As a bonus action, I can take the Disengage or Hide action.",
+	trait: [
+		"**Dankwood Goblin** (+2 Dexterity, +1 Wisdom)",
+		"##\u25C6 Speak with Small Beasts##. Through sounds and gestures, I can communicate simple ideas with Small or smaller beasts. Dankwood goblins love animals and often keep squirrels, badgers, rabbits, moles, woodpeckers, and other creatures as beloved pets.",
+		"##\u25C6 Nimble Escape##. As a bonus action, I can take the Disengage or Hide action.",
+	],
 };

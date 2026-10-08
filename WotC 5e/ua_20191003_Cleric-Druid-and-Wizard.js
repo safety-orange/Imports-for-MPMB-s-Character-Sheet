@@ -1,5 +1,5 @@
 var iFileName = "ua_20191003_Cleric-Druid-and-Wizard.js";
-RequiredSheetVersion("14.1.0");
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Cleric, Druid, and Wizard article to MPMB's Character Record Sheet
 
 // Define the source
@@ -99,8 +99,8 @@ AddSubClass("cleric", "twilight domain-ua", {
 			source: [["UA:CDnW", 2]],
 			minlevel: 17,
 			description: desc([
-				"When I use a spell slot to cast Darkness, I can choose my Wis mod of creatures I can see",
-				"The chosen creatures can see through the Darkness; I can be one of the chosen creatures",
+				"When I use a spell slot to cast *Darkness*, I can choose my Wis mod of creatures I can see",
+				"The chosen creatures can see through the *Darkness*; I can be one of the chosen creatures",
 			]),
 			calcChanges: {
 				spellAdd: [
@@ -111,7 +111,7 @@ AddSubClass("cleric", "twilight domain-ua", {
 							return true;
 						}
 					},
-					"When I cast Darkness using a spell slot, I can choose a number of creatures that I can see (myself included) equal to my Wisdom modifier (minimum 1).The chosen creatures can see through the Darkness.",
+					"When I cast *Darkness* using a spell slot, I can choose a number of creatures that I can see (myself included) equal to my Wisdom modifier (minimum 1).The chosen creatures can see through the *Darkness*.",
 				],
 			},
 		},
@@ -132,7 +132,7 @@ AddSubClass("druid", "circle of wildfire-ua", {
 			description: desc([
 				"My mystical bond with a wildfire spirit gives me the ability to cast certain spells",
 				"These are always prepared, but don't count against the number of spells I can prepare",
-				"In addition, I learn the Fire Bolt cantrip",
+				"In addition, I learn the *Fire Bolt* cantrip",
 			]),
 			spellcastingBonus: [{
 				name: "Circle Spells",
@@ -302,7 +302,7 @@ AddSubClass("wizard", "onomancy-ua", {
 			source: [["UA:CDnW", 4]],
 			minlevel: 2,
 			description: desc([
-				"I add Bane and Bless to my spellbook and they count as wizard spells for me",
+				"I add *Bane* and *Bless* to my spellbook and they count as wizard spells for me",
 				"These are always prepared, but don't count against the number of spells I can prepare",
 				"I can cast either spell without using a spell slot by speaking the true name of a target",
 			]),

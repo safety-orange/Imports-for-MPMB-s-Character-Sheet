@@ -1,5 +1,5 @@
 var iFileName = "ua_20160404_Gothic-Heroes.js";
-RequiredSheetVersion("14.0.1-beta");
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Gothic Heroes article to MPMB's Character Record Sheet
 
 // Define the source
@@ -32,7 +32,10 @@ RaceList["aasimar revenant-ua"] = { // Based on the VGtM Aasimar, made with /u/R
 	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 1, 0, 0, 2],
-	trait: "Aasimar Revenant (+1 Constitution, +2 Charisma)" + (typePF ? "\n" : " ") + "Light Bearer: I know the Light cantrip. Healing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	trait: [
+		"**Aasimar Revenant** (+1 Constitution, +2 Charisma)" + (typePF ? "\r" : " ") + "##\u25C6 Light Bearer##. I know the *Light* cantrip. Healing Hands: As an action, once per long rest, I can touch to heal for my level in HP.",
+		"##\u25C6 Relentless Nature##. I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Light Bearer",
@@ -73,7 +76,11 @@ RaceList["dwarf revenant-ua"] = {
 	heightMetric: " stand between 1,2 and 1,5 metres tall (120 + 5d4 cm)",
 	weightMetric: " weigh around 75 kg (60 + 5d4 \xD7 4d6 / 10 kg)",
 	scores: [0, 0, 3, 0, 0, 0],
-	trait: "Dwarf Revenant (+3 Constitution)\nStonecunning: I have expertise on Int (History) checks related to the origin of stonework.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	trait: [
+		"**Dwarf Revenant** (+3 Constitution)",
+		"##\u25C6 Stonecunning##. I have expertise on Int (History) checks related to the origin of stonework.",
+		"##\u25C6 Relentless Nature##. I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	],
 };
 RaceList["elf revenant-ua"] = {
 	regExpSearch: /^(?!.*half)(?=.*revenant)(?=.*\b(elfs?|elves|elvish|elven)\b).*$/i,
@@ -98,7 +105,11 @@ RaceList["elf revenant-ua"] = {
 	heightMetric: " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [0, 2, 1, 0, 0, 0],
-	trait: "Elf Revenant (+2 Dexterity, +1 Constitution)\nTrance: I don't sleep, but meditate for 4 hours a day, needing only 4 hours for a long rest.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	trait: [
+		"**Elf Revenant** (+2 Dexterity, +1 Constitution)",
+		"##\u25C6 Trance##. I don't sleep, but meditate for 4 hours a day, needing only 4 hours for a long rest.",
+		"##\u25C6 Relentless Nature##. I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	],
 };
 RaceList["halfling revenant-ua"] = {
 	regExpSearch: /^(?=.*revenant)(?=.*\b(halflings?|hobbits?)\b).*$/i,
@@ -118,7 +129,10 @@ RaceList["halfling revenant-ua"] = {
 	heightMetric: " average about 90 cm tall (80 + 5d4)",
 	weightMetric: " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores: [0, 2, 1, 0, 0, 0],
-	trait: "Halfling Revenant (+2 Dexterity, +1 Constitution)" + (typePF ? "\n" : " ") + "Lucky: I reroll 1's on attack/check/save. Halfling Nimbleness: I can move through the space of anybody of a size larger than me.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	trait: [
+		"**Halfling Revenant** (+2 Dexterity, +1 Constitution)" + (typePF ? "\r" : " ") + "##\u25C6 Lucky##. I reroll 1's on attack/check/save. Halfling Nimbleness: I can move through the space of anybody of a size larger than me.",
+		"##\u25C6 Relentless Nature##. I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	],
 };
 RaceList["gnome revenant-ua"] = {
 	regExpSearch: /^(?=.*revenant)(?=.*\bgnomes?\b).*$/i,
@@ -139,7 +153,10 @@ RaceList["gnome revenant-ua"] = {
 	heightMetric: " are 90 to 120 cm tall (2'11\" + 5d4)",
 	weightMetric: " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores: [0, 0, 1, 2, 0, 0],
-	trait: "Gnome Revenant (+1 Constitution, +2 Intelligence)\nRelentless Nature: I have returned to life with one goal: avenge my death or finish a critical, unresolved task. I will find rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. Any destroyed equipment is not regained. I always know the distance and direction between me and any creature involved with my goal that is on the same plane.",
+	trait: [
+		"**Gnome Revenant** (+1 Constitution, +2 Intelligence)",
+		"##\u25C6 Relentless Nature##. I have returned to life with one goal: avenge my death or finish a critical, unresolved task. I will find rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. Any destroyed equipment is not regained. I always know the distance and direction between me and any creature involved with my goal that is on the same plane.",
+	],
 };
 RaceList["dragonborn revenant-ua"] = {
 	regExpSearch: /^(?=.*dragonborn)(?=.*revenant).*$/i,
@@ -172,7 +189,11 @@ RaceList["dragonborn revenant-ua"] = {
 	heightMetric: " stand well over 1,8 metres tall (170 + 5d8 cm)",
 	weightMetric: " weigh around 110 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
 	scores: [1, 0, 1, 0, 0, 1],
-	trait: "Dragonborn Revenant (+1 Strength, +1 Constitution, +1 Charisma)\nBreath Weapon: As an action, 5 ft by 30 ft line, Dex save halves, necrotic damage.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	trait: [
+		"**Dragonborn Revenant** (+1 Strength, +1 Constitution, +1 Charisma)",
+		"##\u25C6 Breath Weapon##. As an action, 5 ft by 30 ft line, Dex save halves, necrotic damage.",
+		"##\u25C6 Relentless Nature##. I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	],
 	dmgres: ["Necrotic"],
 	features: {
 		"draconic ancestry": {
@@ -215,7 +236,10 @@ RaceList["human revenant-ua"] = {
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scorestxt: "+1 Constitution and +1 to two different ability scores of my choice",
 	scores: [0, 0, 1, 0, 0, 0],
-	trait: "Human Revenant (+1 Constitution and +1 to two different ability scores of my choice)\nRelentless Nature: I have returned to life with one goal: avenge my death or finish a critical, unresolved task. I will find rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. Any destroyed equipment is not regained. I always know the distance and direction between me and any creature involved with my goal that is on the same plane.",
+	trait: [
+		"**Human Revenant** (+1 Constitution and +1 to two different ability scores of my choice)",
+		"##\u25C6 Relentless Nature##. I have returned to life with one goal: avenge my death or finish a critical, unresolved task. I will find rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. Any destroyed equipment is not regained. I always know the distance and direction between me and any creature involved with my goal that is on the same plane.",
+	],
 };
 RaceList["tiefling revenant-ua"] = {
 	regExpSearch: /^(?=.*revenant)((?=.*tiefling)|(?=.*planetouched)(?=.*(hell|abyss|fiend|devil))).*$/i,
@@ -235,7 +259,10 @@ RaceList["tiefling revenant-ua"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 1, 0, 0, 2],
-	trait: "Tiefling Revenant (+1 Constitution, +2 Charisma)\nRelentless Nature: I have returned to life with one goal: avenge my death or finish a critical, unresolved task. I will find rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. Any destroyed equipment is not regained. I always know the distance and direction between me and any creature involved with my goal that is on the same plane.",
+	trait: [
+		"**Tiefling Revenant** (+1 Constitution, +2 Charisma)",
+		"##\u25C6 Relentless Nature##. I have returned to life with one goal: avenge my death or finish a critical, unresolved task. I will find rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. Any destroyed equipment is not regained. I always know the distance and direction between me and any creature involved with my goal that is on the same plane.",
+	],
 };
 
 // Adds 2 subclasses, 1 for the Fighter and 1 for the rogue
@@ -294,7 +321,7 @@ AddSubClass("fighter", "monster hunter-ua", { // Still valid 2021-09-21
 			usages: 1,
 			recovery: "long rest",
 			description: desc([
-				"I can cast Detect Magic as a ritual and Protection from Evil & Good once per long rest",
+				"I can cast *Detect Magic* as a ritual and Protection from Evil & Good once per long rest",
 				"I gain the ability to speak one of the following languages: Abyssal, Celestial, or Infernal",
 			]),
 			action: [["action", " (Prot vs. Evil/Good)"]],

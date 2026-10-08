@@ -1,5 +1,5 @@
 var iFileName = "ua_20170403_Starter-Spells.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Starter Spells article to MPMB's Character Record Sheet
 
 // Define the source
@@ -42,7 +42,16 @@ SpellsList["ceremony-uass"] = {
 	compMaterial: "25 gp worth of powdered silver",
 	duration: "Instantaneous",
 	description: "Perform religious ceremony on target(s) that are within 10 ft throughout the casting; see book (25gp)",
-	descriptionFull: "You perform one of several religious ceremonies. When you cast the spell, choose one of the following ceremonies, the target of which must be within 10 feet of you throughout the casting." + "\n   ***Atonement***: You touch one willing creature whose alignment has changed, and you make a DC 20 Wisdom (Insight) check. On a success, you restore the target to its original alignment." + "\n   ***Bless Water***: You touch one vial of water and cause it to become holy water." + "\n   ***Coming of Age***: You touch one humanoid old enough to be a young adult. For the next 24 hours, whenever the target makes an ability check, it can roll a d4 and add the number rolled to the ability check. A creature can benefit from this ceremony just once." + "\n   ***Dedication***: You touch one humanoid who would willingly convert to your religion or who wishes to be dedicated to your god's service. For the next 24 hours, whenever the target makes a saving throw, it can roll a d4 and add the number rolled to the save. A creature can benefit from this ceremony just once." + "\n   ***Funeral Rite***: You bless one corpse within 5 feet of you. For the next 24 hours, the target can't become undead by any means short of a wish spell." + "\n   ***Investiture***: You touch one willing humanoid. Choose one 1st-level spell you have prepared and expend a spell slot and any material components as if you were casting that spell. The spell has no effect. Instead, the target can cast this spell once without having to expend a spell slot or use material components. If the target doesn't cast the spell within 1 hour, the invested spell is lost." + "\n   ***Marriage***: You touch adult humanoids willing to be bonded together in marriage. For the next 24 hours, each target gains a +2 bonus to AC and saving throws while they are within 30 feet of each other. A creature can benefit from this ceremony just once.",
+	descriptionFull: [
+		"You perform one of several religious ceremonies. When you cast the spell, choose one of the following ceremonies, the target of which must be within 10 feet of you throughout the casting.",
+		"***Atonement***: You touch one willing creature whose alignment has changed, and you make a DC 20 Wisdom (Insight) check. On a success, you restore the target to its original alignment.",
+		"***Bless Water***: You touch one vial of water and cause it to become holy water.",
+		"***Coming of Age***: You touch one humanoid old enough to be a young adult. For the next 24 hours, whenever the target makes an ability check, it can roll a d4 and add the number rolled to the ability check. A creature can benefit from this ceremony just once.",
+		"***Dedication***: You touch one humanoid who would willingly convert to your religion or who wishes to be dedicated to your god's service. For the next 24 hours, whenever the target makes a saving throw, it can roll a d4 and add the number rolled to the save. A creature can benefit from this ceremony just once.",
+		"***Funeral Rite***: You bless one corpse within 5 feet of you. For the next 24 hours, the target can't become undead by any means short of a *wish* spell.",
+		"***Investiture***: You touch one willing humanoid. Choose one 1st-level spell you have prepared and expend a spell slot and any material components as if you were casting that spell. The spell has no effect. Instead, the target can cast this spell once without having to expend a spell slot or use material components. If the target doesn't cast the spell within 1 hour, the invested spell is lost.",
+		"***Marriage***: You touch adult humanoids willing to be bonded together in marriage. For the next 24 hours, each target gains a +2 bonus to AC and saving throws while they are within 30 feet of each other. A creature can benefit from this ceremony just once.",
+	],
 };
 SpellsList["chaos bolt-uass"] = {
 	name: "Chaos Bolt",
@@ -55,7 +64,23 @@ SpellsList["chaos bolt-uass"] = {
 	components: "V,S",
 	duration: "Instantaneous",
 	description: "Spell atk 2d8+1d6/SL dmg, d8s set dmg type, see B; double on d8s: new atk vs. crea in 30 ft of target",
-	descriptionFull: "You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 damage. Choose one of the d8s. The number it rolled determines the type of damage, as shown below." + "\n\n**d8**\t**Damage Type**\n  1\tAcid" + "\n  2\tCold" + "\n  3\tFire" + "\n  4\tForce" + "\n  5\tLightning" + "\n  6\tPoison" + "\n  7\tPsychic" + "\n  8\tThunder" + "\n\n   " + "If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again." + "\n   " + "A creature can be targeted only once by this mass of chaotic energy." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, each target takes extra damage of the type rolled. The extra damage equals 1d6 for each slot level above 1st.",
+	descriptionFull: [
+		"You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 damage. Choose one of the d8s. The number it rolled determines the type of damage, as shown below.",
+		[
+			["d8", "Damage Type"],
+			["  1", "Acid"],
+			["  2", "Cold"],
+			["  3", "Fire"],
+			["  4", "Force"],
+			["  5", "Lightning"],
+			["  6", "Poison"],
+			["  7", "Psychic"],
+			["  8", "Thunder"],
+		],
+		"If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again.",
+		"A creature can be targeted only once by this mass of chaotic energy.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 2nd level or higher, each target takes extra damage of the type rolled. The extra damage equals 1d6 for each slot level above 1st.",
+	],
 };
 SpellsList["guiding hand-uass"] = {
 	name: "Guiding Hand",
@@ -69,7 +94,11 @@ SpellsList["guiding hand-uass"] = {
 	components: "V,S",
 	duration: "Conc, 8 h",
 	description: "Tiny incorporeal hand directs me to one major landmark I name that is on the same plane",
-	descriptionFull: "You create a Tiny incorporeal hand of shimmering light in an unoccupied space you can see within range. The hand exists for the duration, but it disappears if you teleport or you travel to a different plane of existence." + "\n   " + "When the hand appears, you name one major landmark, such as a city, mountain, castle, or battlefield on the same plane of existence as you. Someone in history must have visited the site and mapped it. If the landmark appears on no map in existence, the spell fails. Otherwise, whenever you move toward the hand, it moves away from you at the same speed you moved, and it moves in the direction of the landmark, always remaining 5 feet away from you." + "\n   " + "If you don't move toward the hand, it remains in place until you do and beckons for you to follow once every 1d4 minutes.",
+	descriptionFull: [
+		"You create a Tiny incorporeal hand of shimmering light in an unoccupied space you can see within range. The hand exists for the duration, but it disappears if you teleport or you travel to a different plane of existence.",
+		"When the hand appears, you name one major landmark, such as a city, mountain, castle, or battlefield on the same plane of existence as you. Someone in history must have visited the site and mapped it. If the landmark appears on no map in existence, the spell fails. Otherwise, whenever you move toward the hand, it moves away from you at the same speed you moved, and it moves in the direction of the landmark, always remaining 5 feet away from you.",
+		"If you don't move toward the hand, it remains in place until you do and beckons for you to follow once every 1d4 minutes.",
+	],
 };
 SpellsList["hand of radiance-uass"] = {
 	name: "Hand of Radiance",
@@ -84,7 +113,10 @@ SpellsList["hand of radiance-uass"] = {
 	save: "Con",
 	description: "Any creatures I can see in 5-ft radius save or 1d6 Radiant damage; +1d6 damage at CL 5, 11, and 17",
 	descriptionCantripDie: "Any creatures I can see in 5-ft radius save or `CD`d6 Radiant damage",
-	descriptionFull: "You raise your hand, and burning radiance erupts from it. Each creature of your choice that you can see within 5 feet of you must succeed on a Constitution saving throw or take 1d6 radiant damage." + "\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+	descriptionFull: [
+		"You raise your hand, and burning radiance erupts from it. Each creature of your choice that you can see within 5 feet of you must succeed on a Constitution saving throw or take 1d6 radiant damage.",
+		"The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+	],
 };
 SpellsList["healing elixir-uass"] = {
 	name: "Healing Elixir",
@@ -99,7 +131,10 @@ SpellsList["healing elixir-uass"] = {
 	duration: "24 h",
 	description: "Make vial with alchemist's supplies; heals 2d4+2 HP as an action; if not used, disappears after 24 h",
 	descriptionShorter: "Make vial with alchemist's supplies; 1 a to heal 2d4+2 HP; if not used, disappears after 24 h",
-	descriptionFull: "You create a healing elixir in a simple vial that appears in your hand. The elixir retains its potency for the duration or until it's consumed, at which point the vial vanishes." + "\n   " + "As an action, a creature can drink the elixir or administer it to another creature. The drinker regains 2d4 + 2 hit points.",
+	descriptionFull: [
+		"You create a healing elixir in a simple vial that appears in your hand. The elixir retains its potency for the duration or until it's consumed, at which point the vial vanishes.",
+		"As an action, a creature can drink the elixir or administer it to another creature. The drinker regains 2d4 + 2 hit points.",
+	],
 };
 SpellsList["infestation-uass"] = {
 	name: "Infestation",
@@ -115,7 +150,21 @@ SpellsList["infestation-uass"] = {
 	save: "Con",
 	description: "1 crea save or 1d6 Piercing damage and moved 5 ft in random direction; +1d6 at CL 5, 11, and 17",
 	descriptionCantripDie: "1 crea save or `CD`d6 Piercing damage and moved 5 ft in random direction",
-	descriptionFull: "You cause mites, fleas, and other parasites to appear momentarily on one creature you can see within range. The target must succeed on a Constitution saving throw or take 1d6 piercing damage. If the target takes any of that damage, the target moves 5 feet in a random direction. Roll a d8 for the direction:" + "\n\n**d8**\t**Direction**\n  1\tNorth" + "\n  2\tNortheast" + "\n  3\tEast" + "\n  4\tSoutheast" + "\n  5\tSouth" + "\n  6\tSouthwest" + "\n  7\tWest" + "\n  8\tNorthwest" + "\n\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+	descriptionFull: [
+		"You cause mites, fleas, and other parasites to appear momentarily on one creature you can see within range. The target must succeed on a Constitution saving throw or take 1d6 piercing damage. If the target takes any of that damage, the target moves 5 feet in a random direction. Roll a d8 for the direction:",
+		[
+			["d8", "Direction"],
+			["  1", "North"],
+			["  2", "Northeast"],
+			["  3", "East"],
+			["  4", "Southeast"],
+			["  5", "South"],
+			["  6", "Southwest"],
+			["  7", "West"],
+			["  8", "Northwest"],
+		],
+		"The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+	],
 };
 SpellsList["primal savagery-uass"] = {
 	name: "Primal Savagery",
@@ -129,7 +178,10 @@ SpellsList["primal savagery-uass"] = {
 	duration: "Instantaneous",
 	description: "Melee spell attack deals 1d10 Piercing or Slashing dmg (my choice); +1d10 at CL 5, 11, and 17",
 	description: "Melee spell attack deals `CD`d10 Piercing or Slashing dmg (my choice)",
-	descriptionFull: "Your teeth or fingernails lengthen and sharpen. You choose which. Make a melee spell attack against one creature within 5 feet of you. On a hit, the target takes 1d10 piercing or slashing damage (your choice). After you make the attack, your teeth or fingernails return to normal." + "\n   " + "The spell's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).",
+	descriptionFull: [
+		"Your teeth or fingernails lengthen and sharpen. You choose which. Make a melee spell attack against one creature within 5 feet of you. On a hit, the target takes 1d10 piercing or slashing damage (your choice). After you make the attack, your teeth or fingernails return to normal.",
+		"The spell's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).",
+	],
 };
 SpellsList["puppet-uass"] = {
 	name: "Puppet",
@@ -172,7 +224,12 @@ SpellsList["snare-uass"] = {
 	save: "Dex",
 	description: "5-ft rad magical trap; Int (Inv) to see; save or restrained upside down 3 ft in the air; save/rnd at dis",
 	descriptionMetric: "1,5m rad magical trap; Int (Inv) to see; save or restrained upside down 90cm in the air; save/rnd at dis",
-	descriptionFull: "While you cast this spell, you use the cord or rope to create a circle with a 5-foot radius on a flat surface within your reach. When you finish casting, the cord or rope disappears to become a magical trap." + "\n   " + "The trap is nearly invisible and requires a successful Intelligence (Investigation) check against your spell save DC to be found." + "\n   " + "The trap triggers when a Small creature or larger moves into the area protected by the spell. The triggering creature must succeed on a Dexterity saving throw or fall prone and be hoisted into the air until it hangs upside down 3 feet above the protected surface, where it is restrained." + "\n   " + "The restrained creature can make a Dexterity saving throw with disadvantage at the end of each of its turns and ends the restrained effect on a success. Alternatively, another creature that can reach the restrained creature can use an action to make an Intelligence (Arcana) check against your spell save DC. On a success, the restrained effect also ends.",
+	descriptionFull: [
+		"While you cast this spell, you use the cord or rope to create a circle with a 5-foot radius on a flat surface within your reach. When you finish casting, the cord or rope disappears to become a magical trap.",
+		"The trap is nearly invisible and requires a successful Intelligence (Investigation) check against your spell save DC to be found.",
+		"The trap triggers when a Small creature or larger moves into the area protected by the spell. The triggering creature must succeed on a Dexterity saving throw or fall prone and be hoisted into the air until it hangs upside down 3 feet above the protected surface, where it is restrained.",
+		"The restrained creature can make a Dexterity saving throw with disadvantage at the end of each of its turns and ends the restrained effect on a success. Alternatively, another creature that can reach the restrained creature can use an action to make an Intelligence (Arcana) check against your spell save DC. On a success, the restrained effect also ends.",
+	],
 };
 SpellsList["sudden awakening-uass"] = {
 	name: "Sudden Awakening",
@@ -199,7 +256,10 @@ SpellsList["unearthly chorus-uass"] = {
 	duration: "Conc, 10 min",
 	save: "Cha",
 	description: "Use bns a to make 1 crea in range save or be friendly for 1 h; I adv on Cha (Performance) checks",
-	descriptionFull: "Music of a style you choose fills the air around you in a 30-foot radius. The music spreads around corners and can be heard from up to 100 feet away. The music moves with you, centered on you for the duration." + "\n   " + "Until the spell ends, you make Charisma (Performance) checks with advantage. In addition, you can use a bonus action on each of your turns to beguile one creature you choose within 30 feet of you that can see you and hear the music. The creature must make a Charisma saving throw. If you or your companions are attacking it, the creature automatically succeeds on the saving throw. On a failure, the creature becomes friendly to you for as long as it can hear the music and for 1 hour thereafter. You make Charisma (Deception) checks and Charisma (Persuasion) checks against creatures made friendly by this spell with advantage.",
+	descriptionFull: [
+		"Music of a style you choose fills the air around you in a 30-foot radius. The music spreads around corners and can be heard from up to 100 feet away. The music moves with you, centered on you for the duration.",
+		"Until the spell ends, you make Charisma (Performance) checks with advantage. In addition, you can use a bonus action on each of your turns to beguile one creature you choose within 30 feet of you that can see you and hear the music. The creature must make a Charisma saving throw. If you or your companions are attacking it, the creature automatically succeeds on the saving throw. On a failure, the creature becomes friendly to you for as long as it can hear the music and for 1 hour thereafter. You make Charisma (Deception) checks and Charisma (Persuasion) checks against creatures made friendly by this spell with advantage.",
+	],
 };
 SpellsList["virtue-uass"] = {
 	name: "Virtue",
@@ -226,7 +286,15 @@ SpellsList["wild cunning-uass"] = {
 	components: "V,S",
 	duration: "Instantaneous",
 	description: "Call spirits of nature to aid me with finding food, drink, tracks, shelter, or camping; see book",
-	descriptionFull: "You call out to the spirits of nature to aid you. When you cast this spell, choose one of the following effects:" + "\n  \u2022 " + "If there are any tracks on the ground within range, you know where they are, and you make Wisdom (Survival) checks to follow these tracks with advantage for 1 hour or until you cast this spell again." + "\n  \u2022 " + "If there is edible forage within range, you know it and where to find it." + "\n  \u2022 " + "If there is clean drinking water within range, you know it and where to find it." + "\n  \u2022 " + "If there is suitable shelter for you and your companions with range, you know it and where to find." + "\n  \u2022 " + "Send the spirits to bring back wood for a fire and to set up a campsite in the area using your supplies. The spirits build the fire in a circle of stones, put up tents, unroll bedrolls, and put out any rations and water for consumption." + "\n  \u2022 " + "Have the spirits instantly break down a campsite, which includes putting out a fire, taking down tents, packing up bags, and burying any rubbish.",
+	descriptionFull: [
+		"You call out to the spirits of nature to aid you. When you cast this spell, choose one of the following effects:",
+		" \u2022 If there are any tracks on the ground within range, you know where they are, and you make Wisdom (Survival) checks to follow these tracks with advantage for 1 hour or until you cast this spell again.",
+		" \u2022 If there is edible forage within range, you know it and where to find it.",
+		" \u2022 If there is clean drinking water within range, you know it and where to find it.",
+		" \u2022 If there is suitable shelter for you and your companions with range, you know it and where to find.",
+		" \u2022 Send the spirits to bring back wood for a fire and to set up a campsite in the area using your supplies. The spirits build the fire in a circle of stones, put up tents, unroll bedrolls, and put out any rations and water for consumption.",
+		" \u2022 Have the spirits instantly break down a campsite, which includes putting out a fire, taking down tents, packing up bags, and burying any rubbish.",
+	],
 };
 SpellsList["zephyr strike-uass"] = { // clarification: https://twitter.com/JeremyECrawford/status/849302527069884416
 	name: "Zephyr Strike",
@@ -239,7 +307,10 @@ SpellsList["zephyr strike-uass"] = { // clarification: https://twitter.com/Jerem
 	components: "V",
 	duration: "Conc, 1 min",
 	description: "Moving doesn't provoke opportunity atks; next wea atk has adv and gives +30 ft speed for that turn",
-	descriptionFull: "You move like the wind. For the duration, your movement doesn't provoke opportunity attacks." + "\n   " + "In addition, the first time you make a weapon attack on your turn before the spell ends, you make the attack roll with advantage, and your speed increases by 30 feet until the end of that turn.",
+	descriptionFull: [
+		"You move like the wind. For the duration, your movement doesn't provoke opportunity attacks.",
+		"In addition, the first time you make a weapon attack on your turn before the spell ends, you make the attack roll with advantage, and your speed increases by 30 feet until the end of that turn.",
+	],
 };
 
 // Weapons (attack cantrips)
@@ -296,7 +367,10 @@ if (!SourceList["X"]) {
 		save: "Wis",
 		description: "1 crea save or 1d12 Necrotic damage (only 1d8 if at full HP); +1d12/1d8 at CL 5, 11, and 17",
 		descriptionCantripDie: "1 crea save or `CD`d12 Necrotic damage (only `CD`d8 if at full hp)",
-		descriptionFull: "You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d8 necrotic damage. If the target is missing any of its hit points, it instead takes 1d12 necrotic damage." + "\n   " + "The spell's damage increases by one die when you reach 5th level (2d8 or 2d12), 11th level (3d8 or 3d12), and 17th level (4d8 or 4d12).",
+		descriptionFull: [
+			"You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d8 necrotic damage. If the target is missing any of its hit points, it instead takes 1d12 necrotic damage.",
+			"The spell's damage increases by one die when you reach 5th level (2d8 or 2d12), 11th level (3d8 or 3d12), and 17th level (4d8 or 4d12).",
+		],
 	};
 	WeaponsList["toll the dead"] = {
 		regExpSearch: /^(?=.*toll)(?=.*the)(?=.*dead).*$/i,

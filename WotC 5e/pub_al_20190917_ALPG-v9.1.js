@@ -1,5 +1,5 @@
 var iFileName = "pub_al_20190917_ALPG-v9.1.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the winged aasimar/tiefling from the Adventurers League Player's Guide v9.1: Inglorious Redemption to MPMB's Character Record Sheet
 
 // Define the source
@@ -36,7 +36,11 @@ SourceList["ALPGs9"] = {
 				walk: { spd: 30, enc: 20 },
 				fly: { spd: 30, enc: 0 },
 			},
-			trait: "Winged " + rObj.trait.replace(/\)(\r|\n|.)+/, ")\n\nHealing Hands:\n   As an action, once per long rest, I can touch to heal for my level in HP.\nWings:\n   Once I'm 5th level, I sprout feathered wings from my shoulder blades that give me a flying speed of 30 feet when I'm not wearing heavy armor."),
+			trait: [
+				[].concat(rObj.trait)[0].replace(/^(\*\*)?/, "$1Winged ").replace(/\)(\r|\n|.)+/, ")"),
+				"##\u25C6 Healing Hands##. As an action, once per long rest, I can touch to heal for my level in HP.",
+				"##\u25C6 Wings##. Once I'm 5th level, I sprout feathered wings from my shoulder blades that give me a flying speed of 30 ft when I'm not wearing heavy armor.",
+			],
 			features: {
 				"healing hands": {
 					name: "Healing Hands",

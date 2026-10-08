@@ -1,5 +1,5 @@
 var iFileName = "ua_20190815_Barbarian-and-Monk.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Barbarian and Monk article to MPMB's Character Record Sheet
 
 // Define the source
@@ -25,7 +25,7 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 			source: [["UA:BnM", 1]],
 			minlevel: 3,
 			description: desc([
-				"I can cast Detect Magic without spell slots or components, using Con for spellcasting",
+				"I can cast *Detect Magic* without spell slots or components, using Con for spellcasting",
 				"When I do so, I faintly glow a color corresponding to the school of magic I detect",
 			]),
 			usages: "Con mod (min 1) per ",
@@ -40,7 +40,7 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 				"detect magic": {
 					components: "",
 					ritual: false,
-					changes: "Using my Path of the Wild Soul class feature I can cast Detect Magic without requiring components or spell slots.",
+					changes: "Using my Path of the Wild Soul class feature I can cast *Detect Magic* without requiring components or spell slots.",
 				},
 			},
 		},

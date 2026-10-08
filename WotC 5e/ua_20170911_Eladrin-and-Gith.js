@@ -1,5 +1,5 @@
 var iFileName = "ua_20170911_Eladrin-and-Gith.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Eladrin and Gith article to MPMB's Character Record Sheet
 
 // Define the source
@@ -37,7 +37,11 @@ RaceList["eladrin-uaeng"] = {
 	weightMetric: " weigh around 55 kg (40 + 5d12 \xD7 2d4 / 10 kg)",
 	scorestxt: "+2 Dexterity, +1 Intelligence or Charisma",
 	scores: [0, 2, 0, 0, 0, 0],
-	trait: "Eladrin (+2 Dexterity, +1 Intelligence or Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nFey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see." + (typePF ? "\n" : " ") + "Shifting Seasons: After a short or long rest, I can align myself with a season, granting me access to a cantrip until my next rest: Friends, Chill Touch, Minor Illusion, or Fire Bolt. My spellcasting ability for this is Int or Cha, whichever is higher.",
+	trait: [
+		"**Eladrin** (+2 Dexterity, +1 Intelligence or Charisma)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).",
+		"##\u25C6 Fey Step##. Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see." + (typePF ? "\r" : " ") + "##\u25C6 Shifting Seasons##. After a short or long rest, I can align myself with a season, granting me access to a cantrip until my next rest: *Friends*, *Chill Touch*, *Minor Illusion*, or *Fire Bolt*. My spellcasting ability for this is Int or Cha, whichever is higher.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Shifting Seasons",
@@ -75,13 +79,14 @@ RaceList["githyanki-ua"] = {
 	heightMetric: " are more leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
 	weightMetric: " weigh around 61 kg (45 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [2, 0, 0, 1, 0, 0],
-	trait: "Githyanki (+2 Strength, +1 Intelligence)\nGithyanki Psionics:" + desc([
-		"I know the Mage Hand cantrip.",
-		"At 3rd level, I can cast the Jump spell once per long rest.",
-		"At 5th level, I can also cast the Misty Step spell once per long rest.",
+	trait: [
+		"**Githyanki** (+2 Strength, +1 Intelligence)",
+		"##\u25C6 Githyanki Psionics##. I know the *Mage Hand* cantrip.",
+		"At 3rd level, I can cast the *Jump* spell once per long rest.",
+		"At 5th level, I can also cast the *Misty Step* spell once per long rest.",
 		"Intelligence is my spellcasting ability for these spells.",
 		"I don't require components to cast these spells.",
-	]),
+	],
 	spellcastingAbility: 4,
 	spellcastingBonus: [{
 		name: "Githyanki Psionics (1)",
@@ -143,7 +148,11 @@ RaceList["githzerai-ua"] = {
 	heightMetric: " are more leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [0, 0, 0, 1, 2, 0],
-	trait: "Githzerai (+1 Intelligence, +2 Wisdom)\n" + (typePF ? "\n" : "") + "Monastic Training: I gain a +1 bonus to AC while I'm not wearing medium or heavy armor and not using a shield.\n\nGithzerai Psionics: I know the Mage Hand cantrip. At 3rd level, I can cast the Shield spell once per long rest. At 5th level, I can also cast the Detect Thoughts spell once per long rest. Wisdom is my spellcasting ability for these spells.",
+	trait: [
+		"**Githzerai** (+1 Intelligence, +2 Wisdom)",
+		"##\u25C6 Monastic Training##. I gain a +1 bonus to AC while I'm not wearing medium or heavy armor and not using a shield.",
+		"##\u25C6 Githzerai Psionics##. I know the *Mage Hand* cantrip. At 3rd level, I can cast the *Shield* spell once per long rest. At 5th level, I can also cast the *Detect Thoughts* spell once per long rest. Wisdom is my spellcasting ability for these spells.",
+	],
 	spellcastingAbility: 5,
 	spellcastingBonus: [{
 		name: "Githzerai Psionics (1)",

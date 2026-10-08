@@ -1,5 +1,5 @@
 var iFileName = "ua_20211008_Travelers-of-the-Multiverse.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana 2021: Travelers of the Multiverse article to MPMB's Character Record Sheet
 
 // Define the source
@@ -43,10 +43,12 @@ RaceList["astral elf-ua"] = {
 		usages: 1,
 		recovery: "short rest",
 	}],
-	trait: "Astral Elf" +
-	"\n \u2022 Radiant Soul: Once per short rest when I succeed on a death save, I can regain HP equal to my proficiency bonus + my Int, Wis, or Cha mod (choose when selecting this race)." +
-	"\n \u2022 Trance: I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours if I spend those hours in a trancelike meditation, during which I remain conscious." +
-	"\n \u2022 Trance Proficiencies. Whenever I finish a long rest using Trance, I gain two proficiencies, each one with a weapon or a tool of my choice. They last until I finish my next long rest.",
+	trait: [
+		"**Astral Elf**",
+		"##\u25C6 Radiant Soul##. Once per short rest when I succeed on a death save, I can regain HP equal to my proficiency bonus + my Int, Wis, or Cha mod (choose when selecting this race).",
+		"##\u25C6 Trance##. I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours if I spend those hours in a trancelike meditation, during which I remain conscious.",
+		"\u2022 Trance Proficiencies. Whenever I finish a long rest using Trance, I gain two proficiencies, each one with a weapon or a tool of my choice. They last until I finish my next long rest.",
+	],
 };
 RaceList["autognome-ua"] = {
 	regExpSearch: /autognome/i,
@@ -79,21 +81,22 @@ RaceList["autognome-ua"] = {
 		immune: ["disease"],
 	},
 	toolProfs: [["Tool of my choice", 2]],
-	trait: typePF ?
-		"Autognome (my type is Construct)" +
-		"\n \u2022 Cure Wounds, Healing Word, and Spare the Dying work on me." +
-		"\n \u2022 Armored Casing: My base AC is 13 + my Dexterity modifier." +
-		"\n \u2022 Built for Success: For my Prof B per long rest, I can add +1d4 to an attack, check, or save, after I see the roll, but before the effect." +
-		"\n \u2022 Mechanical Nature: I don't need to eat, drink or breathe." +
-		"\n \u2022 Sentry's Rest: I only need 6 hours to finish a long rest if I stay in an inactive and motionless state during which I'm conscious." +
-		"\n \u2022 True Life: If Mending is cast on me, I can expend one HD like during a short rest to regain hit points."
-		:
-		"Autognome (type is Construct; Cure Wounds, Healing Word, Spare the Dying work on me)" +
-		"\n \u2022 Armored Casing: While I'm not wearing armor, my AC is 13 + my Dexterity modifier." +
-		"\n \u2022 Built for Success: For my Prof B per long rest, I can add +1d4 to an attack, check, or save. I can do this after seeing the d20 roll, but before knowing the roll's effects." +
-		"\n \u2022 Mechanical Nature: I have immunities/resistances and don't need to eat, drink or breathe" +
-		"\n \u2022 Sentry's Rest: I only need 6 hours to finish a long rest if I stay inactive and motionless." +
-		"\n \u2022 True Life: If Mending is cast on me, I can expend one HD like during a short rest.",
+	trait: typePF ? [
+		"**Autognome** (my type is Construct)",
+		"*Cure Wounds*, *Healing Word*, and *Spare the Dying* work on me.",
+		"##\u25C6 Armored Casing##. My base AC is 13 + my Dexterity modifier.",
+		"##\u25C6 Built for Success##. For my Prof B per long rest, I can add +1d4 to an attack, check, or save, after I see the roll, but before the effect.",
+		"##\u25C6 Mechanical Nature##. I don't need to eat, drink or breathe.",
+		"##\u25C6 Sentry's Rest##. I only need 6 hours to finish a long rest if I stay in an inactive and motionless state during which I'm conscious.",
+		"##\u25C6 True Life##. If *Mending* is cast on me, I can expend one HD like during a short rest to regain hit points.",
+	] : [
+		"**Autognome** (type is Construct; *Cure Wounds*, *Healing Word*, *Spare the Dying* work on me)",
+		"##\u25C6 Armored Casing##. While I'm not wearing armor, my AC is 13 + my Dexterity modifier.",
+		"##\u25C6 Built for Success##. For my Prof B per long rest, I can add +1d4 to an attack, check, or save. I can do this after seeing the d20 roll, but before knowing the roll's effects.",
+		"##\u25C6 Mechanical Nature##. I have immunities/resistances and don't need to eat, drink or breathe",
+		"##\u25C6 Sentry's Rest##. I only need 6 hours to finish a long rest if I stay inactive and motionless.",
+		"##\u25C6 True Life##. If *Mending* is cast on me, I can expend one HD like during a short rest.",
+	],
 };
 RaceList["giff-ua"] = {
 	regExpSearch: /giff|hippofolk/i,
@@ -108,9 +111,11 @@ RaceList["giff-ua"] = {
 	carryingCapacity: 2,
 	savetxt: { text: ["Adv. on Str saves and checks"] },
 	advantages: [["Strength", true]],
-	trait: "Giff" +
-	"\n \u2022 Damage Dealer: Like a hippopotamus in a crystalware shop, I am naturally adept at damaging things. When I roll a 1 on a damage die for a melee attack, I can reroll the die and use the new roll. I can do so no more than once per turn." +
-	"\n \u2022 Hippo Build: I have advantage on Strength-based ability checks and Strength saving throws. In addition, I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.",
+	trait: [
+		"**Giff**",
+		"##\u25C6 Damage Dealer##. Like a hippopotamus in a crystalware shop, I am naturally adept at damaging things. When I roll a 1 on a damage die for a melee attack, I can reroll the die and use the new roll. I can do so no more than once per turn.",
+		"##\u25C6 Hippo Build##. I have advantage on Strength-based ability checks and Strength saving throws. In addition, I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.",
+	],
 };
 RaceList["hadozee-ua"] = {
 	regExpSearch: /hadozee/i,
@@ -127,11 +132,11 @@ RaceList["hadozee-ua"] = {
 		["bonus action", "Dexterous Feet (Use an Object)"],
 		["reaction", "Glide (negate falling damage)"],
 	],
-	trait: "Hadozee" +
-	"\n \u2022 Dexterous Feet: As a bonus action, I can do the Use an Object action." +
-	"\n \u2022 Glide: If I'm not incapacitated or wearing heavy armor, I can extend my skin membranes and glide. When I do so, I can perform the following aerial maneuvers:" +
-	"   - When I fall, I can move up to 5 ft horizontally for every 1 ft I descend." +
-	"   - As a reaction when I would take damage from a fall, I can reduce this damage to 0.",
+	trait: [
+		"**Hadozee**",
+		"##\u25C6 Dexterous Feet##. As a bonus action, I can do the Use an Object action.",
+		"##\u25C6 Glide##. If I'm not incapacitated or wearing heavy armor, I can extend my skin membranes and glide. When I do so, I can perform the following aerial maneuvers:   - When I fall, I can move up to 5 ft horizontally for every 1 ft I descend.   - As a reaction when I would take damage from a fall, I can reduce this damage to 0.",
+	],
 };
 RaceList["plasmoid-ua"] = {
 	regExpSearch: /plasmoid/i,
@@ -150,10 +155,11 @@ RaceList["plasmoid-ua"] = {
 		text: ["Adv. on grapple checks"],
 	},
 	action: [["bonus action", "Extrude/Reabsorb Pseudopod"]],
-	trait: "Plasmoid (my type is Ooze)" +
-	(typePF ? "\n" : "") + " \u2022 Hold Breath: I can hold my breath for 1 hour." +
-	"\n \u2022 Amorphous: I can squeeze through a 1-inch wide space without my equipment or clothes. " + (typePF ? "I have advantage on grapple checks." : "I also have advantage on ability checks I make to initiate or escape a grapple.") +
-	"\n \u2022 Shape Self: While not incapacitated, I can reshape my body to have a head and limbs, or back to a limbless blob (no action). As a bonus action, I can extrude/reabsorb a pseudopod up to 6 inch wide and 10 ft long. It can carry up to 10 lb. I can use it to manipulate objects, open unlocked doors, stow/retrieve objects, or pour out contents of a container." + (typePF ? " It can't attack or use magic items." : ""),
+	trait: [
+		"**Plasmoid** (my type is Ooze)" + (typePF ? "\r" : " ") + "##\u25C6 Hold Breath##. I can hold my breath for 1 hour.",
+		"##\u25C6 Amorphous##. I can squeeze through a 1-inch wide space without my equipment or clothes. " + (typePF ? "I have advantage on grapple checks." : "I also have advantage on ability checks I make to initiate or escape a grapple."),
+		"##\u25C6 Shape Self##. While not incapacitated, I can reshape my body to have a head and limbs, or back to a limbless blob (no action). As a bonus action, I can extrude/reabsorb a pseudopod up to 6 inch wide and 10 ft long. It can carry up to 10 lb. I can use it to manipulate objects, open unlocked doors, stow/retrieve objects, or pour out contents of a container." + (typePF ? " It can't attack or use magic items." : ""),
+	],
 };
 RaceList["thri-kreen-ua"] = {
 	regExpSearch: /thri.?kreen/i,
@@ -181,9 +187,11 @@ RaceList["thri-kreen-ua"] = {
 		selectNow: true,
 	}],
 	action: [["action", "Chameleon Carapace"]],
-	trait: "Thri-kreen (my type is Monstrosity)" +
-	"\n \u2022 Chameleon Carapace: " + (typePF ? "AC 13 + Dex," : "My base AC is 13 + Dex mod. I have") + " adv. on Stealth checks to hide." +
-	"\n \u2022 Secondary Arms: I have two slightly smaller arms below my primary pair of arms." + (typePF ? " " : "\n   ") + "I can't use these secondary arms to wield a shield or weapons other than light weapons." +
-	"\n \u2022 Sleepless: I don't " + (typePF ? "" : "require ") + "sleep. I rest by refraining from strenuous activity." +
-	"\n \u2022 " + (typePF ? "Thri-kreen " : "") + "Telepathy: I can communicate telepathically to any number of willing creatures I can see that understand at least one language, while within 120 ft. Any can break this (no action).",
+	trait: [
+		"**Thri-kreen** (my type is Monstrosity)",
+		"##\u25C6 Chameleon Carapace##. " + (typePF ? "AC 13 + Dex," : "My base AC is 13 + Dex mod. I have") + " adv. on Stealth checks to hide.",
+		"##\u25C6 Secondary Arms##. I have two slightly smaller arms below my primary pair of arms. I can't use these secondary arms to wield a shield or weapons other than light weapons.",
+		"##\u25C6 Sleepless##. I don't " + (typePF ? "" : "require ") + "sleep. I rest by refraining from strenuous activity.",
+		"\u2022 " + (typePF ? "Thri-kreen " : "") + "Telepathy: I can communicate telepathically to any number of willing creatures I can see that understand at least one language, while within 120 ft. Any can break this (no action).",
+	],
 };

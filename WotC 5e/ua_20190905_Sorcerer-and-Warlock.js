@@ -1,5 +1,5 @@
 var iFileName = "ua_20190905_Sorcerer-and-Warlock.js";
-RequiredSheetVersion("14.1.0");
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Sorcerer and Warlock article to MPMB's Character Record Sheet
 
 // Define the source
@@ -240,7 +240,10 @@ if (!SourceList["T"]) {
 		save: "Int",
 		description: "1 crea save or 1d6 Psychic dmg, -1d4 on first save before my next turn ends; +1d6 at CL 5, 11, and 17",
 		descriptionCantripDie: "1 crea save or `CD`d6 Psychic dmg and subtract 1d4 from first saving throw before my next turn ends",
-		descriptionFull: "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must make an Intelligence saving throw. Unless the saving throw is successful, the target takes 1d6 psychic damage, and the first time it makes a saving throw before the end of your next turn, it must roll a d4 and subtract the number rolled from the save.\n   This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+		descriptionFull: [
+			"You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must make an Intelligence saving throw. Unless the saving throw is successful, the target takes 1d6 psychic damage, and the first time it makes a saving throw before the end of your next turn, it must roll a d4 and subtract the number rolled from the save.",
+			"This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+		],
 	};
 	WeaponsList["mind sliver"] = {
 		regExpSearch: /^(?=.*mind)(?=.*sliver).*$/i,

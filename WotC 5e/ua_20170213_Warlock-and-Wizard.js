@@ -1,5 +1,5 @@
 var iFileName = "ua_20170213_Warlock-and-Wizard.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Warlock and Wizard article to MPMB's Character Record Sheet
 
 // Define the source
@@ -190,7 +190,7 @@ AddSubClass("warlock", "the raven queen-ua", { // Still valid 2021-09-21
 			name: "Queen's Right Hand",
 			source: [["UA:WnW", 3]],
 			minlevel: 14,
-			description: desc("I can cast Finger of Death once per long rest"),
+			description: desc("I can cast *Finger of Death* once per long rest"),
 			usages: 1,
 			recovery: "long rest",
 			spellcastingBonus: [{
@@ -380,8 +380,8 @@ AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Bl
 AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, the Fiend patron, Eldritch Blast cantrip)", {
 	name: "Kiss of Mephistopheles",
 	description: desc([
-		"As a bonus action when my Eldritch Blast hits, I can cast Fireball using a warlock spell slot",
-		"The origin of the Fireball is the creature that was hit with my Eldritch Blast attack",
+		"As a bonus action when my *Eldritch Blast* hits, I can cast *Fireball* using a warlock spell slot",
+		"The origin of the *Fireball* is the creature that was hit with my *Eldritch Blast* attack",
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Eldritch Blast]",
@@ -391,7 +391,7 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, the Fiend
 AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast cantrip)", {
 	name: "Frost Lance",
 	description: desc([
-		"When my Eldritch Blast hits a creature once or more, I can reduce its speed by 10 ft",
+		"When my *Eldritch Blast* hits a creature once or more, I can reduce its speed by 10 ft",
 		"This speed reduction lasts until the end of my next turn",
 	]),
 	source: [["UA:WnW", 4]],
@@ -402,7 +402,7 @@ AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast ca
 			function (fields, v) {
 				if (v.baseWeaponName == "eldritch blast") fields.Description += "; Target -10 ft speed";
 			},
-			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn.",
+			"When I hit a creature with my *Eldritch Blast* cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn.",
 		],
 	},
 });
@@ -418,7 +418,7 @@ AddWarlockInvocation("Gaze of Khirad (prereq: level 7 warlock, the Great Old One
 });
 AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch Blast cantrip)", {
 	name: "Grasp of Hadar",
-	description: desc("Once per turn when my Eldritch Blast hits a creature, I can move it 10 ft closer to me"),
+	description: desc("Once per turn when my *Eldritch Blast* hits a creature, I can move it 10 ft closer to me"),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Eldritch Blast]",
 	prereqeval: function (v) { return v.hasEldritchBlast && (/great old one/).test(classes.known.warlock.subclass); },
@@ -427,7 +427,7 @@ AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch
 			function (fields, v) {
 				if (v.baseWeaponName == "eldritch blast") fields.Description += "; Target moved 10 ft to me";
 			},
-			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me.",
+			"When I hit a creature with my *Eldritch Blast* cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me.",
 		],
 	},
 });
@@ -513,7 +513,7 @@ AddWarlockInvocation("Path of the Seeker (prereq: the Seeker patron)", {
 AddWarlockInvocation("Raven Queen's Blessing (prereq: the Raven Queen patron, Eldritch Blast cantrip)", {
 	name: "Raven Queen's Blessing",
 	description: desc([
-		"When I score a critical hit with Eldritch Blast, I can choose an ally I can see within 30 ft",
+		"When I score a critical hit with *Eldritch Blast*, I can choose an ally I can see within 30 ft",
 		"That ally can immediately expend one HD to regain HP, just like after a short rest",
 	]),
 	source: [["UA:WnW", 5]],
@@ -535,7 +535,7 @@ AddWarlockInvocation("Sea Twins' Gift (prereq: the Archfey patron)", {
 	name: "Sea Twins' Gift",
 	description: desc([
 		"I can breathe underwater and I have a swim speed equal to my walking speed",
-		"Once per long rest, I can cast Water Breathing using a warlock spell slot (PHB 287)",
+		"Once per long rest, I can cast *Water Breathing* using a warlock spell slot (PHB 287)",
 	]),
 	spellcastingBonus: [{
 		name: "Sea Twins' Gift",

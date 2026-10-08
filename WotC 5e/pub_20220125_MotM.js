@@ -1,5 +1,5 @@
 var iFileName = "pub_20220125_MotM.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.1.3", 15);
 // This file adds all the player-material from Mordenkainen Presents: Monsters of the Multiverse to MPMB's Character Record Sheet
 // Includes many contributions by Nod_Hero and BraabHimself
 
@@ -54,19 +54,23 @@ RaceList["multiverse aarakocra"] = {
 				"gust of wind": {
 					components: SpellsList["gust of wind"].components + "*",
 					compMaterial: SpellsList["gust of wind"].compMaterial + "\nMaterial component is only needed when cast using a spell slot, not when cast using the Wind Caller trait.",
-					changes: "Using Wind Caller, I can cast Gust of Wind once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
+					changes: "Using Wind Caller, I can cast *Gust of Wind* once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
 				},
 			},
 		},
 	},
 	scoresGeneric: true,
-	trait: "Aarakocra" +
-		"\n \u2022 Flight: I have a flying speed equal to my walking speed. To use this speed, I can't be wearing medium or heavy armor." +
-		"\n \u2022 Talons: My unarmed strikes with talons deal 1d6 slashing damage." +
-		"\n \u2022 Wind Caller: At 3rd level, I can cast Gust of Wind without using a spell slot or material component once per long rest, and by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for this (one-time choice).",
+	trait: [
+		"**Aarakocra**",
+		"##\u25C6 Flight##. I have a flying speed equal to my walking speed. To use this speed, I can't be wearing medium or heavy armor.",
+		"##\u25C6 Talons##. My unarmed strikes with talons deal 1d6 slashing damage.",
+		"##\u25C6 Wind Caller##. At 3rd level, I can cast *Gust of Wind* without using a spell slot or material component once per long rest, and by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for this (one-time choice).",
+	],
 };
-var MotM_Aasimar_trait = (typePF ? "\n" : "") + " \u2022 Light Bearer: I know the Light cantrip." +
-"\n \u2022 Healing Hands: As an action once per long rest, I can touch a creature and heal it for a number of d4s equal to my Prof" + (typePF ? "." : "iciency") + " Bonus.";
+var MotM_Aasimar_trait = [
+	"##\u25C6 Light Bearer##. I know the *Light* cantrip.",
+	"##\u25C6 Healing Hands##. As an action once per long rest, I can touch a creature and heal it for a number of d4s equal to my Prof" + (typePF ? "." : "iciency") + " Bonus.",
+];
 var MotM_Aasimar_HealingHands = {
 	name: "Healing Hands",
 	minlevel: 1,
@@ -88,8 +92,9 @@ RaceList["multiverse aasimar"] = {
 	dmgres: ["Necrotic", "Radiant"],
 	vision: [["Darkvision", 60]],
 	scoresGeneric: true,
-	trait: "Aasimar" + MotM_Aasimar_trait +
-		"\n \u2022 Celestial Revelation: At 3rd level, I choose one option from Necrotic Shroud, Radiant Consumption, or Radiant Soul. As a bonus action once per long rest, I can transform and gain its benefits. This transformation lasts for 1 minute or until I end it as a bonus action.",
+	trait: ["**Aasimar**"].concat(MotM_Aasimar_trait, [
+		"##\u25C6 Celestial Revelation##. At 3rd level, I choose one option from Necrotic Shroud, Radiant Consumption, or Radiant Soul. As a bonus action once per long rest, I can transform and gain its benefits. This transformation lasts for 1 minute or until I end it as a bonus action.",
+	]),
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Light Bearer",
@@ -105,8 +110,9 @@ AddRacialVariant("multiverse aasimar", "necrotic shroud", {
 	name: "Necrotic Shroud Aasimar",
 	source: [["MotM", 7]],
 	abilitySave: 6,
-	trait: "Aasimar (Necrotic Shroud)" + MotM_Aasimar_trait +
-		"\n \u2022 Necrotic Shroud (3rd level): Once per long rest, I can transform for 1 minute as a bonus action (start/end), causing enemies within 10 ft to make a Cha save (DC 8 + Cha mod + Prof Bonus) or become frightened of me until my next turn ends. Also, once on each of my turns, I can deal my Prof Bonus in necrotic damage to one damaged by my attack or spell.",
+	trait: ["**Aasimar** (Necrotic Shroud)" + (typePF ? "\r" : " ") + MotM_Aasimar_trait[0], MotM_Aasimar_trait[1]].concat([
+		"##\u25C6 Necrotic Shroud (3rd level)##. Once per long rest, I can transform for 1 minute as a bonus action (start/end), causing enemies within 10 ft to make a Cha save (DC 8 + Cha mod + Prof Bonus) or become frightened of me until my next turn ends. Also, once on each of my turns, I can deal my Prof Bonus in necrotic damage to one damaged by my attack or spell.",
+	]),
 	features: {
 		"healing hands": MotM_Aasimar_HealingHands,
 		"necrotic shroud": {
@@ -124,8 +130,9 @@ AddRacialVariant("multiverse aasimar", "radiant consumption", {
 	name: "Radiant Consumption Aasimar",
 	source: [["MotM", 7]],
 	plural: "Aasimar",
-	trait: "Aasimar (Radiant Consumption)" + MotM_Aasimar_trait +
-		"\n \u2022 Radiant Consumption (3rd level): Once per long rest, I can transform for 1 minute as a bonus action (start/end). I shed 10-ft radius bright light and 10-ft dim light. At the end of my turns, all in this bright light take my Prof Bonus in radiant damage. Also, once on my turns, I can deal Prof Bonus in radiant damage to one damaged by my attack or spell.",
+	trait: ["**Aasimar** (Radiant Consumption)" + (typePF ? "\r" : " ") + MotM_Aasimar_trait[0], MotM_Aasimar_trait[1]].concat([
+		"##\u25C6 Radiant Consumption (3rd level)##. Once per long rest, I can transform for 1 minute as a bonus action (start/end). I shed 10-ft radius bright light and 10-ft dim light. At the end of my turns, all in this bright light take my Prof Bonus in radiant damage. Also, once on my turns, I can deal Prof Bonus in radiant damage to one damaged by my attack or spell.",
+	]),
 	features: {
 		"healing hands": MotM_Aasimar_HealingHands,
 		"radiant consumption": {
@@ -143,8 +150,9 @@ AddRacialVariant("multiverse aasimar", "radiant soul", {
 	name: "Radiant Soul Aasimar",
 	source: [["MotM", 7]],
 	plural: "Aasimar",
-	trait: "Aasimar (Radiant Soul)" + MotM_Aasimar_trait +
-		"\n \u2022 Radiant Soul (3rd level): As a bonus action once per long rest, I can transform to gain spectral wings that give my a flying speed equal to my walking speed. These last for 1 minute or until I dismiss them as a bonus action. Once on each of my turns while active, I can deal my Prof Bonus in radiant damage to one target damaged by my attack or spell.",
+	trait: ["**Aasimar** (Radiant Soul)" + (typePF ? "\r" : " ") + MotM_Aasimar_trait[0], MotM_Aasimar_trait[1]].concat([
+		"##\u25C6 Radiant Soul (3rd level)##. As a bonus action once per long rest, I can transform to gain spectral wings that give me a flying speed equal to my walking speed. These last for 1 minute or until I dismiss them as a bonus action. Once on each of my turns while active, I can deal my Prof Bonus in radiant damage to one target damaged by my attack or spell.",
+	]),
 	features: {
 		"healing hands": MotM_Aasimar_HealingHands,
 		"radiant soul": {
@@ -172,12 +180,14 @@ RaceList["multiverse bugbear"] = {
 	skills: ["Stealth"],
 	scoresGeneric: true,
 	carryingCapacity: 2,
-	trait: "Bugbear (my creature type is humanoid, goblinoid)" +
-		"\n \u2022 Fey Ancestry: I have adv. on saves to avoid or end being charmed." +
-		"\n \u2022 Powerful Build: I count as one size larger for the weight I can carry." +
-		"\n \u2022 Long-Limbed: I add 5 ft of reach with my melee attacks on my turn." +
-		"\n \u2022 Sneaky: I am proficient in Stealth and can move through and stop in a space large enough for a Small creature without squeezing." +
-		"\n \u2022 Surprise Attack: My attacks deal +2d6 damage if the target hasn't taken a turn yet" + (typePF ? " in the current combat." : "."),
+	trait: [
+		"**Bugbear** (my creature type is humanoid, goblinoid)",
+		"##\u25C6 Fey Ancestry##. I have adv. on saves to avoid or end being charmed.",
+		"##\u25C6 Powerful Build##. I count as one size larger for the weight I can carry.",
+		"##\u25C6 Long-Limbed##. I add 5 ft of reach with my melee attacks on my turn.",
+		"##\u25C6 Sneaky##. I am proficient in Stealth and can move through and stop in a space large enough for a Small creature without squeezing.",
+		"##\u25C6 Surprise Attack##. My attacks deal +2d6 damage if the target hasn't taken a turn yet" + (typePF ? " in the current combat." : "."),
+	],
 };
 RaceList["multiverse centaur"] = {
 	regExpSearch: /^(?=.*(multiverse|motm\b))(?=.*centaur).*$/i,
@@ -201,11 +211,13 @@ RaceList["multiverse centaur"] = {
 	action: [["bonus action", "Hooves (after charge)"]],
 	skillstxt: "Choose one from Animal Handling, Medicine, Nature, or Survival",
 	scoresGeneric: true,
-	trait: "Centaur" +
-		"\n \u2022 Fey: My creature type is fey, rather than humanoid." +
-		"\n \u2022 Hooves: I can use my hooves for unarmed strikes that deal 1d6 bludgeoning damage." +
-		"\n \u2022 Charge: If I move 30 ft straight toward a creature and then hit it with a melee weapon attack on the same turn, I can make a hooves attack against it as a bonus action." +
-		"\n \u2022 Equine Build: I count as one size larger for my carrying capacity and the weight I can push, drag, or lift. Because of my hooves, 1 ft of movement while climbing costs me 4 ft.",
+	trait: [
+		"**Centaur**",
+		"##\u25C6 Fey##. My creature type is fey, rather than humanoid.",
+		"##\u25C6 Hooves##. I can use my hooves for unarmed strikes that deal 1d6 bludgeoning damage.",
+		"##\u25C6 Charge##. If I move 30 ft straight toward a creature and then hit it with a melee weapon attack on the same turn, I can make a hooves attack against it as a bonus action.",
+		"##\u25C6 Equine Build##. I count as one size larger for my carrying capacity and the weight I can push, drag, or lift. Because of my hooves, 1 ft of movement while climbing costs me 4 ft.",
+	],
 	carryingCapacity: 2,
 };
 RaceList["multiverse changeling"] = {
@@ -221,10 +233,11 @@ RaceList["multiverse changeling"] = {
 	skillstxt: "Choose two from Deception, Insight, Intimidation, Performance, and Persuasion",
 	age: " typically live to be around 100 years old. While a changeling can transform to conceal their age, the effects of aging affect them similarly to humans",
 	scoresGeneric: true,
-	trait: "Changeling" +
-		"\n \u2022 Fey: My creature type is fey, rather than humanoid." +
-		"\n \u2022 Shapechanger: As an action, I can change my appearance and voice to or from a humanoid-shaped form I have seen, not changing my equipment. I determine the specifics of the form like hair length, eye color, and sex. I can adjust my height and weight between Medium and Small and can appear as a member of another race, though none of my game statistics change. I revert back when I die." +
-		(typePF ? "\n \u2022 Changeling Instincts: I gain proficiency with 2 of the following skills: Deception, Insight, Intimidation, Performance, or Persuasion." : ""),
+	trait: [
+		"**Changeling**",
+		"##\u25C6 Fey##. My creature type is fey, rather than humanoid.",
+		"##\u25C6 Shapechanger##. As an action, I can change my appearance and voice to or from a humanoid-shaped form I have seen, not changing my equipment. I determine the specifics of the form like hair length, eye color, and sex. I can adjust my height and weight between Medium and Small and can appear as a member of another race, though none of my game statistics change. I revert back when I die." + (typePF ? "\r##\u25C6 Changeling Instincts##. I gain proficiency with 2 of the following skills: Deception, Insight, Intimidation, Performance, or Persuasion." : ""),
+	],
 	action: [["action", "Shapechanger"]],
 };
 RaceList["multiverse deep gnome"] = {
@@ -241,10 +254,12 @@ RaceList["multiverse deep gnome"] = {
 	savetxt: { text: ["Adv. on Int/Wis/Cha saves vs. spells"] },
 	age: " can live to be 500 years old",
 	scoresGeneric: true,
-	trait: "Svirfneblin (my creature type is humanoid, gnome)" +
-		"\n \u2022 Svirfneblin Camouflage: Proficiency bonus per long rest, I can gain adv. on Stealth checks." +
-		"\n \u2022 Gnomish Magic Resistance: I have advantage on Int, Wis, and Cha saves vs. spells." +
-		"\n \u2022 Gift of the Svirfneblin: At 3rd level, I can cast Disguise Self once per long rest without a spell slot. At 5th level, I can cast Nondetection once per long rest without a spell slot or material components. I can also cast each spell using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these (one-time choice).",
+	trait: [
+		"**Svirfneblin** (my creature type is humanoid, gnome)",
+		"##\u25C6 Svirfneblin Camouflage##. Proficiency bonus per long rest, I can gain adv. on Stealth checks.",
+		"##\u25C6 Gnomish Magic Resistance##. I have advantage on Int, Wis, and Cha saves vs. spells.",
+		"##\u25C6 Gift of the Svirfneblin##. At 3rd level, I can cast *Disguise Self* once per long rest without a spell slot. At 5th level, I can cast *Nondetection* once per long rest without a spell slot or material components. I can also cast each spell using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these (one-time choice).",
+	],
 	spellcastingAbility: [4, 5, 6],
 	features: {
 		"svirfneblin camouflage": {
@@ -285,7 +300,7 @@ RaceList["multiverse deep gnome"] = {
 				"nondetection": {
 					components: "V,S,M*",
 					compMaterial: SpellsList["nondetection"].compMaterial + "\nMaterial component is only needed when cast using a spell slot, not when cast using the Gift of the Svirfneblin trait.",
-					changes: "Using Gift of the Svirfneblin, I can cast Nondetection once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
+					changes: "Using Gift of the Svirfneblin, I can cast *Nondetection* once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
 				},
 			},
 			extraLimitedFeatures: [{
@@ -312,9 +327,11 @@ RaceList["multiverse duergar"] = {
 	dmgres: ["Poison"],
 	age: " can live to be 350 years old",
 	scoresGeneric: true,
-	trait: "Duergar (my creature type is humanoid, dwarf)" +
-		"\n \u2022 Dwarven Resilience \u0026 Psionic Fortitude: I have advantage on saving throws to avoid or end being poisoned, charmed, or stunned and I have resistance to poison damage." +
-		"\n \u2022 Duergar Magic: At 3rd level, I learn the Enlarge/Reduce spell. At 5th level, I learn the Invisibility spell. I can cast each spell on myself once per long rest without using a spell slot or material components, or by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
+	trait: [
+		"**Duergar** (my creature type is humanoid, dwarf)",
+		"\u2022 Dwarven Resilience \u0026 Psionic Fortitude: I have advantage on saving throws to avoid or end being poisoned, charmed, or stunned and I have resistance to poison damage.",
+		"##\u25C6 Duergar Magic##. At 3rd level, I learn the *Enlarge/Reduce* spell. At 5th level, I learn the *Invisibility* spell. I can cast each spell on myself once per long rest without using a spell slot or material components, or by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
+	],
 	spellcastingAbility: [4, 5, 6],
 	features: {
 		"duergar magic (level 3)": {
@@ -332,7 +349,7 @@ RaceList["multiverse duergar"] = {
 					range: "Self/" + SpellsList["enlarge/reduce"].range,
 					components: SpellsList["enlarge/reduce"].components + "*",
 					compMaterial: SpellsList["enlarge/reduce"].compMaterial + "\nMaterial component is only needed when cast using a spell slot, not when cast using the Duergar Magic trait.",
-					changes: "Using Duergar Magic, I can cast Enlarge/Reduce on myself once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
+					changes: "Using Duergar Magic, I can cast *Enlarge/Reduce* on myself once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
 				},
 			},
 			extraLimitedFeatures: [{
@@ -357,7 +374,7 @@ RaceList["multiverse duergar"] = {
 					range: "Self/" + SpellsList["invisibility"].range,
 					components: SpellsList["invisibility"].components + "*",
 					compMaterial: SpellsList["invisibility"].compMaterial + "\nMaterial component is only needed when cast using a spell slot, not when cast using the Duergar Magic trait.",
-					changes: "Using Duergar Magic, I can cast Invisibility on myself once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
+					changes: "Using Duergar Magic, I can cast *Invisibility* on myself once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
 				},
 			},
 			extraLimitedFeatures: [{
@@ -389,10 +406,12 @@ RaceList["multiverse eladrin"] = {
 	age: " can live to be 750 years old",
 	scoresGeneric: true,
 	abilitySave: [4, 5, 6],
-	trait: "Eladrin (my creature type is humanoid, elf)" +
-		"\n \u2022 Trance: I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours while meditating consciously. At the end of the trance, I gain 2 weapon/tool proficiencies until the end of my next long rest." +
-		"\n \u2022 Shifting Seasons: After finish a long rest, I can align with a season." +
-		"\n \u2022 Fey Step: Prof Bonus per long rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see. At 3rd level, additional effects based on my season.",
+	trait: [
+		"**Eladrin** (my creature type is humanoid, elf)",
+		"##\u25C6 Trance##. I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours while meditating consciously. At the end of the trance, I gain 2 weapon/tool proficiencies until the end of my next long rest.",
+		"##\u25C6 Shifting Seasons##. After finish a long rest, I can align with a season.",
+		"##\u25C6 Fey Step##. Prof Bonus per long rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see. At 3rd level, additional effects based on my season.",
+	],
 	features: {
 		"fey step": {
 			name: "Fey Step",
@@ -479,10 +498,11 @@ if (!RaceList["fairy"]) {
 				}],
 			},
 		},
-		trait: "Fairy" +
-			(typePF ? "\n \u2022 Fey: My " : " (") + "creature type is fey, rather than humanoid" + (typePF ? "." : ")") +
-			"\n \u2022 Flight: I have a flying speed equal to my walking speed. To use this speed, I can't be wearing medium or heavy armor." +
-			"\n \u2022 Fairy Magic: I know the Druidcraft cantrip. At 3rd level, I learn Faerie Fire. At 5th level, I learn Enlarge/Reduce. I can cast each spell without using a spell slot once per long rest, as well as by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
+		trait: [
+			"**Fairy**" + (typePF ? "\r##\u25C6 Fey##. My " : " (") + "creature type is fey, rather than humanoid" + (typePF ? "." : ")"),
+			"##\u25C6 Flight##. I have a flying speed equal to my walking speed. To use this speed, I can't be wearing medium or heavy armor.",
+			"##\u25C6 Fairy Magic##. I know the *Druidcraft* cantrip. At 3rd level, I learn *Faerie Fire*. At 5th level, I learn *Enlarge/Reduce*. I can cast each spell without using a spell slot once per long rest, as well as by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
+		],
 	};
 }
 if (!RaceList["harengon"]) {
@@ -512,11 +532,13 @@ if (!RaceList["harengon"]) {
 				}),
 			},
 		},
-		trait: "Harengon" +
-			"\n \u2022 Hare-Trigger: I can add my proficiency bonus to my initiative rolls." +
-			"\n \u2022 Leporine Senses: I have proficiency in the Perception skill." +
-			"\n \u2022 Lucky Footwork: As a reaction when I fail a Dexterity saving throw, I can add +1d4 to the result, potentially making it a success. I can't do this if I'm prone or my speed is 0." +
-			"\n \u2022 Rabbit Hop: As a bonus action if my speed isn't 0, I can jump 5 ft times my Prof Bonus without provoking opportunity attacks. I can do this my Prof Bonus times per long rest.",
+		trait: [
+			"**Harengon**",
+			"##\u25C6 Hare-Trigger##. I can add my proficiency bonus to my initiative rolls.",
+			"##\u25C6 Leporine Senses##. I have proficiency in the Perception skill.",
+			"##\u25C6 Lucky Footwork##. As a reaction when I fail a Dexterity saving throw, I can add +1d4 to the result, potentially making it a success. I can't do this if I'm prone or my speed is 0.",
+			"##\u25C6 Rabbit Hop##. As a bonus action if my speed isn't 0, I can jump 5 ft times my Prof Bonus without provoking opportunity attacks. I can do this my Prof Bonus times per long rest.",
+		],
 	};
 } // dupl_end
 RaceList["multiverse firbolg"] = {
@@ -532,11 +554,12 @@ RaceList["multiverse firbolg"] = {
 	languageProfs: ["Common", "Speech of Beast and Leaf", 1],
 	age: " can live up to 500 years",
 	scoresGeneric: true,
-	trait: "Firbolg" +
-		(typePF ? "\n" : "") + " \u2022 Powerful Build: I count as one size larger for my carrying capacity." +
-		"\n \u2022 Hidden Step: Proficiency Bonus per long rest, as a bonus action, I can turn invisible until my next turn starts, as per the Invisibility spell." +
-		"\n \u2022 Firbolg Magic: I can cast Detect Magic and Disguise Self each once per long rest, or using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these (one-time choice)." +
-		"\n \u2022 Speech of Beast and Leaf: I can make my words understood, in a limited manner, by Beasts, Plants, and vegetation. I have advantage on Charisma checks to influence them.",
+	trait: [
+		"**Firbolg**" + (typePF ? "\r" : " ") + "##\u25C6 Powerful Build##. I count as one size larger for my carrying capacity.",
+		"##\u25C6 Hidden Step##. Proficiency Bonus per long rest, as a bonus action, I can turn invisible until my next turn starts, as per the *Invisibility* spell.",
+		"##\u25C6 Firbolg Magic##. I can cast *Detect Magic* and *Disguise Self* each once per long rest, or using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these (one-time choice).",
+		"##\u25C6 Speech of Beast and Leaf##. I can make my words understood, in a limited manner, by Beasts, Plants, and vegetation. I have advantage on Charisma checks to influence them.",
+	],
 	spellcastingAbility: [4, 5, 6],
 	features: {
 		"firbolg magic ": {
@@ -563,7 +586,7 @@ RaceList["multiverse firbolg"] = {
 			spellChanges: {
 				"disguise self": {
 					description: "Alter appearance, up to 3ft shorter/taller; Int(Investigation) check vs. spell DC to determine disguise",
-					changes: "Using Firbolg Magic, I can cast Disguise Self once per long rest without using a spell slot. When I cast it using Firbolg Magic, I can also seem up to 3 feet shorter or taller.",
+					changes: "Using Firbolg Magic, I can cast *Disguise Self* once per long rest without using a spell slot. When I cast it using Firbolg Magic, I can also seem up to 3 feet shorter or taller.",
 				},
 			},
 		},
@@ -592,10 +615,12 @@ RaceList["multiverse air genasi"] = {
 	dmgres: ["Lightning"],
 	age: " can live up to 120 years",
 	scoresGeneric: true,
-	trait: "Air Genasi" +
-	"\n \u2022 Unending Breath: I can hold my breath indefinitely while I am not incapacitated." +
-	"\n \u2022 Lightning Resistance: I have resistance to lightning damage." +
-	"\n \u2022 Mingle with the Wind: I know the Shocking Grasp cantrip. At 3rd level, I learn Feather Fall. At 5th level, I learn Levitate. I can cast each spell without using a spell slot or material components once per long rest, and by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
+	trait: [
+		"**Air Genasi**",
+		"##\u25C6 Unending Breath##. I can hold my breath indefinitely while I am not incapacitated.",
+		"##\u25C6 Lightning Resistance##. I have resistance to lightning damage.",
+		"##\u25C6 Mingle with the Wind##. I know the *Shocking Grasp* cantrip. At 3rd level, I learn *Feather Fall*. At 5th level, I learn *Levitate*. I can cast each spell without using a spell slot or material components once per long rest, and by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
+	],
 	spellcastingAbility: [4, 5, 6],
 	spellcastingBonus: [{
 		name: "Mingle with the Wind",
@@ -623,7 +648,7 @@ RaceList["multiverse air genasi"] = {
 				"feather fall": {
 					components: SpellsList["feather fall"].components + "*",
 					compMaterial: SpellsList["feather fall"].compMaterial + "\nMaterial component is only needed when cast using a spell slot, not when cast using the Mingle with the Wind trait.",
-					changes: "Using Mingle with the Wind, I can cast Feather Fall once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
+					changes: "Using Mingle with the Wind, I can cast *Feather Fall* once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
 				},
 			},
 		},
@@ -647,7 +672,7 @@ RaceList["multiverse air genasi"] = {
 				"levitate": {
 					components: SpellsList["levitate"].components + "*",
 					compMaterial: SpellsList["levitate"].compMaterial + "\nMaterial component is only needed when cast using a spell slot, not when cast using the Mingle with the Wind trait.",
-					changes: "Using Mingle with the Wind, I can cast Levitate once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
+					changes: "Using Mingle with the Wind, I can cast *Levitate* once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
 				},
 			},
 		},
@@ -666,9 +691,11 @@ RaceList["multiverse earth genasi"] = {
 	vision: [["Darkvision", 60]],
 	age: " can live up to 120 years",
 	scoresGeneric: true,
-	trait: "Earth Genasi" +
-	"\n \u2022 Earth Walk: I can move across difficult terrain without expending extra movement if I am using my walking speed on the ground or a floor." +
-	"\n \u2022 Merge with Stone: I can cast the Blade Ward cantrip as normal and as a bonus action Prof Bonus times per long rest. At 5th level, I can cast Pass Without Trace without using a spell slot or material component once per long rest, or by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
+	trait: [
+		"**Earth Genasi**",
+		"##\u25C6 Earth Walk##. I can move across difficult terrain without expending extra movement if I am using my walking speed on the ground or a floor.",
+		"##\u25C6 Merge with Stone##. I can cast the *Blade Ward* cantrip as normal and as a bonus action Prof Bonus times per long rest. At 5th level, I can cast *Pass Without Trace* without using a spell slot or material component once per long rest, or by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
+	],
 	spellcastingAbility: [4, 5, 6],
 	features: {
 		"Merge with Stone (level 1)": {
@@ -689,7 +716,7 @@ RaceList["multiverse earth genasi"] = {
 			spellChanges: {
 				"blade ward": {
 					time: "1 a/bns",
-					changes: "Using Merge with Stone, I can cast Blade Ward as a bonus action a number of times per long rest equal to my proficiency bonus.",
+					changes: "Using Merge with Stone, I can cast *Blade Ward* as a bonus action a number of times per long rest equal to my proficiency bonus.",
 				},
 			},
 		},
@@ -713,7 +740,7 @@ RaceList["multiverse earth genasi"] = {
 				"pass without trace": {
 					components: SpellsList["pass without trace"].components + "*",
 					compMaterial: SpellsList["pass without trace"].compMaterial + "\nMaterial component is only needed when cast using a spell slot, not when cast using the Merge with Stone trait.",
-					changes: "Using Merge with Stone, I can cast Pass Without Trace once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
+					changes: "Using Merge with Stone, I can cast *Pass Without Trace* once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
 				},
 			},
 		},
@@ -733,9 +760,11 @@ RaceList["multiverse fire genasi"] = {
 	dmgres: ["Fire"],
 	age: " can live up to 120 years",
 	scoresGeneric: true,
-	trait: "Fire Genasi" +
-	"\n \u2022 Fire Resistance: I have resistance to fire damage." +
-	"\n \u2022 Reach to the Blaze: I know the Produce Flame cantrip. At 3rd level, I learn Burning Hands. At 5th level, I learn Flame Blade. I can cast each spell without using a spell slot or material components once per long rest, or by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
+	trait: [
+		"**Fire Genasi**",
+		"##\u25C6 Fire Resistance##. I have resistance to fire damage.",
+		"##\u25C6 Reach to the Blaze##. I know the *Produce Flame* cantrip. At 3rd level, I learn *Burning Hands*. At 5th level, I learn *Flame Blade*. I can cast each spell without using a spell slot or material components once per long rest, or by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
+	],
 	spellcastingAbility: [4, 5, 6],
 	spellcastingBonus: [{
 		name: "Reach to the Blaze",
@@ -780,7 +809,7 @@ RaceList["multiverse fire genasi"] = {
 				"flame blade": {
 					components: SpellsList["flame blade"].components + "*",
 					compMaterial: SpellsList["flame blade"].compMaterial + "\nMaterial component is only needed when cast using a spell slot, not when cast using the Reach to the Blaze trait.",
-					changes: "Using Reach to the Blaze, I can cast Flame Blade once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
+					changes: "Using Reach to the Blaze, I can cast *Flame Blade* once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
 				},
 			},
 		},
@@ -801,10 +830,12 @@ RaceList["multiverse water genasi"] = {
 	dmgres: ["Acid"],
 	age: " can live up to 120 years",
 	scoresGeneric: true,
-	trait: "Water Genasi" +
-	"\n \u2022 Amphibious: I can breathe air and water" + (typePF ? "and I have a swimming speed equal to my walking speed." : ", have a swimming speed equal to walking speed.") +
-	"\n \u2022 Acid Resistance: I have resistance to acid damage." +
-	"\n \u2022 Call to the Wave: I know the Acid Splash cantrip. At 3rd level, I can cast Create or Destroy Water without using a spell slot once per long rest. At 5th level, I can cast Water Walk without using a spell slot or material components once per long rest. I can also cast each spell using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these" + (typePF ? " (one-time choice)." : "."),
+	trait: [
+		"**Water Genasi**",
+		"##\u25C6 Amphibious##. I can breathe air and water" + (typePF ? "and I have a swimming speed equal to my walking speed." : ", have a swimming speed equal to walking speed."),
+		"##\u25C6 Acid Resistance##. I have resistance to acid damage.",
+		"##\u25C6 Call to the Wave##. I know the *Acid Splash* cantrip. At 3rd level, I can cast *Create or Destroy Water* without using a spell slot once per long rest. At 5th level, I can cast *Water Walk* without using a spell slot or material components once per long rest. I can also cast each spell using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these" + (typePF ? " (one-time choice)." : "."),
+	],
 	spellcastingAbility: [4, 5, 6],
 	spellcastingBonus: [{
 		name: "Call to the Wave",
@@ -849,7 +880,7 @@ RaceList["multiverse water genasi"] = {
 				"water walk": {
 					components: SpellsList["water walk"].components + "*",
 					compMaterial: SpellsList["water walk"].compMaterial + "\nMaterial component is only needed when cast using a spell slot, not when cast using the Call to the Wave trait.",
-					changes: "Using Call to the Wave, I can cast Water Walk once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
+					changes: "Using Call to the Wave, I can cast *Water Walk* once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
 				},
 			},
 		},
@@ -870,9 +901,11 @@ RaceList["multiverse githyanki"] = {
 	toolProfs: [["Astral Knowledge: tool/weapon", 1]],
 	age: " typically live to be around 100 years old. Githyanki who reside in the Astral Plane can live indefinitely.",
 	scoresGeneric: true,
-	trait: "Githyanki" +
-		"\n \u2022 Astral Knowledge: When I finish a long rest, I gain proficiency with 1 skill and with 1 weapon or tool from the PHB until the end of my next long rest." +
-		"\n \u2022 Githyanki Psionics: I know the Mage Hand cantrip, but require no components to cast it and the hand is invisible. At 3rd level, I learn Jump. At 5th level, I learn Misty Step. I can cast each without using components or a spell slot once per long rest, as well as by using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these (one-time choice).",
+	trait: [
+		"**Githyanki**",
+		"##\u25C6 Astral Knowledge##. When I finish a long rest, I gain proficiency with 1 skill and with 1 weapon or tool from the PHB until the end of my next long rest.",
+		"##\u25C6 Githyanki Psionics##. I know the *Mage Hand* cantrip, but require no components to cast it and the hand is invisible. At 3rd level, I learn *Jump*. At 5th level, I learn *Misty Step*. I can cast each without using components or a spell slot once per long rest, as well as by using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these (one-time choice).",
+	],
 	spellcastingAbility: [4, 5, 6],
 	spellcastingBonus: [{
 		name: "Githyanki Psionics (1)",
@@ -883,7 +916,7 @@ RaceList["multiverse githyanki"] = {
 		"mage hand": {
 			components: "",
 			description: "Create invisible spectral hand for simple tasks or carry up to 10 lb; 1 a to control; can't have multiple",
-			changes: "Using Githyanki Psionics, I can cast Mage Hand without requiring components and the spectral hand is invisible.",
+			changes: "Using Githyanki Psionics, I can cast *Mage Hand* without requiring components and the spectral hand is invisible.",
 		},
 	},
 	features: {
@@ -907,7 +940,7 @@ RaceList["multiverse githyanki"] = {
 				"jump": {
 					components: SpellsList["jump"].components + "*",
 					compMaterial: SpellsList["jump"].compMaterial + "\nMaterial component is only needed when cast using a spell slot, not when cast using the Githyanki Psionics trait.",
-					changes: "Using Githyanki Psionics, I can cast Jump once per long rest without requiring components. I can also cast it using a spell slot as normal, but then it does require components.",
+					changes: "Using Githyanki Psionics, I can cast *Jump* once per long rest without requiring components. I can also cast it using a spell slot as normal, but then it does require components.",
 				},
 			},
 		},
@@ -930,7 +963,7 @@ RaceList["multiverse githyanki"] = {
 			spellChanges: {
 				"misty step": {
 					components: SpellsList["misty step"].components + "*",
-					changes: "Using Githyanki Psionics, I can cast Misty Step once per long rest without requiring components. I can also cast it using a spell slot as normal, but then it does require components.",
+					changes: "Using Githyanki Psionics, I can cast *Misty Step* once per long rest without requiring components. I can also cast it using a spell slot as normal, but then it does require components.",
 				},
 			},
 		},
@@ -951,9 +984,11 @@ RaceList["multiverse githzerai"] = {
 	dmgres: ["Psychic"],
 	age: " typically live to be around 100 years old. Githzerai who reside in the Astral Plane can live indefinitely.",
 	scoresGeneric: true,
-	trait: "Githzerai" +
-		"\n \u2022 Githzerai Psionics: I know the Mage Hand cantrip, but require no components to cast it and the hand is invisible. At 3rd level, I learn Shield. At 5th level, I learn Detect Thoughts. I can cast each without using components or a spell slot once per long rest, or by using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these (one-time choice)." +
-		"\n \u2022 Mental Discipline: I have advantage on saving throws to avoid or end the charmed and frightened conditions on myself.",
+	trait: [
+		"**Githzerai**",
+		"##\u25C6 Githzerai Psionics##. I know the *Mage Hand* cantrip, but require no components to cast it and the hand is invisible. At 3rd level, I learn *Shield*. At 5th level, I learn *Detect Thoughts*. I can cast each without using components or a spell slot once per long rest, or by using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these (one-time choice).",
+		"##\u25C6 Mental Discipline##. I have advantage on saving throws to avoid or end the charmed and frightened conditions on myself.",
+	],
 	spellcastingAbility: [4, 5, 6],
 	spellcastingBonus: [{
 		name: "Githzerai Psionics (1)",
@@ -964,7 +999,7 @@ RaceList["multiverse githzerai"] = {
 		"mage hand": {
 			components: "",
 			description: "Create invisible spectral hand for simple tasks or carry up to 10 lb; 1 a to control; can't have multiple",
-			changes: "Using Githzerai Psionics, I can cast Mage Hand without requiring components and the spectral hand is invisible.",
+			changes: "Using Githzerai Psionics, I can cast *Mage Hand* without requiring components and the spectral hand is invisible.",
 		},
 	},
 	features: {
@@ -987,7 +1022,7 @@ RaceList["multiverse githzerai"] = {
 			spellChanges: {
 				"shield": {
 					components: SpellsList["shield"].components + "*",
-					changes: "Using Githzerai Psionics, I can cast Shield once per long rest without requiring components. I can also cast it using a spell slot as normal, but then it does require components.",
+					changes: "Using Githzerai Psionics, I can cast *Shield* once per long rest without requiring components. I can also cast it using a spell slot as normal, but then it does require components.",
 				},
 			},
 		},
@@ -1011,7 +1046,7 @@ RaceList["multiverse githzerai"] = {
 				"detect thoughts": {
 					components: SpellsList["detect thoughts"].components + "*",
 					compMaterial: SpellsList["detect thoughts"].compMaterial + "\nMaterial component is only needed when cast using a spell slot, not when cast using the Githzerai Psionics trait.",
-					changes: "Using Githzerai Psionics, I can cast Detect Thoughts once per long rest without requiring components. I can also cast it using a spell slot as normal, but then it does require components.",
+					changes: "Using Githzerai Psionics, I can cast *Detect Thoughts* once per long rest without requiring components. I can also cast it using a spell slot as normal, but then it does require components.",
 				},
 			},
 		},
@@ -1041,10 +1076,12 @@ RaceList["multiverse goblin"] = {
 		},
 	},
 	action: [["bonus action", "Nimble Escape (disengage/hide)"]],
-	trait: "Goblin (my creature type is humanoid, goblinoid)" +
-		"\n \u2022 Fey Ancestry: I have advantage on saving throws to avoid or end the charmed condition on myself." +
-		"\n \u2022 Fury of the Small: A number of times per long rest equal to my Proficiency Bonus, when I damage a creature of a size category larger than mine with an attack or a spell, I can have it take extra damage equal to my Proficiency Bonus." +
-		"\n \u2022 Nimble Escape: As a bonus action, I can take the Disengage or Hide action.",
+	trait: [
+		"**Goblin** (my creature type is humanoid, goblinoid)",
+		"##\u25C6 Fey Ancestry##. I have advantage on saving throws to avoid or end the charmed condition on myself.",
+		"##\u25C6 Fury of the Small##. A number of times per long rest equal to my Proficiency Bonus, when I damage a creature of a size category larger than mine with an attack or a spell, I can have it take extra damage equal to my Proficiency Bonus.",
+		"##\u25C6 Nimble Escape##. As a bonus action, I can take the Disengage or Hide action.",
+	],
 };
 RaceList["multiverse goliath"] = {
 	regExpSearch: /^(?=.*(multiverse|motm\b))(?=.*goliath).*$/i,
@@ -1068,10 +1105,12 @@ RaceList["multiverse goliath"] = {
 			action: [["reaction", ""]],
 		},
 	},
-	trait: "Goliath" +
-		"\n \u2022 Stone's Endurance: Proficiency Bonus per long rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Constitution modifier." +
-		"\n \u2022 Little Giant: I have proficiency in the Athletics skill and count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." +
-		"\n \u2022 Mountain Born: I have resistance to cold damage and I'm acclimated to high altitude, including elevations above 20000 ft.",
+	trait: [
+		"**Goliath**",
+		"##\u25C6 Stone's Endurance##. Proficiency Bonus per long rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Constitution modifier.",
+		"##\u25C6 Little Giant##. I have proficiency in the Athletics skill and count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.",
+		"##\u25C6 Mountain Born##. I have resistance to cold damage and I'm acclimated to high altitude, including elevations above 20000 ft.",
+	],
 	carryingCapacity: 2,
 };
 RaceList["multiverse hobgoblin"] = {
@@ -1118,10 +1157,12 @@ RaceList["multiverse hobgoblin"] = {
 			}],
 		},
 	},
-	trait: "Hobgoblin (my creature type is humanoid, goblinoid)" +
-		"\n \u2022 Fey Ancestry: I have adv. on saves to avoid or end being charmed." +
-		"\n \u2022 Fey Gift: Prof Bonus per long rest, I can take the Help action as a bonus action. From 3rd-level, I can produce an additional effect when I do this: Hospitality, Passage, or Spite." +
-		"\n \u2022 Fortune from the Many: Prof Bonus per long rest, when I miss an attack or fail an ability check or saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30 ft of me (max +3).",
+	trait: [
+		"**Hobgoblin** (my creature type is humanoid, goblinoid)",
+		"##\u25C6 Fey Ancestry##. I have adv. on saves to avoid or end being charmed.",
+		"##\u25C6 Fey Gift##. Prof Bonus per long rest, I can take the Help action as a bonus action. From 3rd-level, I can produce an additional effect when I do this: Hospitality, Passage, or Spite.",
+		"##\u25C6 Fortune from the Many##. Prof Bonus per long rest, when I miss an attack or fail an ability check or saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30 ft of me (max +3).",
+	],
 };
 RaceList["multiverse kenku"] = {
 	regExpSearch: /^(?=.*(multiverse|motm\b))(?=.*kenku).*$/i,
@@ -1145,10 +1186,12 @@ RaceList["multiverse kenku"] = {
 			recovery: "long rest",
 		},
 	},
-	trait: "Kenku" +
-		"\n \u2022 Expert Duplication: I have adv. on checks to produce exact copies of writing or craftwork." +
-		"\n \u2022 Kenku Recall: Proficiency Bonus per long rest, I can give myself advantage on an ability check using any skill in which I have proficiency." +
-		"\n \u2022 Mimicry: I can mimic sounds and voices I have heard. Creatures hearing me can determine the imitation with a successful Wisdom (Insight) check against a DC of 8 + my Proficiency Bonus + my Charisma modifier.",
+	trait: [
+		"**Kenku**",
+		"##\u25C6 Expert Duplication##. I have adv. on checks to produce exact copies of writing or craftwork.",
+		"##\u25C6 Kenku Recall##. Proficiency Bonus per long rest, I can give myself advantage on an ability check using any skill in which I have proficiency.",
+		"##\u25C6 Mimicry##. I can mimic sounds and voices I have heard. Creatures hearing me can determine the imitation with a successful Wisdom (Insight) check against a DC of 8 + my Proficiency Bonus + my Charisma modifier.",
+	],
 };
 var MotM_Kobold_Draconic_Cry = "##\u25C6 Draconic Cry##. As a bonus action, I can let out a cry. Until the start of my next turn, my allies and I have advantage on attack rolls against enemies within 10 ft of me who could hear the cry. I can do this a number of times per long rest equal to my Proficiency Bonus.";
 RaceList["multiverse kobold"] = {
@@ -1292,11 +1335,12 @@ RaceList["multiverse minotaur"] = {
 	abilitySave: 1,
 	vision: [["Always know north", 0], ["Adv. on Survival to navigate or track", 0]],
 	action: [["bonus action", "Goring Rush (with Dash)"], ["bonus action", "Hammering Horns (after hit)"]],
-	trait: "Minotaur" + (typePF ? "\n" : "") +
-		" \u2022 Horns: My unarmed strikes with horns deal 1d6 piercing damage." +
-		"\n \u2022 Goring Rush: When taking a Dash action and moving at least 20 ft, I can make a horns attack as a bonus action." +
-		"\n \u2022 Hammering Horns: As a bonus action after I hit a melee attack on my turn during my Attack action, I can shove the target, if it's up to one size larger than me. It must make a Str save (DC 8 + Str mod + Prof Bonus) or be pushed up to 10 ft away from me." +
-		"\n \u2022 Labyrinthine Recall: " + (typePF ? "I always know which direction is north, and have adv. on any Wis (Survival) check I make to navigate or track." : "I have adv. on Survival to navigate or track and always know north."),
+	trait: [
+		"**Minotaur**" + (typePF ? "\r" : " ") + "##\u25C6 Horns##. My unarmed strikes with horns deal 1d6 piercing damage.",
+		"##\u25C6 Goring Rush##. When taking a Dash action and moving at least 20 ft, I can make a horns attack as a bonus action.",
+		"##\u25C6 Hammering Horns##. As a bonus action after I hit a melee attack on my turn during my Attack action, I can shove the target, if it's up to one size larger than me. It must make a Str save (DC 8 + Str mod + Prof Bonus) or be pushed up to 10 ft away from me.",
+		"##\u25C6 Labyrinthine Recall##. " + (typePF ? "I always know which direction is north, and have adv. on any Wis (Survival) check I make to navigate or track." : "I have adv. on Survival to navigate or track and always know north."),
+	],
 };
 RaceList["multiverse orc"] = {
 	regExpSearch: /^(?!.*half)(?=.*(multiverse|motm\b))(?=.*orc).*$/i,
@@ -1310,10 +1354,12 @@ RaceList["multiverse orc"] = {
 	},
 	vision: [["Darkvision", 60]],
 	scoresGeneric: true,
-	trait: "Orc" +
-		"\n \u2022 Adrenaline Rush: Proficiency bonus per long rest, I can take the Dash action as a bonus action and gain my proficiency bonus in temporary hit points." +
-		"\n \u2022 Powerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift." +
-		"\n \u2022 Relentless Endurance: Once per long rest, when I am reduced to 0 hit points but not killed outright, I can drop to 1 hit point instead.",
+	trait: [
+		"**Orc**",
+		"##\u25C6 Adrenaline Rush##. Proficiency bonus per long rest, I can take the Dash action as a bonus action and gain my proficiency bonus in temporary hit points.",
+		"##\u25C6 Powerful Build##. I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.",
+		"##\u25C6 Relentless Endurance##. Once per long rest, when I am reduced to 0 hit points but not killed outright, I can drop to 1 hit point instead.",
+	],
 	features: {
 		"adrenaline rush": {
 			name: "Adrenaline Rush",
@@ -1355,11 +1401,13 @@ RaceList["multiverse satyr"] = {
 	toolProfs: [["Musical instrument", 1]],
 	scoresGeneric: true,
 	skills: ["Performance", "Persuasion"],
-	trait: "Satyr (my creature type is fey, rather than humanoid)" +
-		"\n \u2022 Ram: My unarmed strikes with my horned head deal 1d6 bludgeoning damage." +
-		"\n \u2022 Magic Resistance: I have advantage on saves against spells." +
-		"\n \u2022 Mirthful Leaps: Whenever I make a long or high jump, I can roll a d8 and add the number rolled to the number of feet I cover, even when making a standing jump. This extra distance costs movement as normal." +
-		"\n \u2022 Reveler: I have proficiency in Performance, Persuasion, and one musical instrument.",
+	trait: [
+		"**Satyr** (my creature type is fey, rather than humanoid)",
+		"##\u25C6 Ram##. My unarmed strikes with my horned head deal 1d6 bludgeoning damage.",
+		"##\u25C6 Magic Resistance##. I have advantage on saves against spells.",
+		"##\u25C6 Mirthful Leaps##. Whenever I make a long or high jump, I can roll a d8 and add the number rolled to the number of ft I cover, even when making a standing jump. This extra distance costs movement as normal.",
+		"##\u25C6 Reveler##. I have proficiency in Performance, Persuasion, and one musical instrument.",
+	],
 };
 RaceList["multiverse sea elf"] = {
 	regExpSearch: /^(?!.*half)(?=.*(multiverse|motm\b))((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
@@ -1383,10 +1431,12 @@ RaceList["multiverse sea elf"] = {
 	toolProfs: [["Trance: tool or weapon", 2]],
 	age: " can live to be 750 years old",
 	scoresGeneric: true,
-	trait: "Sea Elf (my creature type is humanoid, elf)" +
-		"\n \u2022 Trance: I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours while meditating consciously. At the end of the trance, I gain 2 weapon/tool proficiencies until the end of my next long rest." +
-		"\n \u2022 Child of the Sea. I can breathe air and water and have resistance to cold damage." +
-		"\n \u2022 Friend of the Sea: I can communicate simple ideas to beasts with a swimming speed. It can understand my words, though I have no special ability to understand it in return.",
+	trait: [
+		"**Sea Elf** (my creature type is humanoid, elf)",
+		"##\u25C6 Trance##. I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours while meditating consciously. At the end of the trance, I gain 2 weapon/tool proficiencies until the end of my next long rest.",
+		"\u2022 Child of the Sea. I can breathe air and water and have resistance to cold damage.",
+		"##\u25C6 Friend of the Sea##. I can communicate simple ideas to beasts with a swimming speed. It can understand my words, though I have no special ability to understand it in return.",
+	],
 };
 RaceList["multiverse shadar-kai"] = {
 	regExpSearch: /^(?!.*half)(?=.*(multiverse|motm\b))((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
@@ -1408,9 +1458,11 @@ RaceList["multiverse shadar-kai"] = {
 	toolProfs: [["Trance: tool or weapon", 2]],
 	age: " can live to be 750 years old",
 	scoresGeneric: true,
-	trait: "Shadar-kai (my creature type is humanoid, elf)" +
-		"\n \u2022 Trance: I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours while meditating consciously. At the end of the trance, I gain 2 weapon/tool proficiencies until the end of my next long rest." +
-		"\n \u2022 Blessing of the Raven Queen: Prof Bonus per long rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see. Once I reach 3rd level, I then also appear translucent and have resistance to all damage until the start of my next turn.",
+	trait: [
+		"**Shadar-kai** (my creature type is humanoid, elf)",
+		"##\u25C6 Trance##. I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours while meditating consciously. At the end of the trance, I gain 2 weapon/tool proficiencies until the end of my next long rest.",
+		"##\u25C6 Blessing of the Raven Queen##. Prof Bonus per long rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see. Once I reach 3rd level, I then also appear translucent and have resistance to all damage until the start of my next turn.",
+	],
 	features: {
 		"blessing of the raven queen": {
 			name: "Blessing of the Raven Queen",
@@ -1425,7 +1477,7 @@ RaceList["multiverse shadar-kai"] = {
 [{
 	name: "Beasthide",
 	regExpSearch: "(?=.*beast)(?=.*hide)",
-	trait: "\n \u2022 Shifting (Beasthide): Prof Bonus per long rest, as a bonus action, I can assume a more bestial appearance. This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action. When I shift, I gain 1d6 + twice my proficiency bonus in temporary hit points and a +1 bonus to my AC.",
+	trait: "##\u25C6 Shifting (Beasthide)##. Prof Bonus per long rest, as a bonus action, I can assume a more bestial appearance. This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action. When I shift, I gain 1d6 + twice my proficiency bonus in temporary hit points and a +1 bonus to my AC.",
 	extra: {
 		features: {
 			"shift": {
@@ -1441,7 +1493,7 @@ RaceList["multiverse shadar-kai"] = {
 }, {
 	name: "Longtooth",
 	regExpSearch: "(?=.*long)(?=.*(tooth|teeth))",
-	trait: "\n \u2022 Shifting (Longtooth): Prof Bonus per long rest, as a bonus action, I can assume a more bestial appearance for 1 minute, until I die, or until I revert back as a bonus action. When I shift, I gain twice my proficiency bonus in temporary hit points and my fangs elongate. As part of the bonus action when I shift and as a bonus action while shifted, I can make a single unarmed strike with my elongated fangs that deals 1d6 piercing damage.",
+	trait: "##\u25C6 Shifting (Longtooth)##. Prof Bonus per long rest, as a bonus action, I can assume a more bestial appearance for 1 minute, until I die, or until I revert back as a bonus action. When I shift, I gain twice my proficiency bonus in temporary hit points and my fangs elongate. As part of the bonus action when I shift and as a bonus action while shifted, I can make a single unarmed strike with my elongated fangs that deals 1d6 piercing damage.",
 	extra: {
 		action: [["bonus action", "Longtooth Fangs (while shifted)"]],
 		weaponOptions: [{
@@ -1457,14 +1509,14 @@ RaceList["multiverse shadar-kai"] = {
 }, {
 	name: "Swiftstride",
 	regExpSearch: "(?=.*swift)(?=.*stride)",
-	trait: "\n \u2022 Shifting (Swiftstride): Prof Bonus per long rest, as a bonus action, I can assume a more bestial appearance for 1 minute, until I die, or until I revert back as a bonus action. When I shift, I gain twice my proficiency bonus in temporary hit points and +10 ft to my walking speed. Additionally, as a reaction when a creature ends its turn within 5 ft of me, I can move up to 10 ft. This reactive movement doesn't provoke opportunity attacks.",
+	trait: "##\u25C6 Shifting (Swiftstride)##. Prof Bonus per long rest, as a bonus action, I can assume a more bestial appearance for 1 minute, until I die, or until I revert back as a bonus action. When I shift, I gain twice my proficiency bonus in temporary hit points and +10 ft to my walking speed. Additionally, as a reaction when a creature ends its turn within 5 ft of me, I can move up to 10 ft. This reactive movement doesn't provoke opportunity attacks.",
 	extra: {
 		action: [["reaction", "Reactive Stride (while shifted)"]],
 	},
 }, {
 	name: "Wildhunt",
 	regExpSearch: "(?=.*wild)(?=.*hunt)",
-	trait: "\n \u2022 Shifting (Wildhunt): Prof Bonus per long rest, as a bonus action, I can assume a more bestial appearance. This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action. When I shift, I gain twice my proficiency bonus in temporary hit points. While I'm shifted, I have advantage on Wisdom checks and no creature within 30 ft of me can make an attack roll with advantage against me unless I'm incapacitated.",
+	trait: "##\u25C6 Shifting (Wildhunt)##. Prof Bonus per long rest, as a bonus action, I can assume a more bestial appearance. This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action. When I shift, I gain twice my proficiency bonus in temporary hit points. While I'm shifted, I have advantage on Wisdom checks and no creature within 30 ft of me can make an attack roll with advantage against me unless I'm incapacitated.",
 	extra: {
 		vision: [
 			["Darkvision", 60],
@@ -1487,9 +1539,11 @@ RaceList["multiverse shadar-kai"] = {
 		vision: [["Darkvision", 60]],
 		skillstxt: "Choose one skill from Acrobatics, Athletics, Intimidation, or Survival",
 		scoresGeneric: true,
-		trait: o.name + " Shifter" +
-			"\n \u2022 Bestial Instincts: I have proficiency in Acrobatics, Athletics, Intimidation, or Survival." +
+		trait: [
+			"**" + o.name + " Shifter**",
+			"##\u25C6 Bestial Instincts##. I have proficiency in Acrobatics, Athletics, Intimidation, or Survival.",
 			o.trait,
+		],
 		features: {
 			"shift": {
 				name: "Shift",
@@ -1542,10 +1596,12 @@ RaceList["tabaxi-motm"] = { // just a plain improvement over the previous, no ne
 			tooltip: " (can be replenished by not moving for one whole turn)",
 		},
 	},
-	trait: "Tabaxi" +
-		"\n \u2022 Cat's Talent: I have proficiency in Perception and Stealth." +
-		"\n \u2022 Cat's Claws: I can use my retractable claws to make unarmed strikes dealing 1d6 slashing damage. They also give me a climbing speed equal to my walking speed." +
-		"\n \u2022 Feline Agility: When moving on my turn in combat, I can move double my speed. Once I do this, I can't do it again until I don't move at all on one of my turns.",
+	trait: [
+		"**Tabaxi**",
+		"##\u25C6 Cat's Talent##. I have proficiency in Perception and Stealth.",
+		"##\u25C6 Cat's Claws##. I can use my retractable claws to make unarmed strikes dealing 1d6 slashing damage. They also give me a climbing speed equal to my walking speed.",
+		"##\u25C6 Feline Agility##. When moving on my turn in combat, I can move double my speed. Once I do this, I can't do it again until I don't move at all on one of my turns.",
+	],
 };
 RaceList["tortle-motm"] = { // just a plain improvement over the previous, no need to make it a separate "multiverse" choice
 	regExpSearch: /tortle/i,
@@ -1581,11 +1637,13 @@ RaceList["tortle-motm"] = { // just a plain improvement over the previous, no ne
 	heightMetric: ", when Medium sized, stand between 1,5 and 1,8 metres tall (150 + 5d8 cm) [according to the Tortle Package]",
 	weightMetric: ", when Medium sized, weigh around 190 kg (180 + 5d8 \xD7 4d4 / 10 kg) [according to the Tortle Package]",
 	action: [["action", "Shell Defense (start)"], ["bonus action", "Shell Defense (end)"]],
-	trait: "Tortle" +
-		"\n \u2022 Claws: My unarmed strikes with my claws deal 1d6 slashing damage." +
-		"\n \u2022 Hold Breath: I can hold my breath for up to 1 hour at a time." +
-		"\n \u2022 Natural Armor: I have a base AC of 17, but I can't add my Dex to it or wear armor." +
-		"\n \u2022 Shell Defense: As an action, I can withdraw into my shell and gain +4 AC and adv. on Str and Con saves, but I count as prone, have speed 0, have disadv. on Dex saves, and can't take reactions. The only action I can take is a bonus action to emerge from the shell.",
+	trait: [
+		"**Tortle**",
+		"##\u25C6 Claws##. My unarmed strikes with my claws deal 1d6 slashing damage.",
+		"##\u25C6 Hold Breath##. I can hold my breath for up to 1 hour at a time.",
+		"##\u25C6 Natural Armor##. I have a base AC of 17, but I can't add my Dex to it or wear armor.",
+		"##\u25C6 Shell Defense##. As an action, I can withdraw into my shell and gain +4 AC and adv. on Str and Con saves, but I count as prone, have speed 0, have disadv. on Dex saves, and can't take reactions. The only action I can take is a bonus action to emerge from the shell.",
+	],
 };
 RaceList["multiverse triton"] = {
 	regExpSearch: /^(?=.*(multiverse|motm\b))(?=.*triton).*$/i,
@@ -1602,10 +1660,11 @@ RaceList["multiverse triton"] = {
 	languageProfs: ["Common", "Emissary of the Sea", 1],
 	vision: [["Darkvision", 60]],
 	scoresGeneric: true,
-	trait: "Triton" +
-		"\n \u2022 Control Air and Water: I can cast the Fog Cloud spell. At 3rd level, Gust of Wind. At 5th level, Water Walk. I can cast each without using a spell slot once per long rest, and by using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these (one-time choice)." +
-		"\n \u2022 Emissary of the Sea: I can communicate simple ideas to beasts, elementals, and monstrosities with a swimming speed. They can understand my words, though I have no special ability to understand them in return." +
-		(typePF ? "\n" : "") + " \u2022 Amphibious: I can breathe air and water.",
+	trait: [
+		"**Triton**",
+		"##\u25C6 Control Air and Water##. I can cast the *Fog Cloud* spell. At 3rd level, *Gust of Wind*. At 5th level, *Water Walk*. I can cast each without using a spell slot once per long rest, and by using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these (one-time choice).",
+		"##\u25C6 Emissary of the Sea##. I can communicate simple ideas to beasts, elementals, and monstrosities with a swimming speed. They can understand my words, though I have no special ability to understand them in return." + (typePF ? "\r" : " ") + "##\u25C6 Amphibious##. I can breathe air and water.",
+	],
 	spellcastingAbility: [4, 5, 6],
 	features: {
 		"control air and water (level 1)": {
@@ -1677,9 +1736,11 @@ RaceList["multiverse yuan-ti"] = {
 		adv_vs: ["poisoned", "spells"],
 	},
 	scoresGeneric: true,
-	trait: "Yuan-Ti" +
-		"\n \u2022 Serpentine Spellcasting: I know the Poison Spray cantrip and I can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest, and by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these spells (one-time choice)." +
-		"\n \u2022 Magic and Poison Resistance: I have advantage on saving throws against spells and on saving throws to avoid or end being poisoned. I also have resistance to poison damage.",
+	trait: [
+		"**Yuan-Ti**",
+		"##\u25C6 Serpentine Spellcasting##. I know the *Poison Spray* cantrip and I can cast *Animal Friendship* on snakes at will. Once I reach 3rd level, I can cast *Suggestion* once per long rest, and by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these spells (one-time choice).",
+		"##\u25C6 Magic and Poison Resistance##. I have advantage on saving throws against spells and on saving throws to avoid or end being poisoned. I also have resistance to poison damage.",
+	],
 	spellcastingAbility: [4, 5, 6],
 	spellcastingBonus: [{
 		name: "Serpentine Spellcasting (level 1)",
@@ -1691,7 +1752,7 @@ RaceList["multiverse yuan-ti"] = {
 	spellChanges: {
 		"animal friendship": {
 			description: "One snake with Intelligence 3 or less save or charmed for the duration",
-			changes: "I can cast Animal Friendship at-will, but only to target snakes.",
+			changes: "I can cast *Animal Friendship* at-will, but only to target snakes.",
 		},
 	},
 	features: {
@@ -1807,7 +1868,7 @@ if (!SourceList["V"]) {
 			description: "If the roth\xE9 moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage.",
 		}, {
 			name: "Dancing Lights",
-			description: "The roth\xE9 casts dancing lights, requiring no spell components and using Wisdom as the spellcasting ability.",
+			description: "The roth\xE9 casts *dancing lights*, requiring no spell components and using Wisdom as the spellcasting ability.",
 		}],
 	};
 	CreatureList["stench kow"] = {
@@ -2192,7 +2253,7 @@ if (!SourceList["V"]) {
 		}],
 		variant: [{
 			name: "Variant: Familiar",
-			description: "The gazer can serve another creature as a familiar, forming a telepathic bond with its willing master, provided that the master is at least a 3rd-level spellcaster. While the two are bonded, the master can sense what the gazer senses as long as they are within 1 mile of each other. If its master causes it physical harm, the gazer will end its service as a familiar, breaking the telepathic bond.",
+			description: "The gazer can serve another creature as a familiar, forming a *telepathic bond* with its willing master, provided that the master is at least a 3rd-level spellcaster. While the two are bonded, the master can sense what the gazer senses as long as they are within 1 mile of each other. If its master causes it physical harm, the gazer will end its service as a familiar, breaking the *telepathic bond*.",
 		}],
 	};
 } // dupl_end

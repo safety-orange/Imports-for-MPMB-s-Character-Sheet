@@ -1,5 +1,5 @@
 var iFileName = "ua_20191104_Class-Feature-Variants.js";
-RequiredSheetVersion("14.1.0", 15);
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the content from the Unearthed Arcana: Class Feature Variants article to MPMB's Character Record Sheet
 
 // Define the source
@@ -61,7 +61,7 @@ AddFeatureChoice(UACFV_bardOptional1, true, "Expanded Spell List (ua)", {
 				if (spName !== "bard" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["cause fear", "color spray", "command", "aid", "enlarge/reduce", "mind spike", "mirror image", "phantasmal force", "mass healing word", "slow", "tiny servant", "phantasmal killer", "contact other plane", "rary's telepathic bond", "heroes' feast", "mental prison", "scatter", "tenser's transformation", "power word pain", "prismatic spray", "antipathy/sympathy", "maze", "prismatic wall"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the bard class with the following spells (spell level in brackets): Cause Fear (1), Color Spray (1), Command (1), Aid (2), Enlarge/Reduce (2), Mind Spike (2), Mirror Image (2), Phantasmal Force (2), Mass Healing Word (3), Slow (3), Tiny Servant (3), Phantasmal Killer (4), Contact Other Plane (5), Rary's Telepathic Bond (5), Heroes' Feast (6), Mental Prison (6), Scatter (6), Tenser's Transformation (6), Power Word Pain (7), Prismatic Spray (7), Antipathy/Sympathy (8), Maze (8), and Prismatic Wall (9).",
+			"This alternative class feature enhancement expands the spell list of the bard class with the following spells (spell level in brackets): *Cause Fear* (1), *Color Spray* (1), *Command* (1), *Aid* (2), *Enlarge/Reduce* (2), *Mind Spike* (2), *Mirror Image* (2), *Phantasmal Force* (2), *Mass Healing Word* (3), *Slow* (3), *Tiny Servant* (3), *Phantasmal Killer* (4), *Contact Other Plane* (5), *Rary's Telepathic Bond* (5), *Heroes' Feast* (6), *Mental Prison* (6), *Scatter* (6), *Tenser's Transformation* (6), *Power Word Pain* (7), *Prismatic Spray* (7), *Antipathy/Sympathy* (8), *Maze* (8), and *Prismatic Wall* (9).",
 		],
 	},
 });
@@ -101,7 +101,7 @@ AddFeatureChoice(UACFV_clericOptional1, true, "Expanded Spell List (ua)", {
 				if (spName !== "cleric" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["cause fear", "wrathful smite", "branding smite", "aura of vitality", "aura of life", "aura of purity", "skill empowerment", "wall of light", "power word heal"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the cleric class with the following spells (spell level in brackets): Cause Fear (1), Wrathful Smite (1), Branding Smite (2), Aura of Vitality (3), Aura of Life (4), Aura of Purity (4), Skill Empowerment (5), Wall of Light (5), and Power Word Heal (9).",
+			"This alternative class feature enhancement expands the spell list of the cleric class with the following spells (spell level in brackets): *Cause Fear* (1), *Wrathful Smite* (1), *Branding Smite* (2), *Aura of Vitality* (3), *Aura of Life* (4), *Aura of Purity* (4), *Skill Empowerment* (5), *Wall of Light* (5), and *Power Word Heal* (9).",
 		],
 	},
 });
@@ -160,7 +160,7 @@ AddFeatureChoice(UACFV_druidOptional1, true, "Expanded Spell List (ua)", {
 				if (spName !== "druid" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["ceremony", "protection from evil and good", "augury", "continual flame", "enlarge/reduce", "aura of vitality", "elemental weapon", "revivify", "thunder step", "wall of sand", "divination", "fire shield", "cone of cold", "dawn", "immolation", "flesh to stone", "symbol", "incendiary cloud", "mass polymorph", "power word heal"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the druid class with the following spells (spell level in brackets): Ceremony (1), Protection from Evil and Good (1), Augury (2), Continual Flame (2), Enlarge/Reduce (2), Aura of Vitality (3), Elemental Weapon (3), Revivify (3), Thunder Step (3), Wall of Sand (3), Divination (4), Fire Shield (4), Cone of Cold (5), Dawn (5), Immolation (5), Flesh to Stone (6), Symbol (7), Incendiary Cloud (8), Mass Polymorph (9), and Power Word Heal (9).",
+			"This alternative class feature enhancement expands the spell list of the druid class with the following spells (spell level in brackets): *Ceremony* (1), *Protection from Evil and Good* (1), *Augury* (2), *Continual Flame* (2), *Enlarge/Reduce* (2), *Aura of Vitality* (3), *Elemental Weapon* (3), *Revivify* (3), *Thunder Step* (3), *Wall of Sand* (3), *Divination* (4), *Fire Shield* (4), *Cone of Cold* (5), *Dawn* (5), *Immolation* (5), *Flesh to Stone* (6), *Symbol* (7), *Incendiary Cloud* (8), *Mass Polymorph* (9), and *Power Word Heal* (9).",
 		],
 	},
 });
@@ -172,7 +172,7 @@ if (!SourceList["T"]) {
 		extraname: "Optional Druid 2",
 		source: [["T", 35], ["UA:CFV", 4]],
 		description: desc([
-			"I can expend a use of wild shape to cast Find Familiar without material components",
+			"I can expend a use of wild shape to cast *Find Familiar* without material components",
 			"The familiar always has the Fey type and disappears after half my druid level in hours",
 		]),
 		additional: levels.map(function (n) {
@@ -190,7 +190,7 @@ if (!SourceList["T"]) {
 				compMaterial: "",
 				description: "Gain the services of a fey familiar; can see through its eyes; it can deliver touch spells; see B",
 				duration: "\xBD druid lvl h",
-				changes: "By using my Wild Companion class feature, I can expend a use of wild shape to cast Find Familiar without material components. The familiar created this way always has the Fey type and disappears after a number of hours equal to half my druid level.",
+				changes: "By using my Wild Companion class feature, I can expend a use of wild shape to cast *Find Familiar* without material components. The familiar created this way always has the Fey type and disappears after a number of hours equal to half my druid level.",
 			},
 		},
 	});
@@ -504,7 +504,7 @@ AddFeatureChoice(UACFV_paladinOptional2, true, "Expanded Spell List (ua)", {
 				if (spName !== "paladin" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["gentle repose", "prayer of healing", "warding bond", "life transference", "spirit guardians", "dawn", "flame strike"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the paladin class with the following spells (spell level in brackets): Gentle Repose (2), Prayer of Healing (2), Warding Bond (2), Life Transference (3), Spirit Guardians (3), Dawn (5), and Flame Strike (5).",
+			"This alternative class feature enhancement expands the spell list of the paladin class with the following spells (spell level in brackets): *Gentle Repose* (2), *Prayer of Healing* (2), *Warding Bond* (2), *Life Transference* (3), *Spirit Guardians* (3), *Dawn* (5), and *Flame Strike* (5).",
 		],
 	},
 });
@@ -570,7 +570,7 @@ var UACFV_Favored_Foe = {
 	name: "Favored Foe",
 	source: [["UA:CFV", 7]],
 	description: desc([
-		"I know Hunter's Mark and it doesn't count against the number of spells I can know",
+		"I know *Hunter's Mark* and it doesn't count against the number of spells I can know",
 		"I can cast it a number of times without using a spell slot or requiring concentration",
 		"I can also use a spell slot to cast it as normal, but then it does require concentration",
 	]),
@@ -634,7 +634,7 @@ var UACFV_Ranger_Expanded_Spell_List = {
 				if ((spName !== "ranger" && spName !== "rangerua") || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["entangle", "searing smite", "aid", "enhance ability", "gust of wind", "magic weapon", "warding bond", "blinding smite", "meld into stone", "revivify", "tongues", "death ward", "dominate beast", "awaken", "greater restoration"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the ranger class with the following spells (spell level in brackets): Entangle (1), Searing Smite (1), Aid (2), Enhance Ability (2), Gust of Wind (2), Magic Weapon (2), Warding Bond (2), Blinding Smite (3), Meld into Stone (3), Revivify (3), Tongues (3), Death Ward (4), Dominate Beast (4), Awaken (5), and Greater Restoration (5).",
+			"This alternative class feature enhancement expands the spell list of the ranger class with the following spells (spell level in brackets): *Entangle* (1), *Searing Smite* (1), *Aid* (2), *Enhance Ability* (2), *Gust of Wind* (2), *Magic Weapon* (2), *Warding Bond* (2), *Blinding Smite* (3), *Meld into Stone* (3), *Revivify* (3), *Tongues* (3), *Death Ward* (4), *Dominate Beast* (4), *Awaken* (5), and *Greater Restoration* (5).",
 		],
 	},
 };
@@ -672,7 +672,7 @@ var UACFV_Primal_Awareness = {
 					spList.notspells = spList.notspells.concat(["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"]);
 				}
 			},
-			"I know the following spells, without them counting towards the maximum number of spells I can know: Detect Magic, Speak with Animals, Beast Sense, Locate Animals or Plants, Speak with Plants, Locate Creature, and Commune with Nature.",
+			"I know the following spells, without them counting towards the maximum number of spells I can know: *Detect Magic*, *Speak with Animals*, *Beast Sense*, *Locate Animals or Plants*, *Speak with Plants*, *Locate Creature*, and *Commune with Nature*.",
 		],
 	},
 	spellcastingBonus: [{
@@ -888,7 +888,7 @@ AddFeatureChoice(UACFV_sorcererOptional1, true, "Expanded Spell List (ua)", {
 				if (spName !== "sorcerer" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["primal savagery", "grease", "protection from evil and good", "flame blade", "flaming sphere", "vampiric touch", "fire shield", "flesh to stone", "demiplane", "foresight"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the sorcerer class with the following spells (spell level in brackets): Primal Savagery (cantrip), Grease (1), Protection from Evil and Good (1), Flame Blade (2), Flaming Sphere (2), Vampiric Touch (3), Fire Shield (4), Flesh to Stone (6), Demiplane (8), and Foresight (9).",
+			"This alternative class feature enhancement expands the spell list of the sorcerer class with the following spells (spell level in brackets): *Primal Savagery* (cantrip), *Grease* (1), *Protection from Evil and Good* (1), *Flame Blade* (2), *Flaming Sphere* (2), *Vampiric Touch* (3), *Fire Shield* (4), *Flesh to Stone* (6), *Demiplane* (8), and *Foresight* (9).",
 		],
 	},
 });
@@ -972,7 +972,7 @@ AddFeatureChoice(UACFV_warlockOptional1, true, "Expanded Spell List (ua)", {
 				if (spName !== "warlock" || (spType.indexOf("bonus") !== -1 && (!spList["class"] || spList["class"] !== "warlock"))) return;
 				spList.extraspells = spList.extraspells.concat(["thunderwave", "knock", "animate dead", "life transference", "greater invisibility", "phantasmal killer", "mislead", "modify memory", "planar binding", "teleportation circle", "create homunculus", "magic jar", "project image", "abi-dalzim's horrid wilting", "gate", "shapechange", "weird"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the warlock class with the following spells (spell level in brackets): Thunderwave (1), Knock (2), Animate Dead (3), Life Transference (3), Greater Invisibility (4), Phantasmal Killer (4), Mislead (5), Modify Memory (5), Planar Binding (5), Teleportation Circle (5), Create Homunculus (6), Magic Jar (6), Project Image (7), Abi-Dalzim's Horrid Wilting (8), Gate (9), Shapechange (9), and Weird (9).",
+			"This alternative class feature enhancement expands the spell list of the warlock class with the following spells (spell level in brackets): Thunderwave (1), *Knock* (2), *Animate Dead* (3), *Life Transference* (3), *Greater Invisibility* (4), *Phantasmal Killer* (4), *Mislead* (5), *Modify Memory* (5), *Planar Binding* (5), *Teleportation Circle* (5), *Create Homunculus* (6), *Magic Jar* (6), *Project Image* (7), *Abi-Dalzim's Horrid Wilting* (8), *Gate* (9), *Shapechange* (9), and *Weird* (9).",
 		],
 	},
 });
@@ -1030,7 +1030,7 @@ AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome) (ua
 	description: desc([
 		"My book of shadows has a new page; As an action, a creature can write its name on it",
 		"This page can hold my Cha mod (min 1) in creature names; I can remove one as an action",
-		"I can cast Sending without a spell slot or material components, targeting one on the page",
+		"I can cast *Sending* without a spell slot or material components, targeting one on the page",
 		"Instead of saying the message, I write it on the page and any reply appears there as well",
 		"This writing disappears after 1 minute; The target still hears the message in their mind",
 	]),
@@ -1049,7 +1049,7 @@ AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome) (ua
 			components: "V,S",
 			compMaterial: "",
 			description: "Send 25 word message to crea named in book of shadows; it recognizes me and can respond 25 words",
-			changes: "By using Far Scribe, I can cast Sending without using a spell slot or material components, but only to target one of the creatures that wrote their name in my book of shadows. Instead of speaking the message, I write it in my book and any response appears there as well, lasting for 1 minute. The target still hears the message in their mind.",
+			changes: "By using Far Scribe, I can cast *Sending* without using a spell slot or material components, but only to target one of the creatures that wrote their name in my book of shadows. Instead of speaking the message, I write it in my book and any response appears there as well, lasting for 1 minute. The target still hears the message in their mind.",
 		},
 	},
 });
@@ -1075,7 +1075,7 @@ AddWarlockInvocation("Investment of the Chain Master (prereq: Pact of the Chain)
 	source: [["UA:CFV", 11]],
 	submenu: "[improves Pact of the Chain]",
 	description: desc([
-		"When I cast Find Familiar, the summoned create has additional benefits:",
+		"When I cast *Find Familiar*, the summoned create has additional benefits:",
 		"\u2022 It gains a flying or swimming speed of 40 ft (my choice at casting)",
 		"\u2022 It no longer needs to breathe",
 		"\u2022 Its weapon attacks are considered magical for overcoming immunities and resistances",
@@ -1166,7 +1166,7 @@ AddFeatureChoice(UACFV_wizardOptional1, true, "Expanded Spell List (ua)", {
 				if (spName !== "wizard" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["augury", "enhance ability", "speak with dead", "divination"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the wizard class with the following spells (spell level in brackets): Augury (2), Enhance Ability (2), Speak with Dead (3), and Divination (4).",
+			"This alternative class feature enhancement expands the spell list of the wizard class with the following spells (spell level in brackets): *Augury* (2), *Enhance Ability* (2), *Speak with Dead* (3), and *Divination* (4).",
 		],
 	},
 });

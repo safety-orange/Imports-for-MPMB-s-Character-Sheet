@@ -1,5 +1,5 @@
 var iFileName = "pub_20140930_MM.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.1.3", 15);
 // This file adds all the player-material from the Monster Manual to MPMB's Character Record Sheet
 
 // Define the source
@@ -159,7 +159,7 @@ CreatureList["faerie dragon"] = { // With contributions by Patrick O.
 	}],
 	features: [{
 		name: "Innate Spellcasting",
-		description: "Cast spells using Charisma (save DC 13), requiring no material components. The spells it knows depends on its age (and stack):\n Red: 1/day - Dancing Lights, Mage Hand, Minor Illusion\n Orange (6-10 years): 1/day - Color Spray\n Yellow (11-20 years): 1/day - Mirror Image\n Green (21-30 years): 1/day - Suggestion\n Blue (31-40 years): 1/day - Major Image\n Indigo (41-50 years): 1/day - Hallucinatory Terrain\n Violet (51+ years): 1/day - Polymorph",
+		description: "Cast spells using Charisma (save DC 13), requiring no material components. The spells it knows depends on its age (and stack):\n Red: 1/day - *Dancing Lights*, *Mage Hand*, *Minor Illusion*\n Orange (6-10 years): 1/day - *Color Spray*\n Yellow (11-20 years): 1/day - *Mirror Image*\n Green (21-30 years): 1/day - *Suggestion*\n Blue (31-40 years): 1/day - *Major Image*\n Indigo (41-50 years): 1/day - *Hallucinatory Terrain*\n Violet (51+ years): 1/day - *Polymorph*",
 	}],
 };
 CreatureList["crawling claw"] = {
@@ -405,11 +405,13 @@ MagicItemsList["shield guardian amulet"] = {
 	prerequisite: "Requires attunement by a humanoid",
 	prereqeval: function (v) { return !CurrentRace.known || !RaceList[CurrentRace.known] || !/creature type/i.test(RaceList[CurrentRace.known].trait); },
 	description: "A shield guardian is magically linked to this amulet. It has AC 10, 10 HP, and immunity to poison and psychic damage. I know the distance and direction of the guardian while I'm wearing the amulet and I'm on the same plane as it. While within 10 ft of it, I can use the amulet to reactivate it with a DC 20 Arcana check.",
-	descriptionFull: "The amulet is a 4-inch-wide disk composed of silver-framed wood, with a rune carved into its face. A detect magic spell reveals a magical aura of enchantment around the amulet." +
-	"\n   Every shield guardian has an amulet magically linked to it. A shield guardian can have only one corresponding amulet, and if that amulet is destroyed, the shield guardian is incapacitated until a replacement amulet is created." +
-	"\n   A shield guardian's amulet is subject to direct attack if it isn't being worn or carried. It has AC 10, 10 hit points, and immunity to poison and psychic damage. Crafting an amulet requires 1 week and costs 1,000 gp in components." +
-	"\n   A shield guardian's solitary focus is to protect the amulet's wearer. The amulet's wearer can command the guardian to attack its enemies or to guard the wielder against attack. If an attack threatens to injure the wearer, the construct can magically absorb the blow into its own body, even at a distance." +
-	"\n   A humanoid that attunes to this amulet knows the distance and direction of the shield guardian, provided the amulet and the guardian are on the same plane of existence. As an action, the amulet's attuned wearer can try to reactivate the shield guardian, doing so with a successful DC 20 Intelligence (Arcana) check. Reactivation can only be attempted while the amulet and guardian are within 10 feet of each other.",
+	descriptionFull: [
+		"The amulet is a 4-inch-wide disk composed of silver-framed wood, with a rune carved into its face. A *detect magic* spell reveals a magical aura of enchantment around the amulet.",
+		"Every shield guardian has an amulet magically linked to it. A shield guardian can have only one corresponding amulet, and if that amulet is destroyed, the shield guardian is incapacitated until a replacement amulet is created.",
+		"A shield guardian's amulet is subject to direct attack if it isn't being worn or carried. It has AC 10, 10 hit points, and immunity to poison and psychic damage. Crafting an amulet requires 1 week and costs 1,000 gp in components.",
+		"A shield guardian's solitary focus is to protect the amulet's wearer. The amulet's wearer can command the guardian to attack its enemies or to guard the wielder against attack. If an attack threatens to injure the wearer, the construct can magically absorb the blow into its own body, even at a distance.",
+		"A humanoid that attunes to this amulet knows the distance and direction of the shield guardian, provided the amulet and the guardian are on the same plane of existence. As an action, the amulet's attuned wearer can try to reactivate the shield guardian, doing so with a successful DC 20 Intelligence (Arcana) check. Reactivation can only be attempted while the amulet and guardian are within 10 feet of each other.",
+	],
 	creaturesAdd: [["Shield Guardian"]],
 };
 
@@ -462,10 +464,11 @@ RaceList["lycanthrope-werebear"] = {
 	plural: "Werebears",
 	size: 3,
 	speed: { walk: { spd: 30, enc: 20 } },
-	trait: "Human Werebear (+1 to all ability scores; min 19 Str)" + desc([
-		"Shapechanger: As an action, I can polymorph into a Large bear-hybrid, into a Large bear, or back. In those forms, I gain 40 ft walking speed, 30 ft climb speed, +1 AC, and a bite and claw attack. My stats don't otherwise change when transformed, but my equipment doesn't change and I revert back when I die. Humanoids hit by my bite must save or be cursed with werebear lycanthrope.",
-		"Keen Smell: I have adv. on Wis (Perception) checks using smell.",
-	], "\n \u2022 "),
+	trait: [
+		"**Human Werebear** (+1 to all ability scores; min 19 Str)",
+		"##\u25C6 Shapechanger##. As an action, I can polymorph into a Large bear-hybrid, into a Large bear, or back. In those forms, I gain 40 ft walking speed, 30 ft climb speed, +1 AC, and a bite and claw attack. My stats don't otherwise change when transformed, but my equipment doesn't change and I revert back when I die. Humanoids hit by my bite must save or be cursed with werebear lycanthrope.",
+		"##\u25C6 Keen Smell##. I have adv. on Wis (Perception) checks using smell.",
+	],
 	features: {
 		lycanthrope_features: {
 			name: "Lycanthrope",
@@ -556,11 +559,12 @@ RaceList["lycanthrope-wereboar"] = {
 	plural: "Wereboars",
 	size: 3,
 	speed: { walk: { spd: 30, enc: 20 } },
-	trait: "Human Wereboar (+1 to all ability scores; min 17 Str)" + desc([
-		"Shapechanger: As an action, I can polymorph into a boar-" + (typePF ? "" : "humanoid ") + "hybrid, into a boar, or back. In those forms, I gain 40 ft walking speed, +1 AC, and a tusks attack. My stats don't otherwise change when transformed, but my equipment doesn't change and I revert back when I die. Humanoids hit by my tusks must save or be cursed" + (typePF ? "." : " with lycanthrope."),
-		"Relentless: If I'm reduced to 0 HP by 14 damage or less, I can instead drop to 1 HP.",
-		"Charge: If I move 15 ft straight before a tusks hit, +2d6 damage and Str save or prone.",
-	], "\n \u2022 "),
+	trait: [
+		"**Human Wereboar** (+1 to all ability scores; min 17 Str)",
+		"##\u25C6 Shapechanger##. As an action, I can polymorph into a boar-" + (typePF ? "" : "humanoid ") + "hybrid, into a boar, or back. In those forms, I gain 40 ft walking speed, +1 AC, and a tusks attack. My stats don't otherwise change when transformed, but my equipment doesn't change and I revert back when I die. Humanoids hit by my tusks must save or be cursed" + (typePF ? "." : " with lycanthrope."),
+		"##\u25C6 Relentless##. If I'm reduced to 0 HP by 14 damage or less, I can instead drop to 1 HP.",
+		"##\u25C6 Charge##. If I move 15 ft straight before a tusks hit, +2d6 damage and Str save or prone.",
+	],
 	features: {
 		lycanthrope_features: {
 			name: "Lycanthrope",
@@ -658,10 +662,11 @@ RaceList["lycanthrope-wererat"] = {
 	plural: "Wererats",
 	size: 3,
 	speed: { walk: { spd: 30, enc: 20 } },
-	trait: "Human Wererat (+1 to all ability scores; min 15 Dex)" + desc([
-		"Shapechanger: As an action, I can transform into a rat-humanoid hybrid, into a giant rat, or back. In those forms, I gain a bite attack, which can use Strength or Dexterity. In my giant rat form, I also become small and gain Darkvision 60 ft My stats don't otherwise change when transformed, but my equipment doesn't change and I revert back when I die. Humanoids hit by my bite must save or be cursed with wererat lycanthrope.",
-		"Keen Smell: I have adv. on Wis (Perception) checks using smell.",
-	], "\n \u2022 "),
+	trait: [
+		"**Human Wererat** (+1 to all ability scores; min 15 Dex)",
+		"##\u25C6 Shapechanger##. As an action, I can transform into a rat-humanoid hybrid, into a giant rat, or back. In those forms, I gain a bite attack, which can use Strength or Dexterity. In my giant rat form, I also become small and gain Darkvision 60 ft My stats don't otherwise change when transformed, but my equipment doesn't change and I revert back when I die. Humanoids hit by my bite must save or be cursed with wererat lycanthrope.",
+		"##\u25C6 Keen Smell##. I have adv. on Wis (Perception) checks using smell.",
+	],
 	features: {
 		lycanthrope_features: {
 			name: "Lycanthrope",
@@ -746,11 +751,12 @@ RaceList["lycanthrope-weretiger"] = {
 	plural: "Weretigers",
 	size: 3,
 	speed: { walk: { spd: 30, enc: 20 } },
-	trait: "Human Weretiger (+1 to all ability scores; min 15 Str)" + desc([
-		"Shapechanger: As an action, I can polymorph into a tiger-humanoid hybrid, into a Large tiger, or back. In those forms, I gain 40 ft walking speed, a bite attack, and a claw attack. My stats don't otherwise change when transformed, but my equipment doesn't transform and I revert back when I die. Humanoids hit by my bite must save or be cursed with weretiger lycanthrope." +
-		(typePF ? "\n \u2022 Pounce: " : " ") + "I can pounce in my tiger and hybrid form, see notes.",
-		"Keen Hearing and Smell: I have adv. on Wis (Perception) checks using hearing or smell.",
-	], "\n \u2022 "),
+	trait: [
+		"**Human Weretiger** (+1 to all ability scores; min 15 Str)",
+		"##\u25C6 Shapechanger##. As an action, I can polymorph into a tiger-humanoid hybrid, into a Large tiger, or back. In those forms, I gain 40 ft walking speed, a bite attack, and a claw attack. My stats don't otherwise change when transformed, but my equipment doesn't transform and I revert back when I die. Humanoids hit by my bite must save or be cursed with weretiger lycanthrope." +
+		(typePF ? "\r##\u25C6 Pounce##. " : " ") + "I can pounce in my tiger and hybrid form, see notes.",
+		"##\u25C6 Keen Hearing and Smell##. I have adv. on Wis (Perception) checks using hearing or smell.",
+	],
 	features: {
 		lycanthrope_features: {
 			name: "Lycanthrope",
@@ -854,10 +860,11 @@ RaceList["lycanthrope-werewolf"] = {
 	plural: "Werewolves",
 	size: 3,
 	speed: { walk: { spd: 30, enc: 20 } },
-	trait: "Human Werewolf (+1 to all ability scores; min 15 Str)" + desc([
-		"Shapechanger: As an action, I can polymorph into a wolf-humanoid hybrid, into a wolf, or back. In those forms, I gain 40 ft walking speed, a bite attack, and +1 AC. In my hybrid form, I also gain a claws attack. My stats don't otherwise change when transformed, but my equipment doesn't transform and I revert back when I die. Humanoids hit by my bite must save or be cursed with werewolf lycanthrope.",
-		"Keen Hearing and Smell: I have adv. on Wis (Perception) checks using hearing or smell.",
-	], "\n \u2022 "),
+	trait: [
+		"**Human Werewolf** (+1 to all ability scores; min 15 Str)",
+		"##\u25C6 Shapechanger##. As an action, I can polymorph into a wolf-humanoid hybrid, into a wolf, or back. In those forms, I gain 40 ft walking speed, a bite attack, and +1 AC. In my hybrid form, I also gain a claws attack. My stats don't otherwise change when transformed, but my equipment doesn't transform and I revert back when I die. Humanoids hit by my bite must save or be cursed with werewolf lycanthrope.",
+		"##\u25C6 Keen Hearing and Smell##. I have adv. on Wis (Perception) checks using hearing or smell.",
+	],
 	features: {
 		lycanthrope_features: {
 			name: "Lycanthrope",

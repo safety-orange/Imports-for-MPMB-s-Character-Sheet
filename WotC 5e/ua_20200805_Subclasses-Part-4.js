@@ -1,5 +1,5 @@
 var iFileName = "ua_20200805_Subclasses-Part-4.js";
-RequiredSheetVersion("14.1.0");
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 4 article to MPMB's Character Record Sheet
 // This file contains contributions by AelarTheElfRogue
 
@@ -23,7 +23,7 @@ AddSubClass("bard", "college of spirits-ua",{
 			source: [["UA:SP4", 1]],
 			minlevel: 3,
 			description: desc([
-				"I learn the Guidance cantrip and can cast it with a range of 60 ft",
+				"I learn the *Guidance* cantrip and can cast it with a range of 60 ft",
 			]),
 			spellcastingBonus: [{
 				name: "Guiding Whispers",
@@ -34,7 +34,7 @@ AddSubClass("bard", "college of spirits-ua",{
 			spellChanges: {
 				"guidance": {
 					range: "60 ft",
-					changes: "I can cast Guidance with a range of 60 ft.",
+					changes: "I can cast *Guidance* with a range of 60 ft.",
 				},
 			},
 		},
@@ -60,13 +60,11 @@ AddSubClass("bard", "college of spirits-ua",{
 			action: [["bonus action", " (roll on table)"], ["action", " (use effect)"]],
 			toNotesPage: [{
 				name: "Spirits' Tales Table",
-				note: desc([
+				note: [
 					"As a bonus action while I'm holding my spiritual focus, I can reach out to spirits who tell their tales through me. I expend one use of my Bardic Inspiration and roll on the table below using my Bardic Inspiration die to determine the tale. I retain the tale in mind until I bestow the tale's effect or finish a short or long rest.",
 					"I can retain only one of these tales in mind at a time, and rolling on the table immediately ends the effect of the previous tale.",
 					"As an action, I can choose myself or one creature I can see within 30 ft to be the target of the tale's effect. If the tale requires a saving throw, the DC equals my spell save DC.",
-					"\nRoll " + (typePF ? "" : " ") + "Tale",
-				]) +
-				desc([
+					"Roll " + (typePF ? "" : " ") + "Tale",
 					"  1    Beast: I recite the tale of a clever animal. For 1 minute, the target has advantage on Wisdom (Perception) checks and advantage on attack rolls against a creature if another enemy is within 5 ft of it, and that enemy isn't incapacitated.",
 					"  2    Warrior: I recount the story of a renowned duelist. Make a melee spell attack against the target as an attacking spectral warrior briefly appears in a unoccupied space within 5 ft of the target before vanishing. On a hit, the target takes force damage equal to two rolls of my Bardic Inspiration die + my Charisma modifier.",
 					"  3    Friends: I recite the tale of friends who found each other in the afterlife. The target and another creature of its choice it can see within 5 ft of it regains hit points equal to a roll of my Bardic Inspiration die + my Charisma modifier.",
@@ -79,7 +77,7 @@ AddSubClass("bard", "college of spirits-ua",{
 					" 10    Dragon: I breathe a poem of a wrathful dragon. The target magically spews fire from their mouth in a 30-ft cone. Each creature in that area must make a Dexterity saving throw, taking fire damage equal to three rolls of my Bardic Inspiration die on a failed save, or half as much damage on a successful one.",
 					" 11    Celestial: I speak of the exalted deeds of a celestial. The target regains hit points equal to two rolls of my Bardic Inspiration die + my bard level, and I end one disease or a condition from the following list affecting the target: blinded, deafened, paralyzed, petrified, or poisoned.",
 					" 12    Unknown: I utter an incomprehensible fable from a being beyond the stars. The target must succeed on an Intelligence saving throw or take psychic damage equal to three rolls of my Bardic Inspiration die, and the target is unable to speak any language for 1 minute.",
-				], "\n"),
+				],
 			}],
 		},
 		"subclassfeature6": {

@@ -1,5 +1,5 @@
 var iFileName = "ua_20150504_Waterborne-Adventures.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Waterborne Adventures article to MPMB's Character Record Sheet
 
 // Define the source
@@ -87,7 +87,13 @@ AddRacialVariant("minotaur-ua", "cunning", {
 	source: [["UA:WA", 2]],
 	scorestxt: "",
 	scores: [1, 0, 0, 0, 1, 0],
-	trait: "Minotaur [cunning] (+1 Strength, +1 Wisdom)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled.",
+	trait: [
+		"**Minotaur [cunning]** (+1 Strength, +1 Wisdom)",
+		"##\u25C6 Horns##. I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.",
+		"##\u25C6 Goring Rush##. When taking a Dash action, I can make a horns attack as a bonus action.",
+		"##\u25C6 Hammering Horns##. When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.",
+		"##\u25C6 Labyrinthine Recall##. I can perfectly recall any path I have travelled.",
+	],
 });
 AddRacialVariant("minotaur-ua", "intellect", {
 	regExpSearch: /(intellect|intelligence)/i,
@@ -95,7 +101,13 @@ AddRacialVariant("minotaur-ua", "intellect", {
 	source: [["UA:WA", 2]],
 	scorestxt: "",
 	scores: [1, 0, 0, 1, 0, 0],
-	trait: "Minotaur [intellect] (+1 Strength, +1 Intelligence)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled.",
+	trait: [
+		"**Minotaur [intellect]** (+1 Strength, +1 Intelligence)",
+		"##\u25C6 Horns##. I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.",
+		"##\u25C6 Goring Rush##. When taking a Dash action, I can make a horns attack as a bonus action.",
+		"##\u25C6 Hammering Horns##. When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.",
+		"##\u25C6 Labyrinthine Recall##. I can perfectly recall any path I have travelled.",
+	],
 });
 AddRacialVariant("minotaur-ua", "strength", {
 	regExpSearch: /(strength|strong|\bmight\b)/i,
@@ -103,5 +115,11 @@ AddRacialVariant("minotaur-ua", "strength", {
 	source: [["UA:WA", 2]],
 	scorestxt: "",
 	scores: [1, 0, 0, 0, 0, 0],
-	trait: "Minotaur [strength] (+2 Strength)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled.",
+	trait: [
+		"**Minotaur [strength]** (+2 Strength)",
+		"##\u25C6 Horns##. I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.",
+		"##\u25C6 Goring Rush##. When taking a Dash action, I can make a horns attack as a bonus action.",
+		"##\u25C6 Hammering Horns##. When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.",
+		"##\u25C6 Labyrinthine Recall##. I can perfectly recall any path I have travelled.",
+	],
 });

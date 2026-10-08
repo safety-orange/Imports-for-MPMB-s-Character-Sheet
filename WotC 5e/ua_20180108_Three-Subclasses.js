@@ -1,5 +1,5 @@
 var iFileName = "ua_20180108_Three-Subclasses.js";
-RequiredSheetVersion("13.1.14", 15);
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the content from the Unearthed Arcana: Three Subclasses article to MPMB's Character Record Sheet
 
 // Define the source
@@ -25,7 +25,7 @@ AddSubClass("druid", "circle of spores-ua", {
 			description: desc([
 				"My link to the cycle of life and death gives me with the ability to cast certain spells",
 				"These are always prepared, but don't count against the number of spells I can prepare",
-				"In addition, I learn the Chill Touch cantrip",
+				"In addition, I learn the *Chill Touch* cantrip",
 			]),
 			spellcastingBonus: [{
 				name: "Circle Spells",
@@ -210,43 +210,56 @@ AddSubClass("wizard", "school of invention-ua", {
 			]),
 			toNotesPage: [{
 				name: "Reckless Casting Tables",
-				note: "\nd10\tCantrip\t\td10\tCantrip" + desc([
-					" 1\tAcid Splash\t\t    6\tRay of Frost",
-					" 2\tChill Touch\t\t    7\tShocking Grasp",
-					" 3\tFire Bolt\t\t    8\tSacred Flame",
-					" 4\tLight\t\t    9\tThorn Whip",
-					" 5\tPoison Spray\t  10\tRoll twice; Another 10, all is wasted",
-				]) + "\n\nd10\t1st-Level Spell\td10\t1st-Level Spell" + desc([
-					" 1\tBurning Hands\t    6\tFog Cloud",
-					" 2\tChromatic Orb\t    7\tJump",
-					" 3\tColor Spray\t\t    8\tMagic Missile",
-					" 4\tFaerie Fire\t\t    9\tThunderwave",
-					" 5\tFalse Life\t\t  10\tRoll twice; Another 10, all is wasted",
-				]) + "\n\nd10\t2nd-Level Spell\td10\t2nd-Level Spell" + desc([
-					" 1\tBlur\t\t    6\tLevitate",
-					" 2\tDarkness\t\t    7\tMelf's Acid Arrow",
-					" 3\tEnlarge/Reduce\t    8\tScorching Ray",
-					" 4\tGust of Wind\t    9\tShatter",
-					" 5\tInvisibility\t\t  10\tRoll twice; Another 10, all is wasted",
-				]) + "\n\nd10\t3rd-Level Spell\td10\t3rd-Level Spell" + desc([
-					" 1\tBlink\t\t    6\tGaseous Form",
-					" 2\tFear\t\t    7\tLightning Bolt",
-					" 3\tFeign Death \t    8\tSleet Storm",
-					" 4\tFireball\t\t    9\tStinking Cloud",
-					" 5\tFly\t\t  10\tRoll twice; Another 10, all is wasted",
-				]) + "\n\nd10\t4th-Level Spell\td10\t4th-Level Spell" + desc([
-					" 1\tBlight\t\t    6\tIce Storm",
-					" 2\tConfusion\t\t    7\tPhantasmal Killer",
-					" 3\tEvard's Black Tentacles\t    8\tStoneskin",
-					" 4\tFire Shield\t\t    9\tWall of Fire",
-					" 5\tGreater Invisibility\t  10\tRoll twice; Another 10, all is wasted",
-				]) + "\n\nd10\t5th-Level Spell\td10\t5th-Level Spell" + desc([
-					" 1\tCloudkill\t\t    6\tInsect Plague",
-					" 2\tCone of Cold\t    7\tMass Cure Wounds",
-					" 3\tDestructive Wave\t    8\tWall of Force",
-					" 4\tFlame Strike\t    9\tWall of Stone",
-					" 5\tHold Monster\t  10\tRoll twice; Another 10, all is wasted",
-				]),
+				note: [
+					[
+						["d10", "Cantrip", "", "d10", "Cantrip"],
+						["    1", "*Acid Splash*", "", "    6", "*Ray of Frost*"],
+						["    2", "*Chill Touch*", "", "    7", "*Shocking Grasp*"],
+						["    3", "*Fire Bolt*", "", "    8", "*Sacred Flame*"],
+						["    4", "Light", "", "    9", "*Thorn Whip*"],
+						["    5", "*Poison Spray*", "  10", "Roll twice; Another 10, all is wasted"],
+					],
+					[
+						["d10", "1st-Level Spell", "d10", "1st-Level Spell"],
+						["    1", "*Burning Hands*", "    6", "*Fog Cloud*"],
+						["    2", "*Chromatic Orb*", "    7", "Jump"],
+						["    3", "*Color Spray*", "", "    8", "*Magic Missile*"],
+						["    4", "*Faerie Fire*", "", "    9", "Thunderwave"],
+						["    5", "*False Life*", "", "  10", "Roll twice; Another 10, all is wasted"],
+					],
+					[
+						["d10", "2nd-Level Spell", "d10", "2nd-Level Spell"],
+						["    1", "Blur", "", "    6", "Levitate"],
+						["    2", "Darkness", "", "    7", "*Melf's Acid Arrow*"],
+						["    3", "Enlarge/Reduce", "    8", "*Scorching Ray*"],
+						["    4", "*Gust of Wind*", "    9", "Shatter"],
+						["    5", "Invisibility", "", "  10", "Roll twice; Another 10, all is wasted"],
+					],
+					[
+						["d10", "3rd-Level Spell", "d10", "3rd-Level Spell"],
+						["    1", "Blink", "", "    6", "*Gaseous Form*"],
+						["    2", "Fear", "", "    7", "*Lightning Bolt*"],
+						["    3", "*Feign Death* ", "    8", "*Sleet Storm*"],
+						["    4", "Fireball", "", "    9", "*Stinking Cloud*"],
+						["    5", "Fly", "", "  10", "Roll twice; Another 10, all is wasted"],
+					],
+					[
+						["d10", "4th-Level Spell", "d10", "4th-Level Spell"],
+						["    1", "Blight", "", "    6", "*Ice Storm*"],
+						["    2", "Confusion", "", "    7", "*Phantasmal Killer*"],
+						["    3", "*Evard's Black Tentacles*", "    8", "Stoneskin"],
+						["    4", "*Fire Shield*", "", "    9", "*Wall of Fire*"],
+						["    5", "*Greater Invisibility*", "  10", "Roll twice; Another 10, all is wasted"],
+					],
+					[
+						["d10", "5th-Level Spell", "d10", "5th-Level Spell"],
+						["    1", "Cloudkill", "", "    6", "*Insect Plague*"],
+						["    2", "*Cone of Cold*", "    7", "*Mass Cure Wounds*"],
+						["    3", "*Destructive Wave*", "    8", "*Wall of Force*"],
+						["    4", "*Flame Strike*", "    9", "*Wall of Stone*"],
+						["    5", "*Hold Monster*", "  10", "Roll twice; Another 10, all is wasted"],
+					],
+				],
 			}],
 		},
 		"subclassfeature6": {

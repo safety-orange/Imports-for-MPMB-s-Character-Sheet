@@ -1,5 +1,5 @@
 var iFileName = "pub_20240716_QftIS.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the futuristic and magic item from the Quests from the Infinite Staircase adventure anthology to MPMB's Character Record Sheet
 
 // Define the source
@@ -201,7 +201,7 @@ MagicItemsList["powered armor"] = {
 	description: "This plate armor has 24 charges per energy cell, which can be replaced as a (bonus) action if empty. As an action, I can expend charges to active it for 1 hour per charge. While active, I gain adv. on Str, double carrying capacity, have my own atmosphere to breath in, and can use Force Field and Propulsion, see Notes.",
 	descriptionFull: [
 		"This suit of technologically advanced plate armor includes an under-suit that can fully seal, a helmet with a full face mask and crystal lenses in the eyeholes, and a set of gauntlets. The armor is powered by an energy cell stored in a compartment on the thigh plate.",
-		"Placing a full energy cell in the armor gives the armor 24 charges. A suit of powered armor functions as a suit of normal plate armor, even when it has 0 charges remaining.",
+		"Placing a full energy cell in the armor gives the armor 24 charges. A suit of *powered armor* functions as a suit of normal plate armor, even when it has 0 charges remaining.",
 		"***Activating the Armor***. As an action, you can expend any number of the armor's charges to activate it; the armor remains active for 1 hour per charge expended. You can use a bonus action to deactivate the armor early, but doing so doesn't recover any expended charges.",
 		"While the armor is active, you gain the following benefits:",
 		" \u2022 **Augmented Physicality**. You have advantage on Strength checks, and your carrying capacity is doubled.",
@@ -241,12 +241,12 @@ MagicItemsList["heretic"] = {
 	source: [["QftIS", 192]],
 	type: "weapon (longsword)",
 	rarity: "legendary",
-	description: "This sentient longsword adds +3 to hit and damage and has 6 charges, regaining 1d4+1 at dawn. Once per turn on a hit with it, I can use 1 charge to force a DC 17 Con save or paralyze until my next turn. As an action, I can cast spells from it: Detect Evil and Good (1 charge), Fly (2 charges), or True Seeing (3 charges).",
+	description: "This sentient longsword adds +3 to hit and damage and has 6 charges, regaining 1d4+1 at dawn. Once per turn on a hit with it, I can use 1 charge to force a DC 17 Con save or paralyze until my next turn. As an action, I can cast spells from it: *Detect Evil and Good* (1 charge), *Fly* (2 charges), or *True Seeing* (3 charges).",
 	descriptionFull: [
 		"The blasphemous weapon *Heretic* was created by a cult to steal power from good-aligned gods. The blade hungers to strike down servants of the Upper Planes and weaken the forces of good.",
 		"You gain a +3 bonus to attack and damage rolls made with this magic weapon. *Heretic* has 6 charges for the following properties; the sword regains 1d4 + 1 charges daily at dawn:",
 		" \u2022 **Destroy Devotion**. Once per turn when you hit a creature with this weapon, you can expend 1 of its charges to attempt to render the target powerless. The target must succeed on a DC 17 Constitution saving throw or have the paralyzed condition until the start of your next turn. Celestials have disadvantage on the save.",
-		" \u2022 **Faith Hunter**. While holding the sword, you can use an action to expend 1 or more of its charges to cast one of the following spells from it: Detect Evil and Good (1 charge), Fly (2 charges), or True Seeing (3 charges).",
+		" \u2022 **Faith Hunter**. While holding the sword, you can use an action to expend 1 or more of its charges to cast one of the following spells from it: *Detect Evil and Good* (1 charge), *Fly* (2 charges), or *True Seeing* (3 charges).",
 		"***Sentience***. *Heretic* is a sentient, chaotic evil weapon with an Intelligence of 17, a Wisdom of 17, and a Charisma of 15. It has hearing and darkvision out to a range of 120 feet.",
 		"The weapon can speak, read, and understand Common and Giant, and it can communicate with its wielder telepathically. Its voice is soft and deep but rises in a wild furor when it's aware Celestials or worshipers of good-aligned deities are present. While you are attuned to it, *Heretic* also understands every language you know.",
 		"***Personality***. *Heretic* craves the destruction of good-aligned gods and their supporters. The blade is condescending and snobby, especially in the company of priests and other pious folk, at whom it often directs sneering comments. When *Heretic* identifies its quarry, it erupts in a frenzied need for violence.",

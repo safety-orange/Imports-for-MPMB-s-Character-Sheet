@@ -1,5 +1,5 @@
 var iFileName = "ua_20191125_Fighter-Rogue-and-Wizard.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Fighter, Rogue, and Wizard (psionics) article to MPMB's Character Record Sheet
 
 // Define the source
@@ -43,7 +43,7 @@ AddSubClass("fighter", "psychic warrior-ua", {
 			name: "Telekinetic Hand",
 			source: [["UA:FRnW", 1]],
 			minlevel: 3,
-			description: desc("I learn the Mage Hand cantrip, can cast it without components, and can make it invisible"),
+			description: desc("I learn the *Mage Hand* cantrip, can cast it without components, and can make it invisible"),
 			spellcastingBonus: [{
 				name: "Telekinetic Hand",
 				spells: ["mage hand"],
@@ -54,7 +54,7 @@ AddSubClass("fighter", "psychic warrior-ua", {
 				"mage hand": {
 					components: "",
 					description: "Create invisible spectral hand for simple tasks or carry up to 10 lb; 1 a to control; can't have multiples",
-					changes: "My Telekinetic Hand class feature allows me to cast Mage Hand without components and I can make the spectral hand invisible.",
+					changes: "My Telekinetic Hand class feature allows me to cast *Mage Hand* without components and I can make the spectral hand invisible.",
 				},
 			},
 		},
@@ -231,14 +231,14 @@ AddSubClass("wizard", "psionics-ua", {
 			source: [["UA:FRnW", 4]],
 			minlevel: 2,
 			description: desc([
-				'I learn one cantrip: Friends, Mage Hand, or Message; Use "Choose Feature" button above',
+				'I learn one cantrip: *Friends*, *Mage Hand*, or *Message*; Use "Choose Feature" button above',
 				"While my psionic focus is on me, I can cast it as a bonus action without components",
 			]),
 			choices: ["Friends", "Mage Hand", "Message"],
 			"friends": {
 				name: "Psionic Devotion: Friends",
 				description: desc([
-					"I learn the Friends cantrip and while my psionic focus in on me, I am better at casting it",
+					"I learn the *Friends* cantrip and while my psionic focus in on me, I am better at casting it",
 					"I can cast it as a bonus action without components and the target doesn't become hostile",
 				]),
 				spellcastingBonus: [{
@@ -253,14 +253,14 @@ AddSubClass("wizard", "psionics-ua", {
 						components: "",
 						compMaterial: "",
 						description: "Adv. on Cha checks vs. 1 crea currently not hostile; when spell ends, crea realizes I used magic",
-						changes: "While my psionic focus is on my person, I can cast Friends as a bonus action without requiring any components and when the spell ends, the target doesn't become hostile to me.",
+						changes: "While my psionic focus is on my person, I can cast *Friends* as a bonus action without requiring any components and when the spell ends, the target doesn't become hostile to me.",
 					},
 				},
 			},
 			"mage hand": {
 				name: "Psionic Devotion: Mage Hand",
 				description: desc([
-					"I learn Mage Hand and while my psionic focus in on me, I am better at casting it",
+					"I learn *Mage Hand* and while my psionic focus in on me, I am better at casting it",
 					"I can then cast it as a bonus action without components and can make the hand invisible",
 					"Also, I can control the hand as a bonus action instead of an action",
 				]),
@@ -275,14 +275,14 @@ AddSubClass("wizard", "psionics-ua", {
 						time: "1 bns",
 						components: "",
 						description: "Create invisible hand for simple tasks or carry up to 10 lb; 1 bns action to control; can't have multiples",
-						changes: "While my psionic focus is on my person, I can cast Mage Hand as a bonus action without requiring any components, can make the hand invisible, and controlling the hand is a bonus action for me.",
+						changes: "While my psionic focus is on my person, I can cast *Mage Hand* as a bonus action without requiring any components, can make the hand invisible, and controlling the hand is a bonus action for me.",
 					},
 				},
 			},
 			"message": {
 				name: "Psionic Devotion: Message",
 				description: desc([
-					"I learn the Message cantrip and while my psionic focus in on me, I'm better at casting it",
+					"I learn the *Message* cantrip and while my psionic focus in on me, I'm better at casting it",
 					"I can then cast it as a bonus action without components",
 					"Also, I don't need to point at the target or whisper the message out loud",
 				]),
@@ -298,7 +298,7 @@ AddSubClass("wizard", "psionics-ua", {
 						components: "",
 						compMaterial: "",
 						description: "1 crea hears message I think; can reply with a whisper; nobody can overhear; needs no straight line",
-						changes: "While my psionic focus is on my person, I can cast Message as a bonus action without requiring any components, don't need to point toward the target, and I don't need to whisper my message out loud.",
+						changes: "While my psionic focus is on my person, I can cast *Message* as a bonus action without requiring any components, don't need to point toward the target, and I don't need to whisper my message out loud.",
 					},
 				},
 			},
@@ -325,7 +325,7 @@ AddSubClass("wizard", "psionics-ua", {
 			source: [["UA:FRnW", 4]],
 			minlevel: 10,
 			description: desc([
-				'I learn one spell: Dominate Person, Scrying, or Telekinesis; Use "Choose Feature" button',
+				'I learn one spell: *Dominate Person*, *Scrying*, or *Telekinesis*; Use "Choose Feature" button',
 				"I can cast the spell without a spell slot once per long rest (and normally with a spell slot)",
 			]),
 			usages: 1,
@@ -334,7 +334,7 @@ AddSubClass("wizard", "psionics-ua", {
 			"dominate person": {
 				name: "Mental Discipline: Dominate Person",
 				description: desc([
-					"I add Dominate Person to my spellbook and can cast it without requiring components",
+					"I add *Dominate Person* to my spellbook and can cast it without requiring components",
 					"Once per long rest, I can cast it without using a spell slot; I can also prepare it as normal",
 				]),
 				limfeaname: "Dominate Person (without spell slot)",
@@ -346,14 +346,14 @@ AddSubClass("wizard", "psionics-ua", {
 				spellChanges: {
 					"dominate person": {
 						components: "",
-						changes: "I can cast Dominate Person without requiring any components. Once per long rest, I can cast it without using a spell slot. I can also cast it by using spell slots as normal.",
+						changes: "I can cast *Dominate Person* without requiring any components. Once per long rest, I can cast it without using a spell slot. I can also cast it by using spell slots as normal.",
 					},
 				},
 			},
 			"scrying": {
 				name: "Mental Discipline: Scrying",
 				description: desc([
-					"I add Scrying to my spellbook and can cast it without requiring components",
+					"I add *Scrying* to my spellbook and can cast it without requiring components",
 					"Once per long rest, I can cast it without using a spell slot; I can also prepare it as normal",
 				]),
 				limfeaname: "Scrying (without spell slot)",
@@ -366,14 +366,14 @@ AddSubClass("wizard", "psionics-ua", {
 					"scrying": {
 						components: "",
 						compMaterial: "",
-						changes: "I can cast Scrying without requiring any components. Once per long rest, I can cast it without using a spell slot. I can also cast it by using spell slots as normal.",
+						changes: "I can cast *Scrying* without requiring any components. Once per long rest, I can cast it without using a spell slot. I can also cast it by using spell slots as normal.",
 					},
 				},
 			},
 			"telekinesis": {
 				name: "Mental Discipline: Telekinesis",
 				description: desc([
-					"I add Telekinesis to my spellbook and can cast it without requiring components",
+					"I add *Telekinesis* to my spellbook and can cast it without requiring components",
 					"Once per long rest, I can cast it without using a spell slot; I can also prepare it as normal",
 				]),
 				limfeaname: "Telekinesis (without spell slot)",
@@ -385,7 +385,7 @@ AddSubClass("wizard", "psionics-ua", {
 				spellChanges: {
 					"telekinesis": {
 						components: "",
-						changes: "I can cast Telekinesis without requiring any components. Once per long rest, I can cast it without using a spell slot. I can also cast it by using spell slots as normal.",
+						changes: "I can cast *Telekinesis* without requiring any components. Once per long rest, I can cast it without using a spell slot. I can also cast it by using spell slots as normal.",
 					},
 				},
 			},
@@ -462,7 +462,10 @@ SpellsList["intellect fortress-ua_frnw"] = { // completely different than later 
 	components: "V,S",
 	duration: "Conc, 10 min",
 	description: "I have advantage on all saves and I can use my reaction to have a creature in 30 ft reroll a failed save",
-	descriptionFull: "You create a faintly shimmering barrier of protective psychic power around you. For the duration, you have advantage on all saving throws.\n   When another creature that you can see within 30 feet of you fails a saving throw, you can use your reaction to allow them to reroll the save. They must use the new roll.",
+	descriptionFull: [
+		"You create a faintly shimmering barrier of protective psychic power around you. For the duration, you have advantage on all saving throws.",
+		"When another creature that you can see within 30 feet of you fails a saving throw, you can use your reaction to allow them to reroll the save. They must use the new roll.",
+	],
 };
 SpellsList["mental barrier-ua"] = {
 	name: "Mental Barrier",
@@ -495,7 +498,10 @@ if (!SourceList["T"]) {
 		save: "Int",
 		description: "1 crea save or 1d6 Psychic dmg, -1d4 on first save before my next turn ends; +1d6 at CL 5, 11, and 17",
 		descriptionCantripDie: "1 crea save or `CD`d6 Psychic dmg and subtract 1d4 from first saving throw before my next turn ends",
-		descriptionFull: "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must make an Intelligence saving throw. Unless the saving throw is successful, the target takes 1d6 psychic damage, and the first time it makes a saving throw before the end of your next turn, it must roll a d4 and subtract the number rolled from the save.\n   This spell's damage increases by 1d6 when you reach certain levels: 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+		descriptionFull: [
+			"You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must make an Intelligence saving throw. Unless the saving throw is successful, the target takes 1d6 psychic damage, and the first time it makes a saving throw before the end of your next turn, it must roll a d4 and subtract the number rolled from the save.",
+			"This spell's damage increases by 1d6 when you reach certain levels: 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+		],
 	};
 	WeaponsList["mind sliver"] = {
 		regExpSearch: /^(?=.*mind)(?=.*sliver).*$/i,
@@ -523,7 +529,10 @@ SpellsList["mind thrust-ua"] = { // rather different than later iterations in UA
 	duration: "1 rnd",
 	save: "Int",
 	description: "1+1/SL crea, all max 30 ft apart, 3d6 Psychic dmg, only Dash/Diseng. next turn; save half, any action",
-	descriptionFull: "You propel a lance of psionic disruption into the mind of one creature you can see within range. The target must make an Intelligence saving throw. On a failed save, the target takes 3d6 psychic damage, and it can use its action only to Dash or Disengage on its next turn. On a successful save, the target takes half as much damage, and this spell doesn't limit its action options." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd. The creatures must be within 30 feet of each other when you target them.",
+	descriptionFull: [
+		"You propel a lance of psionic disruption into the mind of one creature you can see within range. The target must make an Intelligence saving throw. On a failed save, the target takes 3d6 psychic damage, and it can use its action only to Dash or Disengage on its next turn. On a successful save, the target takes half as much damage, and this spell doesn't limit its action options.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd. The creatures must be within 30 feet of each other when you target them.",
+	],
 };
 SpellsList["psionic blast-ua"] = {
 	name: "Psionic Blast",
@@ -538,7 +547,10 @@ SpellsList["psionic blast-ua"] = {
 	save: "Dex",
 	description: "All crea 5d8+1d8/SL Force dmg, 20 ft pushed away, knocked prone; save half, not pushed or prone",
 	descriptionShorter: "All 5d8+1d8/SL Force dmg, 20 ft pushed away, knocked prone; save half, not pushed or prone",
-	descriptionFull: "You unleash a destructive wave of mental power in a 30-foot cone. Each creature in the area must make a Dexterity saving throw. On a failed save, a target takes 5d8 force damage, is pushed 20 feet directly away from you, and is knocked prone. On a successful save, a target takes half as much damage and isn't pushed or knocked prone." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd.",
+	descriptionFull: [
+		"You unleash a *destructive wave* of mental power in a 30-foot cone. Each creature in the area must make a Dexterity saving throw. On a failed save, a target takes 5d8 force damage, is pushed 20 feet directly away from you, and is knocked prone. On a successful save, a target takes half as much damage and isn't pushed or knocked prone.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd.",
+	],
 };
 SpellsList["psychic crush-ua"] = {
 	name: "Psychic Crush",
@@ -552,7 +564,10 @@ SpellsList["psychic crush-ua"] = {
 	duration: "1 min",
 	save: "Int",
 	description: "1 crea 12d6 Psychic damage and stunned for 1 min; save half, not stunned; save at turn end to stop",
-	descriptionFull: "You overload the mind of one creature you can see within range, filling its psyche with discordant emotions. The target must make an Intelligence saving throw. On a failed save, the target takes 12d6 psychic damage and is stunned for 1 minute. On a successful save, the target takes half as much damage and isn't stunned.\n   The stunned target can make an Intelligence saving throw at the end of each of its turns. On a successful save, the spell ends on the target.",
+	descriptionFull: [
+		"You overload the mind of one creature you can see within range, filling its psyche with discordant emotions. The target must make an Intelligence saving throw. On a failed save, the target takes 12d6 psychic damage and is stunned for 1 minute. On a successful save, the target takes half as much damage and isn't stunned.",
+		"The stunned target can make an Intelligence saving throw at the end of each of its turns. On a successful save, the spell ends on the target.",
+	],
 	dynamicDamageBonus: { multipleDmgMoments: false },
 };
 SpellsList["thought shield-ua"] = {
@@ -573,8 +588,13 @@ SpellsList["thought shield-ua"] = {
 FeatsList["telekinetic-ua"] = {
 	name: "Telekinetic",
 	source: [["UA:FRnW", 8]],
-	descriptionFull: "You learn to move things with your mind. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You learn the mage hand cantrip. You can cast it without verbal or somatic components, and you can make the spectral hand invisible.\n \u2022 As a bonus action, you can try to shove one creature you can see within 5 feet of the spectral hand created by your mage hand spell. When you do so, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Intelligence modifier) or be pushed 5 feet away from you.",
-	description: "I learn the Mage Hand cantrip, can cast it without components, and can make it invisible. As a bonus action, I can use it to try and shove a creature I can see within 5 ft of it. The target must make a Str save (Int based) or be shoved 5 ft away from me. [+1 Intelligence]",
+	descriptionFull: [
+		"You learn to move things with your mind. You gain the following benefits:",
+		" \u2022 Increase your Intelligence score by 1, to a maximum of 20.",
+		" \u2022 You learn the *mage hand* cantrip. You can cast it without verbal or somatic components, and you can make the spectral hand invisible.",
+		" \u2022 As a bonus action, you can try to shove one creature you can see within 5 feet of the spectral hand created by your *mage hand* spell. When you do so, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Intelligence modifier) or be pushed 5 feet away from you.",
+	],
+	description: "I learn the *Mage Hand* cantrip, can cast it without components, and can make it invisible. As a bonus action, I can use it to try and shove a creature I can see within 5 ft of it. The target must make a Str save (Int based) or be shoved 5 ft away from me. [+1 Intelligence]",
 	scores: [0, 0, 0, 1, 0, 0],
 	spellcastingBonus: [{
 		name: "Telekinetic",
@@ -588,14 +608,19 @@ FeatsList["telekinetic-ua"] = {
 			components: "",
 			save: "Str",
 			description: "Invisible hand, simple tasks, carries 10 lb; 1 a to control; not multiple; 1 bns 1 crea save or shove 5 ft",
-			changes: "My Telekinetic feat allows me to cast Mage Hand without verbal or somatic components and I can make the spectral hand invisible.",
+			changes: "My Telekinetic feat allows me to cast *Mage Hand* without verbal or somatic components and I can make the spectral hand invisible.",
 		},
 	},
 };
 FeatsList["telepathic-ua"] = {
 	name: "Telepathic",
 	source: [["UA:FRnW", 8]],
-	descriptionFull: "You awaken the ability to mentally connect with others. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency in one skill of your choice from the following list: Deception, Insight, Intimidation, or Persuasion.\n \u2022 You can communicate telepathically with any creature you can see within 30 feet of you. If it understands at least one language, it can respond to you telepathically.",
+	descriptionFull: [
+		"You awaken the ability to mentally connect with others. You gain the following benefits:",
+		" \u2022 Increase your Intelligence score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in one skill of your choice from the following list: Deception, Insight, Intimidation, or Persuasion.",
+		" \u2022 You can communicate telepathically with any creature you can see within 30 feet of you. If it understands at least one language, it can respond to you telepathically.",
+	],
 	description: "I gain proficiency with one skill chosen from Deception, Insight, Intimidation, or Persuasion. I can communicate telepathically with any creature I can see within 30 feet of me. If it understands at least one language, it can respond to me telepathically. [+1 Intelligence]",
 	scores: [0, 0, 0, 1, 0, 0],
 	choices: ["Deception", "Insight", "Intimidation", "Persuasion"],

@@ -1,5 +1,5 @@
 var iFileName = "pub_20141209_DMG.js";
-RequiredSheetVersion("14.1.0");
+RequiredSheetVersion("14.1.3", 15);
 // This file adds all the player-material from the Dungeon Master's Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -30,7 +30,13 @@ RaceList["aasimar"] = {
 	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 0, 0, 1, 2],
-	trait: "Aasimar (+1 Wisdom, +2 Charisma)\n\nCelestial Legacy:\n   I know the Light cantrip.\n   Once I reach 3rd level, I can cast the Lesser Restoration spell once per long rest.\n   Once I reach 5th level, I can cast the Daylight spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait: [
+		"**Aasimar** (+1 Wisdom, +2 Charisma)",
+		"##\u25C6 Celestial Legacy##. I know the *Light* cantrip.",
+		"Once I reach 3rd level, I can cast the *Lesser Restoration* spell once per long rest.",
+		"Once I reach 5th level, I can cast the *Daylight* spell once per long rest.",
+		"Charisma is my spellcasting ability for these spells.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Celestial Legacy (level 1)",
@@ -91,7 +97,11 @@ RaceList["eladrin"] = {
 	heightMetric: " range from under 1,5 to over 1,8 metres tall (140 + 5d12 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d12 \xD7 2d4 / 10 kg)",
 	scores: [0, 2, 0, 1, 0, 0],
-	trait: "Eladrin (+2 Dexterity, +1 Intelligence)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nFey Step: I can cast the Misty Step spell once using this trait. I regain the ability to do so when I finish a short rest.",
+	trait: [
+		"**Eladrin** (+2 Dexterity, +1 Intelligence)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
+		"##\u25C6 Fey Step##. I can cast the *Misty Step* spell once using this trait. I regain the ability to do so when I finish a short rest.",
+	],
 	spellcastingAbility: 4,
 	features: {
 		"fey step": {
@@ -341,15 +351,19 @@ MagicItemsList["alchemy jug"] = {
 	magicItemTable: "B",
 	description: "As an action, command the jug to produce liquid; or an action to uncork it and pour 2 gal/min. After producing, it only makes the same up to its max, until next dawn. Oil (1 qt), acid (8 fl oz), basic poison (1/2 fl oz), beer (4 gal), honey/wine (1 gal), fresh water (8 gal), mayonnaise/vinegar (2 gal), salt water (12 gal).",
 	descriptionLong: "A heavy ceramic jug. As an action, the jug can be commanded to hold a chosen liquid. With another action, I can uncork the jug and pour the liquid out at 2 gallons per minute. Once commanded to produce a liquid, it can't produce a different one or more than the maximum of one, until the next dawn.\rLiquids (with maximum): acid (8 fl. oz.), basic poison (1/2 fl. oz.), beer (4 gallons), honey (1 gallon), mayonnaise (2 gallons), oil (1 quart), vinegar (2 gallons), fresh water (8 gallons), salt water (12 gallons), wine (1 gallon).",
-	descriptionFull: "This ceramic jug appears to be able to hold a gallon of liquid and weighs 12 pounds whether full or empty. Sloshing sounds can be heard from within the jug when it is shaken, even if the jug is empty." +
-	"\n   You can use an action and name one liquid from the table below to cause the jug to produce the chosen liquid. Afterward, you can uncork the jug as an action and pour that liquid out, up to 2 gallons per minute. The maximum amount of liquid the jug can produce depends on the liquid you named." +
-	"\n   Once the jug starts producing a liquid, it can't produce a different one, or more of one that has reached its maximum, until the next dawn.\n\n" +
-	"**Max**        \t**Liquid**\t\t**Max**        \t**Liquid**" +
-	"\n8 ounces  \tAcid\t\t1 quart   \tOil" +
-	"\n1/2 ounce\tBasic poison\t2 gallons  \tVinegar" +
-	"\n4 gallons  \tBeer\t\t8 gallons  \tWater, fresh" +
-	"\n1 gallon    \tHoney\t\t12 gallons\tWater, salt" +
-	"\n2 gallons \tMayonnaise\t1 gallon    \tWine",
+	descriptionFull: [
+		"This ceramic jug appears to be able to hold a gallon of liquid and weighs 12 pounds whether full or empty. Sloshing sounds can be heard from within the jug when it is shaken, even if the jug is empty.",
+		"You can use an action and name one liquid from the table below to cause the jug to produce the chosen liquid. Afterward, you can uncork the jug as an action and pour that liquid out, up to 2 gallons per minute. The maximum amount of liquid the jug can produce depends on the liquid you named.",
+		"Once the jug starts producing a liquid, it can't produce a different one, or more of one that has reached its maximum, until the next dawn.",
+		[
+			["Max        ", "Liquid", "", "Max        ", "Liquid"],
+			["8 ounces  ", "Acid", "", "1 quart   ", "Oil"],
+			["1/2 ounce", "Basic poison", "2 gallons  ", "Vinegar"],
+			["4 gallons  ", "Beer", "", "8 gallons  ", "Water, fresh"],
+			["1 gallon    ", "Honey", "", "12 gallons", "Water, salt"],
+			["2 gallons ", "Mayonnaise", "1 gallon    ", "Wine"],
+		],
+	],
 	weight: 12,
 }
 MagicItemsList["cap of water breathing"] = {
@@ -369,7 +383,10 @@ MagicItemsList["cloak of invisibility"] = {
 	rarity: "legendary",
 	magicItemTable: "I",
 	description: "As an action, I can pull the hood of this cloak down or up over my head, making myself invisible (down) or visible again (up). While invisible, anything I carry or wear is invisible as well. It functions for 2 hours, usable in increments of 1 minute. It regains 1 hour of duration for every 12 hours not being used.",
-	descriptionFull: "While wearing this cloak, you can pull its hood over your head to cause yourself to become invisible. While you are invisible, anything you are carrying or wearing is invisible with you. You become visible when you cease wearing the hood. Pulling the hood up or down requires an action.\n   Deduct the time you are invisible, in increments of 1 minute, from the cloak's maximum duration of 2 hours. After 2 hours of use, the cloak ceases to function. For every uninterrupted period of 12 hours the cloak goes unused, it regains 1 hour of duration.",
+	descriptionFull: [
+		"While wearing this cloak, you can pull its hood over your head to cause yourself to become invisible. While you are invisible, anything you are carrying or wearing is invisible with you. You become visible when you cease wearing the hood. Pulling the hood up or down requires an action.",
+		"Deduct the time you are invisible, in increments of 1 minute, from the cloak's maximum duration of 2 hours. After 2 hours of use, the cloak ceases to function. For every uninterrupted period of 12 hours the cloak goes unused, it regains 1 hour of duration.",
+	],
 	attunement: true,
 	action: [["action", " (hood up/down)"]],
 	usages: "120 min",
@@ -382,8 +399,11 @@ MagicItemsList["driftglobe"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	magicItemTable: ["A", "B"],
-	description: "By speaking its command word while within 60 ft, this glass sphere casts Light or Daylight on itself. Daylight only works once per dawn. While lit up, I can use an action to speak another command word to make it hover 5 ft off the ground and follow me at a distance of 60 ft. It stops hovering when grasped.",
-	descriptionFull: "This small sphere of thick glass weighs 1 pound. If you are within 60 feet of it, you can speak its command word and cause it to emanate the Light or Daylight spell. Once used, the Daylight effect can't be used again until the next dawn.\n   You can speak another command word as an action to make the illuminated globe rise into the air and float no more than 5 feet off the ground. The globe hovers in this way until you or another creature grasps it. If you move more than 60 feet from the hovering globe, it follows you until it is within 60 feet of you. It takes the shortest route to do so. If prevented from moving, the globe sinks gently to the ground and becomes inactive, and its light winks out.",
+	description: "By speaking its command word while within 60 ft, this glass sphere casts *Light* or *Daylight* on itself. Daylight only works once per dawn. While lit up, I can use an action to speak another command word to make it hover 5 ft off the ground and follow me at a distance of 60 ft. It stops hovering when grasped.",
+	descriptionFull: [
+		"This small sphere of thick glass weighs 1 pound. If you are within 60 feet of it, you can speak its command word and cause it to emanate the *Light* or *Daylight* spell. Once used, the *Daylight* effect can't be used again until the next dawn.",
+		"You can speak another command word as an action to make the illuminated globe rise into the air and float no more than 5 feet off the ground. The globe hovers in this way until you or another creature grasps it. If you move more than 60 feet from the hovering globe, it follows you until it is within 60 feet of you. It takes the shortest route to do so. If prevented from moving, the globe sinks gently to the ground and becomes inactive, and its light winks out.",
+	],
 	weight: 1,
 	action: [["action", " (hover)"]],
 	usages: 1,
@@ -462,7 +482,12 @@ MagicItemsList["instrument of the bards"] = {
 	source: [["D", 176]],
 	type: "wondrous item (instrument)",
 	description: "If I play this exquisite, magical instruments while casting a spell that has a somatic or material component and charms on a failed save, it imposes disadvantage on that save. I can also use it to cast a set of spells, each once per dawn, using my spellcasting ability and spell save DC.",
-	descriptionFull: "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.",
+	descriptionFull: [
+		"An *instrument of the bards* is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.",
+		"You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.",
+		"You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.",
+		"All instruments of the bards can be used to cast the following spells: *Fly*, *Invisibility*, *Levitate*, and *Protection from Evil and Good*.",
+	],
 	attunement: true,
 	weight: 3, // Magic of Faerûn (2001) page 161
 	prerequisite: "Requires attunement by a bard",
@@ -473,7 +498,13 @@ MagicItemsList["instrument of the bards"] = {
 		sortname: "Instrument of the Bards, Anstruth Harp",
 		rarity: "very rare",
 		magicItemTable: "H",
-		descriptionFull: "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Anstruth harp can be used to cast Control Weather, Cure Wounds (5th level), and Wall of Thorns.",
+		descriptionFull: [
+			"An *instrument of the bards* is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.",
+			"You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.",
+			"You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.",
+			"All instruments of the bards can be used to cast the following spells: *Fly*, *Invisibility*, *Levitate*, and *Protection from Evil and Good*.",
+			"In addition, the Anstruth harp can be used to cast *Control Weather*, *Cure Wounds* (5th level), and *Wall of Thorns*.",
+		],
 		spellcastingBonus: [{
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "control weather", "cure wounds", "wall of thorns"],
@@ -485,7 +516,7 @@ MagicItemsList["instrument of the bards"] = {
 		spellChanges: {
 			"cure wounds": {
 				description: "1 living creature heals 5d8+spellcasting ability modifier HP",
-				changes: "When using the Anstruth Harp to cast Cure Wounds, it is cast at 5th-level.",
+				changes: "When using the Anstruth Harp to cast *Cure Wounds*, it is cast at 5th-level.",
 			},
 			"control weather": {
 				time: "1 a",
@@ -498,7 +529,13 @@ MagicItemsList["instrument of the bards"] = {
 		sortname: "Instrument of the Bards, Canaith Mandolin",
 		rarity: "rare",
 		magicItemTable: "G",
-		descriptionFull: "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Canaith mandolin can be used to cast Cure Wounds (3rd level), Dispel Magic, and Protection from Energy (lightning only).",
+		descriptionFull: [
+			"An *instrument of the bards* is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.",
+			"You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.",
+			"You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.",
+			"All instruments of the bards can be used to cast the following spells: *Fly*, *Invisibility*, *Levitate*, and *Protection from Evil and Good*.",
+			"In addition, the Canaith mandolin can be used to cast *Cure Wounds* (3rd level), *Dispel Magic*, and *Protection from Energy* (lightning only).",
+		],
 		spellcastingBonus: [{
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "cure wounds", "dispel magic", "protection from energy"],
@@ -510,11 +547,11 @@ MagicItemsList["instrument of the bards"] = {
 		spellChanges: {
 			"cure wounds": {
 				description: "1 living creature heals 3d8+spellcasting ability modifier HP",
-				changes: "When using the Canaith Mandolin to cast Cure Wounds, it is cast at 3rd-level.",
+				changes: "When using the Canaith Mandolin to cast *Cure Wounds*, it is cast at 3rd-level.",
 			},
 			"protection from energy": {
 				description: "1 creature gains resistance to Lightning damage for the duration",
-				changes: "When using the Canaith Mandolin to cast Protection from Energy, it can only grant resistance to lightning damage.",
+				changes: "When using the Canaith Mandolin to cast *Protection from Energy*, it can only grant resistance to lightning damage.",
 			},
 		},
 	},
@@ -523,7 +560,13 @@ MagicItemsList["instrument of the bards"] = {
 		sortname: "Instrument of the Bards, Cli Lyre",
 		rarity: "rare",
 		magicItemTable: "G",
-		descriptionFull: "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Cli lyre can be used to cast Stone Shape, Wall of Fire, and Wind Wall.",
+		descriptionFull: [
+			"An *instrument of the bards* is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.",
+			"You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.",
+			"You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.",
+			"All instruments of the bards can be used to cast the following spells: *Fly*, *Invisibility*, *Levitate*, and *Protection from Evil and Good*.",
+			"In addition, the Cli lyre can be used to cast *Stone Shape*, *Wall of Fire*, and *Wind Wall*.",
+		],
 		spellcastingBonus: [{
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "stone shape", "wall of fire", "wind wall"],
@@ -538,7 +581,13 @@ MagicItemsList["instrument of the bards"] = {
 		sortname: "Instrument of the Bards, Doss Lute",
 		rarity: "uncommon",
 		magicItemTable: "F",
-		descriptionFull: "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Doss lute can be used to cast Animal Friendship, Protection from Energy (fire only), and Protection from Poison.",
+		descriptionFull: [
+			"An *instrument of the bards* is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.",
+			"You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.",
+			"You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.",
+			"All instruments of the bards can be used to cast the following spells: *Fly*, *Invisibility*, *Levitate*, and *Protection from Evil and Good*.",
+			"In addition, the Doss lute can be used to cast *Animal Friendship*, *Protection from Energy* (fire only), and *Protection from Poison*.",
+		],
 		spellcastingBonus: [{
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "animal friendship", "protection from energy", "protection from poison"],
@@ -550,7 +599,7 @@ MagicItemsList["instrument of the bards"] = {
 		spellChanges: {
 			"protection from energy": {
 				description: "1 creature gains resistance to Fire damage for the duration",
-				changes: "When using the Doss Lute to cast Protection from Energy, it can only grant resistance to fire damage.",
+				changes: "When using the Doss Lute to cast *Protection from Energy*, it can only grant resistance to fire damage.",
 			},
 		},
 	},
@@ -559,7 +608,13 @@ MagicItemsList["instrument of the bards"] = {
 		sortname: "Instrument of the Bards, Fochlucan Bandore",
 		rarity: "uncommon",
 		magicItemTable: "F",
-		descriptionFull: "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Fochlucan bandore can be used to cast Entangle, Faerie Fire, Shillelagh, and Speak with Animals.",
+		descriptionFull: [
+			"An *instrument of the bards* is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.",
+			"You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.",
+			"You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.",
+			"All instruments of the bards can be used to cast the following spells: *Fly*, *Invisibility*, *Levitate*, and *Protection from Evil and Good*.",
+			"In addition, the Fochlucan bandore can be used to cast *Entangle*, *Faerie Fire*, *Shillelagh*, and *Speak with Animals*.",
+		],
 		spellcastingBonus: [{
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "entangle", "faerie fire", "shillelagh", "speak with animals"],
@@ -574,7 +629,13 @@ MagicItemsList["instrument of the bards"] = {
 		sortname: "Instrument of the Bards, Mac-Fuirmidh Cittern",
 		rarity: "uncommon",
 		magicItemTable: "F",
-		descriptionFull: "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Mac-Fuirmidh cittern can be used to cast Barkskin, Cure Wounds, and Fog Cloud.",
+		descriptionFull: [
+			"An *instrument of the bards* is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.",
+			"You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.",
+			"You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.",
+			"All instruments of the bards can be used to cast the following spells: *Fly*, *Invisibility*, *Levitate*, and *Protection from Evil and Good*.",
+			"In addition, the Mac-Fuirmidh cittern can be used to cast *Barkskin*, *Cure Wounds*, and *Fog Cloud*.",
+		],
 		spellcastingBonus: [{
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "barkskin", "cure wounds", "fog cloud"],
@@ -589,7 +650,13 @@ MagicItemsList["instrument of the bards"] = {
 		sortname: "Instrument of the Bards, Ollamh Harp",
 		rarity: "legendary",
 		magicItemTable: "I",
-		descriptionFull: "An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Ollamh harp can be used to cast Confusion, Control Weather, and Fire Storm.",
+		descriptionFull: [
+			"An *instrument of the bards* is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.",
+			"You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.",
+			"You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.",
+			"All instruments of the bards can be used to cast the following spells: *Fly*, *Invisibility*, *Levitate*, and *Protection from Evil and Good*.",
+			"In addition, the Ollamh harp can be used to cast *Confusion*, *Control Weather*, and *Fire Storm*.",
+		],
 		spellcastingBonus: [{
 			name: "Once per long rest",
 			spells: ["fly", "invisibility", "levitate", "protection from evil and good", "confusion", "control weather", "fire storm"],
@@ -651,7 +718,7 @@ MagicItemsList["potion of longevity"] = {
 	magicItemTable: "D",
 	description: "Once as an action, I can drink this potion or administer it to another to reduce the consumer's physical age by 1d6+6 years, to a minimum of 13 years. Subsequent consumptions of this type of potion have a 10% cumulative chance to instead age the consumer by 1d6+6 years. It contains a tiny beating heart.",
 	descriptionLong: "Once as an action, I can drink this potion or administer it to another to reduce the consumer's physical age by 1d6+6 years, to a minimum of 13 years. Subsequent consumptions of this type of potion have a 10% cumulative chance to instead age the consumer by 1d6+6 years. Suspended in this amber liquid are a scorpion's tail, an adder's fang, a dead spider, and a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened.",
-	descriptionFull: "When you drink this potion, your physical age is reduced by 1d6+6 years, to a minimum of 13 years. Each time you subsequently drink a potion of longevity, there is 10 percent cumulative chance that you instead age by 1d6+6 years. Suspended in this amber liquid are a scorpion's tail, an adder's fang, a dead spider, and a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened.",
+	descriptionFull: "When you drink this potion, your physical age is reduced by 1d6+6 years, to a minimum of 13 years. Each time you subsequently drink a *potion of longevity*, there is 10 percent cumulative chance that you instead age by 1d6+6 years. Suspended in this amber liquid are a scorpion's tail, an adder's fang, a dead spider, and a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened.",
 	weight: 0.5,
 }
 MagicItemsList["potion of vitality"] = {
@@ -670,8 +737,11 @@ MagicItemsList["rod of resurrection"] = {
 	type: "rod",
 	rarity: "legendary",
 	magicItemTable: "I",
-	description: "This rod has 5 charges and regains 1 expended charge daily at dawn. While I hold it, I can use an action to expend 1 charge and cast Heal from it, or expend 5 charges and cast Resurrection from it. If the rod is reduced to 0 charges, roll a d20. On a 1, the rod disappears in a burst of radiance.",
-	descriptionFull: "The rod has 5 charges. While you hold it, you can use an action to cast one of the following spells from it: Heal (expends 1 charge) or Resurrection (expends 5 charges).\n   The rod regains 1 expended charge daily at dawn. If the rod is reduced to 0 charges, roll a d20. On a 1, the rod disappears in a burst of radiance.",
+	description: "This rod has 5 charges and regains 1 expended charge daily at dawn. While I hold it, I can use an action to expend 1 charge and cast *Heal* from it, or expend 5 charges and cast *Resurrection* from it. If the rod is reduced to 0 charges, roll a d20. On a 1, the rod disappears in a burst of radiance.",
+	descriptionFull: [
+		"The rod has 5 charges. While you hold it, you can use an action to cast one of the following spells from it: Heal (expends 1 charge) or *Resurrection* (expends 5 charges).",
+		"The rod regains 1 expended charge daily at dawn. If the rod is reduced to 0 charges, roll a d20. On a 1, the rod disappears in a burst of radiance.",
+	],
 	attunement: true,
 	weight: 2,
 	prerequisite: "Requires attunement by a cleric, druid, or paladin",
@@ -703,7 +773,10 @@ MagicItemsList["rod of the pact keeper, +1, +2, or +3"] = {
 	source: [["D", 197]],
 	type: "rod",
 	description: "While holding this rod, I gain a bonus to spell attack rolls and to the saving throw DCs of my warlock spells, determined by the rod's rarity: uncommon (+1), rare (+2), or very rare (+3). As an action once per long rest, I can regain one warlock spell slot while holding the rod.",
-	descriptionFull: "While holding this rod, you gain a bonus to spell attack rolls and to the saving throw DCs of your warlock spells. The bonus is determined by the rod's rarity: uncommon (+1), rare (+2), or very rare (+3).\n   In addition, you can regain one warlock spell slot as an action while holding the rod. You can't use this property again until you finish a long rest.",
+	descriptionFull: [
+		"While holding this rod, you gain a bonus to spell attack rolls and to the saving throw DCs of your warlock spells. The bonus is determined by the rod's rarity: uncommon (+1), rare (+2), or very rare (+3).",
+		"In addition, you can regain one warlock spell slot as an action while holding the rod. You can't use this property again until you finish a long rest.",
+	],
 	attunement: true,
 	weight: 2,
 	prerequisite: "Requires attunement by a warlock",
@@ -774,13 +847,19 @@ MagicItemsList["scroll of protection"] = {
 	rarity: "rare",
 	magicItemTable: "C",
 	description: "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 min that moves with me and stops a creature type from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected.",
-	descriptionFull: "Each scroll of protection works against a specific type of creature chosen by the DM or determined randomly by rolling on the following table.\n\n" + [
-		"**d100**\t**Creature Type**\t**d100**\t**Creature Type**",
-		"01-10\tAberrations\t41-50\tFey",
-		"11-20\tBeasts\t\t51-75\tFiends",
-		"21-30\tCelestials   \t76-80\tPlants",
-		"31-40\tElementals\t81-00\tUndead",
-	].join("\n") + "\nUsing an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents creatures of the specified type from entering or affecting anything within the cylinder.\n   The cylinder moves with you and remains centered on you. However, if you move in such a way that an aberration would be inside the cylinder, the effect ends.\n   A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier.",
+	descriptionFull: [
+		"Each *scroll of protection* works against a specific type of creature chosen by the DM or determined randomly by rolling on the following table.",
+		[
+			["d100", "Creature Type", "d100", "Creature Type"],
+			["01-10", "Aberrations", "41-50", "Fey"],
+			["11-20", "Beasts", "", "51-75", "Fiends"],
+			["21-30", "Celestials   ", "76-80", "Plants"],
+			["31-40", "Elementals", "81-00", "Undead"],
+		],
+		"Using an action to read the scroll encloses you in an invisible barrier that extends from you to form a 5-foot-radius, 10-foot-high cylinder. For 5 minutes, this barrier prevents creatures of the specified type from entering or affecting anything within the cylinder.",
+		"The cylinder moves with you and remains centered on you. However, if you move in such a way that an aberration would be inside the cylinder, the effect ends.",
+		"A creature can attempt to overcome the barrier by using an action to make a DC 15 Charisma check. On a success, the creature ceases to be affected by the barrier.",
+	],
 	choices: ["Aberrations", "Beasts", "Celestials", "Elementals", "Fey", "Fiends", "Plants", "Undead"],
 	"aberrations": {
 		name: "Scroll of Protection from Aberrations",
@@ -821,8 +900,11 @@ MagicItemsList["sending stones"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	magicItemTable: "C",
-	description: "While I touch one of this pair of stones, I can use an action to cast Sending, targeting the bearer of the other stone. If no creature has the other stone, the spell won't cast. Once it is cast, neither stone can be used again until the next dawn. Sending allows each bearer to communicate up to 25 words.",
-	descriptionFull: "Sending stones come in pairs, with each smooth stone carved to match the other so the pairing is easily recognized. While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of the other stone. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a pair is destroyed, the other one becomes nonmagical.",
+	description: "While I touch one of this pair of stones, I can use an action to cast *Sending*, targeting the bearer of the other stone. If no creature has the other stone, the spell won't cast. Once it is cast, neither stone can be used again until the next dawn. Sending allows each bearer to communicate up to 25 words.",
+	descriptionFull: [
+		"*Sending stones* come in pairs, with each smooth stone carved to match the other so the pairing is easily recognized. While you touch one stone, you can use an action to cast the *Sending* spell from it. The target is the bearer of the other stone. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.",
+		"Once *Sending* is cast through the stones, they can't be used again until the next dawn. If one of the stones in a pair is destroyed, the other one becomes nonmagical.",
+	],
 	spellcastingBonus: [{
 		name: "To other stone bearer only",
 		spells: ["sending"],
@@ -858,7 +940,11 @@ MagicItemsList["staff of the adder"] = {
 	rarity: "uncommon",
 	magicItemTable: "F",
 	description: "As a bonus action, I can speak this staff's command word to animate its snake head for 1 minute or make it inanimate again. While animated, I can use it in melee (1d6 piercing + DC 15 Con save or 3d6 poison), but it can be attacked and has AC 15 and 20 HP (full every time). If it reaches 0 HP, the staff is destroyed.",
-	descriptionFull: "You can use a bonus action to speak this staff's command word and make the head of the staff become that of an animate poisonous snake for 1 minute. By using another bonus action to speak the command word again, you return the staff to its normal inanimate form.\n   You can make a melee attack using the snake head, which has a reach of 5 feet. Your proficiency bonus applies to the attack roll. On a hit, the target takes 1d6 piercing damage and must succeed on a DC 15 Constitution saving throw or take 3d6 poison damage.\n   The snake head can be attacked while it is animate. It has an Armor Class of 15 and 20 hit points. If the head drops to 0 hit points, the staff is destroyed. As long as it's not destroyed, the staff regains all lost hit points when it reverts to its inanimate form.",
+	descriptionFull: [
+		"You can use a bonus action to speak this staff's command word and make the head of the staff become that of an animate poisonous snake for 1 minute. By using another bonus action to speak the command word again, you return the staff to its normal inanimate form.",
+		"You can make a melee attack using the snake head, which has a reach of 5 feet. Your proficiency bonus applies to the attack roll. On a hit, the target takes 1d6 piercing damage and must succeed on a DC 15 Constitution saving throw or take 3d6 poison damage.",
+		"The snake head can be attacked while it is animate. It has an Armor Class of 15 and 20 hit points. If the head drops to 0 hit points, the staff is destroyed. As long as it's not destroyed, the staff regains all lost hit points when it reverts to its inanimate form.",
+	],
 	attunement: true,
 	weight: 4,
 	prerequisite: "Requires attunement by a cleric, druid, or warlock",
@@ -886,18 +972,22 @@ MagicItemsList["sword of answering"] = {
 	rarity: "legendary",
 	magicItemTable: "I",
 	description: "I gain a +3 bonus to attack and damage rolls made with this magical longsword that has a gem set in its pommel. As a reaction when a creature within my reach damages me, I can make one melee attack with this sword with advantage. This attack ignores damage immunities and resistances of the target.",
-	descriptionFull: 'In the world of Greyhawk, only nine of these blades are known to exist. Each is patterned after the legendary sword Fragarach, which is variously translated as "Final Word." Each of the nine swords has its own name and alignment, and each bears a different gem in its pommel.\n   You gain a +3 bonus to attack and damage rolls made with this sword. In addition, while you hold the sword, you can use your reaction to make one melee attack with it against any creature in your reach that deals damage to you. You have advantage on the attack roll, and any damage dealt with this special attack ignores any damage immunity or resistance the target has.\n\n' + [
-		"**Name**\t\t**Alignment**\t**Gem**",
-		"Answerer    \tChaotic good\tEmerald",
-		"Back Talker\tChaotic evil\tJet",
-		"Concluder    \tLawful neutral\tAmethyst",
-		"Last Quip    \tChaotic neutral\tTourmaline",
-		"Rebutter\t\tNeutral good\tTopaz",
-		"Replier\t\tNeutral\t\tPeridot",
-		"Retorter\t\tLawful good\tAquamarine",
-		"Scather\t\tLawful evil\tGarnet",
-		"Squelcher    \tNeutral evil\tSpinel",
-	].join("\n"),
+	descriptionFull: [
+		"In the world of Greyhawk, only nine of these blades are known to exist. Each is patterned after the legendary sword Fragarach, which is variously translated as \"Final Word.\" Each of the nine swords has its own name and alignment, and each bears a different gem in its pommel.",
+		"You gain a +3 bonus to attack and damage rolls made with this sword. In addition, while you hold the sword, you can use your reaction to make one melee attack with it against any creature in your reach that deals damage to you. You have advantage on the attack roll, and any damage dealt with this special attack ignores any damage immunity or resistance the target has.",
+		[
+			["Name", "", "Alignment", "Gem"],
+			["Answerer    ", "Chaotic good", "Emerald"],
+			["Back Talker", "Chaotic evil", "Jet"],
+			["Concluder    ", "Lawful neutral", "Amethyst"],
+			["Last Quip    ", "Chaotic neutral", "Tourmaline"],
+			["Rebutter", "", "Neutral good", "Topaz"],
+			["Replier", "", "Neutral", "", "Peridot"],
+			["Retorter", "", "Lawful good", "Aquamarine"],
+			["Scather", "", "Lawful evil", "Garnet"],
+			["Squelcher    ", "Neutral evil", "Spinel"],
+		],
+	],
 	attunement: true,
 	weight: 3,
 	action: [["reaction", ""]],
@@ -974,7 +1064,12 @@ MagicItemsList["sword of vengeance"] = {
 	magicItemTable: "F",
 	attunement: true,
 	description: "This sword gives +1 to hit and damage and is cursed. I can't part with this sword and have disadv. on attacks with other weapons. If I take damage in combat, I must make a DC 15 Wis save or I will attack the attacker until it drops to 0 HP or I can't attack it in melee anymore.",
-	descriptionFull: "You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   ***Curse***. This sword is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the sword, keeping it on your person at all times. While attuned to this weapon, you have disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the sword is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage in combat. On a failed save you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting banishment on the sword forces the vengeful spirit to leave it. The sword then becomes a +1 weapon with no other properties.",
+	descriptionFull: [
+		"You gain a +1 bonus to attack and damage rolls made with this magic weapon.",
+		"***Curse***. This sword is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the sword, keeping it on your person at all times. While attuned to this weapon, you have disadvantage on attack rolls made with weapons other than this one.",
+		"In addition, while the sword is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage in combat. On a failed save you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.",
+		"You can break the curse in the usual ways. Alternatively, casting *banishment* on the sword forces the vengeful spirit to leave it. The sword then becomes a +1 weapon with no other properties.",
+	],
 	chooseGear: {
 		type: "weapon",
 		prefixOrSuffix: "prefix",
@@ -1040,7 +1135,12 @@ MagicItemsList["tome of the stilled tongue"] = {
 	magicItemTable: "I",
 	description: "I can use this thick leather-bound tome as a spellbook and an arcane focus. Once per dawn while holding it, I can use a bonus action to cast a spell I have written in it, without expending a spell slot or using any verbal or somatic components. Removing the tongue on the cover erases all spells within.",
 	descriptionLong: "The first few pages of this thick leather-bound tome are filled with indecipherable scrawls. The remaining pages are blank and pristine. I can use it as a spellbook and an arcane focus. Once per dawn while holding it, I can use a bonus action to cast a spell I have written in the tome, without expending a spell slot or using any verbal or somatic components. While attuned to the book, I can remove the tongue from the book's cover, permanently erasing all spells within. Vecna watches the user or this tome and sometimes has cryptic messages appear in it at midnight and fade away after they are read.",
-	descriptionFull: "This thick leather-bound volume has a desiccated tongue pinned to the front cover. Five of these tomes exist, and it's unknown which one is the original. The grisly cover decoration on the first tome of the stilled tongue once belonged to a treacherous former servant of the lich-god Vecna, keeper of secrets. The tongues pinned to the covers of the four copies came from other spellcasters who crossed Vecna. The first few pages of each tome are filled with indecipherable scrawls. The remaining pages are blank and pristine.\n   If you can attune to this item, you can use it as a spellbook and an arcane focus. In addition, while holding the tome, you can use a bonus action to cast a spell you have written in this tome, without expending a spell slot or using any verbal or somatic components. Once used, this property of the tome can't be used again until the next dawn.\n   While attuned to the book, you can remove the tongue from the book's cover. If you do so, all spells written in the book are permanently erased.\n   Vecna watches anyone using this tome. He can also write cryptic messages in the book. These messages appear at midnight and fade away after they are read.",
+	descriptionFull: [
+		"This thick leather-bound volume has a desiccated tongue pinned to the front cover. Five of these tomes exist, and it's unknown which one is the original. The grisly cover decoration on the first *tome of the stilled tongue* once belonged to a treacherous former servant of the lich-god Vecna, keeper of secrets. The tongues pinned to the covers of the four copies came from other spellcasters who crossed Vecna. The first few pages of each tome are filled with indecipherable scrawls. The remaining pages are blank and pristine.",
+		"If you can attune to this item, you can use it as a spellbook and an arcane focus. In addition, while holding the tome, you can use a bonus action to cast a spell you have written in this tome, without expending a spell slot or using any verbal or somatic components. Once used, this property of the tome can't be used again until the next dawn.",
+		"While attuned to the book, you can remove the tongue from the book's cover. If you do so, all spells written in the book are permanently erased.",
+		"Vecna watches anyone using this tome. He can also write cryptic messages in the book. These messages appear at midnight and fade away after they are read.",
+	],
 	attunement: true,
 	weight: 5,
 	prerequisite: "Requires attunement by a wizard",
@@ -1086,21 +1186,21 @@ MagicItemsList["blackrazor"] = {
 	type: "weapon (greatsword)",
 	rarity: "legendary",
 	notLegalAL: true,
-	description: "This sentient greatsword adds +3 to hit and damage and makes me immune to being charmed or frightened. Once per day it can cast Haste on me as it sees fit. If I use it to bring a creature to 0 HP, it devours the creature's soul, granting me temporary HP equal to the creature's max HP for 24 hours. See Notes page.",
+	description: "This sentient greatsword adds +3 to hit and damage and makes me immune to being charmed or frightened. Once per day it can cast *Haste* on me as it sees fit. If I use it to bring a creature to 0 HP, it devours the creature's soul, granting me temporary HP equal to the creature's max HP for 24 hours. See Notes page.",
 	descriptionFull: [
 		"Hidden in the dungeon of White Plume Mountain, *Blackrazor* shines like a piece of night sky filled with stars. Its black scabbard is decorated with pieces of cut obsidian.",
 		"You gain a +3 bonus to attack and damage rolls made with this magic weapon. It has the following additional properties.",
-		"***Devour Soul***. Whenever you use it to reduce a creature to 0 hit points, the sword slays the creature devours its soul, unless it is a construct or an undead. A creature whose soul has been devoured by *Blackrazor* can be restored to life only by a Wish spell.",
+		"***Devour Soul***. Whenever you use it to reduce a creature to 0 hit points, the sword slays the creature devours its soul, unless it is a construct or an undead. A creature whose soul has been devoured by *Blackrazor* can be restored to life only by a *Wish* spell.",
 		"When it devours a soul, *Blackrazor* grants you temporary hit points equal to the slain creature's hit point maximum. These hit points fade after 24 hours. As long as these temporary hit points last and you keep *Blackrazor* in hand, you have advantage on attack rolls, saving throws, and ability checks.",
 		"If you hit an undead with this weapon, you take 1d10 necrotic damage and the target regains 1d10 hit points. If this necrotic damage reduces you to 0 hit points, *Blackrazor* devours your soul.",
 		"***Soul Hunter***. While you hold the weapon, you are aware of the presence of Tiny or larger creatures within 60 feet of you that aren't constructs or undead. You also can't be charmed or frightened.",
-		"*Blackrazor* can cast the Haste spell on you once per day. It decides when to cast the spell and maintains concentration on it so that you don't have to.",
+		"*Blackrazor* can cast the *Haste* spell on you once per day. It decides when to cast the spell and maintains concentration on it so that you don't have to.",
 		"***Sentience***. *Blackrazor* is a sentient chaotic neutral weapon with an Intelligence of 17, a Wisdom of 10, and a Charisma of 19. It has hearing and darkvision out to a range of 120 feet.",
 		"The weapon can speak, read, and understand Common, and can communicate with its wielder telepathically. Its voice is deep and echoing. While you are attuned to it, *Blackrazor* also understands every language you know.",
 		"***Personality***. *Blackrazor* speaks with an imperious tone, as though accustomed to being obeyed.",
 		"The sword's purpose is to consume souls. It doesn't care whose souls it eats, including the wielder's. The sword believes that all matter and energy sprang from a void of negative energy and will one day return to it. *Blackrazor* is meant to hurry that process along.",
-		"Despite its nihilism, *Blackrazor* feels a strange kinship to Wave and Whelm, two other weapons locked away under White Plume Mountain. It wants the three weapons to be united again and wielded together in combat, even though it violently disagrees with *Whelm* and finds *Wave* tedious.",
-		"Blackrazor's hunger for souls must be regularly fed. If the sword goes three days or more without consuming a soul, a conflict between it and its wielder occurs at the next sunset.",
+		"Despite its nihilism, *Blackrazor* feels a strange kinship to *Wave* and *Whelm*, two other weapons locked away under White Plume Mountain. It wants the three weapons to be united again and wielded together in combat, even though it violently disagrees with *Whelm* and finds *Wave* tedious.",
+		"*Blackrazor*'s hunger for souls must be regularly fed. If the sword goes three days or more without consuming a soul, a conflict between it and its wielder occurs at the next sunset.",
 	],
 	attunement: true,
 	prerequisite: "Requires attunement by a creature of non-lawful alignment",
@@ -1157,7 +1257,7 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 			"You gain a +3 bonus to attack and damage rolls made with this magic weapon. If you score a critical hit with it, the target takes extra necrotic damage equal to half its hit point maximum.",
 			"The weapon also functions as a *trident of fish command* and a *weapon of warning*. It can confer the benefit of a *cap of water breathing* while you hold it, and you can use it as a *cube of force* by choosing the effect, instead of pressing cube sides to select it.",
 			"***Sentience***. *Wave* is a sentient weapon of neutral alignment, with an Intelligence of 14, a Wisdom of 10, and a Charisma of 18. It has hearing and darkvision out to a range of 120 feet.",
-			"The weapon communicates telepathically with its wielder and can speak, read, and understand Aquan. It can also speak with aquatic animals as if using a Speak with Animals spell, using telepathy to involve its wielder in the conversation.",
+			"The weapon communicates telepathically with its wielder and can speak, read, and understand Aquan. It can also speak with aquatic animals as if using a *Speak with Animals* spell, using telepathy to involve its wielder in the conversation.",
 			"***Personality***. When it grows restless, *Wave* has a habit of humming tunes that vary from sea chanteys to sacred hymns of the sea gods.",
 			"*Wave* zealously desires to convert mortals to the worship of one or more sea gods, or else to consign the faithless to death. Conflict arises if the wielder fails to further the weapon's objectives in the world. The trident has a nostalgic attachment to the place where it was forged, a desolate island called Thunderforge. A sea god imprisoned a family of storm giants there, and the giants forged *Wave* in an act of devotion to\u2014or rebellion against\u2014that god.",
 			"*Wave* harbors a secret doubt about its own nature and purpose. For all its devotion to the sea gods, *Wave* fears that it was intended to bring about a particular sea god's demise. This destiny is something *Wave* might not be able to avert.",
@@ -1186,7 +1286,7 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 			{
 				name: "Contained Items",
 				note: [
-					"\n\n\u2022 Trident of Fish Command (SRD 247, DMG 209)\n   " + MagicItemsList["trident of fish command"].description,
+					"\n\n \u2022 Trident of Fish Command (SRD 247, DMG 209)\n   " + MagicItemsList["trident of fish command"].description,
 					"\u2022 Weapon of Warning (DMG 213)\n   " + MagicItemsList["weapon of warning"].description,
 					"\u2022 Cap of Water Breathing (DMG 157)\n   " + MagicItemsList["cap of water breathing"].description,
 					"\u2022 Cube of Force (SRD 215, DMG 159)" + desc(MagicItemsList["cube of force"].toNotesPage[0].note),
@@ -1235,10 +1335,10 @@ MagicItemsList["whelm"] = {
 		"You gain a +3 bonus to attack and damage rolls made with this magic weapon. At dawn the day after you first make an attack roll with *Whelm*, you develop a fear of being outdoors that persists as long as you remain attuned to the weapon. This causes you to have disadvantage on attack rolls, saving throws, and ability checks while you can see the daytime sky.",
 		"***Thrown Weapon***. *Whelm* has the thrown property, with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged weapon attack using it, the target takes an extra 1d8 bludgeoning damage, or an extra 2d8 bludgeoning damage if the target is a giant. Each time you throw the weapon, it flies back to your hand after the attack. If you don't have a hand free, the weapon lands at your feet.",
 		"***Shock Wave***. You can use an action to strike the ground with *Whelm* and send a shock wave out from the point of impact. Each creature of your choice on the ground within 60 feet of that point must succeed on a DC 15 Constitution saving throw or become stunned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Once used, this property can't be used again until the next dawn.",
-		"***Supernatural Awareness***. While you are holding the weapon, it alerts you to the location of any secret or concealed doors within 30 feet of you. In addition, you can use an action to cast Detect Evil and Good or Locate Object from the weapon. Once you cast either spell, you can't cast it from the weapon again until the next dawn.",
+		"***Supernatural Awareness***. While you are holding the weapon, it alerts you to the location of any secret or concealed doors within 30 feet of you. In addition, you can use an action to cast *Detect Evil and Good* or *Locate Object* from the weapon. Once you cast either spell, you can't cast it from the weapon again until the next dawn.",
 		"***Sentience***. *Whelm* is a sentient lawful neutral weapon with an Intelligence of 15, a Wisdom of 12, and a Charisma of 15. It has hearing and darkvision out to a range of 120 feet.",
 		"The weapon communicates telepathically with its wielder and can speak, read, and understand Dwarvish. Giant, and Goblin. It shouts battle cries in Dwarvish when used in combat.",
-		"***Personality***. Whelm's purpose is to slaughter giants and goblinoids. It also seeks to protect dwarves against all enemies. Conflict arises if the wielder fails to destroy goblins and giants or to protect dwarves. *Whelm* has ties to the dwarf clan that created it, variously called the Dankil or the Mightyhammer clan. It longs to be returned to that clan. It would do anything to protect those dwarves from harm. The hammer also carries a secret shame. Centuries ago, a dwarf named Ctenmiir wielded it valiantly for a time. But Ctenmiir was turned into a vampire. His will was strong enough that he bent *Whelm* to his evil purposes, even killing members of his own clan.",
+		"***Personality***. *Whelm*'s purpose is to slaughter giants and goblinoids. It also seeks to protect dwarves against all enemies. Conflict arises if the wielder fails to destroy goblins and giants or to protect dwarves. *Whelm* has ties to the dwarf clan that created it, variously called the Dankil or the Mightyhammer clan. It longs to be returned to that clan. It would do anything to protect those dwarves from harm. The hammer also carries a secret shame. Centuries ago, a dwarf named Ctenmiir wielded it valiantly for a time. But Ctenmiir was turned into a vampire. His will was strong enough that he bent *Whelm* to his evil purposes, even killing members of his own clan.",
 	],
 	attunement: true,
 	prerequisite: "Requires attunement by a dwarf",
@@ -1262,7 +1362,7 @@ MagicItemsList["whelm"] = {
 			},
 		},
 		Object.assign({}, sentientItemConflictNote, {
-			amendTo: "Whelm's purpose is to slaughter giants",
+			amendTo: "*Whelm*'s purpose is to slaughter giants",
 		}),
 	],
 	action: [["action", " (Shock Wave)"]],
@@ -1587,8 +1687,10 @@ MagicItemsList["gunpowder"] = {
 	rarity: "",
 	defaultExcluded: true,
 	description: "Gunpowder is chiefly used to propel a bullet out of the barrel of a pistol or rifle, or it is formed into a bomb. Gunpowder is sold in small wooden kegs or in water-resistant powder horns.",
-	descriptionFull: "Gunpowder is chiefly used to propel a bullet out of the barrel of a pistol or rifle, or it is formed into a bomb. Gunpowder is sold in small wooden kegs or in water-resistant powder horns." +
-	"\n   Setting fire to a container full of gunpowder can cause it to explode, dealing fire damage to creatures within 10 feet of it (3d6 for a powder horn). A successful DC 12 Dexterity saving throw halves the damage. Setting fire to an ounce of gunpowder causes it to flare for 1 round, shedding bright light in a 30-foot radius and dim light for an additional 30 feet.",
+	descriptionFull: [
+		"*Gunpowder* is chiefly used to propel a bullet out of the barrel of a pistol or rifle, or it is formed into a bomb. *Gunpowder* is sold in small wooden kegs or in water-resistant powder horns.",
+		"Setting fire to a container full of gunpowder can cause it to explode, dealing fire damage to creatures within 10 feet of it (3d6 for a powder horn). A successful DC 12 Dexterity saving throw halves the damage. Setting fire to an ounce of gunpowder causes it to flare for 1 round, shedding bright light in a 30-foot radius and dim light for an additional 30 feet.",
+	],
 	allowDuplicates: true,
 	choices: ["Horn (35 gp)", "Keg (250 gp)"],
 	"horn (35 gp)": {
@@ -1609,9 +1711,11 @@ MagicItemsList["dynamite stick"] = {
 	rarity: "",
 	defaultExcluded: true,
 	description: "As an action, I can light a (bundle of) stick(s) of dynamite and throw it at a point up to 60 ft away. All creatures within 5-ft/stick of that point take 2d6+1d6/stick fire damage, DC 12 Dex save for half. Maximum 10d6 damage and 20-ft radius. I can also explode it using a longer fuse (roll separate initiative for it).",
-	descriptionFull: "As an action, a creature can light a stick of dynamite and throw it at a point up to 60 feet away. Each creature within 5 feet of that point must make a DC 12 Dexterity saving throw, taking 3d6 bludgeoning damage on a failed save, or half as much damage on a successful one." +
-	"\n   A character can bind sticks of dynamite together so they explode at the same time. Each additional stick increases the damage by 1d6 (to a maximum of 10d6) and the burst radius by 5 feet (to a maximum of 20 feet)." +
-	"\n   Dynamite can be rigged with a longer fuse to explode after a set amount of time, usually 1 to 6 rounds. Roll initiative for the dynamite. After the set number of rounds goes by, the dynamite explodes on that initiative.",
+	descriptionFull: [
+		"As an action, a creature can light a stick of dynamite and throw it at a point up to 60 feet away. Each creature within 5 feet of that point must make a DC 12 Dexterity saving throw, taking 3d6 bludgeoning damage on a failed save, or half as much damage on a successful one.",
+		"A character can bind sticks of dynamite together so they explode at the same time. Each additional stick increases the damage by 1d6 (to a maximum of 10d6) and the burst radius by 5 feet (to a maximum of 20 feet).",
+		"Dynamite can be rigged with a longer fuse to explode after a set amount of time, usually 1 to 6 rounds. Roll initiative for the dynamite. After the set number of rounds goes by, the dynamite explodes on that initiative.",
+	],
 	action: [["action", "Throw Explosive"]],
 	weaponsAdd: { select: ["Dynamite Stick"] },
 	eval: function () { // make sure the weapon and ammo are not excluded
@@ -1635,8 +1739,10 @@ MagicItemsList["grenade"] = {
 		source: [["D", 268]],
 		defaultExcluded: true,
 		description: "As an action, I can throw a grenade at a point up to 60 ft away or double that with a grenade launcher. All creatures within 20 ft of an exploding fragmentation grenade take 6d6 piercing damage, but can make a DC 15 Dexterity save to halve that damage.",
-		descriptionFull: "As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away." +
-		"\n   Each creature within 20 feet of an exploding fragmentation grenade must make a DC 15 Dexterity saving throw, taking 5d6 piercing damage on a failed save, or half as much damage on a successful one.",
+		descriptionFull: [
+			"As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away.",
+			"Each creature within 20 feet of an exploding *fragmentation grenade* must make a DC 15 Dexterity saving throw, taking 5d6 piercing damage on a failed save, or half as much damage on a successful one.",
+		],
 		weight: 1,
 		weaponsAdd: { select: ["Fragmentation Grenade"] },
 		eval: function () { // make sure the weapon and ammo are not excluded
@@ -1650,8 +1756,10 @@ MagicItemsList["grenade"] = {
 		source: [["D", 268]],
 		defaultExcluded: true,
 		description: "As an action, I can throw a grenade at a point up to 60 ft away or double that with a grenade launcher. 1 round after a smoke grenade lands, it emits a cloud of smoke that heavily obscures a 20-ft radius area. A moderate wind (10 mph) disperses this smoke in 4 rounds, a strong wind (20+ mph) in 1 round.",
-		descriptionFull: "As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away." +
-		"\n   One round after a smoke grenade lands, it emits a cloud of smoke that creates a heavily obscured area in a 20-foot radius. A moderate wind (at least 10 miles per hour) disperses the smoke in 4 rounds; a strong wind (20 or more miles per hour) disperses it in 1 round.",
+		descriptionFull: [
+			"As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away.",
+			"One round after a *smoke grenade* lands, it emits a cloud of smoke that creates a heavily obscured area in a 20-foot radius. A moderate wind (at least 10 miles per hour) disperses the smoke in 4 rounds; a strong wind (20 or more miles per hour) disperses it in 1 round.",
+		],
 		weight: 2,
 	},
 };

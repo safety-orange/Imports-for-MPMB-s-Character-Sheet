@@ -1,5 +1,5 @@
 var iFileName = "ua_20160104_Kits-of-Old.js";
-RequiredSheetVersion("13.0.8", 15);
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the content from the Unearthed Arcana: Kits of Old article to MPMB's Character Record Sheet
 
 // Define the source
@@ -92,7 +92,7 @@ AddSubClass("bard", "college of satire-ua", { // Still valid 2021-09-21
 			name: "Fool's Insight",
 			source: [["UA:KoO", 2]],
 			minlevel: 6,
-			description: desc("I can cast Detect Thoughts, but on a save the target suffers an embarrassing social gaffe"),
+			description: desc("I can cast *Detect Thoughts*, but on a save the target suffers an embarrassing social gaffe"),
 			usages: "Charisma modifier per ",
 			usagescalc: "event.value = Math.max(1, What('Cha Mod'));",
 			recovery: "long rest",

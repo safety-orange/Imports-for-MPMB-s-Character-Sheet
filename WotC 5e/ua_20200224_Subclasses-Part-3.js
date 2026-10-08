@@ -1,5 +1,5 @@
 var iFileName = "ua_20200206_Subclasses-Part-3.js";
-RequiredSheetVersion("13.1.14", 15);
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the content from the Unearthed Arcana 2020: Subclasses, Part 3 article to MPMB's Character Record Sheet
 
 // Define the source
@@ -53,17 +53,17 @@ RunFunctionAtEnd(function () {
 				additional: "also see notes page",
 				toNotesPage: [{
 					name: "Power Armor Model Features",
-					note: desc([
+					note: [
 						"I can customize my power armor to the guardian or infiltrator model whenever I finish a short or long rest, provided I have smith's tools in hand.",
 						"Each model includes a special weapon. When I attack with that weapon, I can use my Intelligence modifier, instead of Strength or Dexterity, for the attack and damage rolls.",
-					]) + "\n\n\u25C6 Guardian Power Armor (Armorer 3, UA:SP3 2)" + desc([
-						"\u2022 Thunder Gauntlets: The armored fists of the guardian power armor each count as a simple melee weapon, and each deals 1d8 thunder damage on a hit. A creature hit by the gauntlet has disadvantage on attack rolls against targets other than me until the start of me next turn, as the armor magically emits a distracting pulse when the creature attacks someone else.",
-						"\u2022 Defensive Field: As a bonus action, I can gain temporary hit points equal to my artificer level, replacing any temporary hit points I already have. I lose these temporary hit points if I doff the armor.",
-					]) + "\n\n\u25C6 Infiltrator Power Armor (Armorer 3, UA:SP3 2)" + desc([
-						"\u2022 Lightning Launcher: A gemlike node on one of the armored fists or on the chest (my choice) counts as a simple ranged weapon, with a normal range of 90 ft and a long range of 300 ft. It deals 1d6 lightning damage on a hit. Once on each of my turns when I hit a creature with it, I can deal an extra 1d6 lightning damage to that target.",
-						"\u2022 Powered Steps: My walking speed increases by 5 feet.",
-						"\u2022 Second Skin: The armor's weight is negligible, and it becomes formfitting and wearable under clothing. If the armor normally imposes disadvantage on Dexterity (Stealth) checks, the power armor doesn't.",
-					]),
+						"\u25C6 Guardian Power Armor (Armorer 3, UA:SP3 2)",
+						" \u2022 Thunder Gauntlets: The armored fists of the guardian power armor each count as a simple melee weapon, and each deals 1d8 thunder damage on a hit. A creature hit by the gauntlet has disadvantage on attack rolls against targets other than me until the start of me next turn, as the armor magically emits a distracting pulse when the creature attacks someone else.",
+						" \u2022 Defensive Field: As a bonus action, I can gain temporary hit points equal to my artificer level, replacing any temporary hit points I already have. I lose these temporary hit points if I doff the armor.",
+						"\u25C6 Infiltrator Power Armor (Armorer 3, UA:SP3 2)",
+						" \u2022 Lightning Launcher: A gemlike node on one of the armored fists or on the chest (my choice) counts as a simple ranged weapon, with a normal range of 90 ft and a long range of 300 ft. It deals 1d6 lightning damage on a hit. Once on each of my turns when I hit a creature with it, I can deal an extra 1d6 lightning damage to that target.",
+						" \u2022 Powered Steps: My walking speed increases by 5 feet.",
+						" \u2022 Second Skin: The armor's weight is negligible, and it becomes formfitting and wearable under clothing. If the armor normally imposes disadvantage on Dexterity (Stealth) checks, the power armor doesn't.",
+					],
 				}],
 				choices: [],
 				choiceDependencies: [{
@@ -117,14 +117,14 @@ RunFunctionAtEnd(function () {
 				toNotesPage: [{
 					name: "Guardian Perfected Armor Features",
 					popupName: "Perfected Armor: Model Features",
-					note: desc([
+					note: [
 						"Tinkering with my armor's energy system leads me to discover a powerful pulling force.",
 						"As a reaction when a creature I can see ends its turn within 30 ft of me, I can force the creature to succeed on a Strength saving throw against my spell save DC or be pulled up to 30 ft toward me to an unoccupied space. If I pull the target to space within 5 ft of me, I can make a melee weapon attack against it as part of this reaction.",
 						"I can use this reaction a number of times equal to my Intelligence modifier (min 1). I regain all expended uses of it when I finish a long rest.",
-					]) + "\n\n\u25C6 Infiltrator Perfected Armor Features (Armorer 15, UA:SP3 2)" + desc([
+						"\u25C6 Infiltrator Perfected Armor Features (Armorer 15, UA:SP3 2)",
 						"Any creature that takes lightning damage from my Lightning Launcher glimmers with light until the start of my next turn.",
 						"The glimmering creature sheds dim light in a 5-ft radius, and the next attack roll against it by a creature other than me has advantage. If that attack hits, it deals an extra 1d6 lightning damage.",
-					]),
+					],
 					amendTo: "Power Armor Model Features",
 				}],
 				choices: ["guardian", "infiltrator"],
@@ -259,7 +259,10 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 		source: [["UA:SP3", 3]],
 		type: "armor (light, medium, or heavy)",
 		description: "This armor has 4 charges and regains 1d4 charges daily at dawn. As a reaction when I would be knocked prone, I can expend 1 charge to not be knocked prone. It allows me to use my Intelligence modifier instead of my Strength modifier when making Strength checks or Strength saves.",
-		descriptionFull: "While wearing this armor, a creature can use its Intelligence modifier in place of its Strength modifier when making Strength checks and Strength saving throws.\n   The armor has 4 charges. As a reaction when it would be knocked prone, the wearer can expend 1 charge to not be knocked prone. The armor regains 1d4 expended charges daily at dawn.",
+		descriptionFull: [
+			"While wearing this armor, a creature can use its Intelligence modifier in place of its Strength modifier when making Strength checks and Strength saving throws.",
+			"The armor has 4 charges. As a reaction when it would be knocked prone, the wearer can expend 1 charge to not be knocked prone. The armor regains 1d4 expended charges daily at dawn.",
+		],
 		attunement: true,
 		action: [["reaction", ""]],
 		chooseGear: {
@@ -293,7 +296,10 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 		source: [["UA:SP3", 3]],
 		type: "armor (light, medium, or heavy)",
 		description: "As an action, I can integrate a set of artisan's or thieves' tools into this magic studded leather armor, which can hold only one set at a time. The tools remain integrated for 8 hours or until I remove them as an action. I can add my Intelligence modifier as a bonus to any ability checks I make with the integrated tools.",
-		descriptionFull: "As an action, a creature wearing this infused armor can integrate into it artisan's tools or thieves' tools. The tools remain integrated in the armor for 8 hours or until the wearer removes the tools as an action. The armor can have only one tool integrated at a time.\n   The wearer can add its Intelligence modifier to any ability checks it makes with the integrated tool. The wearer must have a hand free to use the tool.",
+		descriptionFull: [
+			"As an action, a creature wearing this infused armor can integrate into it artisan's tools or thieves' tools. The tools remain integrated in the armor for 8 hours or until the wearer removes the tools as an action. The armor can have only one tool integrated at a time.",
+			"The wearer can add its Intelligence modifier to any ability checks it makes with the integrated tool. The wearer must have a hand free to use the tool.",
+		],
 		action: [["action", ""]],
 	};
 	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Mind Sharpener (ua)", {
@@ -364,7 +370,7 @@ AddSubClass("druid", "circle of the stars-ua", {
 			description: desc([
 				"I've created a star map, a Tiny object which I can use as my spellcasting focus",
 				"If I lose it, I can perform a 1-hour ceremony during a rest to create a replacement",
-				"I can use it to cast Augury or Guiding Bolt, even unprepared, without using a spell slot",
+				"I can use it to cast *Augury* or *Guiding Bolt*, even unprepared, without using a spell slot",
 			]),
 			spellcastingBonus: [{
 				name: "Star Map",

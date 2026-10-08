@@ -1,5 +1,5 @@
 var iFileName = "ua_20180813_Races-of-Ravnica.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Races of Ravnica article to MPMB's Character Record Sheet
 
 // Define the source
@@ -39,12 +39,13 @@ RaceList["loxodon-ua"] = {
 	heightMetric: " stand between 2 and 2,5 metres tall",
 	weightMetric: " weigh between 150 to 200 kg",
 	scores: [0, 0, 2, 0, 1, 0],
-	trait: "Loxodon (+2 Constitution, +1 Wisdom)" + desc([
-		"Powerful Build: I count as one size larger for my carrying capacity, push, drag, and lift.",
-		"Stonecunning: I can add double my proficiency bonus to Intelligence (History) checks related to the origin of stonework, instead of my normal proficiency bonus.",
-		"Keen Smell: I have advantage on Wisdom (Perception) and Intelligence (Investigation) checks that rely on smell.",
-		"Natural Armor: " + (typePF ? "I have an AC of" : "My thick, leathery skin gives me AC") + " 13 + Dexterity modifier + shield.",
-	]),
+	trait: [
+		"**Loxodon** (+2 Constitution, +1 Wisdom)",
+		"##\u25C6 Powerful Build##. I count as one size larger for my carrying capacity, push, drag, and lift.",
+		"##\u25C6 Stonecunning##. I can add double my proficiency bonus to Intelligence (History) checks related to the origin of stonework, instead of my normal proficiency bonus.",
+		"##\u25C6 Keen Smell##. I have advantage on Wisdom (Perception) and Intelligence (Investigation) checks that rely on smell.",
+		"##\u25C6 Natural Armor##. " + (typePF ? "I have an AC of" : "My thick, leathery skin gives me AC") + " 13 + Dexterity modifier + shield.",
+	],
 	carryingCapacity: 2,
 };
 
@@ -90,7 +91,11 @@ RaceList["simic hybrid-ua"] = {
 	weight: " are of the same weight as another of its humanoid race",
 	scorestxt: "+2 Constitution and +1 to one other ability score of my choice",
 	scores: [0, 0, 2, 0, 0, 0],
-	trait: "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (1st level): Choose one to three types of enhancement using the \"Racial Options\" button: Manta Glide, Nimble Climber, or Underwater Adaptation.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can either choose one I didn't take at 1st level or choose Grappling Appendages, Carapace, or Acid Spit.",
+	trait: [
+		"**Simic Hybrid** (+2 Constitution and +1 to one other ability score of my choice)",
+		"##\u25C6 Animal Enhancement (1st level)##. Choose one to three types of enhancement using the \"Racial Options\" button: Manta Glide, Nimble Climber, or Underwater Adaptation.",
+		"##\u25C6 Animal Enhancement (5th level)##. At 5th level, I gain another animal enhancement. I can either choose one I didn't take at 1st level or choose Grappling Appendages, Carapace, or Acid Spit.",
+	],
 	features: {
 		"animal enhancement": {
 			name: "Animal Enhancement",
@@ -106,34 +111,34 @@ RaceList["simic hybrid-ua"] = {
 				var rNm = rObj.name;
 				switch (theChoice) {
 					case "Manta Glide":
-						feaTxt = "Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
+						feaTxt = "##◆ Animal Enhancement (Manta Glide)##. I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
 						break;
 					case "Nimble Climber":
-						feaTxt = "Animal Enhancement (Nimble Climber): I have a climbing speed equal to my walking speed.";
+						feaTxt = "##◆ Animal Enhancement (Nimble Climber)##. I have a climbing speed equal to my walking speed.";
 						SetProf("speed", true, { climb: { spd: "walk", enc: "walk" } }, rNm);
 						break;
 					case "Underwater Adaptation":
-						feaTxt = "Animal Enhancement (Underwater Adaptation): I can breathe air and water, and I have a swimming speed equal to my walking speed.";
+						feaTxt = "##◆ Animal Enhancement (Underwater Adaptation)##. I can breathe air and water, and I have a swimming speed equal to my walking speed.";
 						SetProf("speed", true, { swim: { spd: "walk", enc: "walk" } }, rNm);
 						break;
 					case "Grappling Appendages":
-						feaTxt = "Animal Enhancement (Grappling Appendages): I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
+						feaTxt = "##◆ Animal Enhancement (Grappling Appendages)##. I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
 						processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[0]);
 						AddWeapon("Grappling Appendages");
 						AddAction("bonus action", "Grappling Appendages (after hit)", "being a " + rNm);
 						break;
 					case "Carapace":
-						feaTxt = "Animal Enhancement (Carapace): My skin is covered by a thick shell, giving my a +1 to AC whenever I'm not wearing heavy armor.";
+						feaTxt = "##◆ Animal Enhancement (Carapace)##. My skin is covered by a thick shell, giving me a +1 to AC whenever I'm not wearing heavy armor.";
 						processExtraAC(true, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
 						break;
 					case "Acid Spit":
-						feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a single creature within 30 ft that I can see. It must make a Dexterity saving throw with DC 8 + Con modifier + Prof Bonus or take 2d10 acid damage. This increases with 1d10 at 11th and 17th level.";
+						feaTxt = "##◆ Animal Enhancement (Acid Spit)##. As an action, I can spit acid at a single creature within 30 ft that I can see. It must make a Dexterity saving throw with DC 8 + Con modifier + Prof Bonus or take 2d10 acid damage. This increases with 1d10 at 11th and 17th level.";
 						processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[1]);
 						AddWeapon("Acid Spit");
 						break;
 				};
 				if (What("Unit System") !== "imperial") feaTxt = ConvertToMetric(feaTxt, 0.5);
-				Value("Racial Traits", What("Racial Traits").replace(/Animal Enhancement \(5th level\):.*/, "") + feaTxt);
+				Value("Racial Traits", What("Racial Traits").replace(/(##)?(◆ )?Animal Enhancement \(5th level\)(##)?[:.].*/, "") + feaTxt);
 				Value("Race Remember", What("Race Remember") + "-*" + theChoice.replace(" ", "_") + "*");
 			},
 			removeeval: function () {
@@ -172,7 +177,11 @@ RaceList["simic hybrid-ua"] = {
 AddRacialVariant("simic hybrid-ua", "manta glide", {
 	regExpSearch: /manta glide/i,
 	source: [["UA:RoR", 3]],
-	trait: "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can choose Nimble Climber, Underwater Adaptation, Grappling Appendages, Carapace, or Acid Spit.",
+	trait: [
+		"**Simic Hybrid** (+2 Constitution and +1 to one other ability score of my choice)",
+		"##\u25C6 Animal Enhancement (Manta Glide)##. I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.",
+		"##\u25C6 Animal Enhancement (5th level)##. At 5th level, I gain another animal enhancement. I can choose Nimble Climber, Underwater Adaptation, Grappling Appendages, Carapace, or Acid Spit.",
+	],
 });
 AddRacialVariant("simic hybrid-ua", "nimble climber", {
 	regExpSearch: /nimble climber/i,
@@ -181,7 +190,11 @@ AddRacialVariant("simic hybrid-ua", "nimble climber", {
 		walk: { spd: 30, enc: 20 },
 		climb: { spd: "walk", enc: "walk" },
 	},
-	trait: "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (Nimble Climber): I have a climbing speed equal to my walking speed.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can choose Manta Glide, Underwater Adaptation, Grappling Appendages, Carapace, or Acid Spit.",
+	trait: [
+		"**Simic Hybrid** (+2 Constitution and +1 to one other ability score of my choice)",
+		"##\u25C6 Animal Enhancement (Nimble Climber)##. I have a climbing speed equal to my walking speed.",
+		"##\u25C6 Animal Enhancement (5th level)##. At 5th level, I gain another animal enhancement. I can choose Manta Glide, Underwater Adaptation, Grappling Appendages, Carapace, or Acid Spit.",
+	],
 });
 AddRacialVariant("simic hybrid-ua", "underwater adaptation", {
 	regExpSearch: /underwater adaptation/i,
@@ -190,7 +203,11 @@ AddRacialVariant("simic hybrid-ua", "underwater adaptation", {
 		walk: { spd: 30, enc: 20 },
 		swim: { spd: "walk", enc: "walk" },
 	},
-	trait: "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (Underwater Adaptation): I can breathe air and water, and I have a swimming speed equal to my walking speed.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can choose Manta Glide, Nimble Climber, Grappling Appendages, Carapace, or Acid Split.",
+	trait: [
+		"**Simic Hybrid** (+2 Constitution and +1 to one other ability score of my choice)",
+		"##\u25C6 Animal Enhancement (Underwater Adaptation)##. I can breathe air and water, and I have a swimming speed equal to my walking speed.",
+		"##\u25C6 Animal Enhancement (5th level)##. At 5th level, I gain another animal enhancement. I can choose Manta Glide, Nimble Climber, Grappling Appendages, Carapace, or Acid Split.",
+	],
 });
 
 // Add Vedalken
@@ -213,7 +230,11 @@ RaceList["vedalken-ua"] = {
 	heightMetric: " stand between 1,8 and 2 metres tall",
 	weightMetric: " weigh around 100 kg",
 	scores: [0, 0, 0, 2, 1, 0],
-	trait: "Vedalken (+2 Intelligence, +1 Wisdom)\n   Vedalken Dispassion: I have advantage on all Intelligence, Wisdom, and Charisma saving throws.\n   Tireless Precision: I am proficient with any one tool and one skill of my choice: Arcana, History, Investigation, Medicine, Performance, or Sleight of Hand. Whenever I make an ability check with the chosen tool or skill, I can add 1d4 to the check's total.",
+	trait: [
+		"**Vedalken** (+2 Intelligence, +1 Wisdom)",
+		"##\u25C6 Vedalken Dispassion##. I have advantage on all Intelligence, Wisdom, and Charisma saving throws.",
+		"##\u25C6 Tireless Precision##. I am proficient with any one tool and one skill of my choice: Arcana, History, Investigation, Medicine, Performance, or Sleight of Hand. Whenever I make an ability check with the chosen tool or skill, I can add 1d4 to the check's total.",
+	],
 	advantages: [["Int", true], ["Wis", true], ["Cha", true]],
 };
 
@@ -254,5 +275,9 @@ RaceList["viashino-ua"] = {
 	weight: " have lithe, wiry frames and are thus lighter than a human of the same height",
 	scores: [1, 2, 0, 0, 0, 0],
 	action: [["reaction", "Lashing Tail (after being hit)"]],
-	trait: "Viashino (+1 Strength, +2 Dexterity)\n\nBite: I can use my fanged maw to make unarmed strikes dealing 1d4 piercing damage.\n\nLashing Tail: I have semi-prehensile tail that is tipped with a bony blade. As a reaction when a creature I can see within 5 ft damages me with a melee attack, I can use my tail to make an unarmed strike against it dealing 1d4 slashing damage.",
+	trait: [
+		"**Viashino** (+1 Strength, +2 Dexterity)",
+		"##\u25C6 Bite##. I can use my fanged maw to make unarmed strikes dealing 1d4 piercing damage.",
+		"##\u25C6 Lashing Tail##. I have semi-prehensile tail that is tipped with a bony blade. As a reaction when a creature I can see within 5 ft damages me with a melee attack, I can use my tail to make an unarmed strike against it dealing 1d4 slashing damage.",
+	],
 };

@@ -1,5 +1,5 @@
 var iFileName = "ua_20171009_Fiendish-Options.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Fiendish Options article to MPMB's Character Record Sheet
 
 // Define the source
@@ -34,7 +34,13 @@ if (!RaceList["baalzebul tiefling"]) {
 		heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 		weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 		scores: [0, 0, 0, 1, 0, 2],
-		trait: "Baalzebul Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Maladomini:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Ray of Sickness spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Crown of Madness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+		trait: [
+			"**Baalzebul Tiefling** (+1 Intelligence, +2 Charisma)",
+			"##\u25C6 Legacy of Maladomini##. I know the *Thaumaturgy* cantrip.",
+			"At 3rd level, I can cast the *Ray of Sickness* spell once per long rest as a 2nd-level spell.",
+			"At 5th level, I can also cast the *Crown of Madness* spell once per long rest.",
+			"Charisma is my spellcasting ability for these spells.",
+		],
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
 			name: "Legacy of Maladomini (1)",
@@ -58,7 +64,7 @@ if (!RaceList["baalzebul tiefling"]) {
 				spellChanges: {
 					"ray of sickness": {
 						description: "Spell attack for 3d8 Poison dmg; save or also poisoned until end of my next turn",
-						changes: "Using Legacy of Maladomini, I cast Ray of Sickness as if I'm using a 2nd-level spell slot.",
+						changes: "Using Legacy of Maladomini, I cast *Ray of Sickness* as if I'm using a 2nd-level spell slot.",
 					},
 				},
 			},
@@ -98,7 +104,13 @@ if (!RaceList["fierna tiefling"]) {
 		heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 		weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 		scores: [0, 0, 0, 0, 1, 2],
-		trait: "Fierna Tiefling (+1 Wisdom, +2 Charisma)\n\nLegacy of Phlegethos:\n   I know the Friends cantrip.\n   At 3rd level, I can cast the Charm Person spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Suggestion spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+		trait: [
+			"**Fierna Tiefling** (+1 Wisdom, +2 Charisma)",
+			"##\u25C6 Legacy of Phlegethos##. I know the *Friends* cantrip.",
+			"At 3rd level, I can cast the *Charm Person* spell once per long rest as a 2nd-level spell.",
+			"At 5th level, I can also cast the *Suggestion* spell once per long rest.",
+			"Charisma is my spellcasting ability for these spells.",
+		],
 		abilitySave: 6,
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
@@ -123,7 +135,7 @@ if (!RaceList["fierna tiefling"]) {
 				spellChanges: {
 					"charm person": {
 						description: "2 humanoids, max 30 ft apart, save or charmed; adv. on save if me/ally is fighting it",
-						changes: "Using Legacy of Phlegethos, I cast Charm Person as if I'm using a 2nd-level spell slot.",
+						changes: "Using Legacy of Phlegethos, I cast *Charm Person* as if I'm using a 2nd-level spell slot.",
 					},
 				},
 			},
@@ -163,7 +175,13 @@ if (!RaceList["glasya tiefling"]) {
 		heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 		weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 		scores: [0, 1, 0, 0, 0, 2],
-		trait: "Glasya Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Malbolge:\n   I know the Minor Illusion cantrip.\n   At 3rd level, I can cast the Disguise Self spell once per long rest.\n   At 5th level, I can also cast the Invisibility spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+		trait: [
+			"**Glasya Tiefling** (+1 Dexterity, +2 Charisma)",
+			"##\u25C6 Legacy of Malbolge##. I know the *Minor Illusion* cantrip.",
+			"At 3rd level, I can cast the *Disguise Self* spell once per long rest.",
+			"At 5th level, I can also cast the *Invisibility* spell once per long rest.",
+			"Charisma is my spellcasting ability for these spells.",
+		],
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
 			name: "Legacy of Malbolge (1)",
@@ -221,7 +239,13 @@ if (!RaceList["levistus tiefling"]) {
 		heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 		weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 		scores: [0, 0, 1, 0, 0, 2],
-		trait: "Levistus Tiefling (+1 Constitution, +2 Charisma)\n\nLegacy of Stygia:\n   I know the Ray of Frost cantrip.\n   At 3rd level, I can cast the Armor of Agathys spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+		trait: [
+			"**Levistus Tiefling** (+1 Constitution, +2 Charisma)",
+			"##\u25C6 Legacy of Stygia##. I know the *Ray of Frost* cantrip.",
+			"At 3rd level, I can cast the *Armor of Agathys* spell once per long rest as a 2nd-level spell.",
+			"At 5th level, I can also cast the *Darkness* spell once per long rest.",
+			"Charisma is my spellcasting ability for these spells.",
+		],
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
 			name: "Legacy of Stygia (1)",
@@ -245,7 +269,7 @@ if (!RaceList["levistus tiefling"]) {
 				spellChanges: {
 					"armor of agathys": {
 						description: "10 temp HP; as long as temp HP last any crea that hits in melee takes 10 Cold dmg",
-						changes: "Using Legacy of Stygia, I cast Armor of Agathys as if I'm using a 2nd-level spell slot.",
+						changes: "Using Legacy of Stygia, I cast *Armor of Agathys* as if I'm using a 2nd-level spell slot.",
 					},
 				},
 			},
@@ -285,7 +309,13 @@ if (!RaceList["mammon tiefling"]) {
 		heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 		weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 		scores: [0, 0, 0, 1, 0, 2],
-		trait: "Mammon Tiefling (+1 Intelligence, +2 Charisma)\nLegacy of Minauros:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast the Tenser's Floating Disk spell once per short rest.\n   At 5th level, I can also cast the Arcane Lock spell without a material component once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+		trait: [
+			"**Mammon Tiefling** (+1 Intelligence, +2 Charisma)",
+			"##\u25C6 Legacy of Minauros##. I know the *Mage Hand* cantrip.",
+			"At 3rd level, I can cast the *Tenser's Floating Disk* spell once per short rest.",
+			"At 5th level, I can also cast the *Arcane Lock* spell without a material component once per long rest.",
+			"Charisma is my spellcasting ability for these spells.",
+		],
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
 			name: "Legacy of Minauros (1)",
@@ -351,7 +381,13 @@ if (!RaceList["zariel tiefling"]) {
 		heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 		weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 		scores: [1, 0, 0, 0, 0, 2],
-		trait: "Zariel Tiefling (+1 Strength, +2 Charisma)\n\nLegacy of Avernus:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Searing Smite spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Branding Smite spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+		trait: [
+			"**Zariel Tiefling** (+1 Strength, +2 Charisma)",
+			"##\u25C6 Legacy of Avernus##. I know the *Thaumaturgy* cantrip.",
+			"At 3rd level, I can cast the *Searing Smite* spell once per long rest as a 2nd-level spell.",
+			"At 5th level, I can also cast the *Branding Smite* spell once per long rest.",
+			"Charisma is my spellcasting ability for these spells.",
+		],
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
 			name: "Legacy of Avernus (1)",
@@ -375,7 +411,7 @@ if (!RaceList["zariel tiefling"]) {
 				spellChanges: {
 					"searing smite": {
 						description: "Next melee weapon hit +2d6 Fire dmg and target ignites; save to end spell or 1d6 Fire dmg",
-						changes: "Using Legacy of Avernus, I cast Searing Smite as if I'm using a 2nd-level spell slot.",
+						changes: "Using Legacy of Avernus, I cast *Searing Smite* as if I'm using a 2nd-level spell slot.",
 					},
 				},
 			},
@@ -414,7 +450,13 @@ RaceList["dispater tiefling-ua"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 1, 0, 0, 0, 2],
-	trait: "Dispater Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Dis:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Disguise Self spell once per long rest.\n   At 5th level, I can also cast the Invisibility spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait: [
+		"**Dispater Tiefling** (+1 Dexterity, +2 Charisma)",
+		"##\u25C6 Legacy of Dis##. I know the *Thaumaturgy* cantrip.",
+		"At 3rd level, I can cast the *Disguise Self* spell once per long rest.",
+		"At 5th level, I can also cast the *Invisibility* spell once per long rest.",
+		"Charisma is my spellcasting ability for these spells.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Legacy of Dis (level 1)",
@@ -470,7 +512,13 @@ RaceList["mephistopheles tiefling-ua"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 0, 1, 0, 2],
-	trait: "Mephistopheles Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Cania:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast the Magic Missile spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Web spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait: [
+		"**Mephistopheles Tiefling** (+1 Intelligence, +2 Charisma)",
+		"##\u25C6 Legacy of Cania##. I know the *Mage Hand* cantrip.",
+		"At 3rd level, I can cast the *Magic Missile* spell once per long rest as a 2nd-level spell.",
+		"At 5th level, I can also cast the *Web* spell once per long rest.",
+		"Charisma is my spellcasting ability for these spells.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Legacy of Cania (level 1)",
@@ -494,7 +542,7 @@ RaceList["mephistopheles tiefling-ua"] = {
 			spellChanges: {
 				"magic missile": {
 					description: "4 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
-					changes: "Using Legacy of Cania, I cast Magic Missile as if I'm using a 2nd-level spell slot.",
+					changes: "Using Legacy of Cania, I cast *Magic Missile* as if I'm using a 2nd-level spell slot.",
 				},
 			},
 		},

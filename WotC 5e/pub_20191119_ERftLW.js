@@ -1,5 +1,5 @@
 var iFileName = "pub_20191119_ERftLW.js";
-RequiredSheetVersion("14.1.0", 15);
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the content from Eberron: Rising from the Last War to MPMB's Character Record Sheet
 
 // Define the source
@@ -31,7 +31,10 @@ RaceList["changeling"] = {
 	weightMetric: " weigh around 65 kg (52 + 5d4 \xD7 4d4 / 10 kg)",
 	scorestxt: "+2 Charisma and +1 to one other ability score of my choice",
 	scores: [0, 0, 0, 0, 0, 2],
-	trait: "Changeling (+2 Charisma and +1 to one other ability score of my choice)\nShapechanger: As an action, I can change my appearance and voice to or from a humanoid-shaped form I have seen, not changing my equipment. I determine the specifics of the form like hair length, eye color, and sex. I can adjust my height and weight, but not so much that my size changes. I revert back when I die. I can make myself appear as a member of another race, though none of my game statistics change.",
+	trait: [
+		"**Changeling** (+2 Charisma and +1 to one other ability score of my choice)",
+		"##\u25C6 Shapechanger##. As an action, I can change my appearance and voice to or from a humanoid-shaped form I have seen, not changing my equipment. I determine the specifics of the form like hair length, eye color, and sex. I can adjust my height and weight, but not so much that my size changes. I revert back when I die. I can make myself appear as a member of another race, though none of my game statistics change.",
+	],
 	action: [["action", "Shapechanger"]],
 };
 
@@ -58,7 +61,12 @@ FeatsList["revenant blade"] = {
 	source: [["E:RLW", 22]],
 	prerequisite: "Being an Elf",
 	prereqeval: function (v) { return /^(?!.*half)(?=.*(elf|eladrin|avariel|grugach|shadar-kai)).*$/i.test(CurrentRace.known); },
-	descriptionFull: "You are descended from a master of the double blade and their skills have passed on to you. You gain the following benefits:\n \u2022 Increase your Dexterity or Strength score by 1, to a maximum of 20.\n \u2022 While you are holding a double-bladed scimitar with two hands, you gain a + 1 bonus to Armor Class.\n \u2022 A double-bladed scimitar has the finesse property when you wield it.",
+	descriptionFull: [
+		"You are descended from a master of the double blade and their skills have passed on to you. You gain the following benefits:",
+		" \u2022 Increase your Dexterity or Strength score by 1, to a maximum of 20.",
+		" \u2022 While you are holding a double-bladed scimitar with two hands, you gain a + 1 bonus to Armor Class.",
+		" \u2022 A double-bladed scimitar has the finesse property when you wield it.",
+	],
 	description: "My mastery with the double bladed scimitar allows me to treat it as having the finesse trait. In addition, I gain +1 AC while wielding it with two hands. [+1 Strength or Dexterity]",
 	scorestxt: "+1 Strength or Dexterity",
 	calcChanges: {
@@ -108,7 +116,12 @@ if (!SourceList["V"]) {
 				additional: "2d6",
 			},
 		},
-		trait: "Bugbear (+2 Strength, +1 Dexterity)\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\nLong-Limbed: I have an additional 5 feet reach with melee attacks that I make on my turn.\nSurprise Attack: If I hit a surprised creature on my first turn in combat, that attack deals an extra 2d6 damage. I can do this only once per combat.",
+		trait: [
+			"**Bugbear** (+2 Strength, +1 Dexterity)",
+			"##\u25C6 Powerful Build##. I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.",
+			"##\u25C6 Long-Limbed##. I have an additional 5 ft reach with melee attacks that I make on my turn.",
+			"##\u25C6 Surprise Attack##. If I hit a surprised creature on my first turn in combat, that attack deals an extra 2d6 damage. I can do this only once per combat.",
+		],
 		carryingCapacity: 2,
 	};
 	RaceList["goblin"] = {
@@ -138,9 +151,11 @@ if (!SourceList["V"]) {
 			},
 		},
 		action: [["bonus action", "Nimble Escape (disengage/hide)"]],
-		trait: "Goblin (+2 Dexterity, +1 Constitution)" +
-		"\n \u2022 Fury of the Small: Once per short rest, when I damage a creature of a size category larger than mine with an attack or a spell, I can have it take extra damage equal to my level." +
-		"\n \u2022 Nimble Escape: As a bonus action, I can take the Disengage or Hide action.",
+		trait: [
+			"**Goblin** (+2 Dexterity, +1 Constitution)",
+			"##\u25C6 Fury of the Small##. Once per short rest, when I damage a creature of a size category larger than mine with an attack or a spell, I can have it take extra damage equal to my level.",
+			"##\u25C6 Nimble Escape##. As a bonus action, I can take the Disengage or Hide action.",
+		],
 	};
 	RaceList["hobgoblin"] = {
 		regExpSearch: /hobgoblin/i,
@@ -168,7 +183,11 @@ if (!SourceList["V"]) {
 				recovery: "short rest",
 			},
 		},
-		trait: "Hobgoblin (+2 Constitution, +1 Intelligence)\n\nMartial Training: I am proficient with two martial weapons of my choice and light armor.\n\nSaving Face: Once per short rest, when I miss an attack roll or fail an ability check or a saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30 ft of me (max +5).",
+		trait: [
+			"**Hobgoblin** (+2 Constitution, +1 Intelligence)",
+			"##\u25C6 Martial Training##. I am proficient with two martial weapons of my choice and light armor.",
+			"##\u25C6 Saving Face##. Once per short rest, when I miss an attack roll or fail an ability check or a saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30 ft of me (max +5).",
+		],
 	};
 	// The Orc, which is a duplicate from VGtM after the VGtM 2020 errata
 	RaceList["orc"] = {
@@ -189,7 +208,11 @@ if (!SourceList["V"]) {
 		heightMetric: " are usually over 1,8 metres tall (160 + 5d8 cm)",
 		weightMetric: " weigh between 100 and 125 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
 		scores: [2, 0, 1, 0, 0, 0],
-		trait: "Orc (+2 Strength, +1 Constitution)\n\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\n\nAggressive: As a bonus action, I can move up to my speed toward an enemy that I can see or hear. I must end my move closer to this enemy than I started.",
+		trait: [
+			"**Orc** (+2 Strength, +1 Constitution)",
+			"##\u25C6 Powerful Build##. I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.",
+			"##\u25C6 Aggressive##. As a bonus action, I can move up to my speed toward an enemy that I can see or hear. I must end my move closer to this enemy than I started.",
+		],
 		action: [["bonus action", "Aggressive (dash to enemy)"]],
 		carryingCapacity: 2,
 	};
@@ -215,7 +238,12 @@ RaceList["kalashtar"] = {
 	heightMetric: " range from 1,7 to 1,9 metres tall (160 + 5d6 cm)",
 	weightMetric: " weigh around 65 kg (50 + 5d6 \xD7 2d6 / 10 kg)",
 	scores: [0, 0, 0, 0, 2, 1],
-	trait: "Kalashtar (+2 Wisdom, +1 Charisma)\n   Dual Mind: I have advantage on Wisdom saving throws.\n   Mind Link: I can speak telepathically to any creature I can see within 10 ft \xD7 my level, as long as it can speak at least one language. As an action, I can give that creature the ability to speak telepathically back to me while it can see me and is within range. This lasts for 1 hour, until I use this ability on another creature, or until I end it as an action.\n   Severed from Dreams: I don't dream and thus immune to spells that affect dreams.",
+	trait: [
+		"**Kalashtar** (+2 Wisdom, +1 Charisma)",
+		"##\u25C6 Dual Mind##. I have advantage on Wisdom saving throws.",
+		"##\u25C6 Mind Link##. I can speak telepathically to any creature I can see within 10 ft \xD7 my level, as long as it can speak at least one language. As an action, I can give that creature the ability to speak telepathically back to me while it can see me and is within range. This lasts for 1 hour, until I use this ability on another creature, or until I end it as an action.",
+		"##\u25C6 Severed from Dreams##. I don't dream and thus immune to spells that affect dreams.",
+	],
 	action: [["action", "Mind Link (start/stop)"]],
 };
 
@@ -239,7 +267,13 @@ RaceList["beasthide shifter"] = {
 	heightMetric: " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric: " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [1, 0, 2, 0, 0, 0],
-	trait: "Beasthide Shifter (+1 Strength, +2 Constitution)\n\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to 1d6 + my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I have a +1 bonus to AC.",
+	trait: [
+		"**Beasthide Shifter** (+1 Strength, +2 Constitution)",
+		"##\u25C6 Shifting##. As a bonus action once per short rest, I can assume a more bestial appearance.",
+		"This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.",
+		"When I shift, I gain temporary HP equal to 1d6 + my level + my Constitution modifier (minimum 1 temporary hit point).",
+		"While transformed like this, I have a +1 bonus to AC.",
+	],
 	features: {
 		"shift": {
 			name: "Shift",
@@ -279,7 +313,13 @@ RaceList["longtooth shifter"] = {
 	heightMetric: " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric: " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [2, 1, 0, 0, 0, 0],
-	trait: "Longtooth Shifter (+2 Strength, +1 Dexterity)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I use my elongated fangs to make unarmed strikes, dealing 1d6 piercing damage. As a bonus action, I can maken one attack with my fangs.",
+	trait: [
+		"**Longtooth Shifter** (+2 Strength, +1 Dexterity)",
+		"##\u25C6 Shifting##. As a bonus action once per short rest, I can assume a more bestial appearance.",
+		"This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.",
+		"When I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).",
+		"While transformed like this, I use my elongated fangs to make unarmed strikes, dealing 1d6 piercing damage. As a bonus action, I can maken one attack with my fangs.",
+	],
 	action: [["bonus action", "Longtooth Fangs attack (while shifted)"]],
 	features: {
 		"shift": {
@@ -311,7 +351,14 @@ RaceList["swiftstride shifter"] = {
 	heightMetric: " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric: " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 0, 1],
-	trait: "Swiftstride Shifter (+2 Dexterity, +1 Charisma)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").\nWhile transformed like this, my walking speed increases with 10 ft.\nAs a reaction when an enemy ends its turn within 5 ft of me while I'm shifted, I can move 10 ft without provoking opportunity attacks.",
+	trait: [
+		"**Swiftstride Shifter** (+2 Dexterity, +1 Charisma)",
+		"##\u25C6 Shifting##. As a bonus action once per short rest, I can assume a more bestial appearance.",
+		"This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.",
+		"When I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").",
+		"While transformed like this, my walking speed increases with 10 ft.",
+		"As a reaction when an enemy ends its turn within 5 ft of me while I'm shifted, I can move 10 ft without provoking opportunity attacks.",
+	],
 	action: [["reaction", "Stride (while shifted)"]],
 	features: {
 		"shift": {
@@ -343,7 +390,13 @@ RaceList["wildhunt shifter"] = {
 	heightMetric: " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric: " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 1, 0, 0, 2, 0],
-	trait: "Wildhunt Shifter (+1 Dexterity, +2 Wisdom)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I have advantage on Wisdom checks and no creature within 30 ft can make an attack roll with advantage against me, unless I'm incapacitated.",
+	trait: [
+		"**Wildhunt Shifter** (+1 Dexterity, +2 Wisdom)",
+		"##\u25C6 Shifting##. As a bonus action once per short rest, I can assume a more bestial appearance.",
+		"This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.",
+		"When I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).",
+		"While transformed like this, I have advantage on Wisdom checks and no creature within 30 ft can make an attack roll with advantage against me, unless I'm incapacitated.",
+	],
 	features: {
 		"shift": {
 			name: "Shift",
@@ -382,7 +435,12 @@ RaceList["warforged"] = {
 	weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	scorestxt: "+2 Constitution and +1 to one other ability score of my choice",
 	scores: [0, 0, 2, 0, 0, 0],
-	trait: "Warforged (+2 Constitution and +1 to one other ability score" + (typePF ? "" : " of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: I gain +1 AC and I can don only armor with which I'm proficient. To don or doff armor, I must (un)incorporate it into my body over the course of 1 hour, which can be done during resting. Donned armor can't be removed against my will while I'm alive.",
+	trait: [
+		"**Warforged** (+2 Constitution and +1 to one other ability score" + (typePF ? "" : " of my choice") + ")",
+		"##Warforged Resilience##. I do not need to sleep, eat, drink, or breathe.",
+		"##Sentry's Rest##. To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.",
+		"##Integrated Protection##. I gain +1 AC and I can don only armor with which I'm proficient. To don or doff armor, I must (un)incorporate it into my body over the course of 1 hour, which can be done during resting. Donned armor can't be removed against my will while I'm alive.",
+	],
 	extraAC: {
 		name: "Integrated Protection",
 		mod: 1,
@@ -414,7 +472,12 @@ RaceList["dragonmark detection half-elf"] = {
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scorestxt: "+2 Wisdom and +1 to one other ability score of my choice",
 	scores: [0, 0, 0, 0, 2, 0],
-	trait: "Half-Elf, Dragonmark of Detection (+2 Wisdom \u0026 +1 to one other ability of my choice)\n   Deductive Intuition: I can add +1d4 to my Intelligence (Investigation) and Wisdom (Insight) checks.\n   Magical Detection: I can cast Detect Magic and Detect Poison and Disease each once per long rest. At 3rd level, I can also cast See Invisibility once per long rest. Wisdom is my spellcasting ability for these and none of them require material components.\n   Spells of the Mark: I add several spells to the spell list of my spellcasting class(es).",
+	trait: [
+		"**Half-Elf, Dragonmark of Detection** (+2 Wisdom \u0026 +1 to one other ability of my choice)",
+		"##\u25C6 Deductive Intuition##. I can add +1d4 to my Intelligence (Investigation) and Wisdom (Insight) checks.",
+		"##\u25C6 Magical Detection##. I can cast *Detect Magic* and *Detect Poison and Disease* each once per long rest. At 3rd level, I can also cast *See Invisibility* once per long rest. Wisdom is my spellcasting ability for these and none of them require material components.",
+		"##\u25C6 Spells of the Mark##. I add several spells to the spell list of my spellcasting class(es).",
+	],
 	spellcastingAbility: 5, // changed from Int to Wis by errata
 	features: {
 		"magical detection": {
@@ -473,7 +536,7 @@ RaceList["dragonmark detection half-elf"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["detect evil and good", "detect poison and disease", "detect thoughts", "find traps", "clairvoyance", "nondetection", "arcane eye", "divination", "legend lore"]);
 			},
-			"My race adds extra spells to the spell list(s) of my spellcasting class(es): Detect Evil and Good, Detect Poison and Disease, Detect Thoughts, Find Traps, Clairvoyance, Nondetection, Arcane Eye, Divination, and Legend Lore.",
+			"My race adds extra spells to the spell list(s) of my spellcasting class(es): *Detect Evil and Good*, *Detect Poison and Disease*, *Detect Thoughts*, *Find Traps*, *Clairvoyance*, *Nondetection*, *Arcane Eye*, *Divination*, and *Legend Lore*.",
 		],
 	},
 };
@@ -495,7 +558,12 @@ RaceList["dragonmark finding half-orc"] = {
 	heightMetric: " range from 1,5 to well over 1,8 metres tall (150 + 5d10 cm)",
 	weightMetric: " weigh around 100 kg (65 + 5d10 \xD7 4d6 / 10 kg)",
 	scores: [0, 0, 1, 0, 2, 0],
-	trait: "Half-Orc, Dragonmark of Finding (+1 Constitution, +2 Wisdom)\n   Hunter's Intuition: I can add +1d4 to my Wisdom (Perception) and Wisdom (Survival) checks.\n   Finder's Magic: I can cast Hunter's Mark once per long rest. At 3rd level, I can also cast Locate Object once per long rest. Wisdom is my spellcasting ability for these.\n   Spells of the Mark: I add several spells to the spell list of my spellcasting class(es).",
+	trait: [
+		"**Half-Orc, Dragonmark of Finding** (+1 Constitution, +2 Wisdom)",
+		"##\u25C6 Hunter's Intuition##. I can add +1d4 to my Wisdom (Perception) and Wisdom (Survival) checks.",
+		"##\u25C6 Finder's Magic##. I can cast *Hunter's Mark* once per long rest. At 3rd level, I can also cast *Locate Object* once per long rest. Wisdom is my spellcasting ability for these.",
+		"##\u25C6 Spells of the Mark##. I add several spells to the spell list of my spellcasting class(es).",
+	],
 	spellcastingAbility: 5,
 	features: {
 		"finder's magic": {
@@ -534,7 +602,7 @@ RaceList["dragonmark finding half-orc"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["faerie fire", "longstrider", "locate animals or plants", "locate object", "clairvoyance", "speak with plants", "divination", "locate creature", "commune with nature"]);
 			},
-			"My race adds extra spells to the spell list(s) of my spellcasting class(es): Faerie Fire, Longstrider, Locate Animals or Plants, Locate Object, Clairvoyance, Speak with Plants, Divination, Locate Creature, and Commune with Nature.",
+			"My race adds extra spells to the spell list(s) of my spellcasting class(es): *Faerie Fire*, *Longstrider*, *Locate Animals or Plants*, *Locate Object*, *Clairvoyance*, *Speak with Plants*, *Divination*, *Locate Creature*, and *Commune with Nature*.",
 		],
 	},
 };
@@ -556,7 +624,12 @@ RaceList["dragonmark finding human"] = {
 	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 1, 0, 2, 0],
-	trait: "Human, Dragonmark of Finding (+1 Constitution, +2 Wisdom)\n   Hunter's Intuition: I can add +1d4 to my Wisdom (Perception) and Wisdom (Survival) checks.\n   Finder's Magic: I can cast Hunter's Mark once per long rest. At 3rd level, I can also cast Locate Object once per long rest. Wisdom is my spellcasting ability for these.\n   Spells of the Mark: I add several spells to the spell list of my spellcasting class(es).",
+	trait: [
+		"**Human, Dragonmark of Finding** (+1 Constitution, +2 Wisdom)",
+		"##\u25C6 Hunter's Intuition##. I can add +1d4 to my Wisdom (Perception) and Wisdom (Survival) checks.",
+		"##\u25C6 Finder's Magic##. I can cast *Hunter's Mark* once per long rest. At 3rd level, I can also cast *Locate Object* once per long rest. Wisdom is my spellcasting ability for these.",
+		"##\u25C6 Spells of the Mark##. I add several spells to the spell list of my spellcasting class(es).",
+	],
 	spellcastingAbility: 5,
 	features: {
 		"finder's magic": {
@@ -595,7 +668,7 @@ RaceList["dragonmark finding human"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["faerie fire", "longstrider", "locate animals or plants", "locate object", "clairvoyance", "speak with plants", "divination", "locate creature", "commune with nature"]);
 			},
-			"My race adds extra spells to the spell list(s) of my spellcasting class(es): Faerie Fire, Longstrider, Locate Animals or Plants, Locate Object, Clairvoyance, Speak with Plants, Divination, Locate Creature, and Commune with Nature.",
+			"My race adds extra spells to the spell list(s) of my spellcasting class(es): *Faerie Fire*, *Longstrider*, *Locate Animals or Plants*, *Locate Object*, *Clairvoyance*, *Speak with Plants*, *Divination*, *Locate Creature*, and *Commune with Nature*.",
 		],
 	},
 };
@@ -617,7 +690,12 @@ RaceList["dragonmark handling human"] = {
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scorestxt: "+2 Wisdom and +1 to one other ability score of my choice",
 	scores: [0, 0, 0, 0, 2, 0],
-	trait: "Human, Dragonmark of Handling (+2 Wisdom, +1 to one other ability score of my choice)\n   Wild Intuition: I can add +1d4 to my Wisdom (Animal Handling) and Intelligence (Nature) checks.\n   Primal Connection: I can cast Animal Friendship and Speak with Animals each once per short rest. Wisdom is my spellcasting ability for these.\n   The Bigger They Are: When I cast Animal Friendship or Speak with Animals, I can target a monstrosity with an Intelligence of 3 or lower instead of a beast.",
+	trait: [
+		"**Human, Dragonmark of Handling** (+2 Wisdom, +1 to one other ability score of my choice)",
+		"##\u25C6 Wild Intuition##. I can add +1d4 to my Wisdom (Animal Handling) and Intelligence (Nature) checks.",
+		"##\u25C6 Primal Connection##. I can cast *Animal Friendship* and *Speak with Animals* each once per short rest. Wisdom is my spellcasting ability for these.",
+		"##\u25C6 The Bigger They Are##. When I cast *Animal Friendship* or *Speak with Animals*, I can target a monstrosity with an Intelligence of 3 or lower instead of a beast.",
+	],
 	spellcastingAbility: 5,
 	features: {
 		"primal connection": {
@@ -652,7 +730,7 @@ RaceList["dragonmark handling human"] = {
 						return true;
 				}
 			},
-			"When I cast Animal Friendship or Speak with Animals, I can target a monstrosity with an Intelligence of 3 or lower instead of a beast.",
+			"When I cast *Animal Friendship* or *Speak with Animals*, I can target a monstrosity with an Intelligence of 3 or lower instead of a beast.",
 		],
 		spellList: [
 			function (spList, spName, spType) {
@@ -662,7 +740,7 @@ RaceList["dragonmark handling human"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["animal friendship", "speak with animals", "beast sense", "calm emotions", "beacon of hope", "conjure animals", "aura of life", "dominate beast", "awaken"]);
 			},
-			"My race adds extra spells to the spell list(s) of my spellcasting class(es): Animal Friendship, Speak with Animals, Beast Sense, Calm Emotions, Beacon of Hope, Conjure Animals, Aura of Life, Dominate Beast, and Awaken.",
+			"My race adds extra spells to the spell list(s) of my spellcasting class(es): *Animal Friendship*, *Speak with Animals*, *Beast Sense*, *Calm Emotions*, *Beacon of Hope*, *Conjure Animals*, *Aura of Life*, *Dominate Beast*, and *Awaken*.",
 		],
 	},
 };
@@ -684,7 +762,13 @@ RaceList["dragonmark healing halfling"] = {
 	heightMetric: " average about 90 cm tall (80 + 5d4)",
 	weightMetric: " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 1, 0],
-	trait: "Halfling, Dragonmark of Healing (+2 Dexterity, +1 Wisdom)\nLucky: When I roll a 1 on an attack, check, or save, I can reroll it but must use the result." + (typePF ? " " : "\n") + "Halfling Nimbleness: I can move through the space of Medium and larger creatures.\nMedical Intuition: I can add +1d4 to my Wisdom (Medicine) and herbalism kit checks.\nHealing Touch: I can cast Cure Wounds each once per long rest. At 3rd level, I can also cast Lesser Restoration once per long rest. Wisdom is my spellcasting ability for these.\nSpells of the Mark: I add several spells to " + (typePF ? "my class' spell list." : "the spell list of my spellcasting class(es)."),
+	trait: [
+		"**Halfling, Dragonmark of Healing** (+2 Dexterity, +1 Wisdom)",
+		"##\u25C6 Lucky##. When I roll a 1 on an attack, check, or save, I can reroll it but must use the result." + (typePF ? " " : "\r") + "##\u25C6 Halfling Nimbleness##. I can move through the space of Medium and larger creatures.",
+		"##\u25C6 Medical Intuition##. I can add +1d4 to my Wisdom (Medicine) and herbalism kit checks.",
+		"##\u25C6 Healing Touch##. I can cast *Cure Wounds* each once per long rest. At 3rd level, I can also cast *Lesser Restoration* once per long rest. Wisdom is my spellcasting ability for these.",
+		"##\u25C6 Spells of the Mark##. I add several spells to " + (typePF ? "my class' spell list." : "the spell list of my spellcasting class(es)."),
+	],
 	spellcastingAbility: 5,
 	features: {
 		"healing touch": {
@@ -723,7 +807,7 @@ RaceList["dragonmark healing halfling"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["cure wounds", "healing word", "lesser restoration", "prayer of healing", "aura of vitality", "mass healing word", "aura of purity", "aura of life", "greater restoration"]);
 			},
-			"My race adds extra spells to the spell list(s) of my spellcasting class(es): Cure Wounds, Healing Word, Lesser Restoration, Prayer of Healing, Aura of Vitality, Mass Healing Word, Aura of Purity, Aura of Life, and Greater Restoration.",
+			"My race adds extra spells to the spell list(s) of my spellcasting class(es): *Cure Wounds*, *Healing Word*, *Lesser Restoration*, *Prayer of Healing*, *Aura of Vitality*, *Mass Healing Word*, *Aura of Purity*, *Aura of Life*, and *Greater Restoration*.",
 		],
 	},
 };
@@ -745,7 +829,11 @@ RaceList["dragonmark hospitality halfling"] = {
 	heightMetric: " average about 90 cm tall (80 + 5d4)",
 	weightMetric: " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 0, 1],
-	trait: "Halfling, Dragonmark of Hospitality (+2 Dexterity, +1 Charisma)\nLucky: When I roll a 1 on an attack, check, or save, I can reroll it but must use the result." + (typePF ? " " : "\n") + "Halfling Nimbleness: I can move through the space of Medium and larger creatures.\nEver Hospitable: I can add +1d4 to my Charisma (Persuasion), brewer's supplies, and cook's utensils checks." + (typePF ? "\n" : " ") + "Innkeeper's Magic: I know the Prestidigitation cantrip and I can cast Purify Food and Drink and Unseen Servant each once per long rest. Charisma as my spellcasting ability for these. Spells of the Mark: I add several spells to my class' spell list.",
+	trait: [
+		"**Halfling, Dragonmark of Hospitality** (+2 Dexterity, +1 Charisma)",
+		"##\u25C6 Lucky##. When I roll a 1 on an attack, check, or save, I can reroll it but must use the result." + (typePF ? " " : "\r") + "##\u25C6 Halfling Nimbleness##. I can move through the space of Medium and larger creatures.",
+		"##\u25C6 Ever Hospitable##. I can add +1d4 to my Charisma (Persuasion), brewer's supplies, and cook's utensils checks." + (typePF ? "\r" : " ") + "##\u25C6 Innkeeper's Magic##. I know the *Prestidigitation* cantrip and I can cast *Purify Food and Drink* and *Unseen Servant* each once per long rest. Charisma as my spellcasting ability for these. Spells of the Mark: I add several spells to my class' spell list.",
+	],
 	spellcastingAbility: 6,
 	features: {
 		"innkeeper's magic": {
@@ -781,7 +869,7 @@ RaceList["dragonmark hospitality halfling"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["goodberry", "sleep", "aid", "calm emotions", "create food and water", "leomund's tiny hut", "aura of purity", "mordenkainen's private sanctum", "hallow"]);
 			},
-			"My race adds extra spells to the spell list(s) of my spellcasting class(es): Goodberry, Sleep, Aid, Calm Emotions, Create Food and Water, Leomund's Tiny Hut, Aura of Purity, Mordenkainen's Private Sanctum, and Hallow.",
+			"My race adds extra spells to the spell list(s) of my spellcasting class(es): Goodberry, *Sleep*, *Aid*, *Calm Emotions*, *Create Food and Water*, *Leomund's Tiny Hut*, *Aura of Purity*, *Mordenkainen's Private Sanctum*, and *Hallow*.",
 		],
 	},
 };
@@ -804,7 +892,12 @@ RaceList["dragonmark making human"] = {
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scorestxt: "+2 Intelligence and +1 to one other ability score of my choice",
 	scores: [0, 0, 0, 2, 0, 0],
-	trait: "Human, Dragonmark of Making (+2 Intelligence, +1 to one other ability score of my choice)\n   Artisan's Intuition: I can add +1d4 to Arcana checks and checks with artisan's tools.\n   Spellsmith: I know the Mending cantrip. I can cast Magic Weapon once per long rest and when I do so, it doesn't require concentration and lasts for 1 hour. Intelligence is my spellcasting ability for these.\n   Spells of the Mark: I add several spells to the spell list of my spellcasting class(es)." + (typePF ? "" : "\n   Maker's Gift: I gain proficiency with one type of artisan's tools of my choice."),
+	trait: [
+		"**Human, Dragonmark of Making** (+2 Intelligence, +1 to one other ability score of my choice)",
+		"##\u25C6 Artisan's Intuition##. I can add +1d4 to Arcana checks and checks with artisan's tools.",
+		"##\u25C6 Spellsmith##. I know the *Mending* cantrip. I can cast *Magic Weapon* once per long rest and when I do so, it doesn't require concentration and lasts for 1 hour. Intelligence is my spellcasting ability for these.",
+		"##\u25C6 Spells of the Mark##. I add several spells to the spell list of my spellcasting class(es)." + (typePF ? "" : "\r##\u25C6 Maker's Gift##. I gain proficiency with one type of artisan's tools of my choice."),
+	],
 	spellcastingAbility: 4,
 	features: {
 		"spellsmith": {
@@ -841,7 +934,7 @@ RaceList["dragonmark making human"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["identify", "tenser's floating disk", "continual flame", "magic weapon", "conjure barrage", "elemental weapon", "fabricate", "stone shape", "creation"]);
 			},
-			"My race adds extra spells to the spell list(s) of my spellcasting class(es): Identify, Tenser's Floating Disk, Continual Flame, Magic Weapon, Conjure Barrage, Elemental Weapon, Fabricate, Stone Shape, and Creation.",
+			"My race adds extra spells to the spell list(s) of my spellcasting class(es): *Identify*, *Tenser's Floating Disk*, *Continual Flame*, *Magic Weapon*, *Conjure Barrage*, *Elemental Weapon*, *Fabricate*, *Stone Shape*, and *Creation*.",
 		],
 	},
 };
@@ -863,7 +956,13 @@ RaceList["dragonmark passage human"] = {
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scorestxt: "+2 Dexterity and +1 to one other ability score of my choice",
 	scores: [0, 2, 0, 0, 0, 0],
-	trait: "Human, Dragonmark of Passage (+2 Dexterity, +1 to one other ability score of my choice)\n   Intuitive Motion: I can add +1d4 to my Dexterity (Acrobatics) checks and any ability checks involving operating or maintaining a land vehicle.\n   Magical Passage: I can cast Misty Step once per long rest, using Dexterity as my spellcasting ability.\n   Spells of the Mark: I add several spells to the spell list of my spellcasting class(es).\n   Courier's Speed: My base walking speed is 35 ft.",
+	trait: [
+		"**Human, Dragonmark of Passage** (+2 Dexterity, +1 to one other ability score of my choice)",
+		"##\u25C6 Intuitive Motion##. I can add +1d4 to my Dexterity (Acrobatics) checks and any ability checks involving operating or maintaining a land vehicle.",
+		"##\u25C6 Magical Passage##. I can cast *Misty Step* once per long rest, using Dexterity as my spellcasting ability.",
+		"##\u25C6 Spells of the Mark##. I add several spells to the spell list of my spellcasting class(es).",
+		"##\u25C6 Courier's Speed##. My base walking speed is 35 ft.",
+	],
 	spellcastingAbility: 2,
 	features: {
 		"magical passage": {
@@ -889,7 +988,7 @@ RaceList["dragonmark passage human"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["expeditious retreat", "jump", "misty step", "pass without trace", "blink", "phantom steed", "dimension door", "freedom of movement", "teleportation circle"]);
 			},
-			"My race adds extra spells to the spell list(s) of my spellcasting class(es): Expeditious Retreat, Jump, Misty Step, Pass Without Trace, Blink, Phantom Steed, Dimension Door, Freedom of Movement, and Teleportation Circle.",
+			"My race adds extra spells to the spell list(s) of my spellcasting class(es): *Expeditious Retreat*, *Jump*, *Misty Step*, *Pass Without Trace*, *Blink*, *Phantom Steed*, *Dimension Door*, *Freedom of Movement*, and *Teleportation Circle*.",
 		],
 	},
 };
@@ -912,7 +1011,12 @@ RaceList["dragonmark scribing gnome"] = {
 	heightMetric: " are 90 to 120 cm tall (2'11\" + 5d4)",
 	weightMetric: " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores: [0, 0, 0, 2, 0, 1],
-	trait: "Gnome, Dragonmark of Scribing (+2 Intelligence, +1 Charisma)\n   Gifted Scribe: I can add +1d4 to my Intelligence (History) checks and ability checks with calligrapher's supplies.\n   Scribe's Insight: I know the Message cantrip. I can cast Comprehend Languages once per long rest. At 3rd level, I can also cast Magic Mouth once per long rest. Intelligence is my spellcasting ability for these spells.\n   Spells of the Mark: I add several spells to the spell list of my spellcasting class(es).",
+	trait: [
+		"**Gnome, Dragonmark of Scribing** (+2 Intelligence, +1 Charisma)",
+		"##\u25C6 Gifted Scribe##. I can add +1d4 to my Intelligence (History) checks and ability checks with calligrapher's supplies.",
+		"##\u25C6 Scribe's Insight##. I know the *Message* cantrip. I can cast *Comprehend Languages* once per long rest. At 3rd level, I can also cast *Magic Mouth* once per long rest. Intelligence is my spellcasting ability for these spells.",
+		"##\u25C6 Spells of the Mark##. I add several spells to the spell list of my spellcasting class(es).",
+	],
 	spellcastingAbility: 4,
 	features: {
 		"scribe's insight": {
@@ -955,7 +1059,7 @@ RaceList["dragonmark scribing gnome"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["comprehend languages", "illusory script", "animal messenger", "silence", "sending", "tongues", "arcane eye", "confusion", "dream"]);
 			},
-			"My race adds extra spells to the spell list(s) of my spellcasting class(es): Comprehend Languages, Illusory Script, Animal Messenger, Silence, Sending, Tongues, Arcane Eye, Confusion, and Dream.",
+			"My race adds extra spells to the spell list(s) of my spellcasting class(es): *Comprehend Languages*, *Illusory Script*, *Animal Messenger*, *Silence*, *Sending*, *Tongues*, *Arcane Eye*, *Confusion*, and *Dream*.",
 		],
 	},
 };
@@ -976,7 +1080,13 @@ RaceList["dragonmark sentinel human"] = {
 	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 2, 0, 1, 0],
-	trait: "Human, Dragonmark of Sentinel (+2 Constitution, +1 Wisdom)\n  Sentinel's Intuition: I can add +1d4 my Wisdom (Insight) and Wisdom (Perception) checks.\n  Guardian's Shield: I can cast Shield once per long rest, using Wisdom as my spellcasting ability.\n  Vigilant Guardian: Once per long rest as a reaction when a creature I can see within 5 ft is hit by an attack roll, I can swap places with it and I'm hit by the attack instead.\n  Spells of the Mark: I add several spells to the spell list of my spellcasting class(es).",
+	trait: [
+		"**Human, Dragonmark of Sentinel** (+2 Constitution, +1 Wisdom)",
+		"##\u25C6 Sentinel's Intuition##. I can add +1d4 my Wisdom (Insight) and Wisdom (Perception) checks.",
+		"##\u25C6 Guardian's Shield##. I can cast *Shield* once per long rest, using Wisdom as my spellcasting ability.",
+		"##\u25C6 Vigilant Guardian##. Once per long rest as a reaction when a creature I can see within 5 ft is hit by an attack roll, I can swap places with it and I'm hit by the attack instead.",
+		"##\u25C6 Spells of the Mark##. I add several spells to the spell list of my spellcasting class(es).",
+	],
 	spellcastingAbility: 5,
 	features: {
 		"vigilant guardian": {
@@ -1009,7 +1119,7 @@ RaceList["dragonmark sentinel human"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["compelled duel", "shield of faith", "warding bond", "zone of truth", "counterspell", "protection from energy", "death ward", "guardian of faith", "bigby's hand"]);
 			},
-			"My race adds extra spells to the spell list(s) of my spellcasting class(es): Compelled Duel, Shield of Faith, Warding Bond, Zone of Truth, Counterspell, Protection from Energy, Death Ward, Guardian of Faith, and Bigby's Hand.",
+			"My race adds extra spells to the spell list(s) of my spellcasting class(es): *Compelled Duel*, *Shield of Faith*, *Warding Bond*, *Zone of Truth*, *Counterspell*, *Protection from Energy*, *Death Ward*, *Guardian of Faith*, and *Bigby's Hand*.",
 		],
 	},
 };
@@ -1036,7 +1146,13 @@ RaceList["dragonmark shadow elf"] = {
 	heightMetric: " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 0, 1],
-	trait: "Elf, Dragonmark of Shadow (+2 Dexterity, +1 Charisma)\n   Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\n   Cunning Intuition: I can add +1d4 to my Cha" + (typePF ? "risma" : "") + " (Performance) and Dex" + (typePF ? "terity" : "") + " (Stealth) checks.\n   Shape Shadows: I know the Minor Illusion cantrip. At 3rd level, I can cast Invisibility once per long rest. Charisma is my spellcasting ability for these.\n   Spells of the Mark: I add several spells to " + (typePF ? "my class' spell list." : "the spell list of my spellcasting class(es)."),
+	trait: [
+		"**Elf, Dragonmark of Shadow** (+2 Dexterity, +1 Charisma)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).",
+		"##\u25C6 Cunning Intuition##. I can add +1d4 to my Cha" + (typePF ? "risma" : "") + " (Performance) and Dex" + (typePF ? "terity" : "") + " (Stealth) checks.",
+		"##\u25C6 Shape Shadows##. I know the *Minor Illusion* cantrip. At 3rd level, I can cast *Invisibility* once per long rest. Charisma is my spellcasting ability for these.",
+		"##\u25C6 Spells of the Mark##. I add several spells to " + (typePF ? "my class' spell list." : "the spell list of my spellcasting class(es)."),
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Shape Shadows (level 1)",
@@ -1067,7 +1183,7 @@ RaceList["dragonmark shadow elf"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["disguise self", "silent image", "darkness", "pass without trace", "clairvoyance", "major image", "greater invisibility", "hallucinatory terrain", "mislead"]);
 			},
-			"My race adds extra spells to the spell list(s) of my spellcasting class(es): Disguise Self, Silent Image, Darkness, Pass Without Trace, Clairvoyance, Major Image, Greater Invisibility, Hallucinatory Terrain, and Mislead.",
+			"My race adds extra spells to the spell list(s) of my spellcasting class(es): *Disguise Self*, *Silent Image*, *Darkness*, *Pass Without Trace*, *Clairvoyance*, *Major Image*, *Greater Invisibility*, *Hallucinatory Terrain*, and *Mislead*.",
 		],
 	},
 };
@@ -1094,7 +1210,12 @@ RaceList["dragonmark storm half-elf"] = {
 	heightMetric: " range from 1,5 to 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 1, 0, 0, 0, 2],
-	trait: "Half-Elf, Dragonmark of Storm (+1 Dexterity, +2 Charisma)\n   Windwright's Intuition: I can add +1d4 to my Dexterity (Acrobatics) checks and any ability checks involving operating or maintaining a water or air vehicle.\n   Headwinds: I know the Gust cantrip. Once I reach 3rd level, I can cast Gust of Wind once per long rest. Charisma is my spellcasting ability for these spells.\n   Spells of the Mark: I add several spells to the spell list of my spellcasting class(es).",
+	trait: [
+		"**Half-Elf, Dragonmark of Storm** (+1 Dexterity, +2 Charisma)",
+		"##\u25C6 Windwright's Intuition##. I can add +1d4 to my Dexterity (Acrobatics) checks and any ability checks involving operating or maintaining a water or air vehicle.",
+		"##\u25C6 Headwinds##. I know the *Gust* cantrip. Once I reach 3rd level, I can cast *Gust of Wind* once per long rest. Charisma is my spellcasting ability for these spells.",
+		"##\u25C6 Spells of the Mark##. I add several spells to the spell list of my spellcasting class(es).",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Headwinds (level 1)",
@@ -1125,7 +1246,7 @@ RaceList["dragonmark storm half-elf"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["feather fall", "fog cloud", "gust of wind", "levitate", "sleet storm", "wind wall", "conjure minor elementals", "control water", "conjure elemental"]);
 			},
-			"My race adds extra spells to the spell list(s) of my spellcasting class(es): Feather Fall, Fog Cloud, Gust of Wind, Levitate, Sleet Storm, Wind Wall, Conjure Minor Elementals, Control Water, and Conjure Elemental.",
+			"My race adds extra spells to the spell list(s) of my spellcasting class(es): *Feather Fall*, *Fog Cloud*, *Gust of Wind*, *Levitate*, *Sleet Storm*, *Wind Wall*, *Conjure Minor Elementals*, *Control Water*, and *Conjure Elemental*.",
 		],
 	},
 };
@@ -1151,7 +1272,12 @@ RaceList["dragonmark warding dwarf"] = {
 	heightMetric: " stand between 1,2 and 1,5 metres tall (120 + 5d4 cm)",
 	weightMetric: " weigh around 75 kg (60 + 5d4 \xD7 4d6 / 10 kg)",
 	scores: [0, 0, 2, 1, 0, 0],
-	trait: "Dwarf, Dragonmark of Warding (+2 Constitution, +1 Intelligence)\n" + (typePF ? "   " : "- ") + "Warder's Intuition: I can add +1d4 to my Intelligence (Investigation) checks and ability checks with thieves' tools." + (typePF ? "\n   Stonecunning: When I make an Int (History) check related to origin of stonework, I am considered having expertise in the History skill.\n   " : " - Stonecunning: Expertise in History when concerning stonework.\n- ") + "Wards and Seals: I can cast Alarm and Mage Armor each once per long rest. At 3rd level, I can also cast Arcane Lock once per long rest. Intelligence is my spellcasting ability for these and none of them require material components.\n" + (typePF ? "   " : "- ") + "Spells of the Mark: I add several spells to my class' spell list(s).",
+	trait: [
+		"**Dwarf, Dragonmark of Warding** (+2 Constitution, +1 Intelligence)",
+		"##\u25C6 Warder's Intuition##. I can add +1d4 to my Intelligence (Investigation) checks and ability checks with thieves' tools." + (typePF ? "\r##\u25C6 Stonecunning##. When I make an Int (History) check related to origin of stonework, I am considered having expertise in the History skill." : " ##\u25C6 Stonecunning##. Expertise in History when concerning stonework."),
+		"##\u25C6 Wards and Seals##. I can cast *Alarm* and *Mage Armor* each once per long rest. At 3rd level, I can also cast *Arcane Lock* once per long rest. Intelligence is my spellcasting ability for these and none of them require material components.",
+		"##\u25C6 Spells of the Mark##. I add several spells to my class' spell list(s).",
+	],
 	spellcastingAbility: 4,
 	features: {
 		"wards and seals": {
@@ -1208,7 +1334,7 @@ RaceList["dragonmark warding dwarf"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["alarm", "armor of agathys", "arcane lock", "knock", "glyph of warding", "magic circle", "leomund's secret chest", "mordenkainen's faithful hound", "antilife shell"]);
 			},
-			"My race adds extra spells to the spell list(s) of my spellcasting class(es): Alarm, Armor of Agathys, Arcane Lock, Knock, Glyph of Warding, Magic Circle, Leomund's Secret Chest, Mordenkainen's Faithful Hound, and Antilife Shell.",
+			"My race adds extra spells to the spell list(s) of my spellcasting class(es): *Alarm*, *Armor of Agathys*, *Arcane Lock*, *Knock*, *Glyph of Warding*, *Magic Circle*, *Leomund's Secret Chest*, *Mordenkainen's Faithful Hound*, and *Antilife Shell*.",
 		],
 	},
 };
@@ -1227,7 +1353,12 @@ if (!SpellsList["gust"]) {
 		duration: "Instantaneous",
 		save: "Str",
 		description: "Crea \u2264Medium save or push 5 ft; or push unattended 5 lb obj 10 ft; or harmless sensory effect",
-		descriptionFull: "You seize the air and compel it to create one of the following effects at a point you can see within range." + "\n " + "\u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you." + "\n " + "\u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage." + "\n " + "\u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze.",
+		descriptionFull: [
+			"You seize the air and compel it to create one of the following effects at a point you can see within range.",
+			" \u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you.",
+			" \u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage.",
+			" \u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze.",
+		],
 	};
 } // dupl_end
 
@@ -1237,7 +1368,24 @@ FeatsList["aberrant dragonmark"] = {
 	source: [["E:RLW", 52]],
 	prerequisite: "No other dragonmark",
 	prereqeval: function (v) { return !/dragonmark/i.test(CurrentRace.known); },
-	descriptionFull: "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip of your choice from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it through your mark. Once you cast it, you must finish a short or long rest before you can cast it again through the mark. Constitution is your spellcasting ability for these spells.\n \u2022 When you cast the 1st-level spell through your mark, you can expend one of your Hit Dice and roll it. If you roll an even number, you gain a number of temporary hit points equal to the number rolled. If you roll an odd number, one random creature within 30 feet of you (not including you) takes force damage equal to the number rolled. If no other creatures are in range, you take the damage.\n\nYou also develop a random flaw from the Aberrant Dragonmark Flaws table.\n\n**d8**\t**Flaw**\n  1\tYour mark is a source of constant physical pain.\n  2\tYour mark whispers to you. Its meaning can be unclear.\n  3\tWhen you're stressed, the mark hisses audibly.\n  4\tThe skin around the mark is burned, scaly, or withered.\n  5\tAnimals are uneasy around you.\n  6\tYou have a mood swing any time you use your mark.\n  7\tYour looks change slightly whenever you use the mark.\n  8\tYou have horrific nightmares after you use your mark.",
+	descriptionFull: [
+		"You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it. You gain the following benefits:",
+		" \u2022 Increase your Constitution score by 1, to a maximum of 20.",
+		" \u2022 You learn a cantrip of your choice from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it through your mark. Once you cast it, you must finish a short or long rest before you can cast it again through the mark. Constitution is your spellcasting ability for these spells.",
+		" \u2022 When you cast the 1st-level spell through your mark, you can expend one of your Hit Dice and roll it. If you roll an even number, you gain a number of temporary hit points equal to the number rolled. If you roll an odd number, one random creature within 30 feet of you (not including you) takes force damage equal to the number rolled. If no other creatures are in range, you take the damage.",
+		"You also develop a random flaw from the Aberrant Dragonmark Flaws table.",
+		[
+			["d8", "Flaw"],
+			["  1", "Your mark is a source of constant physical pain."],
+			["  2", "Your mark whispers to you. Its meaning can be unclear."],
+			["  3", "When you're stressed, the mark hisses audibly."],
+			["  4", "The skin around the mark is burned, scaly, or withered."],
+			["  5", "Animals are uneasy around you."],
+			["  6", "You have a mood swing any time you use your mark."],
+			["  7", "Your looks change slightly whenever you use the mark."],
+			["  8", "You have horrific nightmares after you use your mark."],
+		],
+	],
 	description: "I learn a sorcerer cantrip, and a 1st-level spell that I can cast once per short rest. They use Con as spellcasting ability. I can expend and roll an HD when I cast the level 1 spell. If even, I gain it in temp HP. If odd, a random target in 30 ft takes it in force damage. [+1 Con]",
 	scores: [0, 0, 1, 0, 0, 0],
 	spellcastingAbility: 3,
@@ -1675,7 +1823,7 @@ ClassList.artificer = {
 					}],
 					traits: [{
 						name: "Healing",
-						description: "The homunculus regains 2d6 hit points whenever the Mending spell is cast on it. Its HP total is equal to 1 + its creator's artificer level + its creator's Intelligence modifier. If it or its creator dies, the homunculus vanishes, leaving its heart in its space.",
+						description: "The homunculus regains 2d6 hit points whenever the *Mending* spell is cast on it. Its HP total is equal to 1 + its creator's artificer level + its creator's Intelligence modifier. If it or its creator dies, the homunculus vanishes, leaving its heart in its space.",
 					}, {
 						name: "Evasion",
 						description: "If the homunculus is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails. It can't use this trait if it's incapacitated.",
@@ -1880,7 +2028,7 @@ RunFunctionAtEnd(function () {
 		// 14th-level artificer
 		["amulet of health", 14],
 		["arcane propulsion arm", 14],
-		["belt of giant strength", 14, "hill (str 21, rare)"],
+		["belt of giant strength", 14, "hill giant (str 21, rare)"],
 		["boots of levitation", 14],
 		["boots of speed", 14],
 		["bracers of defense", 14],
@@ -1987,7 +2135,7 @@ AddSubClass("artificer", "alchemist", {
 					"3\tResilience: The drinker gains a +1 bonus to AC for 10 minutes.",
 					"4\tBoldness: The drinker can roll a d4 and add the number rolled to every attack roll and saving throw they make for the next minute.",
 					"5\tFlight: The drinker gains a flying speed of 10 ft for 10 minutes.",
-					"6\tTransformation: The drinker's body is transformed as if by the alter self spell. The drinker determines the transformation caused by the spell, the effects of which last for 10 minutes.",
+					"6\tTransformation: The drinker's body is transformed as if by the *alter self* spell. The drinker determines the transformation caused by the spell, the effects of which last for 10 minutes.",
 				],
 			}],
 		},
@@ -2026,7 +2174,7 @@ AddSubClass("artificer", "alchemist", {
 			minlevel: 9,
 			description: desc([
 				"Drinking my experimental elixirs now also grants 2d6 + my Int mod in temp HP (min 1)",
-				"I can cast Lesser Restoration with alchemist's supplies without a spell slot (Int mod times)",
+				"I can cast *Lesser Restoration* with alchemist's supplies without a spell slot (Int mod times)",
 			]),
 			usages: "Int mod per ",
 			usagescalc: "event.value = Math.max(1, What('Int Mod'));",
@@ -2042,7 +2190,7 @@ AddSubClass("artificer", "alchemist", {
 				"lesser restoration": {
 					components: "V,S,M\u0192",
 					compMaterial: "Alchemist's supplies",
-					changes: "When using my Restorative Reagents class feature, I can cast Lesser Restoration a number of times per long rest equal to my Intelligence modifier. To do so, I have to use alchemist's supplies as my spellcasting focus.",
+					changes: "When using my Restorative Reagents class feature, I can cast *Lesser Restoration* a number of times per long rest equal to my Intelligence modifier. To do so, I have to use alchemist's supplies as my spellcasting focus.",
 				},
 			},
 		},
@@ -2053,7 +2201,7 @@ AddSubClass("artificer", "alchemist", {
 			additional: "each spell 1\xD7 per long rest",
 			description: desc([
 				"I have resistance to acid and poison damage and immunity to being poisoned",
-				"I can cast Greater Restoration and Heal each once per long rest without a spell slot",
+				"I can cast *Greater Restoration* and *Heal* each once per long rest without a spell slot",
 				"I need alchemist's supplies as a focus for it, but the spells require no material components",
 			]),
 			dmgres: ["Acid", "Poison"],
@@ -2070,13 +2218,13 @@ AddSubClass("artificer", "alchemist", {
 					components: "V,S,M\u0192",
 					compMaterial: "Alchemist's supplies",
 					description: "Reduce exhaustion 1 lvl or end charm, petrify, curse, one ability score reduction, or max HP reduction",
-					changes: "When using my Chemical Mastery class feature and alchemist's supplies as my spellcasting focus, I can cast Greater Restoration once per long rest without using a spell slot or requiring other material components.",
+					changes: "When using my Chemical Mastery class feature and alchemist's supplies as my spellcasting focus, I can cast *Greater Restoration* once per long rest without using a spell slot or requiring other material components.",
 				},
 				"heal": {
 					components: "V,S,M\u0192",
 					compMaterial: "Alchemist's supplies",
 					allowUpCasting: false,
-					changes: "When using my Chemical Mastery class feature and alchemist's supplies as my spellcasting focus, I can cast Heal once per long rest without using a spell slot.",
+					changes: "When using my Chemical Mastery class feature and alchemist's supplies as my spellcasting focus, I can cast *Heal* once per long rest without using a spell slot.",
 				},
 			},
 		},
@@ -2167,7 +2315,7 @@ AddSubClass("artificer", "artillerist", {
 				}],
 				features: [{
 					name: "Healing",
-					description: "The cannon regains 2d6 HP whenever Mending is cast on it.",
+					description: "The cannon regains 2d6 HP whenever *Mending* is cast on it.",
 				}, {
 					name: "Cannon Type",
 					description: "Upon creation, the creator decides what type of cannon it is: Flamethrower, Force Ballista, or Protector. What feature/attack it can use depends on its type.",
@@ -2377,7 +2525,7 @@ AddSubClass("artificer", "battle smith", {
 				}],
 				traits: [{
 					name: "Healing",
-					description: "The steel defender regains 2d6 HP whenever the Mending spell is cast on it. Its HP total is equal to 2 + its creator's artificer level times five + its creator's Int mod. Within an hour of its death, while within 5 ft, its creator can take an action to use smith's tools and expend a spell slot to have it return to full HP after 1 minute. If its creator dies, " + (typePF ? "the steel defender also perishes" : "so does it") + ".",
+					description: "The steel defender regains 2d6 HP whenever the *Mending* spell is cast on it. Its HP total is equal to 2 + its creator's artificer level times five + its creator's Int mod. Within an hour of its death, while within 5 ft, its creator can take an action to use smith's tools and expend a spell slot to have it return to full HP after 1 minute. If its creator dies, " + (typePF ? "the steel defender also perishes" : "so does it") + ".",
 				}],
 				actions: [{
 					name: "Repair (3/Day)",
@@ -2488,7 +2636,10 @@ MagicItemsList["enhanced arcane focus, +1 or +2"] = {
 	source: [["E:RLW", 62], ["T", 21]],
 	type: "wondrous item",
 	description: "While I am holding this arcane focus (rod, staff, or wand), I gain a +1 bonus to spell attack rolls (or +2 if the artificer that created it is level 10 or higher). In addition, I ignore half cover when making a spell attack.",
-	descriptionFull: "While holding this rod, staff, or wand, a creature gains a +1 bonus to spell attack rolls. In addition, the creature ignores half cover when making a spell attack.\n   The bonus increases to +2 when it is created by someone with 10 levels or more in the artificer class.",
+	descriptionFull: [
+		"While holding this rod, staff, or wand, a creature gains a +1 bonus to spell attack rolls. In addition, the creature ignores half cover when making a spell attack.",
+		"The bonus increases to +2 when it is created by someone with 10 levels or more in the artificer class.",
+	],
 	attunement: true,
 	weight: 1,
 	prerequisite: "Requires attunement by a spellcaster",
@@ -2527,7 +2678,10 @@ MagicItemsList["radiant weapon"] = {
 	source: [["E:RLW", 62], ["T", 22]],
 	type: "weapon (any)",
 	description: "This item adds a +1 on its to hit and damage, has 4 charges, and regains 1d4 at dawn. As a bonus action, I can have it start/stop shedding light, bright in 30 ft, dim in another 30 ft. As a reaction if hit by an attack, I can use 1 charge to blind the attacker until the end of its next turn unless it makes a Con save (my spell DC).",
-	descriptionFull: "This magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, the wielder can take a bonus action to cause it to shed bright light in a 30-foot radius and dim light for an additional 30 feet. The wielder can extinguish the light as a bonus action.\n   The weapon has 4 charges. As a reaction immediately after being hit by an attack, the wielder can expend 1 charge and cause the attacker to be blinded until the end of the attacker's next turn, unless the attacker succeeds on a Constitution saving throw against your spell save DC. The weapon regains 1d4 expended charges daily at dawn.",
+	descriptionFull: [
+		"This magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, the wielder can take a bonus action to cause it to shed bright light in a 30-foot radius and dim light for an additional 30 feet. The wielder can extinguish the light as a bonus action.",
+		"The weapon has 4 charges. As a reaction immediately after being hit by an attack, the wielder can expend 1 charge and cause the attacker to be blinded until the end of the attacker's next turn, unless the attacker succeeds on a Constitution saving throw against your spell save DC. The weapon regains 1d4 expended charges daily at dawn.",
+	],
 	attunement: true,
 	usages: 4,
 	recovery: "dawn",
@@ -2563,7 +2717,10 @@ MagicItemsList["repeating shot"] = {
 	source: [["E:RLW", 62], ["T", 22], ["UA:A3", 13]],
 	type: "weapon (any with ammunition)",
 	description: "When I use this magic weapon to make a ranged attack, it magically produces one piece of ammunition and grants a +1 bonus to its attack and damage rolls. Thus, it doesn't require ammunition and ignores the loading property if it has it. The produced ammunition vanishes once it hits or misses a target.",
-	descriptionFull: "This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.\n   If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic ammunition when you make a ranged attack with it. The ammunition created by the weapon vanishes the instant after it hits or misses a target.",
+	descriptionFull: [
+		"This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the loading property if it has it.",
+		"If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic ammunition when you make a ranged attack with it. The ammunition created by the weapon vanishes the instant after it hits or misses a target.",
+	],
 	attunement: true,
 	chooseGear: {
 		type: "weapon",
@@ -2597,7 +2754,10 @@ MagicItemsList["repulsion shield"] = {
 	source: [["E:RLW", 63], ["T", 23]],
 	type: "shield",
 	description: "I gain an additional +1 bonus to Armor Class while wielding this shield. The shield has 4 charges and regains 1d4 expended charges daily at dawn. As a reaction immediately after being hit by a melee attack, I can expend 1 charge to push the attacker up to 15 ft away.",
-	descriptionFull: "A creature gains a +1 bonus to Armor Class while wielding this shield.\n   The shield has 4 charges. While holding it, the wielder can use a reaction immediately after being hit by a melee attack to expend 1 of the shield's charges and push the attacker up to 15 feet away. The shield regains 1d4 expended charges daily at dawn.",
+	descriptionFull: [
+		"A creature gains a +1 bonus to Armor Class while wielding this shield.",
+		"The shield has 4 charges. While holding it, the wielder can use a reaction immediately after being hit by a melee attack to expend 1 of the shield's charges and push the attacker up to 15 feet away. The shield regains 1d4 expended charges daily at dawn.",
+	],
 	weight: 6,
 	attunement: true,
 	usages: 4,
@@ -2650,7 +2810,13 @@ MagicItemsList["arcane propulsion arm"] = {
 	type: "wondrous item",
 	rarity: "very rare",
 	description: "Once attached to my wrist, elbow, or shoulder, this prosthetic magically forms a copy of the appendage it's replacing. It can't be removed against my will, but I can as an action. I can use it as a proficient melee weapon with the thrown property. After a throwing attack with it, it returns and reattaches immediately.",
-	descriptionFull: "This prosthetic appendage was developed by artificers of House Cannith. To attune to this item, you must attach it to your arm at the wrist, elbow, or shoulder, at which point the prosthetic magically forms a copy of the appendage it's replacing.\n\nWhile attached, the prosthetic provides these benefits:\n \u2022 The prosthetic is a fully capable part of your body.\n \u2022 You can take an action to remove the prosthetic, and it removes itself if your attunement to it ends. It can't be removed against your will.\n \u2022 The prosthetic is a magic melee weapon with which you're proficient. It deals 1d8 force damage on a hit and has the thrown property, with a normal range of 20 feet and a long range of 60 feet. When thrown, the prosthetic detaches and flies at the target of the attack, then immediately returns to you and reattaches.",
+	descriptionFull: [
+		"This prosthetic appendage was developed by artificers of House Cannith. To attune to this item, you must attach it to your arm at the wrist, elbow, or shoulder, at which point the prosthetic magically forms a copy of the appendage it's replacing.",
+		"While attached, the prosthetic provides these benefits:",
+		" \u2022 The prosthetic is a fully capable part of your body.",
+		" \u2022 You can take an action to remove the prosthetic, and it removes itself if your attunement to it ends. It can't be removed against your will.",
+		" \u2022 The prosthetic is a magic melee weapon with which you're proficient. It deals 1d8 force damage on a hit and has the thrown property, with a normal range of 20 feet and a long range of 60 feet. When thrown, the prosthetic detaches and flies at the target of the attack, then immediately returns to you and reattaches.",
+	],
 	attunement: true,
 	prerequisite: "Requires attunement by a creature missing a hand or an arm",
 	prereqeval: function (v) { return false; },
@@ -2673,7 +2839,10 @@ MagicItemsList["armblade"] = {
 	type: "weapon (any one-handed melee weapon)",
 	rarity: "common",
 	description: "While attuned to it, this magic weapon is attached to my arm and inseparable from me. As a bonus action, I can retract it into my forearm or extend it from there. While it is extended, I can use the weapon as if I was holding it, and I can't use that hand for other purposes.",
-	descriptionFull: "An armblade is a magic weapon that attaches to your arm, becoming inseparable from you as long as you're attuned to it. To attune to this item, you must hold it against your forearm for the entire attunement period.\n   As a bonus action, you can retract the armblade into your forearm or extend it from there. While it is extended, you can use the weapon as if you were holding it, and you can't use that hand for other purposes.",
+	descriptionFull: [
+		"An *armblade* is a magic weapon that attaches to your arm, becoming inseparable from you as long as you're attuned to it. To attune to this item, you must hold it against your forearm for the entire attunement period.",
+		"As a bonus action, you can retract the *armblade* into your forearm or extend it from there. While it is extended, you can use the weapon as if you were holding it, and you can't use that hand for other purposes.",
+	],
 	attunement: true,
 	prerequisite: "Requires attunement by a warforged",
 	prereqeval: function (v) { return /warforged/i.test(CurrentRace.known); },
@@ -2694,8 +2863,15 @@ MagicItemsList["belashyrra's beholder crown"] = {
 	type: "wondrous item",
 	rarity: "legendary",
 	description: "This symbiotic crown of dark purple and mauve stone attaches to my skull and removing it requires ending a curse. It allows me to see normally in magical and normal darkness (devil's sight) out to 120 ft. It has 10 charges, regaining 1d6+3 at dawn, which I can use to cast several spells with spell save DC 16.",
-	descriptionLong: "This symbiotic crown of dark purple and mauve stone attaches to my skull once I attune to it and removing it requires ending a curse. It allows me to see normally in magical and normal darkness (devil's sight) out to 120 ft. It has 10 charges, regaining 1d6+3 at dawn, which I can use to cast several spells with spell save DC 16. These are: Charm Person (1 charge), Disintegrate (6 charges), Fear (3 charges), Finger of Death (7 charges), Flesh to Stone (6 charges), Hold Person (2 charges), Ray of Enfeeblement (2 charges), Sleep (1 charge), Slow (3 charges), and Telekinesis (5 charges).",
-	descriptionFull: "This symbiotic crown is carved from dark purple and mauve stone, with ten points like stalks set with gemstones resembling the eyestalks of a beholder. To attune to this item, you must wear it on your head for the entire attunement period, during which the crown's hidden tendrils burrow into your scalp to bond with your skull.\n   While wearing the crown, you can see normally in darkness, both magical and nonmagical, to a distance of 120 feet.\n   ***Spells***. The crown has 10 charges. While wearing it, you can use an action to expend some of its charges to cast one of the following spells from it (spell save DC 16): charm person (1 charge), disintegrate (6 charges), fear (3 charges), finger of death (7 charges), flesh to stone (6 charges), hold person (2 charges), ray of enfeeblement (2 charges), sleep (1 charge), slow (3 charges), telekinesis (5 charges).\n   The crown regains 1d6 + 3 expended charges daily at dawn.\n   ***Symbiotic Nature***. The crown can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the crown ends, and it detaches from you.\n   The daelkyr Belashyrra made these crowns. While on the same plane of existence as the crown, Belashyrra can see through its eyestalks.",
+	descriptionLong: "This symbiotic crown of dark purple and mauve stone attaches to my skull once I attune to it and removing it requires ending a curse. It allows me to see normally in magical and normal darkness (devil's sight) out to 120 ft. It has 10 charges, regaining 1d6+3 at dawn, which I can use to cast several spells with spell save DC 16. These are: *Charm Person* (1 charge), *Disintegrate* (6 charges), *Fear* (3 charges), *Finger of Death* (7 charges), *Flesh to Stone* (6 charges), *Hold Person* (2 charges), *Ray of Enfeeblement* (2 charges), *Sleep* (1 charge), *Slow* (3 charges), and *Telekinesis* (5 charges).",
+	descriptionFull: [
+		"This symbiotic crown is carved from dark purple and mauve stone, with ten points like stalks set with gemstones resembling the eyestalks of a beholder. To attune to this item, you must wear it on your head for the entire attunement period, during which the crown's hidden tendrils burrow into your scalp to bond with your skull.",
+		"While wearing the crown, you can see normally in darkness, both magical and nonmagical, to a distance of 120 feet.",
+		"***Spells***. The crown has 10 charges. While wearing it, you can use an action to expend some of its charges to cast one of the following spells from it (spell save DC 16): *charm person* (1 charge), *disintegrate* (6 charges), *fear* (3 charges), *finger of death* (7 charges), *flesh to stone* (6 charges), *hold person* (2 charges), *ray of enfeeblement* (2 charges), *sleep* (1 charge), *slow* (3 charges), *telekinesis* (5 charges).",
+		"The crown regains 1d6 + 3 expended charges daily at dawn.",
+		"***Symbiotic Nature***. The crown can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the crown ends, and it detaches from you.",
+		"The daelkyr Belashyrra made these crowns. While on the same plane of existence as the crown, Belashyrra can see through its eyestalks.",
+	],
 	attunement: true,
 	usages: 10,
 	recovery: "dawn",
@@ -2744,7 +2920,10 @@ MagicItemsList["cleansing stone"] = {
 	type: "wondrous item",
 	rarity: "common",
 	description: "This stone sphere is 1 ft in diameter and engraved with mystic sigils. As an action while touching it, I can activate it to remove dirt and grime from my garments and my person.",
-	descriptionFull: "A cleansing stone is a sphere 1 foot in diameter, engraved with mystic sigils. When touching the stone, you can use an action to activate it and remove dirt and grime from your garments and your person.\n   Such stones are often embedded in pedestals in public squares in Aundair or in high-end Ghallanda inns.",
+	descriptionFull: [
+		"A *cleansing stone* is a sphere 1 foot in diameter, engraved with mystic sigils. When touching the stone, you can use an action to activate it and remove dirt and grime from your garments and your person.",
+		"Such stones are often embedded in pedestals in public squares in Aundair or in high-end Ghallanda inns.",
+	],
 	action: [["action", ""]],
 	weight: 88, // using average marble/limestone density of 2.711 g/cm3
 }
@@ -2786,7 +2965,12 @@ MagicItemsList["dyrrn's tentacle whip"] = {
 	type: "weapon (whip)",
 	rarity: "very rare",
 	description: "This magic whip embeds itself in my arm once I attune to it and removing it requires ending a curse. It has a +2 bonus to attack and damage rolls, deals +1d6 psychic damage, but has disadv. vs. aberrations. On a roll of 20 to hit, the target is stunned until it next turn ends. As a bonus action, I can draw/sheath it in my arm",
-	descriptionFull: "This long, whip-like strand of tough muscle bears a sharp stinger at one end. To attune to this symbiotic weapon, you wrap the whip around your wrist for the entire attunement period, during which time the whip painfully embeds its tendrils into your arm.\n   You gain a +2 bonus to attack and damage rolls made with this magic whip, but attack rolls made against aberrations with this weapon have disadvantage. A creature hit by this weapon takes an extra 1d6 psychic damage. When you roll a 20 on the d20 for an attack roll with this weapon, the target is stunned until the end of its next turn.\n   As a bonus action, you can sheathe the whip by causing it to retract into your arm, or draw the whip out of your arm again.\n   ***Symbiotic Nature***. The whip can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the whip ends, and it detaches from you.",
+	descriptionFull: [
+		"This long, whip-like strand of tough muscle bears a sharp stinger at one end. To attune to this symbiotic weapon, you wrap the whip around your wrist for the entire attunement period, during which time the whip painfully embeds its tendrils into your arm.",
+		"You gain a +2 bonus to attack and damage rolls made with this magic whip, but attack rolls made against aberrations with this weapon have disadvantage. A creature hit by this weapon takes an extra 1d6 psychic damage. When you roll a 20 on the d20 for an attack roll with this weapon, the target is stunned until the end of its next turn.",
+		"As a bonus action, you can sheathe the whip by causing it to retract into your arm, or draw the whip out of your arm again.",
+		"***Symbiotic Nature***. The whip can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the whip ends, and it detaches from you.",
+	],
 	attunement: true,
 	weight: 3,
 	action: [["bonus action", "Tentacle Whip (draw/sheath)"]],
@@ -2805,8 +2989,13 @@ MagicItemsList["earworm"] = {
 	source: [["E:RLW", 277]],
 	type: "wondrous item",
 	rarity: "uncommon",
-	description: "This symbiont bonds to my skull once I attune to it and removing it to end the attunement requires ending a curse. It has 4 charges, regaining 1d4 at dawn, which I can use to cast Detect Thoughts (2 charges) or Dissonant Whispers (1 charge) with DC 15. It allows me to speak, read, and write deep speech.",
-	descriptionFull: "To attune to this symbiont, you must hold it against the skin behind your ear for the entire attunement period, whereupon it burrows into your head and bonds to your skull. While the earworm is inside you, you can speak, read, and write Deep Speech.\n   ***Spells***. The earworm has 4 charges. You can cast the following spells from it, expending the necessary number of charges (spell save DC 15): detect thoughts (2 charges) or dissonant whispers (1 charge). Each time you use the earworm to cast the detect thoughts spell, it sends the information gleaned to the nearest daelkyr, or to the next nearest earworm until it reaches a daelkyr.\n   The earworm regains 1d4 expended charges daily at dawn.\n   ***Symbiotic Nature***. The earworm can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the earworm ends, and it exits your body.",
+	description: "This symbiont bonds to my skull once I attune to it and removing it to end the attunement requires ending a curse. It has 4 charges, regaining 1d4 at dawn, which I can use to cast *Detect Thoughts* (2 charges) or *Dissonant Whispers* (1 charge) with DC 15. It allows me to speak, read, and write deep speech.",
+	descriptionFull: [
+		"To attune to this symbiont, you must hold it against the skin behind your ear for the entire attunement period, whereupon it burrows into your head and bonds to your skull. While the *earworm* is inside you, you can speak, read, and write Deep Speech.",
+		"***Spells***. The *earworm* has 4 charges. You can cast the following spells from it, expending the necessary number of charges (spell save DC 15): *detect thoughts* (2 charges) or *dissonant whispers* (1 charge). Each time you use the *earworm* to cast the *detect thoughts* spell, it sends the information gleaned to the nearest daelkyr, or to the next nearest *earworm* until it reaches a daelkyr.",
+		"The *earworm* regains 1d4 expended charges daily at dawn.",
+		"***Symbiotic Nature***. The *earworm* can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the *earworm* ends, and it exits your body.",
+	],
 	attunement: true,
 	languageProfs: ["Deep Speech"],
 	usages: 4,
@@ -2831,8 +3020,8 @@ MagicItemsList["everbright lantern"] = {
 	source: [["E:RLW", 277], ["WGtE", 115], ["UA:MIoE", 2]],
 	type: "wondrous item",
 	rarity: "common",
-	description: "This bullseye lantern is powered by a dragonshard that sheds light comparable to that produced by a Continual Flame spell. The light never goes out, but it can be shuttered off. It sheds light in a 120-ft cone; the closest 60 ft is bright light, and the farthest 60 ft is dim light.",
-	descriptionFull: "This bullseye lantern contains an Eberron dragonshard that sheds light comparable to that produced by a continual flame spell. An everbright lantern sheds light in a 120-foot cone; the closest 60 feet is bright light, and the farthest 60 feet is dim light.",
+	description: "This bullseye lantern is powered by a dragonshard that sheds light comparable to that produced by a *Continual Flame* spell. The light never goes out, but it can be shuttered off. It sheds light in a 120-ft cone; the closest 60 ft is bright light, and the farthest 60 ft is dim light.",
+	descriptionFull: "This bullseye lantern contains an Eberron dragonshard that sheds light comparable to that produced by a *continual flame* spell. An *everbright lantern* sheds light in a 120-foot cone; the closest 60 feet is bright light, and the farthest 60 feet is dim light.",
 	weight: 2,
 }
 MagicItemsList["feather token"] = {
@@ -2848,8 +3037,12 @@ MagicItemsList["finder's goggles"] = {
 	source: [["E:RLW", 277]],
 	type: "wondrous item",
 	rarity: "uncommon",
-	description: "These goggles with dragonshard lenses grant me +1d4 on Wis (Insight) checks. As an action once per dawn, I can use them to find the last creature to touch an object with a Wis (Insight) check DC 13 + days since last contact. I learn the creature's type and can immediately cast Locate Creature to find the creature.",
-	descriptionFull: "The lenses of these garish goggles are carved from Siberys dragonshards. While wearing these lenses, you gain the following benefits:\n \u2022 When you make a Wisdom (Insight) check, you can roll a d4 and add the number rolled to the check.\n \u2022 As an action, you can use the goggles to examine an object to identify the aura of the last creature that touched it. Make a Wisdom (Insight) check against a DC of 13 + the number of days since the last contact occurred. On a success, you learn the creature's type and can immediately use the goggles to cast locate creature to find that creature. This property can't be used again until the next dawn.",
+	description: "These goggles with dragonshard lenses grant me +1d4 on Wis (Insight) checks. As an action once per dawn, I can use them to find the last creature to touch an object with a Wis (Insight) check DC 13 + days since last contact. I learn the creature's type and can immediately cast *Locate Creature* to find the creature.",
+	descriptionFull: [
+		"The lenses of these garish goggles are carved from Siberys dragonshards. While wearing these lenses, you gain the following benefits:",
+		" \u2022 When you make a Wisdom (Insight) check, you can roll a d4 and add the number rolled to the check.",
+		" \u2022 As an action, you can use the goggles to examine an object to identify the aura of the last creature that touched it. Make a Wisdom (Insight) check against a DC of 13 + the number of days since the last contact occurred. On a success, you learn the creature's type and can immediately use the goggles to cast *locate creature* to find that creature. This property can't be used again until the next dawn.",
+	],
 	action: [["action", ""]],
 	attunement: true,
 	prerequisite: "Requires attunement by a creature with the Dragonmark of Finding",
@@ -2872,20 +3065,28 @@ MagicItemsList["glamerweave"] = {
 	source: [["E:RLW", 277]],
 	type: "wondrous item",
 	description: "Glamerweave is clothing imbued with harmless illusory magic. As a bonus action while wearing these clothes, I can turn the pattern within the cloth into a moving illusory pattern. For the uncommon version, this pattern extends beyond the cloth and gives me +1d4 on a Performance or Persuasion check.",
-	descriptionFull: "Glamerweave is clothing imbued with harmless illusory magic. While wearing the common version of these clothes, you can use a bonus action to create a moving illusory pattern within the cloth.\n   Uncommon glamerweave can have the pattern rise from the cloth. For example, a glamerweave gown might be wreathed in harmless, illusory flames, while a glamerweave hat might have illusory butterflies fluttering around it.\n   When you make a Charisma (Performance) or Charisma (Persuasion) check while wearing the uncommon version of glamerweave, you can roll a d4 and add the number rolled to the check. Once you use this property, it can't be used again until the next dawn. ",
+	descriptionFull: [
+		"*Glamerweave* is clothing imbued with harmless illusory magic. While wearing the common version of these clothes, you can use a bonus action to create a moving illusory pattern within the cloth.",
+		"*Uncommon glamerweave* can have the pattern rise from the cloth. For example, a *glamerweave* gown might be wreathed in harmless, illusory flames, while a *glamerweave* hat might have illusory butterflies fluttering around it.",
+		"When you make a Charisma (Performance) or Charisma (Persuasion) check while wearing the uncommon version of *glamerweave*, you can roll a d4 and add the number rolled to the check. Once you use this property, it can't be used again until the next dawn. ",
+	],
 	action: [["bonus action", ""]],
 	choices: ["Common (moving illusory pattern)", "Uncommon (pattern rises from the cloth)"],
 	"common (moving illusory pattern)": {
 		name: "Glamerweave ",
 		rarity: "common",
 		description: "Glamerweave is clothing imbued with harmless illusory magic. As a bonus action while wearing these clothes, I can create a moving illusory pattern within the cloth.",
-		descriptionFull: "Glamerweave is clothing imbued with harmless illusory magic. While wearing the common version of these clothes, you can use a bonus action to create a moving illusory pattern within the cloth.",
+		descriptionFull: "*Glamerweave* is clothing imbued with harmless illusory magic. While wearing the common version of these clothes, you can use a bonus action to create a moving illusory pattern within the cloth.",
 	},
 	"uncommon (pattern rises from the cloth)": {
 		name: "Uncommon Glamerweave",
 		rarity: "uncommon",
 		description: "Glamerweave is clothing imbued with harmless illusory magic. As a bonus action while wearing these clothes, I can have the pattern within them rise as an illusory visage (e.g. wreathed in flames). Once per dawn, I can use this to gives me +1d4 on a Charisma (Performance) or Charisma (Persuasion) check.",
-		descriptionFull: "Glamerweave is clothing imbued with harmless illusory magic. While wearing these clothes, you can use a bonus action to create a moving illusory pattern within the cloth.\n   You can have the pattern rise from the cloth. For example, a glamerweave gown might be wreathed in harmless, illusory flames, while a glamerweave hat might have illusory butterflies fluttering around it.\n   When you make a Charisma (Performance) or Charisma (Persuasion) check while wearing the glamerweave, you can roll a d4 and add the number rolled to the check. Once you use this property, it can't be used again until the next dawn.",
+		descriptionFull: [
+			"*Glamerweave* is clothing imbued with harmless illusory magic. While wearing these clothes, you can use a bonus action to create a moving illusory pattern within the cloth.",
+			"You can have the pattern rise from the cloth. For example, a *glamerweave* gown might be wreathed in harmless, illusory flames, while a *glamerweave* hat might have illusory butterflies fluttering around it.",
+			"When you make a Charisma (Performance) or Charisma (Persuasion) check while wearing the *glamerweave*, you can roll a d4 and add the number rolled to the check. Once you use this property, it can't be used again until the next dawn.",
+		],
 		usages: 1,
 		recovery: "dawn",
 	},
@@ -2902,7 +3103,21 @@ MagicItemsList["imbued wood focus"] = {
 	type: "wondrous item",
 	rarity: "common",
 	description: "This rod, wand, or staff is cut from a tree infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal the associated damage type add a +1 bonus to one of their damage rolls.",
-	descriptionFull: "An imbued wood focus is a rod, staff, or wand cut from a tree infused with extraplanar energy. If you're a spellcaster, you can use this orb as a spellcasting focus.\n   When you cast a damage-dealing spell using this item as your spellcasting focus, you gain a +1 bonus to one damage roll of the spell, provided the damage is of the type associated with the item's wood. The types of wood and their associated damage types are listed in the table below.\n\n**Wood**\t\t\t**Damage Type**\nFernian Ash\t\tFire\nIrian Rosewood\t\tRadiant\nKythrian Manchineel  \tAcid or Poison\nLamannian Oak\t\tLightning or Thunder\nMabaran Ebony\t\tNecrotic\nRisian Pine\t\tCold\nShavarran Birch\t\tForce\nXorian Wenge\t\tPsychic",
+	descriptionFull: [
+		"An *imbued wood focus* is a rod, staff, or wand cut from a tree infused with extraplanar energy. If you're a spellcaster, you can use this orb as a spellcasting focus.",
+		"When you cast a damage-dealing spell using this item as your spellcasting focus, you gain a +1 bonus to one damage roll of the spell, provided the damage is of the type associated with the item's wood. The types of wood and their associated damage types are listed in the table below.",
+		[
+			["Wood", "", "", "Damage Type"],
+			["Fernian Ash", "", "Fire"],
+			["Irian Rosewood", "", "Radiant"],
+			["Kythrian Manchineel  ", "Acid or Poison"],
+			["Lamannian Oak", "", "Lightning or Thunder"],
+			["Mabaran Ebony", "", "Necrotic"],
+			["Risian Pine", "", "Cold"],
+			["Shavarran Birch", "", "Force"],
+			["Xorian Wenge", "", "Psychic"],
+		],
+	],
 	attunement: true,
 	allowDuplicates: true,
 	weight: 2,
@@ -3080,8 +3295,8 @@ MagicItemsList["keycharm"] = {
 	source: [["E:RLW", 277]],
 	type: "wondrous item",
 	rarity: "common",
-	description: "When I cast Alarm, Arcane Lock, or Glyph of Warding, I can tie the effect to the keycharm. Its holder receives the notification from Alarm, bypasses the Arcane Lock, or avoids triggering the Glyph of Warding. It can have up to 3 tied spells at one time. As an action, the holder can speak the command to end a tied spell.",
-	descriptionFull: "This small stylized key plays a vital role in the work of House Kundarak. If you cast the alarm, arcane lock, or glyph of warding spell, you can tie the effect to the keycharm so that whoever holds it receives the notification from the alarm spell, bypasses the lock of the arcane lock spell, or avoids triggering the glyph placed by the glyph of warding spell. In addition, the holder (who needn't be attuned to the item) can take an action to end any one spell tied to it, provided the holder knows the command word you set for ending the tied spells. The keycharm can have up to three tied spells at one time.",
+	description: "When I cast *Alarm*, *Arcane Lock*, or *Glyph of Warding*, I can tie the effect to the keycharm. Its holder receives the notification from *Alarm*, bypasses the *Arcane Lock*, or avoids triggering the *Glyph of Warding*. It can have up to 3 tied spells at one time. As an action, the holder can speak the command to end a tied spell.",
+	descriptionFull: "This small stylized key plays a vital role in the work of House Kundarak. If you cast the *alarm*, *arcane lock*, or *glyph of warding* spell, you can tie the effect to the *keycharm* so that whoever holds it receives the notification from the *alarm* spell, bypasses the lock of the *arcane lock* spell, or avoids triggering the glyph placed by the *glyph of warding* spell. In addition, the holder (who needn't be attuned to the item) can take an action to end any one spell tied to it, provided the holder knows the command word you set for ending the tied spells. The *keycharm* can have up to three tied spells at one time.",
 	attunement: true,
 	prerequisite: "Requires attunement by a creature with the Dragonmark of Warding",
 	prereqeval: function (v) {
@@ -3095,7 +3310,14 @@ MagicItemsList["kyrzin's ooze"] = {
 	rarity: "very rare",
 	description: "Once I attune to this opalescent goo by drinking it, it can only be removed by ending a curse. It gives me resistance to acid and poison damage and immunity to the poisoned condition. Each as an action once per short rest, I can exhale acid breath or become amorphous for 1 minute along with my equipment.",
 	descriptionLong: "I can only attune to this opalescent, symbiotic goo by drinking it. I can't remove it or end the attunement voluntarily, but it seeps out of me if the curse is removed. It gives me resistance to acid and poison damage and immunity to the poisoned condition. As an action once per dawn, I can become amorphous for 1 minute along with my equipment and can move through a space as narrow as 1 inch wide. As an action once per dawn, I can exhale a 30-ft line, 5-ft wide acid breath that deals 8d8 acid damage (Dexterity save DC 15 halves). If I die while it is inside me, it turns my corpse into a black pudding.",
-	descriptionFull: "This opalescent, symbiotic goo comes sealed in a jar and slowly shifts and moves, as if endlessly exploring the jar's interior. To attune to this item, you must first drink the contents of the jar, unlocking the following properties.\n   ***Resistant***. While attuned to Kyrzin's ooze, you have resistance to poison and acid damage, and you're immune to the poisoned condition.\n   ***Amorphous***. As an action, you can speak a command word and cause your body to assume the amorphous qualities of an ooze. For the next minute, you (along with any equipment you're wearing or carrying) can move through a space as narrow as 1 inch wide without squeezing. Once you use this property, it can't be used again until the next dawn.\n   ***Acid Breath***. As an action, you can exhale acid in a 30-foot line that is 5 feet wide. Each creature in that line must make a DC 15 Dexterity saving throw, taking 36 (8d8) acid damage on a failed save, or half as much damage on a successful one. Once you use this property, it can't be used again until the next dawn.\n   ***Symbiotic Nature***. The ooze can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the ooze ends, as it seeps out of you.\n   If you die while the ooze is inside you, it bursts out and engulfs you, turning your corpse into a black pudding allied with the daelkyr.",
+	descriptionFull: [
+		"This opalescent, symbiotic goo comes sealed in a jar and slowly shifts and moves, as if endlessly exploring the jar's interior. To attune to this item, you must first drink the contents of the jar, unlocking the following properties.",
+		"***Resistant***. While attuned to *Kyrzin's ooze*, you have resistance to poison and acid damage, and you're immune to the poisoned condition.",
+		"***Amorphous***. As an action, you can speak a command word and cause your body to assume the amorphous qualities of an ooze. For the next minute, you (along with any equipment you're wearing or carrying) can move through a space as narrow as 1 inch wide without squeezing. Once you use this property, it can't be used again until the next dawn.",
+		"***Acid Breath***. As an action, you can exhale acid in a 30-foot line that is 5 feet wide. Each creature in that line must make a DC 15 Dexterity saving throw, taking 36 (8d8) acid damage on a failed save, or half as much damage on a successful one. Once you use this property, it can't be used again until the next dawn.",
+		"***Symbiotic Nature***. The ooze can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the ooze ends, as it seeps out of you.",
+		"If you die while the ooze is inside you, it bursts out and engulfs you, turning your corpse into a black pudding allied with the daelkyr.",
+	],
 	attunement: true,
 	dmgres: ["Acid", "Poison"],
 	savetxt: { immune: ["poisoned condition"] },
@@ -3131,7 +3353,12 @@ MagicItemsList["living armor"] = {
 	type: "armor (any)",
 	rarity: "very rare",
 	description: "This armor of black chitin attaches itself to me once I attune to it and removing it requires ending a curse. It gives me +1 AC and resistance to necrotic, poison, and psychic damage. Whenever I finish a long rest, I must either feed it half my remaining HD (rounding up) or take 1 level of exhaustion.",
-	descriptionFull: "This hideous armor is formed from black chitin, beneath which veins pulse and red sinews glisten. To attune to this item, you must wear it for the entire attunement period, during which tendrils on the inside burrow into you.\n   While wearing this armor, you have a +1 bonus to Armor Class, and you have resistance to the following damage types: necrotic, poison, and psychic.\n   ***Symbiotic Nature***. The armor can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the armor ends, and it detaches from you.\n   The armor requires fresh blood be fed to it. Immediately after you finish any long rest, you must either feed half of your remaining Hit Dice to the armor (round up) or take 1 level of exhaustion.",
+	descriptionFull: [
+		"This hideous armor is formed from black chitin, beneath which veins pulse and red sinews glisten. To attune to this item, you must wear it for the entire attunement period, during which tendrils on the inside burrow into you.",
+		"While wearing this armor, you have a +1 bonus to Armor Class, and you have resistance to the following damage types: necrotic, poison, and psychic.",
+		"***Symbiotic Nature***. The armor can't be removed from you while you're attuned to it, and you can't voluntarily end your attunement to it. If you're targeted by a spell that ends a curse, your attunement to the armor ends, and it detaches from you.",
+		"The armor requires fresh blood be fed to it. Immediately after you finish any long rest, you must either feed half of your remaining Hit Dice to the armor (round up) or take 1 level of exhaustion.",
+	],
 	attunement: true,
 	dmgres: ["Necrotic", "Poison", "Psychic"],
 	chooseGear: {
@@ -3147,7 +3374,16 @@ MagicItemsList["living gloves"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	description: "These gloves made of thin chitin and sinew bond with my skin once I attune to them and removing them requires ending a curse. Once I attune to them, I can choose to become proficient and gain expertise with either sleight of hand, thieves' tools, or an artisan's tools or musical instrument of my choice.",
-	descriptionFull: "These symbiotic gloves\u2014made of thin chitin and sinew\u2014pulse with a life of their own. To attune to them, you must wear them for the entire attunement period, during which the gloves bond with your skin.\n   While attuned to these gloves, you gain one of the following proficiencies (your choice when you attune to the gloves):\n \u2022 Sleight of Hand\n \u2022 Thieves' tools\n \u2022 One kind of artisan's tools of your choice\n \u2022 One kind of musical instrument of your choice\n\nWhen you make an ability check using the chosen proficiency, you add double your proficiency bonus to the check, instead of your normal proficiency bonus.\n   ***Symbiotic Nature***. The gloves can't be removed from you while you're attuned to them, and you can't voluntarily end your attunement to them. If you're targeted by a spell that ends a curse, your attunement to the gloves ends, and they can be removed.",
+	descriptionFull: [
+		"These symbiotic gloves\u2014made of thin chitin and sinew\u2014pulse with a life of their own. To attune to them, you must wear them for the entire attunement period, during which the gloves bond with your skin.",
+		"While attuned to these gloves, you gain one of the following proficiencies (your choice when you attune to the gloves):",
+		" \u2022 Sleight of Hand",
+		" \u2022 Thieves' tools",
+		" \u2022 One kind of artisan's tools of your choice",
+		" \u2022 One kind of musical instrument of your choice",
+		"When you make an ability check using the chosen proficiency, you add double your proficiency bonus to the check, instead of your normal proficiency bonus.",
+		"***Symbiotic Nature***. The gloves can't be removed from you while you're attuned to them, and you can't voluntarily end your attunement to them. If you're targeted by a spell that ends a curse, your attunement to the gloves ends, and they can be removed.",
+	],
 	attunement: true,
 	choices: ["Proficiency and expertise with Sleight of Hand", "Proficiency and expertise with Thieves' Tools", "Proficiency and expertise with chosen artisan's tools", "Proficiency and expertise with chosen musical instrument"],
 	choicesNotInMenu: true,
@@ -3188,7 +3424,21 @@ MagicItemsList["orb of shielding"] = {
 	type: "wondrous item",
 	rarity: "common",
 	description: "An orb of shielding is made from crystal or stone aligned to one of the planes. I can use it as my spellcasting focus. While I am holding the orb and take damage of the type associated with the material the orb is made from, I can use my reaction to reduce the damage by 1d4 (to a minimum of 0).",
-	descriptionFull: "An orb of shielding is a polished, spherical chunk of crystal or stone aligned to one of the planes of existence. If you're a spellcaster, you can use this orb as a spellcasting focus.\n   If you're holding the orb when you take damage of the type associated with the orb's material, you can use your reaction to reduce the damage by 1d4 (to a minimum of 0). The materials and their associated damage types are listed in the Orb of Shielding table.\n\n**Planar Material**\t**Damage Type**\nFernian Basalt\t\tFire\nIrian Quartz\t\tRadiant\nKythrian Skarn\t\tAcid or Poison\nLamannian Flint\t\tLightning or Thunder\nMabaran Obsidian      \tNecrotic\nRisian Shale\t\tCold\nShavarran Chert\t\tForce\nXorian Marble\t\tPsychic",
+	descriptionFull: [
+		"An *orb of shielding* is a polished, spherical chunk of crystal or stone aligned to one of the planes of existence. If you're a spellcaster, you can use this orb as a spellcasting focus.",
+		"If you're holding the orb when you take damage of the type associated with the orb's material, you can use your reaction to reduce the damage by 1d4 (to a minimum of 0). The materials and their associated damage types are listed in the Orb of Shielding table.",
+		[
+			["Planar Material", "Damage Type"],
+			["Fernian Basalt", "", "Fire"],
+			["Irian Quartz", "", "Radiant"],
+			["Kythrian Skarn", "", "Acid or Poison"],
+			["Lamannian Flint", "", "Lightning or Thunder"],
+			["Mabaran Obsidian      ", "Necrotic"],
+			["Risian Shale", "", "Cold"],
+			["Shavarran Chert", "", "Force"],
+			["Xorian Marble", "", "Psychic"],
+		],
+	],
 	attunement: true,
 	allowDuplicates: true,
 	weight: 3,
@@ -3242,7 +3492,11 @@ MagicItemsList["scribe's pen"] = {
 	type: "wondrous item",
 	rarity: "common",
 	description: "I can use this pen to write on any surface. I decide whether the writing is visible or invisible, but it is always visible to creatures with the Mark of Scribing. As an action, I or others with the Mark of Scribing can touch the writing and make it visible to all. Writing on creatures other than constructs fades after 7 days.",
-	descriptionFull: "You can use this pen to write on any surface. You decide whether the writing is visible or invisible, but the writing is always visible to a person with the Mark of Scribing.\n   Any creature with the Mark of Scribing can use an action to touch the invisible writing, making it visible to all.\n   If you use the pen to write on a creature that isn't a construct, the writing fades after 7 days.",
+	descriptionFull: [
+		"You can use this pen to write on any surface. You decide whether the writing is visible or invisible, but the writing is always visible to a person with the Mark of Scribing.",
+		"Any creature with the Mark of Scribing can use an action to touch the invisible writing, making it visible to all.",
+		"If you use the pen to write on a creature that isn't a construct, the writing fades after 7 days.",
+	],
 	attunement: true,
 	prerequisite: "Requires attunement by a creature with the Dragonmark of Scribing",
 	prereqeval: function (v) {
@@ -3255,7 +3509,7 @@ MagicItemsList["shiftweave"] = {
 	type: "wondrous item",
 	rarity: "common",
 	description: "Up to five different outfits are embedded into these clothes. As a bonus action, I can speak its command word to transform the outfit into one of the other designs contained within. Regardless of its appearance, the outfit can't be anything but clothing or gain properties of other magical clothing.",
-	descriptionFull: "When a suit of shiftweave is created, up to five different outfits can be embedded into the cloth. While wearing the clothing, you can speak its command word as a bonus action to transform your outfit into your choice of one of the other designs contained within it. Regardless of its appearance, the outfit can't be anything but clothing. Although it can duplicate the look of other magical clothing, it doesn't gain their magical properties.",
+	descriptionFull: "When a suit of *shiftweave* is created, up to five different outfits can be embedded into the cloth. While wearing the clothing, you can speak its command word as a bonus action to transform your outfit into your choice of one of the other designs contained within it. Regardless of its appearance, the outfit can't be anything but clothing. Although it can duplicate the look of other magical clothing, it doesn't gain their magical properties.",
 	action: [["bonus action", ""]],
 }
 MagicItemsList["speaking stone"] = {
@@ -3263,8 +3517,11 @@ MagicItemsList["speaking stone"] = {
 	source: [["E:RLW", 279]],
 	type: "wondrous item",
 	rarity: "very rare",
-	description: "This dragonshard is inscribed with arcane symbols that uniquely identify it. By touching it, I can cast Sending to any other speaking stone whose location or unique sequence of symbols I know. A creature within 5 ft of the receiving speaking stone hears the message as if they were the target of the Sending.",
-	descriptionFull: "The key to long-distance, virtually instantaneous communication across Khorvaire is House Sivis's network of message stations. Each station contains at least one speaking stone, which is carved from a Siberys dragonshard and inscribed with arcane symbols that uniquely identify it. If you're a gnome with the Mark of Scribing, you can touch the stone and use an action to cast the sending spell from it. The target is any other speaking stone whose location or unique sequence of symbols you know. A creature within 5 feet of the stone hears the message as if they were the target.\n   In a Sivis message station, a gnome is always on duty by the speaking stone, listening for messages that might come in and transcribing them for delivery to their intended recipients.",
+	description: "This dragonshard is inscribed with arcane symbols that uniquely identify it. By touching it, I can cast *Sending* to any other speaking stone whose location or unique sequence of symbols I know. A creature within 5 ft of the receiving speaking stone hears the message as if they were the target of the *Sending*.",
+	descriptionFull: [
+		"The key to long-distance, virtually instantaneous communication across Khorvaire is House Sivis's network of message stations. Each station contains at least one *speaking stone*, which is carved from a Siberys dragonshard and inscribed with arcane symbols that uniquely identify it. If you're a gnome with the Mark of Scribing, you can touch the stone and use an action to cast the *sending* spell from it. The target is any other *speaking stone* whose location or unique sequence of symbols you know. A creature within 5 feet of the stone hears the message as if they were the target.",
+		"In a Sivis message station, a gnome is always on duty by the *speaking stone*, listening for messages that might come in and transcribing them for delivery to their intended recipients.",
+	],
 	prerequisite: "Can only be used by a gnome with the Dragonmark of Scribing",
 	prereqeval: function (v) {
 		return /^(?=.*dragonmark)(?=.*scribing).*$/i.test(CurrentRace.known);
@@ -3282,7 +3539,11 @@ MagicItemsList["spellshard"] = {
 	type: "wondrous item",
 	rarity: "common",
 	description: "This dragonshard can store up to 320 pages of text or spells. As an action while holding it (and speaking its passphrase if it has one), I can open my mind to its content and concentrate on it to subsequently read from and write to it in the same amount of time as a normal book (same cost as a normal spellbook).",
-	descriptionFull: 'This polished Eberron dragonshard fits in the hand and stores information similar to a book. The shard can hold the equivalent of one book that\'s no more than 320 pages long. A shard can be created blank or already filled with information. When the shard is created, the creator can set a passphrase that must be spoken to access the information stored within.\n   While holding the shard, you can use an action to open your mind to the shard, seeing its content in your mind. On subsequent rounds, reading the text or scribing new text on blank "pages" in the shard requires concentration (as if concentrating on a spell) and takes the same amount of time it takes you to read and write normally. Thinking of a particular phrase or topic draws you to the first section in the shard that addresses it.\n   A wizard can use a spellshard as a spellbook, with the usual cost in gold and time to "scribe" a spell into the shard.',
+	descriptionFull: [
+		"This polished Eberron dragonshard fits in the hand and stores information similar to a book. The shard can hold the equivalent of one book that's no more than 320 pages long. A shard can be created blank or already filled with information. When the shard is created, the creator can set a passphrase that must be spoken to access the information stored within.",
+		"While holding the shard, you can use an action to open your mind to the shard, seeing its content in your mind. On subsequent rounds, reading the text or scribing new text on blank \"pages\" in the shard requires concentration (as if concentrating on a spell) and takes the same amount of time it takes you to read and write normally. Thinking of a particular phrase or topic draws you to the first section in the shard that addresses it.",
+		"A wizard can use a *spellshard* as a spellbook, with the usual cost in gold and time to \"scribe\" a spell into the shard.",
+	],
 	action: [["action", ""]],
 }
 MagicItemsList["ventilating lungs"] = {
@@ -3290,8 +3551,13 @@ MagicItemsList["ventilating lungs"] = {
 	source: [["E:RLW", 279]],
 	type: "wondrous item",
 	rarity: "very rare",
-	description: "These lungs replace those in my chest while I'm attuned to them. Their function can't be suppressed by (anti)magic. They allow me to breath normally in any environment and give me advantage on saves against harmful gases and vapors. Once per dawn, I can use them to cast Gust of Wind (save DC 15) by exhaling.",
-	descriptionFull: "These metallic nodules were created in response to the poisonous gases used on the battlefields of the Last War. When you attune to these lungs, they replace the lungs in your chest, which disappear. The lungs allow you to breathe normally, even in an antimagic field, and their breathing function can't be suppressed by magic.\n   Outside an antimagic field or any other effect that suppresses magic, these lungs allow you to breathe normally in any environment (including a vacuum), and you have advantage on saving throws against harmful gases such as those created by a cloudkill spell, a stinking cloud spell, inhaled poisons, and gaseous breath weapons.\n   As an action, you can use these lungs to exhale a gust of wind, as if you had cast the gust of wind spell (spell save DC 15) with no components. This property of the lungs can't be used again until the next dawn.\n   If your attunement to the lungs ends, your original lungs reappear.",
+	description: "These lungs replace those in my chest while I'm attuned to them. Their function can't be suppressed by (anti)magic. They allow me to breath normally in any environment and give me advantage on saves against harmful gases and vapors. Once per dawn, I can use them to cast *Gust of Wind* (save DC 15) by exhaling.",
+	descriptionFull: [
+		"These metallic nodules were created in response to the poisonous gases used on the battlefields of the Last War. When you attune to these lungs, they replace the lungs in your chest, which disappear. The lungs allow you to breathe normally, even in an *antimagic field*, and their breathing function can't be suppressed by magic.",
+		"Outside an *antimagic field* or any other effect that suppresses magic, these lungs allow you to breathe normally in any environment (including a vacuum), and you have advantage on saving throws against harmful gases such as those created by a *cloudkill* spell, a *stinking cloud* spell, inhaled poisons, and gaseous breath weapons.",
+		"As an action, you can use these lungs to exhale a *gust of wind*, as if you had cast the *gust of wind* spell (spell save DC 15) with no components. This property of the lungs can't be used again until the next dawn.",
+		"If your attunement to the lungs ends, your original lungs reappear.",
+	],
 	attunement: true,
 	usages: 1,
 	recovery: "dawn",
@@ -3311,7 +3577,13 @@ MagicItemsList["wand sheath"] = {
 	type: "wondrous item",
 	rarity: "common",
 	description: "This sheath clamps unto my arm and can't be removed while I'm attuned to it. As an action, I can insert a wand in it, which then doesn't count to the number of items I can attune to. As a bonus action, I can then retract the wand or extend the wand and use it as if holding it, while keeping my hand free.",
-	descriptionFull: "A wand sheath clamps onto your arm and imparts the following benefits:\n \u2022 The wand sheath can't be removed from you while you're attuned to it.\n \u2022 You can insert a wand into the sheath as an action. The sheath can hold only one wand at a time.\n \u2022 You can retract or extend a wand from the sheath as a bonus action. While the wand is extended, you can use it as if you were holding it, but your hand remains free.\n\nIf a sheathed wand requires attunement, you must attune to the wand before you can use it. However, the wand sheath and the attached wand count as a single magic item with regard to the number of magic items you can attune to. If you remove the wand from the sheath, your attunement to the wand ends.",
+	descriptionFull: [
+		"A *wand sheath* clamps onto your arm and imparts the following benefits:",
+		" \u2022 The *wand sheath* can't be removed from you while you're attuned to it.",
+		" \u2022 You can insert a wand into the sheath as an action. The sheath can hold only one wand at a time.",
+		" \u2022 You can retract or extend a wand from the sheath as a bonus action. While the wand is extended, you can use it as if you were holding it, but your hand remains free.",
+		"If a sheathed wand requires attunement, you must attune to the wand before you can use it. However, the *wand sheath* and the attached wand count as a single magic item with regard to the number of magic items you can attune to. If you remove the wand from the sheath, your attunement to the wand ends.",
+	],
 	attunement: true,
 	prerequisite: "Requires attunement by a warforged",
 	prereqeval: function (v) { return /warforged/i.test(CurrentRace.known); },
@@ -3323,7 +3595,10 @@ MagicItemsList["wheel of wind and water"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	description: "I can telepathically control the elemental bound into the elemental galleon or airship that has this wheel mounted at its helm. If I use a wheel of wind and water that is mounted on a mundane sailing ship, I can create an area of ideal conditions around the vessel, increasing its speed by 5 miles per hour.",
-	descriptionFull: "When mounted at the helm of an elemental galleon or airship, this wheel allows a creature that possesses the Mark of Storm to telepathically control the elemental bound inside the vessel.\n   If a wheel of wind and water is mounted on a mundane sailing ship, a creature with the Mark of Storm who is using the wheel can create an area of ideal conditions around the vessel, increasing its speed by 5 miles per hour.",
+	descriptionFull: [
+		"When mounted at the helm of an elemental galleon or airship, this wheel allows a creature that possesses the Mark of Storm to telepathically control the elemental bound inside the vessel.",
+		"If a *wheel of wind and water* is mounted on a mundane sailing ship, a creature with the Mark of Storm who is using the wheel can create an area of ideal conditions around the vessel, increasing its speed by 5 miles per hour.",
+	],
 	prerequisite: "Can only be used by a creature with the Dragonmark of Storm",
 	prereqeval: function (v) {
 		return /^(?=.*dragonmark)(?=.*storm).*$/i.test(CurrentRace.known);

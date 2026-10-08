@@ -1,5 +1,5 @@
 var iFileName = "ua_20180810_Magic-Items-of-Eberron.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds the content from the Unearthed Arcana: Magic Items of Eberron to MPMB's Character Record Sheet
 // Note that this content also appears in the script for Wayfinder's Guide to Eberron and thus both sources are included for all things here
 
@@ -21,7 +21,7 @@ if (!SourceList["E:RLW"]) {
 		type: "wondrous item",
 		rarity: "common",
 		description: "This stone sphere is 1 ft in diameter and engraved with mystic sigils. As an action while touching it, I can activate it to remove dirt and grime from my garments and my person.",
-		descriptionFull: "A cleansing stone is a stone sphere one foot in diameter, engraved with mystic sigils. When touching the stone, you can use an action to activate it and remove dirt and grime from your garments and your person. Cleansing stones are often embedded into pedestals in public squares in Aundair or found in high-end Ghallanda inns.",
+		descriptionFull: "A *cleansing stone* is a stone sphere one foot in diameter, engraved with mystic sigils. When touching the stone, you can use an action to activate it and remove dirt and grime from your garments and your person. Cleansing stones are often embedded into pedestals in public squares in Aundair or found in high-end Ghallanda inns.",
 		action: [["action", ""]],
 		weight: 88, // using average marble/limestone density of 2.711 g/cm3
 	}
@@ -30,8 +30,8 @@ if (!SourceList["E:RLW"]) {
 		source: [["E:RLW", 277], ["WGtE", 115], ["UA:MIoE", 2]],
 		type: "wondrous item",
 		rarity: "common",
-		description: "This bullseye lantern is powered by a dragonshard imbued with the effect of a Continual Flame spell. The light never goes out, but it can be shuttered off. It casts bright light in a 60-ft cone and dim light for an additional 60 ft.",
-		descriptionFull: "An everbright lantern contains an Eberron dragonshard imbued with the effect of a continual flame spell. This bright light is mounted inside a normal bullseye lantern, allowing the light to be shuttered off. An everbright lantern provides clear illumination in a 60-foot cone and shadowy illumination in a 120-foot cone, just like a mundane bullseye lantern, but its flame never goes out.",
+		description: "This bullseye lantern is powered by a dragonshard imbued with the effect of a *Continual Flame* spell. The light never goes out, but it can be shuttered off. It casts bright light in a 60-ft cone and dim light for an additional 60 ft.",
+		descriptionFull: "An *everbright lantern* contains an Eberron dragonshard imbued with the effect of a *continual flame* spell. This bright light is mounted inside a normal bullseye lantern, allowing the light to be shuttered off. An *everbright lantern* provides clear illumination in a 60-foot cone and shadowy illumination in a 120-foot cone, just like a mundane bullseye lantern, but its flame never goes out.",
 		weight: 2,
 	}
 	MagicItemsList["imbued wood focus"] = {
@@ -46,7 +46,21 @@ if (!SourceList["E:RLW"]) {
 		type: "wondrous item",
 		rarity: "common",
 		description: "This rod, wand, or staff is cut from a tree infused with extraplanar energy. I can use it as spellcasting focus for all my spells. If I do so, spells I cast that deal the associated damage type add a +1 bonus to one of their damage rolls.",
-		descriptionFull: "An imbued wood focus is a rod, staff, or wand cut from a tree infused with extraplanar energy. If you're a spellcaster, you can use this orb as a spellcasting focus.\n   When you cast a damage-dealing spell using this item as your spellcasting focus, you gain a +1 bonus to one damage roll of the spell, provided the damage is of the type associated with the item's wood. The types of wood and their associated damage types are listed in the table below.\n\n**Wood**\t**Damage Type**\nFernian Ash\t\tFire\nIrian Rosewood\t\tRadiant\nKythrian Manchineel  \tAcid or Poison\nLamannian Oak\t\tLightning or Thunder\nMabaran Ebony\t\tNecrotic\nRisian Pine\t\tCold\nShavarran Birch\t\tForce\nXorian Wenge\t\tPsychic",
+		descriptionFull: [
+			"An *imbued wood focus* is a rod, staff, or wand cut from a tree infused with extraplanar energy. If you're a spellcaster, you can use this orb as a spellcasting focus.",
+			"When you cast a damage-dealing spell using this item as your spellcasting focus, you gain a +1 bonus to one damage roll of the spell, provided the damage is of the type associated with the item's wood. The types of wood and their associated damage types are listed in the table below.",
+			[
+				["Wood", "Damage Type"],
+				["Fernian Ash", "", "Fire"],
+				["Irian Rosewood", "", "Radiant"],
+				["Kythrian Manchineel  ", "Acid or Poison"],
+				["Lamannian Oak", "", "Lightning or Thunder"],
+				["Mabaran Ebony", "", "Necrotic"],
+				["Risian Pine", "", "Cold"],
+				["Shavarran Birch", "", "Force"],
+				["Xorian Wenge", "", "Psychic"],
+			],
+		],
 		attunement: true,
 		allowDuplicates: true,
 		weight: 2,
@@ -225,15 +239,17 @@ if (!SourceList["E:RLW"]) {
 		type: "wondrous item",
 		rarity: "common",
 		description: "An orb of shielding is made from crystal or stone aligned to one of the planes. I can use it as my spellcasting focus. While I am holding the orb and take damage of the type associated with the material the orb is made from, I can use my reaction to reduce the damage by 1d4 (to a minimum of 0).",
-		descriptionFull: "An orb of shielding is made from crystal or stone aligned to one of the planes. While you are holding the orb and take damage of the type associated with the material your orb is made from, you can use your reaction to reduce the damage by 1d4. The materials and their associated damage types are listed below.\n" +
-		"\n \u2022 Fernian basalt: Fire damage" +
-		"\n \u2022 Irian quartz: Radiant damage" +
-		"\n \u2022 Kythrian skarn: Acid or poison damage" +
-		"\n \u2022 Lamannian flint: Lightning or thunder damage" +
-		"\n \u2022 Mabaran obsidian: Necrotic damage" +
-		"\n \u2022 Quori celestine, Xorian marble: Psychic damage" +
-		"\n \u2022 Risian shale: Cold damage" +
-		"\n \u2022 Shavaran chert: Force damage",
+		descriptionFull: [
+			"An *orb of shielding* is made from crystal or stone aligned to one of the planes. While you are holding the orb and take damage of the type associated with the material your orb is made from, you can use your reaction to reduce the damage by 1d4. The materials and their associated damage types are listed below.",
+			" \u2022 Fernian basalt: Fire damage",
+			" \u2022 Irian quartz: Radiant damage",
+			" \u2022 Kythrian skarn: Acid or poison damage",
+			" \u2022 Lamannian flint: Lightning or thunder damage",
+			" \u2022 Mabaran obsidian: Necrotic damage",
+			" \u2022 Quori celestine, Xorian marble: Psychic damage",
+			" \u2022 Risian shale: Cold damage",
+			" \u2022 Shavaran chert: Force damage",
+		],
 		attunement: true,
 		allowDuplicates: true,
 		weight: 3,
@@ -306,7 +322,7 @@ MagicItemsList["band of loyalty-ua"] = {
 	type: "ring",
 	rarity: "common",
 	description: "If I'm reduced to zero hit points while attuned to this ring, I instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
-	descriptionFull: "If you are reduced to zero hit points while attuned to a band of loyalty, you instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
+	descriptionFull: "If you are reduced to zero hit points while attuned to a *band of loyalty*, you instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
 	attunement: true,
 }
 MagicItemsList["docent-ua"] = {
@@ -356,8 +372,8 @@ MagicItemsList["feather token-ua"] = {
 	source: [["WGtE", 115], ["UA:MIoE", 2]],
 	type: "wondrous item",
 	rarity: "common",
-	description: "Once as a bonus action while the token is in my possession, I can use it to cast Feather Fall. This small metal disk is inscribed with the image of a feather and only holds sufficient charge for a single use, after which it loses its power.",
-	descriptionFull: "This small metal disk is inscribed with the image of a feather. While the token is in your possession, you can cast feather fall as a bonus action. A feather token only holds sufficient charge for a single use, after which it loses its power. While it's an expensive form of insurance, frequent airship travelers and citizens of Sharn often appreciate the security it provides.",
+	description: "Once as a bonus action while the token is in my possession, I can use it to cast *Feather Fall*. This small metal disk is inscribed with the image of a feather and only holds sufficient charge for a single use, after which it loses its power.",
+	descriptionFull: "This small metal disk is inscribed with the image of a feather. While the token is in your possession, you can cast *feather fall* as a bonus action. A *feather token* only holds sufficient charge for a single use, after which it loses its power. While it's an expensive form of insurance, frequent airship travelers and citizens of Sharn often appreciate the security it provides.",
 }
 MagicItemsList["glamerweave-ua"] = {
 	name: "Glamerweave",
@@ -365,17 +381,20 @@ MagicItemsList["glamerweave-ua"] = {
 	type: "wondrous item",
 	rarity: "common",
 	description: "Glamerweave clothing is imbued with cosmetic illusions that have no impact on combat. Most of the time, these patterns are contained within the cloth, but higher-end glamerweave can have more dramatic effects. A gown could appear to be wreathed in flames, or a hat orbited by illusory butterflies.",
-	descriptionFull: "Glamerweave clothing is imbued with cosmetic illusions. Traditionally, these patterns are contained within the cloth, but higher-end glamerweave can have more dramatic effects. You could have a gown that appears to be wreathed in flames, or a hat that's orbited by illusory butterflies. Regardless of the design, these are cosmetic effects and have no impact on combat.\n\n" + [
-		"**1d8**\t**Description**",
-		"  1\tA hat orbited by the twelve moons",
-		"  2\tLong gloves wreathed in cold flames",
-		"  3\tA traveler's cloak lined with glittering stars",
-		"  4\tA scarlet gown that glows with inner radiance",
-		"  5\tA cloth shirt that appears to be a chain shirt",
-		"  6\tA silver gown surrounded by drifting snowflakes",
-		"  7\tA robe with two dragons wrestling across the back",
-		"  8\tA cloak that slowly and subtly shifts colors",
-	].join("\n"),
+	descriptionFull: [
+		"*Glamerweave* clothing is imbued with cosmetic illusions. Traditionally, these patterns are contained within the cloth, but higher-end *glamerweave* can have more dramatic effects. You could have a gown that appears to be wreathed in flames, or a hat that's orbited by illusory butterflies. Regardless of the design, these are cosmetic effects and have no impact on combat.",
+		[
+			["1d8", "Description"],
+			["  1", "A hat orbited by the twelve moons"],
+			["  2", "Long gloves wreathed in cold flames"],
+			["  3", "A traveler's cloak lined with glittering stars"],
+			["  4", "A scarlet gown that glows with inner radiance"],
+			["  5", "A cloth shirt that appears to be a chain shirt"],
+			["  6", "A silver gown surrounded by drifting snowflakes"],
+			["  7", "A robe with two dragons wrestling across the back"],
+			["  8", "A cloak that slowly and subtly shifts colors"],
+		],
+	],
 }
 MagicItemsList["shiftweave-ua"] = {
 	name: "Shiftweave",
@@ -383,7 +402,7 @@ MagicItemsList["shiftweave-ua"] = {
 	type: "wondrous item",
 	rarity: "common",
 	description: "Up to five different outfits are embedded into these clothes that have transmutation magic woven into their fabric. As an action, I can speak a command word to transform the outfit into one of the other designs contained within.",
-	descriptionFull: "Transmutation magic is woven into the fabric of shiftweave clothing. When a suit of shiftweave is created, up to five different outfits can be embedded into the cloth. By taking an action and uttering a command word, you can transform your shiftweave outfit into one of the other designs contained within it. To determine the price of a suit of shiftweave, combine the value of all of the outfits it contains and add 25 gp to that amount.",
+	descriptionFull: "Transmutation magic is woven into the fabric of *shiftweave* clothing. When a suit of *shiftweave* is created, up to five different outfits can be embedded into the cloth. By taking an action and uttering a command word, you can transform your *shiftweave* outfit into one of the other designs contained within it. To determine the price of a suit of *shiftweave*, combine the value of all of the outfits it contains and add 25 gp to that amount.",
 	action: [["action", ""]],
 }
 MagicItemsList["armblade-ua"] = {
@@ -392,7 +411,10 @@ MagicItemsList["armblade-ua"] = {
 	type: "weapon (any one-handed melee weapon)",
 	rarity: "common",
 	description: "As a warforged, I can integrate this weapon in my forearm by attuning to it. While attached, it can't be disarmed or removed against my will, but I can't use that hand for other actions. I can spend one minute to end the attunement and remove the armblade. The weapon isn't inherently magical.",
-	descriptionFull: "An armblade is a weapon designed to integrate with the forearm of a warforged. If you're a warforged, you can attach an armblade by attuning to it. An attached armblade cannot be disarmed or removed from you against your will, but while the weapon is attached you cannot use that hand for other actions. You can spend one minute to end the attunement and remove the armblade.\n   An armblade isn't inherently considered to be a magic weapon for purposes of overcoming damage resistance. However, any sort of magical melee weapon could be created as an armblade, so you could acquire a vicious armblade or a vorpal armblade.",
+	descriptionFull: [
+		"An *armblade* is a weapon designed to integrate with the forearm of a warforged. If you're a warforged, you can attach an *armblade* by attuning to it. An attached *armblade* cannot be disarmed or removed from you against your will, but while the weapon is attached you cannot use that hand for other actions. You can spend one minute to end the attunement and remove the *armblade*.",
+		"An *armblade* isn't inherently considered to be a magic weapon for purposes of overcoming damage resistance. However, any sort of magical melee weapon could be created as an *armblade*, so you could acquire a vicious *armblade* or a vorpal *armblade*.",
+	],
 	attunement: true,
 	prerequisite: "Requires attunement by a warforged",
 	prereqeval: function (v) {
@@ -414,8 +436,14 @@ MagicItemsList["wand sheath-ua"] = {
 	type: "wondrous item",
 	rarity: "common",
 	description: "As a warforged, I can integrate this sheath in my forearm by attuning to it. It can only be removed if I spend a minute to end the attunement. As an action, I can insert a wand in it. The wand doesn't count to the number of items I can attune to. As a bonus action, I can then retract/extend it while keeping my hand free.",
-	descriptionLong: "As a warforged, I can integrate this sheath in my forearm by attuning to it. It can only be removed if I spend a minute to end the attunement. As an action, I can insert a wand in it. I still need to attune to this wand if it requires me to do so, but the wand wand then doesn't count towards the number of items I can attune to. When I take the wand out of the sheath, I lose attunement with it. As a bonus action, I can retract or extend a wand in the sheath. While retracted, the wand can't be damaged. While extended, I can use the wand as if holding it, but my hand remains free for other actions.",
-	descriptionFull: "A wand sheath is designed to integrate with the forearm of a warforged. If you're a warforged, you can attach a wand sheath by attuning to it. While the wand sheath is attached, it cannot be removed from you against your will. You can spend one minute to end the attunement and remove the wand sheath.\n   You can insert a wand into the sheath as an action. While the wand is sheathed, you gain the following benefits:\n \u2022 You can retract the wand into your forearm or extend it from your forearm as a bonus action. While it is retracted, it cannot be damaged or removed.\n \u2022 While the wand is extended, you can use it as if you were holding it, but your hand remains free for other actions.\n \u2022 If the sheathed wand requires attunement, you must attune to the wand before you can use it. However, the wand sheath and the attached wand only count as a single item for purposes of the maximum number of items you can be attuned to. If you remove the wand from the sheath, you immediately lose your attunement to the wand.",
+	descriptionLong: "As a warforged, I can integrate this sheath in my forearm by attuning to it. It can only be removed if I spend a minute to end the attunement. As an action, I can insert a wand in it. I still need to attune to this wand if it requires me to do so, but the wand then doesn't count towards the number of items I can attune to. When I take the wand out of the sheath, I lose attunement with it. As a bonus action, I can retract or extend a wand in the sheath. While retracted, the wand can't be damaged. While extended, I can use the wand as if holding it, but my hand remains free for other actions.",
+	descriptionFull: [
+		"A *wand sheath* is designed to integrate with the forearm of a warforged. If you're a warforged, you can attach a *wand sheath* by attuning to it. While the *wand sheath* is attached, it cannot be removed from you against your will. You can spend one minute to end the attunement and remove the *wand sheath*.",
+		"You can insert a wand into the sheath as an action. While the wand is sheathed, you gain the following benefits:",
+		" \u2022 You can retract the wand into your forearm or extend it from your forearm as a bonus action. While it is retracted, it cannot be damaged or removed.",
+		" \u2022 While the wand is extended, you can use it as if you were holding it, but your hand remains free for other actions.",
+		" \u2022 If the sheathed wand requires attunement, you must attune to the wand before you can use it. However, the *wand sheath* and the attached wand only count as a single item for purposes of the maximum number of items you can be attuned to. If you remove the wand from the sheath, you immediately lose your attunement to the wand.",
+	],
 	attunement: true,
 	prerequisite: "Requires attunement by a warforged",
 	prereqeval: function (v) {

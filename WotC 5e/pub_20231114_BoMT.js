@@ -1,5 +1,5 @@
 var iFileName = "pub_20231114_BoMT.js";
-RequiredSheetVersion("14.0.15-beta");
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the Character Options content from the "The Book of Many Things" book (from the "The Deck of Many Things" set) to MPMB's Character Record Sheet
 
 // Define the source
@@ -116,10 +116,10 @@ BackgroundFeatureList["still standing"] = {
 FeatsList["cartomancer"] = {
 	name: "Cartomancer",
 	source: [["BoMT", 49]],
-	description: 'I can use a card deck as a spellcasting focus. I learn and can do stage magic with Prestidigitation. I conceal its components as card tricks when doing so. When I finish a long rest, I can store a spell from my class\' spell list into a card, see "Hidden Ace" notes.',
+	description: 'I can use a card deck as a spellcasting focus. I learn and can do stage magic with *Prestidigitation*. I conceal its components as card tricks when doing so. When I finish a long rest, I can store a spell from my class\' spell list into a card, see "Hidden Ace" notes.',
 	descriptionFull: [
 		"You have learned to channel your magic through a deck of cards. You can use a card deck as your spellcasting focus, and you gain the following benefits:",
-		"***Card Tricks***. You learn the Prestidigitation cantrip and can use it to create illusions that duplicate the effects of stage magic. When you use Prestidigitation in this way, you can conceal the verbal and somatic components of the spell as ordinary conversation and card handling.",
+		"***Card Tricks***. You learn the *Prestidigitation* cantrip and can use it to create illusions that duplicate the effects of stage magic. When you use *Prestidigitation* in this way, you can conceal the verbal and somatic components of the spell as ordinary conversation and card handling.",
 		"***Hidden Ace***. When you finish a long rest, you can choose one spell from your class's spell list and imbue that spell into a card. The chosen spell must have a casting time of 1 action, and it must be a level for which you have spell slots. The card remains imbued with this spell for 8 hours. While the card is imbued with the spell, you can use a bonus action to flourish the card and cast the spell within. The card then immediately loses its magic.",
 	],
 	prerequisite: "4th-level, Spellcasting feature",
@@ -157,10 +157,10 @@ MagicItemsList["antimagic armor"] = {
 	type: "armor (light, medium, or heavy)",
 	rarity: "very rare",
 	attunement: true,
-	description: "While wearing this armor, once per dawn I can cast Antimagic Field, requiring no spell components. In addition, as a reaction once per dawn, I can give myself advantage on a saving throw I make against a spell.",
+	description: "While wearing this armor, once per dawn I can cast *Antimagic Field*, requiring no spell components. In addition, as a reaction once per dawn, I can give myself advantage on a saving throw I make against a spell.",
 	descriptionFull: [
 		"While wearing this armor, you can use your reaction to give yourself advantage on a saving throw you make against a spell. Once this property is used, it can't be used again until the next dawn.",
-		"In addition, while you wear this armor, you can use it to cast Antimagic Field, requiring no spell components. Once this property is used, it can't be used again until the next dawn.",
+		"In addition, while you wear this armor, you can use it to cast *Antimagic Field*, requiring no spell components. Once this property is used, it can't be used again until the next dawn.",
 	],
 	chooseGear: {
 		type: "armor",
@@ -188,7 +188,7 @@ MagicItemsList["antimagic armor"] = {
 		"antimagic field": {
 			components: "",
 			compMaterial: "",
-			changes: "While wearing the armor, it requires no components to cast Antimagic Field.",
+			changes: "While wearing the armor, it requires no components to cast *Antimagic Field*.",
 		},
 	},
 };
@@ -219,9 +219,9 @@ MagicItemsList["armor of the fallen"] = {
 	type: "armor (medium or heavy)",
 	rarity: "uncommon",
 	attunement: true,
-	description: "While wearing this armor, I can use it to cast either Animate Dead or Speak with Dead. Once the armor has cast a spell in this way, it can't cast either spell until the next dawn. My soul keeps this armor together. If I die while attuned to the armor, the armor is destroyed.",
+	description: "While wearing this armor, I can use it to cast either *Animate Dead* or *Speak with Dead*. Once the armor has cast a spell in this way, it can't cast either spell until the next dawn. My soul keeps this armor together. If I die while attuned to the armor, the armor is destroyed.",
 	descriptionFull: [
-		"While wearing this armor, you can use it to cast either Speak with Dead or Animate Dead. Once the armor has cast a spell in this way, it can't cast either spell until the next dawn.",
+		"While wearing this armor, you can use it to cast either *Speak with Dead* or *Animate Dead*. Once the armor has cast a spell in this way, it can't cast either spell until the next dawn.",
 		"Your soul keeps this armor together. If you die while you are attuned to the armor, the armor is destroyed.",
 	],
 	chooseGear: {
@@ -249,9 +249,9 @@ MagicItemsList["armor of weightlessness"] = {
 	type: "armor (light, medium, or heavy)",
 	rarity: "uncommon",
 	attunement: true,
-	description: "This armor has 5 charges, regaining 1d4+1 expended charges daily at dawn. As a bonus action while wearing it, I can expend 1 or more charges to cast Jump (1 charge) or Levitate (2 charges) on myself.",
+	description: "This armor has 5 charges, regaining 1d4+1 expended charges daily at dawn. As a bonus action while wearing it, I can expend 1 or more charges to cast *Jump* (1 charge) or *Levitate* (2 charges) on myself.",
 	descriptionFull: [
-		"This armor has 5 charges. While you wear it, you can use a bonus action to expend 1 or more charges to cast one of the following spells from the armor, targeting yourself: Jump (1 charge) or Levitate (2 charges).",
+		"This armor has 5 charges. While you wear it, you can use a bonus action to expend 1 or more charges to cast one of the following spells from the armor, targeting yourself: Jump (1 charge) or *Levitate* (2 charges).",
 		"This armor regains 1d4 + 1 expended charges daily at dawn.",
 	],
 	chooseGear: {
@@ -280,7 +280,7 @@ MagicItemsList["armor of weightlessness"] = {
 			time: "1 bns",
 			range: "Self",
 			description: "My jump distance is tripled for the duration",
-			changes: "Using the Armor of Weightlessness, I can cast Jump as a bonus action, but only on myself.",
+			changes: "Using the Armor of Weightlessness, I can cast *Jump* as a bonus action, but only on myself.",
 		},
 		"levitate": {
 			name: "Levitate (self only)",
@@ -288,7 +288,7 @@ MagicItemsList["armor of weightlessness"] = {
 			range: "Self",
 			save: "",
 			description: "I float and move up vertically up to 20 ft; As part of my move each round, I can move up/down 20 ft",
-			changes: "Using the Armor of Weightlessness, I can cast Levitate as a bonus action, but only on myself.",
+			changes: "Using the Armor of Weightlessness, I can cast *Levitate* as a bonus action, but only on myself.",
 		},
 	},
 };
@@ -322,7 +322,7 @@ MagicItemsList["blasted goggles"] = {
 	description: "These tinker's goggles have 3 charges, regaining 1d3 daily at dawn. As an action, I can use 1 charge to shoot a beam of light: a creature I can see within 120 ft must make a DC 15 Dexterity save or take 3d6 fire damage. If this is a natural 20, I'm blinded for 24 hours. Cursed: I can't remove these or end attunement.",
 	descriptionFull: [
 		"These tinker's goggles have 3 charges. As an action, you can expend 1 charge to shoot a beam of fiery light from the goggles at a creature you can see within 120 feet of yourself. The target must succeed on a DC 15 Dexterity saving throw or take 3d6 fire damage. The goggles regain 1d3 expended charges daily at dawn.",
-		"***Cursed***. The goggles are cursed, and becoming attuned to them extends the curse to you. You can't remove the goggles or end your attunement to them until you are targeted by a Remove Curse spell or similar magic.",
+		"***Cursed***. The goggles are cursed, and becoming attuned to them extends the curse to you. You can't remove the goggles or end your attunement to them until you are targeted by a *Remove Curse* spell or similar magic.",
 		"Whenever you use the goggles' fiery beam and the target rolls a 20 on the d20 for the saving throw, the goggles expose you to a flash of violent bright light. As a result, you have the blinded condition for 24 hours.",
 	],
 	usages: 3,
@@ -482,12 +482,12 @@ MagicItemsList["breastplate of balance"] = {
 	type: "armor (breastplate)",
 	rarity: "rare",
 	attunement: true,
-	description: "This burnished copper breastplate with merchant's scales on the chest has 4 charges, regaining 1d4 at dawn. As a reaction when I or another I can see within 60 ft is about to roll a d20 with (dis)advantage, I can use 1 charge to prevent this (dis)advantage. As a bonus action, I can use 2 charges to cast Lesser Restoration.",
+	description: "This burnished copper breastplate with merchant's scales on the chest has 4 charges, regaining 1d4 at dawn. As a reaction when I or another I can see within 60 ft is about to roll a d20 with (dis)advantage, I can use 1 charge to prevent this (dis)advantage. As a bonus action, I can use 2 charges to cast *Lesser Restoration*.",
 	descriptionFull: [
 		"This burnished copper breastplate looks as if it were made of interlocking gears. Merchant's scales are emblazoned across the chest.",
 		"The armor has 4 charges. You can use the charges in the following ways while wearing the armor:",
 		"***Equalize***. When you or a creature you can see within 60 feet of yourself is about to roll a d20 with advantage or disadvantage, you can expend 1 charge and take a reaction to prevent the roll from being affected by advantage or disadvantage.",
-		"***Expunge Imbalance***. As a bonus action, you can expend 2 charges to cast the Lesser Restoration spell from the armor.",
+		"***Expunge Imbalance***. As a bonus action, you can expend 2 charges to cast the *Lesser Restoration* spell from the armor.",
 		"The armor regains 1d4 expended charges daily at dawn.",
 	],
 	weight: 20,
@@ -509,7 +509,7 @@ MagicItemsList["breastplate of balance"] = {
 	spellChanges: {
 		"lesser restoration": {
 			time: "1 bns",
-			changes: "While wearing the armor, I can use 2 of its charges to cast Lesser Restoration as a bonus action.",
+			changes: "While wearing the armor, I can use 2 of its charges to cast *Lesser Restoration* as a bonus action.",
 		},
 	},
 };
@@ -518,11 +518,11 @@ MagicItemsList["card sharp's deck"] = {
 	source: [["BoMT", 40]], // Chapter 6: Rogue
 	type: "wondrous item",
 	rarity: "uncommon",
-	description: 'The cards of this deck shimmer around the edges. As an action, I can throw a card as ranged spell attack using Dexterity. This "Deadly Deal" attack has 120 ft range and deals 1d8 force damage. As an action once per dawn, I can shuffle the deck to cast Spray of Cards at 3rd level with it (save DC 15).',
+	description: 'The cards of this deck shimmer around the edges. As an action, I can throw a card as ranged spell attack using Dexterity. This "Deadly Deal" attack has 120 ft range and deals 1d8 force damage. As an action once per dawn, I can shuffle the deck to cast *Spray of Cards* at 3rd level with it (save DC 15).',
 	descriptionFull: [
 		"The cards of this deck shimmer around the edges. While holding this deck, you can use the following properties:",
 		"***Deadly Deal***. As an action, you can use this deck to make a ranged spell attack by throwing a spectral card and using Dexterity for the attack roll. The card has a range of 120 feet and deals 1d8 force damage on a hit.",
-		"***Spray of Cards***. As an action, you can shuffle the deck and cast the Spray of Cards spell at 3rd level from the deck (spell save DC 15). Once the deck has cast the spell, it can't cast the spell again until the next dawn.",
+		"***Spray of Cards***. As an action, you can shuffle the deck and cast the *Spray of Cards* spell at 3rd level from the deck (spell save DC 15). Once the deck has cast the spell, it can't cast the spell again until the next dawn.",
 	],
 	action: [["action", ""]],
 	weaponOptions: [{
@@ -550,7 +550,7 @@ MagicItemsList["card sharp's deck"] = {
 		"spray of cards": {
 			description: "All in area 3d10 Force dmg and blinded until their next turn ends; save halves \x26 not blinded",
 			descriptionShorter: false,
-			changes: "Using Card Sharp's Deck I can cast Spray of Cards at 3rd level once per dawn.",
+			changes: "Using Card Sharp's Deck I can cast *Spray of Cards* at 3rd level once per dawn.",
 		},
 	},
 };
@@ -585,14 +585,14 @@ MagicItemsList["crown of whirling comets"] = {
 	type: "wondrous item",
 	rarity: "very rare",
 	attunement: true,
-	description: "This crown has 6 charges, regaining 1d6 at dawn. As a bonus action, I can use 1 charge to fly my walking speed and hover, for 10 min. I can use 3 charges to cast Ice Storm (DC 16). As an action, I can launch one frigid starlight bolt per charge used, that each deal 2d4 cold damage to a creature I can see within 120 ft.",
-	descriptionLong: "This delicate silver tiara decorated with stellar iconography has gems on the tiara's points that detach and closely orbit my head. It has 6 charges, regaining 1d6 used charges daily at dawn. As a bonus action, I can use 1 charge to gain a flying speed equal to my walking speed and I can hover, for 10 minutes. As an action, I can expend any number of charges to launch one frigid starlight bolt per charge used to a creature I can see within 120 ft. Each bolt automatically hits and deals 2d4 cold damage. Bolts can be used to hit the same or different targets. As an action, I can use 3 charges to cast Ice Storm (save DC 16).",
+	description: "This crown has 6 charges, regaining 1d6 at dawn. As a bonus action, I can use 1 charge to fly my walking speed and hover, for 10 min. I can use 3 charges to cast *Ice Storm* (DC 16). As an action, I can launch one frigid starlight bolt per charge used, that each deal 2d4 cold damage to a creature I can see within 120 ft.",
+	descriptionLong: "This delicate silver tiara decorated with stellar iconography has gems on the tiara's points that detach and closely orbit my head. It has 6 charges, regaining 1d6 used charges daily at dawn. As a bonus action, I can use 1 charge to gain a flying speed equal to my walking speed and I can hover, for 10 minutes. As an action, I can expend any number of charges to launch one frigid starlight bolt per charge used to a creature I can see within 120 ft. Each bolt automatically hits and deals 2d4 cold damage. Bolts can be used to hit the same or different targets. As an action, I can use 3 charges to cast *Ice Storm* (save DC 16).",
 	descriptionFull: [
 		"This delicate silver tiara is decorated with stellar iconography. While you wear the crown, the gems on the tiara's points detach and closely orbit your head.",
 		"The crown has 6 charges for the following properties, which you can use while wearing the crown:",
 		"***Star Flight***. As a bonus action, you can spend 1 charge to gain the power of flight for 10 minutes. For the duration, you gain a flying speed equal to your walking speed, and you can hover. While flying, you glow faintly with starlight.",
 		"***Starlight Strike***. As an action, you can spend any number of charges to launch bolts of frigid starlight. You launch a number of bolts equal to the number of charges spent, and you can direct the bolts to target one creature or several, so long as all creatures are within 120 feet of you and you can see them. The bolts automatically strike their targets, and each bolt deals 2d4 cold damage.",
-		"***Whirling Hail***. As an action, you can spend 3 charges and cast the Ice Storm spell (save DC 16).",
+		"***Whirling Hail***. As an action, you can spend 3 charges and cast the *Ice Storm* spell (save DC 16).",
 		"The crown regains 1d6 expended charges daily at dawn.",
 	],
 	action: [["bonus action", " (fly)"], ["action", " (bolts)"]],
@@ -614,12 +614,12 @@ MagicItemsList["deck of dimensions"] = {
 	type: "wondrous item",
 	rarity: "very rare",
 	attunement: true,
-	description: "This deck has 6 charges, regaining 1d6 used at dawn. As a bonus action, I can use 1 charge to throw a card to an empty spot either within 60 ft and teleport to it, or within 5 ft and teleport to it once in the next 8 hours as an action. I can use 3 charges to cast Arcane Gate, but can't use the deck while the gate is active.",
-	descriptionLong: "These cards are decorated with intricate designs of different planes of existence. The deck has 6 charges, regaining 1d6 used charges daily at dawn. As a bonus action, I can use 1 charge to throw a card to an empty space either within 60 ft and teleport to it now, or within 5 ft and leave it there to use an action within the next 24 hours to speak the card's name and teleport to it. Once I teleport to a card, or 8 hours pass, the card vanishes and returns to the deck. As an action, I can use 3 charges to cast Arcane Gate, but the fluttering cards of the deck make up the gate, rendering the deck useless while it's active.",
+	description: "This deck has 6 charges, regaining 1d6 used at dawn. As a bonus action, I can use 1 charge to throw a card to an empty spot either within 60 ft and teleport to it, or within 5 ft and teleport to it once in the next 8 hours as an action. I can use 3 charges to cast *Arcane Gate*, but can't use the deck while the gate is active.",
+	descriptionLong: "These cards are decorated with intricate designs of different planes of existence. The deck has 6 charges, regaining 1d6 used charges daily at dawn. As a bonus action, I can use 1 charge to throw a card to an empty space either within 60 ft and teleport to it now, or within 5 ft and leave it there to use an action within the next 24 hours to speak the card's name and teleport to it. Once I teleport to a card, or 8 hours pass, the card vanishes and returns to the deck. As an action, I can use 3 charges to cast *Arcane Gate*, but the fluttering cards of the deck make up the gate, rendering the deck useless while it's active.",
 	descriptionFull: [
 		"The backs of the cards in this deck are decorated with intricate designs representing different planes of existence. The deck has 6 charges. While holding it, you can expend 1 or more of its charges to use the following properties:",
 		"***Marked Card***. As a bonus action, you can expend 1 charge to draw a card from the deck and place it in an unoccupied space within 5 feet of you. The card then becomes marked with an invisible sigil. Once within the next 24 hours, as an action, you can speak the marked card's name and teleport to the card's location, along with any equipment you are wearing or carrying, appearing in the closest unoccupied space to the card. After you teleport in this way, or after 8 hours, the card returns to the deck, and the mark on it fades.",
-		"***Riffling Portal***. As an action, you can expend 3 charges to cast the Arcane Gate spell from the deck. The deck vanishes, and fluttering cards create the spell's portal rings. When the spell ends, the deck reappears in your possession.",
+		"***Riffling Portal***. As an action, you can expend 3 charges to cast the *Arcane Gate* spell from the deck. The deck vanishes, and fluttering cards create the spell's portal rings. When the spell ends, the deck reappears in your possession.",
 		"***Shuffling Stride***. As a bonus action, you can expend 1 charge to throw a card from the deck to an unoccupied space within 60 feet of yourself and teleport, along with any equipment you're wearing or carrying, to that space. The card then vanishes and returns to the deck.",
 		"The deck regains 1d6 expended charges daily at dawn.",
 	],
@@ -642,12 +642,12 @@ MagicItemsList["deck of many more things"] = {
 	rarity: "legendary",
 	description: "Before drawing cards from this deck, I must declare how many I wish to draw and then draw that number randomly. Any cards drawn in excess have no effect. When a card is drawn, its magic takes effect, it fades from existence, and, unless the card is the Fool or the Jester, reappears in the deck. See Notes page.",
 	descriptionFull: [
-		"Over the centuries since the first Deck of Many Things was created, many have sought and failed to replicate it. But some have created new cards. These forty-four additional cards are known collectively as the Deck of Many More Things. (More information on creating new cards for this deck appears in chapter 2.)",
-		"Like the Deck of Many Things, the Deck of Many More Things manifests differently on various worlds. While it can include fewer or different cards, it frequently appears with a Deck of Many Things as part of a combined deck of sixty-six illuminated cards. The combined deck is usually protected by a box or pouch. The forty-four cards of the Deck of Many More Things bear similar imagery to those in the Deck of Many Things and have potent magical effects, which are detailed later in this description. Notably, cards from the Deck of Many More Things are more likely to be beneficial, though about a third of them are still dangerous.",
+		"Over the centuries since the first *Deck of Many Things* was created, many have sought and failed to replicate it. But some have created new cards. These forty-four additional cards are known collectively as the *Deck of Many More Things*. (More information on creating new cards for this deck appears in chapter 2.)",
+		"Like the *Deck of Many Things*, the *Deck of Many More Things* manifests differently on various worlds. While it can include fewer or different cards, it frequently appears with a *Deck of Many Things* as part of a combined deck of sixty-six illuminated cards. The combined deck is usually protected by a box or pouch. The forty-four cards of the *Deck of Many More Things* bear similar imagery to those in the *Deck of Many Things* and have potent magical effects, which are detailed later in this description. Notably, cards from the *Deck of Many More Things* are more likely to be beneficial, though about a third of them are still dangerous.",
 		"Before you draw a card, you must declare how many cards you intend to draw and then draw them randomly. Unless a card allows you to draw additional cards, any cards drawn exceeding this number have no effect.",
 		"As soon as you draw a card, its magic takes effect. You must draw each card you declared no more than 1 hour after the previous draw. Unless a card states otherwise, if you fail to draw the chosen number, the remaining number of cards fly from the deck and take effect simultaneously.",
 		"Unless it is the Fool or the Jester card, a drawn card immediately takes effect, fades from existence, and reappears in the deck, making it possible to draw the same card multiple times.",
-		"The DM can use the physical cards provided in The Deck of Many Things card set to build a combined Deck of Many Things and Deck of Many More Things, including whichever cards they desire. Alternatively, roll on the Deck of Many More Things table below to randomly determine what cards are drawn.",
+		"The DM can use the physical cards provided in The *Deck of Many Things* card set to build a combined *Deck of Many Things* and *Deck of Many More Things*, including whichever cards they desire. Alternatively, roll on the Deck of Many More Things table below to randomly determine what cards are drawn.",
 		[
 			["1d100", "Card",   	"", "", "1d100", "Card"],
 			["  01", "Aberration       ", "", "   34", "Mine"],
@@ -688,16 +688,16 @@ MagicItemsList["deck of many more things"] = {
 		" \u2731 Found in the *Deck of Many Things* as depicted in the *Dungeon Master's Guide*.",
 		"***Aberration***. You gain telepathy within a range of 90 feet.",
 		"***Beast***. You immediately transform into a random Beast with a CR of 5 or lower. Your game statistics—including your ability scores, hit points, and possible actions—are replaced by the Beast's game statistics, and any nonmagical equipment you're wearing or carrying melds into your new form and can't be used. Any magic items you're carrying drop in an unoccupied space within 5 feet of your new form.",
-		"You remain transformed in this way for 2d12 days; nothing can alter your form while you're under the effects of this card, but the Wish spell can end the transformation early. When you revert to your normal form, you return to the same state you were in when you initially transformed.",
+		"You remain transformed in this way for 2d12 days; nothing can alter your form while you're under the effects of this card, but the *Wish* spell can end the transformation early. When you revert to your normal form, you return to the same state you were in when you initially transformed.",
 		"***Book***. You gain the ability to speak, read, and write 1d6 + 2 languages of your choice.",
-		"***Bridge***. You gain the ability to cast the Time Stop spell 1d3 times. Use your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice).",
+		"***Bridge***. You gain the ability to cast the *Time Stop* spell 1d3 times. Use your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice).",
 		"***Campfire***. You immediately gain the benefits of finishing a long rest.",
 		"***Cavern***. You gain a climbing speed equal to your walking speed. You also gain the ability to move up, down, across vertical surfaces, and along ceilings, while leaving your hands free.",
 		"***Celestial***. You sprout a pair of softly luminescent, feathered wings from your back and gain a flying speed of 30 feet.",
 		"***Construct***. A homunculus appears in an unoccupied space within 5 feet of you. The appearance of the homunculus is determined by the DM, and the homunculus treats you as its creator.",
-		"***Corpse***. You immediately drop to 0 hit points, have the unconscious condition, and must begin making death saving throws. Spells and other magical effects that restore hit points have no effect on you until you are stabilized. If you fail three death saving throws, you die and can be resurrected only by the Wish spell.",
-		"***Crossroads***. Roll a d20. If the roll is even, you age 1d10 years. If the roll is odd, you become younger by 1d10 years, to a minimum of 1 year. This effect can be undone only by the Wish spell, divine intervention, or similar magic.",
-		"***Door***. You gain the ability to cast the Gate spell 1d4 times, requiring no material components. Use your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice).",
+		"***Corpse***. You immediately drop to 0 hit points, have the unconscious condition, and must begin making death saving throws. Spells and other magical effects that restore hit points have no effect on you until you are stabilized. If you fail three death saving throws, you die and can be resurrected only by the *Wish* spell.",
+		"***Crossroads***. Roll a d20. If the roll is even, you age 1d10 years. If the roll is odd, you become younger by 1d10 years, to a minimum of 1 year. This effect can be undone only by the *Wish* spell, divine intervention, or similar magic.",
+		"***Door***. You gain the ability to cast the *Gate* spell 1d4 times, requiring no material components. Use your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice).",
 		"***Dragon***. A dragon egg appears at your feet and immediately hatches into a dragon wyrmling. The type of dragon is chosen by the DM. The wyrmling views you as its parent and is staunchly loyal to you and your allies.",
 		"***Elemental***. You become immune to one of the following damage types (choose immediately upon drawing this card): acid, cold, fire, lightning, or thunder.",
 		"***Expert***. Your Dexterity score increases by 2, to a maximum of 22.",
@@ -715,21 +715,21 @@ MagicItemsList["deck of many more things"] = {
 		"***Ooze***. A gelatinous cube immediately appears in your space and engulfs you. The gelatinous cube is hostile and remains until it is destroyed. If there isn't enough space for the gelatinous cube to appear, this card has no effect.",
 		"***Path***. Your walking speed increases by 10 feet.",
 		"***Pit***. A pit opens beneath you. You plummet 3d6 \xD7 10 feet, take damage from the fall, and have the prone condition.",
-		"***Plant***. You gain the ability to cast Speak with Plants without using a spell slot; you must finish a long rest before you can cast it this way again. If you have spell slots of 3rd level or higher, you can cast this spell using them. Use your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice).",
+		"***Plant***. You gain the ability to cast *Speak with Plants* without using a spell slot; you must finish a long rest before you can cast it this way again. If you have spell slots of 3rd level or higher, you can cast this spell using them. Use your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice).",
 		"***Priest***. Your Wisdom score increases by 2, to a maximum of 22.",
-		"***Prisoner***. Glowing chains made of magical force appear and wrap around you. You have the restrained condition until the chains are destroyed or you are freed. While you have this condition, you can't cast spells, and any magic items you're wearing or carrying have their properties suppressed. You draw no more cards. The chains are immune to damage and can't be dispelled using the Dispel Magic spell or similar magic. However, a Disintegrate spell destroys the chains instantly, freeing you. Another creature can also free you by succeeding on a DC 30 Dexterity check using thieves' tools.",
+		"***Prisoner***. Glowing chains made of magical force appear and wrap around you. You have the restrained condition until the chains are destroyed or you are freed. While you have this condition, you can't cast spells, and any magic items you're wearing or carrying have their properties suppressed. You draw no more cards. The chains are immune to damage and can't be dispelled using the *Dispel Magic* spell or similar magic. However, a *Disintegrate* spell destroys the chains instantly, freeing you. Another creature can also free you by succeeding on a DC 30 Dexterity check using thieves' tools.",
 		"***Ring***. A rare or rarer magic ring appears on your finger. If you have the attunement slots available, you're automatically attuned to the ring when it appears. The DM chooses the ring.",
 		"***Shield***. A rare or rarer suit of magic armor that you are proficient with appears in your hands. The DM chooses the armor. If you lack proficiency with any armor, your base AC instead now equals 12 + your Dexterity modifier while you aren't wearing armor.",
 		"***Ship***. You gain proficiency in three skills chosen by the DM.",
 		"***Staff***. A rare or rarer magic rod, staff, or wand appears in your hands. The DM chooses the item.",
 		"***Stairway***. You can choose to either decrease your number of declared draws by two or receive a rare or rarer wondrous item, which appears in your hands. The DM chooses the item.",
-		"***Statue***. You immediately have the petrified condition as your body is transformed into marble. The petrification lasts until you are freed with the Greater Restoration spell or similar magic.",
+		"***Statue***. You immediately have the petrified condition as your body is transformed into marble. The petrification lasts until you are freed with the *Greater Restoration* spell or similar magic.",
 		"***Tavern***. Your Charisma score increases by 2 to a maximum of 22.",
-		"***Temple***. A deity or entity of similar power becomes bound to aid you. At any point in time between drawing the card and when you die, you can use your action to call on this entity for divine intervention, and the entity is bound to answer. The parameters and nature of this intervention are chosen by the DM. If you die without having used this intervention, the deity fulfills its obligation by casting the Resurrection spell on you. Once the entity has answered your call for divine intervention or resurrected you, the entity is no longer bound to aid you.",
-		"***Tomb***. At any time you choose within 1 year of drawing this card, you can cast the True Resurrection spell once without expending a spell slot or requiring material components. Use your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice).",
+		"***Temple***. A deity or entity of similar power becomes bound to aid you. At any point in time between drawing the card and when you die, you can use your action to call on this entity for divine intervention, and the entity is bound to answer. The parameters and nature of this intervention are chosen by the DM. If you die without having used this intervention, the deity fulfills its obligation by casting the *Resurrection* spell on you. Once the entity has answered your call for divine intervention or resurrected you, the entity is no longer bound to aid you.",
+		"***Tomb***. At any time you choose within 1 year of drawing this card, you can cast the *True Resurrection* spell once without expending a spell slot or requiring material components. Use your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice).",
 		"***Tower***. Draw two additional cards beyond your declared number of draws. The magic of these cards doesn't immediately take effect; instead, choose one of the two additional cards to keep, returning the other to the deck. The magic of the card you keep takes effect immediately thereafter.",
-		"***Tree***. Your skin immediately becomes rough, like tree bark. Your base AC now equals 15 + your Dexterity modifier while you aren't wearing armor, but you have vulnerability to fire damage. This transformation can be undone only by the Wish spell, divine intervention, or similar magic.",
-		"***Undead***. Somewhere on the Material Plane, a revenant rises. This revenant blames you for its existence and relentlessly hunts you to exact its revenge. The revenant exists until either 1 year passes, the revenant kills you, or you use a Wish spell to banish it permanently to the afterlife.",
+		"***Tree***. Your skin immediately becomes rough, like tree bark. Your base AC now equals 15 + your Dexterity modifier while you aren't wearing armor, but you have vulnerability to fire damage. This transformation can be undone only by the *Wish* spell, divine intervention, or similar magic.",
+		"***Undead***. Somewhere on the Material Plane, a revenant rises. This revenant blames you for its existence and relentlessly hunts you to exact its revenge. The revenant exists until either 1 year passes, the revenant kills you, or you use a *Wish* spell to banish it permanently to the afterlife.",
 		"***Warrior***. Your Strength score increases by 2 to a maximum of 22.",
 		"***Well***. You learn three cantrips of your choice from any spell list.",
 	],
@@ -828,10 +828,10 @@ MagicItemsList["deck of oracles"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	attunement: true,
-	description: "If I spend 10 minutes consulting this deck of oracle cards when I finish a long rest, I can roll a d20 and record result. Once in the next 8 hours after a creature within 60 ft makes a check, attack roll, or save, I can use my reaction to have it use the number I rolled instead. Once per dawn, I can use these to cast Divination.",
+	description: "If I spend 10 minutes consulting this deck of oracle cards when I finish a long rest, I can roll a d20 and record result. Once in the next 8 hours after a creature within 60 ft makes a check, attack roll, or save, I can use my reaction to have it use the number I rolled instead. Once per dawn, I can use these to cast *Divination*.",
 	descriptionFull: [
 		"The illustrations on this deck of oracle cards move or change subtly when viewed indirectly. When you finish a long rest, you can spend 10 minutes consulting the cards for an omen of the coming day. Roll a d20 and record the number rolled. Once in the next 8 hours, immediately after a creature within 60 feet of you makes an ability check, an attack roll, or a saving throw, you can use your reaction to discard the d20 roll; the creature must use the number you rolled in place of its roll.",
-		"Additionally, while holding the cards, you can cast Divination from them. Once this property is used, it can't be used again until the next dawn.",
+		"Additionally, while holding the cards, you can cast *Divination* from them. Once this property is used, it can't be used again until the next dawn.",
 	],
 	action: [["reaction", ""]],
 	usages: 1,
@@ -885,7 +885,7 @@ MagicItemsList["deck of wonder"] = {
 	rarity: "uncommon",
 	description: "Before drawing cards from this deck, I must declare how many I wish to draw and then draw that number randomly. Any cards drawn in excess have no effect. When a card is drawn, its magic takes effect and then it fades from existence and reappears in the deck. See Notes page.",
 	descriptionFull: [
-		"Created in the image of the Deck of Many Things, this deck of ivory or vellum cards bestows an assortment of minor benefits and penalties on those who draw from it. Most (75 percent) of these decks have only thirteen cards, but the rest have twenty-two.",
+		"Created in the image of the *Deck of Many Things*, this deck of ivory or vellum cards bestows an assortment of minor benefits and penalties on those who draw from it. Most (75 percent) of these decks have only thirteen cards, but the rest have twenty-two.",
 		"Before you draw a card, you must declare how many cards you intend to draw, then draw them randomly. Any additional cards drawn have no effect. Unless a card states otherwise, as soon as you draw a card from the deck, its magic takes effect. You must draw each card you declared no more than 1 hour after the previous draw. If you fail to draw the chosen number, the remaining number of cards fly from the deck and take effect simultaneously.",
 		"Unless it is the Mystery card, a drawn card immediately takes effect, fades from existence, and reappears in the deck, making it possible to draw the same card multiple times.",
 		"You can use an altered deck of playing cards to simulate the deck, as shown in the table below.",
@@ -917,21 +917,21 @@ MagicItemsList["deck of wonder"] = {
 		"* Found only in a deck with twenty-two cards.",
 		"***Beginning***. Your hit point maximum and current hit points increase by 2d10. Your hit point maximum remains increased in this way for the next 8 hours.",
 		"***Champion***. You gain a +1 bonus to weapon attack and damage rolls. This bonus lasts for 8 hours.",
-		"***Chancellor***. Within 8 hours of drawing this card, you can cast Augury once as an action, requiring no material components. Use your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice).",
+		"***Chancellor***. Within 8 hours of drawing this card, you can cast *Augury* once as an action, requiring no material components. Use your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice).",
 		"***Chaos***. You gain resistance to one of the following damage types (chosen by the DM): acid, cold, fire, lightning, or thunder. This resistance lasts for 1d12 days.",
 		"***Coin***. Five pieces of jewelry, each worth 100 gp, or ten gemstones, each worth 50 gp, appear at your feet.",
-		"***Crown***. You learn the Friends cantrip. Use your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice). If you already know this cantrip, the card has no effect.",
+		"***Crown***. You learn the *Friends* cantrip. Use your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice). If you already know this cantrip, the card has no effect.",
 		"***Dawn***. This card invigorates you. For the next 8 hours, you can add your proficiency bonus to your initiative rolls.",
 		"***Day***. You gain a +1 bonus to saving throws. This benefit lasts until you finish a long rest.",
 		"***Destiny***. This card protects you against an untimely demise. The first time after drawing this card that you would drop to 0 hit points from taking damage, you instead drop to 1 hit point.",
-		"***Dusk***. This card supernaturally saps your energy. You have disadvantage on initiative rolls. This effect lasts until you finish a long rest, but it can be ended early by a Remove Curse spell or similar magic.",
-		"***End***. This card is an omen of death. You take 2d10 necrotic damage, and your hit point maximum is reduced by an amount equal to the damage taken. This effect can't reduce your hit point maximum below 10 hit points. This reduction lasts until you finish a long rest, but it can be ended early by a Remove Curse spell or similar magic.",
+		"***Dusk***. This card supernaturally saps your energy. You have disadvantage on initiative rolls. This effect lasts until you finish a long rest, but it can be ended early by a *Remove Curse* spell or similar magic.",
+		"***End***. This card is an omen of death. You take 2d10 necrotic damage, and your hit point maximum is reduced by an amount equal to the damage taken. This effect can't reduce your hit point maximum below 10 hit points. This reduction lasts until you finish a long rest, but it can be ended early by a *Remove Curse* spell or similar magic.",
 		"***Isolation***. You disappear, along with anything you are wearing or carrying, and become trapped in a harmless extradimensional space for 1d4 minutes. You draw no more cards. You then reappear in the space you left or the nearest unoccupied space. When you reappear, you must succeed on a DC 11 Constitution saving throw or have the poisoned condition for 1 hour as your body reels from the extradimensional travel.",
 		"***Justice***. You momentarily gain the ability to balance the scales of fate. For the next 8 hours, whenever you or a creature within 60 feet of you is about to roll a d20 with advantage or disadvantage, you can use your reaction to prevent the roll from being affected by advantage or disadvantage.",
 		"***Knife***. An uncommon magic weapon you're proficient with appears in your hands. The DM chooses the weapon.",
-		"***Lock***. You gain the ability to cast Knock 1d3 times. Use your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice).",
+		"***Lock***. You gain the ability to cast *Knock* 1d3 times. Use your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice).",
 		"***Mischief***. You receive an uncommon wondrous item (chosen by the DM), or you can draw two additional cards beyond your declared draws.",
-		"***Monster***. This card's monstrous visage curses you. While cursed in this way, whenever you make a saving throw, you must roll 1d4 and subtract the number rolled from the total. The curse lasts until you finish a long rest, but it can be ended early with a Remove Curse spell or similar magic.",
+		"***Monster***. This card's monstrous visage curses you. While cursed in this way, whenever you make a saving throw, you must roll 1d4 and subtract the number rolled from the total. The curse lasts until you finish a long rest, but it can be ended early with a *Remove Curse* spell or similar magic.",
 		"***Mystery***. You have disadvantage on Intelligence saving throws for 1 hour. Discard this card and draw from the deck again; together, the two draws count as one of your declared draws.",
 		"***Night***. You gain darkvision within a range of 300 feet. This darkvision lasts for 8 hours.",
 		"***Order***. You gain resistance to one of the following damage types (chosen by the DM): force, necrotic, poison, psychic, or radiant. This resistance lasts for 1d12 days.",
@@ -960,7 +960,7 @@ MagicItemsList["donjon's sundering sphere"] = {
 	rarity: "rare",
 	attunement: true,
 	description: "Attuning to this marble-size crystal sphere includes attaching it to a nonmagical melee weapon, that then becomes magical +1. It grants me adv. on saves vs. being send to another dimension. Once per dawn when I hit a creature, I can have it make a DC 16 Cha save or be stuck in a demiplane until its next turn ends.",
-	descriptionLong: "Attuning to this marble-size crystal sphere includes attaching it to the hilt of a nonmagical melee weapon weapon, that then becomes a magic weapon with a +1 bonus to attack and damage rolls. While wielding it, I have advantage on save against being send to an extradimensional space or another plane of existence. Once per dawn when I hit a creature with this weapon, I can have it make a DC 16 Charisma save or be banished to a harmless demiplane until its next turn ends. It returns to the space it left, or the nearest empty space. When I end my attunement to the sphere, it detaches from the weapon.",
+	descriptionLong: "Attuning to this marble-size crystal sphere includes attaching it to the hilt of a nonmagical melee weapon, that then becomes a magic weapon with a +1 bonus to attack and damage rolls. While wielding it, I have advantage on save against being send to an extradimensional space or another plane of existence. Once per dawn when I hit a creature with this weapon, I can have it make a DC 16 Charisma save or be banished to a harmless demiplane until its next turn ends. It returns to the space it left, or the nearest empty space. When I end my attunement to the sphere, it detaches from the weapon.",
 	descriptionFull: [
 		"This marble-size crystal sphere glows with extraplanar energy.",
 		"As part of attuning to this item, you press the crystal sphere to the hilt of a nonmagical melee weapon of your choice, magically attaching the sphere to the weapon. The weapon becomes a magic weapon with a +1 bonus to attack and damage rolls. While wielding this weapon, you gain the following benefits:",
@@ -1010,13 +1010,13 @@ MagicItemsList["euryale's aegis"] = {
 	rarity: "legendary",
 	attunement: true,
 	description: "This brass shield grants me poison resistance and petrification immunity. I can use it to cast 3 spells, each once per dawn. As a bonus action once per dawn, a target I can see within 30 ft must make a DC 20 Con save or be restrained until its next turn starts, at which point it must save again or be petrified for 24 hours.",
-	descriptionLong: "This gleaming brass shield bears a relief of the legendary medusa druid Euryale. It grants me poison resistance and immunity to being petrified. I can use it to cast 3 spells, each once per dawn: Lesser Restoration, Locate Creature, and Transport via Plants.\nAs a bonus action once per dawn, I can try to petrify a creature I can see within 30 ft. It must make a DC 20 Constitution save or be restrained while its body turns to stone. When its next turn starts, it must then make a DC 20 Constitution save again or be petrified for 24 hours. On a successful save, the restrained condition ends.",
+	descriptionLong: "This gleaming brass shield bears a relief of the legendary medusa druid Euryale. It grants me poison resistance and immunity to being petrified. I can use it to cast 3 spells, each once per dawn: *Lesser Restoration*, *Locate Creature*, and *Transport via Plants*.\nAs a bonus action once per dawn, I can try to petrify a creature I can see within 30 ft. It must make a DC 20 Constitution save or be restrained while its body turns to stone. When its next turn starts, it must then make a DC 20 Constitution save again or be petrified for 24 hours. On a successful save, the restrained condition ends.",
 	descriptionFull: [
 		"This gleaming brass shield bears a relief of the legendary medusa druid Euryale.",
 		"While wielding this shield, you gain the following benefits:",
 		"***Blessing of Euryale***. You have resistance to poison damage and are immune to the petrified condition.",
 		"***Petrifying Heraldry***. As a bonus action, you can make the front of the shield flare with a medusa's petrifying magic, causing the relief's eyes to glow brightly. Choose one creature you can see within 30 feet of you. The creature must succeed on a DC 20 Constitution saving throw, or it has the restrained condition as its body turns to stone. The restrained creature must make another DC 20 Constitution saving throw at the start of its next turn. On a failed save, the creature has the petrified condition for 24 hours. On a successful save, the restrained condition ends. Once this bonus action is used, it can't be used again until the next dawn.",
-		"***Spellcasting***. While wielding the shield, you can use an action to cast one of the following spells from it: Lesser Restoration, Locate Creature, Transport via Plants. Once you use the shield to cast a spell, the shield can't cast that spell again until the next dawn.",
+		"***Spellcasting***. While wielding the shield, you can use an action to cast one of the following spells from it: *Lesser Restoration*, *Locate Creature*, *Transport via Plants*. Once you use the shield to cast a spell, the shield can't cast that spell again until the next dawn.",
 	],
 	weight: 6,
 	action: [["bonus action", " - Petrify"]],
@@ -1160,11 +1160,11 @@ MagicItemsList["feywrought armor"] = {
 	type: "armor (light, medium, or heavy)",
 	rarity: "rare",
 	attunement: true,
-	description: "While wearing this colorful, flowery armor that was forged in the Feywild, I have advantage on saves to avoid or end the charmed condition on myself. The armor has 3 charges and regains 1d3 used charges daily at dawn. As an action, I can use 1 charge to cast Compulsion (save DC 15) from it.",
+	description: "While wearing this colorful, flowery armor that was forged in the Feywild, I have advantage on saves to avoid or end the charmed condition on myself. The armor has 3 charges and regains 1d3 used charges daily at dawn. As an action, I can use 1 charge to cast *Compulsion* (save DC 15) from it.",
 	descriptionFull: [
 		"This colorful, flowery armor was forged in the Feywild and is infused with that plane's captivating magic.",
 		"While wearing this armor, you have advantage on saving throws you make to avoid or end the charmed condition on yourself.",
-		"This armor has 3 charges. You can use an action to expend a charge to cast the Compulsion spell (save DC 15) from this armor. The armor regains 1d3 expended charges daily at dawn.",
+		"This armor has 3 charges. You can use an action to expend a charge to cast the *Compulsion* spell (save DC 15) from this armor. The armor regains 1d3 expended charges daily at dawn.",
 	],
 	chooseGear: {
 		type: "armor",
@@ -1228,10 +1228,10 @@ MagicItemsList["forcebreaker weapon"] = {
 	source: [["BoMT", 67]], // Chapter 9: Knight
 	type: "weapon (any that deals bludgeoning damage)",
 	rarity: "very rare",
-	description: "This magic weapon gives +2 to hit and damage. It was crafted to destroy structures made of magical force, such as a Wall of Force. With one strike with this weapon, I can shatter a Large or smaller structure of magical force, or shatter a 20-ft cube portion of a Huge or larger structure.",
+	description: "This magic weapon gives +2 to hit and damage. It was crafted to destroy structures made of magical force, such as a *Wall of Force*. With one strike with this weapon, I can shatter a Large or smaller structure of magical force, or shatter a 20-ft cube portion of a Huge or larger structure.",
 	descriptionFull: [
 		"You gain a +2 bonus to attack and damage rolls made with this magic weapon.",
-		"This weapon was crafted to destroy structures made of force, such as those created by Forcecage or Wall of Force. Striking a Large or smaller structure of magical force with this weapon automatically shatters that structure. If the target is a Huge or larger structure of force, this weapon shatters a 20-foot-cube portion of it.",
+		"This weapon was crafted to destroy structures made of force, such as those created by *Forcecage* or *Wall of Force*. Striking a Large or smaller structure of magical force with this weapon automatically shatters that structure. If the target is a Huge or larger structure of force, this weapon shatters a 20-foot-cube portion of it.",
 	],
 	chooseGear: {
 		type: "weapon",
@@ -1317,11 +1317,11 @@ MagicItemsList["gloomwrought armor"] = {
 	type: "armor (light, medium, or heavy)",
 	rarity: "rare",
 	attunement: true,
-	description: "While wearing this intricate grayscale armor forged in the Shadowfell, I have advantage on saves to avoid or end the frightened condition on myself. The armor has 3 charges and regains 1d3 used charges daily at dawn. As an action, I can use 1 charge to cast Calm Emotions (save DC 15) from it.",
+	description: "While wearing this intricate grayscale armor forged in the Shadowfell, I have advantage on saves to avoid or end the frightened condition on myself. The armor has 3 charges and regains 1d3 used charges daily at dawn. As an action, I can use 1 charge to cast *Calm Emotions* (save DC 15) from it.",
 	descriptionFull: [
 		"This intricate grayscale armor was forged in the Shadowfell and is infused with that plane's gloom.",
 		"While you're wearing this armor, you have advantage on saving throws you make to avoid or end the frightened condition on yourself.",
-		"This armor has 3 charges. You can expend a charge to cast the Calm Emotions spell (save DC 15) from the armor. This armor regains 1d3 expended charges daily at dawn.",
+		"This armor has 3 charges. You can expend a charge to cast the *Calm Emotions* spell (save DC 15) from the armor. This armor regains 1d3 expended charges daily at dawn.",
 	],
 	chooseGear: {
 		type: "armor",
@@ -1531,12 +1531,12 @@ MagicItemsList["rod of hellish flames"] = {
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; },
-	description: "I can use this black iron rod as an arcane focus and it grants me resistance to fire and necrotic damage. Once per dawn I can use it to cast Hellish Rebuke as a 4th-level spell (save DC 16). When I cast a spell that deals fire or necrotic damage, I can once per dawn use it to maximize the damage instead of rolling.",
+	description: "I can use this black iron rod as an arcane focus and it grants me resistance to fire and necrotic damage. Once per dawn I can use it to cast *Hellish Rebuke* as a 4th-level spell (save DC 16). When I cast a spell that deals fire or necrotic damage, I can once per dawn use it to maximize the damage instead of rolling.",
 	descriptionFull: [
 		"Glowing cinders orbit the flanged head of this black iron rod.",
 		"This rod can be used as an arcane focus. While holding this rod, you gain the following benefits:",
 		"***Hellish Resistance***. You have resistance to fire and necrotic damage.",
-		"***Searing Rebuke***. You can cast the Hellish Rebuke spell as a 4th-level spell (save DC 16) from the rod. Once you use the rod to cast the spell, the rod can't cast the spell again until the next dawn.",
+		"***Searing Rebuke***. You can cast the *Hellish Rebuke* spell as a 4th-level spell (save DC 16) from the rod. Once you use the rod to cast the spell, the rod can't cast the spell again until the next dawn.",
 		"***Surge of Brimstone***. Whenever you cast a spell that deals fire or necrotic damage, you can use the rod to deal the maximum damage instead of rolling. Once this property is used, it can't be used again until the next dawn.",
 	],
 	weight: 2,
@@ -1559,7 +1559,7 @@ MagicItemsList["rod of hellish flames"] = {
 	spellChanges: {
 		"hellish rebuke": {
 			description: "Cast when taking damage, creature that dealt damage takes 5d10 Fire damage; save halves",
-			changes: "Using the Rod of Hellish Flames, I cast Hellish Rebuke as if I'm using a 4th-level spell slot, doing 5d10 damage, once per dawn.",
+			changes: "Using the Rod of Hellish Flames, I cast *Hellish Rebuke* as if I'm using a 4th-level spell slot, doing 5d10 damage, once per dawn.",
 		},
 	},
 };
@@ -1569,12 +1569,12 @@ MagicItemsList["rogue's mantle"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	attunement: true,
-	description: "This dark, hooded mantle of thick cloth gives me +60 ft darkvision. As a bonus action, I can use it to teleport 30 ft from and into dim light or darkness, to an empty space I can see. I then have advantage on my first attack before my turn ends. Also, I can use it to cast Antagonize once per dawn (save DC 15).",
+	description: "This dark, hooded mantle of thick cloth gives me +60 ft darkvision. As a bonus action, I can use it to teleport 30 ft from and into dim light or darkness, to an empty space I can see. I then have advantage on my first attack before my turn ends. Also, I can use it to cast *Antagonize* once per dawn (save DC 15).",
 	descriptionFull: [
 		"This dark, hooded mantle of thick cloth is infused with secretive and deceptive magic. While wearing it, you gain the following benefits:",
 		"***Darkvision***. You gain darkvision within a range of 60 feet. If you already have darkvision, the mantle increases your darkvision's range by 60 feet instead.",
 		"***Move in Shadows***. While you are in dim light or darkness, you can use a bonus action to teleport, along with anything you are wearing or carrying, up to 30 feet to an unoccupied space you can see that is also in dim light or darkness. You then have advantage on the first melee attack you make before the end of the turn.",
-		"***Willful Enmity***. You can cast the Antagonize spell (save DC 15) from the mantle. Once the mantle has cast the spell, it can't cast the spell again until the next dawn.",
+		"***Willful Enmity***. You can cast the *Antagonize* spell (save DC 15) from the mantle. Once the mantle has cast the spell, it can't cast the spell again until the next dawn.",
 	],
 	usages: 1,
 	recovery: "dawn",
@@ -1626,18 +1626,18 @@ MagicItemsList["sage's signet"] = {
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; },
-	description: "This gilded ring with a beautiful engraving is imbued with powers of keen wisdom and foresight. While wearing this ring, I can cast Augury and two more spells depending on the signet each once per dawn using my Intelligence as the spellcasting ability. Casting Augury using this ring only takes one action.",
+	description: "This gilded ring with a beautiful engraving is imbued with powers of keen wisdom and foresight. While wearing this ring, I can cast *Augury* and two more spells depending on the signet each once per dawn using my Intelligence as the spellcasting ability. Casting *Augury* using this ring only takes one action.",
 	descriptionFull: [
-		"This gilded ring bears a beautiful engraving and is imbued with powers of keen wisdom and foresight. While wearing this ring, you can use an action to cast the Augury spell from the ring. Once you use the ring to cast the spell, the ring can't cast the spell again until the next dawn.",
-		"Six varieties of Sage's Signet rings exist, each with a different signet (see the table below). A ring's signet determines its rarity as well as the additional spells it can cast. While wearing a Sage's Signet, you can cast each of its additional spells once from the ring using your Intelligence as the spellcasting ability. Once you cast each of the additional spells from the ring, it can't cast the spell again until the next dawn.",
+		"This gilded ring bears a beautiful engraving and is imbued with powers of keen wisdom and foresight. While wearing this ring, you can use an action to cast the *Augury* spell from the ring. Once you use the ring to cast the spell, the ring can't cast the spell again until the next dawn.",
+		"Six varieties of *Sage's Signet* rings exist, each with a different signet (see the table below). A ring's signet determines its rarity as well as the additional spells it can cast. While wearing a *Sage's Signet*, you can cast each of its additional spells once from the ring using your Intelligence as the spellcasting ability. Once you cast each of the additional spells from the ring, it can't cast the spell again until the next dawn.",
 		[
 			["Signet", "Rarity", "Spells"],
-			["Bear", "Very rare", "Enlarge/Reduce, Polymorph"],
-			["Hart", "Very rare", "Aura of Vitality, Mass Cure Wounds"],
-			["Lion", "Very rare", "Destructive Wave, Fireball"],
-			["Serpent", "Rare", "Fear, Hex"],
-			["Songbird", "Rare", "Charm Person, Hypnotic Pattern"],
-			["Wolf", "Very rare", "Freedom of Movement, Pass without Trace"],
+			["Bear", "Very rare", "Enlarge/Reduce, *Polymorph*"],
+			["Hart", "Very rare", "*Aura of Vitality*, *Mass Cure Wounds*"],
+			["Lion", "Very rare", "*Destructive Wave*, *Fireball*"],
+			["Serpent", "Rare", "Fear, *Hex*"],
+			["Songbird", "Rare", "*Charm Person*, *Hypnotic Pattern*"],
+			["Wolf", "Very rare", "*Freedom of Movement*, *Pass without Trace*"],
 		],
 	],
 	usages: 3,
@@ -1647,7 +1647,7 @@ MagicItemsList["sage's signet"] = {
 	"bear (very rare)": {
 		name: "Sage's Signet (Bear)",
 		rarity: "very rare",
-		description: "This gilded ring with a beautiful bear engraving is imbued with powers of keen wisdom and foresight. While wearing this ring, I can cast Augury, Enlarge/Reduce, and Polymorph each once per dawn using my Intelligence as the spellcasting ability. Casting Augury using this ring only takes one action.",
+		description: "This gilded ring with a beautiful bear engraving is imbued with powers of keen wisdom and foresight. While wearing this ring, I can cast *Augury*, *Enlarge/Reduce*, and *Polymorph* each once per dawn using my Intelligence as the spellcasting ability. Casting *Augury* using this ring only takes one action.",
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
 			name: "Once per dawn",
@@ -1661,7 +1661,7 @@ MagicItemsList["sage's signet"] = {
 	"hart (very rare)": {
 		name: "Sage's Signet (Hart)",
 		rarity: "very rare",
-		description: "This gilded ring with a beautiful hart engraving is imbued with powers of keen wisdom and foresight. While wearing this ring, I can cast Augury, Aura of Vitality, and Mass Cure Wounds each once per dawn using my Intelligence as the spellcasting ability. Casting Augury using this ring only takes one action.",
+		description: "This gilded ring with a beautiful hart engraving is imbued with powers of keen wisdom and foresight. While wearing this ring, I can cast *Augury*, *Aura of Vitality*, and *Mass Cure Wounds* each once per dawn using my Intelligence as the spellcasting ability. Casting *Augury* using this ring only takes one action.",
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
 			name: "Once per dawn",
@@ -1675,7 +1675,7 @@ MagicItemsList["sage's signet"] = {
 	"lion (very rare)": {
 		name: "Sage's Signet (Lion)",
 		rarity: "very rare",
-		description: "This gilded ring with a beautiful lion engraving is imbued with powers of keen wisdom and foresight. While wearing this ring, I can cast Augury, Destructive Wave, and Fireball each once per dawn using my Intelligence as the spellcasting ability. Casting Augury using this ring only takes one action.",
+		description: "This gilded ring with a beautiful lion engraving is imbued with powers of keen wisdom and foresight. While wearing this ring, I can cast *Augury*, *Destructive Wave*, and *Fireball* each once per dawn using my Intelligence as the spellcasting ability. Casting *Augury* using this ring only takes one action.",
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
 			name: "Once per dawn",
@@ -1689,7 +1689,7 @@ MagicItemsList["sage's signet"] = {
 	"serpent (rare)": {
 		name: "Sage's Signet (Serpent)",
 		rarity: "rare",
-		description: "This gilded ring with a beautiful serpent engraving is imbued with powers of keen wisdom and foresight. While wearing this ring, I can cast Augury, Fear, and Hex each once per dawn using my Intelligence as the spellcasting ability. Casting Augury using this ring only takes one action.",
+		description: "This gilded ring with a beautiful serpent engraving is imbued with powers of keen wisdom and foresight. While wearing this ring, I can cast *Augury*, *Fear*, and *Hex* each once per dawn using my Intelligence as the spellcasting ability. Casting *Augury* using this ring only takes one action.",
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
 			name: "Once per dawn",
@@ -1703,7 +1703,7 @@ MagicItemsList["sage's signet"] = {
 	"songbird (rare)": {
 		name: "Sage's Signet (Songbird)",
 		rarity: "rare",
-		description: "This gilded ring with a beautiful songbird engraving is imbued with powers of keen wisdom and foresight. While wearing this ring, I can cast Augury, Charm Person, and Hypnotic Pattern each once per dawn using my Intelligence as the spellcasting ability. Casting Augury using this ring only takes one action.",
+		description: "This gilded ring with a beautiful songbird engraving is imbued with powers of keen wisdom and foresight. While wearing this ring, I can cast *Augury*, *Charm Person*, and *Hypnotic Pattern* each once per dawn using my Intelligence as the spellcasting ability. Casting *Augury* using this ring only takes one action.",
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
 			name: "Once per dawn",
@@ -1717,7 +1717,7 @@ MagicItemsList["sage's signet"] = {
 	"wolf (very rare)": {
 		name: "Sage's Signet (Wolf)",
 		rarity: "very rare",
-		description: "This gilded ring with a beautiful wolf engraving is imbued with powers of keen wisdom and foresight. While wearing this ring, I can cast Augury, Freedom of Movement, and Pass without Trace each once per dawn using my Intelligence as the spellcasting ability. Casting Augury using this ring only takes one action.",
+		description: "This gilded ring with a beautiful wolf engraving is imbued with powers of keen wisdom and foresight. While wearing this ring, I can cast *Augury*, *Freedom of Movement*, and *Pass without Trace* each once per dawn using my Intelligence as the spellcasting ability. Casting *Augury* using this ring only takes one action.",
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
 			name: "Once per dawn",
@@ -1738,7 +1738,7 @@ MagicItemsList["shield of the tortoise"] = {
 	description: "This +1 shield curses me as soon as I attune to it. While I'm cursed by it, I can't discard it, I can't break my attunement to it, and I am sluggish. Sluggish means that my speed is halved and when I roll initiative, I always treat the roll on the d20 as a 1. I can't change my initiative by any means.",
 	descriptionFull: [
 		"While you are wielding this shield, you gain a +1 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.",
-		"***Curse***. This item is cursed. Attuning to it extends the curse to you until you are targeted by a Remove Curse spell or similar magic. You cannot discard the shield, and remain attuned to it, as long as you are cursed. As long as you are cursed, you are sluggish. Your speed is halved. When you roll initiative, treat the roll on your d20 as a 1. You can't change your initiative by any means.",
+		"***Curse***. This item is cursed. Attuning to it extends the curse to you until you are targeted by a *Remove Curse* spell or similar magic. You cannot discard the shield, and remain attuned to it, as long as you are cursed. As long as you are cursed, you are sluggish. Your speed is halved. When you roll initiative, treat the roll on your d20 as a 1. You can't change your initiative by any means.",
 	],
 	weight: 6,
 	shieldAdd: ["Shield of the Tortoise", 3, 6],
@@ -1755,7 +1755,7 @@ MagicItemsList["shrieking greaves"] = {
 	descriptionFull: [
 		"Each of these black leg guards is decorated with a motif of monstrous skulls screaming in terror.",
 		"The greaves have 3 charges. While wearing these greaves, you can use a bonus action to expend 1 charge to increase your walking speed by 30 feet, and you have advantage on Dexterity saving throws. These effects last for 1 minute. The greaves regain 1d3 expended charges daily at dawn.",
-		"***Curse***. The greaves are cursed, and becoming attuned to them extends the curse to you. You can't remove the greaves or end your attunement to them until you are targeted by a Remove Curse spell or similar magic.",
+		"***Curse***. The greaves are cursed, and becoming attuned to them extends the curse to you. You can't remove the greaves or end your attunement to them until you are targeted by a *Remove Curse* spell or similar magic.",
 		"You have disadvantage on saving throws against the frightened condition. Whenever you start your turn frightened, the greaves release an ear-piercing scream. You and each creature within 10 feet of you must make a DC 15 Constitution saving throw, taking 2d8 thunder damage on a failed save, or half as much damage on a successful one.",
 	],
 	action: [["bonus action", ""]],
@@ -1775,10 +1775,10 @@ MagicItemsList["skull helm"] = {
 	type: "wondrous item",
 	rarity: "very rare",
 	attunement: true,
-	description: "While wearing this skull-shaped helm, I have resistance to cold, poison, and necrotic damage. Additionally, I can cast Spirit of Death from it without requiring material components. Once I use the helm to cast the spell, it can't cast this spell again until the next dawn.",
+	description: "While wearing this skull-shaped helm, I have resistance to cold, poison, and necrotic damage. Additionally, I can cast *Spirit of Death* from it without requiring material components. Once I use the helm to cast the spell, it can't cast this spell again until the next dawn.",
 	descriptionFull: [
 		"While wearing this skull-shaped helm, you have resistance to cold, poison, and necrotic damage.",
-		"Additionally, while wearing the helm, you can cast Spirit of Death from it without requiring material components. Once you use the helm to cast the spell, the helm can't cast this spell again until the next dawn.",
+		"Additionally, while wearing the helm, you can cast *Spirit of Death* from it without requiring material components. Once you use the helm to cast the spell, the helm can't cast this spell again until the next dawn.",
 	],
 	dmgres: ["Cold", "Poison", "Necrotic"],
 	usages: 1,
@@ -1795,7 +1795,7 @@ MagicItemsList["skull helm"] = {
 			components: "",
 			compMaterial: "",
 			description: "Summon a Reaper Spirit; obeys commands; takes turn after mine; disappears at 0 hp",
-			changes: "While wearing the helmet, it requires no material components to cast Spirit of Death.",
+			changes: "While wearing the helmet, it requires no material components to cast *Spirit of Death*.",
 		},
 	},
 };
@@ -1891,10 +1891,10 @@ MagicItemsList["stonemaker war pick"] = {
 	type: "weapon (war pick)",
 	rarity: "very rare",
 	attunement: true,
-	description: "This war pick adds +1 to attack and damage rolls. I can use it to cast Meld into Stone once per dawn. If I score a critical hit with it against a creature that has 100 HP or fewer, I can use 1 charge to have the target make a DC 15 Con save or be petrified for 8 hours. It has 1d6+1 charges that can't be replenished.",
+	description: "This war pick adds +1 to attack and damage rolls. I can use it to cast *Meld into Stone* once per dawn. If I score a critical hit with it against a creature that has 100 HP or fewer, I can use 1 charge to have the target make a DC 15 Con save or be petrified for 8 hours. It has 1d6+1 charges that can't be replenished.",
 	descriptionFull: [
 		"You gain a +1 bonus to attack and damage rolls made with this magic war pick. It has the following special properties:",
-		"***Meld into Stone***. You can cast the Meld into Stone spell from this war pick. Once this property is used, it can't be used again until the next dawn.",
+		"***Meld into Stone***. You can cast the *Meld into Stone* spell from this war pick. Once this property is used, it can't be used again until the next dawn.",
 		"***Petrification***. The war pick has 1d6 + 1 charges. If you score a critical hit against a creature that has fewer than 100 hit points, you can expend 1 charge from the war pick to have that creature make a DC 15 Constitution saving throw. On a failed save, the creature has the petrified condition for 8 hours. When the war pick has no charges remaining, it loses this property.",
 	],
 	weight: 2,
@@ -2002,7 +2002,7 @@ MagicItemsList["telescopic transporter"] = {
 			["d6", "Mishap"],
 			[" 1", "The travelers appear adrift in the Astral Sea."],
 			[" 2", "The travelers appear on a different plane of existence, determined randomly or chosen by the DM."],
-			[" 3", "Excess cosmic energy overloads the telescope, causing it to explode. Each creature within 60 feet of the telescope takes 8d6 necrotic damage. Any Humanoid who survives this damage is transformed into a different kind of creature, as if it had been subject to the Reincarnate spell."],
+			[" 3", "Excess cosmic energy overloads the telescope, causing it to explode. Each creature within 60 feet of the telescope takes 8d6 necrotic damage. Any Humanoid who survives this damage is transformed into a different kind of creature, as if it had been subject to the *Reincarnate* spell."],
 			[" 4", "A creature from the Astral Sea (such as a githyanki knight) appears within 60 feet of the telescope. The DM decides its attitude."],
 			[" 5", "The travelers appear on a different planet or celestial body in the Wildspace system nearest to their target destination."],
 			[" 6", "The travelers arrive at their intended destination, but they each appear coated in harmless slime."],
@@ -2019,10 +2019,10 @@ MagicItemsList["tidecaller trident"] = {
 	type: "weapon (trident)",
 	rarity: "very rare",
 	attunement: true,
-	description: "This magic trident gives a +2 bonus to attack and damage made with it and advantage on attack rolls when used underwater. The trident has 3 charges, regaining 1d3 expended charges daily at dawn. I can expend these charges to cast spells (save DC 15): Control Water (1 charge) or Tsunami (3 charges).",
+	description: "This magic trident gives a +2 bonus to attack and damage made with it and advantage on attack rolls when used underwater. The trident has 3 charges, regaining 1d3 expended charges daily at dawn. I can expend these charges to cast spells (save DC 15): *Control Water* (1 charge) or *Tsunami* (3 charges).",
 	descriptionFull: [
 		"You gain a +2 bonus to attack and damage rolls made with this magic trident. You also have advantage on attack rolls made with this weapon while underwater.",
-		"This trident has 3 charges. You can expend 1 charge to cast Control Water (save DC 15) from the trident or 3 charges to cast Tsunami (save DC 15) from it instead. The trident regains 1d3 expended charges daily at dawn.",
+		"This trident has 3 charges. You can expend 1 charge to cast *Control Water* (save DC 15) from the trident or 3 charges to cast *Tsunami* (save DC 15) from it instead. The trident regains 1d3 expended charges daily at dawn.",
 	],
 	weight: 4,
 	usages: 3,
@@ -2060,7 +2060,7 @@ MagicItemsList["voidwalker armor"] = {
 	description: "This black studded leather armor bears a red sheen. As a bonus action once per dawn, I can summon a projection of myself in an empty space within 30 ft. It's a translucent copy of me, immune to all damage and conditions, that I can make attacks and cast spells from. The projection disappears at the end of my turn.",
 	descriptionFull: [
 		"This black studded leather armor bears a red sheen. While wearing this armor, you can use a bonus action to summon a projection of yourself in an unoccupied space within 30 feet of yourself. The projection is a translucent copy of you that has immunity to all damage and conditions, and you can make attacks and cast spells with a range other than self as if standing in the projection's space. The projection disappears at the end of your turn. Once you use this bonus action, it can't be used again until the next dawn.",
-		"***Curse***. This armor is cursed, and attuning to it extends the curse to you. As long as you remain cursed, you're unwilling to part with the armor. Taking it off fails to end the curse. While cursed in this way, you feel disconnected from your body, continuously hearing whispers that call for you to join them. Whenever you finish a long rest while cursed, you must make a DC 11 Charisma saving throw. On a failed save, your soul is drawn from your body and trapped in an object on a different plane of existence. The object and location of this object are chosen by the DM (but might be the House of Cards; see chapter 18). While your soul is trapped in this way, your body is inert and doesn't age or require sustenance. Destroying the object frees your soul; otherwise, only a Wish spell can restore your soul to your body.",
+		"***Curse***. This armor is cursed, and attuning to it extends the curse to you. As long as you remain cursed, you're unwilling to part with the armor. Taking it off fails to end the curse. While cursed in this way, you feel disconnected from your body, continuously hearing whispers that call for you to join them. Whenever you finish a long rest while cursed, you must make a DC 11 Charisma saving throw. On a failed save, your soul is drawn from your body and trapped in an object on a different plane of existence. The object and location of this object are chosen by the DM (but might be the *House of Cards*; see chapter 18). While your soul is trapped in this way, your body is inert and doesn't age or require sustenance. Destroying the object frees your soul; otherwise, only a *Wish* spell can restore your soul to your body.",
 	],
 	weight: 13,
 	usages: 1,
@@ -2088,9 +2088,9 @@ MagicItemsList["warrior's passkey"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	attunement: true,
-	description: "This silver skeleton key is warm to the touch. I can use it to cast Knock while in its key form. As a bonus action, I can transform it into a magic +1 longsword that deals 1d10 force damage and I'm proficient with. The sword reverts back to a key if it leaves my grasp, I use a bonus action to do so, or my attunement ends.",
+	description: "This silver skeleton key is warm to the touch. I can use it to cast *Knock* while in its key form. As a bonus action, I can transform it into a magic +1 longsword that deals 1d10 force damage and I'm proficient with. The sword reverts back to a key if it leaves my grasp, I use a bonus action to do so, or my attunement ends.",
 	descriptionFull: [
-		"This silver skeleton key is warm to the touch. While holding the key in its key form, you can use an action to cast the Knock spell from the key.",
+		"This silver skeleton key is warm to the touch. While holding the key in its key form, you can use an action to cast the *Knock* spell from the key.",
 		"***Transforming the Key***. While holding the key, you can use a bonus action to transform it into a magic longsword. You are considered proficient with the sword, and you have a +1 bonus to attack and damage rolls made with it. On a hit, the sword deals 1d10 force damage. The item remains in its sword form until it leaves your grasp or you use another bonus action to revert it to its key form.",
 		"If you end your attunement to the item while it's in its sword form, it automatically reverts to its key form.",
 	],
@@ -2121,11 +2121,11 @@ MagicItemsList["weapon of throne's command"] = {
 	type: "weapon (any)",
 	rarity: "very rare",
 	attunement: true,
-	description: "This +1 weapon grants me proficiency with Intimidation and Persuasion. It has 5 charges, regaining 1d4 at dawn. As a bonus action, I can expend charges to cast a spell from it with save DC 16: Command (1 charge), Zone of Truth (2), Compulsion (4), Banishment (4), or Dominate Person (5).",
-	descriptionLong: "This weapon is bedecked in ornate gold filigree and deep-blue and maroon jewels. I gain a +1 bonus to attack and damage rolls made with this weapon. Additionally, I gain proficiency in the Intimidation and Persuasion skills if I don't already have it. The weapon has 5 charges, regaining 1d4 expended charges daily at dawn. As a bonus action, I can expend 1 or more of its charges to cast one of the following spells (save DC 16): Command (1 charge), Zone of Truth (2 charges), Compulsion (4 charges), Banishment (4 charges), or Dominate Person (5 charges).",
+	description: "This +1 weapon grants me proficiency with Intimidation and Persuasion. It has 5 charges, regaining 1d4 at dawn. As a bonus action, I can expend charges to cast a spell from it with save DC 16: *Command* (1 charge), *Zone of Truth* (2), *Compulsion* (4), *Banishment* (4), or *Dominate Person* (5).",
+	descriptionLong: "This weapon is bedecked in ornate gold filigree and deep-blue and maroon jewels. I gain a +1 bonus to attack and damage rolls made with this weapon. Additionally, I gain proficiency in the Intimidation and Persuasion skills if I don't already have it. The weapon has 5 charges, regaining 1d4 expended charges daily at dawn. As a bonus action, I can expend 1 or more of its charges to cast one of the following spells (save DC 16): *Command* (1 charge), *Zone of Truth* (2 charges), *Compulsion* (4 charges), *Banishment* (4 charges), or *Dominate Person* (5 charges).",
 	descriptionFull: [
 		"This weapon is bedecked in ornate gold filigree and deep-blue and maroon jewels. You gain a +1 bonus to attack and damage rolls made with this weapon. Additionally, you gain proficiency in the Intimidation and Persuasion skills if you don't already have it.",
-		"***Spellcasting***. The weapon has 5 charges. You can use a bonus action and expend 1 or more of its charges to cast one of the following spells (save DC 16): Command (1 charge), Zone of Truth (2 charges), Compulsion (4 charges), Banishment (4 charges), or Dominate Person (5 charges).",
+		"***Spellcasting***. The weapon has 5 charges. You can use a bonus action and expend 1 or more of its charges to cast one of the following spells (save DC 16): *Command* (1 charge), *Zone of Truth* (2 charges), *Compulsion* (4 charges), *Banishment* (4 charges), or *Dominate Person* (5 charges).",
 		"The weapon regains 1d4 expended charges daily at dawn.",
 	],
 	skills: ["Intimidation", "Persuasion"],
@@ -2174,23 +2174,23 @@ MagicItemsList["weapon of throne's command"] = {
 	spellChanges: {
 		"command": {
 			time: "1 bns",
-			changes: "Using the Weapon of Throne's Command, I can cast Command as a bonus action.",
+			changes: "Using the Weapon of Throne's Command, I can cast *Command* as a bonus action.",
 		},
 		"zone of truth": {
 			time: "1 bns",
-			changes: "Using the Weapon of Throne's Command, I can cast Zone of Truth as a bonus action.",
+			changes: "Using the Weapon of Throne's Command, I can cast *Zone of Truth* as a bonus action.",
 		},
 		"banishment": {
 			time: "1 bns",
-			changes: "Using the Weapon of Throne's Command, I can cast Banishment as a bonus action.",
+			changes: "Using the Weapon of Throne's Command, I can cast *Banishment* as a bonus action.",
 		},
 		"compulsion": {
 			time: "1 bns",
-			changes: "Using the Weapon of Throne's Command, I can cast Compulsion as a bonus action.",
+			changes: "Using the Weapon of Throne's Command, I can cast *Compulsion* as a bonus action.",
 		},
 		"dominate person": {
 			time: "1 bns",
-			changes: "Using the Weapon of Throne's Command, I can cast Dominate Person as a bonus action.",
+			changes: "Using the Weapon of Throne's Command, I can cast *Dominate Person* as a bonus action.",
 		},
 	},
 };

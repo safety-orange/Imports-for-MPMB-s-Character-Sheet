@@ -1,5 +1,5 @@
 var iFileName = "ua_20160801_The-Faithful.js";
-RequiredSheetVersion("14.0.1-beta", 15);
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the content from the Unearthed Arcana: The Faithful article to MPMB's Character Record Sheet
 
 // Define the source
@@ -69,7 +69,7 @@ AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the St
 	source: [["UA:TF", 1]],
 	description: desc([
 		"My patron grants me an item of power which disappears when I die",
-		"While it is on my person, I can cast Augury as a ritual",
+		"While it is on my person, I can cast *Augury* as a ritual",
 		"Additionally, once per short rest, I can get advantage on an Intelligence check",
 		"If I lose this item I can perform a 1-hour ceremony to get a replacement",
 	]),
@@ -84,7 +84,7 @@ AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the St
 	spellChanges: {
 		"augury": {
 			time: "11 min",
-			changes: "With my Pact of the Star Chain boon I can cast Augury only as a ritual, thus requiring 10 extra minutes to cast it.",
+			changes: "With my Pact of the Star Chain boon I can cast *Augury* only as a ritual, thus requiring 10 extra minutes to cast it.",
 		},
 	},
 	prereqeval: function (v) {

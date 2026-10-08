@@ -1,5 +1,5 @@
 var iFileName = "pub_20211207_SCC.js";
-RequiredSheetVersion("14.0.15-beta", 15);
+RequiredSheetVersion("14.1.3", 15);
 // This file adds all the player-material from Strixhaven: A Curriculum of Chaos to MPMB's Character Record Sheet
 
 // Define the source
@@ -28,9 +28,11 @@ RaceList["owlin"] = {
 	vision: [["Darkvision", 120]],
 	languageProfs: ["Common", 1],
 	scorestxt: "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
-	trait: "Owlin" +
-	"\n \u2022 Flight: Thanks to my wings, I have a flying speed equal to my walking speed. I can't use this flying speed if I'm wearing medium or heavy armor." +
-	"\n \u2022 Silent Feathers: I have proficiency in the Stealth skill.",
+	trait: [
+		"**Owlin**",
+		"##\u25C6 Flight##. Thanks to my wings, I have a flying speed equal to my walking speed. I can't use this flying speed if I'm wearing medium or heavy armor.",
+		"##\u25C6 Silent Feathers##. I have proficiency in the Stealth skill.",
+	],
 };
 
 // Backgrounds
@@ -63,7 +65,7 @@ BackgroundList["lorehold student"] = {
 	],
 };
 BackgroundFeatureList["lorehold initiate"] = {
-	description: "I gain the Strixhaven Initiate feat for the Lorehold college. In addition, I add the following spells to the spell list of all my spellcasting classes, if any: Comprehend Languages, Identify, Borrowed Knowledge, Locate Object, Speak with Dead, Spirit Guardians, Arcane Eye, Stone Shape, Flame Strike, and Legend Lore.",
+	description: "I gain the Strixhaven Initiate feat for the Lorehold college. In addition, I add the following spells to the spell list of all my spellcasting classes, if any: *Comprehend Languages*, *Identify*, *Borrowed Knowledge*, *Locate Object*, *Speak with Dead*, *Spirit Guardians*, *Arcane Eye*, *Stone Shape*, *Flame Strike*, and *Legend Lore*.",
 	source: [["SCC", 31]],
 	calcChanges: {
 		spellList: [
@@ -74,7 +76,7 @@ BackgroundFeatureList["lorehold initiate"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["comprehend languages", "identify", "borrowed knowledge", "locate object", "speak with dead", "spirit guardians", "arcane eye", "stone shape", "flame strike", "legend lore"]);
 			},
-			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): Comprehend Languages, Identify, Borrowed Knowledge, Locate Object, Speak with Dead, Spirit Guardians, Arcane Eye, Stone Shape, Flame Strike, and Legend Lore.",
+			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): *Comprehend Languages*, *Identify*, *Borrowed Knowledge*, *Locate Object*, *Speak with Dead*, *Spirit Guardians*, *Arcane Eye*, *Stone Shape*, *Flame Strike*, and *Legend Lore*.",
 		],
 	},
 	featsAdd: [{ key: "strixhaven initiate", choice: "lorehold" }],
@@ -107,7 +109,7 @@ BackgroundList["prismari student"] = {
 	],
 };
 BackgroundFeatureList["prismari initiate"] = {
-	description: "I gain the Strixhaven Initiate feat for the Prismari college. In addition, I add the following spells to the spell list of all my spellcasting classes, if any: Chromatic Orb, Thunderwave, Flaming Sphere, Kinetic Jaunt, Haste, Water Walk, Freedom of Movement, Wall of Fire, Cone of Cold, and Conjure Elemental.",
+	description: "I gain the Strixhaven Initiate feat for the Prismari college. In addition, I add the following spells to the spell list of all my spellcasting classes, if any: *Chromatic Orb*, *Thunderwave*, *Flaming Sphere*, *Kinetic Jaunt*, *Haste*, *Water Walk*, *Freedom of Movement*, *Wall of Fire*, *Cone of Cold*, and *Conjure Elemental*.",
 	source: [["SCC", 32]],
 	calcChanges: {
 		spellList: [
@@ -118,7 +120,7 @@ BackgroundFeatureList["prismari initiate"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["chromatic orb", "thunderwave", "flaming sphere", "kinetic jaunt", "haste", "water walk", "freedom of movement", "wall of fire", "cone of cold", "conjure elemental"]);
 			},
-			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): Chromatic Orb, Thunderwave, Flaming Sphere, Kinetic Jaunt, Haste, Water Walk, Freedom of Movement, Wall of Fire, Cone of Cold, and Conjure Elemental.",
+			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): *Chromatic Orb*, *Thunderwave*, *Flaming Sphere*, *Kinetic Jaunt*, *Haste*, *Water Walk*, *Freedom of Movement*, *Wall of Fire*, *Cone of Cold*, and *Conjure Elemental*.",
 		],
 	},
 	featsAdd: [{ key: "strixhaven initiate", choice: "prismari" }],
@@ -152,7 +154,7 @@ BackgroundList["quandrix student"] = {
 	],
 };
 BackgroundFeatureList["quandrix initiate"] = {
-	description: "I gain the Strixhaven Initiate feat for the Quandrix college. In addition, I add the following spells to the spell list of all my spellcasting classes, if any: Entangle, Guiding Bolt, Enlarge/Reduce, Vortex Warp, Aura of Vitality, Haste, Control Water, Freedom of Movement, Circle of Power, and Passwall.",
+	description: "I gain the Strixhaven Initiate feat for the Quandrix college. In addition, I add the following spells to the spell list of all my spellcasting classes, if any: *Entangle*, *Guiding Bolt*, *Enlarge/Reduce*, *Vortex Warp*, *Aura of Vitality*, *Haste*, *Control Water*, *Freedom of Movement*, *Circle of Power*, and *Passwall*.",
 	source: [["SCC", 33]],
 	calcChanges: {
 		spellList: [
@@ -163,7 +165,7 @@ BackgroundFeatureList["quandrix initiate"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["entangle", "guiding bolt", "enlarge/reduce", "vortex warp", "aura of vitality", "haste", "control water", "freedom of movement", "circle of power", "passwall"]);
 			},
-			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): Entangle, Guiding Bolt, Enlarge/Reduce, Vortex Warp, Aura of Vitality, Haste, Control Water, Freedom of Movement, Circle of Power, and Passwall.",
+			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): *Entangle*, *Guiding Bolt*, *Enlarge/Reduce*, *Vortex Warp*, *Aura of Vitality*, *Haste*, *Control Water*, *Freedom of Movement*, *Circle of Power*, and *Passwall*.",
 		],
 	},
 	featsAdd: [{ key: "strixhaven initiate", choice: "quandrix" }],
@@ -195,7 +197,7 @@ BackgroundList["silverquill student"] = {
 	],
 };
 BackgroundFeatureList["silverquill initiate"] = {
-	description: "I gain the Strixhaven Initiate feat for the Silverquill college. In addition, I add the following spells to the spell list of all my spellcasting classes, if any: Dissonant Whispers, Silvery Barbs, Calm Emotions, Darkness, Beacon of Hope, Daylight, Compulsion, Confusion, Dominate Person, and Rary's Telepathic Bond.",
+	description: "I gain the Strixhaven Initiate feat for the Silverquill college. In addition, I add the following spells to the spell list of all my spellcasting classes, if any: *Dissonant Whispers*, *Silvery Barbs*, *Calm Emotions*, *Darkness*, *Beacon of Hope*, *Daylight*, *Compulsion*, *Confusion*, *Dominate Person*, and *Rary's Telepathic Bond*.",
 	source: [["SCC", 35]],
 	calcChanges: {
 		spellList: [
@@ -206,7 +208,7 @@ BackgroundFeatureList["silverquill initiate"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["dissonant whispers", "silvery barbs", "calm emotions", "darkness", "beacon of hope", "daylight", "compulsion", "confusion", "dominate person", "rary's telepathic bond"]);
 			},
-			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): Dissonant Whispers, Silvery Barbs, Calm Emotions, Darkness, Beacon of Hope, Daylight, Compulsion, Confusion, Dominate Person, and Rary's Telepathic Bond.",
+			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): *Dissonant Whispers*, *Silvery Barbs*, *Calm Emotions*, *Darkness*, *Beacon of Hope*, *Daylight*, *Compulsion*, *Confusion*, *Dominate Person*, and *Rary's Telepathic Bond*.",
 		],
 	},
 	featsAdd: [{ key: "strixhaven initiate", choice: "silverquill" }],
@@ -241,7 +243,7 @@ BackgroundList["witherbloom student"] = {
 	],
 };
 BackgroundFeatureList["witherbloom initiate"] = {
-	description: "I gain the Strixhaven Initiate feat for the Witherbloom college. In addition, I add the following spells to the spell list of all my spellcasting classes, if any: Cure Wounds, Inflict Wounds, Lesser Restoration, Wither and Bloom, Revivify, Vampiric Touch, Blight, Death Ward, Antilife Shell, and Greater Restoration.",
+	description: "I gain the Strixhaven Initiate feat for the Witherbloom college. In addition, I add the following spells to the spell list of all my spellcasting classes, if any: *Cure Wounds*, *Inflict Wounds*, *Lesser Restoration*, *Wither and Bloom*, *Revivify*, *Vampiric Touch*, *Blight*, *Death Ward*, *Antilife Shell*, and *Greater Restoration*.",
 	source: [["SCC", 36]],
 	calcChanges: {
 		spellList: [
@@ -252,7 +254,7 @@ BackgroundFeatureList["witherbloom initiate"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["cure wounds", "inflict wounds", "lesser restoration", "wither and bloom", "revivify", "vampiric touch", "blight", "death ward", "antilife shell", "greater restoration"]);
 			},
-			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): Cure Wounds, Inflict Wounds, Lesser Restoration, Wither and Bloom, Revivify, Vampiric Touch, Blight, Death Ward, Antilife Shell, and Greater Restoration.",
+			"My background feature adds extra spells to the spell list(s) of my spellcasting class(es): *Cure Wounds*, *Inflict Wounds*, *Lesser Restoration*, *Wither and Bloom*, *Revivify*, *Vampiric Touch*, *Blight*, *Death Ward*, *Antilife Shell*, and *Greater Restoration*.",
 		],
 	},
 	featsAdd: [{ key: "strixhaven initiate", choice: "witherbloom" }],
@@ -263,13 +265,15 @@ FeatsList["strixhaven initiate"] = {
 	name: "Strixhaven Initiate",
 	source: [["SCC", 36]],
 	description: "I learn two cantrips and a 1st-level spell from a list depending on my Strixhaven college. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
-	descriptionFull: "You have studied some magical theory and have learned a few spells associated with Strixhaven University." +
-	"\n   Choose one of Strixhaven's colleges: Lorehold, Prismari, Quandrix, Silverquill, or Witherbloom. You learn two cantrips and one 1st-level spell based on the college you choose, as specified in the Strixhaven Spells table." +
-	"\n   You can cast the chosen 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have." +
-	"\n   Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+	descriptionFull: [
+		"You have studied some magical theory and have learned a few spells associated with Strixhaven University.",
+		"Choose one of Strixhaven's colleges: Lorehold, Prismari, Quandrix, Silverquill, or Witherbloom. You learn two cantrips and one 1st-level spell based on the college you choose, as specified in the Strixhaven Spells table.",
+		"You can cast the chosen 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have.",
+		"Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+	],
 	choices: ["Lorehold", "Prismari", "Quandrix", "Silverquill", "Witherbloom"],
 	"lorehold": {
-		description: "I learn two cantrips (Light, Sacred Flame, or Thaumaturgy) and a 1st-level spell from the cleric or wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+		description: "I learn two cantrips (*Light*, *Sacred Flame*, or *Thaumaturgy*) and a 1st-level spell from the cleric or wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility: [4, 5, 6],
 		allowUpCasting: true,
 		spellcastingBonus: [{
@@ -284,7 +288,7 @@ FeatsList["strixhaven initiate"] = {
 		}],
 	},
 	"prismari": {
-		description: "I learn two cantrips (Fire Bolt, Prestidigitation, or Ray of Frost) and a 1st-level spell from the bard or sorcerer spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+		description: "I learn two cantrips (*Fire Bolt*, *Prestidigitation*, or *Ray of Frost*) and a 1st-level spell from the bard or sorcerer spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility: [4, 5, 6],
 		allowUpCasting: true,
 		spellcastingBonus: [{
@@ -299,7 +303,7 @@ FeatsList["strixhaven initiate"] = {
 		}],
 	},
 	"quandrix": {
-		description: "I learn two cantrips (Druidcraft, Guidance, or Mage Hand) and a 1st-level spell from the druid or wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+		description: "I learn two cantrips (*Druidcraft*, *Guidance*, or *Mage Hand*) and a 1st-level spell from the druid or wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility: [4, 5, 6],
 		allowUpCasting: true,
 		spellcastingBonus: [{
@@ -314,7 +318,7 @@ FeatsList["strixhaven initiate"] = {
 		}],
 	},
 	"silverquill": {
-		description: "I learn two cantrips (Sacred Flame, Thaumaturgy, or Vicious Mockery) and a 1st-level spell from the bard or cleric spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I can have Int, Wis, or Cha as my spellcasting ability for this.",
+		description: "I learn two cantrips (*Sacred Flame*, *Thaumaturgy*, or *Vicious Mockery*) and a 1st-level spell from the bard or cleric spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I can have Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility: [4, 5, 6],
 		allowUpCasting: true,
 		spellcastingBonus: [{
@@ -329,7 +333,7 @@ FeatsList["strixhaven initiate"] = {
 		}],
 	},
 	"witherbloom": {
-		description: "I learn two cantrips (Chill Touch, Druidcraft, or Spare the Dying) and a 1st-level spell from the druid or wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+		description: "I learn two cantrips (*Chill Touch*, *Druidcraft*, or *Spare the Dying*) and a 1st-level spell from the druid or wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility: [4, 5, 6],
 		allowUpCasting: true,
 		spellcastingBonus: [{
@@ -347,11 +351,13 @@ FeatsList["strixhaven initiate"] = {
 FeatsList["strixhaven mascot"] = {
 	name: "Strixhaven Mascot",
 	source: [["SCC", 37]],
-	description: "I can cast Find Familiar as a ritual and it can take the form of my college's mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
-	descriptionFull: "You have learned how to summon a Strixhaven mascot to assist you, granting you these benefits:" +
-	"\n \u2022 You can cast the find familiar spell as a ritual. Your familiar can take the form of the mascot associated with the college you chose for the Strixhaven Initiate feat: a spirit statue mascot (Lorehold), an art elemental mascot (Prismari), a fractal mascot (Quandrix), an inkling mascot (Silverquill), or a pest mascot (Witherbloom)." +
-	"\n \u2022 When you take the Attack action on your turn, you can forgo one attack to allow your mascot familiar to make one attack of its own with its reaction." +
-	"\n \u2022 If your mascot familiar is within 60 feet of you, you can teleport as an action, swapping places with the familiar. If your destination space is too small for you to occupy, the teleportation fails and is wasted. Once you teleport in this way, you can't do so again until you finish a long rest, unless you expend a spell slot of 2nd level or higher to do it again.",
+	description: "I can cast *Find Familiar* as a ritual and it can take the form of my college's mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
+	descriptionFull: [
+		"You have learned how to summon a Strixhaven mascot to assist you, granting you these benefits:",
+		" \u2022 You can cast the *find familiar* spell as a ritual. Your familiar can take the form of the mascot associated with the college you chose for the Strixhaven Initiate feat: a spirit statue mascot (Lorehold), an art elemental mascot (Prismari), a fractal mascot (Quandrix), an inkling mascot (Silverquill), or a pest mascot (Witherbloom).",
+		" \u2022 When you take the Attack action on your turn, you can forgo one attack to allow your mascot familiar to make one attack of its own with its reaction.",
+		" \u2022 If your mascot familiar is within 60 feet of you, you can teleport as an action, swapping places with the familiar. If your destination space is too small for you to occupy, the teleportation fails and is wasted. Once you teleport in this way, you can't do so again until you finish a long rest, unless you expend a spell slot of 2nd level or higher to do it again.",
+	],
 	prerequisite: "4th level, Strixhaven Initiate feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("strixhaven initiate") !== -1; },
 	extraLimitedFeatures: [{
@@ -374,23 +380,23 @@ FeatsList["strixhaven mascot"] = {
 		}
 	},
 	"lorehold": {
-		description: "I can cast Find Familiar as a ritual and it can take the form of a Spirit Statue Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
+		description: "I can cast *Find Familiar* as a ritual and it can take the form of a Spirit Statue Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
 		creaturesAdd: [["Spirit Statue Mascot", true, false, "strixhaven_mascot"]],
 	},
 	"prismari": {
-		description: "I can cast Find Familiar as a ritual and it can take the form of an Art Elemental Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make an attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
+		description: "I can cast *Find Familiar* as a ritual and it can take the form of an Art Elemental Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make an attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
 		creaturesAdd: [["Art Elemental Mascot", true, false, "strixhaven_mascot"]],
 	},
 	"quandrix": {
-		description: "I can cast Find Familiar as a ritual and it can take the form of a Fractal Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
+		description: "I can cast *Find Familiar* as a ritual and it can take the form of a Fractal Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
 		creaturesAdd: [["Fractal Mascot", true, false, "strixhaven_mascot"]],
 	},
 	"silverquill": {
-		description: "I can cast Find Familiar as a ritual and it can take the form of an Inkling Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
+		description: "I can cast *Find Familiar* as a ritual and it can take the form of an Inkling Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
 		creaturesAdd: [["Inkling Mascot", true, false, "strixhaven_mascot"]],
 	},
 	"witherbloom": {
-		description: "I can cast Find Familiar as a ritual and it can take the form of a Pest Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
+		description: "I can cast *Find Familiar* as a ritual and it can take the form of a Pest Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
 		creaturesAdd: [["Pest Mascot", true, false, "strixhaven_mascot"]],
 	},
 };
@@ -454,10 +460,12 @@ SpellsList["kinetic jaunt"] = {
 	components: "S",
 	duration: "Conc, 1 min",
 	description: "+10 ft walk spd; provoke no opportunity atks; move through crea space, counts not as difficult terrain",
-	descriptionFull: "You magically empower your movement with dance-like steps, giving yourself the following benefits for the duration." +
-	"\n \u2022 Your walking speed increases by 10 feet." +
-	"\n \u2022 You don't provoke opportunity attacks." +
-	"\n \u2022 You can move through the space of another creature, and it doesn't count as difficult terrain. If you end your turn in another creature's space, you are shunted to the last unoccupied space you occupied, and you take 1d8 force damage.",
+	descriptionFull: [
+		"You magically empower your movement with dance-like steps, giving yourself the following benefits for the duration.",
+		" \u2022 Your walking speed increases by 10 feet.",
+		" \u2022 You don't provoke opportunity attacks.",
+		" \u2022 You can move through the space of another creature, and it doesn't count as difficult terrain. If you end your turn in another creature's space, you are shunted to the last unoccupied space you occupied, and you take 1d8 force damage.",
+	],
 };
 SpellsList["silvery barbs"] = {
 	name: "Silvery Barbs",
@@ -471,8 +479,10 @@ SpellsList["silvery barbs"] = {
 	components: "V",
 	duration: "Instantaneous",
 	description: "1 crea reroll d20 and use lowest for atk, check, or save; 1 crea adv. next atk, check, or save in 1 min",
-	descriptionFull: "You magically distract the triggering creature and turn its momentary uncertainty into encouragement for another creature. The triggering creature must reroll the d20 and use the lower roll." +
-	"\n   You can then choose a different creature you can see within range (you can choose yourself). The chosen creature has advantage on the next attack roll, ability check, or saving throw it makes within 1 minute. A creature can be empowered by only one use of this spell at a time.",
+	descriptionFull: [
+		"You magically distract the triggering creature and turn its momentary uncertainty into encouragement for another creature. The triggering creature must reroll the d20 and use the lower roll.",
+		"You can then choose a different creature you can see within range (you can choose yourself). The chosen creature has advantage on the next attack roll, ability check, or saving throw it makes within 1 minute. A creature can be empowered by only one use of this spell at a time.",
+	],
 };
 SpellsList["vortex warp"] = {
 	name: "Vortex Warp",
@@ -486,8 +496,10 @@ SpellsList["vortex warp"] = {
 	duration: "Instantaneous",
 	save: "Con",
 	description: "1 crea save or teleported to a sufficiently empty space of my choice within range; +30 ft/SL range",
-	descriptionFull: "You magically twist space around another creature you can see within range. The target must succeed on a Constitution saving throw (the target can choose to fail), or the target is teleported to an unoccupied space of your choice that you can see within range. The chosen space must be on a surface or in a liquid that can support the target without the target having to squeeze." +
-	AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the range of the spell increases by 30 feet for each slot level above 2nd.",
+	descriptionFull: [
+		"You magically twist space around another creature you can see within range. The target must succeed on a Constitution saving throw (the target can choose to fail), or the target is teleported to an unoccupied space of your choice that you can see within range. The chosen space must be on a surface or in a liquid that can support the target without the target having to squeeze.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 3rd level or higher, the range of the spell increases by 30 feet for each slot level above 2nd.",
+	],
 };
 SpellsList["wither and bloom"] = {
 	name: "Wither and Bloom",
@@ -502,9 +514,11 @@ SpellsList["wither and bloom"] = {
 	duration: "Instantaneous",
 	save: "Con",
 	description: "10-ft rad any crea 2d6+1d6/SL Necrotic dmg, save half; 1 crea can heal using 1+1/SL HD; see B",
-	descriptionFull: "You invoke both death and life upon a 10-foot-radius sphere centered on a point within range. Each creature of your choice in that area must make a Constitution saving throw, taking 2d6 necrotic damage on a failed save, or half as much damage on a successful one. Nonmagical vegetation in that area withers." +
-	"\n   In addition, one creature of your choice in that area can spend and roll one of its unspent Hit Dice and regain a number of hit points equal to the roll plus your spellcasting ability modifier." +
-	AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d6 for each slot above the 2nd, and the number of Hit Dice that can be spent and added to the healing roll increases by one for each slot above 2nd.",
+	descriptionFull: [
+		"You invoke both death and life upon a 10-foot-radius sphere centered on a point within range. Each creature of your choice in that area must make a Constitution saving throw, taking 2d6 necrotic damage on a failed save, or half as much damage on a successful one. Nonmagical vegetation in that area withers.",
+		"In addition, one creature of your choice in that area can spend and roll one of its unspent Hit Dice and regain a number of hit points equal to the roll plus your spellcasting ability modifier.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d6 for each slot above the 2nd, and the number of Hit Dice that can be spent and added to the healing roll increases by one for each slot above 2nd.",
+	],
 };
 
 // Magic Items
@@ -514,8 +528,10 @@ MagicItemsList["bottle of boundless coffee"] = {
 	type: "wondrous item",
 	rarity: "common",
 	description: "This metal bottle is full with delicious, comfortably warm coffee, but I can't feel the heat. It has a stopper on a little chain. It will accept only the coffee it produces. Each time I drink the coffee, I roll a d20. On a 1, the bottle stops dispensing coffee for 1 hour. Unless drunk, the coffee vanishes when it leaves the bottle.",
-	descriptionFull: "This metal bottle carries delicious, warm coffee. The bottle comes with a stopper, which is attached to the bottle by a little chain. Even when open, the bottle won't accept any liquid other than the coffee it produces. The coffee inside is always comfortably warm, and none of the heat can be felt through the bottle." +
-	"\n   Each time you drink the coffee, roll a d20. On a 1, the bottle refuses to dispense coffee for the next hour. If you pour coffee from the bottle, rather than drinking from it, the coffee vanishes the moment it leaves the bottle.",
+	descriptionFull: [
+		"This metal bottle carries delicious, warm coffee. The bottle comes with a stopper, which is attached to the bottle by a little chain. Even when open, the bottle won't accept any liquid other than the coffee it produces. The coffee inside is always comfortably warm, and none of the heat can be felt through the bottle.",
+		"Each time you drink the coffee, roll a d20. On a 1, the bottle refuses to dispense coffee for the next hour. If you pour coffee from the bottle, rather than drinking from it, the coffee vanishes the moment it leaves the bottle.",
+	],
 }
 MagicItemsList["cuddly strixhaven mascot"] = {
 	name: "Cuddly Strixhaven Mascot",
@@ -523,8 +539,10 @@ MagicItemsList["cuddly strixhaven mascot"] = {
 	type: "wondrous item",
 	rarity: "common",
 	description: "This soft, Tiny, magic toy represents a Strixhaven mascot. As an action, I can press it to my arm, shoulder, or leg, and it attaches there for 1 hour or until I remove it as an action. Once per long rest while this toy is on my person, I can give myself advantage on the save to avoid or end the frightened condition on myself.",
-	descriptionFull: "Representing one of the mascots of Strixhaven, this soft, Tiny, magic toy is perfect for cuddling. If you press it to your arm, shoulder, or leg as an action, the toy stays attached there for 1 hour or until you use an action to remove it." +
-	"\n   The toy can also be used to fight off fear. When you make a saving throw to avoid or end the frightened condition on yourself, you can give yourself advantage on the roll if the toy is on your person. You must decide to do so before rolling the d20. If the save succeeds, you can't use the toy in this way until you finish a long rest.",
+	descriptionFull: [
+		"Representing one of the mascots of Strixhaven, this soft, Tiny, magic toy is perfect for cuddling. If you press it to your arm, shoulder, or leg as an action, the toy stays attached there for 1 hour or until you use an action to remove it.",
+		"The toy can also be used to fight off fear. When you make a saving throw to avoid or end the frightened condition on yourself, you can give yourself advantage on the roll if the toy is on your person. You must decide to do so before rolling the d20. If the save succeeds, you can't use the toy in this way until you finish a long rest.",
+	],
 	action: [["action", " (attach/remove)"]],
 	usages: 1,
 	recovery: "long rest",
@@ -538,8 +556,10 @@ MagicItemsList["lorehold primer"] = {
 	prerequisite: "Requires attunement by a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to an History or Religion check, after the d20 roll. If I study it during a long rest, I can pick a 1st-level cleric or wizard spell. I can cast the spell once without a spell slot before my next long rest ends.",
-	descriptionFull: "The Lorehold Primer is a magic textbook created at Strixhaven's Lorehold College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make an Intelligence (History) or Intelligence (Religion) check while holding the primer, you can expend 1 charge to give yourself 1d4 bonus to the check, immediately after you roll the d20." +
-	"\n   In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the cleric or wizard spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
+	descriptionFull: [
+		"The *Lorehold Primer* is a magic textbook created at Strixhaven's Lorehold College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make an Intelligence (History) or Intelligence (Religion) check while holding the primer, you can expend 1 charge to give yourself 1d4 bonus to the check, immediately after you roll the d20.",
+		"In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the cleric or wizard spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
+	],
 	extraLimitedFeatures: [{
 		name: "Lorehold Primer charges (regains 1d3)",
 		usages: 3,
@@ -597,8 +617,10 @@ MagicItemsList["prismari primer"] = {
 	prerequisite: "Requires attunement by a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to an Acrobatics or Performance check, after the d20 roll. If I study it in a long rest, I can pick a 1st-level bard or sorcerer spell. I can cast the spell once without a spell slot before my next long rest ends.",
-	descriptionFull: "The Prismari Primer is a magic textbook created at Strixhaven's Prismari College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make a Dexterity (Acrobatics) or a Charisma (Performance) check while holding the primer, you can expend 1 charge to give yourself a 1d4 bonus to the check, immediately after you roll the d20." +
-	"\n   In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the bard or sorcerer spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
+	descriptionFull: [
+		"The *Prismari Primer* is a magic textbook created at Strixhaven's Prismari College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make a Dexterity (Acrobatics) or a Charisma (Performance) check while holding the primer, you can expend 1 charge to give yourself a 1d4 bonus to the check, immediately after you roll the d20.",
+		"In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the bard or sorcerer spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
+	],
 	extraLimitedFeatures: [{
 		name: "Prismari Primer charges (regains 1d3)",
 		usages: 3,
@@ -627,8 +649,10 @@ MagicItemsList["quandrix primer"] = {
 	prerequisite: "Requires attunement by a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to an Arcana or Nature check, after the d20 roll. If I study it during a long rest, I can pick a 1st-level druid or wizard spell. I can cast the spell once without a spell slot before my next long rest ends.",
-	descriptionFull: "The Quandrix Primer is a magic textbook created at Strixhaven's Quandrix College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make an Intelligence (Arcana) or an Intelligence (Nature) check while holding the primer, you can expend 1 charge to give yourself a 1d4 bonus to the check, immediately after you roll the d20." +
-	"\n   In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the druid or wizard spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
+	descriptionFull: [
+		"The *Quandrix Primer* is a magic textbook created at Strixhaven's Quandrix College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make an Intelligence (Arcana) or an Intelligence (Nature) check while holding the primer, you can expend 1 charge to give yourself a 1d4 bonus to the check, immediately after you roll the d20.",
+		"In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the druid or wizard spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
+	],
 	extraLimitedFeatures: [{
 		name: "Quandrix Primer charges (regains 1d3)",
 		usages: 3,
@@ -657,8 +681,10 @@ MagicItemsList["silverquill primer"] = {
 	prerequisite: "Requires attunement by a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to an Intimidation or Persuasion check, after the d20 roll. If I study it in a long rest, I can pick a 1st-level bard or cleric spell. I can cast the spell once without a spell slot before my next long rest ends.",
-	descriptionFull: "The Silverquill Primer is a magic textbook created at Strixhaven's Silverquill College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make a Charisma (Intimidation) or a Charisma (Persuasion) check while holding the primer, you can expend 1 charge to give yourself a 1d4 bonus to the check, immediately after you roll the d20." +
-	"\n   In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the bard or cleric spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
+	descriptionFull: [
+		"The *Silverquill Primer* is a magic textbook created at Strixhaven's Silverquill College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make a Charisma (Intimidation) or a Charisma (Persuasion) check while holding the primer, you can expend 1 charge to give yourself a 1d4 bonus to the check, immediately after you roll the d20.",
+		"In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the bard or cleric spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
+	],
 	extraLimitedFeatures: [{
 		name: "Silverquill Primer charges (regains 1d3)",
 		usages: 3,
@@ -695,8 +721,10 @@ MagicItemsList["witherbloom primer"] = {
 	prerequisite: "Requires attunement by a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to a Nature or Survival check, after the d20 roll. If I study it during a long rest, I can pick a 1st-level druid or wizard spell. I can cast the spell once without a spell slot before my next long rest ends.",
-	descriptionFull: "The Witherbloom Primer is a magic textbook created at Strixhaven's Witherbloom College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make an Intelligence (Nature) or Wisdom (Survival) check while holding the primer, you can expend 1 charge to give yourself a 1d4 bonus to the check, immediately after you roll the d20." +
-	"\n   In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the druid or wizard spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
+	descriptionFull: [
+		"The *Witherbloom Primer* is a magic textbook created at Strixhaven's Witherbloom College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make an Intelligence (Nature) or Wisdom (Survival) check while holding the primer, you can expend 1 charge to give yourself a 1d4 bonus to the check, immediately after you roll the d20.",
+		"In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the druid or wizard spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
+	],
 	extraLimitedFeatures: [{
 		name: "Witherbloom Primer charges (regains 1d3)",
 		usages: 3,
@@ -722,18 +750,18 @@ MagicItemsList["murgaxor's orb"] = {
 	type: "wondrous item",
 	rarity: "legendary",
 	attunement: true,
-	description: "This sentient, chaotic evil orb bears a curse. It can communicate telepathically with any creature touching it. It can cast Suggestion on my turn, possibly on me. I have no control over it. Any Humanoid I touch while holding the orb must make a DC 10 Wisdom save or become cursed. See the Notes page.",
+	description: "This sentient, chaotic evil orb bears a curse. It can communicate telepathically with any creature touching it. It can cast *Suggestion* on my turn, possibly on me. I have no control over it. Any Humanoid I touch while holding the orb must make a DC 10 Wisdom save or become cursed. See the Notes page.",
 	descriptionFull: [
 		"Roiling green mist fills this glass orb, which the exiled Strixhaven mage Murgaxor once used in foul magical experiments. Murgaxor's spirit has infused the orb, which he uses to spread a terrible curse among Strixhaven's students.",
 		"***Sentience***. *Murgaxor's orb* is a sentient, chaotic evil magic item with the following properties:",
 		" \u2022 The orb has an Intelligence of 20, a Wisdom of 16, and a Charisma of 16, as well as hearing and darkvision out to a range of 30 feet.",
 		" \u2022 The orb can speak, read, and understand Common, and it can communicate telepathically with any creature touching it.",
-		" \u2022 At any time during your turn, the orb can cast the suggestion spell (save DC 17), targeting you or one other creature that touched the orb within the last 24 hours. This isn't a power of the orb that you control.",
+		" \u2022 At any time during your turn, the orb can cast the *suggestion* spell (save DC 17), targeting you or one other creature that touched the orb within the last 24 hours. This isn't a power of the orb that you control.",
 		"***Curse***. Any Humanoid you touch while holding the orb must succeed on a DC 10 Wisdom saving throw or become cursed. Each creature cursed by the orb bears an echo of Murgaxor's hateful thoughts, and that creature suffers from headaches that are persistent but not debilitating until the curse ends. On your turn, the orb can use an action to produce one of the following effects, targeting one or more creatures it has cursed:",
 		" \u2022 **Unconsciousness**. The cursed creature falls unconscious for 1 hour. The creature is roused if it takes damage or someone uses an action to shake or slap it awake.",
 		" \u2022 **Visions of Terror**. The cursed creature sees terrifying visions, causing it to view all creatures that aren't also cursed as dangerous monsters for 10 minutes. The cursed creature must use its action each round to make one attack against the nearest non-cursed creature. If the cursed creature has multiple possible targets, it attacks one at random. This effect ends if the cursed creature is incapacitated.",
-		"After either of these effects ends, the affected creature is no longer cursed. The curse can also be removed from a creature with a remove curse spell or similar magic. All cases of the curse end if *Murgaxor's orb* is destroyed.",
-		"***Magical Signature***. As a side effect of the orb's curse, the spell detect magic reveals an aura of enchantment surrounding creatures bearing the curse. This aura is distinctive, but in a way detect magic offers no further details about.",
+		"After either of these effects ends, the affected creature is no longer cursed. The curse can also be removed from a creature with a *remove curse* spell or similar magic. All cases of the curse end if *Murgaxor's orb* is destroyed.",
+		"***Magical Signature***. As a side effect of the orb's curse, the spell *detect magic* reveals an aura of enchantment surrounding creatures bearing the curse. This aura is distinctive, but in a way *detect magic* offers no further details about.",
 		"***Destroying the Orb***. *Murgaxor's orb* has AC 18; 20 hit points; immunity to necrotic, poison, and psychic damage; and resistance to all other types of damage. If reduced to 0 hit points, the orb shatters.",
 	],
 	toNotesPage: [
@@ -751,8 +779,8 @@ MagicItemsList["masque charm"] = {
 	source: [["SCC", 127]],
 	type: "wondrous item",
 	rarity: "common",
-	description: "While wearing this small silver pin, I can cast Disguise Self once per sunset. It has DC 13 to discern the disguise. I can have the spell last its normal 1 hour duration, or 6 hours. If I choose 6 hours, the charm becomes nonmagical when the spell ends. In either case, the spell ends if the pin is removed from me.",
-	descriptionFull: "A masque charm is a small silver pin. While wearing this charm, you can use an action to cast the disguise self spell (DC 13 to discern the disguise). Once the spell is cast, it can't be cast from the charm again until the next sunset. When casting the spell, you can have the spell last for its normal 1 hour duration or for 6 hours. If you choose the 6-hour duration, the charm becomes nonmagical when the spell ends. In either case, the spell ends if the charm is removed from you.",
+	description: "While wearing this small silver pin, I can cast *Disguise Self* once per sunset. It has DC 13 to discern the disguise. I can have the spell last its normal 1 hour duration, or 6 hours. If I choose 6 hours, the charm becomes nonmagical when the spell ends. In either case, the spell ends if the pin is removed from me.",
+	descriptionFull: "A *masque charm* is a small silver pin. While wearing this charm, you can use an action to cast the *disguise self* spell (DC 13 to discern the disguise). Once the spell is cast, it can't be cast from the charm again until the next sunset. When casting the spell, you can have the spell last for its normal 1 hour duration or for 6 hours. If you choose the 6-hour duration, the charm becomes nonmagical when the spell ends. In either case, the spell ends if the charm is removed from you.",
 	usages: 1,
 	recovery: "Sunset",
 	spellcastingBonus: [{

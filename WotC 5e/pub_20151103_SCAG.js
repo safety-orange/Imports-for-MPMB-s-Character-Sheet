@@ -1,5 +1,5 @@
 var iFileName = "pub_20151103_SCAG.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3", 15);
 // This file adds all the player-material from Sword Coast Adventure Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -31,7 +31,12 @@ RaceList["ghostwise halfling"] = {
 	heightMetric: " average about 90 cm tall (80 + 5d4)",
 	weightMetric: " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 1, 0],
-	trait: "Ghostwise Halfling (+2 Dexterity, +1 Wisdom)" + (typePF ? "\n" : " ") + "\nLucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll." + (typePF ? "\n" : " ") + "\nHalfling Nimbleness: I can move through the space of any creature that is of a size larger than me." + (typePF ? "\n" : " ") + "\nSilent Speech: I can speak telepathically to any one creature within 30 feet of me. It only understands me if we share a language.",
+	trait: [
+		"**Ghostwise Halfling** (+2 Dexterity, +1 Wisdom)",
+		"##\u25C6 Lucky##. When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.",
+		"##\u25C6 Halfling Nimbleness##. I can move through the space of any creature that is of a size larger than me.",
+		"##\u25C6 Silent Speech##. I can speak telepathically to any one creature within 30 ft of me. It only understands me if we share a language.",
+	],
 };
 RaceList["gray dwarf"] = {
 	regExpSearch: /^((?=.*\bduergars?\b)|((?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b)(?=.*\b(grey|gray|underdark)\b))).*$/i,
@@ -55,7 +60,12 @@ RaceList["gray dwarf"] = {
 	heightMetric: " stand between 1,2 and 1,5 metres tall (110 + 5d4 cm)",
 	weightMetric: " weigh around 70 kg (55 + 5d4 \xD7 4d6 / 10 kg)",
 	scores: [1, 0, 2, 0, 0, 0],
-	trait: "Duergar (+2 Constitution, +1 Strength)\nStonecunning: Whenever I make an Int (History) check related to the origin of stonework, I am considered proficient in the skill and add double my proficiency bonus to the check.\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nDuergar Magic: 3rd: Enlarge/Reduce to enlarge; 5th: Invisibility. If not in direct sunlight," + (!typePF ? "\n" : " ") + "I can cast both spells on myself once per long rest without material components, using Int.",
+	trait: [
+		"**Duergar** (+2 Constitution, +1 Strength)",
+		"##\u25C6 Stonecunning##. Whenever I make an Int (History) check related to the origin of stonework, I am considered proficient in the skill and add double my proficiency bonus to the check.",
+		"##\u25C6 Sunlight Sensitivity##. Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.",
+		"##\u25C6 Duergar Magic##. 3rd: Enlarge/Reduce to enlarge; 5th: Invisibility. If not in direct sunlight, I can cast both spells on myself once per long rest without material components, using Int.",
+	],
 	spellcastingAbility: 4,
 	features: {
 		"enlarge": {
@@ -74,7 +84,7 @@ RaceList["gray dwarf"] = {
 					components: "V,S",
 					compMaterial: "",
 					description: "I'm enlarged, adv. on Str checks/aves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
-					changes: "Using Duergar Magic, I cast Enlarge/Reduce while I'm not in direct sunlight, but only to enlarge myself.",
+					changes: "Using Duergar Magic, I cast *Enlarge/Reduce* while I'm not in direct sunlight, but only to enlarge myself.",
 				},
 			},
 		},
@@ -93,7 +103,7 @@ RaceList["gray dwarf"] = {
 					components: "V,S",
 					compMaterial: "",
 					description: "Me and my worn/carried invisible until I attack or cast; Can't cast this spell in direct sunlight",
-					changes: "Using Duergar Magic, I can cast Invisibility while I'm not in direct sunlight, but only on myself.",
+					changes: "Using Duergar Magic, I can cast *Invisibility* while I'm not in direct sunlight, but only on myself.",
 				},
 			},
 		},
@@ -120,7 +130,10 @@ if (!RaceList["deep gnome"]) {
 		heightMetric: " stand between 90 and 105 cm tall (85 + 5d4 cm)",
 		weightMetric: " weigh around 50 kg (35 + 5d4 \xD7 4d4 / 10 kg)",
 		scores: [0, 1, 0, 2, 0, 0],
-		trait: "Svirfneblin (+1 Dexterity, +2 Intelligence)\n\nStone Camouflage:\n   I have advantage on Dexterity (stealth) checks to hide in rocky terrain.",
+		trait: [
+			"**Svirfneblin** (+1 Dexterity, +2 Intelligence)",
+			"##\u25C6 Stone Camouflage##. I have advantage on Dexterity (stealth) checks to hide in rocky terrain.",
+		],
 	};
 } // dupl_end
 
@@ -135,7 +148,10 @@ AddRacialVariant("half-elf", "aquatic", {
 		swim: { spd: 30, enc: 20 },
 	},
 	skillstxt: "",
-	trait: "Half-Aquatic Elf (+2 Charisma and +1 to two other ability scores of my choice)\n\nSwimming Speed:\n   My aquatic heritage gives me a swimming speed of 30 feet.",
+	trait: [
+		"**Half-Aquatic Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
+		"##\u25C6 Swimming Speed##. My aquatic heritage gives me a swimming speed of 30 ft.",
+	],
 });
 AddRacialVariant("half-elf", "cantrip", {
 	regExpSearch: /cantrip/i,
@@ -143,7 +159,11 @@ AddRacialVariant("half-elf", "cantrip", {
 	source: [["S", 116]],
 	plural: "Half-high elves",
 	skillstxt: "",
-	trait: "Half-High Elf (+2 Charisma and +1 to two other ability scores of my choice)\n\nCantrip:\n   I know one cantrip of my choice from the wizard spell list.\n   Intelligence is my spellcasting ability for it.",
+	trait: [
+		"**Half-High Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
+		"##\u25C6 Cantrip##. I know one cantrip of my choice from the wizard spell list.",
+		"Intelligence is my spellcasting ability for it.",
+	],
 	spellcastingAbility: 4,
 	spellcastingBonus: [{
 		name: "High Elf Cantrip",
@@ -158,7 +178,13 @@ AddRacialVariant("half-elf", "drow magic", {
 	source: [["S", 116]],
 	plural: "Half-drow",
 	skillstxt: "",
-	trait: "Half-drow (+2 Charisma and +1 to two other ability scores of my choice)\n\nDrow Magic:\n   I know the Dancing Lights cantrip.\n   Once I reach 3rd level, I can cast the Faerie Fire spell once per long rest.\n   Once I reach 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait: [
+		"**Half-drow** (+2 Charisma and +1 to two other ability scores of my choice)",
+		"##\u25C6 Drow Magic##. I know the *Dancing Lights* cantrip.",
+		"Once I reach 3rd level, I can cast the *Faerie Fire* spell once per long rest.",
+		"Once I reach 5th level, I can also cast the *Darkness* spell once per long rest.",
+		"Charisma is my spellcasting ability for these spells.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Drow Magic (level 1)",
@@ -193,7 +219,7 @@ AddRacialVariant("half-elf", "elf weapon training", {
 	regExpSearch: /^(?=.*\b(elf|elven)\b)(?=.*weapon)(?=.*training).*$/i,
 	source: [["S", 116]],
 	skillstxt: "",
-	trait: "Half-Elf (+2 Charisma and +1 to two other ability scores of my choice)",
+	trait: "**Half-Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
 	weaponProfs: [false, false, ["longsword", "shortsword", "longbow", "shortbow"]],
 });
 AddRacialVariant("half-elf", "fleet of foot", {
@@ -205,7 +231,7 @@ AddRacialVariant("half-elf", "fleet of foot", {
 		walk: { spd: 35, enc: 25 },
 	},
 	skillstxt: "",
-	trait: "Half-Wood Elf (+2 Charisma and +1 to two other ability scores of my choice)",
+	trait: "**Half-Wood Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
 });
 AddRacialVariant("half-elf", "mask of the wild", {
 	regExpSearch: /^(?=.*\bmasks?\b)(?=.*\bwilds?\b).*$/i,
@@ -213,14 +239,23 @@ AddRacialVariant("half-elf", "mask of the wild", {
 	source: [["S", 116]],
 	plural: "Half-wood elves",
 	skillstxt: "",
-	trait: "Half-Wood Elf (+2 Charisma and +1 to two other ability scores of my choice)\n\nMask of the Wild:\n   I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
+	trait: [
+		"**Half-Wood Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
+		"##\u25C6 Mask of the Wild##. I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
+	],
 });
 AddRacialVariant("tiefling", "devil's tongue", {
 	regExpSearch: /^(?=.*devil)(?=.*tongue).*$/i,
 	name: "Devil's tongue tiefling",
 	source: [["S", 118]],
 	plural: "Devil's tongue tieflings",
-	trait: "Devil's Tongue Tiefling (+1 Intelligence, +2 Charisma)\n\nDevil's Tongue:\n   I know the Vicious Mockery cantrip.\n   At 3rd level, I can cast the Charm Person spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Enthrall spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait: [
+		"**Devil's Tongue Tiefling** (+1 Intelligence, +2 Charisma)",
+		"##\u25C6 Devil's Tongue##. I know the *Vicious Mockery* cantrip.",
+		"At 3rd level, I can cast the *Charm Person* spell once per long rest as a 2nd-level spell.",
+		"At 5th level, I can also cast the *Enthrall* spell once per long rest.",
+		"Charisma is my spellcasting ability for these spells.",
+	],
 	spellcastingBonus: [{
 		name: "Devil's Tongue (level 1)",
 		spells: ["vicious mockery"],
@@ -240,7 +275,7 @@ AddRacialVariant("tiefling", "devil's tongue", {
 			spellChanges: {
 				"charm person": {
 					description: "2 humanoids, max 30 ft apart, save or charmed; advantage on save if I or my allies are fighting it",
-					changes: "Using Devil's Tongue, I cast Charm Person as if I'm using a 2nd-level spell slot, affecting 2 humanoids.",
+					changes: "Using Devil's Tongue, I cast *Charm Person* as if I'm using a 2nd-level spell slot, affecting 2 humanoids.",
 				},
 			},
 		},
@@ -261,7 +296,13 @@ AddRacialVariant("tiefling", "hellfire", {
 	name: "Hellfire tiefling",
 	source: [["S", 118]],
 	plural: "Hellfire tieflings",
-	trait: "Hellfire Tiefling (+1 Intelligence, +2 Charisma)\n\nInfernal Legacy (Hellfire):\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Burning Hands spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait: [
+		"**Hellfire Tiefling** (+1 Intelligence, +2 Charisma)",
+		"##\u25C6 Infernal Legacy (Hellfire)##. I know the *Thaumaturgy* cantrip.",
+		"At 3rd level, I can cast the *Burning Hands* spell once per long rest as a 2nd-level spell.",
+		"At 5th level, I can also cast the *Darkness* spell once per long rest.",
+		"Charisma is my spellcasting ability for these spells.",
+	],
 	features: {
 		"burning hands": {
 			name: "Hellfire Legacy (level 3)",
@@ -275,7 +316,7 @@ AddRacialVariant("tiefling", "hellfire", {
 			spellChanges: {
 				"burning hands": {
 					description: "4d6 Fire damage; save halves; unattended flammable objects ignite",
-					changes: "Using Hellfire Legacy, I cast Burning Hands as if I'm using a 2nd-level spell slot, doing 4d6 Fire damage.",
+					changes: "Using Hellfire Legacy, I cast *Burning Hands* as if I'm using a 2nd-level spell slot, doing 4d6 Fire damage.",
 				},
 			},
 		},
@@ -301,7 +342,10 @@ AddRacialVariant("tiefling", "winged", {
 		walk: { spd: 30, enc: 20 },
 		fly: { spd: 30, enc: 0 },
 	},
-	trait: "Winged Tiefling (+1 Intelligence, +2 Charisma)\n\nWings:\n   I have bat-like wings sprouting from my shoulder blades that give me flying speed of 30 ft when I'm not wearing heavy armor.",
+	trait: [
+		"**Winged Tiefling** (+1 Intelligence, +2 Charisma)",
+		"##\u25C6 Wings##. I have bat-like wings sprouting from my shoulder blades that give me flying speed of 30 ft when I'm not wearing heavy armor.",
+	],
 	features: "",
 	spellcastingAbility: "",
 	spellcastingBonus: "",
@@ -318,7 +362,13 @@ RunFunctionAtEnd(function () {
 		source: [["S", 118]],
 		plural: "Feral tieflings",
 		scores: [0, 2, 0, 1, 0, 0],
-		trait: "Feral Tiefling (+2 Dexterity, +1 Intelligence)\n\nInfernal Legacy:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Hellish Rebuke spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+		trait: [
+			"**Feral Tiefling** (+2 Dexterity, +1 Intelligence)",
+			"##\u25C6 Infernal Legacy##. I know the *Thaumaturgy* cantrip.",
+			"At 3rd level, I can cast the Hellish Rebuke spell once per long rest as a 2nd-level spell.",
+			"At 5th level, I can also cast the Darkness spell once per long rest.",
+			"Charisma is my spellcasting ability for these spells.",
+		],
 	};
 	// Create the RaceList entry
 	RaceList[tRace.objname] = newObj(RaceList.tiefling);
@@ -330,8 +380,9 @@ RunFunctionAtEnd(function () {
 	RaceList[tRace.objname].variants.forEach( function (nVar) {
 		RaceSubList[tRace.objname + "-" + nVar] = newObj(RaceSubList["tiefling-" + nVar]);
 		var thisVar = RaceSubList[tRace.objname + "-" + nVar];
-		thisVar.trait = thisVar.trait.replace(tRace.replaceTraitTxt[0], tRace.replaceTraitTxt[1]);
-		thisVar.trait = thisVar.trait.replace(tRace.replaceNameTxt[0].capitalize(), tRace.replaceNameTxt[1].capitalize());
+		thisVar.trait = [].concat(thisVar.trait).map(function (sTrait) {
+			return sTrait.replace(tRace.replaceTraitTxt[0], tRace.replaceTraitTxt[1]).replace(tRace.replaceNameTxt[0].capitalize(), tRace.replaceNameTxt[1].capitalize());
+		});
 		thisVar.name = thisVar.name.replace(tRace.replaceNameTxt[0], tRace.replaceNameTxt[1]);
 		thisVar.plural = thisVar.plural.replace(tRace.replaceNameTxt[0], tRace.replaceNameTxt[1]);
 	});
@@ -664,8 +715,8 @@ AddSubClass("monk", "way of the sun soul", {
 				extraname: "Way of the Sun Soul 6",
 				source: [["S", 131], ["X", 35]],
 				description: desc([
-					"After taking the Attack action, I can cast Burning Hands as a bonus action [PHB 220]",
-					"For every additional ki point I spend, Burning hands is cast at 1 higher spell level",
+					"After taking the Attack action, I can cast *Burning Hands* as a bonus action [PHB 220]",
+					"For every additional ki point I spend, *Burning hands* is cast at 1 higher spell level",
 					"The maximum total ki points I can spend for this (including the 2) is half my Monk level",
 				]),
 				additional: levels.map(function (n) {
@@ -685,7 +736,7 @@ AddSubClass("monk", "way of the sun soul", {
 					"burning hands": {
 						time: "1 bns",
 						description: "3d6+1d6/extra Ki Fire dmg; save halves; unattended flammable objects ignite (ki max 1/2 monk lvl)",
-						changes: "After I use the Attack action, I can cast Burning Hands as a bonus action by spending 2 ki points. I can even spend additional ki points to increase its spell level. The total amount of ki points I can spend on it is half my monk level.",
+						changes: "After I use the Attack action, I can cast *Burning Hands* as a bonus action by spending 2 ki points. I can even spend additional ki points to increase its spell level. The total amount of ki points I can spend on it is half my monk level.",
 					},
 				},
 			},
@@ -992,7 +1043,7 @@ AddSubClass("warlock", "the undying", {
 			source: [["S", 139]],
 			minlevel: 1,
 			description: desc([
-				"I learn the Spare the Dying cantrip and gain advantage on saving throws vs. diseases",
+				"I learn the *Spare the Dying* cantrip and gain advantage on saving throws vs. diseases",
 				"If an undead targets me directly with an attack or spell, it must make a Wisdom save",
 				"On a fail, it must choose a new target or forfeit its attack or harmful spell",
 				"On a success or if I attack or cast a harmful spell on it, it is immune for 24 hours",
@@ -1010,7 +1061,7 @@ AddSubClass("warlock", "the undying", {
 			minlevel: 6,
 			description: desc([
 				"I regain 1d8 + my Constitution modifier in HP when I succeed on a Death saving throw",
-				"I also regain this amount whenever I use Spare the Dying to stabilize a creature",
+				"I also regain this amount whenever I use *Spare the Dying* to stabilize a creature",
 			]),
 			recovery: "long rest",
 			usages: 1,
@@ -1533,8 +1584,11 @@ if (!FeatsList["svirfneblin magic"]) {
 		source: [["E", 7], ["S", 115], ["MToF", 114]],
 		prerequisite: "Being a Svirfneblin (Deep Gnome)",
 		prereqeval: function (v) { return CurrentRace.known === "deep gnome"; },
-		descriptionFull: "You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast Nondetection on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: Blindness/Deafness, Blur, and Disguise Self. You regain the ability to cast these spells when you finish a long rest.\n   Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
-		description: "I can cast Nondetection on myself at will, without a material component. I can also cast the spells Blindness/Deafness, Blur, and Disguise Self once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
+		descriptionFull: [
+			"You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast *Nondetection* on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: *Blindness/Deafness*, *Blur*, and *Disguise Self*. You regain the ability to cast these spells when you finish a long rest.",
+			"Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
+		],
+		description: "I can cast *Nondetection* on myself at will, without a material component. I can also cast the spells *Blindness/Deafness*, *Blur*, and *Disguise Self* once each. I regain the ability to cast these spells when I finish a long rest. Intelligence is my spellcasting ability for these spells.",
 		spellcastingBonus: [{
 			name: "at will (self only)",
 			spellcastingAbility: 4,
@@ -1554,7 +1608,7 @@ if (!FeatsList["svirfneblin magic"]) {
 				components: "V,S",
 				compMaterial: "",
 				description: "I am hidden from all divination magic",
-				changes: "Using Svirfneblin Magic, I can cast Nondetection without a material component, but only on myself.",
+				changes: "Using Svirfneblin Magic, I can cast *Nondetection* without a material component, but only on myself.",
 			},
 		},
 	};

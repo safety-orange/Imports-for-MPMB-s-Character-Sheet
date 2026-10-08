@@ -1,7 +1,7 @@
-if (sheetVersion < 14001000) { throw "This add-on script was made for a newer version of the sheet (v14.1.0). Please use this required version or a later version (but lower than v15.0.0) and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
-if (sheetVersion >= 15000000) { throw "This add-on script was made for a lower version of the sheet (one before v15.0.0). Please use the required version (v14.1.0) or a later version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion < 14001003) { throw "This add-on script was made for a newer version of the sheet (v14.1.3). Please use this required version or a later version (but lower than v15.0.0) and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion >= 15000000) { throw "This add-on script was made for a lower version of the sheet (one before v15.0.0). Please use the required version (v14.1.3) or a later version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
 var iFileName = "all_WotC_5e_unearthed_arcana.js";
-RequiredSheetVersion("14.1.0", "15.0.0");
+RequiredSheetVersion("14.1.3", "15.0.0");
 
 // ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
@@ -35,7 +35,12 @@ RaceList["changeling-ua"] = {
 	heightMetric: " stand between 1,5 to over 1,8 metres tall (155 + 5d4 cm)",
 	weightMetric: " weigh around 65 kg (52 + 5d4 \xD7 4d4 / 10 kg)",
 	scores: [0, 1, 0, 0, 0, 1],
-	trait: "Changeling (+1 Dexterity, +1 Charisma)\nShapechanger:\n   As an action, I can polymorph into any humanoid of my size that I have seen, or back into my true form.\n   However, my equipment does not change with me.\n   If I die, I revert to my natural appearance.",
+	trait: [
+		"**Changeling** (+1 Dexterity, +1 Charisma)",
+		"##\u25C6 Shapechanger##. As an action, I can polymorph into any humanoid of my size that I have seen, or back into my true form.",
+		"However, my equipment does not change with me.",
+		"If I die, I revert to my natural appearance.",
+	],
 	action: ["action", "Polymorph"],
 };
 // Warforged
@@ -56,7 +61,11 @@ RaceList["warforged-ua"] = {
 	heightMetric: " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
 	weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	scores: [1, 0, 1, 0, 0, 0],
-	trait: "Warforged (+1 Strength, +1 Constitution)\nLiving Construct:\n   Even though I was constructed, I am a living creature. I am immune to disease. I do not need to eat or breathe, but I can ingest food and drink if I wish.\n   Instead of sleeping, I enter an inactive state for 4 hours each day. I do not dream in this state; I am fully aware of my surroundings and notice approaching enemies and other events as normal. I still need 8 hours for a long rest.",
+	trait: [
+		"**Warforged** (+1 Strength, +1 Constitution)",
+		"##\u25C6 Living Construct##. Even though I was constructed, I am a living creature. I am immune to disease. I do not need to eat or breathe, but I can ingest food and drink if I wish.",
+		"Instead of sleeping, I enter an inactive state for 4 hours each day. I do not dream in this state; I am fully aware of my surroundings and notice approaching enemies and other events as normal. I still need 8 hours for a long rest.",
+	],
 	extraAC: {
 		name: "Composite Plating",
 		mod: 1,
@@ -82,7 +91,12 @@ RaceList["shifter-ua"] = {
 	weightMetric: " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scorestxt: "+1 Dexterity and +1 to other ability score depending on type of shifter",
 	scores: [0, 1, 0, 0, 0, 0],
-	trait: "Shifter (+1 Dexterity and +1 to other ability score depending on type of shifter)\n   Use the \"Racial Options\" button to select type of shifter.\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and another bonus depending on the type of shifter.",
+	trait: [
+		"**Shifter** (+1 Dexterity and +1 to other ability score depending on type of shifter)",
+		"Use the \"Racial Options\" button to select type of shifter.",
+		"##\u25C6 Shifting##. On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.",
+		"While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and another bonus depending on the type of shifter.",
+	],
 	features: {
 		"shift": {
 			name: "Shift",
@@ -100,7 +114,11 @@ AddRacialVariant("shifter-ua", "beasthide", {
 	plural: "Beasthide shifters",
 	scorestxt: "",
 	scores: [0, 1, 1, 0, 0, 0],
-	trait: "Beasthide Shifter (+1 Dexterity, +1 Constitution)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I gain a +1 bonus to my AC.",
+	trait: [
+		"**Beasthide Shifter** (+1 Dexterity, +1 Constitution)",
+		"##\u25C6 Shifting##. On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.",
+		"While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I gain a +1 bonus to my AC.",
+	],
 });
 AddRacialVariant("shifter-ua", "cliffwalk", {
 	regExpSearch: /cliffwalk/i,
@@ -109,7 +127,11 @@ AddRacialVariant("shifter-ua", "cliffwalk", {
 	plural: "Cliffwalk shifters",
 	scorestxt: "",
 	scores: [0, 2, 0, 0, 0, 0],
-	trait: "Cliffwalk Shifter (+2 Dexterity)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I gain a climb speed of 30 feet.",
+	trait: [
+		"**Cliffwalk Shifter** (+2 Dexterity)",
+		"##\u25C6 Shifting##. On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.",
+		"While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I gain a climb speed of 30 ft.",
+	],
 });
 AddRacialVariant("shifter-ua", "longstride", {
 	regExpSearch: /longstride/i,
@@ -118,7 +140,11 @@ AddRacialVariant("shifter-ua", "longstride", {
 	plural: "Longstride shifters",
 	scorestxt: "",
 	scores: [0, 2, 0, 0, 0, 0],
-	trait: "Longstride Shifter (+2 Dexterity)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I can use the Dash action as a bonus action.",
+	trait: [
+		"**Longstride Shifter** (+2 Dexterity)",
+		"##\u25C6 Shifting##. On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.",
+		"While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I can use the Dash action as a bonus action.",
+	],
 });
 AddRacialVariant("shifter-ua", "longtooth", {
 	regExpSearch: /(longtooth|longteeth)/i,
@@ -139,7 +165,10 @@ AddRacialVariant("shifter-ua", "longtooth", {
 	}],
 	scorestxt: "",
 	scores: [1, 1, 0, 0, 0, 0],
-	trait: "Longtooth Shifter (+1 Strength, +1 Dexterity)\nShifting: On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again. While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and, as an action, I can make can make a bite attack. This is a melee weapon attack that uses Strength and deals 1d6 piercing damage. If this attack hits a target that is my size or smaller, the target is also grappled.",
+	trait: [
+		"**Longtooth Shifter** (+1 Strength, +1 Dexterity)",
+		"##\u25C6 Shifting##. On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again. While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and, as an action, I can make can make a bite attack. This is a melee weapon attack that uses Strength and deals 1d6 piercing damage. If this attack hits a target that is my size or smaller, the target is also grappled.",
+	],
 });
 AddRacialVariant("shifter-ua", "razorclaw", {
 	regExpSearch: /razorclaw/i,
@@ -157,7 +186,11 @@ AddRacialVariant("shifter-ua", "razorclaw", {
 	}],
 	scorestxt: "",
 	scores: [0, 2, 0, 0, 0, 0],
-	trait: "Razorclaw Shifter (+2 Dexterity)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and, as a bonus action, I can make an unarmed strike that can use my Dexterity for the attack roll and damage, dealing slashing damage.",
+	trait: [
+		"**Razorclaw Shifter** (+2 Dexterity)",
+		"##\u25C6 Shifting##. On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.",
+		"While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and, as a bonus action, I can make an unarmed strike that can use my Dexterity for the attack roll and damage, dealing slashing damage.",
+	],
 });
 AddRacialVariant("shifter-ua", "wildhunt", {
 	regExpSearch: /wildhunt/i,
@@ -166,7 +199,11 @@ AddRacialVariant("shifter-ua", "wildhunt", {
 	plural: "Wildhunt shifters",
 	scorestxt: "",
 	scores: [0, 1, 0, 0, 1, 0],
-	trait: "Wildhunt Shifter (+1 Dexterity, +1 Wisdom)\nShifting:\n   On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.\n   While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I gain advantage on all Wisdom-based checks and saving throws.",
+	trait: [
+		"**Wildhunt Shifter** (+1 Dexterity, +1 Wisdom)",
+		"##\u25C6 Shifting##. On my turn, I can shift as a bonus action. Shifting lasts for 1 minute or until I end it on my turn as a bonus action. I must finish a short rest before I can shift again.",
+		"While shifted, I gain temporary hit points equal to my level + my Constitution modifier (minimum of 1) and I gain advantage on all Wisdom-based checks and saving throws.",
+	],
 });
 
 // 12 variants of the Dragonmark feat
@@ -176,8 +213,14 @@ FeatsList["dragonmark-ua"] = {
 	description: "Select the type of dragonmark using the little square button in this feat line.",
 	choices: ["Detection", "Finding", "Handling", "Healing", "Hospitality", "Making", "Passage", "Scribing", "Sentinel", "Shadow", "Storm", "Warding"],
 	"detection": {
-		descriptionFull: "Your have the magical mark of Detection, the dragonmark of House Medani, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   ***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: Detect Magic, Mage Hand\n   ***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Detect Thoughts\n   ***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Clairvoyance",
-		description: "I learn the Mage Hand cantrip. I can also cast Detect Magic, Detect Thoughts (from 5th level onwards), and Clairvoyance (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
+		descriptionFull: [
+			"Your have the magical mark of Detection, the dragonmark of House Medani, and are a member of that house.",
+			"You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
+			"***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: *Detect Magic*, *Mage Hand*",
+			"***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: *Detect Thoughts*",
+			"***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Clairvoyance",
+		],
+		description: "I learn the *Mage Hand* cantrip. I can also cast *Detect Magic*, *Detect Thoughts* (from 5th level onwards), and *Clairvoyance* (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
 		spellcastingBonus: [{
 			name: "Dragonmark",
 			spellcastingAbility: 5,
@@ -188,8 +231,14 @@ FeatsList["dragonmark-ua"] = {
 		}],
 	},
 	"finding": {
-		descriptionFull: "Your have the magical mark of Finding, the dragonmark of House Tharashk, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   ***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: Identify, Mage Hand\n   ***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Locate Object\n   ***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Clairvoyance",
-		description: "I learn the Mage Hand cantrip. I can also cast Identify, Locate Object (from 5th level onwards), and Clairvoyance (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
+		descriptionFull: [
+			"Your have the magical mark of Finding, the dragonmark of House Tharashk, and are a member of that house.",
+			"You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
+			"***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: *Identify*, *Mage Hand*",
+			"***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: *Locate Object*",
+			"***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Clairvoyance",
+		],
+		description: "I learn the *Mage Hand* cantrip. I can also cast *Identify*, *Locate Object* (from 5th level onwards), and *Clairvoyance* (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
 		spellcastingBonus: [{
 			name: "Dragonmark",
 			spellcastingAbility: 5,
@@ -200,8 +249,14 @@ FeatsList["dragonmark-ua"] = {
 		}],
 	},
 	"handling": {
-		descriptionFull: "Your have the magical mark of Handling, the dragonmark of House Vadalis, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   ***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: Druidcraft, Speak with Animals\n   ***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Beast Sense\n   ***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Conjure Animals",
-		description: "I learn the Druidcraft cantrip. I can also cast Speak with Animals, Beast Sense (from 5th level onwards), and Conjure Animals (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
+		descriptionFull: [
+			"Your have the magical mark of Handling, the dragonmark of House Vadalis, and are a member of that house.",
+			"You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
+			"***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: *Druidcraft*, *Speak with Animals*",
+			"***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: *Beast Sense*",
+			"***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: *Conjure Animals*",
+		],
+		description: "I learn the *Druidcraft* cantrip. I can also cast *Speak with Animals*, *Beast Sense* (from 5th level onwards), and *Conjure Animals* (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
 		spellcastingBonus: [{
 			name: "Dragonmark",
 			spellcastingAbility: 5,
@@ -212,8 +267,14 @@ FeatsList["dragonmark-ua"] = {
 		}],
 	},
 	"healing": {
-		descriptionFull: "Your have the magical mark of Healing, the dragonmark of House Jorasco, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   ***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: Cure Wounds, Spare the Dying\n   ***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Lesser Restoration\n   ***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Revivify",
-		description: "I learn the Spare the Dying cantrip. I can also cast Cure Wounds, Lesser Restoration (from 5th level onwards), and Revivify (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
+		descriptionFull: [
+			"Your have the magical mark of Healing, the dragonmark of House Jorasco, and are a member of that house.",
+			"You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
+			"***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: *Cure Wounds*, *Spare the Dying*",
+			"***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: *Lesser Restoration*",
+			"***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Revivify",
+		],
+		description: "I learn the *Spare the Dying* cantrip. I can also cast *Cure Wounds*, *Lesser Restoration* (from 5th level onwards), and *Revivify* (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
 		spellcastingBonus: [{
 			name: "Dragonmark",
 			spellcastingAbility: 5,
@@ -224,8 +285,14 @@ FeatsList["dragonmark-ua"] = {
 		}],
 	},
 	"hospitality": {
-		descriptionFull: "Your have the magical mark of Hospitality, the dragonmark of House Ghallanda, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Charisma as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   ***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: Friends, Unseen Servant\n   ***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Rope Trick\n   ***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Leomund's Tiny Hut",
-		description: "I learn the Friends cantrip. I can also cast Unseen Servant, Rope Trick (from 5th level onwards), and Leomund's Tiny Hut (from 9th level onwards), each once per long rest. Charisma is my spellcasting ability for these.",
+		descriptionFull: [
+			"Your have the magical mark of Hospitality, the dragonmark of House Ghallanda, and are a member of that house.",
+			"You gain the ability to innately cast spells and cantrips, using Charisma as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
+			"***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: *Friends*, *Unseen Servant*",
+			"***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: *Rope Trick*",
+			"***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: *Leomund's Tiny Hut*",
+		],
+		description: "I learn the *Friends* cantrip. I can also cast *Unseen Servant*, *Rope Trick* (from 5th level onwards), and *Leomund's Tiny Hut* (from 9th level onwards), each once per long rest. Charisma is my spellcasting ability for these.",
 		spellcastingBonus: [{
 			name: "Dragonmark",
 			spellcastingAbility: 6,
@@ -236,8 +303,14 @@ FeatsList["dragonmark-ua"] = {
 		}],
 	},
 	"making": {
-		descriptionFull: "Your have the magical mark of Making, the dragonmark of House Cannith, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   ***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: Identify, Mending\n   ***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Magic Weapon\n   ***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Fabricate",
-		description: "I learn the Mending cantrip. I can also cast Identify, Magic Weapon (from 5th level onwards), and Fabricate (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
+		descriptionFull: [
+			"Your have the magical mark of Making, the dragonmark of House Cannith, and are a member of that house.",
+			"You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
+			"***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: Identify, *Mending*",
+			"***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: *Magic Weapon*",
+			"***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Fabricate",
+		],
+		description: "I learn the *Mending* cantrip. I can also cast *Identify*, *Magic Weapon* (from 5th level onwards), and *Fabricate* (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
 		spellcastingBonus: [{
 			name: "Dragonmark",
 			spellcastingAbility: 4,
@@ -248,8 +321,14 @@ FeatsList["dragonmark-ua"] = {
 		}],
 	},
 	"passage": {
-		descriptionFull: "Your have the magical mark of Passage, the dragonmark of House Orien, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   ***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: Expeditious Retreat, Light\n   ***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Misty Step\n   ***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Teleportation Circle",
-		description: "I learn the Light cantrip. I can also cast Expeditious Retreat, Misty Step (from 5th level onwards), and Teleportation Circle (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
+		descriptionFull: [
+			"Your have the magical mark of Passage, the dragonmark of House Orien, and are a member of that house.",
+			"You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
+			"***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: *Expeditious Retreat*, *Light*",
+			"***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: *Misty Step*",
+			"***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: *Teleportation Circle*",
+		],
+		description: "I learn the *Light* cantrip. I can also cast *Expeditious Retreat*, *Misty Step* (from 5th level onwards), and *Teleportation Circle* (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
 		spellcastingBonus: [{
 			name: "Dragonmark",
 			spellcastingAbility: 4,
@@ -260,8 +339,14 @@ FeatsList["dragonmark-ua"] = {
 		}],
 	},
 	"scribing": {
-		descriptionFull: "Your have the magical mark of Scribing, the dragonmark of House Sivis, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   ***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: Comprehend Languages, Message\n   ***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Sending\n   ***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Tongues",
-		description: "I learn the Message cantrip. I can also cast Comprehend Languages, Sending (from 5th level onwards), and Tongues (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
+		descriptionFull: [
+			"Your have the magical mark of Scribing, the dragonmark of House Sivis, and are a member of that house.",
+			"You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
+			"***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: *Comprehend Languages*, *Message*",
+			"***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Sending",
+			"***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Tongues",
+		],
+		description: "I learn the *Message* cantrip. I can also cast *Comprehend Languages*, *Sending* (from 5th level onwards), and *Tongues* (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
 		spellcastingBonus: [{
 			name: "Dragonmark",
 			spellcastingAbility: 4,
@@ -272,8 +357,14 @@ FeatsList["dragonmark-ua"] = {
 		}],
 	},
 	"sentinel": {
-		descriptionFull: "Your have the magical mark of Sentinel, the dragonmark of House Deneith, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   ***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: Blade Ward, Compelled Duel\n   ***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Blur\n   ***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Protection from Energy",
-		description: "I learn the Blade Ward cantrip. I can also cast Compelled Duel, Blur (from 5th level onwards), and Protection from Energy (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
+		descriptionFull: [
+			"Your have the magical mark of Sentinel, the dragonmark of House Deneith, and are a member of that house.",
+			"You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
+			"***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: *Blade Ward*, *Compelled Duel*",
+			"***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Blur",
+			"***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: *Protection from Energy*",
+		],
+		description: "I learn the *Blade Ward* cantrip. I can also cast *Compelled Duel*, *Blur* (from 5th level onwards), and *Protection from Energy* (from 9th level onwards), each once per long rest. Wisdom is my spellcasting ability for these.",
 		spellcastingBonus: [{
 			name: "Dragonmark",
 			spellcastingAbility: 5,
@@ -284,8 +375,14 @@ FeatsList["dragonmark-ua"] = {
 		}],
 	},
 	"shadow": {
-		descriptionFull: "Your have the magical mark of Shadow, the dragonmark of House Phiarlan and House Thuranni, and are a member of one of those houses.\n   You gain the ability to innately cast spells and cantrips, using Charisma as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   ***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: Dancing Lights, Disguise Self\n   ***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Darkness\n   ***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Nondetection",
-		description: "I learn the Dancing Lights cantrip. I can also cast Disguise Self, Darkness (from 5th level onwards), and Nondetection (from 9th level onwards), each once per long rest. Charisma is my spellcasting ability for these.",
+		descriptionFull: [
+			"Your have the magical mark of Shadow, the dragonmark of House Phiarlan and House Thuranni, and are a member of one of those houses.",
+			"You gain the ability to innately cast spells and cantrips, using Charisma as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
+			"***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: *Dancing Lights*, *Disguise Self*",
+			"***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Darkness",
+			"***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Nondetection",
+		],
+		description: "I learn the *Dancing Lights* cantrip. I can also cast *Disguise Self*, *Darkness* (from 5th level onwards), and *Nondetection* (from 9th level onwards), each once per long rest. Charisma is my spellcasting ability for these.",
 		spellcastingBonus: [{
 			name: "Dragonmark",
 			spellcastingAbility: 6,
@@ -296,8 +393,14 @@ FeatsList["dragonmark-ua"] = {
 		}],
 	},
 	"storm": {
-		descriptionFull: "Your have the magical mark of Storm, the dragonmark of House Lyrander, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   ***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: Fog Cloud, Shocking Grasp\n   ***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Gust of Wind\n   ***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Sleet Storm",
-		description: "I learn the Shocking Grasp cantrip. I can also cast Fog Cloud, Gust of Wind (from 5th level onwards), and Sleet Storm (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
+		descriptionFull: [
+			"Your have the magical mark of Storm, the dragonmark of House Lyrander, and are a member of that house.",
+			"You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
+			"***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: *Fog Cloud*, *Shocking Grasp*",
+			"***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: *Gust of Wind*",
+			"***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: *Sleet Storm*",
+		],
+		description: "I learn the *Shocking Grasp* cantrip. I can also cast *Fog Cloud*, *Gust of Wind* (from 5th level onwards), and *Sleet Storm* (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
 		spellcastingBonus: [{
 			name: "Dragonmark",
 			spellcastingAbility: 4,
@@ -308,8 +411,14 @@ FeatsList["dragonmark-ua"] = {
 		}],
 	},
 	"warding": {
-		descriptionFull: "Your have the magical mark of Warding, the dragonmark of House Kundarak, and are a member of that house.\n   You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:\n   ***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: Alarm, Resistance\n   ***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: Arcane Lock\n   ***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: Magic Circle",
-		description: "I learn the Resistance cantrip. I can also cast Alarm, Arcane Lock (from 5th level onwards), and Magic Circle (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
+		descriptionFull: [
+			"Your have the magical mark of Warding, the dragonmark of House Kundarak, and are a member of that house.",
+			"You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
+			"***Least Dragonmark***. When you first take this feat, you gain the least dragonmark. You learn the following spells: Alarm, *Resistance*",
+			"***Lesser Dragonmark***. At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: *Arcane Lock*",
+			"***Greater Dragonmark***. At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: *Magic Circle*",
+		],
+		description: "I learn the *Resistance* cantrip. I can also cast *Alarm*, *Arcane Lock* (from 5th level onwards), and *Magic Circle* (from 9th level onwards), each once per long rest. Intelligence is my spellcasting ability for these.",
 		spellcastingBonus: [{
 			name: "Dragonmark",
 			spellcastingAbility: 4,
@@ -856,7 +965,13 @@ AddRacialVariant("minotaur-ua", "cunning", {
 	source: [["UA:WA", 2]],
 	scorestxt: "",
 	scores: [1, 0, 0, 0, 1, 0],
-	trait: "Minotaur [cunning] (+1 Strength, +1 Wisdom)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled.",
+	trait: [
+		"**Minotaur [cunning]** (+1 Strength, +1 Wisdom)",
+		"##\u25C6 Horns##. I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.",
+		"##\u25C6 Goring Rush##. When taking a Dash action, I can make a horns attack as a bonus action.",
+		"##\u25C6 Hammering Horns##. When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.",
+		"##\u25C6 Labyrinthine Recall##. I can perfectly recall any path I have travelled.",
+	],
 });
 AddRacialVariant("minotaur-ua", "intellect", {
 	regExpSearch: /(intellect|intelligence)/i,
@@ -864,7 +979,13 @@ AddRacialVariant("minotaur-ua", "intellect", {
 	source: [["UA:WA", 2]],
 	scorestxt: "",
 	scores: [1, 0, 0, 1, 0, 0],
-	trait: "Minotaur [intellect] (+1 Strength, +1 Intelligence)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled.",
+	trait: [
+		"**Minotaur [intellect]** (+1 Strength, +1 Intelligence)",
+		"##\u25C6 Horns##. I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.",
+		"##\u25C6 Goring Rush##. When taking a Dash action, I can make a horns attack as a bonus action.",
+		"##\u25C6 Hammering Horns##. When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.",
+		"##\u25C6 Labyrinthine Recall##. I can perfectly recall any path I have travelled.",
+	],
 });
 AddRacialVariant("minotaur-ua", "strength", {
 	regExpSearch: /(strength|strong|\bmight\b)/i,
@@ -872,7 +993,13 @@ AddRacialVariant("minotaur-ua", "strength", {
 	source: [["UA:WA", 2]],
 	scorestxt: "",
 	scores: [1, 0, 0, 0, 0, 0],
-	trait: "Minotaur [strength] (+2 Strength)\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled.",
+	trait: [
+		"**Minotaur [strength]** (+2 Strength)",
+		"##\u25C6 Horns##. I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.",
+		"##\u25C6 Goring Rush##. When taking a Dash action, I can make a horns attack as a bonus action.",
+		"##\u25C6 Hammering Horns##. When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.",
+		"##\u25C6 Labyrinthine Recall##. I can perfectly recall any path I have travelled.",
+	],
 });
 
 // ua_20150803_Modern-Magic.js
@@ -899,7 +1026,7 @@ AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 			name: "Bonus Cantrip",
 			source: [["UA:MM", 1]],
 			minlevel: 1,
-			description: desc("I learn the On/Off cantrip if I didn't already know it"),
+			description: desc("I learn the *On/Off* cantrip if I didn't already know it"),
 			spellcastingBonus: [{
 				name: "Bonus Cantrip (On/Off)",
 				spells: ["on/off-ua"],
@@ -970,7 +1097,7 @@ AddSubClass("cleric", "city domain-ua", { // Still valid 2021-09-21
 			minlevel: 17,
 			description: desc([
 				"As an action, I can teleport from one mass transit site to another in the same city",
-				"This works just like a Teleport spell; Mass transits sites include bus/train/subway stops",
+				"This works just like a *Teleport* spell; Mass transits sites include bus/train/subway stops",
 			]),
 			usages: 1,
 			recovery: "short rest",
@@ -990,7 +1117,7 @@ AddSubClass("warlock", "ghost in the machine-ua", { // Still valid 2021-09-21
 			name: "Bonus Proficiency",
 			source: [["UA:MM", 2]],
 			minlevel: 1,
-			description: desc("I am proficient with hacking tools and know the On/Off cantrip"),
+			description: desc("I am proficient with hacking tools and know the *On/Off* cantrip"),
 			toolProfs: ["Hacking tools"],
 			spellcastingBonus: [{
 				name: "Bonus Cantrip (On/Off)",
@@ -1040,9 +1167,9 @@ AddSubClass("warlock", "ghost in the machine-ua", { // Still valid 2021-09-21
 			description: desc([
 				"As an action, I make a melee spell attack to infect someone with a techno-organic virus",
 				"The target takes 8d10 psychic damage, or half that with a successful Con save",
-				"If it failed its save, I can use an action to cast Command on it while it remains infected",
-				"It makes its save vs. this Command with disadvantage and I can cast it at any range",
-				"It is infected until my next long rest; The virus can be removed with Lesser Restoration",
+				"If it failed its save, I can use an action to cast *Command* on it while it remains infected",
+				"It makes its save vs. this *Command* with disadvantage and I can cast it at any range",
+				"It is infected until my next long rest; The virus can be removed with *Lesser Restoration*",
 			]),
 			usages: 1,
 			recovery: "long rest",
@@ -1153,7 +1280,11 @@ SpellsList["arcane hacking-ua"] = { // Still valid 2021-09-21
 	compMaterial: "Hacking tools",
 	duration: "Conc, 1 h",
 	description: "Adv on Int (hacking tools) vs. encryption; Use Int (hacking tools) to remove protective spells; See book",
-	descriptionFull: "[Technomagic]\n   You gain advantage on all Intelligence checks using hacking tools to break software encryption or online security when using a foreign system. This spell also allows you to break 2nd-level and lower protective spells such as arcane lock or glyph of warding by making an Intelligence check using hacking tools against the spell save DC of the spell's caster." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you can attempt to counteract a spell set to secure the foreign system if the spell's level is equal to or less than the level of the spell slot you used.",
+	descriptionFull: [
+		"[Technomagic]",
+		"You gain advantage on all Intelligence checks using hacking tools to break software encryption or online security when using a foreign system. This spell also allows you to break 2nd-level and lower protective spells such as *arcane lock* or *glyph of warding* by making an Intelligence check using hacking tools against the spell save DC of the spell's caster.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 3rd level or higher, you can attempt to counteract a spell set to secure the foreign system if the spell's level is equal to or less than the level of the spell slot you used.",
+	],
 };
 SpellsList["commune with city-ua"] = { // Still valid 2021-09-21
 	name: "Commune with City",
@@ -1167,7 +1298,16 @@ SpellsList["commune with city-ua"] = { // Still valid 2021-09-21
 	components: "V,S",
 	duration: "Instantaneous",
 	description: "Learn up to three facts about surrounding city, out to 1 mile above- or 600 ft underground; see B",
-	descriptionFull: "You briefly become one with the city and gain knowledge of the surrounding area. Aboveground, this spell gives you knowledge of the area within 1 mile of you. In sewers and other underground settings, you gain knowledge of the area within 600 feet of you." + "\n   " + "You instantly gain knowledge of up to three facts of your choice about any of the following subjects as they relate to the area:" + "\n  \u2022 " + "Terrain and bodies of water" + "\n  \u2022 " + "Prevalent buildings, plants, animals, or intelligent creatures" + "\n  \u2022 " + "Powerful (CR 1 or higher) celestials, fey, fiends, elementals, or undead" + "\n  \u2022 " + "Influences from other planes of existence" + "\n  \u2022 " + "Electrical currents, wireless signals, and active transit lines and tracks" + "\n\n   " + "For example, you could determine the location of powerful undead in the area, the location of major sources of electrical power or interference, and the location of any nearby parks.",
+	descriptionFull: [
+		"You briefly become one with the city and gain knowledge of the surrounding area. Aboveground, this spell gives you knowledge of the area within 1 mile of you. In sewers and other underground settings, you gain knowledge of the area within 600 feet of you.",
+		"You instantly gain knowledge of up to three facts of your choice about any of the following subjects as they relate to the area:",
+		" \u2022 Terrain and bodies of water",
+		" \u2022 Prevalent buildings, plants, animals, or intelligent creatures",
+		" \u2022 Powerful (CR 1 or higher) celestials, fey, fiends, elementals, or undead",
+		" \u2022 Influences from other planes of existence",
+		" \u2022 Electrical currents, wireless signals, and active transit lines and tracks",
+		"For example, you could determine the location of powerful undead in the area, the location of major sources of electrical power or interference, and the location of any nearby parks.",
+	],
 };
 SpellsList["conjure knowbot-ua"] = { // Still valid 2021-09-21
 	name: "Conjure Knowbot",
@@ -1180,7 +1320,12 @@ SpellsList["conjure knowbot-ua"] = { // Still valid 2021-09-21
 	components: "V,S",
 	duration: "10 min",
 	description: "Create bot in touched device; computer checks 1 bns instead of 1 a for me; SL5: 1 h, 1000 ft, see book",
-	descriptionFull: "[Technomagic]\n   You touch a single computerized device or computer system to conjure a knowbot\u2014a partially sentient piece of software imprinted with vestiges of your own skills and computer abilities. For the duration of the spell, you can use a bonus action to have the knowbot execute a computer-related task that would normally require an action. The knowbot makes Intelligence ability checks using your ability score and proficiency bonuses (including your proficiency with hacking tools, if applicable)." + "\n   " + "You have a limited telepathic bond with the knowbot, out to a range of 500 feet from the device or system where the knowbot was conjured. If you move beyond this range, the knowbot disappears in 2d4 rounds, as if the duration of the spell had expired. Moving within range again immediately reestablishes the bond. The knowbot is bound to the system in which it was created, and it stays there until it is dismissed or the spell's duration expires." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the spell's duration increases to 1 hour. Additionally, your telepathic bond with the knowbot is effective out to a range of 1,000 feet, and if you leave the range of the bond, the knowbot continues performing its last directed task until the spell expires.",
+	descriptionFull: [
+		"[Technomagic]",
+		"You touch a single computerized device or computer system to conjure a knowbot\u2014a partially sentient piece of software imprinted with vestiges of your own skills and computer abilities. For the duration of the spell, you can use a bonus action to have the knowbot execute a computer-related task that would normally require an action. The knowbot makes Intelligence ability checks using your ability score and proficiency bonuses (including your proficiency with hacking tools, if applicable).",
+		"You have a limited *telepathic bond* with the knowbot, out to a range of 500 feet from the device or system where the knowbot was conjured. If you move beyond this range, the knowbot disappears in 2d4 rounds, as if the duration of the spell had expired. Moving within range again immediately reestablishes the bond. The knowbot is bound to the system in which it was created, and it stays there until it is dismissed or the spell's duration expires.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 5th level or higher, the spell's duration increases to 1 hour. Additionally, your *telepathic bond* with the knowbot is effective out to a range of 1,000 feet, and if you leave the range of the bond, the knowbot continues performing its last directed task until the spell expires.",
+	],
 };
 SpellsList["digital phantom-ua"] = { // Still valid 2021-09-21
 	name: "Digital Phantom",
@@ -1194,7 +1339,10 @@ SpellsList["digital phantom-ua"] = { // Still valid 2021-09-21
 	compMaterial: "A small piece of copper wire",
 	duration: "Conc, 1 h",
 	description: "Me and any others in same computer system +10 on Int to avoid detection; leave no trace on exit",
-	descriptionFull: "[Technomagic]\n   This spell works to actively hide your presence within a computer system. For the spell's duration, you and any other users you choose on your local network gain a +10 bonus to Intelligence checks to avoid detection by administrators, knowbots, tracking software, and the like. Whenever you and your chosen users leave any computer system you are working in while this spell is in effect, all trace of your previous presence in that system is erased.",
+	descriptionFull: [
+		"[Technomagic]",
+		"This spell works to actively hide your presence within a computer system. For the spell's duration, you and any other users you choose on your local network gain a +10 bonus to Intelligence checks to avoid detection by administrators, knowbots, tracking software, and the like. Whenever you and your chosen users leave any computer system you are working in while this spell is in effect, all trace of your previous presence in that system is erased.",
+	],
 };
 SpellsList["find vehicle-ua"] = { // Still valid 2021-09-21
 	name: "Find Vehicle",
@@ -1207,7 +1355,13 @@ SpellsList["find vehicle-ua"] = { // Still valid 2021-09-21
 	components: "V,S",
 	duration: "Conc, 1 h",
 	description: "Gain services of land spirit-vehicle; expertise, share spells with it; SL3: water, SL5: air, SL7: any; see B",
-	descriptionFull: "You summon a spirit that assumes the form of a nonmilitary land vehicle of your choice, appearing in an unoccupied space within range. The vehicle has the statistics of a normal vehicle of its sort, though it is celestial, fey, or fiendish (your choice) in origin. The physical characteristics of the vehicle reflect its origin to some degree. For example, a fiendish SUV might be jet black in color, with tinted windows and a sinister-looking front grille." + "\n   " + "You have a supernatural bond with the conjured vehicle that allows you to drive beyond your normal ability. While driving the conjured vehicle, you are considered proficient with vehicles of its type, and you add double your proficiency bonus to ability checks related to driving the vehicle. While driving the vehicle, you can make any spell you cast that targets only you also target the vehicle." + "\n   " + "If the vehicle drops to 0 hit points, it disappears, leaving behind no physical form. You can also dismiss the vehicle at any time as an action, causing it to disappear." + "\n   " + "You can't have more than one vehicle bonded by this spell at a time. As an action, you can release the vehicle from its bond at any time, causing it to disappear." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you can conjure a nonmilitary water vehicle large enough to carry six Medium creatures. When you cast this spell using a spell slot of 5th level or higher, you can conjure a nonmilitary air vehicle large enough to carry ten Medium creatures. When you cast this spell using a spell slot of 7th level or higher, you can conjure any type of vehicle, subject to the DM's approval.",
+	descriptionFull: [
+		"You summon a spirit that assumes the form of a nonmilitary land vehicle of your choice, appearing in an unoccupied space within range. The vehicle has the statistics of a normal vehicle of its sort, though it is celestial, fey, or fiendish (your choice) in origin. The physical characteristics of the vehicle reflect its origin to some degree. For example, a fiendish SUV might be jet black in color, with tinted windows and a sinister-looking front grille.",
+		"You have a supernatural bond with the conjured vehicle that allows you to drive beyond your normal ability. While driving the conjured vehicle, you are considered proficient with vehicles of its type, and you add double your proficiency bonus to ability checks related to driving the vehicle. While driving the vehicle, you can make any spell you cast that targets only you also target the vehicle.",
+		"If the vehicle drops to 0 hit points, it disappears, leaving behind no physical form. You can also dismiss the vehicle at any time as an action, causing it to disappear.",
+		"You can't have more than one vehicle bonded by this spell at a time. As an action, you can release the vehicle from its bond at any time, causing it to disappear.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 3rd level or higher, you can conjure a nonmilitary water vehicle large enough to carry six Medium creatures. When you cast this spell using a spell slot of 5th level or higher, you can conjure a nonmilitary air vehicle large enough to carry ten Medium creatures. When you cast this spell using a spell slot of 7th level or higher, you can conjure any type of vehicle, subject to the DM's approval.",
+	],
 };
 SpellsList["haywire-ua"] = { // Still valid 2021-09-21
 	name: "Haywire",
@@ -1221,7 +1375,19 @@ SpellsList["haywire-ua"] = { // Still valid 2021-09-21
 	duration: "Conc, 1 min",
 	save: "Wis",
 	description: "10 ft(+5 ft/SL) rad all electronic devices go haywire, see B; for hold devices, crea gets to save",
-	descriptionFull: "[Technomagic]\n   This spell plays havoc with electronic devices, making the use of such devices all but impossible. Each electronic device in a 10-foot-radius sphere centered on a point you choose within range is subject to random behavior while it remains within the area. A device not held by a creature is automatically affected. If an electronic device is held by a creature, that creature must succeed on a Wisdom saving throw or have the device affected by the spell." + "\n   " + "At the start of each of your turns, roll a d6 for each affected device to determine its behavior. Except where otherwise indicated, that behavior lasts until the start of your next turn while this spell is in effect." + "\n\n**d10**\t**Behavior***\n  " + "1\tThe device shuts down and must be restarted. Do not roll again for this device until it is restarted.\n2\u20134\tThe device does not function." + "\n  " + "5\tThe device experiences a power surge, causing an electric shock to the wielder (if any) and one random creature within 5 feet of the device. Each affected creature must make a Dexterity saving throw against your spell save DC, taking 6d6 lightning damage on a failed save, or half as much damage on a successful one." + "\n  " + "6\tThe device is usable as normal.\n" + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the radius of the sphere affected by the spell increases by 5 feet for each slot level above 3rd.",
+	descriptionFull: [
+		"[Technomagic]",
+		"This spell plays havoc with electronic devices, making the use of such devices all but impossible. Each electronic device in a 10-foot-radius sphere centered on a point you choose within range is subject to random behavior while it remains within the area. A device not held by a creature is automatically affected. If an electronic device is held by a creature, that creature must succeed on a Wisdom saving throw or have the device affected by the spell.",
+		"At the start of each of your turns, roll a d6 for each affected device to determine its behavior. Except where otherwise indicated, that behavior lasts until the start of your next turn while this spell is in effect.",
+		[
+			["d10", "Behavior"],
+			["  1", "The device shuts down and must be restarted. Do not roll again for this device until it is restarted."],
+			["2\u20134", "The device does not function."],
+			["  5", "The device experiences a power surge, causing an electric shock to the wielder (if any) and one random creature within 5 feet of the device. Each affected creature must make a Dexterity saving throw against your spell save DC, taking 6d6 lightning damage on a failed save, or half as much damage on a successful one."],
+			["  6", "The device is usable as normal."],
+		],
+		"***At Higher Levels***. When you cast this spell using a spell slot of 4th level or higher, the radius of the sphere affected by the spell increases by 5 feet for each slot level above 3rd.",
+	],
 };
 SpellsList["infallible relay-ua"] = { // Still valid 2021-09-21
 	name: "Infallible Relay",
@@ -1236,7 +1402,11 @@ SpellsList["infallible relay-ua"] = { // Still valid 2021-09-21
 	duration: "Conc, 10 min",
 	save: "Cha",
 	description: "1 known crea save or has to answer my call from phone within 100 ft of it; it has to save to end call",
-	descriptionFull: "[Technomagic]\n   With this spell, you can target any creature with whom you have spoken previously, as long as the two of you are on the same plane of existence. When you cast the spell, the nearest functioning telephone or similar communications device within 100 feet of the target begins to ring. If there is no suitable device close enough to the target, the spell fails." + "\n   " + "The target must make a successful Charisma saving throw or be compelled to answer your call. Once the connection is established, the call is crystal clear and cannot be dropped until the conversation has ended or the spell's duration ends. You can end the conversation at any time, but a target must succeed on a Charisma saving throw to end the conversation.",
+	descriptionFull: [
+		"[Technomagic]",
+		"With this spell, you can target any creature with whom you have spoken previously, as long as the two of you are on the same plane of existence. When you cast the spell, the nearest functioning telephone or similar communications device within 100 feet of the target begins to ring. If there is no suitable device close enough to the target, the spell fails.",
+		"The target must make a successful Charisma saving throw or be compelled to answer your call. Once the connection is established, the call is crystal clear and cannot be dropped until the conversation has ended or the spell's duration ends. You can end the conversation at any time, but a target must succeed on a Charisma saving throw to end the conversation.",
+	],
 };
 SpellsList["invisibility to cameras-ua"] = { // Still valid 2021-09-21
 	name: "Invisibility to Cameras",
@@ -1250,7 +1420,10 @@ SpellsList["invisibility to cameras-ua"] = { // Still valid 2021-09-21
 	compMaterial: "A scrap of black paper",
 	duration: "Conc, 1 min",
 	description: "Up to 4 crea and anything they are wearing or carrying become undetectable for electornic sensors",
-	descriptionFull: "[Technomagic]\n   Four creatures of your choice within range become undetectable to electronic sensors and cameras for the duration of the spell. Anything a target is wearing or carrying is likewise undetectable as long as it is on the target's person. The targets remain visible to vision.",
+	descriptionFull: [
+		"[Technomagic]",
+		"Four creatures of your choice within range become undetectable to electronic sensors and cameras for the duration of the spell. Anything a target is wearing or carrying is likewise undetectable as long as it is on the target's person. The targets remain visible to vision.",
+	],
 };
 SpellsList["on/off-ua"] = { // Still valid 2021-09-21
 	name: "On/Off",
@@ -1263,7 +1436,10 @@ SpellsList["on/off-ua"] = { // Still valid 2021-09-21
 	components: "V,S",
 	duration: "Instantaneous",
 	description: "Activate or deactivate 1 electornic device that has a way of doing so accessible from the outside of it",
-	descriptionFull: "[Technomagic]\n   This cantrip allows you to activate or deactivate any electronic device within range, as long as the device has a clearly defined on or off function that can be easily accessed from the outside of the device. Any device that requires a software- based shutdown sequence to activate or deactivate cannot be affected by on/off.",
+	descriptionFull: [
+		"[Technomagic]",
+		"This cantrip allows you to activate or deactivate any electronic device within range, as long as the device has a clearly defined on or off function that can be easily accessed from the outside of the device. Any device that requires a software- based shutdown sequence to activate or deactivate cannot be affected by on/off.",
+	],
 };
 SpellsList["protection from ballistics-ua"] = { // Still valid 2021-09-21
 	name: "Protection from Ballistics",
@@ -1290,7 +1466,10 @@ SpellsList["remote access-ua"] = { // Still valid 2021-09-21
 	components: "V,S",
 	duration: "10 min",
 	description: "I can use any electronic device within range as if it were in my hands",
-	descriptionFull: "[Technomagic]\n   You can use any electronic device within range as if it were in your hands. This is not a telekinesis effect. Rather, this spell allows you to simulate a device's mechanical functions electronically. You are able to access only functions that a person using the device manually would be able to access. You can use remote access with only one device at a time.",
+	descriptionFull: [
+		"[Technomagic]",
+		"You can use any electronic device within range as if it were in your hands. This is not a telekinesis effect. Rather, this spell allows you to simulate a device's mechanical functions electronically. You are able to access only functions that a person using the device manually would be able to access. You can use remote access with only one device at a time.",
+	],
 };
 SpellsList["shutdown-ua"] = { // Still valid 2021-09-21
 	name: "Shutdown",
@@ -1304,7 +1483,10 @@ SpellsList["shutdown-ua"] = { // Still valid 2021-09-21
 	duration: "Conc, 1 min",
 	save: "Con",
 	description: "Shut down all electronic devices within range; if controlled/held by crea, it can save to keep active",
-	descriptionFull: "[Technomagic]\n   This spell shuts down all electronic devices within range that are not wielded by or under the direct control of a creature. If an electronic device within range is used by a creature, that creature must succeed on a Constitution saving throw to prevent the device from being shut down. While the spell remains active, no electronic device within range can be started or restarted.",
+	descriptionFull: [
+		"[Technomagic]",
+		"This spell shuts down all electronic devices within range that are not wielded by or under the direct control of a creature. If an electronic device within range is used by a creature, that creature must succeed on a Constitution saving throw to prevent the device from being shut down. While the spell remains active, no electronic device within range can be started or restarted.",
+	],
 };
 SpellsList["synchronicity-ua"] = { // Still valid 2021-09-21
 	name: "Synchronicity",
@@ -1317,7 +1499,12 @@ SpellsList["synchronicity-ua"] = { // Still valid 2021-09-21
 	components: "V,S",
 	duration: "Conc, 1 h",
 	description: "1 crea not slowed by mundane delays, disadv on opportunity attacks to it, adv to Stealth and driving",
-	descriptionFull: "The creature you touch feels reality subtly shifted to its favor while this spell is in effect." + "\n   " + "The target isn't inconvenienced by mundane delays of any sort. Traffic lights are always green, there's always a waiting elevator, and a taxi is always around the corner. The target can run at full speed through dense crowds, and attacks of opportunity provoked by the target's movement are made with disadvantage." + "\n   " + "Synchronicity grants advantage to Dexterity (Stealth) checks, since the target always finds a handy piece of cover available. Additionally, the target has advantage on all ability checks made to drive a vehicle." + "\n   " + "In the event that two or more creatures under the effect of synchronicity are attempting to avoid being inconvenienced by each other, the creatures engage in a contest of Charisma each time the effects of the spells would oppose each other.",
+	descriptionFull: [
+		"The creature you touch feels reality subtly shifted to its favor while this spell is in effect.",
+		"The target isn't inconvenienced by mundane delays of any sort. Traffic lights are always green, there's always a waiting elevator, and a taxi is always around the corner. The target can run at full speed through dense crowds, and attacks of opportunity provoked by the target's movement are made with disadvantage.",
+		"Synchronicity grants advantage to Dexterity (Stealth) checks, since the target always finds a handy piece of cover available. Additionally, the target has advantage on all ability checks made to drive a vehicle.",
+		"In the event that two or more creatures under the effect of synchronicity are attempting to avoid being inconvenienced by each other, the creatures engage in a contest of Charisma each time the effects of the spells would oppose each other.",
+	],
 };
 SpellsList["system backdoor-ua"] = { // Still valid 2021-09-21
 	name: "System Backdoor",
@@ -1331,7 +1518,13 @@ SpellsList["system backdoor-ua"] = { // Still valid 2021-09-21
 	compMaterial: "Hacking tools",
 	duration: "Conc, 1 h",
 	description: "Gain admin access to 1 system; defeats 3rd or lower technomancy spells; SL5+: defeats same or lower",
-	descriptionFull: "[Technomagic]\n   This spell allows you to bypass system security in order to create a secure login on a foreign system. The login you create allows you administrator-level privileges in any computer system not enhanced through technomagic. The login defeats any technomagic spells of 3rd level or lower." + "\n   " + "Once the duration of the spell expires, the login and all privileges are wiped from the system." + "\n   " + "System logs still show the activity of the user, but the user identification cannot be found or traced." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, you are able to bypass technomagic spells if the spell's level is equal to or less than the level of the spell slot you used.",
+	descriptionFull: [
+		"[Technomagic]",
+		"This spell allows you to bypass system security in order to create a secure login on a foreign system. The login you create allows you administrator-level privileges in any computer system not enhanced through technomagic. The login defeats any technomagic spells of 3rd level or lower.",
+		"Once the duration of the spell expires, the login and all privileges are wiped from the system.",
+		"System logs still show the activity of the user, but the user identification cannot be found or traced.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 5th level or higher, you are able to bypass technomagic spells if the spell's level is equal to or less than the level of the spell slot you used.",
+	],
 };
 
 // This code was contributed by Lewis Henderson
@@ -1592,7 +1785,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 					"   If the weapon deals its maximum damage, the target is also knocked prone",
 					"   I can expend a spell slot to also give the weapon a magic bonus of slot level dived by 3",
 					"   These effects last for 24 hours or until I use Crushing Brand again",
-					"- Earthen Step (complex): I can cast Meld Into Stone as a bonus action once per short rest",
+					"- Earthen Step (complex): I can cast *Meld Into Stone* as a bonus action once per short rest",
 					"- Overwhelming Bolt (complex): As an action, I expend spell slot and touch a creature",
 					"   It takes 2d8+1d8/SL bludg. dmg and is prone; DC 12+SL Str save for half \u0026 not prone",
 				]),
@@ -1607,7 +1800,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 				spellChanges: {
 					"levitate": {
 						time: "1 bns",
-						changes: "Using my Orb of the Stein Rune, I can cast Meld Into Stone as a bonus action once per short rest.",
+						changes: "Using my Orb of the Stein Rune, I can cast *Meld Into Stone* as a bonus action once per short rest.",
 					},
 				},
 				extraLimitedFeatures: [{
@@ -1630,7 +1823,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 					"   These effects last for 24 hours or until I use Howling Brand again",
 					"- Shrieking Bolt (complex): As an action, I expend spell slot to target a creature I can see",
 					"   It 2d8+1d8/SL bludg. dmg \u0026 pushed 10 ft; DC 12+SL Str save for half \u0026 not pushed",
-					"- Wind Walker (complex): I can cast Levitate as a bonus action once per short rest",
+					"- Wind Walker (complex): I can cast *Levitate* as a bonus action once per short rest",
 				]),
 				action: [["action", "Vind Rune (Wind Step, Shrieking Bolt)"], ["reaction", "Vind Rune (Wind's Grasp)"]],
 				savetxt: { adv_vs: ["inhaled poison"] },
@@ -1643,7 +1836,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 				spellChanges: {
 					"levitate": {
 						time: "1 bns",
-						changes: "Using my Pennant of the Vind Rune, I can cast Levitate as a bonus action once per short rest.",
+						changes: "Using my Pennant of the Vind Rune, I can cast *Levitate* as a bonus action once per short rest.",
 					},
 				},
 				extraLimitedFeatures: [{
@@ -1666,7 +1859,7 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 					"- Ice Brand (complex): During a short rest, I can augment a weapon, or 20 ammo pieces",
 					"   The weapon or ammo deals cold damage; It lasts for 24 hours or until I use this again",
 					"   I can expend a spell slot to also give the weapon a magic bonus of slot level dived by 3",
-					"- Winter's Howl (complex): I can cast Sleet Storm as an action once per short rest",
+					"- Winter's Howl (complex): I can cast *Sleet Storm* as an action once per short rest",
 				]),
 				dmgres: ["Fire"],
 				action: ["action", "Kalt Rune (Touch, Mantle, Bolt, Howl)"],
@@ -1826,8 +2019,8 @@ AddSubClass("sorcerer", "shadow sorcerer-ua", {
 			source: [["UA:LDU", 2]],
 			minlevel: 1,
 			description: desc([
-				"I have 60 ft darkvision and can cast Darkness by spending 1 sorcery point",
-				"I can see through any darkness spell I cast using this ability",
+				"I have 60 ft darkvision and can cast *Darkness* by spending 1 sorcery point",
+				"I can see through any *darkness* spell I cast using this ability",
 			]),
 			additional: "1 sorcery point",
 			vision: [["Darkvision", 60]],
@@ -1841,7 +2034,7 @@ AddSubClass("sorcerer", "shadow sorcerer-ua", {
 			spellChanges: {
 				"darkness": {
 					description: "15-ft rad darkness on point/obj; I see normally; darkvision doesn't work; only magical light of SL 3+",
-					changes: "Using my Eyes of the Dark class feature I can cast Darkness by spending 1 sorcery point and I can see through that Darkness without issue.",
+					changes: "Using my Eyes of the Dark class feature I can cast *Darkness* by spending 1 sorcery point and I can see through that *Darkness* without issue.",
 				},
 			},
 		},
@@ -1909,7 +2102,7 @@ AddSubClass("warlock", "the undying light-ua", {
 			minlevel: 1,
 			description: desc([
 				"I add my Cha modifier to cantrips/spells I cast that deal fire or radiant damage",
-				"I have resistance to radiant damage and know the Light and Sacred Flame cantrips",
+				"I have resistance to radiant damage and know the *Light* and *Sacred Flame* cantrips",
 			]),
 			spellcastingBonus: [{
 				name: "Radiant Soul",
@@ -2007,7 +2200,11 @@ RaceList["abyssal tiefling-ua"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 1, 0, 0, 2],
-	trait: "Abyssal Tiefling (+1 Constitution, +2 Charisma)\nAbyssal Fortitude: My HP maximum increases with half the levels I have (min 1). Abyssal Arcana: After each long rest I gain randomly determined spellcasting ability (d6). This is a cantrip, and on both 3rd and 5th level a spell that I can cast once, at 2nd-level.\n1: (Dancing Lights, Burning Hands, Alter Self); 2: (True Strike, Charm Person, Darkness)" + (!typePF ? ";" : " ") + " 3: (Light, Magic Missile, Invisibility); 4: (Spare the Dying, Hideous Laughter, Mirror Image)" + (!typePF ? ";" : " ") + " 5: (Message, Cure Wounds, Levitate); 6: (Prestidigitation, Thunderwave, Spider Climb)",
+	trait: [
+		"**Abyssal Tiefling** (+1 Constitution, +2 Charisma)",
+		"##\u25C6 Abyssal Fortitude##. My HP maximum increases with half the levels I have (min 1). Abyssal Arcana: After each long rest I gain randomly determined spellcasting ability (d6). This is a cantrip, and on both 3rd and 5th level a spell that I can cast once, at 2nd-level.",
+		"##\u25C6 1##. (*Dancing Lights*, *Burning Hands*, *Alter Self*); 2: (*True Strike*, *Charm Person*, *Darkness*)" + (!typePF ? ";" : " ") + " 3: (*Light*, *Magic Missile*, *Invisibility*); 4: (*Spare the Dying*, *Hideous Laughter*, *Mirror Image*)" + (!typePF ? ";" : " ") + " 5: (*Message*, *Cure Wounds*, *Levitate*); 6: (*Prestidigitation*, *Thunderwave*, *Spider Climb*)",
+	],
 	abilitySave: 6,
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
@@ -2054,8 +2251,9 @@ var UATOBM_addAbyssalTiefling = function (){
 		if (!RaceSubList["tiefling-" + nVar]) return;
 		RaceSubList["abyssal tiefling-ua-" + nVar] = newObj(RaceSubList["tiefling-" + nVar]);
 		var thisVar = RaceSubList["abyssal tiefling-ua-" + nVar];
-		thisVar.trait = thisVar.trait.replace(replaceTraitTxt[0], replaceTraitTxt[1]);
-		thisVar.trait = thisVar.trait.replace(replaceNameTxt[0].capitalize(), replaceNameTxt[1].capitalize());
+		thisVar.trait = [].concat(thisVar.trait).map(function (sTrait) {
+			return sTrait.replace(replaceTraitTxt[0], replaceTraitTxt[1]).replace(replaceNameTxt[0].capitalize(), replaceNameTxt[1].capitalize());
+		});
 		thisVar.name = thisVar.name.replace(replaceNameTxt[0], replaceNameTxt[1]);
 		thisVar.plural = thisVar.plural.replace(replaceNameTxt[0], replaceNameTxt[1]);
 	});
@@ -2077,7 +2275,12 @@ SpellsList["conjure lesser demon-ua"] = { // Still valid 2021-09-21
 	compMaterial: "A vial of blood from an intelligent humanoid killed within the past 24 hours",
 	duration: "Conc, 1 h",
 	description: "Summon 8 (16 at SL6, 32 at SL8) manes/dretches that are hostile to all non-demons, attacking nearest",
-	descriptionFull: "You summon up to a total of eight manes or dretches that appear in unoccupied spaces you can see within range. A manes or dretch disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "The demons are hostile to all creatures. Roll initiative for the summoned demons as a group, which has its own turns. The demons attack the nearest non-demons to the best of their ability." + "\n   " + "As part of casting the spell, you can scribe a circle on the ground with the blood used as a material component. The circle is large enough to encompass your space. The summoned demons cannot cross the circle or target anyone in it while the spell lasts. Using the material component in this manner consumes it." + AtHigherLevels + "When you cast this spell using a spell slot of 6th or 7th level, you summon sixteen demons. If you cast it using a spell slot of 8th or 9th level, you summon thirty-two demons.",
+	descriptionFull: [
+		"You summon up to a total of eight manes or dretches that appear in unoccupied spaces you can see within range. A manes or dretch disappears when it drops to 0 hit points or when the spell ends.",
+		"The demons are hostile to all creatures. Roll initiative for the summoned demons as a group, which has its own turns. The demons attack the nearest non-demons to the best of their ability.",
+		"As part of casting the spell, you can scribe a circle on the ground with the blood used as a material component. The circle is large enough to encompass your space. The summoned demons cannot cross the circle or target anyone in it while the spell lasts. Using the material component in this manner consumes it.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 6th or 7th level, you summon sixteen demons. If you cast it using a spell slot of 8th or 9th level, you summon thirty-two demons.",
+	],
 };
 SpellsList["conjure barlgura-ua"] = { // Still valid 2021-09-21
 	name: "Conjure Barlgura",
@@ -2090,7 +2293,11 @@ SpellsList["conjure barlgura-ua"] = { // Still valid 2021-09-21
 	components: "V,S",
 	duration: "10 min",
 	description: "Summon a barlgura that is hostile to all non-demons, attacking the nearest",
-	descriptionFull: "You summon a barlgura that appears in an unoccupied space you can see within range. The barlgura disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "The barlgura is hostile to all non-demons. Roll initiative for the barlgura, which has its own turns. At the start of its turn, it moves toward and attacks the nearest non-demon it can perceive. If two or more creatures are equally near, it picks one at random. If it cannot see any potential enemies, the barlgura moves in a random direction in search of foes." + "\n   " + "As part of casting the spell, you can scribe a circle on the ground using the blood of an intelligent humanoid slain within the past 24 hours. The circle is large enough to encompass your space. The summoned barlgura cannot cross the circle or target anyone in it while the spell lasts.",
+	descriptionFull: [
+		"You summon a barlgura that appears in an unoccupied space you can see within range. The barlgura disappears when it drops to 0 hit points or when the spell ends.",
+		"The barlgura is hostile to all non-demons. Roll initiative for the barlgura, which has its own turns. At the start of its turn, it moves toward and attacks the nearest non-demon it can perceive. If two or more creatures are equally near, it picks one at random. If it cannot see any potential enemies, the barlgura moves in a random direction in search of foes.",
+		"As part of casting the spell, you can scribe a circle on the ground using the blood of an intelligent humanoid slain within the past 24 hours. The circle is large enough to encompass your space. The summoned barlgura cannot cross the circle or target anyone in it while the spell lasts.",
+	],
 };
 SpellsList["conjure hezrou-ua"] = { // Still valid 2021-09-21
 	name: "Conjure Hezrou",
@@ -2104,7 +2311,12 @@ SpellsList["conjure hezrou-ua"] = { // Still valid 2021-09-21
 	compMaterial: "Food worth at least 100 gp, which the spell consumes",
 	duration: "Conc, 1 h",
 	description: "Summon a hezrou that I might control as long as there is food; At half HP it leaves, see B (100gp cons.)",
-	descriptionFull: "You summon a hezrou that appears in an unoccupied space you can see within range. The hezrou disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "The hezrou's attitude depends on the value of the food used as a material component for this spell. Roll initiative for the hezrou, which has its own turns. At the start of the hezrou's turn, the DM makes a secret Charisma check on your behalf, with a bonus equal to the food's value divided by 20. The check DC starts at 10 and increases by 2 each round. You can issue orders to the hezrou and have it obey you as long as you succeed on the Charisma check." + "\n   " + "If the check fails, the spell no longer requires concentration and the demon is no longer under your control. The hezrou then focuses on devouring any corpses it can see. If there are no such meals at hand, it attacks the nearest creatures and eats anything it kills. If its hit points are reduced to below half its hit point maximum, it returns to the Abyss." + "\n   " + "As part of casting the spell, you can scribe a circle on the ground using the blood of an intelligent humanoid slain within the past 24 hours. The circle is large enough to encompass your space. The summoned hezrou cannot cross the circle or target anyone in it while the spell lasts.",
+	descriptionFull: [
+		"You summon a hezrou that appears in an unoccupied space you can see within range. The hezrou disappears when it drops to 0 hit points or when the spell ends.",
+		"The hezrou's attitude depends on the value of the food used as a material component for this spell. Roll initiative for the hezrou, which has its own turns. At the start of the hezrou's turn, the DM makes a secret Charisma check on your behalf, with a bonus equal to the food's value divided by 20. The check DC starts at 10 and increases by 2 each round. You can issue orders to the hezrou and have it obey you as long as you succeed on the Charisma check.",
+		"If the check fails, the spell no longer requires concentration and the demon is no longer under your control. The hezrou then focuses on devouring any corpses it can see. If there are no such meals at hand, it attacks the nearest creatures and eats anything it kills. If its hit points are reduced to below half its hit point maximum, it returns to the Abyss.",
+		"As part of casting the spell, you can scribe a circle on the ground using the blood of an intelligent humanoid slain within the past 24 hours. The circle is large enough to encompass your space. The summoned hezrou cannot cross the circle or target anyone in it while the spell lasts.",
+	],
 };
 SpellsList["conjure shadow demon-ua"] = { // Still valid 2021-09-21
 	name: "Conjure Shadow Demon",
@@ -2118,7 +2330,11 @@ SpellsList["conjure shadow demon-ua"] = { // Still valid 2021-09-21
 	compMaterial: "A vial of blood from an intelligent humanoid killed within the past 24 hours",
 	duration: "Conc, 1 h",
 	description: "Summon a shadow demon that I control while not in bright light, can attack, and within 100 ft, see B",
-	descriptionFull: "You summon a shadow demon that appears in an unoccupied space you can see within range. The shadow demon disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "Roll initiative for the shadow demon, which has its own turns. You can issue orders to the shadow demon, and it obeys you as long as it can attack a creature on each of its turns and does not start its turn in an area of bright light. If either of these conditions is not met, the shadow demon immediately makes a Charisma check contested by your Charisma check. If you fail the check, the spell no longer requires concentration and the demon is no longer under your control. The demon automatically succeeds on the check if it is more than 100 feet away from you." + "\n   " + "As part of casting the spell, you can scribe a circle on the ground using the blood of an intelligent humanoid slain within the past 24 hours. The circle is large enough to encompass your space. The summoned shadow demon cannot cross the circle or target anyone in it while the spell lasts.",
+	descriptionFull: [
+		"You summon a shadow demon that appears in an unoccupied space you can see within range. The shadow demon disappears when it drops to 0 hit points or when the spell ends.",
+		"Roll initiative for the shadow demon, which has its own turns. You can issue orders to the shadow demon, and it obeys you as long as it can attack a creature on each of its turns and does not start its turn in an area of bright light. If either of these conditions is not met, the shadow demon immediately makes a Charisma check contested by your Charisma check. If you fail the check, the spell no longer requires concentration and the demon is no longer under your control. The demon automatically succeeds on the check if it is more than 100 feet away from you.",
+		"As part of casting the spell, you can scribe a circle on the ground using the blood of an intelligent humanoid slain within the past 24 hours. The circle is large enough to encompass your space. The summoned shadow demon cannot cross the circle or target anyone in it while the spell lasts.",
+	],
 };
 SpellsList["conjure vrock-ua"] = { // Still valid 2021-09-21
 	name: "Conjure Vrock",
@@ -2132,7 +2348,12 @@ SpellsList["conjure vrock-ua"] = { // Still valid 2021-09-21
 	compMaterial: "A gem worth at least 100 gp, which the spell consumes",
 	duration: "Conc, 1 h",
 	description: "Summon a vrock that I might control for some rounds, depending on gem value, see B (100gp cons.)",
-	descriptionFull: "You summon a vrock that appears in an unoccupied space you can see within range. The vrock disappears when it drops to 0 hit points or when the spell ends." + "\n   " + "The vrock's attitude depends on the value of the gem used as a material component for this spell. Roll initiative for the vrock, which has its own turns. At the start of the vrock's turn, the DM makes a secret Charisma check on your behalf, with a bonus equal to the gem's value divided by 20. The check DC starts at 10 and increases by 2 each round. You can issue orders to the vrock and have it obey you as long as you succeed on the Charisma check." + "\n   " + "If the check fails, the spell no longer requires concentration and the vrock is no longer under your control. The vrock takes no actions on its next turn and uses its telepathy to tell any creature it can see that it will fight in exchange for treasure. The creature that gives the vrock the most expensive gem can command it for the next 1d6 rounds. At the end of that time, it offers the bargain again. If no one offers the vrock treasure before its next turn begins, it attacks the nearest creatures for 1d6 rounds before returning to the Abyss." + "\n   " + "As part of casting the spell, you can scribe a circle on the ground using the blood of an intelligent humanoid slain within the past 24 hours. The circle is large enough to encompass your space. The summoned vrock cannot cross the circle or target anyone in it while the spell lasts.",
+	descriptionFull: [
+		"You summon a vrock that appears in an unoccupied space you can see within range. The vrock disappears when it drops to 0 hit points or when the spell ends.",
+		"The vrock's attitude depends on the value of the gem used as a material component for this spell. Roll initiative for the vrock, which has its own turns. At the start of the vrock's turn, the DM makes a secret Charisma check on your behalf, with a bonus equal to the gem's value divided by 20. The check DC starts at 10 and increases by 2 each round. You can issue orders to the vrock and have it obey you as long as you succeed on the Charisma check.",
+		"If the check fails, the spell no longer requires concentration and the vrock is no longer under your control. The vrock takes no actions on its next turn and uses its telepathy to tell any creature it can see that it will fight in exchange for treasure. The creature that gives the vrock the most expensive gem can command it for the next 1d6 rounds. At the end of that time, it offers the bargain again. If no one offers the vrock treasure before its next turn begins, it attacks the nearest creatures for 1d6 rounds before returning to the Abyss.",
+		"As part of casting the spell, you can scribe a circle on the ground using the blood of an intelligent humanoid slain within the past 24 hours. The circle is large enough to encompass your space. The summoned vrock cannot cross the circle or target anyone in it while the spell lasts.",
+	],
 };
 
 // ua_20160104_Kits-of-Old.js
@@ -2228,7 +2449,7 @@ AddSubClass("bard", "college of satire-ua", { // Still valid 2021-09-21
 			name: "Fool's Insight",
 			source: [["UA:KoO", 2]],
 			minlevel: 6,
-			description: desc("I can cast Detect Thoughts, but on a save the target suffers an embarrassing social gaffe"),
+			description: desc("I can cast *Detect Thoughts*, but on a save the target suffers an embarrassing social gaffe"),
 			usages: "Charisma modifier per ",
 			usagescalc: "event.value = Math.max(1, What('Cha Mod'));",
 			recovery: "long rest",
@@ -2454,7 +2675,10 @@ RaceList["aasimar revenant-ua"] = { // Based on the VGtM Aasimar, made with /u/R
 	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 1, 0, 0, 2],
-	trait: "Aasimar Revenant (+1 Constitution, +2 Charisma)" + (typePF ? "\n" : " ") + "Light Bearer: I know the Light cantrip. Healing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	trait: [
+		"**Aasimar Revenant** (+1 Constitution, +2 Charisma)" + (typePF ? "\r" : " ") + "##\u25C6 Light Bearer##. I know the *Light* cantrip. Healing Hands: As an action, once per long rest, I can touch to heal for my level in HP.",
+		"##\u25C6 Relentless Nature##. I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Light Bearer",
@@ -2495,7 +2719,11 @@ RaceList["dwarf revenant-ua"] = {
 	heightMetric: " stand between 1,2 and 1,5 metres tall (120 + 5d4 cm)",
 	weightMetric: " weigh around 75 kg (60 + 5d4 \xD7 4d6 / 10 kg)",
 	scores: [0, 0, 3, 0, 0, 0],
-	trait: "Dwarf Revenant (+3 Constitution)\nStonecunning: I have expertise on Int (History) checks related to the origin of stonework.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	trait: [
+		"**Dwarf Revenant** (+3 Constitution)",
+		"##\u25C6 Stonecunning##. I have expertise on Int (History) checks related to the origin of stonework.",
+		"##\u25C6 Relentless Nature##. I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	],
 };
 RaceList["elf revenant-ua"] = {
 	regExpSearch: /^(?!.*half)(?=.*revenant)(?=.*\b(elfs?|elves|elvish|elven)\b).*$/i,
@@ -2520,7 +2748,11 @@ RaceList["elf revenant-ua"] = {
 	heightMetric: " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [0, 2, 1, 0, 0, 0],
-	trait: "Elf Revenant (+2 Dexterity, +1 Constitution)\nTrance: I don't sleep, but meditate for 4 hours a day, needing only 4 hours for a long rest.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	trait: [
+		"**Elf Revenant** (+2 Dexterity, +1 Constitution)",
+		"##\u25C6 Trance##. I don't sleep, but meditate for 4 hours a day, needing only 4 hours for a long rest.",
+		"##\u25C6 Relentless Nature##. I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	],
 };
 RaceList["halfling revenant-ua"] = {
 	regExpSearch: /^(?=.*revenant)(?=.*\b(halflings?|hobbits?)\b).*$/i,
@@ -2540,7 +2772,10 @@ RaceList["halfling revenant-ua"] = {
 	heightMetric: " average about 90 cm tall (80 + 5d4)",
 	weightMetric: " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores: [0, 2, 1, 0, 0, 0],
-	trait: "Halfling Revenant (+2 Dexterity, +1 Constitution)" + (typePF ? "\n" : " ") + "Lucky: I reroll 1's on attack/check/save. Halfling Nimbleness: I can move through the space of anybody of a size larger than me.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	trait: [
+		"**Halfling Revenant** (+2 Dexterity, +1 Constitution)" + (typePF ? "\r" : " ") + "##\u25C6 Lucky##. I reroll 1's on attack/check/save. Halfling Nimbleness: I can move through the space of anybody of a size larger than me.",
+		"##\u25C6 Relentless Nature##. I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	],
 };
 RaceList["gnome revenant-ua"] = {
 	regExpSearch: /^(?=.*revenant)(?=.*\bgnomes?\b).*$/i,
@@ -2561,7 +2796,10 @@ RaceList["gnome revenant-ua"] = {
 	heightMetric: " are 90 to 120 cm tall (2'11\" + 5d4)",
 	weightMetric: " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores: [0, 0, 1, 2, 0, 0],
-	trait: "Gnome Revenant (+1 Constitution, +2 Intelligence)\nRelentless Nature: I have returned to life with one goal: avenge my death or finish a critical, unresolved task. I will find rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. Any destroyed equipment is not regained. I always know the distance and direction between me and any creature involved with my goal that is on the same plane.",
+	trait: [
+		"**Gnome Revenant** (+1 Constitution, +2 Intelligence)",
+		"##\u25C6 Relentless Nature##. I have returned to life with one goal: avenge my death or finish a critical, unresolved task. I will find rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. Any destroyed equipment is not regained. I always know the distance and direction between me and any creature involved with my goal that is on the same plane.",
+	],
 };
 RaceList["dragonborn revenant-ua"] = {
 	regExpSearch: /^(?=.*dragonborn)(?=.*revenant).*$/i,
@@ -2594,7 +2832,11 @@ RaceList["dragonborn revenant-ua"] = {
 	heightMetric: " stand well over 1,8 metres tall (170 + 5d8 cm)",
 	weightMetric: " weigh around 110 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
 	scores: [1, 0, 1, 0, 0, 1],
-	trait: "Dragonborn Revenant (+1 Strength, +1 Constitution, +1 Charisma)\nBreath Weapon: As an action, 5 ft by 30 ft line, Dex save halves, necrotic damage.\nRelentless Nature: I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	trait: [
+		"**Dragonborn Revenant** (+1 Strength, +1 Constitution, +1 Charisma)",
+		"##\u25C6 Breath Weapon##. As an action, 5 ft by 30 ft line, Dex save halves, necrotic damage.",
+		"##\u25C6 Relentless Nature##. I have returned to life with one goal: avenge my death or finish an unresolved task. I will rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. I always know the distance and direction to creatures involved with my goal.",
+	],
 	dmgres: ["Necrotic"],
 	features: {
 		"draconic ancestry": {
@@ -2637,7 +2879,10 @@ RaceList["human revenant-ua"] = {
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scorestxt: "+1 Constitution and +1 to two different ability scores of my choice",
 	scores: [0, 0, 1, 0, 0, 0],
-	trait: "Human Revenant (+1 Constitution and +1 to two different ability scores of my choice)\nRelentless Nature: I have returned to life with one goal: avenge my death or finish a critical, unresolved task. I will find rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. Any destroyed equipment is not regained. I always know the distance and direction between me and any creature involved with my goal that is on the same plane.",
+	trait: [
+		"**Human Revenant** (+1 Constitution and +1 to two different ability scores of my choice)",
+		"##\u25C6 Relentless Nature##. I have returned to life with one goal: avenge my death or finish a critical, unresolved task. I will find rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. Any destroyed equipment is not regained. I always know the distance and direction between me and any creature involved with my goal that is on the same plane.",
+	],
 };
 RaceList["tiefling revenant-ua"] = {
 	regExpSearch: /^(?=.*revenant)((?=.*tiefling)|(?=.*planetouched)(?=.*(hell|abyss|fiend|devil))).*$/i,
@@ -2657,7 +2902,10 @@ RaceList["tiefling revenant-ua"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 1, 0, 0, 2],
-	trait: "Tiefling Revenant (+1 Constitution, +2 Charisma)\nRelentless Nature: I have returned to life with one goal: avenge my death or finish a critical, unresolved task. I will find rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. Any destroyed equipment is not regained. I always know the distance and direction between me and any creature involved with my goal that is on the same plane.",
+	trait: [
+		"**Tiefling Revenant** (+1 Constitution, +2 Charisma)",
+		"##\u25C6 Relentless Nature##. I have returned to life with one goal: avenge my death or finish a critical, unresolved task. I will find rest once I fulfill my goal, but until then I can't truly die. Whenever I'm below half my max HP at the start of my turn, I regain 1 HP. If I die, I return to life within 24 hours. If my body was destroyed, it is reformed within 1 mile of where I died. Any destroyed equipment is not regained. I always know the distance and direction between me and any creature involved with my goal that is on the same plane.",
+	],
 };
 
 // Adds 2 subclasses, 1 for the Fighter and 1 for the rogue
@@ -2716,7 +2964,7 @@ AddSubClass("fighter", "monster hunter-ua", { // Still valid 2021-09-21
 			usages: 1,
 			recovery: "long rest",
 			description: desc([
-				"I can cast Detect Magic as a ritual and Protection from Evil & Good once per long rest",
+				"I can cast *Detect Magic* as a ritual and Protection from Evil & Good once per long rest",
 				"I gain the ability to speak one of the following languages: Abyssal, Celestial, or Infernal",
 			]),
 			action: [["action", " (Prot vs. Evil/Good)"]],
@@ -2847,7 +3095,13 @@ SourceList["UA:F"] = {
 FeatsList["fell handed-ua"] = {
 	name: "Fell Handed",
 	source: [["UA:F", 2], ["UA", 0]],
-	descriptionFull: "You master the handaxe, battleaxe, greataxe, warhammer, and maul. You gain the following benefits when using any of them:\n \u2022 You gain a +1 bonus to attack rolls you make with the weapon.\n \u2022 Whenever you have advantage on a melee attack roll you make with the weapon and hit, you can knock the target prone if the lower of the two d20 rolls would also hit the target.\n \u2022 Whenever you have disadvantage on a melee attack roll you make with the weapon, the target takes bludgeoning damage equal to your Strength modifier (minimum of 0) if the attack misses but the higher of the two d20 rolls would have hit.\n \u2022 If you use the Help action to aid an ally's melee attack while you're wielding the weapon, you knock the target's shield aside momentarily. In addition to the ally gaining advantage on the attack roll, the ally gains a +2 bonus to the roll if the target is using a shield.",
+	descriptionFull: [
+		"You master the handaxe, battleaxe, greataxe, warhammer, and maul. You gain the following benefits when using any of them:",
+		" \u2022 You gain a +1 bonus to attack rolls you make with the weapon.",
+		" \u2022 Whenever you have advantage on a melee attack roll you make with the weapon and hit, you can knock the target prone if the lower of the two d20 rolls would also hit the target.",
+		" \u2022 Whenever you have disadvantage on a melee attack roll you make with the weapon, the target takes bludgeoning damage equal to your Strength modifier (minimum of 0) if the attack misses but the higher of the two d20 rolls would have hit.",
+		" \u2022 If you use the Help action to aid an ally's melee attack while you're wielding the weapon, you knock the target's shield aside momentarily. In addition to the ally gaining advantage on the attack roll, the ally gains a +2 bonus to the roll if the target is using a shield.",
+	],
 	description: "With a handaxe, battleaxe, greataxe, warhammer, or maul, I get +1 to hit, knock prone if I have adv. and hit with both rolls, with disadv. still do Str mod in bludg. damage if I miss but the other die would've hit, can use Help to give ally +2 to hit vs. enemy with a shield.",
 	calcChanges: {
 		atkAdd: [
@@ -2867,7 +3121,12 @@ FeatsList["fell handed-ua"] = {
 FeatsList["blade mastery-ua"] = {
 	name: "Blade Mastery",
 	source: [["UA:F", 2], ["UA", 0]],
-	descriptionFull: "You master the shortsword, longsword, scimitar, rapier, and greatsword. You gain the following benefits when using any of them:\n \u2022 You gain a +1 bonus to attack rolls you make with the weapon.\n \u2022 On your turn, you can use your reaction to assume a parrying stance, provided you have the weapon in hand. Doing so grants you a +1 bonus to your AC until the start of your next turn or until you're not holding the weapon.\n \u2022 When you make an opportunity attack with the weapon, you have advantage on the attack roll.",
+	descriptionFull: [
+		"You master the shortsword, longsword, scimitar, rapier, and greatsword. You gain the following benefits when using any of them:",
+		" \u2022 You gain a +1 bonus to attack rolls you make with the weapon.",
+		" \u2022 On your turn, you can use your reaction to assume a parrying stance, provided you have the weapon in hand. Doing so grants you a +1 bonus to your AC until the start of your next turn or until you're not holding the weapon.",
+		" \u2022 When you make an opportunity attack with the weapon, you have advantage on the attack roll.",
+	],
 	description: "With a shortsword, longsword, greatsword, scimitar, or rapier, I get +1 to hit, advantage on opportunity attacks, and with the weapon in hand I can use my reaction to assume a parrying stance that gives me +1 AC until the start of my next turn.",
 	calcChanges: {
 		atkAdd: [
@@ -2888,7 +3147,12 @@ FeatsList["blade mastery-ua"] = {
 FeatsList["flail mastery-ua"] = {
 	name: "Flail Mastery",
 	source: [["UA:F", 3], ["UA", 0]],
-	descriptionFull: "The flail is a tricky weapon to use, but you have spent countless hours mastering it. You gain the following benefits:\n \u2022 You gain a +1 bonus to attack rolls you make with a flail.\n \u2022 As a bonus action on your turn, you can prepare yourself to extend your flail to sweep over targets' shields. Until the end of this turn, your attack rolls with a flail gain a +2 bonus against any target using a shield.\n \u2022 When you hit with an opportunity attack using a flail, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Strength modifier) or be knocked prone.",
+	descriptionFull: [
+		"The flail is a tricky weapon to use, but you have spent countless hours mastering it. You gain the following benefits:",
+		" \u2022 You gain a +1 bonus to attack rolls you make with a flail.",
+		" \u2022 As a bonus action on your turn, you can prepare yourself to extend your flail to sweep over targets' shields. Until the end of this turn, your attack rolls with a flail gain a +2 bonus against any target using a shield.",
+		" \u2022 When you hit with an opportunity attack using a flail, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Strength modifier) or be knocked prone.",
+	],
 	calculate: "event.value = 'With a flail, I get +1 to hit, and enemies hit by an opportunity attack with it have to make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + What('Str Mod')) + ' (8 + Prof Bonus + Str mod) or be knocked prone. As a bonus action, I can get +2 to hit with my flail vs. targets with shields until the end of my turn.';",
 	calcChanges: {
 		atkAdd: [
@@ -2909,7 +3173,13 @@ FeatsList["flail mastery-ua"] = {
 FeatsList["spear mastery-ua"] = {
 	name: "Spear Mastery",
 	source: [["UA:F", 3], ["UA", 0]],
-	descriptionFull: "Though the spear is a simple weapon to learn, it rewards you for the time you have taken to master it. You gain the following benefits:\n \u2022 You gain a +1 bonus to attack rolls you make with a spear.\n \u2022 When you use a spear, its damage die changes from a d6 to a d8, and from a d8 to a d10 when wielded with two hands. (This benefit has no effect if another feature has already improved the weapon's die.)\n \u2022 You can set your spear to receive a charge. As a bonus action, choose a creature you can see that is at least 20 feet away from you. If that creature moves within your spear's reach on its next turn, you can make a melee attack against it with your spear as a reaction. If the attack hits, the target takes an extra 1d8 piercing damage, or an extra 1d10 piercing damage if you wield the spear with two hands. You can't use this ability if the creature used the Disengage action before moving.\n \u2022 As a bonus action on your turn, you can increase your reach with a spear by 5 feet for the rest of your turn.",
+	descriptionFull: [
+		"Though the spear is a simple weapon to learn, it rewards you for the time you have taken to master it. You gain the following benefits:",
+		" \u2022 You gain a +1 bonus to attack rolls you make with a spear.",
+		" \u2022 When you use a spear, its damage die changes from a d6 to a d8, and from a d8 to a d10 when wielded with two hands. (This benefit has no effect if another feature has already improved the weapon's die.)",
+		" \u2022 You can set your spear to receive a charge. As a bonus action, choose a creature you can see that is at least 20 feet away from you. If that creature moves within your spear's reach on its next turn, you can make a melee attack against it with your spear as a reaction. If the attack hits, the target takes an extra 1d8 piercing damage, or an extra 1d10 piercing damage if you wield the spear with two hands. You can't use this ability if the creature used the Disengage action before moving.",
+		" \u2022 As a bonus action on your turn, you can increase your reach with a spear by 5 feet for the rest of your turn.",
+	],
 	description: "With a spear, I get +1 to hit and it does d8 damage (versatile d10). As a bonus action, I select a target at least 20 ft away. If it moves in reach on its next turn, I can attack it as a reaction, extra damage die. As a bonus action, I can increase the spear's reach by 5 ft.",
 	calcChanges: {
 		atkAdd: [
@@ -2932,7 +3202,13 @@ FeatsList["spear mastery-ua"] = {
 FeatsList["alchemist-ua"] = {
 	name: "Alchemist",
 	source: [["UA:F", 4], ["UA", 0]],
-	descriptionFull: "You have studied the secrets of alchemy and are an expert in its practice, gaining the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency with alchemist's supplies. If you are already proficient with them, you add double your proficiency bonus to checks you make with them.\n \u2022 As an action, you can identify one potion within 5 feet of you, as if you had tasted it. You must see the liquid for this benefit to work.\n \u2022 Over the course of any short rest, you can temporarily improve the potency of one potion of healing of any rarity. To use this benefit, you must have alchemist's supplies with you, and the potion must be within reach. If the potion is drunk no more than 1 hour after the short rest ends, the creature drinking the potion can forgo the potion's die roll and regains the maximum number of hit points that the potion can restore.",
+	descriptionFull: [
+		"You have studied the secrets of alchemy and are an expert in its practice, gaining the following benefits:",
+		" \u2022 Increase your Intelligence score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency with alchemist's supplies. If you are already proficient with them, you add double your proficiency bonus to checks you make with them.",
+		" \u2022 As an action, you can identify one potion within 5 feet of you, as if you had tasted it. You must see the liquid for this benefit to work.",
+		" \u2022 Over the course of any short rest, you can temporarily improve the potency of one *potion of healing* of any rarity. To use this benefit, you must have alchemist's supplies with you, and the potion must be within reach. If the potion is drunk no more than 1 hour after the short rest ends, the creature drinking the potion can forgo the potion's die roll and regains the maximum number of hit points that the potion can restore.",
+	],
 	description: "I gain proficiency with alchemist's supplies, or expertise if already proficient. As an action, I can identify a potion within 5 ft. During a rest with alchemist's supplies, I can enhance a potion of healing, to heal its max. Consuming it within 1 hour maximizes its effects [+1 Int]",
 	scores: [0, 0, 0, 1, 0, 0],
 	action: [["action", " (identify potion)"]],
@@ -2951,7 +3227,11 @@ FeatsList["alchemist-ua"] = {
 FeatsList["burglar-ua"] = {
 	name: "Burglar",
 	source: [["UA:F", 4], ["UA", 0]],
-	descriptionFull: "You pride yourself on your quickness and your close study of certain clandestine activities. You gain the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with thieves' tools. If you are already proficient with them, you add double your proficiency bonus to checks you make with them.",
+	descriptionFull: [
+		"You pride yourself on your quickness and your close study of certain clandestine activities. You gain the following benefits:",
+		" \u2022 Increase your Dexterity score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency with thieves' tools. If you are already proficient with them, you add double your proficiency bonus to checks you make with them.",
+	],
 	description: "I gain proficiency with thieves' tools, or expertise with them if I'm already proficient. [+1 Dexterity]",
 	scores: [0, 1, 0, 0, 0, 0],
 	toolProfs: [["Thieves' tools", "Dex"]],
@@ -2969,7 +3249,13 @@ FeatsList["burglar-ua"] = {
 FeatsList["gourmand-ua"] = {
 	name: "Gourmand",
 	source: [["UA:F", 4]],
-	descriptionFull: "You have mastered a variety of special recipes, allowing you to prepare exotic dishes with useful effects. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You gain proficiency with cook's utensils. If you are already proficient with them, you add double your proficiency bonus to checks you make with them.\n \u2022 As an action, you can inspect a drink or plate of food within 5 feet of you and determine whether it is poisoned, provided that you can see and smell it.\n \u2022 During a long rest, you can prepare and serve a meal that helps you and your allies recover from the rigors of adventuring, provided you have suitable food, cook's utensils, and other supplies on hand. The meal serves up to six people, and each person who eats it regains two additional Hit Dice at the end of the long rest. In addition, those who partake of the meal have advantage on Constitution saving throws against disease for the next 24 hours.",
+	descriptionFull: [
+		"You have mastered a variety of special recipes, allowing you to prepare exotic dishes with useful effects. You gain the following benefits:",
+		" \u2022 Increase your Constitution score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency with cook's utensils. If you are already proficient with them, you add double your proficiency bonus to checks you make with them.",
+		" \u2022 As an action, you can inspect a drink or plate of food within 5 feet of you and determine whether it is poisoned, provided that you can see and smell it.",
+		" \u2022 During a long rest, you can prepare and serve a meal that helps you and your allies recover from the rigors of adventuring, provided you have suitable food, cook's utensils, and other supplies on hand. The meal serves up to six people, and each person who eats it regains two additional Hit Dice at the end of the long rest. In addition, those who partake of the meal have advantage on Constitution saving throws against disease for the next 24 hours.",
+	],
 	description: "I gain proficiency with cook's utensils, or expertise if already proficient. As an action, I can detect poison in food within 5 ft. In a long rest with food/supplies, I can have 6 creatures regain 2 extra HD and give them adv. on Con saves vs. disease for 24 hours. [+1 Con]",
 	scores: [0, 0, 1, 0, 0, 0],
 	action: [["action", " (inspect food)"]],
@@ -2988,7 +3274,12 @@ FeatsList["gourmand-ua"] = {
 FeatsList["master of disguise-ua"] = {
 	name: "Master of Disguise",
 	source: [["UA:F", 4], ["UA", 0]],
-	descriptionFull: "You have honed your ability to shape your personality and to read the personalities of others. You gain the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You gain proficiency with the disguise kit. If you are already proficient with it, you add double your proficiency bonus to checks you make with it.\n \u2022 If you spend 1 hour observing a creature, you can then spend 8 hours crafting a disguise you can quickly don to mimic that creature. Making the disguise requires a disguise kit. You must make checks as normal to disguise yourself, but you can assume the disguise as an action.",
+	descriptionFull: [
+		"You have honed your ability to shape your personality and to read the personalities of others. You gain the following benefits:",
+		" \u2022 Increase your Charisma score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency with the disguise kit. If you are already proficient with it, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 If you spend 1 hour observing a creature, you can then spend 8 hours crafting a disguise you can quickly don to mimic that creature. Making the disguise requires a disguise kit. You must make checks as normal to disguise yourself, but you can assume the disguise as an action.",
+	],
 	description: "I gain proficiency with the disguise kit, or expertise with it if I'm already proficient. After observing a creature for 1 hour, I can craft a disguise to mimic it in 8 hours with a disguise kit. Once finished, I can don this disguise as an action. [+1 Charisma]",
 	scores: [0, 0, 0, 0, 0, 1],
 	action: [["action", " (don disguise)"]],
@@ -3075,7 +3366,7 @@ AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the St
 	source: [["UA:TF", 1]],
 	description: desc([
 		"My patron grants me an item of power which disappears when I die",
-		"While it is on my person, I can cast Augury as a ritual",
+		"While it is on my person, I can cast *Augury* as a ritual",
 		"Additionally, once per short rest, I can get advantage on an Intelligence check",
 		"If I lose this item I can perform a 1-hour ceremony to get a replacement",
 	]),
@@ -3090,7 +3381,7 @@ AddFeatureChoice(ClassList.warlock.features["pact boon"], false, "Pact of the St
 	spellChanges: {
 		"augury": {
 			time: "11 min",
-			changes: "With my Pact of the Star Chain boon I can cast Augury only as a ritual, thus requiring 10 extra minutes to cast it.",
+			changes: "With my Pact of the Star Chain boon I can cast *Augury* only as a ritual, thus requiring 10 extra minutes to cast it.",
 		},
 	},
 	prereqeval: function (v) {
@@ -4272,8 +4563,8 @@ AddSubClass("bard", "college of glamour-ua", {
 			action: [["bonus action", ""]],
 			description: desc([
 				"As a bonus action, I take on an appearance of unearthly beauty for 1 minute",
-				"As a bonus action during this time, I can cast Command without using a spell slot",
-				"Creatures charmed by me automatically fail their saves against these Command spells",
+				"As a bonus action during this time, I can cast *Command* without using a spell slot",
+				"Creatures charmed by me automatically fail their saves against these *Command* spells",
 			]),
 			spellcastingBonus: [{
 				name: "Mantle of Majesty",
@@ -4285,7 +4576,7 @@ AddSubClass("bard", "college of glamour-ua", {
 				"command": {
 					time: "1 bns",
 					description: "1 crea save (fails save if charmed) or follow one word command, e.g. approach, drop, flee, halt",
-					changes: "Using my Mantle of Majesty class feature, I can cast Command as a bonus action once per long rest without using a spell slot, thus only affect a single target.",
+					changes: "Using my Mantle of Majesty class feature, I can cast *Command* as a bonus action once per long rest without using a spell slot, thus only affect a single target.",
 				},
 			},
 		},
@@ -4297,7 +4588,7 @@ AddSubClass("bard", "college of glamour-ua", {
 			usages: 1,
 			action: [["action", ""]],
 			description: desc([
-				"As an action, I can cast Sanctuary on myself without using a spell slot",
+				"As an action, I can cast *Sanctuary* on myself without using a spell slot",
 				"If a creature fails its save to this, I gain adv. on all Cha checks against it for 1 min",
 				"In addition, the target has disadv. on saves it makes against my spells on my next turn",
 			]),
@@ -4311,7 +4602,7 @@ AddSubClass("bard", "college of glamour-ua", {
 				"sanctuary": {
 					time: "Self",
 					description: "Any trying to atk/target me must save or fail, dis. on save vs. spell I cast next turn, I adv. on Cha vs. it",
-					changes: "Using my Unbreakable Majesty class feature, I can cast Sanctuary once per short rest without using a spell slot, but only on myself.",
+					changes: "Using my Unbreakable Majesty class feature, I can cast *Sanctuary* once per short rest without using a spell slot, but only on myself.",
 				},
 			},
 		},
@@ -4367,7 +4658,7 @@ AddSubClass("bard", "college of whispers-ua", {
 				description: desc([
 					"As an action, I can don a shadow that I captured as a disguise for 1 hour or until I stop it",
 					"I take on the creature's appearance and I can access its surface memories, but not secrets",
-					"I have access to information that it would would freely share with a casual acquaintance",
+					"I have access to information that it would freely share with a casual acquaintance",
 					"This is enough that I can pass myself off as the creature by drawing on its memories",
 					"Anybody can see through the disguise with a Wis (Insight) check vs. my Cha (Deception) +5",
 					"The knowledge disappears when the disguise ends",
@@ -4512,13 +4803,13 @@ AddSubClass("cleric", "grave domain-ua", {
 			action: [["bonus action", ""]],
 			description: desc([
 				"Spells I cast to heal a living creature at 0 HP have their dice count as their max result",
-				"As a bonus action, I can cast the Spare the Dying cantrip, if I know it",
+				"As a bonus action, I can cast the *Spare the Dying* cantrip, if I know it",
 			]),
 			spellChanges: {
 				"spare the dying": {
 					time: "1 bns",
 					range: "Touch",
-					changes: "I can cast spare the dying as a bonus action instead of an action.",
+					changes: "I can cast *spare the dying* as a bonus action instead of an action.",
 				},
 			},
 		},
@@ -4759,9 +5050,9 @@ AddSubClass("druid", "circle of dreams-ua", {
 			source: [["UA:DC", 1]],
 			minlevel: 14,
 			description: desc([
-				"When I use a spell slot with a spell to restores HP, I can use Dispel Magic on the target",
-				"The Dispel Magic counts as if being cast with the same spell slot as the healing spell",
-				"Each creature effected by the Dispel Magic costs as one use of this feature",
+				"When I use a spell slot with a spell to restores HP, I can use *Dispel Magic* on the target",
+				"The *Dispel Magic* counts as if being cast with the same spell slot as the healing spell",
+				"Each creature effected by the *Dispel Magic* costs as one use of this feature",
 			]),
 			usages: 3,
 			recovery: "long rest",
@@ -4827,7 +5118,7 @@ AddSubClass("druid", "circle of the shepherd-ua", {
 			name: "Guardian Spirit",
 			source: [["UA:DC", 2]],
 			minlevel: 10,
-			description: desc("Whenever I finish a long rest, I gain the benefits of a Death Ward spell for 24 hours"),
+			description: desc("Whenever I finish a long rest, I gain the benefits of a *Death Ward* spell for 24 hours"),
 			spellcastingBonus: [{
 				name: "Guardian Spirit",
 				spells: ["death ward"],
@@ -4841,7 +5132,7 @@ AddSubClass("druid", "circle of the shepherd-ua", {
 					compMaterial: "",
 					description: "Once, when I drops to 0 HP I drops to 1 HP instead; or negates first instantaneous kill effect",
 					duration: "24 h",
-					changes: "Whenever I finish a long rest, I gain the benefits of a Death Ward spell for 24 hours.",
+					changes: "Whenever I finish a long rest, I gain the benefits of a *Death Ward* spell for 24 hours.",
 				},
 			},
 		},
@@ -4851,7 +5142,7 @@ AddSubClass("druid", "circle of the shepherd-ua", {
 			minlevel: 14,
 			description: desc([
 				"When I am reduced to 0 HP or incapacitated against my will, I can summon protectors",
-				"I gain the benefits of a Conjure Animals spell as if cast with a 9th-level spell slot",
+				"I gain the benefits of a *Conjure Animals* spell as if cast with a 9th-level spell slot",
 				"It summons 4 beast of my choice with CR 2 or lower within 20 ft of me for 1 hour",
 				"If they receive no commands from me, they protect me from harm and attack foes",
 			]),
@@ -4885,7 +5176,7 @@ AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 			source: [["UA:DC", 3]],
 			minlevel: 6,
 			description: desc([
-				"Once per short rest, I can cast Speak with Dead without spell slots or material comp.",
+				"Once per short rest, I can cast *Speak with Dead* without spell slots or material comp.",
 				"The target and I can understand each other, regardless of language or intelligence",
 			]),
 			usages: 1,
@@ -4918,7 +5209,7 @@ AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 			name: "Paths of the Dead",
 			source: [["UA:DC", 3]],
 			minlevel: 14,
-			description: desc("Once per short rest, I can cast Etherealness without needing a spell slot"),
+			description: desc("Once per short rest, I can cast *Etherealness* without needing a spell slot"),
 			usages: 1,
 			recovery: "short rest",
 			spellcastingBonus: [{
@@ -4930,7 +5221,7 @@ AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 			spellChanges: {
 				"etherealness": {
 					description: "I go to Ethereal Plane; move there, but able to perceive 60 ft into the normal plane",
-					changes: "Using my Paths of the Dead class feature I can cast Etherealness once per short rest without needing a spell slot, thus can only target 1 creature.",
+					changes: "Using my Paths of the Dead class feature I can cast *Etherealness* once per short rest without needing a spell slot, thus can only target 1 creature.",
 				},
 			},
 		},
@@ -5493,7 +5784,7 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 			name: "Path of Tranquility",
 			source: [["UA:MMT", 2]],
 			minlevel: 3,
-			description: desc("I cast Sanctuary on me, no material comp., lasts 8 hours, hostiles must save every hour"),
+			description: desc("I cast *Sanctuary* on me, no material comp., lasts 8 hours, hostiles must save every hour"),
 			usages: 1,
 			recovery: "1 min",
 			spellcastingBonus: [{
@@ -5507,7 +5798,7 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 					compMaterial: "",
 					time: "8 h",
 					description: "I'm warded; any who want to attack/target must first make save; doesn't protect vs. area spells",
-					changes: "Using my Path of Tranquility class feature I can cast Sanctuary without requiring material components and lasting for 8 hours, but it only affects myself and hostiles can attempt a new save every hour.",
+					changes: "Using my Path of Tranquility class feature I can cast *Sanctuary* without requiring material components and lasting for 8 hours, but it only affects myself and hostiles can attempt a new save every hour.",
 				},
 			},
 		},
@@ -5780,7 +6071,7 @@ var UARnR_theHorizonWalkerSubclass = {
 			name: "Ethereal Step",
 			source: [["UA:RnR", 1]],
 			minlevel: 7,
-			description: desc("As a bonus action, I can cast the Etherealness spell, which lasts until the end of the turn"),
+			description: desc("As a bonus action, I can cast the *Etherealness* spell, which lasts until the end of the turn"),
 			usages: 1,
 			recovery: "short rest",
 			action: [["bonus action", ""]],
@@ -5795,7 +6086,7 @@ var UARnR_theHorizonWalkerSubclass = {
 					time: "1 bns",
 					duration: "1 rnd",
 					description: "I go to Ethereal Plane; move there, but able to perceive 60 ft into the normal plane",
-					changes: "Using my Ethereal Step class feature I can cast Etherealness as a bonus action once per short rest, but it only affects myself and lasts until the end of my turn.",
+					changes: "Using my Ethereal Step class feature I can cast *Etherealness* as a bonus action once per short rest, but it only affects myself and lasts until the end of my turn.",
 				},
 			},
 		},
@@ -6494,7 +6785,7 @@ AddSubClass("warlock", "the raven queen-ua", { // Still valid 2021-09-21
 			name: "Queen's Right Hand",
 			source: [["UA:WnW", 3]],
 			minlevel: 14,
-			description: desc("I can cast Finger of Death once per long rest"),
+			description: desc("I can cast *Finger of Death* once per long rest"),
 			usages: 1,
 			recovery: "long rest",
 			spellcastingBonus: [{
@@ -6684,8 +6975,8 @@ AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Bl
 AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, the Fiend patron, Eldritch Blast cantrip)", {
 	name: "Kiss of Mephistopheles",
 	description: desc([
-		"As a bonus action when my Eldritch Blast hits, I can cast Fireball using a warlock spell slot",
-		"The origin of the Fireball is the creature that was hit with my Eldritch Blast attack",
+		"As a bonus action when my *Eldritch Blast* hits, I can cast *Fireball* using a warlock spell slot",
+		"The origin of the *Fireball* is the creature that was hit with my *Eldritch Blast* attack",
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Eldritch Blast]",
@@ -6695,7 +6986,7 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, the Fiend
 AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast cantrip)", {
 	name: "Frost Lance",
 	description: desc([
-		"When my Eldritch Blast hits a creature once or more, I can reduce its speed by 10 ft",
+		"When my *Eldritch Blast* hits a creature once or more, I can reduce its speed by 10 ft",
 		"This speed reduction lasts until the end of my next turn",
 	]),
 	source: [["UA:WnW", 4]],
@@ -6706,7 +6997,7 @@ AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast ca
 			function (fields, v) {
 				if (v.baseWeaponName == "eldritch blast") fields.Description += "; Target -10 ft speed";
 			},
-			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn.",
+			"When I hit a creature with my *Eldritch Blast* cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn.",
 		],
 	},
 });
@@ -6722,7 +7013,7 @@ AddWarlockInvocation("Gaze of Khirad (prereq: level 7 warlock, the Great Old One
 });
 AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch Blast cantrip)", {
 	name: "Grasp of Hadar",
-	description: desc("Once per turn when my Eldritch Blast hits a creature, I can move it 10 ft closer to me"),
+	description: desc("Once per turn when my *Eldritch Blast* hits a creature, I can move it 10 ft closer to me"),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Eldritch Blast]",
 	prereqeval: function (v) { return v.hasEldritchBlast && (/great old one/).test(classes.known.warlock.subclass); },
@@ -6731,7 +7022,7 @@ AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch
 			function (fields, v) {
 				if (v.baseWeaponName == "eldritch blast") fields.Description += "; Target moved 10 ft to me";
 			},
-			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me.",
+			"When I hit a creature with my *Eldritch Blast* cantrip once or more times in a turn, I can move it in a straight line 10 ft closer to me.",
 		],
 	},
 });
@@ -6817,7 +7108,7 @@ AddWarlockInvocation("Path of the Seeker (prereq: the Seeker patron)", {
 AddWarlockInvocation("Raven Queen's Blessing (prereq: the Raven Queen patron, Eldritch Blast cantrip)", {
 	name: "Raven Queen's Blessing",
 	description: desc([
-		"When I score a critical hit with Eldritch Blast, I can choose an ally I can see within 30 ft",
+		"When I score a critical hit with *Eldritch Blast*, I can choose an ally I can see within 30 ft",
 		"That ally can immediately expend one HD to regain HP, just like after a short rest",
 	]),
 	source: [["UA:WnW", 5]],
@@ -6839,7 +7130,7 @@ AddWarlockInvocation("Sea Twins' Gift (prereq: the Archfey patron)", {
 	name: "Sea Twins' Gift",
 	description: desc([
 		"I can breathe underwater and I have a swim speed equal to my walking speed",
-		"Once per long rest, I can cast Water Breathing using a warlock spell slot (PHB 287)",
+		"Once per long rest, I can cast *Water Breathing* using a warlock spell slot (PHB 287)",
 	]),
 	spellcastingBonus: [{
 		name: "Sea Twins' Gift",
@@ -7613,7 +7904,11 @@ PsionicsList["delusion-ua-psy"] = {
 	range: "60 ft",
 	duration: "1 min",
 	description: "1 crea either hears a sound (whisper-scream), or sees up to 5-ft cube object that disappears on touch",
-	descriptionFull: "As an action, you plant a false belief in the mind of one creature that you can see within 60 feet of you. You can create a sound or an image. Only the target of this talent perceives the sound or image you create." + "\n   " + "If you create a sound, its volume can range from a whisper to a scream. It can be your voice, someone else's voice, a creature's roar, a musical instrument, or any other sound you pick. It lasts for 1 minute." + "\n   " + "If you create an object, it must fit within a 5-foot cube and can't move or be reflective. The image can't create any effect that influences a sense other than sight. The image lasts for 1 minute, and it disappears if the creature touches it.",
+	descriptionFull: [
+		"As an action, you plant a false belief in the mind of one creature that you can see within 60 feet of you. You can create a sound or an image. Only the target of this talent perceives the sound or image you create.",
+		"If you create a sound, its volume can range from a whisper to a scream. It can be your voice, someone else's voice, a creature's roar, a musical instrument, or any other sound you pick. It lasts for 1 minute.",
+		"If you create an object, it must fit within a 5-foot cube and can't move or be reflective. The image can't create any effect that influences a sense other than sight. The image lasts for 1 minute, and it disappears if the creature touches it.",
+	],
 };
 PsionicsList["energy beam-ua-psy"] = {
 	name: "Energy Beam",
@@ -7627,7 +7922,10 @@ PsionicsList["energy beam-ua-psy"] = {
 	save: "Dex",
 	description: "1 crea save or 1d8 Acid, Cold, Fire, Lightning, or Thunder dmg; +1d8 at CL 5, 11, and 17",
 	descriptionCantripDie: "1 crea save or `CD`d8 Acid, Cold, Fire, Lightning, or Thunder dmg",
-	descriptionFull: "As an action, you target one creature you can see within 90 feet of you. The target must succeed on a Dexterity saving throw or take 1d8 acid, cold, fire, lightning, or thunder damage (your choice)." + "\n   " + "The talent's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)",
+	descriptionFull: [
+		"As an action, you target one creature you can see within 90 feet of you. The target must succeed on a Dexterity saving throw or take 1d8 acid, cold, fire, lightning, or thunder damage (your choice).",
+		"The talent's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)",
+	],
 };
 PsionicsList["light step-ua-psy"] = {
 	name: "Light Step",
@@ -7651,7 +7949,10 @@ PsionicsList["mind meld-ua-psy"] = {
 	range: "120 ft",
 	duration: "This turn end",
 	description: "I communicate telepathically with 1 willing crea (int > 1) and gain access to 1 memory of theirs",
-	descriptionFull: "As a bonus action, you can communicate telepathically with one willing creature you can see within 120 feet of you. The target must have an Intelligence of at least 2, otherwise this talent fails and the action is wasted." + "\n   " + "This communication can occur until the end of the current turn. You don't need to share a language with the target for it to understand your telepathic utterances, and it understands you even if it lacks a language. You also gain access to one memory of the target's choice, gaining perfect recall of one thing it saw or did.",
+	descriptionFull: [
+		"As a bonus action, you can communicate telepathically with one willing creature you can see within 120 feet of you. The target must have an Intelligence of at least 2, otherwise this talent fails and the action is wasted.",
+		"This communication can occur until the end of the current turn. You don't need to share a language with the target for it to understand your telepathic utterances, and it understands you even if it lacks a language. You also gain access to one memory of the target's choice, gaining perfect recall of one thing it saw or did.",
+	],
 };
 PsionicsList["mind slam-ua-psy"] = {
 	name: "Mind Slam",
@@ -7665,7 +7966,10 @@ PsionicsList["mind slam-ua-psy"] = {
 	save: "Con",
 	description: "1 crea save or 1d6 Force dmg, and knocked prone if Large or smaller; +1d6 at CL 5, 11, and 17",
 	descriptionCantripDie: "1 crea save or `CD`d6 Force dmg, and knocked prone if Large or smaller",
-	descriptionFull: "As an action, you target one creature you can see within 60 feet of you. The target must succeed on a Constitution saving throw or take 1d6 force damage. If it takes any of this damage and is Large or smaller, it is knocked prone." + "\n   " + "The talent's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)",
+	descriptionFull: [
+		"As an action, you target one creature you can see within 60 feet of you. The target must succeed on a Constitution saving throw or take 1d6 force damage. If it takes any of this damage and is Large or smaller, it is knocked prone.",
+		"The talent's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)",
+	],
 };
 PsionicsList["mind thrust-ua-psy"] = {
 	name: "Mind Thrust",
@@ -7679,7 +7983,10 @@ PsionicsList["mind thrust-ua-psy"] = {
 	save: "Int",
 	description: "1 crea save or 1d10 Psychic dmg; +1d10 at CL 5, 11, and 17",
 	descriptionCantripDie: "1 crea save or `CD`d10 Psychic dmg",
-	descriptionFull: "As an action, you target one creature you can see within 120 feet of you. The target must succeed on an Intelligence saving throw or take 1d10 psychic damage." + "\n   " + "The talent's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).",
+	descriptionFull: [
+		"As an action, you target one creature you can see within 120 feet of you. The target must succeed on an Intelligence saving throw or take 1d10 psychic damage.",
+		"The talent's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).",
+	],
 };
 PsionicsList["mystic charm-ua-psy"] = {
 	name: "Mystic Charm",
@@ -7704,7 +8011,11 @@ PsionicsList["mystic hand-ua-psy"] = {
 	range: "30 ft",
 	duration: "This turn end",
 	description: "Move 1 unattended object (up to 10 lbs) up to 30 ft, or manipulate an object",
-	descriptionFull: "You can use your action to manipulate or move one object within 30 feet of you. The object can't weigh more than 10 pounds, and you can't affect an object being worn or carried by another creature. If the object is loose, you can move it up to 30 feet in any direction." + "\n   " + "This talent allows you to open an unlocked door, pour out a beer stein, and so on." + "\n   " + "The object falls to the ground at the end of your turn if you leave it suspended in midair.",
+	descriptionFull: [
+		"You can use your action to manipulate or move one object within 30 feet of you. The object can't weigh more than 10 pounds, and you can't affect an object being worn or carried by another creature. If the object is loose, you can move it up to 30 feet in any direction.",
+		"This talent allows you to open an unlocked door, pour out a beer stein, and so on.",
+		"The object falls to the ground at the end of your turn if you leave it suspended in midair.",
+	],
 };
 PsionicsList["psychic hammer-ua-psy"] = {
 	name: "Psychic Hammer",
@@ -7718,7 +8029,10 @@ PsionicsList["psychic hammer-ua-psy"] = {
 	save: "Str",
 	description: "1 crea save or 1d6 Force dmg and moved up to 10 ft in chosen direction; +1d6 at CL 5, 11, and 17",
 	descriptionCantripDie: "1 crea save or `CD`d6 Force dmg and moved up to 10 ft in chosen direction",
-	descriptionFull: "As an action, you try to grasp one creature you can see within 120 feet of you, with a hand crafted from telekinetic energy. The target must succeed on a Strength saving throw or take 1d6 force damage. If it takes any of this damage and is Large or smaller, you can move it up to 10 feet in a straight line in a direction of your choice. You can't lift the target off the ground unless it is already airborne or underwater." + "\n   " + "The talent's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+	descriptionFull: [
+		"As an action, you try to grasp one creature you can see within 120 feet of you, with a hand crafted from telekinetic energy. The target must succeed on a Strength saving throw or take 1d6 force damage. If it takes any of this damage and is Large or smaller, you can move it up to 10 feet in a straight line in a direction of your choice. You can't lift the target off the ground unless it is already airborne or underwater.",
+		"The talent's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+	],
 };
 
 // Psionic Disciplines for the Mystic
@@ -7735,7 +8049,10 @@ PsionicsList["adaptive body-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I don't need to eat, breathe, or sleep; I can long rest with 8 hours of light activity, without sleep",
-	descriptionFull: "You can alter your body to match your surroundings, allowing you to withstand punishing environments. With greater psi energy, you can extend this protection to others." + PsychicFocus + "While focused on this discipline, you don't need to eat, breathe, or sleep. To gain the benefits of a long rest, you can spend 8 hours engaged in light activity, rather than sleeping during any of it.",
+	descriptionFull: [
+		"You can alter your body to match your surroundings, allowing you to withstand punishing environments. With greater psi energy, you can extend this protection to others.",
+		"***Psychic Focus***. While focused on this discipline, you don't need to eat, breathe, or sleep. To gain the benefits of a long rest, you can spend 8 hours engaged in light activity, rather than sleeping during any of it.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["ab1-environmental adaptation", "ab2-adaptive shield", "ab3-energy adaptation", "ab4-energy immunity"],
 };
@@ -7806,7 +8123,10 @@ PsionicsList["aura sight-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advantage on Wisdom (Insight) checks",
-	descriptionFull: "You refocus your sight to see the energy that surrounds all creatures. You perceive auras, energy signatures that can reveal key elements of a creature's nature." + PsychicFocus + "While focused on this discipline, you have advantage on Wisdom (Insight) checks.",
+	descriptionFull: [
+		"You refocus your sight to see the energy that surrounds all creatures. You perceive auras, energy signatures that can reveal key elements of a creature's nature.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Wisdom (Insight) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["as1-asses foe", "as2-read moods", "as3-view aura", "as4-perceive the unseen"],
 };
@@ -7875,7 +8195,10 @@ PsionicsList["bestial form-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advantage on Wisdom (Animal Handling) checks",
-	descriptionFull: "You transform your body, gaining traits of different beasts." + PsychicFocus + "While focused on this discipline, you have advantage on Wisdom (Animal Handling) checks.",
+	descriptionFull: [
+		"You transform your body, gaining traits of different beasts.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Wisdom (Animal Handling) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["bf1-bestial claws", "bf2-bestial transformation", "bf3-bt - amphibious", "bf4-bt - climbing", "bf5-bt - flight", "bf6-bt - keen senses", "bf7-bt - perfect senses", "bf8-bt - swimming", "bf9-bt - tough hide"],
 };
@@ -8009,7 +8332,10 @@ PsionicsList["brute force-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advantage on Strength (Athletics) checks",
-	descriptionFull: "You augment your natural strength with psionic energy, granting you the ability to achieve incredible feats of might." + PsychicFocus + "While focused on this discipline, you have advantage on Strength (Athletics) checks.",
+	descriptionFull: [
+		"You augment your natural strength with psionic energy, granting you the ability to achieve incredible feats of might.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Strength (Athletics) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["bf1-brute strike", "bf2-knock back", "bf3-mighty leap", "bf4-feat of strength"],
 };
@@ -8080,7 +8406,10 @@ PsionicsList["celerity-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "My walking speed increases by 10 ft",
-	descriptionFull: "You channel psionic power into your body, honing your reflexes and agility to an incredible degree. The world seems to slow down while you continue to move as normal." + PsychicFocus + "While focused on this discipline, your walking speed increases by 10 feet.",
+	descriptionFull: [
+		"You channel psionic power into your body, honing your reflexes and agility to an incredible degree. The world seems to slow down while you continue to move as normal.",
+		"***Psychic Focus***. While focused on this discipline, your walking speed increases by 10 feet.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["c1-rapid step", "c2-agile defense", "c3-blur of motion", "c4-surge of speed", "c5-surge of action"],
 };
@@ -8162,7 +8491,10 @@ PsionicsList["corrosive metabolism-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain resistance to Acid and Poison damage",
-	descriptionFull: "Your control over your body allows you to deliver acid or poison attacks." + PsychicFocus + "While focused on this discipline, you have resistance to acid and poison damage.",
+	descriptionFull: [
+		"Your control over your body allows you to deliver acid or poison attacks.",
+		"***Psychic Focus***. While focused on this discipline, you have resistance to acid and poison damage.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["cm1-corrosive touch", "cm2-venom strike", "cm3-acid spray", "cm4-breath of the black dragon", "cm5-breath of the green dragon"],
 };
@@ -8191,7 +8523,7 @@ PsionicsList["cm2-venom strike"] = {
 	duration: "Instantaneous",
 	save: "Con",
 	description: "1 crea 1d6/PP Poison damage; save halves; if save failed, poisoned until end of my next turn",
-	descriptionFull: "As an action, you create a poison spray that targets one creature you can see within 30 feet of you. The target must make a Constitution saving throw. On a failed save, it takes 1d6 poison damage per psi point spent and is poisoned until the end of your next turn. On a successful save, the target takes half as much damage and isn't poisoned.",
+	descriptionFull: "As an action, you create a *poison spray* that targets one creature you can see within 30 feet of you. The target must make a Constitution saving throw. On a failed save, it takes 1d6 poison damage per psi point spent and is poisoned until the end of your next turn. On a successful save, the target takes half as much damage and isn't poisoned.",
 	firstCol: "1-7",
 };
 PsionicsList["cm3-acid spray"] = {
@@ -8251,7 +8583,10 @@ PsionicsList["crown of despair-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advantage on Charisma (Intimidation) checks",
-	descriptionFull: "You have learned to harvest seeds of despair in a creature's psyche, wracking it with self-doubt and inaction." + PsychicFocus + "While focused on this discipline, you have advantage on Charisma (Intimidation) checks.",
+	descriptionFull: [
+		"You have learned to harvest seeds of despair in a creature's psyche, wracking it with self-doubt and inaction.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Charisma (Intimidation) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["cd1-crowned in sorrow", "cd2-call to inaction", "cd3-visions of despair", "cd4-dolorous mind"],
 };
@@ -8324,7 +8659,10 @@ PsionicsList["crown of disgust-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "5-ft rad around me is difficult terrain for creatures that aren't immune to being frightened",
-	descriptionFull: "You cause a creature to be flooded with emotions of disgust." + PsychicFocus + "While you are focused on this discipline, the area in a 5-foot radius around you is difficult terrain for any enemy that isn't immune to being frightened.",
+	descriptionFull: [
+		"You cause a creature to be flooded with emotions of disgust.",
+		"***Psychic Focus***. While you are focused on this discipline, the area in a 5-foot radius around you is difficult terrain for any enemy that isn't immune to being frightened.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["cd1-eye of horror", "cd2-wall of repulsion", "cd3-visions of disgust", "cd4-world of horror"],
 };
@@ -8382,7 +8720,10 @@ PsionicsList["cd4-world of horror"] = {
 	duration: "Conc, 1 min",
 	save: "Cha",
 	description: "6 crea 8d6 Psychic dmg, frightened, \u0026 do only melee atks; save halves, no other effects; save each rnd",
-	descriptionFull: "As an action, choose up to six creatures within 60 feet of you. Each target must make a Charisma saving throw. On a failed save, a target takes 8d6 psychic damage, and it is frightened until your concentration ends. On a successful save, a target takes half as much damage." + "\n   " + "While frightened by this effect, a target's speed is reduced to 0, and the target can use its action, and any bonus action it might have, only to make melee attacks. The frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+	descriptionFull: [
+		"As an action, choose up to six creatures within 60 feet of you. Each target must make a Charisma saving throw. On a failed save, a target takes 8d6 psychic damage, and it is frightened until your concentration ends. On a successful save, a target takes half as much damage.",
+		"While frightened by this effect, a target's speed is reduced to 0, and the target can use its action, and any bonus action it might have, only to make melee attacks. The frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+	],
 	firstCol: 7,
 };
 //the crown of rage discipline
@@ -8398,7 +8739,10 @@ PsionicsList["crown of rage-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "Any crea within range has disadvantage on melee attack rolls against targets other than me",
-	descriptionFull: "You place a mote of pure fury within a creature's mind, causing its bloodlust to overcome its senses and for it to act as you wish it to." + PsychicFocus + "While you are focused on this discipline, any enemy within 5 feet of you that makes a melee attack roll against creatures other than you does so with disadvantage.",
+	descriptionFull: [
+		"You place a mote of pure fury within a creature's mind, causing its bloodlust to overcome its senses and for it to act as you wish it to.",
+		"***Psychic Focus***. While you are focused on this discipline, any enemy within 5 feet of you that makes a melee attack roll against creatures other than you does so with disadvantage.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["cr1-primal fury", "cr2-fighting words", "cr3-mindless courage", "cr4-punishing fury"],
 };
@@ -8471,7 +8815,10 @@ PsionicsList["diminution-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I have advantage on Dexterity (Stealth) checks",
-	descriptionFull: "You manipulate the matter that composes your body, drastically reducing your size without surrendering any of your might." + PsychicFocus + "While focused on this discipline, you have advantage on Dexterity (Stealth) checks.",
+	descriptionFull: [
+		"You manipulate the matter that composes your body, drastically reducing your size without surrendering any of your might.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Dexterity (Stealth) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["d1-miniature form", "d2-toppling shift", "d3-sudden shift", "d4-microscopic form"],
 };
@@ -8544,7 +8891,10 @@ PsionicsList["giant growth-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "My reach increases by 5 ft",
-	descriptionFull: "You infuse yourself with psionic energy to grow to tremendous size, bolstering your strength and durability." + PsychicFocus + "While focused on this discipline, your reach increases by 5 feet.",
+	descriptionFull: [
+		"You infuse yourself with psionic energy to grow to tremendous size, bolstering your strength and durability.",
+		"***Psychic Focus***. While focused on this discipline, your reach increases by 5 feet.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["gg1-ogre form", "gg2-giant form"],
 };
@@ -8587,7 +8937,10 @@ PsionicsList["intellect fortress-ua-psy"] = {
 	components: "Psi-F",
 	duration: "While focused",
 	description: "I gain resistance to Psychic damage",
-	descriptionFull: "You forge an indomitable wall of psionic energy around your mind-one that allows you to launch counterattacks against your opponents." + PsychicFocus + "While focused on this discipline, you have resistance to psychic damage.",
+	descriptionFull: [
+		"You forge an indomitable wall of psionic energy around your mind-one that allows you to launch counterattacks against your opponents.",
+		"***Psychic Focus***. While focused on this discipline, you have resistance to psychic damage.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["if1-psychic backlash", "if2-psychic parry", "if3-psychic redoubt"],
 };
@@ -8644,7 +8997,10 @@ PsionicsList["iron durability-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain a +1 bonus to AC",
-	descriptionFull: "You transform your body to become a living metal, allowing you to shrug off attacks that would cripple weaker creatures." + PsychicFocus + "While focused on this discipline, you gain a +1 bonus to AC.",
+	descriptionFull: [
+		"You transform your body to become a living metal, allowing you to shrug off attacks that would cripple weaker creatures.",
+		"***Psychic Focus***. While focused on this discipline, you gain a +1 bonus to AC.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["id1-iron hide", "id2-steel hide", "id3-iron resistance"],
 };
@@ -8701,7 +9057,10 @@ PsionicsList["mantle of awe-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain a bonus to Charisma checks, bonus equals half my Intelligence modifier (min 1)",
-	descriptionFull: "You learn to use psionic energy to manipulate others with a subtle combination of psi and your own, natural charm." + PsychicFocus + "While focused on this discipline, you gain a bonus to Charisma checks. The bonus equals half your Intelligence modifier (minimum of +1).",
+	descriptionFull: [
+		"You learn to use psionic energy to manipulate others with a subtle combination of psi and your own, natural charm.",
+		"***Psychic Focus***. While focused on this discipline, you gain a bonus to Charisma checks. The bonus equals half your Intelligence modifier (minimum of +1).",
+	],
 	firstCol: "checkbox",
 	dependencies: ["moa1-charming presence", "moa2-center of attention", "moa3-invoke awe"],
 };
@@ -8715,7 +9074,10 @@ PsionicsList["moa1-charming presence"] = {
 	range: "30 ft",
 	duration: "10 min",
 	description: "2d8/PP HP of conscious, not in combat, not immune to charm crea charmed; use HP max, not current",
-	descriptionFull: "As an action, you exert an aura of sympathetic power. Roll 2d8 per psi point spent on this ability; the total is how many hit points worth of creatures this option can affect. Creatures within 30 feet of you are affected in ascending order of their hit point maximums, ignoring incapacitated creatures, creatures immune to being charmed, and creatures engaged in combat." + "\n   " + "Starting with the creature that has the lowest hit point maximum, each creature affected by this option is charmed by you for 10 minutes, regarding you as a friendly acquaintance. Subtract each creature's hit point maximum from the total before moving on to the next creature. A creature's hit point maximum must be equal to or less than the remaining total for that creature to be affected.",
+	descriptionFull: [
+		"As an action, you exert an aura of sympathetic power. Roll 2d8 per psi point spent on this ability; the total is how many hit points worth of creatures this option can affect. Creatures within 30 feet of you are affected in ascending order of their hit point maximums, ignoring incapacitated creatures, creatures immune to being charmed, and creatures engaged in combat.",
+		"Starting with the creature that has the lowest hit point maximum, each creature affected by this option is charmed by you for 10 minutes, regarding you as a friendly acquaintance. Subtract each creature's hit point maximum from the total before moving on to the next creature. A creature's hit point maximum must be equal to or less than the remaining total for that creature to be affected.",
+	],
 	firstCol: "1-7",
 };
 PsionicsList["moa2-center of attention"] = {
@@ -8759,7 +9121,10 @@ PsionicsList["mantle of command-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "When ending a turn I didn't move in, use my rea to have 1 ally within 30 ft move half its speed",
-	descriptionFull: "You exert an aura of trust and authority, enhancing the coordination among your allies." + PsychicFocus + "While focused on this discipline, when you end your turn and didn't move during it, you can use your reaction to allow one ally you can see within 30 feet of you to move up to half their speed, following a path of your choice. To move in this way, the ally mustn't be incapacitated.",
+	descriptionFull: [
+		"You exert an aura of trust and authority, enhancing the coordination among your allies.",
+		"***Psychic Focus***. While focused on this discipline, when you end your turn and didn't move during it, you can use your reaction to allow one ally you can see within 30 feet of you to move up to half their speed, following a path of your choice. To move in this way, the ally mustn't be incapacitated.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mc1-coordinated movement", "mc2-commander's sight", "mc3-command to strike", "mc4-strategic mind", "mc5-overwhelming attack"],
 };
@@ -8841,7 +9206,10 @@ PsionicsList["mantle of courage-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "My and allies within 10 ft that can see me have advantage on saves vs. being frightened",
-	descriptionFull: "You focus your mind on courage, radiating confidence and bravado to your allies." + PsychicFocus + "While focused on this discipline, you and allies within 10 feet of you who can see you have advantage on saving throws against being frightened.",
+	descriptionFull: [
+		"You focus your mind on courage, radiating confidence and bravado to your allies.",
+		"***Psychic Focus***. While focused on this discipline, you and allies within 10 feet of you who can see you have advantage on saving throws against being frightened.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mc1-incite courage", "mc2-aura of victory", "mc3-pillar of confidence"],
 };
@@ -8897,7 +9265,10 @@ PsionicsList["mantle of fear-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advantage on Charisma (Intimidation) checks",
-	descriptionFull: "You tap into a well of primal fear and turn yourself into a beacon of terror to your enemies." + PsychicFocus + "While focused on this discipline, you have advantage on Charisma (Intimidation) checks.",
+	descriptionFull: [
+		"You tap into a well of primal fear and turn yourself into a beacon of terror to your enemies.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Charisma (Intimidation) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mf1-incite fear", "mf2-unsettling aura", "mf3-incite panic"],
 };
@@ -8955,7 +9326,10 @@ PsionicsList["mantle of fury-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "Me and allies within 10 ft at start of my turn gain +5 ft walking speed for that turn",
-	descriptionFull: "You allow the primal fury lurking deep within your mind to burst forth, catching you and your allies in an implacable bloodthirst." + PsychicFocus + "While focused on this discipline in combat, you and any ally who starts their turn within 10 feet of you gains a 5-foot increase to their walking speed during that turn.",
+	descriptionFull: [
+		"You allow the primal fury lurking deep within your mind to burst forth, catching you and your allies in an implacable bloodthirst.",
+		"***Psychic Focus***. While focused on this discipline in combat, you and any ally who starts their turn within 10 feet of you gains a 5-foot increase to their walking speed during that turn.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mf1-incite fury", "mf2-mindless charge", "mf3-aura of bloodletting", "mf4-overwhelming fury"],
 };
@@ -9025,7 +9399,10 @@ PsionicsList["mantle of joy-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advantage on Charisma (Persuasion) checks",
-	descriptionFull: "You tap into the joy within you, radiating it outward in soothing, psychic energy that brings hope and comfort to creatures around you." + PsychicFocus + "While focused on this discipline, you have advantage on Charisma (Persuasion) checks.",
+	descriptionFull: [
+		"You tap into the joy within you, radiating it outward in soothing, psychic energy that brings hope and comfort to creatures around you.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Charisma (Persuasion) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mj1-soothing presence", "mj2-comforting aura", "mj3-aura of jubilation", "mj4-beacon of recovery"],
 };
@@ -9094,7 +9471,10 @@ PsionicsList["mastery of air-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I take no falling damage and ignore difficult terrain when walking",
-	descriptionFull: "You become one with the power of elemental air." + PsychicFocus + "While focused on this discipline, you take no falling damage, and you ignore difficult terrain when walking.",
+	descriptionFull: [
+		"You become one with the power of elemental air.",
+		"***Psychic Focus***. While focused on this discipline, you take no falling damage, and you ignore difficult terrain when walking.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["ma1-wind step", "ma2-wind stream", "ma3-cloak of air", "ma4-wind form", "ma5-misty form", "ma6-animate air"],
 };
@@ -9191,7 +9571,10 @@ PsionicsList["mastery of fire-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain resistance to Fire damage and gain a +2 bonus on rolls for Fire damage",
-	descriptionFull: "You align your mind with the energy of elemental fire." + PsychicFocus + "While focused on this discipline, you gain resistance to fire damage, and you gain a +2 bonus to rolls for fire damage.",
+	descriptionFull: [
+		"You align your mind with the energy of elemental fire.",
+		"***Psychic Focus***. While focused on this discipline, you gain resistance to fire damage, and you gain a +2 bonus to rolls for fire damage.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mf1-combustion", "mf2-rolling flame", "mf3-detonation", "mf4-fire storm", "mf5-animate fire"],
 };
@@ -9275,7 +9658,10 @@ PsionicsList["mastery of force-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advantage on Strength checks",
-	descriptionFull: "As a student of psionic power, you perceive the potential energy that flows through all things. You reach out with your mind, transforming the potential into the actual. Objects and creatures move at your command." + PsychicFocus + ". While focused on this discipline, you have advantage on Strength checks.",
+	descriptionFull: [
+		"As a student of psionic power, you perceive the potential energy that flows through all things. You reach out with your mind, transforming the potential into the actual. Objects and creatures move at your command.",
+		"***Psychic Focus***. . While focused on this discipline, you have advantage on Strength checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mf1-push", "mf2-move", "mf3-inertial armor", "mf4-telekinetic barrier", "mf5-grasp", "mf6-crush (with grasp)" , "mf7-move (with grasp)"],
 };
@@ -9304,7 +9690,19 @@ PsionicsList["mf2-move"] = {
 	duration: "Instantaneous",
 	save: "Dex",
 	description: "Move obj 60 ft, after which it falls; crea under obj DC 10 save or 1d6+1d6/PP Bludg. dmg; see book",
-	descriptionFull: "Choose one object you can see within 60 feet of you that isn't being worn or carried by another creature and that isn't secured in place. It can't be larger than 20 feet on a side, and its maximum weight depends on the psi points spent on this ability, as shown below." + "\n   " + "As an action, you move the object up to 60 feet, and you must keep the object within sight during this movement. If the object ends this movement in the air, it falls. If the object would fall on a creature, the creature must succeed on a DC 10 Dexterity saving throw or take damage as listed on the table below.\n\n  **Psi**\t**Maximum**    **Bludgeoning**\n**Points**\t **Weight**\t        **Damage**\n    2\t     25 lbs.  \t             2d6" + "\n    3\t     50 lbs.  \t             4d6" + "\n    5\t   250 lbs.  \t             6d6" + "\n    6\t   500 lbs.  \t             7d6" + "\n    7\t 1000 lbs.  \t             8d6",
+	descriptionFull: [
+		"Choose one object you can see within 60 feet of you that isn't being worn or carried by another creature and that isn't secured in place. It can't be larger than 20 feet on a side, and its maximum weight depends on the psi points spent on this ability, as shown below.",
+		"As an action, you move the object up to 60 feet, and you must keep the object within sight during this movement. If the object ends this movement in the air, it falls. If the object would fall on a creature, the creature must succeed on a DC 10 Dexterity saving throw or take damage as listed on the table below.",
+		[
+			["  Psi", "Maximum    Bludgeoning"],
+			["**Points**", " **Weight**", "        **Damage**"],
+			["    2", "     25 lbs.  ", "             2d6"],
+			["    3", "     50 lbs.  ", "             4d6"],
+			["    5", "   250 lbs.  ", "             6d6"],
+			["    6", "   500 lbs.  ", "             7d6"],
+			["    7", " 1000 lbs.  ", "             8d6"],
+		],
+	],
 	firstCol: "2-7",
 };
 PsionicsList["mf3-inertial armor"] = {
@@ -9344,7 +9742,11 @@ PsionicsList["mf5-grasp"] = {
 	duration: "Conc, 1 min",
 	description: "1 crea save or grappled; escape Athl./Acro. vs. my spell atk +1/PP; if grappled I can Crush/Move",
 	save: "Str",
-	descriptionFull: "You attempt to grasp a creature in telekinetic energy and hold it captive. As an action, choose one creature you can see within 60 feet of you. The target must succeed on a Strength saving throw or be grappled by you until your concentration ends or until the target leaves your reach, which is 60 feet for this grapple." + "\n   " + "The grappled target can escape by succeeding on a Strength (Athletics) or Dexterity (Acrobatics) check contested by your psionic ability plus your proficiency bonus. When a target attempts to escape in this way, you can spend psi points to boost your check, abiding by your psi limit. You gain a +1 bonus per psi point spent." + "\n   " + "While a target is grappled in this manner, you create one of the following effects as an action: ***Crush*** (1–7 psi) The target takes 1d6 bludgeoning damage per psi point spent.***Move*** (1–7 psi) You move the target up to 5 feet per psi point spent. You can move it in the air and hold it there. It falls if the grapple ends.",
+	descriptionFull: [
+		"You attempt to grasp a creature in telekinetic energy and hold it captive. As an action, choose one creature you can see within 60 feet of you. The target must succeed on a Strength saving throw or be grappled by you until your concentration ends or until the target leaves your reach, which is 60 feet for this grapple.",
+		"The grappled target can escape by succeeding on a Strength (Athletics) or Dexterity (Acrobatics) check contested by your psionic ability plus your proficiency bonus. When a target attempts to escape in this way, you can spend psi points to boost your check, abiding by your psi limit. You gain a +1 bonus per psi point spent.",
+		"While a target is grappled in this manner, you create one of the following effects as an action: ***Crush*** (1–7 psi) The target takes 1d6 bludgeoning damage per psi point spent.***Move*** (1–7 psi) You move the target up to 5 feet per psi point spent. You can move it in the air and hold it there. It falls if the grapple ends.",
+	],
 	firstCol: 3,
 };
 PsionicsList["mf6-crush (with grasp)"] = {
@@ -9357,7 +9759,10 @@ PsionicsList["mf6-crush (with grasp)"] = {
 	range: "60 ft",
 	duration: "Instantaneous",
 	description: "1 creature grappled by Grasp takes 1d6/PP Bludgeoning damage",
-	descriptionFull: "While the target is grappled by Grasp from the Mastery of Force discipline, you can use Crush on it as an action:" + "\n  " + "The target takes 1d6 bludgeoning damage per psi point spent.",
+	descriptionFull: [
+		"While the target is grappled by Grasp from the Mastery of Force discipline, you can use Crush on it as an action:",
+		"The target takes 1d6 bludgeoning damage per psi point spent.",
+	],
 	firstCol: "1-7",
 };
 PsionicsList["mf7-move (with grasp)"] = {
@@ -9370,7 +9775,10 @@ PsionicsList["mf7-move (with grasp)"] = {
 	range: "60 ft",
 	duration: "Instantaneous",
 	description: "1 creature grappled by Grasp moved up to 5 ft/PP; can hold it aloft, but it falls when grapple ends",
-	descriptionFull: "While the target is grappled by Grasp from the Mastery of Force discipline, you can use Move on it as an action:" + "\n  " + "You move the target up to 5 feet per psi point spent. You can move it in the air and hold it there. It falls if the grapple ends.",
+	descriptionFull: [
+		"While the target is grappled by Grasp from the Mastery of Force discipline, you can use Move on it as an action:",
+		"You move the target up to 5 feet per psi point spent. You can move it in the air and hold it there. It falls if the grapple ends.",
+	],
 	firstCol: "1-7",
 };
 //the mastery of ice discipline (contributed by Justin W.)
@@ -9386,7 +9794,10 @@ PsionicsList["mastery of ice-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain resistance to Cold damage",
-	descriptionFull: "You master the power of ice, shaping it to meet you demands." + PsychicFocus + "While focused on this discipline, you have resistance to cold damage.",
+	descriptionFull: [
+		"You master the power of ice, shaping it to meet you demands.",
+		"***Psychic Focus***. While focused on this discipline, you have resistance to cold damage.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mi1-ice spike", "mi2-ice sheet", "mi3-frozen sanctuary", "mi4-frozen rain", "mi5-ice barrier"],
 };
@@ -9442,7 +9853,11 @@ PsionicsList["mi4-frozen rain"] = {
 	duration: "Conc, 1 min",
 	save: "Con",
 	description: "20-ft rad all 6d6(+1d6/extra PP) Cold dmg \u0026 spd 0; save half \u0026 no spd 0; 1 a Athl. vs DC for no spd 0",
-	descriptionFull: "As an action, choose a point you can see within 120 feet of you. The air in a 20-foot-radius sphere centered on that point becomes deathly cold and saturated with moisture. Each creature in that area must make a Constitution saving throw. On a failed save, a target takes 6d6 cold damage, and its speed is reduced to 0 until your concentration ends. On a successful save, a target takes half as much damage." + "\n   " + "As an action, a target that has its speed reduced can end the effect early if it succeeds on a Strength (Athletics) check with a DC equal to this effect's save DC." + "\n   " + "You can increase this effect's damage by 1d6 per each additional psi point spent on it.",
+	descriptionFull: [
+		"As an action, choose a point you can see within 120 feet of you. The air in a 20-foot-radius sphere centered on that point becomes deathly cold and saturated with moisture. Each creature in that area must make a Constitution saving throw. On a failed save, a target takes 6d6 cold damage, and its speed is reduced to 0 until your concentration ends. On a successful save, a target takes half as much damage.",
+		"As an action, a target that has its speed reduced can end the effect early if it succeeds on a Strength (Athletics) check with a DC equal to this effect's save DC.",
+		"You can increase this effect's damage by 1d6 per each additional psi point spent on it.",
+	],
 	firstCol: "5-7",
 };
 PsionicsList["mi5-ice barrier"] = {
@@ -9473,7 +9888,10 @@ PsionicsList["mastery of light and darkness-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I can see through natural and magical darkness out to 30 ft",
-	descriptionFull: "You claim dominion over light and darkness with your mind." + PsychicFocus + "While focused on this discipline, natural and magical darkness within 30 feet of you has no effect on your vision.",
+	descriptionFull: [
+		"You claim dominion over light and darkness with your mind.",
+		"***Psychic Focus***. While focused on this discipline, natural and magical darkness within 30 feet of you has no effect on your vision.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mld1-darkness", "mld2-light", "mld3-shadow beasts", "mld4-radiant beam"],
 };
@@ -9528,7 +9946,10 @@ PsionicsList["mld4-radiant beam"] = {
 	duration: "Conc, 1 min",
 	save: "Dex",
 	description: "1 crea 6d6(+1d6/extra PP) Radiant dmg, blinded, save each turn to end blind; save halves \u0026 not blind",
-	descriptionFull: "As an action, you project a beam of light at one creature you can see within 60 feet of you. The target must make a Dexterity saving throw. On a failed save, it takes 6d6 radiant damage and is blinded until your concentration ends. On a successful save, it takes half as much damage. A blinded target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success." + "\n   " + "You can increase this effect's damage by 1d6 per each additional psi point spent on it.",
+	descriptionFull: [
+		"As an action, you project a beam of light at one creature you can see within 60 feet of you. The target must make a Dexterity saving throw. On a failed save, it takes 6d6 radiant damage and is blinded until your concentration ends. On a successful save, it takes half as much damage. A blinded target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+		"You can increase this effect's damage by 1d6 per each additional psi point spent on it.",
+	],
 	firstCol: "5-7",
 };
 //the mastery of water discipline (contributed by Justin W.)
@@ -9544,7 +9965,10 @@ PsionicsList["mastery of water-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain a swimming speed equal to my walking speed and I can breathe underwater",
-	descriptionFull: "Your mind becomes one with elemental water, attuning your thoughts to its ebb and flow." + PsychicFocus + "While focused on this discipline, you have a swimming speed equal to your walking speed, and you can breathe underwater.",
+	descriptionFull: [
+		"Your mind becomes one with elemental water, attuning your thoughts to its ebb and flow.",
+		"***Psychic Focus***. While focused on this discipline, you have a swimming speed equal to your walking speed, and you can breathe underwater.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mwa1-dessicate", "mwa2-watery grasp", "mwa3-water whip", "mwa4-water breathing","mwa5-water sphere","mwa6-animate water"],
 };
@@ -9644,7 +10068,10 @@ PsionicsList["mastery of weather-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain resistance to Lightning and Thunder damage",
-	descriptionFull: "Your mind reaches into the sky, reshaping the stuff of storms to serve your needs." + PsychicFocus + "While focused on this discipline, you have resistance to lightning and thunder damage.",
+	descriptionFull: [
+		"Your mind reaches into the sky, reshaping the stuff of storms to serve your needs.",
+		"***Psychic Focus***. While focused on this discipline, you have resistance to lightning and thunder damage.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mw1-cloud steps", "mw2-hungry lightning", "mw3-wall of clouds", "mw4-whirlwind", "mw5-lightning leap", "mw6-wall of thunder", "mw7-thunder clap"],
 };
@@ -9713,7 +10140,10 @@ PsionicsList["mw5-lightning leap"] = {
 	duration: "Instantaneous",
 	save: "Dex",
 	description: "60-ft long 5-ft wide all 6d6(+1d6/extra PP) Lightning dmg; save halves; I teleport to spot on line",
-	descriptionFull: "As an action, you let loose a line of lightning that is 60 feet long and 5 feet wide. Each creature in the line must make a Dexterity saving throw, taking 6d6 lightning damage on a failed save, or half as much damage on a successful one. You can then teleport to an unoccupied space touched by the line." + "\n   " + "You can increase this ability's damage by 1d6 per additional psi point spent on it.",
+	descriptionFull: [
+		"As an action, you let loose a line of lightning that is 60 feet long and 5 feet wide. Each creature in the line must make a Dexterity saving throw, taking 6d6 lightning damage on a failed save, or half as much damage on a successful one. You can then teleport to an unoccupied space touched by the line.",
+		"You can increase this ability's damage by 1d6 per additional psi point spent on it.",
+	],
 	firstCol: "5-7",
 };
 PsionicsList["mw6-wall of thunder"] = {
@@ -9759,7 +10189,10 @@ PsionicsList["mastery of wood and earth-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain a +1 bonus to AC",
-	descriptionFull: "You attune your mind to seize control of wood and earth." + PsychicFocus + "While focused on this discipline, you have a +1 bonus to AC.",
+	descriptionFull: [
+		"You attune your mind to seize control of wood and earth.",
+		"***Psychic Focus***. While focused on this discipline, you have a +1 bonus to AC.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["mwe1-animate weapon", "mwe2-warp weapon", "mwe3-warp armor", "mwe4-wall of wood", "mwe5-armored form", "mwe6-animate earth"],
 };
@@ -9857,7 +10290,10 @@ PsionicsList["nomadic arrow-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "My ranged weapon attacks ignore disadvantage, but can't get adv. if it was subject to dis.",
-	descriptionFull: "You imbue a ranged weapon with a strange semblance of sentience, allowing it to unerringly find its mark." + PsychicFocus + "While you are focused on this discipline, any attack roll you make for a ranged weapon attack ignores disadvantage. If disadvantage would normally apply to the roll, that roll also can't benefit from advantage.",
+	descriptionFull: [
+		"You imbue a ranged weapon with a strange semblance of sentience, allowing it to unerringly find its mark.",
+		"***Psychic Focus***. While you are focused on this discipline, any attack roll you make for a ranged weapon attack ignores disadvantage. If disadvantage would normally apply to the roll, that roll also can't benefit from advantage.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["na1-speed dart", "na2-seeking missile", "na3-faithful archer"],
 };
@@ -9914,7 +10350,10 @@ PsionicsList["nomadic chameleon-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advantage on Dexterity (Stealth) checks",
-	descriptionFull: "You create a screen of psychic power that distorts your appearance, allowing you to blend into the background or even turn invisible." + PsychicFocus + "While focused on this discipline, you have advantage on Dexterity (Stealth) checks.",
+	descriptionFull: [
+		"You create a screen of psychic power that distorts your appearance, allowing you to blend into the background or even turn invisible.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Dexterity (Stealth) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["nc1-chameleon", "nc2-step from sight", "nc3-enduring invisibility"],
 };
@@ -9941,7 +10380,10 @@ PsionicsList["nc2-step from sight"] = {
 	range: "60 ft",
 	duration: "Conc, 1 min",
 	description: "I (+1 crea/extra PP) become invisible; attacking/targeting/affecting other crea makes a crea visible",
-	descriptionFull: "As a bonus action, cloak yourself from sight. You can target one additional creature for every additional psi point you spend on this ability. The added targets must be visible to you and within 60 feet of you." + "\n   " + "Each target turns invisible and remains so until your concentration ends or until immediately after it targets, damages, or otherwise affects any creature with an attack, a spell, or another ability.",
+	descriptionFull: [
+		"As a bonus action, cloak yourself from sight. You can target one additional creature for every additional psi point you spend on this ability. The added targets must be visible to you and within 60 feet of you.",
+		"Each target turns invisible and remains so until your concentration ends or until immediately after it targets, damages, or otherwise affects any creature with an attack, a spell, or another ability.",
+	],
 	firstCol: "3-7",
 };
 PsionicsList["nc3-enduring invisibility"] = {
@@ -9970,7 +10412,10 @@ PsionicsList["nomadic mind-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain proficiency with one skill, tool, or language",
-	descriptionFull: "You dispatch part of your psyche into the noosphere, the collective vista of minds and knowledge possessed by living things." + PsychicFocus + "Whenever you focus on this discipline, you choose one skill or tool and have proficiency with it until your focus ends. Alternatively, you gain the ability to read and write one language of your choice until your focus ends.",
+	descriptionFull: [
+		"You dispatch part of your psyche into the noosphere, the collective vista of minds and knowledge possessed by living things.",
+		"***Psychic Focus***. Whenever you focus on this discipline, you choose one skill or tool and have proficiency with it until your focus ends. Alternatively, you gain the ability to read and write one language of your choice until your focus ends.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["nm1-wandering mind", "nm2-find creature", "nm3-item lore", "nm4-psychic speech", "nm5-wandering eye", "nm6-phasing eye"],
 };
@@ -10010,7 +10455,7 @@ PsionicsList["nm3-item lore"] = {
 	range: "5 ft",
 	duration: "Instantaneous",
 	description: "1 magical item or magic-imbued crea/obj; learn properties, how to use, and spells affecting it",
-	descriptionFull: "You carefully study an item. If you concentrate for this option's full duration while remaining within 5 feet of the item, you then gain the benefits of an identify spell cast on that item.",
+	descriptionFull: "You carefully study an item. If you concentrate for this option's full duration while remaining within 5 feet of the item, you then gain the benefits of an *identify* spell cast on that item.",
 	firstCol: 3,
 };
 PsionicsList["nm4-psychic speech"] = {
@@ -10066,7 +10511,10 @@ PsionicsList["nomadic step-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "1/turn; after I teleport, increase speed by 10 ft until end of my turn",
-	descriptionFull: "You exert your mind on the area around you, twisting the intraplanar pathways you perceive to allow instantaneous travel." + PsychicFocus + "After you teleport on your turn while focused on this discipline, your walking speed increases by 10 feet until the end of the turn, as you are propelled by the magic of your teleportation. You can receive this increase only once per turn.",
+	descriptionFull: [
+		"You exert your mind on the area around you, twisting the intraplanar pathways you perceive to allow instantaneous travel.",
+		"***Psychic Focus***. After you teleport on your turn while focused on this discipline, your walking speed increases by 10 feet until the end of the turn, as you are propelled by the magic of your teleportation. You can receive this increase only once per turn.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["ns1-step of a dozen paces", "ns2-nomadic anchor", "ns3-defensive step", "ns4-there and back again", "ns5-transposition", "ns6-baleful transposition", "ns7-phantom caravan", "ns8-nomad's gate"],
 };
@@ -10190,7 +10638,10 @@ PsionicsList["precognition-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advangage on initiative rolls",
-	descriptionFull: "By analyzing information around you, from subtle hints to seemingly disconnected facts, you learn to weave a string of probabilities in an instant that gives you extraordinary insights." + PsychicFocus + "While focused on this discipline, you have advantage on initiative rolls.",
+	descriptionFull: [
+		"By analyzing information around you, from subtle hints to seemingly disconnected facts, you learn to weave a string of probabilities in an instant that gives you extraordinary insights.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on initiative rolls.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["p1-precognitive hunch", "p2-all-around sight", "p3-danger sense", "p4-victory before battle"],
 };
@@ -10260,7 +10711,10 @@ PsionicsList["psionic restoration-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "While focused, I can touch a creature with 0 HP as a bonus action and stabilize it",
-	descriptionFull: "You wield psionic energy to cure wounds and restore health to yourself and others." + PsychicFocus + "While focused on this discipline, you can use a bonus action to touch a creature that has 0 hit points and stabilize it.",
+	descriptionFull: [
+		"You wield psionic energy to *cure wounds* and restore health to yourself and others.",
+		"***Psychic Focus***. While focused on this discipline, you can use a bonus action to touch a creature that has 0 hit points and stabilize it.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["pr1-mend wounds", "pr2-restore health", "pr3-restore life", "pr4-restore vigor"],
 };
@@ -10329,7 +10783,10 @@ PsionicsList["psionic weapon-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "1 weapon or unarmed strike does Psychic dmg and counts as magical; no Str or Dex to dmg until CL6",
-	descriptionFull: "You have learned how to channel psionic energy into your attacks, lending them devastating power." + PsychicFocus + "Whenever you focus on this discipline, choose one weapon you're holding or your unarmed strike. When you attack with it while focused on this discipline, its damage is psychic and magical, rather than its normal damage type. Until you reach 6th level as a mystic, you don't add your Strength or Dexterity modifier to the psychic attack's damage rolls.",
+	descriptionFull: [
+		"You have learned how to channel psionic energy into your attacks, lending them devastating power.",
+		"***Psychic Focus***. Whenever you focus on this discipline, choose one weapon you're holding or your unarmed strike. When you attack with it while focused on this discipline, its damage is psychic and magical, rather than its normal damage type. Until you reach 6th level as a mystic, you don't add your Strength or Dexterity modifier to the psychic attack's damage rolls.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["pw1-ethereal weapon", "pw2-lethal strike", "pw3-augmented weapon"],
 };
@@ -10385,7 +10842,10 @@ PsionicsList["psychic assault-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain a +2 bonus to damage rolls with psionic talents that deal Psychic damage",
-	descriptionFull: "You wield your mind like a weapon, unleashing salvos of psionic energy." + PsychicFocus + "While focused on this discipline, you gain a +2 bonus to damage rolls with psionic talents that deal psychic damage.",
+	descriptionFull: [
+		"You wield your mind like a weapon, unleashing salvos of psionic energy.",
+		"***Psychic Focus***. While focused on this discipline, you gain a +2 bonus to damage rolls with psionic talents that deal psychic damage.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["pa1-psionic blast", "pa2-ego whip", "pa3-id insinuation", "pa4-psychic blast", "pa5-psychic crush"],
 };
@@ -10471,7 +10931,10 @@ PsionicsList["psychic disruption-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I have advantage on Charisma (Deception) checks",
-	descriptionFull: "You create psychic static that disrupts other creatures' ability to think clearly." + PsychicFocus + "While focused on this discipline, you have advantage on Charisma (Deception) checks.",
+	descriptionFull: [
+		"You create psychic static that disrupts other creatures' ability to think clearly.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Charisma (Deception) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["pd1-distracting haze", "pd2-daze", "pd3-mind storm"],
 };
@@ -10530,7 +10993,10 @@ PsionicsList["psychic inquisition-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I know when a creature telepathically communicating with me is lying",
-	descriptionFull: "You reach into a creature's mind to uncover information or plant ideas within it." + PsychicFocus + "While focused on this discipline, you know when a creature communicating with you via telepathy is lying.",
+	descriptionFull: [
+		"You reach into a creature's mind to uncover information or plant ideas within it.",
+		"***Psychic Focus***. While focused on this discipline, you know when a creature communicating with you via telepathy is lying.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["pi1-hammer of inquisition", "pi2-forceful query", "pi3-ransack mind", "pi4-phantom idea"],
 };
@@ -10573,7 +11039,12 @@ PsionicsList["pi3-ransack mind"] = {
 	duration: "12/24/48 h",
 	save: "Int",
 	description: "1 crea 3 saves if in range for full duration; learn key memories from 12/24/48 h (1/2/3 failed saves)",
-	descriptionFull: "While you concentrate on this ability, you probe one creature's mind. The creature must remain within 30 feet of you, and you must be able to see it. If you reach the ability's full duration, the target must make three Intelligence saving throws, and you learn information from it based on the number of saving throws it fails." + "\n   " + "With one failed saving throw, you learn its key memories from the past 12 hours." + "\n   " + "With two failed saving throws, you learn its key memories from the past 24 hours." + "\n   " + "With three failed saving throws, you learn its key memories from the past 48 hours.",
+	descriptionFull: [
+		"While you concentrate on this ability, you probe one creature's mind. The creature must remain within 30 feet of you, and you must be able to see it. If you reach the ability's full duration, the target must make three Intelligence saving throws, and you learn information from it based on the number of saving throws it fails.",
+		"With one failed saving throw, you learn its key memories from the past 12 hours.",
+		"With two failed saving throws, you learn its key memories from the past 24 hours.",
+		"With three failed saving throws, you learn its key memories from the past 48 hours.",
+	],
 	firstCol: 5,
 };
 PsionicsList["pi4-phantom idea"] = {
@@ -10587,7 +11058,10 @@ PsionicsList["pi4-phantom idea"] = {
 	duration: "4/24/48 h",
 	save: "Int",
 	description: "1 crea 3 saves if in range for full duration; implant memory lasting 4/24/48 h (1/2/3 failed saves)",
-	descriptionFull: "While you concentrate on this ability, you probe one creature's mind. The creature must remain within 30 feet of you, and you must be able to see it. If you reach the ability's full duration, the target must make three Intelligence saving throws, and you plant a memory or an idea in it, which lasts for a number of hours based on the number of saving throws it fails. You choose whether the idea or memory is trivial (such as “I had porridge for breakfast” or “Ale is the worst”) or personality-defining (“I failed to save my village from orc marauders and am therefore a coward” or “Magic is a scourge, so I renounce it”)." + "\n   " + "With one failed saving throw, the idea or memory lasts for the next 4 hours. With two failed saving throws, it lasts for 24 hours. With three failed saving throws, it lasts for 48 hours.",
+	descriptionFull: [
+		"While you concentrate on this ability, you probe one creature's mind. The creature must remain within 30 feet of you, and you must be able to see it. If you reach the ability's full duration, the target must make three Intelligence saving throws, and you plant a memory or an idea in it, which lasts for a number of hours based on the number of saving throws it fails. You choose whether the idea or memory is trivial (such as “I had porridge for breakfast” or “Ale is the worst”) or personality-defining (“I failed to save my village from orc marauders and am therefore a coward” or “Magic is a scourge, so I renounce it”).",
+		"With one failed saving throw, the idea or memory lasts for the next 4 hours. With two failed saving throws, it lasts for 24 hours. With three failed saving throws, it lasts for 48 hours.",
+	],
 	firstCol: 6,
 };
 //the psychic phantoms discipline (contributed by Justin W.)
@@ -10603,7 +11077,10 @@ PsionicsList["psychic phantoms-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain advantage on Charisma (Deception) checks",
-	descriptionFull: "Your power reaches into a creature's mind and causes it false perceptions." + PsychicFocus + "While focused on this discipline, you have advantage on Charisma (Deception) checks.",
+	descriptionFull: [
+		"Your power reaches into a creature's mind and causes it false perceptions.",
+		"***Psychic Focus***. While focused on this discipline, you have advantage on Charisma (Deception) checks.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["pp1-distracting figment", "pp2-phantom foe", "pp3-phantom betrayal", "pp4-phantom riches"],
 };
@@ -10676,7 +11153,10 @@ PsionicsList["telepathic contact-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "Use telepathy class feature with up to 6 crea; If no telepathy feature, gain telepathy 120 ft instead",
-	descriptionFull: "By channeling psionic power, you gain the ability to control other creatures by substituting your will for their own." + PsychicFocus + "While focused on this discipline, you gain the ability to use your Telepathy class feature with up to six creatures at once. If you don't have that feature from the mystic class, you instead gain it while focused on this discipline.",
+	descriptionFull: [
+		"By channeling psionic power, you gain the ability to control other creatures by substituting your will for their own.",
+		"***Psychic Focus***. While focused on this discipline, you gain the ability to use your Telepathy class feature with up to six creatures at once. If you don't have that feature from the mystic class, you instead gain it while focused on this discipline.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["tc1-exacting query", "tc2-occluded mind", "tc3-broken will", "tc4-psychic grip", "tc5-psychic domination"],
 };
@@ -10763,7 +11243,10 @@ PsionicsList["third eye-ua-psy"] = {
 	components: "Psi-F.",
 	duration: "While focused",
 	description: "I gain darkvision 60 ft; if already darkvision of 60 ft or more, increase range by 10 ft instead",
-	descriptionFull: "You create a third, psychic eye in your mind which you cast out into the world. It channels thoughts and knowledge back to you, greatly enhancing your senses." + PsychicFocus + "While focused on this discipline, you have darkvision with a range of 60 feet. If you already have darkvision with that range or greater, increase its range by 10 feet.",
+	descriptionFull: [
+		"You create a third, psychic eye in your mind which you cast out into the world. It channels thoughts and knowledge back to you, greatly enhancing your senses.",
+		"***Psychic Focus***. While focused on this discipline, you have darkvision with a range of 60 feet. If you already have darkvision with that range or greater, increase its range by 10 feet.",
+	],
 	firstCol: "checkbox",
 	dependencies: ["te1-tremorsense", "te2-unwavering eye", "te3-piercing sight", "te4-truesight"],
 };
@@ -11185,7 +11668,16 @@ SpellsList["ceremony-uass"] = {
 	compMaterial: "25 gp worth of powdered silver",
 	duration: "Instantaneous",
 	description: "Perform religious ceremony on target(s) that are within 10 ft throughout the casting; see book (25gp)",
-	descriptionFull: "You perform one of several religious ceremonies. When you cast the spell, choose one of the following ceremonies, the target of which must be within 10 feet of you throughout the casting." + "\n   ***Atonement***: You touch one willing creature whose alignment has changed, and you make a DC 20 Wisdom (Insight) check. On a success, you restore the target to its original alignment." + "\n   ***Bless Water***: You touch one vial of water and cause it to become holy water." + "\n   ***Coming of Age***: You touch one humanoid old enough to be a young adult. For the next 24 hours, whenever the target makes an ability check, it can roll a d4 and add the number rolled to the ability check. A creature can benefit from this ceremony just once." + "\n   ***Dedication***: You touch one humanoid who would willingly convert to your religion or who wishes to be dedicated to your god's service. For the next 24 hours, whenever the target makes a saving throw, it can roll a d4 and add the number rolled to the save. A creature can benefit from this ceremony just once." + "\n   ***Funeral Rite***: You bless one corpse within 5 feet of you. For the next 24 hours, the target can't become undead by any means short of a wish spell." + "\n   ***Investiture***: You touch one willing humanoid. Choose one 1st-level spell you have prepared and expend a spell slot and any material components as if you were casting that spell. The spell has no effect. Instead, the target can cast this spell once without having to expend a spell slot or use material components. If the target doesn't cast the spell within 1 hour, the invested spell is lost." + "\n   ***Marriage***: You touch adult humanoids willing to be bonded together in marriage. For the next 24 hours, each target gains a +2 bonus to AC and saving throws while they are within 30 feet of each other. A creature can benefit from this ceremony just once.",
+	descriptionFull: [
+		"You perform one of several religious ceremonies. When you cast the spell, choose one of the following ceremonies, the target of which must be within 10 feet of you throughout the casting.",
+		"***Atonement***: You touch one willing creature whose alignment has changed, and you make a DC 20 Wisdom (Insight) check. On a success, you restore the target to its original alignment.",
+		"***Bless Water***: You touch one vial of water and cause it to become holy water.",
+		"***Coming of Age***: You touch one humanoid old enough to be a young adult. For the next 24 hours, whenever the target makes an ability check, it can roll a d4 and add the number rolled to the ability check. A creature can benefit from this ceremony just once.",
+		"***Dedication***: You touch one humanoid who would willingly convert to your religion or who wishes to be dedicated to your god's service. For the next 24 hours, whenever the target makes a saving throw, it can roll a d4 and add the number rolled to the save. A creature can benefit from this ceremony just once.",
+		"***Funeral Rite***: You bless one corpse within 5 feet of you. For the next 24 hours, the target can't become undead by any means short of a *wish* spell.",
+		"***Investiture***: You touch one willing humanoid. Choose one 1st-level spell you have prepared and expend a spell slot and any material components as if you were casting that spell. The spell has no effect. Instead, the target can cast this spell once without having to expend a spell slot or use material components. If the target doesn't cast the spell within 1 hour, the invested spell is lost.",
+		"***Marriage***: You touch adult humanoids willing to be bonded together in marriage. For the next 24 hours, each target gains a +2 bonus to AC and saving throws while they are within 30 feet of each other. A creature can benefit from this ceremony just once.",
+	],
 };
 SpellsList["chaos bolt-uass"] = {
 	name: "Chaos Bolt",
@@ -11198,7 +11690,23 @@ SpellsList["chaos bolt-uass"] = {
 	components: "V,S",
 	duration: "Instantaneous",
 	description: "Spell atk 2d8+1d6/SL dmg, d8s set dmg type, see B; double on d8s: new atk vs. crea in 30 ft of target",
-	descriptionFull: "You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 damage. Choose one of the d8s. The number it rolled determines the type of damage, as shown below." + "\n\n**d8**\t**Damage Type**\n  1\tAcid" + "\n  2\tCold" + "\n  3\tFire" + "\n  4\tForce" + "\n  5\tLightning" + "\n  6\tPoison" + "\n  7\tPsychic" + "\n  8\tThunder" + "\n\n   " + "If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again." + "\n   " + "A creature can be targeted only once by this mass of chaotic energy." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, each target takes extra damage of the type rolled. The extra damage equals 1d6 for each slot level above 1st.",
+	descriptionFull: [
+		"You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 damage. Choose one of the d8s. The number it rolled determines the type of damage, as shown below.",
+		[
+			["d8", "Damage Type"],
+			["  1", "Acid"],
+			["  2", "Cold"],
+			["  3", "Fire"],
+			["  4", "Force"],
+			["  5", "Lightning"],
+			["  6", "Poison"],
+			["  7", "Psychic"],
+			["  8", "Thunder"],
+		],
+		"If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again.",
+		"A creature can be targeted only once by this mass of chaotic energy.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 2nd level or higher, each target takes extra damage of the type rolled. The extra damage equals 1d6 for each slot level above 1st.",
+	],
 };
 SpellsList["guiding hand-uass"] = {
 	name: "Guiding Hand",
@@ -11212,7 +11720,11 @@ SpellsList["guiding hand-uass"] = {
 	components: "V,S",
 	duration: "Conc, 8 h",
 	description: "Tiny incorporeal hand directs me to one major landmark I name that is on the same plane",
-	descriptionFull: "You create a Tiny incorporeal hand of shimmering light in an unoccupied space you can see within range. The hand exists for the duration, but it disappears if you teleport or you travel to a different plane of existence." + "\n   " + "When the hand appears, you name one major landmark, such as a city, mountain, castle, or battlefield on the same plane of existence as you. Someone in history must have visited the site and mapped it. If the landmark appears on no map in existence, the spell fails. Otherwise, whenever you move toward the hand, it moves away from you at the same speed you moved, and it moves in the direction of the landmark, always remaining 5 feet away from you." + "\n   " + "If you don't move toward the hand, it remains in place until you do and beckons for you to follow once every 1d4 minutes.",
+	descriptionFull: [
+		"You create a Tiny incorporeal hand of shimmering light in an unoccupied space you can see within range. The hand exists for the duration, but it disappears if you teleport or you travel to a different plane of existence.",
+		"When the hand appears, you name one major landmark, such as a city, mountain, castle, or battlefield on the same plane of existence as you. Someone in history must have visited the site and mapped it. If the landmark appears on no map in existence, the spell fails. Otherwise, whenever you move toward the hand, it moves away from you at the same speed you moved, and it moves in the direction of the landmark, always remaining 5 feet away from you.",
+		"If you don't move toward the hand, it remains in place until you do and beckons for you to follow once every 1d4 minutes.",
+	],
 };
 SpellsList["hand of radiance-uass"] = {
 	name: "Hand of Radiance",
@@ -11227,7 +11739,10 @@ SpellsList["hand of radiance-uass"] = {
 	save: "Con",
 	description: "Any creatures I can see in 5-ft radius save or 1d6 Radiant damage; +1d6 damage at CL 5, 11, and 17",
 	descriptionCantripDie: "Any creatures I can see in 5-ft radius save or `CD`d6 Radiant damage",
-	descriptionFull: "You raise your hand, and burning radiance erupts from it. Each creature of your choice that you can see within 5 feet of you must succeed on a Constitution saving throw or take 1d6 radiant damage." + "\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+	descriptionFull: [
+		"You raise your hand, and burning radiance erupts from it. Each creature of your choice that you can see within 5 feet of you must succeed on a Constitution saving throw or take 1d6 radiant damage.",
+		"The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+	],
 };
 SpellsList["healing elixir-uass"] = {
 	name: "Healing Elixir",
@@ -11242,7 +11757,10 @@ SpellsList["healing elixir-uass"] = {
 	duration: "24 h",
 	description: "Make vial with alchemist's supplies; heals 2d4+2 HP as an action; if not used, disappears after 24 h",
 	descriptionShorter: "Make vial with alchemist's supplies; 1 a to heal 2d4+2 HP; if not used, disappears after 24 h",
-	descriptionFull: "You create a healing elixir in a simple vial that appears in your hand. The elixir retains its potency for the duration or until it's consumed, at which point the vial vanishes." + "\n   " + "As an action, a creature can drink the elixir or administer it to another creature. The drinker regains 2d4 + 2 hit points.",
+	descriptionFull: [
+		"You create a healing elixir in a simple vial that appears in your hand. The elixir retains its potency for the duration or until it's consumed, at which point the vial vanishes.",
+		"As an action, a creature can drink the elixir or administer it to another creature. The drinker regains 2d4 + 2 hit points.",
+	],
 };
 SpellsList["infestation-uass"] = {
 	name: "Infestation",
@@ -11258,7 +11776,21 @@ SpellsList["infestation-uass"] = {
 	save: "Con",
 	description: "1 crea save or 1d6 Piercing damage and moved 5 ft in random direction; +1d6 at CL 5, 11, and 17",
 	descriptionCantripDie: "1 crea save or `CD`d6 Piercing damage and moved 5 ft in random direction",
-	descriptionFull: "You cause mites, fleas, and other parasites to appear momentarily on one creature you can see within range. The target must succeed on a Constitution saving throw or take 1d6 piercing damage. If the target takes any of that damage, the target moves 5 feet in a random direction. Roll a d8 for the direction:" + "\n\n**d8**\t**Direction**\n  1\tNorth" + "\n  2\tNortheast" + "\n  3\tEast" + "\n  4\tSoutheast" + "\n  5\tSouth" + "\n  6\tSouthwest" + "\n  7\tWest" + "\n  8\tNorthwest" + "\n\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+	descriptionFull: [
+		"You cause mites, fleas, and other parasites to appear momentarily on one creature you can see within range. The target must succeed on a Constitution saving throw or take 1d6 piercing damage. If the target takes any of that damage, the target moves 5 feet in a random direction. Roll a d8 for the direction:",
+		[
+			["d8", "Direction"],
+			["  1", "North"],
+			["  2", "Northeast"],
+			["  3", "East"],
+			["  4", "Southeast"],
+			["  5", "South"],
+			["  6", "Southwest"],
+			["  7", "West"],
+			["  8", "Northwest"],
+		],
+		"The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+	],
 };
 SpellsList["primal savagery-uass"] = {
 	name: "Primal Savagery",
@@ -11272,7 +11804,10 @@ SpellsList["primal savagery-uass"] = {
 	duration: "Instantaneous",
 	description: "Melee spell attack deals 1d10 Piercing or Slashing dmg (my choice); +1d10 at CL 5, 11, and 17",
 	description: "Melee spell attack deals `CD`d10 Piercing or Slashing dmg (my choice)",
-	descriptionFull: "Your teeth or fingernails lengthen and sharpen. You choose which. Make a melee spell attack against one creature within 5 feet of you. On a hit, the target takes 1d10 piercing or slashing damage (your choice). After you make the attack, your teeth or fingernails return to normal." + "\n   " + "The spell's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).",
+	descriptionFull: [
+		"Your teeth or fingernails lengthen and sharpen. You choose which. Make a melee spell attack against one creature within 5 feet of you. On a hit, the target takes 1d10 piercing or slashing damage (your choice). After you make the attack, your teeth or fingernails return to normal.",
+		"The spell's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).",
+	],
 };
 SpellsList["puppet-uass"] = {
 	name: "Puppet",
@@ -11315,7 +11850,12 @@ SpellsList["snare-uass"] = {
 	save: "Dex",
 	description: "5-ft rad magical trap; Int (Inv) to see; save or restrained upside down 3 ft in the air; save/rnd at dis",
 	descriptionMetric: "1,5m rad magical trap; Int (Inv) to see; save or restrained upside down 90cm in the air; save/rnd at dis",
-	descriptionFull: "While you cast this spell, you use the cord or rope to create a circle with a 5-foot radius on a flat surface within your reach. When you finish casting, the cord or rope disappears to become a magical trap." + "\n   " + "The trap is nearly invisible and requires a successful Intelligence (Investigation) check against your spell save DC to be found." + "\n   " + "The trap triggers when a Small creature or larger moves into the area protected by the spell. The triggering creature must succeed on a Dexterity saving throw or fall prone and be hoisted into the air until it hangs upside down 3 feet above the protected surface, where it is restrained." + "\n   " + "The restrained creature can make a Dexterity saving throw with disadvantage at the end of each of its turns and ends the restrained effect on a success. Alternatively, another creature that can reach the restrained creature can use an action to make an Intelligence (Arcana) check against your spell save DC. On a success, the restrained effect also ends.",
+	descriptionFull: [
+		"While you cast this spell, you use the cord or rope to create a circle with a 5-foot radius on a flat surface within your reach. When you finish casting, the cord or rope disappears to become a magical trap.",
+		"The trap is nearly invisible and requires a successful Intelligence (Investigation) check against your spell save DC to be found.",
+		"The trap triggers when a Small creature or larger moves into the area protected by the spell. The triggering creature must succeed on a Dexterity saving throw or fall prone and be hoisted into the air until it hangs upside down 3 feet above the protected surface, where it is restrained.",
+		"The restrained creature can make a Dexterity saving throw with disadvantage at the end of each of its turns and ends the restrained effect on a success. Alternatively, another creature that can reach the restrained creature can use an action to make an Intelligence (Arcana) check against your spell save DC. On a success, the restrained effect also ends.",
+	],
 };
 SpellsList["sudden awakening-uass"] = {
 	name: "Sudden Awakening",
@@ -11342,7 +11882,10 @@ SpellsList["unearthly chorus-uass"] = {
 	duration: "Conc, 10 min",
 	save: "Cha",
 	description: "Use bns a to make 1 crea in range save or be friendly for 1 h; I adv on Cha (Performance) checks",
-	descriptionFull: "Music of a style you choose fills the air around you in a 30-foot radius. The music spreads around corners and can be heard from up to 100 feet away. The music moves with you, centered on you for the duration." + "\n   " + "Until the spell ends, you make Charisma (Performance) checks with advantage. In addition, you can use a bonus action on each of your turns to beguile one creature you choose within 30 feet of you that can see you and hear the music. The creature must make a Charisma saving throw. If you or your companions are attacking it, the creature automatically succeeds on the saving throw. On a failure, the creature becomes friendly to you for as long as it can hear the music and for 1 hour thereafter. You make Charisma (Deception) checks and Charisma (Persuasion) checks against creatures made friendly by this spell with advantage.",
+	descriptionFull: [
+		"Music of a style you choose fills the air around you in a 30-foot radius. The music spreads around corners and can be heard from up to 100 feet away. The music moves with you, centered on you for the duration.",
+		"Until the spell ends, you make Charisma (Performance) checks with advantage. In addition, you can use a bonus action on each of your turns to beguile one creature you choose within 30 feet of you that can see you and hear the music. The creature must make a Charisma saving throw. If you or your companions are attacking it, the creature automatically succeeds on the saving throw. On a failure, the creature becomes friendly to you for as long as it can hear the music and for 1 hour thereafter. You make Charisma (Deception) checks and Charisma (Persuasion) checks against creatures made friendly by this spell with advantage.",
+	],
 };
 SpellsList["virtue-uass"] = {
 	name: "Virtue",
@@ -11369,7 +11912,15 @@ SpellsList["wild cunning-uass"] = {
 	components: "V,S",
 	duration: "Instantaneous",
 	description: "Call spirits of nature to aid me with finding food, drink, tracks, shelter, or camping; see book",
-	descriptionFull: "You call out to the spirits of nature to aid you. When you cast this spell, choose one of the following effects:" + "\n  \u2022 " + "If there are any tracks on the ground within range, you know where they are, and you make Wisdom (Survival) checks to follow these tracks with advantage for 1 hour or until you cast this spell again." + "\n  \u2022 " + "If there is edible forage within range, you know it and where to find it." + "\n  \u2022 " + "If there is clean drinking water within range, you know it and where to find it." + "\n  \u2022 " + "If there is suitable shelter for you and your companions with range, you know it and where to find." + "\n  \u2022 " + "Send the spirits to bring back wood for a fire and to set up a campsite in the area using your supplies. The spirits build the fire in a circle of stones, put up tents, unroll bedrolls, and put out any rations and water for consumption." + "\n  \u2022 " + "Have the spirits instantly break down a campsite, which includes putting out a fire, taking down tents, packing up bags, and burying any rubbish.",
+	descriptionFull: [
+		"You call out to the spirits of nature to aid you. When you cast this spell, choose one of the following effects:",
+		" \u2022 If there are any tracks on the ground within range, you know where they are, and you make Wisdom (Survival) checks to follow these tracks with advantage for 1 hour or until you cast this spell again.",
+		" \u2022 If there is edible forage within range, you know it and where to find it.",
+		" \u2022 If there is clean drinking water within range, you know it and where to find it.",
+		" \u2022 If there is suitable shelter for you and your companions with range, you know it and where to find.",
+		" \u2022 Send the spirits to bring back wood for a fire and to set up a campsite in the area using your supplies. The spirits build the fire in a circle of stones, put up tents, unroll bedrolls, and put out any rations and water for consumption.",
+		" \u2022 Have the spirits instantly break down a campsite, which includes putting out a fire, taking down tents, packing up bags, and burying any rubbish.",
+	],
 };
 SpellsList["zephyr strike-uass"] = { // clarification: https://twitter.com/JeremyECrawford/status/849302527069884416
 	name: "Zephyr Strike",
@@ -11382,7 +11933,10 @@ SpellsList["zephyr strike-uass"] = { // clarification: https://twitter.com/Jerem
 	components: "V",
 	duration: "Conc, 1 min",
 	description: "Moving doesn't provoke opportunity atks; next wea atk has adv and gives +30 ft speed for that turn",
-	descriptionFull: "You move like the wind. For the duration, your movement doesn't provoke opportunity attacks." + "\n   " + "In addition, the first time you make a weapon attack on your turn before the spell ends, you make the attack roll with advantage, and your speed increases by 30 feet until the end of that turn.",
+	descriptionFull: [
+		"You move like the wind. For the duration, your movement doesn't provoke opportunity attacks.",
+		"In addition, the first time you make a weapon attack on your turn before the spell ends, you make the attack roll with advantage, and your speed increases by 30 feet until the end of that turn.",
+	],
 };
 
 // Weapons (attack cantrips)
@@ -11441,7 +11995,12 @@ SourceList["UA:FS"] = {
 FeatsList["acrobat-ua"] = {
 	name: "Acrobat",
 	source: [["UA:FS", 1]],
-	descriptionFull: "You become more nimble, gaining the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Acrobatics skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 As a bonus action, you can make a DC 15 Dexterity (Acrobatics) check. If you succeed, difficult terrain doesn't cost you extra movement until the end of the current turn.",
+	descriptionFull: [
+		"You become more nimble, gaining the following benefits:",
+		" \u2022 Increase your Dexterity score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in the Acrobatics skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 As a bonus action, you can make a DC 15 Dexterity (Acrobatics) check. If you succeed, difficult terrain doesn't cost you extra movement until the end of the current turn.",
+	],
 	description: "I gain expertise with Acrobatics, or proficiency if not so already. As a bonus action, I can make a DC 15 Dexterity (Acrobatics) check to have difficult terrain not cost me extra movement for this turn. [+1 Dexterity]",
 	scores: [0, 1, 0, 0, 0, 0],
 	skills: [["Acrobatics", "increment"]],
@@ -11450,7 +12009,12 @@ FeatsList["acrobat-ua"] = {
 FeatsList["animal handler-ua"] = {
 	name: "Animal Handler",
 	source: [["UA:FS", 1]],
-	descriptionFull: "You master the techniques needed to train and handle animals. You gain the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Animal Handling skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You can use a bonus action on your turn to command one friendly beast within 60 feet of you that can hear you and that isn't currently following the command of someone else. You decide now what action the beast will take and where it will move during its next turn, or you issue a general command that lasts for 1 minute, such as to guard a particular area.",
+	descriptionFull: [
+		"You master the techniques needed to train and handle animals. You gain the following benefits:",
+		" \u2022 Increase your Wisdom score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in the Animal Handling skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 You can use a bonus action on your turn to command one friendly beast within 60 feet of you that can hear you and that isn't currently following the command of someone else. You decide now what action the beast will take and where it will move during its next turn, or you issue a general command that lasts for 1 minute, such as to guard a particular area.",
+	],
 	description: "I gain expertise with Animal Handling, or proficiency if not so already. As a bonus action, I can command a friendly beast not under another's command within 60 ft. If it hears me, I decide its next turn or give a general command lasting for 1 minute. [+1 Wisdom]",
 	scores: [0, 0, 0, 0, 1, 0],
 	skills: [["Animal Handling", "increment"]],
@@ -11459,8 +12023,13 @@ FeatsList["animal handler-ua"] = {
 FeatsList["arcanist-ua"] = {
 	name: "Arcanist",
 	source: [["UA:FS", 1]],
-	descriptionFull: "You study the arcane arts, gaining the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Arcana skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You learn the Prestidigitation and Detect Magic spells. You can cast detect magic once without expending a spell slot, and you regain the ability to do so when you finish a long rest.",
-	description: "I gain expertise with Arcana, or proficiency if not so already. I learn the Prestidigitation cantrip. I can cast Detect Magic without using a spell slot. Once I do so, I can't do it again until I finish a long rest. [+1 Intelligence]",
+	descriptionFull: [
+		"You study the arcane arts, gaining the following benefits:",
+		" \u2022 Increase your Intelligence score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in the Arcana skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 You learn the *Prestidigitation* and *Detect Magic* spells. You can cast *detect magic* once without expending a spell slot, and you regain the ability to do so when you finish a long rest.",
+	],
+	description: "I gain expertise with Arcana, or proficiency if not so already. I learn the *Prestidigitation* cantrip. I can cast *Detect Magic* without using a spell slot. Once I do so, I can't do it again until I finish a long rest. [+1 Intelligence]",
 	scores: [0, 0, 0, 1, 0, 0],
 	skills: [["Arcana", "increment"]],
 	spellcastingBonus: [{
@@ -11478,7 +12047,12 @@ FeatsList["arcanist-ua"] = {
 FeatsList["brawny-ua"] = {
 	name: "Brawny",
 	source: [["UA:FS", 1]],
-	descriptionFull: "You become stronger, gaining the following benefits:\n \u2022 Increase your Strength score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Athletics skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You count as if you were one size larger for the purpose of determining your carrying capacity.",
+	descriptionFull: [
+		"You become stronger, gaining the following benefits:",
+		" \u2022 Increase your Strength score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in the Athletics skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 You count as if you were one size larger for the purpose of determining your carrying capacity.",
+	],
 	description: "I gain expertise with Athletics, or proficiency if not so already. I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift. [+1 Strength]",
 	scores: [1, 0, 0, 0, 0, 0],
 	skills: [["Athletics", "increment"]],
@@ -11487,7 +12061,12 @@ FeatsList["brawny-ua"] = {
 FeatsList["diplomat-ua"] = {
 	name: "Diplomat",
 	source: [["UA:FS", 2]],
-	descriptionFull: "You master the arts of diplomacy, gaining the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Persuasion skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 If you spend 1 minute talking to someone who can understand what you say, you can make a Charisma (Persuasion) check contested by the creature's Wisdom (Insight) check. If you or your companions are fighting the creature, your check automatically fails. If your check succeeds, the target is charmed by you as long as it remains within 60 feet of you and for 1 minute thereafter.",
+	descriptionFull: [
+		"You master the arts of diplomacy, gaining the following benefits:",
+		" \u2022 Increase your Charisma score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in the Persuasion skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 If you spend 1 minute talking to someone who can understand what you say, you can make a Charisma (Persuasion) check contested by the creature's Wisdom (Insight) check. If you or your companions are fighting the creature, your check automatically fails. If your check succeeds, the target is charmed by you as long as it remains within 60 feet of you and for 1 minute thereafter.",
+	],
 	description: "I gain expertise with Persuasion, or proficiency if not so already. With a one minute long conversation outside of combat, I can make a Persuasion vs. its Insight. If successful, it is charmed by me as long as it remains within 60 ft and 1 minute after that [+1 Charisma]",
 	scores: [0, 0, 0, 0, 0, 1],
 	skills: [["Persuasion", "increment"]],
@@ -11495,7 +12074,12 @@ FeatsList["diplomat-ua"] = {
 FeatsList["empathic-ua"] = {
 	name: "Empathic",
 	source: [["UA:FS", 2]],
-	descriptionFull: "You possess keen insight into how other people think and feel. You gain the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Insight skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You can use your action to try to get uncanny insight about one humanoid you can see within 30 feet of you. Make a Wisdom (Insight) check contested by the target's Charisma (Deception) check. If your check succeeds, you have advantage on attack rolls and ability checks against the target until the end of your next turn.",
+	descriptionFull: [
+		"You possess keen insight into how other people think and feel. You gain the following benefits:",
+		" \u2022 Increase your Wisdom score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in the Insight skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 You can use your action to try to get uncanny insight about one humanoid you can see within 30 feet of you. Make a Wisdom (Insight) check contested by the target's Charisma (Deception) check. If your check succeeds, you have advantage on attack rolls and ability checks against the target until the end of your next turn.",
+	],
 	description: "I gain expertise with Insight, or proficiency if not so already. As an action, a humanoid within 30 ft I can see must make its Deception vs. my Insight or I gain advantage on attacks and ability checks against it until the end of my next turn. [+1 Wisdom]",
 	scores: [0, 0, 0, 0, 1, 0],
 	skills: [["Insight", "increment"]],
@@ -11503,7 +12087,12 @@ FeatsList["empathic-ua"] = {
 FeatsList["historian-ua"] = {
 	name: "Historian",
 	source: [["UA:FS", 2]],
-	descriptionFull: "Your study of history rewards you with the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the History skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 When you take the Help action to aid another creature's ability check, you can make a DC 15 Intelligence (History) check. On a success, that creature's check gains a bonus equal to your proficiency bonus, as you share pertinent advice and historical examples. To receive this bonus, the creature must be able to understand what you're saying.",
+	descriptionFull: [
+		"Your study of history rewards you with the following benefits:",
+		" \u2022 Increase your Intelligence score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in the History skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 When you take the Help action to aid another creature's ability check, you can make a DC 15 Intelligence (History) check. On a success, that creature's check gains a bonus equal to your proficiency bonus, as you share pertinent advice and historical examples. To receive this bonus, the creature must be able to understand what you're saying.",
+	],
 	description: "I gain expertise with History, or proficiency if not so already. When I use the Help action to help a creature that can understand me with an ability check, I can make a DC 15 Int (History) check to give a bonus equal to my proficiency bonus. [+1 Intelligence]",
 	scores: [0, 0, 0, 1, 0, 0],
 	skills: [["History", "increment"]],
@@ -11512,7 +12101,12 @@ FeatsList["historian-ua"] = {
 FeatsList["investigator-ua"] = {
 	name: "Investigator",
 	source: [["UA:FS", 2]],
-	descriptionFull: "You have an eye for detail and can pick out the smallest clues. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Investigation skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You can take the Search action as a bonus action.",
+	descriptionFull: [
+		"You have an eye for detail and can pick out the smallest clues. You gain the following benefits:",
+		" \u2022 Increase your Intelligence score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in the Investigation skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 You can take the Search action as a bonus action.",
+	],
 	description: "I gain expertise with Investigation, or proficiency if not so already. As a bonus action, I can take the Search action. [+1 Intelligence]",
 	scores: [0, 0, 0, 1, 0, 0],
 	skills: [["Investigation", "increment"]],
@@ -11521,7 +12115,12 @@ FeatsList["investigator-ua"] = {
 FeatsList["medic-ua"] = {
 	name: "Medic",
 	source: [["UA:FS", 2]],
-	descriptionFull: "You master the physician's arts, gaining the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Medicine skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 During a short rest, you can clean and bind the wounds of up to six willing beasts and humanoids. Make a DC 15 Wisdom (Medicine) check for each creature. On a success, if a creature spends a Hit Die during this rest, that creature can forgo the roll and instead regain the maximum number of hit points the die can restore. A creature can do so only once per rest, regardless of how many Hit Dice it spends.",
+	descriptionFull: [
+		"You master the physician's arts, gaining the following benefits:",
+		" \u2022 Increase your Wisdom score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in the Medicine skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 During a short rest, you can clean and bind the wounds of up to six willing beasts and humanoids. Make a DC 15 Wisdom (Medicine) check for each creature. On a success, if a creature spends a Hit Die during this rest, that creature can forgo the roll and instead regain the maximum number of hit points the die can restore. A creature can do so only once per rest, regardless of how many Hit Dice it spends.",
+	],
 	description: "I gain expertise with Medicine, or proficiency if not so already. During a short rest, I can attend to the wounds of up to 6 creatures. With a DC 15 Wis (Medicine) check for each creature, that target gets the maximum result on one of its HD that it uses. [+1 Wisdom]",
 	scores: [0, 0, 0, 0, 1, 0],
 	skills: [["Medicine", "increment"]],
@@ -11529,7 +12128,12 @@ FeatsList["medic-ua"] = {
 FeatsList["menacing-ua"] = {
 	name: "Menacing",
 	source: [["UA:FS", 2]],
-	descriptionFull: "You become fearsome to others, gaining the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Intimidation skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 When you take the Attack action on your turn, you can replace one attack with an attempt to demoralize one humanoid you can see within 30 feet of you that can see and hear you. Make a Charisma (Intimidation) check contested by the target's Wisdom (Insight) check. If your check succeeds, the target is frightened until the end of your next turn. If your check fails, the target can't be frightened by you in this way for 1 hour.",
+	descriptionFull: [
+		"You become fearsome to others, gaining the following benefits:",
+		" \u2022 Increase your Charisma score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in the Intimidation skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 When you take the Attack action on your turn, you can replace one attack with an attempt to demoralize one humanoid you can see within 30 feet of you that can see and hear you. Make a Charisma (Intimidation) check contested by the target's Wisdom (Insight) check. If your check succeeds, the target is frightened until the end of your next turn. If your check fails, the target can't be frightened by you in this way for 1 hour.",
+	],
 	description: "I gain expertise with Intimidation, or proficiency if not so already. Instead of 1 attack in my Attack action, a humanoid within 30 ft I can see and that can see and hear me must make its Insight vs. my Intimidation or be frightened until end of my next turn. [+1 Cha]",
 	scores: [0, 0, 0, 0, 0, 1],
 	skills: [["Intimidation", "increment"]],
@@ -11537,8 +12141,13 @@ FeatsList["menacing-ua"] = {
 FeatsList["naturalist-ua"] = {
 	name: "Naturalist",
 	source: [["UA:FS", 3]],
-	descriptionFull: "Your extensive study of nature rewards you with the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Nature skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You learn the Druidcraft and Detect Poison and Disease spells. You can cast Detect Poison and Disease once without expending a spell slot, and you regain the ability to do so when you finish a long rest.",
-	description: "I gain expertise with Nature, or proficiency if not so already. I learn the Druidcraft cantrip. I can cast Detect Poison and Disease without using a spell slot. Once I do so, I can't do it again until I finish a long rest. [+1 Intelligence]",
+	descriptionFull: [
+		"Your extensive study of nature rewards you with the following benefits:",
+		" \u2022 Increase your Intelligence score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in the Nature skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 You learn the *Druidcraft* and *Detect Poison and Disease* spells. You can cast *Detect Poison and Disease* once without expending a spell slot, and you regain the ability to do so when you finish a long rest.",
+	],
+	description: "I gain expertise with Nature, or proficiency if not so already. I learn the *Druidcraft* cantrip. I can cast *Detect Poison and Disease* without using a spell slot. Once I do so, I can't do it again until I finish a long rest. [+1 Intelligence]",
 	scores: [0, 0, 0, 1, 0, 0],
 	skills: [["Nature", "increment"]],
 	spellcastingBonus: [{
@@ -11556,7 +12165,12 @@ FeatsList["naturalist-ua"] = {
 FeatsList["perceptive-ua"] = {
 	name: "Perceptive",
 	source: [["UA:FS", 3]],
-	descriptionFull: "You hone your senses until they become razor sharp. You gain the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Perception skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 Being in a lightly obscured area doesn't impose disadvantage on your Wisdom (Perception) checks if you can both see and hear.",
+	descriptionFull: [
+		"You hone your senses until they become razor sharp. You gain the following benefits:",
+		" \u2022 Increase your Wisdom score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in the Perception skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 Being in a lightly obscured area doesn't impose disadvantage on your Wisdom (Perception) checks if you can both see and hear.",
+	],
 	description: "I gain expertise with Perception, or proficiency if not so already. I don't have disadvantage on my Perception checks from being in a lightly obscured area (dim light), provided that I can still both see and hear. [+1 Wisdom]",
 	scores: [0, 0, 0, 0, 1, 0],
 	skills: [["Perception", "increment"]],
@@ -11565,7 +12179,12 @@ FeatsList["perceptive-ua"] = {
 FeatsList["performer-ua"] = {
 	name: "Performer",
 	source: [["UA:FS", 3]],
-	descriptionFull: "You master performance so that you can command any stage. You gain the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Performance skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 While performing, you can try to distract one humanoid you can see who can see and hear you. Make a Charisma (Performance) check contested by the humanoid's Wisdom (Insight) check. If your check succeeds, you grab the humanoid's attention enough that it makes Wisdom (Perception) and Intelligence (Investigation) checks with disadvantage until you stop performing.",
+	descriptionFull: [
+		"You master performance so that you can command any stage. You gain the following benefits:",
+		" \u2022 Increase your Charisma score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in the Performance skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 While performing, you can try to distract one humanoid you can see who can see and hear you. Make a Charisma (Performance) check contested by the humanoid's Wisdom (Insight) check. If your check succeeds, you grab the humanoid's attention enough that it makes Wisdom (Perception) and Intelligence (Investigation) checks with disadvantage until you stop performing.",
+	],
 	description: "I gain expertise with Performance, or proficiency if not so already. While performing, I can distract one humanoid. It must make its Insight vs. my Performance or have disadv. on its Perception and Investigation checks until I stop performing. [+1 Charisma]",
 	scores: [0, 0, 0, 0, 0, 1],
 	skills: [["Performance", "increment"]],
@@ -11573,7 +12192,12 @@ FeatsList["performer-ua"] = {
 FeatsList["quick-fingered-ua"] = {
 	name: "Quick-Fingered",
 	source: [["UA:FS", 3]],
-	descriptionFull: "Your nimble fingers and agility let you perform sleight of hand. You gain the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Sleight of Hand skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 As a bonus action, you can make a Dexterity (Sleight of Hand) check to plant something on someone else, conceal an object on a creature, lift a purse, or take something from a pocket.",
+	descriptionFull: [
+		"Your nimble fingers and agility let you perform sleight of hand. You gain the following benefits:",
+		" \u2022 Increase your Dexterity score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in the Sleight of Hand skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 As a bonus action, you can make a Dexterity (Sleight of Hand) check to plant something on someone else, conceal an object on a creature, lift a purse, or take something from a pocket.",
+	],
 	description: "I gain expertise with Sleight of Hand, or proficiency if not so already. As a bonus action, I can make a Dexterity (Sleight of Hand) check to plant something on someone else, conceal an object on a creature, lift a purse, or take something from a pocket. [+1 Dexterity]",
 	scores: [0, 1, 0, 0, 0, 0],
 	skills: [["Sleight of Hand", "increment"]],
@@ -11582,7 +12206,12 @@ FeatsList["quick-fingered-ua"] = {
 FeatsList["silver-tongued-ua"] = {
 	name: "Silver-Tongued",
 	source: [["UA:FS", 3]],
-	descriptionFull: "You develop your conversational skill to better deceive others. You gain the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Deception skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 When you take the Attack action on your turn, you can replace one attack with an attempt to deceive one humanoid you can see within 30 feet of you that can see and hear you. Make a Charisma (Deception) check contested by the target's Wisdom (Insight) check. If your check succeeds, your movement doesn't provoke opportunity attacks from the target and your attack rolls against it have advantage; both benefits last until the end of your next turn or until you use this ability on a different target. If your check fails, the target can't be deceived by you in this way for 1 hour.",
+	descriptionFull: [
+		"You develop your conversational skill to better deceive others. You gain the following benefits:",
+		" \u2022 Increase your Charisma score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in the Deception skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 When you take the Attack action on your turn, you can replace one attack with an attempt to deceive one humanoid you can see within 30 feet of you that can see and hear you. Make a Charisma (Deception) check contested by the target's Wisdom (Insight) check. If your check succeeds, your movement doesn't provoke opportunity attacks from the target and your attack rolls against it have advantage; both benefits last until the end of your next turn or until you use this ability on a different target. If your check fails, the target can't be deceived by you in this way for 1 hour.",
+	],
 	description: "I gain expertise with Deception, or proficiency if not so already. Instead of 1 attack in my Attack action, a humanoid within 30 ft makes its Insight vs. my Deception or until end of my next turn, I gain adv. on attacks and don't provoke its opportunity attacks. [+1 Cha]",
 	scores: [0, 0, 0, 0, 0, 1],
 	skills: [["Deception", "increment"]],
@@ -11590,7 +12219,12 @@ FeatsList["silver-tongued-ua"] = {
 FeatsList["stealthy-ua"] = {
 	name: "Stealthy",
 	source: [["UA:FS", 4]],
-	descriptionFull: "You know how best to hide. You gain the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Stealth skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 If you are hidden, you can move up to 10 feet in the open without revealing yourself if you end the move in a position where you're not clearly visible.",
+	descriptionFull: [
+		"You know how best to hide. You gain the following benefits:",
+		" \u2022 Increase your Dexterity score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in the Stealth skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 If you are hidden, you can move up to 10 feet in the open without revealing yourself if you end the move in a position where you're not clearly visible.",
+	],
 	description: "I gain expertise with Stealth, or proficiency if not so already. When I'm hidden, I can move 10 ft to another position without revealing myself, provided that I won't be clearly visible in this new position either. [+1 Dexterity]",
 	scores: [0, 1, 0, 0, 0, 0],
 	skills: [["Stealth", "increment"]],
@@ -11598,8 +12232,13 @@ FeatsList["stealthy-ua"] = {
 FeatsList["survivalist-ua"] = {
 	name: "Survivalist",
 	source: [["UA:FS", 4]],
-	descriptionFull: "You master wilderness lore, gaining the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Survival skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You learn the Alarm spell. You can cast it once without expending a spell slot, and you regain the ability to do so when you finish a long rest.",
-	description: "I gain expertise with Survival, or proficiency if not so already. I can cast Alarm without using a spell slot. Once I do so, I can't do it again until I finish a long rest. [+1 Wisdom]",
+	descriptionFull: [
+		"You master wilderness lore, gaining the following benefits:",
+		" \u2022 Increase your Wisdom score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in the Survival skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 You learn the *Alarm* spell. You can cast it once without expending a spell slot, and you regain the ability to do so when you finish a long rest.",
+	],
+	description: "I gain expertise with Survival, or proficiency if not so already. I can cast *Alarm* without using a spell slot. Once I do so, I can't do it again until I finish a long rest. [+1 Wisdom]",
 	scores: [0, 0, 0, 0, 1, 0],
 	skills: [["Survival", "increment"]],
 	spellcastingBonus: [{
@@ -11613,8 +12252,13 @@ FeatsList["survivalist-ua"] = {
 FeatsList["theologian-ua"] = {
 	name: "Theologian",
 	source: [["UA:FS", 4]],
-	descriptionFull: "Your extensive study of religion rewards you with the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency in the Religion skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You learn the Thaumaturgy and Detect Evil and Good spells. You can cast Detect Evil and Good once without expending a spell slot, and you regain the ability to do so when you finish a long rest.",
-	description: "I gain expertise with Religion, or proficiency if not so already. I learn the Thaumaturgy cantrip. I can cast Detect Evil and Good without using a spell slot. Once I do so, I can't do it again until I finish a long rest. [+1 Intelligence]",
+	descriptionFull: [
+		"Your extensive study of religion rewards you with the following benefits:",
+		" \u2022 Increase your Intelligence score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in the Religion skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 You learn the *Thaumaturgy* and *Detect Evil and Good* spells. You can cast *Detect Evil and Good* once without expending a spell slot, and you regain the ability to do so when you finish a long rest.",
+	],
+	description: "I gain expertise with Religion, or proficiency if not so already. I learn the *Thaumaturgy* cantrip. I can cast *Detect Evil and Good* without using a spell slot. Once I do so, I can't do it again until I finish a long rest. [+1 Intelligence]",
 	scores: [0, 0, 0, 1, 0, 0],
 	skills: [["Religion", "increment"]],
 	spellcastingBonus: [{
@@ -11648,7 +12292,12 @@ FeatsList["barbed hide-ua"] = {
 	source: [["UA:FR", 1]],
 	prerequisite: "Being a Tiefling",
 	prereqeval: function (v) { return CurrentRace.known.indexOf("tiefling") !== -1; },
-	descriptionFull: "One of your ancestors was a barbed devil or other spiky fiend. Barbs protrude from your head. You gain the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 As a bonus action, you can cause small barbs to protrude all over your body or cause them to retract. At the start of each of your turns while the barbs are out, you deal 1d6 piercing damage to any creature grappling you or any creature grappled by you.\n \u2022 You gain proficiency in the Intimidation skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+	descriptionFull: [
+		"One of your ancestors was a barbed devil or other spiky fiend. Barbs protrude from your head. You gain the following benefits:",
+		" \u2022 Increase your Charisma score by 1, to a maximum of 20.",
+		" \u2022 As a bonus action, you can cause small barbs to protrude all over your body or cause them to retract. At the start of each of your turns while the barbs are out, you deal 1d6 piercing damage to any creature grappling you or any creature grappled by you.",
+		" \u2022 You gain proficiency in the Intimidation skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+	],
 	description: "I gain expertise with Intimidation, or proficiency if not so already. As a bonus action, I can protrude/retract small barbs from my skin. With them out, at the start of each of my turns I deal 1d6 piercing damage to any I'm grappling or are grappling me. [+1 Cha]",
 	scores: [0, 0, 0, 0, 0, 1],
 	skills: [["Intimidation", "increment"]],
@@ -11668,8 +12317,12 @@ FeatsList["critter friend-ua"] = {
 	source: [["UA:FR", 1]],
 	prerequisite: "Being a Forest Gnome",
 	prereqeval: function (v) { return CurrentRace.known.indexOf("forest gnome") !== -1; },
-	descriptionFull: "Your friendship with animals mystically deepens. You gain the following benefits:\n \u2022 You gain proficiency in the Animal Handling skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.\n \u2022 You learn the Speak with Animals spell and can cast it at will, without expending a spell slot. You also learn the Animal Friendship spell, and you can cast it once with this feat, without expending a spell slot. You regain the ability to cast it in this way when you finish a long rest. Intelligence is your spellcasting ability for these spells.",
-	description: "I gain expertise with Animal Handling, or proficiency if I didn't have that already. I can cast Speak With Animals and Animal Friendship without using a spell slot. I can cast each of these spells like this once per long rest. Intelligence is my spellcasting ability for these.",
+	descriptionFull: [
+		"Your friendship with animals mystically deepens. You gain the following benefits:",
+		" \u2022 You gain proficiency in the Animal Handling skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
+		" \u2022 You learn the *Speak with Animals* spell and can cast it at will, without expending a spell slot. You also learn the *Animal Friendship* spell, and you can cast it once with this feat, without expending a spell slot. You regain the ability to cast it in this way when you finish a long rest. Intelligence is your spellcasting ability for these spells.",
+	],
+	description: "I gain expertise with Animal Handling, or proficiency if I didn't have that already. I can cast *Speak With Animals* and *Animal Friendship* without using a spell slot. I can cast each of these spells like this once per long rest. Intelligence is my spellcasting ability for these.",
 	skills: [["Animal Handling", "increment"]],
 	spellcastingBonus: [{
 		name: "Once per long rest",
@@ -11689,7 +12342,11 @@ FeatsList["dragon fear-ua"] = {
 	source: [["UA:FR", 2]],
 	prerequisite: "Being a Dragonborn",
 	prereqeval: function (v) { return CurrentRace.known.indexOf("dragonborn") !== -1; },
-	descriptionFull: "When angered, you radiate menace. You gain the following benefits:\n \u2022 Increase your Strength or Charisma score by 1, to a maximum of 20.\n \u2022 Instead of exhaling destructive energy, you can roar and expend a use of your breath weapon to force each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds if it can't hear or see you. On a failed save, a target becomes frightened for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success.",
+	descriptionFull: [
+		"When angered, you radiate menace. You gain the following benefits:",
+		" \u2022 Increase your Strength or Charisma score by 1, to a maximum of 20.",
+		" \u2022 Instead of exhaling destructive energy, you can roar and expend a use of your breath weapon to force each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds if it can't hear or see you. On a failed save, a target becomes frightened for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success.",
+	],
 	calculate: "event.value = 'I can expend a Breath Weapon use to roar instead. Each creature of my choice within 30 ft that can see and hear me must make a DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Cha Mod'))) + ' Wis save (8 + Prof Bonus + Cha mod) or be frightened for 1 min. It can repeat the save whenever it takes damage. [+1 Str or Cha]';",
 	scorestxt: "+1 Strength or Charisma",
 	action: [["action", "Breath Weapon or Dragon Fear", "Breath Weapon"]],
@@ -11699,7 +12356,12 @@ FeatsList["dragon hide-ua"] = {
 	source: [["UA:FR", 2]],
 	prerequisite: "Being a Dragonborn",
 	prereqeval: function (v) { return CurrentRace.known.indexOf("dragonborn") !== -1; },
-	descriptionFull: "You inherited the might and majesty of your dragon ancestors. You gain the following benefits:\n \u2022 Increase your Strength or Charisma score by 1, to a maximum of 20.\n \u2022 You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.\n \u2022 Your scales harden; you gain a +1 bonus to AC while you aren't wearing armor.",
+	descriptionFull: [
+		"You inherited the might and majesty of your dragon ancestors. You gain the following benefits:",
+		" \u2022 Increase your Strength or Charisma score by 1, to a maximum of 20.",
+		" \u2022 You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.",
+		" \u2022 Your scales harden; you gain a +1 bonus to AC while you aren't wearing armor.",
+	],
 	description: "I gain retractable claws that I can retract or extend, requiring no action. While extended, my unarmed strikes deal 1d4 slashing damage. My scales harden, giving me a +1 bonus to AC when I'm not wearing armor. [+1 Strength or Charisma]",
 	scorestxt: "+1 Strength or Charisma",
 	weaponOptions: [{
@@ -11730,8 +12392,8 @@ FeatsList["drow high magic-ua"] = {
 	source: [["UA:FR", 2]],
 	prerequisite: "Being a Drow (Dark Elf)",
 	prereqeval: function (v) { return CurrentRace.known.indexOf("dark elf") !== -1; },
-	descriptionFull: "You learn more of the spells typical for your people. You learn Detect Magic and can cast it at will, without expending a spell slot. You also learn Levitate and Dispel Magic, each of which you can cast once without expending a spell slot. You regain the ability to cast the spell in this way when you finish a long rest. Charisma is your spellcasting ability for these spells.",
-	description: "I can cast Detect Magic at will, without expending a spell slot. I can also cast Levitate and Dispel Magic without expending a spell slot, but each only once per long rest. Charisma is my spellcasting ability for these three spells.",
+	descriptionFull: "You learn more of the spells typical for your people. You learn *Detect Magic* and can cast it at will, without expending a spell slot. You also learn *Levitate* and *Dispel Magic*, each of which you can cast once without expending a spell slot. You regain the ability to cast the spell in this way when you finish a long rest. Charisma is your spellcasting ability for these spells.",
+	description: "I can cast *Detect Magic* at will, without expending a spell slot. I can also cast *Levitate* and *Dispel Magic* without expending a spell slot, but each only once per long rest. Charisma is my spellcasting ability for these three spells.",
 	spellcastingBonus: [{
 		name: "At will",
 		spellcastingAbility: 6,
@@ -11755,7 +12417,11 @@ FeatsList["dwarf resilience-ua"] = {
 	source: [["UA:FR", 2]],
 	prerequisite: "Being a Dwarf",
 	prereqeval: function (v) { return CurrentRace.known.indexOf("dwarf") !== -1; },
-	descriptionFull: "You have the blood of dwarf heroes flowing through your veins. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 Whenever you take the Dodge action in combat, you can spend one Hit Die to heal yourself. Roll the die, add your Constitution modifier, and regain a number of hit points equal to the total (minimum of 1).",
+	descriptionFull: [
+		"You have the blood of dwarf heroes flowing through your veins. You gain the following benefits:",
+		" \u2022 Increase your Constitution score by 1, to a maximum of 20.",
+		" \u2022 Whenever you take the Dodge action in combat, you can spend one Hit Die to heal yourself. Roll the die, add your Constitution modifier, and regain a number of hit points equal to the total (minimum of 1).",
+	],
 	description: "Whenever I take the Dodge action in combat, I can spend one Hit Die to heal myself. I roll the die, add my Constitution modifier, and regain a number of hit points equal to the total (minimum of 1). [+1 Constitution]",
 	scores: [0, 0, 1, 0, 0, 0],
 };
@@ -11764,7 +12430,11 @@ FeatsList["elven accuracy-ua"] = {
 	source: [["UA:FR", 2]],
 	prerequisite: "Being an Elf or a Half-Elf",
 	prereqeval: function (v) { return /elf|eladrin|avariel|grugach|shadar-kai/i.test(CurrentRace.known); },
-	descriptionFull: "You have uncanny aim. You gain the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 Whenever you have advantage on an attack roll, you can reroll one of the dice once.",
+	descriptionFull: [
+		"You have uncanny aim. You gain the following benefits:",
+		" \u2022 Increase your Dexterity score by 1, to a maximum of 20.",
+		" \u2022 Whenever you have advantage on an attack roll, you can reroll one of the dice once.",
+	],
 	description: "Whenever I have advantage on an attack roll, I can reroll one of the dice once. [+1 Dexterity]",
 	scores: [0, 1, 0, 0, 0, 0],
 };
@@ -11773,7 +12443,10 @@ FeatsList["everybody-ua's friend"] = {
 	source: [["UA:FR", 2]],
 	prerequisite: "Being a Half-Elf",
 	prereqeval: function (v) { return /^(?=.*half)(?=.*elf).*$/i.test(CurrentRace.known); },
-	descriptionFull: "You develop your magnetic personality to ease your way through the world. You gain the following benefits:\n \u2022 You gain proficiency in the Deception and Persuasion skills. If you're already proficient in either skill, your proficiency bonus is doubled for any check you make with that skill.",
+	descriptionFull: [
+		"You develop your magnetic personality to ease your way through the world. You gain the following benefits:",
+		" \u2022 You gain proficiency in the Deception and Persuasion skills. If you're already proficient in either skill, your proficiency bonus is doubled for any check you make with that skill.",
+	],
 	description: "I gain expertise with Deception and Persuasion, or proficiency with them if I didn't have that already. [+1 Charisma]",
 	scores: [0, 0, 0, 0, 0, 1],
 	skills: [["Deception", "increment"], ["Persuasion", "increment"]],
@@ -11783,7 +12456,11 @@ FeatsList["fade away-ua"] = {
 	source: [["UA:FR", 2]],
 	prerequisite: "Being a Gnome",
 	prereqeval: function (v) { return CurrentRace.known.indexOf("gnome") !== -1; },
-	descriptionFull: "You can draw on your magical heritage to escape danger. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 When you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.",
+	descriptionFull: [
+		"You can draw on your magical heritage to escape danger. You gain the following benefits:",
+		" \u2022 Increase your Intelligence score by 1, to a maximum of 20.",
+		" \u2022 When you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.",
+	],
 	description: "As a reaction when I take damage, I can magically become invisible until the end of my next turn or until I attack, deal damage, or force someone to make a saving throw. Once I do this, I can't do so again until I finish a short rest. [+1 Intelligence]",
 	scores: [0, 0, 0, 1, 0, 0],
 	action: [["reaction", ""]],
@@ -11795,8 +12472,12 @@ FeatsList["fey teleportation-ua"] = {
 	source: [["UA:FR", 3]],
 	prerequisite: "Being a High Elf",
 	prereqeval: function (v) { return CurrentRace.known.indexOf("high elf") !== -1; },
-	descriptionFull: "Drawing on your fey ancestry, you have learned how to teleport. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You learn the Misty Step spell and can cast it once without expending a spell slot. You regain the ability to cast it in this way when you finish a short or long rest. Intelligence is your spellcasting ability for this spell.",
-	description: "I can cast Misty Step without using a spell slot. I can do so once per short rest. Intelligence is my spellcasting ability for this spell. [+1 Intelligence]",
+	descriptionFull: [
+		"Drawing on your fey ancestry, you have learned how to teleport. You gain the following benefits:",
+		" \u2022 Increase your Intelligence score by 1, to a maximum of 20.",
+		" \u2022 You learn the *Misty Step* spell and can cast it once without expending a spell slot. You regain the ability to cast it in this way when you finish a short or long rest. Intelligence is your spellcasting ability for this spell.",
+	],
+	description: "I can cast *Misty Step* without using a spell slot. I can do so once per short rest. Intelligence is my spellcasting ability for this spell. [+1 Intelligence]",
 	scores: [0, 0, 0, 1, 0, 0],
 	spellcastingBonus: [{
 		name: "Once per short rest",
@@ -11813,7 +12494,12 @@ FeatsList["flames of phlegethos-ua"] = {
 	source: [["UA:FR", 3]],
 	prerequisite: "Being a Tiefling",
 	prereqeval: function (v) { return CurrentRace.known.indexOf("tiefling") !== -1; },
-	descriptionFull: "You learn to call on hellfire to serve your commands. You gain the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 When you roll fire damage for a spell you cast, you can reroll any roll of 1 on the fire damage dice, but you must use the new roll, even if it is another 1.\n \u2022 Whenever you cast a spell that deals fire damage, you can cause flames to wreathe you until the end of your next turn. The flames don't harm you or your possessions, and they shed bright light out to 30 feet and dim light for an additional 30 feet. While the flames are present, any creature within 5 feet of you that hits you with a melee attack takes 1d4 fire damage.",
+	descriptionFull: [
+		"You learn to call on hellfire to serve your commands. You gain the following benefits:",
+		" \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.",
+		" \u2022 When you roll fire damage for a spell you cast, you can reroll any roll of 1 on the fire damage dice, but you must use the new roll, even if it is another 1.",
+		" \u2022 Whenever you cast a spell that deals fire damage, you can cause flames to wreathe you until the end of your next turn. The flames don't harm you or your possessions, and they shed bright light out to 30 feet and dim light for an additional 30 feet. While the flames are present, any creature within 5 feet of you that hits you with a melee attack takes 1d4 fire damage.",
+	],
 	description: "When I cast a fire damage spell, I can reroll any 1 on fire damage dice. I can then sheathe myself in flame until my next turn ends. These shed bright light in 30 ft, dim light in 30 ft and cause any within 5 ft that hit me in melee take 1d4 fire damage. [+1 Int or Cha]",
 	scorestxt: "+1 Intelligence or Charisma",
 };
@@ -11822,7 +12508,13 @@ FeatsList["grudge-bearer-ua"] = {
 	source: [["UA:FR", 3]],
 	prerequisite: "Being a Dwarf",
 	prereqeval: function (v) { return CurrentRace.known.indexOf("dwarf") !== -1; },
-	descriptionFull: "You have a deep hatred for a particular kind of creature. Choose your foes, a type of creature to bear the burden of your wrath: aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, or undead. Alternatively, you can choose two races of humanoid (such as gnolls and orcs). You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20.\n \u2022 During the first round of any combat against your chosen foes, your attack rolls against any of them have advantage.\n \u2022 When any of your chosen foes makes an opportunity attack against you, it makes the attack roll with disadvantage.\n \u2022 Whenever you make an Intelligence (Arcana, History, Nature, or Religion) check to recall information about your chosen foes, you add double your proficiency bonus to the check, even if you're not normally proficient.",
+	descriptionFull: [
+		"You have a deep hatred for a particular kind of creature. Choose your foes, a type of creature to bear the burden of your wrath: aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, or undead. Alternatively, you can choose two races of humanoid (such as gnolls and orcs). You gain the following benefits:",
+		" \u2022 Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20.",
+		" \u2022 During the first round of any combat against your chosen foes, your attack rolls against any of them have advantage.",
+		" \u2022 When any of your chosen foes makes an opportunity attack against you, it makes the attack roll with disadvantage.",
+		" \u2022 Whenever you make an Intelligence (Arcana, History, Nature, or Religion) check to recall information about your chosen foes, you add double your proficiency bonus to the check, even if you're not normally proficient.",
+	],
 	description: "My hatred for a creature type gives me these benefits against them: Adv. on attacks in the first round of combat. Their opportunity attacks have disadv. against me. I add twice my Prof Bonus on related Arcana, History, Nature, and Religion checks. [+1 Str, Con, or Wis]",
 	scorestxt: "+1 Strength, Constitution, or Wisdom",
 	choices: ["2 Humanoids", "Aberrations", "Beasts", "Celestials", "Constructs", "Dragons", "Elementals", "Fey", "Fiends", "Giants", "Monstrosities", "Oozes", "Plants", "Undead"],
@@ -11874,7 +12566,11 @@ FeatsList["human determination-ua"] = {
 	source: [["UA:FR", 3]],
 	prerequisite: "Being a Human",
 	prereqeval: function (v) { return CurrentRace.known.indexOf("human") !== -1; },
-	descriptionFull: "You are filled with a determination that can draw the unreachable within your reach. You gain the following benefits:\n \u2022 Increase one ability score of your choice by 1, to a maximum of 20.\n \u2022 When you make an attack roll, an ability check, or a saving throw, you can do so with advantage. Once you use this ability, you can't use it again until you finish a short or long rest.",
+	descriptionFull: [
+		"You are filled with a determination that can draw the unreachable within your reach. You gain the following benefits:",
+		" \u2022 Increase one ability score of your choice by 1, to a maximum of 20.",
+		" \u2022 When you make an attack roll, an ability check, or a saving throw, you can do so with advantage. Once you use this ability, you can't use it again until you finish a short or long rest.",
+	],
 	description: "When I make an attack roll, an ability check, or a saving throw, I can do so with advantage. Once I use this ability, I can't do so again until I finish a short rest.\n[+1 to one ability score]",
 	scorestxt: "+1 to one ability score of your choice",
 	usages: 1,
@@ -11886,7 +12582,12 @@ FeatsList["infernal constitution-ua"] = {
 	source: [["UA:FR", 3]],
 	prerequisite: "Being a Tiefling",
 	prereqeval: function (v) { return CurrentRace.known.indexOf("tiefling") !== -1; },
-	descriptionFull: "Fiendish blood runs strong in you. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You have resistance to cold and poison damage.\n \u2022 You have advantage on saving throws against being poisoned.",
+	descriptionFull: [
+		"Fiendish blood runs strong in you. You gain the following benefits:",
+		" \u2022 Increase your Constitution score by 1, to a maximum of 20.",
+		" \u2022 You have resistance to cold and poison damage.",
+		" \u2022 You have advantage on saving throws against being poisoned.",
+	],
 	description: "I have resistance to cold and poison damage and I have advantage on saving throws against being poisoned.\n[+1 Constitution]",
 	scores: [0, 0, 1, 0, 0, 0],
 	dmgres: ["Cold", "Poison"],
@@ -11906,7 +12607,12 @@ FeatsList["orcish fury-ua"] = {
 	source: [["UA:FR", 4]],
 	prerequisite: "Being a Half-Orc",
 	prereqeval: function (v) { return /^(?=.*half)(?=.*orc).*$/i.test(CurrentRace.known); },
-	descriptionFull: "Your fury burns tirelessly. You gain the following benefits:\n \u2022 Increase your Strength or Constitution score by 1, to a maximum of 20.\n \u2022 When you hit with an attack made with a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.\n \u2022 Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.",
+	descriptionFull: [
+		"Your fury burns tirelessly. You gain the following benefits:",
+		" \u2022 Increase your Strength or Constitution score by 1, to a maximum of 20.",
+		" \u2022 When you hit with an attack made with a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.",
+		" \u2022 Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.",
+	],
 	description: "Once per short rest, I can roll an extra damage die for an attack with a simple or martial weapon. In addition, Immediately after I use my Relentless Endurance trait, I can use my reaction to make one weapon attack. [+1 Strength or Constitution]",
 	scorestxt: "+1 Strength or Constitution",
 	action: [["reaction", " (after Relentless Endurance)"]],
@@ -11919,7 +12625,11 @@ FeatsList["prodigy-ua"] = {
 	source: [["UA:FR", 4]],
 	prerequisite: "Being a Half-Elf or a Human",
 	prereqeval: function (v) { return /human|^(?=.*half)(?=.*elf).*$/i.test(CurrentRace.known); },
-	descriptionFull: "You have a knack for learning new things. You gain the following benefits:\n \u2022 Increase one ability score of your choice by 1, to a maximum of 20.\n \u2022 You gain one skill proficiency of your choice, one tool proficiency of your choice, and fluency in one language of your choice.",
+	descriptionFull: [
+		"You have a knack for learning new things. You gain the following benefits:",
+		" \u2022 Increase one ability score of your choice by 1, to a maximum of 20.",
+		" \u2022 You gain one skill proficiency of your choice, one tool proficiency of your choice, and fluency in one language of your choice.",
+	],
 	description: "I gain one skill proficiency of my choice, one tool proficiency of my choice, fluency in one language of my choice, and +1 to one ability score of my choice. [+1 to one ability score]",
 	scorestxt: "+1 to one ability score of your choice",
 	skillstxt: "Choose any one skill",
@@ -11931,7 +12641,11 @@ FeatsList["second chance-ua"] = {
 	source: [["UA:FR", 4]],
 	prerequisite: "Being a Halfling",
 	prereqeval: function (v) { return CurrentRace.known.indexOf("halfling") !== -1; },
-	descriptionFull: "You have a knack for learning new things. You gain the following benefits:\n \u2022 Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't do so again until you finish a short or long rest.",
+	descriptionFull: [
+		"You have a knack for learning new things. You gain the following benefits:",
+		" \u2022 Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20.",
+		" \u2022 When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't do so again until you finish a short or long rest.",
+	],
 	description: "When a creature I can see hits me with an attack roll, I can use my reaction to force that creature to reroll. Once I use this ability, I can't do so again until I finish a short rest.\n[+1 Dexterity, Constitution, or Charisma]",
 	scorestxt: "+1 Dexterity, Constitution, or Charisma",
 	action: [["reaction", ""]],
@@ -11943,7 +12657,12 @@ FeatsList["squat nimbleness-ua"] = {
 	source: [["UA:FR", 4]],
 	prerequisite: "Being a Dwarf, Gnome, or Halfling",
 	prereqeval: function (v) { return /dwarf|gnome|halfling/i.test(CurrentRace.known); },
-	descriptionFull: "You are uncommonly nimble for your race. You gain the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 Increase your walking speed by 5 feet.\n \u2022 You gain proficiency in the Acrobatics or Athletics skill. If you're already proficient in the skill, your proficiency bonus is doubled for any check you make with it.",
+	descriptionFull: [
+		"You are uncommonly nimble for your race. You gain the following benefits:",
+		" \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+		" \u2022 Increase your walking speed by 5 feet.",
+		" \u2022 You gain proficiency in the Acrobatics or Athletics skill. If you're already proficient in the skill, your proficiency bonus is doubled for any check you make with it.",
+	],
 	description: "My walking speed increases by 5 ft. I gain proficiency in the Acrobatics or Athletics skill. If I'm already proficient in the chosen skill, I gain expertise with it instead.\n[+1 Strength or Dexterity]",
 	scorestxt: "+1 Strength or Dexterity",
 	skillstxt: "Proficiency with Acrobatics or Athletics; or gain Expertise if already proficient",
@@ -11954,7 +12673,16 @@ FeatsList["wonder maker-ua"] = {
 	source: [["UA:FR", 4]],
 	prerequisite: "Being a Rock Gnome",
 	prereqeval: function (v) { return CurrentRace.known.indexOf("rock gnome") !== -1; },
-	descriptionFull: "You master the tinker techniques of your people. You gain the following benefits:\n \u2022 When you make a check using your proficiency with tinker's tools, you add double your proficiency bonus to the check.\n \u2022 When you make a device with your Tinker trait, you have the following additional options for what you make:\n \u2022 ***Alarm***. This device senses when a creature moves to within 15 feet of it without speaking aloud a password chosen when you create it. One round after a creature moves into range, the alarm makes a shrill ringing that lasts for 1 minute and can be heard from up to 300 feet away.\n \u2022 ***Calculator***. This device makes doing sums easy.\n \u2022 ***Lifter***. This device can be used as a block and tackle, allowing its user to hoist five times the weight the user can normally lift.\n \u2022 ***Timekeeper***. This pocket watch keeps accurate time.\n \u2022 ***Weather Sensor***. When used as an action, this device predicts weather conditions in a 1-mile radius over the next 4 hours, showing one symbol (clouds, sun/moon, rain, or snow) for each hour.",
+	descriptionFull: [
+		"You master the tinker techniques of your people. You gain the following benefits:",
+		" \u2022 When you make a check using your proficiency with tinker's tools, you add double your proficiency bonus to the check.",
+		" \u2022 When you make a device with your Tinker trait, you have the following additional options for what you make:",
+		" \u2022 ***Alarm***. This device senses when a creature moves to within 15 feet of it without speaking aloud a password chosen when you create it. One round after a creature moves into range, the alarm makes a shrill ringing that lasts for 1 minute and can be heard from up to 300 feet away.",
+		" \u2022 ***Calculator***. This device makes doing sums easy.",
+		" \u2022 ***Lifter***. This device can be used as a block and tackle, allowing its user to hoist five times the weight the user can normally lift.",
+		" \u2022 ***Timekeeper***. This pocket watch keeps accurate time.",
+		" \u2022 ***Weather Sensor***. When used as an action, this device predicts weather conditions in a 1-mile radius over the next 4 hours, showing one symbol (clouds, sun/moon, rain, or snow) for each hour.",
+	],
 	description: "I gain expertise with Tinker's Tools. I get additional Tinker options: Alarm (audible to 300 ft for 1 min), Calculator, Lifter (as block and tackle that multiplies max lift weight by 5), Timekeeper (pocket watch), Weather Sensor (predict for 1-mile, 4 hours) [+1 Dex or Int]",
 	scorestxt: "+1 Dexterity or Intelligence",
 	eval: function () {
@@ -11973,8 +12701,8 @@ FeatsList["wood elf magic-ua"] = {
 	source: [["UA:FR", 4]],
 	prerequisite: "Being a Wood Elf",
 	prereqeval: function (v) { return CurrentRace.known.indexOf("wood elf") !== -1; },
-	descriptionFull: "You learn the magic of the primeval woods. You learn one druid cantrip of your choice. You also learn Longstrider and Pass Without Trace, each of which you can cast once without expending a spell slot. You regain the ability to cast the spell in this way when you finish a long rest. Wisdom is your spellcasting ability for these spells.",
-	description: "I learn a druid cantrip. In addition, I can cast Longstrider and Pass Without Trace, without expending a spell slot, but each only once per long rest. Wisdom is my spellcasting ability for these three spells.",
+	descriptionFull: "You learn the magic of the primeval woods. You learn one druid cantrip of your choice. You also learn *Longstrider* and *Pass Without Trace*, each of which you can cast once without expending a spell slot. You regain the ability to cast the spell in this way when you finish a long rest. Wisdom is your spellcasting ability for these spells.",
+	description: "I learn a druid cantrip. In addition, I can cast *Longstrider* and *Pass Without Trace*, without expending a spell slot, but each only once per long rest. Wisdom is my spellcasting ability for these three spells.",
 	spellcastingBonus: [{
 		name: "Druid Cantrip",
 		spellcastingAbility: 5,
@@ -12040,7 +12768,7 @@ AddSubClass("barbarian", "ancestral guardian2-ua", {
 			name: "Consult the Spirits",
 			source: [["UA:RS", 1]],
 			minlevel: 10,
-			description: desc("Through consulting my ancestral spirits, I can cast Clairvoyance without a spell slot"),
+			description: desc("Through consulting my ancestral spirits, I can cast *Clairvoyance* without a spell slot"),
 			spellcastingBonus: [{
 				name: "Consult the Spirits",
 				spells: ["clairvoyance"],
@@ -12363,7 +13091,7 @@ AddSubClass("sorcerer", "favoured soul-uars", {
 			description: desc([
 				"When I select my 1st level or higher spells, I can also pick spells from the cleric spell list",
 				"These cleric spells count as sorcerer spells for me",
-				"I also learn Cure Wounds, which doesn't count against my number of spells known",
+				"I also learn *Cure Wounds*, which doesn't count against my number of spells known",
 			]),
 			spellcastingBonus: [{
 				name: "Divine Magic",
@@ -12533,7 +13261,7 @@ AddSubClass("druid", "circle of the shepherd2-ua", {
 			source: [["UA:RCO", 2]],
 			minlevel: 14,
 			description: desc([
-				"When I am reduced to 0 HP or incapacitated against my will, I can cast Conjure Animals",
+				"When I am reduced to 0 HP or incapacitated against my will, I can cast *Conjure Animals*",
 				"This is done as if using a 9th-level spell slot to summon 4 beast of my choice up to CR 2",
 				"They appear within 20 ft of me, last 1 hour, and protect me from harm and attack foes",
 			]),
@@ -12551,7 +13279,7 @@ AddSubClass("druid", "circle of the shepherd2-ua", {
 					range: "20 ft",
 					duration: "1 h",
 					description: "Summon 4 CR 2 beasts; protect me from harm and attack foes",
-					changes: "Using my Faithful Summons class feature when I'm reduced to 0 HP, I can cast Conjure Animals as if using a 9th-level spell slot. This then summons 4 beast of my choice up to CR 2 within 20 ft of me without needing concentration.",
+					changes: "Using my Faithful Summons class feature when I'm reduced to 0 HP, I can cast *Conjure Animals* as if using a 9th-level spell slot. This then summons 4 beast of my choice up to CR 2 within 20 ft of me without needing concentration.",
 				},
 			},
 		},
@@ -12712,7 +13440,7 @@ AddSubClass("warlock", "the celestial-ua", {
 			name: "Bonus Cantrips",
 			source: [["UA:RCO", 5]],
 			minlevel: 1,
-			description: desc("I know the Light and Sacred Flame cantrips"),
+			description: desc("I know the *Light* and *Sacred Flame* cantrips"),
 			spellcastingBonus: [{
 				name: "Bonus Cantrips",
 				spells: ["light"],
@@ -12812,7 +13540,7 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", { // Still valid 2021-09-21
 	name: "Frost Lance",
 	description: desc([
-		"Once per turn when my Eldritch Blast hits a creature, I can reduce its speed by 10 ft",
+		"Once per turn when my *Eldritch Blast* hits a creature, I can reduce its speed by 10 ft",
 		"This speed reduction lasts until the end of my next turn",
 	]),
 	source: [["UA:RCO", 6]],
@@ -12823,7 +13551,7 @@ AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", { // Still 
 			function (fields, v) {
 				if (v.baseWeaponName == "eldritch blast") fields.Description += "; 1 target -10 ft speed";
 			},
-			"When I hit a creature with my Eldritch Blast cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn.",
+			"When I hit a creature with my *Eldritch Blast* cantrip once or more times in a turn, I can reduce its speed by 10 ft until the end of my next turn.",
 		],
 	},
 });
@@ -12884,8 +13612,8 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: Pact of the Blade)", {
 AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, Eldritch Blast cantrip)", {
 	name: "Kiss of Mephistopheles",
 	description: desc([
-		"As a bonus action when my Eldritch Blast hits, I can cast Fireball using a warlock spell slot",
-		"The origin of the Fireball is the creature that was hit with my Eldritch Blast attack",
+		"As a bonus action when my *Eldritch Blast* hits, I can cast *Fireball* using a warlock spell slot",
+		"The origin of the *Fireball* is the creature that was hit with my *Eldritch Blast* attack",
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[improves Eldritch Blast]",
@@ -12953,7 +13681,11 @@ RaceList["eladrin-uaeng"] = {
 	weightMetric: " weigh around 55 kg (40 + 5d12 \xD7 2d4 / 10 kg)",
 	scorestxt: "+2 Dexterity, +1 Intelligence or Charisma",
 	scores: [0, 2, 0, 0, 0, 0],
-	trait: "Eladrin (+2 Dexterity, +1 Intelligence or Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nFey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see." + (typePF ? "\n" : " ") + "Shifting Seasons: After a short or long rest, I can align myself with a season, granting me access to a cantrip until my next rest: Friends, Chill Touch, Minor Illusion, or Fire Bolt. My spellcasting ability for this is Int or Cha, whichever is higher.",
+	trait: [
+		"**Eladrin** (+2 Dexterity, +1 Intelligence or Charisma)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).",
+		"##\u25C6 Fey Step##. Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see." + (typePF ? "\r" : " ") + "##\u25C6 Shifting Seasons##. After a short or long rest, I can align myself with a season, granting me access to a cantrip until my next rest: *Friends*, *Chill Touch*, *Minor Illusion*, or *Fire Bolt*. My spellcasting ability for this is Int or Cha, whichever is higher.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Shifting Seasons",
@@ -12991,13 +13723,14 @@ RaceList["githyanki-ua"] = {
 	heightMetric: " are more leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
 	weightMetric: " weigh around 61 kg (45 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [2, 0, 0, 1, 0, 0],
-	trait: "Githyanki (+2 Strength, +1 Intelligence)\nGithyanki Psionics:" + desc([
-		"I know the Mage Hand cantrip.",
-		"At 3rd level, I can cast the Jump spell once per long rest.",
-		"At 5th level, I can also cast the Misty Step spell once per long rest.",
+	trait: [
+		"**Githyanki** (+2 Strength, +1 Intelligence)",
+		"##\u25C6 Githyanki Psionics##. I know the *Mage Hand* cantrip.",
+		"At 3rd level, I can cast the *Jump* spell once per long rest.",
+		"At 5th level, I can also cast the *Misty Step* spell once per long rest.",
 		"Intelligence is my spellcasting ability for these spells.",
 		"I don't require components to cast these spells.",
-	]),
+	],
 	spellcastingAbility: 4,
 	spellcastingBonus: [{
 		name: "Githyanki Psionics (1)",
@@ -13059,7 +13792,11 @@ RaceList["githzerai-ua"] = {
 	heightMetric: " are more leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [0, 0, 0, 1, 2, 0],
-	trait: "Githzerai (+1 Intelligence, +2 Wisdom)\n" + (typePF ? "\n" : "") + "Monastic Training: I gain a +1 bonus to AC while I'm not wearing medium or heavy armor and not using a shield.\n\nGithzerai Psionics: I know the Mage Hand cantrip. At 3rd level, I can cast the Shield spell once per long rest. At 5th level, I can also cast the Detect Thoughts spell once per long rest. Wisdom is my spellcasting ability for these spells.",
+	trait: [
+		"**Githzerai** (+1 Intelligence, +2 Wisdom)",
+		"##\u25C6 Monastic Training##. I gain a +1 bonus to AC while I'm not wearing medium or heavy armor and not using a shield.",
+		"##\u25C6 Githzerai Psionics##. I know the *Mage Hand* cantrip. At 3rd level, I can cast the *Shield* spell once per long rest. At 5th level, I can also cast the *Detect Thoughts* spell once per long rest. Wisdom is my spellcasting ability for these spells.",
+	],
 	spellcastingAbility: 5,
 	spellcastingBonus: [{
 		name: "Githzerai Psionics (1)",
@@ -13136,7 +13873,13 @@ RaceList["dispater tiefling-ua"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 1, 0, 0, 0, 2],
-	trait: "Dispater Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Dis:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Disguise Self spell once per long rest.\n   At 5th level, I can also cast the Invisibility spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait: [
+		"**Dispater Tiefling** (+1 Dexterity, +2 Charisma)",
+		"##\u25C6 Legacy of Dis##. I know the *Thaumaturgy* cantrip.",
+		"At 3rd level, I can cast the *Disguise Self* spell once per long rest.",
+		"At 5th level, I can also cast the *Invisibility* spell once per long rest.",
+		"Charisma is my spellcasting ability for these spells.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Legacy of Dis (level 1)",
@@ -13192,7 +13935,13 @@ RaceList["mephistopheles tiefling-ua"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 0, 1, 0, 2],
-	trait: "Mephistopheles Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Cania:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast the Magic Missile spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Web spell once per long rest.\n   Charisma is my spellcasting ability for these spells.",
+	trait: [
+		"**Mephistopheles Tiefling** (+1 Intelligence, +2 Charisma)",
+		"##\u25C6 Legacy of Cania##. I know the *Mage Hand* cantrip.",
+		"At 3rd level, I can cast the *Magic Missile* spell once per long rest as a 2nd-level spell.",
+		"At 5th level, I can also cast the *Web* spell once per long rest.",
+		"Charisma is my spellcasting ability for these spells.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Legacy of Cania (level 1)",
@@ -13216,7 +13965,7 @@ RaceList["mephistopheles tiefling-ua"] = {
 			spellChanges: {
 				"magic missile": {
 					description: "4 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
-					changes: "Using Legacy of Cania, I cast Magic Missile as if I'm using a 2nd-level spell slot.",
+					changes: "Using Legacy of Cania, I cast *Magic Missile* as if I'm using a 2nd-level spell slot.",
 				},
 			},
 		},
@@ -13273,7 +14022,11 @@ RaceList["avariel-ua"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 0, 0],
-	trait: "Avariel (+2 Dexterity)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nFlight: I have a flying speed of 30 feet. To use this speed, I can't be wearing medium or heavy armor.",
+	trait: [
+		"**Avariel** (+2 Dexterity)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
+		"##\u25C6 Flight##. I have a flying speed of 30 ft. To use this speed, I can't be wearing medium or heavy armor.",
+	],
 };
 RaceList["grugach elf-ua"] = {
 	regExpSearch: /^(?!.*half)((?=.*grugach)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(wilds?|wilderness)\b))).*$/i,
@@ -13299,7 +14052,11 @@ RaceList["grugach elf-ua"] = {
 	heightMetric: " range from well under to well over 1,5 metres tall (135 + 5d6 cm)",
 	weightMetric: " weigh around 45 kg (35 + 5d6 \xD7 2d6 / 10 kg)",
 	scores: [1, 2, 0, 0, 0, 0],
-	trait: "Grugach (+1 Strength, +2 Dexterity)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nCantrip: I know one cantrip of my choice from the druid spell list. Wisdom is my spellcasting ability for it.",
+	trait: [
+		"**Grugach** (+1 Strength, +2 Dexterity)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
+		"##\u25C6 Cantrip##. I know one cantrip of my choice from the druid spell list. Wisdom is my spellcasting ability for it.",
+	],
 	spellcastingAbility: 5,
 	spellcastingBonus: [{
 		name: "Grugach Cantrip",
@@ -13338,7 +14095,11 @@ RaceList["shadar-kai elf-ua"] = {
 	heightMetric: " range from under 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 52 kg (40 + 5d8 \xD7 2d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 0, 1],
-	trait: "Shadar-kai (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nBlessing of the Raven Queen: Once per short rest, as a bonus action, I can magically teleport up to 15 ft to an unoccupied space I can see, and, until the start of my next turn, I have resistance to all damage and appear translucent." + (typePF ? "\n" : " ") + "Cantrip: I know one cantrip: Chill Touch, Spare the Dying, or Thaumaturgy. Charisma is my spellcasting ability for it.",
+	trait: [
+		"**Shadar-kai** (+2 Dexterity, +1 Charisma)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).",
+		"##\u25C6 Blessing of the Raven Queen##. Once per short rest, as a bonus action, I can magically teleport up to 15 ft to an unoccupied space I can see, and, until the start of my next turn, I have resistance to all damage and appear translucent." + (typePF ? "\r" : " ") + "##\u25C6 Cantrip##. I know one cantrip: *Chill Touch*, *Spare the Dying*, or *Thaumaturgy*. Charisma is my spellcasting ability for it.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Shadar-kai Cantrip",
@@ -13382,7 +14143,7 @@ AddSubClass("druid", "circle of spores-ua", {
 			description: desc([
 				"My link to the cycle of life and death gives me with the ability to cast certain spells",
 				"These are always prepared, but don't count against the number of spells I can prepare",
-				"In addition, I learn the Chill Touch cantrip",
+				"In addition, I learn the *Chill Touch* cantrip",
 			]),
 			spellcastingBonus: [{
 				name: "Circle Spells",
@@ -13567,43 +14328,56 @@ AddSubClass("wizard", "school of invention-ua", {
 			]),
 			toNotesPage: [{
 				name: "Reckless Casting Tables",
-				note: "\nd10\tCantrip\t\td10\tCantrip" + desc([
-					" 1\tAcid Splash\t\t    6\tRay of Frost",
-					" 2\tChill Touch\t\t    7\tShocking Grasp",
-					" 3\tFire Bolt\t\t    8\tSacred Flame",
-					" 4\tLight\t\t    9\tThorn Whip",
-					" 5\tPoison Spray\t  10\tRoll twice; Another 10, all is wasted",
-				]) + "\n\nd10\t1st-Level Spell\td10\t1st-Level Spell" + desc([
-					" 1\tBurning Hands\t    6\tFog Cloud",
-					" 2\tChromatic Orb\t    7\tJump",
-					" 3\tColor Spray\t\t    8\tMagic Missile",
-					" 4\tFaerie Fire\t\t    9\tThunderwave",
-					" 5\tFalse Life\t\t  10\tRoll twice; Another 10, all is wasted",
-				]) + "\n\nd10\t2nd-Level Spell\td10\t2nd-Level Spell" + desc([
-					" 1\tBlur\t\t    6\tLevitate",
-					" 2\tDarkness\t\t    7\tMelf's Acid Arrow",
-					" 3\tEnlarge/Reduce\t    8\tScorching Ray",
-					" 4\tGust of Wind\t    9\tShatter",
-					" 5\tInvisibility\t\t  10\tRoll twice; Another 10, all is wasted",
-				]) + "\n\nd10\t3rd-Level Spell\td10\t3rd-Level Spell" + desc([
-					" 1\tBlink\t\t    6\tGaseous Form",
-					" 2\tFear\t\t    7\tLightning Bolt",
-					" 3\tFeign Death \t    8\tSleet Storm",
-					" 4\tFireball\t\t    9\tStinking Cloud",
-					" 5\tFly\t\t  10\tRoll twice; Another 10, all is wasted",
-				]) + "\n\nd10\t4th-Level Spell\td10\t4th-Level Spell" + desc([
-					" 1\tBlight\t\t    6\tIce Storm",
-					" 2\tConfusion\t\t    7\tPhantasmal Killer",
-					" 3\tEvard's Black Tentacles\t    8\tStoneskin",
-					" 4\tFire Shield\t\t    9\tWall of Fire",
-					" 5\tGreater Invisibility\t  10\tRoll twice; Another 10, all is wasted",
-				]) + "\n\nd10\t5th-Level Spell\td10\t5th-Level Spell" + desc([
-					" 1\tCloudkill\t\t    6\tInsect Plague",
-					" 2\tCone of Cold\t    7\tMass Cure Wounds",
-					" 3\tDestructive Wave\t    8\tWall of Force",
-					" 4\tFlame Strike\t    9\tWall of Stone",
-					" 5\tHold Monster\t  10\tRoll twice; Another 10, all is wasted",
-				]),
+				note: [
+					[
+						["d10", "Cantrip", "", "d10", "Cantrip"],
+						["    1", "*Acid Splash*", "", "    6", "*Ray of Frost*"],
+						["    2", "*Chill Touch*", "", "    7", "*Shocking Grasp*"],
+						["    3", "*Fire Bolt*", "", "    8", "*Sacred Flame*"],
+						["    4", "Light", "", "    9", "*Thorn Whip*"],
+						["    5", "*Poison Spray*", "  10", "Roll twice; Another 10, all is wasted"],
+					],
+					[
+						["d10", "1st-Level Spell", "d10", "1st-Level Spell"],
+						["    1", "*Burning Hands*", "    6", "*Fog Cloud*"],
+						["    2", "*Chromatic Orb*", "    7", "Jump"],
+						["    3", "*Color Spray*", "", "    8", "*Magic Missile*"],
+						["    4", "*Faerie Fire*", "", "    9", "Thunderwave"],
+						["    5", "*False Life*", "", "  10", "Roll twice; Another 10, all is wasted"],
+					],
+					[
+						["d10", "2nd-Level Spell", "d10", "2nd-Level Spell"],
+						["    1", "Blur", "", "    6", "Levitate"],
+						["    2", "Darkness", "", "    7", "*Melf's Acid Arrow*"],
+						["    3", "Enlarge/Reduce", "    8", "*Scorching Ray*"],
+						["    4", "*Gust of Wind*", "    9", "Shatter"],
+						["    5", "Invisibility", "", "  10", "Roll twice; Another 10, all is wasted"],
+					],
+					[
+						["d10", "3rd-Level Spell", "d10", "3rd-Level Spell"],
+						["    1", "Blink", "", "    6", "*Gaseous Form*"],
+						["    2", "Fear", "", "    7", "*Lightning Bolt*"],
+						["    3", "*Feign Death* ", "    8", "*Sleet Storm*"],
+						["    4", "Fireball", "", "    9", "*Stinking Cloud*"],
+						["    5", "Fly", "", "  10", "Roll twice; Another 10, all is wasted"],
+					],
+					[
+						["d10", "4th-Level Spell", "d10", "4th-Level Spell"],
+						["    1", "Blight", "", "    6", "*Ice Storm*"],
+						["    2", "Confusion", "", "    7", "*Phantasmal Killer*"],
+						["    3", "*Evard's Black Tentacles*", "    8", "Stoneskin"],
+						["    4", "*Fire Shield*", "", "    9", "*Wall of Fire*"],
+						["    5", "*Greater Invisibility*", "  10", "Roll twice; Another 10, all is wasted"],
+					],
+					[
+						["d10", "5th-Level Spell", "d10", "5th-Level Spell"],
+						["    1", "Cloudkill", "", "    6", "*Insect Plague*"],
+						["    2", "*Cone of Cold*", "    7", "*Mass Cure Wounds*"],
+						["    3", "*Destructive Wave*", "    8", "*Wall of Force*"],
+						["    4", "*Flame Strike*", "    9", "*Wall of Stone*"],
+						["    5", "*Hold Monster*", "  10", "Roll twice; Another 10, all is wasted"],
+					],
+				],
 			}],
 		},
 		"subclassfeature6": {
@@ -13768,12 +14542,13 @@ RaceList["centaur-ua"] = {
 	heightMetric: " stand between 2,1 and 2,4 metres tall (front hooves to their crowns) and 1,8 to 2,4 metres long (from their chests to the back of their rumps)",
 	weightMetric: " weigh anywhere from 430 to 550 kg",
 	scores: [2, 0, 0, 0, 1, 0],
-	trait: "Centaur (+2 Strength +1 Wisdom)" + desc([
-		"Hooves: I can use my hooves in melee (1d6 bludgeoning damage).",
-		"Charge: Once per short rest, if I move 20 ft straight toward a creature and then hit it with a melee weapon attack on the same turn, I can roll the weapon's damage dice twice.",
-		"Equine Build: I count as one size larger for my carrying capacity. While climbing, 1 ft of movement costs me 5 ft. A medium or smaller creature can ride me as a mount.",
-		"Hybrid Nature: I am affected by effects that work on either humanoids or monstrosities.",
-	]),
+	trait: [
+		"**Centaur** (+2 Strength +1 Wisdom)",
+		"##\u25C6 Hooves##. I can use my hooves in melee (1d6 bludgeoning damage).",
+		"##\u25C6 Charge##. Once per short rest, if I move 20 ft straight toward a creature and then hit it with a melee weapon attack on the same turn, I can roll the weapon's damage dice twice.",
+		"##\u25C6 Equine Build##. I count as one size larger for my carrying capacity. While climbing, 1 ft of movement costs me 5 ft. A medium or smaller creature can ride me as a mount.",
+		"##\u25C6 Hybrid Nature##. I am affected by effects that work on either humanoids or monstrosities.",
+	],
 	features: {
 		"charge": {
 			name: "Charge",
@@ -13817,12 +14592,13 @@ RaceList["minotaur-uacnm"] = {
 	weightMetric: " weigh around 135 kg",
 	scores: [2, 0, 1, 0, 0, 0],
 	abilitySave: 1,
-	trait: "Minotaur (+2 Strength +1 Constitution)" + desc([
-		"Horns: I have horns that I can use in melee (1d6 piercing damage).",
-		"Goring Rush: When taking a Dash action, I can make a horns attack as a bonus action.",
-		"Hammering Horns: As a reaction after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is no more than one size larger than me. It must make a Str save (DC 8 + Str mod + Prof Bonus) or be pushed up to 5 ft away from me.",
-		"Hybrid Nature: I am affected by effects that work on either humanoids or monstrosities.",
-	]),
+	trait: [
+		"**Minotaur** (+2 Strength +1 Constitution)",
+		"##\u25C6 Horns##. I have horns that I can use in melee (1d6 piercing damage).",
+		"##\u25C6 Goring Rush##. When taking a Dash action, I can make a horns attack as a bonus action.",
+		"##\u25C6 Hammering Horns##. As a reaction after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is no more than one size larger than me. It must make a Str save (DC 8 + Str mod + Prof Bonus) or be pushed up to 5 ft away from me.",
+		"##\u25C6 Hybrid Nature##. I am affected by effects that work on either humanoids or monstrosities.",
+	],
 	features: {
 		"goring rush": {
 			name: "Goring Rush",
@@ -13880,7 +14656,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			"cloud giant": {
 				name: "Mark of Ordning: Cloud Giant",
 				description: desc([
-					"I add Minor Illusion, Fog Cloud and Invisibility to my known sorcerer spells",
+					"I add *Minor Illusion*, *Fog Cloud* and *Invisibility* to my known sorcerer spells",
 					"These do not count against the number of cantrips/spells I can know",
 				]),
 				spellcastingBonus: [{
@@ -13893,7 +14669,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			"fire giant": {
 				name: "Mark of Ordning: Fire Giant",
 				description: desc([
-					"I add Fire Bolt, Burning Hands, and Flaming Sphere to my known sorcerer spells",
+					"I add *Fire Bolt*, *Burning Hands*, and *Flaming Sphere* to my known sorcerer spells",
 					"These do not count against the number of cantrips/spells I can know",
 				]),
 				spellcastingBonus: [{
@@ -13906,7 +14682,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			"frost giant": {
 				name: "Mark of Ordning: Frost Giant",
 				description: desc([
-					"I add Ray of Frost, Armor of Agathys, and Hold Person to my known sorcerer spells",
+					"I add *Ray of Frost*, *Armor of Agathys*, and *Hold Person* to my known sorcerer spells",
 					"These do not count against the number of cantrips/spells I can know",
 				]),
 				spellcastingBonus: [{
@@ -13919,7 +14695,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			"hill giant": {
 				name: "Mark of Ordning: Hill Giant",
 				description: desc([
-					"I add Shillelagh, Heroism, and Enlarge/Reduce to my known sorcerer spells",
+					"I add *Shillelagh*, *Heroism*, and *Enlarge/Reduce* to my known sorcerer spells",
 					"These do not count against the number of cantrips/spells I can know",
 				]),
 				spellcastingBonus: [{
@@ -13932,7 +14708,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			"stone giant": {
 				name: "Mark of Ordning: Stone Giant",
 				description: desc([
-					"I add Resistance, Entangle, and Spike Growth to my known sorcerer spells",
+					"I add *Resistance*, *Entangle*, and *Spike Growth* to my known sorcerer spells",
 					"These do not count against the number of cantrips/spells I can know",
 				]),
 				spellcastingBonus: [{
@@ -13945,7 +14721,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 			"storm giant": {
 				name: "Mark of Ordning: Storm Giant",
 				description: desc([
-					"I add Thunderwave, Shocking Grasp, and Gust of Wind to my known sorcerer spells",
+					"I add *Thunderwave*, *Shocking Grasp*, and *Gust of Wind* to my known sorcerer spells",
 					"These do not count against the number of cantrips/spells I can know",
 				]),
 				spellcastingBonus: [{
@@ -13980,7 +14756,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 						function (fields, v, output) {
 							if (v.baseWeaponName == "fire bolt") output.extraDmg += Math.max(What("Con Mod"), 1);
 						},
-						"I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells: Fire Bolt, Burning Hands, and Flaming Sphere",
+						"I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells: *Fire Bolt*, *Burning Hands*, and *Flaming Sphere*",
 					],
 					spellAdd: [
 						function (spellKey, spellObj, spName) {
@@ -13989,7 +14765,7 @@ AddSubClass("sorcerer", "giant soul-ua", {
 								return true;
 							};
 						},
-						"I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells: Fire Bolt, Burning Hands, and Flaming Sphere",
+						"I add my Constitution modifier (min 1) to the damage of my Mark of Ordning spells: *Fire Bolt*, *Burning Hands*, and *Flaming Sphere*",
 					],
 				},
 			},
@@ -14093,7 +14869,12 @@ RaceList["changeling-ua2"] = {
 	weightMetric: " weigh around 65 kg (52 + 5d4 \xD7 4d4 / 10 kg)",
 	scorestxt: "+2 Charisma, and +1 Dexterity or +1 Intelligence",
 	scores: [0, 0, 0, 0, 0, 2],
-	trait: "Changeling (+2 Charisma, and +1 Dexterity or +1 Intelligence)\nChange Appearance: As an action, I can polymorph to or from a humanoid form of my size I have seen, not changing my equipment. I revert back if I die and have adv. on Deception.\nUnsettling Visage: As a reaction once per short rest when I'm attacked by a seen attacker, I can impose disadv. Doing this reveals my shapeshifting nature to all within 30 ft.\nDivergent Persona: I have proficiency with one tool, and an alternate persona. While in the alternate form, my proficiency bonus with that tool is doubled.",
+	trait: [
+		"**Changeling** (+2 Charisma, and +1 Dexterity or +1 Intelligence)",
+		"##Change Appearance##. As an action, I can polymorph to or from a humanoid form of my size I have seen, not changing my equipment. I revert back if I die and have adv. on Deception.",
+		"##Unsettling Visage##. As a reaction once per short rest when I'm attacked by a seen attacker, I can impose disadv. Doing this reveals my shapeshifting nature to all within 30 ft.",
+		"##Divergent Persona##. I have proficiency with one tool, and an alternate persona. While in the alternate form, my proficiency bonus with that tool is doubled.",
+	],
 	action: [["action", "Change Appearance"]],
 	features: {
 		"unsettling visage": {
@@ -14127,7 +14908,13 @@ RaceList["kalashtar-ua"] = { //this code includes contributions by /u/SoilentBra
 	weightMetric: " weigh around 65 kg (50 + 5d6 \xD7 2d6 / 10 kg)",
 	scorestxt: "+1 Wisdom, +1 Charisma, and +1 to one other ability score of my choice",
 	scores: [0, 0, 0, 0, 1, 1],
-	trait: "Kalashtar (+1 Wisdom, +1 Charisma, and +1 to one other" + (typePF ? "" : " ability score of my choice") + ")\nDual Mind: As a reaction after I roll a Wis" + (typePF ? " save, I can gain adv." : "dom saving throw, I can gain advantage") + " on it.\nMind Link: I can speak telepathically to any creature I can see within 60 ft, as long as it can speak at least one language. As a bonus action, I can give that creature the ability to speak telepathically back to me until the start of my next turn.\nPsychic Glamour: I have adv. on Insight, Intimidation, Performance, or Persuasion checks.\nSevered from Dreams: I don't dream and thus immune to spells that affect dreams.",
+	trait: [
+		"**Kalashtar** (+1 Wisdom, +1 Charisma, and +1 to one other" + (typePF ? "" : " ability score of my choice") + ")",
+		"##Dual Mind##. As a reaction after I roll a Wis" + (typePF ? " save, I can gain adv." : "dom saving throw, I can gain advantage") + " on it.",
+		"##Mind Link##. I can speak telepathically to any creature I can see within 60 ft, as long as it can speak at least one language. As a bonus action, I can give that creature the ability to speak telepathically back to me until the start of my next turn.",
+		"##Psychic Glamour##. I have adv. on Insight, Intimidation, Performance, or Persuasion checks.",
+		"##Severed from Dreams##. I don't dream and thus immune to spells that affect dreams.",
+	],
 	action: [["bonus action", "Mind Link"], ["reaction", "Dual Mind"]],
 };
 
@@ -14151,7 +14938,13 @@ RaceList["beasthide shifter-ua"] = {
 	heightMetric: " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric: " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 1, 2, 0, 0, 0],
-	trait: "Beasthide Shifter: (+1 Dexterity, +2 Constitution)\n\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to 1d6 + my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I have a +1 bonus to AC",
+	trait: [
+		"**Beasthide Shifter** (+1 Dexterity, +2 Constitution)",
+		"##\u25C6 Shifting##. As a bonus action once per short rest, I can assume a more bestial appearance.",
+		"This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.",
+		"When I shift, I gain temporary HP equal to 1d6 + my level + my Constitution modifier (minimum 1 temporary hit point).",
+		"While transformed like this, I have a +1 bonus to AC",
+	],
 	features: {
 		"shift": {
 			name: "Shift",
@@ -14190,7 +14983,13 @@ RaceList["longtooth shifter-ua"] = {
 	heightMetric: " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric: " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [2, 1, 0, 0, 0, 0],
-	trait: "Longtooth Shifter: (+2 Strength, +1 Dexterity)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I use my elongated fangs to make unarmed strikes, dealing 1d6 piercing damage. As a bonus action, I can maken one attack with my fangs.",
+	trait: [
+		"**Longtooth Shifter** (+2 Strength, +1 Dexterity)",
+		"##\u25C6 Shifting##. As a bonus action once per short rest, I can assume a more bestial appearance.",
+		"This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.",
+		"When I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).",
+		"While transformed like this, I use my elongated fangs to make unarmed strikes, dealing 1d6 piercing damage. As a bonus action, I can maken one attack with my fangs.",
+	],
 	action: ["bonus action", "Attack with Longtooth Fangs"],
 	features: {
 		"shift": {
@@ -14221,7 +15020,14 @@ RaceList["swiftstride shifter-ua"] = {
 	heightMetric: " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric: " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 0, 1],
-	trait: "Swiftstride Shifter: (+2 Dexterity, +1 Charisma)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").\nWhile transformed like this, my walking speed increases with 5 ft.\nAs a reaction when an enemy ends its turn within 5 ft of me while I'm shifted, I can move 10 ft without provoking opportunity attacks.",
+	trait: [
+		"**Swiftstride Shifter** (+2 Dexterity, +1 Charisma)",
+		"##\u25C6 Shifting##. As a bonus action once per short rest, I can assume a more bestial appearance.",
+		"This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.",
+		"When I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").",
+		"While transformed like this, my walking speed increases with 5 ft.",
+		"As a reaction when an enemy ends its turn within 5 ft of me while I'm shifted, I can move 10 ft without provoking opportunity attacks.",
+	],
 	action: ["reaction", "Stride (while shifted)"],
 	features: {
 		"shift": {
@@ -14252,7 +15058,12 @@ RaceList["wildhunt shifter-ua"] = {
 	heightMetric: " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric: " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 1, 0, 0, 2, 0],
-	trait: "Wildhunt Shifter: (+1 Dexterity, +2 Wisdom)\nShifting: As a bonus action once per short rest, I can transform and get adv. on Wis checks." + (typePF ? " " : "\n") + "This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").\nMark the Scent: As a bonus action once per short rest, I can mark a creature that I can see within 10 ft. Until the end of my next long rest, my proficiency bonus is doubled for checks to find this target, and I always know its location if it is within 60 ft of me.",
+	trait: [
+		"**Wildhunt Shifter** (+1 Dexterity, +2 Wisdom)",
+		"##Shifting##. As a bonus action once per short rest, I can transform and get adv. on Wis checks. This transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.",
+		"When I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").",
+		"##Mark the Scent##. As a bonus action once per short rest, I can mark a creature that I can see within 10 ft. Until the end of my next long rest, my proficiency bonus is doubled for checks to find this target, and I always know its location if it is within 60 ft of me.",
+	],
 	features: {
 		"shift": {
 			name: "Shift",
@@ -14298,7 +15109,13 @@ RaceList["envoy warforged-ua"] = {
 	weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	scorestxt: "+1 Constitution and +1 to two other ability scores of my choice",
 	scores: [0, 0, 1, 0, 0, 0],
-	trait: "Envoy Warforged (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nIntegrated Tool: I have expertise with one tool and it is integrated into my body.",
+	trait: [
+		"**Envoy Warforged** (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")",
+		"##Warforged Resilience##. I do not need to sleep, eat, drink, or breathe.",
+		"##Sentry's Rest##. To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.",
+		"##Integrated Protection##. My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.",
+		"##Integrated Tool##. I have expertise with one tool and it is integrated into my body.",
+	],
 	eval: function () {
 		var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
 		if (tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0)) {
@@ -14372,7 +15189,13 @@ RaceList["juggernaut warforged-ua"] = {
 	heightMetric: " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
 	weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	scores: [2, 0, 1, 0, 0, 0],
-	trait: "Juggernaut Warforged (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4.") + "\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nPowerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
+	trait: [
+		"**Juggernaut Warforged** (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4."),
+		"##Warforged Resilience##. I do not need to sleep, eat, drink, or breathe.",
+		"##Sentry's Rest##. To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.",
+		"##Integrated Protection##. My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.",
+		"##Powerful Build##. I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
+	],
 	carryingCapacity: 2,
 	eval: function () {
 		var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
@@ -14439,7 +15262,13 @@ RaceList["skirmisher warforged-ua"] = {
 	heightMetric: " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
 	weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	scores: [0, 2, 1, 0, 0, 0],
-	trait: "Skirmisher Warforged (+2 Dexterity, +1 Constitution)\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nLight Step: If I travel alone for an hour or more, I can move stealthily at a normal pace.",
+	trait: [
+		"**Skirmisher Warforged** (+2 Dexterity, +1 Constitution)",
+		"##Warforged Resilience##. I do not need to sleep, eat, drink, or breathe.",
+		"##Sentry's Rest##. To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.",
+		"##Integrated Protection##. My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.",
+		"##Light Step##. If I travel alone for an hour or more, I can move stealthily at a normal pace.",
+	],
 	eval: function () {
 		var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
 		if (tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0)) {
@@ -14504,7 +15333,7 @@ MagicItemsList["band of loyalty-ua"] = {
 	type: "ring",
 	rarity: "common",
 	description: "If I'm reduced to zero hit points while attuned to this ring, I instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
-	descriptionFull: "If you are reduced to zero hit points while attuned to a band of loyalty, you instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
+	descriptionFull: "If you are reduced to zero hit points while attuned to a *band of loyalty*, you instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
 	attunement: true,
 }
 MagicItemsList["docent-ua"] = {
@@ -14554,8 +15383,8 @@ MagicItemsList["feather token-ua"] = {
 	source: [["WGtE", 115], ["UA:MIoE", 2]],
 	type: "wondrous item",
 	rarity: "common",
-	description: "Once as a bonus action while the token is in my possession, I can use it to cast Feather Fall. This small metal disk is inscribed with the image of a feather and only holds sufficient charge for a single use, after which it loses its power.",
-	descriptionFull: "This small metal disk is inscribed with the image of a feather. While the token is in your possession, you can cast feather fall as a bonus action. A feather token only holds sufficient charge for a single use, after which it loses its power. While it's an expensive form of insurance, frequent airship travelers and citizens of Sharn often appreciate the security it provides.",
+	description: "Once as a bonus action while the token is in my possession, I can use it to cast *Feather Fall*. This small metal disk is inscribed with the image of a feather and only holds sufficient charge for a single use, after which it loses its power.",
+	descriptionFull: "This small metal disk is inscribed with the image of a feather. While the token is in your possession, you can cast *feather fall* as a bonus action. A *feather token* only holds sufficient charge for a single use, after which it loses its power. While it's an expensive form of insurance, frequent airship travelers and citizens of Sharn often appreciate the security it provides.",
 }
 MagicItemsList["glamerweave-ua"] = {
 	name: "Glamerweave",
@@ -14563,17 +15392,20 @@ MagicItemsList["glamerweave-ua"] = {
 	type: "wondrous item",
 	rarity: "common",
 	description: "Glamerweave clothing is imbued with cosmetic illusions that have no impact on combat. Most of the time, these patterns are contained within the cloth, but higher-end glamerweave can have more dramatic effects. A gown could appear to be wreathed in flames, or a hat orbited by illusory butterflies.",
-	descriptionFull: "Glamerweave clothing is imbued with cosmetic illusions. Traditionally, these patterns are contained within the cloth, but higher-end glamerweave can have more dramatic effects. You could have a gown that appears to be wreathed in flames, or a hat that's orbited by illusory butterflies. Regardless of the design, these are cosmetic effects and have no impact on combat.\n\n" + [
-		"**1d8**\t**Description**",
-		"  1\tA hat orbited by the twelve moons",
-		"  2\tLong gloves wreathed in cold flames",
-		"  3\tA traveler's cloak lined with glittering stars",
-		"  4\tA scarlet gown that glows with inner radiance",
-		"  5\tA cloth shirt that appears to be a chain shirt",
-		"  6\tA silver gown surrounded by drifting snowflakes",
-		"  7\tA robe with two dragons wrestling across the back",
-		"  8\tA cloak that slowly and subtly shifts colors",
-	].join("\n"),
+	descriptionFull: [
+		"*Glamerweave* clothing is imbued with cosmetic illusions. Traditionally, these patterns are contained within the cloth, but higher-end *glamerweave* can have more dramatic effects. You could have a gown that appears to be wreathed in flames, or a hat that's orbited by illusory butterflies. Regardless of the design, these are cosmetic effects and have no impact on combat.",
+		[
+			["1d8", "Description"],
+			["  1", "A hat orbited by the twelve moons"],
+			["  2", "Long gloves wreathed in cold flames"],
+			["  3", "A traveler's cloak lined with glittering stars"],
+			["  4", "A scarlet gown that glows with inner radiance"],
+			["  5", "A cloth shirt that appears to be a chain shirt"],
+			["  6", "A silver gown surrounded by drifting snowflakes"],
+			["  7", "A robe with two dragons wrestling across the back"],
+			["  8", "A cloak that slowly and subtly shifts colors"],
+		],
+	],
 }
 MagicItemsList["shiftweave-ua"] = {
 	name: "Shiftweave",
@@ -14581,7 +15413,7 @@ MagicItemsList["shiftweave-ua"] = {
 	type: "wondrous item",
 	rarity: "common",
 	description: "Up to five different outfits are embedded into these clothes that have transmutation magic woven into their fabric. As an action, I can speak a command word to transform the outfit into one of the other designs contained within.",
-	descriptionFull: "Transmutation magic is woven into the fabric of shiftweave clothing. When a suit of shiftweave is created, up to five different outfits can be embedded into the cloth. By taking an action and uttering a command word, you can transform your shiftweave outfit into one of the other designs contained within it. To determine the price of a suit of shiftweave, combine the value of all of the outfits it contains and add 25 gp to that amount.",
+	descriptionFull: "Transmutation magic is woven into the fabric of *shiftweave* clothing. When a suit of *shiftweave* is created, up to five different outfits can be embedded into the cloth. By taking an action and uttering a command word, you can transform your *shiftweave* outfit into one of the other designs contained within it. To determine the price of a suit of *shiftweave*, combine the value of all of the outfits it contains and add 25 gp to that amount.",
 	action: [["action", ""]],
 }
 MagicItemsList["armblade-ua"] = {
@@ -14590,7 +15422,10 @@ MagicItemsList["armblade-ua"] = {
 	type: "weapon (any one-handed melee weapon)",
 	rarity: "common",
 	description: "As a warforged, I can integrate this weapon in my forearm by attuning to it. While attached, it can't be disarmed or removed against my will, but I can't use that hand for other actions. I can spend one minute to end the attunement and remove the armblade. The weapon isn't inherently magical.",
-	descriptionFull: "An armblade is a weapon designed to integrate with the forearm of a warforged. If you're a warforged, you can attach an armblade by attuning to it. An attached armblade cannot be disarmed or removed from you against your will, but while the weapon is attached you cannot use that hand for other actions. You can spend one minute to end the attunement and remove the armblade.\n   An armblade isn't inherently considered to be a magic weapon for purposes of overcoming damage resistance. However, any sort of magical melee weapon could be created as an armblade, so you could acquire a vicious armblade or a vorpal armblade.",
+	descriptionFull: [
+		"An *armblade* is a weapon designed to integrate with the forearm of a warforged. If you're a warforged, you can attach an *armblade* by attuning to it. An attached *armblade* cannot be disarmed or removed from you against your will, but while the weapon is attached you cannot use that hand for other actions. You can spend one minute to end the attunement and remove the *armblade*.",
+		"An *armblade* isn't inherently considered to be a magic weapon for purposes of overcoming damage resistance. However, any sort of magical melee weapon could be created as an *armblade*, so you could acquire a vicious *armblade* or a vorpal *armblade*.",
+	],
 	attunement: true,
 	prerequisite: "Requires attunement by a warforged",
 	prereqeval: function (v) {
@@ -14612,8 +15447,14 @@ MagicItemsList["wand sheath-ua"] = {
 	type: "wondrous item",
 	rarity: "common",
 	description: "As a warforged, I can integrate this sheath in my forearm by attuning to it. It can only be removed if I spend a minute to end the attunement. As an action, I can insert a wand in it. The wand doesn't count to the number of items I can attune to. As a bonus action, I can then retract/extend it while keeping my hand free.",
-	descriptionLong: "As a warforged, I can integrate this sheath in my forearm by attuning to it. It can only be removed if I spend a minute to end the attunement. As an action, I can insert a wand in it. I still need to attune to this wand if it requires me to do so, but the wand wand then doesn't count towards the number of items I can attune to. When I take the wand out of the sheath, I lose attunement with it. As a bonus action, I can retract or extend a wand in the sheath. While retracted, the wand can't be damaged. While extended, I can use the wand as if holding it, but my hand remains free for other actions.",
-	descriptionFull: "A wand sheath is designed to integrate with the forearm of a warforged. If you're a warforged, you can attach a wand sheath by attuning to it. While the wand sheath is attached, it cannot be removed from you against your will. You can spend one minute to end the attunement and remove the wand sheath.\n   You can insert a wand into the sheath as an action. While the wand is sheathed, you gain the following benefits:\n \u2022 You can retract the wand into your forearm or extend it from your forearm as a bonus action. While it is retracted, it cannot be damaged or removed.\n \u2022 While the wand is extended, you can use it as if you were holding it, but your hand remains free for other actions.\n \u2022 If the sheathed wand requires attunement, you must attune to the wand before you can use it. However, the wand sheath and the attached wand only count as a single item for purposes of the maximum number of items you can be attuned to. If you remove the wand from the sheath, you immediately lose your attunement to the wand.",
+	descriptionLong: "As a warforged, I can integrate this sheath in my forearm by attuning to it. It can only be removed if I spend a minute to end the attunement. As an action, I can insert a wand in it. I still need to attune to this wand if it requires me to do so, but the wand then doesn't count towards the number of items I can attune to. When I take the wand out of the sheath, I lose attunement with it. As a bonus action, I can retract or extend a wand in the sheath. While retracted, the wand can't be damaged. While extended, I can use the wand as if holding it, but my hand remains free for other actions.",
+	descriptionFull: [
+		"A *wand sheath* is designed to integrate with the forearm of a warforged. If you're a warforged, you can attach a *wand sheath* by attuning to it. While the *wand sheath* is attached, it cannot be removed from you against your will. You can spend one minute to end the attunement and remove the *wand sheath*.",
+		"You can insert a wand into the sheath as an action. While the wand is sheathed, you gain the following benefits:",
+		" \u2022 You can retract the wand into your forearm or extend it from your forearm as a bonus action. While it is retracted, it cannot be damaged or removed.",
+		" \u2022 While the wand is extended, you can use it as if you were holding it, but your hand remains free for other actions.",
+		" \u2022 If the sheathed wand requires attunement, you must attune to the wand before you can use it. However, the *wand sheath* and the attached wand only count as a single item for purposes of the maximum number of items you can be attuned to. If you remove the wand from the sheath, you immediately lose your attunement to the wand.",
+	],
 	attunement: true,
 	prerequisite: "Requires attunement by a warforged",
 	prereqeval: function (v) {
@@ -14662,12 +15503,13 @@ RaceList["loxodon-ua"] = {
 	heightMetric: " stand between 2 and 2,5 metres tall",
 	weightMetric: " weigh between 150 to 200 kg",
 	scores: [0, 0, 2, 0, 1, 0],
-	trait: "Loxodon (+2 Constitution, +1 Wisdom)" + desc([
-		"Powerful Build: I count as one size larger for my carrying capacity, push, drag, and lift.",
-		"Stonecunning: I can add double my proficiency bonus to Intelligence (History) checks related to the origin of stonework, instead of my normal proficiency bonus.",
-		"Keen Smell: I have advantage on Wisdom (Perception) and Intelligence (Investigation) checks that rely on smell.",
-		"Natural Armor: " + (typePF ? "I have an AC of" : "My thick, leathery skin gives me AC") + " 13 + Dexterity modifier + shield.",
-	]),
+	trait: [
+		"**Loxodon** (+2 Constitution, +1 Wisdom)",
+		"##\u25C6 Powerful Build##. I count as one size larger for my carrying capacity, push, drag, and lift.",
+		"##\u25C6 Stonecunning##. I can add double my proficiency bonus to Intelligence (History) checks related to the origin of stonework, instead of my normal proficiency bonus.",
+		"##\u25C6 Keen Smell##. I have advantage on Wisdom (Perception) and Intelligence (Investigation) checks that rely on smell.",
+		"##\u25C6 Natural Armor##. " + (typePF ? "I have an AC of" : "My thick, leathery skin gives me AC") + " 13 + Dexterity modifier + shield.",
+	],
 	carryingCapacity: 2,
 };
 
@@ -14713,7 +15555,11 @@ RaceList["simic hybrid-ua"] = {
 	weight: " are of the same weight as another of its humanoid race",
 	scorestxt: "+2 Constitution and +1 to one other ability score of my choice",
 	scores: [0, 0, 2, 0, 0, 0],
-	trait: "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (1st level): Choose one to three types of enhancement using the \"Racial Options\" button: Manta Glide, Nimble Climber, or Underwater Adaptation.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can either choose one I didn't take at 1st level or choose Grappling Appendages, Carapace, or Acid Spit.",
+	trait: [
+		"**Simic Hybrid** (+2 Constitution and +1 to one other ability score of my choice)",
+		"##\u25C6 Animal Enhancement (1st level)##. Choose one to three types of enhancement using the \"Racial Options\" button: Manta Glide, Nimble Climber, or Underwater Adaptation.",
+		"##\u25C6 Animal Enhancement (5th level)##. At 5th level, I gain another animal enhancement. I can either choose one I didn't take at 1st level or choose Grappling Appendages, Carapace, or Acid Spit.",
+	],
 	features: {
 		"animal enhancement": {
 			name: "Animal Enhancement",
@@ -14729,34 +15575,34 @@ RaceList["simic hybrid-ua"] = {
 				var rNm = rObj.name;
 				switch (theChoice) {
 					case "Manta Glide":
-						feaTxt = "Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
+						feaTxt = "##◆ Animal Enhancement (Manta Glide)##. I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
 						break;
 					case "Nimble Climber":
-						feaTxt = "Animal Enhancement (Nimble Climber): I have a climbing speed equal to my walking speed.";
+						feaTxt = "##◆ Animal Enhancement (Nimble Climber)##. I have a climbing speed equal to my walking speed.";
 						SetProf("speed", true, { climb: { spd: "walk", enc: "walk" } }, rNm);
 						break;
 					case "Underwater Adaptation":
-						feaTxt = "Animal Enhancement (Underwater Adaptation): I can breathe air and water, and I have a swimming speed equal to my walking speed.";
+						feaTxt = "##◆ Animal Enhancement (Underwater Adaptation)##. I can breathe air and water, and I have a swimming speed equal to my walking speed.";
 						SetProf("speed", true, { swim: { spd: "walk", enc: "walk" } }, rNm);
 						break;
 					case "Grappling Appendages":
-						feaTxt = "Animal Enhancement (Grappling Appendages): I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
+						feaTxt = "##◆ Animal Enhancement (Grappling Appendages)##. I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
 						processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[0]);
 						AddWeapon("Grappling Appendages");
 						AddAction("bonus action", "Grappling Appendages (after hit)", "being a " + rNm);
 						break;
 					case "Carapace":
-						feaTxt = "Animal Enhancement (Carapace): My skin is covered by a thick shell, giving my a +1 to AC whenever I'm not wearing heavy armor.";
+						feaTxt = "##◆ Animal Enhancement (Carapace)##. My skin is covered by a thick shell, giving me a +1 to AC whenever I'm not wearing heavy armor.";
 						processExtraAC(true, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
 						break;
 					case "Acid Spit":
-						feaTxt = "Animal Enhancement (Acid Spit): As an action, I can spit acid at a single creature within 30 ft that I can see. It must make a Dexterity saving throw with DC 8 + Con modifier + Prof Bonus or take 2d10 acid damage. This increases with 1d10 at 11th and 17th level.";
+						feaTxt = "##◆ Animal Enhancement (Acid Spit)##. As an action, I can spit acid at a single creature within 30 ft that I can see. It must make a Dexterity saving throw with DC 8 + Con modifier + Prof Bonus or take 2d10 acid damage. This increases with 1d10 at 11th and 17th level.";
 						processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[1]);
 						AddWeapon("Acid Spit");
 						break;
 				};
 				if (What("Unit System") !== "imperial") feaTxt = ConvertToMetric(feaTxt, 0.5);
-				Value("Racial Traits", What("Racial Traits").replace(/Animal Enhancement \(5th level\):.*/, "") + feaTxt);
+				Value("Racial Traits", What("Racial Traits").replace(/(##)?(◆ )?Animal Enhancement \(5th level\)(##)?[:.].*/, "") + feaTxt);
 				Value("Race Remember", What("Race Remember") + "-*" + theChoice.replace(" ", "_") + "*");
 			},
 			removeeval: function () {
@@ -14795,7 +15641,11 @@ RaceList["simic hybrid-ua"] = {
 AddRacialVariant("simic hybrid-ua", "manta glide", {
 	regExpSearch: /manta glide/i,
 	source: [["UA:RoR", 3]],
-	trait: "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (Manta Glide): I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can choose Nimble Climber, Underwater Adaptation, Grappling Appendages, Carapace, or Acid Spit.",
+	trait: [
+		"**Simic Hybrid** (+2 Constitution and +1 to one other ability score of my choice)",
+		"##\u25C6 Animal Enhancement (Manta Glide)##. I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.",
+		"##\u25C6 Animal Enhancement (5th level)##. At 5th level, I gain another animal enhancement. I can choose Nimble Climber, Underwater Adaptation, Grappling Appendages, Carapace, or Acid Spit.",
+	],
 });
 AddRacialVariant("simic hybrid-ua", "nimble climber", {
 	regExpSearch: /nimble climber/i,
@@ -14804,7 +15654,11 @@ AddRacialVariant("simic hybrid-ua", "nimble climber", {
 		walk: { spd: 30, enc: 20 },
 		climb: { spd: "walk", enc: "walk" },
 	},
-	trait: "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (Nimble Climber): I have a climbing speed equal to my walking speed.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can choose Manta Glide, Underwater Adaptation, Grappling Appendages, Carapace, or Acid Spit.",
+	trait: [
+		"**Simic Hybrid** (+2 Constitution and +1 to one other ability score of my choice)",
+		"##\u25C6 Animal Enhancement (Nimble Climber)##. I have a climbing speed equal to my walking speed.",
+		"##\u25C6 Animal Enhancement (5th level)##. At 5th level, I gain another animal enhancement. I can choose Manta Glide, Underwater Adaptation, Grappling Appendages, Carapace, or Acid Spit.",
+	],
 });
 AddRacialVariant("simic hybrid-ua", "underwater adaptation", {
 	regExpSearch: /underwater adaptation/i,
@@ -14813,7 +15667,11 @@ AddRacialVariant("simic hybrid-ua", "underwater adaptation", {
 		walk: { spd: 30, enc: 20 },
 		swim: { spd: "walk", enc: "walk" },
 	},
-	trait: "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (Underwater Adaptation): I can breathe air and water, and I have a swimming speed equal to my walking speed.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can choose Manta Glide, Nimble Climber, Grappling Appendages, Carapace, or Acid Split.",
+	trait: [
+		"**Simic Hybrid** (+2 Constitution and +1 to one other ability score of my choice)",
+		"##\u25C6 Animal Enhancement (Underwater Adaptation)##. I can breathe air and water, and I have a swimming speed equal to my walking speed.",
+		"##\u25C6 Animal Enhancement (5th level)##. At 5th level, I gain another animal enhancement. I can choose Manta Glide, Nimble Climber, Grappling Appendages, Carapace, or Acid Split.",
+	],
 });
 
 // Add Vedalken
@@ -14836,7 +15694,11 @@ RaceList["vedalken-ua"] = {
 	heightMetric: " stand between 1,8 and 2 metres tall",
 	weightMetric: " weigh around 100 kg",
 	scores: [0, 0, 0, 2, 1, 0],
-	trait: "Vedalken (+2 Intelligence, +1 Wisdom)\n   Vedalken Dispassion: I have advantage on all Intelligence, Wisdom, and Charisma saving throws.\n   Tireless Precision: I am proficient with any one tool and one skill of my choice: Arcana, History, Investigation, Medicine, Performance, or Sleight of Hand. Whenever I make an ability check with the chosen tool or skill, I can add 1d4 to the check's total.",
+	trait: [
+		"**Vedalken** (+2 Intelligence, +1 Wisdom)",
+		"##\u25C6 Vedalken Dispassion##. I have advantage on all Intelligence, Wisdom, and Charisma saving throws.",
+		"##\u25C6 Tireless Precision##. I am proficient with any one tool and one skill of my choice: Arcana, History, Investigation, Medicine, Performance, or Sleight of Hand. Whenever I make an ability check with the chosen tool or skill, I can add 1d4 to the check's total.",
+	],
 	advantages: [["Int", true], ["Wis", true], ["Cha", true]],
 };
 
@@ -14877,7 +15739,11 @@ RaceList["viashino-ua"] = {
 	weight: " have lithe, wiry frames and are thus lighter than a human of the same height",
 	scores: [1, 2, 0, 0, 0, 0],
 	action: [["reaction", "Lashing Tail (after being hit)"]],
-	trait: "Viashino (+1 Strength, +2 Dexterity)\n\nBite: I can use my fanged maw to make unarmed strikes dealing 1d4 piercing damage.\n\nLashing Tail: I have semi-prehensile tail that is tipped with a bony blade. As a reaction when a creature I can see within 5 ft damages me with a melee attack, I can use my tail to make an unarmed strike against it dealing 1d4 slashing damage.",
+	trait: [
+		"**Viashino** (+1 Strength, +2 Dexterity)",
+		"##\u25C6 Bite##. I can use my fanged maw to make unarmed strikes dealing 1d4 piercing damage.",
+		"##\u25C6 Lashing Tail##. I have semi-prehensile tail that is tipped with a bony blade. As a reaction when a creature I can see within 5 ft damages me with a melee attack, I can use my tail to make an unarmed strike against it dealing 1d4 slashing damage.",
+	],
 };
 
 // ua_20180910_Dragonmarks.js
@@ -14918,7 +15784,11 @@ RaceList["dragonmark detection half-elf-ua"] = {
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scorestxt: "+1 Intelligence, +1 Charisma, and +1 to any one ability score of my choice",
 	scores: [0, 0, 0, 1, 0, 1],
-	trait: "Half-Elf, Dragonmark of Detection (+1 Intelligence, +1 Charisma, and +1 to any one ability score of my choice)\n" + (typePF ? "\n" : "   ") + "Deductive Intuition: I can add my Intuition Die (1d4) to my Intelligence (Investigation) and Wisdom (Insight) checks.\n" + (typePF ? "\n" : "   ") + "Sense Threats: I can cast Detect Magic and Detect Poison and Disease as rituals using Intelligence as my spellcasting ability.",
+	trait: [
+		"**Half-Elf, Dragonmark of Detection** (+1 Intelligence, +1 Charisma, and +1 to any one ability score of my choice)",
+		"##\u25C6 Deductive Intuition##. I can add my Intuition Die (1d4) to my Intelligence (Investigation) and Wisdom (Insight) checks.",
+		"##\u25C6 Sense Threats##. I can cast *Detect Magic* and *Detect Poison and Disease* as rituals using Intelligence as my spellcasting ability.",
+	],
 	spellcastingAbility: 4,
 	spellcastingBonus: [{
 		name: "Sense Threats",
@@ -14957,7 +15827,12 @@ RaceList["dragonmark finding half-orc-ua"] = {
 	weightMetric: " weigh around 100 kg (65 + 5d10 \xD7 4d6 / 10 kg)",
 	scorestxt: "+1 Strength, +1 Wisdom, and +1 to any one ability score of my choice",
 	scores: [1, 0, 0, 0, 1, 0],
-	trait: "Half-Orc, Dragonmark of Finding (+1 Str" + (typePF ? ", +1 Wis, +1 to one ability" : "ength, +1 Wisdom, +1 to any one ability score") + ")\n   Hunter's Intuition: I add my Intuition Die (1d4) to my Perception and Survival checks.\n   Imprint Prey: As a bonus action once per short rest, I imprint a target I can see in 30 ft or with a Survival check when tracking it, lasting until it dies or I use this again. I double my Intuition Die for tracking it, sense its general location in 60 ft, my attacks vs. it ignore half cover and don't have disadv. if I can't see it, and it has no adv. vs. me if I can't see it.\n" + (typePF ? "Nature's Voice: cast Locate Animals/Plants as a ritual from 3rd level." : "   Nature's Voice: Once I reach 3rd level, I can cast Locate Animals or Plants as a ritual."),
+	trait: [
+		"**Half-Orc, Dragonmark of Finding** (+1 Str" + (typePF ? ", +1 Wis, +1 to an ability" : "ength, +1 Wisdom, +1 to any one ability score") + ")",
+		"##Hunter's Intuition##. I add my Intuition Die (1d4) to my Perception and Survival checks.",
+		"##Imprint Prey##. As a bonus action once per short rest, I imprint a target I can see in 30 ft or with a Survival check when tracking it, lasting until it dies or I use this again. I double my Intuition Die for tracking it, sense its general location in 60 ft, my attacks vs. it ignore half cover and don't have disadv. if I can't see it, and it has no adv. vs. me if I can't see it.",
+		(typePF ? "##Nature's Voice##. cast *Locate Animals/Plants* as a ritual from 3rd level." : "##Nature's Voice##. Once I reach 3rd level, I can cast *Locate Animals or Plants* as a ritual."),
+	],
 	features: {
 		"imprint prey": {
 			name: "Imprint Prey",
@@ -15002,7 +15877,13 @@ RaceList["dragonmark handling human-ua"] = {
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scorestxt: "+1 Dexterity, +1 Wisdom, and +1 to any one ability score of my choice",
 	scores: [0, 1, 0, 0, 1, 0],
-	trait: "Human, Dragonmark of Handling (+1 Dex" + (typePF ? ", +1 Wis, +1 to one ability" : "terity, +1 Wisdom, +1 to any one ability score") + ")\n   Wild Intuition: I can add my Intuition Die (1d4) to my Wisdom (Animal Handling) and Intelligence (Nature) checks.\n   Expert Handling: I can use the Help action to aid an ally animal companion or mount even when they are within 30 ft of me, rather than just within 5 ft.\n   Primal Connection: Once per short rest, I can cast Animal Friendship using Wisdom " + (typePF ? "as my spellcasting ability" : "") + ".\n   " + (typePF ? "The Bigger They Are: My spells that normally affect only beasts now also affect monstrosities with an Intelligence of 3 or lower." : "Bigger They Are: My spells that affect only beasts, also affect monstrosities with Int < 4."),
+	trait: [
+		"**Human, Dragonmark of Handling** (+1 Dex" + (typePF ? ", +1 Wis, +1 to any" : "terity, +1 Wisdom, +1 to any one ability score") + ")",
+		"##Wild Intuition##. I can add my Intuition Die (1d4) to my Wisdom (Animal Handling) and Intelligence (Nature) checks.",
+		"##Expert Handling##. I can use the Help action to aid an ally animal companion or mount even when they are within 30 ft of me, rather than just within 5 ft.",
+		"##Primal Connection##. Once per short rest, I can cast *Animal Friendship* using Wisdom " + (typePF ? "as my spellcasting ability" : "") + ".",
+		(typePF ? "##The Bigger They Are##. My spells that normally affect only beasts now also affect monstrosities with an Intelligence of 3 or lower." : "##Bigger They Are##. My spells that affect only beasts, also affect monstrosities with Int < 4."),
+	],
 	spellcastingAbility: 5,
 	features: {
 		"animal friendship": {
@@ -15062,13 +15943,13 @@ RaceList["dragonmark healing halfling-ua"] = {
 	heightMetric: " average about 90 cm tall (80 + 5d4)",
 	weightMetric: " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 1, 0],
-	trait: "Halfling, Dragonmark of Healing (+2 Dexterity, +1 Wisdom)" + (typePF ? "\n  " : "") +
-		" Lucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll." + desc([
-		"Halfling Nimbleness: I can move through the space of Medium and larger creatures.",
-		"Medical Intuition: I " + (typePF ? "" : "can") + " add my Intuition Die (1d4) to " + (typePF ? "Medicine" : "my Wisdom (Medicine)") + " checks.",
-		"Healing Touch: As an action once per short rest, I can spend one of my Hit Dice to heal myself or a creature I touch. I heal the roll of the die plus my Wisdom modifier.",
-		"Jorasco's Blessing: I know the Spare the Dying cantrip.",
-	]),
+	trait: [
+		"**Halfling, Dragonmark of Healing** (+2 Dexterity, +1 Wisdom)" + (typePF ? "\r" : " ") + "##Lucky##. When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.",
+		"##Halfling Nimbleness##. I can move through the space of Medium and larger creatures.",
+		"##Medical Intuition##. I " + (typePF ? "" : "can") + " add my Intuition Die (1d4) to " + (typePF ? "Medicine" : "my Wisdom (Medicine)") + " checks.",
+		"##Healing Touch##. As an action once per short rest, I can spend one of my Hit Dice to heal myself or a creature I touch. I heal the roll of the die plus my Wisdom modifier.",
+		"##Jorasco's Blessing##. I know the *Spare the Dying* cantrip.",
+	],
 	features: {
 		"healing touch": {
 			name: "Healing Touch",
@@ -15104,7 +15985,13 @@ RaceList["dragonmark hospitality halfling-ua"] = {
 	heightMetric: " average about 90 cm tall (80 + 5d4)",
 	weightMetric: " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 0, 1],
-	trait: "Halfling, Dragonmark of Hospitality (+2 Dexterity, +1 Charisma)\nLucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.\nHalfling Nimbleness: I can move through the space of Medium and larger creatures.\nEver Hospitable: I can add my Intuition Die (1d4) to my Charisma (Persuasion) checks and ability checks involving brewer's supplies or cook's utensils.\nInnkeeper's Charms: I know Friends and Prestidigitation with Cha as my spellcasting ability.",
+	trait: [
+		"**Halfling, Dragonmark of Hospitality** (+2 Dexterity, +1 Charisma)",
+		"##Lucky##. When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.",
+		"##Halfling Nimbleness##. I can move through the space of Medium and larger creatures.",
+		"##Ever Hospitable##. I can add my Intuition Die (1d4) to my Charisma (Persuasion) checks and ability checks involving brewer's supplies or cook's utensils.",
+		"##Innkeeper's Charms##. I know *Friends* and *Prestidigitation* with Cha as my spellcasting ability.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Innkeeper's Charms",
@@ -15133,7 +16020,12 @@ RaceList["dragonmark making human-ua"] = {
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scorestxt: "+1 Dexterity, +1 Intelligence, and +1 to any one ability score of my choice",
 	scores: [0, 1, 0, 1, 0, 0],
-	trait: "Human, Dragonmark of Making (+1 Dex" + (typePF ? ", +2 Int or +2 Dex, +1 Int" : "terity, +1 Intelligence, +1 to Dex or Int, my choice") + ")\nArtisan's Intuition: I can add my Intuition Die (1d4) to ability checks with artisan's tools.\nMagecraft: I can create a magic item that gives me the ability to cast one wizard cantrip of my choice, using Intelligence as my spellcasting ability. This works while the item is in my possession. At the end of a long rest, I can replace it with a new item and cantrip.\nSpellsmith: Once per long rest, I can spend 1 minute to make a nonmagical armor or weapon gain a +1 bonus for the next hour. Maker's Gift: I know the mending cantrip.",
+	trait: [
+		"**Human, Dragonmark of Making** (+1 Dex" + (typePF ? ", +2 Int or +2 Dex, +1 Int" : "terity, +1 Intelligence, +1 to Dex or Int, my choice") + ")",
+		"##\u25C6 Artisan's Intuition##. I can add my Intuition Die (1d4) to ability checks with artisan's tools.",
+		"##\u25C6 Magecraft##. I can create a magic item that gives me the ability to cast one wizard cantrip of my choice, using Intelligence as my spellcasting ability. This works while the item is in my possession. At the end of a long rest, I can replace it with a new item and cantrip.",
+		"##\u25C6 Spellsmith##. Once per long rest, I can spend 1 minute to make a nonmagical armor or weapon gain a +1 bonus for the next hour. Maker's Gift: I know the *mending* cantrip.",
+	],
 	features: {
 		"spellsmith": {
 			name: "Spellsmith",
@@ -15184,7 +16076,12 @@ RaceList["dragonmark passage human-ua"] = { // different in Unearthed Arcana
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scorestxt: "+2 Dexterity and +1 to another ability score of my choice",
 	scores: [0, 2, 0, 0, 0, 0],
-	trait: "Human, Dragonmark of Passage (+2 Dexterity and +1 to another ability score)\n   Intuitive Motion: I can add my Intuition Die (1d4) to my Strength (Athletics) checks and any ability checks involving operating or maintaining a land vehicle.\n   Orien's Grace: I can forgo half my movement speed for my turn to no longer provoke opportunity attacks for the rest of that turn.\n   Shared Passage: As a bonus action once per long rest, I can teleport myself and a willing ally within 5 ft a distance up to my walking speed to an unoccupied space I can see.",
+	trait: [
+		"**Human, Dragonmark of Passage** (+2 Dexterity and +1 to another ability score)",
+		"##\u25C6 Intuitive Motion##. I can add my Intuition Die (1d4) to my Strength (Athletics) checks and any ability checks involving operating or maintaining a land vehicle.",
+		"##\u25C6 Orien's Grace##. I can forgo half my movement speed for my turn to no longer provoke opportunity attacks for the rest of that turn.",
+		"##\u25C6 Shared Passage##. As a bonus action once per long rest, I can teleport myself and a willing ally within 5 ft a distance up to my walking speed to an unoccupied space I can see.",
+	],
 	features: {
 		"shared passage": {
 			name: "Shared Passage",
@@ -15215,7 +16112,13 @@ RaceList["dragonmark scribing gnome-ua"] = {
 	heightMetric: " are 90 to 120 cm tall (2'11\" + 5d4)",
 	weightMetric: " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores: [0, 0, 0, 2, 0, 1],
-	trait: "Gnome, Dragonmark of Scribing (+2 Intelligence, +1 Charisma)\n   Gifted Scribe: I can add my Intuition Die (1d4) to ability checks involving calligrapher's supplies or forgery kits. I am proficient with both of these tools.\n   Whispering Wind: I know the Message cantrip.\n   Scribe's Insight: I can cast Comprehend Languages once per long rest.\nIntelligence is my spellcasting ability for the spells gained from being a gnome, dragonmark of scribing.",
+	trait: [
+		"**Gnome, Dragonmark of Scribing** (+2 Intelligence, +1 Charisma)",
+		"##\u25C6 Gifted Scribe##. I can add my Intuition Die (1d4) to ability checks involving calligrapher's supplies or forgery kits. I am proficient with both of these tools.",
+		"##\u25C6 Whispering Wind##. I know the *Message* cantrip.",
+		"##\u25C6 Scribe's Insight##. I can cast *Comprehend Languages* once per long rest.",
+		"Intelligence is my spellcasting ability for the spells gained from being a gnome, dragonmark of scribing.",
+	],
 	spellcastingAbility: 4,
 	spellcastingBonus: [{
 		name: "Whispering Wind",
@@ -15257,7 +16160,12 @@ RaceList["dragonmark sentinel human-ua"] = {
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scorestxt: "+1 Strength, +1 Wisdom, and +1 to any one ability score of my choice",
 	scores: [1, 0, 0, 0, 1, 0],
-	trait: "Human, Dragonmark of Sentinel (+1 Str" + (typePF ? ", +1 Wis, +1 to one ability" : "ength, +1 Wisdom, +1 to any one ability score") + ")\n   Sentinel's Intuition: I can add my Intuition Die (1d4) to Initiative rolls and my Wisdom (Perception) checks.\n   Sentinel's Shield: I know the Blade Ward cantrip. I can cast Shield once per short rest.\n   Vigilant Guardian: As an action, I can designate an ally as my ward, gaining adv. on Insight and Perception checks to spot threats to it. As a reaction when I see my ward being attacked while within 5 ft, I can swap places with it, becoming the target of the attack.",
+	trait: [
+		"**Human, Dragonmark of Sentinel** (+1 Str" + (typePF ? ", +1 Wis, +1 to one ability" : "ength, +1 Wisdom, +1 to any one ability score") + ")",
+		"##\u25C6 Sentinel's Intuition##. I can add my Intuition Die (1d4) to Initiative rolls and my Wisdom (Perception) checks.",
+		"##\u25C6 Sentinel's Shield##. I know the *Blade Ward* cantrip. I can cast *Shield* once per short rest.",
+		"##\u25C6 Vigilant Guardian##. As an action, I can designate an ally as my ward, gaining adv. on Insight and Perception checks to spot threats to it. As a reaction when I see my ward being attacked while within 5 ft, I can swap places with it, becoming the target of the attack.",
+	],
 	action: [["action", "Vigilant Guardian (designate ward)"], ["reaction", "Vigilant Guardian (swap with ward)"]],
 	features: {
 		"shield": {
@@ -15305,7 +16213,13 @@ RaceList["dragonmark shadow elf-ua"] = {
 	heightMetric: " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 0, 1],
-	trait: "Elf, Dragonmark of Shadow (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nGift of the Shadows: I can add my Intuition Die (1d4) to Performance and Stealth checks.\nShape Shadows: I know the Minor Illusion cantrip using Charisma as my spellcasting ability.\nSlip Into Shadow: As a bonus action once per short rest, I can use the Hide action even while I have no cover or if I'm being observed.",
+	trait: [
+		"**Elf, Dragonmark of Shadow** (+2 Dexterity, +1 Charisma)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).",
+		"##\u25C6 Gift of the Shadows##. I can add my Intuition Die (1d4) to Performance and Stealth checks.",
+		"##\u25C6 Shape Shadows##. I know the *Minor Illusion* cantrip using Charisma as my spellcasting ability.",
+		"##\u25C6 Slip Into Shadow##. As a bonus action once per short rest, I can use the Hide action even while I have no cover or if I'm being observed.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Shape Shadows",
@@ -15360,7 +16274,11 @@ RaceList["dragonmark storm half-elf-ua"] = {
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scorestxt: "+1 Dexterity, +1 Charisma, and +1 to any one ability score of my choice",
 	scores: [0, 1, 0, 0, 0, 1],
-	trait: "Half-Elf, Dragonmark of Storm (+1 Dexterity, +1 Charisma, and +1 to any one ability score of my choice)\n" + (typePF ? "\n" : "   ") + "Windwright's Intuition: I can add my Intuition Die (1d4) to my Dexterity (Acrobatics) checks and any ability checks involving operating or maintaining a water or air vehicle.\n" + (typePF ? "\n" : "   ") + "Headwinds: I know the Gust cantrip. Once I reach 3rd level, I can cast Gust of Wind once per long rest. Charisma is my spellcasting ability for these spells.",
+	trait: [
+		"**Half-Elf, Dragonmark of Storm** (+1 Dexterity, +1 Charisma, and +1 to any one ability score of my choice)",
+		"##\u25C6 Windwright's Intuition##. I can add my Intuition Die (1d4) to my Dexterity (Acrobatics) checks and any ability checks involving operating or maintaining a water or air vehicle.",
+		"##\u25C6 Headwinds##. I know the *Gust* cantrip. Once I reach 3rd level, I can cast *Gust of Wind* once per long rest. Charisma is my spellcasting ability for these spells.",
+	],
 	spellcastingAbility: 6, // Not mentioned in WGtE, but essential!
 	spellcastingBonus: [{
 		name: "Headwinds (level 1)",
@@ -15406,7 +16324,12 @@ RaceList["dragonmark warding dwarf-ua"] = {
 	heightMetric: " stand between 1,2 and 1,5 metres tall (120 + 5d4 cm)",
 	weightMetric: " weigh around 75 kg (60 + 5d4 \xD7 4d6 / 10 kg)",
 	scores: [0, 1, 2, 1, 0, 0],
-	trait: "Dwarf, Dragonmark of Warding (+1 Dex" + (typePF ? ", +2 Con, +1 Int" : "terity, +2 Constitution, +1 Intelligence") + ")\n   Stonecunning: When I make an Intelligence (History) check related to the origin of stonework, I am considered having expertise in the History skill.\n   Master of Locks: I can add my Intuition Die (1d4) to Intelligence (History), Intelligence (Investigation), and ability checks with thieves' tools, if it involves lock or trap mechanisms.\n   Wards and Seals: I can cast Alarm as a ritual. Once I reach 3rd level, I can cast Arcane Lock once per long rest. Intelligence is my spellcasting ability for these.",
+	trait: [
+		"**Dwarf, Dragonmark of Warding** (+1 Dex" + (typePF ? ", +2 Con, +1 Int" : "terity, +2 Constitution, +1 Intelligence") + ")",
+		"##\u25C6 Stonecunning##. When I make an Intelligence (History) check related to the origin of stonework, I am considered having expertise in the History skill.",
+		"##\u25C6 Master of Locks##. I can add my Intuition Die (1d4) to Intelligence (History), Intelligence (Investigation), and ability checks with thieves' tools, if it involves lock or trap mechanisms.",
+		"##\u25C6 Wards and Seals##. I can cast *Alarm* as a ritual. Once I reach 3rd level, I can cast *Arcane Lock* once per long rest. Intelligence is my spellcasting ability for these.",
+	],
 	spellcastingAbility: 4,
 	spellcastingBonus: [{
 		name: "Wards and Seals (level 1)",
@@ -15441,7 +16364,12 @@ RaceList["dragonmark warding dwarf-ua"] = {
 FeatsList["greater dragonmark-ua"] = {
 	name: "Greater Dragonmark",
 	source: [["WGtE", 110], ["UA:D", 7]],
-	descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase one ability score by 1, to a maximum of 20. The abilities available to you are based on your mark, as shown on the Greater Dragonmark Benefits table.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn a set of spells, each of which you can cast once without expending a spell slot or using a material component. The list of spells, the spellcasting ability for them, and the type of rest you must complete to regain the use of these spells are shown on the Greater Dragonmark Benefits table.",
+	descriptionFull: [
+		"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+		" \u2022 Increase one ability score by 1, to a maximum of 20. The abilities available to you are based on your mark, as shown on the Greater Dragonmark Benefits table.",
+		" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+		" \u2022 You learn a set of spells, each of which you can cast once without expending a spell slot or using a material component. The list of spells, the spellcasting ability for them, and the type of rest you must complete to regain the use of these spells are shown on the Greater Dragonmark Benefits table.",
+	],
 	description: "Select the type of greater dragonmark using the square button on this feat line.\nMy Intuition Die increases with one step (for example d4 to d6), I gain spellcating abilities, and an increase to one ability score.",
 	eval: function () {
 		var raceTrait = What("Racial Traits");
@@ -15459,8 +16387,13 @@ FeatsList["greater dragonmark-ua"] = {
 	"detection": {
 		prerequisite: "Being level 8 or higher and possessing the Dragonmark of Detection",
 		prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*detection).*$/i.test(CurrentRace.known); },
-		descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Charisma or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells See Invisibility and True Seeing, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast See Invisibility and True Seeing each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Charisma or Intelligence]",
+		descriptionFull: [
+			"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+			" \u2022 Increase your Charisma or Intelligence score by 1, to a maximum of 20.",
+			" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+			" \u2022 You learn the spells *See Invisibility* and *True Seeing*, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+		],
+		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *See Invisibility* and *True Seeing* each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Charisma or Intelligence]",
 		scorestxt: "+1 Charisma or Intelligence",
 		spellcastingBonus: [{
 			name: "1\xD7 per long",
@@ -15487,8 +16420,13 @@ FeatsList["greater dragonmark-ua"] = {
 	"finding": {
 		prerequisite: "Being level 8 or higher and possessing the Dragonmark of Finding",
 		prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*finding).*$/i.test(CurrentRace.known); },
-		descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity, Strength, or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Locate Creature and Find the Path, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Locate Creature and Find the Path each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 " + (typePF ? "Strength, Dexterity, or Wisdom]" : "Str, Dex, or Wis]"),
+		descriptionFull: [
+			"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+			" \u2022 Increase your Dexterity, Strength, or Wisdom score by 1, to a maximum of 20.",
+			" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+			" \u2022 You learn the spells *Locate Creature* and *Find the Path*, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+		],
+		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Locate Creature* and *Find the Path* each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 " + (typePF ? "Strength, Dexterity, or Wisdom]" : "Str, Dex, or Wis]"),
 		scorestxt: "+1 Strength, Dexterity, or Wisdom",
 		spellcastingBonus: [{
 			name: "1\xD7 per long",
@@ -15515,8 +16453,13 @@ FeatsList["greater dragonmark-ua"] = {
 	"handling": {
 		prerequisite: "Being level 8 or higher and possessing the Dragonmark of Handling",
 		prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*handling).*$/i.test(CurrentRace.known); },
-		descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Beast Sense and Dominate Beast, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Beast Sense and Dominate Beast each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
+		descriptionFull: [
+			"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+			" \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.",
+			" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+			" \u2022 You learn the spells *Beast Sense* and *Dominate Beast*, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+		],
+		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Beast Sense* and *Dominate Beast* each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 		scorestxt: "+1 Dexterity or Wisdom",
 		spellcastingBonus: [{
 			name: "1\xD7 per long",
@@ -15530,8 +16473,13 @@ FeatsList["greater dragonmark-ua"] = {
 	"healing": {
 		prerequisite: "Being level 8 or higher and possessing the Dragonmark of Healing",
 		prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*healing).*$/i.test(CurrentRace.known); },
-		descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Mass Healing Word and Greater Restoration, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Mass Healing Word and Greater Restoration each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
+		descriptionFull: [
+			"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+			" \u2022 Increase your Dexterity or Wisdom score by 1, to a maximum of 20.",
+			" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+			" \u2022 You learn the spells *Mass Healing Word* and *Greater Restoration*, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+		],
+		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Mass Healing Word* and *Greater Restoration* each once per long rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Dexterity or Wisdom]",
 		scorestxt: "+1 Dexterity or Wisdom",
 		spellcastingBonus: [{
 			name: "1\xD7 per long",
@@ -15553,8 +16501,13 @@ FeatsList["greater dragonmark-ua"] = {
 	"hospitality": {
 		prerequisite: "Being level 8 or higher and possessing the Dragonmark of Hospitality",
 		prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*hospitality).*$/i.test(CurrentRace.known); },
-		descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Sanctuary and Mordenkainen's Magnificent Mansion, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sanctuary and " + (typePF ? "Mordenkainen's " : "") + "Magnificent Mansion each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
+		descriptionFull: [
+			"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+			" \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.",
+			" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+			" \u2022 You learn the spells *Sanctuary* and *Mordenkainen's Magnificent Mansion*, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+		],
+		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Sanctuary* and " + (typePF ? "Mordenkainen's " : "") + "*Magnificent Mansion* each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 		scorestxt: "+1 Dexterity or Charisma",
 		spellcastingBonus: [{
 			name: "1\xD7 per long",
@@ -15581,8 +16534,13 @@ FeatsList["greater dragonmark-ua"] = {
 	"making": {
 		prerequisite: "Being level 8 or higher and possessing the Dragonmark of Making",
 		prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*making).*$/i.test(CurrentRace.known); },
-		descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Fabricate and Creation, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Fabricate and Creation each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Dexterity or Intelligence]",
+		descriptionFull: [
+			"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+			" \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.",
+			" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+			" \u2022 You learn the spells *Fabricate* and *Creation*, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+		],
+		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Fabricate* and *Creation* each once per long rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Dexterity or Intelligence]",
 		scorestxt: "+1 Dexterity or Intelligence",
 		spellcastingBonus: [{
 			name: "1\xD7 per long",
@@ -15603,8 +16561,13 @@ FeatsList["greater dragonmark-ua"] = {
 	"passage": {
 		prerequisite: "Being level 8 or higher and possessing the Dragonmark of Passage",
 		prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*passage).*$/i.test(CurrentRace.known); },
-		descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Constitution score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Blink and Teleportation Circle, each of which you can cast once without expending a spell slot or using a material component. Constitution is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Blink and Teleportation Circle each once per long rest without using spell slots or requiring material components. Constitution is my spellcasting ability for these. [+1 Dexterity or Constitution]",
+		descriptionFull: [
+			"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+			" \u2022 Increase your Dexterity or Constitution score by 1, to a maximum of 20.",
+			" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+			" \u2022 You learn the spells *Blink* and *Teleportation Circle*, each of which you can cast once without expending a spell slot or using a material component. Constitution is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+		],
+		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Blink* and *Teleportation Circle* each once per long rest without using spell slots or requiring material components. Constitution is my spellcasting ability for these. [+1 Dexterity or Constitution]",
 		scorestxt: "+1 Dexterity or Constitution",
 		spellcastingBonus: [{
 			name: "1\xD7 per long",
@@ -15626,8 +16589,13 @@ FeatsList["greater dragonmark-ua"] = {
 	"scribing": {
 		prerequisite: "Being level 8 or higher and possessing the Dragonmark of Scribing",
 		prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*scribing).*$/i.test(CurrentRace.known); },
-		descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Sending and Tongues, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
-		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Sending and Tongues each once per short rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Intelligence or Charisma]",
+		descriptionFull: [
+			"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+			" \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.",
+			" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+			" \u2022 You learn the spells *Sending* and *Tongues*, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
+		],
+		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Sending* and *Tongues* each once per short rest without using spell slots or requiring material components. Intelligence is my spellcasting ability for these. [+1 Intelligence or Charisma]",
 		scorestxt: "+1 Intelligence or Charisma",
 		spellcastingBonus: [{
 			name: "1\xD7 per short",
@@ -15653,8 +16621,13 @@ FeatsList["greater dragonmark-ua"] = {
 	"sentinel": {
 		prerequisite: "Being level 8 or higher and possessing the Dragonmark of Sentinel",
 		prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*sentinel).*$/i.test(CurrentRace.known); },
-		descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Strength or Wisdom score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Compelled Duel, Warding Bond, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
-		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Compelled Duel and Warding Bond each once per short rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Strength or Wisdom]",
+		descriptionFull: [
+			"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+			" \u2022 Increase your Strength or Wisdom score by 1, to a maximum of 20.",
+			" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+			" \u2022 You learn the spells *Compelled Duel*, *Warding Bond*, each of which you can cast once without expending a spell slot or using a material component. Wisdom is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a short or long rest before you can do so again.",
+		],
+		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Compelled Duel* and *Warding Bond* each once per short rest without using spell slots or requiring material components. Wisdom is my spellcasting ability for these. [+1 Strength or Wisdom]",
 		scorestxt: "+1 Strength or Wisdom",
 		spellcastingBonus: [{
 			name: "1\xD7 per short",
@@ -15676,8 +16649,13 @@ FeatsList["greater dragonmark-ua"] = {
 	"shadow": {
 		prerequisite: "Being level 8 or higher and possessing the Dragonmark of Shadow",
 		prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*shadow).*$/i.test(CurrentRace.known); },
-		descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Nondetection and Mislead, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Nondetection and Mislead each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
+		descriptionFull: [
+			"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+			" \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.",
+			" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+			" \u2022 You learn the spells *Nondetection* and *Mislead*, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+		],
+		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Nondetection* and *Mislead* each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 		scorestxt: "+1 Dexterity or Charisma",
 		spellcastingBonus: [{
 			name: "1\xD7 per long",
@@ -15699,8 +16677,13 @@ FeatsList["greater dragonmark-ua"] = {
 	"storm": {
 		prerequisite: "Being level 8 or higher and possessing the Dragonmark of Storm",
 		prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*storm).*$/i.test(CurrentRace.known); },
-		descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Control Water and Control Winds, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
-		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast Control Water and Control Winds each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
+		descriptionFull: [
+			"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+			" \u2022 Increase your Dexterity or Charisma score by 1, to a maximum of 20.",
+			" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+			" \u2022 You learn the spells *Control Water* and *Control Winds*, each of which you can cast once without expending a spell slot or using a material component. Charisma is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+		],
+		description: "My Intuition Die increases with one step (d4 to d6, for example). I can cast *Control Water* and *Control Winds* each once per long rest without using spell slots or requiring material components. Charisma is my spellcasting ability for these. [+1 Dexterity or Charisma]",
 		scorestxt: "+1 Dexterity or Charisma",
 		spellcastingBonus: [{
 			name: "1\xD7 per long",
@@ -15721,8 +16704,14 @@ FeatsList["greater dragonmark-ua"] = {
 	"warding": {
 		prerequisite: "Being level 8 or higher and possessing the Dragonmark of Warding",
 		prereqeval: function (v) { return v.characterLevel > 7 && /^(?=.*dragonmark)(?=.*warding).*$/i.test(CurrentRace.known); },
-		descriptionFull: "Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).\n \u2022 You learn the spells Knock, Glyph of Warding and Leomund's Secret Chest*, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.\n\n* To cast Leomund's Secret Chest using this feat, you must have a Siberys dragonshard with a value of at least 100 gp. While you have this dragonshard in hand, it serves as the spell's focus, and you can use it to summon and dismiss the chest.",
-		description: "My Intuition Die increases one step. I can cast Knock, Secret Chest, and Glyph of Warding each once per long rest without spell slot or material component. Secret Chest requires a 100 gp Siberys dragonshard as a focus. These use Int as spellcasting ability. [+1 Dex or Int]",
+		descriptionFull: [
+			"Your dragonmark has grown in size and power. This enhances your existing dragonmark, and the benefits are based on the mark that you already possess. A greater dragonmark provides the following benefits:",
+			" \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.",
+			" \u2022 The die type of your dragonmarked Intuition Die increases by one (for example, from a d4 to a d6).",
+			" \u2022 You learn the spells *Knock*, *Glyph of Warding* and Leomund's Secret Chest*, each of which you can cast once without expending a spell slot or using a material component. Intelligence is your spellcasting ability for these spells. Once you cast a spell using this feature, and you must finish a long rest before you can do so again.",
+			"* To cast *Leomund's Secret Chest* using this feat, you must have a Siberys dragonshard with a value of at least 100 gp. While you have this dragonshard in hand, it serves as the spell's focus, and you can use it to summon and dismiss the chest.",
+		],
+		description: "My Intuition Die increases one step. I can cast *Knock*, *Secret Chest*, and *Glyph of Warding* each once per long rest without spell slot or material component. *Secret Chest* requires a 100 gp Siberys dragonshard as a focus. These use Int as spellcasting ability. [+1 Dex or Int]",
 		scorestxt: "+1 Dexterity or Intelligence",
 		spellcastingBonus: [{
 			name: "1\xD7 per long",
@@ -15747,7 +16736,7 @@ FeatsList["greater dragonmark-ua"] = {
 			"leomund's secret chest": {
 				compMaterial: "A Siberys dragonshard with a value of at least 100 gp",
 				description: "Hide chest with content in Ethereal Plane for 60 days, after that chance of loss; 1 a reappear (100gp)",
-				changes: "Leomund's Secret Chest cast through my Greater Dragonmark of Warding requires a Siberys dragonshard as a focus instead of an exquisite chest and its tiny replica.",
+				changes: "*Leomund's Secret Chest* cast through my Greater Dragonmark of Warding requires a Siberys dragonshard as a focus instead of an exquisite chest and its tiny replica.",
 			},
 		},
 	},
@@ -15759,7 +16748,23 @@ FeatsList["aberrant dragonmark-ua"] = {
 	source: [["WGtE", 112], ["UA:D", 9]],
 	prerequisite: "Not having a dragonmark",
 	prereqeval: function (v) { return !/dragonmark/i.test(CurrentRace.known); },
-	descriptionFull: "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it (see the table below for examples). You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again. Constitution is your spellcasting ability for these spells.\n \u2022 You can increase the power of your aberrant spells at the risk of your own vitality. When you cast a spell with your aberrant mark, you can use one of your Hit Dice to increase the spell's level by 1. Immediately after you cast the spell, roll the Hit Die. You take damage equal to the number rolled.\n\n**1d8**\t**Aberrant Mark Flaw**\n1\tYour mark is a source of constant physical pain.\n2\tYour mark whispers to you, though you may not understand what it says.\n3\tIn times of stress, your mark may trigger a cantrip effect involuntarily.\n4\tThe skin around your mark has an unusual appearance: burned, scaly, withered, etc.\n5\tMundane animals become uneasy around you.\n6\tYou have dramatic mood swings any time you use your mark.\n7\tYour appearance changes in a minor way every time you use your mark.\n8\tYou have horrific nightmares after you use your mark.",
+	descriptionFull: [
+		"You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it (see the table below for examples). You gain the following benefits:",
+		" \u2022 Increase your Constitution score by 1, to a maximum of 20.",
+		" \u2022 You learn a cantrip from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again. Constitution is your spellcasting ability for these spells.",
+		" \u2022 You can increase the power of your aberrant spells at the risk of your own vitality. When you cast a spell with your aberrant mark, you can use one of your Hit Dice to increase the spell's level by 1. Immediately after you cast the spell, roll the Hit Die. You take damage equal to the number rolled.",
+		[
+			["1d8", "Aberrant Mark Flaw"],
+			["1", "Your mark is a source of constant physical pain."],
+			["2", "Your mark whispers to you, though you may not understand what it says."],
+			["3", "In times of stress, your mark may trigger a cantrip effect involuntarily."],
+			["4", "The skin around your mark has an unusual appearance: burned, scaly, withered, etc."],
+			["5", "Mundane animals become uneasy around you."],
+			["6", "You have dramatic mood swings any time you use your mark."],
+			["7", "Your appearance changes in a minor way every time you use your mark."],
+			["8", "You have horrific nightmares after you use your mark."],
+		],
+	],
 	description: "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
 	scores: [0, 0, 1, 0, 0, 0],
 	spellcastingAbility: 3,
@@ -15803,7 +16808,7 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 			source: [["UA:BnM", 1]],
 			minlevel: 3,
 			description: desc([
-				"I can cast Detect Magic without spell slots or components, using Con for spellcasting",
+				"I can cast *Detect Magic* without spell slots or components, using Con for spellcasting",
 				"When I do so, I faintly glow a color corresponding to the school of magic I detect",
 			]),
 			usages: "Con mod (min 1) per ",
@@ -15818,7 +16823,7 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 				"detect magic": {
 					components: "",
 					ritual: false,
-					changes: "Using my Path of the Wild Soul class feature I can cast Detect Magic without requiring components or spell slots.",
+					changes: "Using my Path of the Wild Soul class feature I can cast *Detect Magic* without requiring components or spell slots.",
 				},
 			},
 		},
@@ -16268,7 +17273,7 @@ AddSubClass("bard", "college of eloquence-ua", {
 			name: "Soothing Words",
 			source: [["UA:BnP", 1]],
 			minlevel: 3,
-			description: desc("I can cast Calm Emotions without expending a spell slot"),
+			description: desc("I can cast *Calm Emotions* without expending a spell slot"),
 			spellcastingBonus: [{
 				name: "Soothing Words",
 				spells: ["calm emotions"],
@@ -16472,8 +17477,8 @@ AddSubClass("cleric", "twilight domain-ua", {
 			source: [["UA:CDnW", 2]],
 			minlevel: 17,
 			description: desc([
-				"When I use a spell slot to cast Darkness, I can choose my Wis mod of creatures I can see",
-				"The chosen creatures can see through the Darkness; I can be one of the chosen creatures",
+				"When I use a spell slot to cast *Darkness*, I can choose my Wis mod of creatures I can see",
+				"The chosen creatures can see through the *Darkness*; I can be one of the chosen creatures",
 			]),
 			calcChanges: {
 				spellAdd: [
@@ -16484,7 +17489,7 @@ AddSubClass("cleric", "twilight domain-ua", {
 							return true;
 						}
 					},
-					"When I cast Darkness using a spell slot, I can choose a number of creatures that I can see (myself included) equal to my Wisdom modifier (minimum 1).The chosen creatures can see through the Darkness.",
+					"When I cast *Darkness* using a spell slot, I can choose a number of creatures that I can see (myself included) equal to my Wisdom modifier (minimum 1).The chosen creatures can see through the *Darkness*.",
 				],
 			},
 		},
@@ -16505,7 +17510,7 @@ AddSubClass("druid", "circle of wildfire-ua", {
 			description: desc([
 				"My mystical bond with a wildfire spirit gives me the ability to cast certain spells",
 				"These are always prepared, but don't count against the number of spells I can prepare",
-				"In addition, I learn the Fire Bolt cantrip",
+				"In addition, I learn the *Fire Bolt* cantrip",
 			]),
 			spellcastingBonus: [{
 				name: "Circle Spells",
@@ -16675,7 +17680,7 @@ AddSubClass("wizard", "onomancy-ua", {
 			source: [["UA:CDnW", 4]],
 			minlevel: 2,
 			description: desc([
-				"I add Bane and Bless to my spellbook and they count as wizard spells for me",
+				"I add *Bane* and *Bless* to my spellbook and they count as wizard spells for me",
 				"These are always prepared, but don't count against the number of spells I can prepare",
 				"I can cast either spell without using a spell slot by speaking the true name of a target",
 			]),
@@ -16989,7 +17994,7 @@ var UAFRnR_rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua",
 			source: [["UA:FRnR", 3]],
 			minlevel: 3,
 			description: desc([
-				"I learn Mage Hand; When I cast it, the hand takes the form of swarming nature spirits",
+				"I learn *Mage Hand*; When I cast it, the hand takes the form of swarming nature spirits",
 				"I get bonus spells known, which do not count against the number of spells I can know",
 			]),
 			spellcastingBonus: [{
@@ -17139,7 +18144,7 @@ AddSubClass("rogue", "the revived-ua", {
 			source: [["UA:FRnR", 5]],
 			minlevel: 9,
 			description: desc([
-				"I can cast Speak with Dead without a spell slot or material components using Intelligence",
+				"I can cast *Speak with Dead* without a spell slot or material components using Intelligence",
 				"Doing this gives me a random proficiency (roll 1d3) that lasts until I finish my next rest:",
 				"[1] language of my choice; [2] skill or tool of my choice; [3] saving throw of my choice",
 			]),
@@ -17154,7 +18159,7 @@ AddSubClass("rogue", "the revived-ua", {
 				"speak with dead": {
 					components: "V,S",
 					compMaterial: "",
-					changes: "Using Connect with the Dead, I can cast Speak with Dead once per short rest without using a spell slot or material component.",
+					changes: "Using Connect with the Dead, I can cast *Speak with Dead* once per short rest without using a spell slot or material component.",
 				},
 			},
 			usages: 1,
@@ -17236,7 +18241,7 @@ AddFeatureChoice(UACFV_bardOptional1, true, "Expanded Spell List (ua)", {
 				if (spName !== "bard" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["cause fear", "color spray", "command", "aid", "enlarge/reduce", "mind spike", "mirror image", "phantasmal force", "mass healing word", "slow", "tiny servant", "phantasmal killer", "contact other plane", "rary's telepathic bond", "heroes' feast", "mental prison", "scatter", "tenser's transformation", "power word pain", "prismatic spray", "antipathy/sympathy", "maze", "prismatic wall"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the bard class with the following spells (spell level in brackets): Cause Fear (1), Color Spray (1), Command (1), Aid (2), Enlarge/Reduce (2), Mind Spike (2), Mirror Image (2), Phantasmal Force (2), Mass Healing Word (3), Slow (3), Tiny Servant (3), Phantasmal Killer (4), Contact Other Plane (5), Rary's Telepathic Bond (5), Heroes' Feast (6), Mental Prison (6), Scatter (6), Tenser's Transformation (6), Power Word Pain (7), Prismatic Spray (7), Antipathy/Sympathy (8), Maze (8), and Prismatic Wall (9).",
+			"This alternative class feature enhancement expands the spell list of the bard class with the following spells (spell level in brackets): *Cause Fear* (1), *Color Spray* (1), *Command* (1), *Aid* (2), *Enlarge/Reduce* (2), *Mind Spike* (2), *Mirror Image* (2), *Phantasmal Force* (2), *Mass Healing Word* (3), *Slow* (3), *Tiny Servant* (3), *Phantasmal Killer* (4), *Contact Other Plane* (5), *Rary's Telepathic Bond* (5), *Heroes' Feast* (6), *Mental Prison* (6), *Scatter* (6), *Tenser's Transformation* (6), *Power Word Pain* (7), *Prismatic Spray* (7), *Antipathy/Sympathy* (8), *Maze* (8), and *Prismatic Wall* (9).",
 		],
 	},
 });
@@ -17276,7 +18281,7 @@ AddFeatureChoice(UACFV_clericOptional1, true, "Expanded Spell List (ua)", {
 				if (spName !== "cleric" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["cause fear", "wrathful smite", "branding smite", "aura of vitality", "aura of life", "aura of purity", "skill empowerment", "wall of light", "power word heal"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the cleric class with the following spells (spell level in brackets): Cause Fear (1), Wrathful Smite (1), Branding Smite (2), Aura of Vitality (3), Aura of Life (4), Aura of Purity (4), Skill Empowerment (5), Wall of Light (5), and Power Word Heal (9).",
+			"This alternative class feature enhancement expands the spell list of the cleric class with the following spells (spell level in brackets): *Cause Fear* (1), *Wrathful Smite* (1), *Branding Smite* (2), *Aura of Vitality* (3), *Aura of Life* (4), *Aura of Purity* (4), *Skill Empowerment* (5), *Wall of Light* (5), and *Power Word Heal* (9).",
 		],
 	},
 });
@@ -17335,7 +18340,7 @@ AddFeatureChoice(UACFV_druidOptional1, true, "Expanded Spell List (ua)", {
 				if (spName !== "druid" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["ceremony", "protection from evil and good", "augury", "continual flame", "enlarge/reduce", "aura of vitality", "elemental weapon", "revivify", "thunder step", "wall of sand", "divination", "fire shield", "cone of cold", "dawn", "immolation", "flesh to stone", "symbol", "incendiary cloud", "mass polymorph", "power word heal"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the druid class with the following spells (spell level in brackets): Ceremony (1), Protection from Evil and Good (1), Augury (2), Continual Flame (2), Enlarge/Reduce (2), Aura of Vitality (3), Elemental Weapon (3), Revivify (3), Thunder Step (3), Wall of Sand (3), Divination (4), Fire Shield (4), Cone of Cold (5), Dawn (5), Immolation (5), Flesh to Stone (6), Symbol (7), Incendiary Cloud (8), Mass Polymorph (9), and Power Word Heal (9).",
+			"This alternative class feature enhancement expands the spell list of the druid class with the following spells (spell level in brackets): *Ceremony* (1), *Protection from Evil and Good* (1), *Augury* (2), *Continual Flame* (2), *Enlarge/Reduce* (2), *Aura of Vitality* (3), *Elemental Weapon* (3), *Revivify* (3), *Thunder Step* (3), *Wall of Sand* (3), *Divination* (4), *Fire Shield* (4), *Cone of Cold* (5), *Dawn* (5), *Immolation* (5), *Flesh to Stone* (6), *Symbol* (7), *Incendiary Cloud* (8), *Mass Polymorph* (9), and *Power Word Heal* (9).",
 		],
 	},
 });
@@ -17582,7 +18587,7 @@ AddFeatureChoice(UACFV_paladinOptional2, true, "Expanded Spell List (ua)", {
 				if (spName !== "paladin" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["gentle repose", "prayer of healing", "warding bond", "life transference", "spirit guardians", "dawn", "flame strike"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the paladin class with the following spells (spell level in brackets): Gentle Repose (2), Prayer of Healing (2), Warding Bond (2), Life Transference (3), Spirit Guardians (3), Dawn (5), and Flame Strike (5).",
+			"This alternative class feature enhancement expands the spell list of the paladin class with the following spells (spell level in brackets): *Gentle Repose* (2), *Prayer of Healing* (2), *Warding Bond* (2), *Life Transference* (3), *Spirit Guardians* (3), *Dawn* (5), and *Flame Strike* (5).",
 		],
 	},
 });
@@ -17648,7 +18653,7 @@ var UACFV_Favored_Foe = {
 	name: "Favored Foe",
 	source: [["UA:CFV", 7]],
 	description: desc([
-		"I know Hunter's Mark and it doesn't count against the number of spells I can know",
+		"I know *Hunter's Mark* and it doesn't count against the number of spells I can know",
 		"I can cast it a number of times without using a spell slot or requiring concentration",
 		"I can also use a spell slot to cast it as normal, but then it does require concentration",
 	]),
@@ -17695,7 +18700,7 @@ var UACFV_Ranger_Expanded_Spell_List = {
 				if ((spName !== "ranger" && spName !== "rangerua") || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["entangle", "searing smite", "aid", "enhance ability", "gust of wind", "magic weapon", "warding bond", "blinding smite", "meld into stone", "revivify", "tongues", "death ward", "dominate beast", "awaken", "greater restoration"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the ranger class with the following spells (spell level in brackets): Entangle (1), Searing Smite (1), Aid (2), Enhance Ability (2), Gust of Wind (2), Magic Weapon (2), Warding Bond (2), Blinding Smite (3), Meld into Stone (3), Revivify (3), Tongues (3), Death Ward (4), Dominate Beast (4), Awaken (5), and Greater Restoration (5).",
+			"This alternative class feature enhancement expands the spell list of the ranger class with the following spells (spell level in brackets): *Entangle* (1), *Searing Smite* (1), *Aid* (2), *Enhance Ability* (2), *Gust of Wind* (2), *Magic Weapon* (2), *Warding Bond* (2), *Blinding Smite* (3), *Meld into Stone* (3), *Revivify* (3), *Tongues* (3), *Death Ward* (4), *Dominate Beast* (4), *Awaken* (5), and *Greater Restoration* (5).",
 		],
 	},
 };
@@ -17723,7 +18728,7 @@ var UACFV_Primal_Awareness = {
 					spList.notspells = spList.notspells.concat(["detect magic", "speak with animals", "beast sense", "locate animals or plants", "speak with plants", "locate creature", "commune with nature"]);
 				}
 			},
-			"I know the following spells, without them counting towards the maximum number of spells I can know: Detect Magic, Speak with Animals, Beast Sense, Locate Animals or Plants, Speak with Plants, Locate Creature, and Commune with Nature.",
+			"I know the following spells, without them counting towards the maximum number of spells I can know: *Detect Magic*, *Speak with Animals*, *Beast Sense*, *Locate Animals or Plants*, *Speak with Plants*, *Locate Creature*, and *Commune with Nature*.",
 		],
 	},
 	spellcastingBonus: [{
@@ -17935,7 +18940,7 @@ AddFeatureChoice(UACFV_sorcererOptional1, true, "Expanded Spell List (ua)", {
 				if (spName !== "sorcerer" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["primal savagery", "grease", "protection from evil and good", "flame blade", "flaming sphere", "vampiric touch", "fire shield", "flesh to stone", "demiplane", "foresight"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the sorcerer class with the following spells (spell level in brackets): Primal Savagery (cantrip), Grease (1), Protection from Evil and Good (1), Flame Blade (2), Flaming Sphere (2), Vampiric Touch (3), Fire Shield (4), Flesh to Stone (6), Demiplane (8), and Foresight (9).",
+			"This alternative class feature enhancement expands the spell list of the sorcerer class with the following spells (spell level in brackets): *Primal Savagery* (cantrip), *Grease* (1), *Protection from Evil and Good* (1), *Flame Blade* (2), *Flaming Sphere* (2), *Vampiric Touch* (3), *Fire Shield* (4), *Flesh to Stone* (6), *Demiplane* (8), and *Foresight* (9).",
 		],
 	},
 });
@@ -18019,7 +19024,7 @@ AddFeatureChoice(UACFV_warlockOptional1, true, "Expanded Spell List (ua)", {
 				if (spName !== "warlock" || (spType.indexOf("bonus") !== -1 && (!spList["class"] || spList["class"] !== "warlock"))) return;
 				spList.extraspells = spList.extraspells.concat(["thunderwave", "knock", "animate dead", "life transference", "greater invisibility", "phantasmal killer", "mislead", "modify memory", "planar binding", "teleportation circle", "create homunculus", "magic jar", "project image", "abi-dalzim's horrid wilting", "gate", "shapechange", "weird"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the warlock class with the following spells (spell level in brackets): Thunderwave (1), Knock (2), Animate Dead (3), Life Transference (3), Greater Invisibility (4), Phantasmal Killer (4), Mislead (5), Modify Memory (5), Planar Binding (5), Teleportation Circle (5), Create Homunculus (6), Magic Jar (6), Project Image (7), Abi-Dalzim's Horrid Wilting (8), Gate (9), Shapechange (9), and Weird (9).",
+			"This alternative class feature enhancement expands the spell list of the warlock class with the following spells (spell level in brackets): Thunderwave (1), *Knock* (2), *Animate Dead* (3), *Life Transference* (3), *Greater Invisibility* (4), *Phantasmal Killer* (4), *Mislead* (5), *Modify Memory* (5), *Planar Binding* (5), *Teleportation Circle* (5), *Create Homunculus* (6), *Magic Jar* (6), *Project Image* (7), *Abi-Dalzim's Horrid Wilting* (8), *Gate* (9), *Shapechange* (9), and *Weird* (9).",
 		],
 	},
 });
@@ -18077,7 +19082,7 @@ AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome) (ua
 	description: desc([
 		"My book of shadows has a new page; As an action, a creature can write its name on it",
 		"This page can hold my Cha mod (min 1) in creature names; I can remove one as an action",
-		"I can cast Sending without a spell slot or material components, targeting one on the page",
+		"I can cast *Sending* without a spell slot or material components, targeting one on the page",
 		"Instead of saying the message, I write it on the page and any reply appears there as well",
 		"This writing disappears after 1 minute; The target still hears the message in their mind",
 	]),
@@ -18096,7 +19101,7 @@ AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome) (ua
 			components: "V,S",
 			compMaterial: "",
 			description: "Send 25 word message to crea named in book of shadows; it recognizes me and can respond 25 words",
-			changes: "By using Far Scribe, I can cast Sending without using a spell slot or material components, but only to target one of the creatures that wrote their name in my book of shadows. Instead of speaking the message, I write it in my book and any response appears there as well, lasting for 1 minute. The target still hears the message in their mind.",
+			changes: "By using Far Scribe, I can cast *Sending* without using a spell slot or material components, but only to target one of the creatures that wrote their name in my book of shadows. Instead of speaking the message, I write it in my book and any response appears there as well, lasting for 1 minute. The target still hears the message in their mind.",
 		},
 	},
 });
@@ -18122,7 +19127,7 @@ AddWarlockInvocation("Investment of the Chain Master (prereq: Pact of the Chain)
 	source: [["UA:CFV", 11]],
 	submenu: "[improves Pact of the Chain]",
 	description: desc([
-		"When I cast Find Familiar, the summoned create has additional benefits:",
+		"When I cast *Find Familiar*, the summoned create has additional benefits:",
 		"\u2022 It gains a flying or swimming speed of 40 ft (my choice at casting)",
 		"\u2022 It no longer needs to breathe",
 		"\u2022 Its weapon attacks are considered magical for overcoming immunities and resistances",
@@ -18213,7 +19218,7 @@ AddFeatureChoice(UACFV_wizardOptional1, true, "Expanded Spell List (ua)", {
 				if (spName !== "wizard" || spType.indexOf("bonus") !== -1) return;
 				spList.extraspells = spList.extraspells.concat(["augury", "enhance ability", "speak with dead", "divination"]);
 			},
-			"This alternative class feature enhancement expands the spell list of the wizard class with the following spells (spell level in brackets): Augury (2), Enhance Ability (2), Speak with Dead (3), and Divination (4).",
+			"This alternative class feature enhancement expands the spell list of the wizard class with the following spells (spell level in brackets): *Augury* (2), *Enhance Ability* (2), *Speak with Dead* (3), and *Divination* (4).",
 		],
 	},
 });
@@ -18262,7 +19267,7 @@ AddSubClass("fighter", "psychic warrior-ua", {
 			name: "Telekinetic Hand",
 			source: [["UA:FRnW", 1]],
 			minlevel: 3,
-			description: desc("I learn the Mage Hand cantrip, can cast it without components, and can make it invisible"),
+			description: desc("I learn the *Mage Hand* cantrip, can cast it without components, and can make it invisible"),
 			spellcastingBonus: [{
 				name: "Telekinetic Hand",
 				spells: ["mage hand"],
@@ -18273,7 +19278,7 @@ AddSubClass("fighter", "psychic warrior-ua", {
 				"mage hand": {
 					components: "",
 					description: "Create invisible spectral hand for simple tasks or carry up to 10 lb; 1 a to control; can't have multiples",
-					changes: "My Telekinetic Hand class feature allows me to cast Mage Hand without components and I can make the spectral hand invisible.",
+					changes: "My Telekinetic Hand class feature allows me to cast *Mage Hand* without components and I can make the spectral hand invisible.",
 				},
 			},
 		},
@@ -18450,14 +19455,14 @@ AddSubClass("wizard", "psionics-ua", {
 			source: [["UA:FRnW", 4]],
 			minlevel: 2,
 			description: desc([
-				'I learn one cantrip: Friends, Mage Hand, or Message; Use "Choose Feature" button above',
+				'I learn one cantrip: *Friends*, *Mage Hand*, or *Message*; Use "Choose Feature" button above',
 				"While my psionic focus is on me, I can cast it as a bonus action without components",
 			]),
 			choices: ["Friends", "Mage Hand", "Message"],
 			"friends": {
 				name: "Psionic Devotion: Friends",
 				description: desc([
-					"I learn the Friends cantrip and while my psionic focus in on me, I am better at casting it",
+					"I learn the *Friends* cantrip and while my psionic focus in on me, I am better at casting it",
 					"I can cast it as a bonus action without components and the target doesn't become hostile",
 				]),
 				spellcastingBonus: [{
@@ -18472,14 +19477,14 @@ AddSubClass("wizard", "psionics-ua", {
 						components: "",
 						compMaterial: "",
 						description: "Adv. on Cha checks vs. 1 crea currently not hostile; when spell ends, crea realizes I used magic",
-						changes: "While my psionic focus is on my person, I can cast Friends as a bonus action without requiring any components and when the spell ends, the target doesn't become hostile to me.",
+						changes: "While my psionic focus is on my person, I can cast *Friends* as a bonus action without requiring any components and when the spell ends, the target doesn't become hostile to me.",
 					},
 				},
 			},
 			"mage hand": {
 				name: "Psionic Devotion: Mage Hand",
 				description: desc([
-					"I learn Mage Hand and while my psionic focus in on me, I am better at casting it",
+					"I learn *Mage Hand* and while my psionic focus in on me, I am better at casting it",
 					"I can then cast it as a bonus action without components and can make the hand invisible",
 					"Also, I can control the hand as a bonus action instead of an action",
 				]),
@@ -18494,14 +19499,14 @@ AddSubClass("wizard", "psionics-ua", {
 						time: "1 bns",
 						components: "",
 						description: "Create invisible hand for simple tasks or carry up to 10 lb; 1 bns action to control; can't have multiples",
-						changes: "While my psionic focus is on my person, I can cast Mage Hand as a bonus action without requiring any components, can make the hand invisible, and controlling the hand is a bonus action for me.",
+						changes: "While my psionic focus is on my person, I can cast *Mage Hand* as a bonus action without requiring any components, can make the hand invisible, and controlling the hand is a bonus action for me.",
 					},
 				},
 			},
 			"message": {
 				name: "Psionic Devotion: Message",
 				description: desc([
-					"I learn the Message cantrip and while my psionic focus in on me, I'm better at casting it",
+					"I learn the *Message* cantrip and while my psionic focus in on me, I'm better at casting it",
 					"I can then cast it as a bonus action without components",
 					"Also, I don't need to point at the target or whisper the message out loud",
 				]),
@@ -18517,7 +19522,7 @@ AddSubClass("wizard", "psionics-ua", {
 						components: "",
 						compMaterial: "",
 						description: "1 crea hears message I think; can reply with a whisper; nobody can overhear; needs no straight line",
-						changes: "While my psionic focus is on my person, I can cast Message as a bonus action without requiring any components, don't need to point toward the target, and I don't need to whisper my message out loud.",
+						changes: "While my psionic focus is on my person, I can cast *Message* as a bonus action without requiring any components, don't need to point toward the target, and I don't need to whisper my message out loud.",
 					},
 				},
 			},
@@ -18544,7 +19549,7 @@ AddSubClass("wizard", "psionics-ua", {
 			source: [["UA:FRnW", 4]],
 			minlevel: 10,
 			description: desc([
-				'I learn one spell: Dominate Person, Scrying, or Telekinesis; Use "Choose Feature" button',
+				'I learn one spell: *Dominate Person*, *Scrying*, or *Telekinesis*; Use "Choose Feature" button',
 				"I can cast the spell without a spell slot once per long rest (and normally with a spell slot)",
 			]),
 			usages: 1,
@@ -18553,7 +19558,7 @@ AddSubClass("wizard", "psionics-ua", {
 			"dominate person": {
 				name: "Mental Discipline: Dominate Person",
 				description: desc([
-					"I add Dominate Person to my spellbook and can cast it without requiring components",
+					"I add *Dominate Person* to my spellbook and can cast it without requiring components",
 					"Once per long rest, I can cast it without using a spell slot; I can also prepare it as normal",
 				]),
 				limfeaname: "Dominate Person (without spell slot)",
@@ -18565,14 +19570,14 @@ AddSubClass("wizard", "psionics-ua", {
 				spellChanges: {
 					"dominate person": {
 						components: "",
-						changes: "I can cast Dominate Person without requiring any components. Once per long rest, I can cast it without using a spell slot. I can also cast it by using spell slots as normal.",
+						changes: "I can cast *Dominate Person* without requiring any components. Once per long rest, I can cast it without using a spell slot. I can also cast it by using spell slots as normal.",
 					},
 				},
 			},
 			"scrying": {
 				name: "Mental Discipline: Scrying",
 				description: desc([
-					"I add Scrying to my spellbook and can cast it without requiring components",
+					"I add *Scrying* to my spellbook and can cast it without requiring components",
 					"Once per long rest, I can cast it without using a spell slot; I can also prepare it as normal",
 				]),
 				limfeaname: "Scrying (without spell slot)",
@@ -18585,14 +19590,14 @@ AddSubClass("wizard", "psionics-ua", {
 					"scrying": {
 						components: "",
 						compMaterial: "",
-						changes: "I can cast Scrying without requiring any components. Once per long rest, I can cast it without using a spell slot. I can also cast it by using spell slots as normal.",
+						changes: "I can cast *Scrying* without requiring any components. Once per long rest, I can cast it without using a spell slot. I can also cast it by using spell slots as normal.",
 					},
 				},
 			},
 			"telekinesis": {
 				name: "Mental Discipline: Telekinesis",
 				description: desc([
-					"I add Telekinesis to my spellbook and can cast it without requiring components",
+					"I add *Telekinesis* to my spellbook and can cast it without requiring components",
 					"Once per long rest, I can cast it without using a spell slot; I can also prepare it as normal",
 				]),
 				limfeaname: "Telekinesis (without spell slot)",
@@ -18604,7 +19609,7 @@ AddSubClass("wizard", "psionics-ua", {
 				spellChanges: {
 					"telekinesis": {
 						components: "",
-						changes: "I can cast Telekinesis without requiring any components. Once per long rest, I can cast it without using a spell slot. I can also cast it by using spell slots as normal.",
+						changes: "I can cast *Telekinesis* without requiring any components. Once per long rest, I can cast it without using a spell slot. I can also cast it by using spell slots as normal.",
 					},
 				},
 			},
@@ -18681,7 +19686,10 @@ SpellsList["intellect fortress-ua_frnw"] = { // completely different than later 
 	components: "V,S",
 	duration: "Conc, 10 min",
 	description: "I have advantage on all saves and I can use my reaction to have a creature in 30 ft reroll a failed save",
-	descriptionFull: "You create a faintly shimmering barrier of protective psychic power around you. For the duration, you have advantage on all saving throws.\n   When another creature that you can see within 30 feet of you fails a saving throw, you can use your reaction to allow them to reroll the save. They must use the new roll.",
+	descriptionFull: [
+		"You create a faintly shimmering barrier of protective psychic power around you. For the duration, you have advantage on all saving throws.",
+		"When another creature that you can see within 30 feet of you fails a saving throw, you can use your reaction to allow them to reroll the save. They must use the new roll.",
+	],
 };
 SpellsList["mental barrier-ua"] = {
 	name: "Mental Barrier",
@@ -18709,7 +19717,10 @@ SpellsList["mind thrust-ua"] = { // rather different than later iterations in UA
 	duration: "1 rnd",
 	save: "Int",
 	description: "1+1/SL crea, all max 30 ft apart, 3d6 Psychic dmg, only Dash/Diseng. next turn; save half, any action",
-	descriptionFull: "You propel a lance of psionic disruption into the mind of one creature you can see within range. The target must make an Intelligence saving throw. On a failed save, the target takes 3d6 psychic damage, and it can use its action only to Dash or Disengage on its next turn. On a successful save, the target takes half as much damage, and this spell doesn't limit its action options." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd. The creatures must be within 30 feet of each other when you target them.",
+	descriptionFull: [
+		"You propel a lance of psionic disruption into the mind of one creature you can see within range. The target must make an Intelligence saving throw. On a failed save, the target takes 3d6 psychic damage, and it can use its action only to Dash or Disengage on its next turn. On a successful save, the target takes half as much damage, and this spell doesn't limit its action options.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd. The creatures must be within 30 feet of each other when you target them.",
+	],
 };
 SpellsList["psionic blast-ua"] = {
 	name: "Psionic Blast",
@@ -18724,7 +19735,10 @@ SpellsList["psionic blast-ua"] = {
 	save: "Dex",
 	description: "All crea 5d8+1d8/SL Force dmg, 20 ft pushed away, knocked prone; save half, not pushed or prone",
 	descriptionShorter: "All 5d8+1d8/SL Force dmg, 20 ft pushed away, knocked prone; save half, not pushed or prone",
-	descriptionFull: "You unleash a destructive wave of mental power in a 30-foot cone. Each creature in the area must make a Dexterity saving throw. On a failed save, a target takes 5d8 force damage, is pushed 20 feet directly away from you, and is knocked prone. On a successful save, a target takes half as much damage and isn't pushed or knocked prone." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd.",
+	descriptionFull: [
+		"You unleash a *destructive wave* of mental power in a 30-foot cone. Each creature in the area must make a Dexterity saving throw. On a failed save, a target takes 5d8 force damage, is pushed 20 feet directly away from you, and is knocked prone. On a successful save, a target takes half as much damage and isn't pushed or knocked prone.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd.",
+	],
 };
 SpellsList["psychic crush-ua"] = {
 	name: "Psychic Crush",
@@ -18738,7 +19752,10 @@ SpellsList["psychic crush-ua"] = {
 	duration: "1 min",
 	save: "Int",
 	description: "1 crea 12d6 Psychic damage and stunned for 1 min; save half, not stunned; save at turn end to stop",
-	descriptionFull: "You overload the mind of one creature you can see within range, filling its psyche with discordant emotions. The target must make an Intelligence saving throw. On a failed save, the target takes 12d6 psychic damage and is stunned for 1 minute. On a successful save, the target takes half as much damage and isn't stunned.\n   The stunned target can make an Intelligence saving throw at the end of each of its turns. On a successful save, the spell ends on the target.",
+	descriptionFull: [
+		"You overload the mind of one creature you can see within range, filling its psyche with discordant emotions. The target must make an Intelligence saving throw. On a failed save, the target takes 12d6 psychic damage and is stunned for 1 minute. On a successful save, the target takes half as much damage and isn't stunned.",
+		"The stunned target can make an Intelligence saving throw at the end of each of its turns. On a successful save, the spell ends on the target.",
+	],
 	dynamicDamageBonus: { multipleDmgMoments: false },
 };
 SpellsList["thought shield-ua"] = {
@@ -18759,8 +19776,13 @@ SpellsList["thought shield-ua"] = {
 FeatsList["telekinetic-ua"] = {
 	name: "Telekinetic",
 	source: [["UA:FRnW", 8]],
-	descriptionFull: "You learn to move things with your mind. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You learn the mage hand cantrip. You can cast it without verbal or somatic components, and you can make the spectral hand invisible.\n \u2022 As a bonus action, you can try to shove one creature you can see within 5 feet of the spectral hand created by your mage hand spell. When you do so, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Intelligence modifier) or be pushed 5 feet away from you.",
-	description: "I learn the Mage Hand cantrip, can cast it without components, and can make it invisible. As a bonus action, I can use it to try and shove a creature I can see within 5 ft of it. The target must make a Str save (Int based) or be shoved 5 ft away from me. [+1 Intelligence]",
+	descriptionFull: [
+		"You learn to move things with your mind. You gain the following benefits:",
+		" \u2022 Increase your Intelligence score by 1, to a maximum of 20.",
+		" \u2022 You learn the *mage hand* cantrip. You can cast it without verbal or somatic components, and you can make the spectral hand invisible.",
+		" \u2022 As a bonus action, you can try to shove one creature you can see within 5 feet of the spectral hand created by your *mage hand* spell. When you do so, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Intelligence modifier) or be pushed 5 feet away from you.",
+	],
+	description: "I learn the *Mage Hand* cantrip, can cast it without components, and can make it invisible. As a bonus action, I can use it to try and shove a creature I can see within 5 ft of it. The target must make a Str save (Int based) or be shoved 5 ft away from me. [+1 Intelligence]",
 	scores: [0, 0, 0, 1, 0, 0],
 	spellcastingBonus: [{
 		name: "Telekinetic",
@@ -18774,14 +19796,19 @@ FeatsList["telekinetic-ua"] = {
 			components: "",
 			save: "Str",
 			description: "Invisible hand, simple tasks, carries 10 lb; 1 a to control; not multiple; 1 bns 1 crea save or shove 5 ft",
-			changes: "My Telekinetic feat allows me to cast Mage Hand without verbal or somatic components and I can make the spectral hand invisible.",
+			changes: "My Telekinetic feat allows me to cast *Mage Hand* without verbal or somatic components and I can make the spectral hand invisible.",
 		},
 	},
 };
 FeatsList["telepathic-ua"] = {
 	name: "Telepathic",
 	source: [["UA:FRnW", 8]],
-	descriptionFull: "You awaken the ability to mentally connect with others. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You gain proficiency in one skill of your choice from the following list: Deception, Insight, Intimidation, or Persuasion.\n \u2022 You can communicate telepathically with any creature you can see within 30 feet of you. If it understands at least one language, it can respond to you telepathically.",
+	descriptionFull: [
+		"You awaken the ability to mentally connect with others. You gain the following benefits:",
+		" \u2022 Increase your Intelligence score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency in one skill of your choice from the following list: Deception, Insight, Intimidation, or Persuasion.",
+		" \u2022 You can communicate telepathically with any creature you can see within 30 feet of you. If it understands at least one language, it can respond to you telepathically.",
+	],
 	description: "I gain proficiency with one skill chosen from Deception, Insight, Intimidation, or Persuasion. I can communicate telepathically with any creature I can see within 30 feet of me. If it understands at least one language, it can respond to me telepathically. [+1 Intelligence]",
 	scores: [0, 0, 0, 1, 0, 0],
 	choices: ["Deception", "Insight", "Intimidation", "Persuasion"],
@@ -19153,7 +20180,7 @@ AddSubClass("warlock", "the noble genie-ua", {
 				" \u2022 A creature I can see in 60 ft heals 8d6 HP and 1 disease or condition affecting it ends",
 				"   This condition can be blinded, charmed, deafened, frightened, paralyzed, or poisoned",
 				" \u2022 A creature I can see in 60 ft has disadv. on attacks \u0026 saves until my next turn starts",
-				" \u2022 I can cast Legend Lore without using material components",
+				" \u2022 I can cast *Legend Lore* without using material components",
 				"I can regain a use of this by sacrificing 500 gp of nonmagical treasure to my patron",
 			]),
 			action: [["action", ""]],
@@ -19170,7 +20197,7 @@ AddSubClass("warlock", "the noble genie-ua", {
 					components: "V,S",
 					compMaterial: "",
 					description: "Learn summary of lore of named or described person, place, or object",
-					changes: "When I use my Collector's Call feature to cast Legend Lore, it doesn't require any material components.",
+					changes: "When I use my Collector's Call feature to cast *Legend Lore*, it doesn't require any material components.",
 				},
 			},
 		},
@@ -19507,17 +20534,17 @@ RunFunctionAtEnd(function () {
 				additional: "also see notes page",
 				toNotesPage: [{
 					name: "Power Armor Model Features",
-					note: desc([
+					note: [
 						"I can customize my power armor to the guardian or infiltrator model whenever I finish a short or long rest, provided I have smith's tools in hand.",
 						"Each model includes a special weapon. When I attack with that weapon, I can use my Intelligence modifier, instead of Strength or Dexterity, for the attack and damage rolls.",
-					]) + "\n\n\u25C6 Guardian Power Armor (Armorer 3, UA:SP3 2)" + desc([
-						"\u2022 Thunder Gauntlets: The armored fists of the guardian power armor each count as a simple melee weapon, and each deals 1d8 thunder damage on a hit. A creature hit by the gauntlet has disadvantage on attack rolls against targets other than me until the start of me next turn, as the armor magically emits a distracting pulse when the creature attacks someone else.",
-						"\u2022 Defensive Field: As a bonus action, I can gain temporary hit points equal to my artificer level, replacing any temporary hit points I already have. I lose these temporary hit points if I doff the armor.",
-					]) + "\n\n\u25C6 Infiltrator Power Armor (Armorer 3, UA:SP3 2)" + desc([
-						"\u2022 Lightning Launcher: A gemlike node on one of the armored fists or on the chest (my choice) counts as a simple ranged weapon, with a normal range of 90 ft and a long range of 300 ft. It deals 1d6 lightning damage on a hit. Once on each of my turns when I hit a creature with it, I can deal an extra 1d6 lightning damage to that target.",
-						"\u2022 Powered Steps: My walking speed increases by 5 feet.",
-						"\u2022 Second Skin: The armor's weight is negligible, and it becomes formfitting and wearable under clothing. If the armor normally imposes disadvantage on Dexterity (Stealth) checks, the power armor doesn't.",
-					]),
+						"\u25C6 Guardian Power Armor (Armorer 3, UA:SP3 2)",
+						" \u2022 Thunder Gauntlets: The armored fists of the guardian power armor each count as a simple melee weapon, and each deals 1d8 thunder damage on a hit. A creature hit by the gauntlet has disadvantage on attack rolls against targets other than me until the start of me next turn, as the armor magically emits a distracting pulse when the creature attacks someone else.",
+						" \u2022 Defensive Field: As a bonus action, I can gain temporary hit points equal to my artificer level, replacing any temporary hit points I already have. I lose these temporary hit points if I doff the armor.",
+						"\u25C6 Infiltrator Power Armor (Armorer 3, UA:SP3 2)",
+						" \u2022 Lightning Launcher: A gemlike node on one of the armored fists or on the chest (my choice) counts as a simple ranged weapon, with a normal range of 90 ft and a long range of 300 ft. It deals 1d6 lightning damage on a hit. Once on each of my turns when I hit a creature with it, I can deal an extra 1d6 lightning damage to that target.",
+						" \u2022 Powered Steps: My walking speed increases by 5 feet.",
+						" \u2022 Second Skin: The armor's weight is negligible, and it becomes formfitting and wearable under clothing. If the armor normally imposes disadvantage on Dexterity (Stealth) checks, the power armor doesn't.",
+					],
 				}],
 				choices: [],
 				choiceDependencies: [{
@@ -19571,14 +20598,14 @@ RunFunctionAtEnd(function () {
 				toNotesPage: [{
 					name: "Guardian Perfected Armor Features",
 					popupName: "Perfected Armor: Model Features",
-					note: desc([
+					note: [
 						"Tinkering with my armor's energy system leads me to discover a powerful pulling force.",
 						"As a reaction when a creature I can see ends its turn within 30 ft of me, I can force the creature to succeed on a Strength saving throw against my spell save DC or be pulled up to 30 ft toward me to an unoccupied space. If I pull the target to space within 5 ft of me, I can make a melee weapon attack against it as part of this reaction.",
 						"I can use this reaction a number of times equal to my Intelligence modifier (min 1). I regain all expended uses of it when I finish a long rest.",
-					]) + "\n\n\u25C6 Infiltrator Perfected Armor Features (Armorer 15, UA:SP3 2)" + desc([
+						"\u25C6 Infiltrator Perfected Armor Features (Armorer 15, UA:SP3 2)",
 						"Any creature that takes lightning damage from my Lightning Launcher glimmers with light until the start of my next turn.",
 						"The glimmering creature sheds dim light in a 5-ft radius, and the next attack roll against it by a creature other than me has advantage. If that attack hits, it deals an extra 1d6 lightning damage.",
-					]),
+					],
 					amendTo: "Power Armor Model Features",
 				}],
 				choices: ["guardian", "infiltrator"],
@@ -19692,7 +20719,10 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 		source: [["UA:SP3", 3]],
 		type: "armor (light, medium, or heavy)",
 		description: "This armor has 4 charges and regains 1d4 charges daily at dawn. As a reaction when I would be knocked prone, I can expend 1 charge to not be knocked prone. It allows me to use my Intelligence modifier instead of my Strength modifier when making Strength checks or Strength saves.",
-		descriptionFull: "While wearing this armor, a creature can use its Intelligence modifier in place of its Strength modifier when making Strength checks and Strength saving throws.\n   The armor has 4 charges. As a reaction when it would be knocked prone, the wearer can expend 1 charge to not be knocked prone. The armor regains 1d4 expended charges daily at dawn.",
+		descriptionFull: [
+			"While wearing this armor, a creature can use its Intelligence modifier in place of its Strength modifier when making Strength checks and Strength saving throws.",
+			"The armor has 4 charges. As a reaction when it would be knocked prone, the wearer can expend 1 charge to not be knocked prone. The armor regains 1d4 expended charges daily at dawn.",
+		],
 		attunement: true,
 		action: [["reaction", ""]],
 		chooseGear: {
@@ -19726,7 +20756,10 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 		source: [["UA:SP3", 3]],
 		type: "armor (light, medium, or heavy)",
 		description: "As an action, I can integrate a set of artisan's or thieves' tools into this magic studded leather armor, which can hold only one set at a time. The tools remain integrated for 8 hours or until I remove them as an action. I can add my Intelligence modifier as a bonus to any ability checks I make with the integrated tools.",
-		descriptionFull: "As an action, a creature wearing this infused armor can integrate into it artisan's tools or thieves' tools. The tools remain integrated in the armor for 8 hours or until the wearer removes the tools as an action. The armor can have only one tool integrated at a time.\n   The wearer can add its Intelligence modifier to any ability checks it makes with the integrated tool. The wearer must have a hand free to use the tool.",
+		descriptionFull: [
+			"As an action, a creature wearing this infused armor can integrate into it artisan's tools or thieves' tools. The tools remain integrated in the armor for 8 hours or until the wearer removes the tools as an action. The armor can have only one tool integrated at a time.",
+			"The wearer can add its Intelligence modifier to any ability checks it makes with the integrated tool. The wearer must have a hand free to use the tool.",
+		],
 		action: [["action", ""]],
 	};
 	AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Mind Sharpener (ua)", {
@@ -19797,7 +20830,7 @@ AddSubClass("druid", "circle of the stars-ua", {
 			description: desc([
 				"I've created a star map, a Tiny object which I can use as my spellcasting focus",
 				"If I lose it, I can perform a 1-hour ceremony during a rest to create a replacement",
-				"I can use it to cast Augury or Guiding Bolt, even unprepared, without using a spell slot",
+				"I can use it to cast *Augury* or *Guiding Bolt*, even unprepared, without using a spell slot",
 			]),
 			spellcastingBonus: [{
 				name: "Star Map",
@@ -20195,14 +21228,24 @@ SourceList["UA:F2"] = {
 FeatsList["crusher-ua"] = {
 	name: "Crusher",
 	source: [["UA:F2", 1]],
-	descriptionFull: "You are practiced in the art of crushing your enemies, granting you the following benefits:\n \u2022 Increase your Strength or Dexterity by 1, to a maximum of 20.\n \u2022 Once per turn, when you hit a creature with an attack that deals bludgeoning damage, you can move it 5 feet to an unoccupied space, provided the target is no more than one size larger than you.\n \u2022 When you score a critical hit that deals bludgeoning damage to a creature, attack rolls against that creature are made with advantage until the end of your next turn.",
+	descriptionFull: [
+		"You are practiced in the art of crushing your enemies, granting you the following benefits:",
+		" \u2022 Increase your Strength or Dexterity by 1, to a maximum of 20.",
+		" \u2022 Once per turn, when you hit a creature with an attack that deals bludgeoning damage, you can move it 5 feet to an unoccupied space, provided the target is no more than one size larger than you.",
+		" \u2022 When you score a critical hit that deals bludgeoning damage to a creature, attack rolls against that creature are made with advantage until the end of your next turn.",
+	],
 	description: "Once per turn, when I hit a creature no more than one size larger than me with an attack that deals bludgeoning damage, I can move it 5 ft to an unoccupied space. If I score a critical hit that deals bludgeoning damage, attacks against the creature hit gain advantage until the start of my next turn. [+1 " + (typePF ? "Str or Dex" : "Strength or Dexterity") + "]",
 	scorestxt: "+1 Strength or Dexterity",
 };
 FeatsList["practiced expert-ua"] = {
 	name: "Practiced Expert",
 	source: [["UA:F2", 3]],
-	descriptionFull: "You have honed your proficiency with particular skills or tools, gaining the following benefits:\n \u2022 Increase one ability score of your choice by 1, to a maximum of 20.\n \u2022 You gain proficiency with one skill or tool of your choice.\n \u2022 Choose one of your skill or tool proficiencies. Your proficiency bonus is doubled for any ability check you make that uses the chosen proficiency.",
+	descriptionFull: [
+		"You have honed your proficiency with particular skills or tools, gaining the following benefits:",
+		" \u2022 Increase one ability score of your choice by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency with one skill or tool of your choice.",
+		" \u2022 Choose one of your skill or tool proficiencies. Your proficiency bonus is doubled for any ability check you make that uses the chosen proficiency.",
+	],
 	description: "I gain proficiency in one skill or tool, and expertise in that same skill or tool, or another skill or tool I'm proficient with. [+1 to one ability score of my choice]",
 	skillstxt: "Proficiency with one skill or tool, and\n   Expertise with one skill or tool I'm proficient with",
 	scorestxt: "+1 to one ability score of my choice",
@@ -20210,8 +21253,12 @@ FeatsList["practiced expert-ua"] = {
 FeatsList["shadow touched-ua"] = {
 	name: "Shadow Touched",
 	source: [["UA:F2", 3]],
-	descriptionFull: "You learn how to bend shadows from your experience with the Shadowfell. You gain the following benefits:\n \u2022 Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.\n \u2022 You learn the darkness spell and one 1st-level spell of your choice. The 1st-level spell must be from the illusion or necromancy school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat.",
-	description: "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them if I have a spell slot to do so. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Intelligence, Wisdom, or Charisma]",
+	descriptionFull: [
+		"You learn how to bend shadows from your experience with the Shadowfell. You gain the following benefits:",
+		" \u2022 Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
+		" \u2022 You learn the *darkness* spell and one 1st-level spell of your choice. The 1st-level spell must be from the illusion or necromancy school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat.",
+	],
+	description: "I learn *Darkness* and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them if I have a spell slot to do so. My spellcasting ability is the ability I choose to increase when I gain this feat. [+1 Intelligence, Wisdom, or Charisma]",
 	spellcastingBonus: [{
 		name: "Darkness",
 		spells: ["darkness"],
@@ -20228,17 +21275,17 @@ FeatsList["shadow touched-ua"] = {
 	allowUpCasting: true,
 	choices: ["Intelligence", "Wisdom", "Charisma"],
 	"intelligence": {
-		description: "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
+		description: "I learn *Darkness* and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
 		spellcastingAbility: 4,
 		scores: [0, 0, 0, 1, 0, 0],
 	},
 	"wisdom": {
-		description: "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Wisdom is my spellcasting ability for these spells. [+1 Wisdom]",
+		description: "I learn *Darkness* and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Wisdom is my spellcasting ability for these spells. [+1 Wisdom]",
 		spellcastingAbility: 5,
 		scores: [0, 0, 0, 0, 1, 0],
 	},
 	"charisma": {
-		description: "I learn Darkness and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Charisma is my spellcasting ability for these spells. [+1 Charisma]",
+		description: "I learn *Darkness* and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Charisma is my spellcasting ability for these spells. [+1 Charisma]",
 		spellcastingAbility: 6,
 		scores: [0, 0, 0, 0, 0, 1],
 	},
@@ -20246,7 +21293,13 @@ FeatsList["shadow touched-ua"] = {
 FeatsList["shield training-ua"] = {
 	name: "Shield Training",
 	source: [["UA:F2", 3]],
-	descriptionFull: "You've trained in the effective use of shields. You gain the following benefits:\n \u2022 Increase your Strength, Dexterity, or Constitution score by 1, to a maximum of 20.\n \u2022 You gain proficiency with shields.\n \u2022 In combat, you can don or doff a shield as the free object interaction on your turn.\n \u2022 If you have the Spellcasting or Pact Magic feature, you can use a shield as a spellcasting focus.",
+	descriptionFull: [
+		"You've trained in the effective use of shields. You gain the following benefits:",
+		" \u2022 Increase your Strength, Dexterity, or Constitution score by 1, to a maximum of 20.",
+		" \u2022 You gain proficiency with shields.",
+		" \u2022 In combat, you can don or doff a shield as the free object interaction on your turn.",
+		" \u2022 If you have the Spellcasting or Pact Magic feature, you can use a shield as a spellcasting focus.",
+	],
 	description: "I gain proficiency with shields. I can don or doff a shield as the free object interaction on my turn. If I have the Spellcasting or Pact Magic feature, I can use my shield as a spellcasting focus. [+1 Strength, Dexterity, or Constitution]",
 	scorestxt: "+1 Strength, Dexterity, or Constitution",
 	armorProfs: [false, false, false, true],
@@ -20254,15 +21307,24 @@ FeatsList["shield training-ua"] = {
 FeatsList["tandem tactician-ua"] = {
 	name: "Tandem Tactician",
 	source: [["UA:F2", 3]],
-	descriptionFull: "Your presence in a scrap tends to elevate your comrades. You gain the following benefits:\n \u2022 You can use the Help action as a bonus action.\n \u2022 When you use the Help action to aid an ally in attacking a creature, increase the range of the Help action by 10 feet. Additionally, you can help two allies targeting the same creature within range when you use the Help action this way.",
+	descriptionFull: [
+		"Your presence in a scrap tends to elevate your comrades. You gain the following benefits:",
+		" \u2022 You can use the Help action as a bonus action.",
+		" \u2022 When you use the Help action to aid an ally in attacking a creature, increase the range of the Help action by 10 feet. Additionally, you can help two allies targeting the same creature within range when you use the Help action this way.",
+	],
 	description: "I can use the Help action as a bonus action. When I use the Help action to aid an ally in attacking a creature, the range of the Help action increases with 10 ft. I can help two allies targeting the same creature within range when I use the Help action this way.",
 	action: [["bonus action", ""]],
 };
 FeatsList["tracker-ua"] = {
 	name: "Tracker",
 	source: [["UA:F2", 3]],
-	descriptionFull: "You have spent time hunting creatures and honed your skills, gaining the following benefits:\n \u2022 Increase your Wisdom score by 1, to a maximum of 20.\n \u2022 You learn the hunter's mark spell. You can cast it once without expending a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have. Wisdom is your spellcasting ability for this spell.\n \u2022 You have advantage on Wisdom (Survival) checks to track creatures.",
-	description: "I can cast Hunter's Mark once per long rest at its lowest level without expending a spell slot, and can cast it by expending a spell slot as normal. Wisdom is my spellcasting ability for this. I have advantage on Wisdom (Survival) checks to track creatures. [+1 Wisdom]",
+	descriptionFull: [
+		"You have spent time hunting creatures and honed your skills, gaining the following benefits:",
+		" \u2022 Increase your Wisdom score by 1, to a maximum of 20.",
+		" \u2022 You learn the *hunter's mark* spell. You can cast it once without expending a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have. Wisdom is your spellcasting ability for this spell.",
+		" \u2022 You have advantage on Wisdom (Survival) checks to track creatures.",
+	],
+	description: "I can cast *Hunter's Mark* once per long rest at its lowest level without expending a spell slot, and can cast it by expending a spell slot as normal. Wisdom is my spellcasting ability for this. I have advantage on Wisdom (Survival) checks to track creatures. [+1 Wisdom]",
 	scores: [0, 0, 0, 0, 1, 0],
 	spellcastingBonus: [{
 		name: "1\xD7/LR \u0026 spell slot",
@@ -20298,7 +21360,7 @@ AddSubClass("bard", "college of spirits-ua",{
 			source: [["UA:SP4", 1]],
 			minlevel: 3,
 			description: desc([
-				"I learn the Guidance cantrip and can cast it with a range of 60 ft",
+				"I learn the *Guidance* cantrip and can cast it with a range of 60 ft",
 			]),
 			spellcastingBonus: [{
 				name: "Guiding Whispers",
@@ -20309,7 +21371,7 @@ AddSubClass("bard", "college of spirits-ua",{
 			spellChanges: {
 				"guidance": {
 					range: "60 ft",
-					changes: "I can cast Guidance with a range of 60 ft.",
+					changes: "I can cast *Guidance* with a range of 60 ft.",
 				},
 			},
 		},
@@ -20335,13 +21397,11 @@ AddSubClass("bard", "college of spirits-ua",{
 			action: [["bonus action", " (roll on table)"], ["action", " (use effect)"]],
 			toNotesPage: [{
 				name: "Spirits' Tales Table",
-				note: desc([
+				note: [
 					"As a bonus action while I'm holding my spiritual focus, I can reach out to spirits who tell their tales through me. I expend one use of my Bardic Inspiration and roll on the table below using my Bardic Inspiration die to determine the tale. I retain the tale in mind until I bestow the tale's effect or finish a short or long rest.",
 					"I can retain only one of these tales in mind at a time, and rolling on the table immediately ends the effect of the previous tale.",
 					"As an action, I can choose myself or one creature I can see within 30 ft to be the target of the tale's effect. If the tale requires a saving throw, the DC equals my spell save DC.",
-					"\nRoll " + (typePF ? "" : " ") + "Tale",
-				]) +
-				desc([
+					"Roll " + (typePF ? "" : " ") + "Tale",
 					"  1    Beast: I recite the tale of a clever animal. For 1 minute, the target has advantage on Wisdom (Perception) checks and advantage on attack rolls against a creature if another enemy is within 5 ft of it, and that enemy isn't incapacitated.",
 					"  2    Warrior: I recount the story of a renowned duelist. Make a melee spell attack against the target as an attacking spectral warrior briefly appears in a unoccupied space within 5 ft of the target before vanishing. On a hit, the target takes force damage equal to two rolls of my Bardic Inspiration die + my Charisma modifier.",
 					"  3    Friends: I recite the tale of friends who found each other in the afterlife. The target and another creature of its choice it can see within 5 ft of it regains hit points equal to a roll of my Bardic Inspiration die + my Charisma modifier.",
@@ -20354,7 +21414,7 @@ AddSubClass("bard", "college of spirits-ua",{
 					" 10    Dragon: I breathe a poem of a wrathful dragon. The target magically spews fire from their mouth in a 30-ft cone. Each creature in that area must make a Dexterity saving throw, taking fire damage equal to three rolls of my Bardic Inspiration die on a failed save, or half as much damage on a successful one.",
 					" 11    Celestial: I speak of the exalted deeds of a celestial. The target regains hit points equal to two rolls of my Bardic Inspiration die + my bard level, and I end one disease or a condition from the following list affecting the target: blinded, deafened, paralyzed, petrified, or poisoned.",
 					" 12    Unknown: I utter an incomprehensible fable from a being beyond the stars. The target must succeed on an Intelligence saving throw or take psychic damage equal to three rolls of my Bardic Inspiration die, and the target is unable to speak any language for 1 minute.",
-				], "\n"),
+				],
 			}],
 		},
 		"subclassfeature6": {
@@ -20693,7 +21753,7 @@ var UASP5_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden-ua", 
 			source: [["UA:SP5", 3]],
 			minlevel: 3,
 			description: desc([
-				"I learn the Draconic language and the Thaumaturgy cantrip",
+				"I learn the Draconic language and the *Thaumaturgy* cantrip",
 			]),
 			languageProfs: ["Draconic"],
 			spellcastingBonus: [{
@@ -20917,10 +21977,11 @@ RaceList["dhampir-ua"] = {
 		recovery: "long rest",
 	}],
 	scorestxt: "+2 to one ability score, and +1 to a different score of my choice",
-	trait: "Dhampir" + (typePF ? "\n " : "\t") +
-	"\u2022 Type: My creature type is both Humanoid and Undead." +
-	"\n \u2022 Spider Climb: Climbing speed equal to walking speed. At 3rd level, I can move up, down, and across vertical surfaces and upside down along ceilings, while leaving my hands free." +
-	"\n \u2022 Vampiric Bite: Uses Constitution and has adv. on the attack roll if I'm at or below half HP. My Proficiency Bonus per long rest, when I hit a creature other than a construct or undead, I can empower myself. I either regain HP or gain a bonus on my next ability check or attack roll. The bonus is equal to the piercing damage dealt.",
+	trait: [
+		"**Dhampir**" + (typePF ? "\r" : " ") + "##\u25C6 Type##. My creature type is both Humanoid and Undead.",
+		"##\u25C6 Spider Climb##. Climbing speed equal to walking speed. At 3rd level, I can move up, down, and across vertical surfaces and upside down along ceilings, while leaving my hands free.",
+		"##\u25C6 Vampiric Bite##. Uses Constitution and has adv. on the attack roll if I'm at or below half HP. My Proficiency Bonus per long rest, when I hit a creature other than a construct or undead, I can empower myself. I either regain HP or gain a bonus on my next ability check or attack roll. The bonus is equal to the piercing damage dealt.",
+	],
 };
 RaceList["hexblood-ua"] = {
 	regExpSearch: /hexblood/i,
@@ -20932,10 +21993,11 @@ RaceList["hexblood-ua"] = {
 		walk: { spd: 30, enc: 20 },
 	},
 	scorestxt: "+2 to one ability score, and +1 to a different score of my choice",
-	trait: "Hexblood" + (typePF ? "\n " : "\t") +
-	"\u2022 Fey Resilience: I'm both Humanoid and Fey. I have adv. on saves vs. charms." +
-	"\n \u2022 Magic Token: As an action once per long rest, I can harmlessly remove a lock of my hair, one of my nails or teeth and imbue this token with magic until I finish a long rest. While the token is imbued in this way, I can telepathically speak to a creature holding it or see and hear around it. See the Notes page for more information." +
-	"\n \u2022 Hex Magic: I known Disguise Self and Hex. I can cast each spell once per long rest without using a spell slot, or by using a spell slot.",
+	trait: [
+		"**Hexblood**" + (typePF ? "\r" : " ") + "##\u25C6 Fey Resilience##. I'm both Humanoid and Fey. I have adv. on saves vs. charms.",
+		"##\u25C6 Magic Token##. As an action once per long rest, I can harmlessly remove a lock of my hair, one of my nails or teeth and imbue this token with magic until I finish a long rest. While the token is imbued in this way, I can telepathically speak to a creature holding it or see and hear around it. See the Notes page for more information.",
+		"##\u25C6 Hex Magic##. I know *Disguise Self* and *Hex*. I can cast each spell once per long rest without using a spell slot, or by using a spell slot.",
+	],
 	toNotesPage: [{
 		name: "Hexblood's Magic Token",
 		note: ["As an action, I can harmlessly pull out one of my nails, a tooth, or a lock of hair. This token is imbued with magic until I finish a long rest.",
@@ -21018,12 +22080,12 @@ RaceList["reborn-ua"] = {
 AddRacialVariant("reborn-ua", "undead", {
 	regExpSearch: /undead/i,
 	source: [["UA:GL", 5]],
-	trait: RaceList["reborn-ua"].trait.replace("Humanoid, as well as Construct or Undead (my choice)", "both Humanoid and Undead").replace("  ", "\t"),
+	trait: [].concat(RaceList["reborn-ua"].trait).map(function (sTrait) { return sTrait.replace("Humanoid, as well as Construct or Undead (my choice)", "both Humanoid and Undead"); }),
 });
 AddRacialVariant("reborn-ua", "construct", {
 	regExpSearch: /construct/i,
 	source: [["UA:GL", 5]],
-	trait: RaceList["reborn-ua"].trait.replace("Humanoid, as well as Construct or Undead (my choice)", "both Humanoid and Construct").replace("  ", "\t"),
+	trait: [].concat(RaceList["reborn-ua"].trait).map(function (sTrait) { return sTrait.replace("Humanoid, as well as Construct or Undead (my choice)", "both Humanoid and Construct"); }),
 });
 
 // ua_20210311_Folk-of-the-Feywild.js
@@ -21076,11 +22138,13 @@ RaceList["fairy-ua"] = {
 			}],
 		},
 	},
-	trait: "Fairy" +
-	"\n \u2022 Fey: My creature type is fey, rather than humanoid." +
-	"\n \u2022 Fairy Flight: I have a magical flying speed equal to my walking speed and can hover." +
-	"\n \u2022 Fairy Magic: I know the Druidcraft and Faerie Fire spells, and can cast the latter without using a spell slot once per long rest, as well as using slots as normal." +
-	"\n \u2022 Fey Passage: I can squeeze through a space as narrow as 1 inch wide.",
+	trait: [
+		"**Fairy**",
+		"##\u25C6 Fey##. My creature type is fey, rather than humanoid.",
+		"##\u25C6 Fairy Flight##. I have a magical flying speed equal to my walking speed and can hover.",
+		"##\u25C6 Fairy Magic##. I know the *Druidcraft* and *Faerie Fire* spells, and can cast the latter without using a spell slot once per long rest, as well as using slots as normal.",
+		"##\u25C6 Fey Passage##. I can squeeze through a space as narrow as 1 inch wide.",
+	],
 };
 
 RaceList["feywild hobgoblin-ua"] = {
@@ -21131,10 +22195,12 @@ RaceList["feywild hobgoblin-ua"] = {
 			}],
 		},
 	},
-	trait: "Feywild hobgoblin" +
-	"\n \u2022 Fey Gift: I can take the Help action as a bonus action my Proficiency Bonus per long rest." +
-	"\n \u2022 Fortune from the Many: When I miss an attack or fail an ability check or a save, I can gain a bonus to the roll equal to the number of allies I can see within 30 ft of me (max +5). I can do this a number of times per long rest equal to my Proficiency Bonus." +
-	'\n \u2022 From 3rd-level onwards, whenever I take the Help action, I can choose to produce an additional effect: Hospitality, Passage, or Spite. See the 3rd page "Notes" section.',
+	trait: [
+		"**Feywild hobgoblin**",
+		"##\u25C6 Fey Gift##. I can take the Help action as a bonus action my Proficiency Bonus per long rest.",
+		"##\u25C6 Fortune from the Many##. When I miss an attack or fail an ability check or a save, I can gain a bonus to the roll equal to the number of allies I can see within 30 ft of me (max +5). I can do this a number of times per long rest equal to my Proficiency Bonus.",
+		"\u2022 From 3rd-level onwards, whenever I take the Help action, I can choose to produce an additional effect: Hospitality, Passage, or Spite. See the 3rd page \"Notes\" section.",
+	],
 };
 
 RaceList["owlfolk-ua"] = {
@@ -21158,10 +22224,12 @@ RaceList["owlfolk-ua"] = {
 		selection: ["detect magic"],
 	}],
 	action: [["reaction", "Nimble Flight"]],
-	trait: "Owlfolk" +
-	"\n \u2022 Magic Sight: I know the spell Detect Magic and can cast as a ritual or by using spell slots as normal." +
-	"\n \u2022 Nimble Flight: My wings give me a flying speed equal to my walking speed. As a reaction when I fall, I can make a Dexterity saving throw (DC 10) to stop falling and fly in place until the start of my next turn." +
-	"\n \u2022 Silent Feathers: I have proficiency in the Stealth skill.",
+	trait: [
+		"**Owlfolk**",
+		"##\u25C6 Magic Sight##. I know the spell *Detect Magic* and can cast as a ritual or by using spell slots as normal.",
+		"##\u25C6 Nimble Flight##. My wings give me a flying speed equal to my walking speed. As a reaction when I fall, I can make a Dexterity saving throw (DC 10) to stop falling and fly in place until the start of my next turn.",
+		"##\u25C6 Silent Feathers##. I have proficiency in the Stealth skill.",
+	],
 };
 
 RaceList["rabbitfolk-ua"] = {
@@ -21178,11 +22246,13 @@ RaceList["rabbitfolk-ua"] = {
 	languageProfs: ["Common", 1],
 	scorestxt: "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
 	action: [["reaction", "Lucky Footwork"]],
-	trait: "Rabbitfolk" +
-	"\n \u2022 Hare-Trigger: I add my proficiency bonus to initiative rolls." +
-	"\n \u2022 Leporine Senses: I have proficiency in the Perception skill." +
-	"\n \u2022 Lucky Footwork: As a reaction when I fail a Dexterity saving throw, I can add +1d4 to the result, potentially making it a success." +
-	"\n \u2022 Rabbit Hop: Once during each of my turns when I walk at least 5 ft, I can hop an extra 1d12 ft without it costing any extra movement. I can only do this if my speed isn't 0.",
+	trait: [
+		"**Rabbitfolk**",
+		"##\u25C6 Hare-Trigger##. I add my proficiency bonus to initiative rolls.",
+		"##\u25C6 Leporine Senses##. I have proficiency in the Perception skill.",
+		"##\u25C6 Lucky Footwork##. As a reaction when I fail a Dexterity saving throw, I can add +1d4 to the result, potentially making it a success.",
+		"##\u25C6 Rabbit Hop##. Once during each of my turns when I walk at least 5 ft, I can hop an extra 1d12 ft without it costing any extra movement. I can only do this if my speed isn't 0.",
+	],
 };
 
 // ua_20210414_Draconic-Options.js
@@ -21205,10 +22275,10 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			source: [["UA:DO", 2]],
 			variants: [["Black", "Acid"], ["Blue", "Lightning"], ["Green", "Poison"], ["Red", "Fire"], ["White", "Cold"]],
 			breathWeaponShape: "5-ft by 30-ft line",
-			trait: desc([
-				">>TYPE<< Breath Weapon: When I take the Attack action, I can replace one attack with a breath weapon that deals 2d8 >>type<< damage to all in a 5-ft by 30-ft line, Dex save halves (DC 8 + Con mod + Proficiency Bonus). I can do this my Proficiency Bonus per long rest. The damage increases to 3d8 at 5th level, 4d8 at 11th level, and 5d8 at 17th level.",
-				"Chromatic Warding: From 3rd level, I can protect myself using my draconic energies. As an action once per long rest, I can become immune to >>type<< damage for 10 minutes.",
-			], "\n \u2022 "),
+			trait: [
+				"##\u25C6 >>TYPE<< Breath Weapon##. When I take the Attack action, I can replace one attack with a breath weapon that deals 2d8 >>type<< damage to all in a 5-ft by 30-ft line, Dex save halves (DC 8 + Con mod + Proficiency Bonus). I can do this my Proficiency Bonus per long rest. The damage increases to 3d8 at 5th level, 4d8 at 11th level, and 5d8 at 17th level.",
+				"##\u25C6 Chromatic Warding##. From 3rd level, I can protect myself using my draconic energies. As an action once per long rest, I can become immune to >>type<< damage for 10 minutes.",
+			],
 			features: {
 				"chromatic warding": {
 					name: "Chromatic Warding",
@@ -21225,10 +22295,10 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			source: [["UA:DO", 2]],
 			variants: [["Brass", "Fire"], ["Bronze", "Lightning"], ["Copper", "Acid"], ["Gold", "Fire"], ["Silver", "Cold"]],
 			breathWeaponShape: "15-ft cone",
-			trait: desc([
-				">>TYPE<< Breath Weapon: When I take the Attack action, I can replace one attack with a breath weapon that deals 2d8 >>type<< damage to all in a 15-ft cone, Dex save halves (DC 8 + Con mod + Proficiency Bonus). I can do this my Proficiency Bonus per long rest.",
-				"Metallic Breath Weapon: At 3rd level I gain a second breath weapon once per long rest, that works just like the first. It doesn't deal damage, but I can choose one effect: Str save or pushed 20 ft and prone, or Con save or incapacitated until my next turn starts.",
-			], "\n \u2022 "),
+			trait: [
+				"##\u25C6 >>TYPE<< Breath Weapon##. When I take the Attack action, I can replace one attack with a breath weapon that deals 2d8 >>type<< damage to all in a 15-ft cone, Dex save halves (DC 8 + Con mod + Proficiency Bonus). I can do this my Proficiency Bonus per long rest.",
+				"##\u25C6 Metallic Breath Weapon##. At 3rd level I gain a second breath weapon once per long rest, that works just like the first. It doesn't deal damage, but I can choose one effect: Str save or pushed 20 ft and prone, or Con save or incapacitated until my next turn starts.",
+			],
 			features: {
 				"metallic breath weapon": {
 					name: "Metallic Breath Weapon",
@@ -21257,11 +22327,11 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			source: [["UA:DO", 3]],
 			variants: [["Amethyst", "Force"], ["Crystal", "Radiant"], ["Emerald", "Psychic"], ["Sapphire", "Thunder"], ["Topaz", "Necrotic"]],
 			breathWeaponShape: "15-ft cone",
-			trait: desc([
-				">>TYPE<< Breath Weapon: When I take the Attack action, I can replace one attack with a breath weapon that deals 2d8 >>type<< damage to all in a 15-ft cone, Dex save halves (DC 8 + Con mod + Proficiency Bonus). I can do this my Proficiency Bonus per long rest.",
+			trait: [
+				"##\u25C6 >>TYPE<< Breath Weapon##. When I take the Attack action, I can replace one attack with a breath weapon that deals 2d8 >>type<< damage to all in a 15-ft cone, Dex save halves (DC 8 + Con mod + Proficiency Bonus). I can do this my Proficiency Bonus per long rest.",
 				"Psionic Mind: I can speak telepathically to " + (typePF ? "any creature I can see within 30 ft that understands a language but it can't respond." : "a creature with a language I can see in 30 ft."),
-				"Gem Flight: From 3rd level, I can temporarily fly. As a bonus action once per long rest, I can gain a flying speed equal to my walking speed and can hover. This lasts for 1 minute.",
-			], "\n \u2022 "),
+				"##\u25C6 Gem Flight##. From 3rd level, I can temporarily fly. As a bonus action once per long rest, I can gain a flying speed equal to my walking speed and can hover. This lasts for 1 minute.",
+			],
 			features: {
 				"gem flight": {
 					name: "Gem Flight",
@@ -21307,9 +22377,10 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			heightMetric: " stand well over 1,8 metres tall (170 + 5d8 cm)",
 			weightMetric: " weigh around 110 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
 			scorestxt: "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
-			trait: sDrBrn + " Dragonborn" +
-				"\n \u2022 " + sDrBrn + ' Ancestry: Choose a type of dragon using the "Racial Options" button. The damage type of my resistance and my breath weapon are determined by the dragon type chosen.' +
-				+ oDrBrn.trait.replace(/>>type<< /ig, ""),
+			trait: [
+				"**" + sDrBrn + " Dragonborn**",
+				"##\u25C6 " + sDrBrn + ' Ancestry##. Choose a type of dragon using the "Racial Options" button. The damage type of my resistance and my breath weapon are determined by the dragon type chosen.',
+			],
 			features: {
 				"breath weapon": {
 					name: "Breath Weapon",
@@ -21346,8 +22417,7 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			AddRacialVariant(sDrBrnLC + " dragonborn-ua", sDrBrnVar.toLowerCase(), {
 				regExpSearch: RegExp(sDrBrnVar, "i"),
 				name: sDrBrnVar + " " + sDrBrnLC + " dragonborn",
-				trait: sDrBrnVar + " " + sDrBrnLC + " dragonborn" +
-					oDrBrn.trait.replace(/>>TYPE<</g, sDrBrnDmg).replace(/>>type<</g, sDrBrnDmg.toLowerCase()),
+				trait: ["**" + sDrBrnVar + " " + sDrBrnLC + " dragonborn**"].concat(oDrBrn.trait.map(function (sTrait) { return sTrait.replace(/>>TYPE<</g, sDrBrnDmg).replace(/>>type<</g, sDrBrnDmg.toLowerCase()); })),
 				dmgres: [sDrBrnDmg],
 			});
 		}
@@ -21381,9 +22451,11 @@ RaceList["draconic kobold-ua"] = {
 			recovery: "long rest",
 		},
 	},
-	trait: "Draconic Kobold" +
-	'\n \u2022 Draconic Legacy: Choose one of the following with the "Racial Options" button: (1) Brave: advantage on saves vs. being frightened, (2) Cantrip: I know one sorcerer cantrip of my choice, or (3) Tail: I can use my tail that deals 1d6 damage to make unarmed strikes.' +
-	"\n \u2022 Draconic Roar: As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest.",
+	trait: [
+		"**Draconic Kobold**",
+		"##\u25C6 Draconic Legacy##. Choose one of the following with the \"Racial Options\" button: (1) Brave: advantage on saves vs. being frightened, (2) Cantrip: I know one sorcerer cantrip of my choice, or (3) Tail: I can use my tail that deals 1d6 damage to make unarmed strikes.",
+		"##\u25C6 Draconic Roar##. As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest.",
+	],
 };
 AddRacialVariant("draconic kobold-ua", "brave", {
 	regExpSearch: /brave/i,
@@ -21391,9 +22463,11 @@ AddRacialVariant("draconic kobold-ua", "brave", {
 	source: [["UA:DO", 4]],
 	plural: "Draconic Kobolds",
 	savetxt: { adv_vs: ["frightened"] },
-	trait: "Draconic Kobold" +
-	"\n \u2022 Draconic Legacy (Brave): I have advantage on saving throws to avoid or end the frightened condition on myself." +
-	"\n \u2022 Draconic Roar: As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest.",
+	trait: [
+		"**Draconic Kobold**",
+		"##\u25C6 Draconic Legacy (Brave)##. I have advantage on saving throws to avoid or end the frightened condition on myself.",
+		"##\u25C6 Draconic Roar##. As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest.",
+	],
 });
 AddRacialVariant("draconic kobold-ua", "cantrip", {
 	regExpSearch: /cantrip/i,
@@ -21406,9 +22480,11 @@ AddRacialVariant("draconic kobold-ua", "cantrip", {
 		level: [0, 0],
 		firstCol: "atwill",
 	}],
-	trait: "Draconic Kobold" +
-	"\n \u2022 Draconic Legacy (Cantrip). I know one cantrip from the sorcerer spell list. Intelligence, Wisdom, or Charisma is my spellcasting ability for it (chosen when I select this race)." +
-	"\n \u2022 Draconic Roar: As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest.",
+	trait: [
+		"**Draconic Kobold**",
+		"\u2022 Draconic Legacy (Cantrip). I know one cantrip from the sorcerer spell list. Intelligence, Wisdom, or Charisma is my spellcasting ability for it (chosen when I select this race).",
+		"##\u25C6 Draconic Roar##. As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest.",
+	],
 });
 AddRacialVariant("draconic kobold-ua", "tail", {
 	regExpSearch: /tail/i,
@@ -21421,19 +22497,23 @@ AddRacialVariant("draconic kobold-ua", "tail", {
 		damage: [1, 6, "bludgeoning"],
 		selectNow: true,
 	}],
-	trait: "Draconic Kobold" +
-	"\n \u2022 Draconic Legacy (Tail): I can make unarmed strikes with my tail. The tail deals 1d6 + my Strength modifier bludgeoning damage." +
-	"\n \u2022 Draconic Roar: As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest.",
+	trait: [
+		"**Draconic Kobold**",
+		"##\u25C6 Draconic Legacy (Tail)##. I can make unarmed strikes with my tail. The tail deals 1d6 + my Strength modifier bludgeoning damage.",
+		"##\u25C6 Draconic Roar##. As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest.",
+	],
 });
 
 // Draconic Feats
 FeatsList["gift of the metallic dragon-ua"] = {
 	name: "Gift of the Metallic Dragon",
 	source: [["UA:DO", 4]],
-	descriptionFull: "You've manifested some of the power of metallic dragons, granting you the following benefits:" +
-	"\n \u2022 You learn the cure wounds spell. You can cast this spell without expending a spell slot. Once you cast this spell in this way, you can't do so again until you finish a long rest. You can also cast this spell using spell slots you have. The spell's spellcasting ability is Intelligence, Wisdom, or Charisma when you cast it with this feat (choose when you gain the feat)." +
-	"\n \u2022 You can manifest protective wings that can shield you or others from attacks. When you or another creature you can see within 5 feet of you is hit by an attack roll, you can use your reaction to manifest spectral wings from your back for a moment. Roll a d4 and grant a bonus to the target's AC equal to the number rolled against that attack roll, potentially causing it to miss. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
-	description: "I know Cure Wounds. I can cast it using spell slots and once per long rest without a spell slot. As a reaction when I or another I can see within 5 ft is hit by an attack, I can add a d4 to AC, potentially causing the attack to miss. I can do this my Prof Bonus per long rest.",
+	descriptionFull: [
+		"You've manifested some of the power of metallic dragons, granting you the following benefits:",
+		" \u2022 You learn the *cure wounds* spell. You can cast this spell without expending a spell slot. Once you cast this spell in this way, you can't do so again until you finish a long rest. You can also cast this spell using spell slots you have. The spell's spellcasting ability is Intelligence, Wisdom, or Charisma when you cast it with this feat (choose when you gain the feat).",
+		" \u2022 You can manifest protective wings that can shield you or others from attacks. When you or another creature you can see within 5 feet of you is hit by an attack roll, you can use your reaction to manifest spectral wings from your back for a moment. Roll a d4 and grant a bonus to the target's AC equal to the number rolled against that attack roll, potentially causing it to miss. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
+	description: "I know *Cure Wounds*. I can cast it using spell slots and once per long rest without a spell slot. As a reaction when I or another I can see within 5 ft is hit by an attack, I can add a d4 to AC, potentially causing the attack to miss. I can do this my Prof Bonus per long rest.",
 	spellcastingAbility: [4, 5, 6],
 	allowUpCasting: true,
 	spellcastingBonus: [{
@@ -21466,10 +22546,12 @@ SpellsList["draconic transformation-ua"] = {
 	save: "Dex",
 	description: "Blindsight 30 ft; 40 ft fly speed; at cast and 1 bns: 30-ft cone all 3d8 Force damage, save half (500gp)",
 	descriptionShorter: "Blindsight 30 ft; 40 ft fly; at cast and 1 bns: 30-ft cone all 3d8 Force dmg, save half (500gp)",
-	descriptionFull: "With a roar, you draw on the magic of dragons to transform yourself, taking on various draconic features. You gain the following benefits until the spell ends:" +
-	"\n \u2022 You have blindsight with a range of 30 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature, unless the creature successfully hides from you." +
-	"\n \u2022 Incorporeal wings sprout from your back, giving you a flying speed of 40 feet." +
-	"\n \u2022 When you cast this spell, and as a bonus action on subsequent turns for the duration, you can exhale a breath of shimmering energy in a 30-foot cone. Each creature in the area must make a Dexterity saving throw, taking 3d8 force damage on a failed save or half as much damage on a successful one.",
+	descriptionFull: [
+		"With a roar, you draw on the magic of dragons to transform yourself, taking on various draconic features. You gain the following benefits until the spell ends:",
+		" \u2022 You have blindsight with a range of 30 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature, unless the creature successfully hides from you.",
+		" \u2022 Incorporeal wings sprout from your back, giving you a flying speed of 40 feet.",
+		" \u2022 When you cast this spell, and as a bonus action on subsequent turns for the duration, you can exhale a breath of shimmering energy in a 30-foot cone. Each creature in the area must make a Dexterity saving throw, taking 3d8 force damage on a failed save or half as much damage on a successful one.",
+	],
 };
 SpellsList["fizban's platinum shield-ua"] = {
 	name: "Fizban's Platinum Shield",
@@ -21484,12 +22566,14 @@ SpellsList["fizban's platinum shield-ua"] = {
 	compMaterial: "A platinum-plated dragon scale, worth at least 500 gp",
 	duration: "Conc, 1 min",
 	description: "1 crea Acid, Cold, Fire, Lightn. \u0026 Poison resist., half cover, better Dex saves; 1 bns change crea (500gp)",
-	descriptionFull: "You create a field of silvery light that surrounds a creature of your choice within range (you can choose yourself). The field sheds dim light out to 5 feet." +
-	"\n   As a bonus action on subsequent turns, you can move the field to another creature within 60 feet of the field." +
-	"\n   The creature protected by the field gains the following benefits:" +
-	"\n \u2022 The creature has half cover." +
-	"\n \u2022 The creature has resistance to acid, cold, fire, lightning, and poison damage." +
-	"\n \u2022 If the creature is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the creature instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.",
+	descriptionFull: [
+		"You create a field of silvery light that surrounds a creature of your choice within range (you can choose yourself). The field sheds dim light out to 5 feet.",
+		"As a bonus action on subsequent turns, you can move the field to another creature within 60 feet of the field.",
+		"The creature protected by the field gains the following benefits:",
+		" \u2022 The creature has half cover.",
+		" \u2022 The creature has resistance to acid, cold, fire, lightning, and poison damage.",
+		" \u2022 If the creature is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the creature instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.",
+	],
 };
 SpellsList["raulothim's psychic lance-ua"] = {
 	name: "Raulothim's Psychic Lance",
@@ -21505,9 +22589,11 @@ SpellsList["raulothim's psychic lance-ua"] = {
 	save: "Int",
 	description: "1 crea I see or name I know save or 10d6+1d6/SL Psychic dmg \u0026 incapacitated till my next turn starts",
 	descriptionShorter: "1 crea I see or name I know save or 10d6+1d6/SL Psychic dmg \u0026 incapacitated for 1 rnd",
-	descriptionFull: "You unleash a shimmering lance of psychic power from your forehead at a creature that you can see within range. Alternatively, you can utter the creature's name. If the named target is within range, it gains no benefit from cover or invisibility as the lance homes in on it. If the named target isn't within range, the lance dissipates, and the spell slot is not expended." +
-	"\n   The target must succeed on an Intelligence saving throw or take 10d6 psychic damage and be incapacitated until the start of your next turn." +
-	AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the damage increases by 1d6 for each slot level above 4th.",
+	descriptionFull: [
+		"You unleash a shimmering lance of psychic power from your forehead at a creature that you can see within range. Alternatively, you can utter the creature's name. If the named target is within range, it gains no benefit from cover or invisibility as the lance homes in on it. If the named target isn't within range, the lance dissipates, and the spell slot is not expended.",
+		"The target must succeed on an Intelligence saving throw or take 10d6 psychic damage and be incapacitated until the start of your next turn.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 5th level or higher, the damage increases by 1d6 for each slot level above 4th.",
+	],
 };
 
 // ua_20211008_Travelers-of-the-Multiverse.js
@@ -21554,10 +22640,12 @@ RaceList["astral elf-ua"] = {
 		usages: 1,
 		recovery: "short rest",
 	}],
-	trait: "Astral Elf" +
-	"\n \u2022 Radiant Soul: Once per short rest when I succeed on a death save, I can regain HP equal to my proficiency bonus + my Int, Wis, or Cha mod (choose when selecting this race)." +
-	"\n \u2022 Trance: I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours if I spend those hours in a trancelike meditation, during which I remain conscious." +
-	"\n \u2022 Trance Proficiencies. Whenever I finish a long rest using Trance, I gain two proficiencies, each one with a weapon or a tool of my choice. They last until I finish my next long rest.",
+	trait: [
+		"**Astral Elf**",
+		"##\u25C6 Radiant Soul##. Once per short rest when I succeed on a death save, I can regain HP equal to my proficiency bonus + my Int, Wis, or Cha mod (choose when selecting this race).",
+		"##\u25C6 Trance##. I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours if I spend those hours in a trancelike meditation, during which I remain conscious.",
+		"\u2022 Trance Proficiencies. Whenever I finish a long rest using Trance, I gain two proficiencies, each one with a weapon or a tool of my choice. They last until I finish my next long rest.",
+	],
 };
 RaceList["autognome-ua"] = {
 	regExpSearch: /autognome/i,
@@ -21590,21 +22678,22 @@ RaceList["autognome-ua"] = {
 		immune: ["disease"],
 	},
 	toolProfs: [["Tool of my choice", 2]],
-	trait: typePF ?
-		"Autognome (my type is Construct)" +
-		"\n \u2022 Cure Wounds, Healing Word, and Spare the Dying work on me." +
-		"\n \u2022 Armored Casing: My base AC is 13 + my Dexterity modifier." +
-		"\n \u2022 Built for Success: For my Prof B per long rest, I can add +1d4 to an attack, check, or save, after I see the roll, but before the effect." +
-		"\n \u2022 Mechanical Nature: I don't need to eat, drink or breathe." +
-		"\n \u2022 Sentry's Rest: I only need 6 hours to finish a long rest if I stay in an inactive and motionless state during which I'm conscious." +
-		"\n \u2022 True Life: If Mending is cast on me, I can expend one HD like during a short rest to regain hit points."
-		:
-		"Autognome (type is Construct; Cure Wounds, Healing Word, Spare the Dying work on me)" +
-		"\n \u2022 Armored Casing: While I'm not wearing armor, my AC is 13 + my Dexterity modifier." +
-		"\n \u2022 Built for Success: For my Prof B per long rest, I can add +1d4 to an attack, check, or save. I can do this after seeing the d20 roll, but before knowing the roll's effects." +
-		"\n \u2022 Mechanical Nature: I have immunities/resistances and don't need to eat, drink or breathe" +
-		"\n \u2022 Sentry's Rest: I only need 6 hours to finish a long rest if I stay inactive and motionless." +
-		"\n \u2022 True Life: If Mending is cast on me, I can expend one HD like during a short rest.",
+	trait: typePF ? [
+		"**Autognome** (my type is Construct)",
+		"*Cure Wounds*, *Healing Word*, and *Spare the Dying* work on me.",
+		"##\u25C6 Armored Casing##. My base AC is 13 + my Dexterity modifier.",
+		"##\u25C6 Built for Success##. For my Prof B per long rest, I can add +1d4 to an attack, check, or save, after I see the roll, but before the effect.",
+		"##\u25C6 Mechanical Nature##. I don't need to eat, drink or breathe.",
+		"##\u25C6 Sentry's Rest##. I only need 6 hours to finish a long rest if I stay in an inactive and motionless state during which I'm conscious.",
+		"##\u25C6 True Life##. If *Mending* is cast on me, I can expend one HD like during a short rest to regain hit points.",
+	] : [
+		"**Autognome** (type is Construct; *Cure Wounds*, *Healing Word*, *Spare the Dying* work on me)",
+		"##\u25C6 Armored Casing##. While I'm not wearing armor, my AC is 13 + my Dexterity modifier.",
+		"##\u25C6 Built for Success##. For my Prof B per long rest, I can add +1d4 to an attack, check, or save. I can do this after seeing the d20 roll, but before knowing the roll's effects.",
+		"##\u25C6 Mechanical Nature##. I have immunities/resistances and don't need to eat, drink or breathe",
+		"##\u25C6 Sentry's Rest##. I only need 6 hours to finish a long rest if I stay inactive and motionless.",
+		"##\u25C6 True Life##. If *Mending* is cast on me, I can expend one HD like during a short rest.",
+	],
 };
 RaceList["giff-ua"] = {
 	regExpSearch: /giff|hippofolk/i,
@@ -21619,9 +22708,11 @@ RaceList["giff-ua"] = {
 	carryingCapacity: 2,
 	savetxt: { text: ["Adv. on Str saves and checks"] },
 	advantages: [["Strength", true]],
-	trait: "Giff" +
-	"\n \u2022 Damage Dealer: Like a hippopotamus in a crystalware shop, I am naturally adept at damaging things. When I roll a 1 on a damage die for a melee attack, I can reroll the die and use the new roll. I can do so no more than once per turn." +
-	"\n \u2022 Hippo Build: I have advantage on Strength-based ability checks and Strength saving throws. In addition, I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.",
+	trait: [
+		"**Giff**",
+		"##\u25C6 Damage Dealer##. Like a hippopotamus in a crystalware shop, I am naturally adept at damaging things. When I roll a 1 on a damage die for a melee attack, I can reroll the die and use the new roll. I can do so no more than once per turn.",
+		"##\u25C6 Hippo Build##. I have advantage on Strength-based ability checks and Strength saving throws. In addition, I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.",
+	],
 };
 RaceList["hadozee-ua"] = {
 	regExpSearch: /hadozee/i,
@@ -21638,11 +22729,11 @@ RaceList["hadozee-ua"] = {
 		["bonus action", "Dexterous Feet (Use an Object)"],
 		["reaction", "Glide (negate falling damage)"],
 	],
-	trait: "Hadozee" +
-	"\n \u2022 Dexterous Feet: As a bonus action, I can do the Use an Object action." +
-	"\n \u2022 Glide: If I'm not incapacitated or wearing heavy armor, I can extend my skin membranes and glide. When I do so, I can perform the following aerial maneuvers:" +
-	"   - When I fall, I can move up to 5 ft horizontally for every 1 ft I descend." +
-	"   - As a reaction when I would take damage from a fall, I can reduce this damage to 0.",
+	trait: [
+		"**Hadozee**",
+		"##\u25C6 Dexterous Feet##. As a bonus action, I can do the Use an Object action.",
+		"##\u25C6 Glide##. If I'm not incapacitated or wearing heavy armor, I can extend my skin membranes and glide. When I do so, I can perform the following aerial maneuvers:   - When I fall, I can move up to 5 ft horizontally for every 1 ft I descend.   - As a reaction when I would take damage from a fall, I can reduce this damage to 0.",
+	],
 };
 RaceList["plasmoid-ua"] = {
 	regExpSearch: /plasmoid/i,
@@ -21661,10 +22752,11 @@ RaceList["plasmoid-ua"] = {
 		text: ["Adv. on grapple checks"],
 	},
 	action: [["bonus action", "Extrude/Reabsorb Pseudopod"]],
-	trait: "Plasmoid (my type is Ooze)" +
-	(typePF ? "\n" : "") + " \u2022 Hold Breath: I can hold my breath for 1 hour." +
-	"\n \u2022 Amorphous: I can squeeze through a 1-inch wide space without my equipment or clothes. " + (typePF ? "I have advantage on grapple checks." : "I also have advantage on ability checks I make to initiate or escape a grapple.") +
-	"\n \u2022 Shape Self: While not incapacitated, I can reshape my body to have a head and limbs, or back to a limbless blob (no action). As a bonus action, I can extrude/reabsorb a pseudopod up to 6 inch wide and 10 ft long. It can carry up to 10 lb. I can use it to manipulate objects, open unlocked doors, stow/retrieve objects, or pour out contents of a container." + (typePF ? " It can't attack or use magic items." : ""),
+	trait: [
+		"**Plasmoid** (my type is Ooze)" + (typePF ? "\r" : " ") + "##\u25C6 Hold Breath##. I can hold my breath for 1 hour.",
+		"##\u25C6 Amorphous##. I can squeeze through a 1-inch wide space without my equipment or clothes. " + (typePF ? "I have advantage on grapple checks." : "I also have advantage on ability checks I make to initiate or escape a grapple."),
+		"##\u25C6 Shape Self##. While not incapacitated, I can reshape my body to have a head and limbs, or back to a limbless blob (no action). As a bonus action, I can extrude/reabsorb a pseudopod up to 6 inch wide and 10 ft long. It can carry up to 10 lb. I can use it to manipulate objects, open unlocked doors, stow/retrieve objects, or pour out contents of a container." + (typePF ? " It can't attack or use magic items." : ""),
+	],
 };
 RaceList["thri-kreen-ua"] = {
 	regExpSearch: /thri.?kreen/i,
@@ -21692,11 +22784,13 @@ RaceList["thri-kreen-ua"] = {
 		selectNow: true,
 	}],
 	action: [["action", "Chameleon Carapace"]],
-	trait: "Thri-kreen (my type is Monstrosity)" +
-	"\n \u2022 Chameleon Carapace: " + (typePF ? "AC 13 + Dex," : "My base AC is 13 + Dex mod. I have") + " adv. on Stealth checks to hide." +
-	"\n \u2022 Secondary Arms: I have two slightly smaller arms below my primary pair of arms." + (typePF ? " " : "\n   ") + "I can't use these secondary arms to wield a shield or weapons other than light weapons." +
-	"\n \u2022 Sleepless: I don't " + (typePF ? "" : "require ") + "sleep. I rest by refraining from strenuous activity." +
-	"\n \u2022 " + (typePF ? "Thri-kreen " : "") + "Telepathy: I can communicate telepathically to any number of willing creatures I can see that understand at least one language, while within 120 ft. Any can break this (no action).",
+	trait: [
+		"**Thri-kreen** (my type is Monstrosity)",
+		"##\u25C6 Chameleon Carapace##. " + (typePF ? "AC 13 + Dex," : "My base AC is 13 + Dex mod. I have") + " adv. on Stealth checks to hide.",
+		"##\u25C6 Secondary Arms##. I have two slightly smaller arms below my primary pair of arms. I can't use these secondary arms to wield a shield or weapons other than light weapons.",
+		"##\u25C6 Sleepless##. I don't " + (typePF ? "" : "require ") + "sleep. I rest by refraining from strenuous activity.",
+		"\u2022 " + (typePF ? "Thri-kreen " : "") + "Telepathy: I can communicate telepathically to any number of willing creatures I can see that understand at least one language, while within 120 ft. Any can break this (no action).",
+	],
 };
 
 // This file adds the content from the Unearthed Arcana 2022: Heroes of Krynn article to MPMB's Character Record Sheet
@@ -21758,10 +22852,11 @@ RaceList["kender-ua"] = {
 			}],
 		},
 	},
-	trait: "Kender" +
-	(typePF ? "\n " : "\t") + "\u2022 Brave: I have adv. on saves to avoid or end being frightened." +
-	"\n \u2022 Taunt: As a bonus action, I can have a creature that can hear and understand me within 60 ft make a Wisdom save (DC 8 + Prof B + Cha mod) or gain disadv. on attacks until my next turn starts. I can do this a number of times per long rest equal to my Prof Bonus." +
-	'\n \u2022 Kender Ace: Starting at 3rd-level, as a bonus action, I can reach into a container and roll on the Kender Aces table to determine the item I pull out, see the "Notes" section. I can do this a number of times per long rest equal to my proficiency bonus.',
+	trait: [
+		"**Kender**" + (typePF ? "\r" : " ") + "##\u25C6 Brave##. I have adv. on saves to avoid or end being frightened.",
+		"##\u25C6 Taunt##. As a bonus action, I can have a creature that can hear and understand me within 60 ft make a Wisdom save (DC 8 + Prof B + Cha mod) or gain disadv. on attacks until my next turn starts. I can do this a number of times per long rest equal to my Prof Bonus.",
+		"##\u25C6 Kender Ace##. Starting at 3rd-level, as a bonus action, I can reach into a container and roll on the Kender Aces table to determine the item I pull out, see the \"Notes\" section. I can do this a number of times per long rest equal to my proficiency bonus.",
+	],
 };
 
 // Subclass
@@ -21774,7 +22869,7 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 			name: "Moon Fire",
 			source: [["UA:HoK", 2]],
 			minlevel: 1,
-			description: desc("I know the Sacred Flame cantrip and can use it on 2 creatures within 5 ft of each other"),
+			description: desc("I know the *Sacred Flame* cantrip and can use it on 2 creatures within 5 ft of each other"),
 			spellcastingBonus: [{
 				name: "Moon Fire",
 				spells: ["sacred flame"],
@@ -21786,7 +22881,7 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 					description: "Up to 2 creas I see, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus; +1d8 at CL 5/11/17",
 					descriptionShorter: "Up to 2 creas I see, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus; +1d8 CL 5/11/17",
 					descriptionCantripDie: "Up to 2 creas I see, max 5 ft apart, save or `CD`d8 Radiant dmg; no bonus for cover on save",
-					changes: "When I cast Sacred Flame, I can target one creature as normal or target two creatures within range that are within 5 feet of each other.",
+					changes: "When I cast *Sacred Flame*, I can target one creature as normal or target two creatures within range that are within 5 feet of each other.",
 				},
 			},
 			calcChanges: {
@@ -21796,7 +22891,7 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 							fields.Description = fields.Description.replace("1 creature", "up to 2 creatures within 5 ft");
 						}
 					},
-					"When I cast Sacred Flame, I can target one creature as normal or target two creatures within range that are within 5 feet of each other.",
+					"When I cast *Sacred Flame*, I can target one creature as normal or target two creatures within range that are within 5 feet of each other.",
 				],
 			},
 		},
@@ -21963,12 +23058,33 @@ FeatsList["initiate of high sorcery-ua"] = {
 	name: "Initiate of High Sorcery",
 	source: [["UA:HoK", 6]],
 	description: "I learn a cantrip and a first level spell from a list depending on my chosen moon. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
-	descriptionFull: "You've received training from magic-users affiliated with the Mages of High Sorcery.\n   Choose one of three moons of Krynn, each of which is associated with a distinct type of magic: the black moon, Nuitari; the red moon, Lunitari; or the white moon, Solinari. You learn one cantrip and one 1st-level spell based on the moon you choose, as specified in the Lunar Spells table.\n   You can cast the chosen 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have.\n   Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).\n\n**Lunar Spells**\n**Moon**\t**Cantrips**\t\t**1st-level Spell**\nNuitari\tChoose one from\tChoose one 1st-level wizard\n\tchill touch, mage\tspell from the evocation or\n\thand, and vicious\tnecromany school of magic.\n\tmockery\nLunitari\tChoose one from\tChoose one 1st-level wizard\n\tguidance,\t\tspell from the school of\n\tmessage, and\tdivination or transmutation.\n\tprestidigitation\nSolinari\tChoose one from\tChoose one 1st-level wizard\n\tproduce flame,\tspell from the abjuration or\n\tresistance, and\tconjuration school of magic.\n\tspare the dying",
+	descriptionFull: [
+		"You've received training from magic-users affiliated with the Mages of High Sorcery.",
+		"Choose one of three moons of Krynn, each of which is associated with a distinct type of magic: the black moon, Nuitari; the red moon, Lunitari; or the white moon, Solinari. You learn one cantrip and one 1st-level spell based on the moon you choose, as specified in the Lunar Spells table.",
+		"You can cast the chosen 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have.",
+		"Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+		"**Lunar Spells**",
+		[
+			["Moon", "Cantrips", "", "1st-level Spell"],
+			["Nuitari", "Choose one from", "Choose one 1st-level wizard"],
+			["", "*chill touch*, mage", "spell from the evocation or"],
+			["", "hand, and vicious", "necromany school of magic."],
+			["", "mockery"],
+			["Lunitari", "Choose one from", "Choose one 1st-level wizard"],
+			["", "guidance,", "", "spell from the school of"],
+			["", "message, and", "divination or transmutation."],
+			["", "prestidigitation"],
+			["Solinari", "Choose one from", "Choose one 1st-level wizard"],
+			["", "*produce flame*,", "spell from the abjuration or"],
+			["", "resistance, and", "conjuration school of magic."],
+			["", "*spare the dying*"],
+		],
+	],
 	prerequisite: "Apprentice of High Sorcery",
 	choices: ["Intelligence - Nuitari", "Intelligence - Lunitari", "Intelligence - Solinari", "Wisdom - Nuitari", "Wisdom - Lunitari", "Wisdom - Solinari", "Charisma - Nuitari", "Charisma - Lunitari", "Charisma - Solinari"],
 	// nine choices, one for each ability and moon
 	"intelligence - nuitari": {
-		description: "I learn a cantrip (Chill Touch, Mage Hand, or Vicious Mockery) and a 1st-level Evoc/Necro spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Intelligence as my spellcasting ability for this.",
+		description: "I learn a cantrip (*Chill Touch*, *Mage Hand*, or *Vicious Mockery*) and a 1st-level Evoc/Necro spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Intelligence as my spellcasting ability for this.",
 		allowUpCasting: true,
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
@@ -21983,7 +23099,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 		}],
 	},
 	"intelligence - lunitari": {
-		description: "I learn a cantrip (Guidance, Message, or Prestidigitation) and a 1st-level Div/Trans spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Intelligence as my spellcasting ability for this.",
+		description: "I learn a cantrip (*Guidance*, *Message*, or *Prestidigitation*) and a 1st-level Div/Trans spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Intelligence as my spellcasting ability for this.",
 		allowUpCasting: true,
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
@@ -21998,7 +23114,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 		}],
 	},
 	"intelligence - solinari": {
-		description: "I learn a cantrip (Produce Flame, Resistance, or Spare the Dying) and a 1st-level Abjur/Conj spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Intelligence as my spellcasting ability for this.",
+		description: "I learn a cantrip (*Produce Flame*, *Resistance*, or *Spare the Dying*) and a 1st-level Abjur/Conj spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Intelligence as my spellcasting ability for this.",
 		allowUpCasting: true,
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
@@ -22013,7 +23129,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 		}],
 	},
 	"wisdom - nuitari": {
-		description: "I learn a cantrip (Chill Touch, Mage Hand, or Vicious Mockery) and a 1st-level Evoc/Necro spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Wisdom as my spellcasting ability for this.",
+		description: "I learn a cantrip (*Chill Touch*, *Mage Hand*, or *Vicious Mockery*) and a 1st-level Evoc/Necro spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Wisdom as my spellcasting ability for this.",
 		allowUpCasting: true,
 		spellcastingAbility: 5,
 		spellcastingBonus: [{
@@ -22028,7 +23144,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 		}],
 	},
 	"wisdom - lunitari": {
-		description: "I learn a cantrip (Guidance, Message, or Prestidigitation) and a 1st-level Div/Trans spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Wisdom as my spellcasting ability for this.",
+		description: "I learn a cantrip (*Guidance*, *Message*, or *Prestidigitation*) and a 1st-level Div/Trans spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Wisdom as my spellcasting ability for this.",
 		allowUpCasting: true,
 		spellcastingAbility: 5,
 		spellcastingBonus: [{
@@ -22043,7 +23159,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 		}],
 	},
 	"wisdom - solinari": {
-		description: "I learn a cantrip (Produce Flame, Resistance, or Spare the Dying) and a 1st-level Abjur/Conj spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Wisdom as my spellcasting ability for this.",
+		description: "I learn a cantrip (*Produce Flame*, *Resistance*, or *Spare the Dying*) and a 1st-level Abjur/Conj spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Wisdom as my spellcasting ability for this.",
 		allowUpCasting: true,
 		spellcastingAbility: 5,
 		spellcastingBonus: [{
@@ -22058,7 +23174,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 		}],
 	},
 	"charisma - nuitari": {
-		description: "I learn a cantrip (Chill Touch, Mage Hand, or Vicious Mockery) and a 1st-level Evoc/Necro spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Charisma as my spellcasting ability for this.",
+		description: "I learn a cantrip (*Chill Touch*, *Mage Hand*, or *Vicious Mockery*) and a 1st-level Evoc/Necro spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Charisma as my spellcasting ability for this.",
 		allowUpCasting: true,
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
@@ -22073,7 +23189,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 		}],
 	},
 	"charisma - lunitari": {
-		description: "I learn a cantrip (Guidance, Message, or Prestidigitation) and a 1st-level Div/Trans spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Charisma as my spellcasting ability for this.",
+		description: "I learn a cantrip (*Guidance*, *Message*, or *Prestidigitation*) and a 1st-level Div/Trans spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Charisma as my spellcasting ability for this.",
 		allowUpCasting: true,
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
@@ -22088,7 +23204,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 		}],
 	},
 	"charisma - solinari": {
-		description: "I learn a cantrip (Produce Flame, Resistance, or Spare the Dying) and a 1st-level Abjur/Conj spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Charisma as my spellcasting ability for this.",
+		description: "I learn a cantrip (*Produce Flame*, *Resistance*, or *Spare the Dying*) and a 1st-level Abjur/Conj spell from wizard spell list. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I use Charisma as my spellcasting ability for this.",
 		allowUpCasting: true,
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
@@ -22107,7 +23223,11 @@ FeatsList["adept of the black robes-ua"] = {
 	name: "Adept of the Black Robes",
 	source: [["UA:HoK", 5]],
 	description: "I learn one 2nd-level Evoc or Necro spell. I can cast this spell 1/LR w/out using a spell slot, and can cast it normally. Choose an ability for this spell. If creature I can see within 60 ft fails a save vs my spell I can spend HD equal to spell's level. I roll half that many HD and the creature takes that much additional damage.",
-	descriptionFull: "Your ambition and loyalty to the Order of the Black Robes has been recognized, granting you these benefits:\n***Ambitious Magic.*** You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.\n***Life Channel.*** You can channel your lifeforce into the power of your magic. When a creature you can see within 60 feet fails on a saving throw against a spell you cast, you can expend a number of Hit Dice equal to the level of the spell. Roll a number of Hit Die equal to half the number of Hit Dice expended (rounded up) and the damage the triggering creature takes increases by an amount equal to the total rolled of those dice.",
+	descriptionFull: [
+		"Your ambition and loyalty to the Order of the Black Robes has been recognized, granting you these benefits:",
+		"***Ambitious Magic.*** You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.",
+		"***Life Channel.*** You can channel your lifeforce into the power of your magic. When a creature you can see within 60 feet fails on a saving throw against a spell you cast, you can expend a number of Hit Dice equal to the level of the spell. Roll a number of Hit Die equal to half the number of Hit Dice expended (rounded up) and the damage the triggering creature takes increases by an amount equal to the total rolled of those dice.",
+	],
 	prerequisite: "4th-level, Initiate of High Sorcery feat, Any Non-Good Alignment",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("initiate of high sorcery-ua") !== -1 && !/good/i.test(What("Alignment")); },
 	spellcastingBonus: [{
@@ -22143,7 +23263,11 @@ FeatsList["adept of the red robes-ua"] = {
 	name: "Adept of the Red Robes",
 	source: [["UA:HoK", 5]],
 	description: "I learn one 2nd-level Div or Trans spell. I can cast this spell 1/LR w/out using a spell slot, and can cast it normally. Int is my ability for this spell. If I roll less than a 10 on an atk, check, or save, I can use my reaction to treat it as a 10. I can do this a number of times equal to my proficiency bonus per long rest.",
-	descriptionFull: "Your pursuit of truth and dedication to maintaining the balance between all things has been recognized by the Order of the Red Robes, granting you these benefits:\n***Insightful Magic.*** You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the divination or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.\n***Magical Balance.*** When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. you can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"Your pursuit of truth and dedication to maintaining the balance between all things has been recognized by the Order of the Red Robes, granting you these benefits:",
+		"***Insightful Magic.*** You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the divination or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.",
+		"***Magical Balance.*** When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. you can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "4th level, Initiate of High Sorcery feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("initiate of high sorcery-ua") !== -1; },
 	spellcastingBonus: [{
@@ -22183,7 +23307,11 @@ FeatsList["adept of the white robes-ua"] = {
 	name: "Adept of the White Robes",
 	source: [["UA:HoK", 5]],
 	description: "I learn one 2nd-level Abjur or Conj spell. I can cast this spell 1/LR w/out using a spell slot, and can cast it normally. Choose an ability for this spell. When a creature w/in 30 ft takes damage I can use a reaction to expend a spell slot and roll d4s equal to the spell's level and reduce the damage by that much + my SC ability mod.",
-	descriptionFull: "Your oath to use magic to make the world a better place has been recognized by the Order of the White Robes, granting you these benefits:\n***Protective Magic.*** You learn one 2nd-level spell of you choice. The 2nd-level spell must be from the abjuration or conjuration school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.\n***Protective Ward.*** When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d4s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier.",
+	descriptionFull: [
+		"Your oath to use magic to make the world a better place has been recognized by the Order of the White Robes, granting you these benefits:",
+		"***Protective Magic.*** You learn one 2nd-level spell of you choice. The 2nd-level spell must be from the abjuration or conjuration school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.",
+		"***Protective Ward.*** When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d4s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier.",
+	],
 	prerequisite: "4th level, Initiate of High Sorcery feat, Any Non-Evil Alignment",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("initiate of high sorcery-ua") !== -1 && !/evil/i.test(What("Alignment")); },
 	spellcastingBonus: [{
@@ -22220,12 +23348,25 @@ FeatsList["adept of the white robes-ua"] = {
 FeatsList["divinely favored-ua"] = {
 	name: "Divinely Favored",
 	source: [["UA:HoK", 5]],
-	description: "I learn Thaumaturgy and one 1st-level spell based on my alignment. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. I choose Int, Wis, or Cha as my spellcasting ability for this. I can use a holy symbol as a spellcasting focus for any spells that use the chosen ability.",
-	descriptionFull: "A god has chosen you to carry a spark of their divine power.\n   You learn the thaumaturgy cantrip and one 1st-level spell based on the alignment of your character, as specified in the Alignment Spells table.\n   You can cast the chosen 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have.\n   Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).\n\n***Alignment Spells***\n***Alignment***   ***1st-level Spell***\nEvil\t	 Choose one 1st level warlock or wizard spell.\nGood\t	 Choose one 1st-level cleric or wizard spell.\nNeutral\t	 Choose one 1st-level druid or wizard spell.\n\n   In addition, you can use a holy symbol as a spellcasting focus for any spell you cast that uses the spellcasting ability you choose when you select this feat.",
+	description: "I learn *Thaumaturgy* and one 1st-level spell based on my alignment. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. I choose Int, Wis, or Cha as my spellcasting ability for this. I can use a holy symbol as a spellcasting focus for any spells that use the chosen ability.",
+	descriptionFull: [
+		"A god has chosen you to carry a spark of their divine power.",
+		"You learn the *thaumaturgy* cantrip and one 1st-level spell based on the alignment of your character, as specified in the Alignment Spells table.",
+		"You can cast the chosen 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have.",
+		"Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+		"***Alignment Spells***",
+		[
+			["Alignment", "	 1st-level Spell"],
+			["Evil", "	 Choose one 1st level warlock or wizard spell."],
+			["Good", "	 Choose one 1st-level cleric or wizard spell."],
+			["Neutral", "	 Choose one 1st-level druid or wizard spell."],
+		],
+		"In addition, you can use a holy symbol as a spellcasting focus for any spell you cast that uses the spellcasting ability you choose when you select this feat.",
+	],
 	choices: ["Intelligence - Good", "Intelligence - Neutral", "Intelligence - Evil", "Wisdom - Good", "Wisdom - Neutral", "Wisdom - Evil", "Charisma - Good", "Charisma - Neutral", "Charisma - Evil"],
 	// nine choices, one for each alignment and ability pair
 	"intelligence - good": {
-		description: "I learn Thaumaturgy and one 1st-level cleric or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Intelligence is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Intelligence.",
+		description: "I learn *Thaumaturgy* and one 1st-level cleric or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Intelligence is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Intelligence.",
 		allowUpCasting: true,
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
@@ -22241,7 +23382,7 @@ FeatsList["divinely favored-ua"] = {
 		}],
 	},
 	"intelligence - neutral": {
-		description: "I learn Thaumaturgy and one 1st-level druid or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Intelligence is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Intelligence.",
+		description: "I learn *Thaumaturgy* and one 1st-level druid or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Intelligence is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Intelligence.",
 		allowUpCasting: true,
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
@@ -22257,7 +23398,7 @@ FeatsList["divinely favored-ua"] = {
 		}],
 	},
 	"intelligence - evil": {
-		description: "I learn Thaumaturgy and one 1st-level warlock or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Intelligence is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Intelligence.",
+		description: "I learn *Thaumaturgy* and one 1st-level warlock or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Intelligence is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Intelligence.",
 		allowUpCasting: true,
 		spellcastingAbility: 4,
 		spellcastingBonus: [{
@@ -22273,7 +23414,7 @@ FeatsList["divinely favored-ua"] = {
 		}],
 	},
 	"wisdom - good": {
-		description: "I learn Thaumaturgy and one 1st-level cleric or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Wisdom is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Wisdom.",
+		description: "I learn *Thaumaturgy* and one 1st-level cleric or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Wisdom is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Wisdom.",
 		allowUpCasting: true,
 		spellcastingAbility: 5,
 		spellcastingBonus: [{
@@ -22289,7 +23430,7 @@ FeatsList["divinely favored-ua"] = {
 		}],
 	},
 	"wisdom - neutral": {
-		description: "I learn Thaumaturgy and one 1st-level druid or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Wisdom is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Wisdom.",
+		description: "I learn *Thaumaturgy* and one 1st-level druid or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Wisdom is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Wisdom.",
 		allowUpCasting: true,
 		spellcastingAbility: 5,
 		spellcastingBonus: [{
@@ -22305,7 +23446,7 @@ FeatsList["divinely favored-ua"] = {
 		}],
 	},
 	"wisdom - evil": {
-		description: "I learn Thaumaturgy and one 1st-level warlock or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Wisdom is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Wisdom.",
+		description: "I learn *Thaumaturgy* and one 1st-level warlock or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Wisdom is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Wisdom.",
 		allowUpCasting: true,
 		spellcastingAbility: 5,
 		spellcastingBonus: [{
@@ -22321,7 +23462,7 @@ FeatsList["divinely favored-ua"] = {
 		}],
 	},
 	"charisma - good": {
-		description: "I learn Thaumaturgy and one 1st-level cleric or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Charisma is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Charisma.",
+		description: "I learn *Thaumaturgy* and one 1st-level cleric or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Charisma is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Charisma.",
 		allowUpCasting: true,
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
@@ -22337,7 +23478,7 @@ FeatsList["divinely favored-ua"] = {
 		}],
 	},
 	"charisma - neutral": {
-		description: "I learn Thaumaturgy and one 1st-level druid or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Charisma is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Charisma.",
+		description: "I learn *Thaumaturgy* and one 1st-level druid or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Charisma is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Charisma.",
 		allowUpCasting: true,
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
@@ -22353,7 +23494,7 @@ FeatsList["divinely favored-ua"] = {
 		}],
 	},
 	"charisma - evil": {
-		description: "I learn Thaumaturgy and one 1st-level warlock or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Charisma is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Charisma.",
+		description: "I learn *Thaumaturgy* and one 1st-level warlock or wizard spell. I can cast the 1st level spell once per long rest without a spell slot, and I can cast it normally. Charisma is my spellcasting ability for these spells. I can use a holy symbol as a spellcasting focus for all my spells that use Charisma.",
 		allowUpCasting: true,
 		spellcastingAbility: 6,
 		spellcastingBonus: [{
@@ -22372,8 +23513,13 @@ FeatsList["divinely favored-ua"] = {
 FeatsList["divine communications-ua"] = {
 	name: "Divine Communications",
 	source: [["UA:HoK", 5]],
-	description: "I learn Augury and Commune. I can cast these spells without a spell slot, then must wait 1d4 long rests before doing so again, and I can cast it normally. My chosen ability from Divinely Favored is my spellcasting ability for these spells",
-	descriptionFull: "Your connection to your god deepens, granting you these benefits:\n***Ability Score Increase.*** Increase the ability score of the spellcasting ability chosen when you gained the Divinely Favored feat by 1, to a maximum of 20.\n***Celestial Tongues.*** You learn to speak, read, and write Celestial, and two other languages of your choice.\n***Divine Omens.*** You can cast the augury and commune spell without a spell slot, and you must finish 1d4 long rests before you can cast it in this way again. You can also cast the spell using the spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gained the Divinely Favored feat.",
+	description: "I learn *Augury* and *Commune*. I can cast these spells without a spell slot, then must wait 1d4 long rests before doing so again, and I can cast it normally. My chosen ability from Divinely Favored is my spellcasting ability for these spells",
+	descriptionFull: [
+		"Your connection to your god deepens, granting you these benefits:",
+		"***Ability Score Increase.*** Increase the ability score of the spellcasting ability chosen when you gained the Divinely Favored feat by 1, to a maximum of 20.",
+		"***Celestial Tongues.*** You learn to speak, read, and write Celestial, and two other languages of your choice.",
+		"***Divine Omens.*** You can cast the *augury* and *commune* spell without a spell slot, and you must finish 1d4 long rests before you can cast it in this way again. You can also cast the spell using the spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gained the Divinely Favored feat.",
+	],
 	prerequisite: "4th level, Divinely Favored feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("divinely favored-ua") !== -1; },
 	languageProfs: ["Celestial", 2],
@@ -22392,17 +23538,17 @@ FeatsList["divine communications-ua"] = {
 		}
 	},
 	"intelligence": {
-		description: "I learn Augury and Commune. I can cast these spells without a spell slot, then must wait 1d4 long rests before doing so again, and I can cast it normally. Intelligence is my spellcasting ability for these spells",
+		description: "I learn *Augury* and *Commune*. I can cast these spells without a spell slot, then must wait 1d4 long rests before doing so again, and I can cast it normally. Intelligence is my spellcasting ability for these spells",
 		spellcastingAbility: 4,
 		scores: [0, 0, 0, 1, 0, 0],
 	},
 	"wisdom": {
-		description: "I learn Augury and Commune. I can cast these spells without a spell slot, then must wait 1d4 long rests before doing so again, and I can cast it normally. Wisdom is my spellcasting ability for these spells",
+		description: "I learn *Augury* and *Commune*. I can cast these spells without a spell slot, then must wait 1d4 long rests before doing so again, and I can cast it normally. Wisdom is my spellcasting ability for these spells",
 		spellcastingAbility: 5,
 		scores: [0, 0, 0, 0, 1, 0],
 	},
 	"charisma": {
-		description: "I learn Augury and Commune. I can cast these spells without a spell slot, then must wait 1d4 long rests before doing so again, and I can cast it normally. Charisma is my spellcasting ability for these spells",
+		description: "I learn *Augury* and *Commune*. I can cast these spells without a spell slot, then must wait 1d4 long rests before doing so again, and I can cast it normally. Charisma is my spellcasting ability for these spells",
 		spellcastingAbility: 6,
 		scores: [0, 0, 0, 0, 0, 1],
 	},
@@ -22412,8 +23558,13 @@ FeatsList["divine communications-ua"] = {
 FeatsList["squire of solamnia-ua"] = {
 	name: "Squire of Solamnia",
 	source: [["UA:HoK", 6]],
-	description: "As a reaction once per long rest when I see another creature 30 ft make a save, I can give them advantage if they can hear and understand me. I gain proficiency with with medium armor and martial weapons. I have advantage on saves to avoid falling off a mount.",
-	descriptionFull: "Your training in the ways of the Knights of Solamnia grants you these benefits:\n***Martial Training.*** You gain proficiency with medium armor and martial weapons.\n***Defensive Rider.*** You have advantage on saving throws made to avoid falling off a mount.\n***Encouraging Rally.*** When another creature you can see within 30 feet of you makes a saving throw, you can use your reaction to inspire them. If the target can hear you and understands you, it gains advantage on the saving throw. Once you use this reaction, you can't do so again until you finish a long rest.",
+	description: "As a reaction once per long rest when I see another creature 30 ft make a save, I can give them advantage if they can hear and understand me. I gain proficiency with medium armor and martial weapons. I have advantage on saves to avoid falling off a mount.",
+	descriptionFull: [
+		"Your training in the ways of the Knights of Solamnia grants you these benefits:",
+		"***Martial Training.*** You gain proficiency with medium armor and martial weapons.",
+		"***Defensive Rider.*** You have advantage on saving throws made to avoid falling off a mount.",
+		"***Encouraging Rally.*** When another creature you can see within 30 feet of you makes a saving throw, you can use your reaction to inspire them. If the target can hear you and understands you, it gains advantage on the saving throw. Once you use this reaction, you can't do so again until you finish a long rest.",
+	],
 	prerequisite: "Squireship in the Knights of Solamnia",
 	armorProfs: [false, true, false, false],
 	weaponProfs: [false, true],
@@ -22429,7 +23580,11 @@ FeatsList["knight of the crown-ua"] = {
 	name: "Knight of the Crown",
 	source: [["UA:HoK", 6]],
 	description: "When a creature within 30 ft makes an attack roll against another creature within 5 ft, I can use my reaction to grant advantage on the attack roll. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.",
-	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Crown, a group that extols the virtues of cooperation, loyalty, and obedience. You excel in group combat and gain these benefits:\n***Ability Score Increase.*** Increase your Strength or Dexterity score by 1, to a maximum of 20.\n***Tactical Teamwork.*** When a creature you can see within 30 feet of you makes an attack roll against another creature that is within 5 feet of you, you can use your reaction to grant advantage on the attack roll. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You are a Knight of Solamnia aligned with the Order of the Crown, a group that extols the virtues of cooperation, loyalty, and obedience. You excel in group combat and gain these benefits:",
+		"***Ability Score Increase.*** Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+		"***Tactical Teamwork.*** When a creature you can see within 30 feet of you makes an attack roll against another creature that is within 5 feet of you, you can use your reaction to grant advantage on the attack roll. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "4th level, Squire of Solamnia feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua") !== -1; },
 	scorestxt: "+1 Strength or Dexterity",
@@ -22442,7 +23597,11 @@ FeatsList["knight of the sword-ua"] = {
 	name: "Knight of the Sword",
 	source: [["UA:HoK", 6]],
 	description: "I gain proficiency in the chosen ability saving throw. After I or a creature I can see within 30 feet fails an Int, Wis, or Cha save, I can expend a HD. I roll that die and increase the save by that much. Once I change a fail into a success, I can't do so again until a long rest.",
-	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Sword, a group devoted to heroism and courage. Bravery steels your spirit, granting you these benefits:\n***Disciplined Spirit.*** You gain proficiency in Intelligence, Wisdom, or Charisma saving throws (your choice when you take this feat).\n***Willpower.*** Immediately after you or a creature you can see within 30 feet of you fail an Intelligence, Wisdom, or Charisma saving throw, you can expend a Hit Die. The saving throw increases by an amount equal to a roll of that Hit Die, potentially turning a failure into a success. Once you turn a failed saving throw into a successful one using this feat, you can't do so again until you finish a long rest.",
+	descriptionFull: [
+		"You are a Knight of Solamnia aligned with the Order of the Sword, a group devoted to heroism and courage. Bravery steels your spirit, granting you these benefits:",
+		"***Disciplined Spirit.*** You gain proficiency in Intelligence, Wisdom, or Charisma saving throws (your choice when you take this feat).",
+		"***Willpower.*** Immediately after you or a creature you can see within 30 feet of you fail an Intelligence, Wisdom, or Charisma saving throw, you can expend a Hit Die. The saving throw increases by an amount equal to a roll of that Hit Die, potentially turning a failure into a success. Once you turn a failed saving throw into a successful one using this feat, you can't do so again until you finish a long rest.",
+	],
 	prerequisite: "4th level, Squire of Solamnia feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua") !== -1; },
 	choices: ["Intelligence", "Wisdom", "Charisma"],
@@ -22462,7 +23621,11 @@ FeatsList["knight of the rose-ua"] = {
 	name: "Knight of the Rose",
 	source: [["UA:HoK", 6]],
 	description: "When I roll initiative I can choose up to 3 other creatures I can see within 30 ft. They gain temp HP equal to a roll of my HD + my proficiency bonus + the modifier of the score increased by this feat. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.",
-	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Rose, a group known for leadership, justice, and wisdom. Your resolve grants you these benefits:\n***Ability Score Increase.*** Increase your Constitution or Charisma score by 1, to a maximum of 20.\n***Bolstering Rally.*** When you roll initiative, you can choose up to three other creatures you can see within 30 feet of you. Each creature can gain temporary hit points equal to a roll of your Hit Die + your proficiency bonus + the ability modifier of the ability score increased by this feat. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You are a Knight of Solamnia aligned with the Order of the Rose, a group known for leadership, justice, and wisdom. Your resolve grants you these benefits:",
+		"***Ability Score Increase.*** Increase your Constitution or Charisma score by 1, to a maximum of 20.",
+		"***Bolstering Rally.*** When you roll initiative, you can choose up to three other creatures you can see within 30 feet of you. Each creature can gain temporary hit points equal to a roll of your Hit Die + your proficiency bonus + the ability modifier of the ability score increased by this feat. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "4th level, Squire of Solamnia feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua") !== -1; },
 	scorestxt: "+1 Constitution or Charisma",
@@ -22515,9 +23678,11 @@ RaceList["kender-ua2"] = {
 			action: [["bonus action", ""]],
 		},
 	},
-	trait: "Kender" +
-	"\n \u2022 Fearless: I am immune to the frightened condition." +
-	"\n \u2022 Taunt: As a bonus action, I can taunt a creature within 60 ft of me that can hear and understand me. They must make a Wisdom saving throw or have disadvantage on attack rolls not made against me until the start of my next turn. I can do this a number of times per long rest equal to my proficiency bonus. The DC equals 8 + proficiency bonus + Intelligence, Wisdom, or Charisma modifier (one-time choice).",
+	trait: [
+		"**Kender**",
+		"##\u25C6 Fearless##. I am immune to the frightened condition.",
+		"##\u25C6 Taunt##. As a bonus action, I can taunt a creature within 60 ft of me that can hear and understand me. They must make a Wisdom saving throw or have disadvantage on attack rolls not made against me until the start of my next turn. I can do this a number of times per long rest equal to my proficiency bonus. The DC equals 8 + proficiency bonus + Intelligence, Wisdom, or Charisma modifier (one-time choice).",
+	],
 };
 
 // Feats tree for Squire of Solamnia
@@ -22546,10 +23711,12 @@ FeatsList["squire of solamnia-ua2"] = {
 	source: [["UA:HoKR", 5]],
 	description: "Mounting/dismounting costs a 5-ft move. I learn one Knightly Maneuver: Lunging Attack, Precision Attack, or Pushing Attack. I can change which I know after each long rest. The DC is 8 + Prof B + Str or Dex mod (my choice). I gain Prof Bonus of Superiority Dice (d6) to use with these, regaining them after a long rest.",
 	calculate: "event.value = 'Mounting/dismounting costs a 5-ft move. I learn one Knightly Maneuver: Lunging Attack, Precision Attack, or Pushing Attack. DC is ' + (8 + Number(How('Proficiency Bonus')) + Math.max(Number(What('Str Mod')), Number(What('Dex Mod')))) + ' (8 + Prof Bonus + Str/Dex mod). I can change which I know after each long rest. I gain Prof Bonus of Superiority Dice (d6) to use with these, regaining them after a long rest.';",
-	descriptionFull: "Your training in the ways of the Knights of Solamnia grants you these benefits:" +
-	"\n   ***Mount Up***. Mounting or dismounting costs you only 5 feet of movement." +
-	"\n   ***Squire Maneuvers***. You learn the Lunging Attack, Precision Attack, or Pushing Attack maneuver from the Battle Master subclass of the fighter in the Player's Handbook (choose the maneuver when you gain this feat). If the maneuver requires a saving throw, the save's DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice). Whenever you finish a long rest, you can replace the maneuver you learned from this feat with another one from the list above." +
-	"\n   ***Superiority Dice***. You gain a number of superiority dice equal to your proficiency bonus. These dice are d6s, and you can use them only with the maneuver you gain from this feat and with any maneuvers you gain from feats that have this feat as a prerequisite. A superiority die is expended when you use it, and you regain all expended superiority dice when you finish a long rest.",
+	descriptionFull: [
+		"Your training in the ways of the Knights of Solamnia grants you these benefits:",
+		"***Mount Up***. Mounting or dismounting costs you only 5 feet of movement.",
+		"***Squire Maneuvers***. You learn the Lunging Attack, Precision Attack, or Pushing Attack maneuver from the Battle Master subclass of the fighter in the Player's Handbook (choose the maneuver when you gain this feat). If the maneuver requires a saving throw, the save's DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice). Whenever you finish a long rest, you can replace the maneuver you learned from this feat with another one from the list above.",
+		"***Superiority Dice***. You gain a number of superiority dice equal to your proficiency bonus. These dice are d6s, and you can use them only with the maneuver you gain from this feat and with any maneuvers you gain from feats that have this feat as a prerequisite. A superiority die is expended when you use it, and you regain all expended superiority dice when you finish a long rest.",
+	],
 	prerequisite: "Fighter or Paladin Class or Knight of Solamnia Background",
 	prereqeval: function (v) {
 		return classes.known.fighter || classes.known.paladin || CurrentBackground.known.indexOf("knight of solamnia") !== -1;
@@ -22569,10 +23736,12 @@ FeatsList["knight of the crown-ua2"] = {
 	name: "Knight of the Crown",
 	source: [["UA:HoKR", 5]],
 	description: "I learn one extra Knightly Maneuver: Distracting Strike or Goading Attack. I can change which one of these I know after each long rest. I gain two extra Knightly Superiority Dice and the dice become d8s. [+1 Strength or Dexterity]",
-	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Crown, a group that extols the virtues of cooperation, loyalty, and obedience. You excel in group combat and gain these benefits:" +
-	"\n   ***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20." +
-	"\n   ***Crown Maneuvers***. You learn the Distracting Strike or the Goading Attack maneuver from the Battle Master subclass of the fighter in the Player's Handbook (choose the maneuver when you gain this feat). If the maneuver requires a saving throw, the save's DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice). Whenever you finish a long rest, you can replace the maneuver you learned from this feat with the other maneuver offered by it." +
-	"\n   ***Superiority Dice***. You gain two superiority dice, which you add to the dice you have from the Squire of Solamnia feat. All the dice are now d8s.",
+	descriptionFull: [
+		"You are a Knight of Solamnia aligned with the Order of the Crown, a group that extols the virtues of cooperation, loyalty, and obedience. You excel in group combat and gain these benefits:",
+		"***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+		"***Crown Maneuvers***. You learn the Distracting Strike or the Goading Attack maneuver from the Battle Master subclass of the fighter in the Player's Handbook (choose the maneuver when you gain this feat). If the maneuver requires a saving throw, the save's DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice). Whenever you finish a long rest, you can replace the maneuver you learned from this feat with the other maneuver offered by it.",
+		"***Superiority Dice***. You gain two superiority dice, which you add to the dice you have from the Squire of Solamnia feat. All the dice are now d8s.",
+	],
 	prerequisite: "4th level, Squire of Solamnia feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua2") !== -1; },
 	scorestxt: "+1 Strength or Dexterity",
@@ -22586,10 +23755,12 @@ FeatsList["knight of the sword-ua2"] = {
 	name: "Knight of the Sword",
 	source: [["UA:HoKR", 5]],
 	description: "I learn one extra Knightly Maneuver: Maneuvering Attack or Menacing Attack. I can change which one of these I know after each long rest. I gain two extra Knightly Superiority Dice and the dice become d8s. [+1 Intelligence, Wisdom, or Charisma]",
-	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Sword, a group devoted to heroism and courage. Bravery steels your spirit, granting you these benefits:" +
-	"\n   ***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20." +
-	"\n   ***Sword Maneuvers***. You learn the Maneuvering Attack or the Menacing Attack maneuver from the Battle Master subclass of the fighter in the Player's Handbook (choose the maneuver when you gain this feat). If the maneuver requires a saving throw, the save's DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice). Whenever you finish a long rest, you can replace the maneuver you learned from this feat with the other maneuver offered by it." +
-	"\n   ***Superiority Dice***. You gain two superiority dice, which you add to the dice you have from the Squire of Solamnia feat. All the dice are now d8s.",
+	descriptionFull: [
+		"You are a Knight of Solamnia aligned with the Order of the Sword, a group devoted to heroism and courage. Bravery steels your spirit, granting you these benefits:",
+		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
+		"***Sword Maneuvers***. You learn the Maneuvering Attack or the Menacing Attack maneuver from the Battle Master subclass of the fighter in the Player's Handbook (choose the maneuver when you gain this feat). If the maneuver requires a saving throw, the save's DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice). Whenever you finish a long rest, you can replace the maneuver you learned from this feat with the other maneuver offered by it.",
+		"***Superiority Dice***. You gain two superiority dice, which you add to the dice you have from the Squire of Solamnia feat. All the dice are now d8s.",
+	],
 	prerequisite: "4th level, Squire of Solamnia feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua2") !== -1; },
 	scorestxt: "+1 Intelligence, Wisdom, or Charisma",
@@ -22603,10 +23774,12 @@ FeatsList["knight of the rose-ua2"] = {
 	name: "Knight of the Rose",
 	source: [["UA:HoKR", 5]],
 	description: "I learn one extra Knightly Maneuver: Commander's Strike or Rally. I can change which one of these I know after each long rest. I gain two extra Knightly Superiority Dice and the dice become d8s. [+1 Constitution or Charisma]",
-	descriptionFull: "You are a Knight of Solamnia aligned with the Order of the Rose, a group known for leadership, justice, and wisdom. Your resolve grants you these benefits:" +
-	"\n   ***Ability Score Increase***. Increase your Constitution or Charisma score by 1, to a maximum of 20." +
-	"\n   ***Rose Maneuvers***. You learn the Commander's Strike or Rally maneuver from the Battle Master subclass of the fighter in the Player's Handbook (choose the maneuver when you gain this feat). Whenever you finish a long rest, you can replace the maneuver you learned from this feat with the other maneuver offered by it." +
-	"\n   ***Superiority Dice***. You gain two superiority dice, which you add to the dice you have from the Squire of Solamnia feat. All the dice are now d8s.",
+	descriptionFull: [
+		"You are a Knight of Solamnia aligned with the Order of the Rose, a group known for leadership, justice, and wisdom. Your resolve grants you these benefits:",
+		"***Ability Score Increase***. Increase your Constitution or Charisma score by 1, to a maximum of 20.",
+		"***Rose Maneuvers***. You learn the Commander's Strike or Rally maneuver from the Battle Master subclass of the fighter in the Player's Handbook (choose the maneuver when you gain this feat). Whenever you finish a long rest, you can replace the maneuver you learned from this feat with the other maneuver offered by it.",
+		"***Superiority Dice***. You gain two superiority dice, which you add to the dice you have from the Squire of Solamnia feat. All the dice are now d8s.",
+	],
 	prerequisite: "4th level, Squire of Solamnia feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("squire of solamnia-ua2") !== -1; },
 	scorestxt: "+1 Constitution or Charisma",
@@ -22644,7 +23817,7 @@ AddSubClass("barbarian", "giant-ua", {
 			name: "Giant Power",
 			source: [["UA:GO", 1]],
 			minlevel: 3,
-			description: desc("I learn Giant, and the Druidcraft or Thaumaturgy cantrip with Wis as spellcasting ability"),
+			description: desc("I learn Giant, and the *Druidcraft* or *Thaumaturgy* cantrip with Wis as spellcasting ability"),
 			languageProfs: ["Giant"],
 			spellcastingBonus: [{
 				name: "Giant Power",
@@ -22887,7 +24060,7 @@ AddSubClass("wizard", "runecrafter-ua", {
 			source: [["UA:GO", 3]],
 			minlevel: 2,
 			description: desc([
-				"I always have Comprehend Languages prepared and can cast it without using a spell slot",
+				"I always have *Comprehend Languages* prepared and can cast it without using a spell slot",
 				"It doesn't count against the number of spells I can prepare",
 			]),
 			spellcastingBonus: [{
@@ -22962,12 +24135,15 @@ AddSubClass("wizard", "runecrafter-ua", {
 FeatsList["elemental touched-ua"] = {
 	name: "Elemental Touched",
 	source: [["UA:GO", 4]],
-	descriptionFull: "You've been exposed to the primordial magic of the Elemental Planes, granting you a measure of control over the natural world around you. You learn either the druidcraft or thaumaturgy cantrip, using Intelligence, Wisdom, or Charisma as the spellcasting ability (choose when you gain this feat).\n   Whenever you finish a long rest, you can choose which element you are attuned to: Air, Earth, Fire, or Water. Depending on your choice, you can use a bonus action to cause one of the following effects:" +
-	"\n\n***Air***. You gain a fly speed equal to your walking speed until the end of your turn. If you are airborne at the end of your turn after using this movement and aren't held aloft by other means, you fall." +
-	"\n***Earth***. You cause the ground within 30 feet of you to become difficult terrain for 1 minute or until you create this effect again. During that time, you can move across ground that is difficult terrain without spending extra movement." +
-	"\n***Fire***. You surround yourself in a cloud of ash and smoke. Until the end of your turn, your movement doesn't provoke opportunity attacks." +
-	"\n***Water***. You can create a forceful surge of water directed at a creature within 15 feet of you that you can see. The creature must succeed on a Strength saving throw (which it can choose to fail) against a DC equal to 8 + your spellcasting ability modifier + your proficiency bonus or be pushed up to 10 feet away from you. The water vanishes immediately after the creature succeeds or fails." +
-	"\n\nYou can create this effect a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You've been exposed to the primordial magic of the Elemental Planes, granting you a measure of control over the natural world around you. You learn either the *druidcraft* or *thaumaturgy* cantrip, using Intelligence, Wisdom, or Charisma as the spellcasting ability (choose when you gain this feat).",
+		"Whenever you finish a long rest, you can choose which element you are attuned to: Air, Earth, Fire, or Water. Depending on your choice, you can use a bonus action to cause one of the following effects:",
+		"***Air***. You gain a fly speed equal to your walking speed until the end of your turn. If you are airborne at the end of your turn after using this movement and aren't held aloft by other means, you fall.",
+		"***Earth***. You cause the ground within 30 feet of you to become difficult terrain for 1 minute or until you create this effect again. During that time, you can move across ground that is difficult terrain without spending extra movement.",
+		"***Fire***. You surround yourself in a cloud of ash and smoke. Until the end of your turn, your movement doesn't provoke opportunity attacks.",
+		"***Water***. You can create a forceful surge of water directed at a creature within 15 feet of you that you can see. The creature must succeed on a Strength saving throw (which it can choose to fail) against a DC equal to 8 + your spellcasting ability modifier + your proficiency bonus or be pushed up to 10 feet away from you. The water vanishes immediately after the creature succeeds or fails.",
+		"You can create this effect a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	description: "I learn druidcraft or thaumaturgy. End of a LR pick Air, Earth, Fire, Water, as a bns action: Air. Gain fly spd = to walk spd, fall at end of turn; Earth. 30 ft rad diff terr for 1 min, move freely through diff terr; Fire. No opp atks this turn; Water. 1 visible crea w/in 15 ft Str save DC 8 + SC mod + Prof or pushed 10 ft away. Prof Uses / LR.",
 	spellcastingAbility: [4, 5, 6],
 	action: [["bonus action", ""]],
@@ -22995,10 +24171,12 @@ FeatsList["elemental touched-ua"] = {
 FeatsList["outsized might-ua"] = {
 	name: "Outsized Might",
 	source: [["UA:GO", 5]],
-	descriptionFull: "You have absorbed primeval magic that allows you, despite your relatively small stature, to embody the might of titanic creatures. This grants you the following benefits:" +
-	"\n\n***Little but Mighty***. You gain proficiency in either the Athletics or Acrobatics skill." +
-	"\n***Powerful Build***. You count as one size larger when determining your carrying capacity and the amount you can push, drag, or lift." +
-	"\n***Stalwart***. You have advantage on saving throws against being moved or knocked prone.",
+	descriptionFull: [
+		"You have absorbed primeval magic that allows you, despite your relatively small stature, to embody the might of titanic creatures. This grants you the following benefits:",
+		"***Little but Mighty***. You gain proficiency in either the Athletics or Acrobatics skill.",
+		"***Powerful Build***. You count as one size larger when determining your carrying capacity and the amount you can push, drag, or lift.",
+		"***Stalwart***. You have advantage on saving throws against being moved or knocked prone.",
+	],
 	description: "I gain proficiency in Athletics or Acrobatics. I count as one size larger when determining my carrying capacity and the amount I can push, drag, or lift. I have advantage on saving throws against being moved or knocked prone.",
 	skillstxt: "Choose Athletics or Acrobatics",
 	carryingCapacity: 2,
@@ -23011,9 +24189,11 @@ FeatsList["ember of the fire giant-ua"] = {
 	source: [["UA:GO", 4]],
 	prerequisite: "8th level",
 	prereqeval: function (v) { return v.characterLevel >= 8; },
-	descriptionFull: "You've manifested the fiery combat emblematic of fire giants, granting you the following benefits:" +
-	"\n\n***Born of Flame***. You have resistance to fire damage." +
-	"\n***Searing Ignition***. When you take the Attack action on your turn, you can replace one of your attacks with a magical burst of flame. Each creature of your choice within 15 feet of you that can see you must make a Dexterity saving throw (DC equals 8 + your proficiency bonus + your Constitution modifier). On a failed save, a creature takes fire damage equal to 2d6 + your proficiency bonus and is blinded until the start of your next turn; on a successful save, the creature takes half as much damage with no additional effects. You can use your Searing Ignition a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You've manifested the fiery combat emblematic of fire giants, granting you the following benefits:",
+		"***Born of Flame***. You have resistance to fire damage.",
+		"***Searing Ignition***. When you take the Attack action on your turn, you can replace one of your attacks with a magical burst of flame. Each creature of your choice within 15 feet of you that can see you must make a Dexterity saving throw (DC equals 8 + your proficiency bonus + your Constitution modifier). On a failed save, a creature takes fire damage equal to 2d6 + your proficiency bonus and is blinded until the start of your next turn; on a successful save, the creature takes half as much damage with no additional effects. You can use your Searing Ignition a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	description: "I gain resistance to fire damage. When I take the Attack action on my turn I can use an attack to instead make each creature I choose within 15 ft roll a Dex save DC 8 + Prof + Con mod. On a fail they take 2d6 + Prof Fire dmg, blinded until the start of my next turn. Success halves and no other effect. Prof Uses / LR.",
 	action: [["action", "Searing Ignition (as Attack action)"]],
 	usages: "Proficiency bonus per ",
@@ -23026,9 +24206,11 @@ FeatsList["fury of the frost giant-ua"] = {
 	source: [["UA:GO", 4]],
 	prerequisite: "4th level",
 	prereqeval: function (v) { return v.characterLevel >= 4; },
-	descriptionFull: "You've manifested the icy might emblematic of frost giants, granting you the following benefits:" +
-	"\n\n***Born of Ice***. You have resistance to cold damage." +
-	"\n***Frigid Vengeance***. When a creature hits you with an attack roll, you can use your reaction to retaliate with a burst of magical ire. The creature must succeed on a Wisdom saving throw (DC equals 8 + your proficiency bonus + your Consitution modifier) or be frightened of you until the start of its next turn. You can use your reaction in this way a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You've manifested the icy might emblematic of frost giants, granting you the following benefits:",
+		"***Born of Ice***. You have resistance to cold damage.",
+		"***Frigid Vengeance***. When a creature hits you with an attack roll, you can use your reaction to retaliate with a burst of magical ire. The creature must succeed on a Wisdom saving throw (DC equals 8 + your proficiency bonus + your Consitution modifier) or be frightened of you until the start of its next turn. You can use your reaction in this way a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	description: "I gain resistance to cold damage. When I am hit with an attack roll I can use my reaction to make them roll a Wis save DC 8 + Prof + Con mod. On a failure they are frightened until the start of their next turn. Prof Uses / LR.",
 	action: [["reaction", "Frigid Vengeance"]],
 	usages: "Proficiency bonus per ",
@@ -23041,11 +24223,13 @@ FeatsList["guile of the cloud giant-ua"] = {
 	source: [["UA:GO", 4]],
 	prerequisite: "8th level",
 	prereqeval: function (v) { return v.characterLevel >= 8; },
-	descriptionFull: "You've manifested the airy speech and magic emblematic of cloud giants, granting you the following benefits:" +
-	"\n\n***Misty Form***. You can cast the blur spell without using a spell slot or material components. When you cast the spell in this way, the spell doesn't require you to maintain concentration on it. Once you cast the spell in this way, you can't do so again until you finish a long rest. You can also cast this spell in the normal way using spell slots you have of appropriate level." +
-	"\nIntelligence, Wisdom, or Charisma is your spellcasting ability for this feature (choose when you gain this feat)." +
-	"\n***Silver Tongue***. You gain proficiency in either the Deception or Persuasion skill. Your proficiency bonus is doubled for any ability check you make using this skill.",
-	description: "I gain proficiency and expertise in Deception or Persuasion. Once per long rest I can cast Blur without using a spell slot, material components, or concentration. I can also cast it normally with spell slots.",
+	descriptionFull: [
+		"You've manifested the airy speech and magic emblematic of cloud giants, granting you the following benefits:",
+		"***Misty Form***. You can cast the *blur* spell without using a spell slot or material components. When you cast the spell in this way, the spell doesn't require you to maintain concentration on it. Once you cast the spell in this way, you can't do so again until you finish a long rest. You can also cast this spell in the normal way using spell slots you have of appropriate level.",
+		"Intelligence, Wisdom, or Charisma is your spellcasting ability for this feature (choose when you gain this feat).",
+		"***Silver Tongue***. You gain proficiency in either the Deception or Persuasion skill. Your proficiency bonus is doubled for any ability check you make using this skill.",
+	],
+	description: "I gain proficiency and expertise in Deception or Persuasion. Once per long rest I can cast *Blur* without using a spell slot, material components, or concentration. I can also cast it normally with spell slots.",
 	skillstxt: "Choose Deception or Persuasion. You also gain expertise with that skill",
 	spellcastingAbility: [4, 5, 6],
 	spellcastingBonus: [{
@@ -23061,11 +24245,13 @@ FeatsList["keenness of the stone giant-ua"] = {
 	source: [["UA:GO", 5]],
 	prerequisite: "4th level",
 	prereqeval: function (v) { return v.characterLevel >= 4; },
-	descriptionFull: "You've manifested the protection and spellcasting emblematic of stone giants, granting you the following benefits:" +
-	"\n\n***Dreamer's Magic*** You learn the detect thoughts spell and one 1st-level spell of your choice. The 1st-level spell must be from the abjuration or the divination school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level." +
-	"\nIntelligence, Wisdom, or Charisma is your spellcasting ability for this feature (choose when you gain this feat)." +
-	"\n***Mountain Sight***. You gain darkvision out to a range of 60 feet. If you already have darkvision from another source, its range increases by 30 feet",
-	description: "I learn detect thoughts and a 1st level Abjur or Div spell. I can cast these without a spell slot once per long rest, or as normal. I gain 60 ft of Darkvision or if I already have darkvision I get an extra 30 feet of Darkvision.",
+	descriptionFull: [
+		"You've manifested the protection and spellcasting emblematic of stone giants, granting you the following benefits:",
+		"***Dreamer's Magic*** You learn the *detect thoughts* spell and one 1st-level spell of your choice. The 1st-level spell must be from the abjuration or the divination school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level.",
+		"Intelligence, Wisdom, or Charisma is your spellcasting ability for this feature (choose when you gain this feat).",
+		"***Mountain Sight***. You gain darkvision out to a range of 60 feet. If you already have darkvision from another source, its range increases by 30 feet",
+	],
+	description: "I learn *detect thoughts* and a 1st level Abjur or Div spell. I can cast these without a spell slot once per long rest, or as normal. I gain 60 ft of Darkvision or if I already have darkvision I get an extra 30 feet of Darkvision.",
 	spellcastingAbility: [4, 5, 6],
 	spellcastingBonus: [{
 		name: "Keenness of the Stone Giant",
@@ -23088,10 +24274,13 @@ FeatsList["soul of the storm giant-ua"] = {
 	source: [["UA:GO", 5]],
 	prerequisite: "8th level",
 	prereqeval: function (v) { return v.characterLevel >= 8; },
-	descriptionFull: "You've manifested divination abilities and tempest magic emblematic of storm giants, granting you the following benefits:" +
-	"\n\n***Maelstrom Aura***. As a bonus action, you surround yourself in an aura of magical wind and lightning that extends 10 feet from you in every direction but not through total cover. The aura lasts for 1 minute or until you are incapacitated. While the aura is active, attack rolls against you have disadvantage, and whenever a creature starts its turn within the sphere, you can force the creature's speed to be halved until the start of its next turn. Once you use this bonus action, you can't do so again until you finish a long rest." +
-	"\n***Storm's Oracle***. You can cast the divination spell as a ritual, without needing amterial components.\n Intelligence, Wisdom, or Charisma is your spellcasting ability for this feature (choose when you gain this feat). Once you cast the spell in this way, you can't do so again until you finish a long rest.",
-	description: "I learn Divination and can cast it once per long rest as a ritual without using a spell slot or materials. Once per long rest as a bonus action I create a 10 ft rad that lasts for 1 min or until I am incapacitated. Atks against me have disadv, when creas start their turn in the area I can halve their spd until their next turn.",
+	descriptionFull: [
+		"You've manifested divination abilities and tempest magic emblematic of storm giants, granting you the following benefits:",
+		"***Maelstrom Aura***. As a bonus action, you surround yourself in an aura of magical wind and lightning that extends 10 feet from you in every direction but not through total cover. The aura lasts for 1 minute or until you are incapacitated. While the aura is active, attack rolls against you have disadvantage, and whenever a creature starts its turn within the sphere, you can force the creature's speed to be halved until the start of its next turn. Once you use this bonus action, you can't do so again until you finish a long rest.",
+		"***Storm's Oracle***. You can cast the *divination* spell as a ritual, without needing material components.",
+		"Intelligence, Wisdom, or Charisma is your spellcasting ability for this feature (choose when you gain this feat). Once you cast the spell in this way, you can't do so again until you finish a long rest.",
+	],
+	description: "I learn *Divination* and can cast it once per long rest as a ritual without using a spell slot or materials. Once per long rest as a bonus action I create a 10 ft rad that lasts for 1 min or until I am incapacitated. Atks against me have disadv, when creas start their turn in the area I can halve their spd until their next turn.",
 	action: [["bonus action", "Maelstrom Aura"]],
 	usages: 1,
 	recovery: "long rest",
@@ -23114,9 +24303,11 @@ FeatsList["vigor of the hill giant-ua"] = {
 	source: [["UA:GO", 5]],
 	prerequisite: "4th level",
 	prereqeval: function (v) { return v.characterLevel >= 4; },
-	descriptionFull: "You've manifested the resilience emblematic of hill giants, granting you the following benefits:" +
-	"\n\n***Bulwark***. When you are subjected to an effect that would move you at least 5 feet or knock you prone, you can use your reaction to steady yourself. You are then neither moved nor knocked prone." +
-	"\n***Hearty Health***. When you are subjected to a spell that restores your hit points, you can regain additional hit points equal to your Constitution modifier. You can regain these additional hit points a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You've manifested the resilience emblematic of hill giants, granting you the following benefits:",
+		"***Bulwark***. When you are subjected to an effect that would move you at least 5 feet or knock you prone, you can use your reaction to steady yourself. You are then neither moved nor knocked prone.",
+		"***Hearty Health***. When you are subjected to a spell that restores your hit points, you can regain additional hit points equal to your Constitution modifier. You can regain these additional hit points a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	description: "When I would be moved or knocked prone I can use my reaction to not. When I would restore hit points from a spell I can regain an additional Con mod hit points, I can regain hit points this way Prof Uses / LR.",
 	action: [["reaction", "Bulwark"]],
 };
@@ -23125,30 +24316,34 @@ FeatsList["vigor of the hill giant-ua"] = {
 FeatsList["rune carver apprentice-ua"] = {
 	name: "Rune Carver Apprentice",
 	source: [["UA:GO", 5]],
-	descriptionFull: "You've begun studying the art of runecraft, which allows you to temporarily mark your items and imbue them with magic." +
-	"\n   Whenever you finish a long rest, you can mark one nonmagical weapon, armor, piece of clothing, or other object you can touch with a rune of your choice. You temporarily learn one 1st-level spell based on the rune you choose, as specified in the table below, and you know the spell until you finish a long rest, when the rune fades." +
-	"\n\n**Rune**\t**Spell**" +
-	"\nBlood\tFalse life" +
-	"\nCloud\tFog cloud" +
-	"\nDeath\tRay of sickness" +
-	"\nDragon\tChromatic orb" +
-	"\nEnemy\tBane" +
-	"\nFire\tBurning hands" +
-	"\nFriend\tBless" +
-	"\nFrost\tArmor of Agathys" +
-	"\nHill\tGoodberry" +
-	"\nJourney\tLongstrider" +
-	"\nKing\tCommand" +
-	"\nLight\tGuiding bolt" +
-	"\nLife\tCure wounds" +
-	"\nMountain\tJump" +
-	"\nShield\tShield" +
-	"\nStone\tSanctuary" +
-	"\nStorm\tThunderwave" +
-	"\nWar\tHeroism" +
-	"\nWind\tFeather fall" +
-	"\n\nWhile you are wearing or carrying the rune-marked object, you can cast the chosen spell associated with the rune once without using a spell slot or material components, and you can also cast the spell using any spell slots you have." +
-	"\n   Your spellcasting ability for this feat is Intelligence, Wisdom, or Charisma (choose when you gain this feat).",
+	descriptionFull: [
+		"You've begun studying the art of runecraft, which allows you to temporarily mark your items and imbue them with magic.",
+		"Whenever you finish a long rest, you can mark one nonmagical weapon, armor, piece of clothing, or other object you can touch with a rune of your choice. You temporarily learn one 1st-level spell based on the rune you choose, as specified in the table below, and you know the spell until you finish a long rest, when the rune fades.",
+		[
+			["Rune", "Spell"],
+			["Blood", "*False life*"],
+			["Cloud", "*Fog cloud*"],
+			["Death", "*Ray of sickness*"],
+			["Dragon", "*Chromatic orb*"],
+			["Enemy", "Bane"],
+			["Fire", "*Burning hands*"],
+			["Friend", "Bless"],
+			["Frost", "*Armor of Agathys*"],
+			["Hill", "Goodberry"],
+			["Journey", "Longstrider"],
+			["King", "Command"],
+			["Light", "*Guiding bolt*"],
+			["Life", "*Cure wounds*"],
+			["Mountain", "Jump"],
+			["Shield", "Shield"],
+			["Stone", "Sanctuary"],
+			["Storm", "Thunderwave"],
+			["War", "Heroism"],
+			["Wind", "*Feather fall*"],
+		],
+		"While you are wearing or carrying the rune-marked object, you can cast the chosen spell associated with the rune once without using a spell slot or material components, and you can also cast the spell using any spell slots you have.",
+		"Your spellcasting ability for this feat is Intelligence, Wisdom, or Charisma (choose when you gain this feat).",
+	],
 	description: "At the end of a long rest, I can mark a nonmagical object I can touch with a rune. I learn a 1st-level spell until I finish a long rest when the rune fades. While wearing or carrying the object I can cast the spell once without using a spell slot or material components, or as normal.",
 	spellcastingAbility: [4, 5, 6],
 	spellcastingBonus: [{
@@ -23165,7 +24360,10 @@ FeatsList["rune carver adept-ua"] = {
 	source: [["UA:GO", 5]],
 	prerequisite: "4th level, Rune Carver Apprentice feat",
 	prereqeval: function (v) { return v.characterLevel >= 4 && CurrentFeats.known.indexOf("rune carver apprentice") !== -1; },
-	descriptionFull: "Your skill with the art of runecraft has increased.\n   Whenever you finish a long rest, you can now mark a number of objects equal to your proficiency bonus with a rune from the Rune Carver Apprentice feat. An object can have only one rune at a time, and you must inscribe a different rune on each object.",
+	descriptionFull: [
+		"Your skill with the art of runecraft has increased.",
+		"Whenever you finish a long rest, you can now mark a number of objects equal to your proficiency bonus with a rune from the Rune Carver Apprentice feat. An object can have only one rune at a time, and you must inscribe a different rune on each object.",
+	],
 	description: "At the end of a long rest, when using the Rune Carver apprentice feat, I can now inscribe a number of objects up to my Proficiency Bonus. Each object can only have one rune, and each rune must be different.",
 };
 
@@ -23214,12 +24412,14 @@ RaceList["glitchling-ua"] = {
 			recovery: "long rest",
 		},
 	},
-	trait: "Glitchling (my type is Construct)" +
-	"\n \u2022 Armored Plating: My base AC is 14 + my Dexterity modifier." +
-	"\n \u2022 Living Construct: Life preserving spells that normally don't affect constructs work on me." + (typePF ? " (e.g. Cure Wounds, Spare the Dying)." : "") +
-	"\n \u2022 Ordered Mind: I have adv. on Wis (Insight) checks and on saves against being charmed." +
-	"\n \u2022 Balance Chaos: " + (typePF ? "My proficiency bonus per long rest, I can treat an attack roll or save roll of 9 or lower as a 10 instead." : "Prof Bonus per long rest, I can treat a save/attack roll below 10 as a 10.") +
-	"\n \u2022 Vestigial Wings: Prof Bonus per long rest, I can gain a flying speed equal to my walking speed for 1 turn, but fall if I end my turn aloft.",
+	trait: [
+		"**Glitchling** (my type is Construct)",
+		"##Armored Plating##. My base AC is 14 + my Dexterity modifier.",
+		"##Living Construct##. Life preserving spells that normally don't affect constructs work on me." + (typePF ? " (e.g. *Cure Wounds*, *Spare the Dying*)." : ""),
+		"##Ordered Mind##. I have adv. on Wis (Insight) checks and on saves against being charmed.",
+		"##Balance Chaos##. " + (typePF ? "My proficiency bonus per long rest, I can treat an attack roll or save roll of 9 or lower as a 10 instead." : "Prof Bonus per long rest, I can treat a save/attack roll below 10 as a 10."),
+		"##Vestigial Wings##. Prof Bonus per long rest, I can gain a flying speed equal to my walking speed for 1 turn, but fall if I end my turn aloft.",
+	],
 };
 
 // Subclass
@@ -23234,7 +24434,7 @@ AddSubClass("cleric", "fate-ua", {
 			source: [["UA:WotM", 2]],
 			minlevel: 1,
 			description: desc([
-				"I can cast Augury once per long rest without using a spell slot or requiring components",
+				"I can cast *Augury* once per long rest without using a spell slot or requiring components",
 				"Once I do, my divination spells have -25% of no/random answer until I finish a long rest",
 			]),
 			usages: 1,
@@ -23250,7 +24450,7 @@ AddSubClass("cleric", "fate-ua", {
 				"augury": {
 					components: "",
 					compMaterial: "",
-					changes: "Using Omens and Portents, I can cast Augury once per long rest without expending a spell slot or requiring components.",
+					changes: "Using Omens and Portents, I can cast *Augury* once per long rest without expending a spell slot or requiring components.",
 				},
 			},
 		},
@@ -23305,7 +24505,7 @@ AddSubClass("cleric", "fate-ua", {
 			name: "Visions of the Future",
 			source: [["UA:WotM", 3]],
 			minlevel: 17,
-			description: desc(["Once per long rest, I can cast Foresight without a spell slot with a duration of 1 minute"]),
+			description: desc(["Once per long rest, I can cast *Foresight* without a spell slot with a duration of 1 minute"]),
 			usages: 1,
 			recovery: "long rest",
 			limfeaname: "Visions of the Future (Foresight)",
@@ -23318,7 +24518,7 @@ AddSubClass("cleric", "fate-ua", {
 			spellChanges: {
 				"foresight": {
 					duration: "1 min",
-					changes: "Using Visions of the Future, I can cast Foresight once per long rest without expending a spell slot; when I cast the spell in this way, the spell's duration is 1 minute for that casting.",
+					changes: "Using Visions of the Future, I can cast *Foresight* once per long rest without expending a spell slot; when I cast the spell in this way, the spell's duration is 1 minute for that casting.",
 				},
 			},
 		},
@@ -23434,11 +24634,13 @@ BackgroundFeatureList["rune carver apprentice"] = {
 FeatsList["cartomancer-ua"] = {
 	name: "Cartomancer",
 	source: [["UA:WotM", 6]],
-	description: 'I can use a deck of cards as a spellcasting focus. When doing so, Prof Bonus per long rest I can add +1d4 to the damage of one target of a spell I cast. I know Prestidigitation and can also cast it to do stage magic, concealing its components. When I finish a long rest, I can store a spell into a card, see "Hidden Ace" notes.',
-	descriptionFull: "You have learned to channel your magic through a deck of playing cards, granting you these benefits:" +
-	"\n   ***Card Focus***. You can use a deck of cards as your spellcasting focus. When you use the deck as a focus to cast a spell that deals damage, roll a d4. You gain a bonus to one damage roll of the spell equal to the number rolled. This bonus applies to one creature of your choice that you can see damaged by the spell; you can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses of it when you finish a long rest." +
-	"\n   ***Card Tricks***. You learn the prestidigitation cantrip and can use it to create illusions that duplicate the effects of stage magic. When you use prestidigitation in this way, you can conceal the verbal and somatic components of the spell as mundane conversation and card-handling." +
-	"\n   ***Hidden Ace***. When you finish a long rest, you can choose one spell you know and imbue it into a card; the chosen spell must have a casting time of 1 action, and its level must be less than or equal to your proficiency bonus. While the card is imbued with the spell, you can use your bonus action to flourish the card and cast the spell within. The card then immediately loses its magic.",
+	description: 'I can use a deck of cards as a spellcasting focus. When doing so, Prof Bonus per long rest I can add +1d4 to the damage of one target of a spell I cast. I know *Prestidigitation* and can also cast it to do stage magic, concealing its components. When I finish a long rest, I can store a spell into a card, see "Hidden Ace" notes.',
+	descriptionFull: [
+		"You have learned to channel your magic through a deck of playing cards, granting you these benefits:",
+		"***Card Focus***. You can use a deck of cards as your spellcasting focus. When you use the deck as a focus to cast a spell that deals damage, roll a d4. You gain a bonus to one damage roll of the spell equal to the number rolled. This bonus applies to one creature of your choice that you can see damaged by the spell; you can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses of it when you finish a long rest.",
+		"***Card Tricks***. You learn the *prestidigitation* cantrip and can use it to create illusions that duplicate the effects of stage magic. When you use prestidigitation in this way, you can conceal the verbal and somatic components of the spell as mundane conversation and card-handling.",
+		"***Hidden Ace***. When you finish a long rest, you can choose one spell you know and imbue it into a card; the chosen spell must have a casting time of 1 action, and its level must be less than or equal to your proficiency bonus. While the card is imbued with the spell, you can use your bonus action to flourish the card and cast the spell within. The card then immediately loses its magic.",
+	],
 	prerequisite: "4th-level; Sorcerer, Warlock, or Wizard Class",
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && (classes.known.wizard || classes.known.warlock || classes.known.sorcerer);
@@ -23466,20 +24668,24 @@ FeatsList["scion of the outer planes-ua"] = {
 	name: "Scion of the Outer Planes",
 	source: [["UA:WotM", 9]],
 	description: "I am adept at navigating planar pathways and the strange realities of the outer planes. I can select a plane and gain resistance to a damage type and learn a cantrip associated with that plane. I can cast the cantrip without material components. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
-	descriptionFull: "You are influenced by and adept at navigating planar pathways and the strange realities of the Outer Planes." +
-	"\n   Whether planar essence infuses you or you have extraplanar ancestry, your connection to a plane infuses you with the energies found there. Choose a type of plane listed in the table below. Your choice gives you resistance to a damage type and the ability to cast a cantrip, as specified in the table. You can cast this cantrip without material components, and your spellcasting ability for it is Intelligence, Wisdom, or Charisma (choose when you select this feat)." +
-	"\n\n**Plane**\t**Resistance**\t**Cantrip**" +
-	"\nAstral\t\tPsychic\t\tMessage" +
-	"\nChaotic Outer\tNecrotic\t\tMinor Illusion" +
-	"\nEvil Outer  \tNecrotic\t\tChill Touch" +
-	"\nGood Outer  \tRadiant\t\tSacred Flame" +
-	"\nLawful Outer\tRadiant\t\tGuidance" +
-	"\nThe Outlands\tPsychic\t\tMage Hand",
+	descriptionFull: [
+		"You are influenced by and adept at navigating planar pathways and the strange realities of the Outer Planes.",
+		"Whether planar essence infuses you or you have extraplanar ancestry, your connection to a plane infuses you with the energies found there. Choose a type of plane listed in the table below. Your choice gives you resistance to a damage type and the ability to cast a cantrip, as specified in the table. You can cast this cantrip without material components, and your spellcasting ability for it is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+		[
+			["Plane", "Resistance", "Cantrip"],
+			["Astral", "", "Psychic", "", "Message"],
+			["Chaotic Outer", "Necrotic", "", "*Minor Illusion*"],
+			["Evil Outer  ", "Necrotic", "", "*Chill Touch*"],
+			["Good Outer  ", "Radiant", "", "*Sacred Flame*"],
+			["Lawful Outer", "Radiant", "", "Guidance"],
+			["The Outlands", "Psychic", "", "*Mage Hand*"],
+		],
+	],
 	spellcastingAbility: [4,5,6],
 	choices: ["Astral Plane (Psychic, Message)", "Chaotic Outer Plane (Necrotic, Minor Illusion)", "Evil Outer Plane (Necrotic, Chill Touch)", "Good Outer Plane (Radiant, Sacred Flame)", "Lawful Outer Plane (Radiant, Guidance)", "The Outlands (Psychic, Mage Hand)"],
 	"astral plane (psychic, message)": {
 		name: "Scion of the Outer Planes (Astral Plane)",
-		description: "I am adept at navigating planar pathways and the strange realities of the outer planes. My connection to the astral plane gives me resistance to psychic damage and I know the Message cantrip, which I can cast without material components. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+		description: "I am adept at navigating planar pathways and the strange realities of the outer planes. My connection to the astral plane gives me resistance to psychic damage and I know the *Message* cantrip, which I can cast without material components. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility: [4,5,6],
 		allowUpCasting: true,
 		spellcastingBonus: [{
@@ -23493,13 +24699,13 @@ FeatsList["scion of the outer planes-ua"] = {
 			"message": {
 				components: "V,S",
 				compMaterial: "",
-				changes: "Using Scion of the Outer Planes, I can cast Message without material components.",
+				changes: "Using Scion of the Outer Planes, I can cast *Message* without material components.",
 			},
 		},
 	},
 	"chaotic outer plane (necrotic, minor illusion)": {
 		name: "Scion of the Outer Planes (Chaotic Outer Plane)",
-		description: "I am adept at navigating planar pathways and the strange realities of the outer planes. My connection to a chaotic outer plane gives me resistance to necrotic damage and I know the Minor Illusion cantrip, which requires no material components. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+		description: "I am adept at navigating planar pathways and the strange realities of the outer planes. My connection to a chaotic outer plane gives me resistance to necrotic damage and I know the *Minor Illusion* cantrip, which requires no material components. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility: [4,5,6],
 		allowUpCasting: true,
 		spellcastingBonus: [{
@@ -23513,13 +24719,13 @@ FeatsList["scion of the outer planes-ua"] = {
 			"minor illusion": {
 				components: "S",
 				compMaterial: "",
-				changes: "Using Scion of the Outer Planes, I can cast Minor Illusion without material components.",
+				changes: "Using Scion of the Outer Planes, I can cast *Minor Illusion* without material components.",
 			},
 		},
 	},
 	"evil outer plane (necrotic, chill touch)": {
 		name: "Scion of the Outer Planes (Evil Outer Plane)",
-		description: "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from an evil outer plane. This connection gives me resistance to necrotic damage and I know the Chill Touch cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+		description: "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from an evil outer plane. This connection gives me resistance to necrotic damage and I know the *Chill Touch* cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility: [4,5,6],
 		allowUpCasting: true,
 		spellcastingBonus: [{
@@ -23532,7 +24738,7 @@ FeatsList["scion of the outer planes-ua"] = {
 	},
 	"good outer plane (radiant, sacred flame)": {
 		name: "Scion of the Outer Planes (Good Outer Plane)",
-		description: "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from an good outer plane. This connection gives me resistance to radiant damage and I know the Sacred Flame cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+		description: "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from a good outer plane. This connection gives me resistance to radiant damage and I know the *Sacred Flame* cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility: [4,5,6],
 		allowUpCasting: true,
 		spellcastingBonus: [{
@@ -23545,7 +24751,7 @@ FeatsList["scion of the outer planes-ua"] = {
 	},
 	"lawful outer plane (radiant, guidance)": {
 		name: "Scion of the Outer Planes (Lawful Outer Plane)",
-		description: "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from an lawful outer plane. This connection gives me resistance to radiant damage and I know the Guidance cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+		description: "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from a lawful outer plane. This connection gives me resistance to radiant damage and I know the *Guidance* cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility: [4,5,6],
 		allowUpCasting: true,
 		spellcastingBonus: [{
@@ -23558,7 +24764,7 @@ FeatsList["scion of the outer planes-ua"] = {
 	},
 	"the outlands (psychic, mage hand)": {
 		name: "Scion of the Outer Planes (The Outlands)",
-		description: "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from a plane of the outlands. This gives me resistance to psychic damage and I know the Mage Hand cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+		description: "I am adept at navigating planar pathways and the strange realities of the outer planes. I'm infused with or have ancestry from a plane of the outlands. This gives me resistance to psychic damage and I know the *Mage Hand* cantrip. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 		spellcastingAbility: [4,5,6],
 		allowUpCasting: true,
 		spellcastingBonus: [{
@@ -23574,9 +24780,11 @@ FeatsList["agent of order-ua"] = {
 	name: "Agent of Order",
 	source: [["UA:WotM", 6]],
 	description: "Once per turn when I damage a creature I see within 60 ft, I can deal +1d8 force damage to it, and it must succeed on a Wis save (DC 8 + Prof Bonus + the modifier of the ability score increased by this feat) or be restrained until my next turn starts. I can do this a number of times equal to my Prof Bonus per long rest.",
-	descriptionFull: "You can channel cosmic forces of order that lock the multiverse into patterns. Your actions are your own to choose, but these forces grant you the following benefits:" +
-	"\n   ***Ability Score Increase***. Increase an ability score of your choice by 1, to a maximum of 20." +
-	"\n   ***Stasis Strike***. Once per turn when you damage a creature you can see within 60 feet of yourself, you can deal an extra 1d8 force damage to the target, and it must succeed on a Wisdom saving throw (DC equal to 8 + your proficiency bonus + the modifier of the ability score increased by this feat) or be restrained by spectral bindings until the start of your next turn. These bindings manifest as chains, gears, encasing stone, or some other symbol of stasis. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You can channel cosmic forces of order that lock the multiverse into patterns. Your actions are your own to choose, but these forces grant you the following benefits:",
+		"***Ability Score Increase***. Increase an ability score of your choice by 1, to a maximum of 20.",
+		"***Stasis Strike***. Once per turn when you damage a creature you can see within 60 feet of yourself, you can deal an extra 1d8 force damage to the target, and it must succeed on a Wisdom saving throw (DC equal to 8 + your proficiency bonus + the modifier of the ability score increased by this feat) or be restrained by spectral bindings until the start of your next turn. These bindings manifest as chains, gears, encasing stone, or some other symbol of stasis. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "4th-level, Scion of the Outer Planes (Lawful Outer Plane) feat",
 	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes-ua");
@@ -23615,9 +24823,11 @@ FeatsList["baleful scion-ua"] = {
 	name: "Baleful Scion",
 	source: [["UA:WotM", 6]],
 	description: "Once per turn, when I hit a creature with a melee weapon attack, I can also deal 1d6 + my Proficiency Bonus necrotic damage to it. I then regain a number of hit points equal to this necrotic damage dealt. I can do this a number of times equal to my Proficiency Bonus per long rest. [+1 to any one ability score]",
-	descriptionFull: "You can channel cosmic forces of evil that cause pain but invigorate your being. You can choose your own actions despite this malign connection. You gain the following benefits:" +
-	"\n   ***Ability Score Increase***. Increase an ability score of your choice by 1, to a maximum of 20." +
-	"\n   ***Life-Draining Grasp***. Once per turn, when you hit a creature with a melee weapon attack, you can also deal necrotic damage to it. The damage equals 1d6 + your proficiency bonus, and you regain a number of hit points equal to this necrotic damage dealt. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You can channel cosmic forces of evil that cause pain but invigorate your being. You can choose your own actions despite this malign connection. You gain the following benefits:",
+		"***Ability Score Increase***. Increase an ability score of your choice by 1, to a maximum of 20.",
+		"***Life-Draining Grasp***. Once per turn, when you hit a creature with a melee weapon attack, you can also deal necrotic damage to it. The damage equals 1d6 + your proficiency bonus, and you regain a number of hit points equal to this necrotic damage dealt. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "4th-level, Scion of the Outer Planes (Evil Outer Plane) feat",
 	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes-ua");
@@ -23632,15 +24842,19 @@ FeatsList["cohort of chaos-ua"] = {
 	name: "Cohort of Chaos",
 	source: [["UA:WotM", 6]],
 	description: "When I roll a 1 or a 20 on an attack roll or save, a the magic of chaos flares up and I roll on the Chaotic Flare table to determine what happens (see notes for table). As a bonus action, my Proficiency Bonus per long rest, I can force a flare to happen. [+1 to any one ability score]",
-	descriptionFull: "You can channel the cosmic forces of chaos that drive the multiverse toward both freedom and disarray. Your actions are still yours to choose, but you gain these benefits:" +
-	"\n   ***Ability Score Increase***. Increase an ability score of your choice by 1, to a maximum of 20." +
-	"\n   ***Chaotic Flare***. When you roll a 1 or a 20 on an attack roll or a saving throw, the magic of chaos flows through you. Roll on the table below to determine what happens. A flare lasts until the end of your next turn, and a new flare can't occur until after the first flare ends." +
-	"\n\n**d4**\t**Flare**" +
-	"\n  1\tDisruption Field: Waves of energy ripple in a 10-foot sphere centered on you. Every creature other than you that starts its turn in that area, or that moves into that area for the first time on a turn, takes 1d8 force damage." +
-	"\n  2\tBattle Fury: A creature of your choice that you can see is filled with reckless fury. The creature has advantage on attack rolls and disadvantage on ability checks." +
-	"\n  3\tUnbound: When you move, you can use some or all of your walking speed to teleport once, along with any equipment you're wearing or carrying, up to the distance used to an unoccupied space that you can see." +
-	"\n  4\tWailing Winds: Howling winds swirl around you in a 60-foot radius. You and any creature in that radius has disadvantage on Wisdom saving throws." +
-	"\n\n   You can also forcibly release a chaotic flare as a bonus action, rolling on the table as normal to determine the effects. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You can channel the cosmic forces of chaos that drive the multiverse toward both freedom and disarray. Your actions are still yours to choose, but you gain these benefits:",
+		"***Ability Score Increase***. Increase an ability score of your choice by 1, to a maximum of 20.",
+		"***Chaotic Flare***. When you roll a 1 or a 20 on an attack roll or a saving throw, the magic of chaos flows through you. Roll on the table below to determine what happens. A flare lasts until the end of your next turn, and a new flare can't occur until after the first flare ends.",
+		[
+			["d4", "Flare"],
+			["  1", "Disruption Field: Waves of energy ripple in a 10-foot sphere centered on you. Every creature other than you that starts its turn in that area, or that moves into that area for the first time on a turn, takes 1d8 force damage."],
+			["  2", "Battle Fury: A creature of your choice that you can see is filled with reckless fury. The creature has advantage on attack rolls and disadvantage on ability checks."],
+			["  3", "Unbound: When you move, you can use some or all of your walking speed to teleport once, along with any equipment you're wearing or carrying, up to the distance used to an unoccupied space that you can see."],
+			["  4", "Wailing Winds: Howling winds swirl around you in a 60-foot radius. You and any creature in that radius has disadvantage on Wisdom saving throws."],
+		],
+		"You can also forcibly release a chaotic flare as a bonus action, rolling on the table as normal to determine the effects. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "4th-level, Scion of the Outer Planes (Chaotic Outer Plane) feat",
 	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes-ua");
@@ -23668,10 +24882,12 @@ FeatsList["cohort of chaos-ua"] = {
 FeatsList["outlands envoy-ua"] = {
 	name: "Outlands Envoy",
 	source: [["UA:WotM", 7]],
-	description: "I can cast Misty Step and Tongues each once per long rest without requiring a spell slot or material components. I can also cast them using a spell slot as normal. My spellcasting ability for these spells is the same as the one for the Scion of the Outer Planes feat. [+1 to any one ability score]",
-	descriptionFull: "You have spent significant time in Sigil or elsewhere in the Outlands, the crossroads of the multiverse. Being steeped in converging planar energies grants you these benefits:" +
-	"\n   ***Ability Score Increase***. Increase an ability score of your choice by 1, to a maximum of 20." +
-	"\n   ***Crossroads Emissary***. You learn the misty step and tongues spells. You can cast each spell once using this feat without a spell slot, and you must finish a long rest before you can cast that spell in this way again. When you cast tongues using this feat, you require no material components. You can also cast these spells using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gained the Scion of the Outer Planes feat.",
+	description: "I can cast *Misty Step* and *Tongues* each once per long rest without requiring a spell slot or material components. I can also cast them using a spell slot as normal. My spellcasting ability for these spells is the same as the one for the Scion of the Outer Planes feat. [+1 to any one ability score]",
+	descriptionFull: [
+		"You have spent significant time in Sigil or elsewhere in the Outlands, the crossroads of the multiverse. Being steeped in converging planar energies grants you these benefits:",
+		"***Ability Score Increase***. Increase an ability score of your choice by 1, to a maximum of 20.",
+		"***Crossroads Emissary***. You learn the *misty step* and *tongues* spells. You can cast each spell once using this feat without a spell slot, and you must finish a long rest before you can cast that spell in this way again. When you cast *tongues* using this feat, you require no material components. You can also cast these spells using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gained the Scion of the Outer Planes feat.",
+	],
 	prerequisite: "4th-level, Scion of the Outer Planes feat",
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && CurrentFeats.known.indexOf("scion of the outer planes-ua") !== -1;
@@ -23689,7 +24905,7 @@ FeatsList["outlands envoy-ua"] = {
 		"tongues": {
 			components: SpellsList.tongues.components.replace("M", "M*"),
 			compMaterial: "When using a spell slot: " + SpellsList.tongues.compMaterial,
-			changes: "Using Outlands Envoy, I can cast Tongues once per long rest without expending a spell slot or requiring material components.",
+			changes: "Using Outlands Envoy, I can cast *Tongues* once per long rest without expending a spell slot or requiring material components.",
 		},
 	},
 };
@@ -23697,10 +24913,12 @@ FeatsList["planar wanderer-ua"] = {
 	name: "Planar Wanderer",
 	source: [["UA:WotM", 7]],
 	description: "After each long rest, I can gain acid, cold, or fire resistance, that lasts until my next long rest ends. I know the direction to the last portal I used while on the same plane as it. As an action, I can try to open or close a portal (portal cracker). As an action once per long rest, I can detect portals (portal sense). See notes.",
-	descriptionFull: "You can draw on the forces of the multiverse to survive cosmic extremes and to traverse its infinite realms. You gain these benefits:" +
-	"\n   ***Planar Adaptation***. When you finish a long rest, you gain resistance to either acid, cold, or fire damage (your choice) until you finish your next long rest." +
-	"\n   ***Portal Cracker***. Your experience with portals allows you to operate them without the proper portal key. As an action, you can concentrate on a portal you're aware of that is within 5 feet of you and make a DC 20 Wisdom (Survival) check. On a failure, you take 3d8 force damage and you can't use this feature on that portal again until you finish a long rest. On a success, you can force the portal open or closed for 1 hour. For that duration, a portal closed in this way doesn't respond to its portal key unless a creature employing the key succeeds on a DC 20 Intelligence (Arcana) check as an action." +
-	"\n   ***Portal Sense***. You know the direction to the last planar portal you used while you and the portal are on the same plane. Moreover, as an action, you can detect the location of any portals within 30 feet of you that aren't behind total cover. Once you detect a portal with this action, you can't use the action again until you finish a long rest.",
+	descriptionFull: [
+		"You can draw on the forces of the multiverse to survive cosmic extremes and to traverse its infinite realms. You gain these benefits:",
+		"***Planar Adaptation***. When you finish a long rest, you gain resistance to either acid, cold, or fire damage (your choice) until you finish your next long rest.",
+		"***Portal Cracker***. Your experience with portals allows you to operate them without the proper portal key. As an action, you can concentrate on a portal you're aware of that is within 5 feet of you and make a DC 20 Wisdom (Survival) check. On a failure, you take 3d8 force damage and you can't use this feature on that portal again until you finish a long rest. On a success, you can force the portal open or closed for 1 hour. For that duration, a portal closed in this way doesn't respond to its portal key unless a creature employing the key succeeds on a DC 20 Intelligence (Arcana) check as an action.",
+		"***Portal Sense***. You know the direction to the last planar portal you used while you and the portal are on the same plane. Moreover, as an action, you can detect the location of any portals within 30 feet of you that aren't behind total cover. Once you detect a portal with this action, you can't use the action again until you finish a long rest.",
+	],
 	prerequisite: "4th-level, Scion of the Outer Planes feat",
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && CurrentFeats.known.indexOf("scion of the outer planes-ua") !== -1;
@@ -23733,9 +24951,11 @@ FeatsList["righteous heritor-ua"] = {
 	name: "Righteous Heritor",
 	source: [["UA:WotM", 8]],
 	description: "As a reaction when I or a creature I can see within 30 ft takes damage, I can reduce the damage taken by 1d10 + my Proficiency Bonus. I can do this a number of times equal to my Proficiency Bonus per long rest. [+1 to any one ability score]",
-	descriptionFull: "You can channel the cosmic forces of good that foster serenity and fellowship. You are still free to choose your own actions, but gain these benefits:" +
-	"\n   ***Ability Score Increase***. Increase an ability score of your choice by 1, to a maximum of 20." +
-	"\n   ***Soothe Pain***. When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to dull its suffering and reduce the damage it takes by 1d10 + your proficiency bonus. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You can channel the cosmic forces of good that foster serenity and fellowship. You are still free to choose your own actions, but gain these benefits:",
+		"***Ability Score Increase***. Increase an ability score of your choice by 1, to a maximum of 20.",
+		"***Soothe Pain***. When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to dull its suffering and reduce the damage it takes by 1d10 + your proficiency bonus. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "4th-level, Scion of the Outer Planes (Good Outer Plane) feat",
 	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("scion of the outer planes-ua");
@@ -23753,17 +24973,17 @@ FeatsList["strike of the giants-ua"] = {
 	name: "Strike of the Giants",
 	source: [["UA:WotM", 9]],
 	description: "As a bonus action, I can call on the power of my giant magic to imbue my attacks with additional power. The next time I hit a target with a melee or thrown weapon attack within the next minute, the attack has an additional effect depending on the origin of my giant magic (hill, stone, frost, fire, cloud or storm).",
-	descriptionFull: "You have absorbed primeval magic that gives you an echo of the might of giants. Choose one of the kinds of giants listed below. As a bonus action, you can call on the power of your giant magic to imbue your attacks with additional power. The next time you hit a target with a melee or thrown weapon attack within the next minute, the attack has an additional effect depending on the origin of your giant magic:" +
-	desc([
+	descriptionFull: [
+		"You have absorbed primeval magic that gives you an echo of the might of giants. Choose one of the kinds of giants listed below. As a bonus action, you can call on the power of your giant magic to imbue your attacks with additional power. The next time you hit a target with a melee or thrown weapon attack within the next minute, the attack has an additional effect depending on the origin of your giant magic:",
 		"***Hill Giant***. The target takes an extra 1d6 damage of the weapon's type. If the target is a creature, it must succeed on a Strength saving throw or be knocked prone.",
 		"***Stone Giant***. The target takes an extra 1d6 force damage. If the target is a creature, it must succeed on a Strength saving throw or be pushed 10 feet away from you in a straight line.",
 		"***Frost Giant***. The target takes an extra 1d6 cold damage. If the target is a creature, it must succeed on a Constitution saving throw, or its speed is reduced to 0 until the start of your next turn.",
 		"***Fire Giant***. The target takes an extra 1d8 fire damage.",
 		"***Cloud Giant***. The target takes an extra 1d4 thunder damage. If the target is a creature, it must succeed on a Wisdom saving throw, or you become invisible to it until the start of your next turn.",
-		"***Storm Giant***. The target takes an extra 1d6 lightning damage. If the target is a creature, it must succeed on a Constitution saving throw, or it has disadvantage on attack rolls until the start of your next turn.\n",
+		"***Storm Giant***. The target takes an extra 1d6 lightning damage. If the target is a creature, it must succeed on a Constitution saving throw, or it has disadvantage on attack rolls until the start of your next turn.",
 		"The saving throw DC for these effects equals 8 + your proficiency bonus + your Strength or Constitution modifier.",
 		"You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
-	]),
+	],
 	usages: "Proficiency bonus per ",
 	usagescalc: "event.value = How('Proficiency Bonus');",
 	recovery: "long rest",
@@ -23792,10 +25012,12 @@ FeatsList["ember of the fire giant-ua2"] = {
 	name: "Fury of the Fire Giant",
 	source: [["UA:WotM", 7]],
 	description: "I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+Prof Bonus fire damage & are blinded until my next turn starts. Dex save (8 + Prof B + Str/Con/Wis mod) for half damage & not blinded.",
-	descriptionFull: "You've manifested the fiery combat emblematic of fire giants, granting you the following benefits:" +
-	"\n   ***Ability Score Increase***. Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20." +
-	"\n   ***Born of Flame***. You have resistance to fire damage." +
-	"\n   ***Searing Ignition***. When you take the Attack action on your turn, you can replace a single attack with a magical burst of flame. Each creature of your choice within 15 feet of you that can see you must make a Dexterity saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, a creature takes fire damage equal to 1d8 + your proficiency bonus, and it is blinded until the start of your next turn. On a successful save, the creature takes half as much damage and isn't blinded. You can use your Searing Ignition a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You've manifested the fiery combat emblematic of fire giants, granting you the following benefits:",
+		"***Ability Score Increase***. Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20.",
+		"***Born of Flame***. You have resistance to fire damage.",
+		"***Searing Ignition***. When you take the Attack action on your turn, you can replace a single attack with a magical burst of flame. Each creature of your choice within 15 feet of you that can see you must make a Dexterity saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, a creature takes fire damage equal to 1d8 + your proficiency bonus, and it is blinded until the start of your next turn. On a successful save, the creature takes half as much damage and isn't blinded. You can use your Searing Ignition a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "4th-level, Strike of the Giants (Fire Giant) feat",
 	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("strike of the giants-ua");
@@ -23865,10 +25087,12 @@ FeatsList["fury of the frost giant-ua2"] = {
 	name: "Fury of the Frost Giant",
 	source: [["UA:WotM", 7]],
 	description: "I have cold resistance. As a reaction my Prof Bonus per long rest, when a creature I can see within 30 ft hits and deals damage with an attack, I can have it make a Con save (DC 8 + Prof B + Str/Con/Wis mod) or take 1d8 + Prof Bonus  cold damage and have its speed reduced by half until my next turn ends.",
-	descriptionFull: "You've manifested the icy might emblematic of frost giants, granting you the following benefits:" +
-	"\n   ***Ability Score Increase***. Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20." +
-	"\n   ***Born of Ice***. You have resistance to cold damage." +
-	"\n   ***Frigid Retaliation***. Immediately after a creature you can see within 30 feet of you hits you with an attack roll and deals damage, you can use your reaction to retaliate with a conjured blast of ice. The creature must make a Constitution saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, it takes 1d8 + your proficiency bonus cold damage, and its speed is halved until the end of its next turn. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You've manifested the icy might emblematic of frost giants, granting you the following benefits:",
+		"***Ability Score Increase***. Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20.",
+		"***Born of Ice***. You have resistance to cold damage.",
+		"***Frigid Retaliation***. Immediately after a creature you can see within 30 feet of you hits you with an attack roll and deals damage, you can use your reaction to retaliate with a conjured blast of ice. The creature must make a Constitution saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, it takes 1d8 + your proficiency bonus cold damage, and its speed is halved until the end of its next turn. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "4th-level, Strike of the Giants (Frost Giant) feat",
 	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("strike of the giants-ua");
@@ -23897,9 +25121,11 @@ FeatsList["guile of the cloud giant-ua2"] = {
 	name: "Guile of the Cloud Giant",
 	source: [["UA:WotM", 7]],
 	description: "As a reaction when a creature I can see hits me with an attack roll, I can give myself resistance to that attack's damage. I then teleport to an unoccupied space that I can see within 30 ft. I can do this a number of times equal to half my Proficiency Bonus (rounded up) per long rest. [+1 Dex, Con, or Cha]",
-	descriptionFull: "You've manifested the airy speech and magic emblematic of cloud giants, granting you the following benefits:" +
-	"\n   ***Ability Score Increase***. Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20." +
-	"\n   ***Cloudy Escape***. When a creature you can see hits you with an attack roll, you can use your reaction to give yourself resistance to that attack's damage. You then teleport to an unoccupied space that you can see within 30 feet of yourself. You can use this reaction a number of times equal to half your proficiency bonus (rounded up), and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You've manifested the airy speech and magic emblematic of cloud giants, granting you the following benefits:",
+		"***Ability Score Increase***. Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20.",
+		"***Cloudy Escape***. When a creature you can see hits you with an attack roll, you can use your reaction to give yourself resistance to that attack's damage. You then teleport to an unoccupied space that you can see within 30 feet of yourself. You can use this reaction a number of times equal to half your proficiency bonus (rounded up), and you regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "4th-level, Strike of the Giants (Cloud Giant) feat",
 	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("strike of the giants-ua");
@@ -23915,10 +25141,12 @@ FeatsList["keenness of the stone giant-ua2"] = {
 	name: "Keenness of the Stone Giant",
 	source: [["UA:WotM", 8]],
 	description: "I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, 60/180 ft, 1d10 bludgeoning damage. Target hit must make a Str save DC 10 (8 + Prof B + Str/Con/Wis mod) or be knocked prone.",
-	descriptionFull: "You've manifested the physical talents emblematic of stone giants, granting you the following benefits:" +
-	"\n   ***Ability Score Increase***. Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20." +
-	"\n   ***Stone Throw***. As a bonus action, you can touch a rock that can fit in the palm of your hand and imbue it with magic. While the rock is imbued with magic and you are wielding it, the rock is a magic ranged weapon with which you're proficient, and it has the thrown property with a normal range of 60 feet and a long range of 180 feet. On a hit, the rock deals 1d10 bludgeoning damage, and if the target is a creature, it must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat) or be knocked prone. The magic remains in the rock until you hit with it or finish a long rest. You can imbue a number of rocks equal to your proficiency bonus with this bonus action, and you regain all expended uses when you finish a long rest." +
-	"\n   ***Cavernous Sight***. You gain darkvision out to a range of 60 feet. If you already have darkvision from another source, its range increases by 60 feet.",
+	descriptionFull: [
+		"You've manifested the physical talents emblematic of stone giants, granting you the following benefits:",
+		"***Ability Score Increase***. Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20.",
+		"***Stone Throw***. As a bonus action, you can touch a rock that can fit in the palm of your hand and imbue it with magic. While the rock is imbued with magic and you are wielding it, the rock is a magic ranged weapon with which you're proficient, and it has the thrown property with a normal range of 60 feet and a long range of 180 feet. On a hit, the rock deals 1d10 bludgeoning damage, and if the target is a creature, it must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat) or be knocked prone. The magic remains in the rock until you hit with it or finish a long rest. You can imbue a number of rocks equal to your proficiency bonus with this bonus action, and you regain all expended uses when you finish a long rest.",
+		"***Cavernous Sight***. You gain darkvision out to a range of 60 feet. If you already have darkvision from another source, its range increases by 60 feet.",
+	],
 	prerequisite: "4th-level, Strike of the Giants (Stone Giant) feat",
 	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("strike of the giants-ua");
@@ -23985,9 +25213,11 @@ FeatsList["soul of the storm giant-ua2"] = {
 	name: "Soul of the Storm Giant",
 	source: [["UA:WotM", 9]],
 	description: "As an action my Prof Bonus per long rest, I can give myself a 10-ft radius magical aura until my next turn starts. This imposes disadv. on attacks against me and when a creature starts its turn within, I can have it make a Str save (DC 8 + Prof Bonus + Int/Wis/Cha mod) or halve its speed until my next turn starts.",
-	descriptionFull: "You've manifested divination abilities and tempest magic emblematic of storm giants, granting you the following benefits:" +
-	"\n   ***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20." +
-	"\n   ***Maelstrom Aura***. As a bonus action, you surround yourself in an aura of magical wind and lightning that extends 10 feet from you in every direction but not through total cover. The aura lasts until the start of your next turn or until you are incapacitated. While the aura is active, attack rolls against you have disadvantage, and whenever a creature starts its turn within the aura, you can force the creature to make a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the creature's speed is halved until the start of its next turn. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You've manifested divination abilities and tempest magic emblematic of storm giants, granting you the following benefits:",
+		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
+		"***Maelstrom Aura***. As a bonus action, you surround yourself in an aura of magical wind and lightning that extends 10 feet from you in every direction but not through total cover. The aura lasts until the start of your next turn or until you are incapacitated. While the aura is active, attack rolls against you have disadvantage, and whenever a creature starts its turn within the aura, you can force the creature to make a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the creature's speed is halved until the start of its next turn. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	prerequisite: "4th-level, Strike of the Giants (Storm Giant) feat",
 	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("strike of the giants-ua");
@@ -24015,10 +25245,12 @@ FeatsList["vigor of the hill giant-ua2"] = {
 	name: "Vigor of the Hill Giant",
 	source: [["UA:WotM", 10]],
 	description: "As a reaction when I'm subjected to an effect that would move me at least 5 ft or knock me prone, I can steady myself and stop this from happening. Whenever I eat food as part of a short rest and spend one or more HD to regain HP, I regain additional HP equal to my Con mod + my Proficiency Bonus. [+1 Con]",
-	descriptionFull: "You've manifested the resilience emblematic of hill giants, granting you the following benefits:" +
-	"\n   ***Ability Score Increase***. Increase your Constitution score by 1, to a maximum of 20." +
-	"\n   ***Bulwark***. When you are subjected to an effect that would move you at least 5 feet or knock you prone, you can use your reaction to steady yourself. You are then neither moved nor knocked prone." +
-	"\n   ***Iron Stomach***. Whenever you eat food as part of a short rest and spend one or more Hit Dice to regain hit points, you regain additional hit points equal to your Constitution modifier + your proficiency bonus.",
+	descriptionFull: [
+		"You've manifested the resilience emblematic of hill giants, granting you the following benefits:",
+		"***Ability Score Increase***. Increase your Constitution score by 1, to a maximum of 20.",
+		"***Bulwark***. When you are subjected to an effect that would move you at least 5 feet or knock you prone, you can use your reaction to steady yourself. You are then neither moved nor knocked prone.",
+		"***Iron Stomach***. Whenever you eat food as part of a short rest and spend one or more Hit Dice to regain hit points, you regain additional hit points equal to your Constitution modifier + your proficiency bonus.",
+	],
 	prerequisite: "4th-level, Strike of the Giants (Hill Giant) feat",
 	prereqeval: function (v) {
 		var iParentFeat = CurrentFeats.known.indexOf("strike of the giants-ua");
@@ -24032,23 +25264,26 @@ FeatsList["vigor of the hill giant-ua2"] = {
 FeatsList["rune carver apprentice-ua2"] = {
 	name: "Rune Carver Apprentice",
 	source: [["UA:WotM", 8]],
-	description: "I know Comprehend Languages and cast it once per long rest without a spell slot. I know two runes, which I can inscribe and use to cast their associated spell once per long rest without a spell slot or material components. I can also cast all three spells with spell slots as normal. See notes page.",
-	descriptionFull: "You've begun studying the art of runecraft." + desc([
-		"You learn the comprehend languages spell. You can cast this spell without expending a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using any spell slots you have.",
-		"You know two runes of your choice from the Rune Spells table. Whenever you finish a long rest, you can mark one nonmagical weapon, armor, piece of clothing, or other object you touch with a rune you know. You temporarily learn one 1st-level spell based on the rune you inscribed, as specified in the Rune Spells table, and you know the spell until you finish a long rest, when the rune fades.\n",
-		"**Rune**\t**Spell**",
-		"Death\t\tRay of sickness",
-		"Dragon\t\tChromatic orb",
-		"Enemy\t\tDisguise self",
-		"Friend\t\tSpeak with animals",
-		"Journey   \tLongstrider",
-		"King\t\tCommand",
-		"Mountain\tEntangle",
-		"Sacred\t\tSanctuary\n",
+	description: "I know *Comprehend Languages* and cast it once per long rest without a spell slot. I know two runes, which I can inscribe and use to cast their associated spell once per long rest without a spell slot or material components. I can also cast all three spells with spell slots as normal. See notes page.",
+	descriptionFull: [
+		"You've begun studying the art of runecraft.",
+		"You learn the *comprehend languages* spell. You can cast this spell without expending a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using any spell slots you have.",
+		"You know two runes of your choice from the Rune Spells table. Whenever you finish a long rest, you can mark one nonmagical weapon, armor, piece of clothing, or other object you touch with a rune you know. You temporarily learn one 1st-level spell based on the rune you inscribed, as specified in the Rune Spells table, and you know the spell until you finish a long rest, when the rune fades.",
+		[
+			["   Rune", "Spell"],
+			["   Death", "", "*Ray of sickness*"],
+			["   Dragon", "", "*Chromatic orb*"],
+			["   Enemy", "", "*Disguise self*"],
+			["   Friend", "", "*Speak with animals*"],
+			["   Journey   ", "Longstrider"],
+			["   King", "", "Command"],
+			["   Mountain", "Entangle"],
+			["   Sacred", "", "Sanctuary"],
+		],
 		"While you are wearing or carrying the rune-marked object, you can cast the spell associated with the chosen rune once without using a spell slot or material components, and you can also cast the spell using any spell slots you have.",
 		"Your spellcasting ability for this feat is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
 		"Each time you gain a level, you can replace one of the runes you know with a different one from the Rune Spells table.",
-	]),
+	],
 	spellcastingAbility: [4,5,6],
 	spellcastingBonus: [{
 		name: "Once per long rest",
@@ -24072,26 +25307,26 @@ FeatsList["rune carver apprentice-ua2"] = {
 					return true;
 				}
 			},
-			"If the rune spells that I know are inscribed on something in my possession, I can cast each once per long rest without without using a spell slot or material components, or I can cast them using spell slots as normal.",
+			"If the rune spells that I know are inscribed on something in my possession, I can cast each once per long rest without using a spell slot or material components, or I can cast them using spell slots as normal.",
 		],
 	},
 	toNotesPage: [{
 		name: "Features",
 		note: [
-			"I know Comprehend Languages and can cast it without expending a spell slot once per long rest. I can also cast this spell using any spell slots I have.",
+			"I know *Comprehend Languages* and can cast it without expending a spell slot once per long rest. I can also cast this spell using any spell slots I have.",
 			"I know two runes of my choice from the list below. Whenever I finish a long rest, I can mark one nonmagical weapon, armor, piece of clothing, or other object I touch with a rune I know. I temporarily learn one 1st-level spell based on the rune I inscribed and I know the spell until I finish a long rest, when the rune fades.",
 			"While I'm wearing or carrying the rune-marked object, I can cast its associated spell once per long rest without using a spell slot or material components. I can also cast the spell using any spell slots I have.",
 			"My spellcasting ability for this is Intelligence, Wisdom, or Charisma (choose when selecting this feat).",
 			"Each time I gain a level, I can replace one of the runes I know with a different one from the list.\n",
 			"RUNE\t\tSPELL\t\tSCHOOL",
-			"Death\t\tRay of Sickness\tNecromancy",
-			"Dragon\t\tChromatic Orb\tEvocation",
-			"Enemy\t\tDisguise Self   \tIllusion",
-			"Friend\t\tSpeak With Animals\tDivination",
-			"Journey\t\tLongstrider\t\tTransmutation",
-			"King\t\tCommand\t\tEnchantment",
-			"Mountain\t\tEntangle\t\tConjuration",
-			"Sacred\t\tSanctuary\t\tAbjuration",
+			"Death\t\t*Ray of Sickness*\tNecromancy",
+			"Dragon\t\t*Chromatic Orb*\tEvocation",
+			"Enemy\t\t*Disguise Self*   \tIllusion",
+			"Friend\t\t*Speak With Animals*\tDivination",
+			"Journey\t\t*Longstrider*\t\tTransmutation",
+			"King\t\t*Command*\t\tEnchantment",
+			"Mountain\t\t*Entangle*\t\tConjuration",
+			"Sacred\t\t*Sanctuary*\t\tAbjuration",
 		],
 	}],
 };
@@ -24099,14 +25334,15 @@ FeatsList["rune carver adept-ua2"] = {
 	name: "Rune Carver Adept",
 	source: [["UA:WotM", 8]],
 	description: "My Prof Bonus per long rest, whenever I cast a spell of a school that one of my runes belongs to, I can grant a creature I can see within 30 ft a benefit: \u2022 +10 ft walking speed and its movement provokes no opportunity attacks until its turn ends, \u2022 my level in temp HP, or \u2022 adv. on its next attack until its turn ends.",
-	descriptionFull: "Your ability to draw out power from runes has grown." + desc([
+	descriptionFull: [
+		"Your ability to draw out power from runes has grown.",
 		"Increase the ability score of the spellcasting ability chosen when you gained the Rune Carver Apprentice feat by 1, to a maximum of 20.",
 		"Whenever you cast a spell from the Rune Spells table, or a spell of a school of magic associated with the spell you marked on an object from your Rune Carver Apprentice feat, you can invoke runic power, granting you one of these benefits of your choice:",
 		"***Battle Runes***. Choose one creature you can see within 30 feet of yourself. Until the end of that creature's next turn, it has advantage on the next attack roll it makes.",
 		"***Healing Runes***. Choose one creature you can see within 30 feet of yourself. That creature gains temporary hit points equal to your level.",
 		"***Runic Winds***. Choose one creature you can see within 30 feet of yourself. Until the end of that creature's turn, its movement doesn't provoke opportunity attacks, and its walking speed increases by 10 feet.",
 		"You can invoke runic power a number of times equal to your proficiency bonus, but no more than once per spell you cast. You regain all expended uses when you finish a long rest.",
-	]),
+	],
 	prerequisite: "4th-level, Rune Carver Apprentice feat",
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && CurrentFeats.known.indexOf("rune carver apprentice-ua2") !== -1;
@@ -24141,10 +25377,12 @@ FeatsList["rune carver adept-ua2"] = {
 FeatsList["scion of elemental air-ua"] = {
 	name: "Scion of Elemental Air",
 	source: [["UA:WotM", 8]],
-	description: "I know the Minor Illusion cantrip (choice of Int, Wis, or Cha spellcasting ability). As a bonus action, I can gain a flying speed equal to my walking speed until my turn ends, but fall after this movement if I'm airborne and not held aloft by other means. I can do this bonus action my Proficiency Bonus per long rest.",
-	descriptionFull: "You've been exposed to the primordial magic of the Elemental Plane of Air, granting you the following benefits:" +
-	"\n   ***Elemental Magic***. You learn the minor illusion cantrip, using Intelligence, Wisdom, or Charisma as the spellcasting ability (choose when you select this feat)." +
-	"\n   ***Wind's Glide***. You can use a bonus action to gain a flying speed equal to your walking speed until the end of your turn. If you are airborne at the end of your turn after using this movement and aren't held aloft by other means, you fall. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	description: "I know the *Minor Illusion* cantrip (choice of Int, Wis, or Cha spellcasting ability). As a bonus action, I can gain a flying speed equal to my walking speed until my turn ends, but fall after this movement if I'm airborne and not held aloft by other means. I can do this bonus action my Proficiency Bonus per long rest.",
+	descriptionFull: [
+		"You've been exposed to the primordial magic of the Elemental Plane of Air, granting you the following benefits:",
+		"***Elemental Magic***. You learn the *minor illusion* cantrip, using Intelligence, Wisdom, or Charisma as the spellcasting ability (choose when you select this feat).",
+		"***Wind's Glide***. You can use a bonus action to gain a flying speed equal to your walking speed until the end of your turn. If you are airborne at the end of your turn after using this movement and aren't held aloft by other means, you fall. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	usages: "Proficiency bonus per ",
 	usagescalc: "event.value = How('Proficiency Bonus');",
 	recovery: "long rest",
@@ -24160,10 +25398,12 @@ FeatsList["scion of elemental air-ua"] = {
 FeatsList["scion of elemental earth-ua"] = {
 	name: "Scion of Elemental Earth",
 	source: [["UA:WotM", 8]],
-	description: "I know the Druidcraft cantrip (choice of Int, Wis, or Cha spellcasting ability). As a bonus action, I can conjure a bulwark of earth that provides half cover to me or a creature of my choice within 30 ft of myself, until the start of my next turn. I can create this bulwark my Proficiency Bonus per long rest.",
-	descriptionFull: "You've been exposed to the primordial magic of the Elemental Plane of Earth, granting you the following benefits:" +
-	"\n   ***Elemental Magic***. You learn the druidcraft cantrip, using Intelligence, Wisdom, or Charisma as the spellcasting ability (choose when you select this feat)." +
-	"\n   ***Earthen Shield***. You can use a bonus action to conjure a bulwark of earth that provides half cover to you or a creature of your choice within 30 feet of yourself. The bulwark remains until the start of your next turn. You can create this bulwark a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	description: "I know the *Druidcraft* cantrip (choice of Int, Wis, or Cha spellcasting ability). As a bonus action, I can conjure a bulwark of earth that provides half cover to me or a creature of my choice within 30 ft of myself, until the start of my next turn. I can create this bulwark my Proficiency Bonus per long rest.",
+	descriptionFull: [
+		"You've been exposed to the primordial magic of the Elemental Plane of Earth, granting you the following benefits:",
+		"***Elemental Magic***. You learn the *druidcraft* cantrip, using Intelligence, Wisdom, or Charisma as the spellcasting ability (choose when you select this feat).",
+		"***Earthen Shield***. You can use a bonus action to conjure a bulwark of earth that provides half cover to you or a creature of your choice within 30 feet of yourself. The bulwark remains until the start of your next turn. You can create this bulwark a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	usages: "Proficiency bonus per ",
 	usagescalc: "event.value = How('Proficiency Bonus');",
 	recovery: "long rest",
@@ -24179,10 +25419,12 @@ FeatsList["scion of elemental earth-ua"] = {
 FeatsList["scion of elemental fire-ua"] = {
 	name: "Scion of Elemental Fire",
 	source: [["UA:WotM", 9]],
-	description: "I know the Dancing Lights and Produce Flame cantrips. I can choose Int, Wis, or Cha as my spellcasting ability for this.. I can cast Produce Flame as normal, and I can also cast it as a bonus action a number of times equal to my Proficiency Bonus, regaining all expended uses when I finish a long rest.",
-	descriptionFull: "You've been exposed to the primordial magic of the Elemental Plane of Fire, granting you the following benefits:" +
-	"\n   ***Elemental Magic***. You learn the dancing lights cantrip, using Intelligence, Wisdom, or Charisma as the spellcasting ability (choose when you select this feat)." +
-	"\n   ***Fervent Blaze***. You learn the produce flame cantrip, using the same spellcasting ability chosen for this feat's Elemental Magic benefit. You can cast produce flame as normal, and you can also cast it as a bonus action a number of times equal to your proficiency bonus, regaining all expended uses when you finish a long rest.",
+	description: "I know the *Dancing Lights* and *Produce Flame* cantrips. I can choose Int, Wis, or Cha as my spellcasting ability for this.. I can cast *Produce Flame* as normal, and I can also cast it as a bonus action a number of times equal to my Proficiency Bonus, regaining all expended uses when I finish a long rest.",
+	descriptionFull: [
+		"You've been exposed to the primordial magic of the Elemental Plane of Fire, granting you the following benefits:",
+		"***Elemental Magic***. You learn the *dancing lights* cantrip, using Intelligence, Wisdom, or Charisma as the spellcasting ability (choose when you select this feat).",
+		"***Fervent Blaze***. You learn the *produce flame* cantrip, using the same spellcasting ability chosen for this feat's Elemental Magic benefit. You can cast *produce flame* as normal, and you can also cast it as a bonus action a number of times equal to your proficiency bonus, regaining all expended uses when you finish a long rest.",
+	],
 	usages: "Proficiency bonus per ",
 	usagescalc: "event.value = How('Proficiency Bonus');",
 	recovery: "long rest",
@@ -24214,7 +25456,7 @@ FeatsList["scion of elemental fire-ua"] = {
 					}
 				}
 			},
-			"I can cast Produce Flame as a bonus action a number of times equal to my proficiency bonus, regaining all expended uses when I finish a long rest.",
+			"I can cast *Produce Flame* as a bonus action a number of times equal to my proficiency bonus, regaining all expended uses when I finish a long rest.",
 		],
 	},
 };
@@ -24222,9 +25464,11 @@ FeatsList["scion of elemental water-ua"] = {
 	name: "Scion of Elemental Water",
 	source: [["UA:WotM", 9]],
 	description: "",
-	descriptionFull: "You've been exposed to the primordial magic of the Elemental Plane of Water, granting you the following benefits:" +
-	"\n   ***Elemental Magic***. You learn the thaumaturgy cantrip, using Intelligence, Wisdom, or Charisma as the spellcasting ability (choose when you select this feat)." +
-	"\n   ***Wave Surge***. You can use a bonus action to create a forceful surge of water directed at a creature within 15 feet of you that you can see. The target must make a Strength saving throw; the DC for this save is equal to 8 + your proficiency bonus + the spellcasting ability modifier chosen for this feat, and a creature can choose to fail this saving throw. On a failure, the target is pushed up to 10 feet away from you or pulled up to 10 feet toward you (your choice). The water vanishes immediately after the creature succeeds or fails. You can create this effect a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	descriptionFull: [
+		"You've been exposed to the primordial magic of the Elemental Plane of Water, granting you the following benefits:",
+		"***Elemental Magic***. You learn the *thaumaturgy* cantrip, using Intelligence, Wisdom, or Charisma as the spellcasting ability (choose when you select this feat).",
+		"***Wave Surge***. You can use a bonus action to create a forceful surge of water directed at a creature within 15 feet of you that you can see. The target must make a Strength saving throw; the DC for this save is equal to 8 + your proficiency bonus + the spellcasting ability modifier chosen for this feat, and a creature can choose to fail this saving throw. On a failure, the target is pushed up to 10 feet away from you or pulled up to 10 feet toward you (your choice). The water vanishes immediately after the creature succeeds or fails. You can create this effect a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+	],
 	usages: "Proficiency bonus per ",
 	usagescalc: "event.value = How('Proficiency Bonus');",
 	recovery: "long rest",
@@ -24283,8 +25527,10 @@ SpellsList["antagonize-ua"] = {
 	save: "Wis",
 	description: "1 crea save or 4d4+1d4/SL Psychic dmg & melee atk vs. chosen crea; if none in range, dis. on next atk",
 	descriptionShorter: "1 crea save or 4d4+1d4/SL Psychic dmg & melee atk vs. chosen crea; if no in range, dis. next atk",
-	descriptionFull: "You whisper magical words that antagonize one creature of your choice within range. The target must make a Wisdom saving throw. On a failed save, it takes 4d4 psychic damage and must immediately use its reaction, if available, to make a melee attack against another creature of your choice that you can see. If no other creature is within range, the target has disadvantage on the next attack roll it makes before the start of your next turn." +
-		AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d4 for each slot level above 4th.",
+	descriptionFull: [
+		"You whisper magical words that antagonize one creature of your choice within range. The target must make a Wisdom saving throw. On a failed save, it takes 4d4 psychic damage and must immediately use its reaction, if available, to make a melee attack against another creature of your choice that you can see. If no other creature is within range, the target has disadvantage on the next attack roll it makes before the start of your next turn.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d4 for each slot level above 4th.",
+	],
 };
 SpellsList["house of cards-ua"] = {
 	name: "House of Cards",
@@ -24299,9 +25545,11 @@ SpellsList["house of cards-ua"] = {
 	duration: "24 h",
 	description: "30-ft high tower, lifts up; 3 floors, 10-ft sq top floor; 5\xD710 ft card: AC 10, 1 HP; all in half cover (5 sp)",
 	descriptionMetric: "10-m high tower, lifts up; 3 floors, 3-m sq top floor; 1,5\xD73m card: AC 10, 1 HP; all in half cover (5 sp)",
-	descriptionFull: "You touch the ground and conjure forth a defensive structure made of enormous playing cards. The structure rises with you at its center, harmlessly lifting you and any creatures in the area. The house of cards has a square base that is 30 feet on each side, and it has three floors with 10-foot-high ceilings. The second floor is 20 feet on each side, and the top floor is 10 feet on each side\u2014both centered above the bottom floor. Ramps connect the interior of each floor, and empty doorframes connect the interior and exterior of each level. Creatures inside or on top of the structure have half cover." +
-	"\n   Each card that comprises the house is 5 feet wide and 10 feet tall and is very fragile. A card has AC 10 and 1 hit point. The cards are immune to poison and psychic damage. Reducing a card to 0 hit points destroys it. Every time a card is destroyed, roll 1d6. If you roll a 5 or a 6, the house collapses, ending the spell." +
-	"\n   The house and all its cards vanish when the spell ends.",
+	descriptionFull: [
+		"You touch the ground and conjure forth a defensive structure made of enormous playing cards. The structure rises with you at its center, harmlessly lifting you and any creatures in the area. The *house of cards* has a square base that is 30 feet on each side, and it has three floors with 10-foot-high ceilings. The second floor is 20 feet on each side, and the top floor is 10 feet on each side\u2014both centered above the bottom floor. Ramps connect the interior of each floor, and empty doorframes connect the interior and exterior of each level. Creatures inside or on top of the structure have half cover.",
+		"Each card that comprises the house is 5 feet wide and 10 feet tall and is very fragile. A card has AC 10 and 1 hit point. The cards are immune to poison and psychic damage. Reducing a card to 0 hit points destroys it. Every time a card is destroyed, roll 1d6. If you roll a 5 or a 6, the house collapses, ending the spell.",
+		"The house and all its cards vanish when the spell ends.",
+	],
 };
 SpellsList["spirit of death-ua"] = {
 	name: "Spirit of Death",
@@ -24315,9 +25563,11 @@ SpellsList["spirit of death-ua"] = {
 	compMaterial: "A gilded playing card depicting an avatar of death worth at least 400 gp",
 	duration: "Conc, 1 min",
 	description: "Summon spirit to atk 1 crea; obeys commands; takes turn after me; ends if it or target at 0 hp (400gp)",
-	descriptionFull: "You call forth a spirit that embodies death itself. Choose a creature you can see within range. The spirit manifests in an unoccupied space that you can see within 10 feet of the target, and the target becomes haunted by the spirit. The spirit uses the Reaper Spirit stat block. The spirit disappears when it or the haunted creature is reduced to 0 hit points, or when the spell ends." +
-	"\n   The reaper spirit is an ally to you and your companions. In combat, the spirit shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you), but it will only attack the haunted creature. If you don't issue the spirit any commands, it takes the Dodge action and uses its move to avoid danger." +
-	AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block.",
+	descriptionFull: [
+		"You call forth a spirit that embodies death itself. Choose a creature you can see within range. The spirit manifests in an unoccupied space that you can see within 10 feet of the target, and the target becomes haunted by the spirit. The spirit uses the Reaper Spirit stat block. The spirit disappears when it or the haunted creature is reduced to 0 hit points, or when the spell ends.",
+		"The reaper spirit is an ally to you and your companions. In combat, the spirit shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you), but it will only attack the haunted creature. If you don't issue the spirit any commands, it takes the Dodge action and uses its move to avoid danger.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the stat block.",
+	],
 };
 SpellsList["spray of cards-ua"] = {
 	name: "Spray of Cards",
@@ -24332,10 +25582,12 @@ SpellsList["spray of cards-ua"] = {
 	duration: "Instantaneous",
 	save: typePF ? "W/D" : "W/d",
 	description: "All in area either: Wis save or blinded 1 rnd; or 2d10+1d10/2SL Force dmg, Dex save halves (5sp)",
-	descriptionFull: "You spray spectral cards from your hands or sleeve; the cards blind or slash at your enemies, and then vanish. Choose one of the following effects for the cards." +
-	"\n   ***Blinding Cards***. Each creature in a 15-foot cone must succeed on a Wisdom saving throw or be blinded until the end of their next turn." +
-	"\n   ***Cutting Cards***. Each creature in a 15-foot cone must make a Dexterity saving throw. A creature takes 2d10 force damage on a failed save or half as much damage on a successful one." +
-	AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage of cutting cards increases by 1d10 for every two slot levels above 2nd.",
+	descriptionFull: [
+		"You spray spectral cards from your hands or sleeve; the cards blind or slash at your enemies, and then vanish. Choose one of the following effects for the cards.",
+		"***Blinding Cards***. Each creature in a 15-foot cone must succeed on a Wisdom saving throw or be blinded until the end of their next turn.",
+		"***Cutting Cards***. Each creature in a 15-foot cone must make a Dexterity saving throw. A creature takes 2d10 force damage on a failed save or half as much damage on a successful one.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 4th level or higher, the damage of cutting cards increases by 1d10 for every two slot levels above 2nd.",
+	],
 };
 SpellsList["summon warrior spirit-ua"] = {
 	name: "Summon Warrior Spirit",
@@ -24349,7 +25601,9 @@ SpellsList["summon warrior spirit-ua"] = {
 	compMaterial: "A gilded playing card depicting a knight worth at least 300 gp",
 	duration: "Conc, 1 h",
 	description: "Summon choice of Warrior Spirit; obeys commands; takes turn after mine; disappears at 0 hp (300gp)",
-	descriptionFull: "You call forth a warrior spirit from the legendary Deck of Many Things. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Warrior Spirit stat block. When you cast the spell, choose a type of warrior: barbarian, fighter, or monk. The warrior resembles a humanoid armed appropriately to the chosen class, which determines certain traits in its stat block. The warrior disappears when it drops to 0 hit points or when the spell ends." +
-	"\n   The warrior is an ally to you and your companions. In combat, the warrior shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger." +
-	AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the creature assumes the higher level for that casting wherever it uses the spell's level in its stat block.",
+	descriptionFull: [
+		"You call forth a warrior spirit from the legendary *Deck of Many Things*. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Warrior Spirit stat block. When you cast the spell, choose a type of warrior: barbarian, fighter, or monk. The warrior resembles a humanoid armed appropriately to the chosen class, which determines certain traits in its stat block. The warrior disappears when it drops to 0 hit points or when the spell ends.",
+		"The warrior is an ally to you and your companions. In combat, the warrior shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 4th level or higher, the creature assumes the higher level for that casting wherever it uses the spell's level in its stat block.",
+	],
 };

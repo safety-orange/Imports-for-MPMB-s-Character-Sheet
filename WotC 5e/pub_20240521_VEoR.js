@@ -1,5 +1,5 @@
 var iFileName = "pub_20240521_VEoR.js";
-RequiredSheetVersion("14.0.15-beta");
+RequiredSheetVersion("14.1.3", 15);
 // This file adds the magic item from the Vecna: Eve of Ruin adventure to MPMB's Character Record Sheet
 
 // Define the source
@@ -16,8 +16,8 @@ MagicItemsList["chime of exile"] = {
 	source: [["VEoR", 46]],
 	type: "wondrous item",
 	rarity: "very rare",
-	description: "This silver chime is engraved with delicate magic sigils. As an action once per dawn, I can hold the chime and cast the Banishment spell (save DC 20). If the target of the spell has 50 hit points or fewer, it automatically fails its saving throw.",
-	descriptionFull: "This silver chime is engraved with delicate magic sigils. While holding the chime, you can use an action to cast the Banishment spell (spell save DC 20). If the target of the spell has 50 hit points or fewer, it automatically fails its saving throw. Once the chime has been used to cast the spell, it can't be used this way again until the next dawn.",
+	description: "This silver chime is engraved with delicate magic sigils. As an action once per dawn, I can hold the chime and cast the *Banishment* spell (save DC 20). If the target of the spell has 50 hit points or fewer, it automatically fails its saving throw.",
+	descriptionFull: "This silver chime is engraved with delicate magic sigils. While holding the chime, you can use an action to cast the *Banishment* spell (spell save DC 20). If the target of the spell has 50 hit points or fewer, it automatically fails its saving throw. Once the chime has been used to cast the spell, it can't be used this way again until the next dawn.",
 	usages: 1,
 	recovery: "dawn",
 	additional: "Banishment",
