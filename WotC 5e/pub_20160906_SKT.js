@@ -49,10 +49,7 @@ CreatureList["ice spider"] = { // contributed by Nod_Hero
 		abilitytodamage: false,
 		tooltip: "On a hit, the target is restrained by webbing and takes 1 cold damage at the start of each of its turns. As an action, the restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; hp 5; vulnerability to fire damage; immunity to poison and psychic damage).",
 	}],
-	traits: [{
-		name: "Bite",
-		description: "If the poison damage from the spider's bite attack reduces the target to 0 HP, the target is stable but poisoned for 1 hour, even after regaining HP, and is paralyzed while poisoned in this way.",
-	}, {
+	features: [{
 		name: "Spider Climb",
 		description: "The spider can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.",
 	}, {
@@ -63,6 +60,9 @@ CreatureList["ice spider"] = { // contributed by Nod_Hero
 		description: "The spider ignores movement restrictions caused by webbing.",
 	}],
 	actions: [{
+		name: "Bite",
+		description: "If the poison damage from the spider's bite attack reduces the target to 0 HP, the target is stable but poisoned for 1 hour, even after regaining HP, and is paralyzed while poisoned in this way.",
+	}, {
 		name: "Icy Web (Recharge 5-6)",
 		description: "See attack. On a hit, the target is restrained by webbing and takes 1 cold damage at the start of each of its turns. As an action, the restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; hp 5; vulnerability to fire damage; immunity to bludgeoning, poison, and psychic damage).",
 	}],
@@ -246,7 +246,7 @@ MagicItemsList["faerie dust"] = { // contains contributions by Nod_Hero
 				"\n\tdeals any damage, or casts a spell.",
 	}],
 	usages: 10,
-	recovery: "Never",
+	recovery: "\u2013",
 };
 MagicItemsList["banner of the krig rune"] = {
 	name: "Banner of the Krig Rune",
@@ -254,7 +254,7 @@ MagicItemsList["banner of the krig rune"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	magicItemTable: "G",
-	description: "As an action, I can furl or unfurl this 5 ft by 3 ft banner. While it is unfurled and I'm attuned to it, I can use its magical properties to see invisible creatures, and each once per short rest emanate courage or protect from ranged attacks. I can even transfer them over to a place, destroying the banner in the process. See Notes.",
+	description: "As an action, I can furl or unfurl this 5 ft by 3 ft banner. While it is unfurled and I'm attuned to it, I can use its magic to see invisible creatures, and each once per short rest emanate courage or protect from ranged attacks. I can even transfer them over to a place, destroying the banner in the process. See Notes.",
 	descriptionFull: "Crafted from a thick, red fabric, this banner measures 5 feet high and 3 feet wide. The krig (war) rune is displayed on the fabric with round, metal plates sewn into it. It can be attached to a 10-foot pole to serve as a standard. Furling or unfurling the banner requires an action. The banner has the following properties.\n   ***Mark of Courage***. As a bonus action, you can touch the unfurled banner and cause it to emanate courage. You and your allies are immune to the frightened condition while within 20 feet of it. This benefit lasts for 10 minutes or until the banner is furled. Once you use this property, you can't use it again until you finish a short or long rest.\n   ***Sentinel Standard***. You can see invisible creatures while they are within 20 feet of the unfurled banner and within your line of sight.\n   ***Standard's Shield***. As a bonus action, you can touch the unfurled banner and invoke this power. Any ranged attack roll that targets you or an ally of yours has disadvantage if the target is within 20 feet of the unfurled banner. This benefit lasts for 1 minute or until the banner is furled. Once you use this property, you can't use it again until you finish a short or long rest.\n   ***Gift of Battle***. You can transfer the banner's magic to a place by tracing the krig rune on the ground with your finger. The point where you trace it becomes the center of a spherical area of magic that has a 500-foot radius and that is fixed to the place. The transfer takes 8 hours of work that requires the banner to be within 5 feet of you and during which you choose creatures, creature types, or both that will benefit from the magic. At the end, the banner is destroyed, and the area gains the following property:\n   While in the 500-foot-radius sphere, the creatures you chose during the transfer process are immune to the frightened condition and gain a +1 bonus to attack rolls and AC.",
 	attunement: true,
 	action: [
@@ -481,7 +481,7 @@ MagicItemsList["opal of the ild rune"] = {
 		name: "Opal of the Ild Rune ",
 		type: "wondrous item",
 		rarity: "rare",
-		description: "This triangular fire opal gives me resistance to cold damage. As an action, I can use it to extinguish any open flames of my choice within 10 ft, or I can ignite a flammable object within 10 ft with a fire up to 1 ft in diameter. I can undertake an 8 hour ritual to transfer the rune to a suit of armor or weapon, see book.",
+		description: "This triangular fire opal gives me resistance to Cold damage. As an action, I can use it to extinguish open flames of my choice within 10 ft, or I can ignite a flammable object within 10 ft with a fire up to 1 ft in diameter. I can undertake an 8 hour ritual to transfer the rune to a suit of armor or weapon, see book.",
 		attunement: true,
 		dmgres: ["Cold"],
 		action: [["action", ""]],
@@ -670,7 +670,7 @@ MagicItemsList["robe of serpents"] = {
 	attunement: true,
 	action: [["bonus action", ""]],
 	usages: "1d4+3",
-	recovery: "Never",
+	recovery: "\u2013",
 }
 MagicItemsList["rod of the vonindod"] = {
 	name: "Rod of the Vonindod",
@@ -760,7 +760,7 @@ MagicItemsList["ring of hardened magma"] = {
 	descriptionFull: "This ring is sized for a fire giant's finger. When a creature attunes to the ring, it magically shrinks to fit that creature's index finger, and warm orange light spills from minuscule cracks that form on its outer surface. The ring has 6 charges. While attuned to the ring, a creature can expend 1 charge to cast conjure minor elementals (summoning either four magma mephits or four magmins, as the wearer wishes) or fire shield (warm shield version only) from the ring. Once all of its charges are spent, the ring loses its spellcasting properties but retains its resizing property.",
 	attunement: true,
 	usages: 6,
-	recovery: "Never",
+	recovery: "\u2013",
 	spellcastingAbility: "class", // https://www.sageadvice.eu/2015/11/27/hat-of-disguise-dc/
 	spellFirstColTitle: "Ch",
 	spellcastingBonus: [{
@@ -807,7 +807,7 @@ MagicItemsList["ancient relic boulder"] = {
 	type: "wondrous item",
 	rarity: "unknown",
 	storyItemAL: true,
-	description: "As an action once per 7 days, I can use this stone to cast either Control Weather or Divination. As an action once per 24 hours, I can have it shrink to 6-inch diameter, 25 lb, or enlarge to normal, 15-ft diameter, 24000 lb. Anything the enlarged boulder falls on takes 10d10 bludgeoning damage, DC 15 Dex save to avoid.",
+	description: "As an action once per 7 days, I can use this stone to cast either *Control Weather* or *Divination*. As an action once per 24 hours, I can have it shrink (6-inch diameter; 25 lb) or " + (typePF ? "return" : "enlarge back") + " to normal (15-ft diameter; 24,000 lb). Anything the enlarged boulder falls on takes 10d10 bludgeoning damage, DC 15 Dex save to avoid.",
 	descriptionFull: "This boulder is a relic of giantkind that was shaped, carved, and abandoned long ago by a stone giant earth shaman. Any character who succeeds on a DC 15 Intelligence (Arcana) check can tell that the engraved lines adorning its outer surface are carefully designed to channel magical energy. A detect magic spell reveals an aura of transmutation magic emanating from it and casting identify spell on the boulder allows one to learn its magical properties, each of which is activated by tracing specific lines on its surface:\n \u2022 A creature can use an action to cast the control weather spell or the divination spell from the stone. Once either spell is cast, this property can't be used again for 7 days.\n \u2022 A creature can use an action to shrink the stone to the size of a 6-inch-diameter orb weighing 25 pounds, or enlarge the boulder to its normal size (15-foot diameter) and weight (12 tons). Anything the enlarged boulder falls on takes 55 (10d10) bludgeoning damage. A creature can avoid taking this damage by tumbling out of the way with a successful DC 15 Dexterity saving throw. Once the reducing or enlarging effect is used, this property can't be used again for 24 hours.",
 	weight: 25,
 	action: [["action", " (shrink/enlarge)"]],

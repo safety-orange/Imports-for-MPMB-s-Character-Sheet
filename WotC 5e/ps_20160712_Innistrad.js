@@ -32,7 +32,10 @@ RaceList["gavony human"] = {
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scorestxt: "+1 to each ability score",
 	scores: [1, 1, 1, 1, 1, 1],
-	trait: "Gavonian Human (+1 to each ability score)\nGavonian: Whether safe behind the walls of the High City of Thraben or out in the moors with little more than shuttered windows, barred doors, and grim determination to stand against the horrors of the night, my people are the most well-rounded of Innistrad.",
+	trait: [
+		"**Gavonian Human** (+1 to each ability score)",
+		"##\u25C6 Gavonian##. Whether safe behind the walls of the High City of Thraben or out in the moors with little more than shuttered windows, barred doors, and grim determination to stand against the horrors of the night, my people are the most well-rounded of Innistrad.",
+	],
 };
 RaceList["kessig human"] = {
 	regExpSearch: /^(?=.*\bkessig(er)?s?\b).*$/i,
@@ -52,7 +55,11 @@ RaceList["kessig human"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 1, 0, 0, 1, 0],
-	trait: "Kessiger Human (+1 Dexterity, +1 Wisdom)\nSure-Footed: When I use the Dash action, difficult terrain doesn't cost extra movement on that turn.\nSpring Attack: When I make a melee attack against a creature, I don't provoke opportunity attacks from that creature for the rest of my turn, whether I hit or not.",
+	trait: [
+		"**Kessiger Human** (+1 Dexterity, +1 Wisdom)",
+		"##\u25C6 Sure-Footed##. When I use the Dash action, difficult terrain doesn't cost extra movement on that turn.",
+		"##\u25C6 Spring Attack##. When I make a melee attack against a creature, I don't provoke opportunity attacks from that creature for the rest of my turn, whether I hit or not.",
+	],
 };
 RaceList["nephalia human"] = {
 	regExpSearch: /^(?=.*\bnephalian?s?\b).*$/i,
@@ -72,7 +79,10 @@ RaceList["nephalia human"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 0, 1, 0, 1],
-	trait: "Nephalian Human (+1 Intelligence, +1 Charima)\nBreadth of Knowledge: I gain proficiency in any combination of four skills or four tools of my choice.",
+	trait: [
+		"**Nephalian Human** (+1 Intelligence, +1 Charisma)",
+		"##\u25C6 Breadth of Knowledge##. I gain proficiency in any combination of four skills or four tools of my choice.",
+	],
 };
 RaceList["stensia human"] = {
 	regExpSearch: /^(?=.*\bstensian?s?\b).*$/i,
@@ -92,7 +102,11 @@ RaceList["stensia human"] = {
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores: [1, 0, 1, 0, 0, 0],
-	trait: "Stensian Human (+1 Strength, +1 Constitution)\nDaunting: I have proficiency in the Intimidation skill.\nTough: My hit point maximum increases by 2, and it increases by 2 every time I gain a level.",
+	trait: [
+		"**Stensian Human** (+1 Strength, +1 Constitution)",
+		"##\u25C6 Daunting##. I have proficiency in the Intimidation skill.",
+		"##\u25C6 Tough##. My hit point maximum increases by 2, and it increases by 2 every time I gain a level.",
+	],
 	calcChanges: {
 		hp: function (totalHD) {
 			return [totalHD * 2, "\n + " + totalHD + " \xD7 2 from the Stensian Tough feature (" + (totalHD * 2) + ")", true];

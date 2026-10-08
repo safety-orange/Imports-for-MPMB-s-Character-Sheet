@@ -256,7 +256,7 @@ MagicItemsList["teleportation tablet"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	notLegalAL: true,
-	description: "Once as an action, I can break this clay tablet in half to create a 5-ft radius Teleportation Circle to its predetermined destination within 30 ft, lasting until the end of my next turn. I can learn its destination by studying it for 10 minutes and making a DC 21 Arcana check. Once broken, the tablet turns to dust.",
+	description: "As an action, I can break this clay tablet in half to create a 5-ft radius *Teleportation Circle* within 30 ft that lasts until the end of my next turn and leads to its predetermined destination. I can learn its destination by studying it for 10 minutes and making a DC 21 Arcana check. Once broken, the tablet turns to dust",
 	descriptionFull: "This clay tablet is eight inches long, four inches wide, and half an inch thick. Inscribed on it is the sigil sequence for a permanent teleportation circle. A creature that studies the sequence for 10 minutes can make a DC 21 Intelligence (Arcana) check, learning the circle's destination on a success." +
 	"\n   You can use an action to break the tablet in half, turning it to dust. If the tablet is broken while it is on the same plane of existence as the teleportation circle whose sigil sequence was engraved on it, a 10-foot-diameter teleportation circle of glowing blue light appears on the ground in an unoccupied space you choose within 30 feet of you. This teleportation circle has the characteristics of one created using the teleportation circle spell, except that it connects to the teleportation circle whose sigil sequence appears on the tablet." +
 	"\n   The teleportation circle created by the tablet disappears at the end of your next turn.",
@@ -319,14 +319,14 @@ MagicItemsList["jewel of three prayers"] = {
 	action: [["action", " (shed light)"]],
 	"dormant": {
 		name: "Jewel of Three Prayers [dormant]",
-		description: "This piece of jewelry grants me +1 AC and has 3 charges, regaining all at dawn. As an action, I can use it to shed bright light in a 15-ft radius and dim for another 15 ft (extinguishing requires no action). I can expend 1 charge to cast Invisibility.",
+		description: "This piece of jewelry grants me +1 AC and has 3 charges, regaining all at dawn. As an action, I can use it to shed bright light in a 15-ft radius and dim light for another 15 ft (extinguishing requires no action). I can expend 1 charge to cast *Invisibility*.",
 		usages: 3,
 		recovery: "dawn",
 		extraAC: [{ name: "Jewel of Three Prayers", mod: 1, magic: true, text: "I gain a +1 bonus to AC while attuned." }],
 	},
 	"awakened": {
 		name: "Jewel of Three Prayers [awakened]",
-		description: "This grants me +2 AC. It has 5 charges, regaining all at dawn. As an action, I can have it shed 15-ft radius bright light and dim for another 15 ft. I can use 1 charge to cast Invisibility or stop being grappled, paralyzed, or restrained. As a reaction when I see a creature in 60 ft fail a save, I can use 1 charge to have it reroll.",
+		description: "This grants me +2 AC. It has 5 charges, regaining all at dawn. As an action, I can have it shed 15 ft radius bright light plus 15 ft dim light. I can use 1 charge to cast *Invisibility* or stop being grappled, paralyzed, or restrained. As a reaction when I see a creature in 60 ft fail a save, I can use 1 charge to have it reroll.",
 		usages: 5,
 		recovery: "dawn",
 		extraAC: [{ name: "Jewel of Three Prayers", mod: 2, magic: true, text: "I gain a +2 bonus to AC while attuned." }],
@@ -334,7 +334,7 @@ MagicItemsList["jewel of three prayers"] = {
 	},
 	"exalted": {
 		name: "Jewel of Three Prayers [exalted]",
-		description: "This grants me +3 AC. It has 7 charges, regaining all at dawn. As an action, I can have it shed 15-ft radius bright light and dim for another 15 ft. I can use 1 charge to cast Invisibility or stop being grappled, paralyzed, or restrained. As a reaction when I see failed save in 60 ft, I can use 1 charge for a reroll. See notes.",
+		description: "This grants me +2 AC. It has 7 charges, regaining all at dawn. As an action, I can have it shed 15 ft radius bright light plus 15 ft dim. I can use 1 charge to cast *Invisibility* or end being grappled, paralyzed, or restrained. As a reaction when I see a creature in 60 ft fail a save, I can use 1 charge to have it reroll. See Notes page.",
 		usages: 7,
 		recovery: "dawn",
 		extraAC: [{ name: "Jewel of Three Prayers", mod: 3, magic: true, text: "I gain a +3 bonus to AC while attuned." }],

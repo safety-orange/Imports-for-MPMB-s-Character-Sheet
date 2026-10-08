@@ -129,7 +129,14 @@ ClassList["spell-less ranger"] = {
 	subclassGainedLevel: 3,
 	attacks: [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features: {
-		"favored enemy": ClassList.ranger.features["favored enemy"],
+		"favored enemy": function () {
+			var obj = newObj(ClassList.ranger.features["favored enemy"]);
+			if (obj["favored foe"]) {
+				obj["favored foe"].usages = "Prof Bonus per ";
+				obj["favored foe"].recovery = "LR";
+			}
+			return obj;
+		}(),
 		"natural explorer": ClassList.ranger.features["natural explorer"],
 		"combat superiority": {
 			name: "Combat Superiority",

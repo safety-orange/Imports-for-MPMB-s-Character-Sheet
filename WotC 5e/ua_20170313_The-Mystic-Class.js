@@ -1522,7 +1522,7 @@ PsionicsList["cr4-punishing fury"] = {
 	range: "60 ft",
 	duration: "Conc, 1 min",
 	save: "Wis",
-	description: "1 crea save or when it makes melee atk, all in 5 ft of it can make melee atk vs. it as rea (charm effect)",
+	description: "1 crea save or when it makes melee atk, all in 5 ft of it can make melee atk vs it as rea (charm effect)",
 	descriptionFull: "You cause a creature's rage to grow so hot that it attacks without heeding its own safety. As a bonus action, choose one creature you can see within 60 feet of you. The target must succeed on a Wisdom saving throw or, until your concentration ends, any creature within 5 feet of it can use a reaction to make a melee attack against it whenever the target makes a melee attack. The save automatically succeeds if the target is immune to being charmed.",
 	firstCol: 5,
 };
@@ -2372,7 +2372,7 @@ PsionicsList["mf2-move"] = {
 	duration: "Instantaneous",
 	save: "Dex",
 	description: "Move obj 60 ft, after which it falls; crea under obj DC 10 save or 1d6+1d6/PP Bludg. dmg; see book",
-	descriptionFull: "Choose one object you can see within 60 feet of you that isn't being worn or carried by another creature and that isn't secured in place. It can't be larger than 20 feet on a side, and its maximum weight depends on the psi points spent on this ability, as shown below." + "\n   " + "As an action, you move the object up to 60 feet, and you must keep the object within sight during this movement. If the object ends this movement in the air, it falls. If the object would fall on a creature, the creature must succeed on a DC 10 Dexterity saving throw or take damage as listed on the table below.\n\n  ***Psi***\t***Maximum***    ***Bludgeoning***\n***Points***\t ***Weight***\t        ***Damage***\n    2\t     25 lbs.  \t             2d6" + "\n    3\t     50 lbs.  \t             4d6" + "\n    5\t   250 lbs.  \t             6d6" + "\n    6\t   500 lbs.  \t             7d6" + "\n    7\t 1000 lbs.  \t             8d6",
+	descriptionFull: "Choose one object you can see within 60 feet of you that isn't being worn or carried by another creature and that isn't secured in place. It can't be larger than 20 feet on a side, and its maximum weight depends on the psi points spent on this ability, as shown below." + "\n   " + "As an action, you move the object up to 60 feet, and you must keep the object within sight during this movement. If the object ends this movement in the air, it falls. If the object would fall on a creature, the creature must succeed on a DC 10 Dexterity saving throw or take damage as listed on the table below.\n\n  **Psi**\t**Maximum**    **Bludgeoning**\n**Points**\t **Weight**\t        **Damage**\n    2\t     25 lbs.  \t             2d6" + "\n    3\t     50 lbs.  \t             4d6" + "\n    5\t   250 lbs.  \t             6d6" + "\n    6\t   500 lbs.  \t             7d6" + "\n    7\t 1000 lbs.  \t             8d6",
 	firstCol: "2-7",
 };
 PsionicsList["mf3-inertial armor"] = {
@@ -2882,6 +2882,7 @@ PsionicsList["mwe4-wall of wood"] = {
 	range: "60 ft",
 	duration: "Conc, 1 h",
 	description: "Create 60-ft long, 15-ft high, 1-ft thick wall of solid wood; each 5-ft section has AC 12 and 100 HP",
+	descriptionMetric: "Create 18m long, 4,5m high, 30cm thick wall of solid wood; each 1,5m section has AC 12 and 100 HP",
 	descriptionFull: "As an action, you create a wall of wood at least one portion of which must be within 60 feet of you. The wall is 60 feet long, 15 feet high, and 1 foot thick. The wall lasts until your concentration ends. Each 5-foot wide section of the wall has AC 12 and 100 hit points. Breaking one section creates a 5-foot by 5-foot hole in it, but the wall otherwise remains intact.",
 	firstCol: 3,
 };
@@ -3240,6 +3241,7 @@ PsionicsList["ns8-nomad's gate"] = {
 	range: "5 ft",
 	duration: "Conc, 1 h",
 	description: "Create a 5-ft cu in range, and another up to 1 mile away; anyone entering one, teleports to the other",
+	descriptionMetric: "Create a 1,5m cu in range, and another up to 1,5km away; anyone entering one, teleports to the other",
 	descriptionFull: "As an action, you create a 5-foot cube of dim, gray light within 5 feet of you. You create an identical cube at any point of your choice within 1 mile that you have viewed within the past 24 hours. Until your concentration ends, anyone entering one of the cubes immediately teleports to the other one, appearing in an unoccupied space next to it. The teleportation fails if there is no space for the creature to appear in.",
 	firstCol: 7,
 };

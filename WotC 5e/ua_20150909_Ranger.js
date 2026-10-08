@@ -80,7 +80,18 @@ ClassList["ua-playtest-ranger"] = {
 				"Choose Guardian, Seeker, or Stalker",
 			]),
 		},
-		"primeval awareness": ClassList.ranger.features["primeval awareness"],
+		"primeval awareness": function () {
+			var obj = newObj(ClassList.ranger.features["primeval awareness"]);
+			var objToEdit = obj;
+			if (obj["\x1B[original] primeval awareness"]) {
+				objToEdit = obj["\x1B[original] primeval awareness"];
+			}
+			objToEdit.description = objToEdit.description.replace("aber./celest./dragon/elem./fey/fiend/undead", "aber|celest|drgn|elem|fey|fiend|undead");
+			if (objToEdit.additional) {
+				objToEdit.additional = objToEdit.additional.replace("aber./celest./dragon/elem./fey/fiend/undead", "aber|celest|drgn|elem|fey|fiend|undead");
+			}
+			return obj;
+		}(),
 	},
 };
 AddSubClass("ua-playtest-ranger", "guardian-ua", {

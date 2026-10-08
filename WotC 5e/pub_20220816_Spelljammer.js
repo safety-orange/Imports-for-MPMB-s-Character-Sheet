@@ -170,14 +170,14 @@ RaceList["autognome"] = {
 	trait: typePF ?
 		"Autognome (my creature type is Construct)" +
 		"\n \u2022 Armored Casing: My base AC is 13 + my Dexterity modifier." +
-		"\n \u2022 Built for Success: For my Prof B. per long rest, I can add +1d4 to an attack, check, or save, after I see the roll, but before the effect." +
+		"\n \u2022 Built for Success: For my Prof B per long rest, I can add +1d4 to an attack, check, or save, after I see the roll, but before the effect." +
 		"\n \u2022 Mechanical Nature: I don't need to eat, drink or breathe." +
 		"\n \u2022 Sentry's Rest: I only need 6 hours to finish a long rest if I stay in an inactive and motionless state during which I'm conscious." +
 		"\n \u2022 Healing Machine: Cure Wounds, Healing Word, and Spare the Dying work on me. If Mending is cast on me, I can expend one HD like during a short rest to regain hit points."
 		:
 		"Autognome (my creature type is Construct; I don't need to eat, drink or breathe)" +
 		"\n \u2022 Armored Casing: While I'm not wearing armor, my AC is 13 + my Dexterity modifier." +
-		"\n \u2022 Built for Success: For my Prof B. per long rest, I can add +1d4 to an attack, check, or save. I can do this after seeing the d20 roll, but before knowing the roll's effects." +
+		"\n \u2022 Built for Success: For my Prof B per long rest, I can add +1d4 to an attack, check, or save. I can do this after seeing the d20 roll, but before knowing the roll's effects." +
 		"\n \u2022 Sentry's Rest: I only need 6 hours to finish a long rest if I stay inactive and motionless." +
 		"\n \u2022 Healing Machine: Cure Wounds, Healing Word, and Spare the Dying work on me. If Mending is cast on me, I can expend one HD like during a short rest to regain hit points.",
 };
@@ -353,15 +353,6 @@ MagicItemsList["fish suit"] = {
 	description: "This bulky suit takes 1 minute to don or doff. While worn, I can breathe in an airless environment and am immune to any gas that surrounds me. The suit grants me a swimming speed equal to my walking speed while underwater, or a flying speed equal to my walking speed in an environment with no gravity.",
 	descriptionFull: "This bulky suit, which fully encases your head and body, takes 1 minute to don or doff. While worn, it enables you to breathe in an airless environment and renders you immune to the harmful effects of any gas that surrounds you. The suit also grants you a swimming speed equal to your walking speed while underwater, or a flying speed equal to your walking speed in an environment with no gravity.",
 };
-var SJAAG_SpelljammingHelm = [
-	"The function of this ornate chair is to propel and maneuver a ship on which it has been installed through space and air. It can also propel and maneuver a ship on water or underwater, provided the ship is built for such travel. The ship in question must weigh 1 ton or more.",
-	"The sensation of being attuned to a spelljamming helm is akin to the pins-and-needles effect one experiences after one's arm or leg falls asleep, but not as painful.",
-	"While attuned to a spelljamming helm and sitting in it, you gain the following abilities for as long as you maintain concentration (as if concentrating on a spell):",
-	"\u2022 You can use the spelljamming helm to move the ship through space, air, or water up to the ship's speed. If the ship is in space and no other objects weighing 1 ton or more are within 1 mile of it, you can use the spelljamming helm to move the vessel fast enough to travel 100 million miles in 24 hours.",
-	"\u2022 You can steer the vessel, albeit in a somewhat clumsy fashion, in much the way that a rudder or oars can be used to maneuver a seafaring ship.",
-	"\u2022 At any time, you can see and hear what's happening on and around the vessel as though you were standing in a location of your choice aboard it.",
-	">>Transfer Attunement<<. You can use an action to touch a willing spellcaster. That creature attunes to the spelljamming helm immediately, and your attunement to it ends.",
-];
 MagicItemsList["spelljamming helm"] = {
 	name: "Spelljamming Helm",
 	source: [["S:AiS", 23]],
@@ -371,11 +362,19 @@ MagicItemsList["spelljamming helm"] = {
 	prerequisite: "Requires attunement by a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "While attuned to  this ornate chair and sitting in it, I can propel and maneuver the ship on which it has been installed through space, air, or water up to the ship's speed. I need to maintain concentration as if concentrating on a spell to do so. The ship can move faster in space if nothing is nearby. See Notes page.",
-	descriptionFull: SJAAG_SpelljammingHelm.join("\n   "),
+	descriptionFull: [
+		"The function of this ornate chair is to propel and maneuver a ship on which it has been installed through space and air. It can also propel and maneuver a ship on water or underwater, provided the ship is built for such travel. The ship in question must weigh 1 ton or more.",
+		"The sensation of being attuned to a spelljamming helm is akin to the pins-and-needles effect one experiences after one's arm or leg falls asleep, but not as painful.",
+		"While attuned to a spelljamming helm and sitting in it, you gain the following abilities for as long as you maintain concentration (as if concentrating on a spell):",
+		" \u2022 You can use the spelljamming helm to move the ship through space, air, or water up to the ship's speed. If the ship is in space and no other objects weighing 1 ton or more are within 1 mile of it, you can use the spelljamming helm to move the vessel fast enough to travel 100 million miles in 24 hours.",
+		" \u2022 You can steer the vessel, albeit in a somewhat clumsy fashion, in much the way that a rudder or oars can be used to maneuver a seafaring ship.",
+		" \u2022 At any time, you can see and hear what's happening on and around the vessel as though you were standing in a location of your choice aboard it.",
+		"***Transfer Attunement***. You can use an action to touch a willing spellcaster. That creature attunes to the spelljamming helm immediately, and your attunement to it ends.",
+	],
 	action: [["action", " (Transfer Attunement)"]],
 	toNotesPage: [{
-		name: "Features",
-		note: desc(SJAAG_SpelljammingHelm).replace(/your/ig, "my").replace(/\byou\b/ig, "I").replace(/   >>(.*?)<<\. /g, function (a, match) { return "\n" + match.toUpperCase() + "\n   "; }),
+		name: "Spelljamming Helm",
+		useDescriptionFull: true,
 	}],
 };
 MagicItemsList["wildspace orrery"] = {

@@ -540,7 +540,7 @@ MagicItemsList["orc stone"] = { // from Appendix B: Character Secrets
 	"\n   As an action, I can use the stone to summon the spirit of an orc warrior, which appears within 30 feet of me. The spirit uses the orc war chief stat block in the Monster Manual and disappears after 10 minutes or when reduced to 0 hit points. The spirit understands any language I speak and obeys my commands." +
 	"\n   After the stone is used three times, it turns to dust.",
 	usages: 3,
-	recovery: "Never",
+	recovery: "\u2013",
 	creaturesAdd: [["Orc Stone Spirit", true]],
 	creatureOptions: [{
 		name: "Orc Stone Spirit",
@@ -625,24 +625,25 @@ MagicItemsList["cauldron of plenty"] = { // contains contributions by BraabHimse
 	usages: 3,
 	recovery: "dawn",
 };
-var IDRotF_HookOfFishersDelightFullDescription = [
-	"This tiny silver fishhook has a little gold feather attached to it. For it to function, the feathered hook must be tied to the end of a fishing line and immersed in enough water to fill at least a 10-foot cube. At the end of each uninterrupted hour of immersion, roll a d6. On a 6, a floppy, 6-inch-long magical fish appears on the end of the hook. The color and properties of the conjured fish are determined by rolling on the table below. Once the hook conjures a fish, it can't do so again until the next dawn.\n",
-	">>d20\tFish color and result<<",
-	"1-10\t>>Green with copper bands<<. This tasty fish provides a day's worth of nourishment to one creature that eats it. The fish loses this property and rots if it's not eaten within 24 hours of being caught.",
-	"11-14\t>>Yellow with black stripes<<. Once removed from the hook, this awful-tasting fish can be thrown up to 120 feet, targeting a creature the thrower can see. The target must succeed on a DC 15 Strength saving throw or be knocked prone. The fish then disappears.",
-	"15-18\t>>Blue with white bands<<. When released from the hook, this fish squirms free, sprouts wings, follows you around, and sings a beautiful tune in Aquan. It disappears after 2d4 hours or when reduced to 0 hit points. The fish uses the quipper stat block, except that it can breathe air and has a flying speed of 30 feet.",
-	"19-20\t>>Gold with silver stripes<<. This tasty fish provides a day's worth of nourishment to one creature that eats it and grants 2d10 temporary hit points to that creature. The fish loses these properties and rots if it's not eaten within 24 hours of being caught.",
-];
 MagicItemsList["hook of fisher's delight"] = { // contains contributions by BraabHimself
 	name: "Hook of Fisher's Delight",
 	source: [["RotF", 314]],
 	type: "wondrous item",
 	rarity: "rare",
 	description: "For this tiny silver fishhook to work, I must attach it to the end of a fishing line and immerse it in at least 10 cu ft of water. Then, at the end of each uninterrupted hour of immersion, I roll a d6. On a 6, a magical fish appears on the hook; roll a d20 to determine the fish's properties on the table on the Notes page.",
-	descriptionFull: IDRotF_HookOfFishersDelightFullDescription.join("\n   "),
+	descriptionFull: [
+		"This tiny silver fishhook has a little gold feather attached to it. For it to function, the feathered hook must be tied to the end of a fishing line and immersed in enough water to fill at least a 10-foot cube. At the end of each uninterrupted hour of immersion, roll a d6. On a 6, a floppy, 6-inch-long magical fish appears on the end of the hook. The color and properties of the conjured fish are determined by rolling on the table below. Once the hook conjures a fish, it can't do so again until the next dawn.",
+		[
+			["d20", "Fish color and result"],
+			["1-10", "**Green with copper bands**. This tasty fish provides a day's worth of nourishment to one creature that eats it. The fish loses this property and rots if it's not eaten within 24 hours of being caught."],
+			["11-14", "**Yellow with black stripes**. Once removed from the hook, this awful-tasting fish can be thrown up to 120 feet, targeting a creature the thrower can see. The target must succeed on a DC 15 Strength saving throw or be knocked prone. The fish then disappears."],
+			["15-18", "**Blue with white bands**. When released from the hook, this fish squirms free, sprouts wings, follows you around, and sings a beautiful tune in Aquan. It disappears after 2d4 hours or when reduced to 0 hit points. The fish uses the quipper stat block, except that it can breathe air and has a flying speed of 30 feet."],
+			["19-20", "**Gold with silver stripes**. This tasty fish provides a day's worth of nourishment to one creature that eats it and grants 2d10 temporary hit points to that creature. The fish loses these properties and rots if it's not eaten within 24 hours of being caught."],
+		],
+	],
 	toNotesPage: [{
-		name: "Fish Properties Table",
-		note: desc(IDRotF_HookOfFishersDelightFullDescription).replace(/>>|<</g, "").replace(/\byou\b/ig, "I").replace(/\bf(oo|ee)t\b/ig, "ft"),
+		name: "Hook of Fisher's Delight",
+		useDescriptionFull: true,
 	}],
 	usages: 1,
 	recovery: "dawn",
@@ -694,8 +695,8 @@ if (!MagicItemsList["professor orb"]) {
 		type: "wondrous item",
 		rarity: "rare",
 		storyItemAL: true,
-		description: "This orb is sentient with the personality of a scholar, but no will of its own. It has Int 18, Wis and Cha of 3d6 each. It knows and reads 4 languages, can see/hear as a human out to 60 ft, and has extensive knowledge of 4 narrow academic subjects (+9 on checks). It knows Mage Hand, which it uses to move around.",
-		descriptionFull: "Each professor orb takes the form of a smooth, solid, 5-pound sphere of smoky gray quartz about the size of a grapefruit. Close examination reveals two or more pinpricks of silver light deep inside the sphere.\n   A Professor Orb is sentient and has the personality of a scholar. Its alignment is determined by rolling on the alignment table in the \"Sentient Magic Items\" section in chapter 7 of the Dungeon Master's Guide. Regardless of its disposition, the orb has an Intelligence of 18, and Wisdom and Charisma scores determined by rolling 3d6 for each ability. The orb speaks, reads, and understands four languages, and can see and hear normally out to a range of 60 feet. Unlike most sentient items, the orb has no will of its own and can't initiate a conflict with the creature in possession of it.\n   A Professor Orb has extensive knowledge of four narrow academic subjects. When making an Intelligence check to recall lore from any of its areas of expertise, the orb has a +9 bonus to its roll (including its Intelligence modifier).\n   In addition to the knowledge it possesses, a professor orb can cast the Mage Hand cantrip at will. It uses the spell only to transport itself. Its spellcasting ability is Intelligence.",
+		description: "This orb is sentient with the personality of a scholar, but no will of its own. It has Int 18, Wis and Cha of 3d6 each. It knows and reads 4 languages, can see/hear as a human out to 60 ft, and has extensive knowledge of 4 narrow academic subjects (+9 on checks). It knows *Mage Hand*, which it uses to move around.",
+		descriptionFull: "Each professor orb takes the form of a smooth, solid, 5-pound sphere of smoky gray quartz about the size of a grapefruit. Close examination reveals two or more pinpricks of silver light deep inside the sphere.\n   A Professor Orb is sentient and has the personality of a scholar. Its alignment is determined by rolling on the alignment table in the \"Sentient Magic Items\" section in chapter 7 of the Dungeon Master's Guide. Regardless of its disposition, the orb has an Intelligence of 18, and Wisdom and Charisma scores determined by rolling 3d6 for each ability. The orb speaks, reads, and understands four languages, and can see and hear normally out to a range of 60 feet. Unlike most sentient items, the orb has no will of its own and can't initiate a conflict with the creature in possession of it.\n   A Professor Orb has extensive knowledge of four narrow academic subjects. When making an Intelligence check to recall lore from any of its areas of expertise, the orb has a +9 bonus to its roll (including its Intelligence modifier).\n   In addition to the knowledge it possesses, a professor orb can cast the *Mage Hand* cantrip at will. It uses the spell only to transport itself. Its spellcasting ability is Intelligence.",
 	}
 } // dupl_end
 MagicItemsList["professor skant"] = { // contains contributions by Pengsloth
@@ -703,7 +704,7 @@ MagicItemsList["professor skant"] = { // contains contributions by Pengsloth
 	source: [["RotF", 315]],
 	type: "wondrous item",
 	rarity: "rare",
-	description: "This sentient orb with the personality of a scholar has Int 18, Wis 11, Cha 9, and no will of its own. It can hear and see out to 60 ft. It knows and reads Common, Draconic, Elvish, and Loross. It has+9 on checks regarding history of Netheril, vampirism, tarrasque, and Elverquisst. It moves itself around using Mage Hand.",
+	description: "This sentient orb with the personality of a scholar has Int 18, Wis 11, Cha 9, and no will of its own. It can hear and see out to 60 ft. It knows and reads Common, Draconic, Elvish, and Loross. It has +9 on checks regarding history of Netheril, vampirism, tarrasque, and Elverquisst. It moves itself around using *Mage Hand*.",
 	descriptionLong: "This sentient orb, which calls itself Professor Skant, has the personality of a scholar, but no will of its own to cause conflicts. It's a smooth, solid, 5 lb sphere of smoky gray quartz about the size of a grapefruit with two or more pinpricks of silver light deep inside. It's alignment is lawful good and it has Intelligence 18, Wisdom 11, and Charisma 9. It knows and reads Common, Draconic, Elvish, and Loross. It has expertise in the following academic topics (+9 on checks): history of Netheril, vampirism and the traits of vampires, rituals surrounding the making, bottling, and drinking of Elverquisst, and the tarrasque.",
 	descriptionFull: "The professor orb owned by Vellynne Harpell and stolen by Nass Lantomir calls itself Professor Skant. It is lawful good, and it has a Wisdom of 11 and a Charisma of 9 (as a professor orb, it has an Intelligence of 18). It speaks and reads Common, Draconic, Elvish, and Loross (the dead language of the Empire of Netheril). Professor Skant is a chatterbox and assumes all humanoids are dunderheads. When elaborating on its areas of expertise, it adopts an unintentionally patronizing tone. It has the following four areas of expertise:" +
 	"\n \u2022 The history of Netheril (see the \"Fate of Netheril\" sidebar)" +
@@ -802,12 +803,12 @@ MagicItemsList["ythryn mythallar"] = { // contains contributions by BraabHimself
 		note: [
 			"The Ythryn Mythallar is a 50 ft diameter crystal ball that sits on a cradle",
 			"It has the following properties:",
-			"\u2022 Sheds light in a 300 ft radius and dim light for an additional 300 ft",
-			"\u2022 Up to 8 creatures can attune to it, a 9th attunement fails",
-			"\u2022 To attune, a creature must short rest within 30 ft of it",
-			"\u2022 All those attuned to it can sense when sense when it is being used",
-			"\u2022 All those attuned must agree to allow any properties to be used",
-			"\u2022 You can use an action to use the Ythryn Mythallar in the following ways:",
+			" \u2022 Sheds light in a 300 ft radius and dim light for an additional 300 ft",
+			" \u2022 Up to 8 creatures can attune to it, a 9th attunement fails",
+			" \u2022 To attune, a creature must short rest within 30 ft of it",
+			" \u2022 All those attuned to it can sense when sense when it is being used",
+			" \u2022 All those attuned must agree to allow any properties to be used",
+			" \u2022 You can use an action to use the Ythryn Mythallar in the following ways:",
 			"  \u25E6 While on the same plane, give it a flying speed of 30 ft",
 			"    All matter within 500 ft of it moves with it",
 			"    The ball and all structures held aloft by it hover in place when not in motion",

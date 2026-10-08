@@ -62,7 +62,7 @@ AddSubClass("monk", "ascendant dragon-ua", {
 					];
 					return desc(aDesc.concat(aDesc17));
 				}),
-				usages: "Prof B. per ",
+				usages: "Prof B per ",
 				usagescalc: "event.value = How('Proficiency Bonus');",
 				recovery: "long rest",
 				altResource: "1 ki",
@@ -104,7 +104,7 @@ AddSubClass("monk", "ascendant dragon-ua", {
 			name: "Wings Unfurled",
 			source: [["UA:SP5", 2]],
 			minlevel: 6,
-			additional: "Prof B. / long rest or 1 ki",
+			additional: "Prof B / long rest or 1 ki",
 			description: desc([
 				"When I use Step of the Wind, I can gain a flying speed equal to my walking speed",
 				"I can do this Prof Bonus per long rest, or by using 2 ki points to use Step of the Wind",

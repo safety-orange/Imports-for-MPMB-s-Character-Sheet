@@ -1594,7 +1594,7 @@ SpellsList["green-flame blade"] = {
 	components: "S,M\u0192",
 	compMaterial: "A melee weapon worth at least 1 sp",
 	duration: "Instantaneous",
-	description: "Melee wea atk with cast; hit: 0d8 Fire dmg, 1 crea in 5 ft 0d8+spell mod Fire dmg; +1d8 CL5/11/17",
+	description: "Melee wea atk at cast; hit: 0d8 Fire dmg, 1 crea in 5 ft 0d8+spell mod Fire dmg; +1d8 CL5/11/17",
 	descriptionShorter: "Melee wea atk; hit: 0d8 Fire dmg, 1 crea in 5 ft 0d8+spell mod Fire dmg; +1d8 CL5/11/17",
 	descriptionCantripDie: "Melee wea atk with cast; if hit: `CD-1`d8 Fire dmg, 1 crea in 5 ft `CD-1`d8+spellcasting ability modifier Fire dmg",
 	descriptionFull: [
@@ -1613,8 +1613,8 @@ SpellsList["lightning lure"] = {
 	components: "V",
 	duration: "Instantaneous",
 	save: "Str",
-	description: "1 crea in 15 ft save or pulled 10 ft to me; if it ends in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5, 11, \u0026 17",
-	descriptionShorter: "1 crea in 15 ft save or pulled 10 ft to me; if end in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5/11/17",
+	description: "1 crea in 15 ft save or pulled 10 ft to me; if it ends in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5/11/17",
+	descriptionShorter: "1 crea in 15 ft save or pulled 10 ft to me; if end in 5 ft, 1d8 Lightn. dmg; +1d8 at CL 5/11/17",
 	descriptionCantripDie: "1 crea I see save or pulled 10 ft to me; if it ends in 5 ft, `CD`d8 Lightning dmg",
 	descriptionFull: [
 		"You create a lash of lightning energy that strikes at one creature of your choice that you can see within 15 feet of you. The target must succeed on a Strength saving throw or be pulled up to 10 feet in a straight line toward you and then take 1d8 lightning damage if it is within 5 feet of you.",

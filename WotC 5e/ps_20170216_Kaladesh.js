@@ -65,7 +65,16 @@ AddSubClass("sorcerer", "pyromancer", { // Includes contributions by userZynx_na
 FeatsList["quicksmithing"] = { // Includes contributions by userZynx_name
 	name: "Quicksmithing",
 	source: [["PS:K", 13]],
-	descriptionFull: "You have mastered the art of on-the-fly invention, improvement, and jury-rigging. You can use your talents to create immediate, short-term magical effects similar to spells, given time and an adequate supply of aether.\n   When you choose this feat, you master two magical effects, each of which recreates the effect of a 1st-level spell that has the ritual tag. These spells can come from any class list, but Intelligence is your spellcasting ability for them.\n   If you come across a schematic geared toward quicksmithing or study with another quicksmith, you might be able to add another spell to the effects you have mastered. The spell's level can be no higher than half your level (rounded up), and it must have the ritual tag. The process of mastering the spell takes 2 hours per level of the spell, and costs 50 gp per level. The cost represents aether you use as you experiment with the spell effect to master it.\n   In addition, you have proficiency with artisan's tools (quicksmith's tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours unless you spend 1 hour repairing it to keep it functioning. You can use your action to dismantle the device, at which point you can reclaim the materials used to create it. You can have up to three such devices active at a time.\n   When you create a device, choose one of the following options:\n   ***Clockwork Toy***. This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.\n   ***Fire Starter***. This device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.\n   ***Music Box***. When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song's end or when it is closed.",
+	descriptionFull: [
+		"You have mastered the art of on-the-fly invention, improvement, and jury-rigging. You can use your talents to create immediate, short-term magical effects similar to spells, given time and an adequate supply of aether.",
+		"When you choose this feat, you master two magical effects, each of which recreates the effect of a 1st-level spell that has the ritual tag. These spells can come from any class list, but Intelligence is your spellcasting ability for them.",
+		"If you come across a schematic geared toward quicksmithing or study with another quicksmith, you might be able to add another spell to the effects you have mastered. The spell's level can be no higher than half your level (rounded up), and it must have the ritual tag. The process of mastering the spell takes 2 hours per level of the spell, and costs 50 gp per level. The cost represents aether you use as you experiment with the spell effect to master it.",
+		"In addition, you have proficiency with artisan's tools (quicksmith's tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours unless you spend 1 hour repairing it to keep it functioning. You can use your action to dismantle the device, at which point you can reclaim the materials used to create it. You can have up to three such devices active at a time.",
+		"When you create a device, choose one of the following options:",
+		"***Clockwork Toy***. This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.",
+		"***Fire Starter***. This device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.",
+		"***Music Box***. When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song's end or when it is closed.",
+	],
 	description: "I gain the Tinker ability of a Rock Gnome, including proficiency with tinker's tools. I learn two 1st-level ritual spells and can learn more if found and no higher spell level than half my character level. I can cast these as rituals with Intelligence as my spellcasting ability.",
 	prerequisite: "Intelligence 13 or higher",
 	prereqeval: function (v) { return What("Int") >= 13; },
@@ -87,8 +96,12 @@ FeatsList["quicksmithing"] = { // Includes contributions by userZynx_name
 FeatsList["servo crafting"] = { // Includes contributions by userZynx_name
 	name: "Servo Crafting",
 	source: [["PS:K", 13]],
-	descriptionFull: "You are skilled in the creation of servos\u2014tiny constructs that function as personal assistants. You can cast the find familiar spell as a ritual, creating a servo to serve as your familiar instead of an animal. A servo's statistics appear in the \"Artifact Creatures\" section of the Plane Shift: Kaladesh document. In every other way, a servo familiar functions as described in the find familiar spell.\n   You can communicate telepathically with your servo familiar and perceive through its senses as long as you are on the same plane of existence. You can speak through your servo in your own voice.\n   Additionally, when you take the Attack action, you can forgo one of your own attacks to allow your servo familiar to make one attack of its own.",
-	description: "I can cast Find Familiar as a ritual, creating a servo instead of an animal. I can telepathically communicate with it, perceive its senses, and speak through it in my own voice. When I use the Attack action, I can forfeit one attack for it to attack.",
+	descriptionFull: [
+		"You are skilled in the creation of **servos**\u2014tiny constructs that function as personal assistants. You can cast the *find familiar* spell as a ritual, creating a **servo** to serve as your familiar instead of an animal. A **servo**'s statistics appear in the \"Artifact Creatures\" section of the Plane Shift: Kaladesh document. In every other way, a **servo** familiar functions as described in the *find familiar* spell.",
+		"You can communicate telepathically with your **servo** familiar and perceive through its senses as long as you are on the same plane of existence. You can speak through your **servo** in your own voice.",
+		"Additionally, when you take the Attack action, you can forgo one of your own attacks to allow your **servo** familiar to make one attack of its own.",
+	],
+	description: "I can cast *Find Familiar* as a ritual, creating a **servo** instead of an animal. I can telepathically communicate with it, perceive its senses, and speak through it in my own voice. When I use the Attack action, I can forfeit one attack for it to attack.",
 	prerequisite: "Intelligence 13 or higher",
 	prereqeval: function (v) { return What("Int") >= 13; },
 	spellcastingBonus: [{
@@ -121,7 +134,11 @@ RaceList["aetherborn"] = { // Includes contributions by SoilentBrad
 	heightMetric: " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	scorestxt: "+2 Charisma, +1 to two others of your choice",
 	scores: [0, 0, 0, 0, 0, 2],
-	trait: "Aetherborn (+2 Charisma, +1 to two others of your choice)\nBorn of Aether: I have resistance to necrotic damage.\nMenacing: I gain proficiency in the Intimidation skill.",
+	trait: [
+		"**Aetherborn** (+2 Charisma, +1 to two others of your choice)",
+		"##\u25C6 Born of Aether##. I have resistance to necrotic damage.",
+		"##\u25C6 Menacing##. I gain proficiency in the Intimidation skill.",
+	],
 };
 RaceList["kaladesh dwarf"] = { // Includes contributions by SoilentBrad
 	regExpSearch: /^(?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b)(?=.*\bkaladesh\b).*$/i,
@@ -144,7 +161,12 @@ RaceList["kaladesh dwarf"] = { // Includes contributions by SoilentBrad
 	heightMetric: " stand between 1,2 and 1,5 metres tall (110 + 5d4 cm)",
 	weightMetric: " weigh around 70 kg (55 + 5d4 \xD7 4d6 / 10 kg)",
 	scores: [0, 0, 2, 0, 1, 0],
-	trait: "Kaladesh Dwarf (+2 Constitution, +1 Wisdom)\nArtisan's Expertise: I have proficiency and expertise with two artisan's tools of my choice.\n   Whenever I make an Intelligence (History) check related to the origin of any architectural construction, I am considered proficient in the History skill and add double my proficiency bonus to the check, instead of my normal proficiency bonus.\nDwarven Toughness: My hit point maximum increases by 1 for every level I have.",
+	trait: [
+		"**Kaladesh Dwarf** (+2 Constitution, +1 Wisdom)",
+		"##\u25C6 Artisan's Expertise##. I have proficiency and expertise with two artisan's tools of my choice.",
+		"Whenever I make an Intelligence (History) check related to the origin of any architectural construction, I am considered proficient in the History skill and add double my proficiency bonus to the check, instead of my normal proficiency bonus.",
+		"##\u25C6 Dwarven Toughness##. My hit point maximum increases by 1 for every level I have.",
+	],
 	calcChanges: {
 		hp: function (totalHD) { return [totalHD, "Dwarven Toughness"]; },
 	},
@@ -173,7 +195,11 @@ RaceList["vahadar elf"] = { // Includes contributions by SoilentBrad
 	heightMetric: " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 1, 0],
-	trait: "Vahadar (+2 Dexterity, +1 Wisdom)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, but I still need 8 hours for a long rest.\nCantrip: I know one cantrip of my choice from the druid spell list. Wisdom is my spellcasting ability for it.",
+	trait: [
+		"**Vahadar** (+2 Dexterity, +1 Wisdom)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, but I still need 8 hours for a long rest.",
+		"##\u25C6 Cantrip##. I know one cantrip of my choice from the druid spell list. Wisdom is my spellcasting ability for it.",
+	],
 	spellcastingAbility: 5,
 	spellcastingBonus: [{
 		name: "Vahadar Cantrip",
@@ -206,7 +232,11 @@ RaceList["bishtahar elf"] = {
 	heightMetric: " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 1, 0],
-	trait: "Bishtahar (+2 Dexterity, +1 Wisdom)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nMask of the Wild: I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
+	trait: [
+		"**Bishtahar** (+2 Dexterity, +1 Wisdom)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
+		"##\u25C6 Mask of the Wild##. I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
+	],
 };
 RaceList["tirahar elf"] = {
 	regExpSearch: /^(?!.*half)(?=.*\btirahar\b).*$/i,
@@ -232,7 +262,11 @@ RaceList["tirahar elf"] = {
 	heightMetric: " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 1, 0],
-	trait: "Tirahar (+2 Dexterity, +1 Wisdom)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nMask of the Wild: I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
+	trait: [
+		"**Tirahar** (+2 Dexterity, +1 Wisdom)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
+		"##\u25C6 Mask of the Wild##. I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
+	],
 };
 RaceList["vedalken-psk"] = { // Includes contributions by SoilentBrad
 	regExpSearch: /vedalken/i,
@@ -250,7 +284,11 @@ RaceList["vedalken-psk"] = { // Includes contributions by SoilentBrad
 	height: " range from 6 to 6 1/2 feet tall",
 	weight: " weigh less than 200 lb",
 	scores: [0, 0, 0, 2, 1, 0],
-	trait: "Vedalken (+2 Intelligence, +1 Wisdom)\nVedalken Cunning: I have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.\nAether Lore: Whenever I make an Intelligence (History) check related to magic items or aether-powered technological devices, I can add twice my proficiency bonus, instead of any proficiency bonus I normally apply.",
+	trait: [
+		"**Vedalken** (+2 Intelligence, +1 Wisdom)",
+		"##\u25C6 Vedalken Cunning##. I have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.",
+		"##\u25C6 Aether Lore##. Whenever I make an Intelligence (History) check related to magic items or aether-powered technological devices, I can add twice my proficiency bonus, instead of any proficiency bonus I normally apply.",
+	],
 };
 
 // Adds 3 creatures, 2 beast and 1 optional familiar

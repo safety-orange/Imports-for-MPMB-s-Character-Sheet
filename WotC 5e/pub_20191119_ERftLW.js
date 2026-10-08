@@ -1226,7 +1226,7 @@ if (!SpellsList["gust"]) {
 		components: "V,S",
 		duration: "Instantaneous",
 		save: "Str",
-		description: "Med. or smaller crea save or push 5 ft; or push unattended 5 lb obj 10 ft; or harmless sensory effect",
+		description: "Crea \u2264Medium save or push 5 ft; or push unattended 5 lb obj 10 ft; or harmless sensory effect",
 		descriptionFull: "You seize the air and compel it to create one of the following effects at a point you can see within range." + "\n " + "\u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you." + "\n " + "\u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage." + "\n " + "\u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze.",
 	};
 } // dupl_end
@@ -1708,7 +1708,7 @@ ClassList.artificer = {
 					"As a reaction when hit by an attack, the wielder can expend 1 charge to blind its attacker",
 					"The attacker makes a Con save (my spell save DC) or is blinded until its next turn ends",
 				]),
-				additional: typePF ? "simple/martial; attunement" : "simple/martial; requires attunement",
+				additional: "simple/martial" + (typePF ? "" : " weapon") + "; needs attunement",
 				prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 				magicitemsAdd: ["Radiant Weapon"],
 			},
@@ -1936,7 +1936,7 @@ RunFunctionAtEnd(function () {
 			description: "",
 			source: anArtMi.source,
 			magicitemsAdd: [anArtMi.name],
-			additional: anArtMi.attunement ? "requires attunement" : undefined,
+			additional: !anArtMi.attunement ? undefined : typePF && anArtMi.name.length > 30 ? "attunement" : "requires attunement",
 			prereqeval: MI1 && MI1 > 2 ? ClassList.artificer["prereqLvl" + MI1] : undefined,
 			submenu: "Replicate Magic Item" + (MI1 ? " (prereq: level " + (" " + MI1).slice(-2) + " artificer)" : " (common magic items) [" + getLetterRange(anArtMi.name, ["A-F", "G-Q", "R-Z"]) + "]"),
 		};
@@ -2748,30 +2748,36 @@ MagicItemsList["cleansing stone"] = {
 	action: [["action", ""]],
 	weight: 88, // using average marble/limestone density of 2.711 g/cm3
 }
-var ERftLW_docentFullDescription = [
-	"A docent is a small metal sphere, about 2 inches across, studded with dragonshards. To attune to a docent, you must embed the item somewhere on your body, such as your chest or your eye socket.",
-	'>>Sentience<<. A docent is a sentient item of any alignment with an Intelligence of 16, a Wisdom of 14, and a Charisma of 14. It perceives the world through your senses. It communicates telepathically with you and can speak, read, and understand any language it knows (see "Random Properties" below).',
-	">>Life Support<<. Whenever you end your turn with 0 hit points, the docent can make a Wisdom (Medicine) check with a +6 bonus. If this check succeeds, the docent stabilizes you.",
-	">>Random Properties<<. A docent has the following properties:",
-	" \u2022 >>Languages<<. The docent knows Common, Giant, and 1d4 additional languages chosen by the DM. If a docent knows fewer than six languages, it can learn a new language after it hears or reads the language through your senses.",
-	" \u2022 >>Skills<<. The docent has a +7 bonus to one of the following skills (roll a d4): (1) Arcana, (2) History, (3) Investigation, or (4) Nature.",
-	" \u2022 >>Spells<<. The docent knows one of the following spells and can cast it at will, requiring no components (roll a d6): (1–2) detect evil and good or (3–6) detect magic. The docent decides when to cast the spell.",
-	">>Personality<<. A docent is designed to advise and assist the warforged it's attached to. One of the simple functions of a docent is to serve as a translator. The docent's properties are under its control, and if you have a bad relationship with your docent, it might refuse to assist you.",
-];
 MagicItemsList["docent"] = {
 	name: "Docent",
 	source: [["E:RLW", 276]],
 	type: "wondrous item",
 	rarity: "rare",
 	description: "I can embed this sentient small metal sphere studded with dragonshards into my chest or eye socket. I can communicate telepathically with it and it uses my senses. It can serve me as an advisor and a translator. It knowns 6 languages, a spells, an Intelligence skill, and can stabilize me. See Notes page.",
-	descriptionFull: ERftLW_docentFullDescription.join("\n   "),
+	descriptionFull: [
+		"A *docent* is a small metal sphere, about 2 inches across, studded with dragonshards. To attune to a *docent*, you must embed the item somewhere on your body, such as your chest or your eye socket.",
+		'***Sentience***. A *docent* is a sentient item of any alignment with an Intelligence of 16, a Wisdom of 14, and a Charisma of 14. It perceives the world through your senses. It communicates telepathically with you and can speak, read, and understand any language it knows (see "Random Properties" below).',
+		"***Life Support***. Whenever you end your turn with 0 hit points, the *docent* can make a Wisdom (Medicine) check with a +6 bonus. If this check succeeds, the *docent* stabilizes you.",
+		"***Random Properties**. A *docent* has the following properties:",
+		" \u2022 **Languages**. The *docent* knows Common, Giant, and 1d4 additional languages chosen by the DM. If a *docent* knows fewer than six languages, it can learn a new language after it hears or reads the language through your senses.",
+		" \u2022 **Skills**. The *docent* has a +7 bonus to one of the following skills (roll a d4): (1) Arcana, (2) History, (3) Investigation, or (4) Nature.",
+		" \u2022 **Spells**. The *docent* knows one of the following spells and can cast it at will, requiring no components (roll a d6): (1\u20132) *Detect Evil and Good* or (3\u20136) *Detect Magic*. The *docent* decides when to cast the spell.",
+		"***Personality***. A *docent* is designed to advise and assist the warforged it's attached to. One of the simple functions of a *docent* is to serve as a translator. The *docent*'s properties are under its control, and if you have a bad relationship with your *docent*, it might refuse to assist you.",
+	],
 	attunement: true,
 	prerequisite: "Requires attunement by a warforged",
 	prereqeval: function (v) { return /warforged/i.test(CurrentRace.known); },
-	toNotesPage: [{
-		name: "Features",
-		note: desc(ERftLW_docentFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/(with|stabilizes|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
-	}],
+	toNotesPage: [
+		{
+			name: "Docent",
+			useDescriptionFull: function (str) {
+				return str.replace(/(stabilizes|assist) I\b/ig, "$1 me");
+			},
+		},
+		Object.assign({}, sentientItemConflictNote, {
+			amendTo: "The *docent* knows",
+		}),
+	],
 }
 MagicItemsList["dyrrn's tentacle whip"] = {
 	name: "Dyrrn's Tentacle Whip",
@@ -3368,6 +3374,7 @@ CreatureList["clawfoot"] = {
 		name: "Pounce",
 		description: "If the clawfoot moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 11 Strength saving throw or be knocked prone. If the target is prone, the clawfoot can make one bite attack against it as a bonus action.",
 	}],
+	wildshapeString: "##Multiattack##. On its turn, 1 Bite and 1 Claws attack.\n##Pack Tactics##. Advantage on an attack roll if at least one ally, that isn't Incapacitated, is within 5 ft of the target. ##Pounce##. If the clawfoot moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target makes a DC 11 Str save or is knocked Prone and the clawfoot can make one bite attack against it as a bonus action.",
 };
 CreatureList["fastieth"] = {
 	name: "Fastieth",

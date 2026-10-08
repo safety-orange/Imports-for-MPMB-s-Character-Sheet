@@ -248,8 +248,8 @@ MagicItemsList["chest of preserving"] = {
 	source: [["WDotMM", 139]],
 	type: "wondrous item",
 	rarity: "common",
-	description: "Food and other perishable items do not age or decay while inside this chest. It is 2.5 ft long, 1.5 ft wide, and 1 ft tall with a half-barrel lid. The chest has a lock, which can be picked with thieves' tools and a successful DC 15 Dexterity check. Smashing the lock or any other part of the chest renders it nonmagical.",
-	descriptionFull: "Food and other perishable items do not age or decay while inside a Chest of Preserving. The chest is 2\xBD feet long, 1\xBD feet wide, and 1 foot tall with a half-barrel lid. The chest has a lock, which can be picked with thieves' tools and a successful DC 15 Dexterity check. Smashing the lock or any other part of the chest renders it nonmagical.",
+	description: "Food and other perishable items do not age or decay while inside this chest. It is 2.5 ft by 1.5 ft and 1 ft tall with a half-barrel lid. The chest has a lock, which can be picked with thieves' tools and a successful DC 15 Dexterity check. Smashing the lock or any other part of the chest renders it nonmagical.",
+	descriptionFull: "Food and other perishable items do not age or decay while inside a *chest of preserving*. The chest is 2\xBD feet long, 1\xBD feet wide, and 1 foot tall with a half-barrel lid. The chest has a lock, which can be picked with thieves' tools and a successful DC 15 Dexterity check. Smashing the lock or any other part of the chest renders it nonmagical.",
 	weight: 25,
 }
 MagicItemsList["circlet of human perfection"] = { // contains contributions by Pengsloth
@@ -330,17 +330,20 @@ MagicItemsList["tearulai"] = { // contains contributions by Pengsloth
 		selection: ["transport via plants"],
 		firstCol: 4,
 	}],
-	toNotesPage: [{
-		name: "Traits and Personality",
-		note: desc([
-			"Tearulai has an emerald-colored blade and precious gemstones embedded in its hilt and pommel. Evil creatures can't attune to it and take 20 psychic damage if they try to do so. Its emerald blade can't be damaged or dulled, and the sword can't be teleported anywhere without its wielder while the two are attuned to one another.",
-			"Objects hit by the sword take maximum damage from it. When I roll a 20 on the attack roll against a creature, that target takes an extra 14 slashing damage. Then roll another d20. If you roll a 20, you lop off one of the target's limbs, with the effect of such loss determined by the DM. If the creature has no limb to sever, you lop off a portion of its body instead.",
-			"I can speak the sword's command to cause the blade to shed bright light in a 10-ft radius and dim light for another 10 ft. The light stops when I sheath the sword or speaking the command word again.",
-			"The sword has 6 charges and regains 1d4 + 2 expended charges daily at dawn. I can use the charges to cast Fly (2 charges), Polymorph (3 charges), or Transport Via Plants (4 charges).",
-			"Tearulai is sentient and has an Intelligence of 17, a Wisdom of 12, and a Charisma of 20. It has hearing and truesight out to a range of 120 ft. It communicates telepathically with its attuned wielder and can speak, read, and understand Common, Draconic, Elvish, and Sylvan. In addition, the sword can ascertain the true value of any gemstone brought within 5 ft of it.",
-			"Tearulai admires great beauty, music, fine art, and poetry. Vain, the weapon strives to improve its appearance. It craves gemstones and seeks out better ones with which to adorn itself. Most of all, it longs to return to the forests around Myth Drannor, where it was created. If its wielder's goals run counter to its own, Tearulai attempts to take control of its wielder and uses Transport Via Plants to return whence it came.",
-		]) + "\n\n" + sentientItemConflictTxt,
-	}],
+	toNotesPage: [
+		{
+			name: "Tearulai",
+			note: [
+				"Tearulai has an emerald-colored blade and precious gemstones embedded in its hilt and pommel. Evil creatures can't attune to it and take 20 psychic damage if they try to do so. Its emerald blade can't be damaged or dulled, and the sword can't be teleported anywhere without its wielder while the two are attuned to one another.",
+				"Objects hit by the sword take maximum damage from it. When I roll a 20 on the attack roll against a creature, that target takes an extra 14 slashing damage. Then roll another d20. If you roll a 20, you lop off one of the target's limbs, with the effect of such loss determined by the DM. If the creature has no limb to sever, you lop off a portion of its body instead.",
+				"I can speak the sword's command to cause the blade to shed bright light in a 10-ft radius and dim light for another 10 ft. The light stops when I sheath the sword or speaking the command word again.",
+				"The sword has 6 charges and regains 1d4 + 2 expended charges daily at dawn. I can use the charges to cast Fly (2 charges), Polymorph (3 charges), or Transport Via Plants (4 charges).",
+				"Tearulai is sentient and has an Intelligence of 17, a Wisdom of 12, and a Charisma of 20. It has hearing and truesight out to a range of 120 ft. It communicates telepathically with its attuned wielder and can speak, read, and understand Common, Draconic, Elvish, and Sylvan. In addition, the sword can ascertain the true value of any gemstone brought within 5 ft of it.",
+				"Tearulai admires great beauty, music, fine art, and poetry. Vain, the weapon strives to improve its appearance. It craves gemstones and seeks out better ones with which to adorn itself. Most of all, it longs to return to the forests around Myth Drannor, where it was created. If its wielder's goals run counter to its own, Tearulai attempts to take control of its wielder and uses Transport Via Plants to return whence it came.",
+			],
+		},
+		Object.assign({}, sentientItemConflictNote, { amendTo: "Tearulai" }),
+	],
 }
 MagicItemsList["vial of stardust"] = {
 	name: "Vial of Stardust",

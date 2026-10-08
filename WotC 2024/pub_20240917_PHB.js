@@ -4469,7 +4469,7 @@ FeatsList["healer"] = {
 	name: "Healer",
 	source: [["PHB24", 201]],
 	type: "origin",
-	description: "##Battle Medic##. As a Utilize action, I can expend 1 use of a Healer's Kit to allow a creature within 5 ft of me to expend 1 Hit Die and regain HP equal to the HD's roll plus my Proficiency Bonus. ##Healing Rerolls##. Whenever I roll a 1 on the die to heal using a spell or this feat, I can reroll the die but must use the new roll.",
+	description: "##Battle Medic##. As a Utilize action, I can expend 1 use of a Healer's Kit to allow a creature within 5 ft to expend 1 Hit Die and regain HP equal to the HD's roll plus my Proficiency Bonus. ##Healing Rerolls##. Whenever I roll a 1 on the die to heal using a spell or this feat, I can reroll the die but must use the new roll.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Battle Medic***. If you have a Healer's Kit, you can expend one use of it and tend to a creature within 5 feet of yourself as a Utilize action. That creature can expend one of its Hit Point Dice, and you then roll that die. The creature regains a number of Hit Points equal to the roll plus your Proficiency Bonus.",
@@ -4619,7 +4619,7 @@ FeatsList["charger"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && (What("Str") >= 13 || What("Dex") >= 13);
 	},
-	description: "When I take the Dash action, my Speed increases by 10 ft for that action. If I move at least 10 ft in a straight line towards an enemy and hit it with a melee attack as part of the Attack action, once per turn I may either deal +1d8 damage or push the target 10 ft away from me if it's no more than 1 size larger. [+1 Str or Dex]",
+	description: "When I take the Dash action, my Speed increases by 10 ft for that action. If I move at least 10 ft in a straight line towards an enemy and hit it with a melee attack as part of the Attack action, once per turn I may either deal it +1d8 damage or push it 10 ft away from me if it's no more than 1 size larger. [+1 Str or Dex]",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20.",
@@ -5220,7 +5220,7 @@ FeatsList["mounted combatant"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4;
 	},
-	description: "While I'm mounted and not Incapacitated: ##\u2022 Mounted Strike##. I have Advantage on attacks against unmounted within 5 ft that are smaller than my mount. ##\u2022 Leap Aside##. If my mount is not Incapacitated and makes a Dex save to halve the damage, it takes none on a pass and half on a fail. ##\u2022 Veer##. When an attack hits my mount, I can have it hit me instead. [+1 Strength, Dexterity, or Wisdom]",
+	description: "Select one of the choices.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Strength, Dexterity, or Wisdom score by 1, to a maximum of 20.",
@@ -5232,7 +5232,7 @@ FeatsList["mounted combatant"] = {
 	choicesNotInMenu: true,
 	"strength": {
 		description: "While I'm mounted and not Incapacitated:" +
-			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks against unmounted within 5 ft that are smaller than my mount." +
+			(typePF ? " \u2022 I have Adv on attacks vs unmounted within 5 ft that are smaller than my mount." : " ##\u2022 Mounted Strike##. I have Advantage on attacks vs unmounted within 5 ft that are smaller than my mount.") +
 			(typePF ? " \u2022 " : " ##\u2022 Leap Aside##. ") + "If my mount is not Incapacitated and makes a Dex save to halve the damage, it takes none on a pass and half on a fail." +
 			(typePF ? "\n\u2022 " : " ##\u2022 Veer##. ") + "When an attack hits my mount, I can have it hit me instead." +
 			(typePF ? "" : " [+1 Str]"),
@@ -5240,7 +5240,7 @@ FeatsList["mounted combatant"] = {
 	},
 	"dexterity": {
 		description: "While I'm mounted and not Incapacitated:" +
-			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks against unmounted within 5 ft that are smaller than my mount." +
+			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks vs unmounted within 5 ft that are smaller than my mount." +
 			(typePF ? " \u2022 " : " ##\u2022 Leap Aside##. ") + "If my mount is not Incapacitated and makes a Dex save to halve the damage, it takes none on a pass and half on a fail." +
 			(typePF ? "\n\u2022 " : " ##\u2022 Veer##. ") + "When an attack hits my mount, I can have it hit me instead." +
 			(typePF ? "" : " [+1 Dex]"),
@@ -5248,7 +5248,7 @@ FeatsList["mounted combatant"] = {
 	},
 	"wisdom": {
 		description: "While I'm mounted and not Incapacitated:" +
-			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks against unmounted within 5 ft that are smaller than my mount." +
+			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks vs unmounted within 5 ft that are smaller than my mount." +
 			(typePF ? " \u2022 " : " ##\u2022 Leap Aside##. ") + "If my mount is not Incapacitated and makes a Dex save to halve the damage, it takes none on a pass and half on a fail." +
 			(typePF ? "\n\u2022 " : " ##\u2022 Veer##. ") + "When an attack hits my mount, I can have it hit me instead." +
 			(typePF ? "" : " [+1 Wis]"),
@@ -5390,7 +5390,7 @@ FeatsList["poisoner"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4;
 	},
-	description: "As a Bonus Action, I can apply poison to weapon/ammo, lasting for 1 min or until used to damage. Creatures damaged this way must make a Con save (DC 8 + PB + mod) or take 2d8 Poison damage and be Poisoned until my next turn ends. Poison damage I deal ignores Resistance. I can create poisons. See Notes page. [+1 Dex or Int]",
+	description: "As a Bonus Action, I can apply poison to weapon/ammo, lasting for 1 min or until used to damage. Creatures damaged this way must make a Con save (DC 8 + PB + mod) or take 2d8 Poison dmg and be Poisoned until my next turn ends. Poison dmg I deal ignores Resistance. I can create poisons. See Notes page.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Dexterity or Intelligence score by 1, to a maximum of 20.",
@@ -5440,7 +5440,7 @@ FeatsList["polearm master"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && (What("Str") >= 13 || What("Dex") >= 13);
 	},
-	description: "While wielding a Quarterstaff, Spear, or Heavy Reach weapon: ##Pole Strike##. As a Bonus Action directly after an Attack action with it, I can make a 1d4 Bludgeoning attack with its other end. ##Reactive Strike##. As a Reaction when a creature enters my reach with it, I can make one melee attack against them. [+1 Strength or Dexterity]",
+	description: "Select one of the choices.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Dexterity or Strength score by 1, to a maximum of 20.",
@@ -5534,7 +5534,7 @@ FeatsList["ritual caster"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && (What("Int") >= 13 || What("Wis") >= 13 || What("Cha") >= 13);
 	},
-	description: PHB_RitualCasterDescription.join("\n") + " [+1 Intelligence, Wisdom, or Charisma]",
+	description: "Select one of the choices.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
@@ -5579,10 +5579,7 @@ FeatsList["sentinel"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && (What("Str") >= 13 || What("Dex") >= 13);
 	},
-	description: [
-		"##Guardian##. When a creature within 5 ft of me takes the Disengage action or hits a target other than me with an attack, I can make an Opportunity Attack against them.",
-		"##Halt##. When I make an Opportunity Attack against a creature, its Speed becomes 0 for the rest of the current turn. [+1 Strength or Dexterity]",
-	].join("\n"),
+	description: "Select one of the choices.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20.",
@@ -5696,7 +5693,7 @@ FeatsList["shield master"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && v.shieldProf;
 	},
-	description: "##Shield Bash##. Once per turn after I hit a creature in 5 ft during the Attack action, I can have it make a Str save (DC 8 + Str mod + PB) or be pushed 5 ft away or knocked Prone. ##Interpose Shield##. As a Reaction when I succeed on a Dex save to halve damage, I can interpose my shield to avoid all the damage. [+1 Strength]",
+	description: "##Shield Bash##. Once per turn after I hit a creature in 5 ft during the Attack action, I can have it make a Str save (DC 8 + Str mod + PB) or be pushed 5 ft away or knocked Prone. ##Interpose Shield##. As a Reaction when I succeed on a Dex save to halve damage, I can interpose my shield to avoid all damage. [+1 Str]",
 	calculate: 'var dc = 8 + Number(How("Proficiency Bonus")) + Number(What("Str Mod"));\n var txt = ["##Shield Bash##. Once per turn after I hit a creature in 5 ft during the Attack action, I can have it make a DC " + dc + " (8+Str+PB) Str save or be pushed 5 ft away or knocked Prone.", "##Interpose Shield##. As a Reaction when I succeed on a Dex save to halve damage, I can interpose my shield to avoid all the damage."];\n if (typePF) { txt.reverse(); };\n event.value = txt.join("\\n") + " [+1 Strength]";',
 	descriptionFull: [
 		"You gain the following benefits.",
@@ -5824,7 +5821,7 @@ FeatsList["slasher"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4;
 	},
-	description: "##Hamstring##. Once per turn when I hit a creature with an attack that deals Slashing damage, I can reduce its Speed by 10 ft until the start of my next turn. ##Enhanced Critical##. When I score a Critical Hit that deals Slashing damage to a creature, it gets Disadvantage on attack rolls until the start of my next turn. [+1 Strength or Dexterity]",
+	description: "Select one of the choices.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20.",
@@ -5866,11 +5863,7 @@ FeatsList["speedy"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && (What("Dex") >= 13 || What("Con") >= 13);
 	},
-	description: [
-		"##Agile Movement##. Opportunity Attacks have Disadvantage against me.",
-		"##Dash over Difficult Terrain##. When I take the Dash action on my turn, Difficult Terrain doesn't cost me extra movement that turn.",
-		"##Speed Increase##. I have +10 ft Speed. [+1 Dexterity or Constitution]",
-	].join("\n"),
+	description: "Select one of the choices.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Dexterity or Constitution score by 1, to a maximum of 20.",
@@ -5915,7 +5908,7 @@ FeatsList["spell sniper"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && v.isSpellcastingClass;
 	},
-	description: PHB_SpellSniperDescription + " [+1 Intelligence, Wisdom, or Charisma]",
+	description: "Select one of the choices.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
@@ -5981,7 +5974,7 @@ FeatsList["telekinetic"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4;
 	},
-	description: "I know the *Mage Hand* cantrip, can cast it without components, can make it invisible, and with +30 ft range. As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs this feat's spell save DC) or move it 5 ft from or towards me. My spellcasting ability is the one increased by this feat. [+1 Int, Wis, or Cha]",
+	description: "Select one of the choices.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
@@ -6031,7 +6024,7 @@ FeatsList["telepathic"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4;
 	},
-	description: "##Telepathic Utterance##. I can telepathically speak to a creature I can see within 60 ft in a language I know, but they can't respond telepathically. I always have ##Detect Thoughts## prepared. I can cast it once per Long Rest without a spell slot or components and by expending a spell slot as normal. My spellcasting ability is the one increased by this feat. [+1 Int, Wis, or Cha]",
+	description: "Select one of the choices.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",

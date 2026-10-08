@@ -41,7 +41,12 @@ RaceList["pallid elf"] = { // contains contributions by Smashman
 	heightMetric: " range from under 1,5 to 1,7 metres tall (137 + 5d10 cm)",
 	weightMetric: " weigh around 50 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 1, 0],
-	trait: "Pallid Elf (+2 Dexterity, +1 Wisdom)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nIncisive Sense: I have advantage on Intelligence (Investigation) and Wisdom (Insight) checks.\nBlessing of the Moonweaver: I know the Light cantrip. At 3rd level, I can cast Sleep once per long rest. At 5th level, I can also cast Invisibility on myself once per long rest. Spells cast using this trait require no material components and use Wisdom as spellcasting ability.",
+	trait: [
+		"Pallid Elf (+2 Dexterity, +1 Wisdom)",
+		"##\u25C6 Trance##. Elves don't need to sleep, but meditate semiconsciously for 4 hours a day, gaining the same benefit as a human gets from 8 hours of sleep (long rests take only 4 hours).",
+		"##\u25C6 Incisive Sense##. I have advantage on Intelligence (Investigation) and Wisdom (Insight) checks.",
+		"##\u25C6 Blessing of the Moonweaver##. I know the *Light* cantrip. At 3rd level, I can cast *Sleep* once per long rest. At 5th level, I can also cast *Invisibility* on myself once per long rest. Spells cast " + (typePF ? "this way" : "using this trait") + " require no material components and use Wisdom as spellcasting ability.",
+	],
 	spellcastingAbility: 5,
 	spellcastingBonus: [{
 		name: "Blessing of the Moonweaver (level 1)",
@@ -2051,7 +2056,7 @@ CreatureList["bristled moorbounder"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the moorbounder can makeone Blades and one Claws attack.",
+		description: "As an action on its turn, the moorbounder can make one Blades and one Claws attack.",
 	}],
 	traits: [{
 		name: "Bladed Hide",
@@ -2128,14 +2133,6 @@ MagicItemsList["amulet of the drunkard"] = {
 	usages: 1,
 	recovery: "dawn",
 };
-var EGtW_ArcaneCannonFullDescription = [
-	"This Large cannon is imbued with magic. It requires no ammunition and doesn't need to be loaded. It takes one action to aim the cannon and one action to fire it. After the cannon has fired, it must recharge for 5 minutes before it can be fired again. The creature firing the cannon chooses the effect from the following options:",
-	">>Acid Jet<<. The cannon discharges acid in a line 300 feet long and 5 feet wide. Each creature in that line must make a DC 15 Dexterity saving throw, taking 4d10 acid damage on a failed save, or half as much damage on a successful one. In addition, a creature that fails its saving throw takes 2d10 acid damage at the start of each of its turns; a creature can end this damage by using its action to wash off the acid with a pint or more of water.",
-	">>Fire Jet<<. The cannon discharges fire in a line 300 feet long and 5 feet wide. Each creature in the area must make a DC 15 Dexterity saving throw, taking 6d10 fire damage on a failed save, or half as much damage on a successful one. The fire ignites any flammable objects in the area that aren't being worn or carried.",
-	">>Frost Shot<<. The cannon shoots a ball of frost to a point you can see within 1200 feet of the cannon. The ball then expands to form a 30-foot-radius sphere centered on that point. Each creature in that area must make a DC 15 Constitution saving throw. On a failed save, a creature takes 4d10 cold damage, and its speed is reduced by 10 feet for 1 minute. On a successful save, the creature takes half as much damage, and its speed isn't reduced. A creature whose speed is reduced by this effect can repeat the save at the end of each of its turns, ending the effect on itself on a success.",
-	">>Lightning Shot<<. The cannon shoots a ball of lightning to a point you can see within 1200 feet of the cannon. The lightning then expands to form a 20-foot-radius sphere centered on that point. Each creature in that area must make a DC 15 Dexterity saving throw, taking 6d10 lightning damage on a failed save, or half as much damage on a successful one. Creatures wearing metal armor have disadvantage on the save.",
-	">>Poison Spray<<. The cannon expels poison gas in a 60-foot cone. Each creature in that area must make a DC 15 Constitution saving throw. On a failed save, the creature takes 4d10 poison damage and is poisoned for 1 minute. On a successful save, the creature takes half as much damage and isn't poisoned. A creature poisoned in this way can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
-];
 MagicItemsList["arcane cannon"] = {
 	name: "Arcane Cannon",
 	source: [["W", 265]],
@@ -2143,11 +2140,18 @@ MagicItemsList["arcane cannon"] = {
 	rarity: "very rare",
 	notLegalAL: true,
 	description: "This Large magical cannon requires no ammunition and doesn't need to be loaded, but takes 5 minutes to recharge once fired. It takes one action to aim it and another action to fire it. When I fire it, I can choose the effect, an acid jet, fire jet, frost shot, lightning shot, or poison spray. See Notes page.",
-	descriptionFull: EGtW_ArcaneCannonFullDescription.join("\n   "),
+	descriptionFull: [
+		"This Large cannon is imbued with magic. It requires no ammunition and doesn't need to be loaded. It takes one action to aim the cannon and one action to fire it. After the cannon has fired, it must recharge for 5 minutes before it can be fired again. The creature firing the cannon chooses the effect from the following options:",
+		"***Acid Jet***. The cannon discharges acid in a line 300 feet long and 5 feet wide. Each creature in that line must make a DC 15 Dexterity saving throw, taking 4d10 acid damage on a failed save, or half as much damage on a successful one. In addition, a creature that fails its saving throw takes 2d10 acid damage at the start of each of its turns; a creature can end this damage by using its action to wash off the acid with a pint or more of water.",
+		"***Fire Jet***. The cannon discharges fire in a line 300 feet long and 5 feet wide. Each creature in the area must make a DC 15 Dexterity saving throw, taking 6d10 fire damage on a failed save, or half as much damage on a successful one. The fire ignites any flammable objects in the area that aren't being worn or carried.",
+		"***Frost Shot***. The cannon shoots a ball of frost to a point you can see within 1200 feet of the cannon. The ball then expands to form a 30-foot-radius sphere centered on that point. Each creature in that area must make a DC 15 Constitution saving throw. On a failed save, a creature takes 4d10 cold damage, and its speed is reduced by 10 feet for 1 minute. On a successful save, the creature takes half as much damage, and its speed isn't reduced. A creature whose speed is reduced by this effect can repeat the save at the end of each of its turns, ending the effect on itself on a success.",
+		"***Lightning Shot***. The cannon shoots a ball of lightning to a point you can see within 1200 feet of the cannon. The lightning then expands to form a 20-foot-radius sphere centered on that point. Each creature in that area must make a DC 15 Dexterity saving throw, taking 6d10 lightning damage on a failed save, or half as much damage on a successful one. Creatures wearing metal armor have disadvantage on the save.",
+		"***Poison Spray***. The cannon expels poison gas in a 60-foot cone. Each creature in that area must make a DC 15 Constitution saving throw. On a failed save, the creature takes 4d10 poison damage and is poisoned for 1 minute. On a successful save, the creature takes half as much damage and isn't poisoned. A creature poisoned in this way can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+	],
 	action: [["action", " (Aim or Fire)"]],
 	toNotesPage: [{
-		name: "Effects",
-		note: "\n" + EGtW_ArcaneCannonFullDescription.join("\n \u2022 ").replace(/>>(.*?)<<\./g, "***$1***:").replace(/\byou\b/ig, "I").replace(/\bf(oo|ee)t\b/ig, "ft"),
+		name: "Arcane Cannon",
+		useDescriptionFull: true,
 	}],
 };
 MagicItemsList["battering shield"] = {
@@ -2287,7 +2291,7 @@ MagicItemsList["dispelling stone"] = {
 	description: "This smooth, rainbow-colored, egg-shaped stone can be thrown up to 30 ft and explodes in a 10-ft-radius sphere of magical energy on impact, destroying the stone. Any active spell of 5th level or lower in the sphere ends.",
 	descriptionFull: "This smooth, rainbow-colored, egg-shaped stone can be thrown up to 30 feet and explodes in a 10-foot-radius sphere of magical energy on impact, destroying the stone. Any active spell of 5th level or lower in the sphere ends.",
 	usages: 1,
-	recovery: "Never",
+	recovery: "\u2013",
 };
 MagicItemsList["duskcrusher"] = {
 	name: "Duskcrusher",
@@ -2335,7 +2339,7 @@ MagicItemsList["dust of deliciousness"] = {
 	description: "This reddish brown dust can be sprinkled over any edible substance to greatly improve the flavor. The dust also dulls the eater's senses: anyone eating food treated with this dust has disadvantage on Wisdom ability checks and Wisdom saving throws for 1 hour. There is enough dust to flavor six servings.",
 	descriptionFull: "This reddish brown dust can be sprinkled over any edible substance to greatly improve the flavor. The dust also dulls the eater's senses: anyone eating food treated with this dust has disadvantage on Wisdom ability checks and Wisdom saving throws for 1 hour. There is enough dust to flavor six servings.",
 	usages: 6,
-	recovery: "Never",
+	recovery: "\u2013",
 };
 // [dupl_start] reprint from Xanathar's Guide to Everything
 if (!MagicItemsList["ersatz eye"]) {
@@ -2410,17 +2414,10 @@ MagicItemsList["last stand armor"] = {
 	extraLimitedFeatures: [{
 		name: "Last Stand Armor",
 		usages: 1,
-		recovery: "Never",
+		recovery: "\u2013",
 	}],
 };
 
-var EGtW_LuxonBeaconFullDescription = [
-	"This dodecahedron of faintly glowing crystal is heavier than it appears. A set of handles are affixed to its sides, and it pulsates and thrums when touched.",
-	">>Fragment of Possibility<<. A creature that touches the beacon and concentrates for 1 minute receives a Fragment of Possibility, which looks like a Tiny, grayish bead of energy that follows the creature around, staying within 1 foot of it at all times. The fragment lasts for 8 hours or until used. Once the beacon grants a Fragment of Possibility, it can't grant another until the next dawn. A creature with a Fragment of Possibility from a Luxon Beacon can't gain another Fragment of Possibility from any source.",
-	"When a creature with a Fragment of Possibility makes an attack roll, an ability check, or a saving throw, it can expend its fragment to roll an additional d20 and choose which of the d20s to use. Alternatively, when an attack roll is made against the creature, it can expend its fragment to roll a d20 and choose which of the d20s to use, the one it rolled or the one the attacker rolled.",
-	"If the original d20 roll has advantage or disadvantage, the creature rolls its d20 after advantage or disadvantage has been applied to the original roll.",
-	">>Soul Snare<<. If a follower of the Luxon who has undergone a ritual of consecution dies within 100 miles of a Luxon Beacon, their soul is ensnared by it. This soul will be reincarnated within the body of a random humanoid baby developing within 100 miles of the beacon.",
-];
 MagicItemsList["luxon beacon"] = {
 	name: "Luxon Beacon",
 	source: [["W", 268]],
@@ -2428,15 +2425,21 @@ MagicItemsList["luxon beacon"] = {
 	rarity: "legendary",
 	notLegalAL: true,
 	description: "Once per dawn, a creature can touch this crystal for 1 minute to gain a Fragment of Possibility. Once for the next 8 hours, it can roll an extra d20 for an attack, check, save, or being attacked, before the outcome is determined. Creatures consecuted to the Luxon that die within 100 miles of it are reincarnated. See notes.",
-	descriptionFull: EGtW_LuxonBeaconFullDescription.join("\n   "),
+	descriptionFull: [
+		"This dodecahedron of faintly glowing crystal is heavier than it appears. A set of handles are affixed to its sides, and it pulsates and thrums when touched.",
+		"***Fragment of Possibility***. A creature that touches the beacon and concentrates for 1 minute receives a Fragment of Possibility, which looks like a Tiny, grayish bead of energy that follows the creature around, staying within 1 foot of it at all times. The fragment lasts for 8 hours or until used. Once the beacon grants a Fragment of Possibility, it can't grant another until the next dawn. A creature with a Fragment of Possibility from a Luxon Beacon can't gain another Fragment of Possibility from any source.",
+		"When a creature with a Fragment of Possibility makes an attack roll, an ability check, or a saving throw, it can expend its fragment to roll an additional d20 and choose which of the d20s to use. Alternatively, when an attack roll is made against the creature, it can expend its fragment to roll a d20 and choose which of the d20s to use, the one it rolled or the one the attacker rolled.",
+		"If the original d20 roll has advantage or disadvantage, the creature rolls its d20 after advantage or disadvantage has been applied to the original roll.",
+		"***Soul Snare***. If a follower of the Luxon who has undergone a ritual of consecution dies within 100 miles of a Luxon Beacon, their soul is ensnared by it. This soul will be reincarnated within the body of a random humanoid baby developing within 100 miles of the beacon.",
+	],
 	extraLimitedFeatures: [{
 		name: "Luxon Beacon (Fragment of Possibility)",
 		usages: 1,
 		recovery: "dawn",
 	}],
 	toNotesPage: [{
-		name: "Features",
-		note: desc(EGtW_LuxonBeaconFullDescription).replace(/   >>(.*?)<<\. /g, function (a, match) { return match.toUpperCase() + "\n   "; }),
+		name: "Luxon Beacon",
+		useDescriptionFull: true,
 	}],
 };
 MagicItemsList["needle of mending"] = {
@@ -2541,7 +2544,7 @@ MagicItemsList["reincarnation dust"] = {
 	rarity: "very rare",
 	notLegalAL: true,
 	usages: 1,
-	recovery: "Never",
+	recovery: "\u2013",
 	description: "Once I can sprinkle the purple dust in this small pouch on a dead humanoid or a piece of a dead humanoid. The dust is absorbed by the remains. If willing, the dead creature returns to life with a new body as if the reincarnate spell had been cast on the remains.",
 	descriptionFull: "When this small pouch of purple dust is sprinkled on a dead humanoid or a piece of a dead humanoid, the dust is absorbed by the remains. If willing, the dead creature returns to life with a new body as if the reincarnate spell had been cast on the remains.",
 	spellcastingBonus: [{
@@ -2611,7 +2614,7 @@ MagicItemsList["spell bottle"] = {
 	rarity: "legendary",
 	notLegalAL: true,
 	attunement: true,
-	description: "While holding this bottle, I can cast a 5th-level or lower spell into it if empty, or cast the stored spell from it (slot level, DC, and spell attack as original casting). As a reaction when I see a spell being cast in 60 ft, I can try to store it in the empty bottle. Works if 3rd-level or lower, otherwise Int check DC 10 + spell level.",
+	description: "While holding this bottle, I can cast a 5th-level or lower spell into it if empty, or cast the stored spell from it (slot level, DC, and spell attack as original casting). As a reaction when I see a spell being cast in 60 ft, I can try to store it in the empty bottle. This works if level 3 or lower, otherwise Int check DC 10 + spell level.",
 	descriptionFull: "This glass bottle can store one spell of up to 5th level at a time. When found, roll a d6 and subtract 1; the total determines the level of spell in the bottle (the DM chooses the spell, and 0 means the bottle is empty). A swirling blue vapor fills the bottle while it contains a spell." +
 	"\n   When the bottle is empty, any creature can cast a spell of 1st through 5th level into it by touching it while casting. The spell has no effect other than to be stored in the bottle." +
 	"\n   While holding the bottle, you can cast the spell stored in it. The spell uses the slot level, spell save DC, spell attack bonus, and spellcasting ability of the original caster, but is otherwise treated as if you cast the spell. The bottle becomes empty once the spell is cast." +
@@ -2773,25 +2776,6 @@ MagicItemsList["weapon of certain death"] = {
 };
 
 // Vestiges of Divergence (contains contributions by kat9137 [Discord] aka sophiechiabatta [GitHub])
-var EGtW_Vestiges_Replace = function (sDescr) {
-	return desc(sDescr).replace(/\bf(oo|ee)t\b/ig, "ft")
-		.replace(/you are/ig, "I am").replace(/\byou\b/ig, "I")
-		.replace(/(by|giving|grants|of|to|for) I\b/ig, "$1 me")
-		.replace(/your/g, "my").replace(/Your/g, "My")
-		.replace(/   >>(.*?)<<\. /g, function (a, match) { return "\n" + match.toUpperCase() + "\n   "; });
-}
-var EGtW_DanothsVisorFullDescription = [
-	"These mithral-frame goggles with clear diamond lenses were used by the evoker Danoth Oro to spot invisible enemies and scout areas from afar.",
-	">>Dormant<<. While wearing the goggles in their dormant state, you can see normally in darkness, both magical and nonmagical, to a distance of 60 feet. Additionally, you have advantage on Intelligence (Investigation) and Wisdom (Perception) checks that rely on sight.",
-	">>Awakened<<. When Danoth's Visor reaches an awakened state, it gains the following properties:",
-	"\u2022 You see invisible creatures and objects within 60 feet of you as if they were visible, and you can see into the Ethereal Plane. Ethereal creatures and objects appear ghostly and translucent.",
-	"\u2022 As a bonus action, you can speak a command word and use the goggles to see into and through solid matter. This vision has a radius of 60 feet and lasts for 1 minute. To you, solid objects within that radius appear transparent. The vision can penetrate 1 foot of stone, 1 inch of common metal, or up to 3 feet of wood or dirt. Thicker substances block the vision, as does a thin sheet of lead. This property can't be used again until the next dawn.",
-	"\u2022 As a bonus action, you can speak a command word to switch the goggles into spyglass mode. While in this mode, creatures and objects viewed through the goggles are magnified to twice their size. Speaking the command word again reverts the goggles to their normal operation.",
-	">>Exalted<<.",
-	"When Danoth's Visor reaches an exalted state, it gains the following properties:",
-	"\u2022 You automatically detect illusions you can see and automatically succeed on saving throws against them. In addition, you see a bright aura around any creature that isn't in its true form.",
-	"\u2022 As an action, you can cast the antimagic field spell from the visor. This property can't be used again until the next dawn.",
-];
 MagicItemsList["danoth's visor"] = {
 	name: "Danoth's Visor",
 	source: [["W", 270]],
@@ -2800,10 +2784,21 @@ MagicItemsList["danoth's visor"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "These mithral-frame goggles with clear diamond lenses were used by the evoker Danoth Oro to spot invisible enemies and scout areas from afar. See notes page for more information.",
-	descriptionFull: EGtW_DanothsVisorFullDescription.join("\n   "),
+	descriptionFull: [
+		"These mithral-frame goggles with clear diamond lenses were used by the evoker Danoth Oro to spot invisible enemies and scout areas from afar.",
+		"***Dormant***. While wearing the goggles in their dormant state, you can see normally in darkness, both magical and nonmagical, to a distance of 60 feet. Additionally, you have advantage on Intelligence (Investigation) and Wisdom (Perception) checks that rely on sight.",
+		"***Awakened***. When Danoth's Visor reaches an awakened state, it gains the following properties:",
+		" \u2022 You see invisible creatures and objects within 60 feet of you as if they were visible, and you can see into the Ethereal Plane. Ethereal creatures and objects appear ghostly and translucent.",
+		" \u2022 As a bonus action, you can speak a command word and use the goggles to see into and through solid matter. This vision has a radius of 60 feet and lasts for 1 minute. To you, solid objects within that radius appear transparent. The vision can penetrate 1 foot of stone, 1 inch of common metal, or up to 3 feet of wood or dirt. Thicker substances block the vision, as does a thin sheet of lead. This property can't be used again until the next dawn.",
+		" \u2022 As a bonus action, you can speak a command word to switch the goggles into spyglass mode. While in this mode, creatures and objects viewed through the goggles are magnified to twice their size. Speaking the command word again reverts the goggles to their normal operation.",
+		"***Exalted***.",
+		"When Danoth's Visor reaches an exalted state, it gains the following properties:",
+		" \u2022 You automatically detect illusions you can see and automatically succeed on saving throws against them. In addition, you see a bright aura around any creature that isn't in its true form.",
+		" \u2022 As an action, you can cast the antimagic field spell from the visor. This property can't be used again until the next dawn.",
+	],
 	toNotesPage: [{
-		name: "Features",
-		note: EGtW_Vestiges_Replace(EGtW_DanothsVisorFullDescription),
+		name: "Danoth's Visor",
+		useDescriptionFull: true,
 	}],
 	vision: [["Devil's Sight", "fixed 60"], ["Adv. on Investigation and Perception check that rely on sight", 0]],
 	choices: ["Dormant", "Awakened", "Exalted"],
@@ -2851,17 +2846,6 @@ MagicItemsList["danoth's visor"] = {
 		savetxt: { immune: ["illusions"] },
 	},
 };
-var EGtW_GrimoireInfinitusFullDescription = [
-	"Several of these spellbooks with gilded pages and silver-plated covers were created during the Age of Arcanum, but only one has been found since the Calamity ended. The book has an infinite number of pages, is three inches thick, eight inches wide, twelve inches long, and weighs three pounds.",
-	">>Dormant<<. Most of the book is blank, but the following spells are recorded in the first pages of the tome: alarm, antimagic field, Bigby's hand, blight, charm person, confusion, control weather, create undead, detect thoughts, enlarge/reduce, fear, foresight, gaseous form, glyph of warding, legend lore, Leomund's tiny hut, mass suggestion, mislead, misty step, Mordenkainen's faithful hound, prismatic spray, ray of enfeeblement, silent image, teleport, and thunderwave.",
-	"You can use the grimoire as your spellbook, and you can scribe new spells into it as normal. When you prepare wizard spells using the grimoire, the number of wizard spells you can prepare increases by 1.",
-	">>Awakened<<. When the Grimoire Infinitus reaches an awakened state, it gains the following properties:",
-	"\u2022 While you carry the spellbook, you have advantage on saving throws against spells and magical effects.",
-	"\u2022 When you prepare wizard spells using the grimoire as your spellbook, the number of spells you can prepare increases by 1 again.",
-	">>Exalted<<. When the Grimoire Infinitus reaches an exalted state, it gains the following properties:",
-	"\u2022 You can now use your Arcane Recovery feature twice between long rests, rather than once.",
-	"\u2022 When you prepare wizard spells using the grimoire as your spellbook, the number of spells you can prepare increases by 1 again.",
-];
 MagicItemsList["grimoire infinitus"] = {
 	name: "Grimoire Infinitus",
 	source: [["W", 271]],
@@ -2870,11 +2854,21 @@ MagicItemsList["grimoire infinitus"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This spellbook with unlimited gilded pages and silver-plated covers can be used by a wizard to prepare and store spells. It holds several spells already. When I use to prepare wizards spells, I can prepare 1 additional spell.",
-	descriptionFull: EGtW_GrimoireInfinitusFullDescription.join("\n   "),
+	descriptionFull: [
+		"Several of these spellbooks with gilded pages and silver-plated covers were created during the Age of Arcanum, but only one has been found since the Calamity ended. The book has an infinite number of pages, is three inches thick, eight inches wide, twelve inches long, and weighs three pounds.",
+		"***Dormant***. Most of the book is blank, but the following spells are recorded in the first pages of the tome: alarm, antimagic field, Bigby's hand, blight, charm person, confusion, control weather, create undead, detect thoughts, enlarge/reduce, fear, foresight, gaseous form, glyph of warding, legend lore, Leomund's tiny hut, mass suggestion, mislead, misty step, Mordenkainen's faithful hound, prismatic spray, ray of enfeeblement, silent image, teleport, and thunderwave.",
+		"You can use the grimoire as your spellbook, and you can scribe new spells into it as normal. When you prepare wizard spells using the grimoire, the number of wizard spells you can prepare increases by 1.",
+		"***Awakened***. When the Grimoire Infinitus reaches an awakened state, it gains the following properties:",
+		" \u2022 While you carry the spellbook, you have advantage on saving throws against spells and magical effects.",
+		" \u2022 When you prepare wizard spells using the grimoire as your spellbook, the number of spells you can prepare increases by 1 again.",
+		"***Exalted***. When the Grimoire Infinitus reaches an exalted state, it gains the following properties:",
+		" \u2022 You can now use your Arcane Recovery feature twice between long rests, rather than once.",
+		" \u2022 When you prepare wizard spells using the grimoire as your spellbook, the number of spells you can prepare increases by 1 again.",
+	],
 	weight: 3,
 	toNotesPage: [{
-		name: "Features",
-		note: EGtW_Vestiges_Replace(EGtW_GrimoireInfinitusFullDescription),
+		name: "Grimoire Infinitus",
+		useDescriptionFull: true,
 	}],
 	prerequisite: "Requires attunement by a wizard",
 	prereqeval: function (v) { return classes.known.wizard ? true : false; },
@@ -2929,21 +2923,6 @@ MagicItemsList["grimoire infinitus"] = {
 		}],
 	},
 };
-var EGtW_HideFeralGuardianFullDescription = [
-	"It is believed that this polished and beautifully detailed leather armor was a gift from Melora, bestowed on a long-forgotten archdruid and champion of the natural world before the terrors of the Calamity.",
-	">>Dormant<<. While wearing the armor in its dormant state, you gain the following benefits:",
-	"\u2022 The armor grants you a +1 bonus to AC.",
-	"\u2022 While you are transformed by an effect that replaces any of your game statistics with those of another creature, you have a +1 bonus to melee attack and damage rolls, and you retain the benefits of this armor.",
-	"\u2022 As an action, you can use the armor to cast polymorph on yourself, transforming into a giant owl while retaining your Intelligence, Wisdom, and Charisma scores. This property can't be used again until the next dawn.",
-	">>Awakened<<. When the armor reaches an awakened state, it gains the following properties:",
-	"\u2022 The AC bonus of the armor increases to +2.",
-	"\u2022 While you are transformed by an effect that replaces any of your game statistics with those of another creature, your bonus to melee attack and damage rolls increases by 1 (to +2).",
-	"\u2022 When you cast the polymorph spell using this armor, you can transform into a cave bear.",
-	">>Exalted<<. When the armor reaches an exalted state, it gains the following properties:",
-	"\u2022 The AC bonus of the armor increases to +3.",
-	"\u2022 While you are transformed by an effect that replaces any of your game statistics with those of another creature, your bonus to melee attack and damage rolls increases by 1 (to +3).",
-	"\u2022 When you cast the polymorph spell using this armor, you can transform into a guardian wolf.",
-];
 MagicItemsList["hide of the feral guardian"] = {
 	name: "Hide of the Feral Guardian",
 	source: [["W", 271]],
@@ -2952,11 +2931,27 @@ MagicItemsList["hide of the feral guardian"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This magic studded leather armor retains it benefits even when I'm transformed by an effect that replaces any of my game statistics with those of another creature and then also grants me a bonus to melee attack and damage rolls. Once per dawn, I can use it to cast Polymorph on myself.",
-	descriptionFull: EGtW_HideFeralGuardianFullDescription.join("\n   "),
+	descriptionFull: [
+		"It is believed that this polished and beautifully detailed leather armor was a gift from Melora, bestowed on a long-forgotten archdruid and champion of the natural world before the terrors of the Calamity.",
+		"***Dormant***. While wearing the armor in its dormant state, you gain the following benefits:",
+		" \u2022 The armor grants you a +1 bonus to AC.",
+		" \u2022 While you are transformed by an effect that replaces any of your game statistics with those of another creature, you have a +1 bonus to melee attack and damage rolls, and you retain the benefits of this armor.",
+		" \u2022 As an action, you can use the armor to cast polymorph on yourself, transforming into a giant owl while retaining your Intelligence, Wisdom, and Charisma scores. This property can't be used again until the next dawn.",
+		"***Awakened***. When the armor reaches an awakened state, it gains the following properties:",
+		" \u2022 The AC bonus of the armor increases to +2.",
+		" \u2022 While you are transformed by an effect that replaces any of your game statistics with those of another creature, your bonus to melee attack and damage rolls increases by 1 (to +2).",
+		" \u2022 When you cast the polymorph spell using this armor, you can transform into a cave bear.",
+		"***Exalted***. When the armor reaches an exalted state, it gains the following properties:",
+		" \u2022 The AC bonus of the armor increases to +3.",
+		" \u2022 While you are transformed by an effect that replaces any of your game statistics with those of another creature, your bonus to melee attack and damage rolls increases by 1 (to +3).",
+		" \u2022 When you cast the polymorph spell using this armor, you can transform into a guardian wolf.",
+	],
 	weight: 13,
 	toNotesPage: [{
-		name: "Features",
-		note: EGtW_Vestiges_Replace(EGtW_HideFeralGuardianFullDescription) + "\n\nNOTE\n   Be aware that the bonus to melee attacks and damage in wild shape are not automated.",
+		name: "Hide of the Feral Guardian",
+		useDescriptionFull: function (str) {
+			return str.replace("grants I", "grants me");
+		},
 	}],
 	extraLimitedFeatures: [{
 		name: "Hide of the Feral Guardian (Polymorph)",
@@ -2970,6 +2965,41 @@ MagicItemsList["hide of the feral guardian"] = {
 		selection: ["polymorph"],
 		firstCol: "onceday",
 	}],
+	calcChanges: {
+		wildshapeCallback: [
+			function (prefix, fieldNo, oWildshape, sCrea) {
+				var iKnown = CurrentMagicItems.known.indexOf("hide of the feral guardian");
+				if (iKnown === -1) return;
+				var bonus = 0;
+				switch (CurrentMagicItems.choices[iKnown]) {
+					case "dormant":
+						bonus = 1;
+						break;
+					case "awakened":
+						bonus = 2;
+						break;
+					case "exalted":
+						bonus = 3;
+						break;
+				}
+				if (bonus === 0) return;
+				oWildshape.attacks.forEach(function (atk) {
+					if (!/melee/i.test(atk.range)) return;
+					if (!atk.modifiers) {
+						atk.modifiers = [bonus, bonus];
+					} else {
+						atk.modifiers = atk.modifiers.map(function (n, idx) {
+							if (idx > 1) return n;
+							if (!n) return bonus;
+							if (!isNaN(n)) return Number(n) + bonus;
+							return n + "+" + bonus;
+						});
+					}
+				});
+			},
+			"While in wild shape, I have a bonus to melee attack and damage rolls. This bonus depends on the state of the vestige, +1 for Dormant, +2 for Awakened, and +3 for Exalted.",
+		],
+	},
 	choices: ["Dormant", "Awakened", "Exalted"],
 	choicesNotInMenu: true,
 	"dormant": {
@@ -3081,18 +3111,6 @@ MagicItemsList["hide of the feral guardian"] = {
 		}],
 	},
 };
-var EGtW_InfiltratorsKeyFullDescription = [
-	"This mithral skeleton key was forged using the blood of twelve master thieves executed for trying to steal magic items during the Age of Arcanum.",
-	">>Dormant<<. The Infiltrator's Key grants the following benefits in its dormant state:",
-	"\u2022 The key can be used as thieves' tools for the purpose of opening locks. When using the key, you are considered proficient in thieves' tools and you have advantage on ability checks made to open locks.",
-	"\u2022 While holding the key, your steps are muffled, giving you advantage on Dexterity (Stealth) checks made to move silently.",
-	">>Awakened<<. When the Infiltrator's Key reaches an awakened state, it gains the following properties:",
-	"\u2022 While holding the key, you can use a bonus action to transform the key into a magic dagger or back into a key. While the key is in the form of a dagger, you gain a +1 bonus to attack and damage rolls made with it, and it returns to your hand immediately after it is used to make a ranged attack.",
-	"\u2022 While holding the key, you can use an action to cast one of the following spells from it: alter self, invisibility, knock, or pass without trace. Once a spell has been cast using the key, it can't be used to cast that spell again until the next dawn.",
-	">>Exalted<<. When the Infiltrator's Key reaches an exalted state, it gains the following properties:",
-	"\u2022 As a bonus action, you can touch the key to a floor, wall, or ceiling that is no more than 5 feet thick and cause a magical opening to appear in the surface. When you create the opening, you choose its length and width, up to 10 feet for each dimension. The opening lasts until the key passes through it to the other side, at which point it disappears (if a creature is in the opening when the doorway closes, the creature is safely shunted to the nearest unoccupied space). The key can't be used to create another opening until the next dawn.",
-	"\u2022 While holding the key, you can use an action to cast one of the following spells from it: dimension door, gaseous form, or mislead. Once a spell has been cast using the key, it can't be used to cast that spell again until the next dawn.",
-];
 MagicItemsList["infiltrator's key"] = {
 	name: "Infiltrator's Key",
 	source: [["W", 273]],
@@ -3101,10 +3119,23 @@ MagicItemsList["infiltrator's key"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This mithral skeleton key was forged using the blood of twelve master thieves executed for trying to steal magic items during the Age of Arcanum. See notes page for more information.",
-	descriptionFull: EGtW_InfiltratorsKeyFullDescription.join("\n   "),
+	descriptionFull: [
+		"This mithral skeleton key was forged using the blood of twelve master thieves executed for trying to steal magic items during the Age of Arcanum.",
+		"***Dormant***. The Infiltrator's Key grants the following benefits in its dormant state:",
+		" \u2022 The key can be used as thieves' tools for the purpose of opening locks. When using the key, you are considered proficient in thieves' tools and you have advantage on ability checks made to open locks.",
+		" \u2022 While holding the key, your steps are muffled, giving you advantage on Dexterity (Stealth) checks made to move silently.",
+		"***Awakened***. When the Infiltrator's Key reaches an awakened state, it gains the following properties:",
+		" \u2022 While holding the key, you can use a bonus action to transform the key into a magic dagger or back into a key. While the key is in the form of a dagger, you gain a +1 bonus to attack and damage rolls made with it, and it returns to your hand immediately after it is used to make a ranged attack.",
+		" \u2022 While holding the key, you can use an action to cast one of the following spells from it: alter self, invisibility, knock, or pass without trace. Once a spell has been cast using the key, it can't be used to cast that spell again until the next dawn.",
+		"***Exalted***. When the Infiltrator's Key reaches an exalted state, it gains the following properties:",
+		" \u2022 As a bonus action, you can touch the key to a floor, wall, or ceiling that is no more than 5 feet thick and cause a magical opening to appear in the surface. When you create the opening, you choose its length and width, up to 10 feet for each dimension. The opening lasts until the key passes through it to the other side, at which point it disappears (if a creature is in the opening when the doorway closes, the creature is safely shunted to the nearest unoccupied space). The key can't be used to create another opening until the next dawn.",
+		" \u2022 While holding the key, you can use an action to cast one of the following spells from it: dimension door, gaseous form, or mislead. Once a spell has been cast using the key, it can't be used to cast that spell again until the next dawn.",
+	],
 	toNotesPage: [{
-		name: "Features",
-		note: EGtW_Vestiges_Replace(EGtW_InfiltratorsKeyFullDescription),
+		name: "Infiltrator's Key",
+		useDescriptionFull: function (str) {
+			return str.replace("giving I", "giving me");
+		},
 	}],
 	toolProfs: [["Thieves' tools", "Dex"]],
 	choices: ["Dormant", "Awakened", "Exalted"],
@@ -3166,22 +3197,6 @@ MagicItemsList["infiltrator's key"] = {
 		}],
 	},
 };
-var EGtW_StormgirdleFullDescription = [
-	"A Stormgirdle is a wide belt made of thick leather branded with the symbol of Kord. The girdle's clasps are made from dragon ivory.",
-	">>Dormant<<. While wearing the Stormgirdle in its dormant state, you have resistance to lightning damage and thunder damage, and your Strength score becomes 21 if it isn't already 21 or higher. In addition, you can use an action to become a Storm Avatar for 1 minute, gaining the following benefits for the duration:",
-	"\u2022 You have immunity to lightning damage and thunder damage.",
-	"\u2022 When you hit with a weapon attack that normally deals bludgeoning damage, it deals thunder damage instead. When you hit with a weapon attack that normally deals piercing or slashing damage, it deals lightning damage instead.",
-	"\u2022 As a bonus action, you can choose one creature you can see within 30 feet of you to be struck by lightning. The target must make a DC 15 Dexterity saving throw, taking 3d6 lightning damage on a failed save, or half as much damage on a successful one.",
-	"Once you use the girdle's Storm Avatar property, that property can't be used again until the next dawn.",
-	">>Awakened<<. While wearing the Stormgirdle in its awakened state, you gain the following benefits:",
-	"\u2022 Your Strength score becomes 23 if it isn't already 23 or higher.",
-	"\u2022 Your Storm Avatar's lightning strike deals 4d6 lightning damage (instead of 3d6).",
-	"\u2022 While transformed into a Storm Avatar, you gain a flying speed of 30 feet and can hover.",
-	">>Exalted<<. While wearing the Stormgirdle in its exalted state, you gain the following benefits:",
-	"\u2022 Your Strength score becomes 25 if it isn't already 25 or higher.",
-	"\u2022 Your Storm Avatar's lightning strike deals 5d6 lightning damage (instead of 3d6).",
-	"\u2022 You can cast the control weather spell from the girdle. This property can't be used again until the next dawn.",
-];
 MagicItemsList["stormgirdle"] = {
 	name: "Stormgirdle",
 	source: [["W", 273]],
@@ -3190,10 +3205,25 @@ MagicItemsList["stormgirdle"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "A wide belt of leather branded with the symbol of Kord. While attuned to and wearing this belt, I am resistant to lightning and thunder damage. My Strength score becomes 21, provided my Strength is not already 21 or higher. As an action, I can become a Storm Avatar for 1 minute. See notes page for more info.",
-	descriptionFull: EGtW_StormgirdleFullDescription.join("\n   "),
+	descriptionFull: [
+		"A Stormgirdle is a wide belt made of thick leather branded with the symbol of Kord. The girdle's clasps are made from dragon ivory.",
+		"***Dormant***. While wearing the Stormgirdle in its dormant state, you have resistance to lightning damage and thunder damage, and your Strength score becomes 21 if it isn't already 21 or higher. In addition, you can use an action to become a Storm Avatar for 1 minute, gaining the following benefits for the duration:",
+		" \u2022 You have immunity to lightning damage and thunder damage.",
+		" \u2022 When you hit with a weapon attack that normally deals bludgeoning damage, it deals thunder damage instead. When you hit with a weapon attack that normally deals piercing or slashing damage, it deals lightning damage instead.",
+		" \u2022 As a bonus action, you can choose one creature you can see within 30 feet of you to be struck by lightning. The target must make a DC 15 Dexterity saving throw, taking 3d6 lightning damage on a failed save, or half as much damage on a successful one.",
+		"Once you use the girdle's Storm Avatar property, that property can't be used again until the next dawn.",
+		"***Awakened***. While wearing the Stormgirdle in its awakened state, you gain the following benefits:",
+		" \u2022 Your Strength score becomes 23 if it isn't already 23 or higher.",
+		" \u2022 Your Storm Avatar's lightning strike deals 4d6 lightning damage (instead of 3d6).",
+		" \u2022 While transformed into a Storm Avatar, you gain a flying speed of 30 feet and can hover.",
+		"***Exalted***. While wearing the Stormgirdle in its exalted state, you gain the following benefits:",
+		" \u2022 Your Strength score becomes 25 if it isn't already 25 or higher.",
+		" \u2022 Your Storm Avatar's lightning strike deals 5d6 lightning damage (instead of 3d6).",
+		" \u2022 You can cast the control weather spell from the girdle. This property can't be used again until the next dawn.",
+	],
 	toNotesPage: [{
-		name: "Features",
-		note: EGtW_Vestiges_Replace(EGtW_StormgirdleFullDescription),
+		name: "Stormgirdle",
+		useDescriptionFull: true,
 	}],
 	dmgres: ["Lightning", "Thunder"],
 	action: [["action", " (Storm Avatar)"]],
@@ -3252,20 +3282,6 @@ MagicItemsList["stormgirdle"] = {
 		}],
 	},
 };
-var EGtW_VerminshroudFullDescription = [
-	"This patchy cloak was pieced together from the pelts of rats found feasting on the dead in Blightshore and is dotted with the bloated corpses of magically preserved insects along its seams.",
-	">>Dormant<<. While wearing the Verminshroud in its dormant state, you gain the following benefits:",
-	"\u2022 You have advantage on Wisdom (Perception) checks that rely on smell, you are immune to disease, and you have darkvision out to a range of 60 feet. If you already have darkvision, wearing the cloak increases the range of your darkvision by 60 feet.",
-	"\u2022 As an action, you can use the Verminshroud to cast polymorph on yourself, transforming into a giant rat or rat while retaining your Intelligence, Wisdom, and Charisma scores, as well as the properties of the cloak. This property can't be used again until the next dawn.",
-	">>Awakened<<. While wearing the Verminshroud in its awakened state, you gain the following benefits:",
-	"\u2022 You have resistance to poison damage.",
-	"\u2022 You can use an action to cast the insect plague spell (save DC 15) from the Verminshroud, requiring no material components. This property can't be used again until the next dawn.",
-	"\u2022 When you cast the polymorph spell using the Verminshroud, you can transform into a giant wasp.",
-	">>Exalted<<. While wearing the Verminshroud in its exalted state, you gain the following benefits:",
-	"\u2022 You gain a climbing speed equal to your walking speed.",
-	"\u2022 Your teeth become razor-sharp natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike. You can make this attack as a bonus action. When you bite a creature and deal damage to it, the creature must succeed on a DC 17 Constitution saving throw or be poisoned for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the condition on itself on a success.",
-	"\u2022 When you cast the polymorph spell using the Verminshroud, you can transform into a giant scorpion.",
-];
 MagicItemsList["verminshroud"] = {
 	name: "Verminshroud",
 	source: [["W", 273]],
@@ -3274,10 +3290,23 @@ MagicItemsList["verminshroud"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This patchy cloak was pieced together from the pelts of rats found feasting on the dead in Blightshore and is dotted with the bloated corpses of magically preserved insects along its seams. See notes page for more info.",
-	descriptionFull: EGtW_VerminshroudFullDescription.join("\n   "),
+	descriptionFull: [
+		"This patchy cloak was pieced together from the pelts of rats found feasting on the dead in Blightshore and is dotted with the bloated corpses of magically preserved insects along its seams.",
+		"***Dormant***. While wearing the Verminshroud in its dormant state, you gain the following benefits:",
+		" \u2022 You have advantage on Wisdom (Perception) checks that rely on smell, you are immune to disease, and you have darkvision out to a range of 60 feet. If you already have darkvision, wearing the cloak increases the range of your darkvision by 60 feet.",
+		" \u2022 As an action, you can use the Verminshroud to cast polymorph on yourself, transforming into a giant rat or rat while retaining your Intelligence, Wisdom, and Charisma scores, as well as the properties of the cloak. This property can't be used again until the next dawn.",
+		"***Awakened***. While wearing the Verminshroud in its awakened state, you gain the following benefits:",
+		" \u2022 You have resistance to poison damage.",
+		" \u2022 You can use an action to cast the insect plague spell (save DC 15) from the Verminshroud, requiring no material components. This property can't be used again until the next dawn.",
+		" \u2022 When you cast the polymorph spell using the Verminshroud, you can transform into a giant wasp.",
+		"***Exalted***. While wearing the Verminshroud in its exalted state, you gain the following benefits:",
+		" \u2022 You gain a climbing speed equal to your walking speed.",
+		" \u2022 Your teeth become razor-sharp natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike. You can make this attack as a bonus action. When you bite a creature and deal damage to it, the creature must succeed on a DC 17 Constitution saving throw or be poisoned for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the condition on itself on a success.",
+		" \u2022 When you cast the polymorph spell using the Verminshroud, you can transform into a giant scorpion.",
+	],
 	toNotesPage: [{
-		name: "Features",
-		note: EGtW_Vestiges_Replace(EGtW_VerminshroudFullDescription),
+		name: "Verminshroud",
+		useDescriptionFull: true,
 	}],
 	savetxt: { immune: ["disease"] },
 	vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"], ["Adv. on Perception check that rely on smell", 0]],
@@ -3372,17 +3401,6 @@ MagicItemsList["verminshroud"] = {
 		}],
 	},
 };
-var EGtW_WreathPrismFullDescription = [
-	"This loop of golden thorns is inset with dozens of gems representing the five colors of Tiamat.",
-	">>Dormant<<. While wearing the wreath in its dormant state, you have darkvision out to a range of 60 feet. If you already have darkvision, wearing the wreath increases the range of your darkvision by 60 feet.",
-	"When you hit a beast, dragon, or monstrosity of challenge rating 5 or lower with an attack, or when you grapple it, you can use the wreath to cast dominate monster on the creature (save DC 13). On a successful save, the target is immune to the power of the wreath for 24 hours. On a failure, a shimmering, golden image of the wreath appears as a collar around the target's neck or as a crown on its head (your choice) until it is no longer charmed by the spell. If you use the wreath to charm a second creature, the first spell immediately ends. When the spell ends, the target knows it was charmed by you.",
-	">>Awakened<<. Once the Wreath of the Prism reaches an awakened state, it gains the following benefits:",
-	"\u2022 You can affect creatures of challenge rating 10 or lower with the wreath.",
-	"\u2022 The save DC of the wreath's spell increases to 15.",
-	">>Exalted<<. Once the Wreath of the Prism reaches an exalted state, it gains the following benefits:",
-	"\u2022 You can affect creatures of challenge rating 15 or lower with the wreath.",
-	"\u2022 The save DC of the wreath's spell increases to 17.",
-];
 MagicItemsList["wreath of the prism"] = {
 	name: "Wreath of the Prism",
 	source: [["W", 274]],
@@ -3391,10 +3409,20 @@ MagicItemsList["wreath of the prism"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "This loop of golden thorns is inset with dozens of gems that represent the five colors of Tiamat. I gain darkvision to 60 ft, or extend my darkvision by 60 ft. When I hit a beast, dragon, or monstrosity with an attack, I can cast dominate monster on that creature, depending on its CR. See notes page for info.",
-	descriptionFull: EGtW_WreathPrismFullDescription.join("\n   "),
+	descriptionFull: [
+		"This loop of golden thorns is inset with dozens of gems representing the five colors of Tiamat.",
+		"***Dormant***. While wearing the wreath in its dormant state, you have darkvision out to a range of 60 feet. If you already have darkvision, wearing the wreath increases the range of your darkvision by 60 feet.",
+		"When you hit a beast, dragon, or monstrosity of challenge rating 5 or lower with an attack, or when you grapple it, you can use the wreath to cast dominate monster on the creature (save DC 13). On a successful save, the target is immune to the power of the wreath for 24 hours. On a failure, a shimmering, golden image of the wreath appears as a collar around the target's neck or as a crown on its head (your choice) until it is no longer charmed by the spell. If you use the wreath to charm a second creature, the first spell immediately ends. When the spell ends, the target knows it was charmed by you.",
+		"***Awakened***. Once the Wreath of the Prism reaches an awakened state, it gains the following benefits:",
+		" \u2022 You can affect creatures of challenge rating 10 or lower with the wreath.",
+		" \u2022 The save DC of the wreath's spell increases to 15.",
+		"***Exalted***. Once the Wreath of the Prism reaches an exalted state, it gains the following benefits:",
+		" \u2022 You can affect creatures of challenge rating 15 or lower with the wreath.",
+		" \u2022 The save DC of the wreath's spell increases to 17.",
+	],
 	toNotesPage: [{
-		name: "Features",
-		note: EGtW_Vestiges_Replace(EGtW_WreathPrismFullDescription),
+		name: "Wreath of the Prism",
+		useDescriptionFull: true,
 	}],
 	vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
 	choices: ["Dormant", "Awakened", "Exalted"],
@@ -3410,7 +3438,7 @@ MagicItemsList["wreath of the prism"] = {
 		}],
 		spellChanges: {
 			"dominate monster": {
-				name: "Dominate Monster (special)",
+				name: "Dominate Monster (WP)",
 				description: "Cast on attack hit on CR 5 or lower beast, dragon, or monstrosity; spell ends if I do this again",
 				changes: "I can cast dominate monster on a beast, dragon, or monstrosity of CR 5 when I hit it with an attack (save DC 13). If I use the wreath to charm a second creature, the first spell immediately ends. When the spell ends, the target knows it was charmed by me.",
 			},
@@ -3427,7 +3455,7 @@ MagicItemsList["wreath of the prism"] = {
 		}],
 		spellChanges: {
 			"dominate monster": {
-				name: "Dominate Monster (special)",
+				name: "Dominate Monster (WP)",
 				description: "Cast on attack hit on CR 10 or lower beast, dragon, or monstrosity; spell ends if I do this again",
 				changes: "I can cast dominate monster on a beast, dragon, or monstrosity of CR 10 when I hit it with an attack (save DC 15). If I use the wreath to charm a second creature, the first spell immediately ends. When the spell ends, the target knows it was charmed by me.",
 			},
@@ -3444,7 +3472,7 @@ MagicItemsList["wreath of the prism"] = {
 		}],
 		spellChanges: {
 			"dominate monster": {
-				name: "Dominate Monster (special)",
+				name: "Dominate Monster (WP)",
 				description: "Cast on attack hit on CR 15 or lower beast, dragon, or monstrosity; spell ends if I do this again",
 				changes: "I can cast dominate monster on a beast, dragon, or monstrosity of CR 15 when I hit it with an attack (save DC 17). If I use the wreath to charm a second creature, the first spell immediately ends. When the spell ends, the target knows it was charmed by me.",
 			},

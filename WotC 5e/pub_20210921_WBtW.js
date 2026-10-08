@@ -233,15 +233,6 @@ RaceList["harengon"] = {
 };
 
 // Magic Items
-var WBtW_Sentient_Item_toNotes = function (sDescr, skipConflict) {
-	var theR = desc(sDescr).replace(/\bf(oo|ee)t\b/ig, "ft")
-		.replace(/you are/ig, "I am").replace(/\byou\b/ig, "I")
-		.replace(/(by|of|to|for) I\b|\bI to|\bI an?\b/ig, "$1 me")
-		.replace(/\bI (to|a|an)\b/ig, "me $1")
-		.replace(/your/g, "my").replace(/Your/g, "My")
-		.replace(/>>(.*?)<</g, "***$1***");
-	return skipConflict ? theR : theR + "\n\n" + sentientItemConflictTxt
-}
 MagicItemsList["bobbing lily pad"] = {
 	name: "Bobbing Lily Pad",
 	source: [["WBtW", 208]],
@@ -362,13 +353,6 @@ MagicItemsList["potion of advantage"] = {
 	"\n   This potion takes the form of a sparkling, golden mist that moves and pours like water.",
 }
 
-var WBtW_Scissors_of_Shadow_Snipping_Full_Description = [
-	"As an action, you make a few snips with these iron shears and cause the shadow of a Humanoid creature you can see within 5 feet of you to detach from its source. If the creature is unwilling to give up its shadow, it can make a DC 15 Charisma saving throw, retaining its shadow on a success. Whether or not the shadow is snipped, this property of the scissors can't be used again until the next dawn.",
-	"The detached shadow is rooted to the spot where it was snipped until you use a bonus action to cause it to behave in one of the following ways, either of which is possible only if you can see the shadow:",
-	"\u2022 You control the shadow's movements and can make the shadow move up to 30 feet across a solid or liquid surface, in any direction you choose (including along vertical surfaces), provided it remains within your sight at all times. The shadow is harmless and unable to be harmed, and it is invisible in darkness. It can't speak, and it doesn't require air, sleep, or nourishment.",
-	"\u2022 You can relinquish control of the shadow, at which point it becomes autonomous and behaves as the DM wishes. It uses the shadow stat block in the Monster Manual, but its creature type is Fey instead of Undead. A creature whose Strength is reduced to 0 by this shadow's Strength Drain attack does not die but falls unconscious instead. The creature regains consciousness and all its Strength after finishing a short or long rest.",
-	"A creature whose shadow has detached from it is cursed. If a shadowless creature is subjected to any spell that ends a curse, or if its detached shadow is reduced to 0 hit points, the detached shadow disappears, and the creature regains its normal shadow instantly.",
-];
 MagicItemsList["scissors of shadow snipping"] = {
 	name: "Scissors of Shadow Snipping",
 	source: [["WBtW", 213]],
@@ -378,21 +362,21 @@ MagicItemsList["scissors of shadow snipping"] = {
 	prerequisite: "Requires attunement by a fey or a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; }, // no fey player races exist that don't have racial spellcasting
 	description: "As an action once per dawn, I can use these iron shears to detach the shadow of a Humanoid I can see within 5 ft. An involuntary target can make a DC 15 Cha save to resist. The detached shadow stays where it was snipped until I use a bonus action to control it or set it free. See Notes page.",
-	descriptionFull: WBtW_Scissors_of_Shadow_Snipping_Full_Description.join("\n   "),
+	descriptionFull: [
+		"As an action, you make a few snips with these iron shears and cause the shadow of a Humanoid creature you can see within 5 feet of you to detach from its source. If the creature is unwilling to give up its shadow, it can make a DC 15 Charisma saving throw, retaining its shadow on a success. Whether or not the shadow is snipped, this property of the scissors can't be used again until the next dawn.",
+		"The detached shadow is rooted to the spot where it was snipped until you use a bonus action to cause it to behave in one of the following ways, either of which is possible only if you can see the shadow:",
+		"\u2022 You control the shadow's movements and can make the shadow move up to 30 feet across a solid or liquid surface, in any direction you choose (including along vertical surfaces), provided it remains within your sight at all times. The shadow is harmless and unable to be harmed, and it is invisible in darkness. It can't speak, and it doesn't require air, sleep, or nourishment.",
+		"\u2022 You can relinquish control of the shadow, at which point it becomes autonomous and behaves as the DM wishes. It uses the shadow stat block in the Monster Manual, but its creature type is Fey instead of Undead. A creature whose Strength is reduced to 0 by this shadow's Strength Drain attack does not die but falls unconscious instead. The creature regains consciousness and all its Strength after finishing a short or long rest.",
+		"A creature whose shadow has detached from it is cursed. If a shadowless creature is subjected to any spell that ends a curse, or if its detached shadow is reduced to 0 hit points, the detached shadow disappears, and the creature regains its normal shadow instantly.",
+	],
 	toNotesPage: [{
-		name: "Features",
-		note: WBtW_Sentient_Item_toNotes(WBtW_Scissors_of_Shadow_Snipping_Full_Description, true),
+		name: "Scissors of Shadow Snipping",
+		useDescriptionFull: true,
 	}],
 	action: [["action", " (snip)"], ["bonus action", " (control)"]],
 	usages: 1,
 	recovery: "dawn",
 }
-var WBtW_Snicker_Snack_Full_Description = [
-	"You gain a +3 bonus to attack and damage rolls made with this magic vorpal sword. In addition, the weapon ignores resistance to slashing damage. When you use this weapon to attack a creature that has at least one head and roll a 20 on the attack roll, you cut off one of the creature's heads. The creature dies if it can't survive without the lost head. A creature is immune to this effect if it is immune to slashing damage, it doesn't have or need a head, it has legendary actions, or the DM decides that the creature is too big for its head to be cut off with this weapon. Such a creature instead takes an extra 6d8 slashing damage from the hit.",
-	"While attuned to Snicker-Snack, you have proficiency with greatswords, and you can use your Charisma modifier instead of your Strength modifier for attack and damage rolls made with the weapon.",
-	">>Sentience<<. Snicker-Snack is a sentient, chaotic good greatsword with an Intelligence of 9, a Wisdom of 14, and a Charisma of 18. It has hearing and darkvision out to a range of 120 feet. It can speak, read, and understand Common, and its voice sounds silvery and melodic. Snicker-Snack craves the destruction of evil Dragons and urges you to seek out these creatures and slay them.",
-	">>Personality<<. Snicker-Snack has a fickle personality. It ends its attunement to you if you miss on attack rolls with the weapon three times in a row. Each time you finish a long rest after that happens, you can attempt to regain the sword's trust by making a contested Charisma check against Snicker-Snack. If you win the contest, your attunement to the weapon is instantly restored. Your attunement to the weapon can't be restored in any other way.",
-];
 MagicItemsList["snicker-snack"] = {
 	name: "Snicker-Snack",
 	source: [["WBtW", 213]],
@@ -402,12 +386,24 @@ MagicItemsList["snicker-snack"] = {
 	prerequisite: "Requires attunement by a non-evil creature",
 	prereqeval: function (v) { return !/evil/i.test(What("Alignment")); },
 	description: "I have a +3 bonus on attack and damage rolls with this sentient magic greatsword and can use Cha instead of Str. It ignores slashing resistance. On a 20 to hit, it cuts off " + (typePF ? "a head" : "one head, possibly killing it instantly") + ". If the target has legendary actions, no head, too wide neck, or is immune to slashing damage, it takes +6d8 damage instead. See Notes.",
-	descriptionFull: WBtW_Snicker_Snack_Full_Description.join("\n   "),
+	descriptionFull: [
+		"You gain a +3 bonus to attack and damage rolls made with this magic vorpal sword. In addition, the weapon ignores resistance to slashing damage. When you use this weapon to attack a creature that has at least one head and roll a 20 on the attack roll, you cut off one of the creature's heads. The creature dies if it can't survive without the lost head. A creature is immune to this effect if it is immune to slashing damage, it doesn't have or need a head, it has legendary actions, or the DM decides that the creature is too big for its head to be cut off with this weapon. Such a creature instead takes an extra 6d8 slashing damage from the hit.",
+		"While attuned to Snicker-Snack, you have proficiency with greatswords, and you can use your Charisma modifier instead of your Strength modifier for attack and damage rolls made with the weapon.",
+		"***Sentience***. Snicker-Snack is a sentient, chaotic good greatsword with an Intelligence of 9, a Wisdom of 14, and a Charisma of 18. It has hearing and darkvision out to a range of 120 feet. It can speak, read, and understand Common, and its voice sounds silvery and melodic. Snicker-Snack craves the destruction of evil Dragons and urges you to seek out these creatures and slay them.",
+		"***Personality***. Snicker-Snack has a fickle personality. It ends its attunement to you if you miss on attack rolls with the weapon three times in a row. Each time you finish a long rest after that happens, you can attempt to regain the sword's trust by making a contested Charisma check against Snicker-Snack. If you win the contest, your attunement to the weapon is instantly restored. Your attunement to the weapon can't be restored in any other way.",
+	],
 	weight: 6,
-	toNotesPage: [{
-		name: "Features",
-		note: WBtW_Sentient_Item_toNotes(WBtW_Snicker_Snack_Full_Description),
-	}],
+	toNotesPage: [
+		{
+			name: "Snicker-Snack",
+			useDescriptionFull: function (str) {
+				return str.replace("urges I", "urges me");
+			},
+		},
+		Object.assign({}, sentientItemConflictNote, {
+			amendTo: "Snicker-Snack",
+		}),
+	],
 	weaponProfs: [false, false ["greatsword"]],
 	weaponOptions: [{
 		baseWeapon: "greatsword",
@@ -430,11 +426,6 @@ MagicItemsList["snicker-snack"] = {
 		],
 	},
 }
-var WBtW_Steel_Full_Description = [
-	"You have a +2 bonus to attack and damage rolls made with this magic weapon.",
-	">>Revivify<<. You can use an action to cast the revivify spell from the sword. You must touch the target with the sword to cast the spell. Once this property of the weapon is used, it can't be used again until the next dawn.",
-	">>Sentience<<. Steel is a sentient, lawful good longsword with an Intelligence of 8, a Wisdom of 11, and a Charisma of 15. It can see and hear out to a range of 60 feet. The sword can speak, read, and understand Common and Draconic. It frets over your well-being while you are attuned to it, and it doesn't like to back down from a fight.",
-];
 MagicItemsList["steel"] = {
 	name: "Steel",
 	source: [["WBtW", 214]],
@@ -444,12 +435,21 @@ MagicItemsList["steel"] = {
 	prerequisite: "Requires attunement by a good-aligned creature",
 	prereqeval: function (v) { return /good/i.test(What("Alignment")); },
 	description: "This sentient longsword adds +2 to attack and damage rolls made with it. As an action once per dawn, I can use it to cast Revivify on a target I touch with the sword. Steel is lawful good and frets over my well-being and doesn't like to back down from a fight. It has Int 8, Wis 11, and Cha 15. See Notes page.",
-	descriptionFull: WBtW_Steel_Full_Description.join("\n   "),
+	descriptionFull: [
+		"You have a +2 bonus to attack and damage rolls made with this magic weapon.",
+		"***Revivify***. You can use an action to cast the *revivify* spell from the sword. You must touch the target with the sword to cast the spell. Once this property of the weapon is used, it can't be used again until the next dawn.",
+		"***Sentience***. *Steel* is a sentient, lawful good longsword with an Intelligence of 8, a Wisdom of 11, and a Charisma of 15. It can see and hear out to a range of 60 feet. The sword can speak, read, and understand Common and Draconic. It frets over your well-being while you are attuned to it, and it doesn't like to back down from a fight.",
+	],
 	weight: 3,
-	toNotesPage: [{
-		name: "Features",
-		note: WBtW_Sentient_Item_toNotes(WBtW_Steel_Full_Description),
-	}],
+	toNotesPage: [
+		{
+			name: "Steel",
+			useDescriptionFull: true,
+		},
+		Object.assign({}, sentientItemConflictNote, {
+			amendTo: "*Steel* is a sentient, lawful good",
+		}),
+	],
 	weaponOptions: [{
 		baseWeapon: "longsword",
 		regExpSearch: /['"]steel['"]/i,
@@ -486,17 +486,6 @@ MagicItemsList["woodcutter's axe"] = {
 		selectNow: true,
 	}],
 }
-var WBtW_Witchlight_Vane_Full_Description = [
-	"This ornate rod is topped by a pair of butterfly wings and incorporates bits of red glass into its length. It weighs 3 pounds.",
-	">>Magic Weapon<<. In the hands of one who is attuned to it, the vane can be wielded as a magic mace that grants a +3 bonus to attack and damage rolls made with it. In addition, the vane deals an extra 1d8 radiant damage on a hit.",
-	">>Sense Mood<<. While the vane is inside the perimeter of the Witchlight Carnival, it can sense the mood of every creature in the carnival that has an Intelligence of 4 or higher. As an action, a creature attuned to the vane can use it to pinpoint the location of the happiest creature in the carnival.",
-	"The butterfly shape at the top of the vane spins slowly clockwise when spirits in the carnival are generally high; if the general mood in the carnival is dour, the top of the vane spins slowly counterclockwise.",
-	">>Sentience<<. The vane is a sentient, chaotic good wondrous item with an Intelligence of 11, a Wisdom of 14, and a Charisma of 14. It has hearing and normal vision out to a range of 30 feet, and it communicates by transmitting emotion to the creature attuned to it. Its purpose is to make sure everyone in the Witchlight Carnival is having a good time.",
-	">>Additional Properties<<. The vane has the following additional properties:",
-	"\u2022 The creature holding the vane has vulnerability to lightning damage.",
-	"\u2022 The creature attuned to the vane can't be blinded, deafened, petrified, or stunned.",
-	"\u2022 While carrying the vane, the creature attuned to it can cast the dancing lights, polymorph, or ray of frost spell as an action, requiring no spell components and using Charisma as the spellcasting ability. After the vane's polymorph spell is cast, roll a d8; on a roll of 3 or 8, the vane can't be used to cast this spell again until the next dawn.",
-];
 MagicItemsList["witchlight vane"] = {
 	name: "Witchlight Vane",
 	source: [["WBtW", 27]],
@@ -506,12 +495,25 @@ MagicItemsList["witchlight vane"] = {
 	prerequisite: "Requires attunement by a mister light or his handpicked successor",
 	description: "I can use this sentient ornate rod as a +3 mace that deals an extra 1d8 radiant damage on a hit. It can sense the mood of every creature in the carnival. As an action, I can pinpoint the happiest in the carnival. I can use it to cast spells. I can't be blinded, deafened, petrified, or stunned. See Notes page.",
 	descriptionLong: "This sentient ornate rod is topped by a pair of butterfly wings and incorporates bits of red glass into its length. I can use it as a +3 mace that deals an extra 1d8 radiant damage on a hit. It can sense the mood of every creature in the carnival. As an action, I can use it to pinpoint the happiest in the carnival. I can use it to cast Dancing Light, Ray of Frost, and Polymorph. After I use it to cast Polymorph, roll a d8. On a roll of 3 or 8, the vane can't be used to cast Polymorph again until the next dawn. It makes me vulnerable to lightning damage, but I can't be blinded, deafened, petrified, or stunned. See Notes page.",
-	descriptionFull: WBtW_Witchlight_Vane_Full_Description.join("\n   "),
+	descriptionFull: [
+		"This ornate rod is topped by a pair of butterfly wings and incorporates bits of red glass into its length. It weighs 3 pounds.",
+		"***Magic Weapon***. In the hands of one who is attuned to it, the vane can be wielded as a magic mace that grants a +3 bonus to attack and damage rolls made with it. In addition, the vane deals an extra 1d8 radiant damage on a hit.",
+		"***Sense Mood***. While the vane is inside the perimeter of the Witchlight Carnival, it can sense the mood of every creature in the carnival that has an Intelligence of 4 or higher. As an action, a creature attuned to the vane can use it to pinpoint the location of the happiest creature in the carnival.",
+		"The butterfly shape at the top of the vane spins slowly clockwise when spirits in the carnival are generally high; if the general mood in the carnival is dour, the top of the vane spins slowly counterclockwise.",
+		"***Sentience***. The vane is a sentient, chaotic good wondrous item with an Intelligence of 11, a Wisdom of 14, and a Charisma of 14. It has hearing and normal vision out to a range of 30 feet, and it communicates by transmitting emotion to the creature attuned to it. Its purpose is to make sure everyone in the Witchlight Carnival is having a good time.",
+		"***Additional Properties***. The vane has the following additional properties:",
+		" \u2022 The creature holding the vane has vulnerability to lightning damage.",
+		" \u2022 The creature attuned to the vane can't be blinded, deafened, petrified, or stunned.",
+		" \u2022 While carrying the vane, the creature attuned to it can cast the *dancing lights*, *polymorph*, or *ray of frost* spell as an action, requiring no spell components and using Charisma as the spellcasting ability. After the vane's *polymorph* spell is cast, roll a d8; on a roll of 3 or 8, the vane can't be used to cast this spell again until the next dawn.",
+	],
 	weight: 3,
-	toNotesPage: [{
-		name: "Features",
-		note: WBtW_Sentient_Item_toNotes(WBtW_Witchlight_Vane_Full_Description),
-	}],
+	toNotesPage: [
+		{
+			name: "Witchlight Vane",
+			useDescriptionFull: true,
+		},
+		Object.assign({}, sentientItemConflictNote, { amendTo: "Witchlight Vane" }),
+	],
 	action: [["action", " (find happiest)"]],
 	weaponOptions: [{
 		baseWeapon: "mace",
@@ -543,14 +545,6 @@ MagicItemsList["witchlight vane"] = {
 		immune: ["blinded", "deafened", "petrified", "stunned"],
 	},
 }
-var WBtW_Witchlight_Watch_Full_Description = [
-	"This ornate pocket watch is fastened to the end of a gold chain. It glows with a faint golden light when opened, and it makes a soft ticking noise that can be heard only by the creature holding it. The face of the watch shows a miniature painting of the Witchlight Carnival ringed by a tiny henge, orbited at night by a mote of light small enough to slip through the eye of a needle. This light causes the henge to cast shadows, and these shadows allow the watch's owner to track the passage of time.",
-	">>Carnival Setup and Takedown<<. The creature attuned to the watch can use an action to initiate the packing up or the unpacking of the Witchlight Carnival, provided the creature and the carnival are on the same plane of existence. In the span of 1 hour, all objects that are elements of the carnival are magically whisked about until everything is packed up and ready for travel, or unpacked and assembled. The watch has no effect on creatures, which can move about freely and safely while the carnival is being set up or taken down. Once the process of packing up or unpacking the carnival begins, it can't be stopped until the task is complete. When the watch is used to pack up or unpack the carnival, this property cannot be used again until 8 hours have elapsed.",
-	">>Additional Properties<<. The pocket watch has the following additional properties:",
-	"\u2022 While carrying the watch, the creature attuned to it can cast the fire bolt, invisibility, or message spell as an action, requiring no spell components and using Intelligence as the spellcasting ability. After the watch's invisibility spell is cast, roll a d8; on a roll of 3 or 8, the watch can't be used to cast this spell again until the next dawn.",
-	"\u2022 The creature attuned to the watch gains 30 pounds. This extra weight vanishes when the attunement ends.",
-	"\u2022 The creature attuned to the watch must eat and drink eight times the normal amount each day.",
-];
 MagicItemsList["witchlight watch"] = {
 	name: "Witchlight Watch",
 	source: [["WBtW", 25]],
@@ -560,10 +554,17 @@ MagicItemsList["witchlight watch"] = {
 	prerequisite: "Requires attunement by a mister witch or his handpicked successor",
 	description: "As an action once per 8 hours, I can use this ornate pocket watch to initiate the (un)packing of the carnival over the next hour. I can use it to cast Fire Bolt, Message, and Invisibility. After it casts Invisibility, I roll a d8. On a roll of 3 or 8, I can't cast this again until the next dawn. See Notes page.",
 	descriptionLong: "This ornate pocket watch is fastened to the end of a gold chain and glows with a faint golden light when opened. As an action once per 8 hours, I can use this ornate pocket watch to initiate the (un)packing of the carnival over the next hour, provided the carnival and I are on the same plane of existence. I can use it to cast Fire Bolt, Message, and Invisibility. After I use it to cast Invisibility, roll a d8. On a roll of 3 or 8, it can't be used to cast Invisibility again until the next dawn. As long as I'm attuned to it, I'm 30 lb heavier and must eat and drink eight times the normal amount each day. See Notes page.",
-	descriptionFull: WBtW_Witchlight_Watch_Full_Description.join("\n   "),
+	descriptionFull: [
+		"This ornate pocket watch is fastened to the end of a gold chain. It glows with a faint golden light when opened, and it makes a soft ticking noise that can be heard only by the creature holding it. The face of the watch shows a miniature painting of the Witchlight Carnival ringed by a tiny henge, orbited at night by a mote of light small enough to slip through the eye of a needle. This light causes the henge to cast shadows, and these shadows allow the watch's owner to track the passage of time.",
+		"***Carnival Setup and Takedown***. The creature attuned to the watch can use an action to initiate the packing up or the unpacking of the Witchlight Carnival, provided the creature and the carnival are on the same plane of existence. In the span of 1 hour, all objects that are elements of the carnival are magically whisked about until everything is packed up and ready for travel, or unpacked and assembled. The watch has no effect on creatures, which can move about freely and safely while the carnival is being set up or taken down. Once the process of packing up or unpacking the carnival begins, it can't be stopped until the task is complete. When the watch is used to pack up or unpack the carnival, this property cannot be used again until 8 hours have elapsed.",
+		"***Additional Properties***. The pocket watch has the following additional properties:",
+		" \u2022 While carrying the watch, the creature attuned to it can cast the fire bolt, invisibility, or message spell as an action, requiring no spell components and using Intelligence as the spellcasting ability. After the watch's invisibility spell is cast, roll a d8; on a roll of 3 or 8, the watch can't be used to cast this spell again until the next dawn.",
+		" \u2022 The creature attuned to the watch gains 30 pounds. This extra weight vanishes when the attunement ends.",
+		" \u2022 The creature attuned to the watch must eat and drink eight times the normal amount each day.",
+	],
 	toNotesPage: [{
-		name: "Features",
-		note: WBtW_Sentient_Item_toNotes(WBtW_Witchlight_Watch_Full_Description, true),
+		name: "Witchlight Watch",
+		useDescriptionFull: true,
 	}],
 	extraLimitedFeatures: [{
 		name: "Witchlight Watch [initiate (un)packing]",
@@ -794,4 +795,9 @@ CreatureList["giant snail"] = {
 		name: "Shell Defense",
 		description: "As an action, the snail withdraws into its shell, gaining a +4 bonus to its AC until it emerges. It can emerge from its shell as a bonus action on its turn.",
 	}],
+	wildshapeString: [
+		"##Senses##. Darkvision 60 ft.",
+		"##Shell Defense##. As an action, the snail withdraws into its shell, gaining +4 AC until it emerges as a bonus action.",
+		"##Salt Osmosis##. If the snail starts its turn in contact with 1 lb+ salt, it takes 1d4 necrotic dmg. As an action, one can sprinkle 1 lb salt on the snail to deal it 1d4 necrotic dmg now and again at the start of its next turn, unless the snail withdraws into its shell.",
+	].join("\n"),
 }

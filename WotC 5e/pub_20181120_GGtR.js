@@ -111,11 +111,13 @@ RaceList["loxodon"] = {
 	heightMetric: " stand between 2 and 2,5 metres tall (200 + 5d10 cm)",
 	weightMetric: " weigh between 135 and 200 kg (133 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 2, 0, 1, 0],
-	trait: "Loxodon (+2 Constitution, +1 Wisdom)" +
-		"\n  Powerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." +
-		"\n  Natural Armor: " + (typePF ? "I have an AC of" : "My thick, leathery skin gives me AC") + " 12 + Constitution modifier + shield." +
-		"\n  Trunk: I can grasp things with my trunk or use it as a snorkel. It has a reach of 5 ft and can lift things up to 5\xD7 my Strength in pounds. I can also use it to make unarmed strikes, but I can't use it to wield weapons, shields, or anything that requires manual precision." +
-		"\n  Keen Smell: I have " + (typePF ? "advantage on Wisdom (Perception), Wisdom (Survival), and Intelligence (Investigation) checks that involve smell." : "adv. on Perception, Survival, and Investigation checks involving smell."),
+	trait: [
+		"**Loxodon** (+2 Constitution, +1 Wisdom)",
+		"##\u25C6 Powerful Build##. I count as one size larger for my carrying capacity, push, drag, and lift.",
+		"##\u25C6 Natural Armor##. " + (typePF ? "My AC is" : "My thick, leathery skin gives me AC") + " 12 + Constitution modifier + shield.",
+		"##\u25C6 Trunk##. I can grasp things with my trunk or use it as a snorkel. It has a reach of 5 ft and can lift things up to 5 lb \xD7 my Strength score. I can also use it to make unarmed strikes, but I can't use it to wield weapons, shields, or anything requiring manual precision.",
+		"##\u25C6 Keen Smell##. I have " + (typePF ? "advantage on Wisdom (Perception), Wisdom (Survival), and Intelligence (Investigation) checks that involve smell." : "adv. on Perception, Survival, and Investigation checks involving smell."),
+	],
 	carryingCapacity: 2,
 };
 
@@ -1393,8 +1395,8 @@ MagicItemsList["guild keyrune"] = {
 	choices: ["Azorius", "Boros", "Dimir", "Golgari", "Gruul", "Izzet", "Orzhov", "Rakdos", "Selesnya", "Simic"],
 	"azorius": {
 		rarity: "rare",
-		description: "As an action, I can speak this ceremonial key's command word and have it transform into a giant eagle for 1 hour with which I can talk telepathically if within 1 mile. It is friendly to me and my allies and obeys my spoken commands. As an action, I can see and hear what it does. I can have it revert back as an action.",
-		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a a giant eagle for 1 hour. While within 1 mile, I can communicate telepathically with it. It is friendly to me and my allies and obeys my spoken commands, otherwise using only the Dodge action. It reverts back to its keyrune form when it drops to 0 HP or if I touch it and speak the command word as an action. Once it does, it can't transform again for 36 hours. As an action, I can see/hear through its senses as if I had keen sight until the start of my next turn, but I can't use my own senses during that time.",
+		description: "As an action, I can speak this ceremonial key's command word and have it transform into a **giant eagle** for 1 hour with which I can talk telepathically if within 1 mile. It is friendly to me and my allies and obeys my spoken commands. As an action, I can see and hear what it does. I can have it revert back as an action.",
+		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a a **giant eagle** for 1 hour. We can communicate telepathically while within 1 mile. It is friendly to me and my allies and obeys my spoken commands, otherwise using only the Dodge action. It reverts back to its keyrune form when it drops to 0 HP or if I touch it and speak the command word as an action. Once it does, it can't transform again for 36 hours. As an action, I can see/hear through its senses as if I had keen sight until the start of my next turn, but I can't use my own senses during that time.",
 		descriptionFull: "This keyrune is carved from white marble and lapis lazuli to resemble a noble bird of prey. It can become a giant eagle for up to 1 hour. While the transformed eagle is within 1 mile of you, you can communicate with it telepathically. As an action, you can see through the eagle's eyes and hear what it hears until the start of your next turn, and you gain the benefit of its keen sight. During this time, you are deaf and blind with regard to your own senses.\n   When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a giant eagle. If there isn't enough space for the eagle, the keyrune doesn't transform.\n   The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the eagle takes the Dodge action and moves to avoid danger.\n   At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		prerequisite: "Requires attunement by a member of the Azorius guild",
 		prereqeval: function (v) {
@@ -2259,8 +2261,8 @@ MagicItemsList["spies' murmur"] = {
 	source: [["G", 181]],
 	type: "wondrous item",
 	rarity: "uncommon",
-	description: "This dark metal headpiece is worn curved around the ear. I can communicate telepathically with others that I know within 1 mile who are also wearing a spies' murmur. As a bonus action, I can allow that creature to hear everything I hear for 1 hour. I can end this effect as a bonus action, and it ends if I am incapacitated.",
-	descriptionFull: "This headpiece, crafted from dark metal, is worn curved around the ear. If you know a creature wearing another Spies' Murmur and that creature is within 1 mile of you, you can communicate telepathically with each other. As a bonus action, you can allow that creature to hear everything you hear for 1 hour. You can end this effect as a bonus action, and it ends if you're incapacitated.",
+	description: "This dark metal headpiece is worn curved around the ear. I can communicate telepathically with another within 1 mile that I know is also wearing a *spies' murmur*. As a bonus action, I can allow that creature to hear everything I hear for 1 hour. I can end this effect as a bonus action, and it ends if I'm incapacitated.",
+	descriptionFull: "This headpiece, crafted from dark metal, is worn curved around the ear. If you know a creature wearing another *spies' murmur* and that creature is within 1 mile of you, you can communicate telepathically with each other. As a bonus action, you can allow that creature to hear everything you hear for 1 hour. You can end this effect as a bonus action, and it ends if you're incapacitated.",
 	attunement: true,
 }
 MagicItemsList["sunforger"] = {

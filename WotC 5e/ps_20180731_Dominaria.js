@@ -30,7 +30,11 @@ if (!SourceList["PS:A"]) {
 		weight: " are very slender and their bones are partially hollow to facilitate their flight",
 		heightMetric: " stand between 1,5 and 1,8 metres tall",
 		scores: [0, 2, 0, 0, 2, 0],
-		trait: "Aven (+2 Dexterity, +2 Wisdom)\n\nHawkeyed: I have proficiency in the Perception skill.\n\nAttacking at long range doesn't impose disadvantage on my ranged weapon attack rolls.",
+		trait: [
+			"**Aven** (+2 Dexterity, +2 Wisdom)",
+			"##\u25C6 Hawkeyed##. I have proficiency in the Perception skill.",
+			"Attacking at long range doesn't impose disadvantage on my ranged weapon attack rolls.",
+		],
 	};
 };
 // Add a new human race
@@ -52,7 +56,12 @@ RaceList["keldon human"] = {
 	weight: " heavier than the human norms of other cultures",
 	heightMetric: " stand over 1,8 metres tall, reaching heights of above 2,1 metres",
 	scores: [2, 0, 1, 0, 0, 0],
-	trait: "Keldon Human (+2 Strength, +1 Constitution)\n   Natural Athlete: I am proficient with the Athletics skill.\n   Keldon Resilience: I am proficient with Strength saving throws.\n   Icehaven Born: I am naturally adapted to cold climates.",
+	trait: [
+		"**Keldon Human** (+2 Strength, +1 Constitution)",
+		"##\u25C6 Natural Athlete##. I am proficient with the Athletics skill.",
+		"##\u25C6 Keldon Resilience##. I am proficient with Strength saving throws.",
+		"##\u25C6 Icehaven Born##. I am naturally adapted to cold climates.",
+	],
 };
 
 // Add 2 beasts
@@ -131,6 +140,6 @@ CreatureList["steel leaf kavu"] = {
 	}],
 	traits: [{
 		name: "Raking Charge",
-		description: "If the kavu moves at least 20 ft straight toward a creature and then hits it with a bit attack on the same turn, that target must succeed on a DC 15 Strength saving throw or be knocked prone. If the target is prone, the kavu can make one rend attack against it as a bonus action.",
+		description: "If the kavu moves at least 20 ft straight toward a creature and then hits it with a bite attack on the same turn, that target must succeed on a DC 15 Strength saving throw or be knocked prone. If the target is prone, the kavu can make one rend attack against it as a bonus action.",
 	}],
 };

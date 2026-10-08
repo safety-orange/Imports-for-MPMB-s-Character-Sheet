@@ -109,10 +109,11 @@ RaceList["reborn-ua"] = {
 		walk: { spd: 30, enc: 20 },
 	},
 	scoresGeneric: true,
-	trait: "Reborn" + (typePF ? "\n " : "  ") +
-	"\u2022 Type: My creature type is Humanoid, as well as Construct or Undead (my choice)." +
-	"\n \u2022 Deathless Nature: I don't need to sleep, eat, drink, or breathe. I have adv. on saves vs. disease, poison, and death saves. I have resistance to poison damage. Magic can't put me to sleep and I can finish a long rest in 4 hours if I spend it inactive and motionless." +
-	"\n \u2022 Knowledge from a Past Life: When I make an ability check that uses a skill, I can add +1d6 to the roll after seeing the d20 result. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.",
+	trait: [
+		"**Reborn**" + (typePF ? "\n##\u25C6 Type##. My type is Humanoid, and Construct or Undead (my choice)." : " ##\u25C6 Type##. My creature type is Humanoid, as well as Construct or Undead (my choice)."),
+		"##\u25C6 Deathless Nature##. I don't need to sleep, eat, drink, or breathe. I have adv. on saves vs. disease, poison, and death saves. I have resistance to poison damage. Magic can't put me to sleep and I can finish a long rest in 4 hours if I spend it inactive and motionless.",
+		"##\u25C6 Knowledge from a Past Life##. When I make an ability check that uses a skill, I can add +1d6 to the roll after seeing the d20 result. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.",
+	],
 	vision: [["Darkvision", 60]],
 	dmgres: ["Poison"],
 	savetxt: {

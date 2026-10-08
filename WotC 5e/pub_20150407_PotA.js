@@ -65,7 +65,7 @@ MagicItemsList["claws of the umber hulk"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	magicItemTable: "F",
-	description: "These brown iron gauntlets, shaped like umber hulk claws, cover my hands up to my elbows. While wearing both, I can tunnel 1 ft per round through solid rock and have a burrowing speed of 20 ft, but can't manipulate items or use somatic spell components. I can use them as melee weapons, dealing 1d8 slashing damage.",
+	description: "These brown iron gauntlets, shaped like umber hulk claws, cover my hands up to my elbows. While wearing both, I can tunnel 1 ft per round through solid rock, have a 20 ft burrowing speed, but can't use somatic spell components or manipulate items. I can use them as melee weapons, dealing 1d8 slashing damage.",
 	descriptionFull: "These heavy gauntlets of brown iron are forged in the shape of an umber hulk's claws, and they fit the wearer's hands and forearms all the way up to the elbow. While wearing both claws, you gain a burrowing speed of 20 feet, and you can tunnel through solid rock at a rate of 1 foot per round.\n   You can use a claw as a melee weapon while wearing it. You have proficiency with it, and it deals 1d8 slashing damage on a hit (your Strength modifier applies to the attack and damage rolls, as normal).\n   While wearing the claws, you can't manipulate objects or cast spells with somatic components.",
 	weight: 1,
 	attunement: true,
@@ -269,7 +269,7 @@ MagicItemsList["lost crown of besilmer"] = {
 	type: "wondrous item",
 	rarity: "legendary",
 	storyItemAL: true,
-	description: "This dwarven battle-helm gives me psychic resistance and adv. on saves against being charmed. It has 3 charges, regaining 1d3 at dawn. As a bonus action, I can use 1 charge to inspire an ally in 60 ft that I can see and that can see and hear me. Once before my next turn ends, it can add a d6 to one check, attack, or save.",
+	description: "This dwarven battle-helm gives me psychic resistance and adv. on saves against being charmed. It has 3 charges, regaining 1d3 at dawn. As a bonus action, I can use 1 charge to inspire an ally that I can see in 60 ft and that can see and hear me. Before my next turn ends, it can add +1d6 to 1 ability check, attack, or save.",
 	descriptionFull: "This dwarven battle-helm consists of a sturdy open-faced steel helmet, decorated with a golden circlet above the brow from which seven small gold spikes project upward. You gain the following benefits while wearing the crown:\n \u2022 You have resistance to psychic damage.\n \u2022 You have advantage on saving throws against effects that would charm you.\n \u2022 You can use a bonus action to inspire one creature you can see that is within 60 feet of you and that can see or hear you. Once before the end of your next turn, the inspired creature can roll a d6 and add the number rolled to one ability check, attack roll, or saving throw it makes. This uses 1 charge from the crown. It has 3 charges, and it regains 1d3 expended charges daily at dawn.",
 	attunement: true,
 	usages: 3,
@@ -287,7 +287,7 @@ MagicItemsList["orcsplitter"] = {
 	magicItemTable: "G",
 	prerequisite: "Requires attunement by a good-aligned dwarf, fighter, or paladin",
 	description: "This sentient greataxe has a +2 bonus on to hit and damage. If I roll a 20 on an attack vs. an orc with it, the orc must make a DC 17 Con save or be reduced to 0 HP. While I'm not incapacitated, I can't be surprised by orcs, and me and my allies in 30 ft can't be frightened. I can sense orcs within 120 ft. See Notes page.",
-	descriptionFull: "A mighty axe wielded long ago by the dwarf king Torhild Flametongue, Orcsplitter is a battered weapon that appears unremarkable at first glance. Its head is graven with the Dwarvish runes for \"orc,\" but the runes are depicted with a gap or slash through the markings; the word \"orc\" is literally split in two.\n   You gain the following benefits while holding this magic weapon:\n \u2022 You gain a +2 bonus to attack and damage rolls made with it.\n \u2022 When you roll a 20 on an attack roll with this weapon against an orc, that orc must succeed on a DC 17 Constitution saving throw or drop to 0 hit points.\n \u2022 You can't be surprised by orcs while you're not incapacitated. You are also aware when orcs are within 120 feet of you and aren't behind total cover, although you don't know their location.\n \u2022 You and any of your friends within 30 feet of you can't be frightened while you're not incapacitated.\n\n***Sentience***. Orcsplitter is a sentient, lawful good weapon with an Intelligence of 6, a Wisdom of 15, and a Charisma of 10. It can see and hear out to 120 feet and has darkvision. It communicates by transmitting emotions to its wielder, although on rare occasions it uses a limited form of telepathy to bring to the wielder's mind a couplet or stanza of ancient Dwarvish verse.\n   ***Personality***. Orcsplitter is grim, taciturn, and inflexible. It knows little more than the desire to face orcs in battle and serve a courageous, just wielder. It disdains cowards and any form of duplicity, deception, or disloyalty. The weapon's purpose is to defend dwarves and to serve as a symbol of dwarven resolve. It hates the traditional foes of dwarves\u2014giants, goblins, and, most of all, orcs\u2014and silently urges its possessor to meet such creatures in battle.",
+	descriptionFull: "A mighty axe wielded long ago by the dwarf king Torhild Flametongue, *Orcsplitter* is a battered weapon that appears unremarkable at first glance. Its head is graven with the Dwarvish runes for \"orc,\" but the runes are depicted with a gap or slash through the markings; the word \"orc\" is literally split in two.\n   You gain the following benefits while holding this magic weapon:\n \u2022 You gain a +2 bonus to attack and damage rolls made with it.\n \u2022 When you roll a 20 on an attack roll with this weapon against an orc, that orc must succeed on a DC 17 Constitution saving throw or drop to 0 hit points.\n \u2022 You can't be surprised by orcs while you're not incapacitated. You are also aware when orcs are within 120 feet of you and aren't behind total cover, although you don't know their location.\n \u2022 You and any of your friends within 30 feet of you can't be frightened while you're not incapacitated.\n\n***Sentience***. *Orcsplitter* is a sentient, lawful good weapon with an Intelligence of 6, a Wisdom of 15, and a Charisma of 10. It can see and hear out to 120 feet and has darkvision. It communicates by transmitting emotions to its wielder, although on rare occasions it uses a limited form of telepathy to bring to the wielder's mind a couplet or stanza of ancient Dwarvish verse.\n   ***Personality***. *Orcsplitter* is grim, taciturn, and inflexible. It knows little more than the desire to face orcs in battle and serve a courageous, just wielder. It disdains cowards and any form of duplicity, deception, or disloyalty. The weapon's purpose is to defend dwarves and to serve as a symbol of dwarven resolve. It hates the traditional foes of dwarves\u2014giants, goblins, and, most of all, orcs\u2014and silently urges its possessor to meet such creatures in battle.",
 	attunement: true,
 	weight: 7,
 	weaponOptions: [{
@@ -300,16 +300,19 @@ MagicItemsList["orcsplitter"] = {
 		selectNow: true,
 	}],
 	savetxt: { immune: ["frightened"] },
-	toNotesPage: [{
-		name: "Features",
-		note: desc([
-			'A mighty axe wielded long ago by the dwarf king Torhild Flametongue, Orcsplitter is a battered weapon that appears unremarkable at first glance. Its head is graven with the Dwarvish runes for "orc," but the runes are depicted with a gap or slash through the markings; the word "orc" is literally split in two.',
-			"I gain a +2 bonus to attack and damage rolls made with it. When I roll a 20 on an attack roll with this weapon against an orc, that orc must succeed on a DC 17 Constitution saving throw or drop to 0 hit points.",
-			"While I am not incapacitated, I can't be surprised by orcs and I am aware when orcs are within 120 ft of meand aren't behind total cover, although I don't know their location. Also, me and any of my friends within 30 ft of can't be frightened while I am not incapacitated.",
-			"Orcsplitter is a sentient, lawful good weapon with an Intelligence of 6, a Wisdom of 15, and a Charisma of 10. It can see and hear out to 120 feet and has darkvision. It communicates by transmitting emotions to its wielder, although on rare occasions it uses a limited form of telepathy to bring to the wielder's mind a couplet or stanza of ancient Dwarvish verse.",
-			"Orcsplitter is grim, taciturn, and inflexible. It knows little more than the desire to face orcs in battle and serve a courageous, just wielder. It disdains cowards and any form of duplicity, deception, or disloyalty. The weapon's purpose is to defend dwarves and to serve as a symbol of dwarven resolve. It hates the traditional foes of dwarves\u2014giants, goblins, and, most of all, orcs\u2014and silently urges its possessor to meet such creatures in battle.",
-		]) + "\n\n" + sentientItemConflictTxt,
-	}],
+	toNotesPage: [
+		{
+			name: "Orcsplitter",
+			note: [
+				'A mighty axe wielded long ago by the dwarf king Torhild Flametongue, *Orcsplitter* is a battered weapon that appears unremarkable at first glance. Its head is graven with the Dwarvish runes for "orc," but the runes are depicted with a gap or slash through the markings; the word "orc" is literally split in two.',
+				"I gain a +2 bonus to attack and damage rolls made with it. When I roll a 20 on an attack roll with this weapon against an orc, that orc must succeed on a DC 17 Constitution saving throw or drop to 0 hit points.",
+				"While I am not incapacitated, I can't be surprised by orcs and I am aware when orcs are within 120 ft of me and aren't behind total cover, although I don't know their location. Also, me and any of my friends within 30 ft of can't be frightened while I am not incapacitated.",
+				"*Orcsplitter* is a sentient, lawful good weapon with an Intelligence of 6, a Wisdom of 15, and a Charisma of 10. It can see and hear out to 120 feet and has darkvision. It communicates by transmitting emotions to its wielder, although on rare occasions it uses a limited form of telepathy to bring to the wielder's mind a couplet or stanza of ancient Dwarvish verse.",
+				"*Orcsplitter* is grim, taciturn, and inflexible. It knows little more than the desire to face orcs in battle and serve a courageous, just wielder. It disdains cowards and any form of duplicity, deception, or disloyalty. The weapon's purpose is to defend dwarves and to serve as a symbol of dwarven resolve. It hates the traditional foes of dwarves\u2014giants, goblins, and, most of all, orcs\u2014and silently urges its possessor to meet such creatures in battle.",
+			],
+		},
+		Object.assign({}, sentientItemConflictNote, { amendTo: "Orcsplitter" }),
+	],
 }
 MagicItemsList["reszur"] = {
 	name: "Reszur",
@@ -476,7 +479,7 @@ MagicItemsList["wingwear"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	magicItemTable: "C",
-	description: "This snug uniform with leathery flaps has 3 charges, regaining all when placed in an air not for 1 hour. As a bonus action, I can expend 1 charge to gain a flying speed of 30 ft until I land or have 0 altitude. At the end of each of my turns, my altitude drops by 5 ft and I must move at least 30 ft horizontally or I fall.",
+	description: "This snug uniform with leathery flaps has 3 charges, regaining all when placed in an air not for 1 hour. As a bonus action, I can expend 1 charge to gain a 30 ft flying speed until I land or have 0 altitude. At the end of each of my turns, my altitude drops by 5 ft and I must move at least 30 ft horizontally or I fall.",
 	descriptionFull: "This snug uniform has symbols of air stitched into it and leathery flaps that stretch along the arms, waist, and legs to create wings for gliding. A suit of wingwear has 3 charges. While you wear the suit, you can use a bonus action and expend 1 charge to gain a flying speed of 30 feet until you land. At the end of each of your turns, your altitude drops by 5 feet. Your altitude drops instantly to 0 feet at the end of your turn if you didn't fly at least 30 feet horizontally on that turn. When your altitude drops to 0 feet, you land (or fall), and you must expend another charge to use the suit again.\n   The suit regains all of its expended charges after spending at least 1 hour in an elemental air node.",
 	attunement: true,
 	usages: 3,

@@ -386,7 +386,7 @@ if (!SourceList["E:RLW"] || !ClassList.artificer) {
 						"As a reaction when hit by an attack, the wielder can expend 1 charge to blind its attacker",
 						"The attacker makes a Con save (my spell save DC) or is blinded until its next turn ends",
 					]),
-					additional: typePF ? "simple/martial; attunement" : "simple/martial weapon; requires attunement",
+					additional: "simple/martial" + (typePF ? "" : " weapon") + "; needs attunement",
 					prereqeval: function (v) { return classes.known.artificer.level >= 6; },
 					magicitemsAdd: ["Radiant Weapon"],
 				},
@@ -616,7 +616,7 @@ if (!SourceList["E:RLW"] || !ClassList.artificer) {
 				description: "",
 				source: anArtMi.source,
 				magicitemsAdd: [anArtMi.name],
-				additional: anArtMi.attunement ? "requires attunement" : undefined,
+				additional: !anArtMi.attunement ? undefined : typePF && anArtMi.name.length > 30 ? "attunement" : "requires attunement",
 				prereqeval: MI1 && MI1 > 2 ? ClassList.artificer["prereqLvl" + MI1] : undefined,
 				submenu: "Replicate Magic Item" + (MI1 ? " (prereq: level " + (" " + MI1).slice(-2) + " artificer)" : " (common magic items) [" + getLetterRange(anArtMi.name, ["A-F", "G-Q", "R-Z"]) + "]"),
 			};
@@ -1333,7 +1333,7 @@ AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Arcane Prop
 		"The armor replaces any missing limbs of the wearer and can't be removed against its will",
 		"It increases the wearer's walking speed by 5 ft; Its gauntlet can be used as melee weapons",
 	]),
-	additional: "suit of armor; requires attunement",
+	additional: "suit of armor;" + (typePF ? "" : " requires") + " attunement",
 	prereqeval: function (v) { return classes.known.artificer.level >= 14; },
 	magicitemsAdd: ["Arcane Propulsion Armor"],
 });
@@ -1373,7 +1373,7 @@ AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Armor of Ma
 		"As a reaction when being knocked prone, the wearer can use 1 charge to not be prone",
 		"When making a Str check/save, the wearer can use 1 charge to add its Int mod to the roll",
 	]),
-	additional: "suit of armor; requires attunement",
+	additional: typePF ? "armor; attunement" : "suit of armor; needs attunement",
 	magicitemsAdd: ["Armor of Magical Strength"],
 });
 MagicItemsList["armor of magical strength"] = {
@@ -1500,11 +1500,10 @@ RunFunctionAtEnd(function () {
 				name: "Armor Model",
 				source: [["T", 16]],
 				minlevel: 3,
-				description: desc([
+				description: " [see Notes page]" + desc([
 					"When I finish a rest, I can use smith's tools to change the model of my arcane armor",
 					'Select a model using the "Choose Feature" button; See "Notes" page for features of each',
 				]),
-				additional: "also see notes page",
 				toNotesPage: [{
 					name: "Arcane Armor Model Features",
 					note: desc([
@@ -1636,7 +1635,7 @@ RunFunctionAtEnd(function () {
 		"As a bonus action, I can activate a defensive shield to gain my artificer level in temp HP",
 	])
 	var guardianAdditional = levels.map(function (n) {
-		return n + " temp HP, Prof B. per long rest";
+		return n + " temp HP, Prof B" + (typePF ? "/" : " per ") + "LR";
 	})
 	var infiltratorTxt = desc([
 		"+5 ft walking speed; Gemlike node in fist/chest is a ranged weapon, Lightning Launcher",
@@ -1649,10 +1648,11 @@ RunFunctionAtEnd(function () {
 	for (var armor in ArmourList) {
 		var anArm = ArmourList[armor];
 		if (anArm.isMagicArmor || !anArm.weight || (CurrentVars.extraArmour && CurrentVars.extraArmour[armor])) continue;
+		var armName = anArm.name.capitalize();
 		// Add the Guardian variant of the armor
-		var gArmName = "Guardian Arcane " + anArm.name;
+		var gArmName = "Guardian Arcane " + armName;
 		itsFea[gArmName.toLowerCase()] = {
-			name: (typePF ? "Armor " : "") + "Model: Guardian " + anArm.name,
+			name: "Model: Guardian " + armName,
 			submenu: "Guardian Arcane Armor",
 			description: guardianTxt,
 			additional: guardianAdditional,
@@ -1662,9 +1662,9 @@ RunFunctionAtEnd(function () {
 			dependentChoices: "guardian",
 		}
 		// And now add the Infiltrator variant of the armor
-		var iArmName = "Infiltrator Arcane " + anArm.name;
+		var iArmName = "Infiltrator Arcane " + armName;
 		itsFea[iArmName.toLowerCase()] = {
-			name: "Armor Model: Infiltrator " + anArm.name,
+			name: "Model: Infiltrator " + armName,
 			submenu: "Infiltrator Arcane Armor",
 			description: infiltratorTxt + (anArm.stealthdis ? ", cancelling out the disadv. it imposes" : ""),
 			speed: { walk: { spd: "+5", enc: "+5" } },
@@ -3016,7 +3016,7 @@ if (ClassSubList["fighter-battle master"]) {
 		additional: "1 maneuver; d6, 1\xD7 per short rest",
 		description: desc([
 			"I gain one superiority die (d6) that I can expend to fuel a special Maneuver",
-			"I can only use one Maneuver per attack; DCs are 8 + Prof B. + Str/Dex mod, my choice",
+			"I can only use one Maneuver per attack; DCs are 8 + Prof B + Str/Dex mod, my choice",
 			'Use the "Choose Feature" button above to add a Maneuver to the third page',
 		]),
 		bonusClassExtrachoices: [{
@@ -3942,10 +3942,9 @@ var TCoE_Deft_Explorer = function () {
 	var a = {
 		name: "Deft Explorer: Canny",
 		source: [["T", 56]],
-		description: desc("I learn two languages and gain expertise with one skill I'm proficient with"),
+		description: " [extra benefits at levels 6 and 10]" + desc("I learn two languages and gain expertise with one skill I'm proficient with"),
 		languageProfs: [2],
 		skillstxt: "Expertise with one skill I'm proficient with",
-		additional: "extra benefits at 6th and 10th level",
 		extraTimes: [1],
 		extraname: "Canny (select skill for expertise)",
 		extrachoices: ["Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"],
@@ -4009,9 +4008,9 @@ var TCoE_Favored_Foe = {
 	additional: levels.map(function (n) {
 		return "+1d" + (n < 6 ? 4 : n < 14 ? 6 : 8) + " damage";
 	}),
-	usages: "Proficiency bonus per ",
+	usages: "Proficiency Bonus per ",
 	usagescalc: "event.value = How('Proficiency Bonus');",
-	recovery: "long rest",
+	recovery: typePF ? "LR" : "long rest",
 	calcChanges: {
 		atkAdd: [
 			function (fields, v) {
@@ -5207,7 +5206,7 @@ AddWarlockInvocation("Bond of the Talisman (prereq: level 12 warlock, Pact of th
 		return classes.known.warlock.level >= 12 && GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	action: [["action", ""]],
-	usages: "Proficiency bonus per ",
+	usages: (typePF ? "Prof" : "Proficiency") + " Bonus per ",
 	usagescalc: "event.value = How('Proficiency Bonus')",
 	recovery: "long rest",
 });
@@ -5314,9 +5313,9 @@ AddWarlockInvocation("Protection of the Talisman (prereq: level 7 warlock, Pact 
 	prereqeval: function (v) {
 		return classes.known.warlock.level >= 7 && GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
-	usages: "Proficiency bonus per ",
+	usages: (typePF ? "Prof" : "Proficiency") + " Bonus per ",
 	usagescalc: "event.value = How('Proficiency Bonus')",
-	recovery: "long rest",
+	recovery: typePF ? "LR" : "long rest",
 });
 AddWarlockInvocation("Rebuke of the Talisman (prereq: Pact of the Talisman)", {
 	name: "Rebuke of the Talisman",
@@ -6110,7 +6109,7 @@ RunFunctionAtEnd(function () {
 			source: [["T", 41]],
 		},
 		"interception": {
-			description: "As a reaction when a creature I can see hits a target, other than me, within 5 ft of me with an attack, I can reduce the damage the target takes by 1d10 + my proficiency bonus (min 0 damage). I must be wielding a shield or a simple or martial weapon to do this. I can replace this fighting style for another whenever I gain an Ability Score Improvement.",
+			description: "As a reaction when a creature I can see hits an attack against a target besides me within 5 ft of me, I can reduce the damage dealt by 1d10 + my Proficiency Bonus (min 0 damage). I must be wielding a shield or a simple or martial weapon to do this. I can replace this fighting style for another whenever I gain a level.",
 			source: [["T", 41], ["UA:CFV", 12]],
 		},
 		"thrown weapon fighting": {
@@ -6300,7 +6299,7 @@ FeatsList["telekinetic"] = {
 	},
 	choices: ["Intelligence", "Wisdom", "Charisma"],
 	"intelligence": {
-		description: "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str" + (typePF ? "" : "ength") + " save vs. this feat's spell save DC or be moved 5 ft" + (typePF ? "" : " away") + " from or towards me. Intelligence is my spellcasting ability for these. [+1 Intelligence]",
+		description: "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str" + (typePF ? "" : "ength") + " save vs. this feat's spell save DC or be moved 5 ft" + (typePF ? "" : " away") + " from or towards me. Intelligence is my spellcasting ability for these. [+1 Int" + (typePF ? "" : "elligence") + "]",
 		spellcastingAbility: 4,
 		scores: [0, 0, 0, 1, 0, 0],
 	},
@@ -6388,7 +6387,7 @@ if (!SourceList["S"]) {
 		components: "S,M\u0192",
 		compMaterial: "A melee weapon worth at least 1 sp",
 		duration: "Instantaneous",
-		description: "Melee wea atk with cast; hit: 0d8 Fire dmg, 1 crea in 5 ft 0d8+spell mod Fire dmg; +1d8 CL5/11/17",
+		description: "Melee wea atk at cast; hit: 0d8 Fire dmg, 1 crea in 5 ft 0d8+spell mod Fire dmg; +1d8 CL5/11/17",
 		descriptionShorter: "Melee wea atk; hit: 0d8 Fire dmg, 1 crea in 5 ft 0d8+spell mod Fire dmg; +1d8 CL5/11/17",
 		descriptionCantripDie: "Melee wea atk with cast; if hit: `CD-1`d8 Fire dmg, 1 crea in 5 ft `CD-1`d8+spellcasting ability modifier Fire dmg",
 		descriptionFull: "You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target suffers the weapon attack's normal effects, and you can cause green fire to leap from the target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier.\n   This spell's damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 fire damage to the target on a hit, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th level (2d8 and 2d8) and 17th level (3d8 and 3d8).",
@@ -6404,8 +6403,8 @@ if (!SourceList["S"]) {
 		components: "V",
 		duration: "Instantaneous",
 		save: "Str",
-		description: "1 crea in 15 ft save or pulled 10 ft to me; if it ends in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5, 11, \u0026 17",
-		descriptionShorter: "1 crea in 15 ft save or pulled 10 ft to me; if end in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5/11/17",
+		description: "1 crea in 15 ft save or pulled 10 ft to me; if it ends in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5/11/17",
+		descriptionShorter: "1 crea in 15 ft save or pulled 10 ft to me; if end in 5 ft, 1d8 Lightn. dmg; +1d8 at CL 5/11/17",
 		descriptionCantripDie: "1 crea I see save or pulled 10 ft to me; if it ends in 5 ft, `CD`d8 Lightning dmg",
 		descriptionFull: "You create a lash of lightning energy that strikes at one creature of your choice that you can see within 15 feet of you. The target must succeed on a Strength saving throw or be pulled up to 10 feet in a straight line toward you and then take 1d8 lightning damage if it is within 5 feet of you." + "\n   " + "This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).",
 	};
@@ -8171,7 +8170,7 @@ MagicItemsList["guardian emblem"] = {
 MagicItemsList["nature's mantle"] = {
 	name: "Nature's Mantle",
 	source: [["T", 133]],
-	type: "wonderous item",
+	type: "wondrous item",
 	rarity: "uncommon",
 	attunement: true,
 	prerequisite: "Requires attunement by a druid or ranger.",

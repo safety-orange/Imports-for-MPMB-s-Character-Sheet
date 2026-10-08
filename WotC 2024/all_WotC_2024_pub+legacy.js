@@ -4472,7 +4472,7 @@ FeatsList["healer"] = {
 	name: "Healer",
 	source: [["PHB24", 201]],
 	type: "origin",
-	description: "##Battle Medic##. As a Utilize action, I can expend 1 use of a Healer's Kit to allow a creature within 5 ft of me to expend 1 Hit Die and regain HP equal to the HD's roll plus my Proficiency Bonus. ##Healing Rerolls##. Whenever I roll a 1 on the die to heal using a spell or this feat, I can reroll the die but must use the new roll.",
+	description: "##Battle Medic##. As a Utilize action, I can expend 1 use of a Healer's Kit to allow a creature within 5 ft to expend 1 Hit Die and regain HP equal to the HD's roll plus my Proficiency Bonus. ##Healing Rerolls##. Whenever I roll a 1 on the die to heal using a spell or this feat, I can reroll the die but must use the new roll.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Battle Medic***. If you have a Healer's Kit, you can expend one use of it and tend to a creature within 5 feet of yourself as a Utilize action. That creature can expend one of its Hit Point Dice, and you then roll that die. The creature regains a number of Hit Points equal to the roll plus your Proficiency Bonus.",
@@ -4622,7 +4622,7 @@ FeatsList["charger"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && (What("Str") >= 13 || What("Dex") >= 13);
 	},
-	description: "When I take the Dash action, my Speed increases by 10 ft for that action. If I move at least 10 ft in a straight line towards an enemy and hit it with a melee attack as part of the Attack action, once per turn I may either deal +1d8 damage or push the target 10 ft away from me if it's no more than 1 size larger. [+1 Str or Dex]",
+	description: "When I take the Dash action, my Speed increases by 10 ft for that action. If I move at least 10 ft in a straight line towards an enemy and hit it with a melee attack as part of the Attack action, once per turn I may either deal it +1d8 damage or push it 10 ft away from me if it's no more than 1 size larger. [+1 Str or Dex]",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20.",
@@ -5223,7 +5223,7 @@ FeatsList["mounted combatant"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4;
 	},
-	description: "While I'm mounted and not Incapacitated: ##\u2022 Mounted Strike##. I have Advantage on attacks against unmounted within 5 ft that are smaller than my mount. ##\u2022 Leap Aside##. If my mount is not Incapacitated and makes a Dex save to halve the damage, it takes none on a pass and half on a fail. ##\u2022 Veer##. When an attack hits my mount, I can have it hit me instead. [+1 Strength, Dexterity, or Wisdom]",
+	description: "Select one of the choices.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Strength, Dexterity, or Wisdom score by 1, to a maximum of 20.",
@@ -5235,7 +5235,7 @@ FeatsList["mounted combatant"] = {
 	choicesNotInMenu: true,
 	"strength": {
 		description: "While I'm mounted and not Incapacitated:" +
-			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks against unmounted within 5 ft that are smaller than my mount." +
+			(typePF ? " \u2022 I have Adv on attacks vs unmounted within 5 ft that are smaller than my mount." : " ##\u2022 Mounted Strike##. I have Advantage on attacks vs unmounted within 5 ft that are smaller than my mount.") +
 			(typePF ? " \u2022 " : " ##\u2022 Leap Aside##. ") + "If my mount is not Incapacitated and makes a Dex save to halve the damage, it takes none on a pass and half on a fail." +
 			(typePF ? "\n\u2022 " : " ##\u2022 Veer##. ") + "When an attack hits my mount, I can have it hit me instead." +
 			(typePF ? "" : " [+1 Str]"),
@@ -5243,7 +5243,7 @@ FeatsList["mounted combatant"] = {
 	},
 	"dexterity": {
 		description: "While I'm mounted and not Incapacitated:" +
-			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks against unmounted within 5 ft that are smaller than my mount." +
+			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks vs unmounted within 5 ft that are smaller than my mount." +
 			(typePF ? " \u2022 " : " ##\u2022 Leap Aside##. ") + "If my mount is not Incapacitated and makes a Dex save to halve the damage, it takes none on a pass and half on a fail." +
 			(typePF ? "\n\u2022 " : " ##\u2022 Veer##. ") + "When an attack hits my mount, I can have it hit me instead." +
 			(typePF ? "" : " [+1 Dex]"),
@@ -5251,7 +5251,7 @@ FeatsList["mounted combatant"] = {
 	},
 	"wisdom": {
 		description: "While I'm mounted and not Incapacitated:" +
-			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks against unmounted within 5 ft that are smaller than my mount." +
+			(typePF ? " \u2022 " : " ##\u2022 Mounted Strike##. ") + "I have Advantage on attacks vs unmounted within 5 ft that are smaller than my mount." +
 			(typePF ? " \u2022 " : " ##\u2022 Leap Aside##. ") + "If my mount is not Incapacitated and makes a Dex save to halve the damage, it takes none on a pass and half on a fail." +
 			(typePF ? "\n\u2022 " : " ##\u2022 Veer##. ") + "When an attack hits my mount, I can have it hit me instead." +
 			(typePF ? "" : " [+1 Wis]"),
@@ -5393,7 +5393,7 @@ FeatsList["poisoner"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4;
 	},
-	description: "As a Bonus Action, I can apply poison to weapon/ammo, lasting for 1 min or until used to damage. Creatures damaged this way must make a Con save (DC 8 + PB + mod) or take 2d8 Poison damage and be Poisoned until my next turn ends. Poison damage I deal ignores Resistance. I can create poisons. See Notes page. [+1 Dex or Int]",
+	description: "As a Bonus Action, I can apply poison to weapon/ammo, lasting for 1 min or until used to damage. Creatures damaged this way must make a Con save (DC 8 + PB + mod) or take 2d8 Poison dmg and be Poisoned until my next turn ends. Poison dmg I deal ignores Resistance. I can create poisons. See Notes page.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Dexterity or Intelligence score by 1, to a maximum of 20.",
@@ -5443,7 +5443,7 @@ FeatsList["polearm master"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && (What("Str") >= 13 || What("Dex") >= 13);
 	},
-	description: "While wielding a Quarterstaff, Spear, or Heavy Reach weapon: ##Pole Strike##. As a Bonus Action directly after an Attack action with it, I can make a 1d4 Bludgeoning attack with its other end. ##Reactive Strike##. As a Reaction when a creature enters my reach with it, I can make one melee attack against them. [+1 Strength or Dexterity]",
+	description: "Select one of the choices.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Dexterity or Strength score by 1, to a maximum of 20.",
@@ -5537,7 +5537,7 @@ FeatsList["ritual caster"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && (What("Int") >= 13 || What("Wis") >= 13 || What("Cha") >= 13);
 	},
-	description: PHB_RitualCasterDescription.join("\n") + " [+1 Intelligence, Wisdom, or Charisma]",
+	description: "Select one of the choices.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
@@ -5582,10 +5582,7 @@ FeatsList["sentinel"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && (What("Str") >= 13 || What("Dex") >= 13);
 	},
-	description: [
-		"##Guardian##. When a creature within 5 ft of me takes the Disengage action or hits a target other than me with an attack, I can make an Opportunity Attack against them.",
-		"##Halt##. When I make an Opportunity Attack against a creature, its Speed becomes 0 for the rest of the current turn. [+1 Strength or Dexterity]",
-	].join("\n"),
+	description: "Select one of the choices.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20.",
@@ -5699,7 +5696,7 @@ FeatsList["shield master"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && v.shieldProf;
 	},
-	description: "##Shield Bash##. Once per turn after I hit a creature in 5 ft during the Attack action, I can have it make a Str save (DC 8 + Str mod + PB) or be pushed 5 ft away or knocked Prone. ##Interpose Shield##. As a Reaction when I succeed on a Dex save to halve damage, I can interpose my shield to avoid all the damage. [+1 Strength]",
+	description: "##Shield Bash##. Once per turn after I hit a creature in 5 ft during the Attack action, I can have it make a Str save (DC 8 + Str mod + PB) or be pushed 5 ft away or knocked Prone. ##Interpose Shield##. As a Reaction when I succeed on a Dex save to halve damage, I can interpose my shield to avoid all damage. [+1 Str]",
 	calculate: 'var dc = 8 + Number(How("Proficiency Bonus")) + Number(What("Str Mod"));\n var txt = ["##Shield Bash##. Once per turn after I hit a creature in 5 ft during the Attack action, I can have it make a DC " + dc + " (8+Str+PB) Str save or be pushed 5 ft away or knocked Prone.", "##Interpose Shield##. As a Reaction when I succeed on a Dex save to halve damage, I can interpose my shield to avoid all the damage."];\n if (typePF) { txt.reverse(); };\n event.value = txt.join("\\n") + " [+1 Strength]";',
 	descriptionFull: [
 		"You gain the following benefits.",
@@ -5827,7 +5824,7 @@ FeatsList["slasher"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4;
 	},
-	description: "##Hamstring##. Once per turn when I hit a creature with an attack that deals Slashing damage, I can reduce its Speed by 10 ft until the start of my next turn. ##Enhanced Critical##. When I score a Critical Hit that deals Slashing damage to a creature, it gets Disadvantage on attack rolls until the start of my next turn. [+1 Strength or Dexterity]",
+	description: "Select one of the choices.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20.",
@@ -5869,11 +5866,7 @@ FeatsList["speedy"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && (What("Dex") >= 13 || What("Con") >= 13);
 	},
-	description: [
-		"##Agile Movement##. Opportunity Attacks have Disadvantage against me.",
-		"##Dash over Difficult Terrain##. When I take the Dash action on my turn, Difficult Terrain doesn't cost me extra movement that turn.",
-		"##Speed Increase##. I have +10 ft Speed. [+1 Dexterity or Constitution]",
-	].join("\n"),
+	description: "Select one of the choices.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Dexterity or Constitution score by 1, to a maximum of 20.",
@@ -5918,7 +5911,7 @@ FeatsList["spell sniper"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4 && v.isSpellcastingClass;
 	},
-	description: PHB_SpellSniperDescription + " [+1 Intelligence, Wisdom, or Charisma]",
+	description: "Select one of the choices.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
@@ -5984,7 +5977,7 @@ FeatsList["telekinetic"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4;
 	},
-	description: "I know the *Mage Hand* cantrip, can cast it without components, can make it invisible, and with +30 ft range. As a Bonus Action, I can have one creature I can see within 30 ft make a Strength save (vs this feat's spell save DC) or move it 5 ft from or towards me. My spellcasting ability is the one increased by this feat. [+1 Int, Wis, or Cha]",
+	description: "Select one of the choices.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
@@ -6034,7 +6027,7 @@ FeatsList["telepathic"] = {
 	prereqeval: function (v) {
 		return v.characterLevel >= 4;
 	},
-	description: "##Telepathic Utterance##. I can telepathically speak to a creature I can see within 60 ft in a language I know, but they can't respond telepathically. I always have ##Detect Thoughts## prepared. I can cast it once per Long Rest without a spell slot or components and by expending a spell slot as normal. My spellcasting ability is the one increased by this feat. [+1 Int, Wis, or Cha]",
+	description: "Select one of the choices.",
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
@@ -10435,7 +10428,7 @@ CreatureList["giant squid"] = {
 SourceList["RHW"] = {
 	name: "Ravenloft: The Horrors Within (incomplete)",
 	abbreviation: "RHW",
-	group: "Supplements",
+	group: "Campaign Sourcebook",
 	campaignSetting: "Ravenloft",
 	url: "https://marketplace.dndbeyond.com/rulebooks/6015000",
 	date: "2026/06/16",
@@ -10635,8 +10628,8 @@ SourceList["LMoP"] = {
 MagicItemsList["dragonguard"] = {
 	name: "Dragonguard",
 	source: [["LMoP", 48], ["PaBTSO", 72]],
-	type: "armor (breastplate)",
-	rarity: "rare",
+	type: "Armor (Breastplate)",
+	rarity: "Rare",
 	description: "This +1 breastplate has a gold dragon motif worked into its design. It grants its wearer Advantage on saving throws against the breath weapons of creatures that have the Dragon type.",
 	descriptionFull: "This +1 breastplate has a gold dragon motif worked into its design. Created for a human hero of Neverwinter named Tergon, it grants its wearer advantage on saving throws against the breath weapons of creatures that have the dragon type.",
 	weight: 20,
@@ -10654,8 +10647,8 @@ MagicItemsList["dragonguard"] = {
 MagicItemsList["hew"] = {
 	name: "Hew",
 	source: [["LMoP", 33], ["PaBTSO", 54]],
-	type: "weapon (battleaxe)",
-	rarity: "uncommon",
+	type: "Weapon (Battleaxe)",
+	rarity: "Uncommon",
 	description: 'Dwarvish runes on the head of this rusty battleaxe read "Hew". It adds a +1 bonus to attack and damage rolls made with it and deals maximum damage against plant creatures or objects made of wood. While carrying it, I feel uneasy when I travel through a forest, as its creator was a dwarf smith who feuded with dryads.',
 	descriptionFull: 'This rusty old battleaxe of dwarven manufacture has runes in Dwarvish on the axe head which read "*Hew*". Hew is a +1 battleaxe that deals maximum damage when the wielder hits a plant creature or an object made of wood. The axe\'s creator was a dwarf smith who feuded with the dryads of a forest where he used it for protection while he cut firewood. Whoever carries the axe feels uneasy whenever he or she travels through a forest.',
 	weight: 4,
@@ -10672,8 +10665,8 @@ MagicItemsList["hew"] = {
 MagicItemsList["lightbringer"] = {
 	name: "Lightbringer",
 	source: [["LMoP", 48], ["PaBTSO", 54]],
-	type: "weapon (mace)",
-	rarity: "uncommon",
+	type: "Weapon (Mace)",
+	rarity: "Uncommon",
 	description: "This mace adds a +1 bonus to attack and damage rolls made with it. It is made for a cleric of the god of dawn, with its head shaped like a sunburst and made of solid brass. I can command it to glow as bright as a torch. While glowing, the mace deals an extra 1d6 Radiant damage to Undead creatures.",
 	descriptionFull: "This +1 mace was made for a cleric of Lathander, the god of dawn. The head of the mace is shaped like a sunburst and is made of solid brass. Named *Lightbringer*, this weapon glows as bright as a torch when its wielder commands. While glowing, the mace deals an extra 1d6 radiant damage to undead creatures.",
 	weight: 4,
@@ -10690,8 +10683,8 @@ MagicItemsList["lightbringer"] = {
 MagicItemsList["spider staff"] = { // changed to the new version introduced in Phandelver and Below: The Shattered Obelisk with the prerequisite
 	name: "Spider Staff",
 	source: [["LMoP", 53], ["PaBTSO", 220]],
-	type: "staff",
-	rarity: "rare",
+	type: "Staff",
+	rarity: "Rare",
 	description: "Attacks with this black adamantine quarterstaff topped with a spider deal +1d6 Poison damage on a hit. It has 10 charges and regains 1d6+4 expended charges at dawn. If I use its last charge, roll a d20. On a 1, it is destroyed. I can use its charges to cast *Spider Climb* (1 charge) or *Web* (2 charges, spell save DC 15).",
 	descriptionFull: "The top of this black, adamantine staff is shaped like a spider. The staff weighs 6 pounds. You must be attuned to the staff to gain its benefits and cast its spells. The staff can be wielded as a quarterstaff. It deals 1d6 extra poison damage on a hit when used to make a weapon attack.\n   The staff has 10 charges, which are used to fuel the spells within it. With the staff in hand, you can use your action to cast one of the following spells from the staff if the spell is on your class's spell list: *Spider Climb* (1 charge) or *Web* (2 charges, spell save DC 15). No components are required.\n   The staff regains 1d6+4 expended charges each day at dusk. If you expend the staff's last charge, roll a d20. On a 1, the staff crumbles to dust and is destroyed.",
 	attunement: true,
@@ -10726,8 +10719,8 @@ MagicItemsList["spider staff"] = { // changed to the new version introduced in P
 MagicItemsList["staff of defense"] = { // changed to the new version introduced in Phandelver and Below: The Shattered Obelisk with the prerequisite
 	name: "Staff of Defense",
 	source: [["LMoP", 53]],
-	type: "staff",
-	rarity: "rare",
+	type: "Staff",
+	rarity: "Rare",
 	description: "This slender, hollow staff is made of glass yet is as strong as oak. While holding it, I gain a +1 bonus to AC. It has 10 charges and regains 1d6+4 expended charges at dawn. If I use its last charge, roll a d20. On a 1, it is destroyed. I can use its charges to cast *Mage Armor* (1 charge) or *Shield* (2 charges) as an action.",
 	descriptionFull: "This slender, hollow staff is made of glass yet is as strong as oak. It weighs 3 pounds. You must be attuned to the staff to gain its benefits and cast its spells.\n   While holding the staff, you have a +1 bonus to your Armor Class.\n   The staff has 10 charges, which are used to fuel the spells within it. With the staff in hand, you can use your action to cast one of the following spells from the staff if the spell is on your class's spell list: *Mage Armor* (1 charge) or *Shield* (2 charges). No components are required.\n   The staff regains 1d6+4 expended charges each day at dawn. If you expend the staff's last charge, roll a d20. On a 1, the staff shatters and is destroyed.",
 	attunement: true,
@@ -11659,8 +11652,8 @@ SourceList["PotA"] = {
 MagicItemsList["balloon pack"] = {
 	name: "Balloon Pack",
 	source: [["PotA", 222]],
-	type: "wondrous item",
-	rarity: "uncommon",
+	type: "Wondrous Item",
+	rarity: "Uncommon",
 	description: "As an action, I can deploy the balloon to gain the effects of *Levitate* for 10 minutes. As a Reaction, I can deploy the balloon to gain the effects of *Feather Fall*. After either effect ends, I descend slowly for 60 ft as it deflates. Once used in either way, the backpack is useless until recharged in an air node for 1 hour.",
 	descriptionFull: "This backpack contains the spirit of an air elemental and a compact leather balloon. While you're wearing the backpack, you can deploy the balloon as an action and gain the effect of the *Levitate* spell for 10 minutes, targeting yourself and requiring no concentration. Alternatively, you can use a reaction to deploy the balloon when you're falling and gain the effect of the *Feather Fall* spell for yourself.\n   When either spell ends, the balloon slowly deflates as the elemental spirit escapes and returns to the Elemental Plane of Air. As the balloon deflates, you descend gently toward the ground for up to 60 feet. If you are still in the air at the end of this distance, you fall if you have no other means of staying aloft.\n   After the spirit departs, the backpack's property is unusable unless the backpack is recharged for 1 hour in an elemental air node, which binds another spirit to the backpack.",
 	weight: 5, // as backpack
@@ -11694,8 +11687,8 @@ MagicItemsList["balloon pack"] = {
 MagicItemsList["bottled breath"] = {
 	name: "Bottled Breath",
 	source: [["PotA", 222]],
-	type: "potion",
-	rarity: "uncommon",
+	type: "Potion",
+	rarity: "Uncommon",
 	description: "Once as an action, I can inhale this breath of elemental air or administer it to another. The target then either exhale it or hold it in. If exhaled immediately, it produces the effects of *Gust of Wind*. Holding it in removes the need to breathe for 1 hour, though this benefit can end early, by speaking for example.",
 	descriptionFull: "This bottle contains a breath of elemental air. When you inhale it, you either exhale it or hold it.\n   If you exhale the breath, you gain the effect of the *Gust of Wind* spell. If you hold the breath, you don't need to breathe for 1 hour, though you can end this benefit early (for example, to speak). Ending it early doesn't give you the benefit of exhaling the breath.",
 	weight: 0.5,
@@ -11703,9 +11696,9 @@ MagicItemsList["bottled breath"] = {
 MagicItemsList["claws of the umber hulk"] = {
 	name: "Claws of the Umber Hulk",
 	source: [["PotA", 222]],
-	type: "wondrous item",
-	rarity: "rare",
-	description: "These brown iron gauntlets, shaped like umber hulk claws, cover my hands up to my elbows. While wearing both, I can tunnel 1 ft per round through solid rock and have a Burrow Speed of 20 ft, but can't manipulate items or use somatic spell components. I can use them as melee weapons, dealing 1d8 Slashing damage.",
+	type: "Wondrous Item",
+	rarity: "Rare",
+	description: "These brown iron gauntlets, shaped like umber hulk claws, cover my hands up to my elbows. While wearing both, I can tunnel 1 ft per round through solid rock and have a 20 ft Burrow Speed, but can't use somatic spell components or manipulate items. I can use them as melee weapons, dealing 1d8 slashing damage.",
 	descriptionFull: "These heavy gauntlets of brown iron are forged in the shape of an umber hulk's claws, and they fit the wearer's hands and forearms all the way up to the elbow. While wearing both claws, you gain a burrowing speed of 20 feet, and you can tunnel through solid rock at a rate of 1 foot per round.\n   You can use a claw as a melee weapon while wearing it. You have proficiency with it, and it deals 1d8 slashing damage on a hit (your Strength modifier applies to the attack and damage rolls, as normal).\n   While wearing the claws, you can't manipulate objects or cast spells with somatic components.",
 	weight: 1,
 	attunement: true,
@@ -11734,8 +11727,8 @@ var PotA_tempDevastationOrbNoteTxt = [
 MagicItemsList["devastation orb"] = {
 	name: "Devastation Orb",
 	source: [["PotA", 222]],
-	type: "wondrous item",
-	rarity: "very rare",
+	type: "Wondrous Item",
+	rarity: "Very Rare",
 	description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to Poison and Psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates an effect in a 1-mile radius around it.",
 	descriptionFull: PotA_tempDevastationOrbNoteTxt[0],
 	weight: 10,
@@ -11789,8 +11782,8 @@ MagicItemsList["devastation orb"] = {
 MagicItemsList["drown"] = {
 	name: "Drown",
 	source: [["PotA", 224]],
-	type: "weapon (trident)",
-	rarity: "legendary",
+	type: "Weapon (Trident)",
+	rarity: "Legendary",
 	storyItemAL: true,
 	description: "This trident has a +1 bonus on to hit and damage and deals +1d8 Cold damage. It allows me to speak Aquan, grants me resistance to Cold damage, and allows me to cast *Dominate Monster* on a water elemental once per dawn. It gives me a flaw, see Notes page.",
 	descriptionFull: "A steel trident decorated with bronze barnacles along the upper part of its haft, *Drown* has a sea-green jewel just below the tines and a silver shell at the end of its haft. It floats on the surface if dropped onto water, and it floats in place if it is released underwater. The trident is always cool to the touch, and it is immune to any damage due to exposure to water. *Drown* contains a spark of Olhydra, the Princess of Evil Water.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon. When you hit with it, the targets take an extra 1d8 cold damage.\n   ***Water Mastery***. You gain the following benefits while you hold *Drown*:\n \u2022 You can speak Aquan fluently.\n \u2022 You have resistance to cold damage.\n \u2022 You can cast *Dominate Monster* (save DC 17) on a water elemental. Once you have done so, *Drown* can't be used this way again until the next dawn.\n\n***Tears of Endless Anguish***. While inside a water node, you can perform a ritual called the Tears of Endless Anguish, using *Drown* to create a *devastation orb of water*. Once you perform the ritual, *Drown* can't be used to perform the ritual again until the next dawn.\n   ***Flaw***. *Drown* makes its wielder covetous. While attuned to the weapon, you gain the following flaw: \"I demand and deserve the largest share of the spoils, and I refuse to part with anything that's mine.\" In addition, if you are attuned to *Drown* for 24 consecutive hours, barnacles form on your skin. The barnacles can be removed with a *Greater Restoration* spell or similar magic, but not while you are attuned to the weapon.",
@@ -11818,7 +11811,7 @@ MagicItemsList["drown"] = {
 		regExpSearch: /drown/i,
 		name: "Drown",
 		source: [["PotA", 224]],
-		description: "Thrown, versatile (1d8); +1d8 Cold damage",
+		description: "Thrown, Versatile (1d10); +1d8 Cold damage",
 		modifiers: [1, 1],
 		selectNow: true,
 	}],
@@ -11836,8 +11829,8 @@ MagicItemsList["drown"] = {
 MagicItemsList["ironfang"] = {
 	name: "Ironfang",
 	source: [["PotA", 224]],
-	type: "weapon (war pick)",
-	rarity: "legendary",
+	type: "Weapon (War Pick)",
+	rarity: "Legendary",
 	storyItemAL: true,
 	description: "This war pick has a +2 bonus on to hit and damage and deals +1d8 Thunder damage. It allows me to speak Terran, grants me resistance to Acid damage, Tremorsense 60 ft, allows me to cast *Dominate Monster* on an earth elemental once per dawn, and to cast *Shatter* using 1 of its 3 charges and more, see Notes page.",
 	descriptionFull: "A war pick forged from a single piece of iron, *Ironfang* has a fang-like head inscribed with ancient runes. The pick is heavy in the hand, but when the wielder swings the pick in anger, the weapon seems almost weightless. This weapon is immune to any form of rust, acid, or corrosion\u2014nothing seems to mark it. *Ironfang* contains a spark of Ogr\xE9moch, the Prince of Evil Earth.\n   You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you hit with it, the target takes an extra 1d8 thunder damage.\n   ***Earth Mastery***. You gain the following benefits while you hold *Ironfang*:\n \u2022 You can speak Terran fluently.\n \u2022 You have resistance to acid damage.\n \u2022 You have tremorsense out to a range of 60 feet.\n \u2022 You can sense the presence of precious metals and stones within 60 feet of you, but not their exact location.\n \u2022 You can cast *Dominate Monster* (save DC 17) on an earth elemental. Once you have done so, *Ironfang* can't be used this way again until the next dawn.\n\n***Shatter***. *Ironfang* has 3 charges. You can use your action to expend 1 charge and cast the 2nd-level version of *Shatter* (DC 17). *Ironfang* regains 1d3 expended charges daily at dawn.\n   ***The Rumbling***. While inside an earth node, you can perform a ritual called the Rumbling, using *Ironfang* to create a *devastation orb of earth*. Once you perform the ritual, *Ironfang* can't be used to perform the ritual again until the next dawn.\n   ***Flaw***. *Ironfang* heightens its wielder's destructive nature. While attuned to the weapon, you gain the following flaw: \"I like to break things and cause ruin.\"",
@@ -11886,7 +11879,7 @@ MagicItemsList["ironfang"] = {
 		regExpSearch: /ironfang/i,
 		name: "Ironfang",
 		source: [["PotA", 224]],
-		description: "+1d8 Thunder damage",
+		description: "Versatile (1d10); +1d8 Thunder damage",
 		modifiers: [2, 2],
 		selectNow: true,
 	}],
@@ -11905,10 +11898,10 @@ MagicItemsList["ironfang"] = {
 MagicItemsList["lost crown of besilmer"] = {
 	name: "Lost Crown of Besilmer",
 	source: [["PotA", 223]],
-	type: "wondrous item",
-	rarity: "legendary",
+	type: "Wondrous Item",
+	rarity: "Legendary",
 	storyItemAL: true,
-	description: "This dwarven battle-helm gives me Psychic resistance and Adv on saves against being Charmed. It has 3 charges, regaining 1d3 at dawn. As a Bonus Action, I can use 1 charge to inspire an ally in 60 ft that I can see and that can see and hear me. Once before my next turn ends, it can add a d6 to one check, attack, or save.",
+	description: "This dwarven battle-helm gives me Psychic resistance and Adv on saves against being Charmed. It has 3 charges, regaining 1d3 at dawn. As a Bonus Action, I can use 1 charge to inspire an ally that I can see in 60 ft and that can see and hear me. Before my next turn ends, it can add +1d6 to 1 ability check, attack, or save.",
 	descriptionFull: "This dwarven battle-helm consists of a sturdy open-faced steel helmet, decorated with a golden circlet above the brow from which seven small gold spikes project upward. You gain the following benefits while wearing the crown:\n \u2022 You have resistance to psychic damage.\n \u2022 You have advantage on saving throws against effects that would charm you.\n \u2022 You can use a bonus action to inspire one creature you can see that is within 60 feet of you and that can see or hear you. Once before the end of your next turn, the inspired creature can roll a d6 and add the number rolled to one ability check, attack roll, or saving throw it makes. This uses 1 charge from the crown. It has 3 charges, and it regains 1d3 expended charges daily at dawn.",
 	attunement: true,
 	usages: 3,
@@ -11921,8 +11914,8 @@ MagicItemsList["lost crown of besilmer"] = {
 MagicItemsList["orcsplitter"] = {
 	name: "Orcsplitter",
 	source: [["PotA", 224]],
-	type: "weapon (greataxe)",
-	rarity: "legendary",
+	type: "Weapon (Greataxe)",
+	rarity: "Legendary",
 	prerequisite: "Requires attunement by a good-aligned dwarf, fighter, or paladin",
 	description: "This sentient greataxe has a +2 bonus on to hit and damage. If I roll a 20 on an attack vs an orc with it, the orc must make a DC 17 Con save or be reduced to 0 HP. While I'm not Incapacitated, I can't be surprised by orcs, and me and my allies in 30 ft can't be Frightened. I can sense orcs within 120 ft. See Notes page.",
 	descriptionFull: "A mighty axe wielded long ago by the dwarf king Torhild Flametongue, *Orcsplitter* is a battered weapon that appears unremarkable at first glance. Its head is graven with the Dwarvish runes for \"orc,\" but the runes are depicted with a gap or slash through the markings; the word \"orc\" is literally split in two.\n   You gain the following benefits while holding this magic weapon:\n \u2022 You gain a +2 bonus to attack and damage rolls made with it.\n \u2022 When you roll a 20 on an attack roll with this weapon against an orc, that orc must succeed on a DC 17 Constitution saving throw or drop to 0 hit points.\n \u2022 You can't be surprised by orcs while you're not incapacitated. You are also aware when orcs are within 120 feet of you and aren't behind total cover, although you don't know their location.\n \u2022 You and any of your friends within 30 feet of you can't be frightened while you're not incapacitated.\n\n***Sentience***. *Orcsplitter* is a sentient, lawful good weapon with an Intelligence of 6, a Wisdom of 15, and a Charisma of 10. It can see and hear out to 120 feet and has darkvision. It communicates by transmitting emotions to its wielder, although on rare occasions it uses a limited form of telepathy to bring to the wielder's mind a couplet or stanza of ancient Dwarvish verse.\n   ***Personality***. *Orcsplitter* is grim, taciturn, and inflexible. It knows little more than the desire to face orcs in battle and serve a courageous, just wielder. It disdains cowards and any form of duplicity, deception, or disloyalty. The weapon's purpose is to defend dwarves and to serve as a symbol of dwarven resolve. It hates the traditional foes of dwarves\u2014giants, goblins, and, most of all, orcs\u2014and silently urges its possessor to meet such creatures in battle.",
@@ -11938,22 +11931,25 @@ MagicItemsList["orcsplitter"] = {
 		selectNow: true,
 	}],
 	savetxt: { immune: ["Frightened"] },
-	toNotesPage: [{
-		name: "Features",
-		note: desc([
-			'A mighty axe wielded long ago by the dwarf king Torhild Flametongue, Orcsplitter is a battered weapon that appears unremarkable at first glance. Its head is graven with the Dwarvish runes for "orc," but the runes are depicted with a gap or slash through the markings; the word "orc" is literally split in two.',
-			"I gain a +2 bonus to attack and damage rolls made with it. When I roll a 20 on an attack roll with this weapon against an orc, that orc must succeed on a DC 17 Constitution saving throw or drop to 0 hit points.",
-			"While I am not Incapacitated, I can't be surprised by orcs and I am aware when orcs are within 120 ft of meand aren't behind total cover, although I don't know their location. Also, me and any of my friends within 30 ft of can't be Frightened while I am not Incapacitated.",
-			"Orcsplitter is a sentient, lawful good weapon with an Intelligence of 6, a Wisdom of 15, and a Charisma of 10. It can see and hear out to 120 feet and has Darkvision. It communicates by transmitting emotions to its wielder, although on rare occasions it uses a limited form of telepathy to bring to the wielder's mind a couplet or stanza of ancient Dwarvish verse.",
-			"Orcsplitter is grim, taciturn, and inflexible. It knows little more than the desire to face orcs in battle and serve a courageous, just wielder. It disdains cowards and any form of duplicity, deception, or disloyalty. The weapon's purpose is to defend dwarves and to serve as a symbol of dwarven resolve. It hates the traditional foes of dwarves\u2014giants, goblins, and, most of all, orcs\u2014and silently urges its possessor to meet such creatures in battle.",
-		]) + "\n\n" + sentientItemConflictTxt,
-	}],
+	toNotesPage: [
+		{
+			name: "Orcsplitter",
+			note: [
+				'A mighty axe wielded long ago by the dwarf king Torhild Flametongue, *Orcsplitter* is a battered weapon that appears unremarkable at first glance. Its head is graven with the Dwarvish runes for "orc," but the runes are depicted with a gap or slash through the markings; the word "orc" is literally split in two.',
+				"I gain a +2 bonus to attack and damage rolls made with it. When I roll a 20 on an attack roll with this weapon against an orc, that orc must succeed on a DC 17 Constitution saving throw or drop to 0 hit points.",
+				"While I am not Incapacitated, I can't be Surprised by orcs and I am aware when orcs are within 120 ft of me and aren't behind total cover, although I don't know their location. Also, me and any of my friends within 30 ft of can't be Frightened while I am not incapacitated.",
+				"*Orcsplitter* is a sentient, lawful good weapon with an Intelligence of 6, a Wisdom of 15, and a Charisma of 10. It can see and hear out to 120 feet and has Darkvision. It communicates by transmitting emotions to its wielder, although on rare occasions it uses a limited form of telepathy to bring to the wielder's mind a couplet or stanza of ancient Dwarvish verse.",
+				"*Orcsplitter* is grim, taciturn, and inflexible. It knows little more than the desire to face orcs in battle and serve a courageous, just wielder. It disdains cowards and any form of duplicity, deception, or disloyalty. The weapon's purpose is to defend dwarves and to serve as a symbol of dwarven resolve. It hates the traditional foes of dwarves\u2014giants, goblins, and, most of all, orcs\u2014and silently urges its possessor to meet such creatures in battle.",
+			],
+		},
+		Object.assign({}, sentientItemConflictNote, { amendTo: "Orcsplitter" }),
+	],
 }
 MagicItemsList["reszur"] = {
 	name: "Reszur",
 	source: [["PotA", 157]],
-	type: "weapon (dagger)",
-	rarity: "uncommon",
+	type: "Weapon (Dagger)",
+	rarity: "Uncommon",
 	description: "I have a +1 bonus to attack and damage rolls made with this dagger. It doesn't make noise when it hits or cuts something. If I speaks the name \"Reszur\", which is engraved on its pommel, the blade gives off a faint, cold glow, shedding dim light in a 10-foot radius until I speak the name again.",
 	descriptionFull: "You have a +1 bonus to attack and damage rolls made with this weapon, which doesn't make noise when it hits or cuts something.\n   The name \"Reszur\" is graven on the dagger's pommel. If the wielder speaks the name, the blade gives off a faint, cold glow, shedding dim light in a 10-foot radius until the wielder speaks the name again.",
 	weight: 1,
@@ -11970,8 +11966,8 @@ MagicItemsList["reszur"] = {
 MagicItemsList["seeker dart"] = {
 	name: "Seeker Dart",
 	source: [["PotA", 223]],
-	type: "weapon (dart)",
-	rarity: "uncommon",
+	type: "Weapon (Dart)",
+	rarity: "Uncommon",
 	description: "Once as an action, when I whisper \"seek\" and hurl this dart, it seeks out a target of my choice within 120 ft that I have seen at least once. If the target isn't within range or there is no clear path to it, the dart's magic is spent. Else, the target must make a DC 16 Dex save or take 1d4 Piercing and 3d4 Lightning damage.",
 	descriptionFull: "This small dart is decorated with designs like windy spirals that span the length of its shaft.\n   When you whisper the word \"seek\" and hurl this dart, it seeks out a target of your choice within 120 feet of you. You must have seen the target before, but you don't need to see it now. If the target isn't within range or if there is no clear path to it, the dart falls to the ground, its magic spent and wasted. Otherwise, elemental winds guide the dart instantly through the air to the target. The dart can pass though openings as narrow as 1 inch wide and can change direction to fly around corners.\n   When the dart reaches its target, the target must succeed on a DC 16 Dexterity saving throw or take 1d4 piercing damage and 3d4 lightning damage. The dart's magic is then spent, and it becomes an ordinary dart.",
 	weight: 0.25,
@@ -11979,8 +11975,8 @@ MagicItemsList["seeker dart"] = {
 MagicItemsList["storm boomerang"] = {
 	name: "Storm Boomerang",
 	source: [["PotA", 223]],
-	type: "weapon (javelin)",
-	rarity: "uncommon",
+	type: "Weapon (Javelin)",
+	rarity: "Uncommon",
 	description: "This ranged weapon has 60/120 ft range, deals 1d4 Bludgeoning and 3d4 Thunder damage, and its target must make a DC 10 Con save or be Stunned until its next turn ends. On a miss, it returns to the thrower's hand. Once it deals Thunder damage, it can't do so or stun again until recharged in an air node for 1 hour.",
 	descriptionFull: "This boomerang is a ranged weapon carved from griffon bone and etched with the symbol of elemental air. When thrown, it has a range of 60/120 feet, and any creature that is proficient with the javelin is also proficient with this weapon. On a hit, the boomerang deals 1d4 bludgeoning damage and 3d4 thunder damage, and the target must succeed on a DC 10 Constitution saving throw or be stunned until the end of its next turn. On a miss, the boomerang returns to the thrower's hand.\n   Once the boomerang deals thunder damage to a target, the weapon loses its ability to deal thunder damage and its ability to stun a target. These properties return after the boomerang spends at least 1 hour inside an elemental air node.",
 	weaponOptions: [{
@@ -12002,8 +11998,8 @@ MagicItemsList["storm boomerang"] = {
 MagicItemsList["tinderstrike"] = {
 	name: "Tinderstrike",
 	source: [["PotA", 225]],
-	type: "weapon (dagger)",
-	rarity: "legendary",
+	type: "Weapon (Dagger)",
+	rarity: "Legendary",
 	storyItemAL: true,
 	description: "This flint dagger has a +2 bonus on to hit and damage and deals +2d6 Fire damage. It allows me to speak Ignan, grants me resistance to Fire damage, and allows me to cast *Dominate Monster* on a fire elemental once per dawn. It gives me a flaw, see Notes page.",
 	descriptionFull: "A flint dagger, *Tinderstrike* is uncommonly sharp, and sparks cascade off its edge whenever it strikes something solid. Its handle is always warm to the touch, and the blade smolders for 1d4 minutes after it is used to deal damage. It contains a spark of Imix, Prince of Evil Fire.\n   You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you hit with it, the target takes an extra 2d6 fire damage.\n   ***Fire Mastery***. You gain the following benefits while you hold *Tinderstrike*:\n \u2022 You can speak Ignan fluently.\n \u2022 You have resistance to fire damage.\n \u2022 You can cast *Dominate Monster* (save DC 17) on a fire elemental. Once you have done so, *Tinderstrike* can't be used this way again until the next dawn.\n\n***Dance of the All-Consuming Fire***. While inside a fire node, you can perform a ritual called the Dance of the All-Consuming Fire, using *Tinderstrike* to create a *devastation orb of fire*. Once you perform the ritual, *Tinderstrike* can't be used to perform the ritual again until the next dawn.\n   " + '***Flaw***. Tinderstrike makes its wielder impatient and rash. While attuned to the weapon, you gain the following flaw: "I act without thinking and take risks without weighing the consequences."',
@@ -12049,8 +12045,8 @@ MagicItemsList["tinderstrike"] = {
 MagicItemsList["weird tank"] = {
 	name: "Weird Tank",
 	source: [["PotA", 223]],
-	type: "wondrous item",
-	rarity: "rare",
+	type: "Wondrous Item",
+	rarity: "Rare",
 	description: "As an action, I can open (or close) this tank of water, allowing the water weird within it to act or not. The weird is bound to the tank, follows my telepathic commands, and acts after me in combat. If the weird is killed, a new one can be formed by placing the tank in a water node for 24 hours.",
 	descriptionLong: "As an action, I can open (or close) this tank of water, allowing the water weird within it to act or not. The weird is bound to the tank, follows my telepathic commands, and acts after me in combat. If it is killed, a new one can be formed by placing the tank in a water node for 24 hours. I can close the tank as an action, but I can only close the tank after commanding the weird to retract into it or if it died. The tank has AC 15, 50 HP, vulnerability to Bludgeoning damage, and immunity to Poison and Psychic damage. Reducing the tank to 0 hit points destroys it and the water weird contained within it.",
 	descriptionFull: "A *weird tank* is a ten-gallon tank of blown glass and sculpted bronze with a backpack-like carrying harness fashioned from tough leather. A water weird is contained within the tank. While wearing the tank, you can use an action to open it, allowing the water weird to emerge. The water weird acts immediately after you in the initiative order, and it is bound to the tank.\n   You can command the water weird telepathically (no action required) while you wear the tank. You can close the tank as an action only if you have first commanded the water weird to retract into it or if the water weird is dead.\n   If the water weird is killed, the tank loses its magical containment property until it spends at least 24 hours inside an elemental water node. When the tank is recharged, a new water weird forms inside it.\n   The tank has AC 15, 50 hit points, vulnerability to bludgeoning damage, and immunity to poison and psychic damage. Reducing the tank to 0 hit points destroys it and the water weird contained within it.",
@@ -12061,8 +12057,8 @@ MagicItemsList["weird tank"] = {
 MagicItemsList["windvane"] = {
 	name: "Windvane",
 	source: [["PotA", 225]],
-	type: "weapon (spear)",
-	rarity: "legendary",
+	type: "Weapon (Spear)",
+	rarity: "Legendary",
 	storyItemAL: true,
 	description: "This spear with the finesse property has a +2 bonus on to hit and damage and deals +1d6 Lightning damage. It allows me to speak Auran, grants me resistance to Lightning damage, and allows me to cast *Dominate Monster* on an air elemental once per dawn. It gives me a flaw, see Notes page.",
 	descriptionFull: "A silver spear, *Windvane* has dark sapphires on the filigreed surface of its polished head. Held by its shining haft, the weapon feels insubstantial, as if clutching a cool, gently flowing breeze. The spear contains a spark of Yan-C-Bin, the Prince of Evil Air.\n   You have a +2 bonus to attack and damage rolls made with this magic weapon, which has the finesse weapon property. When you hit with it, the target takes an extra 1d6 lightning damage.\n   ***Air Mastery***. You gain the following benefits while you hold *Windvane*:\n \u2022 You can speak Auran fluently.\n \u2022 You have resistance to lightning damage.\n \u2022 You can cast *Dominate Monster* (save DC 17) on an air elemental. Once you have done so, *Windvane* can't be used this way again until the next dawn.\n\n***Song of the Four Winds***. While inside an air node, you can perform a ritual called the Song of the Four Winds, using *Windvane* to create a *devastation orb of air*. Once you perform the ritual, *Windvane* can't be used to perform the ritual again until the next dawn.\n   " + '***Flaw***. Windvane makes its wielder mercurial and unreliable. While attuned to the weapon, you gain the following flaw: "I break my vows and plans. Duty and honor mean nothing to me."',
@@ -12108,9 +12104,9 @@ MagicItemsList["windvane"] = {
 MagicItemsList["wingwear"] = {
 	name: "Wingwear",
 	source: [["PotA", 223]],
-	type: "wondrous item",
-	rarity: "uncommon",
-	description: "This snug uniform with leathery flaps has 3 charges, regaining all when placed in an air not for 1 hour. As a Bonus Action, I can expend 1 charge to gain a Fly Speed of 30 ft until I land or have 0 altitude. At the end of each of my turns, my altitude drops by 5 ft and I must move at least 30 ft horizontally or I fall.",
+	type: "Wondrous Item",
+	rarity: "Uncommon",
+	description: "This snug uniform with leathery flaps has 3 charges, regaining all when placed in an air not for 1 hour. As a Bonus Action, I can expend 1 charge to gain 30 ft Fly Speed until I land or have 0 altitude. At the end of each of my turns, my altitude drops by 5 ft and I must move at least 30 ft horizontally or I fall.",
 	descriptionFull: "This snug uniform has symbols of air stitched into it and leathery flaps that stretch along the arms, waist, and legs to create wings for gliding. A suit of *wingwear* has 3 charges. While you wear the suit, you can use a bonus action and expend 1 charge to gain a flying speed of 30 feet until you land. At the end of each of your turns, your altitude drops by 5 feet. Your altitude drops instantly to 0 feet at the end of your turn if you didn't fly at least 30 feet horizontally on that turn. When your altitude drops to 0 feet, you land (or fall), and you must expend another charge to use the suit again.\n   The suit regains all of its expended charges after spending at least 1 hour in an elemental air node.",
 	attunement: true,
 	usages: 3,
@@ -12886,7 +12882,8 @@ SpellsList["create bonfire"] = {
 	duration: "Conc, 1 min",
 	save: "Dex",
 	description: "5-ft cube all crea now/enter/end turn save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
-	descriptionShorter: "5-ft cube all now/enter/end save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
+	descriptionMetric: "1,5m cube all crea now/enter/end turn save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
+	descriptionShorter: "5-ft cube all now/enter/end save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5,11,17",
 	descriptionCantripDie: "5-ft cube all crea at casting, entering, or end turn in save or `CD`d8 Fire dmg; ignites flammable",
 	descriptionFull: "You create a bonfire on ground that you can see within range. Until the spell ends, the magic bonfire fills a 5-foot cube. Any creature in the bonfire's space when you cast the spell must succeed on a Dexterity saving throw or take 1d8 fire damage. A creature must also make the saving throw when it moves into the bonfire's space for the first time on a turn or ends its turn there." + "\n   " + "The bonfire ignites flammable objects in its area that aren't being worn or carried." + "\n   " + "The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).",
 };
@@ -12902,7 +12899,8 @@ SpellsList["dust devil"] = {
 	compMaterial: "A pinch of dust",
 	duration: "Conc, 1 min",
 	save: "Str",
-	description: "5-ft cube; all in 5-ft 1d8+1d8/SL Bludg. dmg and pushed 10 ft away; save halves, no push; see book",
+	description: "5-ft cube; all in 5-ft 1d8+1d8/SL Bludg. dmg and pushed 10 ft away; save halves, no push; see B",
+	descriptionShorterMetric: "1,5m cube; all in 1,5 m 1d8+1d8/SL Bludg. dmg \x26 push 3 m away; save half, no push; see B",
 	descriptionFull: "Choose an unoccupied 5-foot cube of air that you can see within range. An elemental force that resembles a dust devil appears in the cube and lasts for the spell's duration." + "\n   " + "Any creature that ends its turn within 5 feet of the dust devil must make a Strength saving throw. On a failed save, the creature takes 1d8 bludgeoning damage and is pushed 10 feet away from the dust devil. On a successful save, the creature takes half as much damage and isn't pushed." + "\n   " + "As a bonus action, you can move the dust devil up to 30 feet in any direction. If the dust devil moves over sand, dust, loose dirt, or light gravel, it sucks up the material and forms a 10-foot-radius cloud of debris around itself that lasts until the start of your next turn. The cloud heavily obscures its area." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd.",
 };
 SpellsList["earthbind"] = {
@@ -13008,7 +13006,7 @@ SpellsList["gust"] = {
 	components: "V,S",
 	duration: "Instantaneous",
 	save: "Str",
-	description: "Med. or smaller crea save or push 5 ft; or push unattended 5 lb obj 10 ft; or harmless sensory effect",
+	description: "Crea \u2264Medium save or push 5 ft; or push unattended 5 lb obj 10 ft; or harmless sensory effect",
 	descriptionFull: "You seize the air and compel it to create one of the following effects at a point you can see within range." + "\n " + "\u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you." + "\n " + "\u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage." + "\n " + "\u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze.",
 };
 SpellsList["immolation"] = {
@@ -13039,6 +13037,7 @@ SpellsList["investiture of flame"] = {
 	duration: "Conc, 10 min",
 	save: "Dex",
 	description: "Fire immune; Cold res.; 1d10 Fire dmg in 5 ft; 1 a 15-ft long 5-ft wide all crea 4d8 Fire dmg, save half",
+	descriptionMetric: "Fire im.; Cold res.; 1d10 Fire dmg in 1,5 m; 1 a 4,5-m long 1,5-m wide all crea 4d8 Fire dmg, save half",
 	descriptionShorter: "Fire im.; Cold res.; 1d10 Fire dmg in 5 ft; 1a 15-ft long 5-ft wide all 4d8 Fire dmg, save half",
 	descriptionShorterMetric: "Fire immune; Cold res.; 1d10 Fire dmg in 1,5 m; 1 a 4,5-m long all 4d8 Fire dmg, save half",
 	descriptionFull: "Flames race across your body, shedding bright light in a 30-foot radius and dim light for an additional 30 feet for the spell's duration. The flames don't harm you. Until the spell ends, you gain the following benefits." + "\n " + "\u2022 You are immune to fire damage and have resistance to cold damage." + "\n " + "\u2022 Any creature that moves within 5 feet of you for the first time on a turn or ends its turn there takes 1d10 fire damage." + "\n " + "\u2022 You can use your action to create a line of fire 15 feet long and 5 feet wide extending from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes 4d8 fire damage on a failed save, or half as much damage on a successful one.",
@@ -14056,8 +14055,8 @@ CreatureList["steeder, male"] = {
 MagicItemsList["dawnbringer"] = {
 	name: "Dawnbringer",
 	source: [["OotA", 222]],
-	type: "weapon (longsword)",
-	rarity: "legendary",
+	type: "Weapon (Longsword)",
+	rarity: "Legendary",
 	storyItemAL: true,
 	prerequisite: "Requires attunement by a creature of non-evil alignment",
 	prereqeval: function (v) { return !/evil/i.test(What("Alignment")); },
@@ -14097,23 +14096,26 @@ MagicItemsList["dawnbringer"] = {
 		selection: ["lesser restoration"],
 		firstCol: "onceday",
 	}],
-	toNotesPage: [{
-		name: "Features",
-		note: desc([
-			"Lost for ages in the Underdark, Dawnbringer appears to be a gilded longsword hilt. While grasping the hilt, I can use a Bonus Action to make a blade of pure radiance spring from the hilt, or cause the blade to disappear. While the blade exists, it functions as a magic longsword that has the finesse property. I'm proficient with it if I'm proficient with either shortswords or longswords.",
-			"I gain a +2 bonus to attack and damage rolls made with this weapon, which deals Radiant damage instead of Slashing damage. When I hit an Undead with it, that target takes an extra 1d8 Radiant damage.",
-			"The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 ft. The light is sunlight. As an action while the blade persists, I can expand or reduce its radius of bright and dim light by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each.",
-			"As an action while holding the weapon, I can touch a creature with the blade and cast *Lesser Restoration* on that creature. Once used, this ability can't be used again until the next dawn.",
-			"Dawnbringer is a sentient neutral good weapon with an Intelligence of 12, a Wisdom of 15, and a Charisma of 14. It has hearing and Darkvision out to a range of 120 feet. The sword can speak, read, and understand Common, and it can communicate with its wielder telepathically. Its voice is kind and feminine. It knows every language you know while attuned to it.",
-			"Forged by ancient sun worshippers, Dawnbringer is meant to bring light into darkness and to fight creatures of darkness. It is kind and compassionate to those in need, but fierce and destructive to its enemies. Long years lost in darkness have made Dawnbringer frightened of both the dark and abandonment. It prefers that its blade always be present and shedding light in areas of darkness, and it strongly resists being parted from its wielder for any length of time.",
-		]) + "\n\n" + sentientItemConflictTxt,
-	}],
+	toNotesPage: [
+		{
+			name: "Dawnbringer",
+			note: [
+				"Lost for ages in the Underdark, Dawnbringer appears to be a gilded longsword hilt. While grasping the hilt, I can use a Bonus Action to make a blade of pure radiance spring from the hilt, or cause the blade to disappear. While the blade exists, it functions as a magic longsword that has the finesse property. I'm proficient with it if I'm proficient with either shortswords or longswords.",
+				"I gain a +2 bonus to attack and damage rolls made with this weapon, which deals Radiant damage instead of Slashing damage. When I hit an Undead with it, that target takes an extra 1d8 Radiant damage.",
+				"The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 ft. The light is sunlight. As an action while the blade persists, I can expand or reduce its radius of bright and dim light by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each.",
+				"As an action while holding the weapon, I can touch a creature with the blade and cast *Lesser Restoration* on that creature. Once used, this ability can't be used again until the next dawn.",
+				"Dawnbringer is a sentient neutral good weapon with an Intelligence of 12, a Wisdom of 15, and a Charisma of 14. It has hearing and Darkvision out to a range of 120 feet. The sword can speak, read, and understand Common, and it can communicate with its wielder telepathically. Its voice is kind and feminine. It knows every language you know while attuned to it.",
+				"Forged by ancient sun worshippers, Dawnbringer is meant to bring light into darkness and to fight creatures of darkness. It is kind and compassionate to those in need, but fierce and destructive to its enemies. Long years lost in darkness have made Dawnbringer frightened of both the dark and abandonment. It prefers that its blade always be present and shedding light in areas of darkness, and it strongly resists being parted from its wielder for any length of time.",
+			],
+		},
+		Object.assign({}, sentientItemConflictNote, { amendTo: "Dawnbringer" }),
+	],
 }
 MagicItemsList["piwafwi (cloak of elvenkind)"] = {
 	name: "Piwafwi",
 	source: [["OotA", 222]],
-	type: "wondrous item",
-	rarity: "uncommon",
+	type: "Wondrous Item",
+	rarity: "Uncommon",
 	description: "While I wear this dark spider-silk cloak with its hood up, Wisdom (Perception) checks made to see me have Disadv, and I have Adv on Dex (Stealth) checks made to hide, as its color shifts to camouflage me. Pulling the hood up or down requires an action. It loses its magic if exposed to sunlight for 1 uninterrupted hour.",
 	descriptionFull: "This dark spider-silk cloak is made by drow. It is a *cloak of elvenkind*. It loses its magic if exposed to sunlight for 1 hour without interruption.\n   While you wear this cloak with its hood up, Wisdom (Perception) checks made to see you have disadvantage. and you have advantage on Dexterity (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
 	attunement: true,
@@ -14130,8 +14132,8 @@ MagicItemsList["piwafwi (cloak of elvenkind)"] = {
 MagicItemsList["piwafwi of fire resistance (cloak of elvenkind)"] = {
 	name: "Piwafwi of Fire Resistance",
 	source: [["OotA", 222]],
-	type: "wondrous item",
-	rarity: "rare",
+	type: "Wondrous Item",
+	rarity: "Rare",
 	description: "While I wear this dark spider-silk cloak with its hood up, Wisdom (Perception) checks made to see me have Disadv, and I get Adv on Dex (Stealth) checks made to hide. Pulling the hood up or down requires an action. It also grants me Fire resistance. It loses its magic if exposed to sunlight for 1 hour without interruption.",
 	descriptionFull: "This dark spider-silk cloak is made by drow. It is a *cloak of elvenkind*. It also grants resistance to fire damage while you wear it. It loses its magic if exposed to sunlight for 1 hour without interruption.\n   While you wear this cloak with its hood up, Wisdom (Perception) checks made to see you have disadvantage. and you have advantage on Dexterity (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
 	attunement: true,
@@ -14149,7 +14151,7 @@ MagicItemsList["piwafwi of fire resistance (cloak of elvenkind)"] = {
 MagicItemsList["spell gem"] = { // not legal in AL
 	name: "Spell Gem",
 	source: [["OotA", 223]],
-	type: "wondrous item",
+	type: "Wondrous Item",
 	notLegalAL: true,
 	description: "This gem can store 1 spell in it. If it is empty, I can cast a spell as normal, but have it stored in the gem. As an action, I can cast a stored spell from it, if that spell is on my class' spell list.",
 	descriptionFull: "A *spell gem* can contain one spell from any class's spell list. You become aware of the spell when you learn the gem's properties. While holding the gem, you can cast the spell from it as an action if you know the spell or if the spell is on your class's spell list. Doing so doesn't require any components, and doesn't require attunement. The spell then disappears from the gem.\n   If the spell is of a higher level than you can normally cast, you must make an ability check using your spellcasting ability to determine whether you cast it successfully. The DC equals 10 + the spell's level. On a failed check, the spell disappears from the gem with no other effect\n   Each *spell gem* has a maximum level for the spell it can store. The spell level determines the gem's rarity, the stored spell's saving throw DC, and attack bonus, as shown in the table below.\n   You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. If the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.\n   Once imbued with a spell, the gem can't be imbued again until the next dawn.\n   Deep gnomes created these magic gemstones and keep the creation process a secret.\n\n" + [
@@ -14206,7 +14208,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	"obsidian (cantrip, uncommon)": {
 		name: "Spell Gem [Obsidian]",
 		sortname: "Spell Gem  (cantrip) [Obsidian]",
-		rarity: "uncommon",
+		rarity: "Uncommon",
 		description: "This gem can store one cantrip. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 13 and +5 spell attack.",
 		fixedDC: 13,
 		spellFirstColTitle: "Us", // used
@@ -14220,7 +14222,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	"lapis lazuli (1st-level, uncommon)": {
 		name: "Spell Gem [Lapis Lazuli]",
 		sortname: "Spell Gem (1st-level) [Lapis Lazuli]",
-		rarity: "uncommon",
+		rarity: "Uncommon",
 		description: "This gem can store one spell up to 1st-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 13 and +5 spell attack. If the spell's level is higher than I can cast, I need to make a DC 11 check with my spellcasting ability or the spell has no effect.",
 		fixedDC: 13,
 		spellFirstColTitle: "Us", // used
@@ -14234,7 +14236,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	"quartz (2nd-level, rare)": {
 		name: "Spell Gem [Quartz]",
 		sortname: "Spell Gem (2nd-level) [Quartz]",
-		rarity: "rare",
+		rarity: "Rare",
 		description: "This gem can store one spell up to 2nd-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 13 and +5 spell attack. If the spell's level is higher than I can cast, I need to make a DC 12 check with my spellcasting ability or the spell has no effect.",
 		fixedDC: 13,
 		spellFirstColTitle: "Us", // used
@@ -14248,7 +14250,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	"bloodstone (3rd-level, rare)": {
 		name: "Spell Gem [Bloodstone]",
 		sortname: "Spell Gem (3rd-level) [Bloodstone]",
-		rarity: "rare",
+		rarity: "Rare",
 		description: "This gem can store one spell up to 3rd-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 15 and +7 spell attack. If the spell's level is higher than I can cast, I need to make a DC 13 check with my spellcasting ability or the spell has no effect.",
 		fixedDC: 15,
 		spellFirstColTitle: "Us", // used
@@ -14262,7 +14264,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	"amber (4th-level, very rare)": {
 		name: "Spell Gem [Amber]",
 		sortname: "Spell Gem (4th-level) [Amber]",
-		rarity: "very rare",
+		rarity: "Very Rare",
 		description: "This gem can store one spell up to 4th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 15 and +9 spell attack. If the spell's level is higher than I can cast, I need to make a DC 14 check with my spellcasting ability or the spell has no effect.",
 		fixedDC: 15,
 		fixedSpAttack: 9,
@@ -14277,7 +14279,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	"jade (5th-level, very rare)": {
 		name: "Spell Gem [Jade]",
 		sortname: "Spell Gem (5th-level) [Jade]",
-		rarity: "very rare",
+		rarity: "Very Rare",
 		description: "This gem can store one spell up to 5th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 17 and +9 spell attack. If the spell's level is higher than I can cast, I need to make a DC 15 check with my spellcasting ability or the spell has no effect.",
 		fixedDC: 17,
 		spellFirstColTitle: "Us", // used
@@ -14291,7 +14293,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	"topaz (6th-level, very rare)": {
 		name: "Spell Gem [Topaz]",
 		sortname: "Spell Gem (6th-level) [Topaz]",
-		rarity: "very rare",
+		rarity: "Very Rare",
 		description: "This gem can store one spell up to 6th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 17, +10 spell attack. If the spell's level is higher than I can cast, I need to make a DC 16 check with my spellcasting ability or the spell has no effect.",
 		fixedDC: 17,
 		fixedSpAttack: 10,
@@ -14306,7 +14308,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	"star ruby (7th-level, legendary)": {
 		name: "Spell Gem [Star Ruby]",
 		sortname: "Spell Gem (7th-level) [Star Ruby]",
-		rarity: "legendary",
+		rarity: "Legendary",
 		description: "This gem can store one spell up to 7th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 18, +10 spell attack. If the spell's level is higher than I can cast, I need to make a DC 17 check with my spellcasting ability or the spell has no effect.",
 		fixedDC: 18,
 		spellFirstColTitle: "Us", // used
@@ -14320,7 +14322,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	"ruby (8th-level, legendary)": {
 		name: "Spell Gem [Ruby]",
 		sortname: "Spell Gem (8th-level) [Ruby]",
-		rarity: "legendary",
+		rarity: "Legendary",
 		description: "This gem can store one spell up to 8th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 18, +10 spell attack. If the spell's level is higher than I can cast, I need to make a DC 18 check with my spellcasting ability or the spell has no effect.",
 		fixedDC: 18,
 		spellFirstColTitle: "Us", // used
@@ -14334,7 +14336,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	"diamond (9th-level, legendary)": {
 		name: "Spell Gem [Diamond]",
 		sortname: "Spell Gem (9th-level) [Diamond]",
-		rarity: "legendary",
+		rarity: "Legendary",
 		description: "This gem can store one spell up to 9th-level. I can cast such a spell into the empty gem. As an action, I can cast the spell stored in it (if it's on my class' spell list), with DC 19, +11 spell attack. If the spell's level is higher than I can cast, I need to make a DC 19 check with my spellcasting ability or the spell has no effect.",
 		fixedDC: 19,
 		spellFirstColTitle: "Us", // used
@@ -14349,8 +14351,8 @@ MagicItemsList["spell gem"] = { // not legal in AL
 MagicItemsList["stonespeaker crystal"] = {
 	name: "Stonespeaker Crystal",
 	source: [["OotA", 223]],
-	type: "wondrous item",
-	rarity: "rare",
+	type: "Wondrous Item",
+	rarity: "Rare",
 	description: "This crystal has 10 charges, regaining 1d6+4 at dawn, which I can use to cast its spells. When I use its last charge, roll a d20. On a 1, it vanishes. It gives me Adv on Int (Investigation) checks. When I cast an abjuration spell, I can expend 1 charge per level of the spell to substitute one material component of the spell.",
 	descriptionFull: "Created by the stone giant librarians of Gravenhollow, this nineteen-inch-long shard of quartz grants you advantage on Intelligence (Investigation) checks while it is on your person.\n   The crystal has 10 charges. While holding it, you can use an action to expend some of its charges to cast one of the following spells from it: *Speak with Animals* (2 charges), *Speak with Dead* (4 charges), or *Speak with Plants* (3 charges).\n   When you cast a Divination spell, you can use the crystal in place of one material component that would normally be consumed by the spell, at a cost of 1 charge per level of the spell. The crystal is not consumed when used in this way.\n   The crystal regains 1d6+4 expended charges daily at dawn. If you expend the crystal's last charge, roll a d20. On a 1, the crystal vanishes, lost forever.",
 	attunement: true,
@@ -14380,8 +14382,8 @@ MagicItemsList["stonespeaker crystal"] = {
 MagicItemsList["wand of viscid globs"] = {
 	name: "Wand of Viscid Globs",
 	source: [["OotA", 223]],
-	type: "wand",
-	rarity: "rare",
+	type: "Wand",
+	rarity: "Rare",
 	attunement: true,
 	description: "This black wand has 7 charges, regaining 1d6+1 at midnight. If its last charge is used, roll a d20. On a 1, it melts. As an action, I can expend 1 charge to make a ranged attack roll on a target in 60 ft (with my spellcasting ability). On a hit, it is Restrained for 1 hour. The wand is destroyed if exposed to sunlight for 1 hour.",
 	descriptionFull: "Crafted by the drow, this slim black wand has 7 charges. While holding it, you can use an action to expend 1 of its charges to cause a small glob of viscous material to launch from the tip at one creature within 60 feet of you. Make a ranged attack roll against the target, with a bonus equal to your spellcasting modifier (or your Intelligence modifier, if you don't have a spellcasting modifier) plus your proficiency bonus. On a hit, the glob expands and dries on the target, which is restrained for 1 hour. After that time, the viscous material cracks and falls away.\n   Applying a pint or more of alcohol to the restrained creature dissolves the glob instantly, as does the application of *oil of etherealness* or *universal solvent*. The glob also dissolves instantly if exposed to sunlight. No other nonmagical process can remove the viscous material until it deteriorates on its own.\n   The wand regains 1d6+1 expended charges daily at midnight. If you expend the wands last charge, roll a d20. On a 1, the wand melts into harmless slime and is destroyed.\n   A wand of viscous globs is destroyed if exposed to sunlight for 1 hour without interruption.",
@@ -15556,7 +15558,7 @@ SpellsList["green-flame blade"] = {
 	components: "S,M\u0192",
 	compMaterial: "A melee weapon worth at least 1 sp",
 	duration: "Instantaneous",
-	description: "Melee wea atk with cast; hit: 0d8 Fire dmg, 1 crea in 5 ft 0d8+spell mod Fire dmg; +1d8 CL5/11/17",
+	description: "Melee wea atk at cast; hit: 0d8 Fire dmg, 1 crea in 5 ft 0d8+spell mod Fire dmg; +1d8 CL5/11/17",
 	descriptionShorter: "Melee wea atk; hit: 0d8 Fire dmg, 1 crea in 5 ft 0d8+spell mod Fire dmg; +1d8 CL5/11/17",
 	descriptionCantripDie: "Melee wea atk with cast; if hit: `CD-1`d8 Fire dmg, 1 crea in 5 ft `CD-1`d8+spellcasting ability modifier Fire dmg",
 	descriptionFull: [
@@ -15575,8 +15577,8 @@ SpellsList["lightning lure"] = {
 	components: "V",
 	duration: "Instantaneous",
 	save: "Str",
-	description: "1 crea in 15 ft save or pulled 10 ft to me; if it ends in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5, 11, \u0026 17",
-	descriptionShorter: "1 crea in 15 ft save or pulled 10 ft to me; if end in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5/11/17",
+	description: "1 crea in 15 ft save or pulled 10 ft to me; if it ends in 5 ft, 1d8 Lightning dmg; +1d8 at CL 5/11/17",
+	descriptionShorter: "1 crea in 15 ft save or pulled 10 ft to me; if end in 5 ft, 1d8 Lightn. dmg; +1d8 at CL 5/11/17",
 	descriptionCantripDie: "1 crea I see save or pulled 10 ft to me; if it ends in 5 ft, `CD`d8 Lightning dmg",
 	descriptionFull: [
 		"You create a lash of lightning energy that strikes at one creature of your choice that you can see within 15 feet of you. The target must succeed on a Strength saving throw or be pulled up to 10 feet in a straight line toward you and then take 1d8 lightning damage if it is within 5 feet of you.",

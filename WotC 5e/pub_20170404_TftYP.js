@@ -126,7 +126,7 @@ CreatureList["giant lightning eel"] = {
 		description: "Out water: 5 ft, 1 crea; In water: all in 15 ft; Con save: fail― stunned until eel's next turn end, success― half damage",
 		modifiers: [-1, ""],
 		abilitytodamage: false,
-		tooltip: "One creature the eel touches within 5 feet of it outside water, or each creature within 15 feet of it in a body of water, must make a DC 12 Constitution saving throw. On failed save, a target takes 13 (3d8) lightning damage. If the target takes any of this damage, the target is stunned until the end of the eel's next turn. On a successful save, a target takes half as much damage and isn't stunned",
+		tooltip: "One creature the eel touches within 5 ft of it outside water, or each creature within 15 ft of it in a body of water, must make a DC 12 Constitution saving throw. On failed save, a target takes 3d8 lightning damage. If the target takes any of this damage, the target is stunned until the end of the eel's next turn. On a successful save, a target takes half as much damage and isn't stunned",
 	}],
 	traits: [{
 		name: "Water Breathing",
@@ -137,8 +137,9 @@ CreatureList["giant lightning eel"] = {
 		description: "As an action on its turn, the eel can make two Bite attacks.",
 	}, {
 		name: "Lightning Jolt (Recharge 5-6)",
-		description: "See Attack. One creature the eel touches within 5 feet of it outside water, or each creature within 15 feet of it in a body of water, must make a DC 12 Constitution saving throw. On failed save, a target takes 13 (3d8) lightning damage. If the target takes any of this damage, the target is stunned until the end of the eel's next turn. On a successful save, a target takes half as much damage and isn't stunned",
+		description: "See Attack. One creature the eel touches within 5 ft of it outside water, or each creature within 15 ft of it in a body of water, must make a DC 12 Constitution saving throw. On failed save, a target takes 3d8 lightning damage. If the target takes any of this damage, the target is stunned until the end of the eel's next turn. On a successful save, a target takes half as much damage and isn't stunned",
 	}],
+	wildshapeString: "##Senses##. Blindsight 60 ft. ##Resistances##. Lightning. ##Multiattack##. On its turn, 2 Bite attacks.\n##Water Breathing##. The eel can breathe only underwater. ##Lightning Jolt (Recharge 5-6)##. One creature it touches in 5 ft outside water, or all within 15 ft in water, take 3d8 lightning damage and are stunned until the end of the eel's next turn if it was damaged. The target can make a DC 12 Con save to take half damage only.",
 };
 CreatureList["giant subterranean lizard"] = {
 	name: "Giant Subterranean Lizard",
@@ -187,7 +188,7 @@ MagicItemsList["flame tongue shortsword of gem detection"] = {	// contributed by
 	source: [["TftYP", 178]],
 	type: "weapon (shortsword)",
 	attunement: true,
-	description: "As a bonus action, I can speak the command word to cause flames that add +2d6 fire damage and shine bright light for 40 ft \u0026 dim light for 40 ft. The flames last until I speak the word again or sheathe it. As an action, I can mentally command it to detect type and quantity of gems and jewels within 60 ft of the sword.",
+	description: "As a bonus action, I can speak the command word to cause flames that add +2d6 fire damage and shed bright light in 40 ft \x26 dim light in 40 ft. The flames last until I speak the word again or sheathe it. As an action, I can mentally command it to detect type and quantity of gems and jewels within 60 ft of the sword.",
 	descriptionFull: "You can use a bonus action to speak this magic sword's command word, causing flames to erupt from the blade. These flames shed bright light in a 40-foot radius and dim light for an additional 40 feet. While the sword is ablaze, it deals an extra 2d6 fire damage to any target it hits. The flames last until you use a bonus action to speak the command word again or until you drop or sheathe the sword." +
 	"\n   While you are attuned to this sword you can use an action to mentally command it to detect gems and jewels. You learn the kind and number of such objects within 60 feet of the sword.",
 	action: [
@@ -252,7 +253,7 @@ MagicItemsList["bracelet of rock magic"] = {
 	weight: 1,
 	cursed: true,
 	usages: 16,
-	recovery: "Never",
+	recovery: "\u2013",
 	savetxt: { immune: ["petrified"] },
 	fixedDC: 15,
 	spellFirstColTitle: "Ch",
@@ -500,16 +501,19 @@ MagicItemsList["waythe"] = {
 	recovery: "dawn",
 	additional: "regains 1d6+1",
 	action: [["action", ""]],
-	toNotesPage: [{
-		name: "Features",
-		note: desc([
-			"It takes only 1 minute for a good-aligned character to gain attunement with this sword.",
-			"I gain a +1 bonus to attack and damage rolls made with this magic greatsword. When I hit a creature of the giant type with it, it deals an extra 2d6 slashing damage, and the giant must succeed on a DC 15 Strength saving throw or fall prone.",
-			"Waythe has 7 charges and regains 1d6+1 expended charges daily at dawn. As an action while holding it, I can expend 1 charge to speak its command word. For the next minute, I know the direction of the nearest creature hostile to me within 60 ft, but not its distance from me. Waythe can sense the presence of hostile creatures that are ethereal, invisible, disguised, or hidden, as well as those in plain sight. The effect ends if I stop holding Waythe.",
-			"Waythe is a sentient weapon of neutral good alignment, with an Intelligence of 12, a Wisdom of 2, and a Charisma of 14. It has hearing and darkvision out to a range of 120 feet, can speak and understand Giant and Common, and can communicate telepathically with its wielder.",
-			"Waythe believes in freedom and allowing others to live as they see fit. It is protective of its friends, and wants to be friends with a like-minded wielder. Waythe is courageous to the point of foolhardiness, however, and vocally urges bold action. It is likely to come into conflict with an evil or a timid wielder.",
-		]) + "\n\n" + sentientItemConflictTxt,
-	}],
+	toNotesPage: [
+		{
+			name: "Waythe",
+			note: [
+				"It takes only 1 minute for a good-aligned character to gain attunement with this sword.",
+				"I gain a +1 bonus to attack and damage rolls made with this magic greatsword. When I hit a creature of the giant type with it, it deals an extra 2d6 slashing damage, and the giant must succeed on a DC 15 Strength saving throw or fall prone.",
+				"Waythe has 7 charges and regains 1d6+1 expended charges daily at dawn. As an action while holding it, I can expend 1 charge to speak its command word. For the next minute, I know the direction of the nearest creature hostile to me within 60 ft, but not its distance from me. Waythe can sense the presence of hostile creatures that are ethereal, invisible, disguised, or hidden, as well as those in plain sight. The effect ends if I stop holding Waythe.",
+				"Waythe is a sentient weapon of neutral good alignment, with an Intelligence of 12, a Wisdom of 2, and a Charisma of 14. It has hearing and darkvision out to a range of 120 feet, can speak and understand Giant and Common, and can communicate telepathically with its wielder.",
+				"Waythe believes in freedom and allowing others to live as they see fit. It is protective of its friends, and wants to be friends with a like-minded wielder. Waythe is courageous to the point of foolhardiness, however, and vocally urges bold action. It is likely to come into conflict with an evil or a timid wielder.",
+			],
+		},
+		Object.assign({}, sentientItemConflictNote, { amendTo: "Waythe" }),
+	],
 }
 MagicItemsList["white dragonhide cape"] = { // worn by king Snurre
 	name: "White Dragonhide Cape",

@@ -234,7 +234,7 @@ ClassList["artificer-ua3"] = {
 					"Once per short rest as a reaction after being hit in melee, the wielder can blind its attacker",
 					"The attack must succeed on a Con save (spell save DC) or be blinded until its next turn ends",
 				]),
-				additional: "simple/martial weapon; requires attunement",
+				additional: "simple/martial" + (typePF ? "" : " weapon") + "; needs attunement",
 				prereqeval: function (v) { return classes.known["artificer-ua3"].level >= 8; },
 				eval: function (lvl, chc) { AddMagicItem("Radiant Weapon"); },
 				removeeval: function (lvl, chc) {

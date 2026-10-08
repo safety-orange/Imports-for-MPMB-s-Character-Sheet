@@ -19,12 +19,12 @@ MagicItemsList["orcus figurine"] = {
 	rarity: "",
 	storyItemAL: true,
 	attunement: false,
-	description: "This Tiny figurine smells of decaying flesh, detectable out to 5 ft. Within 30 ft of it, dead can't be brought back to life and undead can't be turned. If I hold it and pray for 1 hour, I have a 10% chance of calling a wraith for 1 hour that attacks all non-undead. Once summoned, the figurine can't do so again for 30 days.",
+	description: "This Tiny figurine smells of decaying flesh, detectable out to 5 ft. Within 30 ft of it, undead can't be turned and dead can't be brought back to life. If I hold it and pray for 1 hour, I have a 10% chance to call a **wraith** for 1 hour that attacks all non-undead. Once summoned, the figurine can't do so again for 30 days.",
 	descriptionFull: "Carved from an ogre's petrified heart, the gray figurine depicts the Demon Prince of Undeath in ghastly detail, clutching his skull-topped wand in one hand and three severed heads by the hair in the other. The figurine smells like decaying flesh, and this scent is detectable out to a range of 5 feet." +
 	"\n   The figurine is a Tiny object with AC 17, 3 hit points, and immunity to all types of damage except radiant damage. A detect evil and good spell or similar magic reveals that the figurine has been desecrated. As long as it has at least 1 hit point, the figurine has the following magical properties:" +
 	"\n   \u2022 Undead within 30 feet of the figurine can't be turned." +
 	"\n   \u2022 Dead creatures within 30 feet of the figurine can't be brought back to life." +
-	"\n   \u2022 A creature that holds the figurine while praying to Orcus for at least 1 hour has a 10 percent chance of summoning a smoky avatar of the demon lord. Once this avatar is summoned, it can't be summoned again for 30 days. Orcus's avatar has the statistics of a wraith except that it's chaotic evil. It attacks all non-undead creatures it encounters, and it disappears after 1 hour or when reduced to 0 hit points.",
+	"\n   \u2022 A creature that holds the figurine while praying to Orcus for at least 1 hour has a 10 percent chance of summoning a smoky avatar of the demon lord. Once this avatar is summoned, it can't be summoned again for 30 days. Orcus's avatar has the statistics of a **wraith** except that it's chaotic evil. It attacks all non-undead creatures it encounters, and it disappears after 1 hour or when reduced to 0 hit points.",
 };
 MagicItemsList["radiance (wand)"] = {
 	name: "Radiance (wand)",
@@ -150,7 +150,7 @@ MagicItemsList["gloves of soul catching"] = {
 	rarity: "legendary",
 	notLegalAL: true,
 	attunement: true,
-	description: "My Constitution increases to 20 while wearing these gloves. After hitting with an unarmed strike while wearing these gloves, I can deal an extra 2d10 force damage to target and regain an equal amount of HP. Alternatively, instead of regaining hit points in this way, you can choose to gain advantage on one attack roll, ability check, or saving throw you make before the end of your next turn.",
+	description: "While wearing these gloves, my Con increases to 20. After hitting with an unarmed strike with them on, I can deal +2d10 force damage to the target and regain an equal amount of HP, or, instead of regaining HP, I can choose to gain adv. on one attack roll, ability check, or save I make before the end of my next turn.",
 	descriptionFull: "Your Constitution score is 20 while you wear these gloves. This property of the gloves has no effect on you if your Constitution is already 20 or higher." +
 	"\n   After making a successful unarmed strike while wearing these gloves, you can use the gloves to deal an extra 2d10 force damage to the target, and you regain a number of hit points equal to the force damage dealt. Alternatively, instead of regaining hit points in this way, you can choose to gain advantage on one attack roll, ability check, or saving throw you make before the end of your next turn.",
 	scoresOverride: [0, 0, 20, 0, 0, 0],
@@ -159,7 +159,7 @@ MagicItemsList["gloves of soul catching"] = {
 		regExpSearch: /^(?=.*gloves)(?=.*soul)(?=.*catching).*$/i,
 		name: "Gloves of Soul Catching",
 		source: [["CM", 169]],
-		description: "+2d10 force damage",
+		description: "+2d10 force damage, heal for same amount or 1\xD7 Adv",
 		selectNow: true,
 	}],
 };

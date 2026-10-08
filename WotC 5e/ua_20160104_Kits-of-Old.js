@@ -262,6 +262,9 @@ AddSubClass("fighter", "scout-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature3.2": function () {
 			var NEfea = newObj(ClassList.ranger.features["natural explorer"]);
+			if (NEfea["\x1B[original] natural explorer"]) {
+				NEfea = NEfea["\x1B[original] natural explorer"];
+			}
 			NEfea.source = ["UA:KoO", 4];
 			NEfea.minlevel = 3;
 			NEfea.additional = ["", "", "1 favored terrain", "1 favored terrain", "1 favored terrain", "1 favored terrains", "2 favored terrains", "2 favored terrains", "2 favored terrains", "2 favored terrains", "2 favored terrains", "2 favored terrains", "2 favored terrains", "2 favored terrains", "3 favored terrains", "3 favored terrains", "3 favored terrains", "3 favored terrains", "3 favored terrains", "3 favored terrains"];

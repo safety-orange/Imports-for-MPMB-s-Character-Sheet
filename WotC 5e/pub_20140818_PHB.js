@@ -2606,6 +2606,7 @@ CompanionList["undead_thrall"] = {
 		name: "Undead I create with a necromancy spell",
 		description: "add my wizard level to their hit point maximum and add my proficiency bonus to their weapon damage rolls.",
 		joinString: " ",
+		formattingChar: "",
 	}],
 	eval: function (prefix, lvl) {
 		// Set HP to use average value, so that the level bonus is automatically included

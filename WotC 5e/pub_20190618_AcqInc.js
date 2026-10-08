@@ -312,7 +312,13 @@ RaceList["verdan"] = {
 	height: " are between 3 and a half and 4 feet tall, plus 2 feet from 5th level onwards",
 	heightMetric: " are between 100 and 120 cm tall, plus 60 cm from 5th level onwards",
 	scores: [0, 0, 1, 0, 0, 2],
-	trait: "Verdan (+1 Constitution, +2 Charisma)\nSudden Growth Spurt: At 5th level, I grow 2 ft, increasing my size from Small to Medium.\nBlack Blood Healing: When I roll a 1 or 2 on any HD I spend at the end of short rest, I can reroll the die and must use the new roll.\nLimited Telepathy: I can telepathically communicate simple ideas and straightforward concepts to a creature I can see within 30 ft, if it can understand at least one language.\nTelepathic Insight: I have advantage on Wisdom and Charisma saving throws.",
+	trait: [
+		"Verdan (+1 Constitution, +2 Charisma)",
+		"##\u25C6 Sudden Growth Spurt##. At 5th level, I grow 2 ft and my size becomes Medium.",
+		"##\u25C6 Black Blood Healing##. When I roll a 1 or 2 on any HD I spend at the end of short rest, I can reroll the die and must use the new roll.",
+		"##\u25C6 Limited Telepathy##. I can telepathically communicate simple ideas and straightforward concepts to a creature I can see within 30 ft, if it can understand at least one language.",
+		"##\u25C6 Telepathic Insight##. I have advantage on Wisdom and Charisma saving throws.",
+	].join("\n"),
 	features: {
 		"sudden growth spurt": {
 			name: "Sudden Growth Spurt",

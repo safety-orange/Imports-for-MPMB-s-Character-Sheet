@@ -31,7 +31,12 @@ RaceList["kor"] = {
 	height: " average nearly 6 feet tall (4'9\" + 2d8\")",
 	weight: " are more slender than humans",
 	scores: [0, 2, 0, 0, 1, 0],
-	trait: "Kor (+2 Dexterity, +1 Wisdom)\nKor Climbling: I have proficiency in the Athletics and Acrobatics skills.\nLucky: When I roll a 1 on the d20 for an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.\nBrave: I have advantage on saving throws against being frightened.",
+	trait: [
+		"**Kor** (+2 Dexterity, +1 Wisdom)",
+		"##\u25C6 Kor Climbing##. I have proficiency in the Athletics and Acrobatics skills.",
+		"##\u25C6 Lucky##. When I roll a 1 on the d20 for an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.",
+		"##\u25C6 Brave##. I have advantage on saving throws against being frightened.",
+	],
 };
 
 RaceList["emeria merfolk"] = {
@@ -52,7 +57,12 @@ RaceList["emeria merfolk"] = {
 	heightMetric: " stand between 1,8 and 2,2 metres tall",
 	skills: ["Deception", "Persuasion"],
 	scores: [0, 0, 0, 0, 2, 1],
-	trait: "Emeria Creed Merfolk (+2 Wisdom, +1 Charisma)\nAmphibious: I can breathe air and water.\nWind Creed Manipulation: I have proficiency in the Deception and Persuasion skills.\nCantrip: I know one cantrip of my choice from the druid spell list. Wisdom is my spellcasting ability for it.",
+	trait: [
+		"**Emeria Creed Merfolk** (+2 Wisdom, +1 Charisma)",
+		"##\u25C6 Amphibious##. I can breathe air and water.",
+		"##\u25C6 Wind Creed Manipulation##. I have proficiency in the Deception and Persuasion skills.",
+		"##\u25C6 Cantrip##. I know one cantrip of my choice from the druid spell list. Wisdom is my spellcasting ability for it.",
+	],
 	spellcastingAbility: 5,
 	spellcastingBonus: [{
 		name: "Emeria Creed Cantrip",
@@ -80,7 +90,12 @@ RaceList["ula merfolk"] = {
 	skills: ["Survival"],
 	toolProfs: ["Navigator's tools"],
 	scores: [0, 0, 0, 2, 0, 1],
-	trait: "Ula Creed Merfolk (+2 Intelligence, +1 Charisma)\nAmphibious: I can breathe air and water.\nWater Creed Navigation: I have proficiency with navigator's tools and in the Survival skill.\nCantrip: I know one cantrip of my choice from the wizard spell list. Intelligence is my spellcasting ability for it.",
+	trait: [
+		"**Ula Creed Merfolk** (+2 Intelligence, +1 Charisma)",
+		"##\u25C6 Amphibious##. I can breathe air and water.",
+		"##\u25C6 Water Creed Navigation##. I have proficiency with navigator's tools and in the Survival skill.",
+		"##\u25C6 Cantrip##. I know one cantrip of my choice from the wizard spell list. Intelligence is my spellcasting ability for it.",
+	],
 	spellcastingAbility: 4,
 	spellcastingBonus: [{
 		name: "Ula Creed Cantrip",
@@ -107,7 +122,12 @@ RaceList["cosi merfolk"] = {
 	heightMetric: " stand between 1,8 and 2,2 metres tall",
 	skills: ["Sleight of Hand", "Stealth"],
 	scores: [0, 0, 0, 1, 0, 2],
-	trait: "Ula Creed Merfolk (+1 Intelligence, +2 Charisma)\nAmphibious: I can breathe air and water.\nCreed of the Trickster: I have proficiency in the Sleight of Hand and Stealth skills.\nCantrip: I know one cantrip of my choice from the bard spell list. Charisma is my spellcasting ability for it.",
+	trait: [
+		"**Cosi Creed Merfolk** (+1 Intelligence, +2 Charisma)",
+		"##\u25C6 Amphibious##. I can breathe air and water.",
+		"##\u25C6 Creed of the Trickster##. I have proficiency in the Sleight of Hand and Stealth skills.",
+		"##\u25C6 Cantrip##. I know one cantrip of my choice from the bard spell list. Charisma is my spellcasting ability for it.",
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Cosi Creed Cantrip",
@@ -145,7 +165,11 @@ RaceList["zendikar vampire"] = {
 	}],
 	age: " don't mature and age in the same way that other races do. Every living vampire is either a bloodchief, infected by Ulamog's influence in the distant reaches of history, or was spawned by a bloodchief from a living human. Most vampires are thus very old, but few have any memory of their earliest years.",
 	scores: [0, 0, 0, 1, 0, 2],
-	trait: "Vampire (+1 Intelligence, +2 Charisma)\nBlood Thirst: I can drain blood and life energy from a willing creature, or one that is grappled by me, incapacitated, or restrained. With a melee attack, I deal 1 piercing and 1d6 necrotic damage. The target's max HP is reduced by the necrotic damage amount and I regain HP for the same. This max HP reduction lasts until the target finished a long rest.\nNull Transformation: A humanoid killed by my blood thirst ability becomes a null.",
+	trait: [
+		"**Vampire** (+1 Intelligence, +2 Charisma)",
+		"##\u25C6 Blood Thirst##. I can drain blood and life energy from a willing creature, or one that is grappled by me, incapacitated, or restrained. With a melee attack, I deal 1 piercing and 1d6 necrotic damage. The target's max HP is reduced by the necrotic damage amount and I regain HP for the same. This max HP reduction lasts until the target finishes a long rest.",
+		"##\u25C6 Null Transformation##. A humanoid killed by my blood thirst ability becomes a null.",
+	],
 };
 
 RaceList["grotag tribe goblin"] = {
@@ -170,12 +194,16 @@ RaceList["grotag tribe goblin"] = {
 		selectNow: true,
 	}],
 	age: " reach adulthood at around 12 and rarely live longer than 50 years",
-	height: " average about 3 feet tall (3'\" + 2d4\")",
+	height: " average about 3 feet tall (3'5\" + 2d4\")",
 	weight: " weigh about 40 lb (35 + 2d4 \xD7 1d4 lb)",
 	heightMetric: " average about 100 cm tall (100 + 5d4 cm)",
 	weightMetric: " weigh about 20 kg (17 + 5d4 \xD7 2d4 / 10 kg)",
 	scores: [0, 0, 2, 0, 0, 0],
-	trait: "Grotag Tribe Goblin (+2 Constitution)\nGrit: I have resistance to fire damage and psychic damage.\n   In addition, when I am wearing no armor, my AC is equal to 11 + my Dexterity modifier.",
+	trait: [
+		"**Grotag Tribe Goblin** (+2 Constitution)",
+		"##\u25C6 Grit##. I have resistance to fire damage and psychic damage.",
+		"In addition, when I am wearing no armor, my AC is equal to 11 + my Dexterity modifier.",
+	],
 };
 RaceList["lavastep tribe goblin"] = {
 	regExpSearch: /^(?=.*\blavastep)(?=.*goblin\b).*$/i,
@@ -203,7 +231,12 @@ RaceList["lavastep tribe goblin"] = {
 	heightMetric: " average about 100 cm tall (100 + 5d4 cm)",
 	weightMetric: " weigh about 20 kg (17 + 5d4 \xD7 2d4 / 10 kg)",
 	scores: [0, 0, 2, 0, 0, 0],
-	trait: "Lavastep Tribe Goblin (+2 Constitution)\nGrit: I have resistance to fire damage and psychic damage.\n   In addition, when I am wearing no armor, my AC is equal to 11 + my Dexterity modifier.\nLavastep Grit: I have advantage on Dexterity (Stealth) checks made to hide in rocky or subterranean environments.",
+	trait: [
+		"**Lavastep Tribe Goblin** (+2 Constitution)",
+		"##\u25C6 Grit##. I have resistance to fire damage and psychic damage.",
+		"In addition, when I am wearing no armor, my AC is equal to 11 + my Dexterity modifier.",
+		"##\u25C6 Lavastep Grit##. I have advantage on Dexterity (Stealth) checks made to hide in rocky or subterranean environments.",
+	],
 };
 RaceList["tuktuk tribe goblin"] = {
 	regExpSearch: /^(?=.*\btuktuk)(?=.*goblin\b).*$/i,
@@ -232,7 +265,11 @@ RaceList["tuktuk tribe goblin"] = {
 	heightMetric: " average about 100 cm tall (100 + 5d4 cm)",
 	weightMetric: " weigh about 20 kg (17 + 5d4 \xD7 2d4 / 10 kg)",
 	scores: [0, 0, 2, 0, 0, 0],
-	trait: "Tuktuk Tribe Goblin (+2 Constitution)\nGrit: I have resistance to fire damage and psychic damage.\n   In addition, when I am wearing no armor, my AC is equal to 11 + my Dexterity modifier.",
+	trait: [
+		"**Tuktuk Tribe Goblin** (+2 Constitution)",
+		"##\u25C6 Grit##. I have resistance to fire damage and psychic damage.",
+		"In addition, when I am wearing no armor, my AC is equal to 11 + my Dexterity modifier.",
+	],
 };
 
 RaceList["tajuru elf"] = {
@@ -259,7 +296,10 @@ RaceList["tajuru elf"] = {
 	heightMetric: " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [0, 0, 0, 0, 2, 1],
-	trait: "Tajuru Elf (+2 Wisdom, +1 Charisma)\nTajuru Nation: Tajuru elves are the most open to people of other races, seeing their skills and perspectives as valuable new tools for survival.",
+	trait: [
+		"**Tajuru Elf** (+2 Wisdom, +1 Charisma)",
+		"##\u25C6 Tajuru Nation##. Tajuru elves are the most open to people of other races, seeing their skills and perspectives as valuable new tools for survival.",
+	],
 };
 RaceList["joraga elf"] = {
 	regExpSearch: /^(?!.*half)(?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\bjoraga\b).*$/i,
@@ -285,7 +325,10 @@ RaceList["joraga elf"] = {
 	heightMetric: " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [0, 1, 0, 0, 2, 0],
-	trait: "Joraga Elf (+1 Dexterity, +2 Wisdom)\nMask of the Wild: I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
+	trait: [
+		"**Joraga Elf** (+1 Dexterity, +2 Wisdom)",
+		"##\u25C6 Mask of the Wild##. I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
+	],
 };
 RaceList["mul daya elf"] = {
 	regExpSearch: /^(?!.*half)(?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\bmul)(?=.*daya\b).*$/i,
@@ -311,7 +354,11 @@ RaceList["mul daya elf"] = {
 	heightMetric: " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [1, 0, 0, 0, 2, 0],
-	trait: "Mul Daya Elf (+1 Strength, +2 Wisdom)\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nMul Daya Magic: 1st level: Chill Touch cantrip; 3rd level: Hex; 5th level: Darkness. Both spells can be used once per long rest. Wisdom is my spellcasting ability for these.",
+	trait: [
+		"**Mul Daya Elf** (+1 Strength, +2 Wisdom)",
+		"##\u25C6 Sunlight Sensitivity##. Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.",
+		"##\u25C6 Mul Daya Magic##. 1st level: *Chill Touch* cantrip; 3rd level: *Hex*; 5th level: *Darkness*. Both spells can be used once per long rest. Wisdom is my spellcasting ability for these.",
+	],
 	spellcastingAbility: 5,
 	spellcastingBonus: [{
 		name: "Mul Daya Magic (level 1)",
@@ -514,7 +561,7 @@ CreatureList["terra stomper"] = {
 		ability: 1,
 		damage: [4, 12, "piercing"],
 		range: "Melee (10 ft)",
-		description: "One bite and one tail attack to a different as an Attack action",
+		description: "One bite and one tail attack to a different target as an Attack action",
 	}],
 	actions: [{
 		name: "Multiattack",

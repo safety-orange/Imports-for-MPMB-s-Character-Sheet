@@ -377,10 +377,12 @@ CompanionList.companionrr = {
 		name: "Call forth and bond with an animal",
 		description: "from the wilderness by spending 8 hours and 50 gp",
 		joinString: " ",
+		formattingChar: "",
 	}, {
 		name: "I can have one companion at a time",
 		description: "If it dies, I can spend 8 hours and 25 gp to bring it back",
 		joinString: "; ",
+		formattingChar: "",
 	}, {
 		name: "Companion's Bond",
 		description: [
@@ -399,24 +401,24 @@ CompanionList.companionrr = {
 		].join("\n   "),
 		joinString: typePF ? ": " : ":\n   ",
 	}, {
-		name: "Coordinated Attack (Beast Conclave 5, UA:RR 6)",
+		name: "Coordinated Attack",
 		description: "When I take the Attack action, my companion can use its reaction to make one melee attack",
-		joinString: "\n   ",
+		joinString: " (Beast Conclave 5, UA:RR 6)\n   ",
 		minlevel: 5,
 	}, {
-		name: "Beast's Defense (Beast Conclave 7, UA:RR 6)",
+		name: "Beast's Defense",
 		description: "While my companion can see me, it has advantage on all saving throws",
-		joinString: "\n   ",
+		joinString: " (Beast Conclave 7, UA:RR 6)\n   ",
 		minlevel: 7,
 	}, {
-		name: "Storm of Claws and Fangs (Beast Conclave 11, UA:RR 6)",
+		name: "Storm of Claws and Fangs",
 		description: "My companion can, as an action, make a melee attack vs. all creatures within 5 ft of it",
-		joinString: "\n   ",
+		joinString: " (Beast Conclave 11, UA:RR 6)\n   ",
 		minlevel: 11,
 	}, {
-		name: "Superior Beast's Defense (Beast Conclave 15, UA:RR 6)",
+		name: "Superior Beast's Defense",
 		description: "My companion can, as a reaction, halve the damage of an attack from an attacker that it sees",
-		joinString: "\n   ",
+		joinString: " (Beast Conclave 15, UA:RR 6)\n   ",
 		minlevel: 15,
 	}],
 	attributesChange: function (sCrea, objCrea) {

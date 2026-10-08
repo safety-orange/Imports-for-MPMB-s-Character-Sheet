@@ -714,16 +714,21 @@ MagicItemsList["lost sword"] = {
 		selection: ["protection from evil and good"],
 		firstCol: "onceday",
 	}],
-	toNotesPage: [{
-		name: "Features",
-		note: desc([
-			"The Lost Sword is a sentient lawful good +1 shortsword.",
-			"A lawful good creature can attune itself to the sword in 1 minute.",
-			"It continually sheds bright light in a 15-ft radius and dim light for an additional 15 ft. Only by destroying the sword can this light be extinguished.",
-			"While attuned to the weapon, the sword's wielder can use the sword to cast the Crusader's Mantle spell. Once used, this property of the sword can't be used again until the next dawn.",
-			"It has Intelligence 11, Wisdom 13, and Charisma 13 and can hear and see as a human out to a range of 120 ft. It communicates by transmitting emotion to the creature carrying or wielding it. The sword's purpose is to fight evil.",
-		]) + "\n\n" + sentientItemConflictTxt,
-	}],
+	toNotesPage: [
+		{
+			name: "Lost Sword",
+			note: [
+				"The *Lost Sword* is a sentient lawful good +1 shortsword.",
+				"A lawful good creature can attune itself to the sword in 1 minute.",
+				"It continually sheds bright light in a 15-ft radius and dim light for an additional 15 ft. Only by destroying the sword can this light be extinguished.",
+				"While attuned to the weapon, the sword's wielder can use the sword to cast the *Crusader's Mantle* spell. Once used, this property of the sword can't be used again until the next dawn.",
+				"It has Intelligence 11, Wisdom 13, and Charisma 13 and can hear and see as a human out to a range of 120 ft. It communicates by transmitting emotion to the creature carrying or wielding it. The sword's purpose is to fight evil.",
+			],
+		},
+		Object.assign({}, sentientItemConflictNote, {
+			amendTo: "The *Lost Sword* is a sentient",
+		}),
+	],
 }
 MagicItemsList["saint markovia's thighbone"] = {
 	name: "Saint Markovia's Thighbone",
@@ -795,16 +800,19 @@ MagicItemsList["sunsword"] = {
 			}, "",
 		],
 	},
-	toNotesPage: [{
-		name: "Features",
-		note: desc([
-			"The Sunsword is a unique blade once possessed by Strahd's brother, Sergei von Zarovich. In its original form, it had a platinum hilt and guard, and a thin crystal blade as strong as steel.",
-			"Strahd employed a powerful wizard named Khazan to destroy the weapon after Sergei's death. The first part of the process required the hilt and the blade to be separated, which Khazan accomplished. While Khazan was busying himself destroying the blade, his apprentice stole the hilt and fled. Khazan later located his apprentice's mutilated corpse in the Svalich Woods, but the hilt was nowhere to be found. To avoid the vampire's wrath, Khazan told Strahd that the entire weapon had been destroyed.",
-			"The hilt, which is sentient, knows that it can never be reunited with its original crystal blade. It has, however, gained the properties of a sun blade. While grasping the hilt, I can use a bonus action to make a blade of pure radiance spring from the hilt, or cause the blade to disappear. While the blade exists, it functions as a magic longsword that has the finesse property. I'm proficient with it if I'm proficient with either shortswords or longswords.",
-			"I gain a +2 bonus to attack and damage rolls made with this weapon, which deals radiant damage instead of slashing damage. When I hit an undead with it, that target takes an extra 1d8 radiant damage.",
-			"The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 ft. The light is sunlight. As an action while the blade persists, I can expand or reduce its radius of bright and dim light by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each.",
-			"The Sunsword is a sentient chaotic good weapon with an Intelligence of 11, a Wisdom of 17, and a Charisma of 16. It has hearing and normal vision out to a range of 60 feet. The weapon communicates by transmitting emotions to the creature carrying it or wielding it.",
-			"The Sunsword's special purpose is to destroy Strahd, not so much because it wants to free the land of Barovia from evil but because it wants revenge for the loss of its crystal blade. The weapon secretly fears its own destruction",
-		]) + "\n\n" + sentientItemConflictTxt,
-	}],
+	toNotesPage: [
+		{
+			name: "Sunsword",
+			note: [
+				"The *Sunsword* is a unique blade once possessed by Strahd's brother, Sergei von Zarovich. In its original form, it had a platinum hilt and guard, and a thin crystal blade as strong as steel.",
+				"Strahd employed a powerful wizard named Khazan to destroy the weapon after Sergei's death. The first part of the process required the hilt and the blade to be separated, which Khazan accomplished. While Khazan was busying himself destroying the blade, his apprentice stole the hilt and fled. Khazan later located his apprentice's mutilated corpse in the Svalich Woods, but the hilt was nowhere to be found. To avoid the vampire's wrath, Khazan told Strahd that the entire weapon had been destroyed.",
+				"The hilt, which is sentient, knows that it can never be reunited with its original crystal blade. It has, however, gained the properties of a sun blade. While grasping the hilt, I can use a bonus action to make a blade of pure radiance spring from the hilt, or cause the blade to disappear. While the blade exists, it functions as a magic longsword that has the finesse property. I'm proficient with it if I'm proficient with either shortswords or longswords.",
+				"I gain a +2 bonus to attack and damage rolls made with this weapon, which deals radiant damage instead of slashing damage. When I hit an undead with it, that target takes an extra 1d8 radiant damage.",
+				"The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 ft. The light is sunlight. As an action while the blade persists, I can expand or reduce its radius of bright and dim light by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each.",
+				"The Sunsword is a sentient chaotic good weapon with an Intelligence of 11, a Wisdom of 17, and a Charisma of 16. It has hearing and normal vision out to a range of 60 feet. The weapon communicates by transmitting emotions to the creature carrying it or wielding it.",
+				"The Sunsword's special purpose is to destroy Strahd, not so much because it wants to free the land of Barovia from evil but because it wants revenge for the loss of its crystal blade. The weapon secretly fears its own destruction",
+			],
+		},
+		Object.assign({}, sentientItemConflictNote, { amendTo: "Sunsword" }),
+	],
 }

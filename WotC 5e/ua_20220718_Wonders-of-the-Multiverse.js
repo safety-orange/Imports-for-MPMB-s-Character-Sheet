@@ -687,7 +687,7 @@ FeatsList["strike of the giants-ua"] = {
 FeatsList["ember of the fire giant-ua2"] = {
 	name: "Fury of the Fire Giant",
 	source: [["UA:WotM", 7]],
-	description: "I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+Prof Bonus fire damage & are blinded until my next turn starts. Dex save (8 + Prof B. + Str/Con/Wis mod) for half damage & not blinded.",
+	description: "I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+Prof Bonus fire damage & are blinded until my next turn starts. Dex save (8 + Prof B + Str/Con/Wis mod) for half damage & not blinded.",
 	descriptionFull: "You've manifested the fiery combat emblematic of fire giants, granting you the following benefits:" +
 	"\n   ***Ability Score Increase***. Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20." +
 	"\n   ***Born of Flame***. You have resistance to fire damage." +
@@ -703,7 +703,7 @@ FeatsList["ember of the fire giant-ua2"] = {
 	dmgres: ["Fire"],
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
-		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B.) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B. + Str mod) for half damage \u0026 not blinded. [+1 Str]';",
+		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B + Str mod) for half damage \u0026 not blinded. [+1 Str]';",
 		scores: [1, 0, 0, 0, 0, 0],
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
@@ -721,7 +721,7 @@ FeatsList["ember of the fire giant-ua2"] = {
 		}],
 	},
 	"constitution": {
-		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B.) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B.+ Con mod) for half damage \u0026 not blinded. [+1 Con]';",
+		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B+ Con mod) for half damage \u0026 not blinded. [+1 Con]';",
 		scores: [0, 0, 1, 0, 0, 0],
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
@@ -739,7 +739,7 @@ FeatsList["ember of the fire giant-ua2"] = {
 		}],
 	},
 	"wisdom": {
-		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B.) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B. + Wis mod) for half damage \u0026 not blinded. [+1 Wis]';",
+		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B + Wis mod) for half damage \u0026 not blinded. [+1 Wis]';",
 		scores: [0, 0, 0, 0, 1, 0],
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
@@ -760,7 +760,7 @@ FeatsList["ember of the fire giant-ua2"] = {
 FeatsList["fury of the frost giant-ua2"] = {
 	name: "Fury of the Frost Giant",
 	source: [["UA:WotM", 7]],
-	description: "I have cold resistance. As a reaction my Prof Bonus per long rest, when a creature I can see within 30 ft hits and deals damage with an attack, I can have it make a Con save (DC 8 + Prof B. + Str/Con/Wis mod) or take 1d8 + Prof Bonus  cold damage and have its speed reduced by half until my next turn ends.",
+	description: "I have cold resistance. As a reaction my Prof Bonus per long rest, when a creature I can see within 30 ft hits and deals damage with an attack, I can have it make a Con save (DC 8 + Prof B + Str/Con/Wis mod) or take 1d8 + Prof Bonus  cold damage and have its speed reduced by half until my next turn ends.",
 	descriptionFull: "You've manifested the icy might emblematic of frost giants, granting you the following benefits:" +
 	"\n   ***Ability Score Increase***. Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20." +
 	"\n   ***Born of Ice***. You have resistance to cold damage." +
@@ -777,15 +777,15 @@ FeatsList["fury of the frost giant-ua2"] = {
 	action: [["reaction", ""]],
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
-		calculate: "event.value = 'I have cold resistance. As a reaction my Prof Bonus per long rest, when a creature I can see within 30 ft hits and deals damage with an attack, I can have it make a Constitution save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B. + Str mod) or take 1d8+' + How('Proficiency Bonus') + ' (Prof Bonus) cold damage and have its speed reduced by half until my next turn ends. [+1 Str]';",
+		calculate: "event.value = 'I have cold resistance. As a reaction my Prof Bonus per long rest, when a creature I can see within 30 ft hits and deals damage with an attack, I can have it make a Constitution save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B + Str mod) or take 1d8+' + How('Proficiency Bonus') + ' (Prof Bonus) cold damage and have its speed reduced by half until my next turn ends. [+1 Str]';",
 		scores: [1, 0, 0, 0, 0, 0],
 	},
 	"constitution": {
-		calculate: "event.value = 'I have cold resistance. As a reaction my Prof Bonus per long rest, when a creature I can see within 30 ft hits and deals damage with an attack, I can have it make a Constitution save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B. + Con mod) or take 1d8+' + How('Proficiency Bonus') + ' (Prof B.) cold damage and have its speed reduced by half until my next turn ends. [+1 Con]';",
+		calculate: "event.value = 'I have cold resistance. As a reaction my Prof Bonus per long rest, when a creature I can see within 30 ft hits and deals damage with an attack, I can have it make a Constitution save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B + Con mod) or take 1d8+' + How('Proficiency Bonus') + ' (Prof B) cold damage and have its speed reduced by half until my next turn ends. [+1 Con]';",
 		scores: [0, 0, 1, 0, 0, 0],
 	},
 	"wisdom": {
-		calculate: "event.value = 'I have cold resistance. As a reaction my Prof Bonus per long rest, when a creature I can see within 30 ft hits and deals damage with an attack, I can have it make a Constitution save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B. + Wis mod) or take 1d8+' + How('Proficiency Bonus') + ' (Prof Bonus) cold damage and have its speed reduced by half until my next turn ends. [+1 Wis]';",
+		calculate: "event.value = 'I have cold resistance. As a reaction my Prof Bonus per long rest, when a creature I can see within 30 ft hits and deals damage with an attack, I can have it make a Constitution save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B + Wis mod) or take 1d8+' + How('Proficiency Bonus') + ' (Prof Bonus) cold damage and have its speed reduced by half until my next turn ends. [+1 Wis]';",
 		scores: [0, 0, 0, 0, 1, 0],
 	},
 };
@@ -810,7 +810,7 @@ FeatsList["guile of the cloud giant-ua2"] = {
 FeatsList["keenness of the stone giant-ua2"] = {
 	name: "Keenness of the Stone Giant",
 	source: [["UA:WotM", 8]],
-	description: "I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, 60/180 ft, 1d10 bludgeoning damage. Target hit must make a Str save DC 10 (8 + Prof B. + Str/Con/Wis mod) or be knocked prone.",
+	description: "I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, 60/180 ft, 1d10 bludgeoning damage. Target hit must make a Str save DC 10 (8 + Prof B + Str/Con/Wis mod) or be knocked prone.",
 	descriptionFull: "You've manifested the physical talents emblematic of stone giants, granting you the following benefits:" +
 	"\n   ***Ability Score Increase***. Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20." +
 	"\n   ***Stone Throw***. As a bonus action, you can touch a rock that can fit in the palm of your hand and imbue it with magic. While the rock is imbued with magic and you are wielding it, the rock is a magic ranged weapon with which you're proficient, and it has the thrown property with a normal range of 60 feet and a long range of 180 feet. On a hit, the rock deals 1d10 bludgeoning damage, and if the target is a creature, it must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat) or be knocked prone. The magic remains in the rock until you hit with it or finish a long rest. You can imbue a number of rocks equal to your proficiency bonus with this bonus action, and you regain all expended uses when you finish a long rest." +
@@ -828,7 +828,7 @@ FeatsList["keenness of the stone giant-ua2"] = {
 	action: [["bonus action", " (Imbue Stone)"]],
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
-		calculate: "event.value = 'I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, ' + (What('Unit System') === 'metric' ? '18/54 m' : '60/180 ft') + ', 1d10 bludgeoning damage. Target hit must make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B. + Str mod) or be knocked prone. [+1 Str]';",
+		calculate: "event.value = 'I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, ' + (What('Unit System') === 'metric' ? '18/54 m' : '60/180 ft') + ', 1d10 bludgeoning damage. Target hit must make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B + Str mod) or be knocked prone. [+1 Str]';",
 		scores: [1, 0, 0, 0, 0, 0],
 		weaponOptions: [{
 			regExpSearch: /^(?=.*stone)(?=.*giant)(?=.*throw).*$/i,
@@ -845,7 +845,7 @@ FeatsList["keenness of the stone giant-ua2"] = {
 		}],
 	},
 	"constitution": {
-		calculate: "event.value = 'I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, ' + (What('Unit System') === 'metric' ? '18/54 m' : '60/180 ft') + ', 1d10 bludgeoning damage. Target hit must make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B. + Con mod) or be knocked prone. [+1 Con]';",
+		calculate: "event.value = 'I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, ' + (What('Unit System') === 'metric' ? '18/54 m' : '60/180 ft') + ', 1d10 bludgeoning damage. Target hit must make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B + Con mod) or be knocked prone. [+1 Con]';",
 		scores: [0, 0, 1, 0, 0, 0],
 		weaponOptions: [{
 			regExpSearch: /^(?=.*stone)(?=.*giant)(?=.*throw).*$/i,
@@ -861,7 +861,7 @@ FeatsList["keenness of the stone giant-ua2"] = {
 		}],
 	},
 	"wisdom": {
-		calculate: "event.value = 'I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, ' + (What('Unit System') === 'metric' ? '18/54 m' : '60/180 ft') + ', 1d10 bludgeoning damage. Target hit must make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B. + Wis mod) or be knocked prone. [+1 Wis]';",
+		calculate: "event.value = 'I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, ' + (What('Unit System') === 'metric' ? '18/54 m' : '60/180 ft') + ', 1d10 bludgeoning damage. Target hit must make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B + Wis mod) or be knocked prone. [+1 Wis]';",
 		scores: [0, 0, 0, 0, 1, 0],
 		weaponOptions: [{
 			regExpSearch: /^(?=.*stone)(?=.*giant)(?=.*throw).*$/i,
@@ -910,7 +910,7 @@ FeatsList["soul of the storm giant-ua2"] = {
 FeatsList["vigor of the hill giant-ua2"] = {
 	name: "Vigor of the Hill Giant",
 	source: [["UA:WotM", 10]],
-	description: "When I'm subjected to an effect that would move me at least 5 ft or knock me prone, I can use my reaction to steady myself and stop this from happening. Whenever I eat food as part of a short rest and spend one or more HD to regain HP, I regain additional HP equal to my Con mod + my Proficiency Bonus. [+1 Con]",
+	description: "As a reaction when I'm subjected to an effect that would move me at least 5 ft or knock me prone, I can steady myself and stop this from happening. Whenever I eat food as part of a short rest and spend one or more HD to regain HP, I regain additional HP equal to my Con mod + my Proficiency Bonus. [+1 Con]",
 	descriptionFull: "You've manifested the resilience emblematic of hill giants, granting you the following benefits:" +
 	"\n   ***Ability Score Increase***. Increase your Constitution score by 1, to a maximum of 20." +
 	"\n   ***Bulwark***. When you are subjected to an effect that would move you at least 5 feet or knock you prone, you can use your reaction to steady yourself. You are then neither moved nor knocked prone." +

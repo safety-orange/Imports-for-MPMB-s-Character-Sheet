@@ -513,7 +513,14 @@ ClassList["spell-less ranger"] = {
 	subclassGainedLevel: 3,
 	attacks: [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features: {
-		"favored enemy": ClassList.ranger.features["favored enemy"],
+		"favored enemy": function () {
+			var obj = newObj(ClassList.ranger.features["favored enemy"]);
+			if (obj["favored foe"]) {
+				obj["favored foe"].usages = "Prof Bonus per ";
+				obj["favored foe"].recovery = "LR";
+			}
+			return obj;
+		}(),
 		"natural explorer": ClassList.ranger.features["natural explorer"],
 		"combat superiority": {
 			name: "Combat Superiority",
@@ -823,7 +830,13 @@ RaceList["minotaur-ua"] = {
 	weightMetric: " weigh around 135 kg",
 	scorestxt: "+1 Strength, and either +1 Intelligence, +1 Wisdom, or another +1 Strength",
 	scores: [1, 0, 0, 0, 0, 0],
-	trait: "Minotaur (+1 Strength, and either +1 Int, Wis, or Str) use \"Racial Options\" button\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled.",
+	trait: [
+		"**Minotaur** (+1 Strength, and either +1 Int, Wis, or Str) [use " + (typePF ? "" : '"Racial Options" ') + "button]",
+		"##\u25C6 Horns##. I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.",
+		"##\u25C6 Goring Rush##. When taking a Dash action, I can make a horns attack as a bonus action.",
+		"##\u25C6 Hammering Horns##. When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.",
+		"##\u25C6 Labyrinthine Recall##. I can perfectly recall any path I" + (typePF ? "'ve" : " have") + " travelled.",
+	],
 	features: {
 		"goring rush": {
 			name: "Goring Rush",
@@ -1208,7 +1221,7 @@ SpellsList["haywire-ua"] = { // Still valid 2021-09-21
 	duration: "Conc, 1 min",
 	save: "Wis",
 	description: "10 ft(+5 ft/SL) rad all electronic devices go haywire, see B; for hold devices, crea gets to save",
-	descriptionFull: "[Technomagic]\n   This spell plays havoc with electronic devices, making the use of such devices all but impossible. Each electronic device in a 10-foot-radius sphere centered on a point you choose within range is subject to random behavior while it remains within the area. A device not held by a creature is automatically affected. If an electronic device is held by a creature, that creature must succeed on a Wisdom saving throw or have the device affected by the spell." + "\n   " + "At the start of each of your turns, roll a d6 for each affected device to determine its behavior. Except where otherwise indicated, that behavior lasts until the start of your next turn while this spell is in effect." + "\n\n***d10***\t***Behavior***\n  " + "1\tThe device shuts down and must be restarted. Do not roll again for this device until it is restarted.\n2–4\tThe device does not function." + "\n  " + "5\tThe device experiences a power surge, causing an electric shock to the wielder (if any) and one random creature within 5 feet of the device. Each affected creature must make a Dexterity saving throw against your spell save DC, taking 6d6 lightning damage on a failed save, or half as much damage on a successful one." + "\n  " + "6\tThe device is usable as normal.\n" + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the radius of the sphere affected by the spell increases by 5 feet for each slot level above 3rd.",
+	descriptionFull: "[Technomagic]\n   This spell plays havoc with electronic devices, making the use of such devices all but impossible. Each electronic device in a 10-foot-radius sphere centered on a point you choose within range is subject to random behavior while it remains within the area. A device not held by a creature is automatically affected. If an electronic device is held by a creature, that creature must succeed on a Wisdom saving throw or have the device affected by the spell." + "\n   " + "At the start of each of your turns, roll a d6 for each affected device to determine its behavior. Except where otherwise indicated, that behavior lasts until the start of your next turn while this spell is in effect." + "\n\n**d10**\t**Behavior***\n  " + "1\tThe device shuts down and must be restarted. Do not roll again for this device until it is restarted.\n2\u20134\tThe device does not function." + "\n  " + "5\tThe device experiences a power surge, causing an electric shock to the wielder (if any) and one random creature within 5 feet of the device. Each affected creature must make a Dexterity saving throw against your spell save DC, taking 6d6 lightning damage on a failed save, or half as much damage on a successful one." + "\n  " + "6\tThe device is usable as normal.\n" + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the radius of the sphere affected by the spell increases by 5 feet for each slot level above 3rd.",
 };
 SpellsList["infallible relay-ua"] = { // Still valid 2021-09-21
 	name: "Infallible Relay",
@@ -1402,7 +1415,18 @@ ClassList["ua-playtest-ranger"] = {
 				"Choose Guardian, Seeker, or Stalker",
 			]),
 		},
-		"primeval awareness": ClassList.ranger.features["primeval awareness"],
+		"primeval awareness": function () {
+			var obj = newObj(ClassList.ranger.features["primeval awareness"]);
+			var objToEdit = obj;
+			if (obj["\x1B[original] primeval awareness"]) {
+				objToEdit = obj["\x1B[original] primeval awareness"];
+			}
+			objToEdit.description = objToEdit.description.replace("aber./celest./dragon/elem./fey/fiend/undead", "aber|celest|drgn|elem|fey|fiend|undead");
+			if (objToEdit.additional) {
+				objToEdit.additional = objToEdit.additional.replace("aber./celest./dragon/elem./fey/fiend/undead", "aber|celest|drgn|elem|fey|fiend|undead");
+			}
+			return obj;
+		}(),
 	},
 };
 AddSubClass("ua-playtest-ranger", "guardian-ua", {
@@ -2374,6 +2398,9 @@ AddSubClass("fighter", "scout-ua", { // Still valid 2021-09-21
 		},
 		"subclassfeature3.2": function () {
 			var NEfea = newObj(ClassList.ranger.features["natural explorer"]);
+			if (NEfea["\x1B[original] natural explorer"]) {
+				NEfea = NEfea["\x1B[original] natural explorer"];
+			}
 			NEfea.source = ["UA:KoO", 4];
 			NEfea.minlevel = 3;
 			NEfea.additional = ["", "", "1 favored terrain", "1 favored terrain", "1 favored terrain", "1 favored terrains", "2 favored terrains", "2 favored terrains", "2 favored terrains", "2 favored terrains", "2 favored terrains", "2 favored terrains", "2 favored terrains", "2 favored terrains", "3 favored terrains", "3 favored terrains", "3 favored terrains", "3 favored terrains", "3 favored terrains", "3 favored terrains"];
@@ -3169,6 +3196,23 @@ RunFunctionAtEnd(function () {
 		},
 	});
 	var MTfeat = ClassSubList[theTheurgySubclass].features;
+	var fixObjectAttributes = function (obj) {
+		obj.name = replaceCDwithCA(obj.name);
+		if (obj.additional) obj.additional = replaceCDwithCA(obj.additional);
+		if (obj.usages) obj.usages = replaceModAndRest(obj.usages);
+		if (obj.recovery) obj.recovery = replaceModAndRest(obj.recovery);
+		return obj;
+	}
+	var replaceCDwithCA = function (input) {
+		if (isArray(input)) return input.map(replaceCDwithCA);
+		return input.replace(/channel divinity/i, "Channel Arcana").replace(/CD/, "CA");
+	};
+	var replaceModAndRest = function (input) {
+		if (isArray(input)) return input.map(replaceModAndRest);
+		input = input.replace(/modifier/i, "mod").replace(/long rest/i, "LR").replace(/short rest/i, "SR");
+		if (tDoc.typePF) input = input.replace(/(Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma)/ig, function (match) { return match.substring(0,3); });
+		return input;
+	};
 	for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
 		var aDomain = ClassSubList[ClassList.cleric.subclasses[1][i]];
 		if (!aDomain) continue;
@@ -3176,12 +3220,13 @@ RunFunctionAtEnd(function () {
 
 		var suffix = 1;
 		var entryDoNm = aDomain.subname;
+		var entryDoNmLC = entryDoNm.toLowerCase();
 		while (MTfeat["subclassfeature2"].choices.indexOf(entryDoNm) !== -1) {
 			suffix += 1;
 			entryDoNm = aDomain.subname + " (" + suffix + ")";
 		};
 		MTfeat["subclassfeature2"].choices.push(entryDoNm);
-		MTfeat["subclassfeature2"][entryDoNm.toLowerCase()] = {
+		MTfeat["subclassfeature2"][entryDoNmLC] = {
 			name: "Arcane Initiate: " + aDomain.subname,
 			source: dSource,
 			spellcastingExtra: aDomain.spellcastingExtra,
@@ -3192,51 +3237,66 @@ RunFunctionAtEnd(function () {
 				"Other wizards cannot copy cleric spells from my spellbook into their own spellbooks",
 			]),
 		};
-		var AIdomain = MTfeat["subclassfeature2"][entryDoNm.toLowerCase()];
 		for (var aFea in aDomain.features) {
+			var doFixObjectAttributes = false;
 			var dFea = aDomain.features[aFea];
-			if (dFea.minlevel === 2 && /channel divinity/i.test(dFea.name)) {
+			var hasNoArmorWeaponsProf = !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs;
+			if (dFea.minlevel === 2 && /channel divinity/i.test(dFea.name + dFea.additional)) {
 				MTfeat["subclassfeature2.3"].choices.push(entryDoNm);
-				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()] = newObj(dFea);
-				MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name = MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name.replace(/channel divinity/i, "Channel Arcana");
-			};
-			if (dFea.minlevel === 1 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
+				MTfeat["subclassfeature2.3"][entryDoNmLC] = fixObjectAttributes(newObj(dFea));
+			} else if (dFea.minlevel === 1 && hasNoArmorWeaponsProf) {
 				if (MTfeat["subclassfeature6"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature6"].choices.push(entryDoNm);
-					MTfeat["subclassfeature6"][entryDoNm.toLowerCase()] = newObj(dFea);
+					MTfeat["subclassfeature6"][entryDoNmLC] = fixObjectAttributes(newObj(dFea));
 				} else { //add to the existing entry
-					var theFea = MTfeat["subclassfeature6"][entryDoNm.toLowerCase()];
+					var theFea = MTfeat["subclassfeature6"][entryDoNmLC];
 					theFea.name += " \u0026 " + dFea.name;
 					theFea.description += dFea.description;
 					for (var subFea in dFea) {
 						if (theFea[subFea] === undefined) theFea[subFea] = dFea[subFea];
+						if (/additional|recovery|usages/.test(subFea)) {
+							doFixObjectAttributes = true;
+						}
 					};
+					if (doFixObjectAttributes) {
+						MTfeat["subclassfeature6"][entryDoNmLC] = fixObjectAttributes(MTfeat["subclassfeature6"][entryDoNmLC]);
+					}
 				};
-			};
-			if (dFea.minlevel === 6 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
+			} else if (dFea.minlevel === 6 && hasNoArmorWeaponsProf) {
 				if (MTfeat["subclassfeature10"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature10"].choices.push(entryDoNm);
-					MTfeat["subclassfeature10"][entryDoNm.toLowerCase()] = newObj(dFea);
+					MTfeat["subclassfeature10"][entryDoNmLC] = newObj(dFea);
 				} else { //add to the existing entry
-					var theFea = MTfeat["subclassfeature10"][entryDoNm.toLowerCase()];
+					var theFea = MTfeat["subclassfeature10"][entryDoNmLC];
 					theFea.name += " \u0026 " + dFea.name;
 					theFea.description += dFea.description;
 					for (var subFea in dFea) {
 						if (theFea[subFea] === undefined) theFea[subFea] = dFea[subFea];
+						if (/additional|recovery/.test(subFea)) {
+							doFixObjectAttributes = true;
+						}
 					};
+					if (doFixObjectAttributes) {
+						MTfeat["subclassfeature6"][entryDoNmLC] = fixObjectAttributes(MTfeat["subclassfeature6"][entryDoNmLC]);
+					}
 				};
-			};
-			if (dFea.minlevel === 17 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
+			} else if (dFea.minlevel === 17 && hasNoArmorWeaponsProf) {
 				if (MTfeat["subclassfeature14"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 					MTfeat["subclassfeature14"].choices.push(entryDoNm);
-					MTfeat["subclassfeature14"][entryDoNm.toLowerCase()] = newObj(dFea);
+					MTfeat["subclassfeature14"][entryDoNmLC] = newObj(dFea);
 				} else { //add to the existing entry
-					var theFea = MTfeat["subclassfeature14"][entryDoNm.toLowerCase()];
+					var theFea = MTfeat["subclassfeature14"][entryDoNmLC];
 					theFea.name += " \u0026 " + dFea.name;
 					theFea.description += dFea.description;
 					for (var subFea in dFea) {
 						if (theFea[subFea] === undefined) theFea[subFea] = dFea[subFea];
+						if (/additional|recovery/.test(subFea)) {
+							doFixObjectAttributes = true;
+						}
 					};
+					if (doFixObjectAttributes) {
+						MTfeat["subclassfeature6"][entryDoNmLC] = fixObjectAttributes(MTfeat["subclassfeature6"][entryDoNmLC]);
+					}
 				};
 			};
 		};
@@ -3621,10 +3681,12 @@ CompanionList.companionrr = {
 		name: "Call forth and bond with an animal",
 		description: "from the wilderness by spending 8 hours and 50 gp",
 		joinString: " ",
+		formattingChar: "",
 	}, {
 		name: "I can have one companion at a time",
 		description: "If it dies, I can spend 8 hours and 25 gp to bring it back",
 		joinString: "; ",
+		formattingChar: "",
 	}, {
 		name: "Companion's Bond",
 		description: [
@@ -3643,24 +3705,24 @@ CompanionList.companionrr = {
 		].join("\n   "),
 		joinString: typePF ? ": " : ":\n   ",
 	}, {
-		name: "Coordinated Attack (Beast Conclave 5, UA:RR 6)",
+		name: "Coordinated Attack",
 		description: "When I take the Attack action, my companion can use its reaction to make one melee attack",
-		joinString: "\n   ",
+		joinString: " (Beast Conclave 5, UA:RR 6)\n   ",
 		minlevel: 5,
 	}, {
-		name: "Beast's Defense (Beast Conclave 7, UA:RR 6)",
+		name: "Beast's Defense",
 		description: "While my companion can see me, it has advantage on all saving throws",
-		joinString: "\n   ",
+		joinString: " (Beast Conclave 7, UA:RR 6)\n   ",
 		minlevel: 7,
 	}, {
-		name: "Storm of Claws and Fangs (Beast Conclave 11, UA:RR 6)",
+		name: "Storm of Claws and Fangs",
 		description: "My companion can, as an action, make a melee attack vs. all creatures within 5 ft of it",
-		joinString: "\n   ",
+		joinString: " (Beast Conclave 11, UA:RR 6)\n   ",
 		minlevel: 11,
 	}, {
-		name: "Superior Beast's Defense (Beast Conclave 15, UA:RR 6)",
+		name: "Superior Beast's Defense",
 		description: "My companion can, as a reaction, halve the damage of an attack from an attacker that it sees",
-		joinString: "\n   ",
+		joinString: " (Beast Conclave 15, UA:RR 6)\n   ",
 		minlevel: 15,
 	}],
 	attributesChange: function (sCrea, objCrea) {
@@ -8392,7 +8454,7 @@ PsionicsList["cr4-punishing fury"] = {
 	range: "60 ft",
 	duration: "Conc, 1 min",
 	save: "Wis",
-	description: "1 crea save or when it makes melee atk, all in 5 ft of it can make melee atk vs. it as rea (charm effect)",
+	description: "1 crea save or when it makes melee atk, all in 5 ft of it can make melee atk vs it as rea (charm effect)",
 	descriptionFull: "You cause a creature's rage to grow so hot that it attacks without heeding its own safety. As a bonus action, choose one creature you can see within 60 feet of you. The target must succeed on a Wisdom saving throw or, until your concentration ends, any creature within 5 feet of it can use a reaction to make a melee attack against it whenever the target makes a melee attack. The save automatically succeeds if the target is immune to being charmed.",
 	firstCol: 5,
 };
@@ -9242,7 +9304,7 @@ PsionicsList["mf2-move"] = {
 	duration: "Instantaneous",
 	save: "Dex",
 	description: "Move obj 60 ft, after which it falls; crea under obj DC 10 save or 1d6+1d6/PP Bludg. dmg; see book",
-	descriptionFull: "Choose one object you can see within 60 feet of you that isn't being worn or carried by another creature and that isn't secured in place. It can't be larger than 20 feet on a side, and its maximum weight depends on the psi points spent on this ability, as shown below." + "\n   " + "As an action, you move the object up to 60 feet, and you must keep the object within sight during this movement. If the object ends this movement in the air, it falls. If the object would fall on a creature, the creature must succeed on a DC 10 Dexterity saving throw or take damage as listed on the table below.\n\n  ***Psi***\t***Maximum***    ***Bludgeoning***\n***Points***\t ***Weight***\t        ***Damage***\n    2\t     25 lbs.  \t             2d6" + "\n    3\t     50 lbs.  \t             4d6" + "\n    5\t   250 lbs.  \t             6d6" + "\n    6\t   500 lbs.  \t             7d6" + "\n    7\t 1000 lbs.  \t             8d6",
+	descriptionFull: "Choose one object you can see within 60 feet of you that isn't being worn or carried by another creature and that isn't secured in place. It can't be larger than 20 feet on a side, and its maximum weight depends on the psi points spent on this ability, as shown below." + "\n   " + "As an action, you move the object up to 60 feet, and you must keep the object within sight during this movement. If the object ends this movement in the air, it falls. If the object would fall on a creature, the creature must succeed on a DC 10 Dexterity saving throw or take damage as listed on the table below.\n\n  **Psi**\t**Maximum**    **Bludgeoning**\n**Points**\t **Weight**\t        **Damage**\n    2\t     25 lbs.  \t             2d6" + "\n    3\t     50 lbs.  \t             4d6" + "\n    5\t   250 lbs.  \t             6d6" + "\n    6\t   500 lbs.  \t             7d6" + "\n    7\t 1000 lbs.  \t             8d6",
 	firstCol: "2-7",
 };
 PsionicsList["mf3-inertial armor"] = {
@@ -9752,6 +9814,7 @@ PsionicsList["mwe4-wall of wood"] = {
 	range: "60 ft",
 	duration: "Conc, 1 h",
 	description: "Create 60-ft long, 15-ft high, 1-ft thick wall of solid wood; each 5-ft section has AC 12 and 100 HP",
+	descriptionMetric: "Create 18m long, 4,5m high, 30cm thick wall of solid wood; each 1,5m section has AC 12 and 100 HP",
 	descriptionFull: "As an action, you create a wall of wood at least one portion of which must be within 60 feet of you. The wall is 60 feet long, 15 feet high, and 1 foot thick. The wall lasts until your concentration ends. Each 5-foot wide section of the wall has AC 12 and 100 hit points. Breaking one section creates a 5-foot by 5-foot hole in it, but the wall otherwise remains intact.",
 	firstCol: 3,
 };
@@ -10110,6 +10173,7 @@ PsionicsList["ns8-nomad's gate"] = {
 	range: "5 ft",
 	duration: "Conc, 1 h",
 	description: "Create a 5-ft cu in range, and another up to 1 mile away; anyone entering one, teleports to the other",
+	descriptionMetric: "Create a 1,5m cu in range, and another up to 1,5km away; anyone entering one, teleports to the other",
 	descriptionFull: "As an action, you create a 5-foot cube of dim, gray light within 5 feet of you. You create an identical cube at any point of your choice within 1 mile that you have viewed within the past 24 hours. Until your concentration ends, anyone entering one of the cubes immediately teleports to the other one, appearing in an unoccupied space next to it. The teleportation fails if there is no space for the creature to appear in.",
 	firstCol: 7,
 };
@@ -11134,7 +11198,7 @@ SpellsList["chaos bolt-uass"] = {
 	components: "V,S",
 	duration: "Instantaneous",
 	description: "Spell atk 2d8+1d6/SL dmg, d8s set dmg type, see B; double on d8s: new atk vs. crea in 30 ft of target",
-	descriptionFull: "You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 damage. Choose one of the d8s. The number it rolled determines the type of damage, as shown below." + "\n\n***d8***\t***Damage Type***\n  1\tAcid" + "\n  2\tCold" + "\n  3\tFire" + "\n  4\tForce" + "\n  5\tLightning" + "\n  6\tPoison" + "\n  7\tPsychic" + "\n  8\tThunder" + "\n\n   " + "If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again." + "\n   " + "A creature can be targeted only once by this mass of chaotic energy." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, each target takes extra damage of the type rolled. The extra damage equals 1d6 for each slot level above 1st.",
+	descriptionFull: "You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 damage. Choose one of the d8s. The number it rolled determines the type of damage, as shown below." + "\n\n**d8**\t**Damage Type**\n  1\tAcid" + "\n  2\tCold" + "\n  3\tFire" + "\n  4\tForce" + "\n  5\tLightning" + "\n  6\tPoison" + "\n  7\tPsychic" + "\n  8\tThunder" + "\n\n   " + "If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again." + "\n   " + "A creature can be targeted only once by this mass of chaotic energy." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, each target takes extra damage of the type rolled. The extra damage equals 1d6 for each slot level above 1st.",
 };
 SpellsList["guiding hand-uass"] = {
 	name: "Guiding Hand",
@@ -11194,7 +11258,7 @@ SpellsList["infestation-uass"] = {
 	save: "Con",
 	description: "1 crea save or 1d6 Piercing damage and moved 5 ft in random direction; +1d6 at CL 5, 11, and 17",
 	descriptionCantripDie: "1 crea save or `CD`d6 Piercing damage and moved 5 ft in random direction",
-	descriptionFull: "You cause mites, fleas, and other parasites to appear momentarily on one creature you can see within range. The target must succeed on a Constitution saving throw or take 1d6 piercing damage. If the target takes any of that damage, the target moves 5 feet in a random direction. Roll a d8 for the direction:" + "\n\n***d8***\t***Direction***\n  1\tNorth" + "\n  2\tNortheast" + "\n  3\tEast" + "\n  4\tSoutheast" + "\n  5\tSouth" + "\n  6\tSouthwest" + "\n  7\tWest" + "\n  8\tNorthwest" + "\n\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+	descriptionFull: "You cause mites, fleas, and other parasites to appear momentarily on one creature you can see within range. The target must succeed on a Constitution saving throw or take 1d6 piercing damage. If the target takes any of that damage, the target moves 5 feet in a random direction. Roll a d8 for the direction:" + "\n\n**d8**\t**Direction**\n  1\tNorth" + "\n  2\tNortheast" + "\n  3\tEast" + "\n  4\tSoutheast" + "\n  5\tSouth" + "\n  6\tSouthwest" + "\n  7\tWest" + "\n  8\tNorthwest" + "\n\n   " + "The spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
 };
 SpellsList["primal savagery-uass"] = {
 	name: "Primal Savagery",
@@ -11250,6 +11314,7 @@ SpellsList["snare-uass"] = {
 	duration: "Dispel/trigger",
 	save: "Dex",
 	description: "5-ft rad magical trap; Int (Inv) to see; save or restrained upside down 3 ft in the air; save/rnd at dis",
+	descriptionMetric: "1,5m rad magical trap; Int (Inv) to see; save or restrained upside down 90cm in the air; save/rnd at dis",
 	descriptionFull: "While you cast this spell, you use the cord or rope to create a circle with a 5-foot radius on a flat surface within your reach. When you finish casting, the cord or rope disappears to become a magical trap." + "\n   " + "The trap is nearly invisible and requires a successful Intelligence (Investigation) check against your spell save DC to be found." + "\n   " + "The trap triggers when a Small creature or larger moves into the area protected by the spell. The triggering creature must succeed on a Dexterity saving throw or fall prone and be hoisted into the air until it hangs upside down 3 feet above the protected surface, where it is restrained." + "\n   " + "The restrained creature can make a Dexterity saving throw with disadvantage at the end of each of its turns and ends the restrained effect on a success. Alternatively, another creature that can reach the restrained creature can use an action to make an Intelligence (Arcana) check against your spell save DC. On a success, the restrained effect also ends.",
 };
 SpellsList["sudden awakening-uass"] = {
@@ -14233,7 +14298,7 @@ RaceList["envoy warforged-ua"] = {
 	weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	scorestxt: "+1 Constitution and +1 to two other ability scores of my choice",
 	scores: [0, 0, 1, 0, 0, 0],
-	trait: "Envoy Warforged (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B.), medium (13+Dex+Prof B.), heavy (16+Prof B.; Stealth disadv.). I can use a shield.\nIntegrated Tool: I have expertise with one tool and it is integrated into my body.",
+	trait: "Envoy Warforged (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nIntegrated Tool: I have expertise with one tool and it is integrated into my body.",
 	eval: function () {
 		var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
 		if (tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0)) {
@@ -14307,7 +14372,7 @@ RaceList["juggernaut warforged-ua"] = {
 	heightMetric: " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
 	weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	scores: [2, 0, 1, 0, 0, 0],
-	trait: "Juggernaut Warforged (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4.") + "\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B.), medium (13+Dex+Prof B.), heavy (16+Prof B.; Stealth disadv.). I can use a shield.\nPowerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
+	trait: "Juggernaut Warforged (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4.") + "\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nPowerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
 	carryingCapacity: 2,
 	eval: function () {
 		var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
@@ -14374,7 +14439,7 @@ RaceList["skirmisher warforged-ua"] = {
 	heightMetric: " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
 	weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	scores: [0, 2, 1, 0, 0, 0],
-	trait: "Skirmisher Warforged (+2 Dexterity, +1 Constitution)\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B.), medium (13+Dex+Prof B.), heavy (16+Prof B.; Stealth disadv.). I can use a shield.\nLight Step: If I travel alone for an hour or more, I can move stealthily at a normal pace.",
+	trait: "Skirmisher Warforged (+2 Dexterity, +1 Constitution)\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nLight Step: If I travel alone for an hour or more, I can move stealthily at a normal pace.",
 	eval: function () {
 		var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
 		if (tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0)) {
@@ -14442,41 +14507,47 @@ MagicItemsList["band of loyalty-ua"] = {
 	descriptionFull: "If you are reduced to zero hit points while attuned to a band of loyalty, you instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
 	attunement: true,
 }
-var UAMIoE_docentFullDescription = [
-	"A docent is a small metal sphere, approximately 2 inches across, studded with dragonshards. Despite a strong magical aura, it has no obvious abilities. When you attune to a docent, the sphere becomes embedded in your chest and comes to life\u2014literally.",
-	">>Sentience<<. A docent is a sentient neutral item with an Intelligence of 16, a Wisdom of 14, and a Charisma of 14. It can perceive the world through your senses.",
-	"A docent communicates telepathically with its wielder and can speak, read, and understand Common and Giant.",
-	">>Personality<<. A docent is designed to advise and assist the warforged it's attached to. One of the simple functions of a docent is to serve as a translator. The docent's properties are under its control, and if you have a bad relationship with your docent it may refuse to assist you… or simply lie about information that it obtains. However, if you treat your docent well it could serve as a useful ally.",
-	"The origin of docents is a great mystery. House Cannith created the first warforged thirty years ago. But the docents come from the distant land of Xen'drik and appear to be thousands of years old. Were they created to interface with some other form of construct? Or are the modern warforged a new interpretation of an ancient design? The docents claim to have forgotten their creators… but this is a mystery waiting to be unraveled. While all docents come from Xen'drik, some have been brought to Khorvaire by explorers and it's possible to encounter them in the Five Nations.",
-	">>Languages<<. All docents understand Common and Giant, but a docent knows up to four additional languages. Elvish and Draconic are common options. If a docent knows less than six languages in total, it can add new languages to its repertoire after encountering them. So a docent found in Xen'drik may have never encountered a dwarf before… but after spending some time in Khorvaire studying dwarves, it could pick up the Dwarvish language.",
-	">>Properties<<. A docent possesses up to three of the following properties:",
-	"\u2022 The docent can cast the detect magic spell at will.",
-	"\u2022 The docent can cast the detect evil and good spell at will.",
-	"\u2022 The docent can detect any form of divination or scrying targeting it and its warforged host.",
-	"\u2022 The docent has a +7 bonus to Intelligence (Arcana) checks.",
-	"\u2022 The docent has a +7 bonus to Intelligence (History) checks.",
-	"\u2022 The docent has a +7 bonus to Intelligence (Investigation) checks.",
-	"\u2022 The docent has a +7 bonus to Intelligence (Nature) checks.",
-	"\u2022 The docent has a +6 bonus to Wisdom (Insight) checks.",
-	"\u2022 The docent has a +6 bonus to Wisdom (Perception) checks.",
-	"\u2022 The docent has a +6 bonus to Wisdom (Medicine) checks targeting its warforged host. If the host is rendered unconscious, the docent will automatically attempt to stabilize them once each turn.",
-	"You can use a bonus action on your turn to request that the docent use one of its properties on your behalf.",
-];
 MagicItemsList["docent-ua"] = {
 	name: "Docent",
 	source: [["WGtE", 121], ["UA:MIoE", 3]],
 	type: "wondrous item",
 	rarity: "rare",
 	description: "I can embed this sentient small metal sphere studded with dragonshards into my chest. I can communicate telepathically with it. It can serve me as an advisor and a translator, as it knowns 6 languages. It also knows spells and/or skills that I can have it use as a bonus action. See Notes page.",
-	descriptionFull: UAMIoE_docentFullDescription.join("\n   "),
+	descriptionFull: [
+		"A *docent* is a small metal sphere, approximately 2 inches across, studded with dragonshards. Despite a strong magical aura, it has no obvious abilities. When you attune to a *docent*, the sphere becomes embedded in your chest and comes to life\u2014literally.",
+		"***Sentience***. A *docent* is a sentient neutral item with an Intelligence of 16, a Wisdom of 14, and a Charisma of 14. It can perceive the world through your senses.",
+		"A *docent* communicates telepathically with its wielder and can speak, read, and understand Common and Giant.",
+		"***Personality***. A *docent* is designed to advise and assist the warforged it's attached to. One of the simple functions of a *docent* is to serve as a translator. The *docent*'s properties are under its control, and if you have a bad relationship with your *docent* it may refuse to assist you… or simply lie about information that it obtains. However, if you treat your *docent* well it could serve as a useful ally.",
+		"The origin of *docents* is a great mystery. House Cannith created the first warforged thirty years ago. But the *docents* come from the distant land of Xen'drik and appear to be thousands of years old. Were they created to interface with some other form of construct? Or are the modern warforged a new interpretation of an ancient design? The *docents* claim to have forgotten their creators… but this is a mystery waiting to be unraveled. While all *docents* come from Xen'drik, some have been brought to Khorvaire by explorers and it's possible to encounter them in the Five Nations.",
+		"***Languages***. All *docents* understand Common and Giant, but a *docent* knows up to four additional languages. Elvish and Draconic are common options. If a *docent* knows less than six languages in total, it can add new languages to its repertoire after encountering them. So a *docent* found in Xen'drik may have never encountered a dwarf before… but after spending some time in Khorvaire studying dwarves, it could pick up the Dwarvish language.",
+		"***Properties***. A *docent* possesses up to three of the following properties:",
+		" \u2022 The *docent* can cast the *Detect Magic* spell at will.",
+		" \u2022 The *docent* can cast the *Detect Evil and Good* spell at will.",
+		" \u2022 The *docent* can detect any form of divination or scrying targeting it and its warforged host.",
+		" \u2022 The *docent* has a +7 bonus to Intelligence (Arcana) checks.",
+		" \u2022 The *docent* has a +7 bonus to Intelligence (History) checks.",
+		" \u2022 The *docent* has a +7 bonus to Intelligence (Investigation) checks.",
+		" \u2022 The *docent* has a +7 bonus to Intelligence (Nature) checks.",
+		" \u2022 The *docent* has a +6 bonus to Wisdom (Insight) checks.",
+		" \u2022 The *docent* has a +6 bonus to Wisdom (Perception) checks.",
+		" \u2022 The *docent* has a +6 bonus to Wisdom (Medicine) checks targeting its warforged host. If the host is rendered unconscious, the *docent* will automatically attempt to stabilize them once each turn.",
+		"You can use a bonus action on your turn to request that the *docent* use one of its properties on your behalf.",
+	],
 	attunement: true,
 	prerequisite: "Requires attunement by a warforged",
 	prereqeval: function (v) { return /warforged/i.test(CurrentRace.known); },
 	action: [["bonus action", ""]],
-	toNotesPage: [{
-		name: "Features",
-		note: desc(UAMIoE_docentFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
-	}],
+	toNotesPage: [
+		{
+			name: "Docent",
+			useDescriptionFull: function (str) {
+				return str.replace("assist I", "assist me");
+			},
+		},
+		Object.assign({}, sentientItemConflictNote, {
+			amendTo: "A *docent* possesses",
+		}),
+	],
 }
 MagicItemsList["feather token-ua"] = {
 	name: "Feather Token",
@@ -15688,7 +15759,7 @@ FeatsList["aberrant dragonmark-ua"] = {
 	source: [["WGtE", 112], ["UA:D", 9]],
 	prerequisite: "Not having a dragonmark",
 	prereqeval: function (v) { return !/dragonmark/i.test(CurrentRace.known); },
-	descriptionFull: "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it (see the table below for examples). You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again. Constitution is your spellcasting ability for these spells.\n \u2022 You can increase the power of your aberrant spells at the risk of your own vitality. When you cast a spell with your aberrant mark, you can use one of your Hit Dice to increase the spell's level by 1. Immediately after you cast the spell, roll the Hit Die. You take damage equal to the number rolled.\n\n***1d8***\t***Aberrant Mark Flaw***\n1\tYour mark is a source of constant physical pain.\n2\tYour mark whispers to you, though you may not understand what it says.\n3\tIn times of stress, your mark may trigger a cantrip effect involuntarily.\n4\tThe skin around your mark has an unusual appearance: burned, scaly, withered, etc.\n5\tMundane animals become uneasy around you.\n6\tYou have dramatic mood swings any time you use your mark.\n7\tYour appearance changes in a minor way every time you use your mark.\n8\tYou have horrific nightmares after you use your mark.",
+	descriptionFull: "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it (see the table below for examples). You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again. Constitution is your spellcasting ability for these spells.\n \u2022 You can increase the power of your aberrant spells at the risk of your own vitality. When you cast a spell with your aberrant mark, you can use one of your Hit Dice to increase the spell's level by 1. Immediately after you cast the spell, roll the Hit Die. You take damage equal to the number rolled.\n\n**1d8**\t**Aberrant Mark Flaw**\n1\tYour mark is a source of constant physical pain.\n2\tYour mark whispers to you, though you may not understand what it says.\n3\tIn times of stress, your mark may trigger a cantrip effect involuntarily.\n4\tThe skin around your mark has an unusual appearance: burned, scaly, withered, etc.\n5\tMundane animals become uneasy around you.\n6\tYou have dramatic mood swings any time you use your mark.\n7\tYour appearance changes in a minor way every time you use your mark.\n8\tYou have horrific nightmares after you use your mark.",
 	description: "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
 	scores: [0, 0, 1, 0, 0, 0],
 	spellcastingAbility: 3,
@@ -19429,7 +19500,7 @@ RunFunctionAtEnd(function () {
 				name: "Armor Model",
 				source: [["UA:SP3", 2]],
 				minlevel: 3,
-				description: desc([
+				description: " [see Notes page]" + desc([
 					"When I finish a rest, I can use smith's tools to change the model of my arcane armor",
 					'Select a model using the "Choose Feature" button; See "Notes" page for features of each',
 				]),
@@ -19548,7 +19619,7 @@ RunFunctionAtEnd(function () {
 		"As a bonus action, I can activate a defensive shield to gain my artificer level in temp HP",
 	])
 	var guardianAdditional = levels.map(function (n) {
-		return n + " temp HP; see notes page";
+		return n + " temp HP; see Notes";
 	})
 	var infiltratorTxt = desc([
 		"+5 ft walking speed; Gemlike node in fist/chest is a ranged weapon, Lightning Launcher",
@@ -19561,10 +19632,11 @@ RunFunctionAtEnd(function () {
 	for (var armor in ArmourList) {
 		var anArm = ArmourList[armor];
 		if (anArm.type != "heavy" || anArm.isMagicArmor || !anArm.weight || (CurrentVars.extraArmour && CurrentVars.extraArmour[armor])) continue;
+		var armName = anArm.name.capitalize();
 		// Add the Guardian variant of the armor
-		var gArmName = "Guardian Power " + anArm.name;
+		var gArmName = "Guardian Power " + armName;
 		itsFea[gArmName.toLowerCase()] = {
-			name: (typePF || anArm.name.length < 16 ? "Armor " : "") + "Model: Guardian " + anArm.name,
+			name: "Model: Guardian " + armName,
 			submenu: "Guardian Power Armor",
 			description: guardianTxt,
 			additional: guardianAdditional,
@@ -19575,7 +19647,7 @@ RunFunctionAtEnd(function () {
 		}
 		// And now add the Infiltrator variant of the armor
 		var iArm = newObj(anArm);
-		iArm.name = "Infiltrator Power " + anArm.name;
+		iArm.name = "Infiltrator Power " + armName;
 		iArm.weight = 0;
 		iArm.stealthdis = false;
 		iArm.strReq = 0;
@@ -19586,7 +19658,7 @@ RunFunctionAtEnd(function () {
 			iArm.regExpSearch = iArm.regExpSearch.replace(/\.\*\$$/, "(?=.infiltrator).*$");
 		};
 		itsFea[iArm.name.toLowerCase()] = {
-			name: "Armor Model: Infiltrator " + anArm.name,
+			name: "Model: Infiltrator " + armName,
 			submenu: "Infiltrator Power Armor",
 			description: infiltratorTxt,
 			speed: { walk: { spd: "+5", enc: "+5" } },
@@ -19610,7 +19682,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 			"The armor has 4 charges, regaining 1d4 expended charges daily at dawn",
 			"As a reaction when being knocked prone, the wearer can use 1 charge to not be prone",
 		]),
-		additional: "suit of armor; requires attunement",
+		additional: typePF ? "armor; attunement" : "suit of armor; needs attunement",
 		prereqeval: function (v) { return classes.known.artificer.level >= 10; },
 		magicitemsAdd: ["Armor of Magical Strength (UA)"],
 	});
@@ -20516,7 +20588,7 @@ AddSubClass("monk", "ascendant dragon-ua", {
 					];
 					return desc(aDesc.concat(aDesc17));
 				}),
-				usages: "Prof B. per ",
+				usages: "Prof B per ",
 				usagescalc: "event.value = How('Proficiency Bonus');",
 				recovery: "long rest",
 				altResource: "1 ki",
@@ -20558,7 +20630,7 @@ AddSubClass("monk", "ascendant dragon-ua", {
 			name: "Wings Unfurled",
 			source: [["UA:SP5", 2]],
 			minlevel: 6,
-			additional: "Prof B. / long rest or 1 ki",
+			additional: "Prof B / long rest or 1 ki",
 			description: desc([
 				"When I use Step of the Wind, I can gain a flying speed equal to my walking speed",
 				"I can do this Prof Bonus per long rest, or by using 2 ki points to use Step of the Wind",
@@ -20908,10 +20980,11 @@ RaceList["reborn-ua"] = {
 		walk: { spd: 30, enc: 20 },
 	},
 	scoresGeneric: true,
-	trait: "Reborn" + (typePF ? "\n " : "  ") +
-	"\u2022 Type: My creature type is Humanoid, as well as Construct or Undead (my choice)." +
-	"\n \u2022 Deathless Nature: I don't need to sleep, eat, drink, or breathe. I have adv. on saves vs. disease, poison, and death saves. I have resistance to poison damage. Magic can't put me to sleep and I can finish a long rest in 4 hours if I spend it inactive and motionless." +
-	"\n \u2022 Knowledge from a Past Life: When I make an ability check that uses a skill, I can add +1d6 to the roll after seeing the d20 result. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.",
+	trait: [
+		"**Reborn**" + (typePF ? "\n##\u25C6 Type##. My type is Humanoid, and Construct or Undead (my choice)." : " ##\u25C6 Type##. My creature type is Humanoid, as well as Construct or Undead (my choice)."),
+		"##\u25C6 Deathless Nature##. I don't need to sleep, eat, drink, or breathe. I have adv. on saves vs. disease, poison, and death saves. I have resistance to poison damage. Magic can't put me to sleep and I can finish a long rest in 4 hours if I spend it inactive and motionless.",
+		"##\u25C6 Knowledge from a Past Life##. When I make an ability check that uses a skill, I can add +1d6 to the roll after seeing the d20 result. I can do this a number of times equal to my Proficiency Bonus and regain all expended uses when I finish a long rest.",
+	],
 	vision: [["Darkvision", 60]],
 	dmgres: ["Poison"],
 	savetxt: {
@@ -21521,14 +21594,14 @@ RaceList["autognome-ua"] = {
 		"Autognome (my type is Construct)" +
 		"\n \u2022 Cure Wounds, Healing Word, and Spare the Dying work on me." +
 		"\n \u2022 Armored Casing: My base AC is 13 + my Dexterity modifier." +
-		"\n \u2022 Built for Success: For my Prof B. per long rest, I can add +1d4 to an attack, check, or save, after I see the roll, but before the effect." +
+		"\n \u2022 Built for Success: For my Prof B per long rest, I can add +1d4 to an attack, check, or save, after I see the roll, but before the effect." +
 		"\n \u2022 Mechanical Nature: I don't need to eat, drink or breathe." +
 		"\n \u2022 Sentry's Rest: I only need 6 hours to finish a long rest if I stay in an inactive and motionless state during which I'm conscious." +
 		"\n \u2022 True Life: If Mending is cast on me, I can expend one HD like during a short rest to regain hit points."
 		:
 		"Autognome (type is Construct; Cure Wounds, Healing Word, Spare the Dying work on me)" +
 		"\n \u2022 Armored Casing: While I'm not wearing armor, my AC is 13 + my Dexterity modifier." +
-		"\n \u2022 Built for Success: For my Prof B. per long rest, I can add +1d4 to an attack, check, or save. I can do this after seeing the d20 roll, but before knowing the roll's effects." +
+		"\n \u2022 Built for Success: For my Prof B per long rest, I can add +1d4 to an attack, check, or save. I can do this after seeing the d20 roll, but before knowing the roll's effects." +
 		"\n \u2022 Mechanical Nature: I have immunities/resistances and don't need to eat, drink or breathe" +
 		"\n \u2022 Sentry's Rest: I only need 6 hours to finish a long rest if I stay inactive and motionless." +
 		"\n \u2022 True Life: If Mending is cast on me, I can expend one HD like during a short rest.",
@@ -21687,7 +21760,7 @@ RaceList["kender-ua"] = {
 	},
 	trait: "Kender" +
 	(typePF ? "\n " : "\t") + "\u2022 Brave: I have adv. on saves to avoid or end being frightened." +
-	"\n \u2022 Taunt: As a bonus action, I can have a creature that can hear and understand me within 60 ft make a Wisdom save (DC 8 + Prof B. + Cha mod) or gain disadv. on attacks until my next turn starts. I can do this a number of times per long rest equal to my Prof Bonus." +
+	"\n \u2022 Taunt: As a bonus action, I can have a creature that can hear and understand me within 60 ft make a Wisdom save (DC 8 + Prof B + Cha mod) or gain disadv. on attacks until my next turn starts. I can do this a number of times per long rest equal to my Prof Bonus." +
 	'\n \u2022 Kender Ace: Starting at 3rd-level, as a bonus action, I can reach into a container and roll on the Kender Aces table to determine the item I pull out, see the "Notes" section. I can do this a number of times per long rest equal to my proficiency bonus.',
 };
 
@@ -21710,7 +21783,7 @@ AddSubClass("sorcerer", "lunar magic-ua", {
 			weaponsAdd: { select: ["Sacred Flame"] },
 			spellChanges: {
 				"sacred flame": {
-					description: "Up to 2 creas I see, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus; +1d8 at CL 5, 11, and 17",
+					description: "Up to 2 creas I see, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus; +1d8 at CL 5/11/17",
 					descriptionShorter: "Up to 2 creas I see, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus; +1d8 CL 5/11/17",
 					descriptionCantripDie: "Up to 2 creas I see, max 5 ft apart, save or `CD`d8 Radiant dmg; no bonus for cover on save",
 					changes: "When I cast Sacred Flame, I can target one creature as normal or target two creatures within range that are within 5 feet of each other.",
@@ -21890,7 +21963,7 @@ FeatsList["initiate of high sorcery-ua"] = {
 	name: "Initiate of High Sorcery",
 	source: [["UA:HoK", 6]],
 	description: "I learn a cantrip and a first level spell from a list depending on my chosen moon. I can cast the spell once per long rest at its lowest level without expending a spell slot, and can cast it if I have a spell slot to do so. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
-	descriptionFull: "You've received training from magic-users affiliated with the Mages of High Sorcery.\n   Choose one of three moons of Krynn, each of which is associated with a distinct type of magic: the black moon, Nuitari; the red moon, Lunitari; or the white moon, Solinari. You learn one cantrip and one 1st-level spell based on the moon you choose, as specified in the Lunar Spells table.\n   You can cast the chosen 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have.\n   Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).\n\n***Lunar Spells***\n***Moon***\t***Cantrips***\t\t***1st-level Spell***\nNuitari\tChoose one from\tChoose one 1st-level wizard\n\tchill touch, mage\tspell from the evocation or\n\thand, and vicious\tnecromany school of magic.\n\tmockery\nLunitari\tChoose one from\tChoose one 1st-level wizard\n\tguidance,\t\tspell from the school of\n\tmessage, and\tdivination or transmutation.\n\tprestidigitation\nSolinari\tChoose one from\tChoose one 1st-level wizard\n\tproduce flame,\tspell from the abjuration or\n\tresistance, and\tconjuration school of magic.\n\tspare the dying",
+	descriptionFull: "You've received training from magic-users affiliated with the Mages of High Sorcery.\n   Choose one of three moons of Krynn, each of which is associated with a distinct type of magic: the black moon, Nuitari; the red moon, Lunitari; or the white moon, Solinari. You learn one cantrip and one 1st-level spell based on the moon you choose, as specified in the Lunar Spells table.\n   You can cast the chosen 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have.\n   Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).\n\n**Lunar Spells**\n**Moon**\t**Cantrips**\t\t**1st-level Spell**\nNuitari\tChoose one from\tChoose one 1st-level wizard\n\tchill touch, mage\tspell from the evocation or\n\thand, and vicious\tnecromany school of magic.\n\tmockery\nLunitari\tChoose one from\tChoose one 1st-level wizard\n\tguidance,\t\tspell from the school of\n\tmessage, and\tdivination or transmutation.\n\tprestidigitation\nSolinari\tChoose one from\tChoose one 1st-level wizard\n\tproduce flame,\tspell from the abjuration or\n\tresistance, and\tconjuration school of magic.\n\tspare the dying",
 	prerequisite: "Apprentice of High Sorcery",
 	choices: ["Intelligence - Nuitari", "Intelligence - Lunitari", "Intelligence - Solinari", "Wisdom - Nuitari", "Wisdom - Lunitari", "Wisdom - Solinari", "Charisma - Nuitari", "Charisma - Lunitari", "Charisma - Solinari"],
 	// nine choices, one for each ability and moon
@@ -23718,7 +23791,7 @@ FeatsList["strike of the giants-ua"] = {
 FeatsList["ember of the fire giant-ua2"] = {
 	name: "Fury of the Fire Giant",
 	source: [["UA:WotM", 7]],
-	description: "I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+Prof Bonus fire damage & are blinded until my next turn starts. Dex save (8 + Prof B. + Str/Con/Wis mod) for half damage & not blinded.",
+	description: "I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+Prof Bonus fire damage & are blinded until my next turn starts. Dex save (8 + Prof B + Str/Con/Wis mod) for half damage & not blinded.",
 	descriptionFull: "You've manifested the fiery combat emblematic of fire giants, granting you the following benefits:" +
 	"\n   ***Ability Score Increase***. Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20." +
 	"\n   ***Born of Flame***. You have resistance to fire damage." +
@@ -23734,7 +23807,7 @@ FeatsList["ember of the fire giant-ua2"] = {
 	dmgres: ["Fire"],
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
-		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B.) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B. + Str mod) for half damage \u0026 not blinded. [+1 Str]';",
+		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B + Str mod) for half damage \u0026 not blinded. [+1 Str]';",
 		scores: [1, 0, 0, 0, 0, 0],
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
@@ -23752,7 +23825,7 @@ FeatsList["ember of the fire giant-ua2"] = {
 		}],
 	},
 	"constitution": {
-		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B.) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B.+ Con mod) for half damage \u0026 not blinded. [+1 Con]';",
+		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B+ Con mod) for half damage \u0026 not blinded. [+1 Con]';",
 		scores: [0, 0, 1, 0, 0, 0],
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
@@ -23770,7 +23843,7 @@ FeatsList["ember of the fire giant-ua2"] = {
 		}],
 	},
 	"wisdom": {
-		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B.) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B. + Wis mod) for half damage \u0026 not blinded. [+1 Wis]';",
+		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B + Wis mod) for half damage \u0026 not blinded. [+1 Wis]';",
 		scores: [0, 0, 0, 0, 1, 0],
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
@@ -23791,7 +23864,7 @@ FeatsList["ember of the fire giant-ua2"] = {
 FeatsList["fury of the frost giant-ua2"] = {
 	name: "Fury of the Frost Giant",
 	source: [["UA:WotM", 7]],
-	description: "I have cold resistance. As a reaction my Prof Bonus per long rest, when a creature I can see within 30 ft hits and deals damage with an attack, I can have it make a Con save (DC 8 + Prof B. + Str/Con/Wis mod) or take 1d8 + Prof Bonus  cold damage and have its speed reduced by half until my next turn ends.",
+	description: "I have cold resistance. As a reaction my Prof Bonus per long rest, when a creature I can see within 30 ft hits and deals damage with an attack, I can have it make a Con save (DC 8 + Prof B + Str/Con/Wis mod) or take 1d8 + Prof Bonus  cold damage and have its speed reduced by half until my next turn ends.",
 	descriptionFull: "You've manifested the icy might emblematic of frost giants, granting you the following benefits:" +
 	"\n   ***Ability Score Increase***. Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20." +
 	"\n   ***Born of Ice***. You have resistance to cold damage." +
@@ -23808,15 +23881,15 @@ FeatsList["fury of the frost giant-ua2"] = {
 	action: [["reaction", ""]],
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
-		calculate: "event.value = 'I have cold resistance. As a reaction my Prof Bonus per long rest, when a creature I can see within 30 ft hits and deals damage with an attack, I can have it make a Constitution save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B. + Str mod) or take 1d8+' + How('Proficiency Bonus') + ' (Prof Bonus) cold damage and have its speed reduced by half until my next turn ends. [+1 Str]';",
+		calculate: "event.value = 'I have cold resistance. As a reaction my Prof Bonus per long rest, when a creature I can see within 30 ft hits and deals damage with an attack, I can have it make a Constitution save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B + Str mod) or take 1d8+' + How('Proficiency Bonus') + ' (Prof Bonus) cold damage and have its speed reduced by half until my next turn ends. [+1 Str]';",
 		scores: [1, 0, 0, 0, 0, 0],
 	},
 	"constitution": {
-		calculate: "event.value = 'I have cold resistance. As a reaction my Prof Bonus per long rest, when a creature I can see within 30 ft hits and deals damage with an attack, I can have it make a Constitution save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B. + Con mod) or take 1d8+' + How('Proficiency Bonus') + ' (Prof B.) cold damage and have its speed reduced by half until my next turn ends. [+1 Con]';",
+		calculate: "event.value = 'I have cold resistance. As a reaction my Prof Bonus per long rest, when a creature I can see within 30 ft hits and deals damage with an attack, I can have it make a Constitution save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B + Con mod) or take 1d8+' + How('Proficiency Bonus') + ' (Prof B) cold damage and have its speed reduced by half until my next turn ends. [+1 Con]';",
 		scores: [0, 0, 1, 0, 0, 0],
 	},
 	"wisdom": {
-		calculate: "event.value = 'I have cold resistance. As a reaction my Prof Bonus per long rest, when a creature I can see within 30 ft hits and deals damage with an attack, I can have it make a Constitution save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B. + Wis mod) or take 1d8+' + How('Proficiency Bonus') + ' (Prof Bonus) cold damage and have its speed reduced by half until my next turn ends. [+1 Wis]';",
+		calculate: "event.value = 'I have cold resistance. As a reaction my Prof Bonus per long rest, when a creature I can see within 30 ft hits and deals damage with an attack, I can have it make a Constitution save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B + Wis mod) or take 1d8+' + How('Proficiency Bonus') + ' (Prof Bonus) cold damage and have its speed reduced by half until my next turn ends. [+1 Wis]';",
 		scores: [0, 0, 0, 0, 1, 0],
 	},
 };
@@ -23841,7 +23914,7 @@ FeatsList["guile of the cloud giant-ua2"] = {
 FeatsList["keenness of the stone giant-ua2"] = {
 	name: "Keenness of the Stone Giant",
 	source: [["UA:WotM", 8]],
-	description: "I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, 60/180 ft, 1d10 bludgeoning damage. Target hit must make a Str save DC 10 (8 + Prof B. + Str/Con/Wis mod) or be knocked prone.",
+	description: "I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, 60/180 ft, 1d10 bludgeoning damage. Target hit must make a Str save DC 10 (8 + Prof B + Str/Con/Wis mod) or be knocked prone.",
 	descriptionFull: "You've manifested the physical talents emblematic of stone giants, granting you the following benefits:" +
 	"\n   ***Ability Score Increase***. Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20." +
 	"\n   ***Stone Throw***. As a bonus action, you can touch a rock that can fit in the palm of your hand and imbue it with magic. While the rock is imbued with magic and you are wielding it, the rock is a magic ranged weapon with which you're proficient, and it has the thrown property with a normal range of 60 feet and a long range of 180 feet. On a hit, the rock deals 1d10 bludgeoning damage, and if the target is a creature, it must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat) or be knocked prone. The magic remains in the rock until you hit with it or finish a long rest. You can imbue a number of rocks equal to your proficiency bonus with this bonus action, and you regain all expended uses when you finish a long rest." +
@@ -23859,7 +23932,7 @@ FeatsList["keenness of the stone giant-ua2"] = {
 	action: [["bonus action", " (Imbue Stone)"]],
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
-		calculate: "event.value = 'I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, ' + (What('Unit System') === 'metric' ? '18/54 m' : '60/180 ft') + ', 1d10 bludgeoning damage. Target hit must make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B. + Str mod) or be knocked prone. [+1 Str]';",
+		calculate: "event.value = 'I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, ' + (What('Unit System') === 'metric' ? '18/54 m' : '60/180 ft') + ', 1d10 bludgeoning damage. Target hit must make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B + Str mod) or be knocked prone. [+1 Str]';",
 		scores: [1, 0, 0, 0, 0, 0],
 		weaponOptions: [{
 			regExpSearch: /^(?=.*stone)(?=.*giant)(?=.*throw).*$/i,
@@ -23876,7 +23949,7 @@ FeatsList["keenness of the stone giant-ua2"] = {
 		}],
 	},
 	"constitution": {
-		calculate: "event.value = 'I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, ' + (What('Unit System') === 'metric' ? '18/54 m' : '60/180 ft') + ', 1d10 bludgeoning damage. Target hit must make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B. + Con mod) or be knocked prone. [+1 Con]';",
+		calculate: "event.value = 'I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, ' + (What('Unit System') === 'metric' ? '18/54 m' : '60/180 ft') + ', 1d10 bludgeoning damage. Target hit must make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B + Con mod) or be knocked prone. [+1 Con]';",
 		scores: [0, 0, 1, 0, 0, 0],
 		weaponOptions: [{
 			regExpSearch: /^(?=.*stone)(?=.*giant)(?=.*throw).*$/i,
@@ -23892,7 +23965,7 @@ FeatsList["keenness of the stone giant-ua2"] = {
 		}],
 	},
 	"wisdom": {
-		calculate: "event.value = 'I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, ' + (What('Unit System') === 'metric' ? '18/54 m' : '60/180 ft') + ', 1d10 bludgeoning damage. Target hit must make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B. + Wis mod) or be knocked prone. [+1 Wis]';",
+		calculate: "event.value = 'I gain +60 ft darkvision. As a bonus action my Prof Bonus per long rest, I can imbue a rock with magic until I finish a long rest or hit with it. I can use it as a proficient thrown weapon, ' + (What('Unit System') === 'metric' ? '18/54 m' : '60/180 ft') + ', 1d10 bludgeoning damage. Target hit must make a Str save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B + Wis mod) or be knocked prone. [+1 Wis]';",
 		scores: [0, 0, 0, 0, 1, 0],
 		weaponOptions: [{
 			regExpSearch: /^(?=.*stone)(?=.*giant)(?=.*throw).*$/i,
@@ -23941,7 +24014,7 @@ FeatsList["soul of the storm giant-ua2"] = {
 FeatsList["vigor of the hill giant-ua2"] = {
 	name: "Vigor of the Hill Giant",
 	source: [["UA:WotM", 10]],
-	description: "When I'm subjected to an effect that would move me at least 5 ft or knock me prone, I can use my reaction to steady myself and stop this from happening. Whenever I eat food as part of a short rest and spend one or more HD to regain HP, I regain additional HP equal to my Con mod + my Proficiency Bonus. [+1 Con]",
+	description: "As a reaction when I'm subjected to an effect that would move me at least 5 ft or knock me prone, I can steady myself and stop this from happening. Whenever I eat food as part of a short rest and spend one or more HD to regain HP, I regain additional HP equal to my Con mod + my Proficiency Bonus. [+1 Con]",
 	descriptionFull: "You've manifested the resilience emblematic of hill giants, granting you the following benefits:" +
 	"\n   ***Ability Score Increase***. Increase your Constitution score by 1, to a maximum of 20." +
 	"\n   ***Bulwark***. When you are subjected to an effect that would move you at least 5 feet or knock you prone, you can use your reaction to steady yourself. You are then neither moved nor knocked prone." +

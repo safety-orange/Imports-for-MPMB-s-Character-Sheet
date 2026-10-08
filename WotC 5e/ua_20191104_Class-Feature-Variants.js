@@ -300,7 +300,7 @@ if (ClassSubList["fighter-battle master"]) {
 			additional: "1 maneuver; d6, 1\xD7 per short rest",
 			description: desc([
 				"I gain one superiority die (d6) that I can expend to fuel a special Maneuver",
-				"I can only use one Maneuver per attack; DCs are 8 + Prof B. + Str/Dex mod, my choice",
+				"I can only use one Maneuver per attack; DCs are 8 + Prof B + Str/Dex mod, my choice",
 				'Use the "Choose Feature" button above to add a Maneuver to the third page',
 			]),
 			bonusClassExtrachoices: [{

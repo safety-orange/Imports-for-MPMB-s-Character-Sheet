@@ -220,7 +220,7 @@ AddSubClass("monk", "ascendant dragon", {
 					];
 					return desc(aDesc.concat(aDesc17));
 				}),
-				usages: "Prof B. per ",
+				usages: "Prof B per ",
 				usagescalc: "event.value = How('Proficiency Bonus');",
 				recovery: "long rest",
 				altResource: "2 ki",
@@ -1166,11 +1166,11 @@ MagicItemsList["topaz annihilator"] = {
 var FToD_HoardItems = {
 	"dragon's wrath weapon": [
 		"This weapon is decorated with dragon heads, claws, wings, scales, or Draconic letters. When it steeps in a dragon's hoard, it absorbs the energy of the dragon's breath weapon and deals damage of that type with its special properties.",
-		">>Slumbering (Uncommon)<<. Whenever you roll a 20 on your attack roll with this weapon, each creature of your choice within 5 feet of the target takes 5 damage of the type dealt by the dragon's breath weapon.",
-		">>Stirring (Rare)<<. The Stirring weapon has the Slumbering property. In addition, you gain a +1 bonus to attack and damage rolls made using the weapon. On a hit, the weapon deals an extra 1d6 damage of the type dealt by the dragon's breath weapon.",
-		">>Wakened (Very Rare)<<. The Wakened weapon has the Slumbering property, and it improves on the Stirring property. The bonus to attack and damage rolls increases to +2, and the extra damage dealt by the weapon increases to 2d6.",
+		"***Slumbering (Uncommon)***. Whenever you roll a 20 on your attack roll with this weapon, each creature of your choice within 5 feet of the target takes 5 damage of the type dealt by the dragon's breath weapon.",
+		"***Stirring (Rare)***. The Stirring weapon has the Slumbering property. In addition, you gain a +1 bonus to attack and damage rolls made using the weapon. On a hit, the weapon deals an extra 1d6 damage of the type dealt by the dragon's breath weapon.",
+		"***Wakened (Very Rare)***. The Wakened weapon has the Slumbering property, and it improves on the Stirring property. The bonus to attack and damage rolls increases to +2, and the extra damage dealt by the weapon increases to 2d6.",
 		"As an action, you can unleash a 30-foot cone of destructive energy from the weapon. Each creature in that area must make a DC 16 Dexterity saving throw, taking 8d6 damage of the type dealt by the dragon's breath weapon on a failed save, or half as much damage on a successful one. Once this action is used, it can't be used again until the next dawn.",
-		">>Ascendant (Legendary)<<. The Ascendant weapon has the Slumbering property, and it improves on the Stirring and Wakened properties. The bonus to attack and damage rolls increases to +3, and the extra damage dealt by the weapon increases to 3d6.",
+		"***Ascendant (Legendary)***. The Ascendant weapon has the Slumbering property, and it improves on the Stirring and Wakened properties. The bonus to attack and damage rolls increases to +3, and the extra damage dealt by the weapon increases to 3d6.",
 		"The cone of destructive energy the weapon creates increases to a 60-foot cone, the save DC increases to 18, and the damage increases to 12d6.",
 	],
 	"dww-slumbering": {
@@ -1337,8 +1337,6 @@ var FToD_HoardItems = {
 		var aTypes = [["Slumbering", "uncommon"], ["Stirring", "rare"], ["Wakened", "very rare"], ["Ascendant", "legendary"]];
 		var aDragons = [["Black", "acid"], ["Blue", "lightning"], ["Green", "poison"], ["Red", "fire"], ["White", "cold"], ["Amethyst", "force"], ["Crystal", "radiant"], ["Emerald", "psychic"], ["Sapphire", "thunder"], ["Topaz", "necrotic"], ["Brass", "fire"], ["Bronze", "lightning"], ["Copper", "acid"], ["Gold", "fire"], ["Silver", "cold"]];
 		var aVowels = ["a", "e"];
-		var sDescriptionFull = FToD_HoardItems["dragon's wrath weapon"].join("\n   ");
-		var sNotesDescription = FToD_HoardItems.to1stPerson(FToD_HoardItems["dragon's wrath weapon"]);
 		for (var t = 0; t < aTypes.length; t++) {
 			var sItemType = aTypes[t][0];
 			var sItemTypeLC = sItemType.toLowerCase();
@@ -1352,11 +1350,16 @@ var FToD_HoardItems = {
 				rarity: aTypes[t][1],
 				attunement: true,
 				description: oDwwObj.description.replace(/>>a dragon<</ig, "a").replace(/>>dmg type<< /ig, ""),
-				descriptionFull: sDescriptionFull,
-				toNotesPage: [{
-					name: "Full Text",
-					note: sNotesDescription,
-				}],
+				descriptionFull: FToD_HoardItems["dragon's wrath weapon"],
+				toNotesPage: [
+					{
+						name: sItemName,
+						useDescriptionFull: true,
+					},
+					Object.assign({}, FToD_HoardItems.hoardNote, {
+						amendTo: sItemName,
+					}),
+				],
 				allowDuplicates: true,
 				choicesNotInMenu: true,
 				choices: [],
@@ -1409,19 +1412,6 @@ var FToD_HoardItems = {
 			}
 		}
 	},
-	"dragon-touched focus": [
-		"This wondrous item can be a scepter, an orb, an amulet, a crystal, or another finely crafted object. It typically incorporates imagery of dragons' wings, claws, teeth, or scales.",
-		">>Slumbering (Uncommon)<<. You have advantage on initiative rolls. While you are holding the focus, it can function as a spellcasting focus for all your spells.",
-		">>Stirring (Rare)<<. The Stirring focus has the Slumbering property, and it gains an additional property determined by the family of the dragon in whose hoard it became Stirring:",
-		"\u2022 Chromatic. Whenever you use a spell slot to cast a spell that deals acid, cold, fire, lightning, or poison damage, roll a d6, and you gain a bonus equal to the number rolled to one of the spell's damage rolls.",
-		"\u2022 Gem. Whenever you use a spell slot to cast a spell, you can immediately teleport to an unoccupied space you can see within 15 feet of you.",
-		"\u2022 Metallic. When a creature you can see within 30 feet of you makes a saving throw, you can use your reaction to give that creature advantage on the saving throw.",
-		">>Wakened (Very Rare)<<. The Wakened focus has the Slumbering and Stirring properties, and while you are holding a Wakened focus, you can use it to cast certain spells. Once the item is used to cast a given spell, it can't be used to cast that spell again until the next dawn. The spells are determined by the family of the dragon in whose hoard it became Wakened. An asterisk indicates a new spell that appears earlier in this chapter.",
-		"\u2022 Chromatic. Hold monster, Rime's binding ice",
-		"\u2022 Gem. Rary's telepathic bond, Raulothim's psychic lance",
-		"\u2022 Metallic. Fizban's platinum shield, legend lore",
-		">>Ascendant (Legendary)<<. The Ascendant focus has the Slumbering, Stirring, and Wakened properties. In addition, when you cast a spell of 1st level or higher while holding this focus, you can treat the spell as if it were cast using a 9th-level spell slot. Once this property is used, it can't be used again until the next dawn.",
-	],
 	dtf_chromatic: {
 		calcChanges: {
 			spellAdd: [
@@ -1491,35 +1481,16 @@ var FToD_HoardItems = {
 			recovery: "dawn",
 		}],
 	},
-	"dragon vessel": [
-		"This vessel can be a potion bottle, drinking horn, or other container meant to hold a liquid.",
-		">>Slumbering (Uncommon)<<. As a bonus action, if the vessel is empty, you can speak the command word to fill the vessel with one of the following (your choice): ale, olive oil, a potion of healing, or a potion of climbing. Once this property is used, it can't be used until the next dawn. A potion you create in this way loses its magical properties if it isn't imbibed within 24 hours.",
-		">>Stirring (Rare)<<. In addition to the options for a Slumbering vessel, you can fill a Stirring vessel with mead, a potion of fire breath, or a potion of healing (greater).",
-		">>Wakened (Very Rare)<<. In addition to the options for a Slumbering or Stirring vessel, you can fill a Wakened vessel with wine, a potion of flying, or a potion of healing (superior).",
-		">>Ascendant (Legendary)<<. In addition to the options for other states, you can fill an Ascendant vessel with whiskey, a potion of healing (supreme), or a potion of dragon's majesty (described earlier in this chapter).",
-	],
-	"scaled ornament": [
-		"This ornament can be jewelry, a cloak, or another wearable accessory. It appears to be fashioned from a dragon's scale, tooth, or claw, or it incorporates images in those shapes.",
-		">>Slumbering (Uncommon)<<. You have advantage on saving throws you make to avoid being charmed or frightened or to end those conditions on you.",
-		">>Stirring (Rare)<<. You gain a +1 bonus to AC, and you can't be charmed or frightened. Moreover, each creature of your choice within 30 feet of you has advantage on saving throws it makes to avoid being charmed or frightened or to end those conditions on itself.",
-		">>Wakened (Very Rare)<<. The Wakened ornament has the Stirring property. In addition, when you would take damage of the type dealt by the breath of the dragon in whose hoard the ornament became Wakened, you can use your reaction to take no damage instead, and you regain hit points equal to the damage you would have taken. Once this property is used, it can't be used again until the next dawn.",
-		">>Ascendant (Legendary)<<. The Ascendant ornament has the Stirring and Wakened properties. In addition, while you are wearing the ornament, you gain a flying speed equal to your walking speed and can hover. While you are flying using this speed, spectral dragon wings appear on your back.",
-	],
-	hoardMagicItems: [
-		"\n\n\u25C6 Hoard Magic Items (FToD 25)",
-		"Certain magic items can absorb the ambient magic of a dragon's hoard. The mightier the dragon, the more powerful the item becomes when it is steeped in the dragon's hoard. These items, called hoard items, have four states. A hoard item in its Slumbering state has certain base properties, and it gains additional properties when it enters the Stirring (young dragon), Wakened (adult dragon), or Ascendant (ancient dragon) state.",
-		"Ordinarily, a hoard item must steep in a dragon's hoard for 1 year to reach the maximum possible state allowed by the age of the hoard's dragon. For example, a hoard item that steeps in an adult dragon's hoard for 1 year enters its Wakened state.",
-		"When a dragon is slain, the magic surrounding its hoard becomes volatile. This allows a hoard item to steep more quickly in the hoard. A hoard item steeped in a dragon's hoard for 8 hours rises one state, as long as the steeping begins within 1 hour of the dragon's death and occurs within the dragon's lair. Steeping in this way can't raise the state of the item beyond the state associated with the dragon's age.",
-		"Just as hoard items can grow in power by absorbing the ambient magic of a dragon's hoard, so too can these treasures fall back into slumber. If no creature is attuned to a hoard item and that item isn't in a dragon's hoard, the item decreases in power by one state every 30 days until it is Slumbering.",
-	].join("\n   "),
-	to1stPerson: function (sDescr) {
-		return desc(sDescr).replace(/\bf(oo|ee)t\b/ig, "ft")
-			.replace(/you are/ig, "I am").replace(/\byou\b/ig, "I")
-			.replace(/(by|of|to|for|on) I\b|\bI to|\bI an?\b/ig, "$1 me")
-			.replace(/\bI (to|a|an)\b/ig, "me $1")
-			.replace(/your/g, "my").replace(/Your/g, "My")
-			.replace(/   >>(.*?)( \(.*?\))?<<. /g, function (a, p1, p2) { return "\n   " + p1.toUpperCase() + p2.toLowerCase() + "\n   "; }) +
-			FToD_HoardItems.hoardMagicItems;
+	hoardNote: {
+		name: "Hoard Magic Items (FToD 25)",
+		source: [["FToD", 25]],
+		origin: "",
+		note: [
+			"Certain magic items can absorb the ambient magic of a dragon's hoard. The mightier the dragon, the more powerful the item becomes when it is steeped in the dragon's hoard. These items, called hoard items, have four states. A hoard item in its Slumbering state has certain base properties, and it gains additional properties when it enters the Stirring (young dragon), Wakened (adult dragon), or Ascendant (ancient dragon) state.",
+			"Ordinarily, a hoard item must steep in a dragon's hoard for 1 year to reach the maximum possible state allowed by the age of the hoard's dragon. For example, a hoard item that steeps in an adult dragon's hoard for 1 year enters its Wakened state.",
+			"When a dragon is slain, the magic surrounding its hoard becomes volatile. This allows a hoard item to steep more quickly in the hoard. A hoard item steeped in a dragon's hoard for 8 hours rises one state, as long as the steeping begins within 1 hour of the dragon's death and occurs within the dragon's lair. Steeping in this way can't raise the state of the item beyond the state associated with the dragon's age.",
+			"Just as hoard items can grow in power by absorbing the ambient magic of a dragon's hoard, so too can these treasures fall back into slumber. If no creature is attuned to a hoard item and that item isn't in a dragon's hoard, the item decreases in power by one state every 30 days until it is Slumbering.",
+		],
 	},
 }
 FToD_HoardItems.dragonsWrathWeaponCreate();
@@ -1532,11 +1503,28 @@ MagicItemsList["dragon-touched focus"] = {
 	prerequisite: "Requires attunement by a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; },
 	description: "",
-	descriptionFull: FToD_HoardItems["dragon-touched focus"].join("\n   "),
-	toNotesPage: [{
-		name: "Full Text",
-		note: FToD_HoardItems.to1stPerson(FToD_HoardItems["dragon-touched focus"]),
-	}],
+	descriptionFull: [
+		"This wondrous item can be a scepter, an orb, an amulet, a crystal, or another finely crafted object. It typically incorporates imagery of dragons' wings, claws, teeth, or scales.",
+		"***Slumbering (Uncommon)***. You have advantage on initiative rolls. While you are holding the focus, it can function as a spellcasting focus for all your spells.",
+		"***Stirring (Rare)***. The Stirring focus has the Slumbering property, and it gains an additional property determined by the family of the dragon in whose hoard it became Stirring:",
+		" \u2022 **Chromatic**. Whenever you use a spell slot to cast a spell that deals acid, cold, fire, lightning, or poison damage, roll a d6, and you gain a bonus equal to the number rolled to one of the spell's damage rolls.",
+		" \u2022 **Gem**. Whenever you use a spell slot to cast a spell, you can immediately teleport to an unoccupied space you can see within 15 feet of you.",
+		" \u2022 **Metallic**. When a creature you can see within 30 feet of you makes a saving throw, you can use your reaction to give that creature advantage on the saving throw.",
+		"***Wakened (Very Rare)***. The Wakened focus has the Slumbering and Stirring properties, and while you are holding a Wakened focus, you can use it to cast certain spells. Once the item is used to cast a given spell, it can't be used to cast that spell again until the next dawn. The spells are determined by the family of the dragon in whose hoard it became Wakened. An asterisk indicates a new spell that appears earlier in this chapter.",
+		" \u2022 **Chromatic**. Hold monster, Rime's binding ice",
+		" \u2022 **Gem**. Rary's telepathic bond, Raulothim's psychic lance",
+		" \u2022 **Metallic**. Fizban's platinum shield, legend lore",
+		"***Ascendant (Legendary)***. The Ascendant focus has the Slumbering, Stirring, and Wakened properties. In addition, when you cast a spell of 1st level or higher while holding this focus, you can treat the spell as if it were cast using a 9th-level spell slot. Once this property is used, it can't be used again until the next dawn.",
+	],
+	toNotesPage: [
+		{
+			name: "Dragon-Touched Focus",
+			useDescriptionFull: true,
+		},
+		Object.assign({}, FToD_HoardItems.hoardNote, {
+			amendTo: "Dragon-Touched Focus",
+		}),
+	],
 	allowDuplicates: true,
 	choicesNotInMenu: true,
 	advantages: [["Initiative", true]],
@@ -1632,11 +1620,22 @@ MagicItemsList["dragon vessel"] = {
 	type: "wondrous item",
 	attunement: true,
 	description: "As a bonus action once per dawn, if this magical container is empty, I can speak the command word to fill the vessel with one liquid of my choice. The list of options depends on the level and rarity of the item.",
-	descriptionFull: FToD_HoardItems["dragon vessel"].join("\n   "),
-	toNotesPage: [{
-		name: "Full Text",
-		note: FToD_HoardItems.to1stPerson(FToD_HoardItems["dragon vessel"]),
-	}],
+	descriptionFull: [
+		"This vessel can be a potion bottle, drinking horn, or other container meant to hold a liquid.",
+		"***Slumbering (Uncommon)***. As a bonus action, if the vessel is empty, you can speak the command word to fill the vessel with one of the following (your choice): ale, olive oil, a potion of healing, or a potion of climbing. Once this property is used, it can't be used until the next dawn. A potion you create in this way loses its magical properties if it isn't imbibed within 24 hours.",
+		"***Stirring (Rare)***. In addition to the options for a Slumbering vessel, you can fill a Stirring vessel with mead, a potion of fire breath, or a potion of healing (greater).",
+		"***Wakened (Very Rare)***. In addition to the options for a Slumbering or Stirring vessel, you can fill a Wakened vessel with wine, a potion of flying, or a potion of healing (superior).",
+		"***Ascendant (Legendary)***. In addition to the options for other states, you can fill an Ascendant vessel with whiskey, a potion of healing (supreme), or a potion of dragon's majesty (described earlier in this chapter).",
+	],
+	toNotesPage: [
+		{
+			name: "Dragon Vessel",
+			useDescriptionFull: true,
+		},
+		Object.assign({}, FToD_HoardItems.hoardNote, {
+			amendTo: "Dragon Vessel",
+		}),
+	],
 	action: [["bonus action", ""]],
 	usages: 1,
 	recovery: "dawn",
@@ -1671,11 +1670,22 @@ MagicItemsList["scaled ornament"] = function (n) {
 		type: "wondrous item",
 		attunement: true,
 		description: "This ornament can be jewelry, a cloak, or another wearable accessory. It appears to be fashioned from a dragon's scale, tooth, or claw, or it incorporates images in those shapes.",
-		descriptionFull: FToD_HoardItems["scaled ornament"].join("\n   "),
-		toNotesPage: [{
-			name: "Full Text",
-			note: FToD_HoardItems.to1stPerson(FToD_HoardItems["scaled ornament"]),
-		}],
+		descriptionFull: [
+			"This ornament can be jewelry, a cloak, or another wearable accessory. It appears to be fashioned from a dragon's scale, tooth, or claw, or it incorporates images in those shapes.",
+			"***Slumbering (Uncommon)***. You have advantage on saving throws you make to avoid being charmed or frightened or to end those conditions on you.",
+			"***Stirring (Rare)***. You gain a +1 bonus to AC, and you can't be charmed or frightened. Moreover, each creature of your choice within 30 feet of you has advantage on saving throws it makes to avoid being charmed or frightened or to end those conditions on itself.",
+			"***Wakened (Very Rare)***. The Wakened ornament has the Stirring property. In addition, when you would take damage of the type dealt by the breath of the dragon in whose hoard the ornament became Wakened, you can use your reaction to take no damage instead, and you regain hit points equal to the damage you would have taken. Once this property is used, it can't be used again until the next dawn.",
+			"***Ascendant (Legendary)***. The Ascendant ornament has the Stirring and Wakened properties. In addition, while you are wearing the ornament, you gain a flying speed equal to your walking speed and can hover. While you are flying using this speed, spectral dragon wings appear on your back.",
+		],
+		toNotesPage: [
+			{
+				name: "Scaled Ornament",
+				useDescriptionFull: true,
+			},
+			Object.assign({}, FToD_HoardItems.hoardNote, {
+				amendTo: "Scaled Ornament",
+			}),
+		],
 		allowDuplicates: true,
 		choicesNotInMenu: true,
 		choices: ["Slumbering (uncommon)", "Stirring (rare)"],

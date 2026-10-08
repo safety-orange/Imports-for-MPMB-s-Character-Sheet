@@ -178,7 +178,10 @@ RaceList["ibis-headed aven"] = { // Includes contributions by /u/MILKB0T
 	weight: " are very slender and their bones are partially hollow to facilitate their flight",
 	heightMetric: " stand between 1,5 and 1,8 metres tall",
 	scores: [0, 2, 0, 1, 0, 0],
-	trait: "Ibis-Headed Aven (+2 Dexterity, +1 Intelligence)\n\nKefnet's Blessing: I can add half my proficiency bonus, rounded down, to any Intelligence check I make that doesn't already include my proficiency bonus.",
+	trait: [
+		"**Ibis-Headed Aven** (+2 Dexterity, +1 Intelligence)",
+		"##\u25C6 Kefnet's Blessing##. I can add half my proficiency bonus, rounded down, to any Intelligence check I make that doesn't already include my proficiency bonus.",
+	],
 };
 if (!SourceList["PS:D"]) {
 	RaceList["hawk-headed aven"] = { // Includes contributions by /u/MILKB0T
@@ -199,7 +202,11 @@ if (!SourceList["PS:D"]) {
 		weight: " are very slender and their bones are partially hollow to facilitate their flight",
 		heightMetric: " stand between 1,5 and 1,8 metres tall",
 		scores: [0, 2, 0, 0, 2, 0],
-		trait: "Hawk-Headed Aven (+2 Dexterity, +2 Wisdom)\n\nHawkeyed: I have proficiency in the Perception skill.\n\nAttacking at long range doesn't impose disadvantage on my ranged weapon attack rolls.",
+		trait: [
+			"**Hawk-Headed Aven** (+2 Dexterity, +2 Wisdom)",
+			"##\u25C6 Hawkeyed##. I have proficiency in the Perception skill.",
+			"Attacking at long range doesn't impose disadvantage on my ranged weapon attack rolls.",
+		],
 	};
 };
 RaceList["khenra"] = { // Includes contributions by /u/juju2569
@@ -211,13 +218,16 @@ RaceList["khenra"] = { // Includes contributions by /u/juju2569
 	speed: { walk: { spd: 35, enc: 25 } },
 	languageProfs: ["Common", "Khenra"],
 	weaponProfs: [false, false, ["javelin", "khopesh", "spear"]],
-	age: " reaching adulthood in their early teens and rarely live past 60, even without a violent death",
+	age: " reach adulthood in their early teens and rarely live past 60, even without a violent death",
 	height: " range from under 5 to over 6 feet tall (4'6\" + 2d10\")",
 	weight: " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
 	heightMetric: " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [1, 2, 0, 0, 0, 0],
-	trait: "Khenra (+2 Dexterity, +1 Strength)\n\nKhenra Twins: If my twin is alive and I can see my twin, I can reroll the die once whenever I roll a 1 on an attack roll, ability check, or saving throw. I must then use the new roll. If my twin is dead (or if I was born without a twin), I can't be frightened.",
+	trait: [
+		"**Khenra** (+2 Dexterity, +1 Strength)",
+		"##\u25C6 Khenra Twins##. If my twin is alive and I can see my twin, I can reroll the die once whenever I roll a 1 on an attack roll, ability check, or saving throw. I must then use the new roll. If my twin is dead (or if I was born without a twin), I can't be frightened.",
+	],
 };
 RaceList["amonkhet minotaur"] = { // Includes contributions by /u/juju2569
 	regExpSearch: /^(?=.*amonkhet)(?=.*minotaur).*$/i,
@@ -272,7 +282,12 @@ RaceList["amonkhet minotaur"] = { // Includes contributions by /u/juju2569
 			},
 		},
 	},
-	trait: "Amonkhet Minotaur (+2 Strength, +1 Constitution)\nHorns: I can use my horns to make unarmed strikes, doing 1d6 damage instead of 1.\nRelentless Endurance: When I am reduced to 0 hit points but not killed outright, I can drop to 1 hit point instead. I can't use this feature again until I finish a long rest.\nSavage Attacks: When I score a critical hit with a melee weapon attack, I can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.",
+	trait: [
+		"**Amonkhet Minotaur** (+2 Strength, +1 Constitution)",
+		"##\u25C6 Horns##. I can use my horns to make unarmed strikes, doing 1d6 damage instead of 1.",
+		"##\u25C6 Relentless Endurance##. When I am reduced to 0 hit points but not killed outright, I can drop to 1 hit point instead. I can't use this feature again until I finish a long rest.",
+		"##\u25C6 Savage Attacks##. When I score a critical hit with a melee weapon attack, I can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.",
+	],
 };
 RaceList["naga"] = { // Includes contributions by /u/juju2569
 	regExpSearch: /naga/i,
@@ -313,7 +328,11 @@ RaceList["naga"] = { // Includes contributions by /u/juju2569
 	heightMetric: " stand about 1,5 metres tall when upright, but the total length of their bodies, head to tail, ranges from 3 to as much as 6 metres",
 	weightMetric: " weigh around 100 kg",
 	scores: [0, 0, 2, 1, 0, 0],
-	trait: "Naga (+1 Intelligence, +2 Constitution)\nSpeed Burst: As a bonus action on my turn, if I have both hands free, I can increase my walking speed by 5 ft until the end of my turn. By lowering my body to the ground and propelling myself with my arms, I can move more quickly for a time.\nNatural Weapons: I can bite with my fanged maw to poison a creature and constrict with my serpentine body. If I hit with a constrict attack, the target is grappled and restrained. Until this grapple ends, I can't use constrict on another target.",
+	trait: [
+		"**Naga** (+1 Intelligence, +2 Constitution)",
+		"##\u25C6 Speed Burst##. As a bonus action on my turn, if I have both hands free, I can increase my walking speed by 5 ft until the end of my turn. By lowering my body to the ground and propelling myself with my arms, I can move more quickly for a time.",
+		"##\u25C6 Natural Weapons##. I can bite with my fanged maw to poison a creature and constrict with my serpentine body. If I hit with a constrict attack, the target is grappled and restrained. Until this grapple ends, I can't use constrict on another target.",
+	],
 };
 
 // Add weapons for races
@@ -492,7 +511,7 @@ AddSubClass("cleric", "ambition domain", { // Includes contributions by /u/juju2
 			description: desc([
 				"As an action, I create illusory duplicates of myself within 30 ft of me for 1 min (conc)",
 				"As a bonus action, I can move them 30 ft to space(s) I can see within 120 ft of me",
-				"I can cast spells as though I was in an duplicate's space, using my own senses",
+				"I can cast spells as though I was in a duplicate's space, using my own senses",
 				"I have advantage on attacks if the target is within 5 ft of a duplicate and me",
 			]),
 			additional: levels.map(function (n) { return n < 2 ? "" : (n < 17 ? 1 : 2) + " illusory duplicate" + (n < 17 ? "" : "s"); }),
@@ -710,7 +729,7 @@ CreatureList["hippopotamus"] = {
 		description: "The hippopotamus can hold its breath for 30 minutes.",
 	}, {
 		name: "Trampling Charge",
-		description: "If the hippopotamus moves at least 20 ft straight toward a creature and then hits it with a Bit attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the hippopotamus can make one stomp attack against it as a bonus action.",
+		description: "If the hippopotamus moves at least 20 ft straight toward a creature and then hits it with a bite attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the hippopotamus can make one stomp attack against it as a bonus action.",
 	},
 	],
 };

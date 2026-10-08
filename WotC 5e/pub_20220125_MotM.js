@@ -407,19 +407,18 @@ RaceList["multiverse eladrin"] = {
 		name: "Shifting Seasons",
 		source: [["MotM", 13]],
 		popupName: "Eladrin Shifting Season Features",
-		additional: "save DC 8 + Prof Bonus + Int/Wis/Cha mod",
 		page3notes: true,
 		note: [
-			"\u2022 Autumn (Eladrin Season)",
+			"***Autumn (Eladrin Season)***",
 			" After using Fey Step, up to 2 creatures I can see within 10 ft of me must make a Wis save",
 			" If failed, a target is charmed by me for 1 minute, or until I or my allies damage it",
-			"\u2022 Winter (Eladrin Season)",
+			"***Winter (Eladrin Season)***",
 			" When I use Fey Step, one target " + (typePF ? "with" : "") + "in 5 ft of where I teleported from must make a Wis save",
 			" If failed, it is frightened of me until the end of my next turn",
-			"\u2022 Spring (Eladrin Season)",
+			"***Spring (Eladrin Season)***",
 			" When I use Fey Step, I can instead teleport one willing creature I touch within 5 ft of me",
 			" It teleports to an unoccupied space of my choice that I can see within 30 ft of me",
-			"\u2022 Summer (Eladrin Season)",
+			"***Summer (Eladrin Season)***",
 			" After using Fey Step, each creature of my choice I can see within 5 ft of me takes damage",
 			" This is fire damage equal to my proficiency bonus",
 		],
@@ -1151,7 +1150,7 @@ RaceList["multiverse kenku"] = {
 		"\n \u2022 Kenku Recall: Proficiency Bonus per long rest, I can give myself advantage on an ability check using any skill in which I have proficiency." +
 		"\n \u2022 Mimicry: I can mimic sounds and voices I have heard. Creatures hearing me can determine the imitation with a successful Wisdom (Insight) check against a DC of 8 + my Proficiency Bonus + my Charisma modifier.",
 };
-var MotM_Kobold_Draconic_Cry = "\n \u2022 Draconic Cry: As a bonus action, I can let out a cry. Until the start of my next turn, my allies and I have advantage on attack rolls against any enemies within 10 ft of me who could hear the cry. I can do this a number of times per long rest equal to my Proficiency Bonus.";
+var MotM_Kobold_Draconic_Cry = "##\u25C6 Draconic Cry##. As a bonus action, I can let out a cry. Until the start of my next turn, my allies and I have advantage on attack rolls against enemies within 10 ft of me who could hear the cry. I can do this a number of times per long rest equal to my Proficiency Bonus.";
 RaceList["multiverse kobold"] = {
 	regExpSearch: /^(?=.*(multiverse|motm\b))(?=.*kobold).*$/i,
 	name: "Multiverse Kobold",
@@ -1174,21 +1173,24 @@ RaceList["multiverse kobold"] = {
 			recovery: "long rest",
 		},
 	},
-	trait: "Kobold" +
-		'\n \u2022 Kobold Legacy: Choose one of the following with the "Racial Options" button:' +
-		"\n    - Defiance: I have advantage on saves vs. being frightened" +
-		"\n    - Draconic Sorcery: I know one sorcerer cantrip of my choice" +
-		"\n    - Craftiness: I gain proficiency in one of the following: Arcana, Investigation, Medicine, Sleight of Hand, or Survival." +
+	trait: [
+		(typePF ? "**Kobold**\n" : "" ) + "##\u25C6 Kobold Legacy##. Choose one of " + (typePF ? "these with" : "the following with the" ) + ' "Racial Options" button:',
+		" \u2022 ***Defiance***. I have advantage on saves vs. being frightened.",
+		" \u2022 ***Draconic Sorcery***. I know one sorcerer cantrip of my choice.",
+		" \u2022 ***Craftiness***. " + (typePF ? "I gain proficiency in one of the following:" : "Proficiency in") + " Arcana, Investigation, Medicine, Sleight of Hand, or Survival.",
 		MotM_Kobold_Draconic_Cry,
+	],
 };
 AddRacialVariant("multiverse kobold", "craftiness", {
 	regExpSearch: /craftiness/i,
 	name: "Craftiness Multiverse Kobold",
 	source: [["MotM", 25]],
 	skillstxt: "Choose one from Arcana, Investigation, Medicine, Sleight of Hand, or Survival",
-	trait: "Kobold" +
-		"\n \u2022 Kobold Legacy (Craftiness): I gain proficiency in one of the following skills of my choice: Arcana, Investigation, Medicine, Sleight of Hand, or Survival." +
+	trait: [
+		"**Kobold**",
+		"##\u25C6 Kobold Legacy (Craftiness)##. I gain proficiency in one of the following skills of my choice: Arcana, Investigation, Medicine, Sleight of Hand, or Survival.",
 		MotM_Kobold_Draconic_Cry,
+	],
 });
 AddRacialVariant("multiverse kobold", "defiance", {
 	regExpSearch: /defiance/i,
@@ -1196,9 +1198,11 @@ AddRacialVariant("multiverse kobold", "defiance", {
 	source: [["MotM", 25]],
 	plural: "Kobolds",
 	savetxt: { adv_vs: ["frightened"] },
-	trait: "Kobold" +
-		"\n \u2022 Kobold Legacy (Defiance): I have advantage on saving throws to avoid or end the frightened condition on myself." +
+	trait: [
+		"**Kobold**",
+		"##\u25C6 Kobold Legacy (Defiance)##. I have advantage on saving throws to avoid or end the frightened condition on myself.",
 		MotM_Kobold_Draconic_Cry,
+	],
 });
 AddRacialVariant("multiverse kobold", "draconic sorcery", {
 	regExpSearch: /sorcery/i,
@@ -1210,9 +1214,11 @@ AddRacialVariant("multiverse kobold", "draconic sorcery", {
 		"class": "sorcerer",
 		level: [0, 0],
 	}],
-	trait: "Kobold" +
-		"\n \u2022 Kobold Legacy (Draconic Sorcery): I know one cantrip from the sorcerer spell list. Intelligence, Wisdom, or Charisma is my spellcasting ability for it (one-time choice)." +
+	trait: [
+		"**Kobold**",
+		"##\u25C6 Kobold Legacy (Draconic Sorcery)##. I know one cantrip from the sorcerer spell list. Intelligence, Wisdom, or Charisma is my spellcasting ability for it (one-time choice).",
 		MotM_Kobold_Draconic_Cry,
+	],
 });
 // Lizardfolk
 RaceList["multiverse lizardfolk"] = {
@@ -1254,12 +1260,14 @@ RaceList["multiverse lizardfolk"] = {
 			action: [["bonus action", ""]],
 		},
 	},
-	trait: "Lizardfolk" +
-		"\n \u2022 Bite: My unarmed strikes with my fanged maw deal 1d6 slashing damage." +
-		"\n \u2022 Hold Breath: I can hold my breath for up to 15 minutes at a time." +
-		"\n \u2022 Hungry Jaws: Prof Bonus per long rest, as a bonus action, I can make a special bite attack. If it hits, it deals damage and I gain temporary HP equal to my proficiency bonus." +
-		"\n \u2022 Natural Armor: I have an AC of 13 + Dexterity modifier + shield." +
-		"\n \u2022 Nature's Intuition: I gain proficiency with two of the following  Animal Handling, Medicine, Nature, Perception, Stealth, or Survival.",
+	trait: [
+		"**Lizardfolk**",
+		"##\u25C6 Bite##. My unarmed strikes with my fanged maw deal 1d6 slashing damage.",
+		"##\u25C6 Hold Breath##. I can hold my breath for up to 15 minutes at a time.",
+		"##\u25C6 Hungry Jaws##. Prof Bonus per long rest, as a bonus action, I can make a special bite attack. If it hits, it deals damage and I gain temporary HP equal to my proficiency bonus.",
+		"##\u25C6 Natural Armor##. I have an AC of 13 + Dexterity modifier + shield.",
+		"##\u25C6 Nature's Intuition##. " + (typePF ? "I gain proficiency with two of the following:" : "2 of:") + " Animal Handling, Medicine, Nature, Perception, Stealth, " + (typePF ? "or " : "") + "Survival.",
+	],
 };
 RaceList["multiverse minotaur"] = {
 	regExpSearch: /^(?=.*(multiverse|motm\b))(?=.*minotaur).*$/i,

@@ -633,7 +633,7 @@ RaceList["lycanthrope-wereboar"] = {
 				name: "Charge",
 				note: [
 					"If, in one turn, I move straight for 15 ft and then hit with my tusks, I deal +2d6 damage",
-					"Those hit like this must make a Str save or be knocked prone (DC 8 + Prof B. + Str mod)",
+					"Those hit like this must make a Str save or be knocked prone (DC 8 + Prof B + Str mod)",
 				],
 				page3notes: true,
 				additional: "in boar or hybrid form only",

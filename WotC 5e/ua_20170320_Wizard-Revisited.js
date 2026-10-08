@@ -170,6 +170,23 @@ if (!SourceList["UA:TF"]) {
 			},
 		});
 		var MTfeat = ClassSubList[theTheurgySubclass].features;
+		var fixObjectAttributes = function (obj) {
+			obj.name = replaceCDwithCA(obj.name);
+			if (obj.additional) obj.additional = replaceCDwithCA(obj.additional);
+			if (obj.usages) obj.usages = replaceModAndRest(obj.usages);
+			if (obj.recovery) obj.recovery = replaceModAndRest(obj.recovery);
+			return obj;
+		}
+		var replaceCDwithCA = function (input) {
+			if (isArray(input)) return input.map(replaceCDwithCA);
+			return input.replace(/channel divinity/i, "Channel Arcana").replace(/CD/, "CA");
+		};
+		var replaceModAndRest = function (input) {
+			if (isArray(input)) return input.map(replaceModAndRest);
+			input = input.replace(/modifier/i, "mod").replace(/long rest/i, "LR").replace(/short rest/i, "SR");
+			if (tDoc.typePF) input = input.replace(/(Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma)/ig, function (match) { return match.substring(0,3); });
+			return input;
+		};
 		for (var i = 0; i < ClassList.cleric.subclasses[1].length; i++) {
 			var aDomain = ClassSubList[ClassList.cleric.subclasses[1][i]];
 			if (!aDomain) continue;
@@ -177,12 +194,13 @@ if (!SourceList["UA:TF"]) {
 
 			var suffix = 1;
 			var entryDoNm = aDomain.subname;
+			var entryDoNmLC = entryDoNm.toLowerCase();
 			while (MTfeat["subclassfeature2"].choices.indexOf(entryDoNm) !== -1) {
 				suffix += 1;
 				entryDoNm = aDomain.subname + " (" + suffix + ")";
 			};
 			MTfeat["subclassfeature2"].choices.push(entryDoNm);
-			MTfeat["subclassfeature2"][entryDoNm.toLowerCase()] = {
+			MTfeat["subclassfeature2"][entryDoNmLC] = {
 				name: "Arcane Initiate: " + aDomain.subname,
 				source: dSource,
 				spellcastingExtra: aDomain.spellcastingExtra,
@@ -193,51 +211,66 @@ if (!SourceList["UA:TF"]) {
 					"Other wizards cannot copy cleric spells from my spellbook into their own spellbooks",
 				]),
 			};
-			var AIdomain = MTfeat["subclassfeature2"][entryDoNm.toLowerCase()];
 			for (var aFea in aDomain.features) {
+				var doFixObjectAttributes = false;
 				var dFea = aDomain.features[aFea];
-				if (dFea.minlevel === 2 && /channel divinity/i.test(dFea.name)) {
+				var hasNoArmorWeaponsProf = !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs;
+				if (dFea.minlevel === 2 && /channel divinity/i.test(dFea.name + dFea.additional)) {
 					MTfeat["subclassfeature2.3"].choices.push(entryDoNm);
-					MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()] = newObj(dFea);
-					MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name = MTfeat["subclassfeature2.3"][entryDoNm.toLowerCase()].name.replace(/channel divinity/i, "Channel Arcana");
-				};
-				if (dFea.minlevel === 1 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
+					MTfeat["subclassfeature2.3"][entryDoNmLC] = fixObjectAttributes(newObj(dFea));
+				} else if (dFea.minlevel === 1 && hasNoArmorWeaponsProf) {
 					if (MTfeat["subclassfeature6"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 						MTfeat["subclassfeature6"].choices.push(entryDoNm);
-						MTfeat["subclassfeature6"][entryDoNm.toLowerCase()] = newObj(dFea);
+						MTfeat["subclassfeature6"][entryDoNmLC] = fixObjectAttributes(newObj(dFea));
 					} else { //add to the existing entry
-						var theFea = MTfeat["subclassfeature6"][entryDoNm.toLowerCase()];
+						var theFea = MTfeat["subclassfeature6"][entryDoNmLC];
 						theFea.name += " \u0026 " + dFea.name;
 						theFea.description += dFea.description;
 						for (var subFea in dFea) {
 							if (theFea[subFea] === undefined) theFea[subFea] = dFea[subFea];
+							if (/additional|recovery/.test(subFea)) {
+								doFixObjectAttributes = true;
+							}
 						};
+						if (doFixObjectAttributes) {
+							MTfeat["subclassfeature6"][entryDoNmLC] = fixObjectAttributes(MTfeat["subclassfeature6"][entryDoNmLC]);
+						}
 					};
-				};
-				if (dFea.minlevel === 6 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
+				} else if (dFea.minlevel === 6 && hasNoArmorWeaponsProf) {
 					if (MTfeat["subclassfeature10"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 						MTfeat["subclassfeature10"].choices.push(entryDoNm);
-						MTfeat["subclassfeature10"][entryDoNm.toLowerCase()] = newObj(dFea);
+						MTfeat["subclassfeature10"][entryDoNmLC] = newObj(dFea);
 					} else { //add to the existing entry
-						var theFea = MTfeat["subclassfeature10"][entryDoNm.toLowerCase()];
+						var theFea = MTfeat["subclassfeature10"][entryDoNmLC];
 						theFea.name += " \u0026 " + dFea.name;
 						theFea.description += dFea.description;
 						for (var subFea in dFea) {
 							if (theFea[subFea] === undefined) theFea[subFea] = dFea[subFea];
+							if (/additional|recovery/.test(subFea)) {
+								doFixObjectAttributes = true;
+							}
 						};
+						if (doFixObjectAttributes) {
+							MTfeat["subclassfeature6"][entryDoNmLC] = fixObjectAttributes(MTfeat["subclassfeature6"][entryDoNmLC]);
+						}
 					};
-				};
-				if (dFea.minlevel === 17 && !dFea.armor && !dFea.weapons && !dFea.armorProfs && !dFea.weaponProfs) {
+				} else if (dFea.minlevel === 17 && hasNoArmorWeaponsProf) {
 					if (MTfeat["subclassfeature14"].choices.indexOf(entryDoNm) === -1) { //if the entry does not exist yet
 						MTfeat["subclassfeature14"].choices.push(entryDoNm);
-						MTfeat["subclassfeature14"][entryDoNm.toLowerCase()] = newObj(dFea);
+						MTfeat["subclassfeature14"][entryDoNmLC] = newObj(dFea);
 					} else { //add to the existing entry
-						var theFea = MTfeat["subclassfeature14"][entryDoNm.toLowerCase()];
+						var theFea = MTfeat["subclassfeature14"][entryDoNmLC];
 						theFea.name += " \u0026 " + dFea.name;
 						theFea.description += dFea.description;
 						for (var subFea in dFea) {
 							if (theFea[subFea] === undefined) theFea[subFea] = dFea[subFea];
+							if (/additional|recovery/.test(subFea)) {
+								doFixObjectAttributes = true;
+							}
 						};
+						if (doFixObjectAttributes) {
+							MTfeat["subclassfeature6"][entryDoNmLC] = fixObjectAttributes(MTfeat["subclassfeature6"][entryDoNmLC]);
+						}
 					};
 				};
 			};

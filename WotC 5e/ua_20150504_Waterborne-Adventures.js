@@ -61,7 +61,13 @@ RaceList["minotaur-ua"] = {
 	weightMetric: " weigh around 135 kg",
 	scorestxt: "+1 Strength, and either +1 Intelligence, +1 Wisdom, or another +1 Strength",
 	scores: [1, 0, 0, 0, 0, 0],
-	trait: "Minotaur (+1 Strength, and either +1 Int, Wis, or Str) use \"Racial Options\" button\nHorns: I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.\nGoring Rush: When taking a Dash action, I can make a horns attack as a bonus action.\nHammering Horns: When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.\nLabyrinthine Recall: I can perfectly recall any path I have travelled.",
+	trait: [
+		"**Minotaur** (+1 Strength, and either +1 Int, Wis, or Str) [use " + (typePF ? "" : '"Racial Options" ') + "button]",
+		"##\u25C6 Horns##. I am proficient with my horns, a 1d10 piercing damage melee weapon that grant me advantage on shoving a creature, but not to avoid being shoved myself.",
+		"##\u25C6 Goring Rush##. When taking a Dash action, I can make a horns attack as a bonus action.",
+		"##\u25C6 Hammering Horns##. When taking a melee Attack action, I can attempt to shove with my horns as a bonus action. I cannot use this to knock a creature prone.",
+		"##\u25C6 Labyrinthine Recall##. I can perfectly recall any path I" + (typePF ? "'ve" : " have") + " travelled.",
+	],
 	features: {
 		"goring rush": {
 			name: "Goring Rush",

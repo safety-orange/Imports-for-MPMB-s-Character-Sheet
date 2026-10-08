@@ -46,7 +46,7 @@ RunFunctionAtEnd(function () {
 				name: "Armor Model",
 				source: [["UA:SP3", 2]],
 				minlevel: 3,
-				description: desc([
+				description: " [see Notes page]" + desc([
 					"When I finish a rest, I can use smith's tools to change the model of my arcane armor",
 					'Select a model using the "Choose Feature" button; See "Notes" page for features of each',
 				]),
@@ -165,7 +165,7 @@ RunFunctionAtEnd(function () {
 		"As a bonus action, I can activate a defensive shield to gain my artificer level in temp HP",
 	])
 	var guardianAdditional = levels.map(function (n) {
-		return n + " temp HP; see notes page";
+		return n + " temp HP; see Notes";
 	})
 	var infiltratorTxt = desc([
 		"+5 ft walking speed; Gemlike node in fist/chest is a ranged weapon, Lightning Launcher",
@@ -178,10 +178,11 @@ RunFunctionAtEnd(function () {
 	for (var armor in ArmourList) {
 		var anArm = ArmourList[armor];
 		if (anArm.type != "heavy" || anArm.isMagicArmor || !anArm.weight || (CurrentVars.extraArmour && CurrentVars.extraArmour[armor])) continue;
+		var armName = anArm.name.capitalize();
 		// Add the Guardian variant of the armor
-		var gArmName = "Guardian Power " + anArm.name;
+		var gArmName = "Guardian Power " + armName;
 		itsFea[gArmName.toLowerCase()] = {
-			name: (typePF || anArm.name.length < 16 ? "Armor " : "") + "Model: Guardian " + anArm.name,
+			name: "Model: Guardian " + armName,
 			submenu: "Guardian Power Armor",
 			description: guardianTxt,
 			additional: guardianAdditional,
@@ -192,7 +193,7 @@ RunFunctionAtEnd(function () {
 		}
 		// And now add the Infiltrator variant of the armor
 		var iArm = newObj(anArm);
-		iArm.name = "Infiltrator Power " + anArm.name;
+		iArm.name = "Infiltrator Power " + armName;
 		iArm.weight = 0;
 		iArm.stealthdis = false;
 		iArm.strReq = 0;
@@ -203,7 +204,7 @@ RunFunctionAtEnd(function () {
 			iArm.regExpSearch = iArm.regExpSearch.replace(/\.\*\$$/, "(?=.infiltrator).*$");
 		};
 		itsFea[iArm.name.toLowerCase()] = {
-			name: "Armor Model: Infiltrator " + anArm.name,
+			name: "Model: Infiltrator " + armName,
 			submenu: "Infiltrator Power Armor",
 			description: infiltratorTxt,
 			speed: { walk: { spd: "+5", enc: "+5" } },
@@ -248,7 +249,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 			"The armor has 4 charges, regaining 1d4 expended charges daily at dawn",
 			"As a reaction when being knocked prone, the wearer can use 1 charge to not be prone",
 		]),
-		additional: "suit of armor; requires attunement",
+		additional: typePF ? "armor; attunement" : "suit of armor; needs attunement",
 		prereqeval: function (v) { return classes.known.artificer.level >= 10; },
 		magicitemsAdd: ["Armor of Magical Strength (UA)"],
 	});

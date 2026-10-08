@@ -239,7 +239,7 @@ if (!SourceList["UA:RoE"]) {
 		weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 		scorestxt: "+1 Constitution and +1 to two other ability scores of my choice",
 		scores: [0, 0, 1, 0, 0, 0],
-		trait: "Envoy Warforged (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B.), medium (13+Dex+Prof B.), heavy (16+Prof B.; Stealth disadv.). I can use a shield.\nIntegrated Tool: I have expertise with one tool and it is integrated into my body.",
+		trait: "Envoy Warforged (+1 Constitution and +1 to two other abilit" + (typePF ? "ies" : "y scores of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nIntegrated Tool: I have expertise with one tool and it is integrated into my body.",
 		eval: function () {
 			var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
 			if (tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0)) {
@@ -313,7 +313,7 @@ if (!SourceList["UA:RoE"]) {
 		heightMetric: " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
 		weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 		scores: [2, 0, 1, 0, 0, 0],
-		trait: "Juggernaut Warforged (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4.") + "\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B.), medium (13+Dex+Prof B.), heavy (16+Prof B.; Stealth disadv.). I can use a shield.\nPowerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
+		trait: "Juggernaut Warforged (+2 Strength, +1 Constitution)" + (typePF ? "" : " Iron Fists: unarmed strikes do 1d4.") + "\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nPowerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." + (typePF ? " Iron Fists: My unarmed strikes do 1d4 damage." : ""),
 		carryingCapacity: 2,
 		eval: function () {
 			var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
@@ -380,7 +380,7 @@ if (!SourceList["UA:RoE"]) {
 		heightMetric: " stand between 1,8 and 2,1 metres tall (178 + 5d6 cm)",
 		weightMetric: " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 		scores: [0, 2, 1, 0, 0, 0],
-		trait: "Skirmisher Warforged (+2 Dexterity, +1 Constitution)\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B.), medium (13+Dex+Prof B.), heavy (16+Prof B.; Stealth disadv.). I can use a shield.\nLight Step: If I travel alone for an hour or more, I can move stealthily at a normal pace.",
+		trait: "Skirmisher Warforged (+2 Dexterity, +1 Constitution)\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: My AC depends on armor proficiency: none (11+Dex), light (11+Dex+Prof B), medium (13+Dex+Prof B), heavy (16+Prof B; Stealth disadv.). I can use a shield.\nLight Step: If I travel alone for an hour or more, I can move stealthily at a normal pace.",
 		eval: function () {
 			var lightProf = tDoc.getField("Proficiency Armor Light").isBoxChecked(0);
 			if (tDoc.getField("Proficiency Armor Heavy").isBoxChecked(0)) {
@@ -1579,7 +1579,7 @@ if (!SourceList["UA:D"]) {
 		source: [["WGtE", 112], ["UA:D", 9]],
 		prerequisite: "Not having a dragonmark",
 		prereqeval: function (v) { return !/dragonmark/i.test(CurrentRace.known); },
-		descriptionFull: "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it (see the table below for examples). You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again. Constitution is your spellcasting ability for these spells.\n \u2022 You can increase the power of your aberrant spells at the risk of your own vitality. When you cast a spell with your aberrant mark, you can use one of your Hit Dice to increase the spell's level by 1. Immediately after you cast the spell, roll the Hit Die. You take damage equal to the number rolled.\n\n***1d8***\t***Aberrant Mark Flaw***\n1\tYour mark is a source of constant physical pain.\n2\tYour mark whispers to you, though you may not understand what it says.\n3\tIn times of stress, your mark may trigger a cantrip effect involuntarily.\n4\tThe skin around your mark has an unusual appearance: burned, scaly, withered, etc.\n5\tMundane animals become uneasy around you.\n6\tYou have dramatic mood swings any time you use your mark.\n7\tYour appearance changes in a minor way every time you use your mark.\n8\tYou have horrific nightmares after you use your mark.",
+		descriptionFull: "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it (see the table below for examples). You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again. Constitution is your spellcasting ability for these spells.\n \u2022 You can increase the power of your aberrant spells at the risk of your own vitality. When you cast a spell with your aberrant mark, you can use one of your Hit Dice to increase the spell's level by 1. Immediately after you cast the spell, roll the Hit Die. You take damage equal to the number rolled.\n\n**1d8**\t**Aberrant Mark Flaw**\n1\tYour mark is a source of constant physical pain.\n2\tYour mark whispers to you, though you may not understand what it says.\n3\tIn times of stress, your mark may trigger a cantrip effect involuntarily.\n4\tThe skin around your mark has an unusual appearance: burned, scaly, withered, etc.\n5\tMundane animals become uneasy around you.\n6\tYou have dramatic mood swings any time you use your mark.\n7\tYour appearance changes in a minor way every time you use your mark.\n8\tYou have horrific nightmares after you use your mark.",
 		description: "I learn a sorcerer cantrip and a 1st-level sorcerer spell, using Con as my spellcasting ability. I can cast the spell once per long rest without a spell slot. I can use a Hit Die when casting the spell, casting it as if with a level 2 spell slot and taking the HD as damage. [+1 Con]",
 		scores: [0, 0, 1, 0, 0, 0],
 		spellcastingAbility: 3,
@@ -1610,7 +1610,7 @@ if (!SpellsList["gust"]) {
 		components: "V,S",
 		duration: "Instantaneous",
 		save: "Str",
-		description: "Med. or smaller crea save or push 5 ft; or push unattended 5 lb obj 10 ft; or harmless sensory effect",
+		description: "Crea \u2264Medium save or push 5 ft; or push unattended 5 lb obj 10 ft; or harmless sensory effect",
 		descriptionFull: "You seize the air and compel it to create one of the following effects at a point you can see within range." + "\n " + "\u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you." + "\n " + "\u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage." + "\n " + "\u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze.",
 	};
 }
@@ -1913,41 +1913,47 @@ if (!SourceList["UA:MIoE"]) {
 		descriptionFull: "If you are reduced to zero hit points while attuned to a band of loyalty, you instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
 		attunement: true,
 	}
-	var ERftLW_docentFullDescription = [
-		"A docent is a small metal sphere, approximately 2 inches across, studded with dragonshards. Despite a strong magical aura, it has no obvious abilities. When you attune to a docent, the sphere becomes embedded in your chest and comes to life\u2014literally.",
-		">>Sentience<<. A docent is a sentient neutral item with an Intelligence of 16, a Wisdom of 14, and a Charisma of 14. It can perceive the world through your senses.",
-		"A docent communicates telepathically with its wielder and can speak, read, and understand Common and Giant.",
-		">>Personality<<. A docent is designed to advise and assist the warforged it's attached to. One of the simple functions of a docent is to serve as a translator. The docent's properties are under its control, and if you have a bad relationship with your docent it may refuse to assist you… or simply lie about information that it obtains. However, if you treat your docent well it could serve as a useful ally.",
-		"The origin of docents is a great mystery. House Cannith created the first warforged thirty years ago. But the docents come from the distant land of Xen'drik and appear to be thousands of years old. Were they created to interface with some other form of construct? Or are the modern warforged a new interpretation of an ancient design? The docents claim to have forgotten their creators… but this is a mystery waiting to be unraveled. While all docents come from Xen'drik, some have been brought to Khorvaire by explorers and it's possible to encounter them in the Five Nations.",
-		">>Languages<<. All docents understand Common and Giant, but a docent knows up to four additional languages. Elvish and Draconic are common options. If a docent knows less than six languages in total, it can add new languages to its repertoire after encountering them. So a docent found in Xen'drik may have never encountered a dwarf before… but after spending some time in Khorvaire studying dwarves, it could pick up the Dwarvish language.",
-		">>Properties<<. A docent possesses up to three of the following properties:",
-		"\u2022 The docent can cast the detect magic spell at will.",
-		"\u2022 The docent can cast the detect evil and good spell at will.",
-		"\u2022 The docent can detect any form of divination or scrying targeting it and its warforged host.",
-		"\u2022 The docent has a +7 bonus to Intelligence (Arcana) checks.",
-		"\u2022 The docent has a +7 bonus to Intelligence (History) checks.",
-		"\u2022 The docent has a +7 bonus to Intelligence (Investigation) checks.",
-		"\u2022 The docent has a +7 bonus to Intelligence (Nature) checks.",
-		"\u2022 The docent has a +6 bonus to Wisdom (Insight) checks.",
-		"\u2022 The docent has a +6 bonus to Wisdom (Perception) checks.",
-		"\u2022 The docent has a +6 bonus to Wisdom (Medicine) checks targeting its warforged host. If the host is rendered unconscious, the docent will automatically attempt to stabilize them once each turn.",
-		"You can use a bonus action on your turn to request that the docent use one of its properties on your behalf.",
-	];
 	MagicItemsList["docent-ua"] = {
 		name: "Docent",
 		source: [["WGtE", 121], ["UA:MIoE", 3]],
 		type: "wondrous item",
 		rarity: "rare",
 		description: "I can embed this sentient small metal sphere studded with dragonshards into my chest. I can communicate telepathically with it. It can serve me as an advisor and a translator, as it knowns 6 languages. It also knows spells and/or skills that I can have it use as a bonus action. See Notes page.",
-		descriptionFull: ERftLW_docentFullDescription.join("\n   "),
+		descriptionFull: [
+			"A *docent* is a small metal sphere, approximately 2 inches across, studded with dragonshards. Despite a strong magical aura, it has no obvious abilities. When you attune to a *docent*, the sphere becomes embedded in your chest and comes to life\u2014literally.",
+			"***Sentience***. A *docent* is a sentient neutral item with an Intelligence of 16, a Wisdom of 14, and a Charisma of 14. It can perceive the world through your senses.",
+			"A *docent* communicates telepathically with its wielder and can speak, read, and understand Common and Giant.",
+			"***Personality***. A *docent* is designed to advise and assist the warforged it's attached to. One of the simple functions of a *docent* is to serve as a translator. The *docent*'s properties are under its control, and if you have a bad relationship with your *docent* it may refuse to assist you… or simply lie about information that it obtains. However, if you treat your *docent* well it could serve as a useful ally.",
+			"The origin of *docents* is a great mystery. House Cannith created the first warforged thirty years ago. But the *docents* come from the distant land of Xen'drik and appear to be thousands of years old. Were they created to interface with some other form of construct? Or are the modern warforged a new interpretation of an ancient design? The *docents* claim to have forgotten their creators… but this is a mystery waiting to be unraveled. While all *docents* come from Xen'drik, some have been brought to Khorvaire by explorers and it's possible to encounter them in the Five Nations.",
+			"***Languages***. All *docents* understand Common and Giant, but a *docent* knows up to four additional languages. Elvish and Draconic are common options. If a *docent* knows less than six languages in total, it can add new languages to its repertoire after encountering them. So a *docent* found in Xen'drik may have never encountered a dwarf before… but after spending some time in Khorvaire studying dwarves, it could pick up the Dwarvish language.",
+			"***Properties***. A *docent* possesses up to three of the following properties:",
+			" \u2022 The *docent* can cast the *Detect Magic* spell at will.",
+			" \u2022 The *docent* can cast the *Detect Evil and Good* spell at will.",
+			" \u2022 The *docent* can detect any form of divination or scrying targeting it and its warforged host.",
+			" \u2022 The *docent* has a +7 bonus to Intelligence (Arcana) checks.",
+			" \u2022 The *docent* has a +7 bonus to Intelligence (History) checks.",
+			" \u2022 The *docent* has a +7 bonus to Intelligence (Investigation) checks.",
+			" \u2022 The *docent* has a +7 bonus to Intelligence (Nature) checks.",
+			" \u2022 The *docent* has a +6 bonus to Wisdom (Insight) checks.",
+			" \u2022 The *docent* has a +6 bonus to Wisdom (Perception) checks.",
+			" \u2022 The *docent* has a +6 bonus to Wisdom (Medicine) checks targeting its warforged host. If the host is rendered unconscious, the *docent* will automatically attempt to stabilize them once each turn.",
+			"You can use a bonus action on your turn to request that the *docent* use one of its properties on your behalf.",
+		],
 		attunement: true,
 		prerequisite: "Requires attunement by a warforged",
 		prereqeval: function (v) { return /warforged/i.test(CurrentRace.known); },
 		action: [["bonus action", ""]],
-		toNotesPage: [{
-			name: "Features",
-			note: desc(ERftLW_docentFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
-		}],
+		toNotesPage: [
+			{
+				name: "Docent",
+				useDescriptionFull: function (str) {
+					return str.replace("assist I", "assist me");
+				},
+			},
+			Object.assign({}, sentientItemConflictNote, {
+				amendTo: "A *docent* possesses",
+			}),
+		],
 	}
 	MagicItemsList["feather token-ua"] = {
 		name: "Feather Token",

@@ -683,6 +683,7 @@ CompanionList.mechanicalserv = {
 			"In addition, it is immune to poison damage, being poisoned, and being charmed",
 		].join("\n   "),
 		joinString: " ",
+		formattingChar: "",
 	}, {
 		name: "I can have one servant at a time",
 		description: [
@@ -691,6 +692,7 @@ CompanionList.mechanicalserv = {
 			"I can build a new servant by spending 8 hours a day for 7 days and 1000 gp of materials",
 		].join("\n   "),
 		joinString: "; ",
+		formattingChar: "",
 	}, {
 		name: "The servant rolls initiative and takes actions as normal",
 		description: "obeying my commands as best it can",
@@ -702,6 +704,7 @@ CompanionList.mechanicalserv = {
 			"I can command the servant to use its reaction to make a melee attack against the attacker",
 		].join("\n   "),
 		joinString: " ",
+		formattingChar: "",
 	}],
 	attributesAdd: {
 		header: "Servant",

@@ -258,7 +258,7 @@ FeatsList["ember of the fire giant"] = {
 	"\n\n***Ability Score Increase***. Increase your Strength, Constitution, or Wisdom by 1, to a maximum of 20." +
 	"\n\n***Born of Flame***. You have resistance to fire damage." +
 	"\n***Searing Ignition***. When you take the Attack action on your turn, you can replace a single attack with a magical burst of flame. Each creature of your choice in a 15-foot-radius sphere centered on you must make a Dexterity saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, a creature takes fire damage equal to 1d8 + your proficiency bonus, and it has the blinded condition until the start of your next turn. On a successful save, the creature takes half as much damage only. You can use your Searing Ignition a number of times equal to your proficiency bonus (but no more than once per turn), and you regain all expended uses when you finish a long rest.",
-	description: "I get fire resistance. Prof B. per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8 + Prof B. fire damage, blind until my next turn starts. Dex save DC 8 + Prof B. + Str/Con/Wis mod half damage, not blind. [+1 Str/Con/Wis]",
+	description: "I get fire resistance. Prof B per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8 + Prof B fire damage, blind until my next turn starts. Dex save DC 8 + Prof B + Str/Con/Wis mod half damage, not blind. [+1 Str/Con/Wis]",
 	extraLimitedFeatures: [{
 		name: "Searing Ignition",
 		usages: "Proficiency bonus per ",
@@ -269,7 +269,7 @@ FeatsList["ember of the fire giant"] = {
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B. + Str mod) halves damage, not blinded. [+1 Str]';",
+		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Str mod) halves damage, not blinded. [+1 Str]';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
 			name: "Searing Ignition",
@@ -289,7 +289,7 @@ FeatsList["ember of the fire giant"] = {
 	},
 	"constitution": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B. + Con mod) halves damage, not blinded. [+1 Con]';",
+		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Con mod) halves damage, not blinded. [+1 Con]';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
 			name: "Searing Ignition",
@@ -309,7 +309,7 @@ FeatsList["ember of the fire giant"] = {
 	},
 	"wisdom": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B.) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B. + Wis mod) halves damage, not blinded. [+1 Wis]';",
+		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Wis mod) halves damage, not blinded. [+1 Wis]';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
 			name: "Searing Ignition",
@@ -340,7 +340,7 @@ FeatsList["fury of the frost giant"] = {
 	"\n\n***Ability Score Increase***. Increase your Strength, Constitution, or Wisdom by 1, to a maximum of 20." +
 	"\n\n***Born of Ice***. You have resistance to cold damage." +
 	"\n***Frigid Retaliation***. Immediately after a creature you can see within 30 feet of you hits you with an attack roll and deals damage, you can use your reaction to retaliate with a conjured blast of ice. The creature must make a Constitution saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, the creature takes cold damage equal to 1d8 + your proficiency bonus, and its speed is reduced to 0 until the end of its next turn. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
-	description: "I gain cold resistance. As a reaction when a creature I see within 30 ft damages me with an attack, I can, Prof B. times per long rest, use Frigid Retaliation: it must make a Con save DC 8 + Prof B. + Str/Con/Wis mod or take 1d8 + Prof B. cold damage and have speed 0 until its next turn ends. [+1 Str/Con/Wis]",
+	description: "I gain cold resistance. As a reaction when a creature I see within 30 ft damages me with an attack, I can, Prof B times per long rest, use Frigid Retaliation: it must make a Con save DC 8 + Prof B + Str/Con/Wis mod or take 1d8 + Prof B cold damage and have speed 0 until its next turn ends. [+1 Str/Con/Wis]",
 	action: [["reaction", "Frigid Retaliation"]],
 	extraLimitedFeatures: [{
 		name: "Frigid Retaliation",
@@ -352,7 +352,7 @@ FeatsList["fury of the frost giant"] = {
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B. + Str mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Str]';",
+		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Str mod) or take 1d8+' + iProfB + ' (Prof B) cold damage and have speed 0 until its next turn ends. [+1 Str]';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name: "Frigid Retaliation",
@@ -372,7 +372,7 @@ FeatsList["fury of the frost giant"] = {
 	},
 	"constitution": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B. + Con mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Con]';",
+		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Con mod) or take 1d8+' + iProfB + ' (Prof B) cold damage and have speed 0 until its next turn ends. [+1 Con]';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name: "Frigid Retaliation",
@@ -392,7 +392,7 @@ FeatsList["fury of the frost giant"] = {
 	},
 	"wisdom": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B.) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B. + Wis mod) or take 1d8+' + iProfB + ' (Prof B.) cold damage and have speed 0 until its next turn ends. [+1 Wis]';",
+		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Wis mod) or take 1d8+' + iProfB + ' (Prof B) cold damage and have speed 0 until its next turn ends. [+1 Wis]';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name: "Frigid Retaliation",
@@ -529,7 +529,7 @@ FeatsList["soul of the storm giant"] = {
 	descriptionFull: "You've manifested the tempest magic emblematic of storm giants, granting you the following benefits:" +
 	"\n\n***Ability Score Increase***. Increase your Strength, Constitution, or Charisma by 1, to a maximum of 20." +
 	"\n\n***Maelstrom Aura***. As a bonus action, you surround yourself with an aura of magical wind and lightning that extends 10 feet from you in every direction but not through total cover. The aura lasts until the start of your next turn or until you are incapacitated. While the aura is active, you have resistance to lightning and thunder damage. In addition, attack rolls against you have disadvantage, and whenever another creature starts its turn within the aura, you can force the creature to make a Strength saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, the creature's speed is halved until the start of its next turn. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
-	description: "As a bonus action, Prof B. per long rest, I can make a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning/thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to a Str save DC 8 + Prof + Str/Con/Cha mod or halve their speed until their next turn starts. [+1 Str/Con/Cha]",
+	description: "As a bonus action, Prof B per long rest, I can make a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning/thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to a Str save DC 8 + Prof + Str/Con/Cha mod or halve their speed until their next turn starts. [+1 Str/Con/Cha]",
 	action: [["bonus action", "Maelstrom Aura"]],
 	extraLimitedFeatures: [{
 		name: "Maelstrom Aura",
@@ -583,33 +583,34 @@ FeatsList["vigor of the hill giant"] = {
 	},
 };
 // Feats - Rune Shaper
-var GotG_RuneShaper = [
-	"You've studied the magic of Giant runes, granting you the following benefits:",
-	">>Comprehend Languages<<. You learn the comprehend languages spell. You can cast this spell without expending a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using any spell slots you have.",
-	">>Rune Magic<<. You know a number of runes equal to half your proficiency bonus (rounded down), chosen from the Rune Spells table. Whenever you finish a long rest, you can inscribe each rune you know onto one nonmagical weapon, armor, piece of clothing, or other object you touch. You temporarily learn the 1st-level spells that correspond to the runes you inscribed, as specified on the Rune Spells table, and you know those spells until you finish a long rest, when the runes fade. While you are wearing or carrying any rune-marked object, you can cast the spells associated with those runes using any spell slots you have.",
-	"You can also invoke a rune inscribed on an object you are wearing or carrying and cast its associated spell without expending a spell slot or using material components. Once you cast the spell in this way, you can't do so again until you finish a long rest. Your spellcasting ability for this feat is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
-	"Each time you gain a level, you can replace one of the runes you know with another one from the Rune Spells table below.\n",
-	">>Rune\tSpell<<",
-	"Cloud\tFog Cloud",
-	"Death\tInflict Wounds",
-	"Dragon\tChromatic Orb",
-	"Enemy\tDisguise Self",
-	"Fire\tBurning Hands",
-	"Friend\tSpeak with Animals",
-	"Frost\tArmor of Agathys",
-	"Hill\tGoodberry",
-	"Journey\tLongstrider",
-	"King\tCommand",
-	"Mountain\tEntangle",
-	"Stone\tSanctuary",
-	"Storm\tThunderwave",
-];
 FeatsList["rune shaper"] = {
 	name: "Rune Shaper",
 	source: [["GotG", 18]],
 	prerequisite: "Spellcasting feature or Rune Carver background",
 	prereqeval: function (v) { return v.isSpellcastingClass || CurrentBackground.known.indexOf("rune carver") !== -1 || /rune shaper/i.test(What("Background Feature")); },
-	descriptionFull: GotG_RuneShaper.join("\n   "),
+	descriptionFull: [
+		"You've studied the magic of Giant runes, granting you the following benefits:",
+		"***Comprehend Languages***. You learn the comprehend languages spell. You can cast this spell without expending a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using any spell slots you have.",
+		"***Rune Magic***. You know a number of runes equal to half your proficiency bonus (rounded down), chosen from the Rune Spells table. Whenever you finish a long rest, you can inscribe each rune you know onto one nonmagical weapon, armor, piece of clothing, or other object you touch. You temporarily learn the 1st-level spells that correspond to the runes you inscribed, as specified on the Rune Spells table, and you know those spells until you finish a long rest, when the runes fade. While you are wearing or carrying any rune-marked object, you can cast the spells associated with those runes using any spell slots you have.",
+		"You can also invoke a rune inscribed on an object you are wearing or carrying and cast its associated spell without expending a spell slot or using material components. Once you cast the spell in this way, you can't do so again until you finish a long rest. Your spellcasting ability for this feat is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+		"Each time you gain a level, you can replace one of the runes you know with another one from the Rune Spells table below.",
+		[
+			["Rune", "Spell"],
+			["Cloud", "Fog Cloud"],
+			["Death", "Inflict Wounds"],
+			["Dragon", "Chromatic Orb"],
+			["Enemy", "Disguise Self"],
+			["Fire", "Burning Hands"],
+			["Friend", "Speak with Animals"],
+			["Frost", "Armor of Agathys"],
+			["Hill", "Goodberry"],
+			["Journey", "Longstrider"],
+			["King", "Command"],
+			["Mountain", "Entangle"],
+			["Stone", "Sanctuary"],
+			["Storm", "Thunderwave"],
+		],
+	],
 	description: "I know half my Prof Bonus, rounded down, in runes. After a long rest, I can inscribe each rune on a nonmagical objects I touch. It lasts until my next long rest. I can cast Comprehend Languages and each inscribed rune's spell once per long rest without a spell slot or material components, or by using spell slots. See Notes.",
 	spellcastingAbility: [4, 5, 6],
 	spellFirstColTitle: "PR",
@@ -661,8 +662,10 @@ FeatsList["rune shaper"] = {
 		],
 	},
 	toNotesPage: [{
-		name: "Features",
-		note: desc(GotG_RuneShaper).replace(/>>(.*?)<</g, "***$1***").replace(/Your/g, "My").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(contact|granting) you/ig, "$1 me").replace(/you /ig, "I "),
+		name: "Rune Shaper",
+		useDescriptionFull: function (str) {
+			return str.replace("contact I", "contact me");
+		},
 	}],
 };
 
@@ -913,27 +916,31 @@ MagicItemsList["glowrune pigment"] = {
 	"\n   A creature can benefit from only one painted rune at a time, so a new rune painted on a creature has no effect unless the old one is removed first. The rune's benefits last for 8 hours or until the painted creature uses its action to wipe away the rune.",
 	description: "This set of 1d4+2 paint pots can each be used to draw one rune on a creature in 10 min, which lasts for 8 hours: \u2022 No penalty from difficult terrain. \u2022 10 temp hp and adv. on death saves. \u2022 +30 ft darkvision. \u2022 Can't be knocked prone and adv. on Str saves and Con saves. \u2022 Adv. on Dex save vs. damaging effects.",
 };
-var GotG_HarpOfGildedPlenty = [
-	"This golden harp is sculpted in the image of the god Iallanis, depicted as a young cloud giant woman. When a creature comes within 5 feet of the harp, the instrument animates and is capable of speaking, singing, and playing by itself.",
-	"Whenever you attempt to attune to the harp, you must first make either a DC 15 Charisma (Performance) check or a DC 20 Charisma (Persuasion) check to convince the harp that you are worthy, attuning to the harp on a success. If you fail, you can't attempt to attune to the harp again until the next dawn. Once you have successfully attuned to the harp, the harp resizes to suit you.",
-	">>Stalwart Song<<. Whenever you make a Charisma check while attuned to the harp, you can treat a roll of 9 or lower on the die as a 10.",
-	">>Feast of Plenty<<. If you spend 10 minutes playing the harp, you can cast the heroes' feast spell from it. Once this property is used, it can't be used again until 1d10 + 10 days have passed.",
-	">>Soothing Melody<<. As an action, you can use the harp to cast the calm emotions spell (save DC 19). When the spell is cast using the harp, its duration increases to 1 hour, provided you maintain concentration on the spell. This property can be used five times, and it regains all uses at dawn.",
-	">>Sentience<<. The harp is a sentient, chaotic good object with an Intelligence of 13, a Wisdom of 15, and a Charisma of 20. It has hearing and darkvision to a range of 120 feet.",
-	"The harp can speak, read, and understand Common and Giant. It can also communicate telepathically with the creature attuned to it.",
-	"The harp has a dramatic and pompous personality, taking extreme pride in the quality of music produced from its strings. If the harp is shorter than 6 feet tall, it bemoans its height.",
-];
 MagicItemsList["harp of gilded plenty"] = {
 	name: "Harp of Gilded Plenty",
 	source: [["GotG", 112]],
 	type: "wondrous item",
 	rarity: "legendary",
 	attunement: true,
-	descriptionFull: GotG_HarpOfGildedPlenty.join("\n   "),
-	toNotesPage: [{
-		name: "Features",
-		note: desc(GotG_HarpOfGildedPlenty).replace(/>>(.*?)<</g, "***$1***").replace(/\bf(oo|ee)t\b/ig, "ft").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(suit) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
-	}],
+	descriptionFull: [
+		"This golden harp is sculpted in the image of the god Iallanis, depicted as a young cloud giant woman. When a creature comes within 5 feet of the harp, the instrument animates and is capable of speaking, singing, and playing by itself.",
+		"Whenever you attempt to attune to the harp, you must first make either a DC 15 Charisma (Performance) check or a DC 20 Charisma (Persuasion) check to convince the harp that you are worthy, attuning to the harp on a success. If you fail, you can't attempt to attune to the harp again until the next dawn. Once you have successfully attuned to the harp, the harp resizes to suit you.",
+		"***Stalwart Song***. Whenever you make a Charisma check while attuned to the harp, you can treat a roll of 9 or lower on the die as a 10.",
+		"***Feast of Plenty***. If you spend 10 minutes playing the harp, you can cast the heroes' feast spell from it. Once this property is used, it can't be used again until 1d10 + 10 days have passed.",
+		"***Soothing Melody***. As an action, you can use the harp to cast the calm emotions spell (save DC 19). When the spell is cast using the harp, its duration increases to 1 hour, provided you maintain concentration on the spell. This property can be used five times, and it regains all uses at dawn.",
+		"***Sentience***. The harp is a sentient, chaotic good object with an Intelligence of 13, a Wisdom of 15, and a Charisma of 20. It has hearing and darkvision to a range of 120 feet.",
+		"The harp can speak, read, and understand Common and Giant. It can also communicate telepathically with the creature attuned to it.",
+		"The harp has a dramatic and pompous personality, taking extreme pride in the quality of music produced from its strings. If the harp is shorter than 6 feet tall, it bemoans its height.",
+	],
+	toNotesPage: [
+		{
+			name: "Harp of Gilded Plenty",
+			useDescriptionFull: function (str) {
+				return str.replace("suit I", "suit me");
+			},
+		},
+		Object.assign({}, sentientItemConflictNote, { amendTo: "Harp of Gilded Plenty" }),
+	],
 	prerequisite: "To attune to the harp, you must first make either a DC 15 Charisma (Performance) check or a DC 20 Charisma (Persuasion) check to convince the harp that you are worthy. You can retry after the next dawn.",
 	prereqeval: function () { return false; }, // so that everyone reads the prerequisite before adding the item
 	description: "This sentient harp is dramatic and pompous, see notes. I can treat a roll of 9 or lower as a 10 for Charisma checks. I can cast Heroes' Feast by playing it for 10 min, but can't do so again until 1d10+10 days have passed. Five times per dawn, I can use it to cast Calm Emotions (DC 19) with a 1 hour duration.",
@@ -1170,6 +1177,7 @@ MagicItemsList["prehistoric figurine of wondrous power"] = {
 		recovery: "14 days",
 		toNotesPage: [{
 			name: "Lose Control",
+			origin: "Prehistoric FoWP [Jasper Tyrannosaurus Rex]",
 			note: desc("Whenever I command the figurine while it's in tyrannosaurus rex form (including commanding it to revert to figurine form), I must roll a d20. On a 1, I lose control of the figurine, and it becomes hostile to me and my companions until it is reduced to 0 hit points, at which point it reverts to figurine form."),
 		}],
 	},
@@ -1213,7 +1221,7 @@ MagicItemsList["reaper's scream"] = {
 	"\n   When you attack a creature with this weapon and roll a 20 on the attack roll, you gain 10 temporary hit points. Any creature that hits you with a melee attack while you have 1 or more of these temporary hit points takes 10 necrotic damage." +
 	"\n   ***Invoking the Rune***. As a bonus action, you can invoke the weapon's rune, unleashing the screams of every creature slain by the weapon in one cacophonous burst. Each creature of your choice within 60 feet of you must succeed on a DC 15 Wisdom saving throw or have the stunned condition until the start of your next turn." +
 	"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
-	description: "This +2 morningstar deals necrotic damage. When I roll a 20 to hit vs. a creature, I gain 10 " + (typePF ? "temp" : "temporary") + " hp. Melee attackers that hit me take 10 necrotic " + (typePF ? "dmg" : "damage") + " while these last. As a bonus action once per dawn, I can invoke its death rune to have chosen " + (typePF ? "" : "creatures ") + "within 60 ft make a Wis save DC 15 or be stunned until my next turn starts.",
+	description: "This +2 morningstar deals necrotic damage. When I roll a 20 to hit vs a creature, I gain 10 " + (typePF ? "temp hp" : "temporary hit points") + ". Melee attackers that hit me take 10 necrotic " + (typePF ? "dmg" : "damage") + " while these last. " + (typePF ? "Once per dawn as a bonus action" : "As a bonus action once per dawn") + ", I can invoke its death rune to have chosen " + (typePF ? "" : "creatures ") + "within 60 ft make a Wis save DC 15 or be stunned until my next turn starts.",
 	weight: 4,
 	weaponOptions: [{
 		baseWeapon: "morningstar",
@@ -1241,7 +1249,7 @@ MagicItemsList["ring of amity"] = {
 	"\n   A creature can benefit from only one ring of amity's bond at a time. The bond ends if either you or the creature travels to a different plane of existence, if you bond with a different creature at the end of a long rest, or if you sever the bond as a bonus action." +
 	"\n   ***Invoking the Rune***. When the bonded creature hits a target with an attack roll, you can use your reaction to invoke the ring's rune if you are within 60 feet of the bonded creature. The bonded creature's attack is then turned into a critical hit." +
 	"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
-	description: "This hematite ring allows me to bond to one willing creature I touch, which I can change every long rest. When a magical effect restores my hp, my bond also benefits from this effect. As a reaction once per dawn when my bond is within 60 ft and hits an attack, I can invoke the ring's friend rune to make it a critical hit.",
+	description: "This hematite ring allows me to bond to one willing creature I touch, which I can change every long rest. When magic restores my hp, my bond also benefits from this effect. As a reaction once per dawn when my bond is within 60 ft and hits an attack, I can invoke the ring's friend rune to make it a critical hit.",
 	descriptionLong: "This hematite ring allows me to bond to one willing creature I touch, which I can change every long rest. A creature can only benefit from one such bond at the same time. The bond ends if we are no longer on the same plane, if I bond with another, or if I sever it as a bonus action. While this bond lasts, whenever I'm subjected to a spell or magical effect that restores hp, the bonded creature also receives the benefits of the spell or effect. As a reaction once per dawn when my bond is within 60 ft and hits with an attack roll, I can invoke the ring's friend rune to turn the hit into a critical hit.",
 	action: [["reaction", " (invoke rune)"]],
 	usages: 1,
@@ -1290,9 +1298,9 @@ MagicItemsList["shield of the blazing dreadnought"] = {
 	"\n   ***Shield Bash***. When you take the Attack action on your turn, you can replace one of your attacks with a shield bash, targeting one creature you can see within 5 feet of yourself. The target must make a Strength saving throw (DC equals 8 + your proficiency bonus + your Strength modifier). On a failed save, the target takes 3d6 bludgeoning damage plus 3d6 fire damage and is knocked prone. On a successful save, the target takes half as much damage only. You can use Shield Bash only once per turn." +
 	"\n   Once the shield has been activated, it can't be activated again until the next dawn.",
 	description: "As a bonus action once per dawn, I can activate this iron shield to grant me the following for 1 minute: \u2022 Immune to fire. \u2022 As an action, I can remove disease, blinded, charmed, deafened, or poisoned from myself a creature I can see within 30 ft (Cleansing Fire). \u2022 I can make a shield bash attack once per turn (see attack).",
-	descriptionLong: "As a bonus action once per dawn, I can activate this iron shield to grant me the following benefits for 1 minute: \u2022 Blazing Soul: Immunity to fire damage." +
-	"\n\u2022 Cleansing Fire: As an action, I can remove a disease from myself or a creature I can see within 30 ft or the blinded, charmed, deafened, or poisoned condition." +
-	"\n\u2022 Shield Bash: When I take the Attack action on my turn, I can replace one attack with a shield bash to deal 3d6 bludgeoning and 3d6 fire damage and knock prone one creature within 5 ft. It can make a Str save (DC 8 + Prof B. + Str mod) to take half the damage only.",
+	descriptionLong: "As a bonus action once per dawn, I can activate this iron shield to grant me the following benefits for 1 minute: \u2022 ***Blazing Soul***. Immunity to fire damage." +
+	"\n\u2022 ***Cleansing Fire***. As an action, I can remove a disease from myself or a creature I can see within 30 ft or the blinded, charmed, deafened, or poisoned condition." +
+	"\n\u2022 ***Shield Bash***. When I take the Attack action on my turn, I can replace one attack with a shield bash to deal 3d6 bludgeoning and 3d6 fire damage and knock prone one creature within 5 ft. It can make a Str save (DC 8 + Prof B + Str mod) to take only half damage.",
 	weight: 6,
 	shieldAdd: "Shield of the Blazing Dreadnought",
 	savetxt: { immune: ["fire (while Blazing Dreadnought active)"] },
@@ -1458,7 +1466,7 @@ MagicItemsList["wyrmreaver gauntlets"] = {
 	"\n   ***Invoking the Runes***. As a bonus action, you can invoke the gauntlets' runes and summon two enormous spectral fists that envelop the gauntlets and mimic your hand motions. The fists can also launch themselves to strike distant opponents, returning immediately to your space after they hit or miss." +
 	"\n   The fists last for 1 minute or until you are incapacitated. While the spectral fists are active, unarmed strikes you make on your turn have a reach of 30 feet, and when you hit a creature with an opportunity attack made with your unarmed strike, the creature must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + your Strength modifier) or have the prone condition." +
 	"\n   Once the runes have been invoked, they can't be invoked again until the next dawn.",
-	description: "+1d6 force damage to unarmed strikes. Each long rest, choose a resistance it grants me: acid, cold, fire, lightning, or poison. As a bonus action once per dawn, invoke the rune for 1 min: 30 ft range unarmed strikes, target hit with opportunity attacks with it must make Str save DC 8+Prof B.+Str mod or be knocked prone.",
+	description: "+1d6 force damage to unarmed strikes. Each long rest, choose a resistance it grants me: acid, cold, fire, lightning, or poison. As a bonus action once per dawn, invoke the rune for 1 min: 30 ft range unarmed strikes, target hit with opportunity attacks with it must make Str save DC 8+Prof B+Str mod or be knocked prone.",
 	calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = (typePF ? '' : 'These gauntlets add ') + '+1d6 force damage to unarmed strikes. Each long rest, I pick a resistance it grants me: acid, cold, fire, lightning, or poison. As a bonus action once per dawn, invoke the rune for 1 min: 30 ft range unarmed strikes, target hit with opportunity attacks with it must make Str save DC ' + (8 + iProfB + iMod) + ' (8+Prof+Str) or be knocked prone.';",
 	dmgres: ["acid,cold,fire,lightn.,or poison"],
 	calcChanges: {

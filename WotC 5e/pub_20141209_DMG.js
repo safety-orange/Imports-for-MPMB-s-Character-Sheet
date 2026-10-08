@@ -784,35 +784,35 @@ MagicItemsList["scroll of protection"] = {
 	choices: ["Aberrations", "Beasts", "Celestials", "Elementals", "Fey", "Fiends", "Plants", "Undead"],
 	"aberrations": {
 		name: "Scroll of Protection from Aberrations",
-		description: "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 min that moves with me and stops aberrations from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected. If I move so the barrier includes an aberration, it ends.",
+		description: "As an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 min that moves with me and stops aberrations from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected. If I move so the barrier includes an aberration, it ends.",
 	},
 	"beasts": {
 		name: "Scroll of Protection from Beasts",
-		description: "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 minutes that moves with me and stops beasts from entering or affecting anything within. As an action, a creature can make a DC 15 Charisma check to stop being affected. If I move so the barrier includes a beast, it ends.",
+		description: "As an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 minutes that moves with me and stops beasts from entering or affecting anything within. As an action, a creature can make a DC 15 Charisma check to stop being affected. If I move so the barrier includes a beast, it ends.",
 	},
 	"celestials": {
 		name: "Scroll of Protection from Celestials",
-		description: "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 min that moves with me and stops celestials from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected. If I move so the barrier includes a celestial, it ends.",
+		description: "As an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 min that moves with me and stops celestials from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected. If I move so the barrier includes a celestial, it ends.",
 	},
 	"elementals": {
 		name: "Scroll of Protection from Elementals",
-		description: "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 min that moves with me and stops elementals from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected. If I move so the barrier includes an elemental, it ends.",
+		description: "As an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 min that moves with me and stops elementals from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected. If I move so the barrier includes an elemental, it ends.",
 	},
 	"fey": {
 		name: "Scroll of Protection from Fey",
-		description: "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 minutes that moves with me and stops fey from entering or affecting anything within. As an action, a creature can make a DC 15 Charisma check to stop being affected. If I move so the barrier includes a fey, it ends.",
+		description: "As an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 minutes that moves with me and stops fey from entering or affecting anything within. As an action, a creature can make a DC 15 Charisma check to stop being affected. If I move so the barrier includes a fey, it ends.",
 	},
 	"fiends": {
 		name: "Scroll of Protection from Fiends",
-		description: "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 minutes that moves with me and stops fiends from entering or affecting anything within. As an action, a creature can make a DC 15 Charisma check to stop being affected. If I move so the barrier includes a fiend, it ends.",
+		description: "As an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 minutes that moves with me and stops fiends from entering or affecting anything within. As an action, a creature can make a DC 15 Charisma check to stop being affected. If I move so the barrier includes a fiend, it ends.",
 	},
 	"plants": {
 		name: "Scroll of Protection from Plants",
-		description: "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 minutes that moves with me and stops plants from entering or affecting anything within. As an action, a creature can make a DC 15 Charisma check to stop being affected. If I move so the barrier includes a plant, it ends.",
+		description: "As an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 minutes that moves with me and stops plants from entering or affecting anything within. As an action, a creature can make a DC 15 Charisma check to stop being affected. If I move so the barrier includes a plant, it ends.",
 	},
 	"undead": {
 		name: "Scroll of Protection from Undead",
-		description: "Once as an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 minutes that moves with me and stops undead from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected. If I move so the barrier includes a undead, it ends.",
+		description: "As an action, I can use this to make a 5-ft radius, 10-ft high invisible barrier around myself for 5 minutes that moves with me and stops undead from entering or affecting anything within. As an action, a creature can make a DC 15 Cha check to stop being affected. If I move so the barrier includes a undead, it ends.",
 	},
 }
 MagicItemsList["sending stones"] = {
@@ -1010,7 +1010,7 @@ MagicItemsList["tentacle rod"] = {
 	type: "rod",
 	rarity: "rare",
 	magicItemTable: "G",
-	description: "As an action, all 3 tentacles of this rod attack with 15 ft reach, +9 to hit, dealing 1d6 bludgeoning damage. If a target is hit by all 3 it must make a DC 15 Con save or have half speed, disadv. on Dex saves, no reactions, and do action or bonus action, not both, for 1 min. It can repeat the save at the end of each of its turns.",
+	description: "As an action, all 3 tentacles of this rod attack with 15 ft reach, +9 to hit, dealing 1d6 bludgeoning damage. If a target is hit by all 3 it makes a DC 15 Con save or have half speed, disadv. on Dex saves, no reactions, and do action or bonus action, not both, for 1 min. It can repeat the save at the end of each of its turns.",
 	descriptionLong: "As an action while holding the rod, I can direct each of its three tentacles to attack a creature I can see within 15 ft. Each tentacle makes a melee attack roll, +9 to hit, dealing 1d6 bludgeoning damage. If a target is hit by all three tentacles, it must make a DC 15 Constitution saving throw. On a failure, the creature's speed is halved, it has disadvantage on Dexterity saving throws, and it can't use reactions for 1 minute. Moreover, on each of its turns, it can take either an action or a bonus action, but not both. At the end of each of its turns, it can repeat the saving throw, ending the effect on itself on a success.",
 	descriptionFull: "Made by the drow, this rod is a magic weapon that ends in three rubbery tentacles. While holding the rod, you can use an action to direct each tentacle to attack a creature you can see within 15 feet of you. Each tentacle makes a melee attack roll with a +9 bonus. On a hit, the tentacle deals 1d6 bludgeoning damage. If you hit a target with all three tentacles, it must make a DC 15 Constitution saving throw. On a failure, the creature's speed is halved, it has disadvantage on Dexterity saving throws, and it can't use reactions for 1 minute. Moreover, on each of its turns, it can take either an action or a bonus action, but not both. At the end of each of its turns, it can repeat the saving throw, ending the effect on itself on a success.",
 	attunement: true,
@@ -1080,21 +1080,6 @@ MagicItemsList["weapon of warning"] = {
 }
 
 // Sentient Items
-var DMG_blackrazorFullDescription = [
-	"Hidden in the dungeon of White Plume Mountain, Blackrazor shines like a piece of night sky filled with stars. Its black scabbard is decorated with pieces of cut obsidian.",
-	"You gain a +3 bonus to attack and damage rolls made with this magic weapon. It has the following additional properties.",
-	">>Devour Soul<<. Whenever you use it to reduce a creature to 0 hit points, the sword slays the creature devours its soul, unless it is a construct or an undead. A creature whose soul has been devoured by Blackrazor can be restored to life only by a Wish spell.",
-	"When it devours a soul, Blackrazor grants you temporary hit points equal to the slain creature's hit point maximum. These hit points fade after 24 hours. As long as these temporary hit points last and you keep Blackrazor in hand, you have advantage on attack rolls, saving throws, and ability checks.",
-	"If you hit an undead with this weapon, you take 1d10 necrotic damage and the target regains 1d10 hit points. If this necrotic damage reduces you to 0 hit points, Blackrazor devours your soul.",
-	">>Soul Hunter<<. While you hold the weapon, you are aware of the presence of Tiny or larger creatures within 60 feet of you that aren't constructs or undead. You also can't be charmed or frightened.",
-	"Blackrazor can cast the Haste spell on you once per day. It decides when to cast the spell and maintains concentration on it so that you don't have to.",
-	">>Sentience<<. Blackrazor is a sentient chaotic neutral weapon with an Intelligence of 17, a Wisdom of 10, and a Charisma of 19. It has hearing and darkvision out to a range of 120 feet.",
-	"The weapon can speak, read, and understand Common, and can communicate with its wielder telepathically. Its voice is deep and echoing. While you are attuned to it, Blackrazor also understands every language you know.",
-	">>Personality<<. Blackrazor speaks with an imperious tone, as though accustomed to being obeyed.",
-	"The sword's purpose is to consume souls. It doesn't care whose souls it eats, including the wielder's. The sword believes that all matter and energy sprang from a void of negative energy and will one day return to it. Blackrazor is meant to hurry that process along.",
-	"Despite its nihilism, Blackrazor feels a strange kinship to Wave and Whelm, two other weapons locked away under White Plume Mountain. It wants the three weapons to be united again and wielded together in combat, even though it violently disagrees with Whelm and finds Wave tedious.",
-	"Blackrazor's hunger for souls must be regularly fed. If the sword goes three days or more without consuming a soul, a conflict between it and its wielder occurs at the next sunset.",
-];
 MagicItemsList["blackrazor"] = {
 	name: "Blackrazor",
 	source: [["D", 216]],
@@ -1102,7 +1087,21 @@ MagicItemsList["blackrazor"] = {
 	rarity: "legendary",
 	notLegalAL: true,
 	description: "This sentient greatsword adds +3 to hit and damage and makes me immune to being charmed or frightened. Once per day it can cast Haste on me as it sees fit. If I use it to bring a creature to 0 HP, it devours the creature's soul, granting me temporary HP equal to the creature's max HP for 24 hours. See Notes page.",
-	descriptionFull: DMG_blackrazorFullDescription.join("\n   "),
+	descriptionFull: [
+		"Hidden in the dungeon of White Plume Mountain, *Blackrazor* shines like a piece of night sky filled with stars. Its black scabbard is decorated with pieces of cut obsidian.",
+		"You gain a +3 bonus to attack and damage rolls made with this magic weapon. It has the following additional properties.",
+		"***Devour Soul***. Whenever you use it to reduce a creature to 0 hit points, the sword slays the creature devours its soul, unless it is a construct or an undead. A creature whose soul has been devoured by *Blackrazor* can be restored to life only by a Wish spell.",
+		"When it devours a soul, *Blackrazor* grants you temporary hit points equal to the slain creature's hit point maximum. These hit points fade after 24 hours. As long as these temporary hit points last and you keep *Blackrazor* in hand, you have advantage on attack rolls, saving throws, and ability checks.",
+		"If you hit an undead with this weapon, you take 1d10 necrotic damage and the target regains 1d10 hit points. If this necrotic damage reduces you to 0 hit points, *Blackrazor* devours your soul.",
+		"***Soul Hunter***. While you hold the weapon, you are aware of the presence of Tiny or larger creatures within 60 feet of you that aren't constructs or undead. You also can't be charmed or frightened.",
+		"*Blackrazor* can cast the Haste spell on you once per day. It decides when to cast the spell and maintains concentration on it so that you don't have to.",
+		"***Sentience***. *Blackrazor* is a sentient chaotic neutral weapon with an Intelligence of 17, a Wisdom of 10, and a Charisma of 19. It has hearing and darkvision out to a range of 120 feet.",
+		"The weapon can speak, read, and understand Common, and can communicate with its wielder telepathically. Its voice is deep and echoing. While you are attuned to it, *Blackrazor* also understands every language you know.",
+		"***Personality***. *Blackrazor* speaks with an imperious tone, as though accustomed to being obeyed.",
+		"The sword's purpose is to consume souls. It doesn't care whose souls it eats, including the wielder's. The sword believes that all matter and energy sprang from a void of negative energy and will one day return to it. *Blackrazor* is meant to hurry that process along.",
+		"Despite its nihilism, *Blackrazor* feels a strange kinship to Wave and Whelm, two other weapons locked away under White Plume Mountain. It wants the three weapons to be united again and wielded together in combat, even though it violently disagrees with *Whelm* and finds *Wave* tedious.",
+		"Blackrazor's hunger for souls must be regularly fed. If the sword goes three days or more without consuming a soul, a conflict between it and its wielder occurs at the next sunset.",
+	],
 	attunement: true,
 	prerequisite: "Requires attunement by a creature of non-lawful alignment",
 	prereqeval: function (v) { return !/lawful/i.test(What("Alignment")); },
@@ -1117,10 +1116,15 @@ MagicItemsList["blackrazor"] = {
 		modifiers: [3, 3],
 		selectNow: true,
 	}],
-	toNotesPage: [{
-		name: "Features",
-		note: desc(DMG_blackrazorFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|reduces|grants) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
-	}],
+	toNotesPage: [
+		{
+			name: "Blackrazor",
+			useDescriptionFull: function (str) {
+				return str.replace("magic weapon", "magic Greatsword").replace(/(reduces|grants) I/ig, "$1 me");
+			},
+		},
+		Object.assign({}, sentientItemConflictNote, { amendTo: "Blackrazor" }),
+	],
 	savetxt: { immune: ["charmed", "frightened"] },
 	usages: 1,
 	recovery: "day",
@@ -1140,16 +1144,6 @@ MagicItemsList["blackrazor"] = {
 		},
 	},
 }
-var DMG_waveFullDescription = [
-	"Held in the dungeon of White Plume Mountain, this trident is an exquisite weapon engraved with images of waves, shells, and sea creatures. Although you must worship a god of the sea to attune to this weapon, Wave happily accepts new converts.",
-	"You gain a +3 bonus to attack and damage rolls made with this magic weapon. If you score a critical hit with it, the target takes extra necrotic damage equal to half its hit point maximum.",
-	"The weapon also functions as a trident of fish command and a weapon of warning. It can confer the benefit of a cap of water breathing while you hold it, and you can use it as a cube of force by choosing the effect, instead of pressing cube sides to select it.",
-	">>Sentience<<. Wave is a sentient weapon of neutral alignment, with an Intelligence of 14, a Wisdom of 10, and a Charisma of 18. It has hearing and darkvision out to a range of 120 feet.",
-	"The weapon communicates telepathically with its wielder and can speak, read, and understand Aquan. It can also speak with aquatic animals as if using a Speak with Animals spell, using telepathy to involve its wielder in the conversation.",
-	">>Personality<<. When it grows restless, Wave has a habit of humming tunes that vary from sea chanteys to sacred hymns of the sea gods.",
-	"Wave zealously desires to convert mortals to the worship of one or more sea gods, or else to consign the faithless to death. Conflict arises if the wielder fails to further the weapon's objectives in the world. The trident has a nostalgic attachment to the place where it was forged, a desolate island called Thunderforge. A sea god imprisoned a family of storm giants there, and the giants forged Wave in an act of devotion to\u2014or rebellion against\u2014that god.",
-	"Wave harbors a secret doubt about its own nature and purpose. For all its devotion to the sea gods, Wave fears that it was intended to bring about a particular sea god's demise. This destiny is something Wave might not be able to avert.",
-];
 if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warning"] && MagicItemsList["cap of water breathing"] && MagicItemsList["cube of force"]) {
 	MagicItemsList["wave"] = {
 		name: "Wave",
@@ -1158,7 +1152,16 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 		rarity: "legendary",
 		notLegalAL: true,
 		description: "This sentient trident adds +3 to hit and damage and if I score a critical hit with it, the target takes extra necrotic damage equal to half its max HP. It also functions as a trident of fish command, a weapon of warning, cap of water breathing while I hold it, and I can use it as a cube of force. See Notes page.",
-		descriptionFull: DMG_waveFullDescription.join("\n   "),
+		descriptionFull: [
+			"Held in the dungeon of White Plume Mountain, this trident is an exquisite weapon engraved with images of waves, shells, and sea creatures. Although you must worship a god of the sea to attune to this weapon, *Wave* happily accepts new converts.",
+			"You gain a +3 bonus to attack and damage rolls made with this magic weapon. If you score a critical hit with it, the target takes extra necrotic damage equal to half its hit point maximum.",
+			"The weapon also functions as a *trident of fish command* and a *weapon of warning*. It can confer the benefit of a *cap of water breathing* while you hold it, and you can use it as a *cube of force* by choosing the effect, instead of pressing cube sides to select it.",
+			"***Sentience***. *Wave* is a sentient weapon of neutral alignment, with an Intelligence of 14, a Wisdom of 10, and a Charisma of 18. It has hearing and darkvision out to a range of 120 feet.",
+			"The weapon communicates telepathically with its wielder and can speak, read, and understand Aquan. It can also speak with aquatic animals as if using a Speak with Animals spell, using telepathy to involve its wielder in the conversation.",
+			"***Personality***. When it grows restless, *Wave* has a habit of humming tunes that vary from sea chanteys to sacred hymns of the sea gods.",
+			"*Wave* zealously desires to convert mortals to the worship of one or more sea gods, or else to consign the faithless to death. Conflict arises if the wielder fails to further the weapon's objectives in the world. The trident has a nostalgic attachment to the place where it was forged, a desolate island called Thunderforge. A sea god imprisoned a family of storm giants there, and the giants forged *Wave* in an act of devotion to\u2014or rebellion against\u2014that god.",
+			"*Wave* harbors a secret doubt about its own nature and purpose. For all its devotion to the sea gods, *Wave* fears that it was intended to bring about a particular sea god's demise. This destiny is something *Wave* might not be able to avert.",
+		],
 		attunement: true,
 		prerequisite: "Requires attunement by a creature that worships a god of the sea",
 		prereqeval: function (v) { return /deep sashelas|sekolah|ulutiu|umberlee|valkur|poseidon|neptune|aegir|nehalennia|njord/i.test(What("Faith/Deity")); },
@@ -1172,18 +1175,24 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 			modifiers: [3, 3],
 			selectNow: true,
 		}],
-		toNotesPage: [{
-			name: "Features",
-			note: desc(DMG_waveFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/you/ig, "I") + "\n\n" + sentientItemConflictTxt,
-		}, {
-			name: "Contained Items",
-			note: [
-				"\n\n\u2022 Trident of Fish Command (SRD 247, DMG 209)\n   " + MagicItemsList["trident of fish command"].description,
-				"\u2022 Weapon of Warning (DMG 213)\n   " + MagicItemsList["weapon of warning"].description,
-				"\u2022 Cap of Water Breathing (DMG 157)\n   " + MagicItemsList["cap of water breathing"].description,
-				"\u2022 Cube of Force (SRD 215, DMG 159)" + desc(MagicItemsList["cube of force"].toNotesPage[0].note),
-			].join("\n\n"),
-		}],
+		toNotesPage: [
+			{
+				name: "Wave",
+				useDescriptionFull: true,
+			},
+			Object.assign({}, sentientItemConflictNote, {
+				amendTo: "When it grows restless, *Wave* has a habit",
+			}),
+			{
+				name: "Contained Items",
+				note: [
+					"\n\n\u2022 Trident of Fish Command (SRD 247, DMG 209)\n   " + MagicItemsList["trident of fish command"].description,
+					"\u2022 Weapon of Warning (DMG 213)\n   " + MagicItemsList["weapon of warning"].description,
+					"\u2022 Cap of Water Breathing (DMG 157)\n   " + MagicItemsList["cap of water breathing"].description,
+					"\u2022 Cube of Force (SRD 215, DMG 159)" + desc(MagicItemsList["cube of force"].toNotesPage[0].note),
+				].join("\n\n"),
+			},
+		],
 		// cube of force & cap of water breathing
 		action: [["action", " (Cap of Water Breathing)"], ["action", " (Cube of Force)"]],
 		extraLimitedFeatures: [{
@@ -1214,16 +1223,6 @@ if (MagicItemsList["trident of fish command"] && MagicItemsList["weapon of warni
 		advantages: [["Initiative", true]],
 	}
 }
-var DMG_whelmFullDescription = [
-	"Whelm is a powerful warhammer forged by dwarves and lost in the dungeon of White Plume Mountain.",
-	"You gain a +3 bonus to attack and damage rolls made with this magic weapon. At dawn the day after you first make an attack roll with Whelm, you develop a fear of being outdoors that persists as long as you remain attuned to the weapon. This causes you to have disadvantage on attack rolls, saving throws, and ability checks while you can see the daytime sky.",
-	">>Thrown Weapon<<. Whelm has the thrown property, with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged weapon attack using it, the target takes an extra 1d8 bludgeoning damage, or an extra 2d8 bludgeoning damage if the target is a giant. Each time you throw the weapon, it flies back to your hand after the attack. If you don't have a hand free, the weapon lands at your feet.",
-	">>Shock Wave<<. You can use an action to strike the ground with Whelm and send a shock wave out from the point of impact. Each creature of your choice on the ground within 60 feet of that point must succeed on a DC 15 Constitution saving throw or become stunned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Once used, this property can't be used again until the next dawn.",
-	">>Supernatural Awareness<<. While you are holding the weapon, it alerts you to the location of any secret or concealed doors within 30 feet of you. In addition, you can use an action to cast Detect Evil and Good or Locate Object from the weapon. Once you cast either spell, you can't cast it from the weapon again until the next dawn.",
-	">>Sentience<<. Whelm is a sentient lawful neutral weapon with an Intelligence of 15, a Wisdom of 12, and a Charisma of 15. It has hearing and darkvision out to a range of 120 feet.",
-	"The weapon communicates telepathically with its wielder and can speak, read, and understand Dwarvish. Giant, and Goblin. It shouts battle cries in Dwarvish when used in combat.",
-	">>Personality<<. Whelm's purpose is to slaughter giants and goblinoids. It also seeks to protect dwarves against all enemies. Conflict arises if the wielder fails to destroy goblins and giants or to protect dwarves. Whelm has ties to the dwarf clan that created it, variously called the Dankil or the Mightyhammer clan. It longs to be returned to that clan. It would do anything to protect those dwarves from harm. The hammer also carries a secret shame. Centuries ago, a dwarf named Ctenmiir wielded it valiantly for a time. But Ctenmiir was turned into a vampire. His will was strong enough that he bent Whelm to his evil purposes, even killing members of his own clan.",
-];
 MagicItemsList["whelm"] = {
 	name: "Whelm",
 	source: [["D", 218]],
@@ -1231,7 +1230,16 @@ MagicItemsList["whelm"] = {
 	rarity: "legendary",
 	notLegalAL: true,
 	description: "This sentient warhammer adds +3 to hit and damage, has the thrown property, deals extra damage when thrown, and returns to my hand when thrown. I can use it to create a shock wave. It makes me afraid of the outdoors, so while I can see the daytime sky, I have disadv. on attacks, saves, and checks. See Notes page.",
-	descriptionFull: DMG_whelmFullDescription.join("\n   "),
+	descriptionFull: [
+		"*Whelm* is a powerful warhammer forged by dwarves and lost in the dungeon of White Plume Mountain.",
+		"You gain a +3 bonus to attack and damage rolls made with this magic weapon. At dawn the day after you first make an attack roll with *Whelm*, you develop a fear of being outdoors that persists as long as you remain attuned to the weapon. This causes you to have disadvantage on attack rolls, saving throws, and ability checks while you can see the daytime sky.",
+		"***Thrown Weapon***. *Whelm* has the thrown property, with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged weapon attack using it, the target takes an extra 1d8 bludgeoning damage, or an extra 2d8 bludgeoning damage if the target is a giant. Each time you throw the weapon, it flies back to your hand after the attack. If you don't have a hand free, the weapon lands at your feet.",
+		"***Shock Wave***. You can use an action to strike the ground with *Whelm* and send a shock wave out from the point of impact. Each creature of your choice on the ground within 60 feet of that point must succeed on a DC 15 Constitution saving throw or become stunned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Once used, this property can't be used again until the next dawn.",
+		"***Supernatural Awareness***. While you are holding the weapon, it alerts you to the location of any secret or concealed doors within 30 feet of you. In addition, you can use an action to cast Detect Evil and Good or Locate Object from the weapon. Once you cast either spell, you can't cast it from the weapon again until the next dawn.",
+		"***Sentience***. *Whelm* is a sentient lawful neutral weapon with an Intelligence of 15, a Wisdom of 12, and a Charisma of 15. It has hearing and darkvision out to a range of 120 feet.",
+		"The weapon communicates telepathically with its wielder and can speak, read, and understand Dwarvish. Giant, and Goblin. It shouts battle cries in Dwarvish when used in combat.",
+		"***Personality***. Whelm's purpose is to slaughter giants and goblinoids. It also seeks to protect dwarves against all enemies. Conflict arises if the wielder fails to destroy goblins and giants or to protect dwarves. *Whelm* has ties to the dwarf clan that created it, variously called the Dankil or the Mightyhammer clan. It longs to be returned to that clan. It would do anything to protect those dwarves from harm. The hammer also carries a secret shame. Centuries ago, a dwarf named Ctenmiir wielded it valiantly for a time. But Ctenmiir was turned into a vampire. His will was strong enough that he bent *Whelm* to his evil purposes, even killing members of his own clan.",
+	],
 	attunement: true,
 	prerequisite: "Requires attunement by a dwarf",
 	prereqeval: function (v) { return CurrentRace.known.indexOf("dwarf") !== -1; },
@@ -1246,10 +1254,17 @@ MagicItemsList["whelm"] = {
 		modifiers: [3, 3],
 		selectNow: true,
 	}],
-	toNotesPage: [{
-		name: "Features",
-		note: desc(DMG_whelmFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|causes|alerts) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
-	}],
+	toNotesPage: [
+		{
+			name: "Whelm",
+			useDescriptionFull: function (str) {
+				return str.replace(/(causes|alerts) I/ig, "$1 me");
+			},
+		},
+		Object.assign({}, sentientItemConflictNote, {
+			amendTo: "Whelm's purpose is to slaughter giants",
+		}),
+	],
 	action: [["action", " (Shock Wave)"]],
 	extraLimitedFeatures: [{
 		name: "Whelm [Shock Wave]",

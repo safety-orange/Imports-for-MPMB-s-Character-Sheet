@@ -31,7 +31,12 @@ RaceList["green merfolk"] = {
 	heightMetric: " stand between 1,8 and 2,2 metres tall",
 	weightMetric: " average around 135 kg",
 	scores: [0, 0, 0, 0, 2, 1],
-	trait: "Green Merfolk (+2 Wisdom, +1 Charisma)\nAmphibious: I can breathe air and water.\nMask of the Wild: I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.\nCantrip: I know one cantrip of my choice from the druid spell list. Wisdom is my spellcasting ability for it.",
+	trait: [
+		"**Green Merfolk** (+2 Wisdom, +1 Charisma)",
+		"##\u25C6 Amphibious##. I can breathe air and water.",
+		"##\u25C6 Mask of the Wild##. I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
+		"##\u25C6 Cantrip##. I know one cantrip of my choice from the druid spell list. Wisdom is my spellcasting ability for it.",
+	],
 	spellcastingAbility: 5,
 	spellcastingBonus: [{
 		name: "Cantrip",
@@ -59,7 +64,12 @@ RaceList["blue merfolk"] = {
 	weightMetric: " average around 135 kg",
 	skills: ["History", "Nature"],
 	scores: [0, 0, 0, 2, 0, 1],
-	trait: "Blue Merfolk (+2 Intelligence, +1 Charisma)\nAmphibious: I can breathe air and water.\nLore of the Waters: I have proficiency with the History and Nature skills.\nCantrip: I know one cantrip of my choice from the wizard spell list. Intelligence is my spellcasting ability for it.",
+	trait: [
+		"**Blue Merfolk** (+2 Intelligence, +1 Charisma)",
+		"##\u25C6 Amphibious##. I can breathe air and water.",
+		"##\u25C6 Lore of the Waters##. I have proficiency with the History and Nature skills.",
+		"##\u25C6 Cantrip##. I know one cantrip of my choice from the wizard spell list. Intelligence is my spellcasting ability for it.",
+	],
 	spellcastingAbility: 4,
 	spellcastingBonus: [{
 		name: "Ula Creed Cantrip",
@@ -95,7 +105,11 @@ RaceList["ixalan vampire"] = {
 	}],
 	age: " don't mature and age in the same way that other races do",
 	scores: [0, 0, 0, 0, 1, 2],
-	trait: "Vampire (+1 Wisdom, +2 Charisma)\nBlood Thirst: I can drain blood and life energy from a willing creature, or one that is grappled by me, incapacitated, or restrained. With a melee attack, I deal 1 piercing and 1d6 necrotic damage. The target's max HP is reduced by the necrotic damage amount and I regain HP for the same. This max HP reduction lasts until the target finished a long rest.\nFeast of Blood: After using my blood thirst ability to drain blood, I gain +10 ft speed and advantage on Strength and Dexterity checks and saving throws for 1 minute.",
+	trait: [
+		"**Vampire** (+1 Wisdom, +2 Charisma)",
+		"##\u25C6 Blood Thirst##. I can drain blood and life energy from a willing creature, or one that is grappled by me, incapacitated, or restrained. With a melee attack, I deal 1 piercing and 1d6 necrotic damage. The target's max HP is reduced by the necrotic damage amount and I regain HP for the same. This max HP reduction lasts until the target finishes a long rest.",
+		"##\u25C6 Feast of Blood##. After using my blood thirst ability to drain blood, I gain +10 ft speed and advantage on Strength and Dexterity checks and saving throws for 1 minute.",
+	],
 };
 
 RaceList["ixalan orc"] = {
@@ -145,7 +159,11 @@ RaceList["ixalan orc"] = {
 			},
 		},
 	},
-	trait: "Ixalan Orc (+2 Strength, +1 Constitution)" + (typePF ? "\n" : " ") + "\nRelentless Endurance: When I am reduced to 0 hit points but not killed outright, I can drop to 1 hit point instead. I can't use this feature again until I finish a long rest.\n\nSavage Attacks: When I score a critical hit with a melee weapon attack, I can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.",
+	trait: [
+		"**Ixalan Orc** (+2 Strength, +1 Constitution)",
+		"##\u25C6 Relentless Endurance##. When I am reduced to 0 hit points but not killed outright, I can drop to 1 hit point instead. I can't use this feature again until I finish a long rest.",
+		"##\u25C6 Savage Attacks##. When I score a critical hit with a melee weapon attack, I can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.",
+	],
 };
 
 RaceList["ixalan goblin"] = {
@@ -162,12 +180,15 @@ RaceList["ixalan goblin"] = {
 	languageProfs: ["Common", "Goblin"],
 	vision: [["Darkvision", 60]],
 	age: " reach adulthood at around 12 and rarely live longer than 50 years",
-	height: " average about 3 feet tall (3'\" + 2d4\")",
+	height: " average about 3 feet tall (3'5\" + 2d4\")",
 	weight: " weigh about 40 lb (35 + 2d4 \xD7 1d4 lb)",
 	heightMetric: " average about 100 cm tall (100 + 5d4 cm)",
 	weightMetric: " weigh about 20 kg (17 + 5d4 \xD7 2d4 / 10 kg)",
 	scores: [0, 2, 0, 0, 0, 0],
-	trait: "Ixalan Goblin (+2 Dexterity)\nAgile Climber: I have a climbing speed of 25 ft, but can't use this while encumbered or wearing medium or heavy armor.",
+	trait: [
+		"**Ixalan Goblin** (+2 Dexterity)",
+		"##\u25C6 Agile Climber##. I have a climbing speed of 25 ft, but can't use this while encumbered or wearing medium or heavy armor.",
+	],
 };
 
 RaceList["siren"] = {
@@ -184,8 +205,12 @@ RaceList["siren"] = {
 	height: " range from 5 to 6 feet tall (4'9\" + 2d8\")",
 	weight: " have slender bodies and their bones partially hollow to facilitate their flight",
 	heightMetric: " range from 1,5 to 1,8 metres tall (145 + 5d8 cm)",
-	scores: [0, 2, 0, 0, 0, 0],
-	trait: "Siren (+2 Charisma)\n\nFlight: I have a flying speed of 30 ft, but can't use this while encumbered or wearing medium or heavy armor.\n\nSiren's Song: I know the friends cantrip and can cast it without material components.",
+	scores: [0, 0, 0, 0, 0, 2],
+	trait: [
+		"**Siren** (+2 Charisma)",
+		"##\u25C6 Flight##. I have a flying speed of 30 ft, but can't use this while encumbered or wearing medium or heavy armor.",
+		"##\u25C6 Siren's Song##. I know the *friends* cantrip and can cast it without material components.",
+	],
 	spellcastingBonus: [{
 		name: "Siren's Song",
 		spells: ["friends"],

@@ -309,41 +309,47 @@ MagicItemsList["band of loyalty-ua"] = {
 	descriptionFull: "If you are reduced to zero hit points while attuned to a band of loyalty, you instantly die. These rings are favored by spies who can't afford to fall into enemy hands.",
 	attunement: true,
 }
-var UAMIoE_docentFullDescription = [
-	"A docent is a small metal sphere, approximately 2 inches across, studded with dragonshards. Despite a strong magical aura, it has no obvious abilities. When you attune to a docent, the sphere becomes embedded in your chest and comes to life\u2014literally.",
-	">>Sentience<<. A docent is a sentient neutral item with an Intelligence of 16, a Wisdom of 14, and a Charisma of 14. It can perceive the world through your senses.",
-	"A docent communicates telepathically with its wielder and can speak, read, and understand Common and Giant.",
-	">>Personality<<. A docent is designed to advise and assist the warforged it's attached to. One of the simple functions of a docent is to serve as a translator. The docent's properties are under its control, and if you have a bad relationship with your docent it may refuse to assist you… or simply lie about information that it obtains. However, if you treat your docent well it could serve as a useful ally.",
-	"The origin of docents is a great mystery. House Cannith created the first warforged thirty years ago. But the docents come from the distant land of Xen'drik and appear to be thousands of years old. Were they created to interface with some other form of construct? Or are the modern warforged a new interpretation of an ancient design? The docents claim to have forgotten their creators… but this is a mystery waiting to be unraveled. While all docents come from Xen'drik, some have been brought to Khorvaire by explorers and it's possible to encounter them in the Five Nations.",
-	">>Languages<<. All docents understand Common and Giant, but a docent knows up to four additional languages. Elvish and Draconic are common options. If a docent knows less than six languages in total, it can add new languages to its repertoire after encountering them. So a docent found in Xen'drik may have never encountered a dwarf before… but after spending some time in Khorvaire studying dwarves, it could pick up the Dwarvish language.",
-	">>Properties<<. A docent possesses up to three of the following properties:",
-	"\u2022 The docent can cast the detect magic spell at will.",
-	"\u2022 The docent can cast the detect evil and good spell at will.",
-	"\u2022 The docent can detect any form of divination or scrying targeting it and its warforged host.",
-	"\u2022 The docent has a +7 bonus to Intelligence (Arcana) checks.",
-	"\u2022 The docent has a +7 bonus to Intelligence (History) checks.",
-	"\u2022 The docent has a +7 bonus to Intelligence (Investigation) checks.",
-	"\u2022 The docent has a +7 bonus to Intelligence (Nature) checks.",
-	"\u2022 The docent has a +6 bonus to Wisdom (Insight) checks.",
-	"\u2022 The docent has a +6 bonus to Wisdom (Perception) checks.",
-	"\u2022 The docent has a +6 bonus to Wisdom (Medicine) checks targeting its warforged host. If the host is rendered unconscious, the docent will automatically attempt to stabilize them once each turn.",
-	"You can use a bonus action on your turn to request that the docent use one of its properties on your behalf.",
-];
 MagicItemsList["docent-ua"] = {
 	name: "Docent",
 	source: [["WGtE", 121], ["UA:MIoE", 3]],
 	type: "wondrous item",
 	rarity: "rare",
 	description: "I can embed this sentient small metal sphere studded with dragonshards into my chest. I can communicate telepathically with it. It can serve me as an advisor and a translator, as it knowns 6 languages. It also knows spells and/or skills that I can have it use as a bonus action. See Notes page.",
-	descriptionFull: UAMIoE_docentFullDescription.join("\n   "),
+	descriptionFull: [
+		"A *docent* is a small metal sphere, approximately 2 inches across, studded with dragonshards. Despite a strong magical aura, it has no obvious abilities. When you attune to a *docent*, the sphere becomes embedded in your chest and comes to life\u2014literally.",
+		"***Sentience***. A *docent* is a sentient neutral item with an Intelligence of 16, a Wisdom of 14, and a Charisma of 14. It can perceive the world through your senses.",
+		"A *docent* communicates telepathically with its wielder and can speak, read, and understand Common and Giant.",
+		"***Personality***. A *docent* is designed to advise and assist the warforged it's attached to. One of the simple functions of a *docent* is to serve as a translator. The *docent*'s properties are under its control, and if you have a bad relationship with your *docent* it may refuse to assist you… or simply lie about information that it obtains. However, if you treat your *docent* well it could serve as a useful ally.",
+		"The origin of *docents* is a great mystery. House Cannith created the first warforged thirty years ago. But the *docents* come from the distant land of Xen'drik and appear to be thousands of years old. Were they created to interface with some other form of construct? Or are the modern warforged a new interpretation of an ancient design? The *docents* claim to have forgotten their creators… but this is a mystery waiting to be unraveled. While all *docents* come from Xen'drik, some have been brought to Khorvaire by explorers and it's possible to encounter them in the Five Nations.",
+		"***Languages***. All *docents* understand Common and Giant, but a *docent* knows up to four additional languages. Elvish and Draconic are common options. If a *docent* knows less than six languages in total, it can add new languages to its repertoire after encountering them. So a *docent* found in Xen'drik may have never encountered a dwarf before… but after spending some time in Khorvaire studying dwarves, it could pick up the Dwarvish language.",
+		"***Properties***. A *docent* possesses up to three of the following properties:",
+		" \u2022 The *docent* can cast the *Detect Magic* spell at will.",
+		" \u2022 The *docent* can cast the *Detect Evil and Good* spell at will.",
+		" \u2022 The *docent* can detect any form of divination or scrying targeting it and its warforged host.",
+		" \u2022 The *docent* has a +7 bonus to Intelligence (Arcana) checks.",
+		" \u2022 The *docent* has a +7 bonus to Intelligence (History) checks.",
+		" \u2022 The *docent* has a +7 bonus to Intelligence (Investigation) checks.",
+		" \u2022 The *docent* has a +7 bonus to Intelligence (Nature) checks.",
+		" \u2022 The *docent* has a +6 bonus to Wisdom (Insight) checks.",
+		" \u2022 The *docent* has a +6 bonus to Wisdom (Perception) checks.",
+		" \u2022 The *docent* has a +6 bonus to Wisdom (Medicine) checks targeting its warforged host. If the host is rendered unconscious, the *docent* will automatically attempt to stabilize them once each turn.",
+		"You can use a bonus action on your turn to request that the *docent* use one of its properties on your behalf.",
+	],
 	attunement: true,
 	prerequisite: "Requires attunement by a warforged",
 	prereqeval: function (v) { return /warforged/i.test(CurrentRace.known); },
 	action: [["bonus action", ""]],
-	toNotesPage: [{
-		name: "Features",
-		note: desc(UAMIoE_docentFullDescription).replace(/>>(.*?)<</g, "***$1***").replace(/your/g, "my").replace(/you are /ig, "I am ").replace(/(of|on|assist) you/ig, "$1 me").replace(/you /ig, "I ") + "\n\n" + sentientItemConflictTxt,
-	}],
+	toNotesPage: [
+		{
+			name: "Docent",
+			useDescriptionFull: function (str) {
+				return str.replace("assist I", "assist me");
+			},
+		},
+		Object.assign({}, sentientItemConflictNote, {
+			amendTo: "A *docent* possesses",
+		}),
+	],
 }
 MagicItemsList["feather token-ua"] = {
 	name: "Feather Token",

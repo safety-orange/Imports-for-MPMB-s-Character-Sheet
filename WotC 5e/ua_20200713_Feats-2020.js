@@ -134,7 +134,7 @@ if (!SourceList["T"]) {
 				source: [["T", 41]],
 			},
 			"interception": {
-				description: "As a reaction when a creature I can see hits a target, other than me, within 5 ft of me with an attack, I can reduce the damage the target takes by 1d10 + my proficiency bonus (min 0 damage). I must be wielding a shield or a simple or martial weapon to do this. I can replace this fighting style for another whenever I gain a level.",
+				description: "As a reaction when a creature I can see hits an attack against a target besides me within 5 ft of me, I can reduce the damage dealt by 1d10 + my Proficiency Bonus (min 0 damage). I must be wielding a shield or a simple or martial weapon to do this. I can replace this fighting style for another whenever I gain a level.",
 				source: [["T", 41], ["UA:CFV", 12]],
 			},
 			"thrown weapon fighting": {
