@@ -1,4 +1,4 @@
-var iFileName = "pub_20150407_PotA.js";
+var iFileName = "legacy_20150407_PotA.js";
 RequiredSheetVersion("24.1.3");
 // This file adds the magic items from the Princes of the Apocalypse adventure to MPMB's Character Record Sheet
 

@@ -1,4 +1,4 @@
-var iFileName = "pub_20151103_SCAG.js";
+var iFileName = "legacy_20151103_SCAG.js";
 RequiredSheetVersion("24.1.3");
 // This file adds all the player-material from Sword Coast Adventure Guide to MPMB's Character Record Sheet
 
@@ -275,9 +275,8 @@ AddSubClass("barbarian", "battlerager", {
 			source: [["S", 121]],
 			minlevel: 3,
 			description: desc([
-				"I gain proficiency with spiked armor both as an armor and as a weapon",
-				"As a Bonus Action while raging, I can attack once with my armor spikes",
-				"With my spiked armor I do 3 Piercing damage when I use my Attack action to grapple",
+				"I gain proficiency with Spiked Armor both as an armor and as a weapon.",
+				"As a Bonus Action while in Rage, I can attack once with my armor spikes. With my Spiked Armor I do 3 Piercing damage when I use my Attack action to grapple.",
 			]),
 			action: [["bonus action", "Armor Spikes attack (in rage)"]],
 			armorOptions: [{
@@ -313,23 +312,20 @@ AddSubClass("barbarian", "battlerager", {
 			name: "Reckless Abandon",
 			source: [["S", 121]],
 			minlevel: 6,
-			description: desc("If I use Reckless Attack during rage, I also gain Temporary HP equal to my Con mod"),
+			description: desc("If I use Reckless Attack during rage, I also gain Temporary HP equal to my Con mod."),
 		},
 		"subclassfeature10": {
 			name: "Battlerager Charge",
 			source: [["S", 121]],
 			minlevel: 10,
-			description: desc("As a Bonus Action while raging, I can use the Dash action"),
+			description: desc("As a Bonus Action while raging, I can use the Dash action."),
 			action: [["bonus action", " (in rage)"]],
 		},
 		"subclassfeature14": {
 			name: "Spiked Retribution",
 			source: [["S", 121]],
 			minlevel: 14,
-			description: desc([
-				"When I'm hit in melee by an attacker within 5 ft, it takes 3 Piercing damage",
-				"This only works while I'm wearing spiked armor, in rage, and I'm not Incapacitated",
-			]),
+			description: desc("When I'm hit in melee by an attacker within 5 ft, it takes 3 Piercing damage. This only works while I'm wearing spiked armor, in rage, and I'm not Incapacitated."),
 		},
 	},
 });
@@ -343,16 +339,13 @@ AddSubClass("monk", "way of the long death", {
 			name: "Touch of Death",
 			source: [["S", 130]],
 			minlevel: 3,
-			description: desc("If I reduce someone within 5 ft to 0 HP, I gain Wis mod + monk level Temporary HP"),
+			description: desc("If I reduce someone within 5 ft to 0 HP, I gain Wis mod + monk level Temporary HP."),
 		},
 		"subclassfeature6": {
 			name: "Hour of Reaping",
 			source: [["S", 130]],
 			minlevel: 6,
-			description: desc([
-				"As an action, all creatures within 30 feet of me must make a Wisdom saving throw",
-				"On a failed save the creature is Frightened until the end of my next turn",
-			]),
+			description: desc("As an action, all creatures within 30 feet of me must make a Wisdom saving throw or be Frightened until the end of my next turn."),
 			action: [["action", ""]],
 		},
 		"subclassfeature11": {
@@ -360,16 +353,13 @@ AddSubClass("monk", "way of the long death", {
 			source: [["S", 131]],
 			minlevel: 11,
 			additional: "1 ki point",
-			description: desc("When I'm reduced to 0 HP, I can expend 1 ki point to have 1 HP instead"),
+			description: desc("When I'm reduced to 0 HP, I can expend 1 ki point to have 1 HP instead."),
 			"touch of the long death": {
 				name: "Touch of the Long Death",
 				extraname: "Way of the Long Death 17",
 				source: [["S", 131]],
 				additional: "1-10 ki points",
-				description: desc([
-					"As an action, a target within 5 ft takes 2d10 Necrotic damage per ki point I spent",
-					"It can make a Constitution saving throw to half the damage",
-				]),
+				description: desc("As an action, a target within 5 ft takes 2d10 Necrotic damage per ki point I spent. It can make a Constitution saving throw to halve the damage."),
 				action: [["action", ""]],
 			},
 			autoSelectExtrachoices: [{
@@ -390,10 +380,7 @@ AddSubClass("monk", "way of the sun soul", {
 			source: [["S", 131], ["X", 35]],
 			minlevel: 3,
 			additional: "1 ki point for 2 extra attacks",
-			description: desc([
-				"I gain a ranged spell attack that I can use as an attack in the Attack action",
-				"If I do this and spend 1 ki point, I can make 2 of these attacks as a Bonus Action",
-			]),
+			description: desc("I gain a ranged spell attack that I can use as an attack in the Attack action. If I do this and spend 1 ki point, I can make 2 of these attacks as a Bonus Action."),
 			action: [["bonus action", " (2\xD7 with Attack action)"]],
 			weaponOptions: [{
 				regExpSearch: /^(?=.*radiant)(?=.*(sun|light))(?=.*bolt).*$/i,
@@ -412,11 +399,7 @@ AddSubClass("monk", "way of the sun soul", {
 				name: "Searing Arc Strike",
 				extraname: "Way of the Sun Soul 6",
 				source: [["S", 131], ["X", 35]],
-				description: desc([
-					"After taking the Attack action, I can cast *Burning Hands* as a Bonus Action [PHB 220]",
-					"For every additional ki point I spend, *Burning Hands* is cast at 1 higher spell level",
-					"The maximum total ki points I can spend for this (including the 2) is half my Monk level",
-				]),
+				description: desc("After taking the Attack action, I can cast *Burning Hands* as a Bonus Action. For every additional ki point I spend, *Burning Hands* is cast at 1 higher spell level. The maximum total ki points I can spend for this (including the 2) is half my Monk level."),
 				additional: levels.map(function (n) {
 					if (n < 3) return "";
 					var xtrKi = Math.max(0,Math.floor(n / 2) - 2);
@@ -447,10 +430,7 @@ AddSubClass("monk", "way of the sun soul", {
 			name: "Searing Sunburst",
 			source: [["S", 131], ["X", 35]],
 			minlevel: 11,
-			description: desc([
-				"As an action, anyone in a 20-ft radius light on a point within 150 ft makes a Con save",
-				"If failed and not behind opaque total cover, take 2d6 (+ 2d6/ki point) Radiant damage",
-			]),
+			description: desc("As an action, anyone in a 20-ft radius light on a point within 150 ft makes a Con save. If failed and not behind opaque total cover, it takes 2d6 (+ 2d6/ki point) Radiant damage."),
 			action: [["action", ""]],
 			additional: "0 ki points + max 3 ki points",
 			weaponOptions: [{
@@ -472,10 +452,7 @@ AddSubClass("monk", "way of the sun soul", {
 			name: "Sun Shield",
 			source: [["S", 131], ["X", 35]],
 			minlevel: 17,
-			description: desc([
-				"As a Reaction, when I'm hit by a melee attack, I can deal 5 + Wis mod Radiant damage",
-				"I can only do this while my light aura is on; I can turn it on/off as a Bonus Action",
-			]),
+			description: desc("As a Reaction, when I'm hit by a melee attack, I can deal 5 + Wis mod Radiant damage. I can only do this while my light aura is on, which I can turn on/off as a Bonus Action."),
 			action: [["bonus action", " (start/stop)"], ["reaction", " (hit in melee)"]],
 			additional: "30-ft rad Bright + 30-ft Dim Light",
 		},
@@ -492,11 +469,7 @@ AddSubClass("paladin", "oath of the crown", {
 			source: [["S", 133]],
 			minlevel: 3,
 			additional: "1 Channel Divinity",
-			description: desc([
-				"As a Bonus Action, I can have any chosen creatures within 30 ft of me make a Wis save",
-				"If failed, a target is unable to willingly move more than 30 ft away from me",
-				"The effect ends if I'm Incapacitated, die, or it is moved more than 30 ft away from me",
-			]),
+			description: desc("As a Bonus Action, I can have any chosen creatures within 30 ft of me make a Wis save or be unable to willingly move more than 30 ft away from me. The effect ends if I'm Incapacitated, die, or it is moved more than 30 ft away from me."),
 			action: [["bonus action", ""]], // changed to Bonus Action per errata (v1.0, 2017)
 			spellcastingExtra: ["command", "compelled duel", "warding bond", "zone of truth", "aura of vitality", "spirit guardians", "banishment", "guardian of faith", "circle of power", "geas"],
 		},
@@ -505,27 +478,21 @@ AddSubClass("paladin", "oath of the crown", {
 			source: [["S", 133]],
 			minlevel: 3,
 			additional: "1 Channel Divinity",
-			description: desc([
-				"As a Bonus Action, any chosen creatures within 30 ft that can hear me regains HP",
-				"Each regain 1d6 + my Charisma modifier HP, up to half of its total HP",
-			]),
+			description: desc("As a Bonus Action, any chosen creatures within 30 ft that can hear me each regain 1d6 + my Charisma modifier HP, up to half of its total HP."),
 			action: [["bonus action", ""]],
 		},
 		"subclassfeature7": {
 			name: "Divine Allegiance",
 			source: [["S", 133]],
 			minlevel: 7,
-			description: desc([
-				"When a creature within 5 feet of me takes damage, I can substitute my HP for it",
-				"The creature takes no damage and I take all of it; this damage can't be prevented",
-			]),
+			description: desc("When a creature within 5 feet of me takes damage, I can substitute my HP for it. The creature takes no damage and I take all of it. This damage can't be prevented."),
 			action: [["reaction", ""]],
 		},
 		"subclassfeature15": {
 			name: "Unyielding Spirit",
 			source: [["S", 133]],
 			minlevel: 15,
-			description: desc("I have Advantage on saving throws against effects that paralyze or stun"),
+			description: desc("I have Advantage on saving throws against effects that paralyze or stun."),
 			savetxt: { adv_vs: ["Paralyzed", "Stunned"] },
 		},
 		"subclassfeature20": {
@@ -534,8 +501,8 @@ AddSubClass("paladin", "oath of the crown", {
 			minlevel: 20,
 			description: desc([
 				"As an action, I gain the following benefits for 1 hour or until I'm Incapacitated:",
-				" \u2022 " + "Resistance to Bludgeoning, Piercing, and Slashing damage from nonmagical weapons",
-				" \u2022 " + "My allies within 30 ft of me and I have Advantage on Wisdom and Death saves",
+				" \u2022 " + "Resistance to Bludgeoning, Piercing, and Slashing damage from nonmagical weapons.",
+				" \u2022 " + "My allies within 30 ft of me and I have Advantage on Wisdom and Death saves.",
 			]),
 			recovery: "Long Rest",
 			usages: 1,
@@ -553,10 +520,7 @@ AddSubClass("rogue", "mastermind", {
 			name: "Master of Intrigue",
 			source: [["S", 135], ["X", 46]],
 			minlevel: 3,
-			description: desc([
-				"I gain proficiency with disguise kits, forgery kits, one gaming set, and two languages",
-				"I can mimic speech patterns and accents if I've heard them for at least 1 minute",
-			]),
+			description: desc("I gain proficiency with disguise kits, forgery kits, one gaming set, and two languages. I can mimic speech patterns and accents if I've heard them for at least 1 minute."),
 			languageProfs: [2],
 			toolProfs: ["Disguise kit", "Forgery kit", ["Gaming set", 1]],
 		},
@@ -564,10 +528,7 @@ AddSubClass("rogue", "mastermind", {
 			name: "Master of Tactics",
 			source: [["S", 135], ["X", 46]],
 			minlevel: 3,
-			description: desc([
-				"I can use the Help action as a Bonus Action",
-				"This even works if the ally attacks a target within 30 ft of me that can see or hear me",
-			]),
+			description: desc("I can use the Help action as a Bonus Action. This even works if the ally attacks a target within 30 ft of me that can see or hear me."),
 			action: [["bonus action", ""]],
 		},
 		"subclassfeature9": {
@@ -575,8 +536,7 @@ AddSubClass("rogue", "mastermind", {
 			source: [["S", 135], ["X", 46]],
 			minlevel: 9,
 			description: desc([
-				"By spending 1 minute observing/interacting outside of combat I can learn capabilities",
-				"The DM tells me if the target is my equal, superior, or inferior in regard to two things:",
+				"By spending 1 minute observing/interacting outside of combat I can learn capabilities. The DM tells me if the target is my equal, superior, or inferior in regard to two things:",
 				" - Intelligence score    - Wisdom score    - Charisma score    - Class levels (if any)",
 			]),
 		},
@@ -584,21 +544,14 @@ AddSubClass("rogue", "mastermind", {
 			name: "Misdirection",
 			source: [["S", 135], ["X", 46]],
 			minlevel: 13,
-			description: desc([
-				"As a Reaction, I can redirect an attack meant for me to a creature within 5 ft of me",
-				"This only works if the creature is providing me with cover against the attack",
-			]),
+			description: desc("As a Reaction, I can redirect an attack meant for me to a creature within 5 ft of me. This only works if the creature is providing me with cover against the attack."),
 			action: [["reaction", ""]],
 		},
 		"subclassfeature17": {
 			name: "Soul of Deceit",
 			source: [["S", 135], ["X", 46]],
 			minlevel: 17,
-			description: desc([
-				"My thoughts can't be read by telepathy or similar means; I can project false thoughts",
-				"For that, I must pass a Cha (Deception) vs Wis (Insight) check to fool the mind reader",
-				"Magic always determines I'm truthful; I can't be magically compelled to tell the truth",
-			]),
+			description: desc("My thoughts can't be read by telepathy or similar means and I can project false thoughts. For that, I must pass a Cha (Deception) vs Wis (Insight) check to fool the mind reader. Magic always determines I'm truthful and I can't be magically compelled to tell the truth."),
 		},
 	},
 });
@@ -612,19 +565,13 @@ AddSubClass("rogue", "swashbuckler", {
 			name: "Fancy Footwork",
 			source: [["S", 135], ["X", 47]],
 			minlevel: 3,
-			description: desc([
-				"Enemies I make a melee attack against in my turn can't use opportunity attacks on me",
-				"This lasts until the end of my current turn",
-			]),
+			description: desc("Enemies I make a melee attack against in my turn can't use opportunity attacks on me. This lasts until the end of my current turn."),
 		},
 		"subclassfeature3.1": {
 			name: "Rakish Audacity",
 			source: [["S", 136], ["X", 47]],
 			minlevel: 3,
-			description: desc([
-				"I don't need Advantage to sneak attack if my target is the only one within 5 ft of me",
-				"I still can't sneak attack if I have Disadv; I add my Charisma modifier to initiative rolls",
-			]),
+			description: desc("I don't need Advantage to sneak attack if my target is the only one within 5 ft of me. I still can't sneak attack if I have Disadv. I add my Charisma modifier to initiative rolls."),
 			addMod: { type: "skill", field: "Init", mod: "max(Cha|0)", text: "I can add my Charisma modifier to initiative rolls." },
 		},
 		"subclassfeature9": {
@@ -632,12 +579,9 @@ AddSubClass("rogue", "swashbuckler", {
 			source: [["S", 136], ["X", 47]],
 			minlevel: 9,
 			description: desc([
-				"As an action, I can beguile a creature that hears and understands me, for 1 minute",
-				"It must succeed a Wis (Insight) check opposed by my Cha (Persuasion) or be affected as:",
-				"\u2022 A hostile target gains Disadv on attacks and can't do opportunity attacks vs not-me",
-				"  This effect ends if an ally attacks or casts a spell vs it, or if it and I are 60 ft apart",
-				"\u2022 Targets that are not hostile are Charmed and regard me as a friendly acquaintance",
-				"  This effect ends if me or an ally do anything harmful to it",
+				"As an action, I can beguile a creature that hears and understands me, for 1 minute. It must succeed on a Wis (Insight) check opposed by my Cha (Persuasion) or be affected as:",
+				"\u2022 A hostile target gains Disadv on attacks and can't do opportunity attacks vs not-me. This effect ends if an ally attacks or casts a spell vs it, or if it and I are 60 ft apart.",
+				"\u2022 Targets that are not hostile are Charmed and regard me as a friendly acquaintance. This effect ends if me or an ally do anything harmful to it.",
 			]),
 			action: [["action", ""]],
 		},
@@ -645,14 +589,14 @@ AddSubClass("rogue", "swashbuckler", {
 			name: "Elegant Maneuver",
 			source: [["S", 136], ["X", 47]],
 			minlevel: 13,
-			description: desc("As a Bonus Action, I can gain Adv on my next Dex (Acrobatics) or Str (Athletics) check"),
+			description: desc("As a Bonus Action, I can gain Adv on my next Dex (Acrobatics) or Str (Athletics) check."),
 			action: [["bonus action", ""]],
 		},
 		"subclassfeature17": {
 			name: "Master Duelist",
 			source: [["S", 136], ["X", 47]],
 			minlevel: 17,
-			description: desc("Once per Short Rest, when I miss with an attack roll, I can roll again with Advantage"),
+			description: desc("Once per Short Rest, when I miss with an attack roll, I can roll again with Advantage."),
 			recovery: "Short Rest",
 			usages: 1,
 		},
@@ -668,28 +612,21 @@ AddSubClass("sorcerer", "storm sorcery", {
 			name: "Wind Speaker",
 			source: [["S", 137], ["X", 52]],
 			minlevel: 3,
-			description: desc("I can speak, read, and write Primordial (and its dialects Aquan, Auran, Ignan, Terran)"),
+			description: desc("I can speak, read, and write Primordial (and its dialects Aquan, Auran, Ignan, Terran)."),
 			languageProfs: ["Primordial"],
 		},
 		"subclassfeature3.1": {
 			name: "Tempestuous Magic",
 			source: [["S", 137], ["X", 52]],
 			minlevel: 3,
-			description: desc([
-				"As a Bonus Action, before or after casting a 1st-level or higher spell, I can fly 10 ft",
-				"This movement doesn't provoke opportunity attacks as whirling gusts of air surround me",
-			]),
+			description: desc("As a Bonus Action, before or after casting a 1st-level or higher spell, I can fly 10 ft. This movement doesn't provoke opportunity attacks as whirling gusts of air surround me."),
 			action: [["bonus action", " (with casting)"]],
 		},
 		"subclassfeature6": {
 			name: "Heart of the Storm",
 			source: [["S", 137], ["X", 52]],
 			minlevel: 6,
-			description: desc([
-				"I have Resistance to Lightning and Thunder damage",
-				"When I start casting a 1st-level or higher spell that deals Lightning or Thunder damage,",
-				"I deal Lightning or Thunder damage to creatures of my choice that I can see within 10 ft",
-			]),
+			description: desc("I have Resistance to Lightning and Thunder damage. When I start casting a 1st-level or higher spell that deals Lightning or Thunder damage, I deal Lightning or Thunder damage to creatures of my choice that I can see within 10 ft."),
 			additional: levels.map(function (n) { return n < 6 ? "" : Math.floor(n / 2) + " damage"; }),
 			dmgres: ["Lightning", "Thunder"],
 		},
@@ -697,21 +634,14 @@ AddSubClass("sorcerer", "storm sorcery", {
 			name: "Storm Guide",
 			source: [["S", 137], ["X", 52]],
 			minlevel: 6,
-			description: desc([
-				"As an action, I can stop rain around me in 20-ft radius; Bonus Action for it to resume",
-				"As a Bonus Action, I can choose the direction of wind around me in a 100-ft radius",
-				"This lasts until the end of my next turn and doesn't alter the wind's speed",
-			]),
+			description: desc("As an action, I can stop rain around me in a 20-ft radius, and as a Bonus Action have it resume. As a Bonus Action, I can choose the direction of wind around me in a 100-ft radius. This lasts until the end of my next turn and doesn't alter the wind's speed."),
 			action: [["bonus action", ""]],
 		},
 		"subclassfeature14": {
 			name: "Storm's Fury",
 			source: [["S", 137], ["X", 52]],
 			minlevel: 14,
-			description: desc([
-				"As a Reaction when hit by a melee attack, I can deal Lightning damage to the attacker",
-				"The attacker must also make a Strength save or be pushed up to 20 ft away from me",
-			]),
+			description: desc("As a Reaction when hit by a melee attack, I can deal Lightning damage to the attacker. The attacker must also make a Strength save or be pushed up to 20 ft away from me."),
 			action: [["reaction", ""]],
 			additional: levels.map(function (n) { return n < 14 ? "" : n + " Lightning damage"; }),
 		},
@@ -720,9 +650,9 @@ AddSubClass("sorcerer", "storm sorcery", {
 			source: [["S", 137], ["X", 52]],
 			minlevel: 18,
 			description: desc([
-				"I have Immunity to Lightning and Thunder damage and gain magical 60 ft Fly Speed",
-				"As an action, I reduce my Fly Speed to 30 ft and give allies 30 ft Fly Speed for 1 hour",
-				"I can do this once per Short Rest for up to 3 + my Charisma modifier allies within 30 ft",
+				"I have Immunity to Lightning and Thunder damage and gain magical 60 ft Fly Speed.",
+				"As an action, I reduce my Fly Speed to 30 ft and give allies 30 ft Fly Speed for 1 hour.",
+				"I can do this once per Short Rest for up to 3 + my Charisma modifier allies within 30 ft.",
 			]),
 			action: [["action", ""]],
 			savetxt: { immune: ["Lightning", "Thunder"] },
@@ -742,12 +672,7 @@ AddSubClass("warlock", "the undying", {
 			source: [["S", 139]],
 			minlevel: 3,
 			spellcastingExtra: ["false life", "ray of sickness", "blindness/deafness", "silence", "feign death", "speak with dead", "aura of life", "death ward", "contagion", "legend lore"],
-			description: desc([
-				"I learn the *Spare the Dying* cantrip and gain Advantage on saving throws vs diseases",
-				"If an Undead targets me directly with an attack or spell, it must make a Wisdom save",
-				"On a fail, it must choose a new target or forfeit its attack or harmful spell",
-				"On a success or if I attack or cast a harmful spell on it, it is Immune for 24 hours",
-			]),
+			description: desc("I learn the *Spare the Dying* cantrip and gain Advantage on saving throws vs diseases. If an Undead targets me directly with an attack or spell, it must make a Wisdom save. On a fail, it must choose a new target or forfeit its attack or harmful spell. On a success or if I attack or cast a harmful spell on it, it is Immune for 24 hours."),
 			savetxt: { adv_vs: ["disease"] },
 			spellcastingBonus: [{
 				name: "Among the Dead",
@@ -759,10 +684,7 @@ AddSubClass("warlock", "the undying", {
 			name: "Defy Death",
 			source: [["S", 140]],
 			minlevel: 6,
-			description: desc([
-				"I regain 1d8 + my Constitution modifier in HP when I succeed on a Death saving throw",
-				"I also regain this amount whenever I use *Spare the Dying* to stabilize a creature",
-			]),
+			description: desc("I regain 1d8 + my Constitution modifier in HP when I succeed on a Death saving throw. I also regain this amount whenever I use *Spare the Dying* to stabilize a creature."),
 			recovery: "Long Rest",
 			usages: 1,
 		},
@@ -770,16 +692,13 @@ AddSubClass("warlock", "the undying", {
 			name: "Undying Nature",
 			source: [["S", 140]],
 			minlevel: 10,
-			description: desc([
-				"I can hold my breath indefinitely; I don't require food, water, or sleep (I still need rest)",
-				"I age more slowly, only 1 year for every 10 years that pass; I can't be magically aged",
-			]),
+			description: desc("I can hold my breath indefinitely and I don't require food, water, or sleep (I still need rest). I age more slowly, only 1 year for every 10 years that pass, and I can't be magically aged."),
 		},
 		"subclassfeature14": {
 			name: "Indestructible Life",
 			source: [["S", 140]],
 			minlevel: 14,
-			description: desc("As a Bonus Action, I can regain HP and reattach severed body parts"),
+			description: desc("As a Bonus Action, I can regain HP and reattach severed body parts."),
 			action: [["bonus action", ""]],
 			recovery: "Short Rest",
 			usages: 1,

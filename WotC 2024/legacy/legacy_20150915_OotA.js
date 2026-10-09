@@ -1,4 +1,4 @@
-var iFileName = "pub_20150915_OotA.js";
+var iFileName = "legacy_20150915_OotA.js";
 RequiredSheetVersion("24.1.3");
 // This file adds all the beasts and background features from the Out of the Abyss adventure book to MPMB's Character Record Sheet
 

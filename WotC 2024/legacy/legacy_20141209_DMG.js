@@ -1,4 +1,4 @@
-var iFileName = "pub_20141209_DMG.js";
+var iFileName = "legacy_20141209_DMG.js";
 RequiredSheetVersion("24.1.3");
 // This file adds all the player-material from the Dungeon Master's Guide to MPMB's Character Record Sheet
 
@@ -22,7 +22,7 @@ AddSubClass("cleric", "death domain", {
 			name: "Bonus Proficiency",
 			source: [["D", 96]],
 			minlevel: 3,
-			description: desc("I gain proficiency with martial weapons"),
+			description: desc("I gain proficiency with martial weapons."),
 			weaponProfs: [false, true],
 			spellcastingExtra: ["false life", "ray of sickness", "blindness/deafness", "ray of enfeeblement", "animate dead", "vampiric touch", "blight", "death ward", "antilife shell", "cloudkill"],
 		},
@@ -30,10 +30,7 @@ AddSubClass("cleric", "death domain", {
 			name: "Reaper",
 			source: [["D", 96]],
 			minlevel: 3,
-			description: desc([
-				"I learn one necromancy cantrip of my choice from any spell list",
-				"My necromancy, single-target cantrips can affect two targets within 5 ft of each other",
-			]),
+			description: desc("I learn one necromancy cantrip of my choice from any spell list. My necromancy, single-target cantrips can affect two targets within 5 ft of each other."),
 			spellcastingBonus: [{
 				name: "Reaper",
 				"class": "any",
@@ -67,23 +64,20 @@ AddSubClass("cleric", "death domain", {
 			name: "Touch of Death",
 			source: [["D", 97]],
 			minlevel: 3,
-			description: desc("When I hit a creature with a melee attack, I can deal extra Necrotic damage"),
+			description: desc("When I hit a creature with a melee attack, I can deal extra Necrotic damage."),
 			additional: ["", "+9 damage; 1 CD", "+11 damage; 1 CD", "+13 damage; 1 CD", "+15 damage; 1 CD", "+17 damage; 1 CD", "+19 damage; 1 CD", "+21 damage; 1 CD", "+23 damage; 1 CD", "+25 damage; 1 CD", "+27 damage; 1 CD", "+29 damage; 1 CD", "+31 damage; 1 CD", "+33 damage; 1 CD", "+35 damage; 1 CD", "+37 damage; 1 CD", "+39 damage; 1 CD", "+41 damage; 1 CD", "+43 damage; 1 CD", "+45 damage; 1 CD"],
 		},
 		"subclassfeature6": {
 			name: "Inescapable Destruction",
 			source: [["D", 97]],
 			minlevel: 6,
-			description: desc("When I deal Necrotic damage with spells or Channel Divinity, I ignore Resistance to it"),
+			description: desc("When I deal Necrotic damage with spells or Channel Divinity, I ignore Resistance to it."),
 		},
 		"subclassfeature17": {
 			name: "Improved Reaper",
 			source: [["D", 97]],
 			minlevel: 17,
-			description: desc([
-				"If I cast a 5th-level or lower necromancy spell that has one target, I can target two",
-				"They need to be within 5 ft of each other; I have to provide material comp. for both",
-			]),
+			description: desc("If I cast a 5th-level or lower necromancy spell that has one target, I can target two. They need to be within 5 ft of each other and I have to provide Material components for both."),
 			calcChanges: {
 				spellAdd: [
 					function (spellKey, spellObj, spName) {
@@ -145,10 +139,7 @@ AddSubClass("paladin", "oathbreaker", {
 			source: [["D", 97]],
 			minlevel: 3,
 			additional: "1 Channel Divinity",
-			description: desc([
-				"As an action, one Undead (CR < paladin level) I can see in 30 ft must make a Wis save",
-				"If failed, it must obey my commands for 24 hours or until I use this on another",
-			]),
+			description: desc("As an action, one Undead (CR < paladin level) I can see in 30 ft must make a Wis save or obey my commands for 24 hours or until I use this on another."),
 			action: [["action", ""]],
 			spellcastingExtra: ["hellish rebuke", "inflict wounds", "crown of madness", "darkness", "animate dead", "bestow curse", "blight", "confusion", "contagion", "dominate person"],
 		},
@@ -157,21 +148,14 @@ AddSubClass("paladin", "oathbreaker", {
 			source: [["D", 97]],
 			minlevel: 3,
 			additional: "1 Channel Divinity",
-			description: desc([
-				"As an action, anyone I choose within 30 ft that can see me must make a Wisdom save",
-				"If failed, it is Frightened for 1 min or until it succeeds a save at the end of its turns",
-				"It can't save at the end of its turn if it's still within 30 ft of me",
-			]),
+			description: desc("As an action, any creature of my choice within 30 ft that can see me must make a Wisdom save or be Frightened for 1 min or until it succeeds on a save at the end of its turn. It can't save at the end of its turn if it's still within 30 ft of me."),
 			action: [["action", ""]],
 		},
 		"subclassfeature7": {
 			name: "Aura of Hate",
 			source: [["D", 97]],
 			minlevel: 7,
-			description: desc([
-				"Fiends/Undead within range and I add my Cha mod as bonus on melee weapon damage",
-				"Multiple Auras of Hate don't stack; only the strongest applies",
-			]),
+			description: desc("Fiends/Undead within range and I add my Cha mod as bonus on melee weapon damage. Multiple Auras of Hate don't stack, only the strongest applies."),
 			additional: ["", "", "", "", "", "", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "10-foot aura", "30-foot aura", "30-foot aura", "30-foot aura"],
 			calcChanges: {
 				atkAdd: [
@@ -195,7 +179,7 @@ AddSubClass("paladin", "oathbreaker", {
 			name: "Supernatural Resistance",
 			source: [["D", 97]],
 			minlevel: 15,
-			description: desc("I have Resistance to Bludgeoning/Piercing/Slashing damage from nonmagical weapons"),
+			description: desc("I have Resistance to Bludgeoning/Piercing/Slashing damage from nonmagical weapons."),
 			dmgres: [["Bludgeoning", "Bludg. (nonmagical)"], ["Piercing", "Pierc. (nonmagical)"], ["Slashing", "Slash. (nonmagical)"]],
 		},
 		"subclassfeature20": {
@@ -203,11 +187,8 @@ AddSubClass("paladin", "oathbreaker", {
 			source: [["D", 97]],
 			minlevel: 20,
 			description: desc([
-				"As an action, I gain a 30-ft aura of gloom that reduces Bright Light to dim for 1 min",
-				"If Frightened of me, foes starting their turn in the aura take 4d10 Psychic damage",
-				"Attacks vs my allies and me inside the aura have Disadvantage if attackers need sight",
-				"As a Bonus Action, I can make a melee spell attack vs a target inside the aura",
-				"If this attack hits, it does 3d10 + Charisma modifier Necrotic damage",
+				"As an action, I gain a 30-ft aura of gloom that reduces Bright Light to dim for 1 min. If Frightened of me, foes starting their turn in the aura take 4d10 Psychic damage. Attacks vs my allies and me inside the aura have Disadvantage if attackers need sight.",
+				"As a Bonus Action, I can make a melee spell attack vs a target inside the aura. If this attack hits, it does 3d10 + Charisma modifier Necrotic damage.",
 			]),
 			recovery: "Long Rest",
 			usages: 1,

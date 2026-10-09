@@ -1,5 +1,5 @@
 var iFileName = "legacy_20201117_TCoE.js";
-RequiredSheetVersion("24.1.0");
+RequiredSheetVersion("24.1.3");
 // This file adds options from Tasha's Cauldron of Everything to MPMB's Character Record Sheet that have not been replaced with new options published specifically for the 2024 (5.5e) rules
 
 // Define the source

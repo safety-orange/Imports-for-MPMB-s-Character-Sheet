@@ -1,4 +1,4 @@
-var iFileName = "pub_20150714_AL-RoD.js";
+var iFileName = "legacy_20150714_AL-RoD.js";
 RequiredSheetVersion("24.1.3");
 // This file adds the optional backgrounds from the Adventurers League season 3 (Rage of Demons) to MPMB's Character Record Sheet
 

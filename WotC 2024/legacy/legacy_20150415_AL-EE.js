@@ -1,4 +1,4 @@
-var iFileName = "pub_20150415_AL-EE.js";
+var iFileName = "legacy_20150415_AL-EE.js";
 RequiredSheetVersion("24.1.3");
 // This file adds the optional backgrounds from the Adventurers League season 2 (Elemental Evil) to MPMB's Character Record Sheet
 

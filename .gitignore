@@ -42,6 +42,7 @@ $RECYCLE.BIN/
 
 # Directories/files potentially created on remote AFP share
 .AppleDB
+.claude
 .AppleDesktop
 Network Trash Folder
 Temporary Items
