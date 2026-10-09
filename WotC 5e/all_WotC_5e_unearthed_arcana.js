@@ -16924,7 +16924,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 					"After I use them in my Attack action, I can use them for more attacks as a bonus action",
 				]),
 				additional: levels.map(function (n) {
-					return n < 3 ? "" : "2 ki points; " + (n < 11 ? 1 : n < 17 ? 2 : 3) + " bonus action attack" + (n < 11 ? "" : "s");
+					return n < 3 ? "" : "2 ki" + (typePF ? "" : " points") + "; " + (n < 11 ? 1 : n < 17 ? 2 : 3) + " bonus action attack" + (n < 11 ? "" : "s");
 				}),
 			},
 			autoSelectExtrachoices: [{ extrachoice: "astral arms" }],
@@ -18075,7 +18075,7 @@ var UAFRnR_rangerSubclassSwarmkeeperUA = AddSubClass("ranger", "swarmkeeper-ua",
 				action: [["action", ""]],
 				additional: "or level 4 spell slot",
 				usages: 1,
-				recovery: "long rest",
+				recovery: typePF ? "LR" : "long rest",
 			},
 		},
 	},
@@ -19992,7 +19992,7 @@ AddSubClass("monk", "way of mercy-ua", {
 				}),
 				action: [["action", ""]],
 				additional: levels.map(function (n) {
-					return n < 3 ? "" : "1 ki point; heal 1d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10) + " + Wisdom modifier";
+					return n < 3 ? "" : "1 ki point; heal 1d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10) + (typePF ? " + Wis mod" : " + Wisdom modifier");
 				}),
 			},
 			"hands of harm": {
@@ -21650,7 +21650,7 @@ AddSubClass("monk", "ascendant dragon-ua", {
 				}),
 				usages: "Prof B per ",
 				usagescalc: "event.value = How('Proficiency Bonus');",
-				recovery: "long rest",
+				recovery: typePF ? "LR" : "long rest",
 				altResource: "1 ki",
 				additional: levels.map(function (n) {
 					return n < 3 ? "" : (n < 11 ? 2 : 3) + "d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10);
@@ -21720,7 +21720,7 @@ AddSubClass("monk", "ascendant dragon-ua", {
 					return desc(aDesc);
 				}),
 				usages: 1,
-				recovery: "long rest",
+				recovery: typePF ? "LR" : "long rest",
 				altResource: "4 ki",
 				additional: levels.map(function (n) {
 					return n < 11 ? "" : "1d" + (n < 17 ? 8 : 10);

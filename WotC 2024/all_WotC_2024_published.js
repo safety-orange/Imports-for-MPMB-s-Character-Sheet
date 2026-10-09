@@ -3527,7 +3527,7 @@ AddSubClass("wizard", "illusionist", {
 			spellChanges: {
 				"minor illusion": {
 					time: "Bns",
-					description: "5-ft cube illusion includes visible and audible; Int(Investigation) check vs. Spell DC; see book",
+					description: "5-ft cube illusion includes visible and audible; Int(Investigation) check vs Spell DC; see book",
 					changes: "My Improved Illusions class feature allows me to make both a sound and an image with a single casting and can cast it as a Bonus Action.",
 				},
 			},

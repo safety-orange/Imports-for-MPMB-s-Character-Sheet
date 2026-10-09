@@ -1404,7 +1404,7 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList["S"] || SourceList
 					additional: levels.map(function (n) {
 						if (n < 3) return "";
 						var xtrKi = Math.max(0,Math.floor(n / 2) - 2);
-						return "2 ki points + max " + xtrKi + " ki point" + (xtrKi == 1 ? "" : "s");
+						return "2 ki " + (typePF ? "" : "points ") + "+ max " + xtrKi + " ki point" + (xtrKi == 1 ? "" : "s");
 					}),
 					action: [["bonus action", " (after Attack action)"]],
 					spellcastingBonus: [{

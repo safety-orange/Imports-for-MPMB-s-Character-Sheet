@@ -222,7 +222,7 @@ AddSubClass("monk", "ascendant dragon", {
 				}),
 				usages: "Prof B per ",
 				usagescalc: "event.value = How('Proficiency Bonus');",
-				recovery: "long rest",
+				recovery: typePF ? "LR" : "long rest",
 				altResource: "2 ki",
 				additional: levels.map(function (n) {
 					return n < 3 ? "" : (n < 11 ? 2 : 3) + "d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10);

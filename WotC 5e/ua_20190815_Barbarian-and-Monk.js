@@ -141,7 +141,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 					"After I use them in my Attack action, I can use them for more attacks as a bonus action",
 				]),
 				additional: levels.map(function (n) {
-					return n < 3 ? "" : "2 ki points; " + (n < 11 ? 1 : n < 17 ? 2 : 3) + " bonus action attack" + (n < 11 ? "" : "s");
+					return n < 3 ? "" : "2 ki" + (typePF ? "" : " points") + "; " + (n < 11 ? 1 : n < 17 ? 2 : 3) + " bonus action attack" + (n < 11 ? "" : "s");
 				}),
 			},
 			autoSelectExtrachoices: [{ extrachoice: "astral arms" }],

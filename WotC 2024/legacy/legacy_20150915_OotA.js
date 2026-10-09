@@ -322,7 +322,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 			"Casting a spell stored from a spell gem doesn't require attunement",
 			"Only spells with a casting time of 1 action or 1 min or more can be stored in a spell gem",
 			"Imbuing a spell gem requires casting a spell as normal, but the spell produces no effect",
-			"I only need to provide half the costly material components for abjuration spells to imbue",
+			"I only need to provide half the costly material components for Abjuration spells to imbue",
 		],
 	}],
 	choices: ["Obsidian (cantrip, uncommon)", "Lapis Lazuli (1st-level, uncommon)", "Quartz (2nd-level, rare)", "Bloodstone (3rd-level, rare)", "Amber (4th-level, very rare)", "Jade (5th-level, very rare)", "Topaz (6th-level, very rare)", "Star Ruby (7th-level, legendary)", "Ruby (8th-level, legendary)", "Diamond (9th-level, legendary)"],
@@ -474,7 +474,7 @@ MagicItemsList["stonespeaker crystal"] = {
 	source: [["OotA", 223]],
 	type: "Wondrous Item",
 	rarity: "Rare",
-	description: "This crystal has 10 charges, regaining 1d6+4 at dawn, which I can use to cast its spells. When I use its last charge, roll a d20. On a 1, it vanishes. It gives me Adv on Int (Investigation) checks. When I cast an divination spell, I can expend 1 charge per level of the spell to substitute one material component of the spell.",
+	description: "This crystal has 10 charges, regaining 1d6+4 at dawn, which I can use to cast its spells. When I use its last charge, roll a d20. On a 1, it vanishes. It gives me Adv on Int (Investigation) checks. When I cast a Divination spell, I can expend 1 charge per level of the spell to substitute one material component of the spell.",
 	descriptionFull: [
 		"Created by the stone giant librarians of Gravenhollow, this nineteen-inch-long shard of quartz grants you advantage on Intelligence (Investigation) checks while it is on your person.",
 		"The crystal has 10 charges. While holding it, you can use an action to expend some of its charges to cast one of the following spells from it: *Speak with Animals* (2 charges), *Speak with Dead* (4 charges), or *Speak with Plants* (3 charges).",

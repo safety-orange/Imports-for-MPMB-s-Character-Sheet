@@ -61,7 +61,7 @@ RaceList["gray dwarf"] = {
 	weightMetric: " weigh around 70 kg (55 + 5d4 \xD7 4d6 / 10 kg)",
 	trait: [
 		"**Duergar**",
-		"##\u25C6 Stonecunning##. Whenever I make an Int (History) check related to the origin of stonework, I am considered proficient in the skill and add double my proficiency bonus to the check.",
+		"##\u25C6 Stonecunning##. Whenever I make an Int (History) check related to the origin of stonework, I am considered proficient in the skill and add double my Proficiency Bonus to the check.",
 		"##\u25C6 Sunlight Sensitivity##. Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.",
 		"##\u25C6 Duergar Magic##. 3rd: *Enlarge/Reduce* to enlarge; 5th: *Invisibility*. If not in direct sunlight, I can cast both spells on myself once per Long Rest without material components, using Int.",
 	],
@@ -160,7 +160,7 @@ AddRacialVariant("half-elf", "cantrip", {
 	skillstxt: "",
 	trait: [
 		"**Half-High Elf**",
-		"##\u25C6 Cantrip##. I know one cantrip of my choice from the wizard spell list. Intelligence is my spellcasting ability for it.",
+		"##\u25C6 Cantrip##. I know one cantrip of my choice from the Wizard spell list. Intelligence is my spellcasting ability for it.",
 	],
 	spellcastingAbility: 4,
 	spellcastingBonus: [{
@@ -278,7 +278,7 @@ AddSubClass("barbarian", "battlerager", {
 				"I gain proficiency with Spiked Armor both as an armor and as a weapon.",
 				"As a Bonus Action while in Rage, I can attack once with my armor spikes. With my Spiked Armor I do 3 Piercing damage when I use my Attack action to grapple.",
 			]),
-			action: [["bonus action", "Armor Spikes attack (in rage)"]],
+			action: [["bonus action", "Armor Spikes attack (in Rage)"]],
 			armorOptions: [{
 				regExpSearch: /^(?!.*(dragon|draconic|beast))(?=.*spike(d|s))(?=.*armou?r).*$/i,
 				name: "Spiked armor",
@@ -312,20 +312,20 @@ AddSubClass("barbarian", "battlerager", {
 			name: "Reckless Abandon",
 			source: [["S", 121]],
 			minlevel: 6,
-			description: desc("If I use Reckless Attack during rage, I also gain Temporary HP equal to my Con mod."),
+			description: desc("If I use Reckless Attack during Rage, I also gain Temporary HP equal to my Con mod."),
 		},
 		"subclassfeature10": {
 			name: "Battlerager Charge",
 			source: [["S", 121]],
 			minlevel: 10,
-			description: desc("As a Bonus Action while raging, I can use the Dash action."),
-			action: [["bonus action", " (in rage)"]],
+			description: desc("As a Bonus Action while in Rage, I can use the Dash action."),
+			action: [["bonus action", " (in Rage)"]],
 		},
 		"subclassfeature14": {
 			name: "Spiked Retribution",
 			source: [["S", 121]],
 			minlevel: 14,
-			description: desc("When I'm hit in melee by an attacker within 5 ft, it takes 3 Piercing damage. This only works while I'm wearing spiked armor, in rage, and I'm not Incapacitated."),
+			description: desc("When I'm hit in melee by an attacker within 5 ft, it takes 3 Piercing damage. This only works while I'm wearing Spiked Armor in Rage and I'm not Incapacitated."),
 		},
 	},
 });
@@ -339,7 +339,7 @@ AddSubClass("monk", "way of the long death", {
 			name: "Touch of Death",
 			source: [["S", 130]],
 			minlevel: 3,
-			description: desc("If I reduce someone within 5 ft to 0 HP, I gain Wis mod + monk level Temporary HP."),
+			description: desc("If I reduce someone within 5 ft to 0 HP, I gain Wis mod + Monk level Temporary HP."),
 		},
 		"subclassfeature6": {
 			name: "Hour of Reaping",
@@ -352,14 +352,14 @@ AddSubClass("monk", "way of the long death", {
 			name: "Mastery of Death",
 			source: [["S", 131]],
 			minlevel: 11,
-			additional: "1 ki point",
-			description: desc("When I'm reduced to 0 HP, I can expend 1 ki point to have 1 HP instead."),
+			additional: "1 Focus Point",
+			description: desc("When I'm reduced to 0 HP, I can expend 1 Focus Point to have 1 HP instead."),
 			"touch of the long death": {
 				name: "Touch of the Long Death",
 				extraname: "Way of the Long Death 17",
 				source: [["S", 131]],
-				additional: "1-10 ki points",
-				description: desc("As an action, a target within 5 ft takes 2d10 Necrotic damage per ki point I spent. It can make a Constitution saving throw to halve the damage."),
+				additional: "1-10 Focus Points",
+				description: desc("As an action, a target within 5 ft takes 2d10 Necrotic damage per Focus Point I spent. It can make a Constitution saving throw to halve the damage."),
 				action: [["action", ""]],
 			},
 			autoSelectExtrachoices: [{
@@ -379,8 +379,8 @@ AddSubClass("monk", "way of the sun soul", {
 			name: "Radiant Sun Bolt",
 			source: [["S", 131], ["X", 35]],
 			minlevel: 3,
-			additional: "1 ki point for 2 extra attacks",
-			description: desc("I gain a ranged spell attack that I can use as an attack in the Attack action. If I do this and spend 1 ki point, I can make 2 of these attacks as a Bonus Action."),
+			additional: "1 Focus Point for 2 extra attacks",
+			description: desc("I gain a ranged spell attack that I can use as an attack in the Attack action. If I do this and spend 1 Focus Point, I can make 2 of these attacks as a Bonus Action."),
 			action: [["bonus action", " (2\xD7 with Attack action)"]],
 			weaponOptions: [{
 				regExpSearch: /^(?=.*radiant)(?=.*(sun|light))(?=.*bolt).*$/i,
@@ -390,7 +390,7 @@ AddSubClass("monk", "way of the sun soul", {
 				type: "Spell",
 				damage: [1, 4, "radiant"],
 				range: "30 ft",
-				description: "If used in an Attack action, spend 1 ki point to use it twice as a Bonus Action",
+				description: "If used in an Attack action, expend 1 FP to use it twice as a Bonus Action",
 				monkweapon: true,
 				abilitytodamage: true,
 				selectNow: true,
@@ -399,11 +399,11 @@ AddSubClass("monk", "way of the sun soul", {
 				name: "Searing Arc Strike",
 				extraname: "Way of the Sun Soul 6",
 				source: [["S", 131], ["X", 35]],
-				description: desc("After taking the Attack action, I can cast *Burning Hands* as a Bonus Action. For every additional ki point I spend, *Burning Hands* is cast at 1 higher spell level. The maximum total ki points I can spend for this (including the 2) is half my Monk level."),
+				description: desc("After taking the Attack action, I can cast *Burning Hands* as a Bonus Action. For every additional Focus Point I spend, *Burning Hands* is cast at 1 higher spell level. The maximum total Focus Points I can spend for this (including the 2) is half my Monk level."),
 				additional: levels.map(function (n) {
 					if (n < 3) return "";
 					var xtrKi = Math.max(0,Math.floor(n / 2) - 2);
-					return "2 ki points + max " + xtrKi + " ki point" + (xtrKi == 1 ? "" : "s");
+					return "2 FP + max " + xtrKi + " FP";
 				}),
 				action: [["bonus action", " (after Attack action)"]],
 				spellcastingBonus: [{
@@ -412,12 +412,12 @@ AddSubClass("monk", "way of the sun soul", {
 					selection: ["burning hands"],
 					firstCol: 2,
 				}],
-				spellFirstColTitle: "Ki",
+				spellFirstColTitle: "FP",
 				spellChanges: {
 					"burning hands": {
 						time: "Bns",
-						description: "3d6+1d6/extra Ki Fire dmg; save halves; unattended flammable objects ignite (ki max 1/2 monk lvl)",
-						changes: "After I use the Attack action, I can cast *Burning Hands* as a Bonus Action by spending 2 ki points. I can even spend additional ki points to increase its spell level. The total amount of ki points I can spend on it is half my monk level.",
+						description: "3d6+1d6/extra FP Fire dmg; save halves; unattended flammable objects ignite (FP max 1/2 Monk lvl)",
+						changes: "After I use the Attack action, I can cast *Burning Hands* as a Bonus Action by spending 2 Focus Points. I can even spend additional Focus Points to increase its spell level. The total amount of Focus Points I can spend on it is half my Monk level.",
 					},
 				},
 			},
@@ -430,9 +430,9 @@ AddSubClass("monk", "way of the sun soul", {
 			name: "Searing Sunburst",
 			source: [["S", 131], ["X", 35]],
 			minlevel: 11,
-			description: desc("As an action, anyone in a 20-ft radius light on a point within 150 ft makes a Con save. If failed and not behind opaque total cover, it takes 2d6 (+ 2d6/ki point) Radiant damage."),
+			description: desc("As an action, anyone in a 20-ft radius light on a point within 150 ft makes a Con save. If failed and not behind opaque total cover, it takes 2d6 (+ 2d6/Focus Point) Radiant damage."),
 			action: [["action", ""]],
-			additional: "0 ki points + max 3 ki points",
+			additional: "0 Focus Points + max 3 Focus Points",
 			weaponOptions: [{
 				regExpSearch: /^(?=.*searing)(?=.*sunburst).*$/i,
 				name: "Searing Sunburst",
@@ -441,7 +441,7 @@ AddSubClass("monk", "way of the sun soul", {
 				type: "Spell",
 				damage: [2, 6, "radiant"],
 				range: "150 ft",
-				description: "All in 20-ft radius; Con save - success no damage; +2d6 damage per ki point (max 3 ki)",
+				description: "All in 20-ft radius; Con save - success no damage; +2d6 damage per FP (max 3 FP)",
 				abilitytodamage: false,
 				dc: true,
 				useSpellMod: "monk",
@@ -565,7 +565,7 @@ AddSubClass("rogue", "swashbuckler", {
 			name: "Fancy Footwork",
 			source: [["S", 135], ["X", 47]],
 			minlevel: 3,
-			description: desc("Enemies I make a melee attack against in my turn can't use opportunity attacks on me. This lasts until the end of my current turn."),
+			description: desc("Enemies I make a melee attack against in my turn can't use Opportunity Attacks on me. This lasts until the end of my current turn."),
 		},
 		"subclassfeature3.1": {
 			name: "Rakish Audacity",
@@ -580,7 +580,7 @@ AddSubClass("rogue", "swashbuckler", {
 			minlevel: 9,
 			description: desc([
 				"As an action, I can beguile a creature that hears and understands me, for 1 minute. It must succeed on a Wis (Insight) check opposed by my Cha (Persuasion) or be affected as:",
-				"\u2022 A hostile target gains Disadv on attacks and can't do opportunity attacks vs not-me. This effect ends if an ally attacks or casts a spell vs it, or if it and I are 60 ft apart.",
+				"\u2022 A hostile target gains Disadv on attacks and can't do Opportunity Attacks vs not-me. This effect ends if an ally attacks or casts a spell vs it, or if it and I are 60 ft apart.",
 				"\u2022 Targets that are not hostile are Charmed and regard me as a friendly acquaintance. This effect ends if me or an ally do anything harmful to it.",
 			]),
 			action: [["action", ""]],
@@ -619,7 +619,7 @@ AddSubClass("sorcerer", "storm sorcery", {
 			name: "Tempestuous Magic",
 			source: [["S", 137], ["X", 52]],
 			minlevel: 3,
-			description: desc("As a Bonus Action, before or after casting a 1st-level or higher spell, I can fly 10 ft. This movement doesn't provoke opportunity attacks as whirling gusts of air surround me."),
+			description: desc("As a Bonus Action, before or after casting a 1st-level or higher spell, I can fly 10 ft. This movement doesn't provoke Opportunity Attacks as whirling gusts of air surround me."),
 			action: [["bonus action", " (with casting)"]],
 		},
 		"subclassfeature6": {
@@ -1096,7 +1096,7 @@ if (!FeatsList["svirfneblin magic"]) {
 				range: "Self",
 				components: "V,S",
 				compMaterial: "",
-				description: "I am hidden from all divination magic",
+				description: "I am hidden from all Divination magic",
 				changes: "Using Svirfneblin Magic, I can cast *Nondetection* without a material component, but only on myself.",
 			},
 		},

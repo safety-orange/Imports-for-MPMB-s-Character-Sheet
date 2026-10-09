@@ -244,7 +244,7 @@ FeatsList["svirfneblin magic"] = {
 			range: "Self",
 			components: "V,S",
 			compMaterial: "",
-			description: "I am hidden from all divination magic",
+			description: "I am hidden from all Divination magic",
 			changes: "Using Svirfneblin Magic, I can cast *Nondetection* without a material component, but only on myself.",
 		},
 	},

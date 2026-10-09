@@ -30,7 +30,7 @@ AddSubClass("cleric", "death domain", {
 			name: "Reaper",
 			source: [["D", 96]],
 			minlevel: 3,
-			description: desc("I learn one necromancy cantrip of my choice from any spell list. My necromancy, single-target cantrips can affect two targets within 5 ft of each other."),
+			description: desc("I learn one Necromancy cantrip of my choice from any spell list. My Necromancy, single-target cantrips can affect two targets within 5 ft of each other."),
 			spellcastingBonus: [{
 				name: "Reaper",
 				"class": "any",
@@ -56,7 +56,7 @@ AddSubClass("cleric", "death domain", {
 							return startDescr !== spellObj.description;
 						};
 					},
-					"My necromancy, single-target cantrips can affect two targets within 5 ft of each other.",
+					"My Necromancy, single-target cantrips can affect two targets within 5 ft of each other.",
 				],
 			},
 		},
@@ -77,7 +77,7 @@ AddSubClass("cleric", "death domain", {
 			name: "Improved Reaper",
 			source: [["D", 97]],
 			minlevel: 17,
-			description: desc("If I cast a 5th-level or lower necromancy spell that has one target, I can target two. They need to be within 5 ft of each other and I have to provide Material components for both."),
+			description: desc("If I cast a 5th-level or lower Necromancy spell that has one target, I can target two. They need to be within 5 ft of each other and I have to provide Material components for both."),
 			calcChanges: {
 				spellAdd: [
 					function (spellKey, spellObj, spName) {
@@ -123,7 +123,7 @@ AddSubClass("cleric", "death domain", {
 							return startDescr !== spellObj.description;
 						};
 					},
-					"My necromancy, single-target 5th-level or lower spells can affect two targets within 5 ft of each other if both are within range of the spell. The spells still require material components for each target separately.",
+					"My Necromancy, single-target 5th-level or lower spells can affect two targets within 5 ft of each other if both are within range of the spell. The spells still require material components for each target separately.",
 				],
 			},
 		},
@@ -139,7 +139,7 @@ AddSubClass("paladin", "oathbreaker", {
 			source: [["D", 97]],
 			minlevel: 3,
 			additional: "1 Channel Divinity",
-			description: desc("As an action, one Undead (CR < paladin level) I can see in 30 ft must make a Wis save or obey my commands for 24 hours or until I use this on another."),
+			description: desc("As an action, one Undead (CR < Paladin level) I can see in 30 ft must make a Wis save or obey my commands for 24 hours or until I use this on another."),
 			action: [["action", ""]],
 			spellcastingExtra: ["hellish rebuke", "inflict wounds", "crown of madness", "darkness", "animate dead", "bestow curse", "blight", "confusion", "contagion", "dominate person"],
 		},

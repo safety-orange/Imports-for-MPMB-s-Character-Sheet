@@ -161,7 +161,7 @@ AddSubClass("monk", "way of mercy-ua", {
 				}),
 				action: [["action", ""]],
 				additional: levels.map(function (n) {
-					return n < 3 ? "" : "1 ki point; heal 1d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10) + " + Wisdom modifier";
+					return n < 3 ? "" : "1 ki point; heal 1d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10) + (typePF ? " + Wis mod" : " + Wisdom modifier");
 				}),
 			},
 			"hands of harm": {

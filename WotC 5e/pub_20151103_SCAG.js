@@ -675,7 +675,7 @@ AddSubClass("monk", "way of the long death", {
 				additional: "1-10 ki points",
 				description: desc([
 					"As an action, a target within 5 ft takes 2d10 necrotic damage per ki point I spent",
-					"It can make a Constitution saving throw to half the damage",
+					"It can make a Constitution saving throw to halve the damage",
 				]),
 				action: [["action", ""]],
 			},
@@ -727,7 +727,7 @@ AddSubClass("monk", "way of the sun soul", {
 				additional: levels.map(function (n) {
 					if (n < 3) return "";
 					var xtrKi = Math.max(0,Math.floor(n / 2) - 2);
-					return "2 ki points + max " + xtrKi + " ki point" + (xtrKi == 1 ? "" : "s");
+					return "2 ki " + (typePF ? "" : "points ") + "+ max " + xtrKi + " ki point" + (xtrKi == 1 ? "" : "s");
 				}),
 				action: [["bonus action", " (after Attack action)"]],
 				spellcastingBonus: [{

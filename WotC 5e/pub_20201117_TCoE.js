@@ -1765,7 +1765,7 @@ AddSubClass("barbarian", "path of the beast", {
 				"This only works if I have less than half my hit points when I hit with this bite attack",
 				"With the claws I can make one extra attack when I attack with it in my Attack action",
 				"As a reaction with the tail when I'm hit, I can add 1d8 to my AC for that attack",
-				"This only works if the hit is from an attack roll made a creature I can see within 30 ft",
+				"This only works if the hit is from an attack roll made by a creature I can see within 30 ft",
 			]),
 			weaponOptions: [{
 				regExpSearch: /^(?=.*(bestial|beast))(?=.*bite).*$/i,
@@ -1890,16 +1890,18 @@ AddSubClass("barbarian", "path of wild magic", {
 				source: [["T", 26]],
 				note: [
 					"The magical energy roiling inside me sometimes erupts from me. Whenever I enter my rage, I have to roll on the table below to see what happens.",
-					"If the effect calls for a saving throw, the DC is equal to 8 + my proficiency bonus + my Constitution modifier.\n",
-					"d8\tEFFECT",
-					" 1\tShadowy tendrils lash around me. Each creature of my choice that I can see within 30 ft of me must succeed on a Constitution saving throw or take 1d12 necrotic damage. I also gain 1d12 temporary hit points.",
-					" 2\tI teleport up to 30 ft to an unoccupied space I can see. Until my rage ends, I can use this effect again on each of my turns as a bonus action.",
-					" 3\tAn intangible spirit, which looks like a flumph or a pixie (my choice), appears within 5 ft of one creature of my choice that I can see within 30 ft of me. At the end of the current turn, the spirit explodes, and each creature within 5 ft of it must succeed on a Dexterity saving throw or take 1d6 force damage. Until my rage ends, I can use this effect again, summoning another spirit, on each of my turns as a bonus action.",
-					" 4\tMagic infuses one weapon of my choice that I am holding. Until my rage ends, the weapon's damage type changes to force, and it gains the light and thrown properties, with a normal range of 20 ft and a long range of 60 ft. If the weapon leaves my hand, the weapon reappears in my hand at the end of the current turn.",
-					" 5\tWhenever a creature hits me with an attack roll before my rage ends, that creature takes 1d6 force damage, as magic lashes out in retribution.",
-					" 6\tUntil my rage ends, I am surrounded by multicolored, protective lights; I gain a +1 bonus to AC, and while within 10 ft of me, my allies gain the same bonus.",
-					" 7\tFlowers and vines temporarily grow around me; until my rage ends, the ground within 15 ft of me is difficult terrain for my enemies.",
-					" 8\tA bolt of light shoots from my chest. Another creature of my choice that I can see within 30 ft of me must succeed on a Constitution saving throw or take 1d6 radiant damage and be blinded until the start of my next turn. Until my rage ends, I can use this effect again on each of my turns as a bonus action.",
+					"If the effect calls for a saving throw, the DC is equal to 8 + my Proficiency Bonus + my Constitution modifier.",
+					[
+						["d8", "EFFECT"],
+						[" 1", "Shadowy tendrils lash around me. Each creature of my choice that I can see within 30 ft of me must succeed on a Constitution saving throw or take 1d12 necrotic damage. I also gain 1d12 temporary hit points."],
+						[" 2", "I teleport up to 30 ft to an unoccupied space I can see. Until my rage ends, I can use this effect again on each of my turns as a bonus action."],
+						[" 3", "An intangible spirit, which looks like a flumph or a pixie (my choice), appears within 5 ft of one creature of my choice that I can see within 30 ft of me. At the end of the current turn, the spirit explodes, and each creature within 5 ft of it must succeed on a Dexterity saving throw or take 1d6 force damage. Until my rage ends, I can use this effect again, summoning another spirit, on each of my turns as a bonus action."],
+						[" 4", "Magic infuses one weapon of my choice that I am holding. Until my rage ends, the weapon's damage type changes to force, and it gains the light and thrown properties, with a normal range of 20 ft and a long range of 60 ft. If the weapon leaves my hand, the weapon reappears in my hand at the end of the current turn."],
+						[" 5", "Whenever a creature hits me with an attack roll before my rage ends, that creature takes 1d6 force damage, as magic lashes out in retribution."],
+						[" 6", "Until my rage ends, I am surrounded by multicolored, protective lights; I gain a +1 bonus to AC, and while within 10 ft of me, my allies gain the same bonus."],
+						[" 7", "Flowers and vines temporarily grow around me; until my rage ends, the ground within 15 ft of me is difficult terrain for my enemies."],
+						[" 8", "A bolt of light shoots from my chest. Another creature of my choice that I can see within 30 ft of me must succeed on a Constitution saving throw or take 1d6 radiant damage and be blinded until the start of my next turn. Until my rage ends, I can use this effect again on each of my turns as a bonus action."],
+					],
 				],
 			}],
 		},
@@ -2281,7 +2283,7 @@ if (!SourceList["G"]) {
 				description: desc([
 					"As an action, all chosen targets in 30 ft that can see or hear me must make a Wis save",
 					"If failed, it is charmed by me until the end of my next turn or it takes any damage",
-					"Also, I can choose to have a charmed target drop what its holding when it fails its save",
+					"Also, I can choose to have a charmed target drop what it's holding when it fails its save",
 				]),
 				action: [["action", ""]],
 			},
@@ -2710,7 +2712,7 @@ AddSubClass("druid", "circle of the stars", {
 				"As a bonus action, I can expend a use of wild shape to take on a starry form for 10 min",
 				"In that form I shed bright light in a 10-ft radius and dim light for an extra 10-ft radius",
 				"When I do so, I choose one constellation that glimmers on my body, granting me benefits",
-				'See the 3rd page "Notes" section for the benefits of the possible constellations',
+				"See the 3rd page Notes for the benefits of the possible constellations",
 			]),
 			weaponOptions: [{
 				regExpSearch: /^(?=.*luminous)(?=.*arrow).*$/i,
@@ -2735,7 +2737,7 @@ AddSubClass("druid", "circle of the stars", {
 					"I can also do this as part of the bonus action I use to assume the starry form",
 				]),
 				additional: levels.map(function (n) {
-					return n < 2 ? "" : (n < 10 ? 1 : 2) + "d8 + Wisdom modifier radiant damage";
+					return n < 2 ? "" : (n < 10 ? 1 : 2) + "d8 + Wisdom mod" + (typePF ? " radiant dmg" : "ifier radiant damage");
 				}),
 				action: [["bonus action", " (Luminous Arrow)"]],
 			},
@@ -2746,7 +2748,7 @@ AddSubClass("druid", "circle of the stars", {
 					"When I cast a healing spell with a spell slot, I can heal myself or another within 30 ft of me",
 				]),
 				additional: levels.map(function (n) {
-					return n < 2 ? "" : (n < 10 ? 1 : 2) + "d8 + Wisdom modifier hit points restored";
+					return n < 2 ? "" : (n < 10 ? 1 : 2) + "d8 + Wisdom " + (typePF ? "mod" : "modifier") + " HP restored";
 				}),
 			},
 			"dragon constellation": {
@@ -2786,7 +2788,7 @@ AddSubClass("druid", "circle of the stars", {
 			minlevel: 10,
 			description: desc([
 				"While in my starry form, I can change the constellation at the start of each of my turns",
-				'The benefit of my constellations improve, see the 3rd page "Notes" section',
+				"The benefit of my constellations improve, see the 3rd page Notes",
 			]),
 			calcChanges: {
 				atkAdd: [
@@ -3336,7 +3338,7 @@ AddSubClass("fighter", "rune knight", {
 				description: desc([
 					"While I wear an object inscribed with this, I gain might of those surviving wintry wilderness",
 					"I always gain advantage on Wisdom (Animal Handling) and Charisma (Intimidation) checks",
-					"As a bonus action, I can invoke this to gain +2 on Str and Con checks and saves for 10 min",
+					"As a bonus action, I can invoke this to gain +2 on Str and Con checks/saves for 10 min",
 				]),
 				action: [["bonus action", " (invoke)"]],
 				additional: "invoke",
@@ -3350,7 +3352,7 @@ AddSubClass("fighter", "rune knight", {
 				description: desc([
 					"While I wear an object inscribed with this, I gain judiciousness reminiscent of stone giants",
 					"I always gain advantage on Wisdom (Insight) checks and I gain darkvision out to 120 ft",
-					"As a reaction when a creature I can see ends it turn within 30 ft, I can invoke this rune",
+					"As a reaction when a creature I can see ends its turn within 30 ft, I can invoke this rune",
 					"This causes the creature to make a Wisdom save or be charmed by me for 1 minute",
 					"While charmed, it descends into a dreamy stupor, becoming incapacitated and has speed 0",
 					"It can repeat the save at the end of each of its turns, ending the effect on a success",
@@ -3566,7 +3568,7 @@ AddSubClass("monk", "way of mercy", {
 				}),
 				action: [["action", ""]],
 				additional: levels.map(function (n) {
-					return n < 3 ? "" : "1 ki point; heal 1d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10) + " + Wisdom modifier";
+					return n < 3 ? "" : "1 ki point; heal 1d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10) + (typePF ? " + Wis mod" : " + Wisdom modifier");
 				}),
 			},
 			"hands of harm": {
@@ -3584,7 +3586,7 @@ AddSubClass("monk", "way of mercy", {
 					);
 				}),
 				additional: levels.map(function (n) {
-					return n < 3 ? "" : "1 ki point; 1d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10) + " + Wis mod necrotic damage";
+					return n < 3 ? "" : "1 ki point; 1d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10) + " + Wis mod necrotic" + (typePF ? "" : " damage");
 				}),
 			},
 			autoSelectExtrachoices: [{
@@ -3641,7 +3643,7 @@ AddSubClass("monk", "way of the astral self", {
 			name: "Arms of the Astral Self",
 			source: [["T", 50]],
 			minlevel: 3,
-			description: ' [1 ki; see 3rd page "Notes"]' + desc([
+			description: " [1 ki; see 3rd page Notes]" + desc([
 				"As a bonus action, I can use my ki to summon the arms of my astral self for 10 minutes",
 			]),
 			action: [["bonus action", "Summon Astral Arms"]],
@@ -3652,7 +3654,7 @@ AddSubClass("monk", "way of the astral self", {
 				source: [["T", 50]],
 				ability: 5,
 				range: "Melee (+5 ft)",
-				damage: [1, "", "Force"],
+				damage: [1, "", "force"],
 				description: "+5 ft reach; Uses Str, Dex, or Wis",
 				isAstralArms: true,
 				selectNow: true,
@@ -3670,7 +3672,7 @@ AddSubClass("monk", "way of the astral self", {
 					"They last for 10 minutes or until I'm incapacitated or die; I choose their appearance",
 				]),
 				additional: levels.map(function (n) {
-					return n < 3 ? "" : "1 ki point; 2d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10) + " force damage on summon";
+					return n < 3 ? "" : "1 ki point; 2d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10) + " force " + (typePF ? "" : "dmg") + " on summon";
 				}),
 			},
 			autoSelectExtrachoices: [{ extrachoice: "astral arms" }],
@@ -3679,7 +3681,7 @@ AddSubClass("monk", "way of the astral self", {
 			name: "Visage of the Astral Self",
 			source: [["T", 50]],
 			minlevel: 6,
-			description: ' [1 ki; see 3rd page "Notes"]' + desc([
+			description: " [1 ki; see 3rd page Notes]" + desc([
 				"As a bonus action, I can use my ki to summon the visage of my astral self for 10 minutes",
 			]),
 			action: [["bonus action", "Summon Astral Arms and/or Visage", "Summon Astral Arms"]],
@@ -3703,7 +3705,7 @@ AddSubClass("monk", "way of the astral self", {
 			name: "Body of the Astral Self",
 			source: [["T", 51]],
 			minlevel: 11,
-			description: ' [see 3rd page "Notes"]' + desc([
+			description: " [see 3rd page Notes]" + desc([
 				"When I have both my astral arms and visage summoned, my astral body appears as well",
 				"This spectral body covers me like an armor, connecting my astral arms and astral visage",
 			]),
@@ -3735,7 +3737,7 @@ AddSubClass("monk", "way of the astral self", {
 			name: "Awakened Astral Self",
 			source: [["T", 51]],
 			minlevel: 17,
-			description: ' [5 ki; see 3rd page "Notes"]' + desc([
+			description: " [5 ki; see 3rd page Notes]" + desc([
 				"As a bonus action, I can use 5 ki points to summon astral arms and visage with benefits",
 			]),
 			action: [["bonus action", ""]],
@@ -3905,7 +3907,7 @@ AddSubClass("paladin", "oath of the watchers", {
 			name: "Channel Divinity: Watcher's Will",
 			source: [["T", 55]],
 			minlevel: 3,
-			description: desc("As an action, Cha mod of creatures I see in 30 ft adv. on Int/Wis/Cha saves for 1 min"),
+			description: desc("As an action, Cha mod of creatures I see in 30 ft get adv. on Int/Wis/Cha saves for 1 min"),
 			action: [["action", ""]],
 			spellcastingExtra: ["alarm", "detect magic", "moonbeam", "see invisibility", "counterspell", "nondetection", "aura of purity", "banishment", "hold monster", "scrying"],
 		},
@@ -3914,7 +3916,7 @@ AddSubClass("paladin", "oath of the watchers", {
 			source: [["T", 55]],
 			minlevel: 3,
 			description: desc([
-				"As an action, all aberration, celestial, elemental, fey, fiend in 30 ft must make Wis save",
+				"As an action, all aberration, celestial, elemental, fey, fiend in 30 ft must make a Wis save",
 				"Succeeds if it can't hear me; On fail, turned for 1 minute or until it takes any damage",
 				"Turned: move away, never within 30 ft of me, no reactions or actions other than Dash",
 				"Turned: may Dodge instead of Dash when nowhere to move and unable to escape bonds",
@@ -3934,7 +3936,7 @@ AddSubClass("paladin", "oath of the watchers", {
 			source: [["T", 55]],
 			minlevel: 15,
 			description: desc([
-				"As a reaction when I or another I can see succeeds a Int, Wis, or Cha save, I can rebuke",
+				"As a reaction when I or another I can see succeeds an Int, Wis, or Cha save, I can rebuke",
 				"The creature that forced the saving throw takes 2d8 + my Charisma mod force damage",
 			]),
 			action: [["reaction", ""]],
@@ -4796,7 +4798,7 @@ AddSubClass("rogue", "soulknife", {
 			source: [["T", 65]],
 			minlevel: 9,
 			description: desc([
-				'My psi-suffused soul grants me more psionic powers, see the 3rd page "Notes" section',
+				"My psi-suffused soul grants me more psionic powers, see 3rd page Notes",
 			]),
 			extraname: "Soulknife 9",
 			"homing strikes": {
@@ -4929,7 +4931,7 @@ AddSubClass("sorcerer", "aberrant mind", {
 			source: [["T", 67]],
 			minlevel: 1,
 			description: desc([
-				"I learn additional spells, which do not count towards the number of spell I can know",
+				"I learn additional spells, which do not count towards the number of spells I can know",
 				"Whenever I gain a sorcerer level, I can replace one of these with another of the same level",
 				"It must be a divination or enchantment spell on the sorcerer, wizard, or warlock spell list",
 			]),
@@ -5064,7 +5066,7 @@ AddSubClass("sorcerer", "clockwork soul", {
 			source: [["T", 68]],
 			minlevel: 1,
 			description: desc([
-				"I learn additional spells, which do not count towards the number of spell I can know",
+				"I learn additional spells, which do not count towards the number of spells I can know",
 				"Whenever I gain a sorcerer level, I can replace one of these with another of the same level",
 				"It must be an abjuration or transmutation spell on the sorcerer, wizard, or warlock list",
 			]),
@@ -5405,7 +5407,7 @@ AddSubClass("warlock", "the fathomless", {
 				source: [["T", 72]],
 				ability: 6,
 				type: "Spell",
-				damage: [1, 8, "Cold"],
+				damage: [1, 8, "cold"],
 				range: "Melee (10 ft)",
 				description: "On hit, -10 ft speed until my next turn starts",
 				abilitytodamage: false,
@@ -5466,7 +5468,7 @@ AddSubClass("warlock", "the fathomless", {
 			minlevel: 10,
 			description: desc([
 				"I learn *Evard's Black Tentacles*; Once per long rest, I can cast it without using a spell slot",
-				"It counts as a warlock spell for me, but not towards the number of spell I can know",
+				"It counts as a warlock spell for me, but not towards the number of spells I can know",
 				"Whenever I cast it, I gain temporary hit points equal to my warlock level",
 				"Moreover, damage can't break my concentration on this spell",
 			]),
@@ -5720,7 +5722,7 @@ AddSubClass("warlock", "the genie", {
 				"As a bonus action, I can eject any number of creatures from my genie's vessel",
 				"Everyone is ejected when I leave it, I die, or if the vessel is destroyed",
 				"Anyone who remains in the vessel for at least 10 min gains the benefits of a short rest",
-				"Also, HD spend as part of this short rest has my Proficiency Bonus added to the roll",
+				"Also, HD spent as part of this short rest has my Proficiency Bonus added to the roll",
 			]),
 		},
 		"subclassfeature14": {
@@ -5868,7 +5870,7 @@ AddSubClass("wizard","order of scribes", {
 				" \u2022 It doesn't require ink and produces ink in the color of my choice when writing with it",
 				" \u2022 I require only 2 minutes per spell level to transcribe spells into my spellbook with it",
 				" \u2022 As a bonus action, I can use it to erase a text written with it if within 5 ft of the text",
-				"The quill disappear if I create another or if I die",
+				"The quill disappears if I create another or if I die",
 			]),
 			action: [["bonus action", " (create/erase)"]],
 		},
@@ -5899,7 +5901,7 @@ AddSubClass("wizard","order of scribes", {
 				"It can hear, see, has 60 ft darkvision, and telepathically shares with me what it perceives",
 				"As a bonus action, I can dismiss it or move it up to 30 ft to an empty space I can see",
 				"It can pass through creatures; It stops manifesting if it's over 300 ft from me or I die",
-				"It also stop manifesting if *Dispel Magic* is cast on it or the awakened spellbook is no more",
+				"It also stops manifesting if *Dispel Magic* is cast on it or the awakened spellbook is no more",
 				"I can do this once per long rest, or by expending a spell slot (SS 1+) to manifest it again",
 			]),
 			action: [["bonus action", " (conjure/move/dismiss)"]],
@@ -5912,7 +5914,7 @@ AddSubClass("wizard","order of scribes", {
 			source: [["T", 78]],
 			minlevel: 6,
 			description: desc([
-				"I can have wizard spells I cast on my turn originate from the mind while its manifested",
+				"I can have wizard spells I cast on my turn originate from the mind while it's manifested",
 			]),
 			usages: "Proficiency bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus');",
@@ -5933,7 +5935,7 @@ AddSubClass("wizard","order of scribes", {
 			usages: 1,
 			recovery: "long rest",
 			spellcastingBonus: [{
-				name: "Master Scrivener scoll",
+				name: "Master Scrivener srcoll",
 				"class": "wizard",
 				level: [1, 2],
 				firstCol: "MS",
@@ -5976,7 +5978,7 @@ AddSubClass("wizard","order of scribes", {
 			name: "One with the Word",
 			source: [["T", 78]],
 			minlevel: 14,
-			description: ' [see 3rd page "Notes" section]',
+			description: " [see 3rd page Notes]",
 			action: [["reaction", " (when damaged)"]],
 			advantages: [["Arcana", true]],
 			"one with the word": {
@@ -7251,7 +7253,7 @@ MagicItemsList["spellwrought tattoo"] = {
 					spellObj.ritual = false;
 					["description", "descriptionMetric", "descriptionShorter", "descriptionShorterMetric"].forEach (function (attr) {
 						if (!spellObj[attr]) return;
-						spellObj[attr] = spellObj[attr].replace(/ \(\d+k? ?gp( cons\.?)?\)/i, "");
+						spellObj[attr] = spellObj[attr].replace(/ \([\d.,k]+ ?gp( cons\.?)?\)/i, "");
 					});
 					spellObj.spellwroughtTattooProcessed = true;
 					return true;
@@ -7953,7 +7955,7 @@ MagicItemsList["heart weaver's primer"] = {
 	prerequisite: "Requires attunement by a wizard",
 	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "I can use this book as a wizard spellcasting focus and spellbook. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to an enchantment spell in it. When I cast an enchantment spell, I can use 1 charge to grant disadv. on the first save one target makes against the spell.",
-	descriptionLong: "This pristine book smells faintly of a random scent I find pleasing. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells that I can prepare as wizards spells. It has 3 charges and it regains 1d3 expended charges daily at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an enchantment spell within the book. When I cast an enchantment spell while holding the book, I can expend 1 charge to impose disadvantage on the first saving throw one target makes against the spell.",
+	descriptionLong: "This pristine book smells faintly of a random scent I find pleasing. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells that I can prepare as wizard spells. It has 3 charges and it regains 1d3 expended charges daily at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an enchantment spell within the book. When I cast an enchantment spell while holding the book, I can expend 1 charge to impose disadvantage on the first saving throw one target makes against the spell.",
 	descriptionFull: [
 		"This pristine book smells faintly of a random scent you find pleasing. When found, the book contains the following spells: *antipathy/sympathy*, *charm person*, *dominate person*, *enthrall*, *hypnotic pattern*, *modify memory*, and *suggestion*. It functions as a spellbook for you.",
 		"While you are holding the book, you can use it as a spellcasting focus for your wizard spells.",
@@ -7984,7 +7986,7 @@ MagicItemsList["libram of souls and flesh"] = {
 	prerequisite: "Requires attunement by a wizard",
 	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "This spellbook starts with 7 spells and is a wizard spellcasting focus. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to a necromancy spell within. As an action, I can use 1 charge to appear undead for 10 min, causing undead I haven't damage to be indifferent.",
-	descriptionLong: "With covers made of skin and fittings of bone, this tome is cold to the touch, and fainlty whispers. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to a necromancy spell within. As an action, I can expend 1 charge to appear undead for 10 minutes, fooling even spells. For the duration, undead are indifferent to me, unless I have damaged them. The effect ends early if I deal damage or force a creature to make a save.",
+	descriptionLong: "With covers made of skin and fittings of bone, this tome is cold to the touch, and faintly whispers. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to a necromancy spell within. As an action, I can expend 1 charge to appear undead for 10 minutes, fooling even spells. For the duration, undead are indifferent to me, unless I have damaged them. The effect ends early if I deal damage or force a creature to make a save.",
 	descriptionFull: [
 		"With covers made of skin and fittings of bone, this tome is cold to the touch, and it whispers faintly. When found, the book contains the following spells, which are wizard spells for you while you are attuned to the book: *animate dead*, *circle of death*, *false life*, *finger of death*, *speak with dead*, *summon undead*, and *vampiric touch*. It functions as a spellbook for you.",
 		"While you are holding the book, you can use it as a spellcasting focus for your wizard spells.",
@@ -8015,7 +8017,7 @@ MagicItemsList["planecaller's codex"] = {
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
 	prereqeval: function (v) { return classes.known.wizard ? true : false; },
-	description: "This spellbook starts with 6 spells and is a wizard spellcasting focus. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to a conjuration spell within. When I cast a conjuration spell to summon or create one creature, I can give it adv. on attacks for 1 min for 1 charge.",
+	description: "This spellbook starts with 6 spells and is a wizard spellcasting focus. It has 3 charges, regaining 1d3 at dawn. For 1 charge \x26 1 min of study, I can change a prepared spell to a conjuration spell within. When I cast a conjuration spell to summon or create one creature, I can give it adv. on attacks for 1 min for 1 charge.",
 	descriptionLong: "The pages of this book are bound in fiend hide, and its cover is embossed with a diagram of the multiverse. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 expended charges daily at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to a conjuration spell within the book. When I hold the book and cast a conjuration spell that summons or creates one creature, I can expend 1 charge to grant that creature advantage on attack rolls for 1 minute.",
 	descriptionFull: [
 		"The pages of this book are bound in fiend hide, and its cover is embossed with a diagram of the Great Wheel of the multiverse. When found, the book contains the following spells: *banishment*, *find familiar*, *gate*, *magic circle*, *planar binding*, and *summon elemental*. It functions as a spellbook for you.",
@@ -8041,7 +8043,7 @@ MagicItemsList["protective verses"] = {
 	attunement: true,
 	prerequisite: "Requires attunement by a wizard",
 	prereqeval: function (v) { return classes.known.wizard ? true : false; },
-	description: "I can use this book with an iron lock as a spellcasting focus and spellbook. As an action, I can use *Arcane Lock* it. It has 3 charges, regains 1d3 at dawn. For 1 charge \u0026 1 min study, I can change a prepared spell to an abjuration within. I can use 1 charge when I cast an abjuration spell to give a creature in 30 ft 2d10 temp HP.",
+	description: "I can use this book with an iron lock as a spellcasting focus and spellbook. As an action, I can *Arcane Lock* it. It has 3 charges, regains 1d3 at dawn. For 1 charge \x26 1 min study, I can change a prepared spell to an abjuration within. I can use 1 charge when I cast an abjuration spell to give a creature in 30 ft 2d10 temp HP.",
 	descriptionLong: "This leather-bound spellbook is reinforced with iron and silver fittings and an iron lock (DC 20 to open). As an action, I can touch the book's cover and cause it to lock as if I cast *arcane lock* on it. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 charges at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an abjuration spell within. When I hold the book and cast an abjuration, I can expend 1 charge to grant a creature I can see within 30 ft 2d10 temporary hit points.",
 	descriptionFull: [
 		"This leather-bound spellbook is reinforced with iron and silver fittings and an iron lock (DC 20 to open). As an action, you can touch the book's cover and cause it to lock as if you cast *arcane lock* on it. When found, the book contains the following spells: *arcane lock*, *dispel magic*, *globe of invulnerability*, *glyph of warding*, *Mordenkainen's private sanctum*, *protection from evil and good*, and *symbol*. It functions as a spellbook for you.",
@@ -8228,6 +8230,9 @@ MagicItemsList["feywild shard"] = {
 	"as a wild magic sorcerer (wild mage)": {
 		name: "Feywild Shard (Wild Mage)",
 		description: "As an action, I can attach/detach this warm crystal that glints with sunset colors to a Tiny object. It falls off if my attunement ends. While I hold or wear it, I can use it as a spellcasting focus for my sorcerer spells, and when I use a Metamagic option on a spell, I can choose to roll on the Wild Magic Surge table.",
+		toNotesPage: !ClassSubList["sorcerer-wild magic"] || !ClassSubList["sorcerer-wild magic"].features.subclassfeature1 ? null : ClassSubList["sorcerer-wild magic"].features.subclassfeature1.toNotesPage.map(function (obj) {
+			return Object.assign({}, obj, { origin: "Feywild Shard" });
+		}),
 	},
 	"as any other sorcerer": {
 		name: "Feywild Shard  ", // spaces are intentional
@@ -8238,9 +8243,6 @@ MagicItemsList["feywild shard"] = {
 			recovery: "dawn",
 		}],
 	},
-}
-if (ClassSubList["sorcerer-wild magic"] && ClassSubList["sorcerer-wild magic"].features.subclassfeature1.toNotesPage) { // Add the wild magic surge tables to this item
-	MagicItemsList["feywild shard"].toNotesPage = ClassSubList["sorcerer-wild magic"].features.subclassfeature1.toNotesPage;
 }
 // Bard instruments
 MagicItemsList["reveler's concertina"] = {

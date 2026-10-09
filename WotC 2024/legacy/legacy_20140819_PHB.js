@@ -402,7 +402,7 @@ AddSubClass("cleric", "tempest domain", {
 			name: "Stormborn",
 			source: [["P", 62]],
 			minlevel: 17,
-			description: desc("Whenever I'm not underground or indoors, I have a Fly Speed equal to my current speed."),
+			description: desc("Whenever I'm not underground or indoors, I have a Fly Speed equal to my Speed."),
 			speed: { fly: { spd: "walk", enc: "walk" } },
 		},
 	},
@@ -530,7 +530,7 @@ FeatsList["linguist"] = {
 	name: "Linguist",
 	source: [["P", 167]],
 	description: "",
-	calculate: "event.value = \"I can ably create written ciphers that others can't decipher unless I teach them, they succeed on an Intelligence check DC \" + (Number(What('Int')) + Number(How('Proficiency Bonus'))) + ' (Intelligence score + proficiency bonus), or they use magic to decipher it. I learn three languages of my choice. [+1 Intelligence]';",
+	calculate: "event.value = \"I can ably create written ciphers that others can't decipher unless I teach them, they succeed on an Intelligence check DC \" + (Number(What('Int')) + Number(How('Proficiency Bonus'))) + ' (Intelligence score + Proficiency Bonus), or they use magic to decipher it. I learn three languages of my choice. [+1 Intelligence]';",
 	descriptionFull: [
 		"You have studied languages and codes, gaining the following benefits:",
 		" \u2022 Increase your Intelligence score by 1, to a maximum of 20.",
@@ -544,7 +544,7 @@ FeatsList["martial adept"] = {
 	name: "Martial Adept",
 	source: [["P", 168]],
 	description: "",
-	calculate: "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master (2nd page \"Choose Feature\" button). The saving throw DC for this is ' + (8 + Number(How('Proficiency Bonus')) + Math.max(Number(What('Str Mod')), Number(What('Dex Mod')))) + ' (8 + proficiency bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a Short Rest.';",
+	calculate: "event.value = 'I learn two maneuvers of my choice from those available to the Battle Master (2nd page \"Choose Feature\" button). The saving throw DC for this is ' + (8 + Number(How('Proficiency Bonus')) + Math.max(Number(What('Str Mod')), Number(What('Dex Mod')))) + ' (8 + Proficiency Bonus + Str/Dex mod). I gain one superiority die (d6), which I regain when I finish a Short Rest.';",
 	descriptionFull: [
 		"You have martial training that allows you to perform special combat maneuvers. You gain the following benefits:",
 		" \u2022 You learn two maneuvers of your choice from among those available to the Battle Master archetype in the fighter class. If a maneuver you use requires your target to make a saving throw to resist the maneuver's effects, the saving throw DC equals 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice).",
