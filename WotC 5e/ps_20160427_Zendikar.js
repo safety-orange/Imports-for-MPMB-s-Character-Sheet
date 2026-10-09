@@ -174,7 +174,7 @@ RaceList["zendikar vampire"] = {
 
 RaceList["grotag tribe goblin"] = {
 	regExpSearch: /^(?=.*\bgrotag)(?=.*goblin\b).*$/i,
-	name: "Grotag tribe goblin",
+	name: "Grotag Tribe Goblin",
 	sortname: "Goblin, Grotag Tribe",
 	source: [["PS:Z", 17]],
 	plural: "Grotag tribe goblins",
@@ -207,7 +207,7 @@ RaceList["grotag tribe goblin"] = {
 };
 RaceList["lavastep tribe goblin"] = {
 	regExpSearch: /^(?=.*\blavastep)(?=.*goblin\b).*$/i,
-	name: "Lavastep tribe goblin",
+	name: "Lavastep Tribe Goblin",
 	sortname: "Goblin, Lavastep Tribe",
 	source: [["PS:Z", 17]],
 	plural: "Lavastep tribe goblins",
@@ -240,7 +240,7 @@ RaceList["lavastep tribe goblin"] = {
 };
 RaceList["tuktuk tribe goblin"] = {
 	regExpSearch: /^(?=.*\btuktuk)(?=.*goblin\b).*$/i,
-	name: "Tuktuk tribe goblin",
+	name: "Tuktuk Tribe Goblin",
 	sortname: "Goblin, Tuktuk Tribe",
 	source: [["PS:Z", 17]],
 	plural: "Tuktuk tribe goblins",
@@ -274,7 +274,7 @@ RaceList["tuktuk tribe goblin"] = {
 
 RaceList["tajuru elf"] = {
 	regExpSearch: /^(?!.*half)(?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\btajuru\b).*$/i,
-	name: "Tajuru elf",
+	name: "Tajuru Elf",
 	sortname: "Elf, Tajuru",
 	source: [["PS:Z", 19]],
 	plural: "Tajuru elves",
@@ -303,7 +303,7 @@ RaceList["tajuru elf"] = {
 };
 RaceList["joraga elf"] = {
 	regExpSearch: /^(?!.*half)(?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\bjoraga\b).*$/i,
-	name: "Joraga elf",
+	name: "Joraga Elf",
 	sortname: "Elf, Joraga",
 	source: [["PS:Z", 19]],
 	plural: "Joraga elves",
@@ -332,7 +332,7 @@ RaceList["joraga elf"] = {
 };
 RaceList["mul daya elf"] = {
 	regExpSearch: /^(?!.*half)(?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\bmul)(?=.*daya\b).*$/i,
-	name: "Mul Daya elf",
+	name: "Mul Daya Elf",
 	sortname: "Elf, Mul Daya",
 	source: [["PS:Z", 19]],
 	plural: "Mul Daya elves",

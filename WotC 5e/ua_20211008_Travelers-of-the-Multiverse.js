@@ -15,7 +15,7 @@ SourceList["UA:TotM"] = {
 // New races
 RaceList["astral elf-ua"] = {
 	regExpSearch: /^(?!.*half)(?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(astral|silver void)\b).*$/i,
-	name: "Astral elf",
+	name: "Astral Elf",
 	sortname: "Elf, Astral",
 	source: [["UA:TotM", 2]],
 	plural: "Astral elves",
@@ -47,7 +47,7 @@ RaceList["astral elf-ua"] = {
 		"**Astral Elf**",
 		"##\u25C6 Radiant Soul##. Once per short rest when I succeed on a death save, I can regain HP equal to my proficiency bonus + my Int, Wis, or Cha mod (choose when selecting this race).",
 		"##\u25C6 Trance##. I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours if I spend those hours in a trancelike meditation, during which I remain conscious.",
-		"\u2022 Trance Proficiencies. Whenever I finish a long rest using Trance, I gain two proficiencies, each one with a weapon or a tool of my choice. They last until I finish my next long rest.",
+		"##\u25C6 Trance Proficiencies##. Whenever I finish a long rest using Trance, I gain two proficiencies, each one with a weapon or a tool of my choice. They last until I finish my next long rest.",
 	],
 };
 RaceList["autognome-ua"] = {
@@ -163,7 +163,7 @@ RaceList["plasmoid-ua"] = {
 };
 RaceList["thri-kreen-ua"] = {
 	regExpSearch: /thri.?kreen/i,
-	name: "Thri-kreen",
+	name: "Thri-Kreen",
 	source: [["UA:TotM", 4]],
 	plural: "Thri-kreen",
 	size: [3, 4],
@@ -192,6 +192,6 @@ RaceList["thri-kreen-ua"] = {
 		"##\u25C6 Chameleon Carapace##. " + (typePF ? "AC 13 + Dex," : "My base AC is 13 + Dex mod. I have") + " adv. on Stealth checks to hide.",
 		"##\u25C6 Secondary Arms##. I have two slightly smaller arms below my primary pair of arms. I can't use these secondary arms to wield a shield or weapons other than light weapons.",
 		"##\u25C6 Sleepless##. I don't " + (typePF ? "" : "require ") + "sleep. I rest by refraining from strenuous activity.",
-		"\u2022 " + (typePF ? "Thri-kreen " : "") + "Telepathy: I can communicate telepathically to any number of willing creatures I can see that understand at least one language, while within 120 ft. Any can break this (no action).",
+		"##\u25C6 " + (typePF ? "Thri-kreen " : "") + "Telepathy##. I can communicate telepathically to any number of willing creatures I can see that understand at least one language, while within 120 ft. Any can break this (no action).",
 	],
 };

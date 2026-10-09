@@ -41,7 +41,7 @@ MagicItemsList["balloon pack"] = {
 	spellChanges: {
 		"feather fall": {
 			range: "Self",
-			description: "I descent only 60 ft/rnd for duration or until landed, taking no falling damage",
+			description: "I descend only 60 ft/rnd for duration or until landed, taking no falling damage",
 			changes: "Using the Balloon Pack, I can only target myself.",
 		},
 		"levitate": {
@@ -59,7 +59,7 @@ MagicItemsList["bottled breath"] = {
 	type: "potion",
 	rarity: "uncommon",
 	magicItemTable: "C",
-	description: "Once as an action, I can inhale this breath of elemental air or administer it to another. The target then either exhale it or hold it in. If exhaled immediately, it produces the effects of *Gust of Wind*. Holding it in removes the need to breathe for 1 hour, though this benefit can end early, by speaking for example.",
+	description: "Once as an action, I can inhale this breath of elemental air or administer it to another. The target then either exhales it or holds it in. If exhaled immediately, it produces the effects of *Gust of Wind*. Holding it in removes the need to breathe for 1 hour, though this benefit can end early, by speaking for example.",
 	descriptionFull: [
 		"This bottle contains a breath of elemental air. When you inhale it, you either exhale it or hold it.",
 		"If you exhale the breath, you gain the effect of the *Gust of Wind* spell. If you hold the breath, you don't need to breathe for 1 hour, though you can end this benefit early (for example, to speak). Ending it early doesn't give you the benefit of exhaling the breath.",
@@ -108,7 +108,7 @@ MagicItemsList["devastation orb"] = {
 	type: "wondrous item",
 	rarity: "very rare",
 	magicItemTable: "G",
-	description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates an effect in a 1-mile radius around it.",
+	description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. It explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates an effect in a 1-mile radius around it.",
 	descriptionFull: PotA_tempDevastationOrbNoteTxt[0],
 	weight: 10,
 	allowDuplicates: true,
@@ -116,7 +116,7 @@ MagicItemsList["devastation orb"] = {
 	choicesNotInMenu: true,
 	"air": {
 		name: "Devastation Orb of Air",
-		description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates a powerful windstorm in 1 mile around it for 1 hour. Everything exposed to the wind is damage by it. See Notes page.",
+		description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. It explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates a powerful windstorm in 1 mile around it for 1 hour. Everything exposed to the wind is damaged by it. See Notes page.",
 		descriptionFull: PotA_tempDevastationOrbNoteTxt[0] + "\n   ***Air Orb***. When this orb detonates, it creates a powerful windstorm that lasts for 1 hour. Whenever a creature ends its turn exposed to the wind, the creature must succeed on a DC 18 Constitution saving throw or take 1d4 bludgeoning damage, as the wind and debris batter it. The wind is strong enough to uproot weak trees and destroy light structures after at least 10 minutes of exposure. Otherwise, the rules for strong wind apply, as detailed in chapter 5 of the Dungeon Master's Guide.",
 		toNotesPage: [{
 			name: "Features",
@@ -125,7 +125,7 @@ MagicItemsList["devastation orb"] = {
 	},
 	"earth": {
 		name: "Devastation Orb of Earth",
-		description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates the effect of an *Earthquake* spell in 1 mile around it for 1 minute. See Notes page.",
+		description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. It explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates the effect of an *Earthquake* spell in 1 mile around it for 1 minute. See Notes page.",
 		descriptionFull: PotA_tempDevastationOrbNoteTxt[0] + "\n   ***Earth Orb***. When this orb detonates, it subjects the area to the effects of the *Earthquake* spell for 1 minute (spell save DC 18). For the purpose of the spell's effects, the spell is cast on the turn that the orb explodes.",
 		toNotesPage: [{
 			name: "Features",
@@ -141,7 +141,7 @@ MagicItemsList["devastation orb"] = {
 	},
 	"fire": {
 		name: "Devastation Orb of Fire",
-		description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates a dry heat wave in 1 mile around it for 24 hours. There is extreme heat within the area and wildfires can appear within, see Notes.",
+		description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. It explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates a dry heat wave in 1 mile around it for 24 hours. There is extreme heat within the area and wildfires can appear within, see Notes.",
 		descriptionFull: PotA_tempDevastationOrbNoteTxt[0] + "\n   ***Fire Orb***. When this orb detonates, it creates a dry heat wave that lasts for 24 hours. Within the area of effect, the rules for extreme heat apply, as detailed in chapter 5 of the Dungeon Master's Guide. At the end of each hour, there is a ten percent chance that the heat wave starts a wildfire in a random location within the area of effect. The wildfire covers a 10-foot-square area initially but expands to fill another 10-foot square each round until the fire is extinguished or burns itself out. A creature that comes within 10 feet of a wildfire for the first time on a turn or starts its turn there takes 3d6 fire damage.",
 		toNotesPage: [{
 			name: "Features",
@@ -150,7 +150,7 @@ MagicItemsList["devastation orb"] = {
 	},
 	"water": {
 		name: "Devastation Orb of Water",
-		description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates torrential rainstorm in 1 mile around it for 24 hours. If bodies of water exist in the area, they rise 10 ft and flood. See Notes page.",
+		description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. It explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates a torrential rainstorm in 1 mile around it for 24 hours. If bodies of water exist in the area, they rise 10 ft and flood. See Notes page.",
 		descriptionFull: PotA_tempDevastationOrbNoteTxt[0] + "\n   ***Water Orb***. When this orb detonates, it creates a torrential rainstorm that lasts for 24 hours. Within the area of effect, the rules for heavy precipitation apply, as detailed in chapter 5 of the Dungeon Master's Guide. If there is a substantial body of water in the area, it floods after 2d10 hours of heavy rain, rising 10 feet above its banks and inundating the surrounding area. The flood advances at a rate of 100 feet per round, moving away from the body of water where it began until it reaches the edge of the area of effect: at that point, the water flows downhill (and possibly recedes back to its origin). Light structures collapse and wash away. Any Large or smaller creature caught in the flood's path is swept away. The flooding destroys crops and might trigger mudslides, depending on the terrain.",
 		toNotesPage: [{
 			name: "Features",
@@ -289,7 +289,7 @@ MagicItemsList["ironfang"] = {
 			"A war pick forged from a single piece of iron, Ironfang has a fang-like head inscribed with ancient runes. The pick is heavy in the hand, but when the wielder swings the pick in anger, the weapon seems almost weightless. This weapon is immune to any form of rust, acid, or corrosion\u2014nothing seems to mark it. Ironfang contains a spark of Ogr\xE9moch, the Prince of Evil Earth.",
 			"I gain a +2 bonus to attack and damage rolls made with this magic weapon. When I hit with it, the target takes an extra 1d8 thunder damage.",
 			"While holding Ironfang, I can speak Terran fluently, have resistance to acid damage, have tremorsense out to a range of 60 ft, can sense the presence of precious metals and stones within 60 ft of me, but not their exact location, and can cast *Dominate Monster* (save DC 17) on an earth elemental once per dawn.",
-			"Ironfang has 3 charges and regains 1d3 expended charges daily at dawn. I can use your action to expend 1 charge and cast the 2nd-level version of *Shatter* (DC 17).",
+			"Ironfang has 3 charges and regains 1d3 expended charges daily at dawn. I can use my action to expend 1 charge and cast the 2nd-level version of *Shatter* (DC 17).",
 			"While inside an earth node, I can perform a ritual called the Rumbling, using Ironfang to create a Devastation Orb of Earth. The ritual takes 1 hour to complete and requires 2,000 gp worth of special components, which are consumed. Once I perform the ritual, Ironfang can't be used to perform the ritual again until the next dawn.",
 			'Ironfang heightens my destructive nature. While attuned to the weapon, I gain the following flaw: "I like to break things and cause ruin."',
 		],
@@ -352,7 +352,7 @@ MagicItemsList["orcsplitter"] = {
 			note: [
 				'A mighty axe wielded long ago by the dwarf king Torhild Flametongue, *Orcsplitter* is a battered weapon that appears unremarkable at first glance. Its head is graven with the Dwarvish runes for "orc," but the runes are depicted with a gap or slash through the markings; the word "orc" is literally split in two.',
 				"I gain a +2 bonus to attack and damage rolls made with it. When I roll a 20 on an attack roll with this weapon against an orc, that orc must succeed on a DC 17 Constitution saving throw or drop to 0 hit points.",
-				"While I am not incapacitated, I can't be surprised by orcs and I am aware when orcs are within 120 ft of me and aren't behind total cover, although I don't know their location. Also, me and any of my friends within 30 ft of can't be frightened while I am not incapacitated.",
+				"While I am not incapacitated, I can't be surprised by orcs and I am aware when orcs are within 120 ft of me and aren't behind total cover, although I don't know their location. Also, me and any of my friends within 30 ft of me can't be frightened while I am not incapacitated.",
 				"*Orcsplitter* is a sentient, lawful good weapon with an Intelligence of 6, a Wisdom of 15, and a Charisma of 10. It can see and hear out to 120 feet and has darkvision. It communicates by transmitting emotions to its wielder, although on rare occasions it uses a limited form of telepathy to bring to the wielder's mind a couplet or stanza of ancient Dwarvish verse.",
 				"*Orcsplitter* is grim, taciturn, and inflexible. It knows little more than the desire to face orcs in battle and serve a courageous, just wielder. It disdains cowards and any form of duplicity, deception, or disloyalty. The weapon's purpose is to defend dwarves and to serve as a symbol of dwarven resolve. It hates the traditional foes of dwarves\u2014giants, goblins, and, most of all, orcs\u2014and silently urges its possessor to meet such creatures in battle.",
 			],
@@ -365,7 +365,7 @@ MagicItemsList["reszur"] = {
 	source: [["PotA", 157]],
 	type: "weapon (dagger)",
 	rarity: "uncommon",
-	description: "I have a +1 bonus to attack and damage rolls made with this dagger. It doesn't make noise when it hits or cuts something. If I speaks the name \"Reszur\", which is engraved on its pommel, the blade gives off a faint, cold glow, shedding dim light in a 10-foot radius until I speak the name again.",
+	description: "I have a +1 bonus to attack and damage rolls made with this dagger. It doesn't make noise when it hits or cuts something. If I speak the name \"Reszur\", which is engraved on its pommel, the blade gives off a faint, cold glow, shedding dim light in a 10-foot radius until I speak the name again.",
 	descriptionFull: [
 		"You have a +1 bonus to attack and damage rolls made with this weapon, which doesn't make noise when it hits or cuts something.",
 		"The name \"Reszur\" is graven on the dagger's pommel. If the wielder speaks the name, the blade gives off a faint, cold glow, shedding dim light in a 10-foot radius until the wielder speaks the name again.",
@@ -390,7 +390,7 @@ MagicItemsList["seeker dart"] = {
 	description: "Once as an action, when I whisper \"seek\" and hurl this dart, it seeks out a target of my choice within 120 ft that I have seen at least once. If the target isn't within range or there is no clear path to it, the dart's magic is spent. Else, the target must make a DC 16 Dex save or take 1d4 piercing and 3d4 lightning damage.",
 	descriptionFull: [
 		"This small dart is decorated with designs like windy spirals that span the length of its shaft.",
-		"When you whisper the word \"seek\" and hurl this dart, it seeks out a target of your choice within 120 feet of you. You must have seen the target before, but you don't need to see it now. If the target isn't within range or if there is no clear path to it, the dart falls to the ground, its magic spent and wasted. Otherwise, elemental winds guide the dart instantly through the air to the target. The dart can pass though openings as narrow as 1 inch wide and can change direction to fly around corners.",
+		"When you whisper the word \"seek\" and hurl this dart, it seeks out a target of your choice within 120 feet of you. You must have seen the target before, but you don't need to see it now. If the target isn't within range or if there is no clear path to it, the dart falls to the ground, its magic spent and wasted. Otherwise, elemental winds guide the dart instantly through the air to the target. The dart can pass through openings as narrow as 1 inch wide and can change direction to fly around corners.",
 		"When the dart reaches its target, the target must succeed on a DC 16 Dexterity saving throw or take 1d4 piercing damage and 3d4 lightning damage. The dart's magic is then spent, and it becomes an ordinary dart.",
 	],
 	weight: 0.25,
@@ -558,7 +558,7 @@ MagicItemsList["wingwear"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	magicItemTable: "C",
-	description: "This snug uniform with leathery flaps has 3 charges, regaining all when placed in an air not for 1 hour. As a bonus action, I can expend 1 charge to gain a 30 ft flying speed until I land or have 0 altitude. At the end of each of my turns, my altitude drops by 5 ft and I must move at least 30 ft horizontally or I fall.",
+	description: "This snug uniform with leathery flaps has 3 charges, regaining all when placed in an air node for 1 hour. As a bonus action, I can expend 1 charge to gain a 30 ft flying speed until I land or have 0 altitude. At the end of each of my turns, my altitude drops by 5 ft and I must move at least 30 ft horizontally or I fall.",
 	descriptionFull: [
 		"This snug uniform has symbols of air stitched into it and leathery flaps that stretch along the arms, waist, and legs to create wings for gliding. A suit of *wingwear* has 3 charges. While you wear the suit, you can use a bonus action and expend 1 charge to gain a flying speed of 30 feet until you land. At the end of each of your turns, your altitude drops by 5 feet. Your altitude drops instantly to 0 feet at the end of your turn if you didn't fly at least 30 feet horizontally on that turn. When your altitude drops to 0 feet, you land (or fall), and you must expend another charge to use the suit again.",
 		"The suit regains all of its expended charges after spending at least 1 hour in an elemental air node.",

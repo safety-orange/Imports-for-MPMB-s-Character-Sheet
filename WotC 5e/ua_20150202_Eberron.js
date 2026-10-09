@@ -105,7 +105,7 @@ RaceList["shifter-ua"] = {
 };
 AddRacialVariant("shifter-ua", "beasthide", {
 	regExpSearch: /beasthide/i,
-	name: "Beasthide shifter",
+	name: "Beasthide Shifter",
 	source: [["UA:E", 2]],
 	plural: "Beasthide shifters",
 	scorestxt: "",
@@ -118,7 +118,7 @@ AddRacialVariant("shifter-ua", "beasthide", {
 });
 AddRacialVariant("shifter-ua", "cliffwalk", {
 	regExpSearch: /cliffwalk/i,
-	name: "Cliffwalk shifter",
+	name: "Cliffwalk Shifter",
 	source: [["UA:E", 2]],
 	plural: "Cliffwalk shifters",
 	scorestxt: "",
@@ -131,7 +131,7 @@ AddRacialVariant("shifter-ua", "cliffwalk", {
 });
 AddRacialVariant("shifter-ua", "longstride", {
 	regExpSearch: /longstride/i,
-	name: "Longstride shifter",
+	name: "Longstride Shifter",
 	source: [["UA:E", 2]],
 	plural: "Longstride shifters",
 	scorestxt: "",
@@ -144,7 +144,7 @@ AddRacialVariant("shifter-ua", "longstride", {
 });
 AddRacialVariant("shifter-ua", "longtooth", {
 	regExpSearch: /(longtooth|longteeth)/i,
-	name: "Longtooth shifter",
+	name: "Longtooth Shifter",
 	source: [["UA:E", 2]],
 	plural: "Longtooth shifters",
 	weaponOptions: [{
@@ -168,7 +168,7 @@ AddRacialVariant("shifter-ua", "longtooth", {
 });
 AddRacialVariant("shifter-ua", "razorclaw", {
 	regExpSearch: /razorclaw/i,
-	name: "Razorclaw shifter",
+	name: "Razorclaw Shifter",
 	source: [["UA:E", 2]],
 	plural: "Razorclaw shifters",
 	weaponOptions: [{
@@ -190,7 +190,7 @@ AddRacialVariant("shifter-ua", "razorclaw", {
 });
 AddRacialVariant("shifter-ua", "wildhunt", {
 	regExpSearch: /wildhunt/i,
-	name: "Wildhunt shifter",
+	name: "Wildhunt Shifter",
 	source: [["UA:E", 3]],
 	plural: "Wildhunt shifters",
 	scorestxt: "",

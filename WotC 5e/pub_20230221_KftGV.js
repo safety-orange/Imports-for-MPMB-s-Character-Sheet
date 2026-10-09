@@ -105,16 +105,20 @@ var KftGV_ShardSolitaire = {
 		"When you use this property, you can tap into the unstable power of the stone's extradimensional rift to increase the teleport distance by up to 30 feet, but if you teleport more than 30 feet using Rift Step, you must succeed on a DC 16 Constitution saving throw or take 3d10 force damage immediately after you teleport.",
 		"***Spellcasting***. The stone has 6 charges and regains 1d6 expended charges daily at dawn. ",
 	].join("\n   "),
-	descriptionTable: "The Shard Solitaire Types table lists the spells common to all shard solitaires, as well as the spells specific to each kind of stone. As an action, you can cast one of the stone's spells by expending the requisite number of charges, requiring no material components (save DC 16)." +
-	"\n\n **Shard Solitaire**\t**Spells**" +
-	"\n  All\t\tBanishment (3 charges; the target is banished to the stone's extradimensional space" +
-	"\n\t\tfor the spell's duration), Mirror Image (1 charge)" +
-	"\n  Black sapphire\tBlight (3 charges), Finger of Death (6 charges)" +
-	"\n  Diamond\tIce Storm (3 charges), Simulacrum (6 charges; the duplicate created by the spell" +
-	"\n\t\thas the same number of hit points as the creature it imitates)" +
-	"\n  Jacinth\t\tFireball (2 charges), Fire Storm (6 charges)" +
-	"\n  Rainbow pearl\tPrismatic Spray (6 charges), Water Breathing (2 charges)" +
-	"\n  Ruby\t\tFly (2 charges), Teleport (6 charges)",
+	descriptionTable: [
+		"The Shard Solitaire Types table lists the spells common to all shard solitaires, as well as the spells specific to each kind of stone. As an action, you can cast one of the stone's spells by expending the requisite number of charges, requiring no material components (save DC 16).",
+		[
+			[" Shard Solitaire", "Spells"],
+			["  All", "", "*Banishment* (3 charges; the target is banished to the stone's extradimensional space"],
+			["", "", "for the spell's duration), *Mirror Image* (1 charge)"],
+			["  Black sapphire", "*Blight* (3 charges), *Finger of Death* (6 charges)"],
+			["  Diamond", "*Ice Storm* (3 charges), *Simulacrum* (6 charges; the duplicate created by the spell"],
+			["", "", "has the same number of hit points as the creature it imitates)"],
+			["  Jacinth", "", "*Fireball* (2 charges), *Fire Storm* (6 charges)"],
+			["  Rainbow pearl", "*Prismatic Spray* (6 charges), *Water Breathing* (2 charges)"],
+			["  Ruby", "", "*Fly* (2 charges), *Teleport* (6 charges)"],
+		],
+	],
 	spellcastingBonus: [{
 		fixedDC: 16,
 		name: "1 charge",
@@ -139,7 +143,9 @@ MagicItemsList["shard solitaire"] = {
 	rarity: "legendary",
 	attunement: true,
 	description: "As a bonus action while wearing or holding this gemstone, I can teleport up to 60 ft to an empty space I can see. If I teleport over 30 ft, I need to make a DC 16 Con save or take 3d10 force damage. It has 6 charges, regaining 1d6 at dawn. I can use these charges to cast several spells as an action, see the spell sheet.",
-	descriptionFull: KftGV_ShardSolitaire.descriptionFull.replace(": black sapphire, diamond, jacinth, rainbow pearl, and ruby.", ", as shown in the *Shard Solitaire* Types table.") + KftGV_ShardSolitaire.descriptionTable,
+	descriptionFull: [
+		KftGV_ShardSolitaire.descriptionFull.replace(": black sapphire, diamond, jacinth, rainbow pearl, and ruby.", ", as shown in the *Shard Solitaire* Types table."),
+	].concat(KftGV_ShardSolitaire.descriptionTable),
 	allowDuplicates: true,
 	usages: 6,
 	recovery: "dawn",

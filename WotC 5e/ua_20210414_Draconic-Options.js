@@ -160,7 +160,7 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			var sDrBrnDmg = oDrBrn.variants[i][1];
 			AddRacialVariant(sDrBrnLC + " dragonborn-ua", sDrBrnVar.toLowerCase(), {
 				regExpSearch: RegExp(sDrBrnVar, "i"),
-				name: sDrBrnVar + " " + sDrBrnLC + " dragonborn",
+				name: sDrBrnVar + " " + sDrBrn + " Dragonborn",
 				trait: ["**" + sDrBrnVar + " " + sDrBrnLC + " dragonborn**"].concat(oDrBrn.trait.map(function (sTrait) { return sTrait.replace(/>>TYPE<</g, sDrBrnDmg).replace(/>>type<</g, sDrBrnDmg.toLowerCase()); })),
 				dmgres: [sDrBrnDmg],
 			});
@@ -169,7 +169,7 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 }();
 RaceList["draconic kobold-ua"] = {
 	regExpSearch: /^(?=.*draconic)(?=.*kobold).*$/i,
-	name: "Draconic kobold",
+	name: "Draconic Kobold",
 	sortname: "Kobold, Draconic",
 	source: [["UA:DO", 4]],
 	plural: "Draconic kobolds",
@@ -203,7 +203,7 @@ RaceList["draconic kobold-ua"] = {
 };
 AddRacialVariant("draconic kobold-ua", "brave", {
 	regExpSearch: /brave/i,
-	name: "Draconic Kobold-Brave",
+	sortname: "Draconic Kobold (Brave)",
 	source: [["UA:DO", 4]],
 	plural: "Draconic Kobolds",
 	savetxt: { adv_vs: ["frightened"] },
@@ -215,6 +215,7 @@ AddRacialVariant("draconic kobold-ua", "brave", {
 });
 AddRacialVariant("draconic kobold-ua", "cantrip", {
 	regExpSearch: /cantrip/i,
+	sortname: "Draconic Kobold (Cantrip)",
 	source: [["UA:DO", 4]],
 	spellcastingAbility: [4, 5, 6],
 	allowUpCasting: true,
@@ -226,12 +227,13 @@ AddRacialVariant("draconic kobold-ua", "cantrip", {
 	}],
 	trait: [
 		"**Draconic Kobold**",
-		"\u2022 Draconic Legacy (Cantrip). I know one cantrip from the sorcerer spell list. Intelligence, Wisdom, or Charisma is my spellcasting ability for it (chosen when I select this race).",
+		"##\u25C6 Draconic Legacy (Cantrip)##. I know one cantrip from the sorcerer spell list. Intelligence, Wisdom, or Charisma is my spellcasting ability for it (chosen when I select this race).",
 		"##\u25C6 Draconic Roar##. As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest.",
 	],
 });
 AddRacialVariant("draconic kobold-ua", "tail", {
 	regExpSearch: /tail/i,
+	sortname: "Draconic Kobold (Tail)",
 	source: [["UA:DO", 4]],
 	weaponOptions: [{
 		baseWeapon: "unarmed strike",

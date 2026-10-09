@@ -82,23 +82,13 @@ MagicItemsList["tankard of plenty"] = {
 	usages: 3,
 	recovery: "Day",
 }
-var HotDQ_tempDragonMaskNoteTxt = [
-	desc([
-		"***Damage Absorption***. You have resistance against DTYPE damage. If you already have resistance to DTYPE damage from another source, you instead have immunity to DTYPE damage. If you already have immunity to DTYPE damage from another source, whenever you are subjected to DTYPE damage, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.",
-		"***Draconic Majesty***. While you are wearing no armor, you can add your Charisma bonus to your Armor Class.",
-		"***Dragon Breath***. If you have a breath weapon that requires rest to recharge, it gains a recharge of 6.",
-		"***Dragon Sight***. You gain darkvision out to 60 feet, or to an additional 60 feet if you already have that sense. Once per day, you can gain blindsight out to 30 feet for 5 minutes.",
-		"***Dragon Tongue***. You can speak and understand Draconic. You also have advantage on any Charisma check you make against DCOLOUR dragons.",
-		"***Legendary Resistance (1/Day)***. If you fail a saving throw, you can choose to succeed instead.",
-	]), [
-		" It reshapes to fit my face and head when I attuned to it. While I'm wearing a dragon mask and attuned to it, it grants me the following benefits.",
-		"\u2022 ***Damage Absorption***. I have resistance against DTYPE damage. If I already have resistance to DTYPE damage from another source, I instead gain immunity to DTYPE damage. If I already have immunity to DTYPE damage from another source, whenever I am subjected to DTYPE damage, I take none of that damage and instead regain a number of hit points equal to half the DTYPE damage dealt.",
-		"\u2022 ***Draconic Majesty***. While I am wearing no armor, I can add my Charisma bonus to my Armor Class.",
-		"\u2022 ***Dragon Breath***. If I have a breath weapon that requires rest to recharge, it gains a recharge of 6.",
-		"\u2022 ***Dragon Sight. I gain darkvision out to 60 ft, or to an additional 60 ft if I already have that sense. Once per day, I can gain blindsight out to 30 ft for 5 minutes.",
-		"\u2022 ***Dragon Tongue***. I can speak and understand Draconic. I also have advantage on any Charisma check I make against DCOLOUR dragons.",
-		"\u2022 ***Legendary Resistance***. Once per day when I fail a saving throw, I can choose to succeed instead.",
-	].join("\n   "),
+var HotDQ_DragonMask = [
+	"***Damage Absorption***. You have resistance against DTYPE damage. If you already have resistance to DTYPE damage from another source, you instead have immunity to DTYPE damage. If you already have immunity to DTYPE damage from another source, whenever you are subjected to DTYPE damage, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.",
+	"***Draconic Majesty***. While you are wearing no armor, you can add your Charisma bonus to your Armor Class.",
+	"***Dragon Breath***. If you have a breath weapon that requires rest to recharge, it gains a recharge of 6.",
+	"***Dragon Sight***. You gain darkvision out to 60 feet, or to an additional 60 feet if you already have that sense. Once per day, you can gain blindsight out to 30 feet for 5 minutes.",
+	"***Dragon Tongue***. You can speak and understand Draconic. You also have advantage on any Charisma check you make against DCOLOUR dragons.",
+	"***Legendary Resistance (1/Day)***. If you fail a saving throw, you can choose to succeed instead.",
 ];
 MagicItemsList["dragon mask"] = {
 	name: "Dragon Mask",
@@ -107,7 +97,10 @@ MagicItemsList["dragon mask"] = {
 	rarity: "legendary",
 	storyItemAL: true,
 	description: "This mask reshapes to fit my head. It grants me the ability to absorb associated damage type, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. a dragon type, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, see Notes page.",
-	descriptionFull: "Each *dragon mask* is a legendary wondrous item that reshapes to fit the face and head of a wearer attuned to it. While you are wearing any *dragon mask* and attuned to it, you gain the following benefits." + HotDQ_tempDragonMaskNoteTxt[0].replace(/You have resistance against DTYPE damage.*?\n/, "You have resistance against the mask's damage type. If you already have resistance to that damage type from another source, you instead have immunity to that damage type. If you already have immunity to that damage type from another source, whenever you are subjected to damage of that type, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.\n").replace("DCOLOUR dragons", "dragons that share the mask's color"),
+	descriptionFull: [
+		"Each *dragon mask* is a legendary wondrous item that reshapes to fit the face and head of a wearer attuned to it. While you are wearing any *dragon mask* and attuned to it, you gain the following benefits.",
+		"***Damage Absorption***. You have resistance against the mask's damage type. If you already have resistance to that damage type from another source, you instead have immunity to that damage type. If you already have immunity to that damage type from another source, whenever you are subjected to damage of that type, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.",
+	].concat(HotDQ_DragonMask.slice(1).map(function (s) { return s.replace("DCOLOUR dragons", "dragons that share the mask's color"); })),
 	attunement: true,
 	languageProfs: ["Draconic"],
 	vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
@@ -149,12 +142,16 @@ MagicItemsList["dragon mask"] = {
 		source: [["HotDQ", 94], ["ToD", 179]],
 		description: "This mask reshapes to fit my head. It grants me the ability to absorb acid damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. black dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
 		descriptionLong: "This horned mask of glossy ebony has horns and a skull-like mien. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb acid damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against black dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and water breathing. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
-		descriptionFull: "This horned mask of glossy ebony has horns and a skull-like mien. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + HotDQ_tempDragonMaskNoteTxt[0].replace(/DTYPE/g, "acid").replace("DCOLOUR", "black") + "\n   ***Water Breathing***. You can breathe underwater.",
+		descriptionFull: [
+			"This horned mask of glossy ebony has horns and a skull-like mien. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.",
+		].concat(HotDQ_DragonMask.map(function (s) { return s.replace(/DTYPE/g, "acid").replace("DCOLOUR", "black"); }), [
+			"***Water Breathing***. You can breathe underwater.",
+		]),
 		dmgres: ["Acid"],
 		changeeval: function () { MagicItemsList["dragon mask"].incrementDamageRes("Black", "acid"); },
 		toNotesPage: [{
-			name: "Features",
-			note: "\n   This horned mask of glossy ebony has horns and a skull-like mien." + HotDQ_tempDragonMaskNoteTxt[1].replace(/DTYPE/g, "acid").replace("DCOLOUR", "black") + "\n   Water Breathing. I can breathe underwater.",
+			name: "Black Dragon Mask",
+			useDescriptionFull: true,
 		}],
 	},
 	/*
@@ -168,12 +165,16 @@ MagicItemsList["dragon mask"] = {
 		source: [["RoTOS", 4], ["ToD", 179]],
 		description: "This mask reshapes to fit my head. It grants me the ability to absorb lightning damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. Cha checks vs. blue dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
 		descriptionLong: "This mask of glossy azure has spikes around its edges and a ridged horn in its center. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb lightning damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against blue dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and Lingering Shock. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
-		descriptionFull: "This mask of glossy azure has spikes around its edges and a ridged horn in its center. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + HotDQ_tempDragonMaskNoteTxt[0].replace(/DTYPE/g, "lightning").replace("DCOLOUR", "blue") + "\n   ***Lingering Shock***. If you deal lightning damage to a creature, it can't take reactions until its next turn.",
+		descriptionFull: [
+			"This mask of glossy azure has spikes around its edges and a ridged horn in its center. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.",
+		].concat(HotDQ_DragonMask.map(function (s) { return s.replace(/DTYPE/g, "lightning").replace("DCOLOUR", "blue"); }), [
+			"***Lingering Shock***. If you deal lightning damage to a creature, it can't take reactions until its next turn.",
+		]),
 		dmgres: ["Lightning"],
 		changeeval: function () { MagicItemsList["dragon mask"].incrementDamageRes("Blue", "lightning"); },
 		toNotesPage: [{
-			name: "Features",
-			note: "\n   This mask of glossy azure has spikes around its edges and a ridged horn in its center." + HotDQ_tempDragonMaskNoteTxt[1].replace(/DTYPE/g, "lightning").replace("DCOLOUR", "blue") + "\n   Lingering Shock. If I deal lightning damage to a creature, it can't take reactions until its next turn.",
+			name: "Blue Dragon Mask",
+			useDescriptionFull: true,
 		}],
 	},
 	"green": {
@@ -181,12 +182,16 @@ MagicItemsList["dragon mask"] = {
 		source: [["RoTOS", 4], ["ToD", 179]],
 		description: "This mask reshapes to fit my head. It grants me the ability to absorb poison damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. green dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
 		descriptionLong: "This mottled green mask is surmounted by a frilled crest and has spikes along its jaw. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb poison damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against green dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and water breathing. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
-		descriptionFull: "This mottled green mask is surmounted by a frilled crest and has leathery spiked plates along its jaw. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + HotDQ_tempDragonMaskNoteTxt[0].replace(/DTYPE/g, "poison").replace("DCOLOUR", "green") + "\n   ***Water Breathing***. You can breathe underwater.",
+		descriptionFull: [
+			"This mottled green mask is surmounted by a frilled crest and has leathery spiked plates along its jaw. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.",
+		].concat(HotDQ_DragonMask.map(function (s) { return s.replace(/DTYPE/g, "poison").replace("DCOLOUR", "green"); }), [
+			"***Water Breathing***. You can breathe underwater.",
+		]),
 		dmgres: ["Poison"],
 		changeeval: function () { MagicItemsList["dragon mask"].incrementDamageRes("Green", "poison"); },
 		toNotesPage: [{
-			name: "Features",
-			note: "\n   This mottled green mask is surmounted by a frilled crest and has leathery spiked plates along its jaw." + HotDQ_tempDragonMaskNoteTxt[1].replace(/DTYPE/g, "poison").replace("DCOLOUR", "green") + "\n   Water Breathing. I can breathe underwater.",
+			name: "Green Dragon Mask",
+			useDescriptionFull: true,
 		}],
 	},
 	"red": {
@@ -194,12 +199,16 @@ MagicItemsList["dragon mask"] = {
 		source: [["RoTOS", 4], ["ToD", 179]],
 		description: "This mask reshapes to fit my head. It grants me the ability to absorb fire damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. red dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
 		descriptionLong: "This mask of glossy crimson has swept-back horns and spiked cheek ridges. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb fire damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against red dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and Dragon Fire. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
-		descriptionFull: "This mask of glossy crimson has swept-back horns and spiked cheek ridges. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + HotDQ_tempDragonMaskNoteTxt[0].replace(/DTYPE/g, "fire").replace("DCOLOUR", "red") + "\n   ***Dragon Fire***. If you deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire.",
+		descriptionFull: [
+			"This mask of glossy crimson has swept-back horns and spiked cheek ridges. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.",
+		].concat(HotDQ_DragonMask.map(function (s) { return s.replace(/DTYPE/g, "fire").replace("DCOLOUR", "red"); }), [
+			"***Dragon Fire***. If you deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire.",
+		]),
 		dmgres: ["Fire"],
 		changeeval: function () { MagicItemsList["dragon mask"].incrementDamageRes("red", "fire"); },
 		toNotesPage: [{
-			name: "Features",
-			note: "\n   This mask of glossy crimson has swept-back horns and spiked cheek ridges." + HotDQ_tempDragonMaskNoteTxt[1].replace(/DTYPE/g, "fire").replace("DCOLOUR", "red") + "\n   Dragon Fire. If I deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire.",
+			name: "Red Dragon Mask",
+			useDescriptionFull: true,
 		}],
 	},
 	"white": {
@@ -207,12 +216,16 @@ MagicItemsList["dragon mask"] = {
 		source: [["RoTOS", 4], ["ToD", 179]],
 		description: "This mask reshapes to fit my head. It grants me the ability to absorb cold damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. white dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
 		descriptionLong: "This gleaming mask is white with highlights of pale blue and is topped by a spined crest. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb cold damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against white dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and Winter's Fury. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
-		descriptionFull: "This gleaming mask is white with highlights of pale blue and is topped by a spined crest. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + HotDQ_tempDragonMaskNoteTxt[0].replace(/DTYPE/g, "cold").replace("DCOLOUR", "white") + "\n   ***Winter's Fury***. While your current hit points are equal to or less than half your hit point maximum, you deal an extra 1d8 cold damage with your melee attacks.",
+		descriptionFull: [
+			"This gleaming mask is white with highlights of pale blue and is topped by a spined crest. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.",
+		].concat(HotDQ_DragonMask.map(function (s) { return s.replace(/DTYPE/g, "cold").replace("DCOLOUR", "white"); }), [
+			"***Winter's Fury***. While your current hit points are equal to or less than half your hit point maximum, you deal an extra 1d8 cold damage with your melee attacks.",
+		]),
 		dmgres: ["Cold"],
 		changeeval: function () { MagicItemsList["dragon mask"].incrementDamageRes("white", "cold"); },
 		toNotesPage: [{
-			name: "Features",
-			note: "\n   This gleaming mask is white with highlights of pale blue and is topped by a spined crest." + HotDQ_tempDragonMaskNoteTxt[1].replace(/DTYPE/g, "cold").replace("DCOLOUR", "white") + "\n   Winter's Fury. While my current hit points are equal to or less than half my hit point maximum, I deal an extra 1d8 cold damage with my melee attacks.",
+			name: "White Dragon Mask",
+			useDescriptionFull: true,
 		}],
 	},
 	"mask of the dragon queen": {
@@ -221,7 +234,16 @@ MagicItemsList["dragon mask"] = {
 		source: [["RoT", 94], ["ToD", 179]],
 		description: "This mask reshapes to fit my head. It allows to absorb acid, cold, fire, lightning, and poison damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (5/day), adv. on Cha checks vs. dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
 		descriptionLong: "This mask gives me a draconic visage and covers my face, neck, and shoulders. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb acid, cold, fire, lightning, and poison damage, depending on how resistant I'm already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against dragons, lets me add my Charisma modifier to AC while not wearing armor, and more. 5 times per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
-		descriptionFull: "When two or more of the dragon masks are assembled they magically transform into the *Mask of the Dragon Queen*. Each mask shrinks to become the modeled head of a chromatic dragon, appearing to roar its devotion to Tiamat where all the masks brought together are arranged crown-like on the wearer's head. Below the five masks, a new mask shapes itself, granting the wearer a draconic visage that covers the face, neck, and shoulders. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + HotDQ_tempDragonMaskNoteTxt[0].replace(/You have resistance against DTYPE damage.*?\n/, "You have resistance against acid, cold, fire, lightning, and poison damage. If you already have resistance to a damage type from another source, you instead have immunity to that damage type. If you already have immunity to a damage type from another source, whenever you are subjected to that damage type, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.\n").replace("DCOLOUR ", "").replace("***(1/Day)***", "***(5/Day)***") + "\n\n   It can have the properties of any one of the colored masks, but only can have one active at a time. These are the following:\n   ***Water Breathing (black and green)***. You can breathe underwater.\n   ***Lingering Shock (blue)***. If you deal lightning damage to a creature, it can't take reactions until its next turn.\n   ***Dragon Fire (red)***. If you deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire.\n   ***Winter's Fury (white)***. While your current hit points are equal to or less than half your hit point maximum, you deal an extra 1d8 cold damage with your melee attacks.",
+		descriptionFull: [
+			"When two or more of the dragon masks are assembled they magically transform into the *Mask of the Dragon Queen*. Each mask shrinks to become the modeled head of a chromatic dragon, appearing to roar its devotion to Tiamat where all the masks brought together are arranged crown-like on the wearer's head. Below the five masks, a new mask shapes itself, granting the wearer a draconic visage that covers the face, neck, and shoulders. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.",
+			"***Damage Absorption***. You have resistance against acid, cold, fire, lightning, and poison damage. If you already have resistance to a damage type from another source, you instead have immunity to that damage type. If you already have immunity to a damage type from another source, whenever you are subjected to that damage type, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.",
+		].concat(HotDQ_DragonMask.slice(1).map(function (s) { return s.replace("DCOLOUR ", "").replace("(1/Day)", "(5/Day)"); }), [
+			"While you are attuned to and wear this mask, you can have any of the properties from any one colored mask.",
+			" \u2022 **Water Breathing (black and green)**. You can breathe underwater.",
+			" \u2022 **Lingering Shock (blue)**. If you deal lightning damage to a creature, it can't take reactions until its next turn.",
+			" \u2022 **Dragon Fire (red)**. If you deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire.",
+			" \u2022 **Winter's Fury (white)**. While your current hit points are equal to or less than half your hit point maximum, you deal an extra 1d8 cold damage with your melee attacks.",
+		]),
 		dmgres: ["Acid", "Cold", "Fire", "Lightning", "Poison"],
 		changeeval: function () {
 			MagicItemsList["dragon mask"].incrementDamageRes("", "acid");
@@ -231,14 +253,8 @@ MagicItemsList["dragon mask"] = {
 			MagicItemsList["dragon mask"].incrementDamageRes("", "poison");
 		},
 		toNotesPage: [{
-			name: "Features",
-			note: "\n   When two or more of the dragon masks are assembled they magically transform into the Mask of the Dragon Queen. Each mask shrinks to become the modeled head of a chromatic dragon, appearing to roar its devotion to Tiamat where all the masks brought together are arranged crown-like on the wearer's head. Below the five masks, a new mask shapes itself, granting the wearer a draconic visage that covers the face, neck, and shoulders." +
-			HotDQ_tempDragonMaskNoteTxt[1].replace(/Damage Absorption.*?\n/, "Damage Absorption. I have resistance to acid, cold, fire, lightning, and poison damage. If I already have resistance to a damage type from another source, I instead have immunity to that damage type. If I already have immunity to a damage type from another source, whenever I am subjected to that damage type, I take none of that damage and regain a number of hit points equal to half the damage dealt of that type.\n").replace("DCOLOUR ", "").replace("Once per day when", "Five times per day when") +
-			"\n   \u2022 Special Properties. I can access the properties of any one of the colored masks, but only can have one active at a time. These are the following:" +
-			"\n      \u25E6 Water Breathing (black and green). I can breathe underwater." +
-			"\n      \u25E6 Lingering Shock (blue). If I deal lightning damage to a creature, it can't take reactions until its next turn." +
-			"\n      \u25E6 Dragon Fire (red). If I deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire." +
-			"\n      \u25E6 Winter's Fury (white). While my current hit points are equal to or less than half my hit point maximum, I deal an extra 1d8 cold damage with my melee attacks.",
+			name: "Mask of the Dragon Queen",
+			useDescriptionFull: true,
 		}],
 		usages: 5,
 		recovery: "Day",

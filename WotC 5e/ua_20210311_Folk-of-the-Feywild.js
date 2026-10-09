@@ -60,7 +60,7 @@ RaceList["fairy-ua"] = {
 
 RaceList["feywild hobgoblin-ua"] = {
 	regExpSearch: /^(?=.*feywild)(?=.*hobgoblin).*$/i,
-	name: "Feywild hobgoblin",
+	name: "Feywild Hobgoblin",
 	sortname: "Hobgoblin, Feywild",
 	source: [["UA:FotF", 2]],
 	plural: "Feywild hobgoblins",
@@ -110,7 +110,7 @@ RaceList["feywild hobgoblin-ua"] = {
 		"**Feywild hobgoblin**",
 		"##\u25C6 Fey Gift##. I can take the Help action as a bonus action my Proficiency Bonus per long rest.",
 		"##\u25C6 Fortune from the Many##. When I miss an attack or fail an ability check or a save, I can gain a bonus to the roll equal to the number of allies I can see within 30 ft of me (max +5). I can do this a number of times per long rest equal to my Proficiency Bonus.",
-		"\u2022 From 3rd-level onwards, whenever I take the Help action, I can choose to produce an additional effect: Hospitality, Passage, or Spite. See the 3rd page \"Notes\" section.",
+		"From 3rd-level onwards, whenever I take the Help action, I can choose to produce an additional effect: Hospitality, Passage, or Spite. See the 3rd page \"Notes\" section.",
 	],
 };
 

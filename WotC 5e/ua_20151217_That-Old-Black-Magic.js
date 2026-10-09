@@ -14,7 +14,7 @@ SourceList["UA:TOBM"] = {
 // Adds the Abyssal Tiefling
 RaceList["abyssal tiefling-ua"] = {
 	regExpSearch: /^(?=.*abyssal)((?=.*tiefling)|(?=.*planetouched)(?=.*(hell|abyss|fiend|devil))).*$/i,
-	name: "Abyssal tiefling",
+	name: "Abyssal Tiefling",
 	sortname: "Tiefling, Abyssal",
 	source: [["UA:TOBM", 1]],
 	plural: "Abyssal tieflings",
@@ -85,7 +85,7 @@ var UATOBM_addAbyssalTiefling = function (){
 		thisVar.trait = [].concat(thisVar.trait).map(function (sTrait) {
 			return sTrait.replace(replaceTraitTxt[0], replaceTraitTxt[1]).replace(replaceNameTxt[0].capitalize(), replaceNameTxt[1].capitalize());
 		});
-		thisVar.name = thisVar.name.replace(replaceNameTxt[0], replaceNameTxt[1]);
+		thisVar.name = thisVar.name.replace(RegExp(replaceNameTxt[0], "i"), RaceList["abyssal tiefling-ua"].name);
 		thisVar.plural = thisVar.plural.replace(replaceNameTxt[0], replaceNameTxt[1]);
 	});
 }();

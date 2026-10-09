@@ -14,7 +14,7 @@ SourceList["AwM"] = {
 
 RaceList["dankwood goblin"] = {
 	regExpSearch: /^(?=.*dankwood)(?=.*\bgoblins?\b)(?!.*(hobgoblin|bugbear)).*$/i,
-	name: "Dankwood goblin",
+	name: "Dankwood Goblin",
 	sortname: "Goblin, Dankwood",
 	source: [["AwM", 35]],
 	plural: "Dankwood goblins",

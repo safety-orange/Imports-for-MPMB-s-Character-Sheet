@@ -15,7 +15,7 @@ SourceList["S"] = {
 // Races
 RaceList["ghostwise halfling"] = {
 	regExpSearch: /^(?=.*\b(halflings?|hobbits?)\b)(?=.*ghostwise).*$/i,
-	name: "Ghostwise halfling",
+	name: "Ghostwise Halfling",
 	sortname: "Halfling, Ghostwise",
 	plural: "Ghostwise halflings",
 	source: [["S", 110]],
@@ -83,7 +83,7 @@ RaceList["gray dwarf"] = {
 					range: "Self",
 					components: "V,S",
 					compMaterial: "",
-					description: "I'm enlarged, adv. on Str checks/aves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
+					description: "I'm enlarged, adv. on Str checks/saves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
 					changes: "Using Duergar Magic, I cast *Enlarge/Reduce* while I'm not in direct sunlight, but only to enlarge myself.",
 				},
 			},
@@ -132,7 +132,7 @@ if (!RaceList["deep gnome"]) {
 		scores: [0, 1, 0, 2, 0, 0],
 		trait: [
 			"**Svirfneblin** (+1 Dexterity, +2 Intelligence)",
-			"##\u25C6 Stone Camouflage##. I have advantage on Dexterity (stealth) checks to hide in rocky terrain.",
+			"##\u25C6 Stone Camouflage##. I have advantage on Dexterity (Stealth) checks to hide in rocky terrain.",
 		],
 	};
 } // dupl_end
@@ -140,7 +140,7 @@ if (!RaceList["deep gnome"]) {
 // Racial variants
 AddRacialVariant("half-elf", "aquatic", {
 	regExpSearch: /aquatic/i,
-	name: "Half-aquatic elf",
+	name: "Half-Aquatic Elf",
 	source: [["S", 116]],
 	plural: "Half-aquatic elves",
 	speed: {
@@ -155,7 +155,8 @@ AddRacialVariant("half-elf", "aquatic", {
 });
 AddRacialVariant("half-elf", "cantrip", {
 	regExpSearch: /cantrip/i,
-	name: "Half-high elf",
+	name: "Half-High Elf",
+	sortname: "Half-High Elf (Cantrip)",
 	source: [["S", 116]],
 	plural: "Half-high elves",
 	skillstxt: "",
@@ -174,7 +175,8 @@ AddRacialVariant("half-elf", "cantrip", {
 });
 AddRacialVariant("half-elf", "drow magic", {
 	regExpSearch: /^(?=.*drow)(?=.*magic).*$/i,
-	name: "Half-drow",
+	name: "Half-Drow",
+	sortname: "Half-Drow (Drow Magic)",
 	source: [["S", 116]],
 	plural: "Half-drow",
 	skillstxt: "",
@@ -216,6 +218,7 @@ AddRacialVariant("half-elf", "drow magic", {
 	},
 });
 AddRacialVariant("half-elf", "elf weapon training", {
+	sortname: "Half-Elf (Elf Weapon Training)",
 	regExpSearch: /^(?=.*\b(elf|elven)\b)(?=.*weapon)(?=.*training).*$/i,
 	source: [["S", 116]],
 	skillstxt: "",
@@ -224,7 +227,8 @@ AddRacialVariant("half-elf", "elf weapon training", {
 });
 AddRacialVariant("half-elf", "fleet of foot", {
 	regExpSearch: /^(?=.*fleet)(?=.*\b(foot|feet)\b).*$/i,
-	name: "Half-wood elf",
+	name: "Half-Wood Elf",
+	sortname: "Half-Wood Elf (Fleet of Foot)",
 	source: [["S", 116]],
 	plural: "Half-wood elves",
 	speed: {
@@ -235,7 +239,8 @@ AddRacialVariant("half-elf", "fleet of foot", {
 });
 AddRacialVariant("half-elf", "mask of the wild", {
 	regExpSearch: /^(?=.*\bmasks?\b)(?=.*\bwilds?\b).*$/i,
-	name: "Half-wood elf",
+	name: "Half-Wood Elf",
+	sortname: "Half-Wood Elf (Mask of the Wild)",
 	source: [["S", 116]],
 	plural: "Half-wood elves",
 	skillstxt: "",
@@ -246,7 +251,7 @@ AddRacialVariant("half-elf", "mask of the wild", {
 });
 AddRacialVariant("tiefling", "devil's tongue", {
 	regExpSearch: /^(?=.*devil)(?=.*tongue).*$/i,
-	name: "Devil's tongue tiefling",
+	name: "Devil's Tongue Tiefling",
 	source: [["S", 118]],
 	plural: "Devil's tongue tieflings",
 	trait: [
@@ -293,7 +298,7 @@ AddRacialVariant("tiefling", "devil's tongue", {
 });
 AddRacialVariant("tiefling", "hellfire", {
 	regExpSearch: /hellfire/i,
-	name: "Hellfire tiefling",
+	name: "Hellfire Tiefling",
 	source: [["S", 118]],
 	plural: "Hellfire tieflings",
 	trait: [
@@ -335,7 +340,7 @@ AddRacialVariant("tiefling", "hellfire", {
 });
 AddRacialVariant("tiefling", "winged", {
 	regExpSearch: /wing/i,
-	name: "Winged tiefling",
+	name: "Winged Tiefling",
 	source: [["S", 118]],
 	plural: "Winged tieflings",
 	speed: {
@@ -357,7 +362,7 @@ RunFunctionAtEnd(function () {
 		replaceTraitTxt: ["+1 Intelligence, +2 Charisma", "+2 Dexterity, +1 Intelligence"],
 		replaceNameTxt: ["tiefling", "feral tiefling"],
 		regExpSearch: /^(?=.*feral)((?=.*tiefling)|(?=.*planetouched)(?=.*(hell|abyss|fiend|devil))).*$/i,
-		name: "Feral tiefling",
+		name: "Feral Tiefling",
 		sortname: "Tiefling, Feral",
 		source: [["S", 118]],
 		plural: "Feral tieflings",
@@ -383,7 +388,7 @@ RunFunctionAtEnd(function () {
 		thisVar.trait = [].concat(thisVar.trait).map(function (sTrait) {
 			return sTrait.replace(tRace.replaceTraitTxt[0], tRace.replaceTraitTxt[1]).replace(tRace.replaceNameTxt[0].capitalize(), tRace.replaceNameTxt[1].capitalize());
 		});
-		thisVar.name = thisVar.name.replace(tRace.replaceNameTxt[0], tRace.replaceNameTxt[1]);
+		thisVar.name = thisVar.name.replace(RegExp(tRace.replaceNameTxt[0], "i"), tRace.name);
 		thisVar.plural = thisVar.plural.replace(tRace.replaceNameTxt[0], tRace.replaceNameTxt[1]);
 	});
 });
@@ -716,7 +721,7 @@ AddSubClass("monk", "way of the sun soul", {
 				source: [["S", 131], ["X", 35]],
 				description: desc([
 					"After taking the Attack action, I can cast *Burning Hands* as a bonus action [PHB 220]",
-					"For every additional ki point I spend, *Burning hands* is cast at 1 higher spell level",
+					"For every additional ki point I spend, *Burning Hands* is cast at 1 higher spell level",
 					"The maximum total ki points I can spend for this (including the 2) is half my Monk level",
 				]),
 				additional: levels.map(function (n) {
@@ -977,7 +982,7 @@ AddSubClass("sorcerer", "storm sorcery", {
 			minlevel: 1,
 			description: desc([
 				"As a bonus action, before or after casting a 1st-level or higher spell, I can fly 10 ft",
-				"This movement doesn't provoke opportunity attacks as whirling gust of air surround me",
+				"This movement doesn't provoke opportunity attacks as whirling gusts of air surround me",
 			]),
 			action: [["bonus action", " (with casting)"]],
 		},
@@ -1306,8 +1311,8 @@ AddBackgroundVariant("soldier", "city watch", {
 		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Watcher's Eye",
-	extra: "",
-	toolProfs: "",
+	extra: null,
+	toolProfs: null,
 	languageProfs: [2],
 	lifestyle: "modest",
 });
@@ -1316,6 +1321,7 @@ AddBackgroundVariant("guild artisan", "clan crafter", {
 	name: "Clan Crafter",
 	source: [["S", 145], ["ALbackground", 0]],
 	skills: ["History", "Insight"],
+	gold: 5,
 	equipleft: [
 		["Set of artisan's tools", "", ""],
 		["Maker's mark chisel", "", 0.5],
@@ -1325,7 +1331,7 @@ AddBackgroundVariant("guild artisan", "clan crafter", {
 		["Belt pouch (with coins and 10 gp gem)", "", 1],
 	],
 	feature: "Respect of the Stout Folk",
-	extra: "",
+	extra: null,
 	languageProfs: ["Dwarvish"],
 	lifestyle: "comfortable",
 });
@@ -1358,14 +1364,14 @@ AddBackgroundVariant("guild artisan", "courtier", {
 	source: [["S", 146], ["ALbackground", 0]],
 	skills: ["Insight", "Persuasion"],
 	gold: 5,
-	equipleft: "",
+	equipleft: null,
 	equipright: [
 		["Fine clothes", "", 3],
 		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Court Functionary",
-	extra: "",
-	toolProfs: "",
+	extra: null,
+	toolProfs: null,
 	languageProfs: [2],
 	lifestyle: "comfortable",
 });
@@ -1439,9 +1445,10 @@ AddBackgroundVariant("soldier", "investigator", {
 		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Watcher's Eye",
-	extra: "",
-	toolProfs: "",
+	extra: null,
+	toolProfs: null,
 	languageProfs: [2],
+	lifestyle: "modest",
 });
 AddBackgroundVariant("soldier", "knight of the order", {
 	regExpSearch: /^(?=.*knight)(?=.*order).*$/i,
@@ -1487,7 +1494,7 @@ AddBackgroundVariant("criminal", "urban bounty hunter", {
 		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Ear to the Ground",
-	extra: "",
+	extra: null,
 	toolProfs: [["Gaming set, instrument, or thieves' tools", 2]],
 	lifestyle: "poor",
 });
@@ -1502,7 +1509,7 @@ AddBackgroundVariant("outlander", "uthgardt tribe member", {
 		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Uthgardt Heritage",
-	extra: "",
+	extra: null,
 	toolProfs: [["Artisan's tools or musical instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "poor",

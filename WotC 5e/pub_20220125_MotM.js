@@ -329,7 +329,7 @@ RaceList["multiverse duergar"] = {
 	scoresGeneric: true,
 	trait: [
 		"**Duergar** (my creature type is humanoid, dwarf)",
-		"\u2022 Dwarven Resilience \u0026 Psionic Fortitude: I have advantage on saving throws to avoid or end being poisoned, charmed, or stunned and I have resistance to poison damage.",
+		"##\u25C6 Dwarven Resilience & Psionic Fortitude##. I have advantage on saving throws to avoid or end being poisoned, charmed, or stunned and I have resistance to poison damage.",
 		"##\u25C6 Duergar Magic##. At 3rd level, I learn the *Enlarge/Reduce* spell. At 5th level, I learn the *Invisibility* spell. I can cast each spell on myself once per long rest without using a spell slot or material components, or by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
 	],
 	spellcastingAbility: [4, 5, 6],
@@ -1434,14 +1434,14 @@ RaceList["multiverse sea elf"] = {
 	trait: [
 		"**Sea Elf** (my creature type is humanoid, elf)",
 		"##\u25C6 Trance##. I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours while meditating consciously. At the end of the trance, I gain 2 weapon/tool proficiencies until the end of my next long rest.",
-		"\u2022 Child of the Sea. I can breathe air and water and have resistance to cold damage.",
+		"##\u25C6 Child of the Sea##. I can breathe air and water and have resistance to cold damage.",
 		"##\u25C6 Friend of the Sea##. I can communicate simple ideas to beasts with a swimming speed. It can understand my words, though I have no special ability to understand it in return.",
 	],
 };
 RaceList["multiverse shadar-kai"] = {
 	regExpSearch: /^(?!.*half)(?=.*(multiverse|motm\b))((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
-	name: "Multiverse Shadar-kai",
-	sortname: "Elf, Shadow (Shadar-kai), Multiverse",
+	name: "Multiverse Shadar-Kai",
+	sortname: "Elf, Shadow (Shadar-Kai), Multiverse",
 	source: [["MotM", 31]],
 	plural: "Shadar-kai",
 	size: 3,

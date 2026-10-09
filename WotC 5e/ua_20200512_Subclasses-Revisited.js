@@ -324,28 +324,28 @@ if (!SourceList["T"]) {
 
 /* This UA version of Order of Scribes is not done yet
 AddSubClass("wizard","order of scribes-ua", {
-	regExpSearch : /^(?=.*wizard)(?=.*order)(?=.*scribes?).*$|scrivener/i,
-	subname : "Order of Scribes",
-	source : [["UA:SR", 4]],
-	features : {
-		"subclassfeature2" : {
-			name : "Wizardly Quill",
-			source : [["UA:SR", 4]],
-			minlevel : 2,
-			description : desc([
+	regExpSearch: /^(?=.*wizard)(?=.*order)(?=.*scribes?).*$|scrivener/i,
+	subname: "Order of Scribes",
+	source: [["UA:SR", 4]],
+	features: {
+		"subclassfeature2": {
+			name: "Wizardly Quill",
+			source: [["UA:SR", 4]],
+			minlevel: 2,
+			description: desc([
 				"As a bonus action, I can magically create a Tiny quill with the following properties:",
 				" \u2022 It doesn't require ink and produces ink in the color of my choice when writing with it",
 				" \u2022 The gold and time required to transcribe spells into my spellbook with it are halved",
 				" \u2022 As a bonus action, I can use it to erase a text written with it if within 5 ft of the text",
 				"The quill disappear if I create another or if I die"
 			]),
-			action : [["bonus action", " (create/erase)"]]
+			action: [["bonus action", " (create/erase)"]]
 		},
-		"subclassfeature2.1" : {
-			name : "Awakened Spellbook",
-			source : [["UA:SR", 4]],
-			minlevel : 2,
-			description : desc ([
+		"subclassfeature2.1": {
+			name: "Awakened Spellbook",
+			source: [["UA:SR", 4]],
+			minlevel: 2,
+			description: desc ([
 				"My spellbook gains sentience and grants me the following benefits while I am holding it:",
 				" \u2022 I can use the book as a spellcasting focus for my wizard spells",
 				" \u2022 When I cast a wizard spell using a spell slot, I can temporarily replace its damage type",
@@ -353,36 +353,36 @@ AddSubClass("wizard","order of scribes-ua", {
 				" \u2022 Once per long rest, I can ritual cast a wizard spell without 10 min extra casting time",
 				"I can replace it over a short rest, transferring its spells and sentience to a blank book"
 			]),
-			additional : "fast ritual cast",
-			usages : 1,
-			recovery : "long rest"
+			additional: "fast ritual cast",
+			usages: 1,
+			recovery: "long rest"
 		},
-		"subclassfeature6" : {
-			name : "Master Scrivener",
-			source : [["UA:SR", 4]],
-			minlevel : 6,
-			description : desc([
+		"subclassfeature6": {
+			name: "Master Scrivener",
+			source: [["UA:SR", 4]],
+			minlevel: 6,
+			description: desc([
 				"When I finish a long rest, I can write a spell in my awakened spellbook on a blank paper",
 				"It must be a level 1 or 2 spell with 1 action casting time; My spellbook must be in 5 ft",
 				"As an action, I can use this scroll to cast the spell on it at one higher level than normal",
 				"Only I can use the scroll; The scroll turns blank again when I use it or finish a long rest",
 				"Also, using my Wizardly Quill, the gold and time I need to craft spell scrolls is halved"
 			]),
-			action : [["action", " (cast scroll)"]],
-			usages : 1,
-			recovery : "long rest"
+			action: [["action", " (cast scroll)"]],
+			usages: 1,
+			recovery: "long rest"
 		},
 		// Finished until here
-		"subclassfeature10" : {
-			name : "Manifest Mind",
-			source : [["UA:SR", 5]],
-			minlevel : 10,
-			description : desc('As a bonus action, I can cause my Awakened Spellbook to manifest. See "Note" page'),
-			toNotesPage : [{
-				name : "Manifest Mind",
-				source : [["UA:SR", 5]],
-				page3notes : false,
-				note : desc (["As a bonus action with my Awakened Spellbook on my person, I can cause the mind to",
+		"subclassfeature10": {
+			name: "Manifest Mind",
+			source: [["UA:SR", 5]],
+			minlevel: 10,
+			description: desc('As a bonus action, I can cause my Awakened Spellbook to manifest. See "Note" page'),
+			toNotesPage: [{
+				name: "Manifest Mind",
+				source: [["UA:SR", 5]],
+				page3notes: false,
+				note: desc (["As a bonus action with my Awakened Spellbook on my person, I can cause the mind to",
 				"manifest as a Tiny spectral construct, hovering in an unoccupied space of my choice within",
 				"60 ft. It is intangible and doesn't occupy its space, and it sheds dim light in a 10 ft radius.",
 				"It looks like a ghostly tome, a cascade of text, or a scholar from the past \(my choice.\).",
@@ -399,25 +399,25 @@ AddSubClass("wizard","order of scribes-ua", {
 				"a bonus action."
 				])
 			}],
-			eval : function() {
-				var companionFunctions = ClassList.artificer ? ClassList.artificer.artificerCompFunc : ClassList.wizard.artificer.CompFunc;
+			eval: function() {
+				var companionFunctions = ClassList.artificer ? ClassList.artificer.artificerCompFunc: ClassList.wizard.artificer.CompFunc;
 				companionFunctions.add("Manifest Mind");
 				ClassList.wizard.wizardCompFunc.update(10, What('Int mod'),What('AC'),What('Str mod'),What('Dex mod'),What('Con mod'),What('Wis mod'),What('Cha mod'));
 			},
-			removeeval : function() {
-				var companionFunctions = ClassList.artificer ? ClassList.artificer.artificerCompFunc : ClassList.wizard.artificerCompFunc;
+			removeeval: function() {
+				var companionFunctions = ClassList.artificer ? ClassList.artificer.artificerCompFunc: ClassList.wizard.artificerCompFunc;
 				companionFunctions.remove("Manifest Mind");
 			},
-			action : [["bonus action",""],["bonus action","Hover spellbook 30ft"],["bonus action","dismiss Manifestation"]],
-			usages : "Prof Bonus per ",
-			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery : "long rest"
+			action: [["bonus action",""],["bonus action","Hover spellbook 30ft"],["bonus action","dismiss Manifestation"]],
+			usages: "Prof Bonus per ",
+			usagescalc: "event.value = How('Proficiency Bonus');",
+			recovery: "long rest"
 		},
-		"subclassfeature14" : {
-			name : "One with the Word",
-			source : [["UA:SR", 5]],
-			minlevel : 14,
-			description : desc([
+		"subclassfeature14": {
+			name: "One with the Word",
+			source: [["UA:SR", 5]],
+			minlevel: 14,
+			description: desc([
 				"While I am holding my Awakened Spellbook and it is manifest, I can take an action to",
 				"swap places with the manifestation. I can do this a number of times equal to my",
 				"proficiency bonus and I regain all expended uses when I finish a long rest.",
@@ -428,10 +428,10 @@ AddSubClass("wizard","order of scribes-ua", {
 				"find them on a scroll or in another spellbook. I can only restore my ability to cast",
 				"one of these spells with the wish spell, which will restore one spell per casting."
 			]),
-			action : [["action","Swap places with spellbook"]],
-			usages : "Prof Bonus per ",
-			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery : "long rest"
+			action: [["action","Swap places with spellbook"]],
+			usages: "Prof Bonus per ",
+			usagescalc: "event.value = How('Proficiency Bonus');",
+			recovery: "long rest"
 		}
 	}
 });

@@ -114,7 +114,7 @@ RaceList["ixalan vampire"] = {
 
 RaceList["ixalan orc"] = {
 	regExpSearch: /^(?=.*ixalan)(?=.*orc).*$/i,
-	name: "Ixalan orc",
+	name: "Ixalan Orc",
 	sortname: "Orc, Ixalan",
 	source: [["PS:X", 15]],
 	plural: "Ixalan orcs",
@@ -168,7 +168,7 @@ RaceList["ixalan orc"] = {
 
 RaceList["ixalan goblin"] = {
 	regExpSearch: /^(?=.*ixalan)(?=.*goblin).*$/i,
-	name: "Ixalan goblin",
+	name: "Ixalan Goblin",
 	sortname: "Goblin, Ixalan",
 	source: [["PS:X", 16]],
 	plural: "Ixalan goblins",

@@ -15,7 +15,7 @@ SourceList["P"] = {
 // (sub)Races that are not in the SRD
 RaceList["mountain dwarf"] = {
 	regExpSearch: /^((?=.*(hylar|daewar))|((?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b)(?=.*\b(mountain|shield)\b))).*$/i,
-	name: "Mountain dwarf",
+	name: "Mountain Dwarf",
 	sortname: "Dwarf, Mountain",
 	source: [["P", 20]],
 	plural: "Mountain dwarves",
@@ -108,7 +108,7 @@ RaceList["dark elf"] = {
 };
 RaceList["wood elf"] = {
 	regExpSearch: /^(?!.*half)((?=.*(grugach|kagonesti|silhana))|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(woodlands?|woods?|forests?|wilds?|green)\b))).*$/i,
-	name: "Wood elf",
+	name: "Wood Elf",
 	sortname: "Elf, Wood",
 	source: [["P", 24]],
 	plural: "Wood elves",
@@ -138,7 +138,7 @@ RaceList["wood elf"] = {
 };
 RaceList["forest gnome"] = {
 	regExpSearch: /^((?=.*\bgnomes?\b)(?=.*\b(woods?|forests?|wilds?|green)\b)).*$/i,
-	name: "Forest gnome",
+	name: "Forest Gnome",
 	sortname: "Gnome, Forest",
 	source: [["P", 37]],
 	plural: "Forest gnomes",
@@ -169,7 +169,7 @@ RaceList["forest gnome"] = {
 };
 RaceList["stout halfling"] = {
 	regExpSearch: /^(?=.*\b(halflings?|hobbits?)\b)(?=.*stout).*$/i,
-	name: "Stout halfling",
+	name: "Stout Halfling",
 	sortname: "Halfling, Stout",
 	source: [["P", 28]],
 	plural: "Stout halflings",
@@ -3539,7 +3539,7 @@ AddBackgroundVariant("entertainer", "gladiator", {
 		["Inexpensive, unusual weapon", "", ""],
 	],
 	feature: "Are You Entertained?",
-	extra: "",
+	extra: null,
 });
 AddBackgroundVariant("guild artisan", "guild merchant", {
 	regExpSearch: /^(?=.*guild)(?=.*merchant).*$/i,

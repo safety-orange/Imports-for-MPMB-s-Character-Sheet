@@ -51,7 +51,7 @@ SourceList["T"] = {
 // Add Custom Lineage
 RaceList["custom lineage"] = {
 	regExpSearch: /^(?=.*custom)(?=.*lineage).*$/i,
-	name: "Custom lineage",
+	name: "Custom Lineage",
 	source: [["T", 8]],
 	plural: "Custom lineages",
 	size: [3, 4],
@@ -6926,20 +6926,22 @@ SpellsList["tasha's otherworldly guise"] = {
 // >>> Magic Items >>> //
 // >>>>>>>>>>>>>>>>>>> //
 // Tattoos
-var TCoE_magicTattoosDescription = desc([
-	" >>Tattoo Attunement<<. To attune to this item, you hold the needle to your skin where you want the tattoo to appear, pressing the needle there throughout the attunement process. When the attunement is complete, the needle turns into the ink that becomes the tattoo, which appears on the skin.",
-	" If your attunement to the tattoo ends, the tattoo vanishes, and the needle reappears in your space.",
-	"\n>>Magic Tattoos<< (TCoE 118)",
-	" Blending magic and artistry with ink and needles, magic tattoos imbue their bearers with wondrous abilities. Magic tattoos are initially bound to magic needles, which transfer their magic to a creature.",
-	" Once inscribed on a creature's body, damage or injury doesn't impair the tattoo's function, even if the tattoo is defaced. When applying a magic tattoo, a creature can customize the tattoo's appearance. A magic tattoo can look like a brand, scarification, a birthmark, patterns of scale, or any other cosmetic alteration.",
-	" The rarer a magic tattoo is, the more space it typically occupies on a creature's skin. The table below offers guidelines for how large a given tattoo is.",
-	"\n>>Tattoo Rarity\tArea Covered<<",
-	"Common     \tOne hand or foot or a quarter of a limb",
-	"Uncommon   \tHalf a limb or the scalp",
-	"Rare\t\tOne limb",
-	"Very Rare  \tTwo limbs or the chest or upper back",
-	"Legendary  \tTwo limbs and the torso",
-], "\n  ");
+var TCoE_magicTattoosDescription = [
+	"***Tattoo Attunement***. To attune to this item, you hold the needle to your skin where you want the tattoo to appear, pressing the needle there throughout the attunement process. When the attunement is complete, the needle turns into the ink that becomes the tattoo, which appears on the skin.",
+	"If your attunement to the tattoo ends, the tattoo vanishes, and the needle reappears in your space.",
+	"***Magic Tattoos*** (TCoE 118)",
+	"Blending magic and artistry with ink and needles, magic tattoos imbue their bearers with wondrous abilities. Magic tattoos are initially bound to magic needles, which transfer their magic to a creature.",
+	"Once inscribed on a creature's body, damage or injury doesn't impair the tattoo's function, even if the tattoo is defaced. When applying a magic tattoo, a creature can customize the tattoo's appearance. A magic tattoo can look like a brand, scarification, a birthmark, patterns of scale, or any other cosmetic alteration.",
+	"The rarer a magic tattoo is, the more space it typically occupies on a creature's skin. The table below offers guidelines for how large a given tattoo is.",
+	[
+		["Tattoo Rarity", "Area Covered"],
+		["  Common     ", "One hand or foot or a quarter of a limb"],
+		["  Uncommon   ", "Half a limb or the scalp"],
+		["  Rare", "", "One limb"],
+		["  Very Rare  ", "Two limbs or the chest or upper back"],
+		["  Legendary  ", "Two limbs and the torso"],
+	],
+];
 MagicItemsList["absorbing tattoo"] = function () {
 	var oObj = {
 		name: "Absorbing Tattoo",
@@ -6948,20 +6950,24 @@ MagicItemsList["absorbing tattoo"] = function () {
 		rarity: "very rare",
 		attunement: true,
 		description: "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing. It grants me resistance to a damage type. As a reaction once per dawn when I take that type of damage, I can gain immunity against that instance of damage and recover half the damage as HP.",
-		descriptionFull: "Produced by a special needle, this magic tattoo features designs that emphasize one color." +
-		"\n   ***Damage Resistance***. While the tattoo is on your skin, you have resistance to a type of damage associated with that color, as shown on the table below. The DM chooses the color or determines it randomly." +
-		"\n**d10**\t**Damage Type**\t**Color**" +
-		"\n   1\tAcid\t\tGreen" +
-		"\n   2\tCold\t\tBlue" +
-		"\n   3\tFire\t\tRed" +
-		"\n   4\tForce\t\tWhite" +
-		"\n   5\tLightning  \tYellow" +
-		"\n   6\tNecrotic\t\tBlack" +
-		"\n   7\tPoison\t\tViolet" +
-		"\n   8\tPsychic\t\tSilver" +
-		"\n   9\tRadiant\t\tGold" +
-		"\n 10\tThunder\t\tOrange" +
-		"\n\n   ***Damage Absorption***. When you take damage of the chosen type, you can use your reaction to gain immunity against that instance of the damage, and you regain a number of hit points equal to half the damage you would have taken. Once this reaction is used, it can't be used again until the next dawn." + TCoE_magicTattoosDescription,
+		descriptionFull: [
+			"Produced by a special needle, this magic tattoo features designs that emphasize one color.",
+			"***Damage Resistance***. While the tattoo is on your skin, you have resistance to a type of damage associated with that color, as shown on the table below. The DM chooses the color or determines it randomly.",
+			[
+				["d10", "Damage Type", "Color"],
+				["   1", "Acid", "", "Green"],
+				["   2", "Cold", "", "Blue"],
+				["   3", "Fire", "", "Red"],
+				["   4", "Force", "", "White"],
+				["   5", "Lightning  ", "Yellow"],
+				["   6", "Necrotic", "", "Black"],
+				["   7", "Poison", "", "Violet"],
+				["   8", "Psychic", "", "Silver"],
+				["   9", "Radiant", "", "Gold"],
+				[" 10", "Thunder", "", "Orange"],
+			],
+			"***Damage Absorption***. When you take damage of the chosen type, you can use your reaction to gain immunity against that instance of the damage, and you regain a number of hit points equal to half the damage you would have taken. Once this reaction is used, it can't be used again until the next dawn.",
+		].concat(TCoE_magicTattoosDescription),
 		usages: 1,
 		recovery: "dawn",
 		additional: "Immunity",
@@ -6985,13 +6991,16 @@ MagicItemsList["barrier tattoo"] = {
 	source: [["T", 122]],
 	type: "wondrous item (tattoo)",
 	description: "This magic tattoo depicts protective imagery and uses ink that resembles liquid metal. While not wearing armor, this tattoo grants me an Armor Class related to the rarity of the tattoo.",
-	descriptionFull: "Produced by a special needle, this magic tattoo depicts protective imagery and uses ink that resembles liquid metal." +
-	"\n   ***Protection***. While you aren't wearing armor, the tattoo grants you an Armor Class depending on the tattoo's rarity, as shown below. You can use a shield and still gain this benefit." +
-	"\n**Tattoo Rarity**\t**AC**" +
-	"\n  Uncommon\t12 + your Dexterity modifier" +
-	"\n  Rare\t\t15 + your Dexterity modifier (maximum of +2)" +
-	"\n  Very Rare\t18\n" +
-	TCoE_magicTattoosDescription,
+	descriptionFull: [
+		"Produced by a special needle, this magic tattoo depicts protective imagery and uses ink that resembles liquid metal.",
+		"***Protection***. While you aren't wearing armor, the tattoo grants you an Armor Class depending on the tattoo's rarity, as shown below. You can use a shield and still gain this benefit.",
+		[
+			["Tattoo Rarity", "AC"],
+			["  Uncommon", "12 + your Dexterity modifier"],
+			["  Rare", "", "15 + your Dexterity modifier (maximum of +2)"],
+			["  Very Rare", "18"],
+		],
+	].concat(TCoE_magicTattoosDescription),
 	attunement: true,
 	choices: ["AC 12+Dex (uncommon)", "AC 15+Dex (rare)", "AC 18 (very rare)"],
 	"ac 12+dex (uncommon)": {
@@ -7043,10 +7052,12 @@ MagicItemsList["blood fury tattoo"] = {
 	rarity: "legendary",
 	attunement: true,
 	description: "This magical tattoo has 10 charges, regaining all at dawn. As a reaction when a creature I can see damages me, I can use 1 charge to make a melee attack with advantage against it. When I hit a creature with a melee attack, I can use 1 charge to deal it 4d6 necrotic damage and regain the same amount in hit points.",
-	descriptionFull: "Produced by a special needle, this magic tattoo evokes fury in its form and colors." +
-	"\n   ***Bloodthirsty Strikes***. The tattoo has 10 charges, and it regains all expended charges daily at dawn. While this tattoo is on your skin, you gain the following benefits:" +
-	"\n \u2022 When you hit a creature with a weapon attack, you can expend a charge to deal an extra 4d6 necrotic damage to the target, and you regain a number of hit points equal to the necrotic damage dealt." +
-	"\n \u2022 When a creature you can see damages you, you can expend a charge and use your reaction to make a melee attack against that creature, with advantage on your attack roll." + TCoE_magicTattoosDescription,
+	descriptionFull: [
+		"Produced by a special needle, this magic tattoo evokes fury in its form and colors.",
+		"***Bloodthirsty Strikes***. The tattoo has 10 charges, and it regains all expended charges daily at dawn. While this tattoo is on your skin, you gain the following benefits:",
+		" \u2022 When you hit a creature with a weapon attack, you can expend a charge to deal an extra 4d6 necrotic damage to the target, and you regain a number of hit points equal to the necrotic damage dealt.",
+		" \u2022 When a creature you can see damages you, you can expend a charge and use your reaction to make a melee attack against that creature, with advantage on your attack roll.",
+	].concat(TCoE_magicTattoosDescription),
 	usages: 10,
 	recovery: "dawn",
 	action: [["reaction", " (after taking damage)"]],
@@ -7058,8 +7069,10 @@ MagicItemsList["coiling grasp tattoo"] = {
 	rarity: "uncommon",
 	attunement: true,
 	description: "This magical tattoo features intertwining designs. As an action, I can have a creature I can see within 15 ft make a DC 14 Str save or take 3d6 force damage and be grappled. It can use its action to try and escape (DC 14 Athletics/Acrobatics). Grapple ends if I halt it, use it again, or if the target is more than 15 ft away.",
-	descriptionFull: "Produced by a special needle, this magic tattoo has long intertwining designs." +
-	"\n   ***Grasping Tendrils***. While the tattoo is on your skin, you can, as an action, cause the tattoo to extrude into inky tendrils, which reach for a creature you can see within 15 feet of you. The creature must succeed on a DC 14 Strength saving throw or take 3d6 force damage and be grappled by you. As an action, the creature can escape the grapple by succeeding on a DC 14 Strength (Athletics) or Dexterity (Acrobatics) check. The grapple also ends if you halt it (no action required), if the creature is ever more than 15 feet away from you, or if you use this tattoo on a different creature." + TCoE_magicTattoosDescription,
+	descriptionFull: [
+		"Produced by a special needle, this magic tattoo has long intertwining designs.",
+		"***Grasping Tendrils***. While the tattoo is on your skin, you can, as an action, cause the tattoo to extrude into inky tendrils, which reach for a creature you can see within 15 feet of you. The creature must succeed on a DC 14 Strength saving throw or take 3d6 force damage and be grappled by you. As an action, the creature can escape the grapple by succeeding on a DC 14 Strength (Athletics) or Dexterity (Acrobatics) check. The grapple also ends if you halt it (no action required), if the creature is ever more than 15 feet away from you, or if you use this tattoo on a different creature.",
+	].concat(TCoE_magicTattoosDescription),
 	action: [["action", ""]],
 	weaponOptions: [{
 		regExpSearch: /^(?=.*coiling grasp)(?=.*tattoo).*$/i,
@@ -7083,9 +7096,11 @@ MagicItemsList["eldritch claw tattoo"] = {
 	rarity: "uncommon",
 	attunement: true,
 	description: "This magical tattoo featuring clawlike forms makes my unarmed strikes magical with a +1 bonus to attack and damage. As a bonus action once per dawn, I can have it empower me for 1 minute so that all my melee attacks with weapons and unarmed strikes have 15 ft reach and deal an extra 1d6 force damage.",
-	descriptionFull: "Produced by a special needle, this magic tattoo depicts clawlike forms and other jagged shapes." +
-	"\n   ***Magical Strikes***. While the tattoo is on your skin, your unarmed strikes are considered magical for the purpose of overcoming immunity and resistance to nonmagical attacks, and you gain a +1 bonus to attack and damage rolls with unarmed strikes." +
-	"\n   ***Eldritch Maul***. As a bonus action, you can empower the tattoo for 1 minute. For the duration, each of your melee attacks with a weapon or an unarmed strike can reach a target up to 15 feet away from you, as inky tendrils launch toward the target. In addition, your melee attacks deal an extra 1d6 force damage on a hit. Once used, this bonus action can't be used again until the next dawn." + TCoE_magicTattoosDescription,
+	descriptionFull: [
+		"Produced by a special needle, this magic tattoo depicts clawlike forms and other jagged shapes.",
+		"***Magical Strikes***. While the tattoo is on your skin, your unarmed strikes are considered magical for the purpose of overcoming immunity and resistance to nonmagical attacks, and you gain a +1 bonus to attack and damage rolls with unarmed strikes.",
+		"***Eldritch Maul***. As a bonus action, you can empower the tattoo for 1 minute. For the duration, each of your melee attacks with a weapon or an unarmed strike can reach a target up to 15 feet away from you, as inky tendrils launch toward the target. In addition, your melee attacks deal an extra 1d6 force damage on a hit. Once used, this bonus action can't be used again until the next dawn.",
+	].concat(TCoE_magicTattoosDescription),
 	usages: 1,
 	recovery: "dawn",
 	additional: "Eldritch Maul",
@@ -7122,11 +7137,13 @@ MagicItemsList["ghost step tattoo"] = {
 	rarity: "very rare",
 	attunement: true,
 	description: "As a bonus action 3 times per day, I can become incorporeal until my next turn ends. While incorporeal, I can't be grappled or restrained, gain nonmagical bludgeoning, piercing, and slashing damage resistance, and can move through creatures or objects as difficult terrain (1d10 force damage if I end my turn in one).",
-	descriptionFull: "Produced by a special needle, this tattoo shifts and wavers on the skin, parts of it appearing blurred." +
-	"\n   ***Ghostly Form***. The tattoo has 3 charges, and it regains all expended charges daily at dawn. As a bonus action while the tattoo is on your skin, you can expend 1 of the tattoo's charges to become incorporeal until the end of your next turn. For the duration, you gain the following benefits:" +
-	"\n \u2022 You have resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks." +
-	"\n \u2022 You can't be grappled or restrained." +
-	"\n \u2022 You can move through creatures and solid objects as if they were difficult terrain. If you end your turn in a solid object, you take 1d10 force damage. If the effect ends while you are inside a solid object, you instead are shunted to the nearest unoccupied space, and you take 1d10 force damage for every 5 feet traveled." + TCoE_magicTattoosDescription,
+	descriptionFull: [
+		"Produced by a special needle, this tattoo shifts and wavers on the skin, parts of it appearing blurred.",
+		"***Ghostly Form***. The tattoo has 3 charges, and it regains all expended charges daily at dawn. As a bonus action while the tattoo is on your skin, you can expend 1 of the tattoo's charges to become incorporeal until the end of your next turn. For the duration, you gain the following benefits:",
+		" \u2022 You have resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks.",
+		" \u2022 You can't be grappled or restrained.",
+		" \u2022 You can move through creatures and solid objects as if they were difficult terrain. If you end your turn in a solid object, you take 1d10 force damage. If the effect ends while you are inside a solid object, you instead are shunted to the nearest unoccupied space, and you take 1d10 force damage for every 5 feet traveled.",
+	].concat(TCoE_magicTattoosDescription),
 	usages: 3,
 	recovery: "dawn",
 	action: [["bonus action", ""]],
@@ -7138,9 +7155,11 @@ MagicItemsList["illuminator's tattoo"] = { // contains contributions by lizrdgiz
 	rarity: "common",
 	attunement: true,
 	description: "While this beautiful calligraphy tattoo is on my skin, I can write with my fingertip as if it is an ink pen that never runs out of ink. As an action, I can touch writing up to one page and speak a creature's name, making it invisible to everyone else but me and the creature for up to 24 hours or until I or the creature touch it.",
-	descriptionFull: "Produced by a special needle, this magic tattoo features beautiful calligraphy, images of writing implements, and the like." +
-	"\n   ***Magical Scribing***. While this tattoo is on your skin, you can write with your fingertip as if it were an ink pen that never runs out of ink." +
-	"\n   As an action, you can touch a piece of writing up to one page in length and speak a creature's name. The writing becomes invisible to everyone other than you and the named creature for the next 24 hours. Either of you can dismiss the invisibility by touching the script (no action required). Once used, this action can't be used again until the next dawn." + TCoE_magicTattoosDescription,
+	descriptionFull: [
+		"Produced by a special needle, this magic tattoo features beautiful calligraphy, images of writing implements, and the like.",
+		"***Magical Scribing***. While this tattoo is on your skin, you can write with your fingertip as if it were an ink pen that never runs out of ink.",
+		"As an action, you can touch a piece of writing up to one page in length and speak a creature's name. The writing becomes invisible to everyone other than you and the named creature for the next 24 hours. Either of you can dismiss the invisibility by touching the script (no action required). Once used, this action can't be used again until the next dawn.",
+	].concat(TCoE_magicTattoosDescription),
 	usages: 1,
 	recovery: "dawn",
 	action: [["action", ""]],
@@ -7152,9 +7171,11 @@ MagicItemsList["lifewell tattoo"] = {
 	rarity: "very rare",
 	attunement: true,
 	description: "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring symbols of life and rebirth. It grants me resistance to necrotic damage. The first time per dawn when I would be reduced to 0 hit points, I drop to 1 hit point instead.",
-	descriptionFull: "Produced by a special needle, this magic tattoo features symbols of life and rebirth." +
-	"\n   ***Necrotic Resistance***. You have resistance to necrotic damage." +
-	"\n   ***Life Ward***. When you would be reduced to 0 hit points, you drop to 1 hit point instead. Once used, this property can't be used again until the next dawn." + TCoE_magicTattoosDescription,
+	descriptionFull: [
+		"Produced by a special needle, this magic tattoo features symbols of life and rebirth.",
+		"***Necrotic Resistance***. You have resistance to necrotic damage.",
+		"***Life Ward***. When you would be reduced to 0 hit points, you drop to 1 hit point instead. Once used, this property can't be used again until the next dawn.",
+	].concat(TCoE_magicTattoosDescription),
 	usages: 1,
 	recovery: "dawn",
 	dmgres: ["Necrotic"],
@@ -7166,9 +7187,11 @@ MagicItemsList["masquerade tattoo"] = {
 	rarity: "common",
 	attunement: true,
 	description: "When I attune to this magic needle, it disappears and I gain a magical tattoo. As a bonus action, I can change its size, color, pattern, and location on my skin to whatever I want, but it's always obviously a tattoo. As an action once per dawn, I can use the tattoo to cast *Disguise Self* (DC 13 to discern the disguise).",
-	descriptionFull: "Produced by a special needle, this magic tattoo appears on your body as whatever you desire." +
-	"\n   ***Fluid Ink***. As a bonus action, you can shape the tattoo into any color or pattern and move it to any area of your skin. Whatever form it takes, it is always obviously a tattoo. It can range in size from no smaller than a copper piece to an intricate work of art that covers all your skin." +
-	"\n   ***Disguise Self***. As an action, you can use the tattoo to cast the *disguise self* spell (DC 13 to discern the disguise). Once the spell is cast from the tattoo, it can't be cast from the tattoo again until the next dawn." + TCoE_magicTattoosDescription,
+	descriptionFull: [
+		"Produced by a special needle, this magic tattoo appears on your body as whatever you desire.",
+		"***Fluid Ink***. As a bonus action, you can shape the tattoo into any color or pattern and move it to any area of your skin. Whatever form it takes, it is always obviously a tattoo. It can range in size from no smaller than a copper piece to an intricate work of art that covers all your skin.",
+		"***Disguise Self***. As an action, you can use the tattoo to cast the *disguise self* spell (DC 13 to discern the disguise). Once the spell is cast from the tattoo, it can't be cast from the tattoo again until the next dawn.",
+	].concat(TCoE_magicTattoosDescription),
 	usages: 1,
 	recovery: "dawn",
 	additional: "Disguise Self",
@@ -7188,9 +7211,11 @@ MagicItemsList["shadowfell brand tattoo"] = { // contains contributions by lizrd
 	rarity: "rare",
 	attunement: true,
 	description: "When I attune to this magic needle, it disappears and I gain a dark, abstract magical tattoo. It gives me darkvision with a range of 60 ft and advantage on Dexterity (Stealth) checks. As a reaction once per sunset when I take damage, I can become insubstantial for a moment, halving the damage I take.",
-	descriptionFull: "Produced by a special needle, this magic tattoo is dark in color and abstract." +
-	"\n   ***Shadow Essence***. You gain darkvision with a range of 60 feet, and you have advantage on Dexterity (Stealth) checks." +
-	"\n   ***Shadowy Defense***. When you take damage, you can use your reaction to become insubstantial for a moment, halving the damage you take. Then the reaction can't be used again until the next sunset." + TCoE_magicTattoosDescription,
+	descriptionFull: [
+		"Produced by a special needle, this magic tattoo is dark in color and abstract.",
+		"***Shadow Essence***. You gain darkvision with a range of 60 feet, and you have advantage on Dexterity (Stealth) checks.",
+		"***Shadowy Defense***. When you take damage, you can use your reaction to become insubstantial for a moment, halving the damage you take. Then the reaction can't be used again until the next sunset.",
+	].concat(TCoE_magicTattoosDescription),
 	usages: 1,
 	recovery: "sunset",
 	action: [["reaction", " (halve damage)"]],
@@ -7202,16 +7227,20 @@ MagicItemsList["spellwrought tattoo"] = {
 	source: [["T", 135]],
 	type: "wondrous item (tattoo)",
 	description: "When I hold this magic needle against my skin and speak the command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its spell, requiring no material components. The tattoo glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
-	descriptionFull: "Produced by a special needle, this magic tattoo contains a single spell of up to 5th level, wrought on your skin by a magic needle. To use the tattoo, you must hold the needle against your skin and speak the command word. The needle turns into ink that becomes the tattoo, which appears on the skin in whatever design you like. Once the tattoo is there, you can cast its spell, requiring no material components. The tattoo glows faintly while you cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes from your skin." +
-	"\n   The level of the spell in the tattoo determines the spell's saving throw DC, attack bonus, spellcasting ability modifier, and the tattoo's rarity, as shown in the table below.\n" +
-	"\n **Spell**\t\t     **Spellcasting**\t**Save**\t**Attack**" +
-	"\n **Level**\t**Rarity**\t     **Ability Mod.**\t **DC**\t**Bonus**" +
-	"\nCantrip\tCommon\t\t+3\t 13\t  +5" +
-	"\n  1st\tCommon\t\t+3\t 13\t  +5" +
-	"\n  2nd\tUncommon\t+3\t 13\t  +5" +
-	"\n  3rd\tUncommon\t+4\t 15\t  +7" +
-	"\n  4th\tRare\t\t+4\t 15\t  +7" +
-	"\n  5th\tRare\t\t+5\t 17\t  +9" + TCoE_magicTattoosDescription.replace(/[\s\S]*in your space\.\n */, "\n"),
+	descriptionFull: [
+		"Produced by a special needle, this magic tattoo contains a single spell of up to 5th level, wrought on your skin by a magic needle. To use the tattoo, you must hold the needle against your skin and speak the command word. The needle turns into ink that becomes the tattoo, which appears on the skin in whatever design you like. Once the tattoo is there, you can cast its spell, requiring no material components. The tattoo glows faintly while you cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes from your skin.",
+		"The level of the spell in the tattoo determines the spell's saving throw DC, attack bonus, spellcasting ability modifier, and the tattoo's rarity, as shown in the table below.",
+		[
+			[" Spell", "", "     Spellcasting", "Save", "Attack"],
+			" **Level**\t**Rarity**\t     **Ability Mod.**\t **DC**\t**Bonus**",
+			["Cantrip", "Common", "", "+3", " 13", "  +5"],
+			["  1st", "Common", "", "+3", " 13", "  +5"],
+			["  2nd", "Uncommon", "+3", " 13", "  +5"],
+			["  3rd", "Uncommon", "+4", " 15", "  +7"],
+			["  4th", "Rare", "", "+4", " 15", "  +7"],
+			["  5th", "Rare", "", "+5", " 17", "  +9"],
+		],
+	].concat(TCoE_magicTattoosDescription.slice(2)),
 	allowDuplicates: true,
 	calcChanges: {
 		spellAdd: [
@@ -8015,7 +8044,7 @@ MagicItemsList["protective verses"] = {
 	description: "I can use this book with an iron lock as a spellcasting focus and spellbook. As an action, I can use *Arcane Lock* it. It has 3 charges, regains 1d3 at dawn. For 1 charge \u0026 1 min study, I can change a prepared spell to an abjuration within. I can use 1 charge when I cast an abjuration spell to give a creature in 30 ft 2d10 temp HP.",
 	descriptionLong: "This leather-bound spellbook is reinforced with iron and silver fittings and an iron lock (DC 20 to open). As an action, I can touch the book's cover and cause it to lock as if I cast *arcane lock* on it. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 charges at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an abjuration spell within. When I hold the book and cast an abjuration, I can expend 1 charge to grant a creature I can see within 30 ft 2d10 temporary hit points.",
 	descriptionFull: [
-		"This leather-bound spellbook is reinforced with iron and silver fittings and an iron lock (DC 20 to open). As an action, you can touch the book's cover and cause it to lock as if you cast *arcane lock* on it. When found, the book contains the following spells: *arcane lock*, *dispel magic*, *globe of invulnerability*, *glyph of warding*, *Mordenkainen's private sanctum*, protection from evil, and symbol. It functions as a spellbook for you.",
+		"This leather-bound spellbook is reinforced with iron and silver fittings and an iron lock (DC 20 to open). As an action, you can touch the book's cover and cause it to lock as if you cast *arcane lock* on it. When found, the book contains the following spells: *arcane lock*, *dispel magic*, *globe of invulnerability*, *glyph of warding*, *Mordenkainen's private sanctum*, *protection from evil and good*, and *symbol*. It functions as a spellbook for you.",
 		"While you are holding the book, you can use it as a spellcasting focus for your wizard spells.",
 		"The book has 3 charges, and it regains 1d3 expended charges daily at dawn. You can use the charges in the following ways while holding it:",
 		" \u2022 If you spend 1 minute studying the book, you can expend 1 charge to replace one of your prepared wizard spells with a different spell in the book. The new spell must be of the abjuration school.",

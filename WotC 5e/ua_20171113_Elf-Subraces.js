@@ -90,7 +90,7 @@ if (RaceList["wood elf"]) {
 if (!RaceList["sea elf"]) {
 	RaceList["sea elf"] = {
 		regExpSearch: /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
-		name: "Sea elf",
+		name: "Sea Elf",
 		sortname: "Elf, Sea",
 		source: [["MToF", 62], ["W", 163], ["UA:ES", 1]],
 		plural: "Sea elves",
@@ -123,8 +123,8 @@ if (!RaceList["sea elf"]) {
 } // dupl_end
 RaceList["shadar-kai elf-ua"] = {
 	regExpSearch: /^(?!.*half)((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
-	name: "Shadar-kai",
-	sortname: "Elf, Shadow (Shadar-kai)",
+	name: "Shadar-Kai",
+	sortname: "Elf, Shadow (Shadar-Kai)",
 	source: [["UA:ES", 2]],
 	plural: "Shadar-kai",
 	size: 3,

@@ -85,7 +85,7 @@ RaceList["kalashtar-ua"] = { //this code includes contributions by /u/SoilentBra
 // The four subraces of the shifter
 RaceList["beasthide shifter-ua"] = {
 	regExpSearch: /^(?=.*shifter)(?=.*beast)(?=.*hide).*$/i,
-	name: "Beasthide shifter",
+	name: "Beasthide Shifter",
 	sortname: "Shifter, Beasthide",
 	source: [["WGtE", 66], ["UA:RoE", 6]],
 	plural: "Beasthide shifters",
@@ -121,7 +121,7 @@ RaceList["beasthide shifter-ua"] = {
 };
 RaceList["longtooth shifter-ua"] = {
 	regExpSearch: /^(?=.*shifter)(?=.*long)(?=.*(tooth|teeth)).*$/i,
-	name: "Longtooth shifter",
+	name: "Longtooth Shifter",
 	sortname: "Shifter, Longtooth",
 	source: [["WGtE", 66], ["UA:RoE", 6]],
 	plural: "Longtooth shifters",
@@ -167,7 +167,7 @@ RaceList["longtooth shifter-ua"] = {
 };
 RaceList["swiftstride shifter-ua"] = {
 	regExpSearch: /^(?=.*shifter)(?=.*swift)(?=.*stride).*$/i,
-	name: "Swiftstride shifter",
+	name: "Swiftstride Shifter",
 	sortname: "Shifter, Swiftstride",
 	source: [["WGtE", 66], ["UA:RoE", 6]],
 	plural: "Swiftstride shifters",
@@ -205,7 +205,7 @@ RaceList["swiftstride shifter-ua"] = {
 };
 RaceList["wildhunt shifter-ua"] = {
 	regExpSearch: /^(?=.*shifter)(?=.*wild)(?=.*hunt).*$/i,
-	name: "Wildhunt shifter",
+	name: "Wildhunt Shifter",
 	sortname: "Shifter, Wildhunt",
 	source: [["WGtE", 66], ["UA:RoE", 6]],
 	plural: "Wildhunt shifters",
@@ -249,7 +249,7 @@ RaceList["wildhunt shifter-ua"] = {
 // The three subraces of the warforged
 RaceList["envoy warforged-ua"] = {
 	regExpSearch: /^(?=.*warforged)(?=.*envoy).*$/i,
-	name: "Envoy warforged",
+	name: "Envoy Warforged",
 	sortname: "Warforged, Envoy",
 	source: [["WGtE", 69], ["UA:RoE", 9]],
 	plural: "Envoy warforged",
@@ -324,7 +324,7 @@ RaceList["envoy warforged-ua"] = {
 };
 RaceList["juggernaut warforged-ua"] = {
 	regExpSearch: /^(?=.*warforged)(?=.*juggernaut).*$/i,
-	name: "Juggernaut warforged",
+	name: "Juggernaut Warforged",
 	sortname: "Warforged, Juggernaut",
 	source: [["WGtE", 70], ["UA:RoE", 9]],
 	plural: "Juggernaut warforged",
@@ -405,7 +405,7 @@ RaceList["juggernaut warforged-ua"] = {
 };
 RaceList["skirmisher warforged-ua"] = {
 	regExpSearch: /^(?=.*warforged)(?=.*skirmisher).*$/i,
-	name: "Skirmisher warforged",
+	name: "Skirmisher Warforged",
 	sortname: "Warforged, Skirmisher",
 	source: [["WGtE", 70], ["UA:RoE", 9]],
 	plural: "Skirmisher warforged",

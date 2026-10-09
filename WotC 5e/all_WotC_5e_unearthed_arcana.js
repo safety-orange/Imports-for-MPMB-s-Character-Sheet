@@ -109,7 +109,7 @@ RaceList["shifter-ua"] = {
 };
 AddRacialVariant("shifter-ua", "beasthide", {
 	regExpSearch: /beasthide/i,
-	name: "Beasthide shifter",
+	name: "Beasthide Shifter",
 	source: [["UA:E", 2]],
 	plural: "Beasthide shifters",
 	scorestxt: "",
@@ -122,7 +122,7 @@ AddRacialVariant("shifter-ua", "beasthide", {
 });
 AddRacialVariant("shifter-ua", "cliffwalk", {
 	regExpSearch: /cliffwalk/i,
-	name: "Cliffwalk shifter",
+	name: "Cliffwalk Shifter",
 	source: [["UA:E", 2]],
 	plural: "Cliffwalk shifters",
 	scorestxt: "",
@@ -135,7 +135,7 @@ AddRacialVariant("shifter-ua", "cliffwalk", {
 });
 AddRacialVariant("shifter-ua", "longstride", {
 	regExpSearch: /longstride/i,
-	name: "Longstride shifter",
+	name: "Longstride Shifter",
 	source: [["UA:E", 2]],
 	plural: "Longstride shifters",
 	scorestxt: "",
@@ -148,7 +148,7 @@ AddRacialVariant("shifter-ua", "longstride", {
 });
 AddRacialVariant("shifter-ua", "longtooth", {
 	regExpSearch: /(longtooth|longteeth)/i,
-	name: "Longtooth shifter",
+	name: "Longtooth Shifter",
 	source: [["UA:E", 2]],
 	plural: "Longtooth shifters",
 	weaponOptions: [{
@@ -172,7 +172,7 @@ AddRacialVariant("shifter-ua", "longtooth", {
 });
 AddRacialVariant("shifter-ua", "razorclaw", {
 	regExpSearch: /razorclaw/i,
-	name: "Razorclaw shifter",
+	name: "Razorclaw Shifter",
 	source: [["UA:E", 2]],
 	plural: "Razorclaw shifters",
 	weaponOptions: [{
@@ -194,7 +194,7 @@ AddRacialVariant("shifter-ua", "razorclaw", {
 });
 AddRacialVariant("shifter-ua", "wildhunt", {
 	regExpSearch: /wildhunt/i,
-	name: "Wildhunt shifter",
+	name: "Wildhunt Shifter",
 	source: [["UA:E", 3]],
 	plural: "Wildhunt shifters",
 	scorestxt: "",
@@ -2183,7 +2183,7 @@ SourceList["UA:TOBM"] = {
 // Adds the Abyssal Tiefling
 RaceList["abyssal tiefling-ua"] = {
 	regExpSearch: /^(?=.*abyssal)((?=.*tiefling)|(?=.*planetouched)(?=.*(hell|abyss|fiend|devil))).*$/i,
-	name: "Abyssal tiefling",
+	name: "Abyssal Tiefling",
 	sortname: "Tiefling, Abyssal",
 	source: [["UA:TOBM", 1]],
 	plural: "Abyssal tieflings",
@@ -2254,7 +2254,7 @@ var UATOBM_addAbyssalTiefling = function (){
 		thisVar.trait = [].concat(thisVar.trait).map(function (sTrait) {
 			return sTrait.replace(replaceTraitTxt[0], replaceTraitTxt[1]).replace(replaceNameTxt[0].capitalize(), replaceNameTxt[1].capitalize());
 		});
-		thisVar.name = thisVar.name.replace(replaceNameTxt[0], replaceNameTxt[1]);
+		thisVar.name = thisVar.name.replace(RegExp(replaceNameTxt[0], "i"), RaceList["abyssal tiefling-ua"].name);
 		thisVar.plural = thisVar.plural.replace(replaceNameTxt[0], replaceNameTxt[1]);
 	});
 }();
@@ -13856,7 +13856,7 @@ SourceList["UA:FO"] = {
 // Much of this code was contributed by Friedrich
 RaceList["dispater tiefling-ua"] = {
 	regExpSearch: /^(?=.*dispater)(?=.*tiefling|planetouched).*$/i,
-	name: "Dispater tiefling",
+	name: "Dispater Tiefling",
 	sortname: "Tiefling, Dispater",
 	source: [["UA:FO", 1]],
 	plural: "Dispater tieflings",
@@ -13918,7 +13918,7 @@ RaceList["dispater tiefling-ua"] = {
 };
 RaceList["mephistopheles tiefling-ua"] = {
 	regExpSearch: /^(?=.*mephistopheles)(?=.*tiefling|planetouched).*$/i,
-	name: "Mephistopheles tiefling",
+	name: "Mephistopheles Tiefling",
 	sortname: "Tiefling, Mephistopheles",
 	source: [["UA:FO", 2]],
 	plural: "Mephistopheles tieflings",
@@ -14074,8 +14074,8 @@ if (RaceList["wood elf"]) {
 }
 RaceList["shadar-kai elf-ua"] = {
 	regExpSearch: /^(?!.*half)((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
-	name: "Shadar-kai",
-	sortname: "Elf, Shadow (Shadar-kai)",
+	name: "Shadar-Kai",
+	sortname: "Elf, Shadow (Shadar-Kai)",
 	source: [["UA:ES", 2]],
 	plural: "Shadar-kai",
 	size: 3,
@@ -14921,7 +14921,7 @@ RaceList["kalashtar-ua"] = { //this code includes contributions by /u/SoilentBra
 // The four subraces of the shifter
 RaceList["beasthide shifter-ua"] = {
 	regExpSearch: /^(?=.*shifter)(?=.*beast)(?=.*hide).*$/i,
-	name: "Beasthide shifter",
+	name: "Beasthide Shifter",
 	sortname: "Shifter, Beasthide",
 	source: [["WGtE", 66], ["UA:RoE", 6]],
 	plural: "Beasthide shifters",
@@ -14957,7 +14957,7 @@ RaceList["beasthide shifter-ua"] = {
 };
 RaceList["longtooth shifter-ua"] = {
 	regExpSearch: /^(?=.*shifter)(?=.*long)(?=.*(tooth|teeth)).*$/i,
-	name: "Longtooth shifter",
+	name: "Longtooth Shifter",
 	sortname: "Shifter, Longtooth",
 	source: [["WGtE", 66], ["UA:RoE", 6]],
 	plural: "Longtooth shifters",
@@ -15003,7 +15003,7 @@ RaceList["longtooth shifter-ua"] = {
 };
 RaceList["swiftstride shifter-ua"] = {
 	regExpSearch: /^(?=.*shifter)(?=.*swift)(?=.*stride).*$/i,
-	name: "Swiftstride shifter",
+	name: "Swiftstride Shifter",
 	sortname: "Shifter, Swiftstride",
 	source: [["WGtE", 66], ["UA:RoE", 6]],
 	plural: "Swiftstride shifters",
@@ -15041,7 +15041,7 @@ RaceList["swiftstride shifter-ua"] = {
 };
 RaceList["wildhunt shifter-ua"] = {
 	regExpSearch: /^(?=.*shifter)(?=.*wild)(?=.*hunt).*$/i,
-	name: "Wildhunt shifter",
+	name: "Wildhunt Shifter",
 	sortname: "Shifter, Wildhunt",
 	source: [["WGtE", 66], ["UA:RoE", 6]],
 	plural: "Wildhunt shifters",
@@ -15085,7 +15085,7 @@ RaceList["wildhunt shifter-ua"] = {
 // The three subraces of the warforged
 RaceList["envoy warforged-ua"] = {
 	regExpSearch: /^(?=.*warforged)(?=.*envoy).*$/i,
-	name: "Envoy warforged",
+	name: "Envoy Warforged",
 	sortname: "Warforged, Envoy",
 	source: [["WGtE", 69], ["UA:RoE", 9]],
 	plural: "Envoy warforged",
@@ -15160,7 +15160,7 @@ RaceList["envoy warforged-ua"] = {
 };
 RaceList["juggernaut warforged-ua"] = {
 	regExpSearch: /^(?=.*warforged)(?=.*juggernaut).*$/i,
-	name: "Juggernaut warforged",
+	name: "Juggernaut Warforged",
 	sortname: "Warforged, Juggernaut",
 	source: [["WGtE", 70], ["UA:RoE", 9]],
 	plural: "Juggernaut warforged",
@@ -15241,7 +15241,7 @@ RaceList["juggernaut warforged-ua"] = {
 };
 RaceList["skirmisher warforged-ua"] = {
 	regExpSearch: /^(?=.*warforged)(?=.*skirmisher).*$/i,
-	name: "Skirmisher warforged",
+	name: "Skirmisher Warforged",
 	sortname: "Warforged, Skirmisher",
 	source: [["WGtE", 70], ["UA:RoE", 9]],
 	plural: "Skirmisher warforged",
@@ -15516,7 +15516,7 @@ RaceList["loxodon-ua"] = {
 // Add Simic Hybrid
 RaceList["simic hybrid-ua"] = {
 	regExpSearch: /^(?=.*(simic|elf|dwarf|human|orc))(?=.*hybrid).*$/i,
-	name: "Simic hybrid",
+	name: "Simic Hybrid",
 	source: [["UA:RoR", 3]],
 	plural: "Simic hybrids",
 	size: 3,
@@ -15763,7 +15763,7 @@ SourceList["UA:D"] = {
 // Dragonmarks subraces
 RaceList["dragonmark detection half-elf-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*detection)|(?=.*house)(?=.*medani)).*$/i,
-	name: "Half-elf (dragonmark)",
+	name: "Half-Elf (Dragonmark)",
 	sortname: "Dragonmark, Detection (Half-Elf)",
 	source: [["WGtE", 96], ["UA:D", 2]],
 	plural: "Half-elves (dragonmark)",
@@ -15810,7 +15810,7 @@ RaceList["dragonmark detection half-elf-ua"] = {
 };
 RaceList["dragonmark finding half-orc-ua"] = {
 	regExpSearch: /^(?=.*half)(?=.*\bor(c|k))((?=.*mark)(?=.*finding)|(?=.*house)(?=.*tharashk)).*$/i,
-	name: "Half-orc (dragonmark)",
+	name: "Half-Orc (Dragonmark)",
 	sortname: "Dragonmark, Finding (Half-Orc)",
 	source: [["WGtE", 97], ["UA:D", 2]],
 	plural: "Half-orcs (dragonmark)",
@@ -15861,7 +15861,7 @@ RaceList["dragonmark finding half-orc-ua"] = {
 };
 RaceList["dragonmark handling human-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*handling)|(?=.*house)(?=.*vadalis)).*$/i,
-	name: "Human (dragonmark)",
+	name: "Human (Dragonmark)",
 	sortname: "Dragonmark, Handling (Human)",
 	source: [["WGtE", 98], ["UA:D", 3]],
 	plural: "Humans (dragonmark)",
@@ -15927,7 +15927,7 @@ RaceList["dragonmark handling human-ua"] = {
 };
 RaceList["dragonmark healing halfling-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*healing)|(?=.*house)(?=.*jorasco)).*$/i,
-	name: "Halfling (dragonmark)",
+	name: "Halfling (Dragonmark)",
 	sortname: "Dragonmark, Healing (Halfling)",
 	source: [["WGtE", 99], ["UA:D", 3]],
 	plural: "Halflings (dragonmark)",
@@ -15969,7 +15969,7 @@ RaceList["dragonmark healing halfling-ua"] = {
 };
 RaceList["dragonmark hospitality halfling-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*hospitality)|(?=.*house)(?=.*ghallanda)).*$/i,
-	name: "Halfling (dragonmark)",
+	name: "Halfling (Dragonmark)",
 	sortname: "Dragonmark, Hospitality (Halfling)",
 	source: [["WGtE", 100], ["UA:D", 4]],
 	plural: "Halflings (dragonmark)",
@@ -16003,7 +16003,7 @@ RaceList["dragonmark hospitality halfling-ua"] = {
 };
 RaceList["dragonmark making human-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*making)|(?=.*house)(?=.*cannith)).*$/i,
-	name: "Human (dragonmark)",
+	name: "Human (Dragonmark)",
 	sortname: "Dragonmark, Making (Human)",
 	source: [["WGtE", 101], ["UA:D", 4]],
 	plural: "Humans (dragonmark)",
@@ -16060,7 +16060,7 @@ RaceList["dragonmark making human-ua"] = {
 };
 RaceList["dragonmark passage human-ua"] = { // different in Unearthed Arcana
 	regExpSearch: /^((?=.*mark)(?=.*passage)|(?=.*house)(?=.*orien)).*$/i,
-	name: "Human (dragonmark)",
+	name: "Human (Dragonmark)",
 	sortname: "Dragonmark, Passage (Human)",
 	source: [["UA:D", 4]],
 	plural: "Humans (dragonmark)",
@@ -16094,7 +16094,7 @@ RaceList["dragonmark passage human-ua"] = { // different in Unearthed Arcana
 };
 RaceList["dragonmark scribing gnome-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*scribing)|(?=.*house)(?=.*sivis)).*$/i,
-	name: "Gnome (dragonmark)",
+	name: "Gnome (Dragonmark)",
 	sortname: "Dragonmark, Scribing (Gnome)",
 	source: [["WGtE", 103], ["UA:D", 5]],
 	plural: "Gnomes (dragonmark)",
@@ -16144,7 +16144,7 @@ RaceList["dragonmark scribing gnome-ua"] = {
 };
 RaceList["dragonmark sentinel human-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*sentinel)|(?=.*house)(?=.*deneith)).*$/i,
-	name: "Human (dragonmark)",
+	name: "Human (Dragonmark)",
 	sortname: "Dragonmark, Sentinel (Human)",
 	source: [["WGtE", 104], ["UA:D", 5]],
 	plural: "Humans (dragonmark)",
@@ -16191,7 +16191,7 @@ RaceList["dragonmark sentinel human-ua"] = {
 };
 RaceList["dragonmark shadow elf-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*shadow)|(?=.*house)(?=.*(phiarlan|thuranni))).*$/i,
-	name: "Elf (dragonmark)",
+	name: "Elf (Dragonmark)",
 	sortname: "Dragonmark, Shadow (Elf)",
 	source: [["WGtE", 105], ["UA:D", 6]],
 	plural: "Elves (dragonmark)",
@@ -16251,7 +16251,7 @@ AddRacialVariant("dragonmark shadow elf-ua", "musical instrument, ", {
 });
 RaceList["dragonmark storm half-elf-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*storm)|(?=.*house)(?=.*lyrandar)).*$/i,
-	name: "Half-elf (dragonmark)",
+	name: "Half-Elf (Dragonmark)",
 	sortname: "Dragonmark, Storm (Half-Elf)",
 	source: [["WGtE", 106], ["UA:D", 6]],
 	plural: "Half-elves (dragonmark)",
@@ -16304,7 +16304,7 @@ RaceList["dragonmark storm half-elf-ua"] = {
 };
 RaceList["dragonmark warding dwarf-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*warding)|(?=.*house)(?=.*kundarak)).*$/i,
-	name: "Dwarf (dragonmark)",
+	name: "Dwarf (Dragonmark)",
 	sortname: "Dragonmark, Warding (Dwarf)",
 	source: [["WGtE", 108], ["UA:D", 7]],
 	plural: "Dwarves (dragonmark)",
@@ -21099,28 +21099,28 @@ AddSubClass("rogue", "phantom-ua", {
 
 /* This UA version of Order of Scribes is not done yet
 AddSubClass("wizard","order of scribes-ua", {
-	regExpSearch : /^(?=.*wizard)(?=.*order)(?=.*scribes?).*$|scrivener/i,
-	subname : "Order of Scribes",
-	source : [["UA:SR", 4]],
-	features : {
-		"subclassfeature2" : {
-			name : "Wizardly Quill",
-			source : [["UA:SR", 4]],
-			minlevel : 2,
-			description : desc([
+	regExpSearch: /^(?=.*wizard)(?=.*order)(?=.*scribes?).*$|scrivener/i,
+	subname: "Order of Scribes",
+	source: [["UA:SR", 4]],
+	features: {
+		"subclassfeature2": {
+			name: "Wizardly Quill",
+			source: [["UA:SR", 4]],
+			minlevel: 2,
+			description: desc([
 				"As a bonus action, I can magically create a Tiny quill with the following properties:",
 				" \u2022 It doesn't require ink and produces ink in the color of my choice when writing with it",
 				" \u2022 The gold and time required to transcribe spells into my spellbook with it are halved",
 				" \u2022 As a bonus action, I can use it to erase a text written with it if within 5 ft of the text",
 				"The quill disappear if I create another or if I die"
 			]),
-			action : [["bonus action", " (create/erase)"]]
+			action: [["bonus action", " (create/erase)"]]
 		},
-		"subclassfeature2.1" : {
-			name : "Awakened Spellbook",
-			source : [["UA:SR", 4]],
-			minlevel : 2,
-			description : desc ([
+		"subclassfeature2.1": {
+			name: "Awakened Spellbook",
+			source: [["UA:SR", 4]],
+			minlevel: 2,
+			description: desc ([
 				"My spellbook gains sentience and grants me the following benefits while I am holding it:",
 				" \u2022 I can use the book as a spellcasting focus for my wizard spells",
 				" \u2022 When I cast a wizard spell using a spell slot, I can temporarily replace its damage type",
@@ -21128,36 +21128,36 @@ AddSubClass("wizard","order of scribes-ua", {
 				" \u2022 Once per long rest, I can ritual cast a wizard spell without 10 min extra casting time",
 				"I can replace it over a short rest, transferring its spells and sentience to a blank book"
 			]),
-			additional : "fast ritual cast",
-			usages : 1,
-			recovery : "long rest"
+			additional: "fast ritual cast",
+			usages: 1,
+			recovery: "long rest"
 		},
-		"subclassfeature6" : {
-			name : "Master Scrivener",
-			source : [["UA:SR", 4]],
-			minlevel : 6,
-			description : desc([
+		"subclassfeature6": {
+			name: "Master Scrivener",
+			source: [["UA:SR", 4]],
+			minlevel: 6,
+			description: desc([
 				"When I finish a long rest, I can write a spell in my awakened spellbook on a blank paper",
 				"It must be a level 1 or 2 spell with 1 action casting time; My spellbook must be in 5 ft",
 				"As an action, I can use this scroll to cast the spell on it at one higher level than normal",
 				"Only I can use the scroll; The scroll turns blank again when I use it or finish a long rest",
 				"Also, using my Wizardly Quill, the gold and time I need to craft spell scrolls is halved"
 			]),
-			action : [["action", " (cast scroll)"]],
-			usages : 1,
-			recovery : "long rest"
+			action: [["action", " (cast scroll)"]],
+			usages: 1,
+			recovery: "long rest"
 		},
 		// Finished until here
-		"subclassfeature10" : {
-			name : "Manifest Mind",
-			source : [["UA:SR", 5]],
-			minlevel : 10,
-			description : desc('As a bonus action, I can cause my Awakened Spellbook to manifest. See "Note" page'),
-			toNotesPage : [{
-				name : "Manifest Mind",
-				source : [["UA:SR", 5]],
-				page3notes : false,
-				note : desc (["As a bonus action with my Awakened Spellbook on my person, I can cause the mind to",
+		"subclassfeature10": {
+			name: "Manifest Mind",
+			source: [["UA:SR", 5]],
+			minlevel: 10,
+			description: desc('As a bonus action, I can cause my Awakened Spellbook to manifest. See "Note" page'),
+			toNotesPage: [{
+				name: "Manifest Mind",
+				source: [["UA:SR", 5]],
+				page3notes: false,
+				note: desc (["As a bonus action with my Awakened Spellbook on my person, I can cause the mind to",
 				"manifest as a Tiny spectral construct, hovering in an unoccupied space of my choice within",
 				"60 ft. It is intangible and doesn't occupy its space, and it sheds dim light in a 10 ft radius.",
 				"It looks like a ghostly tome, a cascade of text, or a scholar from the past \(my choice.\).",
@@ -21174,25 +21174,25 @@ AddSubClass("wizard","order of scribes-ua", {
 				"a bonus action."
 				])
 			}],
-			eval : function() {
-				var companionFunctions = ClassList.artificer ? ClassList.artificer.artificerCompFunc : ClassList.wizard.artificer.CompFunc;
+			eval: function() {
+				var companionFunctions = ClassList.artificer ? ClassList.artificer.artificerCompFunc: ClassList.wizard.artificer.CompFunc;
 				companionFunctions.add("Manifest Mind");
 				ClassList.wizard.wizardCompFunc.update(10, What('Int mod'),What('AC'),What('Str mod'),What('Dex mod'),What('Con mod'),What('Wis mod'),What('Cha mod'));
 			},
-			removeeval : function() {
-				var companionFunctions = ClassList.artificer ? ClassList.artificer.artificerCompFunc : ClassList.wizard.artificerCompFunc;
+			removeeval: function() {
+				var companionFunctions = ClassList.artificer ? ClassList.artificer.artificerCompFunc: ClassList.wizard.artificerCompFunc;
 				companionFunctions.remove("Manifest Mind");
 			},
-			action : [["bonus action",""],["bonus action","Hover spellbook 30ft"],["bonus action","dismiss Manifestation"]],
-			usages : "Prof Bonus per ",
-			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery : "long rest"
+			action: [["bonus action",""],["bonus action","Hover spellbook 30ft"],["bonus action","dismiss Manifestation"]],
+			usages: "Prof Bonus per ",
+			usagescalc: "event.value = How('Proficiency Bonus');",
+			recovery: "long rest"
 		},
-		"subclassfeature14" : {
-			name : "One with the Word",
-			source : [["UA:SR", 5]],
-			minlevel : 14,
-			description : desc([
+		"subclassfeature14": {
+			name: "One with the Word",
+			source: [["UA:SR", 5]],
+			minlevel: 14,
+			description: desc([
 				"While I am holding my Awakened Spellbook and it is manifest, I can take an action to",
 				"swap places with the manifestation. I can do this a number of times equal to my",
 				"proficiency bonus and I regain all expended uses when I finish a long rest.",
@@ -21203,10 +21203,10 @@ AddSubClass("wizard","order of scribes-ua", {
 				"find them on a scroll or in another spellbook. I can only restore my ability to cast",
 				"one of these spells with the wish spell, which will restore one spell per casting."
 			]),
-			action : [["action","Swap places with spellbook"]],
-			usages : "Prof Bonus per ",
-			usagescalc : "event.value = How('Proficiency Bonus');",
-			recovery : "long rest"
+			action: [["action","Swap places with spellbook"]],
+			usages: "Prof Bonus per ",
+			usagescalc: "event.value = How('Proficiency Bonus');",
+			recovery: "long rest"
 		}
 	}
 });
@@ -22149,7 +22149,7 @@ RaceList["fairy-ua"] = {
 
 RaceList["feywild hobgoblin-ua"] = {
 	regExpSearch: /^(?=.*feywild)(?=.*hobgoblin).*$/i,
-	name: "Feywild hobgoblin",
+	name: "Feywild Hobgoblin",
 	sortname: "Hobgoblin, Feywild",
 	source: [["UA:FotF", 2]],
 	plural: "Feywild hobgoblins",
@@ -22199,7 +22199,7 @@ RaceList["feywild hobgoblin-ua"] = {
 		"**Feywild hobgoblin**",
 		"##\u25C6 Fey Gift##. I can take the Help action as a bonus action my Proficiency Bonus per long rest.",
 		"##\u25C6 Fortune from the Many##. When I miss an attack or fail an ability check or a save, I can gain a bonus to the roll equal to the number of allies I can see within 30 ft of me (max +5). I can do this a number of times per long rest equal to my Proficiency Bonus.",
-		"\u2022 From 3rd-level onwards, whenever I take the Help action, I can choose to produce an additional effect: Hospitality, Passage, or Spite. See the 3rd page \"Notes\" section.",
+		"From 3rd-level onwards, whenever I take the Help action, I can choose to produce an additional effect: Hospitality, Passage, or Spite. See the 3rd page \"Notes\" section.",
 	],
 };
 
@@ -22416,7 +22416,7 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			var sDrBrnDmg = oDrBrn.variants[i][1];
 			AddRacialVariant(sDrBrnLC + " dragonborn-ua", sDrBrnVar.toLowerCase(), {
 				regExpSearch: RegExp(sDrBrnVar, "i"),
-				name: sDrBrnVar + " " + sDrBrnLC + " dragonborn",
+				name: sDrBrnVar + " " + sDrBrn + " Dragonborn",
 				trait: ["**" + sDrBrnVar + " " + sDrBrnLC + " dragonborn**"].concat(oDrBrn.trait.map(function (sTrait) { return sTrait.replace(/>>TYPE<</g, sDrBrnDmg).replace(/>>type<</g, sDrBrnDmg.toLowerCase()); })),
 				dmgres: [sDrBrnDmg],
 			});
@@ -22425,7 +22425,7 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 }();
 RaceList["draconic kobold-ua"] = {
 	regExpSearch: /^(?=.*draconic)(?=.*kobold).*$/i,
-	name: "Draconic kobold",
+	name: "Draconic Kobold",
 	sortname: "Kobold, Draconic",
 	source: [["UA:DO", 4]],
 	plural: "Draconic kobolds",
@@ -22459,7 +22459,7 @@ RaceList["draconic kobold-ua"] = {
 };
 AddRacialVariant("draconic kobold-ua", "brave", {
 	regExpSearch: /brave/i,
-	name: "Draconic Kobold-Brave",
+	sortname: "Draconic Kobold (Brave)",
 	source: [["UA:DO", 4]],
 	plural: "Draconic Kobolds",
 	savetxt: { adv_vs: ["frightened"] },
@@ -22471,6 +22471,7 @@ AddRacialVariant("draconic kobold-ua", "brave", {
 });
 AddRacialVariant("draconic kobold-ua", "cantrip", {
 	regExpSearch: /cantrip/i,
+	sortname: "Draconic Kobold (Cantrip)",
 	source: [["UA:DO", 4]],
 	spellcastingAbility: [4, 5, 6],
 	allowUpCasting: true,
@@ -22482,12 +22483,13 @@ AddRacialVariant("draconic kobold-ua", "cantrip", {
 	}],
 	trait: [
 		"**Draconic Kobold**",
-		"\u2022 Draconic Legacy (Cantrip). I know one cantrip from the sorcerer spell list. Intelligence, Wisdom, or Charisma is my spellcasting ability for it (chosen when I select this race).",
+		"##\u25C6 Draconic Legacy (Cantrip)##. I know one cantrip from the sorcerer spell list. Intelligence, Wisdom, or Charisma is my spellcasting ability for it (chosen when I select this race).",
 		"##\u25C6 Draconic Roar##. As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest.",
 	],
 });
 AddRacialVariant("draconic kobold-ua", "tail", {
 	regExpSearch: /tail/i,
+	sortname: "Draconic Kobold (Tail)",
 	source: [["UA:DO", 4]],
 	weaponOptions: [{
 		baseWeapon: "unarmed strike",
@@ -22612,7 +22614,7 @@ SourceList["UA:TotM"] = {
 // New races
 RaceList["astral elf-ua"] = {
 	regExpSearch: /^(?!.*half)(?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(astral|silver void)\b).*$/i,
-	name: "Astral elf",
+	name: "Astral Elf",
 	sortname: "Elf, Astral",
 	source: [["UA:TotM", 2]],
 	plural: "Astral elves",
@@ -22644,7 +22646,7 @@ RaceList["astral elf-ua"] = {
 		"**Astral Elf**",
 		"##\u25C6 Radiant Soul##. Once per short rest when I succeed on a death save, I can regain HP equal to my proficiency bonus + my Int, Wis, or Cha mod (choose when selecting this race).",
 		"##\u25C6 Trance##. I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours if I spend those hours in a trancelike meditation, during which I remain conscious.",
-		"\u2022 Trance Proficiencies. Whenever I finish a long rest using Trance, I gain two proficiencies, each one with a weapon or a tool of my choice. They last until I finish my next long rest.",
+		"##\u25C6 Trance Proficiencies##. Whenever I finish a long rest using Trance, I gain two proficiencies, each one with a weapon or a tool of my choice. They last until I finish my next long rest.",
 	],
 };
 RaceList["autognome-ua"] = {
@@ -22760,7 +22762,7 @@ RaceList["plasmoid-ua"] = {
 };
 RaceList["thri-kreen-ua"] = {
 	regExpSearch: /thri.?kreen/i,
-	name: "Thri-kreen",
+	name: "Thri-Kreen",
 	source: [["UA:TotM", 4]],
 	plural: "Thri-kreen",
 	size: [3, 4],
@@ -22789,7 +22791,7 @@ RaceList["thri-kreen-ua"] = {
 		"##\u25C6 Chameleon Carapace##. " + (typePF ? "AC 13 + Dex," : "My base AC is 13 + Dex mod. I have") + " adv. on Stealth checks to hide.",
 		"##\u25C6 Secondary Arms##. I have two slightly smaller arms below my primary pair of arms. I can't use these secondary arms to wield a shield or weapons other than light weapons.",
 		"##\u25C6 Sleepless##. I don't " + (typePF ? "" : "require ") + "sleep. I rest by refraining from strenuous activity.",
-		"\u2022 " + (typePF ? "Thri-kreen " : "") + "Telepathy: I can communicate telepathically to any number of willing creatures I can see that understand at least one language, while within 120 ft. Any can break this (no action).",
+		"##\u25C6 " + (typePF ? "Thri-kreen " : "") + "Telepathy##. I can communicate telepathically to any number of willing creatures I can see that understand at least one language, while within 120 ft. Any can break this (no action).",
 	],
 };
 

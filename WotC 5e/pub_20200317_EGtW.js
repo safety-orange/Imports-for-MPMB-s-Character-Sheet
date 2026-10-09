@@ -261,61 +261,61 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 	};
 	AddRacialVariant("draconblood dragonborn", "black", {
 		regExpSearch: /black/i,
-		name: "Black draconblood dragonborn",
+		name: "Black Draconblood Dragonborn",
 		trait: ["**Black draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_acidBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "acid",
 	});
 	AddRacialVariant("draconblood dragonborn", "blue", {
 		regExpSearch: /blue/i,
-		name: "Blue draconblood dragonborn",
+		name: "Blue Draconblood Dragonborn",
 		trait: ["**Blue draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_lightningBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "lightning",
 	});
 	AddRacialVariant("draconblood dragonborn", "brass", {
 		regExpSearch: /brass/i,
-		name: "Brass draconblood dragonborn",
+		name: "Brass Draconblood Dragonborn",
 		trait: ["**Brass draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_fireBreathLine, EGtW_forcefulPresenceStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("draconblood dragonborn", "bronze", {
 		regExpSearch: /bronze/i,
-		name: "Bronze draconblood dragonborn",
+		name: "Bronze Draconblood Dragonborn",
 		trait: ["**Bronze draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_lightningBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "lightning",
 	});
 	AddRacialVariant("draconblood dragonborn", "copper", {
 		regExpSearch: /copper/i,
-		name: "Copper draconblood dragonborn",
+		name: "Copper Draconblood Dragonborn",
 		trait: ["**Copper draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_acidBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "acid",
 	});
 	AddRacialVariant("draconblood dragonborn", "gold", {
 		regExpSearch: /gold/i,
-		name: "Gold draconblood dragonborn",
+		name: "Gold Draconblood Dragonborn",
 		trait: ["**Gold draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_fireBreathCone, EGtW_forcefulPresenceStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("draconblood dragonborn", "green", {
 		regExpSearch: /green/i,
-		name: "Green draconblood dragonborn",
+		name: "Green Draconblood Dragonborn",
 		trait: ["**Green draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_poisonBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "poison",
 	});
 	AddRacialVariant("draconblood dragonborn", "red", {
 		regExpSearch: /red/i,
-		name: "Red draconblood dragonborn",
+		name: "Red Draconblood Dragonborn",
 		trait: ["**Red draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_fireBreathCone, EGtW_forcefulPresenceStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("draconblood dragonborn", "silver", {
 		regExpSearch: /silver/i,
-		name: "Silver draconblood dragonborn",
+		name: "Silver Draconblood Dragonborn",
 		trait: ["**Silver draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_coldBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "cold",
 	});
 	AddRacialVariant("draconblood dragonborn", "white", {
 		regExpSearch: /white/i,
-		name: "White draconblood dragonborn",
+		name: "White Draconblood Dragonborn",
 		trait: ["**White draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_coldBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "cold",
 	});
@@ -356,61 +356,61 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 	};
 	AddRacialVariant("ravenite dragonborn", "black", {
 		regExpSearch: /black/i,
-		name: "Black ravenite dragonborn",
+		name: "Black Ravenite Dragonborn",
 		trait: ["**Black ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_acidBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "acid",
 	});
 	AddRacialVariant("ravenite dragonborn", "blue", {
 		regExpSearch: /blue/i,
-		name: "Blue ravenite dragonborn",
+		name: "Blue Ravenite Dragonborn",
 		trait: ["**Blue ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_lightningBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "lightning",
 	});
 	AddRacialVariant("ravenite dragonborn", "brass", {
 		regExpSearch: /brass/i,
-		name: "Brass ravenite dragonborn",
+		name: "Brass Ravenite Dragonborn",
 		trait: ["**Brass ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_fireBreathLine, EGtW_vengefulAssaultStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("ravenite dragonborn", "bronze", {
 		regExpSearch: /bronze/i,
-		name: "Bronze ravenite dragonborn",
+		name: "Bronze Ravenite Dragonborn",
 		trait: ["**Bronze ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_lightningBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "lightning",
 	});
 	AddRacialVariant("ravenite dragonborn", "copper", {
 		regExpSearch: /copper/i,
-		name: "Copper ravenite dragonborn",
+		name: "Copper Ravenite Dragonborn",
 		trait: ["**Copper ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_acidBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "acid",
 	});
 	AddRacialVariant("ravenite dragonborn", "gold", {
 		regExpSearch: /gold/i,
-		name: "Gold ravenite dragonborn",
+		name: "Gold Ravenite Dragonborn",
 		trait: ["**Gold ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_fireBreathCone, EGtW_vengefulAssaultStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("ravenite dragonborn", "green", {
 		regExpSearch: /green/i,
-		name: "Green ravenite dragonborn",
+		name: "Green Ravenite Dragonborn",
 		trait: ["**Green ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_poisonBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "poison",
 	});
 	AddRacialVariant("ravenite dragonborn", "red", {
 		regExpSearch: /red/i,
-		name: "Red ravenite dragonborn",
+		name: "Red Ravenite Dragonborn",
 		trait: ["**Red ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_fireBreathCone, EGtW_vengefulAssaultStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("ravenite dragonborn", "silver", {
 		regExpSearch: /silver/i,
-		name: "Silver ravenite dragonborn",
+		name: "Silver Ravenite Dragonborn",
 		trait: ["**Silver ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_coldBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "cold",
 	});
 	AddRacialVariant("ravenite dragonborn", "white", {
 		regExpSearch: /white/i,
-		name: "White ravenite dragonborn",
+		name: "White Ravenite Dragonborn",
 		trait: ["**White ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_coldBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "cold",
 	});
@@ -826,7 +826,7 @@ if (!SourceList["E"]) {
 	};
 	RaceList["air genasi"] = {
 		regExpSearch: /^(?=.*(genasi|planetouched))(?=.*\bairs?\b).*$/i,
-		name: "Air genasi",
+		name: "Air Genasi",
 		sortname: "Genasi, Air",
 		source: [["E", 9], ["W", 172]],
 		plural: "Air genasi",
@@ -869,7 +869,7 @@ if (!SourceList["E"]) {
 	};
 	RaceList["earth genasi"] = {
 		regExpSearch: /^(?=.*(genasi|planetouched))(?=.*\bearths?\b).*$/i,
-		name: "Earth genasi",
+		name: "Earth Genasi",
 		sortname: "Genasi, Earth",
 		source: [["E", 9], ["W", 172]],
 		plural: "Earth genasi",
@@ -912,7 +912,7 @@ if (!SourceList["E"]) {
 	};
 	RaceList["fire genasi"] = {
 		regExpSearch: /^(?=.*(genasi|planetouched))(?=.*\bfires?\b).*$/i,
-		name: "Fire genasi",
+		name: "Fire Genasi",
 		sortname: "Genasi, Fire",
 		source: [["E", 9], ["W", 172]],
 		plural: "Fire genasi",
@@ -958,7 +958,7 @@ if (!SourceList["E"]) {
 	};
 	RaceList["water genasi"] = {
 		regExpSearch: /^(?=.*(genasi|planetouched))(?=.*\bwaters?\b).*$/i,
-		name: "Water genasi",
+		name: "Water Genasi",
 		sortname: "Genasi, Water",
 		source: [["E", 10], ["W", 172]],
 		plural: "Water genasi",
@@ -1028,7 +1028,7 @@ if (!SourceList["E"]) {
 if (!SourceList["MToF"]) {
 	RaceList["sea elf"] = {
 		regExpSearch: /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
-		name: "Sea elf",
+		name: "Sea Elf",
 		sortname: "Elf, Sea",
 		source: [["MToF", 62], ["W", 163], ["UA:ES", 1]],
 		plural: "Sea elves",
@@ -1142,7 +1142,6 @@ AddSubClass("fighter", "echo knight", { // contains contributions by Smashman, @
 				savesLinked: true,
 				condition_immunities: "all conditions",
 				passivePerception: 0,
-				languages: "",
 				challengeRating: "0",
 				proficiencyBonus: 0,
 				attacksAction: 0,
@@ -1730,7 +1729,7 @@ AddBackgroundVariant("criminal", "myriad operative", {
 	regExpSearch: /^(?=.*myriad)(?=.*operative).*$/i,
 	name: "Myriad Operative",
 	source: [["W", 203]],
-	extra: "",
+	extra: null,
 });
 AddBackgroundVariant("sailor", "revelry pirate", {
 	regExpSearch: /^(?=.*revelry)(?=.*pirate).*$/i,
@@ -1752,7 +1751,7 @@ AddBackgroundVariant("criminal", "augen trust", {
 	regExpSearch: /^(?=.*augen)(?=.*trust).*$/i,
 	name: "Augen Trust",
 	source: [["W", 203]],
-	extra: "",
+	extra: null,
 });
 
 // Spells (contains contributions by Biggoron144)
@@ -2808,7 +2807,6 @@ MagicItemsList["vox seeker"] = {
 		condition_immunities: "blinded, charmed, deafened, exhaustion, frightened, paralyzed, petrified, poisoned",
 		senses: "Blindsight 60 ft (blind beyond this radius",
 		passivePerception: 10,
-		languages: "",
 		challengeRating: "0",
 		proficiencyBonus: 2,
 		attacksAction: 1,
@@ -3569,24 +3567,24 @@ MagicItemsList["wreath of the prism"] = {
 /* Supernatural gift
 
 MagicItemsList["hollow one"] = {
-	name : "Hollow One",
-	source : [["W", 182]],
-	type : "supernatural gift",
-	rarity : "",
-	notLegalAL : true,
-	description : "I don't age and aging effects don't work on me. When I roll a 16 or higher on a death save, I regain 1 HP. I register as undead for spells and other effects. As an action once per long rest, I can unsettle a creature I can see within 15 ft, giving it disadv. on the next save it makes in the next minute (frightening effect).",
+	name: "Hollow One",
+	source: [["W", 182]],
+	type: "supernatural gift",
+	rarity: "",
+	notLegalAL: true,
+	description: "I don't age and aging effects don't work on me. When I roll a 16 or higher on a death save, I regain 1 HP. I register as undead for spells and other effects. As an action once per long rest, I can unsettle a creature I can see within 15 ft, giving it disadv. on the next save it makes in the next minute (frightening effect).",
 	descriptionLong : "The void left behind by my departed soul is filled with the strange magic of Blightshore.\nI don't age and aging effects don't work on me. When I roll a 16 or higher on a death save, I regain 1 HP. Although my creature type is unchanged, I register as undead for spells and other effects. As an action once per long rest, I can unsettle a creature I can see within 15 ft, giving it disadvantage on the next save it makes in the next minute. Constructs, undead, and creatures that can't be frightened are immune to this feature.",
-	descriptionFull : "As a Hollow One, the void left behind by your departed soul is filled with the strange magic of Blightshore. Becoming a Hollow One is a supernatural gift that bestows upon you the following traits.\n"+
+	descriptionFull: "As a Hollow One, the void left behind by your departed soul is filled with the strange magic of Blightshore. Becoming a Hollow One is a supernatural gift that bestows upon you the following traits.\n"+
 	"***Ageless***. You don't age, and effects that would cause you to age don't work on you.\n"+
 	"***Cling to Life***. When you make a death saving throw and roll 16 or higher, you regain 1 hit point.\n"+
 	"***Revenance***. You retain your creature type, yet you register as undead to spells and other effects that detect the presence of the undead creature type.\n"+
 	"***Unsettling Presence***. As an action, you can unsettle a creature you can see within 15 feet of you. The target has disadvantage on the next saving throw it makes within the next minute. Constructs, undead, and creatures that can't be frightened are immune to this feature. Once you use this feature, you can't use it again until you finish a long rest.",
 	savetxt : { text : ["Can't be aged", "Regain 1 HP on 16+ death save"] },
 	action : [["action", "Unsettling Presence"]],
-	extraLimitedFeatures : [{
-		name : "Unsettling Presence",
-		usages : 1,
-		recovery : "long rest"
+	extraLimitedFeatures: [{
+		name: "Unsettling Presence",
+		usages: 1,
+		recovery: "long rest"
 	}]
 };
 FeatsList["hollow one"] = MagicItemsList["hollow one"];

@@ -142,7 +142,7 @@ RaceList["aetherborn"] = { // Includes contributions by SoilentBrad
 };
 RaceList["kaladesh dwarf"] = { // Includes contributions by SoilentBrad
 	regExpSearch: /^(?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b)(?=.*\bkaladesh\b).*$/i,
-	name: "Kaladesh dwarf",
+	name: "Kaladesh Dwarf",
 	sortname: "Dwarf, Kaladesh",
 	source: [["PS:K", 19]],
 	plural: "Kaladesh dwarves",

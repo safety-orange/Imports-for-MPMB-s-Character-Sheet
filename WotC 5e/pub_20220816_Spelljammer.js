@@ -100,7 +100,7 @@ BackgroundFeatureList["wildspace adaptation"] = {
 // Races from Astral Adventurer's Guide
 RaceList["astral elf"] = {
 	regExpSearch: /^(?!.*half)(?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(astral|silver void)\b).*$/i,
-	name: "Astral elf",
+	name: "Astral Elf",
 	sortname: "Elf, Astral",
 	source: [["S:AiS", 10]],
 	plural: "Astral elves",
@@ -289,7 +289,7 @@ RaceList["plasmoid"] = {
 };
 RaceList["thri-kreen"] = {
 	regExpSearch: /thri.?kreen/i,
-	name: "Thri-kreen",
+	name: "Thri-Kreen",
 	source: [["S:AiS", 15]],
 	plural: "Thri-kreen",
 	size: [3, 4],
@@ -318,7 +318,7 @@ RaceList["thri-kreen"] = {
 		"##\u25C6 Chameleon Carapace##. My base AC is 13 + Dex mod. As an action, " + (typePF ? "I can gain adv. on Stealth checks to hide in my current surroundings." : "I can have it match my current surroundings, granting me adv. on Stealth checks to hide in those surroundings."),
 		"##\u25C6 Secondary Arms##. " + (typePF ? "I have two slightly smaller arms below my primary pair of arms. I can use these secondary arms" : "Able") + " to manipulate objects, hold Tiny objects, or wield light weapons.",
 		"##\u25C6 Sleepless##. I don't " + (typePF ? "" : "require ") + "sleep. I rest by refraining from strenuous activity.",
-		"\u2022 " + (typePF ? "Thri-kreen " : "") + "Telepathy: I can't speak, but can communicate telepathically to any willing creatures within 120 ft that understand at least one language. Any can break this (no action).",
+		"##\u25C6 " + (typePF ? "Thri-kreen " : "") + "Telepathy##. I can't speak, but can communicate telepathically to any willing creatures within 120 ft that understand at least one language. Any can break this (no action).",
 	],
 };
 

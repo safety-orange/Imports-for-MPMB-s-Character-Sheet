@@ -17,7 +17,7 @@ SourceList["UA:FO"] = {
 if (!RaceList["baalzebul tiefling"]) {
 	RaceList["baalzebul tiefling"] = {
 		regExpSearch: /^(?=.*baalzebul)(?=.*tiefling|planetouched).*$/i,
-		name: "Baalzebul tiefling",
+		name: "Baalzebul Tiefling",
 		sortname: "Tiefling, Baalzebul",
 		source: [["MToF", 21], ["UA:FO", 1]],
 		plural: "Baalzebul tieflings",
@@ -87,7 +87,7 @@ if (!RaceList["baalzebul tiefling"]) {
 if (!RaceList["fierna tiefling"]) {
 	RaceList["fierna tiefling"] = {
 		regExpSearch: /^(?=.*fierna)(?=.*tiefling|planetouched).*$/i,
-		name: "Fierna tiefling",
+		name: "Fierna Tiefling",
 		sortname: "Tiefling, Fierna",
 		source: [["MToF", 21], ["UA:FO", 1]],
 		plural: "Fierna tieflings",
@@ -158,7 +158,7 @@ if (!RaceList["fierna tiefling"]) {
 if (!RaceList["glasya tiefling"]) {
 	RaceList["glasya tiefling"] = {
 		regExpSearch: /^(?=.*glasya)(?=.*tiefling|planetouched).*$/i,
-		name: "Glasya tiefling",
+		name: "Glasya Tiefling",
 		sortname: "Tiefling, Glasya",
 		source: [["MToF", 22], ["UA:FO", 2]],
 		plural: "Glasya tieflings",
@@ -222,7 +222,7 @@ if (!RaceList["glasya tiefling"]) {
 if (!RaceList["levistus tiefling"]) {
 	RaceList["levistus tiefling"] = {
 		regExpSearch: /^(?=.*levistus)(?=.*tiefling|planetouched).*$/i,
-		name: "Levistus tiefling",
+		name: "Levistus Tiefling",
 		sortname: "Tiefling, Levistus",
 		source: [["MToF", 22], ["UA:FO", 2]],
 		plural: "Levistus tieflings",
@@ -292,7 +292,7 @@ if (!RaceList["levistus tiefling"]) {
 if (!RaceList["mammon tiefling"]) {
 	RaceList["mammon tiefling"] = {
 		regExpSearch: /^(?=.*mammon)(?=.*tiefling|planetouched).*$/i,
-		name: "Mammon tiefling",
+		name: "Mammon Tiefling",
 		sortname: "Tiefling, Mammon",
 		source: [["MToF", 22], ["UA:FO", 2]],
 		plural: "Mammon tieflings",
@@ -364,7 +364,7 @@ if (!RaceList["mammon tiefling"]) {
 if (!RaceList["zariel tiefling"]) {
 	RaceList["zariel tiefling"] = {
 		regExpSearch: /^(?=.*zariel)(?=.*tiefling|planetouched).*$/i,
-		name: "Zariel tiefling",
+		name: "Zariel Tiefling",
 		sortname: "Tiefling, Zariel",
 		source: [["MToF", 23], ["UA:FO", 2]],
 		plural: "Zariel tieflings",
@@ -433,7 +433,7 @@ if (!RaceList["zariel tiefling"]) {
 } // dupl_end
 RaceList["dispater tiefling-ua"] = {
 	regExpSearch: /^(?=.*dispater)(?=.*tiefling|planetouched).*$/i,
-	name: "Dispater tiefling",
+	name: "Dispater Tiefling",
 	sortname: "Tiefling, Dispater",
 	source: [["UA:FO", 1]],
 	plural: "Dispater tieflings",
@@ -495,7 +495,7 @@ RaceList["dispater tiefling-ua"] = {
 };
 RaceList["mephistopheles tiefling-ua"] = {
 	regExpSearch: /^(?=.*mephistopheles)(?=.*tiefling|planetouched).*$/i,
-	name: "Mephistopheles tiefling",
+	name: "Mephistopheles Tiefling",
 	sortname: "Tiefling, Mephistopheles",
 	source: [["UA:FO", 2]],
 	plural: "Mephistopheles tieflings",

@@ -52,7 +52,7 @@ RaceList["loxodon-ua"] = {
 // Add Simic Hybrid
 RaceList["simic hybrid-ua"] = {
 	regExpSearch: /^(?=.*(simic|elf|dwarf|human|orc))(?=.*hybrid).*$/i,
-	name: "Simic hybrid",
+	name: "Simic Hybrid",
 	source: [["UA:RoR", 3]],
 	plural: "Simic hybrids",
 	size: 3,

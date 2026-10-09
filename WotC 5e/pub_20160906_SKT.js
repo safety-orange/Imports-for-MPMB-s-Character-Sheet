@@ -30,7 +30,6 @@ CreatureList["ice spider"] = { // contributed by Nod_Hero
 	},
 	senses: "Blindsight 10 ft; Darkvision 60 ft",
 	passivePerception: 10,
-	languages: "",
 	challengeRating: "1",
 	proficiencyBonus: 2,
 	attacksAction: 1,
@@ -929,7 +928,7 @@ MagicItemsList["ancient relic boulder"] = {
 		recovery: "24 h",
 	}],
 	spellcastingBonus: [{
-		name: "",
+		name: "Once per 7 days",
 		spells: ["control weather", "divination"],
 		selection: ["control weather", "divination"],
 		times: 2,

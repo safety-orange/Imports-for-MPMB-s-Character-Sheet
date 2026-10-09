@@ -66,12 +66,12 @@ RaceList["deep gnome"] = {
 	scores: [0, 1, 0, 2, 0, 0],
 	trait: [
 		"**Svirfneblin** (+1 Dexterity, +2 Intelligence)",
-		"##\u25C6 Stone Camouflage##. I have advantage on Dexterity (stealth) checks to hide in rocky terrain.",
+		"##\u25C6 Stone Camouflage##. I have advantage on Dexterity (Stealth) checks to hide in rocky terrain.",
 	],
 };
 RaceList["air genasi"] = {
 	regExpSearch: /^(?=.*(genasi|planetouched))(?=.*\bairs?\b).*$/i,
-	name: "Air genasi",
+	name: "Air Genasi",
 	sortname: "Genasi, Air",
 	source: [["E", 9], ["W", 172]],
 	plural: "Air genasi",
@@ -84,7 +84,7 @@ RaceList["air genasi"] = {
 	height: " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
 	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
-	weightMetric: " weigh around 75 lb (50 + 5d10 \xD7 4d4 / 10 kg)",
+	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [0, 1, 2, 0, 0, 0],
 	trait: [
 		"**Air Genasi** (+1 Dexterity, +2 Constitution)",
@@ -114,7 +114,7 @@ RaceList["air genasi"] = {
 };
 RaceList["earth genasi"] = {
 	regExpSearch: /^(?=.*(genasi|planetouched))(?=.*\bearths?\b).*$/i,
-	name: "Earth genasi",
+	name: "Earth Genasi",
 	sortname: "Genasi, Earth",
 	source: [["E", 9], ["W", 172]],
 	plural: "Earth genasi",
@@ -127,7 +127,7 @@ RaceList["earth genasi"] = {
 	height: " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
 	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
-	weightMetric: " weigh around 75 lb (50 + 5d10 \xD7 4d4 / 10 kg)",
+	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [1, 0, 2, 0, 0, 0],
 	trait: [
 		"**Earth Genasi** (+1 Strength, +2 Constitution)",
@@ -157,7 +157,7 @@ RaceList["earth genasi"] = {
 };
 RaceList["fire genasi"] = {
 	regExpSearch: /^(?=.*(genasi|planetouched))(?=.*\bfires?\b).*$/i,
-	name: "Fire genasi",
+	name: "Fire Genasi",
 	sortname: "Genasi, Fire",
 	source: [["E", 9], ["W", 172]],
 	plural: "Fire genasi",
@@ -172,7 +172,7 @@ RaceList["fire genasi"] = {
 	height: " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
 	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
-	weightMetric: " weigh around 75 lb (50 + 5d10 \xD7 4d4 / 10 kg)",
+	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 2, 1, 0, 0],
 	trait: [
 		"**Fire Genasi** (+2 Constitution, +1 Intelligence)",
@@ -203,7 +203,7 @@ RaceList["fire genasi"] = {
 };
 RaceList["water genasi"] = {
 	regExpSearch: /^(?=.*(genasi|planetouched))(?=.*\bwaters?\b).*$/i,
-	name: "Water genasi",
+	name: "Water Genasi",
 	sortname: "Genasi, Water",
 	source: [["E", 10], ["W", 172]],
 	plural: "Water genasi",
@@ -218,7 +218,7 @@ RaceList["water genasi"] = {
 	height: " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
 	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
-	weightMetric: " weigh around 75 lb (50 + 5d10 \xD7 4d4 / 10 kg)",
+	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 2, 0, 1, 0],
 	trait: [
 		"**Water Genasi** (+2 Constitution, +1 Wisdom)",
@@ -519,7 +519,7 @@ SpellsList["earthbind"] = {
 	components: "V",
 	duration: "Conc, 1 min",
 	save: "Str",
-	description: "1 creatures save or fly speed is reduced to 0; airborne creatures safely descend at 60 ft per round",
+	description: "1 creature save or fly speed is reduced to 0; airborne creatures safely descend at 60 ft per round",
 	descriptionFull: "Choose one creature you can see within range. Yellow strips of magical energy loop around the creature. The target must succeed on a Strength saving throw, or its flying speed (if any) is reduced to 0 feet for the spell's duration. An airborne creature affected by this spell safely descends at 60 feet per round until it reaches the ground or the spell ends.",
 };
 SpellsList["earth tremor"] = {
@@ -631,7 +631,7 @@ SpellsList["gust"] = {
 		"You seize the air and compel it to create one of the following effects at a point you can see within range.",
 		" \u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you.",
 		" \u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage.",
-		" \u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze.",
+		" \u2022 You create a harmless sensory effect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze.",
 	],
 };
 SpellsList["ice knife"] = {
@@ -915,7 +915,7 @@ SpellsList["skywrite"] = {
 	range: "Sight",
 	components: "V,S",
 	duration: "Conc, 1 h",
-	description: "Write up to 10 words with clouds in a part of the sky I can see; strong wind can diperse the clouds",
+	description: "Write up to 10 words with clouds in a part of the sky I can see; strong wind can disperse the clouds",
 	descriptionFull: "You cause up to ten words to form in a part of the sky you can see. The words appear to be made of cloud and remain in place for the spell's duration. The words dissipate when the spell ends. A strong wind can disperse the clouds and end the spell early.",
 };
 SpellsList["snilloc's snowball swarm"] = {

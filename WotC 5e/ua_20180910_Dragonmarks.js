@@ -16,7 +16,7 @@ SourceList["UA:D"] = {
 // Dragonmarks subraces
 RaceList["dragonmark detection half-elf-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*detection)|(?=.*house)(?=.*medani)).*$/i,
-	name: "Half-elf (dragonmark)",
+	name: "Half-Elf (Dragonmark)",
 	sortname: "Dragonmark, Detection (Half-Elf)",
 	source: [["WGtE", 96], ["UA:D", 2]],
 	plural: "Half-elves (dragonmark)",
@@ -63,7 +63,7 @@ RaceList["dragonmark detection half-elf-ua"] = {
 };
 RaceList["dragonmark finding half-orc-ua"] = {
 	regExpSearch: /^(?=.*half)(?=.*\bor(c|k))((?=.*mark)(?=.*finding)|(?=.*house)(?=.*tharashk)).*$/i,
-	name: "Half-orc (dragonmark)",
+	name: "Half-Orc (Dragonmark)",
 	sortname: "Dragonmark, Finding (Half-Orc)",
 	source: [["WGtE", 97], ["UA:D", 2]],
 	plural: "Half-orcs (dragonmark)",
@@ -114,7 +114,7 @@ RaceList["dragonmark finding half-orc-ua"] = {
 };
 RaceList["dragonmark handling human-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*handling)|(?=.*house)(?=.*vadalis)).*$/i,
-	name: "Human (dragonmark)",
+	name: "Human (Dragonmark)",
 	sortname: "Dragonmark, Handling (Human)",
 	source: [["WGtE", 98], ["UA:D", 3]],
 	plural: "Humans (dragonmark)",
@@ -180,7 +180,7 @@ RaceList["dragonmark handling human-ua"] = {
 };
 RaceList["dragonmark healing halfling-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*healing)|(?=.*house)(?=.*jorasco)).*$/i,
-	name: "Halfling (dragonmark)",
+	name: "Halfling (Dragonmark)",
 	sortname: "Dragonmark, Healing (Halfling)",
 	source: [["WGtE", 99], ["UA:D", 3]],
 	plural: "Halflings (dragonmark)",
@@ -222,7 +222,7 @@ RaceList["dragonmark healing halfling-ua"] = {
 };
 RaceList["dragonmark hospitality halfling-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*hospitality)|(?=.*house)(?=.*ghallanda)).*$/i,
-	name: "Halfling (dragonmark)",
+	name: "Halfling (Dragonmark)",
 	sortname: "Dragonmark, Hospitality (Halfling)",
 	source: [["WGtE", 100], ["UA:D", 4]],
 	plural: "Halflings (dragonmark)",
@@ -256,7 +256,7 @@ RaceList["dragonmark hospitality halfling-ua"] = {
 };
 RaceList["dragonmark making human-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*making)|(?=.*house)(?=.*cannith)).*$/i,
-	name: "Human (dragonmark)",
+	name: "Human (Dragonmark)",
 	sortname: "Dragonmark, Making (Human)",
 	source: [["WGtE", 101], ["UA:D", 4]],
 	plural: "Humans (dragonmark)",
@@ -313,7 +313,7 @@ RaceList["dragonmark making human-ua"] = {
 };
 RaceList["dragonmark passage human-ua"] = { // different in Unearthed Arcana
 	regExpSearch: /^((?=.*mark)(?=.*passage)|(?=.*house)(?=.*orien)).*$/i,
-	name: "Human (dragonmark)",
+	name: "Human (Dragonmark)",
 	sortname: "Dragonmark, Passage (Human)",
 	source: [["UA:D", 4]],
 	plural: "Humans (dragonmark)",
@@ -347,7 +347,7 @@ RaceList["dragonmark passage human-ua"] = { // different in Unearthed Arcana
 };
 RaceList["dragonmark scribing gnome-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*scribing)|(?=.*house)(?=.*sivis)).*$/i,
-	name: "Gnome (dragonmark)",
+	name: "Gnome (Dragonmark)",
 	sortname: "Dragonmark, Scribing (Gnome)",
 	source: [["WGtE", 103], ["UA:D", 5]],
 	plural: "Gnomes (dragonmark)",
@@ -397,7 +397,7 @@ RaceList["dragonmark scribing gnome-ua"] = {
 };
 RaceList["dragonmark sentinel human-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*sentinel)|(?=.*house)(?=.*deneith)).*$/i,
-	name: "Human (dragonmark)",
+	name: "Human (Dragonmark)",
 	sortname: "Dragonmark, Sentinel (Human)",
 	source: [["WGtE", 104], ["UA:D", 5]],
 	plural: "Humans (dragonmark)",
@@ -444,7 +444,7 @@ RaceList["dragonmark sentinel human-ua"] = {
 };
 RaceList["dragonmark shadow elf-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*shadow)|(?=.*house)(?=.*(phiarlan|thuranni))).*$/i,
-	name: "Elf (dragonmark)",
+	name: "Elf (Dragonmark)",
 	sortname: "Dragonmark, Shadow (Elf)",
 	source: [["WGtE", 105], ["UA:D", 6]],
 	plural: "Elves (dragonmark)",
@@ -504,7 +504,7 @@ AddRacialVariant("dragonmark shadow elf-ua", "musical instrument, ", {
 });
 RaceList["dragonmark storm half-elf-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*storm)|(?=.*house)(?=.*lyrandar)).*$/i,
-	name: "Half-elf (dragonmark)",
+	name: "Half-Elf (Dragonmark)",
 	sortname: "Dragonmark, Storm (Half-Elf)",
 	source: [["WGtE", 106], ["UA:D", 6]],
 	plural: "Half-elves (dragonmark)",
@@ -557,7 +557,7 @@ RaceList["dragonmark storm half-elf-ua"] = {
 };
 RaceList["dragonmark warding dwarf-ua"] = {
 	regExpSearch: /^((?=.*mark)(?=.*warding)|(?=.*house)(?=.*kundarak)).*$/i,
-	name: "Dwarf (dragonmark)",
+	name: "Dwarf (Dragonmark)",
 	sortname: "Dragonmark, Warding (Dwarf)",
 	source: [["WGtE", 108], ["UA:D", 7]],
 	plural: "Dwarves (dragonmark)",

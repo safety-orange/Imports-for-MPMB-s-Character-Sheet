@@ -176,7 +176,7 @@ RaceList["minotaur"] = {
 // Add Simic Hybrid
 RaceList["simic hybrid"] = {
 	regExpSearch: /^(?=.*(simic|elf|dwarf|human|orc))(?=.*hybrid).*$/i,
-	name: "Simic hybrid",
+	name: "Simic Hybrid",
 	source: [["G", 20]],
 	plural: "Simic hybrids",
 	size: 3,

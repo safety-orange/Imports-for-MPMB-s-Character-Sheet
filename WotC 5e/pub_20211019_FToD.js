@@ -161,7 +161,7 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 			var sDrBrnDmg = oDrBrn.variants[i][1];
 			AddRacialVariant(sDrBrnLC + " dragonborn", sDrBrnVar.toLowerCase(), {
 				regExpSearch: RegExp(sDrBrnVar, "i"),
-				name: sDrBrnVar + " " + sDrBrnLC + " dragonborn",
+				name: sDrBrnVar + " " + sDrBrn + " Dragonborn",
 				trait: ["**" + sDrBrnVar + " " + sDrBrnLC + " dragonborn**"].concat(oDrBrn.trait.map(function (sTrait) { return sTrait.replace(/>>TYPE<</g, sDrBrnDmg).replace(/>>type<</g, sDrBrnDmg.toLowerCase()); })),
 				dmgres: [sDrBrnDmg],
 			});

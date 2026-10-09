@@ -14,7 +14,7 @@ SourceList["MToF"] = {
 // Tiefling subraces
 RaceList["baalzebul tiefling"] = {
 	regExpSearch: /^(?=.*baalzebul)(?=.*tiefling|planetouched).*$/i,
-	name: "Baalzebul tiefling",
+	name: "Baalzebul Tiefling",
 	sortname: "Tiefling, Baalzebul",
 	source: [["MToF", 21], ["UA:FO", 1]],
 	plural: "Baalzebul tieflings",
@@ -76,7 +76,7 @@ RaceList["baalzebul tiefling"] = {
 };
 RaceList["dispater tiefling"] = {
 	regExpSearch: /^(?=.*dispater)(?=.*tiefling|planetouched).*$/i,
-	name: "Dispater tiefling",
+	name: "Dispater Tiefling",
 	sortname: "Tiefling, Dispater",
 	source: [["MToF", 21]],
 	plural: "Dispater tieflings",
@@ -132,7 +132,7 @@ RaceList["dispater tiefling"] = {
 };
 RaceList["fierna tiefling"] = {
 	regExpSearch: /^(?=.*fierna)(?=.*tiefling|planetouched).*$/i,
-	name: "Fierna tiefling",
+	name: "Fierna Tiefling",
 	sortname: "Tiefling, Fierna",
 	source: [["MToF", 21], ["UA:FO", 1]],
 	plural: "Fierna tieflings",
@@ -194,7 +194,7 @@ RaceList["fierna tiefling"] = {
 };
 RaceList["glasya tiefling"] = {
 	regExpSearch: /^(?=.*glasya)(?=.*tiefling|planetouched).*$/i,
-	name: "Glasya tiefling",
+	name: "Glasya Tiefling",
 	sortname: "Tiefling, Glasya",
 	source: [["MToF", 22], ["UA:FO", 2]],
 	plural: "Glasya tieflings",
@@ -250,7 +250,7 @@ RaceList["glasya tiefling"] = {
 };
 RaceList["levistus tiefling"] = {
 	regExpSearch: /^(?=.*levistus)(?=.*tiefling|planetouched).*$/i,
-	name: "Levistus tiefling",
+	name: "Levistus Tiefling",
 	sortname: "Tiefling, Levistus",
 	source: [["MToF", 22], ["UA:FO", 2]],
 	plural: "Levistus tieflings",
@@ -312,7 +312,7 @@ RaceList["levistus tiefling"] = {
 };
 RaceList["mammon tiefling"] = {
 	regExpSearch: /^(?=.*mammon)(?=.*tiefling|planetouched).*$/i,
-	name: "Mammon tiefling",
+	name: "Mammon Tiefling",
 	sortname: "Tiefling, Mammon",
 	source: [["MToF", 22], ["UA:FO", 2]],
 	plural: "Mammon tieflings",
@@ -375,7 +375,7 @@ RaceList["mammon tiefling"] = {
 };
 RaceList["mephistopheles tiefling"] = {
 	regExpSearch: /^(?=.*mephistopheles)(?=.*tiefling|planetouched).*$/i,
-	name: "Mephistopheles tiefling",
+	name: "Mephistopheles Tiefling",
 	sortname: "Tiefling, Mephistopheles",
 	source: [["MToF", 23]],
 	plural: "Mephistopheles tieflings",
@@ -437,7 +437,7 @@ RaceList["mephistopheles tiefling"] = {
 };
 RaceList["zariel tiefling"] = {
 	regExpSearch: /^(?=.*zariel)(?=.*tiefling|planetouched).*$/i,
-	name: "Zariel tiefling",
+	name: "Zariel Tiefling",
 	sortname: "Tiefling, Zariel",
 	source: [["MToF", 23], ["UA:FO", 2]],
 	plural: "Zariel tieflings",
@@ -562,7 +562,7 @@ RaceList["eladrin-mtof"] = {
 };
 RaceList["sea elf"] = {
 	regExpSearch: /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
-	name: "Sea elf",
+	name: "Sea Elf",
 	sortname: "Elf, Sea",
 	source: [["MToF", 62], ["W", 163], ["UA:ES", 1]],
 	plural: "Sea elves",
@@ -594,8 +594,8 @@ RaceList["sea elf"] = {
 };
 RaceList["shadar-kai elf"] = {
 	regExpSearch: /^(?!.*half)((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
-	name: "Shadar-kai",
-	sortname: "Elf, Shadow (Shadar-kai)",
+	name: "Shadar-Kai",
+	sortname: "Elf, Shadow (Shadar-Kai)",
 	source: [["MToF", 62]],
 	plural: "Shadar-kai",
 	size: 3,

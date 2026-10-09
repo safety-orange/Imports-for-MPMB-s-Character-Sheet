@@ -885,7 +885,6 @@ CreatureList["arcane turret-ua"] = {
 	damage_immunities: "poison, psychic",
 	condition_immunities: "all conditions",
 	passivePerception: 10,
-	languages: "",
 	challengeRating: "1",
 	proficiencyBonus: 0,
 	attacksAction: 0,

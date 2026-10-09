@@ -176,7 +176,7 @@ SourceList["P"] = {
 // (sub)Races that are not in the SRD
 RaceList["mountain dwarf"] = {
 	regExpSearch: /^((?=.*(hylar|daewar))|((?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b)(?=.*\b(mountain|shield)\b))).*$/i,
-	name: "Mountain dwarf",
+	name: "Mountain Dwarf",
 	sortname: "Dwarf, Mountain",
 	source: [["P", 20]],
 	plural: "Mountain dwarves",
@@ -269,7 +269,7 @@ RaceList["dark elf"] = {
 };
 RaceList["wood elf"] = {
 	regExpSearch: /^(?!.*half)((?=.*(grugach|kagonesti|silhana))|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(woodlands?|woods?|forests?|wilds?|green)\b))).*$/i,
-	name: "Wood elf",
+	name: "Wood Elf",
 	sortname: "Elf, Wood",
 	source: [["P", 24]],
 	plural: "Wood elves",
@@ -299,7 +299,7 @@ RaceList["wood elf"] = {
 };
 RaceList["forest gnome"] = {
 	regExpSearch: /^((?=.*\bgnomes?\b)(?=.*\b(woods?|forests?|wilds?|green)\b)).*$/i,
-	name: "Forest gnome",
+	name: "Forest Gnome",
 	sortname: "Gnome, Forest",
 	source: [["P", 37]],
 	plural: "Forest gnomes",
@@ -330,7 +330,7 @@ RaceList["forest gnome"] = {
 };
 RaceList["stout halfling"] = {
 	regExpSearch: /^(?=.*\b(halflings?|hobbits?)\b)(?=.*stout).*$/i,
-	name: "Stout halfling",
+	name: "Stout Halfling",
 	sortname: "Halfling, Stout",
 	source: [["P", 28]],
 	plural: "Stout halflings",
@@ -3700,7 +3700,7 @@ AddBackgroundVariant("entertainer", "gladiator", {
 		["Inexpensive, unusual weapon", "", ""],
 	],
 	feature: "Are You Entertained?",
-	extra: "",
+	extra: null,
 });
 AddBackgroundVariant("guild artisan", "guild merchant", {
 	regExpSearch: /^(?=.*guild)(?=.*merchant).*$/i,
@@ -5523,23 +5523,13 @@ MagicItemsList["tankard of plenty"] = {
 	usages: 3,
 	recovery: "Day",
 }
-var HotDQ_tempDragonMaskNoteTxt = [
-	desc([
-		"***Damage Absorption***. You have resistance against DTYPE damage. If you already have resistance to DTYPE damage from another source, you instead have immunity to DTYPE damage. If you already have immunity to DTYPE damage from another source, whenever you are subjected to DTYPE damage, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.",
-		"***Draconic Majesty***. While you are wearing no armor, you can add your Charisma bonus to your Armor Class.",
-		"***Dragon Breath***. If you have a breath weapon that requires rest to recharge, it gains a recharge of 6.",
-		"***Dragon Sight***. You gain darkvision out to 60 feet, or to an additional 60 feet if you already have that sense. Once per day, you can gain blindsight out to 30 feet for 5 minutes.",
-		"***Dragon Tongue***. You can speak and understand Draconic. You also have advantage on any Charisma check you make against DCOLOUR dragons.",
-		"***Legendary Resistance (1/Day)***. If you fail a saving throw, you can choose to succeed instead.",
-	]), [
-		" It reshapes to fit my face and head when I attuned to it. While I'm wearing a dragon mask and attuned to it, it grants me the following benefits.",
-		"\u2022 ***Damage Absorption***. I have resistance against DTYPE damage. If I already have resistance to DTYPE damage from another source, I instead gain immunity to DTYPE damage. If I already have immunity to DTYPE damage from another source, whenever I am subjected to DTYPE damage, I take none of that damage and instead regain a number of hit points equal to half the DTYPE damage dealt.",
-		"\u2022 ***Draconic Majesty***. While I am wearing no armor, I can add my Charisma bonus to my Armor Class.",
-		"\u2022 ***Dragon Breath***. If I have a breath weapon that requires rest to recharge, it gains a recharge of 6.",
-		"\u2022 ***Dragon Sight. I gain darkvision out to 60 ft, or to an additional 60 ft if I already have that sense. Once per day, I can gain blindsight out to 30 ft for 5 minutes.",
-		"\u2022 ***Dragon Tongue***. I can speak and understand Draconic. I also have advantage on any Charisma check I make against DCOLOUR dragons.",
-		"\u2022 ***Legendary Resistance***. Once per day when I fail a saving throw, I can choose to succeed instead.",
-	].join("\n   "),
+var HotDQ_DragonMask = [
+	"***Damage Absorption***. You have resistance against DTYPE damage. If you already have resistance to DTYPE damage from another source, you instead have immunity to DTYPE damage. If you already have immunity to DTYPE damage from another source, whenever you are subjected to DTYPE damage, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.",
+	"***Draconic Majesty***. While you are wearing no armor, you can add your Charisma bonus to your Armor Class.",
+	"***Dragon Breath***. If you have a breath weapon that requires rest to recharge, it gains a recharge of 6.",
+	"***Dragon Sight***. You gain darkvision out to 60 feet, or to an additional 60 feet if you already have that sense. Once per day, you can gain blindsight out to 30 feet for 5 minutes.",
+	"***Dragon Tongue***. You can speak and understand Draconic. You also have advantage on any Charisma check you make against DCOLOUR dragons.",
+	"***Legendary Resistance (1/Day)***. If you fail a saving throw, you can choose to succeed instead.",
 ];
 MagicItemsList["dragon mask"] = {
 	name: "Dragon Mask",
@@ -5548,7 +5538,10 @@ MagicItemsList["dragon mask"] = {
 	rarity: "legendary",
 	storyItemAL: true,
 	description: "This mask reshapes to fit my head. It grants me the ability to absorb associated damage type, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. a dragon type, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, see Notes page.",
-	descriptionFull: "Each *dragon mask* is a legendary wondrous item that reshapes to fit the face and head of a wearer attuned to it. While you are wearing any *dragon mask* and attuned to it, you gain the following benefits." + HotDQ_tempDragonMaskNoteTxt[0].replace(/You have resistance against DTYPE damage.*?\n/, "You have resistance against the mask's damage type. If you already have resistance to that damage type from another source, you instead have immunity to that damage type. If you already have immunity to that damage type from another source, whenever you are subjected to damage of that type, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.\n").replace("DCOLOUR dragons", "dragons that share the mask's color"),
+	descriptionFull: [
+		"Each *dragon mask* is a legendary wondrous item that reshapes to fit the face and head of a wearer attuned to it. While you are wearing any *dragon mask* and attuned to it, you gain the following benefits.",
+		"***Damage Absorption***. You have resistance against the mask's damage type. If you already have resistance to that damage type from another source, you instead have immunity to that damage type. If you already have immunity to that damage type from another source, whenever you are subjected to damage of that type, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.",
+	].concat(HotDQ_DragonMask.slice(1).map(function (s) { return s.replace("DCOLOUR dragons", "dragons that share the mask's color"); })),
 	attunement: true,
 	languageProfs: ["Draconic"],
 	vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
@@ -5590,12 +5583,16 @@ MagicItemsList["dragon mask"] = {
 		source: [["HotDQ", 94], ["ToD", 179]],
 		description: "This mask reshapes to fit my head. It grants me the ability to absorb acid damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. black dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
 		descriptionLong: "This horned mask of glossy ebony has horns and a skull-like mien. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb acid damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against black dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and water breathing. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
-		descriptionFull: "This horned mask of glossy ebony has horns and a skull-like mien. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + HotDQ_tempDragonMaskNoteTxt[0].replace(/DTYPE/g, "acid").replace("DCOLOUR", "black") + "\n   ***Water Breathing***. You can breathe underwater.",
+		descriptionFull: [
+			"This horned mask of glossy ebony has horns and a skull-like mien. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.",
+		].concat(HotDQ_DragonMask.map(function (s) { return s.replace(/DTYPE/g, "acid").replace("DCOLOUR", "black"); }), [
+			"***Water Breathing***. You can breathe underwater.",
+		]),
 		dmgres: ["Acid"],
 		changeeval: function () { MagicItemsList["dragon mask"].incrementDamageRes("Black", "acid"); },
 		toNotesPage: [{
-			name: "Features",
-			note: "\n   This horned mask of glossy ebony has horns and a skull-like mien." + HotDQ_tempDragonMaskNoteTxt[1].replace(/DTYPE/g, "acid").replace("DCOLOUR", "black") + "\n   Water Breathing. I can breathe underwater.",
+			name: "Black Dragon Mask",
+			useDescriptionFull: true,
 		}],
 	},
 	/*
@@ -5609,12 +5606,16 @@ MagicItemsList["dragon mask"] = {
 		source: [["RoTOS", 4], ["ToD", 179]],
 		description: "This mask reshapes to fit my head. It grants me the ability to absorb lightning damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. Cha checks vs. blue dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
 		descriptionLong: "This mask of glossy azure has spikes around its edges and a ridged horn in its center. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb lightning damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against blue dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and Lingering Shock. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
-		descriptionFull: "This mask of glossy azure has spikes around its edges and a ridged horn in its center. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + HotDQ_tempDragonMaskNoteTxt[0].replace(/DTYPE/g, "lightning").replace("DCOLOUR", "blue") + "\n   ***Lingering Shock***. If you deal lightning damage to a creature, it can't take reactions until its next turn.",
+		descriptionFull: [
+			"This mask of glossy azure has spikes around its edges and a ridged horn in its center. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.",
+		].concat(HotDQ_DragonMask.map(function (s) { return s.replace(/DTYPE/g, "lightning").replace("DCOLOUR", "blue"); }), [
+			"***Lingering Shock***. If you deal lightning damage to a creature, it can't take reactions until its next turn.",
+		]),
 		dmgres: ["Lightning"],
 		changeeval: function () { MagicItemsList["dragon mask"].incrementDamageRes("Blue", "lightning"); },
 		toNotesPage: [{
-			name: "Features",
-			note: "\n   This mask of glossy azure has spikes around its edges and a ridged horn in its center." + HotDQ_tempDragonMaskNoteTxt[1].replace(/DTYPE/g, "lightning").replace("DCOLOUR", "blue") + "\n   Lingering Shock. If I deal lightning damage to a creature, it can't take reactions until its next turn.",
+			name: "Blue Dragon Mask",
+			useDescriptionFull: true,
 		}],
 	},
 	"green": {
@@ -5622,12 +5623,16 @@ MagicItemsList["dragon mask"] = {
 		source: [["RoTOS", 4], ["ToD", 179]],
 		description: "This mask reshapes to fit my head. It grants me the ability to absorb poison damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. green dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
 		descriptionLong: "This mottled green mask is surmounted by a frilled crest and has spikes along its jaw. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb poison damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against green dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and water breathing. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
-		descriptionFull: "This mottled green mask is surmounted by a frilled crest and has leathery spiked plates along its jaw. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + HotDQ_tempDragonMaskNoteTxt[0].replace(/DTYPE/g, "poison").replace("DCOLOUR", "green") + "\n   ***Water Breathing***. You can breathe underwater.",
+		descriptionFull: [
+			"This mottled green mask is surmounted by a frilled crest and has leathery spiked plates along its jaw. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.",
+		].concat(HotDQ_DragonMask.map(function (s) { return s.replace(/DTYPE/g, "poison").replace("DCOLOUR", "green"); }), [
+			"***Water Breathing***. You can breathe underwater.",
+		]),
 		dmgres: ["Poison"],
 		changeeval: function () { MagicItemsList["dragon mask"].incrementDamageRes("Green", "poison"); },
 		toNotesPage: [{
-			name: "Features",
-			note: "\n   This mottled green mask is surmounted by a frilled crest and has leathery spiked plates along its jaw." + HotDQ_tempDragonMaskNoteTxt[1].replace(/DTYPE/g, "poison").replace("DCOLOUR", "green") + "\n   Water Breathing. I can breathe underwater.",
+			name: "Green Dragon Mask",
+			useDescriptionFull: true,
 		}],
 	},
 	"red": {
@@ -5635,12 +5640,16 @@ MagicItemsList["dragon mask"] = {
 		source: [["RoTOS", 4], ["ToD", 179]],
 		description: "This mask reshapes to fit my head. It grants me the ability to absorb fire damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. red dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
 		descriptionLong: "This mask of glossy crimson has swept-back horns and spiked cheek ridges. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb fire damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against red dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and Dragon Fire. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
-		descriptionFull: "This mask of glossy crimson has swept-back horns and spiked cheek ridges. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + HotDQ_tempDragonMaskNoteTxt[0].replace(/DTYPE/g, "fire").replace("DCOLOUR", "red") + "\n   ***Dragon Fire***. If you deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire.",
+		descriptionFull: [
+			"This mask of glossy crimson has swept-back horns and spiked cheek ridges. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.",
+		].concat(HotDQ_DragonMask.map(function (s) { return s.replace(/DTYPE/g, "fire").replace("DCOLOUR", "red"); }), [
+			"***Dragon Fire***. If you deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire.",
+		]),
 		dmgres: ["Fire"],
 		changeeval: function () { MagicItemsList["dragon mask"].incrementDamageRes("red", "fire"); },
 		toNotesPage: [{
-			name: "Features",
-			note: "\n   This mask of glossy crimson has swept-back horns and spiked cheek ridges." + HotDQ_tempDragonMaskNoteTxt[1].replace(/DTYPE/g, "fire").replace("DCOLOUR", "red") + "\n   Dragon Fire. If I deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire.",
+			name: "Red Dragon Mask",
+			useDescriptionFull: true,
 		}],
 	},
 	"white": {
@@ -5648,12 +5657,16 @@ MagicItemsList["dragon mask"] = {
 		source: [["RoTOS", 4], ["ToD", 179]],
 		description: "This mask reshapes to fit my head. It grants me the ability to absorb cold damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. white dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
 		descriptionLong: "This gleaming mask is white with highlights of pale blue and is topped by a spined crest. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb cold damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against white dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and Winter's Fury. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
-		descriptionFull: "This gleaming mask is white with highlights of pale blue and is topped by a spined crest. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + HotDQ_tempDragonMaskNoteTxt[0].replace(/DTYPE/g, "cold").replace("DCOLOUR", "white") + "\n   ***Winter's Fury***. While your current hit points are equal to or less than half your hit point maximum, you deal an extra 1d8 cold damage with your melee attacks.",
+		descriptionFull: [
+			"This gleaming mask is white with highlights of pale blue and is topped by a spined crest. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.",
+		].concat(HotDQ_DragonMask.map(function (s) { return s.replace(/DTYPE/g, "cold").replace("DCOLOUR", "white"); }), [
+			"***Winter's Fury***. While your current hit points are equal to or less than half your hit point maximum, you deal an extra 1d8 cold damage with your melee attacks.",
+		]),
 		dmgres: ["Cold"],
 		changeeval: function () { MagicItemsList["dragon mask"].incrementDamageRes("white", "cold"); },
 		toNotesPage: [{
-			name: "Features",
-			note: "\n   This gleaming mask is white with highlights of pale blue and is topped by a spined crest." + HotDQ_tempDragonMaskNoteTxt[1].replace(/DTYPE/g, "cold").replace("DCOLOUR", "white") + "\n   Winter's Fury. While my current hit points are equal to or less than half my hit point maximum, I deal an extra 1d8 cold damage with my melee attacks.",
+			name: "White Dragon Mask",
+			useDescriptionFull: true,
 		}],
 	},
 	"mask of the dragon queen": {
@@ -5662,7 +5675,16 @@ MagicItemsList["dragon mask"] = {
 		source: [["RoT", 94], ["ToD", 179]],
 		description: "This mask reshapes to fit my head. It allows to absorb acid, cold, fire, lightning, and poison damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (5/day), adv. on Cha checks vs. dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
 		descriptionLong: "This mask gives me a draconic visage and covers my face, neck, and shoulders. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb acid, cold, fire, lightning, and poison damage, depending on how resistant I'm already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against dragons, lets me add my Charisma modifier to AC while not wearing armor, and more. 5 times per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
-		descriptionFull: "When two or more of the dragon masks are assembled they magically transform into the *Mask of the Dragon Queen*. Each mask shrinks to become the modeled head of a chromatic dragon, appearing to roar its devotion to Tiamat where all the masks brought together are arranged crown-like on the wearer's head. Below the five masks, a new mask shapes itself, granting the wearer a draconic visage that covers the face, neck, and shoulders. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties." + HotDQ_tempDragonMaskNoteTxt[0].replace(/You have resistance against DTYPE damage.*?\n/, "You have resistance against acid, cold, fire, lightning, and poison damage. If you already have resistance to a damage type from another source, you instead have immunity to that damage type. If you already have immunity to a damage type from another source, whenever you are subjected to that damage type, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.\n").replace("DCOLOUR ", "").replace("***(1/Day)***", "***(5/Day)***") + "\n\n   It can have the properties of any one of the colored masks, but only can have one active at a time. These are the following:\n   ***Water Breathing (black and green)***. You can breathe underwater.\n   ***Lingering Shock (blue)***. If you deal lightning damage to a creature, it can't take reactions until its next turn.\n   ***Dragon Fire (red)***. If you deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire.\n   ***Winter's Fury (white)***. While your current hit points are equal to or less than half your hit point maximum, you deal an extra 1d8 cold damage with your melee attacks.",
+		descriptionFull: [
+			"When two or more of the dragon masks are assembled they magically transform into the *Mask of the Dragon Queen*. Each mask shrinks to become the modeled head of a chromatic dragon, appearing to roar its devotion to Tiamat where all the masks brought together are arranged crown-like on the wearer's head. Below the five masks, a new mask shapes itself, granting the wearer a draconic visage that covers the face, neck, and shoulders. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.",
+			"***Damage Absorption***. You have resistance against acid, cold, fire, lightning, and poison damage. If you already have resistance to a damage type from another source, you instead have immunity to that damage type. If you already have immunity to a damage type from another source, whenever you are subjected to that damage type, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.",
+		].concat(HotDQ_DragonMask.slice(1).map(function (s) { return s.replace("DCOLOUR ", "").replace("(1/Day)", "(5/Day)"); }), [
+			"While you are attuned to and wear this mask, you can have any of the properties from any one colored mask.",
+			" \u2022 **Water Breathing (black and green)**. You can breathe underwater.",
+			" \u2022 **Lingering Shock (blue)**. If you deal lightning damage to a creature, it can't take reactions until its next turn.",
+			" \u2022 **Dragon Fire (red)**. If you deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire.",
+			" \u2022 **Winter's Fury (white)**. While your current hit points are equal to or less than half your hit point maximum, you deal an extra 1d8 cold damage with your melee attacks.",
+		]),
 		dmgres: ["Acid", "Cold", "Fire", "Lightning", "Poison"],
 		changeeval: function () {
 			MagicItemsList["dragon mask"].incrementDamageRes("", "acid");
@@ -5672,14 +5694,8 @@ MagicItemsList["dragon mask"] = {
 			MagicItemsList["dragon mask"].incrementDamageRes("", "poison");
 		},
 		toNotesPage: [{
-			name: "Features",
-			note: "\n   When two or more of the dragon masks are assembled they magically transform into the Mask of the Dragon Queen. Each mask shrinks to become the modeled head of a chromatic dragon, appearing to roar its devotion to Tiamat where all the masks brought together are arranged crown-like on the wearer's head. Below the five masks, a new mask shapes itself, granting the wearer a draconic visage that covers the face, neck, and shoulders." +
-			HotDQ_tempDragonMaskNoteTxt[1].replace(/Damage Absorption.*?\n/, "Damage Absorption. I have resistance to acid, cold, fire, lightning, and poison damage. If I already have resistance to a damage type from another source, I instead have immunity to that damage type. If I already have immunity to a damage type from another source, whenever I am subjected to that damage type, I take none of that damage and regain a number of hit points equal to half the damage dealt of that type.\n").replace("DCOLOUR ", "").replace("Once per day when", "Five times per day when") +
-			"\n   \u2022 Special Properties. I can access the properties of any one of the colored masks, but only can have one active at a time. These are the following:" +
-			"\n      \u25E6 Water Breathing (black and green). I can breathe underwater." +
-			"\n      \u25E6 Lingering Shock (blue). If I deal lightning damage to a creature, it can't take reactions until its next turn." +
-			"\n      \u25E6 Dragon Fire (red). If I deal fire damage to a creature or flammable object, it starts burning. At the start of each of its turns, a creature burning in this way takes 1d6 fire damage. A creature that can reach the burning target can use an action to extinguish the fire." +
-			"\n      \u25E6 Winter's Fury (white). While my current hit points are equal to or less than half my hit point maximum, I deal an extra 1d8 cold damage with my melee attacks.",
+			name: "Mask of the Dragon Queen",
+			useDescriptionFull: true,
 		}],
 		usages: 5,
 		recovery: "Day",
@@ -8619,7 +8635,7 @@ MagicItemsList["balloon pack"] = {
 	spellChanges: {
 		"feather fall": {
 			range: "Self",
-			description: "I descent only 60 ft/rnd for duration or until landed, taking no falling damage",
+			description: "I descend only 60 ft/rnd for duration or until landed, taking no falling damage",
 			changes: "Using the Balloon Pack, I can only target myself.",
 		},
 		"levitate": {
@@ -8637,7 +8653,7 @@ MagicItemsList["bottled breath"] = {
 	type: "potion",
 	rarity: "uncommon",
 	magicItemTable: "C",
-	description: "Once as an action, I can inhale this breath of elemental air or administer it to another. The target then either exhale it or hold it in. If exhaled immediately, it produces the effects of *Gust of Wind*. Holding it in removes the need to breathe for 1 hour, though this benefit can end early, by speaking for example.",
+	description: "Once as an action, I can inhale this breath of elemental air or administer it to another. The target then either exhales it or holds it in. If exhaled immediately, it produces the effects of *Gust of Wind*. Holding it in removes the need to breathe for 1 hour, though this benefit can end early, by speaking for example.",
 	descriptionFull: [
 		"This bottle contains a breath of elemental air. When you inhale it, you either exhale it or hold it.",
 		"If you exhale the breath, you gain the effect of the *Gust of Wind* spell. If you hold the breath, you don't need to breathe for 1 hour, though you can end this benefit early (for example, to speak). Ending it early doesn't give you the benefit of exhaling the breath.",
@@ -8686,7 +8702,7 @@ MagicItemsList["devastation orb"] = {
 	type: "wondrous item",
 	rarity: "very rare",
 	magicItemTable: "G",
-	description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates an effect in a 1-mile radius around it.",
+	description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. It explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates an effect in a 1-mile radius around it.",
 	descriptionFull: PotA_tempDevastationOrbNoteTxt[0],
 	weight: 10,
 	allowDuplicates: true,
@@ -8694,7 +8710,7 @@ MagicItemsList["devastation orb"] = {
 	choicesNotInMenu: true,
 	"air": {
 		name: "Devastation Orb of Air",
-		description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates a powerful windstorm in 1 mile around it for 1 hour. Everything exposed to the wind is damage by it. See Notes page.",
+		description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. It explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates a powerful windstorm in 1 mile around it for 1 hour. Everything exposed to the wind is damaged by it. See Notes page.",
 		descriptionFull: PotA_tempDevastationOrbNoteTxt[0] + "\n   ***Air Orb***. When this orb detonates, it creates a powerful windstorm that lasts for 1 hour. Whenever a creature ends its turn exposed to the wind, the creature must succeed on a DC 18 Constitution saving throw or take 1d4 bludgeoning damage, as the wind and debris batter it. The wind is strong enough to uproot weak trees and destroy light structures after at least 10 minutes of exposure. Otherwise, the rules for strong wind apply, as detailed in chapter 5 of the Dungeon Master's Guide.",
 		toNotesPage: [{
 			name: "Features",
@@ -8703,7 +8719,7 @@ MagicItemsList["devastation orb"] = {
 	},
 	"earth": {
 		name: "Devastation Orb of Earth",
-		description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates the effect of an *Earthquake* spell in 1 mile around it for 1 minute. See Notes page.",
+		description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. It explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates the effect of an *Earthquake* spell in 1 mile around it for 1 minute. See Notes page.",
 		descriptionFull: PotA_tempDevastationOrbNoteTxt[0] + "\n   ***Earth Orb***. When this orb detonates, it subjects the area to the effects of the *Earthquake* spell for 1 minute (spell save DC 18). For the purpose of the spell's effects, the spell is cast on the turn that the orb explodes.",
 		toNotesPage: [{
 			name: "Features",
@@ -8719,7 +8735,7 @@ MagicItemsList["devastation orb"] = {
 	},
 	"fire": {
 		name: "Devastation Orb of Fire",
-		description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates a dry heat wave in 1 mile around it for 24 hours. There is extreme heat within the area and wildfires can appear within, see Notes.",
+		description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. It explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates a dry heat wave in 1 mile around it for 24 hours. There is extreme heat within the area and wildfires can appear within, see Notes.",
 		descriptionFull: PotA_tempDevastationOrbNoteTxt[0] + "\n   ***Fire Orb***. When this orb detonates, it creates a dry heat wave that lasts for 24 hours. Within the area of effect, the rules for extreme heat apply, as detailed in chapter 5 of the Dungeon Master's Guide. At the end of each hour, there is a ten percent chance that the heat wave starts a wildfire in a random location within the area of effect. The wildfire covers a 10-foot-square area initially but expands to fill another 10-foot square each round until the fire is extinguished or burns itself out. A creature that comes within 10 feet of a wildfire for the first time on a turn or starts its turn there takes 3d6 fire damage.",
 		toNotesPage: [{
 			name: "Features",
@@ -8728,7 +8744,7 @@ MagicItemsList["devastation orb"] = {
 	},
 	"water": {
 		name: "Devastation Orb of Water",
-		description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. it explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates torrential rainstorm in 1 mile around it for 24 hours. If bodies of water exist in the area, they rise 10 ft and flood. See Notes page.",
+		description: "This 12 inch diameter orb has AC 10, 15 HP, and is immune to poison and psychic damage. It explodes 1d100 hours after its creation or when reduced to 0 HP. When detonated, it creates a torrential rainstorm in 1 mile around it for 24 hours. If bodies of water exist in the area, they rise 10 ft and flood. See Notes page.",
 		descriptionFull: PotA_tempDevastationOrbNoteTxt[0] + "\n   ***Water Orb***. When this orb detonates, it creates a torrential rainstorm that lasts for 24 hours. Within the area of effect, the rules for heavy precipitation apply, as detailed in chapter 5 of the Dungeon Master's Guide. If there is a substantial body of water in the area, it floods after 2d10 hours of heavy rain, rising 10 feet above its banks and inundating the surrounding area. The flood advances at a rate of 100 feet per round, moving away from the body of water where it began until it reaches the edge of the area of effect: at that point, the water flows downhill (and possibly recedes back to its origin). Light structures collapse and wash away. Any Large or smaller creature caught in the flood's path is swept away. The flooding destroys crops and might trigger mudslides, depending on the terrain.",
 		toNotesPage: [{
 			name: "Features",
@@ -8867,7 +8883,7 @@ MagicItemsList["ironfang"] = {
 			"A war pick forged from a single piece of iron, Ironfang has a fang-like head inscribed with ancient runes. The pick is heavy in the hand, but when the wielder swings the pick in anger, the weapon seems almost weightless. This weapon is immune to any form of rust, acid, or corrosion\u2014nothing seems to mark it. Ironfang contains a spark of Ogr\xE9moch, the Prince of Evil Earth.",
 			"I gain a +2 bonus to attack and damage rolls made with this magic weapon. When I hit with it, the target takes an extra 1d8 thunder damage.",
 			"While holding Ironfang, I can speak Terran fluently, have resistance to acid damage, have tremorsense out to a range of 60 ft, can sense the presence of precious metals and stones within 60 ft of me, but not their exact location, and can cast *Dominate Monster* (save DC 17) on an earth elemental once per dawn.",
-			"Ironfang has 3 charges and regains 1d3 expended charges daily at dawn. I can use your action to expend 1 charge and cast the 2nd-level version of *Shatter* (DC 17).",
+			"Ironfang has 3 charges and regains 1d3 expended charges daily at dawn. I can use my action to expend 1 charge and cast the 2nd-level version of *Shatter* (DC 17).",
 			"While inside an earth node, I can perform a ritual called the Rumbling, using Ironfang to create a Devastation Orb of Earth. The ritual takes 1 hour to complete and requires 2,000 gp worth of special components, which are consumed. Once I perform the ritual, Ironfang can't be used to perform the ritual again until the next dawn.",
 			'Ironfang heightens my destructive nature. While attuned to the weapon, I gain the following flaw: "I like to break things and cause ruin."',
 		],
@@ -8930,7 +8946,7 @@ MagicItemsList["orcsplitter"] = {
 			note: [
 				'A mighty axe wielded long ago by the dwarf king Torhild Flametongue, *Orcsplitter* is a battered weapon that appears unremarkable at first glance. Its head is graven with the Dwarvish runes for "orc," but the runes are depicted with a gap or slash through the markings; the word "orc" is literally split in two.',
 				"I gain a +2 bonus to attack and damage rolls made with it. When I roll a 20 on an attack roll with this weapon against an orc, that orc must succeed on a DC 17 Constitution saving throw or drop to 0 hit points.",
-				"While I am not incapacitated, I can't be surprised by orcs and I am aware when orcs are within 120 ft of me and aren't behind total cover, although I don't know their location. Also, me and any of my friends within 30 ft of can't be frightened while I am not incapacitated.",
+				"While I am not incapacitated, I can't be surprised by orcs and I am aware when orcs are within 120 ft of me and aren't behind total cover, although I don't know their location. Also, me and any of my friends within 30 ft of me can't be frightened while I am not incapacitated.",
 				"*Orcsplitter* is a sentient, lawful good weapon with an Intelligence of 6, a Wisdom of 15, and a Charisma of 10. It can see and hear out to 120 feet and has darkvision. It communicates by transmitting emotions to its wielder, although on rare occasions it uses a limited form of telepathy to bring to the wielder's mind a couplet or stanza of ancient Dwarvish verse.",
 				"*Orcsplitter* is grim, taciturn, and inflexible. It knows little more than the desire to face orcs in battle and serve a courageous, just wielder. It disdains cowards and any form of duplicity, deception, or disloyalty. The weapon's purpose is to defend dwarves and to serve as a symbol of dwarven resolve. It hates the traditional foes of dwarves\u2014giants, goblins, and, most of all, orcs\u2014and silently urges its possessor to meet such creatures in battle.",
 			],
@@ -8943,7 +8959,7 @@ MagicItemsList["reszur"] = {
 	source: [["PotA", 157]],
 	type: "weapon (dagger)",
 	rarity: "uncommon",
-	description: "I have a +1 bonus to attack and damage rolls made with this dagger. It doesn't make noise when it hits or cuts something. If I speaks the name \"Reszur\", which is engraved on its pommel, the blade gives off a faint, cold glow, shedding dim light in a 10-foot radius until I speak the name again.",
+	description: "I have a +1 bonus to attack and damage rolls made with this dagger. It doesn't make noise when it hits or cuts something. If I speak the name \"Reszur\", which is engraved on its pommel, the blade gives off a faint, cold glow, shedding dim light in a 10-foot radius until I speak the name again.",
 	descriptionFull: [
 		"You have a +1 bonus to attack and damage rolls made with this weapon, which doesn't make noise when it hits or cuts something.",
 		"The name \"Reszur\" is graven on the dagger's pommel. If the wielder speaks the name, the blade gives off a faint, cold glow, shedding dim light in a 10-foot radius until the wielder speaks the name again.",
@@ -8968,7 +8984,7 @@ MagicItemsList["seeker dart"] = {
 	description: "Once as an action, when I whisper \"seek\" and hurl this dart, it seeks out a target of my choice within 120 ft that I have seen at least once. If the target isn't within range or there is no clear path to it, the dart's magic is spent. Else, the target must make a DC 16 Dex save or take 1d4 piercing and 3d4 lightning damage.",
 	descriptionFull: [
 		"This small dart is decorated with designs like windy spirals that span the length of its shaft.",
-		"When you whisper the word \"seek\" and hurl this dart, it seeks out a target of your choice within 120 feet of you. You must have seen the target before, but you don't need to see it now. If the target isn't within range or if there is no clear path to it, the dart falls to the ground, its magic spent and wasted. Otherwise, elemental winds guide the dart instantly through the air to the target. The dart can pass though openings as narrow as 1 inch wide and can change direction to fly around corners.",
+		"When you whisper the word \"seek\" and hurl this dart, it seeks out a target of your choice within 120 feet of you. You must have seen the target before, but you don't need to see it now. If the target isn't within range or if there is no clear path to it, the dart falls to the ground, its magic spent and wasted. Otherwise, elemental winds guide the dart instantly through the air to the target. The dart can pass through openings as narrow as 1 inch wide and can change direction to fly around corners.",
 		"When the dart reaches its target, the target must succeed on a DC 16 Dexterity saving throw or take 1d4 piercing damage and 3d4 lightning damage. The dart's magic is then spent, and it becomes an ordinary dart.",
 	],
 	weight: 0.25,
@@ -9136,7 +9152,7 @@ MagicItemsList["wingwear"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	magicItemTable: "C",
-	description: "This snug uniform with leathery flaps has 3 charges, regaining all when placed in an air not for 1 hour. As a bonus action, I can expend 1 charge to gain a 30 ft flying speed until I land or have 0 altitude. At the end of each of my turns, my altitude drops by 5 ft and I must move at least 30 ft horizontally or I fall.",
+	description: "This snug uniform with leathery flaps has 3 charges, regaining all when placed in an air node for 1 hour. As a bonus action, I can expend 1 charge to gain a 30 ft flying speed until I land or have 0 altitude. At the end of each of my turns, my altitude drops by 5 ft and I must move at least 30 ft horizontally or I fall.",
 	descriptionFull: [
 		"This snug uniform has symbols of air stitched into it and leathery flaps that stretch along the arms, waist, and legs to create wings for gliding. A suit of *wingwear* has 3 charges. While you wear the suit, you can use a bonus action and expend 1 charge to gain a flying speed of 30 feet until you land. At the end of each of your turns, your altitude drops by 5 feet. Your altitude drops instantly to 0 feet at the end of your turn if you didn't fly at least 30 feet horizontally on that turn. When your altitude drops to 0 feet, you land (or fall), and you must expend another charge to use the suit again.",
 		"The suit regains all of its expended charges after spending at least 1 hour in an elemental air node.",
@@ -9207,7 +9223,7 @@ BackgroundList["caravan specialist"] = {
 		],
 	],
 	bond: [
-		"My brother has a farm In Elmwood and I've helped him and his neigbors move their goods to Mulmaster and other surrounding towns. Those are good people.",
+		"My brother has a farm in Elmwood and I've helped him and his neighbors move their goods to Mulmaster and other surrounding towns. Those are good people.",
 		"A caravan I lead was attacked by bandits and many innocents died. I swear that I will avenge them by killing any bandits I encounter.",
 		"The Soldiery are mostly good guys who understand the importance of protecting the roads. The City Watch is who you have to look out for. If they are inspecting your goods, get ready to pay a fine.",
 		"The new commander of Southroad Tower, Capt. Holke, understands the importance of safe roads. He's hired me for several jobs and I'm grateful.",
@@ -9312,7 +9328,7 @@ BackgroundList["harborfolk"] = {
 		"I can't sing, but that never stops me from doing it, loudly. Everyone loves a good sea chanty!",
 		"I think the High Blade is doing a terrific job, don't you?",
 		"I'm very excited that the House Built on Gold is being restored. I am a zealous worshipper of Waukeen.",
-		"I am quite superstitious. I see portents in everyday occurances.",
+		"I am quite superstitious. I see portents in everyday occurrences.",
 		"I resent the rich and enjoy thwarting their plans and spoiling their fun in small ways.",
 		"I have a sea story to fit every occasion.",
 		"I'm a fisher, but I secretly detest eating fish. I will do anything to avoid it.",
@@ -9372,8 +9388,8 @@ BackgroundList["mulmaster aristocrat"] = {
 	feature: "Highborn",
 	trait: [
 		"My ambitions are boundless. I will be a Zor or Zora one day!",
-		"I must alwayss look my best.",
-		"Beauty is everywhere. I can find it in even the homliest person and the most horrible tragedy.",
+		"I must always look my best.",
+		"Beauty is everywhere. I can find it in even the homeliest person and the most horrible tragedy.",
 		"Décorum must be preserved at all costs.",
 		"I will not admit I am wrong if I can avoid it.",
 		"I am extremely well-educated and frequently remind others of that fact.",
@@ -9414,7 +9430,7 @@ BackgroundList["mulmaster aristocrat"] = {
 		"The ends (my advancement) justify any means.",
 		"I must have what I want and will brook no delay.",
 		"My family has lost everything. I must keep up appearances, lest we become a laughingstock.",
-		"I have no artistic sense. I hide that fact behind extreme opinons and have become a trendsetter.",
+		"I have no artistic sense. I hide that fact behind extreme opinions and have become a trendsetter.",
 	],
 	toolProfs: [["Artisan's tools", 1], ["Musical instrument", 1]],
 	lifestyle: "wealthy",
@@ -9441,8 +9457,8 @@ BackgroundList["phlan refugee"] = {
 		"I have always gotten ahead by giving, why change now?",
 		"I prepare for everything, it paid off in Phlan and it will pay off again.",
 		"I will reclaim my home, though the path may be long, I will never give up hope.",
-		"I never cared for personal hygiene, and am amazed that It bothers others.",
-		"I am always willing to volunteer my services, just as long as don't have to do anything.",
+		"I never cared for personal hygiene, and am amazed that it bothers others.",
+		"I am always willing to volunteer my services, just as long as I don't have to do anything.",
 	],
 	ideal: [
 		["Justice",
@@ -9474,7 +9490,7 @@ BackgroundList["phlan refugee"] = {
 	],
 	flaw: [
 		"I used the lives of children to facilitate my escape from Phlan.",
-		"I am a sucker for the underdog, and always bet on the loosing team.",
+		"I am a sucker for the underdog, and always bet on the losing team.",
 		"I am incapable of standing up for myself.",
 		"I will borrow money from friends with no intention to repay it.",
 		"I am unable to keep secrets. A secret is just an untold story.",
@@ -9499,7 +9515,7 @@ BackgroundFeatureList["harborfolk"] = {
 	source: [["AL:EE", 4], ["ALbackground", 0]],
 };
 BackgroundFeatureList["highborn"] = {
-	description: "Mulmaster is run by and for its aristoracy. Every other class of citizen in the city defers to me, and even the priesthood, Soldiery, Hawks, and Cloaks treat me with deference. Other aristocrats and nobles accept me in their circles and likely know me or of me. My connections can get me the ear of a Zor or Zora under the right circumstances.",
+	description: "Mulmaster is run by and for its aristocracy. Every other class of citizen in the city defers to me, and even the priesthood, Soldiery, Hawks, and Cloaks treat me with deference. Other aristocrats and nobles accept me in their circles and likely know me or of me. My connections can get me the ear of a Zor or Zora under the right circumstances.",
 	source: [["AL:EE", 5], ["ALbackground", 0]],
 };
 BackgroundFeatureList["phlan survivor"] = {
@@ -9574,12 +9590,12 @@ RaceList["deep gnome"] = {
 	scores: [0, 1, 0, 2, 0, 0],
 	trait: [
 		"**Svirfneblin** (+1 Dexterity, +2 Intelligence)",
-		"##\u25C6 Stone Camouflage##. I have advantage on Dexterity (stealth) checks to hide in rocky terrain.",
+		"##\u25C6 Stone Camouflage##. I have advantage on Dexterity (Stealth) checks to hide in rocky terrain.",
 	],
 };
 RaceList["air genasi"] = {
 	regExpSearch: /^(?=.*(genasi|planetouched))(?=.*\bairs?\b).*$/i,
-	name: "Air genasi",
+	name: "Air Genasi",
 	sortname: "Genasi, Air",
 	source: [["E", 9], ["W", 172]],
 	plural: "Air genasi",
@@ -9592,7 +9608,7 @@ RaceList["air genasi"] = {
 	height: " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
 	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
-	weightMetric: " weigh around 75 lb (50 + 5d10 \xD7 4d4 / 10 kg)",
+	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [0, 1, 2, 0, 0, 0],
 	trait: [
 		"**Air Genasi** (+1 Dexterity, +2 Constitution)",
@@ -9622,7 +9638,7 @@ RaceList["air genasi"] = {
 };
 RaceList["earth genasi"] = {
 	regExpSearch: /^(?=.*(genasi|planetouched))(?=.*\bearths?\b).*$/i,
-	name: "Earth genasi",
+	name: "Earth Genasi",
 	sortname: "Genasi, Earth",
 	source: [["E", 9], ["W", 172]],
 	plural: "Earth genasi",
@@ -9635,7 +9651,7 @@ RaceList["earth genasi"] = {
 	height: " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
 	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
-	weightMetric: " weigh around 75 lb (50 + 5d10 \xD7 4d4 / 10 kg)",
+	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [1, 0, 2, 0, 0, 0],
 	trait: [
 		"**Earth Genasi** (+1 Strength, +2 Constitution)",
@@ -9665,7 +9681,7 @@ RaceList["earth genasi"] = {
 };
 RaceList["fire genasi"] = {
 	regExpSearch: /^(?=.*(genasi|planetouched))(?=.*\bfires?\b).*$/i,
-	name: "Fire genasi",
+	name: "Fire Genasi",
 	sortname: "Genasi, Fire",
 	source: [["E", 9], ["W", 172]],
 	plural: "Fire genasi",
@@ -9680,7 +9696,7 @@ RaceList["fire genasi"] = {
 	height: " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
 	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
-	weightMetric: " weigh around 75 lb (50 + 5d10 \xD7 4d4 / 10 kg)",
+	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 2, 1, 0, 0],
 	trait: [
 		"**Fire Genasi** (+2 Constitution, +1 Intelligence)",
@@ -9711,7 +9727,7 @@ RaceList["fire genasi"] = {
 };
 RaceList["water genasi"] = {
 	regExpSearch: /^(?=.*(genasi|planetouched))(?=.*\bwaters?\b).*$/i,
-	name: "Water genasi",
+	name: "Water Genasi",
 	sortname: "Genasi, Water",
 	source: [["E", 10], ["W", 172]],
 	plural: "Water genasi",
@@ -9726,7 +9742,7 @@ RaceList["water genasi"] = {
 	height: " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
 	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
-	weightMetric: " weigh around 75 lb (50 + 5d10 \xD7 4d4 / 10 kg)",
+	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [0, 0, 2, 0, 1, 0],
 	trait: [
 		"**Water Genasi** (+2 Constitution, +1 Wisdom)",
@@ -10027,7 +10043,7 @@ SpellsList["earthbind"] = {
 	components: "V",
 	duration: "Conc, 1 min",
 	save: "Str",
-	description: "1 creatures save or fly speed is reduced to 0; airborne creatures safely descend at 60 ft per round",
+	description: "1 creature save or fly speed is reduced to 0; airborne creatures safely descend at 60 ft per round",
 	descriptionFull: "Choose one creature you can see within range. Yellow strips of magical energy loop around the creature. The target must succeed on a Strength saving throw, or its flying speed (if any) is reduced to 0 feet for the spell's duration. An airborne creature affected by this spell safely descends at 60 feet per round until it reaches the ground or the spell ends.",
 };
 SpellsList["earth tremor"] = {
@@ -10139,7 +10155,7 @@ SpellsList["gust"] = {
 		"You seize the air and compel it to create one of the following effects at a point you can see within range.",
 		" \u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you.",
 		" \u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage.",
-		" \u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze.",
+		" \u2022 You create a harmless sensory effect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze.",
 	],
 };
 SpellsList["ice knife"] = {
@@ -10423,7 +10439,7 @@ SpellsList["skywrite"] = {
 	range: "Sight",
 	components: "V,S",
 	duration: "Conc, 1 h",
-	description: "Write up to 10 words with clouds in a part of the sky I can see; strong wind can diperse the clouds",
+	description: "Write up to 10 words with clouds in a part of the sky I can see; strong wind can disperse the clouds",
 	descriptionFull: "You cause up to ten words to form in a part of the sky you can see. The words appear to be made of cloud and remain in place for the spell's duration. The words dissipate when the spell ends. A strong wind can disperse the clouds and end the spell early.",
 };
 SpellsList["snilloc's snowball swarm"] = {
@@ -10855,7 +10871,7 @@ BackgroundList["hillsfar merchant"] = {
 		"I take my wealth for granted. It seldom occurs to me that others aren't rich themselves.",
 		"I leave broken hearts all around the Moonsea and up and down the Sword Coast.",
 		"I work hard and seldom make time for fun.",
-		"I am a particularly devout and pray often.",
+		"I am particularly devout and pray often.",
 		"The Red Plumes caught me once. I hate them.",
 		"I ask a lot of questions to get information about those with whom I am working and dealing.",
 	],
@@ -10951,11 +10967,11 @@ BackgroundList["hillsfar smuggler"] = {
 		"I smuggled agricultural goods for non-human farmers. I try to help them when I can.",
 	],
 	flaw: [
-		"My hatred for the Red Plumes burns so brightly that I have difficulty suppressing It around them.",
+		"My hatred for the Red Plumes burns so brightly that I have difficulty suppressing it around them.",
 		"The Red Plumes caught me once before, and I was branded for my crime. If they catch me again, for any offense, the punishment will be dire.",
 		"I treat all Hillsfarans poorly. I am disgusted with their failure to revolt against the Great Law of Humanity.",
 		"I have difficulty trusting strangers. Anyone could be a spy for the authorities.",
-		"I am greedy. There Isn't much I won't do for money.",
+		"I am greedy. There isn't much I won't do for money.",
 		"I'm an informant for the Red Plumes. They let me continue my activities, so long as I pass them information about illegal activity in Hillsfar.",
 	],
 	toolProfs: ["Forgery kit"],
@@ -10982,7 +10998,7 @@ BackgroundList["secret identity"] = {
 		"I move from place to place, never staying anywhere long and leaving nothing behind.",
 		"I think flattery is the best way to direct attention away from me.",
 		"I don't make friends easily. They're a liability I cannot afford.",
-		"Risk and danger are exhilarate me. Pulling off schemes and deceptions is a rush.",
+		"Risk and danger exhilarate me. Pulling off schemes and deceptions is a rush.",
 		"The First Lord is right, humans are superior. I really admire them, despite the atrocities.",
 		"I avoid people of my own race, as well as things associated with my race, lest they give me away.",
 		"I live for the Arena. I admire gladiators and enjoy the thrill of blood on the sands!",
@@ -10991,11 +11007,11 @@ BackgroundList["secret identity"] = {
 		["Quisling",
 			"Quisling: Supporting the rulers of the land and following the laws is the road to salvation. (Lawful)",
 		],
-		["Scoflaw",
-			"Scoflaw: The laws and lawmakers are corrupt. I follow laws only when it suits me. (Chaotic))",
+		["Scofflaw",
+			"Scofflaw: The laws and lawmakers are corrupt. I follow laws only when it suits me. (Chaotic)",
 		],
 		["Optimist",
-			"Optimist: Everyone Is basically good. Though the government is misguided it will all be okay. (Any)",
+			"Optimist: Everyone is basically good. Though the government is misguided it will all be okay. (Any)",
 		],
 		["Secretive",
 			"Secretive: I am in the habit of not talking about myself. My business is none of yours. (Any)",
@@ -11011,7 +11027,7 @@ BackgroundList["secret identity"] = {
 		"The humans of Hillsfar have inflicted terrible harm on me, my family, and my race. I will have revenge.",
 		"I am part of an underground network that smuggles non-humans into and out of the city.",
 		"I am a partisan. I commit minor acts of defiance against the First Lord and Red Plumes when I can.",
-		"I am a spy. I report on events in and around Hillfar.",
+		"I am a spy. I report on events in and around Hillsfar.",
 		"My secret identity is the only thing protecting me from the Arena. I will stop at nothing to maintain it.",
 		"I am madly in love with a human who does not know my true identity, and I fear rejection if I reveal it.",
 	],
@@ -11019,7 +11035,7 @@ BackgroundList["secret identity"] = {
 		"After years of denying who I am, I now despise myself and other members of my pathetic race.",
 		"Years of hiding have made me somewhat paranoid. I trust no one.",
 		"I've been lying so often and for so long that I can't help it anymore. I frequently lie for no reason at all.",
-		"I am ashamed. I failed to protect a member of my family who was seized and thrown into the Area.",
+		"I am ashamed. I failed to protect a member of my family who was seized and thrown into the Arena.",
 		"I am struggling with maintaining my secret identity. I subconsciously want to get caught and therefore sometimes let my secret identity slip.",
 		"Years of successfully deceiving others have made me cocky. I think no one can see through my lies.",
 	],
@@ -11047,7 +11063,7 @@ BackgroundList["shade fanatic"] = {
 		"I let my actions speak for themselves",
 		"I am important; I will not let anyone forget that.",
 		"You are either with me or against me.",
-		"I know it is only a time before I am betrayed by those I care for.",
+		"I know it is only a matter of time before I am betrayed by those I care for.",
 		"I never understand why people get so emotional.",
 		"They are out to get me. It is only my cunning that keeps me ahead of them",
 		"Everyone has a choice, the one I make is always right though.",
@@ -11063,13 +11079,13 @@ BackgroundList["shade fanatic"] = {
 			"Exciting: I have found the truth of the Shadovar and want to share it with everyone. (Any)",
 		],
 		["Frugal",
-			"Frugal: I horde my possessions knowing that someday I will be called upon to give everything I have to the cause (Any)",
+			"Frugal: I hoard my possessions knowing that someday I will be called upon to give everything I have to the cause (Any)",
 		],
 		["Eloquent",
 			"Eloquent: I use my words to sway others to my beliefs. (Any)",
 		],
 		["Compassionate",
-			"Compassionate: It is through love that others will join In our cause. (Good)",
+			"Compassionate: It is through love that others will join in our cause. (Good)",
 		],
 	],
 	bond: [
@@ -11077,7 +11093,7 @@ BackgroundList["shade fanatic"] = {
 		"The whispers in my head remind me that there is power to be found in the shadows.",
 		"For the glory of Netheril, I will grow in power.",
 		"I once lived in Hillsfar, I was chased out before I was able to say farewell.",
-		"My true love was a killed by the Red Plumes; I plot to make them suffer.",
+		"My true love was killed by the Red Plumes; I plot to make them suffer.",
 		"I had a loved one die in the arena at Hillsfar; I am out to prove I am stronger than them!",
 	],
 	flaw: [
@@ -11108,33 +11124,33 @@ BackgroundList["trade sheriff"] = {
 	],
 	feature: "Investigative Services",
 	trait: [
-		"I am always polite and respectful",
-		"I let my actions speak for themselves",
+		"I am always polite and respectful.",
+		"I let my actions speak for themselves.",
 		"I am haunted by my past having seen the murder of a close friend or family member and it is the one case I always needed to solve but have not been able to.",
-		"I am quick to judge and slow to vindicate",
+		"I am quick to judge and slow to vindicate.",
 		"I can be very persuasive and am able to ask questions where others might not be able to.",
 		"I have a quirky personality that seems to take others off their guard.",
-		"My sense of humor is considered by most to be awkward",
+		"My sense of humor is considered by most to be awkward.",
 		"Everyone has a choice, and they can always make the right choice, mine!",
 	],
 	ideal: [
 		["Hope",
-			"Hope: my job is to speak for the victim (good)",
+			"Hope: my job is to speak for the victim. (Good)",
 		],
 		["Dedicated",
-			"Dedicated: Once I start an investigation, until told to do so, I do not quit, not matter where it leads. (Lawful)",
+			"Dedicated: Once I start an investigation, until told to do so, I do not quit, no matter where it leads. (Lawful)",
 		],
 		["Nation",
-			"Nation: My city, nation, or people are all that matter (any)",
+			"Nation: My city, nation, or people are all that matter. (Any)",
 		],
 		["Mercenary",
-			"Mercenary: When I do investigations, I expect answers immediately (Any)",
+			"Mercenary: When I do investigations, I expect answers immediately. (Any)",
 		],
 		["Eloquent",
-			"Eloquent: I use my words to sway others to give me answers.(good)",
+			"Eloquent: I use my words to sway others to give me answers. (Good)",
 		],
 		["Might",
-			"Might: It is through threats and force that I get my answers (lawful)",
+			"Might: It is through threats and force that I get my answers. (Lawful)",
 		],
 	],
 	bond: [
@@ -11180,7 +11196,7 @@ BackgroundFeatureList["secret passage"] = {
 	source: [["AL:RoD", 8], ["ALbackground", 0]],
 };
 BackgroundFeatureList["secret society"] = {
-	description: "I have a special way of communicating with others who feel the same way I do about the Shade. When I enter a village or larger city, I can identify a contact who will give me information on those that would hinder my goals and those would help me simply because of my desire to see the Shade Enclave return in all its glory.",
+	description: "I have a special way of communicating with others who feel the same way I do about the Shade. When I enter a village or larger city, I can identify a contact who will give me information on those that would hinder my goals and those who would help me simply because of my desire to see the Shade Enclave return in all its glory.",
 	source: [["AL:RoD", 10], ["ALbackground", 0]],
 };
 BackgroundFeatureList["shelter of the elven clergy"] = {
@@ -11230,7 +11246,6 @@ CreatureList["cave badger"] = { // contributed by Nod_Hero
 	scores: [13, 10, 15, 2, 12, 5],
 	senses: "Darkvision 30 ft, Tremorsense 60 ft; Adv. on Wis (Perception) checks using smell",
 	passivePerception: 11,
-	languages: "",
 	challengeRating: "1/4",
 	proficiencyBonus: 2,
 	attacksAction: 2,
@@ -11402,7 +11417,7 @@ MagicItemsList["dawnbringer"] = {
 				"I gain a +2 bonus to attack and damage rolls made with this weapon, which deals radiant damage instead of slashing damage. When I hit an undead with it, that target takes an extra 1d8 radiant damage.",
 				"The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 ft. The light is sunlight. As an action while the blade persists, I can expand or reduce its radius of bright and dim light by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each.",
 				"As an action while holding the weapon, I can touch a creature with the blade and cast *Lesser Restoration* on that creature. Once used, this ability can't be used again until the next dawn.",
-				"Dawnbringer is a sentient neutral good weapon with an Intelligence of 12, a Wisdom of 15, and a Charisma of 14. It has hearing and darkvision out to a range of 120 feet. The sword can speak, read, and understand Common, and it can communicate with its wielder telepathically. Its voice is kind and feminine. It knows every language you know while attuned to it.",
+				"Dawnbringer is a sentient neutral good weapon with an Intelligence of 12, a Wisdom of 15, and a Charisma of 14. It has hearing and darkvision out to a range of 120 feet. The sword can speak, read, and understand Common, and it can communicate with its wielder telepathically. Its voice is kind and feminine. It knows every language I know while attuned to it.",
 				"Forged by ancient sun worshippers, Dawnbringer is meant to bring light into darkness and to fight creatures of darkness. It is kind and compassionate to those in need, but fierce and destructive to its enemies. Long years lost in darkness have made Dawnbringer frightened of both the dark and abandonment. It prefers that its blade always be present and shedding light in areas of darkness, and it strongly resists being parted from its wielder for any length of time.",
 			],
 		},
@@ -11418,7 +11433,7 @@ MagicItemsList["piwafwi (cloak of elvenkind)"] = {
 	description: "While I wear this dark spider-silk cloak with its hood up, Wisdom (Perception) checks made to see me have disadv., and I have adv. on Dex (Stealth) checks made to hide, as its color shifts to camouflage me. Pulling the hood up or down requires an action. It loses its magic if exposed to sunlight for 1 uninterrupted hour.",
 	descriptionFull: [
 		"This dark spider-silk cloak is made by drow. It is a *cloak of elvenkind*. It loses its magic if exposed to sunlight for 1 hour without interruption.",
-		"While you wear this cloak with its hood up, Wisdom (Perception) checks made to see you have disadvantage. and you have advantage on Dexterity (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
+		"While you wear this cloak with its hood up, Wisdom (Perception) checks made to see you have disadvantage, and you have advantage on Dexterity (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
 	],
 	attunement: true,
 	action: [["action", " (hood up/down)"]],
@@ -11440,7 +11455,7 @@ MagicItemsList["piwafwi of fire resistance (cloak of elvenkind)"] = {
 	description: "While I wear this dark spider-silk cloak with its hood up, Wisdom (Perception) checks made to see me have disadv., and I get adv. on Dex (Stealth) checks made to hide. Pulling the hood up or down requires an action. It also grants me fire resistance. It loses its magic if exposed to sunlight for 1 hour without interruption.",
 	descriptionFull: [
 		"This dark spider-silk cloak is made by drow. It is a *cloak of elvenkind*. It also grants resistance to fire damage while you wear it. It loses its magic if exposed to sunlight for 1 hour without interruption.",
-		"While you wear this cloak with its hood up, Wisdom (Perception) checks made to see you have disadvantage. and you have advantage on Dexterity (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
+		"While you wear this cloak with its hood up, Wisdom (Perception) checks made to see you have disadvantage, and you have advantage on Dexterity (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
 	],
 	attunement: true,
 	dmgres: ["Fire"],
@@ -11462,7 +11477,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 	description: "This gem can store 1 spell in it. If it is empty, I can cast a spell as normal, but have it stored in the gem. As an action, I can cast a stored spell from it, if that spell is on my class' spell list.",
 	descriptionFull: [
 		"A *spell gem* can contain one spell from any class's spell list. You become aware of the spell when you learn the gem's properties. While holding the gem, you can cast the spell from it as an action if you know the spell or if the spell is on your class's spell list. Doing so doesn't require any components, and doesn't require attunement. The spell then disappears from the gem.",
-		"If the spell is of a higher level than you can normally cast, you must make an ability check using your spellcasting ability to determine whether you cast it successfully. The DC equals 10 + the spell's level. On a failed check, the spell disappears from the gem with no other effect",
+		"If the spell is of a higher level than you can normally cast, you must make an ability check using your spellcasting ability to determine whether you cast it successfully. The DC equals 10 + the spell's level. On a failed check, the spell disappears from the gem with no other effect.",
 		"Each *spell gem* has a maximum level for the spell it can store. The spell level determines the gem's rarity, the stored spell's saving throw DC, and attack bonus, as shown in the table below.",
 		"You can imbue the gem with a spell if you're attuned to it and it's empty. To do so, you cast the spell while holding the gem. The spell is stored in the gem instead of having any effect. Casting the spell must require either 1 action or 1 minute or longer, and the spell's level must be no higher than the gem's maximum. If the spell belongs to the school of abjuration and requires material components that are consumed, you must provide them, but they can be worth half as much as normal.",
 		"Once imbued with a spell, the gem can't be imbued again until the next dawn.",
@@ -11668,11 +11683,11 @@ MagicItemsList["stonespeaker crystal"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	magicItemTable: "G",
-	description: "This crystal has 10 charges, regaining 1d6+4 at dawn, which I can use to cast its spells. When I use its last charge, roll a d20. On a 1, it vanishes. It gives me adv. on Int (Investigation) checks. When I cast an abjuration spell, I can expend 1 charge per level of the spell to substitute one material component of the spell.",
+	description: "This crystal has 10 charges, regaining 1d6+4 at dawn, which I can use to cast its spells. When I use its last charge, roll a d20. On a 1, it vanishes. It gives me adv. on Int (Investigation) checks. When I cast an divination spell, I can expend 1 charge per level of the spell to substitute one material component of the spell.",
 	descriptionFull: [
 		"Created by the stone giant librarians of Gravenhollow, this nineteen-inch-long shard of quartz grants you advantage on Intelligence (Investigation) checks while it is on your person.",
 		"The crystal has 10 charges. While holding it, you can use an action to expend some of its charges to cast one of the following spells from it: *Speak with Animals* (2 charges), *Speak with Dead* (4 charges), or *Speak with Plants* (3 charges).",
-		"When you cast a *Divination* spell, you can use the crystal in place of one material component that would normally be consumed by the spell, at a cost of 1 charge per level of the spell. The crystal is not consumed when used in this way.",
+		"When you cast a divination spell, you can use the crystal in place of one material component that would normally be consumed by the spell, at a cost of 1 charge per level of the spell. The crystal is not consumed when used in this way.",
 		"The crystal regains 1d6+4 expended charges daily at dawn. If you expend the crystal's last charge, roll a d20. On a 1, the crystal vanishes, lost forever.",
 	],
 	attunement: true,
@@ -11710,8 +11725,8 @@ MagicItemsList["wand of viscid globs"] = {
 	descriptionFull: [
 		"Crafted by the drow, this slim black wand has 7 charges. While holding it, you can use an action to expend 1 of its charges to cause a small glob of viscous material to launch from the tip at one creature within 60 feet of you. Make a ranged attack roll against the target, with a bonus equal to your spellcasting modifier (or your Intelligence modifier, if you don't have a spellcasting modifier) plus your proficiency bonus. On a hit, the glob expands and dries on the target, which is restrained for 1 hour. After that time, the viscous material cracks and falls away.",
 		"Applying a pint or more of alcohol to the restrained creature dissolves the glob instantly, as does the application of *oil of etherealness* or *universal solvent*. The glob also dissolves instantly if exposed to sunlight. No other nonmagical process can remove the viscous material until it deteriorates on its own.",
-		"The wand regains 1d6+1 expended charges daily at midnight. If you expend the wands last charge, roll a d20. On a 1, the wand melts into harmless slime and is destroyed.",
-		"A wand of viscous globs is destroyed if exposed to sunlight for 1 hour without interruption.",
+		"The wand regains 1d6+1 expended charges daily at midnight. If you expend the wand's last charge, roll a d20. On a 1, the wand melts into harmless slime and is destroyed.",
+		"A *wand of viscid globs* is destroyed if exposed to sunlight for 1 hour without interruption.",
 	],
 	weight: 1,
 	usages: 7,
@@ -11749,7 +11764,7 @@ SourceList["S"] = {
 // Races
 RaceList["ghostwise halfling"] = {
 	regExpSearch: /^(?=.*\b(halflings?|hobbits?)\b)(?=.*ghostwise).*$/i,
-	name: "Ghostwise halfling",
+	name: "Ghostwise Halfling",
 	sortname: "Halfling, Ghostwise",
 	plural: "Ghostwise halflings",
 	source: [["S", 110]],
@@ -11817,7 +11832,7 @@ RaceList["gray dwarf"] = {
 					range: "Self",
 					components: "V,S",
 					compMaterial: "",
-					description: "I'm enlarged, adv. on Str checks/aves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
+					description: "I'm enlarged, adv. on Str checks/saves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
 					changes: "Using Duergar Magic, I cast *Enlarge/Reduce* while I'm not in direct sunlight, but only to enlarge myself.",
 				},
 			},
@@ -11846,7 +11861,7 @@ RaceList["gray dwarf"] = {
 // Racial variants
 AddRacialVariant("half-elf", "aquatic", {
 	regExpSearch: /aquatic/i,
-	name: "Half-aquatic elf",
+	name: "Half-Aquatic Elf",
 	source: [["S", 116]],
 	plural: "Half-aquatic elves",
 	speed: {
@@ -11861,7 +11876,8 @@ AddRacialVariant("half-elf", "aquatic", {
 });
 AddRacialVariant("half-elf", "cantrip", {
 	regExpSearch: /cantrip/i,
-	name: "Half-high elf",
+	name: "Half-High Elf",
+	sortname: "Half-High Elf (Cantrip)",
 	source: [["S", 116]],
 	plural: "Half-high elves",
 	skillstxt: "",
@@ -11880,7 +11896,8 @@ AddRacialVariant("half-elf", "cantrip", {
 });
 AddRacialVariant("half-elf", "drow magic", {
 	regExpSearch: /^(?=.*drow)(?=.*magic).*$/i,
-	name: "Half-drow",
+	name: "Half-Drow",
+	sortname: "Half-Drow (Drow Magic)",
 	source: [["S", 116]],
 	plural: "Half-drow",
 	skillstxt: "",
@@ -11922,6 +11939,7 @@ AddRacialVariant("half-elf", "drow magic", {
 	},
 });
 AddRacialVariant("half-elf", "elf weapon training", {
+	sortname: "Half-Elf (Elf Weapon Training)",
 	regExpSearch: /^(?=.*\b(elf|elven)\b)(?=.*weapon)(?=.*training).*$/i,
 	source: [["S", 116]],
 	skillstxt: "",
@@ -11930,7 +11948,8 @@ AddRacialVariant("half-elf", "elf weapon training", {
 });
 AddRacialVariant("half-elf", "fleet of foot", {
 	regExpSearch: /^(?=.*fleet)(?=.*\b(foot|feet)\b).*$/i,
-	name: "Half-wood elf",
+	name: "Half-Wood Elf",
+	sortname: "Half-Wood Elf (Fleet of Foot)",
 	source: [["S", 116]],
 	plural: "Half-wood elves",
 	speed: {
@@ -11941,7 +11960,8 @@ AddRacialVariant("half-elf", "fleet of foot", {
 });
 AddRacialVariant("half-elf", "mask of the wild", {
 	regExpSearch: /^(?=.*\bmasks?\b)(?=.*\bwilds?\b).*$/i,
-	name: "Half-wood elf",
+	name: "Half-Wood Elf",
+	sortname: "Half-Wood Elf (Mask of the Wild)",
 	source: [["S", 116]],
 	plural: "Half-wood elves",
 	skillstxt: "",
@@ -11952,7 +11972,7 @@ AddRacialVariant("half-elf", "mask of the wild", {
 });
 AddRacialVariant("tiefling", "devil's tongue", {
 	regExpSearch: /^(?=.*devil)(?=.*tongue).*$/i,
-	name: "Devil's tongue tiefling",
+	name: "Devil's Tongue Tiefling",
 	source: [["S", 118]],
 	plural: "Devil's tongue tieflings",
 	trait: [
@@ -11999,7 +12019,7 @@ AddRacialVariant("tiefling", "devil's tongue", {
 });
 AddRacialVariant("tiefling", "hellfire", {
 	regExpSearch: /hellfire/i,
-	name: "Hellfire tiefling",
+	name: "Hellfire Tiefling",
 	source: [["S", 118]],
 	plural: "Hellfire tieflings",
 	trait: [
@@ -12041,7 +12061,7 @@ AddRacialVariant("tiefling", "hellfire", {
 });
 AddRacialVariant("tiefling", "winged", {
 	regExpSearch: /wing/i,
-	name: "Winged tiefling",
+	name: "Winged Tiefling",
 	source: [["S", 118]],
 	plural: "Winged tieflings",
 	speed: {
@@ -12063,7 +12083,7 @@ RunFunctionAtEnd(function () {
 		replaceTraitTxt: ["+1 Intelligence, +2 Charisma", "+2 Dexterity, +1 Intelligence"],
 		replaceNameTxt: ["tiefling", "feral tiefling"],
 		regExpSearch: /^(?=.*feral)((?=.*tiefling)|(?=.*planetouched)(?=.*(hell|abyss|fiend|devil))).*$/i,
-		name: "Feral tiefling",
+		name: "Feral Tiefling",
 		sortname: "Tiefling, Feral",
 		source: [["S", 118]],
 		plural: "Feral tieflings",
@@ -12089,7 +12109,7 @@ RunFunctionAtEnd(function () {
 		thisVar.trait = [].concat(thisVar.trait).map(function (sTrait) {
 			return sTrait.replace(tRace.replaceTraitTxt[0], tRace.replaceTraitTxt[1]).replace(tRace.replaceNameTxt[0].capitalize(), tRace.replaceNameTxt[1].capitalize());
 		});
-		thisVar.name = thisVar.name.replace(tRace.replaceNameTxt[0], tRace.replaceNameTxt[1]);
+		thisVar.name = thisVar.name.replace(RegExp(tRace.replaceNameTxt[0], "i"), tRace.name);
 		thisVar.plural = thisVar.plural.replace(tRace.replaceNameTxt[0], tRace.replaceNameTxt[1]);
 	});
 });
@@ -12422,7 +12442,7 @@ AddSubClass("monk", "way of the sun soul", {
 				source: [["S", 131], ["X", 35]],
 				description: desc([
 					"After taking the Attack action, I can cast *Burning Hands* as a bonus action [PHB 220]",
-					"For every additional ki point I spend, *Burning hands* is cast at 1 higher spell level",
+					"For every additional ki point I spend, *Burning Hands* is cast at 1 higher spell level",
 					"The maximum total ki points I can spend for this (including the 2) is half my Monk level",
 				]),
 				additional: levels.map(function (n) {
@@ -12683,7 +12703,7 @@ AddSubClass("sorcerer", "storm sorcery", {
 			minlevel: 1,
 			description: desc([
 				"As a bonus action, before or after casting a 1st-level or higher spell, I can fly 10 ft",
-				"This movement doesn't provoke opportunity attacks as whirling gust of air surround me",
+				"This movement doesn't provoke opportunity attacks as whirling gusts of air surround me",
 			]),
 			action: [["bonus action", " (with casting)"]],
 		},
@@ -13012,8 +13032,8 @@ AddBackgroundVariant("soldier", "city watch", {
 		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Watcher's Eye",
-	extra: "",
-	toolProfs: "",
+	extra: null,
+	toolProfs: null,
 	languageProfs: [2],
 	lifestyle: "modest",
 });
@@ -13022,6 +13042,7 @@ AddBackgroundVariant("guild artisan", "clan crafter", {
 	name: "Clan Crafter",
 	source: [["S", 145], ["ALbackground", 0]],
 	skills: ["History", "Insight"],
+	gold: 5,
 	equipleft: [
 		["Set of artisan's tools", "", ""],
 		["Maker's mark chisel", "", 0.5],
@@ -13031,7 +13052,7 @@ AddBackgroundVariant("guild artisan", "clan crafter", {
 		["Belt pouch (with coins and 10 gp gem)", "", 1],
 	],
 	feature: "Respect of the Stout Folk",
-	extra: "",
+	extra: null,
 	languageProfs: ["Dwarvish"],
 	lifestyle: "comfortable",
 });
@@ -13064,14 +13085,14 @@ AddBackgroundVariant("guild artisan", "courtier", {
 	source: [["S", 146], ["ALbackground", 0]],
 	skills: ["Insight", "Persuasion"],
 	gold: 5,
-	equipleft: "",
+	equipleft: null,
 	equipright: [
 		["Fine clothes", "", 3],
 		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Court Functionary",
-	extra: "",
-	toolProfs: "",
+	extra: null,
+	toolProfs: null,
 	languageProfs: [2],
 	lifestyle: "comfortable",
 });
@@ -13145,9 +13166,10 @@ AddBackgroundVariant("soldier", "investigator", {
 		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Watcher's Eye",
-	extra: "",
-	toolProfs: "",
+	extra: null,
+	toolProfs: null,
 	languageProfs: [2],
+	lifestyle: "modest",
 });
 AddBackgroundVariant("soldier", "knight of the order", {
 	regExpSearch: /^(?=.*knight)(?=.*order).*$/i,
@@ -13193,7 +13215,7 @@ AddBackgroundVariant("criminal", "urban bounty hunter", {
 		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Ear to the Ground",
-	extra: "",
+	extra: null,
 	toolProfs: [["Gaming set, instrument, or thieves' tools", 2]],
 	lifestyle: "poor",
 });
@@ -13208,7 +13230,7 @@ AddBackgroundVariant("outlander", "uthgardt tribe member", {
 		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Uthgardt Heritage",
-	extra: "",
+	extra: null,
 	toolProfs: [["Artisan's tools or musical instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "poor",
@@ -14312,7 +14334,6 @@ CreatureList["ice spider"] = { // contributed by Nod_Hero
 	},
 	senses: "Blindsight 10 ft; Darkvision 60 ft",
 	passivePerception: 10,
-	languages: "",
 	challengeRating: "1",
 	proficiencyBonus: 2,
 	attacksAction: 1,
@@ -15211,7 +15232,7 @@ MagicItemsList["ancient relic boulder"] = {
 		recovery: "24 h",
 	}],
 	spellcastingBonus: [{
-		name: "",
+		name: "Once per 7 days",
 		spells: ["control weather", "divination"],
 		selection: ["control weather", "divination"],
 		times: 2,
@@ -17227,6 +17248,7 @@ SourceList["ToA"] = {
 
 // Add Human to Yuan-ti tranformation from the ritual (excluded by default)
 AddRacialVariant("human", "yuan-ti transformed", {
+	sortname: "Yuan-Ti Transformed Human",
 	defaultExcluded: true,
 	regExpSearch: /^(?!.*variant)(?=.*yuan.ti)(?=.*transformed)?.*$/i,
 	source: [["ToA", 119]],
@@ -17270,6 +17292,7 @@ AddRacialVariant("human", "yuan-ti transformed", {
 });
 if (RaceSubList["human-variant"]) {
 	AddRacialVariant("human", "yuan-ti transformed variant", {
+		sortname: "Yuan-Ti Transformed Human Variant",
 		defaultExcluded: true,
 		regExpSearch: /^(?=.*variant)(?=.*yuan.ti)(?=.*transformed)?.*$/i,
 		source: [["ToA", 119]],
@@ -22792,7 +22815,7 @@ SourceList["MToF"] = {
 // Tiefling subraces
 RaceList["baalzebul tiefling"] = {
 	regExpSearch: /^(?=.*baalzebul)(?=.*tiefling|planetouched).*$/i,
-	name: "Baalzebul tiefling",
+	name: "Baalzebul Tiefling",
 	sortname: "Tiefling, Baalzebul",
 	source: [["MToF", 21], ["UA:FO", 1]],
 	plural: "Baalzebul tieflings",
@@ -22854,7 +22877,7 @@ RaceList["baalzebul tiefling"] = {
 };
 RaceList["dispater tiefling"] = {
 	regExpSearch: /^(?=.*dispater)(?=.*tiefling|planetouched).*$/i,
-	name: "Dispater tiefling",
+	name: "Dispater Tiefling",
 	sortname: "Tiefling, Dispater",
 	source: [["MToF", 21]],
 	plural: "Dispater tieflings",
@@ -22910,7 +22933,7 @@ RaceList["dispater tiefling"] = {
 };
 RaceList["fierna tiefling"] = {
 	regExpSearch: /^(?=.*fierna)(?=.*tiefling|planetouched).*$/i,
-	name: "Fierna tiefling",
+	name: "Fierna Tiefling",
 	sortname: "Tiefling, Fierna",
 	source: [["MToF", 21], ["UA:FO", 1]],
 	plural: "Fierna tieflings",
@@ -22972,7 +22995,7 @@ RaceList["fierna tiefling"] = {
 };
 RaceList["glasya tiefling"] = {
 	regExpSearch: /^(?=.*glasya)(?=.*tiefling|planetouched).*$/i,
-	name: "Glasya tiefling",
+	name: "Glasya Tiefling",
 	sortname: "Tiefling, Glasya",
 	source: [["MToF", 22], ["UA:FO", 2]],
 	plural: "Glasya tieflings",
@@ -23028,7 +23051,7 @@ RaceList["glasya tiefling"] = {
 };
 RaceList["levistus tiefling"] = {
 	regExpSearch: /^(?=.*levistus)(?=.*tiefling|planetouched).*$/i,
-	name: "Levistus tiefling",
+	name: "Levistus Tiefling",
 	sortname: "Tiefling, Levistus",
 	source: [["MToF", 22], ["UA:FO", 2]],
 	plural: "Levistus tieflings",
@@ -23090,7 +23113,7 @@ RaceList["levistus tiefling"] = {
 };
 RaceList["mammon tiefling"] = {
 	regExpSearch: /^(?=.*mammon)(?=.*tiefling|planetouched).*$/i,
-	name: "Mammon tiefling",
+	name: "Mammon Tiefling",
 	sortname: "Tiefling, Mammon",
 	source: [["MToF", 22], ["UA:FO", 2]],
 	plural: "Mammon tieflings",
@@ -23153,7 +23176,7 @@ RaceList["mammon tiefling"] = {
 };
 RaceList["mephistopheles tiefling"] = {
 	regExpSearch: /^(?=.*mephistopheles)(?=.*tiefling|planetouched).*$/i,
-	name: "Mephistopheles tiefling",
+	name: "Mephistopheles Tiefling",
 	sortname: "Tiefling, Mephistopheles",
 	source: [["MToF", 23]],
 	plural: "Mephistopheles tieflings",
@@ -23215,7 +23238,7 @@ RaceList["mephistopheles tiefling"] = {
 };
 RaceList["zariel tiefling"] = {
 	regExpSearch: /^(?=.*zariel)(?=.*tiefling|planetouched).*$/i,
-	name: "Zariel tiefling",
+	name: "Zariel Tiefling",
 	sortname: "Tiefling, Zariel",
 	source: [["MToF", 23], ["UA:FO", 2]],
 	plural: "Zariel tieflings",
@@ -23340,7 +23363,7 @@ RaceList["eladrin-mtof"] = {
 };
 RaceList["sea elf"] = {
 	regExpSearch: /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
-	name: "Sea elf",
+	name: "Sea Elf",
 	sortname: "Elf, Sea",
 	source: [["MToF", 62], ["W", 163], ["UA:ES", 1]],
 	plural: "Sea elves",
@@ -23372,8 +23395,8 @@ RaceList["sea elf"] = {
 };
 RaceList["shadar-kai elf"] = {
 	regExpSearch: /^(?!.*half)((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
-	name: "Shadar-kai",
-	sortname: "Elf, Shadow (Shadar-kai)",
+	name: "Shadar-Kai",
+	sortname: "Elf, Shadow (Shadar-Kai)",
 	source: [["MToF", 62]],
 	plural: "Shadar-kai",
 	size: 3,
@@ -24628,7 +24651,7 @@ RaceList["minotaur"] = {
 // Add Simic Hybrid
 RaceList["simic hybrid"] = {
 	regExpSearch: /^(?=.*(simic|elf|dwarf|human|orc))(?=.*hybrid).*$/i,
-	name: "Simic hybrid",
+	name: "Simic Hybrid",
 	source: [["G", 20]],
 	plural: "Simic hybrids",
 	size: 3,
@@ -28855,7 +28878,7 @@ SourceList["AwM"] = {
 
 RaceList["dankwood goblin"] = {
 	regExpSearch: /^(?=.*dankwood)(?=.*\bgoblins?\b)(?!.*(hobgoblin|bugbear)).*$/i,
-	name: "Dankwood goblin",
+	name: "Dankwood Goblin",
 	sortname: "Goblin, Dankwood",
 	source: [["AwM", 35]],
 	plural: "Dankwood goblins",
@@ -28999,7 +29022,7 @@ RaceList["kalashtar"] = {
 // The four subraces of the shifter
 RaceList["beasthide shifter"] = {
 	regExpSearch: /^(?!.*(multiverse|motm\b))(?=.*shifter)(?=.*beast)(?=.*hide).*$/i,
-	name: "Beasthide shifter",
+	name: "Beasthide Shifter",
 	sortname: "Shifter, Beasthide",
 	source: [["E:RLW", 34]],
 	plural: "Beasthide shifters",
@@ -29036,7 +29059,7 @@ RaceList["beasthide shifter"] = {
 };
 RaceList["longtooth shifter"] = {
 	regExpSearch: /^(?!.*(multiverse|motm\b))(?=.*shifter)(?=.*long)(?=.*(tooth|teeth)).*$/i,
-	name: "Longtooth shifter",
+	name: "Longtooth Shifter",
 	sortname: "Shifter, Longtooth",
 	source: [["E:RLW", 34]],
 	plural: "Longtooth shifters",
@@ -29083,7 +29106,7 @@ RaceList["longtooth shifter"] = {
 };
 RaceList["swiftstride shifter"] = {
 	regExpSearch: /^(?!.*(multiverse|motm\b))(?=.*shifter)(?=.*swift)(?=.*stride).*$/i,
-	name: "Swiftstride shifter",
+	name: "Swiftstride Shifter",
 	sortname: "Shifter, Swiftstride",
 	source: [["E:RLW", 34]],
 	plural: "Swiftstride shifters",
@@ -29122,7 +29145,7 @@ RaceList["swiftstride shifter"] = {
 };
 RaceList["wildhunt shifter"] = {
 	regExpSearch: /^(?!.*(multiverse|motm\b))(?=.*shifter)(?=.*wild)(?=.*hunt).*$/i,
-	name: "Wildhunt shifter",
+	name: "Wildhunt Shifter",
 	sortname: "Shifter, Wildhunt",
 	source: [["E:RLW", 34]],
 	plural: "Wildhunt shifters",
@@ -29200,7 +29223,7 @@ RaceList["warforged"] = {
 // Dragonmarks subraces
 RaceList["dragonmark detection half-elf"] = {
 	regExpSearch: /^((?=.*mark)(?=.*detection)|(?=.*house)(?=.*medani)).*$/i,
-	name: "Half-elf (dragonmark)",
+	name: "Half-Elf (Dragonmark)",
 	sortname: "Dragonmark, Detection (Half-Elf)",
 	source: [["E:RLW", 40]],
 	plural: "Half-elves (dragonmark)",
@@ -29291,7 +29314,7 @@ RaceList["dragonmark detection half-elf"] = {
 };
 RaceList["dragonmark finding half-orc"] = {
 	regExpSearch: /^((?=.*half)(?=.*\bor(c|k))((?=.*mark)(?=.*finding)|(?=.*house)(?=.*tharashk))).*$/i,
-	name: "Half-orc (dragonmark)",
+	name: "Half-Orc (Dragonmark)",
 	sortname: "Dragonmark, Finding (Half-Orc)",
 	source: [["E:RLW", 41]],
 	plural: "Half-orcs (dragonmark)",
@@ -29357,7 +29380,7 @@ RaceList["dragonmark finding half-orc"] = {
 };
 RaceList["dragonmark finding human"] = {
 	regExpSearch: /^((?=.*human)((?=.*mark)(?=.*finding)|(?=.*house)(?=.*tharashk))).*$/i,
-	name: "Human (dragonmark)",
+	name: "Human (Dragonmark)",
 	sortname: "Dragonmark, Finding (Human)",
 	source: [["E:RLW", 41]],
 	plural: "Human (dragonmark)",
@@ -29423,7 +29446,7 @@ RaceList["dragonmark finding human"] = {
 };
 RaceList["dragonmark handling human"] = {
 	regExpSearch: /^((?=.*mark)(?=.*handling)|(?=.*house)(?=.*vadalis)).*$/i,
-	name: "Human (dragonmark)",
+	name: "Human (Dragonmark)",
 	sortname: "Dragonmark, Handling (Human)",
 	source: [["E:RLW", 42]],
 	plural: "Humans (dragonmark)",
@@ -29495,7 +29518,7 @@ RaceList["dragonmark handling human"] = {
 };
 RaceList["dragonmark healing halfling"] = {
 	regExpSearch: /^((?=.*mark)(?=.*healing)|(?=.*house)(?=.*jorasco)).*$/i,
-	name: "Halfling (dragonmark)",
+	name: "Halfling (Dragonmark)",
 	sortname: "Dragonmark, Healing (Halfling)",
 	source: [["E:RLW", 43]],
 	plural: "Halflings (dragonmark)",
@@ -29562,7 +29585,7 @@ RaceList["dragonmark healing halfling"] = {
 };
 RaceList["dragonmark hospitality halfling"] = {
 	regExpSearch: /^((?=.*mark)(?=.*hospitality)|(?=.*house)(?=.*ghallanda)).*$/i,
-	name: "Halfling (dragonmark)",
+	name: "Halfling (Dragonmark)",
 	sortname: "Dragonmark, Hospitality (Halfling)",
 	source: [["E:RLW", 44]],
 	plural: "Halflings (dragonmark)",
@@ -29624,7 +29647,7 @@ RaceList["dragonmark hospitality halfling"] = {
 };
 RaceList["dragonmark making human"] = {
 	regExpSearch: /^((?=.*mark)(?=.*making)|(?=.*house)(?=.*cannith)).*$/i,
-	name: "Human (dragonmark)",
+	name: "Human (Dragonmark)",
 	sortname: "Dragonmark, Making (Human)",
 	source: [["E:RLW", 45]],
 	plural: "Humans (dragonmark)",
@@ -29689,7 +29712,7 @@ RaceList["dragonmark making human"] = {
 };
 RaceList["dragonmark passage human"] = {
 	regExpSearch: /^((?=.*mark)(?=.*passage)|(?=.*house)(?=.*orien)).*$/i,
-	name: "Human (dragonmark)",
+	name: "Human (Dragonmark)",
 	sortname: "Dragonmark, Passage (Human)",
 	source: [["E:RLW", 46]],
 	plural: "Humans (dragonmark)",
@@ -29743,7 +29766,7 @@ RaceList["dragonmark passage human"] = {
 };
 RaceList["dragonmark scribing gnome"] = {
 	regExpSearch: /^((?=.*mark)(?=.*scribing)|(?=.*house)(?=.*sivis)).*$/i,
-	name: "Gnome (dragonmark)",
+	name: "Gnome (Dragonmark)",
 	sortname: "Dragonmark, Scribing (Gnome)",
 	source: [["E:RLW", 47]],
 	plural: "Gnomes (dragonmark)",
@@ -29814,7 +29837,7 @@ RaceList["dragonmark scribing gnome"] = {
 };
 RaceList["dragonmark sentinel human"] = {
 	regExpSearch: /^((?=.*mark)(?=.*sentinel)|(?=.*house)(?=.*deneith)).*$/i,
-	name: "Human (dragonmark)",
+	name: "Human (Dragonmark)",
 	sortname: "Dragonmark, Sentinel (Human)",
 	source: [["E:RLW", 48]],
 	plural: "Humans (dragonmark)",
@@ -29874,7 +29897,7 @@ RaceList["dragonmark sentinel human"] = {
 };
 RaceList["dragonmark shadow elf"] = {
 	regExpSearch: /^((?=.*mark)(?=.*shadow)|(?=.*house)(?=.*(phiarlan|thuranni))).*$/i,
-	name: "Elf (dragonmark)",
+	name: "Elf (Dragonmark)",
 	sortname: "Dragonmark, Shadow (Elf)",
 	source: [["E:RLW", 49]],
 	plural: "Elves (dragonmark)",
@@ -29938,7 +29961,7 @@ RaceList["dragonmark shadow elf"] = {
 };
 RaceList["dragonmark storm half-elf"] = {
 	regExpSearch: /^((?=.*mark)(?=.*storm)|(?=.*house)(?=.*lyrandar)).*$/i,
-	name: "Half-elf (dragonmark)",
+	name: "Half-Elf (Dragonmark)",
 	sortname: "Dragonmark, Storm (Half-Elf)",
 	source: [["E:RLW", 50]],
 	plural: "Half-elves (dragonmark)",
@@ -30001,7 +30024,7 @@ RaceList["dragonmark storm half-elf"] = {
 };
 RaceList["dragonmark warding dwarf"] = {
 	regExpSearch: /^((?=.*mark)(?=.*warding)|(?=.*house)(?=.*kundarak)).*$/i,
-	name: "Dwarf (dragonmark)",
+	name: "Dwarf (Dragonmark)",
 	sortname: "Dragonmark, Warding (Dwarf)",
 	source: [["E:RLW", 51]],
 	plural: "Dwarves (dragonmark)",
@@ -31569,61 +31592,61 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 	};
 	AddRacialVariant("draconblood dragonborn", "black", {
 		regExpSearch: /black/i,
-		name: "Black draconblood dragonborn",
+		name: "Black Draconblood Dragonborn",
 		trait: ["**Black draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_acidBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "acid",
 	});
 	AddRacialVariant("draconblood dragonborn", "blue", {
 		regExpSearch: /blue/i,
-		name: "Blue draconblood dragonborn",
+		name: "Blue Draconblood Dragonborn",
 		trait: ["**Blue draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_lightningBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "lightning",
 	});
 	AddRacialVariant("draconblood dragonborn", "brass", {
 		regExpSearch: /brass/i,
-		name: "Brass draconblood dragonborn",
+		name: "Brass Draconblood Dragonborn",
 		trait: ["**Brass draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_fireBreathLine, EGtW_forcefulPresenceStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("draconblood dragonborn", "bronze", {
 		regExpSearch: /bronze/i,
-		name: "Bronze draconblood dragonborn",
+		name: "Bronze Draconblood Dragonborn",
 		trait: ["**Bronze draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_lightningBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "lightning",
 	});
 	AddRacialVariant("draconblood dragonborn", "copper", {
 		regExpSearch: /copper/i,
-		name: "Copper draconblood dragonborn",
+		name: "Copper Draconblood Dragonborn",
 		trait: ["**Copper draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_acidBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "acid",
 	});
 	AddRacialVariant("draconblood dragonborn", "gold", {
 		regExpSearch: /gold/i,
-		name: "Gold draconblood dragonborn",
+		name: "Gold Draconblood Dragonborn",
 		trait: ["**Gold draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_fireBreathCone, EGtW_forcefulPresenceStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("draconblood dragonborn", "green", {
 		regExpSearch: /green/i,
-		name: "Green draconblood dragonborn",
+		name: "Green Draconblood Dragonborn",
 		trait: ["**Green draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_poisonBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "poison",
 	});
 	AddRacialVariant("draconblood dragonborn", "red", {
 		regExpSearch: /red/i,
-		name: "Red draconblood dragonborn",
+		name: "Red Draconblood Dragonborn",
 		trait: ["**Red draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_fireBreathCone, EGtW_forcefulPresenceStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("draconblood dragonborn", "silver", {
 		regExpSearch: /silver/i,
-		name: "Silver draconblood dragonborn",
+		name: "Silver Draconblood Dragonborn",
 		trait: ["**Silver draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_coldBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "cold",
 	});
 	AddRacialVariant("draconblood dragonborn", "white", {
 		regExpSearch: /white/i,
-		name: "White draconblood dragonborn",
+		name: "White Draconblood Dragonborn",
 		trait: ["**White draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_coldBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "cold",
 	});
@@ -31664,61 +31687,61 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 	};
 	AddRacialVariant("ravenite dragonborn", "black", {
 		regExpSearch: /black/i,
-		name: "Black ravenite dragonborn",
+		name: "Black Ravenite Dragonborn",
 		trait: ["**Black ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_acidBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "acid",
 	});
 	AddRacialVariant("ravenite dragonborn", "blue", {
 		regExpSearch: /blue/i,
-		name: "Blue ravenite dragonborn",
+		name: "Blue Ravenite Dragonborn",
 		trait: ["**Blue ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_lightningBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "lightning",
 	});
 	AddRacialVariant("ravenite dragonborn", "brass", {
 		regExpSearch: /brass/i,
-		name: "Brass ravenite dragonborn",
+		name: "Brass Ravenite Dragonborn",
 		trait: ["**Brass ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_fireBreathLine, EGtW_vengefulAssaultStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("ravenite dragonborn", "bronze", {
 		regExpSearch: /bronze/i,
-		name: "Bronze ravenite dragonborn",
+		name: "Bronze Ravenite Dragonborn",
 		trait: ["**Bronze ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_lightningBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "lightning",
 	});
 	AddRacialVariant("ravenite dragonborn", "copper", {
 		regExpSearch: /copper/i,
-		name: "Copper ravenite dragonborn",
+		name: "Copper Ravenite Dragonborn",
 		trait: ["**Copper ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_acidBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "acid",
 	});
 	AddRacialVariant("ravenite dragonborn", "gold", {
 		regExpSearch: /gold/i,
-		name: "Gold ravenite dragonborn",
+		name: "Gold Ravenite Dragonborn",
 		trait: ["**Gold ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_fireBreathCone, EGtW_vengefulAssaultStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("ravenite dragonborn", "green", {
 		regExpSearch: /green/i,
-		name: "Green ravenite dragonborn",
+		name: "Green Ravenite Dragonborn",
 		trait: ["**Green ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_poisonBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "poison",
 	});
 	AddRacialVariant("ravenite dragonborn", "red", {
 		regExpSearch: /red/i,
-		name: "Red ravenite dragonborn",
+		name: "Red Ravenite Dragonborn",
 		trait: ["**Red ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_fireBreathCone, EGtW_vengefulAssaultStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("ravenite dragonborn", "silver", {
 		regExpSearch: /silver/i,
-		name: "Silver ravenite dragonborn",
+		name: "Silver Ravenite Dragonborn",
 		trait: ["**Silver ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_coldBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "cold",
 	});
 	AddRacialVariant("ravenite dragonborn", "white", {
 		regExpSearch: /white/i,
-		name: "White ravenite dragonborn",
+		name: "White Ravenite Dragonborn",
 		trait: ["**White ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_coldBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "cold",
 	});
@@ -31761,7 +31784,6 @@ AddSubClass("fighter", "echo knight", { // contains contributions by Smashman, @
 				savesLinked: true,
 				condition_immunities: "all conditions",
 				passivePerception: 0,
-				languages: "",
 				challengeRating: "0",
 				proficiencyBonus: 0,
 				attacksAction: 0,
@@ -32349,7 +32371,7 @@ AddBackgroundVariant("criminal", "myriad operative", {
 	regExpSearch: /^(?=.*myriad)(?=.*operative).*$/i,
 	name: "Myriad Operative",
 	source: [["W", 203]],
-	extra: "",
+	extra: null,
 });
 AddBackgroundVariant("sailor", "revelry pirate", {
 	regExpSearch: /^(?=.*revelry)(?=.*pirate).*$/i,
@@ -32371,7 +32393,7 @@ AddBackgroundVariant("criminal", "augen trust", {
 	regExpSearch: /^(?=.*augen)(?=.*trust).*$/i,
 	name: "Augen Trust",
 	source: [["W", 203]],
-	extra: "",
+	extra: null,
 });
 
 // Spells (contains contributions by Biggoron144)
@@ -33401,7 +33423,6 @@ MagicItemsList["vox seeker"] = {
 		condition_immunities: "blinded, charmed, deafened, exhaustion, frightened, paralyzed, petrified, poisoned",
 		senses: "Blindsight 60 ft (blind beyond this radius",
 		passivePerception: 10,
-		languages: "",
 		challengeRating: "0",
 		proficiencyBonus: 2,
 		attacksAction: 1,
@@ -34162,24 +34183,24 @@ MagicItemsList["wreath of the prism"] = {
 /* Supernatural gift
 
 MagicItemsList["hollow one"] = {
-	name : "Hollow One",
-	source : [["W", 182]],
-	type : "supernatural gift",
-	rarity : "",
-	notLegalAL : true,
-	description : "I don't age and aging effects don't work on me. When I roll a 16 or higher on a death save, I regain 1 HP. I register as undead for spells and other effects. As an action once per long rest, I can unsettle a creature I can see within 15 ft, giving it disadv. on the next save it makes in the next minute (frightening effect).",
+	name: "Hollow One",
+	source: [["W", 182]],
+	type: "supernatural gift",
+	rarity: "",
+	notLegalAL: true,
+	description: "I don't age and aging effects don't work on me. When I roll a 16 or higher on a death save, I regain 1 HP. I register as undead for spells and other effects. As an action once per long rest, I can unsettle a creature I can see within 15 ft, giving it disadv. on the next save it makes in the next minute (frightening effect).",
 	descriptionLong : "The void left behind by my departed soul is filled with the strange magic of Blightshore.\nI don't age and aging effects don't work on me. When I roll a 16 or higher on a death save, I regain 1 HP. Although my creature type is unchanged, I register as undead for spells and other effects. As an action once per long rest, I can unsettle a creature I can see within 15 ft, giving it disadvantage on the next save it makes in the next minute. Constructs, undead, and creatures that can't be frightened are immune to this feature.",
-	descriptionFull : "As a Hollow One, the void left behind by your departed soul is filled with the strange magic of Blightshore. Becoming a Hollow One is a supernatural gift that bestows upon you the following traits.\n"+
+	descriptionFull: "As a Hollow One, the void left behind by your departed soul is filled with the strange magic of Blightshore. Becoming a Hollow One is a supernatural gift that bestows upon you the following traits.\n"+
 	"***Ageless***. You don't age, and effects that would cause you to age don't work on you.\n"+
 	"***Cling to Life***. When you make a death saving throw and roll 16 or higher, you regain 1 hit point.\n"+
 	"***Revenance***. You retain your creature type, yet you register as undead to spells and other effects that detect the presence of the undead creature type.\n"+
 	"***Unsettling Presence***. As an action, you can unsettle a creature you can see within 15 feet of you. The target has disadvantage on the next saving throw it makes within the next minute. Constructs, undead, and creatures that can't be frightened are immune to this feature. Once you use this feature, you can't use it again until you finish a long rest.",
 	savetxt : { text : ["Can't be aged", "Regain 1 HP on 16+ death save"] },
 	action : [["action", "Unsettling Presence"]],
-	extraLimitedFeatures : [{
-		name : "Unsettling Presence",
-		usages : 1,
-		recovery : "long rest"
+	extraLimitedFeatures: [{
+		name: "Unsettling Presence",
+		usages: 1,
+		recovery: "long rest"
 	}]
 };
 FeatsList["hollow one"] = MagicItemsList["hollow one"];
@@ -36785,7 +36806,7 @@ SourceList["T"] = {
 // Add Custom Lineage
 RaceList["custom lineage"] = {
 	regExpSearch: /^(?=.*custom)(?=.*lineage).*$/i,
-	name: "Custom lineage",
+	name: "Custom Lineage",
 	source: [["T", 8]],
 	plural: "Custom lineages",
 	size: [3, 4],
@@ -43087,20 +43108,22 @@ SpellsList["tasha's otherworldly guise"] = {
 // >>> Magic Items >>> //
 // >>>>>>>>>>>>>>>>>>> //
 // Tattoos
-var TCoE_magicTattoosDescription = desc([
-	" >>Tattoo Attunement<<. To attune to this item, you hold the needle to your skin where you want the tattoo to appear, pressing the needle there throughout the attunement process. When the attunement is complete, the needle turns into the ink that becomes the tattoo, which appears on the skin.",
-	" If your attunement to the tattoo ends, the tattoo vanishes, and the needle reappears in your space.",
-	"\n>>Magic Tattoos<< (TCoE 118)",
-	" Blending magic and artistry with ink and needles, magic tattoos imbue their bearers with wondrous abilities. Magic tattoos are initially bound to magic needles, which transfer their magic to a creature.",
-	" Once inscribed on a creature's body, damage or injury doesn't impair the tattoo's function, even if the tattoo is defaced. When applying a magic tattoo, a creature can customize the tattoo's appearance. A magic tattoo can look like a brand, scarification, a birthmark, patterns of scale, or any other cosmetic alteration.",
-	" The rarer a magic tattoo is, the more space it typically occupies on a creature's skin. The table below offers guidelines for how large a given tattoo is.",
-	"\n>>Tattoo Rarity\tArea Covered<<",
-	"Common     \tOne hand or foot or a quarter of a limb",
-	"Uncommon   \tHalf a limb or the scalp",
-	"Rare\t\tOne limb",
-	"Very Rare  \tTwo limbs or the chest or upper back",
-	"Legendary  \tTwo limbs and the torso",
-], "\n  ");
+var TCoE_magicTattoosDescription = [
+	"***Tattoo Attunement***. To attune to this item, you hold the needle to your skin where you want the tattoo to appear, pressing the needle there throughout the attunement process. When the attunement is complete, the needle turns into the ink that becomes the tattoo, which appears on the skin.",
+	"If your attunement to the tattoo ends, the tattoo vanishes, and the needle reappears in your space.",
+	"***Magic Tattoos*** (TCoE 118)",
+	"Blending magic and artistry with ink and needles, magic tattoos imbue their bearers with wondrous abilities. Magic tattoos are initially bound to magic needles, which transfer their magic to a creature.",
+	"Once inscribed on a creature's body, damage or injury doesn't impair the tattoo's function, even if the tattoo is defaced. When applying a magic tattoo, a creature can customize the tattoo's appearance. A magic tattoo can look like a brand, scarification, a birthmark, patterns of scale, or any other cosmetic alteration.",
+	"The rarer a magic tattoo is, the more space it typically occupies on a creature's skin. The table below offers guidelines for how large a given tattoo is.",
+	[
+		["Tattoo Rarity", "Area Covered"],
+		["  Common     ", "One hand or foot or a quarter of a limb"],
+		["  Uncommon   ", "Half a limb or the scalp"],
+		["  Rare", "", "One limb"],
+		["  Very Rare  ", "Two limbs or the chest or upper back"],
+		["  Legendary  ", "Two limbs and the torso"],
+	],
+];
 MagicItemsList["absorbing tattoo"] = function () {
 	var oObj = {
 		name: "Absorbing Tattoo",
@@ -43109,20 +43132,24 @@ MagicItemsList["absorbing tattoo"] = function () {
 		rarity: "very rare",
 		attunement: true,
 		description: "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing. It grants me resistance to a damage type. As a reaction once per dawn when I take that type of damage, I can gain immunity against that instance of damage and recover half the damage as HP.",
-		descriptionFull: "Produced by a special needle, this magic tattoo features designs that emphasize one color." +
-		"\n   ***Damage Resistance***. While the tattoo is on your skin, you have resistance to a type of damage associated with that color, as shown on the table below. The DM chooses the color or determines it randomly." +
-		"\n**d10**\t**Damage Type**\t**Color**" +
-		"\n   1\tAcid\t\tGreen" +
-		"\n   2\tCold\t\tBlue" +
-		"\n   3\tFire\t\tRed" +
-		"\n   4\tForce\t\tWhite" +
-		"\n   5\tLightning  \tYellow" +
-		"\n   6\tNecrotic\t\tBlack" +
-		"\n   7\tPoison\t\tViolet" +
-		"\n   8\tPsychic\t\tSilver" +
-		"\n   9\tRadiant\t\tGold" +
-		"\n 10\tThunder\t\tOrange" +
-		"\n\n   ***Damage Absorption***. When you take damage of the chosen type, you can use your reaction to gain immunity against that instance of the damage, and you regain a number of hit points equal to half the damage you would have taken. Once this reaction is used, it can't be used again until the next dawn." + TCoE_magicTattoosDescription,
+		descriptionFull: [
+			"Produced by a special needle, this magic tattoo features designs that emphasize one color.",
+			"***Damage Resistance***. While the tattoo is on your skin, you have resistance to a type of damage associated with that color, as shown on the table below. The DM chooses the color or determines it randomly.",
+			[
+				["d10", "Damage Type", "Color"],
+				["   1", "Acid", "", "Green"],
+				["   2", "Cold", "", "Blue"],
+				["   3", "Fire", "", "Red"],
+				["   4", "Force", "", "White"],
+				["   5", "Lightning  ", "Yellow"],
+				["   6", "Necrotic", "", "Black"],
+				["   7", "Poison", "", "Violet"],
+				["   8", "Psychic", "", "Silver"],
+				["   9", "Radiant", "", "Gold"],
+				[" 10", "Thunder", "", "Orange"],
+			],
+			"***Damage Absorption***. When you take damage of the chosen type, you can use your reaction to gain immunity against that instance of the damage, and you regain a number of hit points equal to half the damage you would have taken. Once this reaction is used, it can't be used again until the next dawn.",
+		].concat(TCoE_magicTattoosDescription),
 		usages: 1,
 		recovery: "dawn",
 		additional: "Immunity",
@@ -43146,13 +43173,16 @@ MagicItemsList["barrier tattoo"] = {
 	source: [["T", 122]],
 	type: "wondrous item (tattoo)",
 	description: "This magic tattoo depicts protective imagery and uses ink that resembles liquid metal. While not wearing armor, this tattoo grants me an Armor Class related to the rarity of the tattoo.",
-	descriptionFull: "Produced by a special needle, this magic tattoo depicts protective imagery and uses ink that resembles liquid metal." +
-	"\n   ***Protection***. While you aren't wearing armor, the tattoo grants you an Armor Class depending on the tattoo's rarity, as shown below. You can use a shield and still gain this benefit." +
-	"\n**Tattoo Rarity**\t**AC**" +
-	"\n  Uncommon\t12 + your Dexterity modifier" +
-	"\n  Rare\t\t15 + your Dexterity modifier (maximum of +2)" +
-	"\n  Very Rare\t18\n" +
-	TCoE_magicTattoosDescription,
+	descriptionFull: [
+		"Produced by a special needle, this magic tattoo depicts protective imagery and uses ink that resembles liquid metal.",
+		"***Protection***. While you aren't wearing armor, the tattoo grants you an Armor Class depending on the tattoo's rarity, as shown below. You can use a shield and still gain this benefit.",
+		[
+			["Tattoo Rarity", "AC"],
+			["  Uncommon", "12 + your Dexterity modifier"],
+			["  Rare", "", "15 + your Dexterity modifier (maximum of +2)"],
+			["  Very Rare", "18"],
+		],
+	].concat(TCoE_magicTattoosDescription),
 	attunement: true,
 	choices: ["AC 12+Dex (uncommon)", "AC 15+Dex (rare)", "AC 18 (very rare)"],
 	"ac 12+dex (uncommon)": {
@@ -43204,10 +43234,12 @@ MagicItemsList["blood fury tattoo"] = {
 	rarity: "legendary",
 	attunement: true,
 	description: "This magical tattoo has 10 charges, regaining all at dawn. As a reaction when a creature I can see damages me, I can use 1 charge to make a melee attack with advantage against it. When I hit a creature with a melee attack, I can use 1 charge to deal it 4d6 necrotic damage and regain the same amount in hit points.",
-	descriptionFull: "Produced by a special needle, this magic tattoo evokes fury in its form and colors." +
-	"\n   ***Bloodthirsty Strikes***. The tattoo has 10 charges, and it regains all expended charges daily at dawn. While this tattoo is on your skin, you gain the following benefits:" +
-	"\n \u2022 When you hit a creature with a weapon attack, you can expend a charge to deal an extra 4d6 necrotic damage to the target, and you regain a number of hit points equal to the necrotic damage dealt." +
-	"\n \u2022 When a creature you can see damages you, you can expend a charge and use your reaction to make a melee attack against that creature, with advantage on your attack roll." + TCoE_magicTattoosDescription,
+	descriptionFull: [
+		"Produced by a special needle, this magic tattoo evokes fury in its form and colors.",
+		"***Bloodthirsty Strikes***. The tattoo has 10 charges, and it regains all expended charges daily at dawn. While this tattoo is on your skin, you gain the following benefits:",
+		" \u2022 When you hit a creature with a weapon attack, you can expend a charge to deal an extra 4d6 necrotic damage to the target, and you regain a number of hit points equal to the necrotic damage dealt.",
+		" \u2022 When a creature you can see damages you, you can expend a charge and use your reaction to make a melee attack against that creature, with advantage on your attack roll.",
+	].concat(TCoE_magicTattoosDescription),
 	usages: 10,
 	recovery: "dawn",
 	action: [["reaction", " (after taking damage)"]],
@@ -43219,8 +43251,10 @@ MagicItemsList["coiling grasp tattoo"] = {
 	rarity: "uncommon",
 	attunement: true,
 	description: "This magical tattoo features intertwining designs. As an action, I can have a creature I can see within 15 ft make a DC 14 Str save or take 3d6 force damage and be grappled. It can use its action to try and escape (DC 14 Athletics/Acrobatics). Grapple ends if I halt it, use it again, or if the target is more than 15 ft away.",
-	descriptionFull: "Produced by a special needle, this magic tattoo has long intertwining designs." +
-	"\n   ***Grasping Tendrils***. While the tattoo is on your skin, you can, as an action, cause the tattoo to extrude into inky tendrils, which reach for a creature you can see within 15 feet of you. The creature must succeed on a DC 14 Strength saving throw or take 3d6 force damage and be grappled by you. As an action, the creature can escape the grapple by succeeding on a DC 14 Strength (Athletics) or Dexterity (Acrobatics) check. The grapple also ends if you halt it (no action required), if the creature is ever more than 15 feet away from you, or if you use this tattoo on a different creature." + TCoE_magicTattoosDescription,
+	descriptionFull: [
+		"Produced by a special needle, this magic tattoo has long intertwining designs.",
+		"***Grasping Tendrils***. While the tattoo is on your skin, you can, as an action, cause the tattoo to extrude into inky tendrils, which reach for a creature you can see within 15 feet of you. The creature must succeed on a DC 14 Strength saving throw or take 3d6 force damage and be grappled by you. As an action, the creature can escape the grapple by succeeding on a DC 14 Strength (Athletics) or Dexterity (Acrobatics) check. The grapple also ends if you halt it (no action required), if the creature is ever more than 15 feet away from you, or if you use this tattoo on a different creature.",
+	].concat(TCoE_magicTattoosDescription),
 	action: [["action", ""]],
 	weaponOptions: [{
 		regExpSearch: /^(?=.*coiling grasp)(?=.*tattoo).*$/i,
@@ -43244,9 +43278,11 @@ MagicItemsList["eldritch claw tattoo"] = {
 	rarity: "uncommon",
 	attunement: true,
 	description: "This magical tattoo featuring clawlike forms makes my unarmed strikes magical with a +1 bonus to attack and damage. As a bonus action once per dawn, I can have it empower me for 1 minute so that all my melee attacks with weapons and unarmed strikes have 15 ft reach and deal an extra 1d6 force damage.",
-	descriptionFull: "Produced by a special needle, this magic tattoo depicts clawlike forms and other jagged shapes." +
-	"\n   ***Magical Strikes***. While the tattoo is on your skin, your unarmed strikes are considered magical for the purpose of overcoming immunity and resistance to nonmagical attacks, and you gain a +1 bonus to attack and damage rolls with unarmed strikes." +
-	"\n   ***Eldritch Maul***. As a bonus action, you can empower the tattoo for 1 minute. For the duration, each of your melee attacks with a weapon or an unarmed strike can reach a target up to 15 feet away from you, as inky tendrils launch toward the target. In addition, your melee attacks deal an extra 1d6 force damage on a hit. Once used, this bonus action can't be used again until the next dawn." + TCoE_magicTattoosDescription,
+	descriptionFull: [
+		"Produced by a special needle, this magic tattoo depicts clawlike forms and other jagged shapes.",
+		"***Magical Strikes***. While the tattoo is on your skin, your unarmed strikes are considered magical for the purpose of overcoming immunity and resistance to nonmagical attacks, and you gain a +1 bonus to attack and damage rolls with unarmed strikes.",
+		"***Eldritch Maul***. As a bonus action, you can empower the tattoo for 1 minute. For the duration, each of your melee attacks with a weapon or an unarmed strike can reach a target up to 15 feet away from you, as inky tendrils launch toward the target. In addition, your melee attacks deal an extra 1d6 force damage on a hit. Once used, this bonus action can't be used again until the next dawn.",
+	].concat(TCoE_magicTattoosDescription),
 	usages: 1,
 	recovery: "dawn",
 	additional: "Eldritch Maul",
@@ -43283,11 +43319,13 @@ MagicItemsList["ghost step tattoo"] = {
 	rarity: "very rare",
 	attunement: true,
 	description: "As a bonus action 3 times per day, I can become incorporeal until my next turn ends. While incorporeal, I can't be grappled or restrained, gain nonmagical bludgeoning, piercing, and slashing damage resistance, and can move through creatures or objects as difficult terrain (1d10 force damage if I end my turn in one).",
-	descriptionFull: "Produced by a special needle, this tattoo shifts and wavers on the skin, parts of it appearing blurred." +
-	"\n   ***Ghostly Form***. The tattoo has 3 charges, and it regains all expended charges daily at dawn. As a bonus action while the tattoo is on your skin, you can expend 1 of the tattoo's charges to become incorporeal until the end of your next turn. For the duration, you gain the following benefits:" +
-	"\n \u2022 You have resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks." +
-	"\n \u2022 You can't be grappled or restrained." +
-	"\n \u2022 You can move through creatures and solid objects as if they were difficult terrain. If you end your turn in a solid object, you take 1d10 force damage. If the effect ends while you are inside a solid object, you instead are shunted to the nearest unoccupied space, and you take 1d10 force damage for every 5 feet traveled." + TCoE_magicTattoosDescription,
+	descriptionFull: [
+		"Produced by a special needle, this tattoo shifts and wavers on the skin, parts of it appearing blurred.",
+		"***Ghostly Form***. The tattoo has 3 charges, and it regains all expended charges daily at dawn. As a bonus action while the tattoo is on your skin, you can expend 1 of the tattoo's charges to become incorporeal until the end of your next turn. For the duration, you gain the following benefits:",
+		" \u2022 You have resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks.",
+		" \u2022 You can't be grappled or restrained.",
+		" \u2022 You can move through creatures and solid objects as if they were difficult terrain. If you end your turn in a solid object, you take 1d10 force damage. If the effect ends while you are inside a solid object, you instead are shunted to the nearest unoccupied space, and you take 1d10 force damage for every 5 feet traveled.",
+	].concat(TCoE_magicTattoosDescription),
 	usages: 3,
 	recovery: "dawn",
 	action: [["bonus action", ""]],
@@ -43299,9 +43337,11 @@ MagicItemsList["illuminator's tattoo"] = { // contains contributions by lizrdgiz
 	rarity: "common",
 	attunement: true,
 	description: "While this beautiful calligraphy tattoo is on my skin, I can write with my fingertip as if it is an ink pen that never runs out of ink. As an action, I can touch writing up to one page and speak a creature's name, making it invisible to everyone else but me and the creature for up to 24 hours or until I or the creature touch it.",
-	descriptionFull: "Produced by a special needle, this magic tattoo features beautiful calligraphy, images of writing implements, and the like." +
-	"\n   ***Magical Scribing***. While this tattoo is on your skin, you can write with your fingertip as if it were an ink pen that never runs out of ink." +
-	"\n   As an action, you can touch a piece of writing up to one page in length and speak a creature's name. The writing becomes invisible to everyone other than you and the named creature for the next 24 hours. Either of you can dismiss the invisibility by touching the script (no action required). Once used, this action can't be used again until the next dawn." + TCoE_magicTattoosDescription,
+	descriptionFull: [
+		"Produced by a special needle, this magic tattoo features beautiful calligraphy, images of writing implements, and the like.",
+		"***Magical Scribing***. While this tattoo is on your skin, you can write with your fingertip as if it were an ink pen that never runs out of ink.",
+		"As an action, you can touch a piece of writing up to one page in length and speak a creature's name. The writing becomes invisible to everyone other than you and the named creature for the next 24 hours. Either of you can dismiss the invisibility by touching the script (no action required). Once used, this action can't be used again until the next dawn.",
+	].concat(TCoE_magicTattoosDescription),
 	usages: 1,
 	recovery: "dawn",
 	action: [["action", ""]],
@@ -43313,9 +43353,11 @@ MagicItemsList["lifewell tattoo"] = {
 	rarity: "very rare",
 	attunement: true,
 	description: "When I attune to this magic needle, it disappears and I gain a magical tattoo of a design of my choosing featuring symbols of life and rebirth. It grants me resistance to necrotic damage. The first time per dawn when I would be reduced to 0 hit points, I drop to 1 hit point instead.",
-	descriptionFull: "Produced by a special needle, this magic tattoo features symbols of life and rebirth." +
-	"\n   ***Necrotic Resistance***. You have resistance to necrotic damage." +
-	"\n   ***Life Ward***. When you would be reduced to 0 hit points, you drop to 1 hit point instead. Once used, this property can't be used again until the next dawn." + TCoE_magicTattoosDescription,
+	descriptionFull: [
+		"Produced by a special needle, this magic tattoo features symbols of life and rebirth.",
+		"***Necrotic Resistance***. You have resistance to necrotic damage.",
+		"***Life Ward***. When you would be reduced to 0 hit points, you drop to 1 hit point instead. Once used, this property can't be used again until the next dawn.",
+	].concat(TCoE_magicTattoosDescription),
 	usages: 1,
 	recovery: "dawn",
 	dmgres: ["Necrotic"],
@@ -43327,9 +43369,11 @@ MagicItemsList["masquerade tattoo"] = {
 	rarity: "common",
 	attunement: true,
 	description: "When I attune to this magic needle, it disappears and I gain a magical tattoo. As a bonus action, I can change its size, color, pattern, and location on my skin to whatever I want, but it's always obviously a tattoo. As an action once per dawn, I can use the tattoo to cast *Disguise Self* (DC 13 to discern the disguise).",
-	descriptionFull: "Produced by a special needle, this magic tattoo appears on your body as whatever you desire." +
-	"\n   ***Fluid Ink***. As a bonus action, you can shape the tattoo into any color or pattern and move it to any area of your skin. Whatever form it takes, it is always obviously a tattoo. It can range in size from no smaller than a copper piece to an intricate work of art that covers all your skin." +
-	"\n   ***Disguise Self***. As an action, you can use the tattoo to cast the *disguise self* spell (DC 13 to discern the disguise). Once the spell is cast from the tattoo, it can't be cast from the tattoo again until the next dawn." + TCoE_magicTattoosDescription,
+	descriptionFull: [
+		"Produced by a special needle, this magic tattoo appears on your body as whatever you desire.",
+		"***Fluid Ink***. As a bonus action, you can shape the tattoo into any color or pattern and move it to any area of your skin. Whatever form it takes, it is always obviously a tattoo. It can range in size from no smaller than a copper piece to an intricate work of art that covers all your skin.",
+		"***Disguise Self***. As an action, you can use the tattoo to cast the *disguise self* spell (DC 13 to discern the disguise). Once the spell is cast from the tattoo, it can't be cast from the tattoo again until the next dawn.",
+	].concat(TCoE_magicTattoosDescription),
 	usages: 1,
 	recovery: "dawn",
 	additional: "Disguise Self",
@@ -43349,9 +43393,11 @@ MagicItemsList["shadowfell brand tattoo"] = { // contains contributions by lizrd
 	rarity: "rare",
 	attunement: true,
 	description: "When I attune to this magic needle, it disappears and I gain a dark, abstract magical tattoo. It gives me darkvision with a range of 60 ft and advantage on Dexterity (Stealth) checks. As a reaction once per sunset when I take damage, I can become insubstantial for a moment, halving the damage I take.",
-	descriptionFull: "Produced by a special needle, this magic tattoo is dark in color and abstract." +
-	"\n   ***Shadow Essence***. You gain darkvision with a range of 60 feet, and you have advantage on Dexterity (Stealth) checks." +
-	"\n   ***Shadowy Defense***. When you take damage, you can use your reaction to become insubstantial for a moment, halving the damage you take. Then the reaction can't be used again until the next sunset." + TCoE_magicTattoosDescription,
+	descriptionFull: [
+		"Produced by a special needle, this magic tattoo is dark in color and abstract.",
+		"***Shadow Essence***. You gain darkvision with a range of 60 feet, and you have advantage on Dexterity (Stealth) checks.",
+		"***Shadowy Defense***. When you take damage, you can use your reaction to become insubstantial for a moment, halving the damage you take. Then the reaction can't be used again until the next sunset.",
+	].concat(TCoE_magicTattoosDescription),
 	usages: 1,
 	recovery: "sunset",
 	action: [["reaction", " (halve damage)"]],
@@ -43363,16 +43409,20 @@ MagicItemsList["spellwrought tattoo"] = {
 	source: [["T", 135]],
 	type: "wondrous item (tattoo)",
 	description: "When I hold this magic needle against my skin and speak the command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its spell, requiring no material components. The tattoo glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
-	descriptionFull: "Produced by a special needle, this magic tattoo contains a single spell of up to 5th level, wrought on your skin by a magic needle. To use the tattoo, you must hold the needle against your skin and speak the command word. The needle turns into ink that becomes the tattoo, which appears on the skin in whatever design you like. Once the tattoo is there, you can cast its spell, requiring no material components. The tattoo glows faintly while you cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes from your skin." +
-	"\n   The level of the spell in the tattoo determines the spell's saving throw DC, attack bonus, spellcasting ability modifier, and the tattoo's rarity, as shown in the table below.\n" +
-	"\n **Spell**\t\t     **Spellcasting**\t**Save**\t**Attack**" +
-	"\n **Level**\t**Rarity**\t     **Ability Mod.**\t **DC**\t**Bonus**" +
-	"\nCantrip\tCommon\t\t+3\t 13\t  +5" +
-	"\n  1st\tCommon\t\t+3\t 13\t  +5" +
-	"\n  2nd\tUncommon\t+3\t 13\t  +5" +
-	"\n  3rd\tUncommon\t+4\t 15\t  +7" +
-	"\n  4th\tRare\t\t+4\t 15\t  +7" +
-	"\n  5th\tRare\t\t+5\t 17\t  +9" + TCoE_magicTattoosDescription.replace(/[\s\S]*in your space\.\n */, "\n"),
+	descriptionFull: [
+		"Produced by a special needle, this magic tattoo contains a single spell of up to 5th level, wrought on your skin by a magic needle. To use the tattoo, you must hold the needle against your skin and speak the command word. The needle turns into ink that becomes the tattoo, which appears on the skin in whatever design you like. Once the tattoo is there, you can cast its spell, requiring no material components. The tattoo glows faintly while you cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes from your skin.",
+		"The level of the spell in the tattoo determines the spell's saving throw DC, attack bonus, spellcasting ability modifier, and the tattoo's rarity, as shown in the table below.",
+		[
+			[" Spell", "", "     Spellcasting", "Save", "Attack"],
+			" **Level**\t**Rarity**\t     **Ability Mod.**\t **DC**\t**Bonus**",
+			["Cantrip", "Common", "", "+3", " 13", "  +5"],
+			["  1st", "Common", "", "+3", " 13", "  +5"],
+			["  2nd", "Uncommon", "+3", " 13", "  +5"],
+			["  3rd", "Uncommon", "+4", " 15", "  +7"],
+			["  4th", "Rare", "", "+4", " 15", "  +7"],
+			["  5th", "Rare", "", "+5", " 17", "  +9"],
+		],
+	].concat(TCoE_magicTattoosDescription.slice(2)),
 	allowDuplicates: true,
 	calcChanges: {
 		spellAdd: [
@@ -44176,7 +44226,7 @@ MagicItemsList["protective verses"] = {
 	description: "I can use this book with an iron lock as a spellcasting focus and spellbook. As an action, I can use *Arcane Lock* it. It has 3 charges, regains 1d3 at dawn. For 1 charge \u0026 1 min study, I can change a prepared spell to an abjuration within. I can use 1 charge when I cast an abjuration spell to give a creature in 30 ft 2d10 temp HP.",
 	descriptionLong: "This leather-bound spellbook is reinforced with iron and silver fittings and an iron lock (DC 20 to open). As an action, I can touch the book's cover and cause it to lock as if I cast *arcane lock* on it. I can use it as my spellbook and, while held, as a spellcasting focus for my wizard spells. It contains several spells and has 3 charges, regaining 1d3 charges at dawn. I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to an abjuration spell within. When I hold the book and cast an abjuration, I can expend 1 charge to grant a creature I can see within 30 ft 2d10 temporary hit points.",
 	descriptionFull: [
-		"This leather-bound spellbook is reinforced with iron and silver fittings and an iron lock (DC 20 to open). As an action, you can touch the book's cover and cause it to lock as if you cast *arcane lock* on it. When found, the book contains the following spells: *arcane lock*, *dispel magic*, *globe of invulnerability*, *glyph of warding*, *Mordenkainen's private sanctum*, protection from evil, and symbol. It functions as a spellbook for you.",
+		"This leather-bound spellbook is reinforced with iron and silver fittings and an iron lock (DC 20 to open). As an action, you can touch the book's cover and cause it to lock as if you cast *arcane lock* on it. When found, the book contains the following spells: *arcane lock*, *dispel magic*, *globe of invulnerability*, *glyph of warding*, *Mordenkainen's private sanctum*, *protection from evil and good*, and *symbol*. It functions as a spellbook for you.",
 		"While you are holding the book, you can use it as a spellcasting focus for your wizard spells.",
 		"The book has 3 charges, and it regains 1d3 expended charges daily at dawn. You can use the charges in the following ways while holding it:",
 		" \u2022 If you spend 1 minute studying the book, you can expend 1 charge to replace one of your prepared wizard spells with a different spell in the book. The new spell must be of the abjuration school.",
@@ -45556,37 +45606,37 @@ MagicItemsList["nepenthe"] = {
 /* Dark gift
 
 MagicItemsList["living shadow"] = {
-	name : "Living Shadow",
-	source : [["VRGtR", 24]],
-	type : "dark gift",
-	rarity : "",
+	name: "Living Shadow",
+	source: [["VRGtR", 24]],
+	type: "dark gift",
+	rarity: "",
 	description : "I learn the Mage Hand cantrip and require no components to cast it. My Prof Bonus per long rest, I can gain +10 ft reach for one melee attack. The first time I roll a 1 on a d20 after a short rest, my shadow will act up. The next time I or another I can see in 30 ft rolls a d20, I roll a d4. If even: add to roll, odd: subtract.",
 	descriptionLong : "I learn the Mage Hand cantrip and require no components to cast it. The hand created by the spell is shadowy but is not bound to your actual shadow. My proficiency bonus per long rest, when I make a melee attack, I can gain +10 ft reach for that attack as my shadow stretches and delivers the attack. The first time after a short rest when I roll a 1 on an attack, check, or save, my shadow will act up. The next time I or a creature I can see within 30 ft rolls for an attack, check, or save, roll a d4. If the number is odd, reduce the total by that number. If it is even, increase the total by that number instead.",
-	descriptionFull : "The shadow you cast is animate and ever-present, even when lighting conditions would otherwise prevent it. Your shadow occasionally moves out of sync with you. Sometimes it appears to be undertaking random but mundane tasks, while at other times it acts out your darker impulses, threatening or even attacking other shadows. With effort, you can bend this shadow puppetry to your will.\n"+
+	descriptionFull: "The shadow you cast is animate and ever-present, even when lighting conditions would otherwise prevent it. Your shadow occasionally moves out of sync with you. Sometimes it appears to be undertaking random but mundane tasks, while at other times it acts out your darker impulses, threatening or even attacking other shadows. With effort, you can bend this shadow puppetry to your will.\n"+
 	"***Grasping Shadow***. You learn the mage hand cantrip if you don't already know it, and require no components to cast it. The hand created by the spell is shadowy but is not bound to your actual shadow. Your spellcasting ability for this spell is Intelligence, Wisdom, or Charisma (your choice when you gain this Dark Gift).\n"+
 	"***Shadow Strike***. When you make a melee attack roll, you can increase your reach for that attack by 10 feet. Your shadow stretches and delivers the attack as if it were you. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.\n"+
 	"***Ominous Will***. Immediately after you make an attack roll, an ability check, or a saving throw and roll a 1 on the d20, your shadow exerts a will of its own and might assist or hinder you or those around you. The next time you or a creature within 30 feet of you that you can see makes an attack roll, an ability check, or a saving throw, roll a d4. If the number is odd, reduce the total by the number rolled. If the number is even, increase the total by the number rolled. Once this effect occurs, it can't happen again until you finish a short or long rest.",
-	action : [["action", "Unsettling Presence"]],
-	extraLimitedFeatures : [{
-		name : "Shadow Strike",
-		usages : "Proficiency bonus per ",
-		usagescalc : "event.value = How('Proficiency Bonus')",
-		recovery : "long rest"
+	action: [["action", "Unsettling Presence"]],
+	extraLimitedFeatures: [{
+		name: "Shadow Strike",
+		usages: "Proficiency bonus per ",
+		usagescalc: "event.value = How('Proficiency Bonus')",
+		recovery: "long rest"
 	}, {
-		name : "Ominous Will",
-		usages : 1,
-		recovery : "short rest"
+		name: "Ominous Will",
+		usages: 1,
+		recovery: "short rest"
 	}],
-	spellcastingAbility : [4, 5, 6],
-	spellcastingBonus : [{
-		name : "Grasping Shadow",
-		spells : ["mage hand"],
-		selection : ["mage hand"],
+	spellcastingAbility: [4, 5, 6],
+	spellcastingBonus: [{
+		name: "Grasping Shadow",
+		spells: ["mage hand"],
+		selection: ["mage hand"],
 	}],
-	spellChanges : {
-		"mage hand" : {
-			components : "",
-			changes : "Using Grasping Shadow from my Living Shadow dark gift, I can cast Mage Hand without any components. The hand created by the spell is shadowy but is not bound to my actual shadow."
+	spellChanges: {
+		"mage hand": {
+			components: "",
+			changes: "Using Grasping Shadow from my Living Shadow dark gift, I can cast Mage Hand without any components. The hand created by the spell is shadowy but is not bound to my actual shadow."
 		}
 	}
 };
@@ -46475,7 +46525,7 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 			var sDrBrnDmg = oDrBrn.variants[i][1];
 			AddRacialVariant(sDrBrnLC + " dragonborn", sDrBrnVar.toLowerCase(), {
 				regExpSearch: RegExp(sDrBrnVar, "i"),
-				name: sDrBrnVar + " " + sDrBrnLC + " dragonborn",
+				name: sDrBrnVar + " " + sDrBrn + " Dragonborn",
 				trait: ["**" + sDrBrnVar + " " + sDrBrnLC + " dragonborn**"].concat(oDrBrn.trait.map(function (sTrait) { return sTrait.replace(/>>TYPE<</g, sDrBrnDmg).replace(/>>type<</g, sDrBrnDmg.toLowerCase()); })),
 				dmgres: [sDrBrnDmg],
 			});
@@ -49504,7 +49554,7 @@ RaceList["multiverse duergar"] = {
 	scoresGeneric: true,
 	trait: [
 		"**Duergar** (my creature type is humanoid, dwarf)",
-		"\u2022 Dwarven Resilience \u0026 Psionic Fortitude: I have advantage on saving throws to avoid or end being poisoned, charmed, or stunned and I have resistance to poison damage.",
+		"##\u25C6 Dwarven Resilience & Psionic Fortitude##. I have advantage on saving throws to avoid or end being poisoned, charmed, or stunned and I have resistance to poison damage.",
 		"##\u25C6 Duergar Magic##. At 3rd level, I learn the *Enlarge/Reduce* spell. At 5th level, I learn the *Invisibility* spell. I can cast each spell on myself once per long rest without using a spell slot or material components, or by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for these (one-time choice).",
 	],
 	spellcastingAbility: [4, 5, 6],
@@ -50511,14 +50561,14 @@ RaceList["multiverse sea elf"] = {
 	trait: [
 		"**Sea Elf** (my creature type is humanoid, elf)",
 		"##\u25C6 Trance##. I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours while meditating consciously. At the end of the trance, I gain 2 weapon/tool proficiencies until the end of my next long rest.",
-		"\u2022 Child of the Sea. I can breathe air and water and have resistance to cold damage.",
+		"##\u25C6 Child of the Sea##. I can breathe air and water and have resistance to cold damage.",
 		"##\u25C6 Friend of the Sea##. I can communicate simple ideas to beasts with a swimming speed. It can understand my words, though I have no special ability to understand it in return.",
 	],
 };
 RaceList["multiverse shadar-kai"] = {
 	regExpSearch: /^(?!.*half)(?=.*(multiverse|motm\b))((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
-	name: "Multiverse Shadar-kai",
-	sortname: "Elf, Shadow (Shadar-kai), Multiverse",
+	name: "Multiverse Shadar-Kai",
+	sortname: "Elf, Shadow (Shadar-Kai), Multiverse",
 	source: [["MotM", 31]],
 	plural: "Shadar-kai",
 	size: 3,
@@ -51130,29 +51180,6 @@ var EGtW_Vestiges_Replace = function (sDescr) {
 		.replace(/your/g, "my").replace(/Your/g, "My")
 		.replace(/   >>(.*?)<<\. /g, function (a, match) { return "\n" + match.toUpperCase() + "\n   "; });
 }
-var EGtW_JewelOfThreePrayersFullDescription = [
-	"The *Jewel of Three Prayers* is a Vestige of Divergence. In ancient times, Alyxian the Apotheon bore this amulet as a symbol of his covenant with three Prime Deities: Sehanine the Moon Weaver, Avandra the Change Bringer, and Corellon the Arch Heart.[[ When the jewel is found, only Sehanine's power thrums within its dormant heart. The power of the other two deities waits to be reawakened by a hero \u2014 or heroes \u2014 who can follow in Alyxian's footsteps.]]",
-	">>Dormant<<. In this state, the *Jewel of Three Prayers* is a glittering golden disk attached to a fine golden chain. The chain magically resizes to function as a necklace for the creature that wears it.",
-	"In its Dormant State, the jewel has the following properties:",
-	"\u2022 You gain a +1 bonus to AC while wearing the jewel.",
-	"\u2022 While wearing or holding the jewel, you can use an action to cause it to shed bright light in a 15-foot radius and dim light for an additional 15 feet. The light lasts until you extinguish it (no action required).",
-	"\u2022 The jewel has 3 charges and regains all its expended charges daily at dawn. While holding the jewel, you can expend 1 charge from it to cast the *invisibility* spell.",
-	">>Awakened<<. In this state, the jewel has received the blessing of Avandra the Change Bringer. Three delicate spires unfurl from the jewel's center, like the buds of flowers opening in the spring. Three lapis lazuli stones rest like dewdrops on these spires.",
-	"The following benefits of the jewel improve:",
-	"\u2022 The bonus that the jewel confers to your AC increases to +2.",
-	"\u2022 Its number of charges increases to 5.",
-	"The jewel gains the following additional properties, which you can use while wearing or holding it:",
-	"\u2022 You can expend 1 of the jewel's charges (no action required) to end one of the following conditions on yourself: grappled, paralyzed, or restrained.",
-	"\u2022 When another creature you can see within 60 feet of you fails a saving throw, you can expend 1 of the jewel's charges as a reaction to enable that creature to reroll the saving throw, potentially turning a failure into a success. The creature must use the new roll.",
-	">>Exalted<<. In this state, the jewel has received the blessing of Corellon the Arch Heart. A gleaming emerald surrounded by a halo of gold appears on the jewel.",
-	"The following benefits of the jewel improve:",
-	"\u2022 The bonus that the jewel confers to your AC increases to +3.",
-	"\u2022 Its number of charges increases to 7.",
-	"The jewel gains the following additional properties, which you can use while wearing or holding it:",
-	"\u2022 You gain the ability to breathe water, and you gain a swimming speed equal to your walking speed.",
-	"\u2022 Each of your allies within 30 feet of you gains the ability to breathe water and gains a swimming speed equal to its walking speed.",
-	"\u2022 As a bonus action, you can expend 1 of the jewel's charges to target yourself or one willing creature you can see within 15 feet of yourself. The target teleports to an unoccupied space of your choice within 15 feet of yourself, along with any equipment the target is wearing or carrying. The target appears in a flash of golden radiance, and each creature of your choice within 5 feet of the target's new location must make a DC 18 Constitution saving throw. On a failed save, the creature takes 4d10 radiant damage and is blinded until the start of your next turn. On a successful save, the creature takes half as much damage and isn't blinded.",
-];
 MagicItemsList["jewel of three prayers"] = {
 	name: "Jewel of Three Prayers",
 	source: [["CotN", 213]],
@@ -51161,10 +51188,34 @@ MagicItemsList["jewel of three prayers"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "The golden chain of this intricate jewel magically resizes to function as a necklace for the creature that wears it. In ancient times, Alyxian the Apotheon bore this amulet as a symbol of his covenant with three Prime Deities: Sehanine the Moon Weaver, Avandra the Change Bringer, and Corellon the Arch Heart.",
-	descriptionFull: EGtW_JewelOfThreePrayersFullDescription.join("\n   ").replace(/\[\[|\]\]/g, ""),
+	descriptionFull: [
+		"The *Jewel of Three Prayers* is a Vestige of Divergence. In ancient times, Alyxian the Apotheon bore this amulet as a symbol of his covenant with three Prime Deities: Sehanine the Moon Weaver, Avandra the Change Bringer, and Corellon the Arch Heart. When the jewel is found, only Sehanine's power thrums within its dormant heart. The power of the other two deities waits to be reawakened by a hero \u2014 or heroes \u2014 who can follow in Alyxian's footsteps.",
+		"***Dormant***. In this state, the *Jewel of Three Prayers* is a glittering golden disk attached to a fine golden chain. The chain magically resizes to function as a necklace for the creature that wears it.",
+		"In its Dormant State, the jewel has the following properties:",
+		" \u2022 You gain a +1 bonus to AC while wearing the jewel.",
+		" \u2022 While wearing or holding the jewel, you can use an action to cause it to shed bright light in a 15-foot radius and dim light for an additional 15 feet. The light lasts until you extinguish it (no action required).",
+		" \u2022 The jewel has 3 charges and regains all its expended charges daily at dawn. While holding the jewel, you can expend 1 charge from it to cast the *invisibility* spell.",
+		"***Awakened***. In this state, the jewel has received the blessing of Avandra the Change Bringer. Three delicate spires unfurl from the jewel's center, like the buds of flowers opening in the spring. Three lapis lazuli stones rest like dewdrops on these spires.",
+		"The following benefits of the jewel improve:",
+		" \u2022 The bonus that the jewel confers to your AC increases to +2.",
+		" \u2022 Its number of charges increases to 5.",
+		"The jewel gains the following additional properties, which you can use while wearing or holding it:",
+		" \u2022 You can expend 1 of the jewel's charges (no action required) to end one of the following conditions on yourself: grappled, paralyzed, or restrained.",
+		" \u2022 When another creature you can see within 60 feet of you fails a saving throw, you can expend 1 of the jewel's charges as a reaction to enable that creature to reroll the saving throw, potentially turning a failure into a success. The creature must use the new roll.",
+		"***Exalted***. In this state, the jewel has received the blessing of Corellon the Arch Heart. A gleaming emerald surrounded by a halo of gold appears on the jewel.",
+		"The following benefits of the jewel improve:",
+		" \u2022 The bonus that the jewel confers to your AC increases to +3.",
+		" \u2022 Its number of charges increases to 7.",
+		"The jewel gains the following additional properties, which you can use while wearing or holding it:",
+		" \u2022 You gain the ability to breathe water, and you gain a swimming speed equal to your walking speed.",
+		" \u2022 Each of your allies within 30 feet of you gains the ability to breathe water and gains a swimming speed equal to its walking speed.",
+		" \u2022 As a bonus action, you can expend 1 of the jewel's charges to target yourself or one willing creature you can see within 15 feet of yourself. The target teleports to an unoccupied space of your choice within 15 feet of yourself, along with any equipment the target is wearing or carrying. The target appears in a flash of golden radiance, and each creature of your choice within 5 feet of the target's new location must make a DC 18 Constitution saving throw. On a failed save, the creature takes 4d10 radiant damage and is blinded until the start of your next turn. On a successful save, the creature takes half as much damage and isn't blinded.",
+	],
 	toNotesPage: [{
-		name: "Features",
-		note: EGtW_Vestiges_Replace(EGtW_JewelOfThreePrayersFullDescription).replace(/\[\[.*?\]\]/, ""),
+		name: "Jewel of Three Prayers",
+		useDescriptionFull: function (str) {
+			return str.replace(/ When the jewel is found.*?footsteps./i, "");
+		},
 	}],
 	choices: ["Dormant", "Awakened", "Exalted"],
 	choicesNotInMenu: true,
@@ -51304,7 +51355,7 @@ BackgroundFeatureList["wildspace adaptation"] = {
 // Races from Astral Adventurer's Guide
 RaceList["astral elf"] = {
 	regExpSearch: /^(?!.*half)(?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(astral|silver void)\b).*$/i,
-	name: "Astral elf",
+	name: "Astral Elf",
 	sortname: "Elf, Astral",
 	source: [["S:AiS", 10]],
 	plural: "Astral elves",
@@ -51493,7 +51544,7 @@ RaceList["plasmoid"] = {
 };
 RaceList["thri-kreen"] = {
 	regExpSearch: /thri.?kreen/i,
-	name: "Thri-kreen",
+	name: "Thri-Kreen",
 	source: [["S:AiS", 15]],
 	plural: "Thri-kreen",
 	size: [3, 4],
@@ -51522,7 +51573,7 @@ RaceList["thri-kreen"] = {
 		"##\u25C6 Chameleon Carapace##. My base AC is 13 + Dex mod. As an action, " + (typePF ? "I can gain adv. on Stealth checks to hide in my current surroundings." : "I can have it match my current surroundings, granting me adv. on Stealth checks to hide in those surroundings."),
 		"##\u25C6 Secondary Arms##. " + (typePF ? "I have two slightly smaller arms below my primary pair of arms. I can use these secondary arms" : "Able") + " to manipulate objects, hold Tiny objects, or wield light weapons.",
 		"##\u25C6 Sleepless##. I don't " + (typePF ? "" : "require ") + "sleep. I rest by refraining from strenuous activity.",
-		"\u2022 " + (typePF ? "Thri-kreen " : "") + "Telepathy: I can't speak, but can communicate telepathically to any willing creatures within 120 ft that understand at least one language. Any can break this (no action).",
+		"##\u25C6 " + (typePF ? "Thri-kreen " : "") + "Telepathy##. I can't speak, but can communicate telepathically to any willing creatures within 120 ft that understand at least one language. Any can break this (no action).",
 	],
 };
 
@@ -52530,10 +52581,12 @@ MagicItemsList["mirror of reflected pasts"] = {
 	attunement: true,
 	description: "As an action, I can (de)activate this mirror. It can be activated once per dawn, making it hover in the air, can't be moved, and when a non-construct sees its reflection in it while within 30 ft, it must make a DC 15 Wis save. It is paralyzed until the mirror is deactivated. It can retry the save at the end of each of its turns.",
 	descriptionLong: "As an action, I can activate this mirror of elven design once per dawn, or deactive it. While active, it hovers in the air and can't be moved. When a non-construct creature within 30 ft of the mirror sees its reflection in it, the creature must make a DC 15 Wisdom save or become paralyzed. The creature can repeat the save at the end of each of its turns, but is otherwise paralyzed until the  mirror is deactivated. A successful save makes a creature immune for 24 hours. While paralyzed by the mirror, the creature sees idealized versions of events from their past reflected in the mirror's glass.",
-	descriptionFull: "This mirror of elven design allows those who stare into it to reflect on positive memories. The 3-foot-tall mirror weighs 25 pounds, and it has AC 11, 10 hit points, and vulnerability to bludgeoning damage. It shatters and is destroyed if reduced to 0 hit points." +
-	"While holding the mirror upright, you can use an action to speak its command word and activate it. While activated, the mirror hovers in the air, and it can be destroyed but not moved. It remains activated until you use an action to speak the command word again or your attunement to the mirror ends, at which point the mirror harmlessly floats to the ground. Once the mirror has been deactivated, it can't be activated again until the next dawn." +
-	"If a non-Construct creature other than you sees its reflection in the activated mirror while within 30 feet of it, that creature must succeed on a DC 15 Wisdom saving throw or become paralyzed until the mirror is deactivated or until that creature can no longer see the mirror. A creature paralyzed by the mirror can repeat the saving throw at the end of each of its turns, ending the effect on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to this mirror's effect for the next 24 hours." +
-	"While paralyzed by the mirror, the creature sees events from their past reflected in the mirror's glass. These memories aren't real, but rather idealized versions of those occurrences. Nearby observers can glimpse flashes of these memories if looking indirectly at the mirror.",
+	descriptionFull: [
+		"This mirror of elven design allows those who stare into it to reflect on positive memories. The 3-foot-tall mirror weighs 25 pounds, and it has AC 11, 10 hit points, and vulnerability to bludgeoning damage. It shatters and is destroyed if reduced to 0 hit points.",
+		"While holding the mirror upright, you can use an action to speak its command word and activate it. While activated, the mirror hovers in the air, and it can be destroyed but not moved. It remains activated until you use an action to speak the command word again or your attunement to the mirror ends, at which point the mirror harmlessly floats to the ground. Once the mirror has been deactivated, it can't be activated again until the next dawn.",
+		"If a non-Construct creature other than you sees its reflection in the activated mirror while within 30 feet of it, that creature must succeed on a DC 15 Wisdom saving throw or become paralyzed until the mirror is deactivated or until that creature can no longer see the mirror. A creature paralyzed by the mirror can repeat the saving throw at the end of each of its turns, ending the effect on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to this mirror's effect for the next 24 hours.",
+		"While paralyzed by the mirror, the creature sees events from their past reflected in the mirror's glass. These memories aren't real, but rather idealized versions of those occurrences. Nearby observers can glimpse flashes of these memories if looking indirectly at the mirror.",
+	],
 	weight: 25,
 	action: [["action", " [(de)activate]"]],
 	usages: 1,
@@ -52646,16 +52699,20 @@ var KftGV_ShardSolitaire = {
 		"When you use this property, you can tap into the unstable power of the stone's extradimensional rift to increase the teleport distance by up to 30 feet, but if you teleport more than 30 feet using Rift Step, you must succeed on a DC 16 Constitution saving throw or take 3d10 force damage immediately after you teleport.",
 		"***Spellcasting***. The stone has 6 charges and regains 1d6 expended charges daily at dawn. ",
 	].join("\n   "),
-	descriptionTable: "The Shard Solitaire Types table lists the spells common to all shard solitaires, as well as the spells specific to each kind of stone. As an action, you can cast one of the stone's spells by expending the requisite number of charges, requiring no material components (save DC 16)." +
-	"\n\n **Shard Solitaire**\t**Spells**" +
-	"\n  All\t\tBanishment (3 charges; the target is banished to the stone's extradimensional space" +
-	"\n\t\tfor the spell's duration), Mirror Image (1 charge)" +
-	"\n  Black sapphire\tBlight (3 charges), Finger of Death (6 charges)" +
-	"\n  Diamond\tIce Storm (3 charges), Simulacrum (6 charges; the duplicate created by the spell" +
-	"\n\t\thas the same number of hit points as the creature it imitates)" +
-	"\n  Jacinth\t\tFireball (2 charges), Fire Storm (6 charges)" +
-	"\n  Rainbow pearl\tPrismatic Spray (6 charges), Water Breathing (2 charges)" +
-	"\n  Ruby\t\tFly (2 charges), Teleport (6 charges)",
+	descriptionTable: [
+		"The Shard Solitaire Types table lists the spells common to all shard solitaires, as well as the spells specific to each kind of stone. As an action, you can cast one of the stone's spells by expending the requisite number of charges, requiring no material components (save DC 16).",
+		[
+			[" Shard Solitaire", "Spells"],
+			["  All", "", "*Banishment* (3 charges; the target is banished to the stone's extradimensional space"],
+			["", "", "for the spell's duration), *Mirror Image* (1 charge)"],
+			["  Black sapphire", "*Blight* (3 charges), *Finger of Death* (6 charges)"],
+			["  Diamond", "*Ice Storm* (3 charges), *Simulacrum* (6 charges; the duplicate created by the spell"],
+			["", "", "has the same number of hit points as the creature it imitates)"],
+			["  Jacinth", "", "*Fireball* (2 charges), *Fire Storm* (6 charges)"],
+			["  Rainbow pearl", "*Prismatic Spray* (6 charges), *Water Breathing* (2 charges)"],
+			["  Ruby", "", "*Fly* (2 charges), *Teleport* (6 charges)"],
+		],
+	],
 	spellcastingBonus: [{
 		fixedDC: 16,
 		name: "1 charge",
@@ -52680,7 +52737,9 @@ MagicItemsList["shard solitaire"] = {
 	rarity: "legendary",
 	attunement: true,
 	description: "As a bonus action while wearing or holding this gemstone, I can teleport up to 60 ft to an empty space I can see. If I teleport over 30 ft, I need to make a DC 16 Con save or take 3d10 force damage. It has 6 charges, regaining 1d6 at dawn. I can use these charges to cast several spells as an action, see the spell sheet.",
-	descriptionFull: KftGV_ShardSolitaire.descriptionFull.replace(": black sapphire, diamond, jacinth, rainbow pearl, and ruby.", ", as shown in the *Shard Solitaire* Types table.") + KftGV_ShardSolitaire.descriptionTable,
+	descriptionFull: [
+		KftGV_ShardSolitaire.descriptionFull.replace(": black sapphire, diamond, jacinth, rainbow pearl, and ruby.", ", as shown in the *Shard Solitaire* Types table."),
+	].concat(KftGV_ShardSolitaire.descriptionTable),
 	allowDuplicates: true,
 	usages: 6,
 	recovery: "dawn",
@@ -55286,18 +55345,18 @@ CoA_Corruption = {
 		SetStringifieds("vars"); // Save the global variable to a field
 	},
 	toNotesPage: [{ // intentionally doesn't include a source
-		name: "INFERNAL ITEM CORRUPTION",
+		name: "Infernal Item Corruption",
 		popupName: 'The "Infernal Item Corruption" rules from Chains of Asmodeus (page 271)',
 		note: [
 			"Cursed infernal items can be used by mortals, but they always require attunement. Once attuned, the mortal risks an increasing chance of being corrupted by the item., eventually transforming into a devil.",
 			"Mortals that receive express permission from Asmodeus, or that make an infernal contract to acquire a magic item, don't suffer these corrupting effects.",
-			"1. STAGE ONE CORRUPTION: BEGINNINGS",
+			" #1. Stage One Corruption: Beginnings#",
 			"Once a character has attuned to a cursed infernal magic item or artifact, it begins the infernal corruption process. Each time that character finishes a long rest, they must make a DC 10 Wisdom save (tieflings have advantage on this save). On a success, the character suffers no effects, but the DC increases by 1 the next time they must make this save. On a failure, the character progresses to Stage Two unless *Dispel Evil and Good* is cast on them before their next long rest.",
 			"While in Stage One, the infernal corruption can be prevented by breaking attunement to the corrupting item. This prevents further Wisdom saves and resets the DC of the save, if the character were to attune to the item again.",
-			"2. STAGE TWO CORRUPTION: SUFFERINGS",
+			" #2. Stage Two Corruption: Sufferings#",
 			"While in Stage Two, the character becomes delusional, seeing plots against them where there are none. Additionally, each time they rest, they experience terrifying visions and infernal whispers. Whenever they finish a long rest, they take 1d12 necrotic damage, which ignores resistances and immunities and can't be healed until a *Dispel Evil and Good* or *Remove Curse* spell is cast on them. Once the character has taken this damage six times, they progress to Stage Three.",
 			"While in Stage Two, the infernal corruption can be removed with one of the following spells: *Divine Word*, *Heal*, *Mass Heal*, *True Polymorph*, *True Resurrection*, or *Wish*.",
-			"3. STAGE THREE CORRUPTION: DEPARTINGS",
+			" #3. Stage Three Corruption: Departings#",
 			"While in Stage Three, the character begins to suffer physical transformation, and slowly embraces evil. After they finish their first long rest upon entering Stage Three they must roll on the table below to determine how the infernal curse starts shaping them into a devil. In addition, a part-devil character is rendered infertile and detects as a Fiend to *Detect Evil and Good* spells and similar magic.",
 			[
 				["   d10", "Transformation"],
@@ -55314,12 +55373,12 @@ CoA_Corruption = {
 			],
 			"The character begins to experience waking whispers pushing them towards evil and they suffer terrifying visions whenever they rest, breaking their spirit and pushing them further to evil. Each time they finish a short or long rest, they must make a DC 10 Wisdom save. If they performed at least one evil act, such as making a decision that increased the suffering of others, they make the save with disadvantage. When they fail the save, they progress to Stage Four.",
 			"While in Stage Three, the infernal corruption can be ended with one of the following spells: *True Polymorph*, *True Resurrection* or *Wish*.",
-			"4. STAGE FOUR CORRUPTION: FINALITIES",
+			" #4. Stage Four Corruption: Finalities#",
 			"When the character finishes their first long rest after reaching Stage Four, the character's alignment shifts to lawful evil. They're now bound by the devil's code, requiring them to honor any pact made and acquire souls in service of Asmodeus. Lastly, their physical form changes, morphing to resemble a devil (DM's choice).",
 			"Once the character reaches Stage Four, the only two cures are the *Wish* spell, which counts as beyond the scope of the spell, or by signing an infernal contract with Asmodeus to reclaim their soul.",
 		],
 	}],
-	description: "\n   " + '***Corrupting***. This item corrupts. See the "Infernal Item Corruption" rules (CoA 271).',
+	description: '***Corrupting***. This item corrupts. See the "Infernal Item Corruption" rules (CoA 271).',
 }
 
 MagicItemsList["amulet of appearance"] = {
@@ -55365,9 +55424,11 @@ MagicItemsList["bracers of asmodeus"] = {
 	attunement: true,
 	cursed: true,
 	description: "These are cursed, corrupting, and give +2 AC while not wearing armor or using a shield. I can't unattune to them. They make me obsessed with scheming, manipulation, and always bartering for better deals, often using blackmail. If I decline an opportunity to make money at another's expense, I take 3d10 necrotic damage.",
-	descriptionFull: "You have a +2 bonus to AC while wearing these bracers, if you do not wear armor or use a shield at the same time." +
-	"\n   ***Curse***. While attuned to the bracers, you become obsessed with plotting, scheming, and manipulation. You always barter for better deals, often using secrets or leveraging other offers in the process. If you ever decline an opportunity to better yourself financially at another's expense, you immediately take 3d10 necrotic damage. Only the *Remove Curse* spell allows you to end attunement to this item." +
-	CoA_Corruption.description,
+	descriptionFull: [
+		"You have a +2 bonus to AC while wearing these bracers, if you do not wear armor or use a shield at the same time.",
+		"***Curse***. While attuned to the bracers, you become obsessed with plotting, scheming, and manipulation. You always barter for better deals, often using secrets or leveraging other offers in the process. If you ever decline an opportunity to better yourself financially at another's expense, you immediately take 3d10 necrotic damage. Only the *Remove Curse* spell allows you to end attunement to this item.",
+		CoA_Corruption.description,
+	],
 	eval: function () { CoA_Corruption.process(true,  "bracers of asmodeus") },
 	removeeval: function () { CoA_Corruption.process(false, "bracers of asmodeus") },
 	extraAC: [{
@@ -55385,10 +55446,12 @@ MagicItemsList["canian fork"] = {
 	attunement: true,
 	cursed: true,
 	description: "This magic, cursed, corrupting trident gives me +3 bonus to attack and damage rolls made with. I can't willing to part with it and can't unattune to it without *Remove Curse*. I'm vulnerable to radiant damage. When I receive magical healing I have to succeed on a DC 15 Con save or the healing has no effect.",
-	descriptionFull: "You have a +3 bonus to attack and damage rolls made with this magic weapon. In addition, you can make one additional attack with it as a bonus action on each of your turns." +
-	"\n   ***Curse***. You're unwilling to part with this weapon while attuned to it. You're also vulnerable to radiant damage and each time you receive magical healing, you must make a DC 15 Constitution saving throw." +
-	"\n   On a failed save, the healing has no effect. Only the *Remove Curse* spell allows you to end attunement to this item." +
-	CoA_Corruption.description,
+	descriptionFull: [
+		"You have a +3 bonus to attack and damage rolls made with this magic weapon. In addition, you can make one additional attack with it as a bonus action on each of your turns.",
+		"***Curse***. You're unwilling to part with this weapon while attuned to it. You're also vulnerable to radiant damage and each time you receive magical healing, you must make a DC 15 Constitution saving throw.",
+		"On a failed save, the healing has no effect. Only the *Remove Curse* spell allows you to end attunement to this item.",
+		CoA_Corruption.description,
+	],
 	eval: function () { CoA_Corruption.process(true,  "canian fork") },
 	removeeval: function () { CoA_Corruption.process(false, "canian fork") },
 	weight: 4,
@@ -55422,11 +55485,13 @@ MagicItemsList["demonbone polearm"] = {
 	cursed: true,
 	description: "As a reaction when damaged by a creature in reach, I can attack it once with this +2 weapon. ***Curse***. I can't unattune to it and have disadv. with other weapons. If I take damage, I must make a DC 15 Wis save or go berserk: I attack those near to me until none remain in 60 ft or I'm calmed with a DC 15 Persuasion" + (typePF ? "." : "check."),
 	descriptionLong: "I have a +2 bonus on attack and damage rolls made with this magic weapon. As a reaction when I'm damaged by a creature in this weapon's reach, I can make one melee attack against it. ***Curse***. I'm unwilling to part with it, can't unattune to it without *Remove Curse*, and have disadvantage with other weapons. When I take damage, I must make a DC 15 Wisdom save or go berserk: I attack the nearest creature using this weapon with all my attacks, moving to the next nearest until none remain that I can sea or hear within 60 ft of me. I can also be calmed with a DC 15 Charisma (Persuasion) check.",
-	descriptionFull: "You have a +2 bonus to attack and damage rolls made with this magic weapon. In addition, when you're damaged by a creature in reach, you may use your reaction to make one melee attack against it with this weapon." +
-	"\n   ***Curse***. You're unwilling to part with this weapon while attuned to it. While attuned, you have disadvantage on attack rolls with weapons other than this one." +
-	"\n   Whenever a hostile creature damages you, you must succeed on a DC 15 Wisdom saving throw or go berserk. While berserk, you must use your action on each of your turns to attack the creature nearest to you with the weapon. If you can make extra attacks as part of the Attack action, you use those extra attacks, moving to attack the next nearest creature after you fell your current target. If you have multiple possible targets, you attack one at random." +
-	"\n   You're berserk until you start your turn with no creatures within 60 feet of you that you can see or hear. Alternatively, an ally can use an action to make a DC 15 Charisma (Persuasion) check and if successful, you're no longer berserk. Only the *Remove Curse* spell allows you to end attunement to this item." +
-	CoA_Corruption.description,
+	descriptionFull: [
+		"You have a +2 bonus to attack and damage rolls made with this magic weapon. In addition, when you're damaged by a creature in reach, you may use your reaction to make one melee attack against it with this weapon.",
+		"***Curse***. You're unwilling to part with this weapon while attuned to it. While attuned, you have disadvantage on attack rolls with weapons other than this one.",
+		"Whenever a hostile creature damages you, you must succeed on a DC 15 Wisdom saving throw or go berserk. While berserk, you must use your action on each of your turns to attack the creature nearest to you with the weapon. If you can make extra attacks as part of the Attack action, you use those extra attacks, moving to attack the next nearest creature after you fell your current target. If you have multiple possible targets, you attack one at random.",
+		"You're berserk until you start your turn with no creatures within 60 feet of you that you can see or hear. Alternatively, an ally can use an action to make a DC 15 Charisma (Persuasion) check and if successful, you're no longer berserk. Only the *Remove Curse* spell allows you to end attunement to this item.",
+		CoA_Corruption.description,
+	],
 	eval: function () { CoA_Corruption.process(true, "demonbone polearm") },
 	removeeval: function () { CoA_Corruption.process(false, "demonbone polearm") },
 	chooseGear: {
@@ -55474,9 +55539,11 @@ MagicItemsList["infernal amulet"] = {
 	attunement: true,
 	cursed: true,
 	description: "While wearing this amulet, I can use it as a spellcasting focus for my spells, and it grants a +2 bonus to my spell save DC and spell attack bonus. It is cursed and corrupting. I'm unwilling to part with it and require *Remove Curse* to unattune to it. It gives me disadvantage on Strength saving throws and Strenght checks.",
-	descriptionFull: "While wearing this amulet, you can use it as a spellcasting focus for your spells, and it grants a +2 bonus to your spell save DC and spell attack bonus." +
-	"\n   ***Curse***. You're unwilling to part with this amulet while attuned to it and you wear it always. While wearing the amulet you have disadvantage on Strength saving throws and Strength checks. Only the *Remove Curse* spell allows you to remove the item and end attunement." +
-	CoA_Corruption.description,
+	descriptionFull: [
+		"While wearing this amulet, you can use it as a spellcasting focus for your spells, and it grants a +2 bonus to your spell save DC and spell attack bonus.",
+		"***Curse***. You're unwilling to part with this amulet while attuned to it and you wear it always. While wearing the amulet you have disadvantage on Strength saving throws and Strength checks. Only the *Remove Curse* spell allows you to remove the item and end attunement.",
+		CoA_Corruption.description,
+	],
 	eval: function () { CoA_Corruption.process(true,  "infernal amulet") },
 	removeeval: function () { CoA_Corruption.process(false, "infernal amulet") },
 	calcChanges: {
@@ -55498,9 +55565,11 @@ MagicItemsList["infernal plate armor"] = {
 	attunement: true,
 	cursed: true,
 	description: "While wearing this armor, I gain a +2 bonus to AC. This armor is cursed and corrupting. I can't take it off or unattune to it without *Remove Curse*. It makes me vulnerable to the following damage types: force, lightning, psychic, radiant, and thunder.",
-	descriptionFull: "While wearing this armor, you gain a +2 bonus to AC." +
-	"\n   ***Curse***. Once you wear this armor, and are attuned to it, you can't remove it. Only the *Remove Curse* spell allows you to end the attunement and finally doff it. While wearing the armor, you're vulnerable to the following damage types: force, lightning, psychic, radiant, and thunder." +
-	CoA_Corruption.description,
+	descriptionFull: [
+		"While wearing this armor, you gain a +2 bonus to AC.",
+		"***Curse***. Once you wear this armor, and are attuned to it, you can't remove it. Only the *Remove Curse* spell allows you to end the attunement and finally doff it. While wearing the armor, you're vulnerable to the following damage types: force, lightning, psychic, radiant, and thunder.",
+		CoA_Corruption.description,
+	],
 	eval: function () { CoA_Corruption.process(true,  "infernal plate armor") },
 	removeeval: function () { CoA_Corruption.process(false, "infernal plate armor") },
 	weight: 65,
@@ -55636,11 +55705,13 @@ MagicItemsList["stygian spear"] = {
 	attunement: true,
 	cursed: true,
 	description: "This +2 weapon deals +1d6 damage when thrown. It returns to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require *Remove Curse* to unattune, and have disadv. with other weapons. On a 1 to hit, I attack the closest ally with adv. and deal +2d6 poison damage.",
-	descriptionFull: "You have a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately." +
-	"\n   ***Curse***. You're unwilling to part with this weapon while attuned to it. In addition, you have disadvantage on attack rolls made with weapons other than this one." +
-	"\n   Whenever you roll a 1 on an attack roll using this weapon, your target changes to your closest ally." +
-	"\n   If there are multiple allies, randomly determine which is the target. Make a new attack roll with advantage against your ally. If the attack hits, in addition to the standard damage you deal an extra 2d6 poison damage. Only the *Remove Curse* spell allows you to end attunement to this item." +
-	CoA_Corruption.description,
+	descriptionFull: [
+		"You have a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately.",
+		"***Curse***. You're unwilling to part with this weapon while attuned to it. In addition, you have disadvantage on attack rolls made with weapons other than this one.",
+		"Whenever you roll a 1 on an attack roll using this weapon, your target changes to your closest ally.",
+		"If there are multiple allies, randomly determine which is the target. Make a new attack roll with advantage against your ally. If the attack hits, in addition to the standard damage you deal an extra 2d6 poison damage. Only the *Remove Curse* spell allows you to end attunement to this item.",
+		CoA_Corruption.description,
+	],
 	eval: function () { CoA_Corruption.process(true,  "stygian spear") },
 	removeeval: function () { CoA_Corruption.process(false, "stygian spear") },
 	choices: ["Javelin", "Spear"],
@@ -55685,10 +55756,12 @@ MagicItemsList["sword of retribution"] = {
 	cursed: true,
 	description: "Damage from this +3 sword can be regained only through resting. It is cursed and corrupting. I'm unwilling to part with it, require *Remove Curse* to unattune, and have disadv. with other weapons. After a long rest, I must make a DC 11 Con save or only get the benefits of a short rest due to nightmares.",
 	descriptionLong: "I gain a +3 bonus to attack and damage rolls made with this sword. Hit points lost to this weapon's damage can be regained only through a short or long rest, rather than by regeneration, magic, or any other means. It is cursed and corrupting. I'm unwilling to part with it, require *Remove Curse* to unattune to it, and gives me disadvantage on attacks with other weapons. When I sleep, I experience nightmares of the past of the vengeful spirit possessing the sword, culminating in its death. After a long rest, I must make a DC 11 Constitution saving throw or only gain the benefits of a short rest.",
-	descriptionFull: "You gain a +3 bonus to attack and damage rolls made with this sword. Hit points lost to this weapon's damage can be regained only through a short or long rest, rather than by regeneration, magic, or any other means." +
-	"\n   ***Curse***. You're unwilling to part with this weapon while attuned to it. While attuned to this weapon, you also have disadvantage on attack rolls made with weapons other than this one." +
-	"\n   The vengeful spirit possessing the sword shares its history and lust for vengeance with the wielder. After each successful long rest, you experience nightmares of the spirit's past, culminating in its death. When you wake, you must make a DC 11 Constitution saving throw. On a failed save, you only gain the benefits of a short rest. Only the *Remove Curse* spell allows you to end attunement to this item." +
-	CoA_Corruption.description,
+	descriptionFull: [
+		"You gain a +3 bonus to attack and damage rolls made with this sword. Hit points lost to this weapon's damage can be regained only through a short or long rest, rather than by regeneration, magic, or any other means.",
+		"***Curse***. You're unwilling to part with this weapon while attuned to it. While attuned to this weapon, you also have disadvantage on attack rolls made with weapons other than this one.",
+		"The vengeful spirit possessing the sword shares its history and lust for vengeance with the wielder. After each successful long rest, you experience nightmares of the spirit's past, culminating in its death. When you wake, you must make a DC 11 Constitution saving throw. On a failed save, you only gain the benefits of a short rest. Only the *Remove Curse* spell allows you to end attunement to this item.",
+		CoA_Corruption.description,
+	],
 	eval: function () { CoA_Corruption.process(true,  "sword of retribution") },
 	removeeval: function () { CoA_Corruption.process(false, "sword of retribution") },
 	chooseGear: {

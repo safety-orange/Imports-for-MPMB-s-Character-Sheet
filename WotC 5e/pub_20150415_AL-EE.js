@@ -58,7 +58,7 @@ BackgroundList["caravan specialist"] = {
 		],
 	],
 	bond: [
-		"My brother has a farm In Elmwood and I've helped him and his neigbors move their goods to Mulmaster and other surrounding towns. Those are good people.",
+		"My brother has a farm in Elmwood and I've helped him and his neighbors move their goods to Mulmaster and other surrounding towns. Those are good people.",
 		"A caravan I lead was attacked by bandits and many innocents died. I swear that I will avenge them by killing any bandits I encounter.",
 		"The Soldiery are mostly good guys who understand the importance of protecting the roads. The City Watch is who you have to look out for. If they are inspecting your goods, get ready to pay a fine.",
 		"The new commander of Southroad Tower, Capt. Holke, understands the importance of safe roads. He's hired me for several jobs and I'm grateful.",
@@ -163,7 +163,7 @@ BackgroundList["harborfolk"] = {
 		"I can't sing, but that never stops me from doing it, loudly. Everyone loves a good sea chanty!",
 		"I think the High Blade is doing a terrific job, don't you?",
 		"I'm very excited that the House Built on Gold is being restored. I am a zealous worshipper of Waukeen.",
-		"I am quite superstitious. I see portents in everyday occurances.",
+		"I am quite superstitious. I see portents in everyday occurrences.",
 		"I resent the rich and enjoy thwarting their plans and spoiling their fun in small ways.",
 		"I have a sea story to fit every occasion.",
 		"I'm a fisher, but I secretly detest eating fish. I will do anything to avoid it.",
@@ -223,8 +223,8 @@ BackgroundList["mulmaster aristocrat"] = {
 	feature: "Highborn",
 	trait: [
 		"My ambitions are boundless. I will be a Zor or Zora one day!",
-		"I must alwayss look my best.",
-		"Beauty is everywhere. I can find it in even the homliest person and the most horrible tragedy.",
+		"I must always look my best.",
+		"Beauty is everywhere. I can find it in even the homeliest person and the most horrible tragedy.",
 		"Décorum must be preserved at all costs.",
 		"I will not admit I am wrong if I can avoid it.",
 		"I am extremely well-educated and frequently remind others of that fact.",
@@ -265,7 +265,7 @@ BackgroundList["mulmaster aristocrat"] = {
 		"The ends (my advancement) justify any means.",
 		"I must have what I want and will brook no delay.",
 		"My family has lost everything. I must keep up appearances, lest we become a laughingstock.",
-		"I have no artistic sense. I hide that fact behind extreme opinons and have become a trendsetter.",
+		"I have no artistic sense. I hide that fact behind extreme opinions and have become a trendsetter.",
 	],
 	toolProfs: [["Artisan's tools", 1], ["Musical instrument", 1]],
 	lifestyle: "wealthy",
@@ -292,8 +292,8 @@ BackgroundList["phlan refugee"] = {
 		"I have always gotten ahead by giving, why change now?",
 		"I prepare for everything, it paid off in Phlan and it will pay off again.",
 		"I will reclaim my home, though the path may be long, I will never give up hope.",
-		"I never cared for personal hygiene, and am amazed that It bothers others.",
-		"I am always willing to volunteer my services, just as long as don't have to do anything.",
+		"I never cared for personal hygiene, and am amazed that it bothers others.",
+		"I am always willing to volunteer my services, just as long as I don't have to do anything.",
 	],
 	ideal: [
 		["Justice",
@@ -325,7 +325,7 @@ BackgroundList["phlan refugee"] = {
 	],
 	flaw: [
 		"I used the lives of children to facilitate my escape from Phlan.",
-		"I am a sucker for the underdog, and always bet on the loosing team.",
+		"I am a sucker for the underdog, and always bet on the losing team.",
 		"I am incapable of standing up for myself.",
 		"I will borrow money from friends with no intention to repay it.",
 		"I am unable to keep secrets. A secret is just an untold story.",
@@ -350,7 +350,7 @@ BackgroundFeatureList["harborfolk"] = {
 	source: [["AL:EE", 4], ["ALbackground", 0]],
 };
 BackgroundFeatureList["highborn"] = {
-	description: "Mulmaster is run by and for its aristoracy. Every other class of citizen in the city defers to me, and even the priesthood, Soldiery, Hawks, and Cloaks treat me with deference. Other aristocrats and nobles accept me in their circles and likely know me or of me. My connections can get me the ear of a Zor or Zora under the right circumstances.",
+	description: "Mulmaster is run by and for its aristocracy. Every other class of citizen in the city defers to me, and even the priesthood, Soldiery, Hawks, and Cloaks treat me with deference. Other aristocrats and nobles accept me in their circles and likely know me or of me. My connections can get me the ear of a Zor or Zora under the right circumstances.",
 	source: [["AL:EE", 5], ["ALbackground", 0]],
 };
 BackgroundFeatureList["phlan survivor"] = {
