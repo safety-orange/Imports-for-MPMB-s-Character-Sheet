@@ -1,5 +1,5 @@
 var iFileName = "pub_20141209_DMG.js";
-RequiredSheetVersion("24.1.0");
+RequiredSheetVersion("24.1.3");
 // This file adds all the player-material from the Dungeon Master's Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -74,7 +74,7 @@ AddSubClass("cleric", "death domain", {
 			name: "Inescapable Destruction",
 			source: [["D", 97]],
 			minlevel: 6,
-			description: desc("When I deal Necrotic damage with spells or Channel Divinity, I ignore resistance to it"),
+			description: desc("When I deal Necrotic damage with spells or Channel Divinity, I ignore Resistance to it"),
 		},
 		"subclassfeature17": {
 			name: "Improved Reaper",
@@ -195,7 +195,7 @@ AddSubClass("paladin", "oathbreaker", {
 			name: "Supernatural Resistance",
 			source: [["D", 97]],
 			minlevel: 15,
-			description: desc("I have resistance to Bludgeoning/Piercing/Slashing damage from nonmagical weapons"),
+			description: desc("I have Resistance to Bludgeoning/Piercing/Slashing damage from nonmagical weapons"),
 			dmgres: [["Bludgeoning", "Bludg. (nonmagical)"], ["Piercing", "Pierc. (nonmagical)"], ["Slashing", "Slash. (nonmagical)"]],
 		},
 		"subclassfeature20": {
@@ -203,7 +203,7 @@ AddSubClass("paladin", "oathbreaker", {
 			source: [["D", 97]],
 			minlevel: 20,
 			description: desc([
-				"As an action, I gain a 30-ft aura of gloom that reduces bright light to dim for 1 min",
+				"As an action, I gain a 30-ft aura of gloom that reduces Bright Light to dim for 1 min",
 				"If Frightened of me, foes starting their turn in the aura take 4d10 Psychic damage",
 				"Attacks vs my allies and me inside the aura have Disadvantage if attackers need sight",
 				"As a Bonus Action, I can make a melee spell attack vs a target inside the aura",

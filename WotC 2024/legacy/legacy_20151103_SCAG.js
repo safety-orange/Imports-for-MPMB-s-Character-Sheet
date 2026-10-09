@@ -1,5 +1,5 @@
 var iFileName = "pub_20151103_SCAG.js";
-RequiredSheetVersion(24);
+RequiredSheetVersion("24.1.3");
 // This file adds all the player-material from Sword Coast Adventure Guide to MPMB's Character Record Sheet
 
 // Define the source
@@ -16,7 +16,7 @@ SourceList["S"] = {
 // Races
 RaceList["ghostwise halfling"] = {
 	regExpSearch: /^(?=.*\b(halflings?|hobbits?)\b)(?=.*ghostwise).*$/i,
-	name: "Ghostwise halfling",
+	name: "Ghostwise Halfling",
 	sortname: "Halfling, Ghostwise",
 	plural: "Ghostwise halflings",
 	source: [["S", 110]],
@@ -36,7 +36,7 @@ RaceList["ghostwise halfling"] = {
 		"##\u25C6 Lucky##. When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.",
 		"##\u25C6 Halfling Nimbleness##. I can move through the space of any creature that is of a size larger than me.",
 		"##\u25C6 Silent Speech##. I can speak telepathically to any one creature within 30 ft of me. It only understands me if we share a language.",
-	].join("\n"),
+	],
 };
 RaceList["gray dwarf"] = {
 	regExpSearch: /^((?=.*\bduergars?\b)|((?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b)(?=.*\b(grey|gray|underdark)\b))).*$/i,
@@ -64,7 +64,7 @@ RaceList["gray dwarf"] = {
 		"##\u25C6 Stonecunning##. Whenever I make an Int (History) check related to the origin of stonework, I am considered proficient in the skill and add double my proficiency bonus to the check.",
 		"##\u25C6 Sunlight Sensitivity##. Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.",
 		"##\u25C6 Duergar Magic##. 3rd: *Enlarge/Reduce* to enlarge; 5th: *Invisibility*. If not in direct sunlight, I can cast both spells on myself once per Long Rest without material components, using Int.",
-	].join("\n"),
+	],
 	spellcastingAbility: 4,
 	features: {
 		"enlarge": {
@@ -82,7 +82,7 @@ RaceList["gray dwarf"] = {
 					range: "Self",
 					components: "V,S",
 					compMaterial: "",
-					description: "I'm enlarged, Adv on Str checks/aves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
+					description: "I'm enlarged, Adv on Str checks/saves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
 					changes: "Using Duergar Magic, I cast *Enlarge/Reduce* while I'm not in direct sunlight, but only to enlarge myself.",
 				},
 			},
@@ -130,15 +130,15 @@ if (!RaceList["deep gnome"]) {
 		weightMetric: " weigh around 50 kg (35 + 5d4 \xD7 4d4 / 10 kg)",
 		trait: [
 			"**Svirfneblin**",
-			"##\u25C6 Stone Camouflage##. I have Advantage on Dexterity (stealth) checks to hide in rocky terrain.",
-		].join("\n"),
+			"##\u25C6 Stone Camouflage##. I have Advantage on Dexterity (Stealth) checks to hide in rocky terrain.",
+		],
 	};
 } // dupl_end
 
 // Racial variants
 AddRacialVariant("half-elf", "aquatic", {
 	regExpSearch: /aquatic/i,
-	name: "Half-aquatic elf",
+	name: "Half-Aquatic Elf",
 	source: [["S", 116]],
 	plural: "Half-aquatic elves",
 	speed: {
@@ -149,18 +149,19 @@ AddRacialVariant("half-elf", "aquatic", {
 	trait: [
 		"**Half-Aquatic Elf**",
 		"##\u25C6 Swimming Speed##. My aquatic heritage gives me a 30 ft Swim Speed.",
-	].join("\n"),
+	],
 });
 AddRacialVariant("half-elf", "cantrip", {
 	regExpSearch: /cantrip/i,
-	name: "Half-high elf",
+	name: "Half-High Elf",
+	sortname: "Half-High Elf (Cantrip)",
 	source: [["S", 116]],
 	plural: "Half-high elves",
 	skillstxt: "",
 	trait: [
 		"**Half-High Elf**",
 		"##\u25C6 Cantrip##. I know one cantrip of my choice from the wizard spell list. Intelligence is my spellcasting ability for it.",
-	].join("\n"),
+	],
 	spellcastingAbility: 4,
 	spellcastingBonus: [{
 		name: "High Elf Cantrip",
@@ -171,7 +172,8 @@ AddRacialVariant("half-elf", "cantrip", {
 });
 AddRacialVariant("half-elf", "drow magic", {
 	regExpSearch: /^(?=.*drow)(?=.*magic).*$/i,
-	name: "Half-drow",
+	name: "Half-Drow",
+	sortname: "Half-Drow (Drow Magic)",
 	source: [["S", 116]],
 	plural: "Half-drow",
 	skillstxt: "",
@@ -181,7 +183,7 @@ AddRacialVariant("half-elf", "drow magic", {
 		"Once I reach 3rd level, I can cast the *Faerie Fire* spell once per Long Rest.",
 		"Once I reach 5th level, I can also cast the *Darkness* spell once per Long Rest.",
 		"Charisma is my spellcasting ability for these spells.",
-	].join("\n"),
+	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
 		name: "Drow Magic (level 1)",
@@ -213,6 +215,7 @@ AddRacialVariant("half-elf", "drow magic", {
 	},
 });
 AddRacialVariant("half-elf", "elf weapon training", {
+	sortname: "Half-Elf (Elf Weapon Training)",
 	regExpSearch: /^(?=.*\b(elf|elven)\b)(?=.*weapon)(?=.*training).*$/i,
 	source: [["S", 116]],
 	skillstxt: "",
@@ -221,7 +224,8 @@ AddRacialVariant("half-elf", "elf weapon training", {
 });
 AddRacialVariant("half-elf", "fleet of foot", {
 	regExpSearch: /^(?=.*fleet)(?=.*\b(foot|feet)\b).*$/i,
-	name: "Half-wood elf",
+	name: "Half-Wood Elf",
+	sortname: "Half-Wood Elf (Fleet of Foot)",
 	source: [["S", 116]],
 	plural: "Half-wood elves",
 	speed: {
@@ -232,18 +236,19 @@ AddRacialVariant("half-elf", "fleet of foot", {
 });
 AddRacialVariant("half-elf", "mask of the wild", {
 	regExpSearch: /^(?=.*\bmasks?\b)(?=.*\bwilds?\b).*$/i,
-	name: "Half-wood elf",
+	name: "Half-Wood Elf",
+	sortname: "Half-Wood Elf (Mask of the Wild)",
 	source: [["S", 116]],
 	plural: "Half-wood elves",
 	skillstxt: "",
 	trait: [
 		"**Half-Wood Elf**",
-		"##\u25C6 Mask of the Wild##. I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
-	].join("\n"),
+		"##\u25C6 Mask of the Wild##. I can attempt to hide even when I am only Lightly Obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
+	],
 });
 AddRacialVariant("tiefling", "winged", {
 	regExpSearch: /wing/i,
-	name: "Winged tiefling",
+	name: "Winged Tiefling",
 	source: [["S", 118]],
 	plural: "Winged tieflings",
 	speed: {
@@ -253,7 +258,7 @@ AddRacialVariant("tiefling", "winged", {
 	trait: [
 		"**Winged Tiefling**",
 		"##\u25C6 Wings##. I have bat-like wings sprouting from my shoulder blades that give me 30 ft Fly Speed when I'm not wearing Heavy Armor.",
-	].join("\n"),
+	].concat(RaceList.tiefling.trait),
 });
 
 // Subclasses
@@ -308,7 +313,7 @@ AddSubClass("barbarian", "battlerager", {
 			name: "Reckless Abandon",
 			source: [["S", 121]],
 			minlevel: 6,
-			description: desc("If I use Reckless Attack during rage, I also gain temporary HP equal to my Con mod"),
+			description: desc("If I use Reckless Attack during rage, I also gain Temporary HP equal to my Con mod"),
 		},
 		"subclassfeature10": {
 			name: "Battlerager Charge",
@@ -338,7 +343,7 @@ AddSubClass("monk", "way of the long death", {
 			name: "Touch of Death",
 			source: [["S", 130]],
 			minlevel: 3,
-			description: desc("If I reduce someone within 5 ft to 0 HP, I gain Wis mod + monk level temporary HP"),
+			description: desc("If I reduce someone within 5 ft to 0 HP, I gain Wis mod + monk level Temporary HP"),
 		},
 		"subclassfeature6": {
 			name: "Hour of Reaping",
@@ -409,7 +414,7 @@ AddSubClass("monk", "way of the sun soul", {
 				source: [["S", 131], ["X", 35]],
 				description: desc([
 					"After taking the Attack action, I can cast *Burning Hands* as a Bonus Action [PHB 220]",
-					"For every additional ki point I spend, Burning hands is cast at 1 higher spell level",
+					"For every additional ki point I spend, *Burning Hands* is cast at 1 higher spell level",
 					"The maximum total ki points I can spend for this (including the 2) is half my Monk level",
 				]),
 				additional: levels.map(function (n) {
@@ -472,7 +477,7 @@ AddSubClass("monk", "way of the sun soul", {
 				"I can only do this while my light aura is on; I can turn it on/off as a Bonus Action",
 			]),
 			action: [["bonus action", " (start/stop)"], ["reaction", " (hit in melee)"]],
-			additional: "30-ft rad bright + 30-ft dim light",
+			additional: "30-ft rad Bright + 30-ft Dim Light",
 		},
 	},
 });
@@ -672,7 +677,7 @@ AddSubClass("sorcerer", "storm sorcery", {
 			minlevel: 3,
 			description: desc([
 				"As a Bonus Action, before or after casting a 1st-level or higher spell, I can fly 10 ft",
-				"This movement doesn't provoke opportunity attacks as whirling gust of air surround me",
+				"This movement doesn't provoke opportunity attacks as whirling gusts of air surround me",
 			]),
 			action: [["bonus action", " (with casting)"]],
 		},
@@ -681,7 +686,7 @@ AddSubClass("sorcerer", "storm sorcery", {
 			source: [["S", 137], ["X", 52]],
 			minlevel: 6,
 			description: desc([
-				"I have resistance to Lightning and Thunder damage",
+				"I have Resistance to Lightning and Thunder damage",
 				"When I start casting a 1st-level or higher spell that deals Lightning or Thunder damage,",
 				"I deal Lightning or Thunder damage to creatures of my choice that I can see within 10 ft",
 			]),
@@ -715,7 +720,7 @@ AddSubClass("sorcerer", "storm sorcery", {
 			source: [["S", 137], ["X", 52]],
 			minlevel: 18,
 			description: desc([
-				"I have immunity to Lightning and Thunder damage and gain magical 60 ft Fly Speed",
+				"I have Immunity to Lightning and Thunder damage and gain magical 60 ft Fly Speed",
 				"As an action, I reduce my Fly Speed to 30 ft and give allies 30 ft Fly Speed for 1 hour",
 				"I can do this once per Short Rest for up to 3 + my Charisma modifier allies within 30 ft",
 			]),
@@ -741,7 +746,7 @@ AddSubClass("warlock", "the undying", {
 				"I learn the *Spare the Dying* cantrip and gain Advantage on saving throws vs diseases",
 				"If an Undead targets me directly with an attack or spell, it must make a Wisdom save",
 				"On a fail, it must choose a new target or forfeit its attack or harmful spell",
-				"On a success or if I attack or cast a harmful spell on it, it is immune for 24 hours",
+				"On a success or if I attack or cast a harmful spell on it, it is Immune for 24 hours",
 			]),
 			savetxt: { adv_vs: ["disease"] },
 			spellcastingBonus: [{
@@ -784,6 +789,106 @@ AddSubClass("warlock", "the undying", {
 });
 
 // Backgrounds
+BackgroundList["city watch"] = {
+	regExpSearch: /^(?=.*city)(?=.*(watch|guard)).*$/i,
+	name: "City Watch",
+	source: [["S", 145]],
+	skills: ["Athletics", "Insight"],
+	gold: 10,
+	equipright: [
+		["Uniform of my unit", "", 3],
+		["Insignia of rank", "", ""],
+		["Horn", "", 2],
+		["Manacles", "", 6],
+		["Belt pouch (with coins)", "", 1],
+	],
+	feature: "Watcher's Eye",
+	languageProfs: [2],
+	lifestyle: "modest",
+};
+BackgroundList["clan crafter"] = {
+	regExpSearch: /^(?=.*clan)(?=.*(crafter|smith|builder|miner)).*$/i,
+	name: "Clan Crafter",
+	source: [["S", 145]],
+	skills: ["History", "Insight"],
+	gold: 5,
+	equipleft: [
+		["Set of artisan's tools", "", ""],
+		["Maker's mark chisel", "", 0.5],
+	],
+	equipright: [
+		["Traveler's clothes", "", 4],
+		["Belt pouch (with coins and 10 gp gem)", "", 1],
+	],
+	feature: "Respect of the Stout Folk",
+	toolProfs: [["Artisan's tools", 1]],
+	languageProfs: ["Dwarvish"],
+	lifestyle: "comfortable",
+};
+BackgroundList["cloistered scholar"] = {
+	regExpSearch: /^(?=.*cloistered)(?=.*scholar).*$/i,
+	name: "Cloistered Scholar",
+	source: [["S", 146]],
+	skills: ["History"],
+	skillstxt: "History and choose one from Arcana, Nature, and Religion",
+	gold: 10,
+	equipleft: [
+		["Ink, 1 ounce bottle of", 1, ""],
+		["Quill", "", ""],
+		["Parchment, sheets of", 1, ""],
+		["Small penknife", "", 0.5],
+		["Borrowed book", "", 5],
+	],
+	equipright: [
+		["Scholar's robes", "", 3],
+		["Belt pouch (with coins)", "", 1],
+	],
+	feature: "Library Access",
+	extra: ["Name your Library"],
+	languageProfs: [2],
+	lifestyle: "modest",
+};
+BackgroundList["courtier"] = {
+	regExpSearch: /courtier/i,
+	name: "Courtier",
+	source: [["S", 146]],
+	skills: ["Insight", "Persuasion"],
+	gold: 5,
+	equipright: [
+		["Fine clothes", "", 3],
+		["Belt pouch (with coins)", "", 1],
+	],
+	feature: "Court Functionary",
+	languageProfs: [2],
+	lifestyle: "comfortable",
+};
+BackgroundList["faction agent"] = {
+	regExpSearch: /^(?=.*agent)(?=.*(faction|harper|order of the gauntlet|emerald enclave|lord.?s alliance|zhentarim)).*$/i,
+	name: "Faction Agent",
+	source: [["S", 147]],
+	skills: ["Insight"],
+	skillstxt: "Insight and choose one Intelligence, Wisdom, or Charisma skill",
+	gold: 15,
+	equipleft: [
+		["Copy of seminal faction's text", "", ""],
+	],
+	equipright: [
+		["Common clothes", "", 3],
+		["Badge or emblem of faction", "", ""],
+		["Belt pouch (with coins)", "", 1],
+	],
+	feature: "Safe Haven",
+	extra: [
+		"Select a Faction",
+		"The Harpers",
+		"The Order of the Gauntlet",
+		"The Emerald Enclave",
+		"The Lord's Alliance",
+		"The Zhentarim",
+	],
+	languageProfs: [2],
+	lifestyle: "modest",
+};
 BackgroundList["far traveler"] = {
 	regExpSearch: /^(?=.*far)(?=.*traveler).*$/i,
 	name: "Far Traveler",
@@ -857,112 +962,7 @@ BackgroundList["far traveler"] = {
 	languageProfs: [1],
 	lifestyle: "modest",
 };
-
-// Background variants
-AddBackgroundVariant("soldier", "city watch", {
-	regExpSearch: /^(?=.*city)(?=.*(watch|guard)).*$/i,
-	name: "City Watch",
-	source: [["S", 145]],
-	skills: ["Athletics", "Insight"],
-	equipright: [
-		["Uniform of my unit", "", 3],
-		["Insignia of rank", "", ""],
-		["Horn", "", 2],
-		["Manacles", "", 6],
-		["Belt pouch (with coins)", "", 1],
-	],
-	feature: "Watcher's Eye",
-	extra: "",
-	toolProfs: "",
-	languageProfs: [2],
-	lifestyle: "modest",
-});
-AddBackgroundVariant("guild artisan", "clan crafter", {
-	regExpSearch: /^(?=.*clan)(?=.*(crafter|smith|builder|miner)).*$/i,
-	name: "Clan Crafter",
-	source: [["S", 145]],
-	skills: ["History", "Insight"],
-	equipleft: [
-		["Set of artisan's tools", "", ""],
-		["Maker's mark chisel", "", 0.5],
-	],
-	equipright: [
-		["Traveler's clothes", "", 4],
-		["Belt pouch (with coins and 10 gp gem)", "", 1],
-	],
-	feature: "Respect of the Stout Folk",
-	extra: "",
-	languageProfs: ["Dwarvish"],
-	lifestyle: "comfortable",
-});
-AddBackgroundVariant("sage", "cloistered scholar", {
-	regExpSearch: /^(?=.*cloistered)(?=.*scholar).*$/i,
-	name: "Cloistered Scholar",
-	source: [["S", 146]],
-	skills: ["History"],
-	skillstxt: "History and choose one from Arcana, Nature, and Religion",
-	gold: 10,
-	equipleft: [
-		["Ink, 1 ounce bottle of", 1, ""],
-		["Quill", "", ""],
-		["Parchment, sheets of", 1, ""],
-		["Small penknife", "", 0.5],
-		["Borrowed book", "", 5],
-	],
-	equipright: [
-		["Scholar's robes", "", 3],
-		["Belt pouch (with coins)", "", 1],
-	],
-	feature: "Library Access",
-	extra: ["Name your Library"],
-	languageProfs: [2],
-	lifestyle: "modest",
-});
-AddBackgroundVariant("guild artisan", "courtier", {
-	regExpSearch: /courtier/i,
-	name: "Courtier",
-	source: [["S", 146]],
-	skills: ["Insight", "Persuasion"],
-	gold: 5,
-	equipleft: "",
-	equipright: [
-		["Fine clothes", "", 3],
-		["Belt pouch (with coins)", "", 1],
-	],
-	feature: "Court Functionary",
-	extra: "",
-	toolProfs: "",
-	languageProfs: [2],
-	lifestyle: "comfortable",
-});
-AddBackgroundVariant("acolyte", "faction agent", {
-	regExpSearch: /^(?=.*agent)(?=.*(faction|harper|order of the gauntlet|emerald enclave|lord.?s alliance|zhentarim)).*$/i,
-	name: "Faction Agent",
-	source: [["S", 147]],
-	skills: ["Insight"],
-	skillstxt: "Insight and choose one Intelligence, Wisdom, or Charisma skill",
-	gold: 15,
-	equipleft: [
-		["Copy of seminal faction's text", "", ""],
-	],
-	equipright: [
-		["Common clothes", "", 3],
-		["Badge or emblem of faction", "", ""],
-		["Belt pouch (with coins)", "", 1],
-	],
-	feature: "Safe Haven",
-	extra: [
-		"Select a Faction",
-		"The Harpers",
-		"The Order of the Gauntlet",
-		"The Emerald Enclave",
-		"The Lord's Alliance",
-		"The Zhentarim",
-	],
-	languageProfs: [2],
-	lifestyle: "modest",
-});
-AddBackgroundVariant("folk hero", "inheritor", {
+BackgroundList["inheritor"] = {
 	regExpSearch: /inheritor/i,
 	name: "Inheritor",
 	source: [["S", 150]],
@@ -991,12 +991,13 @@ AddBackgroundVariant("folk hero", "inheritor", {
 	toolProfs: [["Gaming set or musical instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "wealthy",
-});
-AddBackgroundVariant("soldier", "investigator", {
+};
+BackgroundList["investigator"] = {
 	regExpSearch: /investigator/i,
 	name: "Investigator",
 	source: [["S", 145]],
 	skills: ["Insight", "Investigation"],
+	gold: 10,
 	equipright: [
 		["Uniform", "", 3],
 		["Insignia of rank", "", ""],
@@ -1005,16 +1006,16 @@ AddBackgroundVariant("soldier", "investigator", {
 		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Watcher's Eye",
-	extra: "",
-	toolProfs: "",
 	languageProfs: [2],
-});
-AddBackgroundVariant("soldier", "knight of the order", {
+	lifestyle: "modest",
+};
+BackgroundList["knight of the order"] = {
 	regExpSearch: /^(?=.*knight)(?=.*order).*$/i,
 	name: "Knight of the Order",
 	source: [["S", 151]],
 	skills: ["Persuasion"],
 	skillstxt: "Persuasion and choose one from Arcana, History, Nature, and Religion",
+	gold: 10,
 	equipright: [
 		["Traveler's clothes", "", 4],
 		["Signet, banner, or seal of rank", "", ""],
@@ -1025,12 +1026,13 @@ AddBackgroundVariant("soldier", "knight of the order", {
 	toolProfs: [["Gaming set or musical instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "comfortable",
-});
-AddBackgroundVariant("soldier", "mercenary veteran", {
+};
+BackgroundList["mercenary veteran"] = {
 	regExpSearch: /^(?=.*mercenary)(?=.*(veteran|soldier)).*$/i,
 	name: "Mercenary Veteran",
 	source: [["S", 152]],
 	skills: ["Athletics", "Persuasion"],
+	gold: 10,
 	equipright: [
 		["Uniform of my company", "", 4],
 		["Insignia of rank", "", ""],
@@ -1039,9 +1041,10 @@ AddBackgroundVariant("soldier", "mercenary veteran", {
 	],
 	feature: "Mercenary Life",
 	extra: ["Name your Mercenary Company"],
+	toolProfs: [["Gaming set", 1], "Vehicles (land)"],
 	lifestyle: "modest",
-});
-AddBackgroundVariant("criminal", "urban bounty hunter", {
+};
+BackgroundList["urban bounty hunter"] = {
 	regExpSearch: /^(?=.*urban)(?=.*bounty)(?=.*hunter).*$/i,
 	name: "Urban Bounty Hunter",
 	source: [["S", 153]],
@@ -1053,14 +1056,15 @@ AddBackgroundVariant("criminal", "urban bounty hunter", {
 		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Ear to the Ground",
-	extra: "",
 	toolProfs: [["Gaming set, instrument, or thieves' tools", 2]],
 	lifestyle: "poor",
-});
-AddBackgroundVariant("outlander", "uthgardt tribe member", {
+};
+BackgroundList["uthgardt tribe member"] = {
 	regExpSearch: /^(?=.*(uthgardt|barbarian|nomad|clan))(?=.*tribe)(?=.*member).*$/i,
 	name: "Uthgardt Tribe Member",
 	source: [["S", 153]],
+	skills: ["Athletics", "Survival"],
+	gold: 10,
 	equipright: [
 		["Traveler's clothes", "", 4],
 		["Hunting trap", "", 25],
@@ -1068,15 +1072,15 @@ AddBackgroundVariant("outlander", "uthgardt tribe member", {
 		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Uthgardt Heritage",
-	extra: "",
 	toolProfs: [["Artisan's tools or musical instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "poor",
-});
-AddBackgroundVariant("noble", "waterdhavian noble", {
+};
+BackgroundList["waterdhavian noble"] = {
 	regExpSearch: /^(?=.*(waterdhavian|waterdeep))(?=.*noble).*$/i,
 	name: "Waterdhavian Noble",
 	source: [["S", 154]],
+	skills: ["History", "Persuasion"],
 	gold: 20,
 	equipleft: [
 		["Scroll of pedigree", "", ""],
@@ -1091,7 +1095,7 @@ AddBackgroundVariant("noble", "waterdhavian noble", {
 	toolProfs: [["Gaming set or musical instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "wealthy",
-});
+};
 
 // Background features
 BackgroundFeatureList["court functionary"] = {
@@ -1150,7 +1154,10 @@ if (!FeatsList["svirfneblin magic"]) {
 		source: [["E", 7], ["S", 115], ["MToF", 114]],
 		prerequisite: "Being a Svirfneblin (Deep Gnome)",
 		prereqeval: function (v) { return CurrentRace.known === "deep gnome"; },
-		descriptionFull: "You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast *Nondetection* on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: *Blindness/Deafness*, *Blur*, and *Disguise Self*. You regain the ability to cast these spells when you finish a long rest.\n   Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
+		descriptionFull: [
+			"You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast *Nondetection* on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: *Blindness/Deafness*, *Blur*, and *Disguise Self*. You regain the ability to cast these spells when you finish a long rest.",
+			"Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
+		],
 		description: "I can cast *Nondetection* on myself at will, without a material component. I can also cast the spells *Blindness/Deafness*, *Blur*, and *Disguise Self* once each. I regain the ability to cast these spells when I finish a Long Rest. Intelligence is my spellcasting ability for these spells.",
 		spellcastingBonus: [{
 			name: "at will (self only)",
@@ -1159,7 +1166,7 @@ if (!FeatsList["svirfneblin magic"]) {
 			selection: ["nondetection"],
 			firstCol: "atwill",
 		}, {
-			name: "1\xD7 long rest (self only)",
+			name: "1\xD7 Long Rest (self only)",
 			spells: ["blindness/deafness", "blur", "disguise self"],
 			selection: ["blindness/deafness", "blur", "disguise self"],
 			firstCol: "oncelr",

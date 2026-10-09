@@ -3699,6 +3699,7 @@ BackgroundList["artisan"] = {
 		"Weavers and dyers",
 		"Woodcarvers, coopers, and bowyers",
 	],
+	lifestyle: "comfortable",
 };
 BackgroundFeatureList["artisan"] = {
 	description: "I began mopping floors and scrubbing counters in an artisan's workshop for a few coppers per day as soon as I was strong enough to carry a bucket. When I was old enough to apprentice, I learned to create basic crafts of my own, as well as how to sweet talk the occasional demanding customer. My trade has also given me a keen eye for detail.",
@@ -3767,6 +3768,7 @@ BackgroundList["charlatan"] = {
 		"Sleight-of-hand cons",
 		"Sell junk as expensive necessities",
 	],
+	lifestyle: "comfortable",
 };
 BackgroundFeatureList["charlatan"] = {
 	description: "Once I was old enough to order an ale, I soon had a favorite stool in every tavern within ten miles of where I was born. As I traveled the circuit from public house to watering hole, I learned to prey on unfortunates who were in the market for a comforting lie or two - perhaps a sham potion or forged ancestry records.",
@@ -3841,6 +3843,7 @@ BackgroundList["entertainer"] = {
 		"Storyteller",
 		"Tumbler",
 	],
+	lifestyle: "modest",
 };
 BackgroundFeatureList["entertainer"] = {
 	description: "I spent much of my youth following roving fairs and carnivals, performing odd jobs for musicians and acrobats in exchange for lessons. I may have learned how to walk a tightrope, how to play a lute in a distinct style, or how to recite poetry with impeccable diction. To this day, I thrive on applause and long for the stage.",
@@ -3920,6 +3923,7 @@ BackgroundList["farmer"] = {
 		"A magical creature gave me a blessing or insight",
 		"I rose to leadership in a lord's army",
 	],
+	lifestyle: "modest",
 };
 BackgroundFeatureList["farmer"] = {
 	description: "I grew up close to the land. Years tending animals and cultivating the earth rewarded me with patience and good health. I have a keen appreciation for nature's bounty alongside a healthy respect for nature's wrath.",
@@ -4032,6 +4036,7 @@ BackgroundList["guide"] = {
 		"Hunter-gatherer",
 		"Tribal marauder",
 	],
+	lifestyle: "poor",
 };
 BackgroundFeatureList["guide"] = {
 	description: "I came of age outdoors, far from settled lands. My home was anywhere I chose to spread my bedroll. The wilderness has wonders like strange monsters, pristine forests, streams, overgrown ruins, and I learned to fend for myself as I explored them. From time to time, I guided nature priests who taught me the fundamentals of using the magic of the wild.",
@@ -4109,6 +4114,7 @@ BackgroundList["hermit"] = {
 		"Caretaker of an ancient ruin or relic",
 		"Pilgrim in search of a thing of spiritual significance",
 	],
+	lifestyle: "poor",
 };
 BackgroundFeatureList["hermit"] = {
 	description: "I spent my early years secluded in a hut or monastery located well beyond the outskirts of the nearest settlement. In those days, my only companions were the creatures of the forest and those who would occasionally visit to bring news of the outside world and supplies. The solitude allowed me to spend many hours pondering the mysteries of creation.",
@@ -4141,6 +4147,7 @@ BackgroundList["merchant"] = {
 		"Caravan master",
 		"Shopkeeper",
 	],
+	lifestyle: "comfortable",
 };
 BackgroundFeatureList["merchant"] = {
 	description: "I was apprenticed to a trader, caravan master, or shopkeeper, learning the fundamentals of commerce. I traveled broadly and earned a living by buying and selling raw materials artisans need to practice their craft, or their finished works. I transported goods from one place to another or bought them from traveling traders and sold them in my own shop.",
@@ -4200,6 +4207,7 @@ BackgroundList["noble"] = {
 		"In fact, the world does revolve around me.",
 		"By my words and actions, I often bring shame to my family.",
 	],
+	lifestyle: "wealthy",
 };
 BackgroundFeatureList["noble"] = {
 	description: "I was raised in a castle, surrounded by wealth, power, and privilege. My family of minor aristocrats ensured that I received a first-class education, some of which I appreciated and some of which I resented. My time in the castle, especially the many hours I spent observing my family at court, also taught me a great deal about leadership.",
@@ -4263,6 +4271,7 @@ BackgroundList["sailor"] = {
 		"I can't help but pocket loose coins and other trinkets I come across.",
 		"My pride will probably lead to my destruction.",
 	],
+	lifestyle: "modest",
 };
 BackgroundFeatureList["sailor"] = {
 	description: "I lived as a seafarer, wind at my back and decks swaying beneath my feet. I've perched on bar stools in more ports of call than I can remember, faced mighty storms, and swapped stories with folk who live beneath the waves.",
@@ -4354,6 +4363,7 @@ BackgroundList["wayfarer"] = {
 		"It's not theft if I have more use for it than someone else.",
 		"People who are incapable of taking care of themselves get what they deserve.",
 	],
+	lifestyle: "modest",
 };
 BackgroundFeatureList["wayfarer"] = {
 	description: "I grew up on the streets surrounded by similarly ill-fated castoffs, a few of them friends and a few of them rivals. I slept where I could and did odd jobs for food. At times, when the hunger became unbearable, I resorted to theft. Still, I never lost my pride and never abandoned hope. Fate is not yet finished with me.",
@@ -10429,7 +10439,7 @@ CreatureList["giant squid"] = {
 SourceList["RHW"] = {
 	name: "Ravenloft: The Horrors Within (incomplete)",
 	abbreviation: "RHW",
-	group: "Campaign Sourcebook",
+	group: "Campaign Sourcebooks",
 	campaignSetting: "Ravenloft",
 	url: "https://marketplace.dndbeyond.com/rulebooks/6015000",
 	date: "2026/06/16",

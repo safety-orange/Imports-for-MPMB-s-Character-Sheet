@@ -1,5 +1,5 @@
 var iFileName = "legacy_20140819_PHB.js";
-RequiredSheetVersion("24.1.0");
+RequiredSheetVersion("24.1.3");
 // This file adds options from the 2014 Player's Handbook to MPMB's Character Record Sheet that have not been replaced with new options in the 2024 Player's Handbook or other rulebooks for the 2024 rules
 
 // Define the source
@@ -16,7 +16,7 @@ SourceList["P"] = {
 // Races
 RaceList["half-elf"] = {
 	regExpSearch: /^(?=.*half)(?=.*(elf|elv|drow|silvanesti|qualinesti|grugach|kagonesti)).*$/i,
-	name: "Half-elf",
+	name: "Half-Elf",
 	source: [["SRD", 6], ["P", 39]],
 	plural: "Half-elves",
 	size: 3,
@@ -39,11 +39,11 @@ RaceList["half-elf"] = {
 		"**Half-Elf**",
 		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
 		"##\u25C6 Skill Versatility##. I gain proficiency in two skills of my choice.",
-	].join("\n"),
+	],
 };
 RaceList["half-orc"] = {
 	regExpSearch: /^(?=.*half)(?=.*\bor(c|k)).*$/i,
-	name: "Half-orc",
+	name: "Half-Orc",
 	source: [["SRD", 7], ["P", 41]],
 	plural: "Half-orcs",
 	size: 3,
@@ -90,9 +90,9 @@ RaceList["half-orc"] = {
 	},
 	trait: [
 		"**Half-Orc**",
-		"##\u25C6 Relentless Endurance##. When I am reduced to 0 hit points but not killed outright, I can drop to 1 hit point instead. I can't use this feature again until I finish a Long Rest.",
+		"##\u25C6 Relentless Endurance##. When I am reduced to 0 Hit Points but not killed outright, I can drop to 1 Hit Point instead. I can't use this feature again until I finish a Long Rest.",
 		"##\u25C6 Savage Attacks##. When I score a critical hit with a melee weapon attack, I can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.",
-	].join("\n"),
+	],
 };
 
 // Eldritch Invocations
@@ -128,7 +128,7 @@ AddWarlockInvocation("Bewitching Whispers (req: lvl 7+)", {
 });
 AddWarlockInvocation("Book of Ancient Secrets (req: Pact of the Tome)", {
 	name: "Book of Ancient Secrets",
-	description: desc("My Book of Shadows is inscribed with two 1st-level Ritual spells of my choice. When I come across other Ritual spell, I can inscribe them as well. I can cast these inscribed spells as Rituals, they are not automatically prepared. (Select only these inscribed spells in the 'Spells' column.)"),
+	description: desc("My Book of Shadows is inscribed with two 1st-level Ritual spells of my choice. When I come across other Ritual spells, I can inscribe them as well. I can cast these inscribed spells as Rituals, they are not automatically prepared. (Select only these inscribed spells in the 'Spells' column.)"),
 	source: [["SRD", 48], ["P", 110]],
 	submenu: "[improves Pact of the Tome]",
 	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the tome") !== -1; },
@@ -185,7 +185,7 @@ AddWarlockInvocation("Book of Ancient Secrets (req: Pact of the Tome)", {
 					return true;
 				};
 			},
-			"By the Book of Ancient Secrets invocation, I can cast any Ritual spells I've added to my Book of Shadows, but only as a Ritual. Ritual spell always have a casting time of 10 minutes or more. The sheet assumes any Ritual spells above 1st-level are manual additions.",
+			"By the Book of Ancient Secrets invocation, I can cast any Ritual spells I've added to my Book of Shadows, but only as a Ritual. Ritual spells always have a casting time of 10 minutes or more. The sheet assumes any Ritual spells above 1st-level are manual additions.",
 		],
 	},
 });
@@ -354,7 +354,7 @@ AddSubClass("cleric", "nature domain", {
 			minlevel: 6,
 			description: desc([
 				"As a Reaction, if an ally in 30 ft or I takes Acid/Cold/Fire/Lightning/Thunder damage,",
-				"I can grant resistance against that instance of damage",
+				"I can grant Resistance against that instance of damage",
 			]),
 			action: [["reaction", ""]],
 		},
@@ -415,6 +415,39 @@ AddSubClass("cleric", "tempest domain", {
 			speed: { fly: { spd: "walk", enc: "walk" } },
 		},
 	},
+});
+
+// Background Variants
+AddBackgroundVariant("entertainer", "gladiator", {
+	regExpSearch: /gladiator/i,
+	name: "Gladiator",
+	source: [["P", 131]],
+	scorestxt: null,
+	equipright: !BackgroundList["entertainer"] ? null :
+		BackgroundList["entertainer"].equipright.map(function (n) {
+			if (/musical instrument/i.test(n[0])) n[0] = "Inexpensive, unusual weapon";
+			return n;
+		}),
+	feature: "Are You Entertained?",
+	extra: null,
+});
+AddBackgroundVariant("noble", "knight", {
+	regExpSearch: /^(?!.*order)(?=.*knight).*$/i,
+	name: "Knight",
+	source: [["P", 136]],
+	scorestxt: null,
+	equipright: !BackgroundList["noble"] ? null :
+		BackgroundList["noble"].equipright.concat([
+			["Banner or token from devoted love", "", ""],
+		]),
+	feature: "Retainers",
+});
+AddBackgroundVariant("sailor", "pirate", {
+	regExpSearch: /pirate/i,
+	name: "Pirate",
+	source: [["P", 139]],
+	scorestxt: null,
+	feature: "Bad Reputation",
 });
 
 // Background Features
@@ -487,7 +520,7 @@ BackgroundFeatureList["city secrets"] = { // from Urchin
 FeatsList["dungeon delver"] = {
 	name: "Dungeon Delver",
 	source: [["P", 166]],
-	description: "I have Adv on Wis (Perception) and Int (Investigation) checks made to detect the presence of secret doors. I have resistance to damage dealt by traps and Advantage on saves to avoid or resist traps. Travelling at a fast pace doesn't impose -5 on my passive Perception.",
+	description: "I have Adv on Wis (Perception) and Int (Investigation) checks made to detect the presence of secret doors. I have Resistance to damage dealt by traps and Advantage on saves to avoid or resist traps. Travelling at a fast pace doesn't impose -5 on my passive Perception.",
 	descriptionFull: [
 		"Alert to the hidden traps and secret doors found in many dungeons, you gain the following benefits:",
 		" \u2022 You have advantage on Wisdom (Perception) and Intelligence (Investigation) checks made to detect the presence of secret doors.",

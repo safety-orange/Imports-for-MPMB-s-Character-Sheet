@@ -5,7 +5,7 @@ RequiredSheetVersion("24.1.0");
 SourceList["RHW"] = {
 	name: "Ravenloft: The Horrors Within (incomplete)",
 	abbreviation: "RHW",
-	group: "Campaign Sourcebook",
+	group: "Campaign Sourcebooks",
 	campaignSetting: "Ravenloft",
 	url: "https://marketplace.dndbeyond.com/rulebooks/6015000",
 	date: "2026/06/16",
