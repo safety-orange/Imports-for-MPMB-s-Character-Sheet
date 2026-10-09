@@ -1,5 +1,5 @@
 var iFileName = "ps_20180109_Ixalan.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.1.3");
 // This file adds all material from the Plane Shift: Ixalan article (https://magic.wizards.com/en/articles/archive/feature/plane-shift-ixalan-2018-01-09) to MPMB's Character Record Sheet
 
 // Define the source
@@ -234,6 +234,7 @@ FeatsList["vampiric exultation"] = {
 // Adds 1 creature, a beast
 CreatureList["frilled deathspitter"] = {
 	name: "Frilled Deathspitter",
+	nameThis: "deathspitter",
 	source: [["PS:X", 30]],
 	size: 4,
 	type: "Beast",
@@ -272,6 +273,6 @@ CreatureList["frilled deathspitter"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the deathspitter can make two Claw and one Bite attack.",
+		description: "As an action on its turn, the [THIS] can make two Claw and one Bite attack.",
 	}],
 };

@@ -15,6 +15,7 @@ SourceList["CotN"] = {
 CreatureList["young horizonback tortoise"] = { // Contains contributions by Nod_Hero
 	name: "Young Horizonback Tortoise",
 	nameAlt: ["Tortoise, Young Horizonback"],
+	nameThis: "tortoise",
 	source: [["CotN", 26]],
 	size: 1,
 	type: "Beast",
@@ -39,7 +40,7 @@ CreatureList["young horizonback tortoise"] = { // Contains contributions by Nod_
 	}],
 	traits: [{
 		name: "Amphibious",
-		description: "The tortoise can breathe air and water.",
+		description: "The [THIS] can breathe air and water.",
 	}],
 };
 

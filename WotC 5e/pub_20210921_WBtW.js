@@ -754,11 +754,11 @@ CreatureList["giant swan"] = { // a giant eagle except that it has no talons, ca
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the swan can make two Beak attacks.",
+		description: "As an action on its turn, the [THIS] can make two Beak attacks.",
 	}],
 	traits: [{
 		name: "Keen Sight",
-		description: "The swan has advantage on Wisdom (Perception) checks that rely on sight.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on sight.",
 	}],
 }
 CreatureList["giant dragonfly"] = {
@@ -786,11 +786,11 @@ CreatureList["giant dragonfly"] = {
 	}],
 	traits: [{
 		name: "Drone",
-		description: "When it beats its wings, the dragonfly emits a loud droning sound that can be heard out to a range of 120 ft.",
+		description: "When it beats its wings, the [THIS] emits a loud droning sound that can be heard out to a range of 120 ft.",
 	}],
 	actions: [{
 		name: "Uncanny Dodge",
-		description: "As a reaction, the dragonfly can halve the damage it takes from an attack made against it, provided it can see the attacker.",
+		description: "As a reaction, the [THIS] can halve the damage it takes from an attack made against it, provided it can see the attacker.",
 	}],
 }
 CreatureList["giant snail"] = {
@@ -819,11 +819,11 @@ CreatureList["giant snail"] = {
 	}],
 	traits: [{
 		name: "Salt Osmosis",
-		description: "Whenever the snail starts its turn in contact with a pound or more of salt, it takes 1d4 necrotic damage. Using an action to sprinkle a pound of salt on the snail deals 1d4 necrotic damage to it immediately and another 1d4 necrotic damage to it at the start of its next turn (after which the salt rubs off), provided the snail has not withdrawn into its shell.",
+		description: "Whenever the [THIS] starts its turn in contact with a pound or more of salt, it takes 1d4 necrotic damage. Using an action to sprinkle a pound of salt on the [THIS] deals 1d4 necrotic damage to it immediately and another 1d4 necrotic damage to it at the start of its next turn (after which the salt rubs off), provided the [THIS] has not withdrawn into its shell.",
 	}],
 	actions: [{
 		name: "Shell Defense",
-		description: "As an action, the snail withdraws into its shell, gaining a +4 bonus to its AC until it emerges. It can emerge from its shell as a bonus action on its turn.",
+		description: "As an action, the [THIS] withdraws into its shell, gaining a +4 bonus to its AC until it emerges. It can emerge from its shell as a bonus action on its turn.",
 	}],
 	wildshapeString: [
 		"##Senses##. Darkvision 60 ft.",

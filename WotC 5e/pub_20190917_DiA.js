@@ -158,6 +158,7 @@ BackgroundFeatureList["gateguide connection"] = {
 CreatureList["abyssal chicken"] = {
 	name: "Abyssal Chicken",
 	nameAlt: ["Chicken, Abyssal"],
+	nameThis: "chicken",
 	source: [["DiA", 97]],
 	size: 5,
 	type: "Fiend",
@@ -193,11 +194,11 @@ CreatureList["abyssal chicken"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the chicken can make one Bite and one Claws attack.",
+		description: "As an action on its turn, the [THIS] can make one Bite and one Claws attack.",
 	}],
 	traits: [{
 		name: "Bad Flier",
-		description: "The chicken falls at the end of a turn if it's airborne and the only thing holding it aloft is its flying speed.",
+		description: "The [THIS] falls at the end of a turn if it's airborne and the only thing holding it aloft is its flying speed.",
 	}],
 }
 

@@ -693,7 +693,7 @@ CreatureList["aurochs"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the aurochs moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 9 (2d8) piercing damage. A targeted creature must succeed on a DC 15 Strength saving throw or be knocked prone.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d8 piercing damage. A targeted creature must succeed on a DC 15 Strength saving throw or be knocked prone.",
 	}],
 };
 CreatureList["cow"] = {
@@ -721,7 +721,7 @@ CreatureList["cow"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the cow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 piercing damage.",
 	}],
 };
 CreatureList["ox"] = {
@@ -749,15 +749,16 @@ CreatureList["ox"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the ox moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 piercing damage.",
 	}, {
 		name: "Beast of Burden",
-		description: "The oxen is considered to be a Huge animal for the purpose of determining its carrying capacity.",
+		description: "The [THIS] is considered to be a Huge animal for the purpose of determining its carrying capacity.",
 	}],
 };
 CreatureList["deep rothe"] = {
 	name: "Deep Roth\xE9",
 	nameAlt: ["Roth\xE9, Deep"],
+	nameThis: "roth\xe9",
 	source: [["V", 208], ["MotM", 71]],
 	size: 3, //Medium
 	type: "Beast",
@@ -782,10 +783,10 @@ CreatureList["deep rothe"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the roth\xE9 moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 piercing damage.",
 	}, {
 		name: "Dancing Lights",
-		description: "The roth\xE9 casts *dancing lights*, requiring no spell components and using Wisdom as the spellcasting ability.",
+		description: "The [THIS] casts *dancing lights*, requiring no spell components and using Wisdom as the spellcasting ability.",
 	}],
 };
 CreatureList["rothe"] = {
@@ -814,7 +815,7 @@ CreatureList["rothe"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the roth\xE9 moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 piercing damage.",
 	}],
 };
 CreatureList["stench kow"] = {
@@ -844,7 +845,7 @@ CreatureList["stench kow"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the stench kow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 piercing damage.",
 	}, {
 		name: "Stench",
 		description: "Any creature other than a stench kow starting its turn within 5 ft of a stench kow must make a DC 12 Constitution saving throw or be poisoned until the start of the creature's next turn. On a successful saving throw, the creature is immune to the stench of all stench kows for 1 hour.",
@@ -883,10 +884,10 @@ CreatureList["dolphin"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the dolphin moves at least 30 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 3 (1d6) bludgeoning damage.",
+		description: "If the [THIS] moves at least 30 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 1d6 bludgeoning damage.",
 	}, {
 		name: "Hold Breath",
-		description: "The dolphin can hold its breath for 20 minutes.",
+		description: "The [THIS] can hold its breath for 20 minutes.",
 	}],
 };
 CreatureList["cranium rat"] = {
@@ -917,10 +918,10 @@ CreatureList["cranium rat"] = {
 	}],
 	traits: [{
 		name: "Illumination",
-		description: "As a bonus action, the cranium rat can shed dim light from its brain in a 5-foot radius or extinguish the light.",
+		description: "As a bonus action, the [THIS] can shed dim light from its brain in a 5-foot radius or extinguish the light.",
 	}, {
 		name: "Telepathic Shroud",
-		description: "The cranium rat is immune to any effect that would sense its emotions or read its thoughts, as well as to all divination spells.",
+		description: "The [THIS] is immune to any effect that would sense its emotions or read its thoughts, as well as to all divination spells.",
 	}],
 };
 CreatureList["brontosaurus"] = {
@@ -988,11 +989,11 @@ CreatureList["deinonychus"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the deinonychus can make two Claw and one Bite attack.",
+		description: "As an action on its turn, the [THIS] can make two Claw and one Bite attack.",
 	}],
 	traits: [{
 		name: "Pounce",
-		description: "If the deinonychus moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the deinonychus can make one bite attack against it as a bonus action.",
+		description: "If the [THIS] moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the [THIS] can make one bite attack against it as a bonus action.",
 	}],
 };
 CreatureList["dimetrodon"] = {
@@ -1077,10 +1078,10 @@ CreatureList["quetzalcoatlus"] = {
 	}],
 	traits: [{
 		name: "Dive Attack",
-		description: "If the quetzalcoatlus is flying and dives at least 30 ft toward a creature and then hits it with a bite attack, the attack deals an extra 10 (3d6) damage to the target.",
+		description: "If the [THIS] is flying and dives at least 30 ft toward a creature and then hits it with a bite attack, the attack deals an extra 3d6 damage to the target.",
 	}, {
 		name: "Flyby",
-		description: "The quetzalcoatlus doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
+		description: "The [THIS] doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
 	}],
 };
 CreatureList["stegosaurus"] = {
@@ -1141,11 +1142,11 @@ CreatureList["velociraptor"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the velociraptor can make one Bite and one Claw attack.",
+		description: "As an action on its turn, the [THIS] can make one Bite and one Claw attack.",
 	}],
 	traits: [{
 		name: "Pack Tactics",
-		description: "The velociraptor has advantage on an attack roll against a creature if at least one of the velociraptor's allies is within 5 ft of the creature and the ally isn't incapacitated.",
+		description: "The [THIS] has advantage on an attack roll against a creature if at least one of the [THIS]'s allies is within 5 ft of the creature and the ally isn't incapacitated.",
 	}],
 };
 CreatureList["gazer"] = {
@@ -1188,14 +1189,19 @@ CreatureList["gazer"] = {
 	}],
 	traits: [{
 		name: "Aggressive",
-		description: "As a bonus action, the gazer moves its speed toward an enemy that it can see.",
+		description: "As a bonus action, the [THIS] moves its speed toward an enemy that it can see.",
 	}, {
 		name: "Mimicry",
-		description: "The gazer can mimic simple speech it has heard, in any language. Any who hear this can tell it is an imitation with a successful DC 10 Wis (Insight) check.",
+		description: "The [THIS] can mimic simple speech it has heard, in any language. Any who hear this can tell it is an imitation with a successful DC 10 Wis (Insight) check.",
 	}],
 	actions: [{
 		name: "Eye Rays",
-		description: "1. Dazing Ray: Wisdom saving throw or charmed until the start of the gazer's next turn. While charmed, half speed and disadv. on attacks.\n2. Fear Ray: Wisdom saving throw or frightened until the start of the gazer's next turn.\n3. Frost Ray: Target must make a Dexterity saving throw or 10 (3d6) cold damage.\n4. Telekinetic Ray: Medium or smaller creature, Strength saving throw or be moved up to 30 ft away from the gazer. If it is an unattended Tiny object, the gazer moves it up to 30 ft in any direction. It can exert fine control on objects this way.", // MotM: no longer 10 lb limit, just Tiny object
+		description: [
+			"1. **Dazing Ray**. Wisdom saving throw or charmed until the start of the [THIS]'s next turn. While charmed, half speed and disadv. on attacks.",
+			"2. **Fear Ray**. Wisdom saving throw or frightened until the start of the [THIS]'s next turn.",
+			"3. **Frost Ray**. Target must make a Dexterity saving throw or 3d6 cold damage.",
+			"4. **Telekinetic Ray**. Medium or smaller creature, Strength saving throw or be moved up to 30 ft away from the [THIS]. If it is an unattended Tiny object, the [THIS] moves it up to 30 ft in any direction. It can exert fine control on objects this way.", // MotM: no longer 10 lb limit, just Tiny object
+		].join("\n"),
 	}],
 	variant: [{
 		name: "Variant: Familiar",

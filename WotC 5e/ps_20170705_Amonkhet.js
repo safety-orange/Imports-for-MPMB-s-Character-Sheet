@@ -1,5 +1,5 @@
 var iFileName = "ps_20170705_Amonkhet.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.1.3");
 // This file adds all material from the Plane Shift: Amonkhet article (https://dnd.wizards.com/articles/features/plane-shift-amonkhet) to MPMB's Character Record Sheet
 // This code contains contributions by /u/MILKB0T and /u/juju2569
 
@@ -650,10 +650,10 @@ CreatureList["serpopard"] = {
 	],
 	traits: [{
 		name: "Keen Smell",
-		description: "The serpopard has advantage on Wisdom (Perception) checks that rely on smell.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on smell.",
 	}, {
 		name: "Pounce",
-		description: "If the serpopard moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 14 Strength saving throw or be knocked prone. If the target is prone, the serpopard can make one bite attack against it as a bonus action.",
+		description: "If the [THIS] moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 14 Strength saving throw or be knocked prone. If the target is prone, the [THIS] can make one bite attack against it as a bonus action.",
 	},
 	],
 };
@@ -688,10 +688,10 @@ CreatureList["cerodon"] = {
 	],
 	traits: [{
 		name: "Trampling Charge",
-		description: "If the cerodon moves at least 20 ft straight toward a creature and then hits it with a gore attack on the same turn, that target must succeed on a DC 18 Strength saving throw or be knocked prone. If the target is prone, the cerodon can make one stomp attack against it as a bonus action.",
+		description: "If the [THIS] moves at least 20 ft straight toward a creature and then hits it with a gore attack on the same turn, that target must succeed on a DC 18 Strength saving throw or be knocked prone. If the target is prone, the [THIS] can make one stomp attack against it as a bonus action.",
 	}, {
 		name: "Siege Monster",
-		description: "The cerodon deals double damage to objects and structures.",
+		description: "The [THIS] deals double damage to objects and structures.",
 	},
 	],
 };
@@ -726,10 +726,10 @@ CreatureList["hippopotamus"] = {
 	],
 	traits: [{
 		name: "Hold Breath",
-		description: "The hippopotamus can hold its breath for 30 minutes.",
+		description: "The [THIS] can hold its breath for 30 minutes.",
 	}, {
 		name: "Trampling Charge",
-		description: "If the hippopotamus moves at least 20 ft straight toward a creature and then hits it with a bite attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the hippopotamus can make one stomp attack against it as a bonus action.",
+		description: "If the [THIS] moves at least 20 ft straight toward a creature and then hits it with a bite attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the [THIS] can make one stomp attack against it as a bonus action.",
 	},
 	],
 };

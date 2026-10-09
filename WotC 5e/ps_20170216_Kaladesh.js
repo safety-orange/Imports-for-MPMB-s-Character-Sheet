@@ -1,5 +1,5 @@
 var iFileName = "ps_20170216_Kaladesh.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.1.3");
 // This file adds all material from the Plane Shift: Kaladesh article (https://magic.wizards.com/en/articles/archive/feature/plane-shift-kaladesh-2017-02-16) to MPMB's Character Record Sheet
 // This code contains contributions by SoilentBrad and userZynx_name
 
@@ -318,18 +318,19 @@ CreatureList["gremlin"] = { // Includes contributions by SoilentBrad
 	],
 	traits: [{
 		name: "Aether Scent",
-		description: "The gremlin can pinpoint, by scent, the location of refined or unrefined aether within 30 feet of it.",
+		description: "The [THIS] can pinpoint, by scent, the location of refined or unrefined aether within 30 feet of it.",
 	},
 	],
 	actions: [{
 		name: "Siphon",
-		description: "The gremlin drains aether from an aether-powered device it can see within 5 feet of it. If the object isn't being worn or carried, the touch automatically drains aether. If the object is being worn or carried by a creature, the creature must succeed on a DC 11 Dexterity saving throw to keep it out of the gremlin's reach. If the aether-powered device grants any bonus (to attack rolls, damage rolls, Armor Class, and so on), that bonus is reduced by 1. If the device has charges, it loses 1 charge. Otherwise, it stops functioning for 1 round. Left unhindered, a gremlin can completely destroy an aether-powered device.",
+		description: "The [THIS] drains aether from an aether-powered device it can see within 5 feet of it. If the object isn't being worn or carried, the touch automatically drains aether. If the object is being worn or carried by a creature, the creature must succeed on a DC 11 Dexterity saving throw to keep it out of the [THIS]'s reach. If the aether-powered device grants any bonus (to attack rolls, damage rolls, Armor Class, and so on), that bonus is reduced by 1. If the device has charges, it loses 1 charge. Otherwise, it stops functioning for 1 round. Left unhindered, a gremlin can completely destroy an aether-powered device.",
 	},
 	],
 };
 CreatureList["sky whale"] = { // Includes contributions by SoilentBrad
 	name: "Sky Whale",
 	nameAlt: ["Whale, Sky"],
+	nameThis: "whale",
 	source: [["PS:K", 28]],
 	size: 1,
 	type: "Beast",
@@ -362,11 +363,11 @@ CreatureList["sky whale"] = { // Includes contributions by SoilentBrad
 	],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the whale can make one Flipper and one Tail attack.",
+		description: "As an action on its turn, the [THIS] can make one Flipper and one Tail attack.",
 	}],
 	traits: [{
 		name: "Hold Breath",
-		description: "The whale can hold its breath for 30 minutes.",
+		description: "The [THIS] can hold its breath for 30 minutes.",
 	}],
 };
 CreatureList["servo"] = { // Includes contributions by userZynx_name

@@ -17,6 +17,7 @@ SourceList["TftYP"] = {
 CreatureList["giant crayfish"] = {
 	name: "Giant Crayfish",
 	nameAlt: ["Crayfish, Giant"],
+	nameThis: "giant crayfish",
 	source: [["TftYP", 235]],
 	size: 2, //Large
 	type: "Beast",
@@ -44,13 +45,14 @@ CreatureList["giant crayfish"] = {
 	],
 	traits: [{
 		name: "Amphibious",
-		description: "The giant crayfish can breathe air and water.",
+		description: "The [THIS] can breathe air and water.",
 	},
 	],
 };
 CreatureList["giant ice toad"] = {
 	name: "Giant Ice Toad",
 	nameAlt: ["Toad, Giant Ice"],
+	nameThis: "toad",
 	source: [["TftYP", 235]],
 	size: 2, //Large
 	type: "Monstrosity",
@@ -77,18 +79,18 @@ CreatureList["giant ice toad"] = {
 	],
 	traits: [{
 		name: "Amphibious",
-		description: "The toad can breathe air and water",
+		description: "The [THIS] can breathe air and water",
 	}, {
 		name: "Cold Aura",
-		description: "A creature that starts its turn within 10 feet of the toad takes 5 (1d10) cold damage.",
+		description: "A creature that starts its turn within 10 feet of the [THIS] takes 1d10 cold damage.",
 	}, {
 		name: "Standing Leap",
-		description: "The toad's long jump is up to 20 ft and its high jump is up to 10 ft, with or without a running start.",
+		description: "The [THIS]'s long jump is up to 20 ft and its high jump is up to 10 ft, with or without a running start.",
 	},
 	],
 	features: [{
 		name: "Swallow",
-		description: "The toad can make a bite attack against a Medium or smaller target it is grappling. If it hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the toad, and it takes 10 (3d6) acid damage and 11 (2d6) cold damage at the start of each of the toad's turns. The toad can have only one target swallowed at a time.\nIf the toad dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 5 feet of movement, exiting prone.",
+		description: "The [THIS] can make a bite attack against a Medium or smaller target it is grappling. If it hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the [THIS], and it takes 3d6 acid damage and 2d6 cold damage at the start of each of the [THIS]'s turns. The [THIS] can have only one target swallowed at a time.\nIf the [THIS] dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 5 feet of movement, exiting prone.",
 	},
 	],
 	wildshapeString: (typePF ? "##Senses##. " : "") + "Darkvision 60 ft. ##Cold Aura##. Any within 5 ft at start of their turn take 1d10 cold damage. ##Amphibious##. Breathes air and water. ##Standing Leap##. Long jump 20 ft and high jump 10 ft, regardless of start. ##Swallow##. If bite attack hits Medium or smaller being grappling, it takes bite damage and is swallowed: blinded, restrained, total cover, takes 3d6 acid and 2d6 cold damage at the start of each of the toad's turns; Only 1 swallowed at a time.",
@@ -96,6 +98,7 @@ CreatureList["giant ice toad"] = {
 CreatureList["giant lightning eel"] = {
 	name: "Giant Lightning Eel",
 	nameAlt: ["Eel, Giant Lightning"],
+	nameThis: "eel",
 	source: [["TftYP", 236]],
 	size: 2, //Large
 	type: "Beast",
@@ -130,20 +133,21 @@ CreatureList["giant lightning eel"] = {
 	}],
 	traits: [{
 		name: "Water Breathing",
-		description: "The eel can breathe only underwater.",
+		description: "The [THIS] can breathe only underwater.",
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the eel can make two Bite attacks.",
+		description: "As an action on its turn, the [THIS] can make two Bite attacks.",
 	}, {
 		name: "Lightning Jolt (Recharge 5-6)",
-		description: "See Attack. One creature the eel touches within 5 ft of it outside water, or each creature within 15 ft of it in a body of water, must make a DC 12 Constitution saving throw. On failed save, a target takes 3d8 lightning damage. If the target takes any of this damage, the target is stunned until the end of the eel's next turn. On a successful save, a target takes half as much damage and isn't stunned",
+		description: "See Attack. One creature the [THIS] touches within 5 ft of it outside water, or each creature within 15 ft of it in a body of water, must make a DC 12 Constitution saving throw. On failed save, a target takes 3d8 lightning damage. If the target takes any of this damage, the target is stunned until the end of the [THIS]'s next turn. On a successful save, a target takes half as much damage and isn't stunned",
 	}],
 	wildshapeString: "##Senses##. Blindsight 60 ft. ##Resistances##. Lightning. ##Multiattack##. On its turn, 2 Bite attacks.\n##Water Breathing##. The eel can breathe only underwater. ##Lightning Jolt (Recharge 5-6)##. One creature it touches in 5 ft outside water, or all within 15 ft in water, take 3d8 lightning damage and are stunned until the end of the eel's next turn if it was damaged. The target can make a DC 12 Con save to take half damage only.",
 };
 CreatureList["giant subterranean lizard"] = {
 	name: "Giant Subterranean Lizard",
 	nameAlt: ["Lizard, Giant Subterranean"],
+	nameThis: "lizard",
 	source: [["TftYP", 236]],
 	size: 1, //Huge
 	type: "Beast",
@@ -176,7 +180,7 @@ CreatureList["giant subterranean lizard"] = {
 	],
 	traits: [{
 		name: "Swallow",
-		description: "The lizard can make one bite attack against a Medium or smaller target it is grappling. If the attack hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the lizard, and it takes 10 (3d6) acid damage at the start of each of the lizard's turns. The lizard can have only one target swallowed at a time.\nIf the lizard dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 10 feet of movement, exiting prone.",
+		description: "The [THIS] can make one bite attack against a Medium or smaller target it is grappling. If the attack hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the [THIS], and it takes 3d6 acid damage at the start of each of the [THIS]'s turns. The [THIS] can have only one target swallowed at a time.\nIf the [THIS] dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 10 feet of movement, exiting prone.",
 	},
 	],
 	wildshapeString: "##Swallow##. If a bite attack hits a Small or smaller target that is currently being grappled by the lizard, the target is swallowed, ending the grapple. While swallowed, it is blinded, restrained, has total cover, and takes 3d4 acid damage at the start of each of the lizard's turns; The lizard can have only 1 swallowed at a time. If the lizard dies, the swallowed creature is no longer restrained and can escape using 10 ft movement.",

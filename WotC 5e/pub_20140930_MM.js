@@ -45,7 +45,7 @@ CreatureList["allosaurus"] = {
 	}],
 	traits: [{
 		name: "Pounce",
-		description: "If the allosaurus moves at least 30 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 13 Strength saving throw or be knocked prone. If the target is prone, the allosaurus can make one bite attack against it as a bonus action.",
+		description: "If the [THIS] moves at least 30 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 13 Strength saving throw or be knocked prone. If the target is prone, the [THIS] can make one bite attack against it as a bonus action.",
 	}],
 };
 CreatureList["ankylosaurus"] = {
@@ -99,7 +99,7 @@ CreatureList["pteranodon"] = {
 	}],
 	traits: [{
 		name: "Flyby",
-		description: "The pteranodon doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
+		description: "The [THIS] doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
 	}],
 };
 
@@ -107,6 +107,7 @@ CreatureList["pteranodon"] = {
 CreatureList["faerie dragon"] = { // With contributions by Patrick O.
 	name: "Faerie Dragon",
 	nameAlt: ["Dragon, Faerie"],
+	nameThis: "dragon",
 	source: [["M", 133]],
 	size: 5, //Tiny
 	type: "Dragon",
@@ -146,13 +147,13 @@ CreatureList["faerie dragon"] = { // With contributions by Patrick O.
 	}],
 	traits: [{
 		name: "Superior Invisibility",
-		description: "As a bonus action, the dragon can magically turn invisible until its concentration ends (as with a spell). Anything it wears or carries is invisible with it.",
+		description: "As a bonus action, the [THIS] can magically turn invisible until its concentration ends (as with a spell). Anything it wears or carries is invisible with it.",
 	}, {
 		name: "Limited Telepathy",
-		description: "Using telepathy, the dragon can magically communicate with any other faerie dragon within 60 feet of it.",
+		description: "Using telepathy, the [THIS] can magically communicate with any other faerie dragon within 60 feet of it.",
 	}, {
 		name: "Magic Resistance",
-		description: "The dragon has advantage on saves against spells and magical effects.",
+		description: "The [THIS] has advantage on saves against spells and magical effects.",
 	}, {
 		name: "Euphoria Breath (Recharge 5-6)",
 		description: "Exhale a puff of euphoria gas at a creature within 5 ft. It must succeed on a DC 11 Wisdom save, or for 1 minute, it can't take reactions and must roll a d6 at the start of each of its turns:\n 1-4 - No action or bonus action, using all movment to move in a random direction.\n 5-6 - The target does nothing except attempt another save to try end the effect on itself.",
@@ -164,6 +165,7 @@ CreatureList["faerie dragon"] = { // With contributions by Patrick O.
 };
 CreatureList["crawling claw"] = {
 	name: "Crawling Claw",
+	nameThis: "claw",
 	source: [["M", 44]],
 	size: 5, //Tiny
 	type: "Undead",
@@ -191,7 +193,7 @@ CreatureList["crawling claw"] = {
 	}],
 	traits: [{
 		name: "Turn Immunity",
-		description: "The claw is immune to effects that turn undead.",
+		description: "The [THIS] is immune to effects that turn undead.",
 	}],
 };
 CreatureList["peryton"] = {
@@ -230,17 +232,17 @@ CreatureList["peryton"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the peryton can make one Gore and one Talon attack.",
+		description: "As an action on its turn, the [THIS] can make one Gore and one Talon attack.",
 	}],
 	traits: [{
 		name: "Dive Attack",
-		description: "If the peryton is flying and dives at least 30 ft. straight toward a target and then hits it with a melee weapon attack, the attack deals an extra 9 (2d8) damage to the target.",
+		description: "If the [THIS] is flying and dives at least 30 ft. straight toward a target and then hits it with a melee weapon attack, the attack deals an extra 2d8 damage to the target.",
 	}, {
 		name: "Flyby",
-		description: "The peryton doesn't provoke an opportunity attack when it flies out of an enemy's reach.",
+		description: "The [THIS] doesn't provoke an opportunity attack when it flies out of an enemy's reach.",
 	}, {
 		name: "Keen Sight and Smell",
-		description: "The peryton has advantage on Wisdom (Perception) checks that rely on sight or smell.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on sight or smell.",
 	}],
 };
 
@@ -281,6 +283,7 @@ CreatureList["needle blight"] = {
 CreatureList["twig blight"] = {
 	name: "Twig Blight",
 	nameAlt: ["Blight, Twig"],
+	nameThis: "blight",
 	source: [["M", 32]],
 	size: 4, //Small
 	type: "Plant",
@@ -307,12 +310,13 @@ CreatureList["twig blight"] = {
 	}],
 	traits: [{
 		name: "False Appearance",
-		description: "While the blight remains motionless, it is indistinguishable from a dead shrub.",
+		description: "While the [THIS] remains motionless, it is indistinguishable from a dead shrub.",
 	}],
 };
 CreatureList["vine blight"] = {
 	name: "Vine Blight",
 	nameAlt: ["Blight, Vine"],
+	nameThis: "blight",
 	source: [["M", 32]],
 	size: 3, //Medium
 	type: "Plant",
@@ -341,11 +345,11 @@ CreatureList["vine blight"] = {
 	}],
 	traits: [{
 		name: "False Appearance",
-		description: "While the blight remains motionless, it is indistinguishable from a tangle of vines.",
+		description: "While the [THIS] remains motionless, it is indistinguishable from a tangle of vines.",
 	}],
 	actions: [{
 		name: "Entangling Plants (Recharge 5-6)",
-		description: "As an action, grasping roots and vines sprout in a 15-ft radius centered on the blight, withering away after 1 minute. For the duration, that area is difficult terrain for nonplant creatures. In addition, each creature of the blight's choice in that area when the plants appear must succeed on a DC 12 Strength saving throw or become restrained. A creature can use its action to make a DC 12 Strength check, freeing it self or another entangled creature within reach on a success.",
+		description: "As an action, grasping roots and vines sprout in a 15-ft radius centered on the [THIS], withering away after 1 minute. For the duration, that area is difficult terrain for nonplant creatures. In addition, each creature of the [THIS]'s choice in that area when the plants appear must succeed on a DC 12 Strength saving throw or become restrained. A creature can use its action to make a DC 12 Strength check, freeing it self or another entangled creature within reach on a success.",
 	}],
 	wildshapeString: [
 		(typePF ? "##Senses##. " : "") + "Blindsight 60 ft (blind beyond).",
@@ -382,10 +386,10 @@ CreatureList["gas spore"] = {
 	}],
 	traits: [{
 		name: "Death Burst",
-		description: "The gas spore explodes when it drops to 0 hit points. Each creature within 20 feet of it must succeed on a DC 15 Constitution saving throw or take 10 (3d6) poison damage and become infected with a disease on a failed save. Creatures immune to the poisoned condition are immune to this disease.\n   Spores invade an infected creature's system, killing the creature in a number of hours equal to 1d12+the creature's Constitution score, unless the disease is removed. In half that time, the creature becomes poisoned for the rest of the duration. After the creature dies, it sprouts 2d4 Tiny gas spores that grow to full size in 7 days.",
+		description: "The [THIS] explodes when it drops to 0 hit points. Each creature within 20 feet of it must succeed on a DC 15 Constitution saving throw or take 3d6 poison damage and become infected with a disease on a failed save. Creatures immune to the poisoned condition are immune to this disease.\n   Spores invade an infected creature's system, killing the creature in a number of hours equal to 1d12+the creature's Constitution score, unless the disease is removed. In half that time, the creature becomes poisoned for the rest of the duration. After the creature dies, it sprouts 2d4 Tiny gas spores that grow to full size in 7 days.",
 	}, {
 		name: "Eerie Resemblance",
-		description: "The gas spore resembles a beholder. A creature that can see the gas spore can discern its true nature with a successful DC 15 Intelligence (Nature) check.",
+		description: "The [THIS] resembles a beholder. A creature that can see the [THIS] can discern its true nature with a successful DC 15 Intelligence (Nature) check.",
 	}],
 	wildshapeString: [
 		(typePF ? "##Senses##. " : "") + "Blindsight 30 ft (blind beyond).",

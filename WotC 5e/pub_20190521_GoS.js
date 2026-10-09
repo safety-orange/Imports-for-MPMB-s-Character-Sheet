@@ -378,12 +378,13 @@ CreatureList["fish"] = {
 	attacks: [],
 	traits: [{
 		name: "Water Breathing",
-		description: "The fish can breathe only underwater.",
+		description: "The [THIS] can breathe only underwater.",
 	}],
 }
 CreatureList["giant white moray eel"] = {
 	name: "Giant White Moray Eel",
 	nameAlt: ["Eel, Giant White Moray"],
+	nameThis: "eel",
 	source: [["GoS", 216]],
 	size: 1,
 	type: "Beast",
@@ -411,7 +412,7 @@ CreatureList["giant white moray eel"] = {
 	}],
 	traits: [{
 		name: "Water Breathing",
-		description: "The eel can breathe only underwater.",
+		description: "The [THIS] can breathe only underwater.",
 	}],
 }
 CreatureList["giant coral snake"] = {
@@ -445,6 +446,7 @@ CreatureList["giant coral snake"] = {
 CreatureList["giant sea eel"] = {
 	name: "Giant Sea Eel",
 	nameAlt: ["Eel, Giant Sea"],
+	nameThis: "eel",
 	source: [["GoS", 237]],
 	size: 2,
 	type: "Beast",
@@ -473,6 +475,6 @@ CreatureList["giant sea eel"] = {
 	}],
 	traits: [{
 		name: "Water Breathing",
-		description: "The eel can breathe only underwater.",
+		description: "The [THIS] can breathe only underwater.",
 	}],
 }

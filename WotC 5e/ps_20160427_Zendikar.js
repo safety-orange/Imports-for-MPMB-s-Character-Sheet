@@ -1,5 +1,5 @@
 var iFileName = "ps_20160427_Zendikar.js";
-RequiredSheetVersion("14.0.5-beta");
+RequiredSheetVersion("14.1.3");
 // This file adds all material from the Plane Shift: Zendikar article (https://magic.wizards.com/en/articles/archive/feature/plane-shift-zendikar-2016-04-27) to MPMB's Character Record Sheet
 // This code contains mostly contributions by SoilentBrad
 
@@ -393,6 +393,7 @@ RaceList["mul daya elf"] = {
 // Adds 7 creatures, 6 beasts and the null for the vampire's racial feature
 CreatureList["woodcrasher baloth"] = {
 	name: "Woodcrasher Baloth",
+	nameThis: "baloth",
 	source: [["PS:Z", 33]],
 	size: 1,
 	type: "Beast",
@@ -422,7 +423,7 @@ CreatureList["woodcrasher baloth"] = {
 	],
 	traits: [{
 		name: "Trampling Charge",
-		description: "If the baloth moves at least 20 ft straight toward a creature and then hits it with a gore attack on the same turn, that target must succeed on a DC 13 Strength saving throw or be knocked prone. If the target is prone, the baloth can make one stomp attack against it as a bonus action.",
+		description: "If the [THIS] moves at least 20 ft straight toward a creature and then hits it with a gore attack on the same turn, that target must succeed on a DC 13 Strength saving throw or be knocked prone. If the target is prone, the [THIS] can make one stomp attack against it as a bonus action.",
 	},
 	],
 };
@@ -462,14 +463,14 @@ CreatureList["gnarlid"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the gnarlid can make one Bite and one Claws attack.",
+		description: "As an action on its turn, the [THIS] can make one Bite and one Claws attack.",
 	}],
 	traits: [{
 		name: "Keen Smell",
-		description: "The gnarlid has advantage on Wisdom (Perception) checks that rely on smell.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on smell.",
 	}, {
 		name: "Enlarge",
-		description: "As an action, the gnarlid can enlarge. When enlarged, its HP maximum and damage dealt is doubled.",
+		description: "As an action, the [THIS] can enlarge. When enlarged, its HP maximum and damage dealt is doubled.",
 	}],
 };
 CreatureList["ox"] = {
@@ -496,7 +497,7 @@ CreatureList["ox"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the ox hits with a ram attack after moving at least 20 ft straight toward a target on the same turn, the target takes an extra 2d4 bludgeoning damage. If the target is a creature, it must succeed on a DC 13 Strength saving throw or be knocked prone.",
+		description: "If the [THIS] hits with a ram attack after moving at least 20 ft straight toward a target on the same turn, the target takes an extra 2d4 bludgeoning damage. If the target is a creature, it must succeed on a DC 13 Strength saving throw or be knocked prone.",
 	}],
 };
 CreatureList["terastodon"] = {
@@ -529,7 +530,7 @@ CreatureList["terastodon"] = {
 	}],
 	traits: [{
 		name: "Trampling Charge",
-		description: "If the terastodon moves at least 20 ft straight toward a creature and then hits it with a gore attack on the same turn, that target must succeed on a DC 18 Strength saving throw or be knocked prone. If the target is prone, the terastodon can make one stomp attack against it as a bonus action.",
+		description: "If the [THIS] moves at least 20 ft straight toward a creature and then hits it with a gore attack on the same turn, that target must succeed on a DC 18 Strength saving throw or be knocked prone. If the target is prone, the [THIS] can make one stomp attack against it as a bonus action.",
 	}],
 };
 CreatureList["terra stomper"] = {
@@ -565,7 +566,7 @@ CreatureList["terra stomper"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the terra stomper can make one Bite and one Tail attack. It can't make both attacks against the same target.",
+		description: "As an action on its turn, the [THIS] can make one Bite and one Tail attack. It can't make both attacks against the same target.",
 	}],
 };
 CreatureList["timbermaw"] = {
@@ -600,11 +601,12 @@ CreatureList["timbermaw"] = {
 	}],
 	traits: [{
 		name: "Forest Camouflage",
-		description: "The timbermaw has advantage on Dexterity (Stealth) checks made to hide in woodland terrain.",
+		description: "The [THIS] has advantage on Dexterity (Stealth) checks made to hide in woodland terrain.",
 	}],
 };
 CreatureList["vampire null"] = {
 	name: "Vampire Null",
+	nameThis: "null",
 	source: [["PS:Z", 28]],
 	size: 3,
 	type: "Undead",
@@ -632,6 +634,6 @@ CreatureList["vampire null"] = {
 	}],
 	traits: [{
 		name: "Undead Fortitude",
-		description: "If damage reduces the null to 0 hit points, it must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, the null drops to 1 hit point instead.",
+		description: "If damage reduces the [THIS] to 0 hit points, it must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, the [THIS] drops to 1 hit point instead.",
 	}],
 };

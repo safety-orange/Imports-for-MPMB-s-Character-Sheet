@@ -3640,14 +3640,14 @@ CreatureList["clawfoot"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the clawfoot can make one Bite and one Claws attack.",
+		description: "As an action on its turn, the [THIS] can make one Bite and one Claws attack.",
 	}],
 	traits: [{
 		name: "Pack Tactics",
-		description: "The clawfoot has advantage on an attack roll against a creature if at least one of the clawfoot's allies is within 5 ft of the creature and the ally isn't incapacitated.",
+		description: "The [THIS] has advantage on an attack roll against a creature if at least one of the [THIS]'s allies is within 5 ft of the creature and the ally isn't incapacitated.",
 	}, {
 		name: "Pounce",
-		description: "If the clawfoot moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 11 Strength saving throw or be knocked prone. If the target is prone, the clawfoot can make one bite attack against it as a bonus action.",
+		description: "If the [THIS] moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 11 Strength saving throw or be knocked prone. If the target is prone, the [THIS] can make one bite attack against it as a bonus action.",
 	}],
 	wildshapeString: "##Multiattack##. On its turn, 1 Bite and 1 Claws attack.\n##Pack Tactics##. Advantage on an attack roll if at least one ally, that isn't Incapacitated, is within 5 ft of the target. ##Pounce##. If the clawfoot moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target makes a DC 11 Str save or is knocked Prone and the clawfoot can make one bite attack against it as a bonus action.",
 };
@@ -3675,7 +3675,7 @@ CreatureList["fastieth"] = {
 	}],
 	traits: [{
 		name: "Quickness (Recharge 5-6)",
-		description: "The fastieth can take the Dodge action as a bonus action.",
+		description: "The [THIS] can take the Dodge action as a bonus action.",
 	}],
 };
 ERftLW_Valenar_Ancestral_Traits = [
@@ -3698,6 +3698,7 @@ ERftLW_Valenar_Ancestral_Traits = [
 ].join("\n");
 CreatureList["valenar hawk"] = { // contributed by Nod_Hero
 	name: "Valenar Hawk",
+	nameThis: "hawk",
 	source: [["E:RLW", 312]],
 	size: 5,
 	type: "Fey",
@@ -3724,10 +3725,10 @@ CreatureList["valenar hawk"] = { // contributed by Nod_Hero
 	}],
 	traits: [{
 		name: "Keen Sight",
-		description: "The hawk has advantage on Wisdom (Perception) checks that rely on sight.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on sight.",
 	}, {
 		name: "Bonding",
-		description: "The hawk can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the hawk bonds with a different creature or until the bonded creature dies. While bonded, the hawk and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
+		description: "The [THIS] can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the [THIS] bonds with a different creature or until the bonded creature dies. While bonded, the [THIS] and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
 	}],
 	notes: [{
 		name: "[Variant] Ancestral Traits (E:RLW 313)",
@@ -3754,6 +3755,7 @@ CreatureList["valenar hawk"] = { // contributed by Nod_Hero
 };
 CreatureList["valenar hound"] = { // contributed by Nod_Hero
 	name: "Valenar Hound",
+	nameThis: "hound",
 	source: [["E:RLW", 312]],
 	size: 3,
 	type: "Fey",
@@ -3781,15 +3783,16 @@ CreatureList["valenar hound"] = { // contributed by Nod_Hero
 	}],
 	traits: [{
 		name: "Keen Hearing and Smell",
-		description: "The hound has advantage on Wisdom (Perception) checks that rely on hearing or smell.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on hearing or smell.",
 	}, {
 		name: "Bonding",
-		description: "The hound can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the hound bonds with a different creature or until the bonded creature dies. While bonded, the hound and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
+		description: "The [THIS] can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the [THIS] bonds with a different creature or until the bonded creature dies. While bonded, the [THIS] and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
 	}],
 	notes: CreatureList["valenar hawk"].notes,
 };
 CreatureList["valenar steed"] = { // contributed by Nod_Hero
 	name: "Valenar Steed",
+	nameThis: "steed",
 	source: [["E:RLW", 313]],
 	size: 2,
 	type: "Fey",
@@ -3815,7 +3818,7 @@ CreatureList["valenar steed"] = { // contributed by Nod_Hero
 	}],
 	traits: [{
 		name: "Bonding",
-		description: "The steed can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the steed bonds with a different creature or until the bonded creature dies. While bonded, the steed and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
+		description: "The [THIS] can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the [THIS] bonds with a different creature or until the bonded creature dies. While bonded, the [THIS] and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
 	}],
 	notes: CreatureList["valenar hawk"].notes,
 };

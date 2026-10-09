@@ -1,5 +1,5 @@
 var iFileName = "ps_20180731_Dominaria.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.1.3");
 // This file adds all material from the Plane Shift: Dominaria article (https://magic.wizards.com/en/articles/archive/feature/plane-shift-dominaria-2018-07-31) to MPMB's Character Record Sheet
 
 // Define the source
@@ -67,6 +67,7 @@ RaceList["keldon human"] = {
 // Add 2 beasts
 CreatureList["kavu predator"] = {
 	name: "Kavu Predator",
+	nameThis: "kavu",
 	source: [["PS:D", 24]],
 	size: 2,
 	type: "Beast",
@@ -101,12 +102,13 @@ CreatureList["kavu predator"] = {
 	}],
 	traits: [{
 		name: "Pounce",
-		description: "If the kavu moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 14 Strength saving throw or be knocked prone. If the target is prone, the kavu can make one bite attack against it as a bonus action.",
+		description: "If the [THIS] moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 14 Strength saving throw or be knocked prone. If the target is prone, the [THIS] can make one bite attack against it as a bonus action.",
 	}],
 };
 CreatureList["steel leaf kavu"] = {
 	name: "Steel Leaf Kavu",
 	nameAlt: ["Kavu, Steel Leaf"],
+	nameThis: "kavu",
 	source: [["PS:D", 24]],
 	size: 2,
 	type: "Beast",
@@ -140,6 +142,6 @@ CreatureList["steel leaf kavu"] = {
 	}],
 	traits: [{
 		name: "Raking Charge",
-		description: "If the kavu moves at least 20 ft straight toward a creature and then hits it with a bite attack on the same turn, that target must succeed on a DC 15 Strength saving throw or be knocked prone. If the target is prone, the kavu can make one rend attack against it as a bonus action.",
+		description: "If the [THIS] moves at least 20 ft straight toward a creature and then hits it with a bite attack on the same turn, that target must succeed on a DC 15 Strength saving throw or be knocked prone. If the target is prone, the [THIS] can make one rend attack against it as a bonus action.",
 	}],
 };

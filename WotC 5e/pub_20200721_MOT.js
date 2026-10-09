@@ -454,6 +454,7 @@ BackgroundFeatureList["echoes of victory"] = { // includes contributions by Smas
 // Creature: possible familiar
 CreatureList["anvilwrought raptor"] = {
 	name: "Anvilwrought Raptor",
+	nameThis: "raptor",
 	source: [["MOT", 209]],
 	size: 5,
 	type: "Construct",
@@ -484,14 +485,14 @@ CreatureList["anvilwrought raptor"] = {
 	}],
 	traits: [{
 		name: "Keen Sight",
-		description: "The raptor has advantage on Wisdom (Perception) checks that rely on sight.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on sight.",
 	}, {
 		name: "Recorded Mimicry",
-		description: "The raptor can mimic any sound, including voices, it has heard in the last 24 hours. A creature that hears the sounds can tell they are imitations with a successful DC 12 Wisdom (Insight) check.",
+		description: "The [THIS] can mimic any sound, including voices, it has heard in the last 24 hours. A creature that hears the sounds can tell they are imitations with a successful DC 12 Wisdom (Insight) check.",
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the raptor can make two Beak attacks.",
+		description: "As an action on its turn, the [THIS] can make two Beak attacks.",
 	}],
 	variant: [{
 		name: "Variant: Familiar",

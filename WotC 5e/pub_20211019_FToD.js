@@ -1854,10 +1854,10 @@ CreatureList["dragonnel"] = { // Alternate for Find Greater Steed spell (contrib
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the dragonnel can make two Rend attacks.",
+		description: "As an action on its turn, the [THIS] can make two Rend attacks.",
 	}],
 	traits: [{
 		name: "Flyby",
-		description: "The dragonnel doesn't provoke an opportunity attack when it flies out of an enemy's reach.",
+		description: "The [THIS] doesn't provoke an opportunity attack when it flies out of an enemy's reach.",
 	}],
 };

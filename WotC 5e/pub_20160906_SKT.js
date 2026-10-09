@@ -16,6 +16,7 @@ SourceList["SKT"] = {
 CreatureList["ice spider"] = { // contributed by Nod_Hero
 	name: "Ice Spider",
 	nameAlt: ["Spider, Ice"],
+	nameThis: "spider",
 	source: [["SKT", 127]],
 	size: 2,
 	type: "Beast",
@@ -50,17 +51,17 @@ CreatureList["ice spider"] = { // contributed by Nod_Hero
 	}],
 	features: [{
 		name: "Spider Climb",
-		description: "The spider can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.",
+		description: "The [THIS] can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.",
 	}, {
 		name: "Web Sense",
-		description: "While in contact with a web, the spider knows the exact location of any other creature in contact with the same web.",
+		description: "While in contact with a web, the [THIS] knows the exact location of any other creature in contact with the same web.",
 	}, {
 		name: "Web Walker",
-		description: "The spider ignores movement restrictions caused by webbing.",
+		description: "The [THIS] ignores movement restrictions caused by webbing.",
 	}],
 	actions: [{
 		name: "Bite",
-		description: "If the poison damage from the spider's bite attack reduces the target to 0 HP, the target is stable but poisoned for 1 hour, even after regaining HP, and is paralyzed while poisoned in this way.",
+		description: "If the poison damage from the [THIS]'s bite attack reduces the target to 0 HP, the target is stable but poisoned for 1 hour, even after regaining HP, and is paralyzed while poisoned in this way.",
 	}, {
 		name: "Icy Web (Recharge 5-6)",
 		description: "See attack. On a hit, the target is restrained by webbing and takes 1 cold damage at the start of each of its turns. As an action, the restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; hp 5; vulnerability to fire damage; immunity to bludgeoning, poison, and psychic damage).",
@@ -91,7 +92,7 @@ CreatureList["sheep"] = {
 	attacks: [],
 	traits: [{
 		name: "Sure-Footed",
-		description: "The sheep has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.",
+		description: "The [THIS] has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.",
 	}],
 };
 CreatureList["pig"] = {
@@ -143,10 +144,10 @@ CreatureList["hulking crab"] = {
 	],
 	traits: [{
 		name: "Amphibious",
-		description: "The hulking crab can breate air and water.",
+		description: "The [THIS] can breate air and water.",
 	}, {
 		name: "Shell Camouflage",
-		description: "While the hulking crab remains motionless with its eyestalks and pincers tucked close to its body, it resembles a natural formation or a pile of detritus. A creature within 30 feet of it can discern its true nature with a DC 15 Intelligence (Nature) check.",
+		description: "While the [THIS] remains motionless with its eyestalks and pincers tucked close to its body, it resembles a natural formation or a pile of detritus. A creature within 30 feet of it can discern its true nature with a DC 15 Intelligence (Nature) check.",
 	},
 	],
 };
@@ -186,13 +187,13 @@ CreatureList["tressym"] = {
 	],
 	traits: [{
 		name: "Detect Invisibility",
-		description: "Within 60 feet of the tressym, magical invisibility fails to conceal anything from the tressym's sight.",
+		description: "Within 60 feet of the [THIS], magical invisibility fails to conceal anything from the [THIS]'s sight.",
 	}, {
 		name: "Keen Smell",
-		description: "The tressym has advantage on Wisdom (Perception) checks that rely on smell.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on smell.",
 	}, {
 		name: "Poison Sense",
-		description: "The tressym can detect whether a substance is poisonous by taste, touch, or smell.",
+		description: "The [THIS] can detect whether a substance is poisonous by taste, touch, or smell.",
 	},
 	],
 	wildshapeString: [

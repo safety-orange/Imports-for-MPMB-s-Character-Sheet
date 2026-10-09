@@ -2632,7 +2632,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 				}],
 				traits: [{
 					name: "Incorporeal Movement",
-					description: "The specter can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object.",
+					description: "The specter can move through other creatures and objects as if they were difficult terrain. It takes 1d10 force damage if it ends its turn inside an object.",
 				}, {
 					name: "Sunlight Sensitivity",
 					description: "While in sunlight, the specter has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.",

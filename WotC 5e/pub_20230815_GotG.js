@@ -686,6 +686,7 @@ FeatsList["rune shaper"] = {
 CreatureList["spotted lion"] = {
 	name: "Spotted Lion",
 	nameAlt: ["Lion, Spotted"],
+	nameThis: "lion",
 	source: [["GotG", 177]],
 	size: 1,
 	type: "Beast",
@@ -714,10 +715,10 @@ CreatureList["spotted lion"] = {
 	}],
 	traits: [{
 		name: "Pack Tactics",
-		description: "The lion has advantage on an attack roll against a creature if at least one of the lion's allies is within 5 feet of the target and the ally doesn't have the incapacitated condition.",
+		description: "The [THIS] has advantage on an attack roll against a creature if at least one of the [THIS]'s allies is within 5 feet of the target and the ally doesn't have the incapacitated condition.",
 	}, {
 		name: "Pounce",
-		description: "If the lion moved at least 20 ft straight toward the target immediately before hitting it, the target must succeed on a DC 16 Strength saving throw or have the prone condition. If the target has the prone condition, the lion can make another Rend attack against it as a bonus action.",
+		description: "If the [THIS] moved at least 20 ft straight toward the target immediately before hitting it, the target must succeed on a DC 16 Strength saving throw or have the prone condition. If the target has the prone condition, the [THIS] can make another Rend attack against it as a bonus action.",
 	}],
 	wildshapeString: [
 		"##Senses##. Darkvision 60 ft.",
@@ -746,14 +747,14 @@ CreatureList["titanothere"] = {
 		damage: [2, 8, "piercing"],
 		range: "Melee (10 ft)",
 		description: "If used after moving 20 ft straight in the same round, see Charge trait",
-		tooltip: "If the titanothere moved at least 20 feet straight toward the target immediately before hitting it, the target takes an extra 13 (3d8) bludgeoning damage, and if the target is a creature, it must succeed on a DC 18 Strength saving throw or be knocked prone.",
+		tooltip: "If the titanothere moved at least 20 feet straight toward the target immediately before hitting it, the target takes an extra 3d8 bludgeoning damage, and if the target is a creature, it must succeed on a DC 18 Strength saving throw or be knocked prone.",
 	}],
 	traits: [{
 		name: "Beast of Burden",
-		description: "The titanothere is considered to be one size larger for the purpose of determining its carrying capacity.",
+		description: "The [THIS] is considered to be one size larger for the purpose of determining its carrying capacity.",
 	}, {
 		name: "Charge",
-		description: "If the titanothere moved at least 20 feet straight toward the target immediately before hitting it, the target takes an extra 13 (3d8) bludgeoning damage, and if the target is a creature, it must succeed on a DC 18 Strength saving throw or be knocked prone.",
+		description: "If the [THIS] moved at least 20 feet straight toward the target immediately before hitting it, the target takes an extra 3d8 bludgeoning damage, and if the target is a creature, it must succeed on a DC 18 Strength saving throw or be knocked prone.",
 	}],
 };
 

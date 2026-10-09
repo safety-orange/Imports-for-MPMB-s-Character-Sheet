@@ -382,11 +382,11 @@ if (!SourceList["V"]) {
 		}],
 		actions: [{
 			name: "Multiattack",
-			description: "As an action on its turn, the deinonychus can make two Claw and one Bite attack.",
+			description: "As an action on its turn, the [THIS] can make two Claw and one Bite attack.",
 		}],
 		traits: [{
 			name: "Pounce",
-			description: "If the deinonychus moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the deinonychus can make one bite attack against it as a bonus action.",
+			description: "If the [THIS] moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the [THIS] can make one bite attack against it as a bonus action.",
 		}],
 	};
 	CreatureList["dimetrodon"] = {
@@ -471,10 +471,10 @@ if (!SourceList["V"]) {
 		}],
 		traits: [{
 			name: "Dive Attack",
-			description: "If the quetzalcoatlus is flying and dives at least 30 ft toward a creature and then hits it with a bite attack, the attack deals an extra 10 (3d6) damage to the target.",
+			description: "If the [THIS] is flying and dives at least 30 ft toward a creature and then hits it with a bite attack, the attack deals an extra 3d6 damage to the target.",
 		}, {
 			name: "Flyby",
-			description: "The quetzalcoatlus doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
+			description: "The [THIS] doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
 		}],
 	};
 	CreatureList["stegosaurus"] = {
@@ -535,11 +535,11 @@ if (!SourceList["V"]) {
 		}],
 		actions: [{
 			name: "Multiattack",
-			description: "As an action on its turn, the velociraptor can make one Bite and one Claw attack.",
+			description: "As an action on its turn, the [THIS] can make one Bite and one Claw attack.",
 		}],
 		traits: [{
 			name: "Pack Tactics",
-			description: "The velociraptor has advantage on an attack roll against a creature if at least one of the velociraptor's allies is within 5 ft of the creature and the ally isn't incapacitated.",
+			description: "The [THIS] has advantage on an attack roll against a creature if at least one of the [THIS]'s allies is within 5 ft of the creature and the ally isn't incapacitated.",
 		}],
 	};
 } // dupl_end
@@ -574,12 +574,13 @@ CreatureList["almiraj"] = {
 	}],
 	traits: [{
 		name: "Keen Senses",
-		description: "The almiraj has advantage on Wisdom (Perception) checks that rely on hearing or sight.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on hearing or sight.",
 	}],
 };
 CreatureList["flying monkey"] = {
 	name: "Flying Monkey",
 	nameAlt: ["Monkey, Flying"],
+	nameThis: "monkey",
 	source: [["ToA", 220]],
 	size: 4, //Small
 	type: "Beast",
@@ -603,12 +604,13 @@ CreatureList["flying monkey"] = {
 	}],
 	traits: [{
 		name: "Pack Tactics",
-		description: "The flying monkey has advantage on an attack roll against a creature if at least one of the monkey's allies is within 5 ft of the creature and the ally isn't incapacitated.",
+		description: "The [THIS] has advantage on an attack roll against a creature if at least one of the [THIS]'s allies is within 5 ft of the creature and the ally isn't incapacitated.",
 	}],
 };
 CreatureList["giant snapping turtle"] = {
 	name: "Giant Snapping Turtle",
 	nameAlt: ["Turtle, Giant Snapping"],
+	nameThis: "turtle",
 	source: [["ToA", 222]],
 	size: 2, //Large
 	type: "Beast",
@@ -632,10 +634,10 @@ CreatureList["giant snapping turtle"] = {
 	}],
 	traits: [{
 		name: "Amphibious",
-		description: "The turtle can breathe air and water.",
+		description: "The [THIS] can breathe air and water.",
 	}, {
 		name: "Stable",
-		description: "Whenever an effect knocks the turtle prone, it can make a DC 10 Constitution saving throw to avoid being knocked prone. A prone turtle is upside down. To stand up, it must succeed on a DC 10 Dexterity check on its turn and then use all its movement for that turn. While prone, the turtle's AC becomes 12.",
+		description: "Whenever an effect knocks the [THIS] prone, it can make a DC 10 Constitution saving throw to avoid being knocked prone. A prone turtle is upside down. To stand up, it must succeed on a DC 10 Dexterity check on its turn and then use all its movement for that turn. While prone, the [THIS]'s AC becomes 12.",
 	}],
 };
 CreatureList["jaculi"] = {
@@ -668,20 +670,20 @@ CreatureList["jaculi"] = {
 	}],
 	actions: [{
 		name: "Spring",
-		description: "The jaculi springs up to 30 feet in a straight line and makes a bite attack against a target within its reach. This attack has advantage if the jaculi springs at least 10 feet. If the attack hits, the bite deals an extra 7 (2d6) piercing damage.",
+		description: "The [THIS] springs up to 30 feet in a straight line and makes a bite attack against a target within its reach. This attack has advantage if the [THIS] springs at least 10 feet. If the attack hits, the bite deals an extra 2d6 piercing damage.",
 	}],
 	traits: [{
 		name: "Camouflage",
-		description: "The jaculi has advantage on Dexterity (Stealth) checks made to hide.",
+		description: "The [THIS] has advantage on Dexterity (Stealth) checks made to hide.",
 	}, {
 		name: "Keen Smell",
-		description: "The jaculi has advantage on Wisdom (Perception) checks that rely on smell.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on smell.",
 	}],
 	wildshapeString: [
 		"##Senses##. Blindsight 30 ft.",
 		"##Camouflage##. Advantage on Dexterity (Stealth) checks made to hide.",
 		"##Keen Smell##. Advantage on Wisdom (Perception) checks that rely on smell.",
-		"##Spring##. 30 ft in a straight line and make a bite attack. Advantage on the attack roll if springing at least 10 ft. It deals an extra 7 (2d6) piercing damage on a hit.",
+		"##Spring##. 30 ft in a straight line and make a bite attack. Advantage on the attack roll if springing at least 10 ft. It deals an extra 2d6 piercing damage on a hit.",
 	].join("\n"),
 };
 

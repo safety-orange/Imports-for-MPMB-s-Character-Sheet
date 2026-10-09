@@ -796,6 +796,7 @@ MagicItemsList["masque charm"] = {
 CreatureList["art elemental mascot"] = { // Prismari
 	name: "Art Elemental Mascot",
 	nameAlt: ["Mascot, Art Elemental"],
+	nameThis: "elemental",
 	source: [["SCC", 185]],
 	size: 4,
 	type: "Elemental",
@@ -832,16 +833,17 @@ CreatureList["art elemental mascot"] = { // Prismari
 	}],
 	actions: [{
 		name: "Captivating Artistry (1/Day)",
-		description: "As an action, the elemental can target one creature it can see within 30 ft of itself. The target must succeed on a DC 12 Charisma saving throw or be charmed for 1 minute. The charmed target can repeat the save at the end of each of its turns, ending the effect on itself on a success.",
+		description: "As an action, the [THIS] can target one creature it can see within 30 ft of itself. The target must succeed on a DC 12 Charisma saving throw or be charmed for 1 minute. The charmed target can repeat the save at the end of each of its turns, ending the effect on itself on a success.",
 	}],
 	traits: [{
 		name: "Death Burst",
-		description: "When the elemental dies, it explodes in a burst of colored light. Each creature within 5 ft of the elemental must succeed on a DC 11 Constitution saving throw or be blinded for 1 minute. A blinded creature can repeat the save at the end of each of its turns, ending the effect on itself on a success.",
+		description: "When the [THIS] dies, it explodes in a burst of colored light. Each creature within 5 ft of the [THIS] must succeed on a DC 11 Constitution saving throw or be blinded for 1 minute. A blinded creature can repeat the save at the end of each of its turns, ending the effect on itself on a success.",
 	}],
 };
 CreatureList["fractal mascot"] = { // Quandrix
 	name: "Fractal Mascot",
 	nameAlt: ["Mascot, Fractal"],
+	nameThis: "fractal",
 	source: [["SCC", 192]],
 	size: 4,
 	type: "Construct",
@@ -868,19 +870,20 @@ CreatureList["fractal mascot"] = { // Quandrix
 	}],
 	actions: [{
 		name: "Augment",
-		description: "As a bonus action, the fractal can increase its size by one category. While the fractal is Medium or bigger, it makes Strength checks and Strength saving throws with advantage. The fractal can become no larger than Huge via this bonus action.",
+		description: "As a bonus action, the [THIS] can increase its size by one category. While the [THIS] is Medium or bigger, it makes Strength checks and Strength saving throws with advantage. The [THIS] can become no larger than Huge via this bonus action.",
 	}, {
 		name: "Diminish",
-		description: "As a bonus action, the fractal can decreases its size by one category. While the fractal is Tiny, it makes attack rolls, Dexterity checks, and Dexterity saving throws with advantage. The fractal can become no smaller than 1 ft in height via this bonus action.",
+		description: "As a bonus action, the [THIS] can decreases its size by one category. While the [THIS] is Tiny, it makes attack rolls, Dexterity checks, and Dexterity saving throws with advantage. The [THIS] can become no smaller than 1 ft in height via this bonus action.",
 	}],
 	traits: [{
 		name: "Relative Density",
-		description: "The fractal can move through creatures and objects as if they were difficult terrain. It takes 1d10 force damage if it ends its turn inside an object.",
+		description: "The [THIS] can move through creatures and objects as if they were difficult terrain. It takes 1d10 force damage if it ends its turn inside an object.",
 	}],
 };
 CreatureList["inkling mascot"] = { // Silverquill
 	name: "Inkling Mascot",
 	nameAlt: ["Mascot, Inkling"],
+	nameThis: "inkling",
 	source: [["SCC", 195]],
 	size: 5,
 	type: "Ooze",
@@ -911,19 +914,20 @@ CreatureList["inkling mascot"] = { // Silverquill
 	}],
 	actions: [{
 		name: "Ink Spray (1/Day)",
-		description: "As an action, the inkling can spray viscous ink at one creature within 15 ft of itself. The target must succeed on a DC 12 Constitution saving throw or be blinded until the end of the inkling's next turn.",
+		description: "As an action, the [THIS] can spray viscous ink at one creature within 15 ft of itself. The target must succeed on a DC 12 Constitution saving throw or be blinded until the end of the [THIS]'s next turn.",
 	}, {
 		name: "Shadow Stealth",
-		description: "As a bonus action while in dim light or darkness, the inkling can take the Hide action.",
+		description: "As a bonus action while in dim light or darkness, the [THIS] can take the Hide action.",
 	}],
 	traits: [{
 		name: "Amorphous",
-		description: "The inkling can move through a space as narrow as 1 inch wide without squeezing.",
+		description: "The [THIS] can move through a space as narrow as 1 inch wide without squeezing.",
 	}],
 };
 CreatureList["pest mascot"] = { // Witherbloom
 	name: "Pest Mascot",
 	nameAlt: ["Mascot, Pest"],
+	nameThis: "pest",
 	source: [["SCC", 203]],
 	size: 5,
 	type: "Monstrosity",
@@ -951,15 +955,16 @@ CreatureList["pest mascot"] = { // Witherbloom
 	}],
 	traits: [{
 		name: "Regeneration",
-		description: "The pest regains 5 hit points at the start of its turn if it has at least 1 hit point. If it takes fire damage, this trait doesn't function at the start of the pest's next turn.",
+		description: "The [THIS] regains 5 hit points at the start of its turn if it has at least 1 hit point. If it takes fire damage, this trait doesn't function at the start of the [THIS]'s next turn.",
 	}, {
 		name: "Spiny Hide",
-		description: "At the start of each of its turns, the pest deals 1d4 piercing damage to any creature grappling it or that it is grappling.",
+		description: "At the start of each of its turns, the [THIS] deals 1d4 piercing damage to any creature grappling it or that it is grappling.",
 	}],
 };
 CreatureList["spirit statue mascot"] = { // Lorehold
 	name: "Spirit Statue Mascot",
 	nameAlt: ["Mascot, Spirit Statue"],
+	nameThis: "spirit statue",
 	source: [["SCC", 216]],
 	size: 3,
 	type: "Construct",
@@ -989,10 +994,10 @@ CreatureList["spirit statue mascot"] = { // Lorehold
 	}],
 	actions: [{
 		name: "Counsel of the Past (2/Day)",
-		description: "The spirit statue touches one creature. Once within the next 10 minutes, that creature can roll a d4 and add the number rolled to one ability check of its choice, immediately after rolling the d20.",
+		description: "The [THIS] touches one creature. Once within the next 10 minutes, that creature can roll a d4 and add the number rolled to one ability check of its choice, immediately after rolling the d20.",
 	}],
 	traits: [{
 		name: "Death Burst",
-		description: "When the spirit statue is reduced to 0 hit points, the statue crumbles, and the spirit returns to the afterlife in a burst of ghostly white flame. Each creature within 5 ft of it must succeed on a DC 12 Constitution saving throw or take 1d6 radiant damage.",
+		description: "When the [THIS] is reduced to 0 hit points, the statue crumbles, and the spirit returns to the afterlife in a burst of ghostly white flame. Each creature within 5 ft of it must succeed on a DC 12 Constitution saving throw or take 1d6 radiant damage.",
 	}],
 };

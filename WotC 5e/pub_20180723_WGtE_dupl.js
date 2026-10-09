@@ -570,6 +570,7 @@ FeatsList["revenant blade-wgte"] = {
 // Creature
 CreatureList["clawfoot raptor"] = {
 	name: "Clawfoot Raptor",
+	nameThis: "clawfoot",
 	source: [["WGtE", 81]],
 	size: 3,
 	type: "Beast",
@@ -603,7 +604,7 @@ CreatureList["clawfoot raptor"] = {
 	}],
 	traits: [{
 		name: "Pounce",
-		description: "If the clawfoot moves at least 30 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 13 Strength saving throw or be knocked prone. If the target is prone, the clawfoot can make one bite attack against it as a bonus action.",
+		description: "If the [THIS] moves at least 30 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 13 Strength saving throw or be knocked prone. If the target is prone, the [THIS] can make one bite attack against it as a bonus action.",
 	}],
 };
 

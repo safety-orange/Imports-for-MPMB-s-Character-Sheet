@@ -557,6 +557,7 @@ AddSubClass("artificer-ua3", "alchemist", {
 // Add the Alchemist's Alchemical Homunculus
 CreatureList["alchemical homunculus-ua"] = {
 	name: "Alchemical Homunculus",
+	nameThis: "homunculus",
 	source: [["UA:A3", 7], ["UA:A2", 6]],
 	size: 5,
 	type: "Construct",
@@ -587,17 +588,17 @@ CreatureList["alchemical homunculus-ua"] = {
 	}],
 	features: [{
 		name: "Creator",
-		description: "The homunculus obeys the commands of its creator and has the same proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It only takes the Dodge action, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Acidic Spittle, Alchemical Salve, Dash, Disengage, or Help action.",
+		description: "The [THIS] obeys the commands of its creator and has the same proficiency bonus. It takes its turn immediately after its creator, on the same initiative count. It only takes the Dodge action, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Acidic Spittle, Alchemical Salve, Dash, Disengage, or Help action.",
 	}, {
 		name: "Healing",
-		description: "The homunculus regains 2d6 HP whenever the *Mending* spell is cast on it.",
+		description: "The [THIS] regains 2d6 HP whenever the *Mending* spell is cast on it.",
 	}],
 	actions: [{
 		name: "Alchemical Salve (3/Day)",
-		description: "The homunculus produces a salve and touches one creature designated by its creator, granting it one of the following magical benefits chosen by its creator:" +
+		description: "The [THIS] produces a salve and touches one creature designated by its creator, granting it one of the following magical benefits chosen by its creator:" +
 		"\n  \u2022 Buoyancy: The target gains a flying speed of 10 ft for 10 minutes." +
-		"\n  \u2022 Inspiration: The target feels giddy and effective, gaining advantage on certain ability checks in the next hour. The target chooses the checks before or after rolling. The magic runs out after the target has used it on a number of checks equal to the Intelligence modifier of the homunculus' creator (minimum of 1)." +
-		"\n  \u2022 Resilience: The target gains a number of temporary hit points equal to 2d6 + the Intelligence modifier of the homunculus' creator.",
+		"\n  \u2022 Inspiration: The target feels giddy and effective, gaining advantage on certain ability checks in the next hour. The target chooses the checks before or after rolling. The magic runs out after the target has used it on a number of checks equal to the Intelligence modifier of the [THIS]' creator (minimum of 1)." +
+		"\n  \u2022 Resilience: The target gains a number of temporary hit points equal to 2d6 + the Intelligence modifier of the [THIS]' creator.",
 	}],
 }
 
@@ -873,6 +874,7 @@ AddSubClass("artificer-ua3", "artillerist", {
 // Add the Artillerist's Arcane Turret
 CreatureList["arcane turret-ua"] = {
 	name: "Arcane Turret",
+	nameThis: "turret",
 	source: [["UA:A3", 10], ["UA:A2", 7]],
 	size: 3,
 	type: "Construct",
@@ -920,26 +922,26 @@ CreatureList["arcane turret-ua"] = {
 	}],
 	features: [{
 		name: "Healing",
-		description: "The turret regains 2d6 HP whenever *Mending* is cast on it.",
+		description: "The [THIS] regains 2d6 HP whenever *Mending* is cast on it.",
 	}, {
 		name: "Turret Type",
 		description: "Upon creation, the creator decides what type of turret it is: Flamethrower, Force Ballista, or Defender. What feature/attack it can use depends on its type.",
 	}, {
 		name: "Defender",
-		description: "The turret emits a burst of positive energy that grants itself and each creature of the creator's choice within 10 feet of it a number of temporary hit points equal to 1d8 + the creator's Intelligence modifier (minimum of +1).",
+		description: "The [THIS] emits a burst of positive energy that grants itself and each creature of the creator's choice within 10 feet of it a number of temporary hit points equal to 1d8 + the creator's Intelligence modifier (minimum of +1).",
 	}],
 	traits: [{
 		name: "Creator",
-		description: "The turret only does something when activated by its creator. It uses the spell attack and spell save DC of its creator, and has five times the creator's artificer level in HP.",
+		description: "The [THIS] only does something when activated by its creator. It uses the spell attack and spell save DC of its creator, and has five times the creator's artificer level in HP.",
 	}, {
 		name: "Activation",
-		description: "The creator of the turret can activate it as a bonus action while within 60 ft of it. Once activated, the turret does as its creator wishes, move to an unoccupied space and use the action associated with its type:" +
+		description: "The creator of the [THIS] can activate it as a bonus action while within 60 ft of it. Once activated, the [THIS] does as its creator wishes, move to an unoccupied space and use the action associated with its type:" +
 		"\n  \u2022 Flamethrower: use the flamethrower attack." +
 		"\n  \u2022 Force Ballista: use the force ballista attack." +
 		"\n  \u2022 Defender: use the defender feature, see the features to the left.",
 	}, {
 		name: "Detonate",
-		description: "The creator of the turret can use an action to detonate the turret when within 60 ft of it, see the attack section.",
+		description: "The creator of the [THIS] can use an action to detonate the [THIS] when within 60 ft of it, see the attack section.",
 	}],
 };
 
@@ -1080,20 +1082,20 @@ CreatureList["iron defender-ua"] = {
 	}],
 	features: [{
 		name: "Creator",
-		description: "The iron defender obeys the commands of its creator and has the same proficiency bonus. It takes its turn after its creator, on the same initiative count. It only takes the Dodge action, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Bite, Repair, Dash, Disengage, or Help action. Within an hour of its death, its creator can expend a spell slot as an action while within 5 ft to have it return to full HP after 1 minute.",
+		description: "The [THIS] obeys the commands of its creator and has the same proficiency bonus. It takes its turn after its creator, on the same initiative count. It only takes the Dodge action, unless its creator takes a bonus action to command to do otherwise, in which case it can only take the Bite, Repair, Dash, Disengage, or Help action. Within an hour of its death, its creator can expend a spell slot as an action while within 5 ft to have it return to full HP after 1 minute.",
 	}],
 	actions: [{
 		name: "Healing",
-		description: "The iron defender regains 2d6 HP whenever the *Mending* spell is cast on it.",
+		description: "The [THIS] regains 2d6 HP whenever the *Mending* spell is cast on it.",
 	}, {
 		name: "Vigilant",
-		description: "The iron defender can't be surprised.",
+		description: "The [THIS] can't be surprised.",
 	}, {
 		name: "Repair (3/Day)",
-		description: "As an action, the magical mechanisms inside the iron defender restore 2d8 + its proficiency bonus in hit points to itself or to one construct or object within 5 ft of it.",
+		description: "As an action, the magical mechanisms inside the [THIS] restore 2d8 + its proficiency bonus in hit points to itself or to one construct or object within 5 ft of it.",
 	}, {
 		name: "Defensive Pounce (reaction)",
-		description: "As a reaction, the iron defender imposes disadvantage on the attack roll of one creature it can see that is within 5 ft of it, provided the attack roll is against a creature other than the iron defender.",
+		description: "As a reaction, the [THIS] imposes disadvantage on the attack roll of one creature it can see that is within 5 ft of it, provided the attack roll is against a creature other than the [THIS].",
 	}],
 };
 

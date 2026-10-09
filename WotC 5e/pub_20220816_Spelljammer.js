@@ -403,6 +403,7 @@ MagicItemsList["wildspace orrery"] = {
 CreatureList["space eel"] = {
 	name: "Space Eel",
 	nameAlt: ["Eel, Space"],
+	nameThis: "eel",
 	source: [["S:AiS", 55]], // page number in Boo's Astral Menagerie
 	size: 4,
 	type: "Beast",
@@ -434,17 +435,17 @@ CreatureList["space eel"] = {
 	}],
 	features: [{
 		name: "Unusual Nature",
-		description: "The eel doesn't require air.",
+		description: "The [THIS] doesn't require air.",
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn if not attached to a creature, the eel can make one Bite and one Tail Spine attack.",
+		description: "As an action on its turn if not attached to a creature, the [THIS] can make one Bite and one Tail Spine attack.",
 	}, {
 		name: "Attach",
-		description: "If the eel hits with its bite attack, it attaches to the target. While attached, the eel can't make bite attacks. Instead, the target takes the bite damage at the start of each of the eel's turns. The eel can detach itself as a bonus action. A creature, including the target, can use its action to detach the eel.",
+		description: "If the [THIS] hits with its bite attack, it attaches to the target. While attached, the [THIS] can't make bite attacks. Instead, the target takes the bite damage at the start of each of the [THIS]'s turns. The [THIS] can detach itself as a bonus action. A creature, including the target, can use its action to detach the [THIS].",
 	}, {
 		name: "Tail Spine",
-		description: "If the eel hits with its tail spine, the target must succeed on a DC 10 Constitution saving throw or be poisoned for 1 minute. Until this poison ends, the target is paralyzed. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+		description: "If the [THIS] hits with its tail spine, the target must succeed on a DC 10 Constitution saving throw or be poisoned for 1 minute. Until this poison ends, the target is paralyzed. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
 	}],
 	wildshapeString: [
 		"##Senses##. Darkvision 60 ft",
@@ -456,6 +457,7 @@ CreatureList["space eel"] = {
 CreatureList["space guppy"] = {
 	name: "Space Guppy",
 	nameAlt: ["Guppy, Space"],
+	nameThis: "guppy",
 	source: [["S:AiS", 55]], // page number in Boo's Astral Menagerie
 	size: 4,
 	type: "Beast",
@@ -478,10 +480,10 @@ CreatureList["space guppy"] = {
 	}],
 	traits: [{
 		name: "Air Envelope",
-		description: "If it has at least 1 hit point, the guppy can generate an air envelope around itself when in a vacuum. This air envelope can sustain the guppy and one other Tiny creature in its space indefinitely.",
+		description: "If it has at least 1 hit point, the [THIS] can generate an air envelope around itself when in a vacuum. This air envelope can sustain the [THIS] and one other Tiny creature in its space indefinitely.",
 	}, {
 		name: "Flyby",
-		description: "The guppy doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
+		description: "The [THIS] doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
 	}],
 };
 CreatureList["giant space hamster"] = {
@@ -510,6 +512,7 @@ CreatureList["giant space hamster"] = {
 CreatureList["space mollymawk"] = {
 	name: "Space Mollymawk",
 	nameAlt: ["Mollymawk, Space"],
+	nameThis: "mollymawk",
 	source: [["S:AiS", 57]], // page number in Boo's Astral Menagerie
 	size: 4,
 	type: "Beast",
@@ -534,10 +537,10 @@ CreatureList["space mollymawk"] = {
 	}],
 	traits: [{
 		name: "Flyby",
-		description: "The mollymawk doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
+		description: "The [THIS] doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
 	}, {
 		name: "Hold Breath",
-		description: "The mollymawk can hold its breath for 15 minutes.",
+		description: "The [THIS] can hold its breath for 15 minutes.",
 	}],
 };
 CreatureList["space swine"] = {

@@ -26,6 +26,7 @@ BackgroundFeatureList["underdark experience"] = {
 CreatureList["cave badger"] = { // contributed by Nod_Hero
 	name: "Cave Badger",
 	nameAlt: ["Badger, Cave"],
+	nameThis: "badger",
 	source: [["OotA", 96]],
 	size: 3,
 	type: "Beast",
@@ -55,16 +56,17 @@ CreatureList["cave badger"] = { // contributed by Nod_Hero
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the badger can make one Bite and one Claws attack.",
+		description: "As an action on its turn, the [THIS] can make one Bite and one Claws attack.",
 	}],
 	traits: [{
 		name: "Keen Smell",
-		description: "The badger has advantage on Wisdom (Perception) checks that rely on smell.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on smell.",
 	}],
 };
 CreatureList["steeder, female"] = {
 	name: "Female Steeder",
 	nameAlt: ["Steeder, Female", "Steeder"],
+	nameThis: "steeder",
 	source: [["OotA", 231]],
 	size: 2,
 	type: "Beast",
@@ -98,15 +100,16 @@ CreatureList["steeder, female"] = {
 	}],
 	traits: [{
 		name: "Spider Climb",
-		description: "The steeder can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.",
+		description: "The [THIS] can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.",
 	}, {
 		name: "Leap",
-		description: "The steeder can expend all its movement on its turn to jump up to 90 ft vertically or horizontally, provided that its speed is at least 30 feet.",
+		description: "The [THIS] can expend all its movement on its turn to jump up to 90 ft vertically or horizontally, provided that its speed is at least 30 feet.",
 	}],
 };
 CreatureList["steeder, male"] = {
 	name: "Male Steeder",
 	nameAlt: ["Steeder, Male"],
+	nameThis: "steeder",
 	source: [["OotA", 231]],
 	size: 3,
 	type: "Beast",
@@ -140,10 +143,10 @@ CreatureList["steeder, male"] = {
 	}],
 	traits: [{
 		name: "Spider Climb",
-		description: "The steeder can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.",
+		description: "The [THIS] can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.",
 	}, {
 		name: "Leap",
-		description: "The steeder can expend all its movement on its turn to jump up to 60 ft vertically or horizontally, provided that its speed is at least 30 feet.",
+		description: "The [THIS] can expend all its movement on its turn to jump up to 60 ft vertically or horizontally, provided that its speed is at least 30 feet.",
 	}],
 };
 

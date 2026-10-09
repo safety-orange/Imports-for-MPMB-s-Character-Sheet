@@ -2071,11 +2071,12 @@ CreatureList["moorbounder"] = {
 	}],
 	traits: [{
 		name: "Standing Leap",
-		description: "The moorbounder's long jump is up to 40 ft and its high jump is up to 20 ft, with or without a running start.",
+		description: "The [THIS]'s long jump is up to 40 ft and its high jump is up to 20 ft, with or without a running start.",
 	}],
 };
 CreatureList["bristled moorbounder"] = {
 	name: "Bristled Moorbounder",
+	nameThis: "moorbounder",
 	source: [["W", 295]],
 	size: 2,
 	type: "Beast",
@@ -2105,14 +2106,14 @@ CreatureList["bristled moorbounder"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the moorbounder can make one Blades and one Claws attack.",
+		description: "As an action on its turn, the [THIS] can make one Blades and one Claws attack.",
 	}],
 	traits: [{
 		name: "Bladed Hide",
-		description: "At the start of each of its turns, the moorbounder deals 2d4 piercing damage to any creature grappling it.",
+		description: "At the start of each of its turns, the [THIS] deals 2d4 piercing damage to any creature grappling it.",
 	}, {
 		name: "Standing Leap",
-		description: "The moorbounder's long jump is up to 40 ft and its high jump is up to 20 ft, with or without a running start.",
+		description: "The [THIS]'s long jump is up to 40 ft and its high jump is up to 20 ft, with or without a running start.",
 	}],
 };
 

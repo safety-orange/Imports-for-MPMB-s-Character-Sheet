@@ -42,6 +42,7 @@ GearList["snowshoes"] = {
 CreatureList["awakened white moose"] = {
 	name: "Awakened White Moose",
 	nameAlt: ["Moose, Awakened White"],
+	nameThis: "moose",
 	source: [["RotF", 82]],
 	size: 2,
 	type: "Beast",
@@ -71,14 +72,14 @@ CreatureList["awakened white moose"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the moose moves at least 20 ft straight toward a target and then hits it with an antlers attack on the same turn, the target takes an extra 9 (2d8) bludgeoning damage. If the target is a creature, it must succeed on a DC 14 Strength saving throw or be knocked prone.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with an antlers attack on the same turn, the target takes an extra 2d8 bludgeoning damage. If the target is a creature, it must succeed on a DC 14 Strength saving throw or be knocked prone.",
 	}, {
 		name: "Sure-Footed",
-		description: "The moose has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.",
+		description: "The [THIS] has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.",
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the moose can make one Antlers and one Hooves attack.",
+		description: "As an action on its turn, the [THIS] can make one Antlers and one Hooves attack.",
 	}],
 	wildshapeString: [
 		"##Multiattack##. 1 Antlers and 1 Hooves attack.",
@@ -117,7 +118,7 @@ CreatureList["fox"] = {
 	}],
 	traits: [{
 		name: "Keen Hearing",
-		description: "The fox has advantage on Wisdom (Perception) checks that rely on hearing.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on hearing.",
 	}],
 };
 CreatureList["hare"] = {
@@ -143,11 +144,12 @@ CreatureList["hare"] = {
 	attacks: [],
 	traits: [{
 		name: "Escape",
-		description: "The hare can take the Dash, Disengage, or Hide action as a bonus action on each of its turns.",
+		description: "The [THIS] can take the Dash, Disengage, or Hide action as a bonus action on each of its turns.",
 	}],
 };
 CreatureList["knucklehead trout"] = {
 	name: "Knucklehead Trout",
+	nameThis: "trout",
 	source: [["RotF", 295]],
 	size: 4,
 	type: "Beast",
@@ -177,12 +179,13 @@ CreatureList["knucklehead trout"] = {
 	}],
 	traits: [{
 		name: "Water Breathing",
-		description: "The trout can breathe only underwater.",
+		description: "The [THIS] can breathe only underwater.",
 	}],
 };
 CreatureList["mountain goat"] = {
 	name: "Mountain Goat",
 	nameAlt: ["Goat, Mountain"],
+	nameThis: "goat",
 	source: [["RotF", 304]],
 	size: 3,
 	type: "Beast",
@@ -205,10 +208,10 @@ CreatureList["mountain goat"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the goat moves at least 20 ft straight toward a target and then hits it with a ram attack on the same turn, the target takes an extra 3 (1d6) bludgeoning damage. If the target is a creature, it must succeed on a DC 12 Strength saving throw or be knocked prone.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a ram attack on the same turn, the target takes an extra 1d6 bludgeoning damage. If the target is a creature, it must succeed on a DC 12 Strength saving throw or be knocked prone.",
 	}, {
 		name: "Sure-Footed",
-		description: "The goat has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.",
+		description: "The [THIS] has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.",
 	}],
 	wildshapeString: [
 		"##Charge##. After moving 20 ft straight toward a target and then hitting it with a ram attack on the same turn, the target takes an extra 1d6 bludgeoning damage and must make a DC 12 Strength save or be knocked prone.",
@@ -241,15 +244,16 @@ CreatureList["seal"] = {
 	}],
 	traits: [{
 		name: "Hold Breath",
-		description: "The seal can hold its breath for 15 minutes.",
+		description: "The [THIS] can hold its breath for 15 minutes.",
 	}, {
 		name: "Keen Smell",
-		description: "The seal has advantage on Wisdom (Perception) checks that rely on smell.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on smell.",
 	}],
 };
 CreatureList["sperm whale"] = {
 	name: "Sperm Whale",
 	nameAlt: ["Whale, Sperm"],
+	nameThis: "whale",
 	source: [["RotF", 309]],
 	size: 0,
 	type: "Beast",
@@ -270,7 +274,7 @@ CreatureList["sperm whale"] = {
 		damage: [3, 8, "piercing"],
 		range: "Melee (5 ft)",
 		description: "1 bite \u0026 1 tail attack as Attack action; See Swallow feature",
-		tooltip: "If the target is a Large or smaller creature, it must succeed on a DC 14 Dexterity saving throw or be swallowed by the whale. A swallowed creature has total cover against attacks and other effects outside the whale, and it takes 3 (1d6) acid damage at the start of each of the whale's turns. If the whale takes 30 damage or more on a single turn from a creature inside it, the whale must succeed on a DC 16 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, which fall prone in a space within 10 feet of the whale. If the whale dies, a swallowed creature can escape from the corpse by using 20 feet of movement, exiting prone.",
+		tooltip: "If the target is a Large or smaller creature, it must succeed on a DC 14 Dexterity saving throw or be swallowed by the whale. A swallowed creature has total cover against attacks and other effects outside the whale, and it takes 1d6 acid damage at the start of each of the whale's turns. If the whale takes 30 damage or more on a single turn from a creature inside it, the whale must succeed on a DC 16 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, which fall prone in a space within 10 feet of the whale. If the whale dies, a swallowed creature can escape from the corpse by using 20 feet of movement, exiting prone.",
 	}, {
 		name: "Tail",
 		ability: 1,
@@ -281,21 +285,21 @@ CreatureList["sperm whale"] = {
 	}],
 	features: [{
 		name: "Swallow",
-		description: "A Large or smaller creature hit by the whale's bite attack must make a DC 14 Dexterity saving throw or be swallowed whole. A swallowed creature has total cover against attacks and other effects outside the whale, and it takes 3 (1d6) acid damage at the start of each of the whale's turns. If the whale takes 30 damage or more on a single turn from a creature inside it, the whale must succeed on a DC 16 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, which fall prone in a space within 10 ft of the whale. If the whale dies, a swallowed creature can escape from the corpse by using 20 ft of movement, exiting prone.",
+		description: "A Large or smaller creature hit by the [THIS]'s bite attack must make a DC 14 Dexterity saving throw or be swallowed whole. A swallowed creature has total cover against attacks and other effects outside the [THIS], and it takes 1d6 acid damage at the start of each of the [THIS]'s turns. If the [THIS] takes 30 damage or more on a single turn from a creature inside it, the [THIS] must succeed on a DC 16 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, which fall prone in a space within 10 ft of the [THIS]. If the [THIS] dies, a swallowed creature can escape from the corpse by using 20 ft of movement, exiting prone.",
 	}],
 	traits: [{
 		name: "Echolocation",
-		description: "The whale can't use its blindsight while deafened.",
+		description: "The [THIS] can't use its blindsight while deafened.",
 	}, {
 		name: "Hold Breath",
-		description: "The whale can hold its breath for 90 minutes.",
+		description: "The [THIS] can hold its breath for 90 minutes.",
 	}, {
 		name: "Keen Hearing",
-		description: "The whale has advantage on Wisdom (Perception) checks that rely on hearing.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on hearing.",
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the whale can make one Bite and one Tail attack.",
+		description: "As an action on its turn, the [THIS] can make one Bite and one Tail attack.",
 	}],
 	wildshapeString: [
 		"##Senses##. Blindsight 120 ft (unless deafened); Adv. on Wis (Perception) checks using hearing.",
@@ -327,7 +331,7 @@ CreatureList["walrus"] = {
 	}],
 	traits: [{
 		name: "Hold Breath",
-		description: "The walrus can hold its breath for 10 minutes.",
+		description: "The [THIS] can hold its breath for 10 minutes.",
 	}],
 };
 CreatureList["giant walrus"] = {
@@ -362,11 +366,11 @@ CreatureList["giant walrus"] = {
 	}],
 	traits: [{
 		name: "Hold Breath",
-		description: "The walrus can hold its breath for 30 minutes.",
+		description: "The [THIS] can hold its breath for 30 minutes.",
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the walrus can make one Body Flop and one Tusks attack.",
+		description: "As an action on its turn, the [THIS] can make one Body Flop and one Tusks attack.",
 	}],
 };
 
@@ -374,6 +378,7 @@ CreatureList["giant walrus"] = {
 CreatureList["demos magen"] = {
 	name: "Demos Magen",
 	nameAlt: ["Magen, Demos"],
+	nameThis: "magen",
 	source: [["RotF", 300]],
 	size: 3,
 	type: "Construct",
@@ -405,17 +410,17 @@ CreatureList["demos magen"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the magen can make two melee attacks.",
+		description: "As an action on its turn, the [THIS] can make two melee attacks.",
 	}],
 	traits: [{
 		name: "Fiery End",
-		description: "If the magen dies, its body disintegrates in a harmless burst of fire and smoke, leaving behind anything it was wearing or carrying.",
+		description: "If the [THIS] dies, its body disintegrates in a harmless burst of fire and smoke, leaving behind anything it was wearing or carrying.",
 	}, {
 		name: "Magic Resistance",
-		description: "The magen has advantage on saving throws against spells and other magical effects.",
+		description: "The [THIS] has advantage on saving throws against spells and other magical effects.",
 	}, {
 		name: "Unusual Nature",
-		description: "The magen doesn't require air, food, drink, or sleep.",
+		description: "The [THIS] doesn't require air, food, drink, or sleep.",
 	}],
 	features: [{
 		name: "Magical Servants",
@@ -425,6 +430,7 @@ CreatureList["demos magen"] = {
 CreatureList["galvan magen"] = {
 	name: "Galvan Magen",
 	nameAlt: ["Magen, Galvan"],
+	nameThis: "magen",
 	source: [["RotF", 301]],
 	size: 3,
 	type: "Construct",
@@ -455,17 +461,17 @@ CreatureList["galvan magen"] = {
 		description: "Hits all in area; Dex save, success\u2015 half damage; Disadv. if wearing metal armor",
 		abilitytodamage: false,
 		dc: true,
-		tooltip: "The magen discharges a lightning bolt in a 60-foot line that is 5 feet wide. Each creature in that line must make a DC 14 Dexterity saving throw (with disadvantage if the creature is wearing armor made of metal), taking 22 (4d10) lightning damage on a failed save, or half as much damage on a successful one.",
+		tooltip: "The magen discharges a lightning bolt in a 60-foot line that is 5 feet wide. Each creature in that line must make a DC 14 Dexterity saving throw (with disadvantage if the creature is wearing armor made of metal), taking 4d10 lightning damage on a failed save, or half as much damage on a successful one.",
 	}],
 	traits: [{
 		name: "Fiery End",
-		description: "If the magen dies, its body disintegrates in a harmless burst of fire and smoke, leaving behind anything it was wearing or carrying.",
+		description: "If the [THIS] dies, its body disintegrates in a harmless burst of fire and smoke, leaving behind anything it was wearing or carrying.",
 	}, {
 		name: "Magic Resistance",
-		description: "The magen has advantage on saving throws against spells and other magical effects.",
+		description: "The [THIS] has advantage on saving throws against spells and other magical effects.",
 	}, {
 		name: "Unusual Nature",
-		description: "The magen doesn't require air, food, drink, or sleep.",
+		description: "The [THIS] doesn't require air, food, drink, or sleep.",
 	}],
 	features: [{
 		name: "Magical Servants",
@@ -473,15 +479,16 @@ CreatureList["galvan magen"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the magen can make two Shocking Touch attacks.",
+		description: "As an action on its turn, the [THIS] can make two Shocking Touch attacks.",
 	}, {
 		name: "Static Discharge (Recharge 5-6)",
-		description: "See Attack. The magen discharges a *lightning bolt* in a 60-ft line that is 5 ft wide. Each creature in that line must make a DC 14 Dexterity saving throw (with disadvantage if the creature is wearing armor made of metal), taking 4d12 lightning damage on a failed save, or half as much damage on a successful one.",
+		description: "See Attack. The [THIS] discharges a *lightning bolt* in a 60-ft line that is 5 ft wide. Each creature in that line must make a DC 14 Dexterity saving throw (with disadvantage if the creature is wearing armor made of metal), taking 4d12 lightning damage on a failed save, or half as much damage on a successful one.",
 	}],
 };
 CreatureList["hypnos magen"] = {
 	name: "Hypnos Magen",
 	nameAlt: ["Magen, Hypnos"],
+	nameThis: "magen",
 	source: [["RotF", 301]],
 	size: 3,
 	type: "Construct",
@@ -509,13 +516,13 @@ CreatureList["hypnos magen"] = {
 	}],
 	traits: [{
 		name: "Fiery End",
-		description: "If the magen dies, its body disintegrates in a harmless burst of fire and smoke, leaving behind anything it was wearing or carrying.",
+		description: "If the [THIS] dies, its body disintegrates in a harmless burst of fire and smoke, leaving behind anything it was wearing or carrying.",
 	}, {
 		name: "Magic Resistance",
-		description: "The magen has advantage on saving throws against spells and other magical effects.",
+		description: "The [THIS] has advantage on saving throws against spells and other magical effects.",
 	}, {
 		name: "Unusual Nature",
-		description: "The magen doesn't require air, food, drink, or sleep.",
+		description: "The [THIS] doesn't require air, food, drink, or sleep.",
 	}],
 	features: [{
 		name: "Magical Servants",
@@ -523,7 +530,7 @@ CreatureList["hypnos magen"] = {
 	}],
 	actions: [{
 		name: "Suggestion",
-		description: "The magen casts the *Suggestion* spell (save DC 12), requiring no material components. The target must be a creature that the magen can communicate with telepathically. If it succeeds on its saving throw, the target is immune to this magen's *suggestion* spell for the next 24 hours. The magen's spellcasting ability is Intelligence.",
+		description: "The [THIS] casts the *Suggestion* spell (save DC 12), requiring no material components. The target must be a creature that the [THIS] can communicate with telepathically. If it succeeds on its saving throw, the target is immune to this [THIS]'s *suggestion* spell for the next 24 hours. The [THIS]'s spellcasting ability is Intelligence.",
 	}],
 };
 
