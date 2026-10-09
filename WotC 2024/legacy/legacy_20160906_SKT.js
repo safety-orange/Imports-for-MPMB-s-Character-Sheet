@@ -1,15 +1,16 @@
-var iFileName = "pub_20160906_SKT.js";
-RequiredSheetVersion("14.1.3", 15);
+var iFileName = "legacy_20160906_SKT.js";
+RequiredSheetVersion("24.1.3");
 // This file adds the beasts from the Storm King's Thunder adventure book to MPMB's Character Record Sheet
 
 // Define the source
 SourceList["SKT"] = {
 	name: "Storm King's Thunder [beasts, items]",
 	abbreviation: "SKT",
-	group: "Adventure Books",
+	group: "Legacy Adventure Books",
 	campaignSetting: "Forgotten Realms",
 	url: "https://dnd.wizards.com/products/storm-kings-thunder",
 	date: "2016/09/06",
+	defaultExcluded: true,
 };
 
 // Creatures [Crag Cat removed, because it is a monstrosity according to 2020 errata https://media.wizards.com/2020/dnd/downloads/SKT-Errata.pdf ]
@@ -39,7 +40,7 @@ CreatureList["ice spider"] = { // contributed by Nod_Hero
 		ability: 2,
 		damage: [1, 8, "piercing"],
 		range: "Melee (5 ft)",
-		description: "Target also takes 2d8 poison damage, half on a DC 11 Constitution saving throw",
+		description: "Target also takes 2d8 Poison damage, half on a DC 11 Constitution saving throw",
 	}, {
 		name: "Icy Web (Recharge 5-6)",
 		ability: 2,
@@ -47,7 +48,7 @@ CreatureList["ice spider"] = { // contributed by Nod_Hero
 		range: "30/60 ft",
 		description: "Target can escape as an action with a DC 12 Strength check, or by destroying the webbing (AC 10; 5 HP)",
 		abilitytodamage: false,
-		tooltip: "On a hit, the target is restrained by webbing and takes 1 cold damage at the start of each of its turns. As an action, the restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; hp 5; vulnerability to fire damage; immunity to poison and psychic damage).",
+		tooltip: "On a hit, the target is Restrained by webbing and takes 1 Cold damage at the start of each of its turns. As an action, the Restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; HP 5; vulnerability to Fire damage; Immunity to Poison and Psychic damage).",
 	}],
 	features: [{
 		name: "Spider Climb",
@@ -61,14 +62,14 @@ CreatureList["ice spider"] = { // contributed by Nod_Hero
 	}],
 	actions: [{
 		name: "Bite",
-		description: "If the poison damage from the [THIS]'s bite attack reduces the target to 0 HP, the target is stable but poisoned for 1 hour, even after regaining HP, and is paralyzed while poisoned in this way.",
+		description: "If the Poison damage from the [THIS]'s bite attack reduces the target to 0 HP, the target is stable but Poisoned for 1 hour, even after regaining HP, and is Paralyzed while Poisoned in this way.",
 	}, {
 		name: "Icy Web (Recharge 5-6)",
-		description: "See attack. On a hit, the target is restrained by webbing and takes 1 cold damage at the start of each of its turns. As an action, the restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; hp 5; vulnerability to fire damage; immunity to bludgeoning, poison, and psychic damage).",
+		description: "See attack. On a hit, the target is Restrained by webbing and takes 1 Cold damage at the start of each of its turns. As an action, the Restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; HP 5; vulnerability to Fire damage; Immunity to Bludgeoning, Poison, and Psychic damage).",
 	}],
 	wildshapeString: [
 		"##Senses##. Blindsight 10 ft, Darkvision 60 ft.",
-		"##Bite##. If the poison damage reduces the target to 0 HP, the target is stable but poisoned and paralyzed for 1 hour, even after regaining HP.",
+		"##Bite##. If the Poison damage reduces the target to 0 HP, the target is stable but Poisoned and Paralyzed for 1 hour, even after regaining HP.",
 		"##Spider Climb##. Climb difficult surfaces, including upside down, without an ability check.",
 		"##Web Sense##. Knows the exact location of any other creature in contact with the same web.",
 		"##Web Walker##. No movement restrictions from webbing.",
@@ -92,7 +93,7 @@ CreatureList["sheep"] = {
 	attacks: [],
 	traits: [{
 		name: "Sure-Footed",
-		description: "The [THIS] has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.",
+		description: "The [THIS] has Advantage on Strength and Dexterity saving throws made against effects that would knock it Prone.",
 	}],
 };
 CreatureList["pig"] = {
@@ -156,7 +157,6 @@ CreatureList["tressym"] = {
 	source: [["SKT", 242]],
 	size: 5, //Tiny
 	type: "Beast",
-	companion: "familiar_not_al",
 	alignment: "Unaligned",
 	ac: 12,
 	hp: 5,
@@ -167,9 +167,8 @@ CreatureList["tressym"] = {
 		"perception": 5,
 		"stealth": 4,
 	},
-	damage_immunities: "poison",
-	condition_immunities: "poisoned",
-	senses: "Darkvision 60 ft; Adv. on Wis (Perception) checks using smell",
+	immunities: "Poison; Poisoned",
+	senses: "Darkvision 60 ft; Adv on Wis (Perception) checks using smell",
 	passivePerception: 15,
 	languages: "understands Common but can't speak",
 	challengeRating: "0",
@@ -190,7 +189,7 @@ CreatureList["tressym"] = {
 		description: "Within 60 feet of the [THIS], magical invisibility fails to conceal anything from the [THIS]'s sight.",
 	}, {
 		name: "Keen Smell",
-		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on smell.",
+		description: "The [THIS] has Advantage on Wisdom (Perception) checks that rely on smell.",
 	}, {
 		name: "Poison Sense",
 		description: "The [THIS] can detect whether a substance is poisonous by taste, touch, or smell.",
@@ -199,7 +198,7 @@ CreatureList["tressym"] = {
 	wildshapeString: [
 		"##Languages##. Understands Common but can't speak.",
 		"##Senses##. Darkvision 60 ft; Advantage on Wisdom (Perception) checks that rely on smell.",
-		"##Immunities##. Poison damage, poisoned condition.",
+		"##Immunities##. Poison damage, Poisoned condition.",
 		"##Detect Invisibility##. Magical invisibility fails to conceal anything from sight, out to 60 ft.",
 		"##Poison Sense##. Detect whether a substance is poisonous by taste, touch, or smell.",
 	].join("\n"),
@@ -209,8 +208,8 @@ CreatureList["tressym"] = {
 MagicItemsList["faerie dust"] = { // contains contributions by Nod_Hero
 	name: "Faerie Dust",
 	source: [["SKT", 35]],
-	type: "wondrous item",
-	description: "A pinch of this dust can substitute for the material components of any enchantment spell of 3rd level or lower. If a pinch of faerie dust is sprinkled on a creature, roll percentile dice and consult the Faerie Dust Table to determine the effect, see notes.",
+	type: "Wondrous Item",
+	description: "A pinch of this dust can substitute for the material components of any Enchantment spell of 3rd level or lower. If a pinch of faerie dust is sprinkled on a creature, roll percentile dice and consult the Faerie Dust Table to determine the effect, see notes.",
 	descriptionFull: [
 		"This small pouch contains ten pinches of *faerie dust*. A pinch of this dust can substitute for the material components of any enchantment spell of 3rd level or lower. If a pinch of *faerie dust* is sprinkled on a creature, roll percentile dice and consult the Faerie Dust table to determine the effect.",
 		"Faerie Dust Table",
@@ -238,16 +237,16 @@ MagicItemsList["faerie dust"] = { // contains contributions by Nod_Hero
 		note: [
 			[
 				["   d100 ", "Magical Effect"],
-				["  01-70", "The creature sprinkled with dust gains a flying speed of 60 ft"],
+				["  01-70", "The creature sprinkled with dust gains a 60 ft Fly Speed"],
 				["", "for 10 minutes."],
 				["  71-80", "The creature sprinkled with dust must succeed on a DC 11"],
-				["", "Constitution saving throw or fall unconscious for 1 minute."],
+				["", "Constitution saving throw or fall Unconscious for 1 minute."],
 				["", "The creature awakens if it takes damage or if it is shaken or slapped"],
 				["", "as an action."],
 				["  81-90", "The creature sprinkled with dust must succeed on a DC 11 Wisdom"],
 				["", "saving throw or be affected by a *confusion* spell."],
-				["  91-00", "The creature sprinkled with dust becomes invisible for 1 hour."],
-				["", "Any equipment it is wearing or carrying is invisible as long as it is on"],
+				["  91-00", "The creature sprinkled with dust becomes Invisible for 1 hour."],
+				["", "Any equipment it is wearing or carrying is Invisible as long as it is on"],
 				["", "the creature's person. The effect on the creature ends if it attacks,"],
 				["", "deals any damage, or casts a spell."],
 			],
@@ -259,10 +258,9 @@ MagicItemsList["faerie dust"] = { // contains contributions by Nod_Hero
 MagicItemsList["banner of the krig rune"] = {
 	name: "Banner of the Krig Rune",
 	source: [["SKT", 233]],
-	type: "wondrous item",
-	rarity: "rare",
-	magicItemTable: "G",
-	description: "As an action, I can furl or unfurl this 5 ft by 3 ft banner. While it is unfurled and I'm attuned to it, I can use its magic to see invisible creatures, and each once per short rest emanate courage or protect from ranged attacks. I can even transfer them over to a place, destroying the banner in the process. See Notes.",
+	type: "Wondrous Item",
+	rarity: "Rare",
+	description: "As an action, I can furl or unfurl this 5 ft by 3 ft banner. While it is unfurled and I'm attuned to it, I can use its magic to see Invisible creatures, and each once per Short Rest emanate courage or protect from ranged attacks. I can even transfer them over to a place, destroying the banner in the process. See Notes.",
 	descriptionFull: [
 		"Crafted from a thick, red fabric, this banner measures 5 feet high and 3 feet wide. The krig (war) rune is displayed on the fabric with round, metal plates sewn into it. It can be attached to a 10-foot pole to serve as a standard. Furling or unfurling the banner requires an action. The banner has the following properties.",
 		"***Mark of Courage***. As a bonus action, you can touch the unfurled banner and cause it to emanate courage. You and your allies are immune to the frightened condition while within 20 feet of it. This benefit lasts for 10 minutes or until the banner is furled. Once you use this property, you can't use it again until you finish a short or long rest.",
@@ -279,30 +277,29 @@ MagicItemsList["banner of the krig rune"] = {
 	extraLimitedFeatures: [{
 		name: "Mark of Courage (Krig Banner)",
 		usages: 1,
-		recovery: "short rest",
+		recovery: "Short Rest",
 	}, {
 		name: "Standard's Shield (Krig Banner)",
 		usages: 1,
-		recovery: "short rest",
+		recovery: "Short Rest",
 	}],
 	toNotesPage: [{
 		name: "Features",
 		note: [
 			"Crafted from a thick, red fabric, this banner measures 5 ft high and 3 ft wide. The krig (war) rune is displayed on the fabric with round, metal plates sewn into it. It can be attached to a 10-ft pole to serve as a standard. Furling or unfurling the banner requires an action. The banner has the following properties.",
-			"As a bonus action, I can touch the unfurled banner and use the Mark of Courage, have it emanate courage. Me and my allies are immune to the frightened condition while within 20 ft of it. This benefit lasts for 10 minutes or until the banner is furled. Once I use this property, I can't use it again until I finish a short or long rest.",
-			"I can see invisible creatures while they are within 20 ft of the unfurled banner and within my line of sight.",
-			"As a bonus action, I can touch the unfurled banner and invoke the Standard's Shield power. While within 20 ft of the unfurled banner, me and my allies are protected from ranged attacks. Any ranged attack roll targeting those protected has disadvantage. This benefit lasts for 1 minute or until the banner is furled. Once I use this property, I can't use it again until I finish a short or long rest.\n",
-			"I can transfer the banner's magic to a place by tracing the krig rune on the ground with my finger. The point where I trace it becomes the center of a spherical area of magic that has a 500-ft radius and that is fixed to the place. The transfer takes 8 hours of work that requires the banner to be within 5 ft of me and during which I choose creatures, creature types, or both that will benefit from the magic. At the end, the banner is destroyed, and the creatures I chose during the transfer process are immune to the frightened condition and gain a +1 bonus to attack rolls and AC while within the area.",
+			"As a Bonus Action, I can touch the unfurled banner and use the Mark of Courage, have it emanate courage. Me and my allies are Immune to the Frightened condition while within 20 ft of it. This benefit lasts for 10 minutes or until the banner is furled. Once I use this property, I can't use it again until I finish a Short or Long Rest.",
+			"I can see Invisible creatures while they are within 20 ft of the unfurled banner and within my line of sight.",
+			"As a Bonus Action, I can touch the unfurled banner and invoke the Standard's Shield power. While within 20 ft of the unfurled banner, me and my allies are protected from ranged attacks. Any ranged attack roll targeting those protected has Disadvantage. This benefit lasts for 1 minute or until the banner is furled. Once I use this property, I can't use it again until I finish a Short or Long Rest.",
+			"I can transfer the banner's magic to a place by tracing the krig rune on the ground with my finger. The point where I trace it becomes the center of a spherical area of magic that has a 500-ft radius and that is fixed to the place. The transfer takes 8 hours of work that requires the banner to be within 5 ft of me and during which I choose creatures, creature types, or both that will benefit from the magic. At the end, the banner is destroyed, and the creatures I chose during the transfer process are Immune to the Frightened condition and gain a +1 bonus to attack rolls and AC while within the area.",
 		],
 	}],
 }
 MagicItemsList["blod stone"] = {
 	name: "Blod Stone",
 	source: [["SKT", 233]],
-	type: "wondrous item",
-	rarity: "rare",
-	magicItemTable: "D",
-	description: "As an action while I carry this diamond with the blod rune, I can divine the location of the creature nearest to me that is related to the blood in the item and that isn't undead. I sense the distance and direction of the creature. The diamond is worth at least 5,000 gp. If it is destroyed, the blood inside evaporates.",
+	type: "Wondrous Item",
+	rarity: "Rare",
+	description: "As an action while I carry this diamond with the blod rune, I can divine the location of the creature nearest to me that is related to the blood in the item and that isn't Undead. I sense the distance and direction of the creature. The diamond is worth at least 5,000 gp. If it is destroyed, the blood inside evaporates.",
 	descriptionFull: [
 		"This diamond contains the blood of a creature\u2014blood that appears in the form of the blod (blood) rune. While the item is on your person, you can use your action to divine the location of the creature nearest to you that is related to the blood in the item and that isn't undead. You sense the distance and direction of the creature relative to your location. The creature is either the one whose blood is in the item or a blood relative.",
 		"This item is made from a large diamond worth at least 5,000 gp. When the blood of a creature is poured onto it during the creation process, the blood seeps into the heart of the gem. If the gem is destroyed, the blood evaporates and is gone forever. A vengeful being might use a *blod stone* to hunt down an entire bloodline. Such stones are sometimes given as gifts to siblings or handed down from parent to child.",
@@ -313,10 +310,9 @@ MagicItemsList["blod stone"] = {
 MagicItemsList["claw of the wyrm rune"] = {
 	name: "Claw of the Wyrm Rune",
 	source: [["SKT", 233]],
-	type: "wondrous item",
-	rarity: "rare",
-	magicItemTable: "G",
-	description: "This silvered dragon's claw gives me resistance to dragon breath weapons. As an action 3 times per dawn, I can have a dragon within 30 ft make a DC 15 Con save or gain vulnerability to all damage types until the end of my next turn. I can transfer its magic to a place, destroying the claw in the process. See book.",
+	type: "Wondrous Item",
+	rarity: "Rare",
+	description: "This silvered dragon claw gives me Resistance to dragon breath weapons. As an action 3 times per dawn, I can have a Dragon within 30 ft make a DC 15 Con save or gain Vulnerability to all damage types until the end of my next turn. I can transfer its magic to a place, destroying the claw in the process. See book.",
 	descriptionFull: [
 		"This dragon's claw has been covered with a coat of molten silver, upon which has been inscribed the wyrm (dragon) rune. The claw has the following properties.",
 		"***Wyrmslayer***. As an action, you can point the claw at a dragon within 30 feet of you. The dragon must then succeed on a DC 15 Constitution saving throw or gain vulnerability to all damage types until the end of your next turn. This property can be used three times. The claw regains all expended uses at the next dawn.",
@@ -333,8 +329,8 @@ MagicItemsList["claw of the wyrm rune"] = {
 MagicItemsList["conch of teleportation"] = {
 	name: "Conch of Teleportation",
 	source: [["SKT", 234]],
-	type: "wondrous item",
-	rarity: "very rare",
+	type: "Wondrous Item",
+	rarity: "Very Rare",
 	storyItemAL: true,
 	description: "This 2.5 ft conch shell is inscribed with the uvar rune. As an action once per dawn, I can blow into the shell, teleporting myself and up to 8 willing creatures to a predetermined location without any chance of mishap. The location is determined at creation of the item and can't be changed.",
 	descriptionFull: [
@@ -350,10 +346,9 @@ MagicItemsList["conch of teleportation"] = {
 MagicItemsList["gavel of the venn rune"] = {
 	name: "Gavel of the Venn Rune",
 	source: [["SKT", 234]],
-	type: "wondrous item",
-	rarity: "rare",
-	magicItemTable: "G",
-	description: "This wooden gavel imposes disadv. on attacks against me before my first turn in a combat. As an action once per long rest, I can strike it on a hard surface and have the first creature that deals damage with an attack within 60 ft of the strike take half that damage itself as psychic damage. Can transfer rune, see book.",
+	type: "Wondrous Item",
+	rarity: "Rare",
+	description: "This wooden gavel imposes Disadv on attacks against me before my first turn in a combat. As an action once per Long Rest, I can strike it on a hard surface and have the first creature that deals damage with an attack within 60 ft of the strike take half that damage itself as Psychic damage. Can transfer rune, see book.",
 	descriptionFull: [
 		"This wooden gavel is small by giant reckoning but nearly the size of a warhammer in human hands. The venn (friend) rune is inscribed in mithral in the base of the haft. Among giants, this item is used as part of rituals to resolve disputes. The gavel has the following properties.",
 		"***Arbiters Shield***. At the start of every combat, attack rolls against you have disadvantage before the start of your first turn, provided that the gavel is on your person.",
@@ -364,15 +359,15 @@ MagicItemsList["gavel of the venn rune"] = {
 	attunement: true,
 	action: [["action", ""]],
 	usages: 1,
-	recovery: "long rest",
+	recovery: "Long Rest",
 }
 MagicItemsList["gurt's greataxe"] = {
 	name: "Gurt's Greataxe",
 	source: [["SKT", 234]],
-	type: "weapon (greataxe)",
-	rarity: "legendary",
+	type: "Weapon (Greataxe)",
+	rarity: "Legendary",
 	notLegalAL: true,
-	description: "This giant-sized greataxe adds +1 to hit and damage and deals 3d12 slashing damage (+2d12 vs. humans). When in an area that is below 0 \u00B0F, it sheds bright light in a 20-ft radius and dim light for another 20 ft. As an action once per dawn, I can use it to cast *Heat Metal* (DC 13) that deals cold damage instead of fire.",
+	description: "This giant-sized greataxe adds +1 to hit and damage and deals 3d12 Slashing damage (+2d12 vs humans). When in an area that is below 0 \u00B0F, it sheds Bright Light in a 20-ft radius and Dim Light for another 20 ft. As an action once per dawn, I can use it to cast *Heat Metal* (DC 13) that deals Cold damage instead of Fire.",
 	descriptionFull: [
 		"In the Year of the Icy Axe (123 DR), the frost giant Lord Gurt fell to Uthgar Gardolfsson\u2014leader of the folk who would become the Uthgardt barbarians\u2014in a battle that marked the ascendance of humankind over the giants in the Dessarin Valley. *Gurt's greataxe* was buried in Morgur's Mound until it was unearthed and brought back to Waterdeep. After laying in the city's vaults for decades, the axe was given to Harshnag, a frost giant adventurer, in recognition of his service to Waterdeep. Uthgardt barbarians recognize the weapon on sight and attack any giant that wields it.",
 		"You gain a +1 bonus to attack and damage rolls made with this magic weapon. It is sized for a giant, weighs 325 pounds, and deals 3d12 slashing damage on a hit, plus an extra 2d12 slashing damage if the target is human.",
@@ -381,8 +376,6 @@ MagicItemsList["gurt's greataxe"] = {
 	],
 	attunement: true,
 	weight: 325,
-	usages: 1,
-	recovery: "dawn",
 	weaponOptions: [{
 		baseWeapon: "greataxe",
 		regExpSearch: /^(?=.*gurt)(?=.*greataxe).*$/i,
@@ -390,13 +383,13 @@ MagicItemsList["gurt's greataxe"] = {
 		source: [["SKT", 234]],
 		damage: [3, 12, "slashing"],
 		weight: 325,
-		description: "Heavy, two-handed; +2d12 damage against humans",
+		description: "Heavy, Two-Handed; +2d12 damage against humans",
 		modifiers: [1, 1],
 		selectNow: true,
 	}],
 	fixedDC: 13,
 	spellcastingBonus: [{
-		name: "Deals cold damage",
+		name: "Deals Cold damage",
 		spells: ["heat metal"],
 		selection: ["heat metal"],
 		firstCol: "onceday",
@@ -405,15 +398,14 @@ MagicItemsList["gurt's greataxe"] = {
 		"heat metal": {
 			description: "1 metal obj on touch 2d8 Cold dmg; save or drop obj; if held: dis. atk/chk; bns a cool obj again",
 			descriptionShorter: "1 metal obj, touch it 2d8 Cold dmg; save or drop it; if held: dis. atk/chk; bns a redo",
-			changes: "Using Gurt's Greataxe, the spell deals cold damage instead of fire.",
+			changes: "Using Gurt's Greataxe, the spell deals Cold damage instead of Fire.",
 		},
 	},
 }
 MagicItemsList["ingot of the skold rune"] = {
 	name: "Ingot of the Skold Rune",
 	source: [["SKT", 234]],
-	magicItemTable: "H",
-	description: "I can use the ingot as it is, or transfer its runic properties over to a shield or two-handed melee weapon.",
+	description: "I can use the ingot as it is, or transfer its runic properties over to a shield or Two-Handed melee weapon.",
 	descriptionFull: [
 		"This appears to be a simple ingot of iron ore, about a foot long and a few inches across. Inspection of its surface reveals the faint, silvery outline of the skold (shield) rune. The ingot has the following properties, which work only while it's on your person.",
 		"***Runic Shield***. You have a +1 bonus to AC.",
@@ -425,9 +417,9 @@ MagicItemsList["ingot of the skold rune"] = {
 	choices: ["Ingot", "Transferred to a shield", "Transferred to a two-handed melee weapon"],
 	"ingot": {
 		name: "Ingot of the Skold Rune ",
-		type: "wondrous item",
-		rarity: "very rare",
-		description: "This iron ingot gives me +1 AC. As a bonus action, I can use it to choose a creature within 30 ft other than myself. Until the end of my next turn, any damage it takes is reduced to 1, but I take half the prevented damage and this damage can't be reduced in any way. I can transfer the rune to a shield or weapon, see book.",
+		type: "Wondrous Item",
+		rarity: "Very Rare",
+		description: "This iron ingot gives me +1 AC. As a Bonus Action, I can use it to choose a creature within 30 ft other than myself. Until the end of my next turn, any damage it takes is reduced to 1, but I take half the prevented damage and this damage can't be reduced in any way. I can transfer the rune to a shield or weapon, see book.",
 		attunement: true,
 		extraAC: [{ name: "Skold Rune", mod: 1, magic: true, text: "I gain a +1 bonus to AC while attuned." }],
 		action: [["bonus action", ""]],
@@ -435,18 +427,18 @@ MagicItemsList["ingot of the skold rune"] = {
 	"transferred to a shield": {
 		name: "Skold Rune Shield",
 		sortname: "Rune Shield, Skold",
-		type: "shield",
-		rarity: "rare",
-		description: "This shield gives me +1 AC on top of its normal bonus to AC. While carrying it, the first time after a long rest that damage reduces me to 0 HP, I drop to 1 HP instead.",
+		type: "Shield",
+		rarity: "Rare",
+		description: "This shield gives me +1 AC on top of its normal bonus to AC. While carrying it, the first time after a Long Rest that damage reduces me to 0 HP, I drop to 1 HP instead.",
 		shieldAdd: ["Skold Rune Shield", 3, 6],
 		usages: 1,
-		recovery: "long rest",
+		recovery: "Long Rest",
 	},
 	"transferred to a two-handed melee weapon": {
 		name: "Skold Rune Weapon",
 		sortname: "Rune Weapon, Skold",
-		type: "weapon (any two-handed melee)",
-		rarity: "uncommon",
+		type: "Weapon (Any Two-Handed Melee)",
+		rarity: "Uncommon",
 		description: "This magic weapon grants me a +1 bonus to AC.",
 		extraAC: [{ name: "Skold Rune", mod: 1, magic: true, text: "I gain a +1 bonus to AC while attuned." }],
 		chooseGear: {
@@ -474,8 +466,8 @@ MagicItemsList["ingot of the skold rune"] = {
 MagicItemsList["korolnor scepter"] = {
 	name: "Korolnor Scepter",
 	source: [["SKT", 234]],
-	type: "weapon (club)",
-	rarity: "legendary",
+	type: "Weapon (Club)",
+	rarity: "Legendary",
 	storyItemAL: true,
 	description: "This tapered mithral rod the size of a dwarf's forearm has 10 charges, regaining 1d6+4 at dawn. It can be wielded as a +3 club. As an action while below sea level, I can expend 1 charge to determine the distance to the surface. I can also use the charges to cast *Sending* (2 charges) and *Teleport* (3 charges).",
 	descriptionFull: [
@@ -516,8 +508,8 @@ MagicItemsList["korolnor scepter"] = {
 MagicItemsList["navigation orb"] = {
 	name: "Navigation Orb",
 	source: [["SKT", 235]],
-	type: "wondrous item",
-	rarity: "very rare",
+	type: "Wondrous Item",
+	rarity: "Very Rare",
 	storyItemAL: true,
 	description: "This hollow 7-ft diameter sphere of thin, polished mithral bears the skye rune and is keyed to a particular cloud castle. It only works while within that castle. As an action while touching it, I can use it to move the cloud castle 1 mph until commanded otherwise, have it stop, or turn 90 degrees.",
 	descriptionFull: [
@@ -533,7 +525,6 @@ MagicItemsList["navigation orb"] = {
 MagicItemsList["opal of the ild rune"] = {
 	name: "Opal of the Ild Rune",
 	source: [["SKT", 235]],
-	magicItemTable: "G",
 	description: "I can use the opal as it is, or transfer its runic properties over to a suit of armor or weapon.",
 	descriptionFull: [
 		"This triangular fire opal measures about three inches on each side and is half an inch thick. The ild (fire) rune shimmers within its core, causing it to be slightly warm to the touch. The opal has the following properties, which work only while it's on your person.",
@@ -547,9 +538,9 @@ MagicItemsList["opal of the ild rune"] = {
 	choices: ["Opal", "Transferred to a suit of armor", "Transferred to a weapon"],
 	"opal": {
 		name: "Opal of the Ild Rune ",
-		type: "wondrous item",
-		rarity: "rare",
-		description: "This triangular fire opal gives me resistance to Cold damage. As an action, I can use it to extinguish open flames of my choice within 10 ft, or I can ignite a flammable object within 10 ft with a fire up to 1 ft in diameter. I can undertake an 8 hour ritual to transfer the rune to a suit of armor or weapon, see book.",
+		type: "Wondrous Item",
+		rarity: "Rare",
+		description: "This triangular fire opal gives me Resistance to Cold damage. As an action, I can use it to extinguish open flames of my choice within 10 ft, or I can ignite a flammable object within 10 ft with a fire up to 1 ft in diameter. I can undertake an 8 hour ritual to transfer the rune to a suit of armor or weapon, see book.",
 		attunement: true,
 		dmgres: ["Cold"],
 		action: [["action", ""]],
@@ -557,9 +548,9 @@ MagicItemsList["opal of the ild rune"] = {
 	"transferred to a suit of armor": {
 		name: "Ild Rune Armor",
 		sortname: "Rune Armor, Ild",
-		type: "armor (any)",
-		rarity: "rare",
-		description: "This magic armor gives me resistance to cold damage.",
+		type: "Armor (Any)",
+		rarity: "Rare",
+		description: "This magic armor gives me Resistance to Cold damage.",
 		attunement: true,
 		dmgres: ["Cold"],
 		chooseGear: {
@@ -572,9 +563,9 @@ MagicItemsList["opal of the ild rune"] = {
 	"transferred to a weapon": {
 		name: "Ild Rune Weapon",
 		sortname: "Rune Weapon, Ild",
-		type: "wondrous item",
-		rarity: "uncommon",
-		description: "This magic weapon deals +1d6 fire damage to any target it hits.",
+		type: "Wondrous Item",
+		rarity: "Uncommon",
+		description: "This magic weapon deals +1d6 Fire damage to any target it hits.",
 		chooseGear: {
 			type: "weapon",
 			prefixOrSuffix: "brackets",
@@ -590,7 +581,7 @@ MagicItemsList["opal of the ild rune"] = {
 						fields.Description += (fields.Description ? "; " : "") + "+1d6 fire damage";
 					}
 				},
-				'If I include the words "Ild Rune" in the name of a weapon, it will be treated as the magic weapon Ild Rune Weapon, which deals +1d6 fire damage.',
+				'If I include the words "Ild Rune" in the name of a weapon, it will be treated as the magic weapon Ild Rune Weapon, which deals +1d6 Fire damage.',
 			],
 		},
 	},
@@ -598,7 +589,6 @@ MagicItemsList["opal of the ild rune"] = {
 MagicItemsList["orb of the stein rune"] = {
 	name: "Orb of the Stein Rune",
 	source: [["SKT", 235]],
-	magicItemTable: "G",
 	description: "I can use the orb as it is, or transfer its runic properties over to a shield or pair of boots.",
 	descriptionFull: [
 		"This orb of granite is about the size of an adult human's fist. The stein (stone) rune appears on it in the form of crystalline veins that run across the surface. The orb has the following properties, which work only while it's on your person.",
@@ -612,42 +602,42 @@ MagicItemsList["orb of the stein rune"] = {
 	choices: ["Orb", "Transferred to a shield", "Transferred to a pair of boots"],
 	"orb": {
 		name: "Orb of the Stein Rune ",
-		type: "wondrous item",
-		rarity: "rare",
-		description: "This orb gives me petrification immunity. As a bonus action once per short rest, I can cast *Meld Into Stone*. As an action, I can hold my ground for 1 min or until I move any distance, giving me adv. on saves/checks vs. moving and enemies moving to a space in 10 ft must make a DC 12 Str save or have speed 0 for this turn.",
+		type: "Wondrous Item",
+		rarity: "Rare",
+		description: "This orb gives me petrification Immunity. Oce per Short Rest as a Bonus Action, I can cast *Meld Into Stone*. As an action, I can hold my ground for 1 min or until I move any distance, giving me Adv on saves/checks vs moving and enemies moving to a space in 10 ft must make a DC 12 Str save or have speed 0 for this turn.",
 		attunement: true,
-		savetxt: { immune: ["petrified"] },
+		savetxt: { immune: ["Petrified"] },
 		action: [["action", ""]],
 		spellcastingBonus: [{
-			name: "Once per short rest",
+			name: "Once per Short Rest",
 			spells: ["meld into stone"],
 			selection: ["meld into stone"],
 			firstCol: "oncesr",
 		}],
 		spellChanges: {
 			"meld into stone": {
-				time: "1 bns",
-				changes: "Using the Orb of the Stein Rune, I can cast this as a bonus action.",
+				time: "Bns",
+				changes: "Using the Orb of the Stein Rune, I can cast this as a Bonus Action.",
 			},
 		},
 	},
 	"transferred to a shield": {
 		name: "Stein Rune Shield",
 		sortname: "Rune Shield, Stein",
-		type: "shield",
-		rarity: "rare",
-		description: "This shield gives me resistance to all damage dealt by ranged weapon attacks.",
+		type: "Shield",
+		rarity: "Rare",
+		description: "This shield gives me Resistance to all damage dealt by ranged weapon attacks.",
 		attunement: true,
 		shieldAdd: "Stein Rune Shield",
 		dmgres: ["Ranged Weapon Attacks"],
 	},
 	"transferred to a pair of boots": {
 		name: "Stein Rune Boots",
-		type: "wondrous item",
-		rarity: "uncommon",
-		description: "These pair of boots give me advantage on Strength saving throws. As a reaction, I can avoid being knocked prone.",
+		type: "Wondrous Item",
+		rarity: "Uncommon",
+		description: "These pair of boots give me Advantage on Strength saving throws. As a Reaction, I can avoid being knocked Prone.",
 		attunement: true,
-		savetxt: { text: ["Adv. on Str saves"] },
+		savetxt: { text: ["Adv on Str saves"] },
 		advantages: ["Strength", true],
 		action: [["reaction", ""]],
 	},
@@ -655,7 +645,6 @@ MagicItemsList["orb of the stein rune"] = {
 MagicItemsList["pennant of the vind rune"] = {
 	name: "Pennant of the Vind Rune",
 	source: [["SKT", 235]],
-	magicItemTable: "H",
 	description: "I can use the pennant as it is, or transfer its runic properties over to a suit of armor, pair of boots, or cloak.",
 	descriptionFull: [
 		"This blue pennant is crafted from silk and is five feet long and whips about as if buffeted by a wind. The vind (wind) rune appears on its surface, looking almost like a cloud. The pennant has the following properties, which work only while it's on your person.",
@@ -670,9 +659,9 @@ MagicItemsList["pennant of the vind rune"] = {
 	choices: ["Pennant", "Transferred to a suit of armor", "Transferred to a pair of boots or cloak"],
 	"pennant": {
 		name: "Pennant of the Vind Rune ",
-		type: "wondrous item",
-		rarity: "very rare",
-		description: "This blue pennant stops me from suffocating. As an action, I can fly up to 20 ft, but won't stay aloft at the end of it. As a reaction once per short rest when I fall, I can use Winds Grasp to take no damage from the fall. As a bonus action once per short rest, I can cast *Levitate*. I can transfer this rune, see book.",
+		type: "Wondrous Item",
+		rarity: "Very Rare",
+		description: "This blue pennant stops me from suffocating. As an action, I can fly up to 20 ft, but won't stay aloft at the end of it. As a Reaction once per Short Rest when I fall, I can use Winds Grasp to take no damage from the fall. As a Bonus Action once per Short Rest, I can cast *Levitate*. I can transfer this rune, see book.",
 		attunement: true,
 		savetxt: { immune: ["suffocation"] },
 		action: [
@@ -680,33 +669,29 @@ MagicItemsList["pennant of the vind rune"] = {
 			["reaction", "Winds Grasp (Vind Rune)"],
 		],
 		extraLimitedFeatures: [{
-			name: "Levitate (Vind Rune)",
-			usages: 1,
-			recovery: "short rest",
-		}, {
 			name: "Winds Grasp (Vind Rune)",
 			usages: 1,
-			recovery: "short rest",
+			recovery: "Short Rest",
 		}],
 		spellcastingBonus: [{
-			name: "Once per short rest",
+			name: "Once per Short Rest",
 			spells: ["levitate"],
 			selection: ["levitate"],
 			firstCol: "oncesr",
 		}],
 		spellChanges: {
 			"levitate": {
-				time: "1 bns",
-				changes: "Using the Pennant of the Vind Rune, I can cast this as a bonus action.",
+				time: "Bns",
+				changes: "Using the Pennant of the Vind Rune, I can cast this as a Bonus Action.",
 			},
 		},
 	},
 	"transferred to a suit of armor": {
 		name: "Vind Rune Armor",
 		sortname: "Rune Armor, Vind",
-		type: "armor (any)",
-		rarity: "uncommon",
-		description: "This magic armor doesn't impose disadvantage on stealth checks and gives me a 5 ft bonus to my speed.",
+		type: "Armor (Any)",
+		rarity: "Uncommon",
+		description: "This magic armor doesn't impose Disadvantage on stealth checks and gives me a 5 ft bonus to my speed.",
 		attunement: true,
 		speed: { allModes: { bonus: "+5" } },
 		chooseGear: {
@@ -721,14 +706,12 @@ MagicItemsList["pennant of the vind rune"] = {
 		name: "Vind Rune Boots or Cloak",
 		nameAlt: "Vind Rune Boots",
 		nameTest: "Vind Rune Cloak",
-		type: "wondrous item",
-		rarity: "rare",
-		description: "While wearing this item, I can convert up to 20 ft of my movement on each of my turns into flight. If I don't land at the end of this flight, I fall unless I have other means of staying aloft. Once per short rest, I can use this item to cast *Feather Fall*.",
+		type: "Wondrous Item",
+		rarity: "Rare",
+		description: "While wearing this item, I can convert up to 20 ft of my movement on each of my turns into flight. If I don't land at the end of this flight, I fall unless I have other means of staying aloft. Once per Short Rest, I can use this item to cast *Feather Fall*.",
 		attunement: true,
-		usages: 1,
-		recovery: "short rest",
 		spellcastingBonus: [{
-			name: "Once per short rest",
+			name: "Once per Short Rest",
 			spells: ["feather fall"],
 			selection: ["feather fall"],
 			firstCol: "oncesr",
@@ -738,9 +721,9 @@ MagicItemsList["pennant of the vind rune"] = {
 MagicItemsList["potion of giant size"] = {
 	name: "Potion of Giant Size",
 	source: [["SKT", 236]],
-	type: "potion",
-	rarity: "legendary",
-	description: "Once as an action, I can drink this potion of pale white liquid or administer it to another to grow to Huge for 24 hours. This gives Str 25, +5 ft reach, double max HP (current HP also doubles), and roll three times damage die for weapons. When its effect ends, HP above the max HP becomes temporary HP.",
+	type: "Potion",
+	rarity: "Legendary",
+	description: "Once as an action, I can drink this potion of pale white liquid or administer it to another to grow to Huge for 24 hours. This gives Str 25, +5 ft reach, double max HP (current HP also doubles), and roll three times damage die for weapons. When its effect ends, HP above the max HP becomes Temporary HP.",
 	descriptionFull: [
 		"When you drink this potion, you become Huge for 24 hours if you are Medium or smaller, otherwise the potion does nothing. For that duration, your Strength becomes 25, if it isn't already higher, and your hit point maximum is doubled (your current hit points are doubled when you drink the potion). In addition, the reach of your melee attacks increases by 5 feet.",
 		"Everything you are carrying and wearing also increases in size for the duration. When rolling damage for weapons enlarged in this manner, roll three times the normal number of dice; for example, an enlarged longsword would deal 3d8 slashing damage (instead of 1d8), or 3d10 slashing damage (instead of 1d10) when used with two hands.",
@@ -751,10 +734,9 @@ MagicItemsList["potion of giant size"] = {
 MagicItemsList["robe of serpents"] = {
 	name: "Robe of Serpents",
 	source: [["SKT", 236]],
-	type: "wondrous item",
-	rarity: "uncommon",
-	magicItemTable: "F",
-	description: "As a bonus action, I can remove one of the 1d4+3 emblazoned, brightly colored snakes from this robe and have it turn into a giant poisonous snake within 5 ft of me. It acts on my initiative and attacks those hostile to me. It disappears after 1 hour, when it drops to 0 HP, or when I dismiss it (no action).",
+	type: "Wondrous Item",
+	rarity: "Uncommon",
+	description: "As a Bonus Action, I can remove one of the 1d4+3 emblazoned, brightly colored snakes from this robe and have it turn into a giant poisonous snake within 5 ft of me. It acts on my initiative and attacks those hostile to me. It disappears after 1 hour, when it drops to 0 HP, or when I dismiss it (no action).",
 	descriptionFull: [
 		"A *robe of serpents* is a stylish silk garment that is popular among wealthy nobles and retired assassins. The robe is emblazoned with 1d4+3 stylized serpents, all brightly colored.",
 		"As a bonus action on your turn, you can transform one of the robe's serpents into a giant poisonous snake. The snake instantly falls from the robe, slithers into an unoccupied space next to you, and acts on your initiative count. The snake can tell friendly creatures from hostile ones and attacks the latter. The snake disappears in a harmless puff of smoke after 1 hour, when it drops to 0 hit points, or when you dismiss it (no action required). Once detached, a snake can't return to the robe. When all of the robe's snakes have detached, the robe becomes a nonmagical garment.",
@@ -767,10 +749,9 @@ MagicItemsList["robe of serpents"] = {
 MagicItemsList["rod of the vonindod"] = {
 	name: "Rod of the Vonindod",
 	source: [["SKT", 236]],
-	type: "rod",
-	rarity: "rare",
-	magicItemTable: "F",
-	description: "This 4 ft adamantine rod sized for a giant has 10 charges and regains 1d6+4 expended charges daily at dawn. I can expend 1 charge to cast *Locate Object* from it which has a range of 10 miles when used to locate objects made of adamantine. It has two prongs at one end and a molded handle grip on the other.",
+	type: "Rod",
+	rarity: "Rare",
+	description: "This 4 ft adamantine rod sized for a Giant has 10 charges and regains 1d6+4 expended charges daily at dawn. I can expend 1 charge to cast *Locate Object* from it which has a range of 10 miles when used to locate objects made of adamantine. It has two prongs at one end and a molded handle grip on the other.",
 	descriptionFull: [
 		"The fire giant Duke Zalto hired a wizard to craft several of these adamantine rods. Each measures 4 feet long, weighs 100 pounds, and is sized to fit comfortably in a fire giant's hand. The rod has two prongs at one end and a molded handle grip on the opposite end.",
 		"The rod has 10 charges and regains 1d6+4 of its expended charges daily at dawn. As an action, you can grasp it by the handle and expend 1 charge to cast the *Locate Object* spell from it. When the rod is used to detect objects made of adamantine, such as fragments of the Vonindod construct, its range increases to 10 miles.",
@@ -796,9 +777,8 @@ MagicItemsList["rod of the vonindod"] = {
 }
 MagicItemsList["shard of the ise rune"] = {
 	name: "Shard of the Ise Rune",
-	type: "wondrous item",
+	type: "Wondrous Item",
 	source: [["SKT", 236]],
-	magicItemTable: "H",
 	description: "I can use the shard as it is, or transfer its runic properties over to a cloak or a pair of boots.",
 	descriptionFull: [
 		"This shard of ice is long and slender, roughly the size of a dagger. The ise (ice) rune glows within it. The shard has the following properties, which work only while it's on your person.",
@@ -814,8 +794,8 @@ MagicItemsList["shard of the ise rune"] = {
 	choices: ["Shard", "Transferred to a cloak", "Transferred to a pair of boots"],
 	"shard": {
 		name: "Shard of the Ise Rune ",
-		rarity: "very rare",
-		description: "This shard of ice gives me fire resistance. As an action, I can use Frigid Touch, freezing water in a 10-ft radius where I touch it, or Icy Mantle, to prevent the first bludgeoning, slashing, or piercing damage in the next minute for a creature I touch. I can use it to cast *Sleet Storm* (DC 17). I can do all 3 each once per short rest.",
+		rarity: "Very Rare",
+		description: "This shard of ice gives me Fire Resistance. As an action, I can use Frigid Touch, freezing water in a 10-ft radius where I touch it, or Icy Mantle, to prevent the first Bludgeoning, Slashing, or Piercing damage in the next minute for a creature I touch. I can use it to cast *Sleet Storm* (DC 17). I can do all 3 each once per Short Rest.",
 		dmgres: ["Fire"],
 		action: [
 			["action", "Frigid Touch (Ise Rune)"],
@@ -824,19 +804,15 @@ MagicItemsList["shard of the ise rune"] = {
 		extraLimitedFeatures: [{
 			name: "Frigid Touch (Ise Rune)",
 			usages: 1,
-			recovery: "short rest",
+			recovery: "Short Rest",
 		}, {
 			name: "Icy Mantle (Ise Rune)",
 			usages: 1,
-			recovery: "short rest",
-		}, {
-			name: "Sleet Storm (Ise Rune)",
-			usages: 1,
-			recovery: "short rest",
+			recovery: "Short Rest",
 		}],
 		fixedDC: 17,
 		spellcastingBonus: [{
-			name: "Once per short rest",
+			name: "Once per Short Rest",
 			spells: ["sleet storm"],
 			selection: ["sleet storm"],
 			firstCol: "oncesr",
@@ -844,21 +820,21 @@ MagicItemsList["shard of the ise rune"] = {
 	},
 	"transferred to a cloak": {
 		name: "Ise Rune Cloak",
-		rarity: "rare",
-		description: "While wearing this cloak, I have resistance to fire damage, and I have advantage on Dexterity (Stealth) checks made while in snowy terrain.",
+		rarity: "Rare",
+		description: "While wearing this cloak, I have Resistance to Fire damage, and I have Advantage on Dexterity (Stealth) checks made while in snowy terrain.",
 		dmgres: ["Fire"],
 	},
 	"transferred to a pair of boots": {
 		name: "Ise Rune Boots",
-		rarity: "rare",
+		rarity: "Rare",
 		description: "While wearing these boots, I ignore difficult terrain while walking, and I can walk on water.",
 	},
 }
 MagicItemsList["ring of hardened magma"] = {
 	name: "Ring of Hardened Magma",
 	source: [["SKT", 105]], // Raven Rock ancient relic
-	type: "ring",
-	rarity: "unknown",
+	type: "Ring",
+	rarity: "Unknown",
 	storyItemAL: true,
 	description: "Warm orange light spills from minuscule cracks that form on this ring's outer surface. It automatically resizes to fit the creature attuned to it. It has 6 charges which can be used to cast *Conjure Minor Elementals* (summon 4 magma mephits or 4 magmins) or *Fire Shield* (warm shield version only), costing 1 charge each.",
 	descriptionFull: "This ring is sized for a fire giant's finger. When a creature attunes to the ring, it magically shrinks to fit that creature's index finger, and warm orange light spills from minuscule cracks that form on its outer surface. The ring has 6 charges. While attuned to the ring, a creature can expend 1 charge to cast *conjure minor elementals* (summoning either four magma mephits or four magmins, as the wearer wishes) or *fire shield* (warm shield version only) from the ring. Once all of its charges are spent, the ring loses its spellcasting properties but retains its resizing property.",
@@ -880,7 +856,7 @@ MagicItemsList["ring of hardened magma"] = {
 			changes: "Using the Ring of Hardened Magma, the spell summons either four magma mephits or four magmins.",
 		},
 		"fire shield": {
-			description: "Fiery shield gives resistance to Cold damage and deals 2d8 Fire damage to melee attackers",
+			description: "Fiery shield gives Resistance to Cold damage and deals 2d8 Fire damage to melee attackers",
 			dynamicDamageBonus: false,
 			changes: "Using the Ring of Hardened Magma, the spell can only produce the warm shield.",
 		},
@@ -889,10 +865,9 @@ MagicItemsList["ring of hardened magma"] = {
 MagicItemsList["red dragon's thighbone"] = {
 	name: "Red Dragon's Thighbone",
 	source: [["SKT", 105]], // Raven Rock ancient relic
-	type: "weapon (greatclub)",
-	rarity: "very rare",
-	magicItemTable: "G",
-	description: "This 14-ft long, 250 lb red dragon's thighbone can be used as a greatclub by a giant. It magically shrinks to a size that a creature that attunes to it can wield it effectively as a greatclub. It deals an extra 2d8 bludgeoning damage whenever it hits a creature of the dragon type.",
+	type: "Weapon (Greatclub)",
+	rarity: "Very Rare",
+	description: "This 14-ft long, 250 lb red dragon's thighbone can be used as a greatclub by a Giant. It magically shrinks to a size that a creature that attunes to it can wield it effectively as a greatclub. It deals an extra 2d8 Bludgeoning damage whenever it hits a creature of the Dragon type.",
 	descriptionFull: "This 14-ft long, 250 lb *red dragon's thighbone* can be used as a greatclub by a giant. If a creature attunes to the greatclub, it magically shrinks to a size that the creature can wield effectively. The greatclub is considered a magic weapon that deals an extra 2d8 bludgeoning damage whenever it hits a dragon (including any creature of the dragon type).",
 	attunement: true,
 	weight: 10,
@@ -901,17 +876,17 @@ MagicItemsList["red dragon's thighbone"] = {
 		regExpSearch: /^(?=.*red)(?=.*dragon)(?=.*thighbone).*$/i,
 		name: "Red Dragon's Thighbone",
 		source: [["SKT", 105]],
-		description: "Two-handed; +2d8 damage vs. dragons",
+		description: "Two-Handed; +2d8 damage vs Dragons",
 		selectNow: true,
 	}],
 }
 MagicItemsList["ancient relic boulder"] = {
 	name: "Ancient Relic Boulder",
 	source: [["SKT", 105]], // One Stone ancient relic
-	type: "wondrous item",
-	rarity: "unknown",
+	type: "Wondrous Item",
+	rarity: "Unknown",
 	storyItemAL: true,
-	description: "As an action once per 7 days, I can use this stone to cast either *Control Weather* or *Divination*. As an action once per 24 hours, I can have it shrink (6-inch diameter; 25 lb) or " + (typePF ? "return" : "enlarge back") + " to normal (15-ft diameter; 24,000 lb). Anything the enlarged boulder falls on takes 10d10 bludgeoning damage, DC 15 Dex save to avoid.",
+	description: "As an action once per 7 days, I can use this stone to cast either *Control Weather* or *Divination*. As an action once per 24 hours, I can have it shrink (6-inch diameter; 25 lb) or " + (typePF ? "return" : "enlarge back") + " to normal (15-ft diameter; 24,000 lb). Anything the enlarged boulder falls on takes 10d10 Bludgeoning damage, DC 15 Dex save to avoid.",
 	descriptionFull: [
 		"This boulder is a relic of giantkind that was shaped, carved, and abandoned long ago by a stone giant earth shaman. Any character who succeeds on a DC 15 Intelligence (Arcana) check can tell that the engraved lines adorning its outer surface are carefully designed to channel magical energy. A *detect magic* spell reveals an aura of transmutation magic emanating from it and casting *identify* spell on the boulder allows one to learn its magical properties, each of which is activated by tracing specific lines on its surface:",
 		" \u2022 A creature can use an action to cast the *control weather* spell or the *divination* spell from the stone. Once either spell is cast, this property can't be used again for 7 days.",
@@ -936,7 +911,7 @@ MagicItemsList["ancient relic boulder"] = {
 	}],
 	spellChanges: {
 		"control weather": {
-			time: "1 a",
+			time: "Act",
 			changes: "Using the Ancient Relic Boulder, the spell takes only 1 action to cast.",
 		},
 	},

@@ -2227,9 +2227,6 @@ MagicItemsList["masquerade tattoo"] = {
 		"***Fluid Ink***. As a bonus action, you can shape the tattoo into any color or pattern and move it to any area of your skin. Whatever form it takes, it is always obviously a tattoo. It can range in size from no smaller than a copper piece to an intricate work of art that covers all your skin.",
 		"***Disguise Self***. As an action, you can use the tattoo to cast the *disguise self* spell (DC 13 to discern the disguise). Once the spell is cast from the tattoo, it can't be cast from the tattoo again until the next dawn.",
 	].concat(TCoE_magicTattoosDescription),
-	usages: 1,
-	recovery: "dawn",
-	additional: "Disguise Self",
 	action: [["bonus action", " (change)"]],
 	fixedDC: 13,
 	spellcastingBonus: [{
@@ -3291,9 +3288,6 @@ MagicItemsList["reveler's concertina"] = {
 		"While holding this concertina, you gain a +2 bonus to the saving throw DC of your bard spells.",
 		"As an action, you can use the concertina to cast *Otto's irresistible dance* from the item. This property of the concertina can't be used again until the next dawn.",
 	],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Irresistible Dance",
 	spellcastingAbility: "class", // https://www.sageadvice.eu/2015/11/27/hat-of-disguise-dc/
 	spellcastingBonus: [{
 		name: "Otto's Irresistible Dance",

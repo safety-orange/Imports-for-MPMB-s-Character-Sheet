@@ -1,102 +1,31 @@
-var iFileName = "pub_20160315_CoS.js";
-RequiredSheetVersion("14.1.3", 15);
+var iFileName = "legacy_20160315_CoS.js";
+RequiredSheetVersion("24.1.3");
 // This file adds the backgrounds from the Curse of Strahd adventure book and the optional backgrounds from the Adventurers League season 4 (Curse of Strahd) to MPMB's Character Record Sheet
 
 // Define the sources
 SourceList["CoS"] = {
 	name: "Curse of Strahd [background, items, pack]",
 	abbreviation: "CoS",
-	group: "Adventure Books",
+	group: "Legacy Adventure Books",
 	campaignSetting: "Ravenloft",
 	url: "https://media.wizards.com/2016/downloads/DND/CoS_Character_Options.pdf?dl=1",
 	date: "2016/03/15",
+	defaultExcluded: true,
 };
 SourceList["AL:CoS"] = {
 	name: "Curse of Strahd Backgrounds", // v1.1
 	abbreviation: "AL:CoS",
-	group: "Adventurers League",
+	group: "Legacy Adventurers League",
 	url: "https://www.dropbox.com/s/f9ktz5u2gcu2509/Curse-of-Strahd-Backgrounds-v1.1.pdf", // used to be https://dndadventurersleague.org/wp-content/uploads/2016/06/Curse-of-Strahd-Backgrounds-v1.1.pdf
 	date: "2016/04/07",
+	defaultExcluded: true,
 };
 
 // Backgrounds (with contributions by RCanine)
-BackgroundList["haunted one"] = {
-	regExpSearch: /haunted.one/i,
-	name: "Haunted One",
-	source: [["CoS", 209], ["VRGtR", 34], ["ALbackground", 0]],
-	skillstxt: "Choose two from Arcana, Investigation, Religion, and Survival",
-	languageProfs: [2], // was 1 in book, fixed in errata
-	gold: 0.1, // added in VRGtR reprint
-	equipleft: [
-		["Chest, with:", "", 25],
-		["Crowbar", "", 5],
-		["Hammer", "", 3],
-		["Wooden Stakes", 3, 1],
-		["Holy symbol", "", 1],
-		["Holy water, flasks of", "", 1],
-		["Manacles", "", 6],
-		["Steel Mirror", "", 0.5],
-		["Oil, flasks of", "", 1],
-		["Tinderbox", "", 1],
-		["Torch", 3, 1],
-	],
-	equipright: [
-		["Common clothes", "", 3], // added in VRGtR reprint
-		["Trinket of special significance", "", ""],
-	],
-	feature: "Heart of Darkness",
-	trait: [
-		"I don't run from evil. Evil runs from me.",
-		"I like to read and memorize poetry. It keeps me calm and brings me fleeting moments of happiness.",
-		"I spend money freely and live life to the fullest, knowing that tomorrow I might die.",
-		"I live for the thrill of the hunt.",
-		"I don't talk about the thing that torments me. I'd rather not burden others with my curse.",
-		"I expect danger around every corner.",
-		"I refuse to become a victim, and I will not allow others to be victimized.",
-		"I put no trust in divine beings.",
-	],
-	ideal: [
-		["Sacrifice", "Sacrifice: I try to help those in need, no matter what the personal cost. (Good)"],
-		["Desperation", "Desperation: I'll stop the spirits that haunt me or die trying. (Any)"],
-		["Cleansing", "Cleansing: I kill monsters to make the world a safer place, and to exorcise my own demons. (Good)"],
-		["Vigilante", "Vigilante: I have a dark calling that puts me above the law. (Chaotic)"],
-		["Preparation", "Preparation: I like to know my enemy's capabilities and weaknesses before rushing into battle. (Lawful)"],
-		["Destruction", "Destruction: I'm a monster that destroys other monsters, and anything else that gets in my way. (Evil)"],
-	],
-	bond: [
-		"I keep my thoughts and discoveries in a journal. My journal is my legacy.",
-		"I would sacrifice my life and my soul to protect the innocent.",
-		"My torment drove away the person I love. I strive to win back the love I've lost.",
-		"A terrible guilt consumes me. I hope that I can find redemption through my actions.",
-		"There's evil in me, I can feel it. It must never be set free.",
-		"I have a child to protect. I must make the world a safer place for him (or her).",
-	],
-	flaw: [
-		"I have certain rituals that I must follow every day. I can never break them.",
-		"I assume the worst in people.",
-		"I feel no compassion for the dead. They're the lucky ones.",
-		"I have an addiction.",
-		"I am a purveyor of doom and gloom who lives in a world without hope.",
-		"I talk to spirits that no one else can see.",
-	],
-	extra: [
-		"Select a Harrowing Event",
-		"Monster spared my life",
-		"Born under a dark star",
-		"Haunted by an apparition",
-		"Dark arts in the family",
-		"An oni took my sibling",
-		"Memory of cured lycanthropy",
-		"Raised by a hag",
-		"Studied an eldritch tome",
-		"Formerly possessed by a fiend",
-		"Avenged a murder",
-	],
-};
 BackgroundList["black fist double agent"] = {
 	regExpSearch: /black\W*fist/i,
 	name: "Black Fist Double Agent",
-	source: [["AL:CoS", 2], ["ALbackground", 0]],
+	source: [["AL:CoS", 2]],
 	skills: ["Deception", "Insight"],
 	gold: 15,
 	equipleft: [
@@ -150,7 +79,7 @@ BackgroundList["black fist double agent"] = {
 BackgroundList["dragon casualty"] = {
 	regExpSearch: /^(?=.*dragon)(?=.*casualty).*$/i,
 	name: "Dragon Casualty",
-	source: [["AL:CoS", 3], ["ALbackground", 0]],
+	source: [["AL:CoS", 3]],
 	skills: ["Intimidation", "Survival"],
 	toolProfs: ["Based on my origin"],
 	gold: 5,
@@ -229,7 +158,7 @@ BackgroundList["dragon casualty"] = {
 BackgroundList["iron route bandit"] = {
 	regExpSearch: /^(?=.*iron)(?=.*route)(?=.*bandit).*$/i,
 	name: "Iron Route Bandit",
-	source: [["AL:CoS", 5], ["ALbackground", 0]],
+	source: [["AL:CoS", 5]],
 	skills: ["Animal Handling", "Stealth"],
 	toolProfs: [["Gaming set", 1], "Vehicles (land)"],
 	gold: 5,
@@ -294,7 +223,7 @@ BackgroundList["iron route bandit"] = {
 BackgroundList["phlan insurgent"] = {
 	regExpSearch: /^(?=.*phlan)(?=.*insurgent).*$/i,
 	name: "Phlan Insurgent",
-	source: [["AL:CoS", 6], ["ALbackground", 0]],
+	source: [["AL:CoS", 6]],
 	skills: ["Stealth", "Survival"],
 	toolProfs: [["Artisan's tools", 1], "Vehicles (land)"],
 	gold: 5,
@@ -366,7 +295,7 @@ BackgroundList["phlan insurgent"] = {
 BackgroundList["stojanow prisoner"] = {
 	regExpSearch: /^(?=.*stojanow)(?=.*prisoner).*$/i,
 	name: "Stojanow Prisoner",
-	source: [["AL:CoS", 8], ["ALbackground", 0]],
+	source: [["AL:CoS", 8]],
 	skills: ["Deception", "Perception"],
 	toolProfs: [["Gaming set", 1], ["Thieves' tools", "Dex"]],
 	gold: 10,
@@ -418,7 +347,7 @@ BackgroundList["stojanow prisoner"] = {
 BackgroundList["ticklebelly nomad"] = {
 	regExpSearch: /^(?=.*ticklebelly)(?=.*nomad).*$/i,
 	name: "Ticklebelly Nomad",
-	source: [["AL:CoS", 9], ["ALbackground", 0]],
+	source: [["AL:CoS", 9]],
 	skills: ["Animal Handling", "Nature"],
 	toolProfs: ["Herbalism Kit"],
 	gold: 5,
@@ -473,31 +402,31 @@ BackgroundList["ticklebelly nomad"] = {
 // Background features
 BackgroundFeatureList["at home in the wild"] = {
 	description: "In the wilderness, my home, I can find a place to hide, rest, or recuperate that is secure enough to conceal me from most natural threats, but not all supernatural, magical, or threats that actively seek me out. However, this feature doesn't shield or conceal me from scrying, mental probing, nor from threats that don't need the five senses to find me.",
-	source: [["AL:CoS", 9], ["ALbackground", 0]],
+	source: [["AL:CoS", 9]],
 };
 BackgroundFeatureList["black-market breeder"] = {
 	description: "I know how to find people who are always looking for stolen animals and vehicles, for pit fights or getaways during an illegal job. This provides me with information of what such animals & vehicles are in high demand in the area, but also offer to give me favors and information (DM choice) if I bring such animals and vehicles to them.",
-	source: [["AL:CoS", 5], ["ALbackground", 0]],
+	source: [["AL:CoS", 5]],
 };
 BackgroundFeatureList["double agent"] = {
 	description: "I have a trusty contact in the Tears of Virulence garrison in Phlan to whom I pass information. In exchange, I get away with minor criminal offenses in Phlan. My Black Fists contacts can help me get an audience with the Lord Regent, the Lord Sage, Black Fists members, or deposed nobles who are sympathetic to the Phlan refugees and insurgents.",
-	source: [["AL:CoS", 2], ["ALbackground", 0]],
+	source: [["AL:CoS", 2]],
 };
 BackgroundFeatureList["dragonscarred"] = {
 	description: "My extensive scars from being tortured by Vorgansharax give me fame and notoriety, but it is difficult to disguise my appearance and hide from prying eyes. I can use this to gain access to people and places I might not otherwise have, for me and my companions. However, I fear that my afflictions are not completely mundane, as they burn and writhe.",
-	source: [["AL:CoS", 3], ["ALbackground", 0]],
+	source: [["AL:CoS", 3]],
 };
 BackgroundFeatureList["ex-convict"] = {
 	description: "The knowledge gained during my incarceration lets me gain insight into local guards and jailors. I know which will accept bribes, or look the other way for me. I can also seek shelter for myself from authorities with other criminals in the area.",
-	source: [["AL:CoS", 8], ["ALbackground", 0]],
+	source: [["AL:CoS", 8]],
 };
 BackgroundFeatureList["guerilla"] = {
 	description: "I've come to know the surrounding other natural features in which I can take refuge--or set up ambushes. I can quickly survey my environment for advantageous features. Additionally, I can scavenge around my natural surroundings to cobble together simple supplies (such as improvised torches, rope, patches of fabric, etc.) that are consumed after use.",
-	source: [["AL:CoS", 6], ["ALbackground", 0]],
+	source: [["AL:CoS", 6]],
 };
 BackgroundFeatureList["heart of darkness"] = {
 	description: "Those who look into my eyes can see that I have faced unimaginable horror and that I am no stranger to darkness. Though they might fear me, commoners will extend me every courtesy and do their utmost to help. Unless I have shown myself to be a danger to them, they will even take up arms to fight with me, should I find myself facing an enemy alone.",
-	source: [["CoS", 209], ["VRGtR", 34], ["ALbackground", 0]],
+	source: [["CoS", 209], ["VRGtR", 34]],
 };
 
 // Equipment pack
@@ -524,10 +453,9 @@ MagicItemsList["plantslayer battleaxe"] = {
 	name: "Plantslayer Battleaxe", // name taken from Adventurers League Content Catalogue v8.07, page 28
 	nameAlt: "Adventurer's Battleaxe",
 	source: [["CoS", 198]],
-	type: "weapon (battleaxe)",
-	rarity: "rare",
-	magicItemTable: "F",
-	description: "This battleaxe's handle is carved with leaves and vines. It deals an extra 1d8 slashing damage against ordinary plants and plant creatures. When a creature of non-good alignment makes an attack with it, it sprouts thorns, dealing 1 magical piercing damage to the wielder after the attack is made.",
+	type: "Weapon (Battleaxe)",
+	rarity: "Rare",
+	description: "This battleaxe's handle is carved with leaves and vines. It deals an extra 1d8 Slashing damage against ordinary plants and Plant creatures. When a creature of non-good alignment makes an attack with it, it sprouts thorns, dealing 1 magical Piercing damage to the wielder after the attack is made.",
 	descriptionFull: "The axe's handle is carved with leaves and vines, and it weighs half as much as a normal battleaxe. When the axe hits a plant, whether an ordinary plant or a plant creature, the target takes an extra 1d8 slashing damage. When a creature of non-good alignment wields the axe, it sprouts thorns whenever its wielder makes an attack with it. These thorns prick the wielder for 1 piercing damage after the attack is made, and this damage is considered magical.",
 	weight: 2,
 	weaponOptions: [{
@@ -535,7 +463,7 @@ MagicItemsList["plantslayer battleaxe"] = {
 		regExpSearch: /^(?=.*plantslayer)(?=.*battleaxe).*$/i,
 		name: "Plantslayer Battleaxe",
 		source: [["CoS", 198]],
-		description: "Versatile (1d10); +1d8 damage vs. plants",
+		description: "Versatile (1d10); +1d8 damage vs Plants",
 		weight: 2,
 		selectNow: true,
 	}],
@@ -543,10 +471,9 @@ MagicItemsList["plantslayer battleaxe"] = {
 MagicItemsList["blood spear"] = {
 	name: "Blood Spear",
 	source: [["CoS", 221]],
-	type: "weapon (spear)",
-	rarity: "uncommon",
-	magicItemTable: "G",
-	description: "This spear drains the life from those it kills and transfers that life to its wielder, imbuing that individual with the stamina to keep fighting. When I use it to reduce the target to 0 HP, I gain 2d6 temporary HP. If I'm chosen by Kavan to wield this spear, I gain a +2 bonus to attack and damage rolls made with it.",
+	type: "Weapon (Spear)",
+	rarity: "Uncommon",
+	description: "This spear drains the life from those it kills and transfers that life to its wielder, imbuing that individual with the stamina to keep fighting. When I use it to reduce the target to 0 HP, I gain 2d6 Temporary HP. If I'm chosen by Kavan to wield this spear, I gain a +2 bonus to attack and damage rolls made with it.",
 	descriptionFull: [
 		"Kavan was a ruthless chieftain whose tribe lived in the Balinok Mountains centuries before the arrival of Strahd von Zarovich. Although he was very much alive, Kavan had some traits in common with vampires: he slept during the day and hunted at night, he drank the blood of his prey, and he lived underground. In battle, he wielded a spear stained with blood. His was the first *blood spear*, a weapon that drains life from those it kills and transfers that life to its wielder, imbuing that individual with the stamina to keep fighting.",
 		"When you hit with a melee attack using this magic spear and reduce the target to 0 hit points, you gain 2d6 temporary hit points.",
@@ -563,7 +490,7 @@ MagicItemsList["blood spear"] = {
 			regExpSearch: /^(?=.*blood)(?=.*spear).*$/i,
 			name: "Blood Spear",
 			source: [["CoS", 221]],
-			description: "Thrown, versatile (1d8); If used to reduce target to 0 HP, I gain 2d6 temp HP",
+			description: "Thrown, Versatile (1d8); If used to reduce target to 0 HP, I gain 2d6 Temp HP",
 			modifiers: [2, 2],
 			selectNow: true,
 		}],
@@ -575,7 +502,7 @@ MagicItemsList["blood spear"] = {
 			regExpSearch: /^(?=.*blood)(?=.*spear).*$/i,
 			name: "Blood Spear",
 			source: [["CoS", 221]],
-			description: "Thrown, versatile (1d8); If used to reduce target to 0 HP, I gain 2d6 temp HP",
+			description: "Thrown, Versatile (1d8); If used to reduce target to 0 HP, I gain 2d6 Temp HP",
 			selectNow: true,
 		}],
 	},
@@ -583,19 +510,18 @@ MagicItemsList["blood spear"] = {
 MagicItemsList["green copper ewer"] = {
 	name: "Green Copper Ewer",
 	source: [["CoS", 188]],
-	type: "wondrous item",
-	rarity: "unknown",
+	type: "Wondrous Item",
+	rarity: "Unknown",
 	description: "Any poisonous liquid poured into the ewer is instantly transformed into an equal amount of sweet wine. If I speak the ewer's command word while grasping its handle, the ewer fills with 1 gallon of wine. After doing so, it can't produce more wine until the next dawn.",
 	descriptionFull: "Any poisonous liquid poured into the ewer is instantly transformed into an equal amount of sweet wine. Furthermore, a creature that grasps the ewer's handle can command the ewer to fill with 1 gallon of wine, and it can't produce more wine until the next dawn.",
 }
 MagicItemsList["gulthias staff"] = {
 	name: "Gulthias Staff",
 	source: [["CoS", 221]],
-	type: "staff",
-	rarity: "rare",
-	magicItemTable: "G",
-	description: "This black wooden quarterstaff has 10 charges, regaining 1d6+4 at dusk. When I hit with it in melee, I can use 1 charge to regain HP equal to the damage dealt, but I must make a DC 12 Wis save or be afflicted by short-term madness (DMG 259). While attuned to it, evil plant creatures are indifferent to me.",
-	descriptionLong: "This spongy, black wooden quarterstaff has 10 charges, regaining 1d6+4 at dusk. When I hit with it in melee, I can use 1 charge to regain HP equal to the damage dealt, but I must make a DC 12 Wis save or be afflicted by short-term madness (see table at SRD 201 or DMG 259). While I'm attuned to the staff, evil plant creatures don't regard me as hostile unless I harm them. If it is broken or burned to ashes, it releases an inhuman scream that can be heard out to 300 ft. All blights that can hear the scream immediately wither and die.",
+	type: "Staff",
+	rarity: "Rare",
+	description: "This black wooden quarterstaff has 10 charges, regaining 1d6+4 at dusk. When I hit with it in melee, I can use 1 charge to regain HP equal to the damage dealt, but I must make a DC 12 Wis save or be afflicted by short-term madness (DMG 259). While attuned to it, evil Plant creatures are indifferent to me.",
+	descriptionLong: "This spongy, black wooden quarterstaff has 10 charges, regaining 1d6+4 at dusk. When I hit with it in melee, I can use 1 charge to regain HP equal to the damage dealt, but I must make a DC 12 Wis save or be afflicted by short-term madness (see table at SRD 201 or DMG 259). While I'm attuned to the staff, evil Plant creatures don't regard me as hostile unless I harm them. If it is broken or burned to ashes, it releases an inhuman scream that can be heard out to 300 ft. All blights that can hear the scream immediately wither and die.",
 	descriptionFull: [
 		"Made from the branch of a Gulthias tree (see the blights entry of the Monster Manual), a *Gulthias staff* is a spongy, black length of wood. Its evil makes beasts visibly uncomfortable while within 30 feet of it. The staff has 10 charges and regains 1d6+4 of its expended charges daily at dusk.",
 		"If the staff is broken or burned to ashes, its wood releases a terrible, inhuman scream that can be heard out to a range of 300 feet. All blights that can hear the scream immediately wither and die.",
@@ -619,12 +545,12 @@ MagicItemsList["gulthias staff"] = {
 MagicItemsList["holy symbol of ravenkind"] = {
 	name: "Holy Symbol of Ravenkind",
 	source: [["CoS", 222]],
-	type: "wondrous item",
-	rarity: "legendary",
+	type: "Wondrous Item",
+	rarity: "Legendary",
 	storyItemAL: true,
-	prerequisite: "Requires attunement by a cleric or paladin of good alignment",
+	prerequisite: "Requires attunement by a Cleric or Paladin of good alignment",
 	prereqeval: function (v) { return /good/i.test(What("Alignment")) && (classes.known.cleric || classes.known.paladin); },
-	description: "This platinum amulet has 10 charges, regaining 1d6+4 at dawn. As an action, I can use 1 charge to hold vampires (see 3rd page notes). I can use 3 charges with Turn Undead to give disadv. on its saves. As an action, I can use 5 charges to shed daylight, 30-ft radius bright light and dim light for another 30-ft for 10 minutes.",
+	description: "This platinum amulet has 10 charges, regaining 1d6+4 at dawn. As an action, I can use 1 charge to hold vampires (see 3rd page notes). I can use 3 charges with Turn Undead to give Disadv on its saves. As an action, I can use 5 charges to shed daylight, 30-ft radius Bright Light and Dim Light for another 30-ft for 10 min.",
 	descriptionFull: [
 		"The *Holy Symbol of Ravenkind* is a unique holy symbol sacred to the good-hearted faithful of Barovia. It predates the establishment of any church in Barovia. According to legend, it was delivered to a paladin named Lugdana by a giant raven - or an angel in the form of a giant raven. Lugdana used the holy symbol to root out and destroy nests of vampires until her death. The high priests of Ravenloft kept and wore the holy symbol after Lugdana's passing.",
 		"The holy symbol is a platinum amulet shaped like the sun, with a large crystal embedded in its center.",
@@ -643,7 +569,7 @@ MagicItemsList["holy symbol of ravenkind"] = {
 		page3notes: true,
 		note: [
 			"As an action, I can use 1 charge to have all vampires within 30 ft make a DC 15 Wis save",
-			"If failed, a target is paralyzed for 1 minute but can repeat the save at the end of its turns",
+			"If failed, a target is Paralyzed for 1 minute but can repeat the save at the end of its turns",
 		],
 		additional: "1 charge",
 	}],
@@ -651,12 +577,12 @@ MagicItemsList["holy symbol of ravenkind"] = {
 MagicItemsList["icon of ravenloft"] = {
 	name: "Icon of Ravenloft",
 	source: [["CoS", 222]],
-	type: "wondrous item",
-	rarity: "legendary",
+	type: "Wondrous Item",
+	rarity: "Legendary",
 	storyItemAL: true,
 	prerequisite: "Requires attunement by a creature of good alignment",
 	prereqeval: function (v) { return /good/i.test(What("Alignment")); },
-	description: "All within 30 ft of this silver statue are under the effect of *Protection from Evil and Good* that works against fiends and undead. As an action while attuned to it, I can cast *Augury* or *Cure Wounds* (3d8+3, 30 ft range) from it, each once per dawn and if I use it for my Turn Undead, the DC increases by 2.",
+	description: "All within 30 ft of this silver statue are under the effect of *Protection from Evil and Good* that works against Fiends and Undead. As an action while attuned to it, I can cast *Augury* or *Cure Wounds* (3d8+3, 30 ft range) from it, each once per dawn and if I use it for my Turn Undead, the DC increases by 2.",
 	descriptionFull: [
 		"The *Icon of Ravenloft* is a 12-inch tall statuette made of the purest silver, weighing 10 pounds. It depicts a cleric kneeling in supplication.",
 		"The icon was given to Strahd by the archpriest Ciril Romulich, an old family friend, to consecrate the castle and its chapel.",
@@ -667,15 +593,6 @@ MagicItemsList["icon of ravenloft"] = {
 	],
 	attunement: true,
 	weight: 10,
-	extraLimitedFeatures: [{
-		name: "Icon of Ravenloft [Augury]",
-		usages: 1,
-		recovery: "dawn",
-	}, {
-		name: "Icon of Ravenloft [Cure Wounds]",
-		usages: 1,
-		recovery: "dawn",
-	}],
 	spellcastingBonus: [{
 		name: "All in 30 ft",
 		spells: ["protection from evil and good"],
@@ -692,31 +609,30 @@ MagicItemsList["icon of ravenloft"] = {
 		"protection from evil and good": {
 			range: "30-ft rad",
 			time: "Always",
-			description: "All in range immune to fear, charm, and possession by fiends and undead, they also disadv. on attacks",
+			description: "All in range Immune to fear, charm, and possession by Fiends and Undead, they also Disadv on attacks",
 			duration: "Unlimited",
-			changes: "All within 30 ft of the Icon of Ravenloft have this spell protect them from undead and fiends.",
+			changes: "All within 30 ft of the Icon of Ravenloft have this spell protect them from Undead and Fiends.",
 		},
 		"augury": {
-			time: "1 a",
+			time: "Act",
 			changes: "Using the Icon of Ravenloft, it only takes an action to cast.",
 		},
 		"cure wounds": {
 			range: "30 ft",
-			description: "1 living creature heals 3d8+3 HP if it's not an undead, construct, or fiend",
+			description: "1 living creature heals 3d8+3 HP if it's not an Undead, Construct, or Fiend",
 			dynamicDamageBonus: { doNotProcess: true },
-			changes: "Using the Icon of Ravenloft, it has a range of 30 ft and always heals 3d8+3 HP, but can't affect undead, a construct, or a fiend.",
+			changes: "Using the Icon of Ravenloft, it has a range of 30 ft and always heals 3d8+3 HP, but can't affect Undead, a Construct, or a Fiend.",
 		},
 	},
 }
 MagicItemsList["lost sword"] = {
 	name: "Lost Sword",
 	source: [["CoS", 81]],
-	type: "weapon (shortsword)",
-	rarity: "very rare",
-	magicItemTable: "G",
+	type: "Weapon (Shortsword)",
+	rarity: "Very Rare",
 	prerequisite: "Requires attunement by a creature of lawful good alignment",
 	prereqeval: function (v) { return /^(?=.*lawful)(?=.*good).*$/i.test(What("Alignment")); },
-	description: "This lawful good shortsword is sentient (Int 11, Wis 13, Cha 13). It adds +1 to hit and damage and shines bright light in a 15-ft radius and dim light for an additional 15 ft. Attuning to it takes only 1 minute. Once per dawn, I can use it to cast *Crusader's Mantle*. Its purpose is to fight evil. See Notes page.",
+	description: "This lawful good shortsword is sentient (Int 11, Wis 13, Cha 13). It adds +1 to hit and damage and shines Bright Light in a 15-ft radius and Dim Light for an additional 15 ft. Attuning to it takes only 1 minute. Once per dawn, I can use it to cast *Crusader's Mantle*. Its purpose is to fight evil. See Notes page.",
 	descriptionFull: [
 		"The *Lost Sword* is a sentient lawful good +1 shortsword (Intelligence 11, Wisdom 13, Charisma 13). It has hearing and normal vision out to a range of 120 feet. It communicates by transmitting emotion to the creature carrying or wielding it.",
 		"The sword's purpose is to fight evil. The sword has the following additional properties:",
@@ -726,9 +642,6 @@ MagicItemsList["lost sword"] = {
 	],
 	attunement: true,
 	weight: 2,
-	usages: 1,
-	recovery: "dawn",
-	additional: "Crusader's Mantle",
 	weaponOptions: [{
 		baseWeapon: "shortsword",
 		regExpSearch: /^(?=.*lost)(?=.*sword).*$/i,
@@ -749,7 +662,7 @@ MagicItemsList["lost sword"] = {
 			note: [
 				"The *Lost Sword* is a sentient lawful good +1 shortsword.",
 				"A lawful good creature can attune itself to the sword in 1 minute.",
-				"It continually sheds bright light in a 15-ft radius and dim light for an additional 15 ft. Only by destroying the sword can this light be extinguished.",
+				"It continually sheds Bright Light in a 15-ft radius and Dim Light for an additional 15 ft. Only by destroying the sword can this light be extinguished.",
 				"While attuned to the weapon, the sword's wielder can use the sword to cast the *Crusader's Mantle* spell. Once used, this property of the sword can't be used again until the next dawn.",
 				"It has Intelligence 11, Wisdom 13, and Charisma 13 and can hear and see as a human out to a range of 120 ft. It communicates by transmitting emotion to the creature carrying or wielding it. The sword's purpose is to fight evil.",
 			],
@@ -762,9 +675,9 @@ MagicItemsList["lost sword"] = {
 MagicItemsList["saint markovia's thighbone"] = {
 	name: "Saint Markovia's Thighbone",
 	source: [["CoS", 222]],
-	type: "weapon (mace)",
-	rarity: "rare",
-	description: "This mace sheds bright light in a 20-ft radius and dim light for another 20 ft while held. Fiends and undead hit with it take +2d6 radiant damage, become frightened of me until my next turn ends, and if below 26 HP after its damage, must make a DC 15 Wis save or die. If it hits an undead, it crumbles after the combat.",
+	type: "Weapon (Mace)",
+	rarity: "Rare",
+	description: "This mace sheds Bright Light in a 20-ft radius and Dim Light for another 20 ft while held. Fiends \x26 Undead hit with it take +2d6 Radiant damage, become Frightened of me until my next turn ends, and if below 26 HP after its damage, must make a DC 15 Wis save or die. If it hits an Undead, it crumbles after the combat.",
 	descriptionFull: [
 		"*Saint Markovia's thighbone* has the properties of a *mace of disruption*. If it scores one or more hits against a vampire or a vampire spawn in the course of a single battle, the thighbone crumbles into dust once the battle concludes.",
 		"As a youth, Markovia followed her heart and became a priest of the Morninglord soon after her eighteenth birthday. She proved to be a charismatic proselytizer and, before the age of thirty, had gained a reputation for allowing no evil to stand before her.",
@@ -781,16 +694,16 @@ MagicItemsList["saint markovia's thighbone"] = {
 		regExpSearch: /^(?=.*markovia)(?=.*thighbone).*$/i,
 		name: "Saint Markovia's Thighbone",
 		source: [["CoS", 222]],
-		description: "Fiend/undead +2d6 radiant damage, frightened until my next turn ends, and if HP<26, DC 15 Wis save or die",
+		description: "Fiend/Undead +2d6 Radiant damage, Frightened until my next turn ends, and if HP<26, DC 15 Wis save or die",
 		selectNow: true,
 	}],
 }
 MagicItemsList["silver dragon shield +2"] = {
 	name: "Silver Dragon Shield +2",
 	source: [["CoS", 68]],
-	type: "shield",
-	rarity: "rare",
-	description: "While holding this shield, I have a +2 bonus to AC. This bonus is in addition to the shield's normal bonus to AC. It is emblazoned with a stylized silver dragon that is the emblem of the Order of the Silver Dragon. The shield whispers warnings to me, granting me a +2 bonus to initiative while I am not incapacitated.",
+	type: "Shield",
+	rarity: "Rare",
+	description: "While holding this shield, I have a +2 bonus to AC. This bonus is in addition to the shield's normal bonus to AC. It is emblazoned with a stylized silver dragon that is the emblem of the Order of the Silver Dragon. The shield whispers warnings to me, granting me a +2 bonus to initiative while I am not Incapacitated.",
 	descriptionFull: [
 		"While holding this shield, you have a +2 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.",
 		"The shield is emblazoned with a stylized silver dragon that is the emblem of the Order of the Silver Dragon (see Curse of Strahd, chapter 7). The shield whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.",
@@ -802,8 +715,8 @@ MagicItemsList["silver dragon shield +2"] = {
 MagicItemsList["statuette of saint markovia"] = {
 	name: "Statuette of Saint Markovia",
 	source: [["CoS", 152]],
-	type: "wondrous item",
-	rarity: "unknown",
+	type: "Wondrous Item",
+	rarity: "Unknown",
 	storyItemAL: true,
 	description: "This golden statuette grants any good-aligned creature that carries it a +1 bonus to saving throws.",
 	descriptionFull: "This golden statuette grants any good-aligned creature that carries it a +1 bonus to saving throws.",
@@ -812,11 +725,11 @@ MagicItemsList["statuette of saint markovia"] = {
 MagicItemsList["sunsword"] = {
 	name: "Sunsword",
 	source: [["CoS", 223]],
-	type: "weapon (longsword)",
-	rarity: "legendary",
+	type: "Weapon (Longsword)",
+	rarity: "Legendary",
 	storyItemAL: true,
-	description: "As a bonus action, I can have this hilt create a blade of radiance. It acts like a longsword with +2 to hit and damage, does radiant damage (+1d8 to undead), has finesse, emits bright sunlight in a 15-ft radius and dim light in another 15 ft. As an action, I can change the light's radius by 5 ft. It is sentient, see Notes page.",
-	descriptionLong: "As a bonus action, I can have this longsword hilt create or dismiss a blade of pure radiance. While the blade exists, it acts like a longsword that has +2 to attack and damage rolls, does radiant damage, and has the finesse property. It deals +1d8 damage to undead and emits sunlight, bright light in a 15-ft radius and dim light in an additional 15-ft radius. As an action, I can expand or reduce both the bright and dim light's radius by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each. I'm proficient with it if I'm proficient with either longswords or shortswords. It is sentient, see Notes page.",
+	description: "As a Bonus Action, I can have this hilt create a blade of radiance. It acts like a +2 Longsword, deals Radiant damage (+1d8 to Undead), has Finesse, emits sunlight, Bright Ligt in a 15-ft radius and Dim Light in another 15 ft. As an action, I can change the light's radius by 5 ft. It is sentient. See Notes page.",
+	descriptionLong: "As a Bonus Action, I can have this longsword hilt create or dismiss a blade of pure radiance. While the blade exists, it acts like a longsword that has +2 to attack and damage rolls, does Radiant damage, and has the Finesse property. It deals +1d8 damage to Undead and emits sunlight, Bright Light in a 15-ft radius and Dim Light in an additional 15-ft radius. As an action, I can expand or reduce both the Bright and Dim Light's radius by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each. I'm proficient with it if I'm proficient with either longswords or shortswords. It is sentient, see Notes page.",
 	descriptionFull: [
 		"The *Sunsword* is a unique blade once possessed by Strahd's brother, Sergei von Zarovich. In its original form, it had a platinum hilt and guard, and a thin *crystal blade* as strong as steel.",
 		"Strahd employed a powerful wizard named Khazan to destroy the weapon after Sergei's death. The first part of the process required the hilt and the blade to be separated, which Khazan accomplished. While Khazan was busying himself destroying the blade, his apprentice stole the hilt and fled. Khazan later located his apprentice's mutilated corpse in the Svalich Woods, but the hilt was nowhere to be found. To avoid the vampire's wrath, Khazan told Strahd that the entire weapon had been destroyed.",
@@ -836,7 +749,7 @@ MagicItemsList["sunsword"] = {
 		name: "Sunsword",
 		source: [["CoS", 223]],
 		damage: [1, 8, "radiant"],
-		description: "Finesse, versatile (1d10); +1d8 damage to undead",
+		description: "Finesse, Versatile (1d10); +1d8 damage to Undead",
 		modifiers: [2, 2],
 		selectNow: true,
 	}],
@@ -855,9 +768,9 @@ MagicItemsList["sunsword"] = {
 			note: [
 				"The *Sunsword* is a unique blade once possessed by Strahd's brother, Sergei von Zarovich. In its original form, it had a platinum hilt and guard, and a thin crystal blade as strong as steel.",
 				"Strahd employed a powerful wizard named Khazan to destroy the weapon after Sergei's death. The first part of the process required the hilt and the blade to be separated, which Khazan accomplished. While Khazan was busying himself destroying the blade, his apprentice stole the hilt and fled. Khazan later located his apprentice's mutilated corpse in the Svalich Woods, but the hilt was nowhere to be found. To avoid the vampire's wrath, Khazan told Strahd that the entire weapon had been destroyed.",
-				"The hilt, which is sentient, knows that it can never be reunited with its original crystal blade. It has, however, gained the properties of a sun blade. While grasping the hilt, I can use a bonus action to make a blade of pure radiance spring from the hilt, or cause the blade to disappear. While the blade exists, it functions as a magic longsword that has the finesse property. I'm proficient with it if I'm proficient with either shortswords or longswords.",
-				"I gain a +2 bonus to attack and damage rolls made with this weapon, which deals radiant damage instead of slashing damage. When I hit an undead with it, that target takes an extra 1d8 radiant damage.",
-				"The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 ft. The light is sunlight. As an action while the blade persists, I can expand or reduce its radius of bright and dim light by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each.",
+				"The hilt, which is sentient, knows that it can never be reunited with its original crystal blade. It has, however, gained the properties of a sun blade. While grasping the hilt, I can use a Bonus Action to make a blade of pure radiance spring from the hilt, or cause the blade to disappear. While the blade exists, it functions as a magic longsword that has the Finesse property. I'm proficient with it if I'm proficient with either shortswords or longswords.",
+				"I gain a +2 bonus to attack and damage rolls made with this weapon, which deals Radiant damage instead of Slashing damage. When I hit an Undead with it, that target takes an extra 1d8 Radiant damage.",
+				"The sword's luminous blade emits Bright Light in a 15-foot radius and Dim Light for an additional 15 ft. The light is sunlight. As an action while the blade persists, I can expand or reduce its radius of Bright and Dim Light by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each.",
 				"The Sunsword is a sentient chaotic good weapon with an Intelligence of 11, a Wisdom of 17, and a Charisma of 16. It has hearing and normal vision out to a range of 60 feet. The weapon communicates by transmitting emotions to the creature carrying it or wielding it.",
 				"The Sunsword's special purpose is to destroy Strahd, not so much because it wants to free the land of Barovia from evil but because it wants revenge for the loss of its crystal blade. The weapon secretly fears its own destruction.",
 			],

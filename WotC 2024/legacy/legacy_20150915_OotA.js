@@ -197,9 +197,6 @@ MagicItemsList["dawnbringer"] = {
 			}, "",
 		],
 	},
-	usages: 1,
-	recovery: "dawn",
-	additional: "Lesser Restoration",
 	spellcastingBonus: [{
 		name: "Once per dawn",
 		spells: ["lesser restoration"],

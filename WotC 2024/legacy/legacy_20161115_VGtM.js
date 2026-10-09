@@ -1,172 +1,18 @@
-var iFileName = "pub_20161115_VGtM.js";
-RequiredSheetVersion("14.1.3", 15);
+var iFileName = "legacy_20161115_VGtM.js";
+RequiredSheetVersion("24.1.3");
 // This file adds all the player-material from Volo's Guide to Monsters to MPMB's Character Record Sheet
 
 // Define the source
 SourceList["V"] = {
 	name: "Volo's Guide to Monsters",
 	abbreviation: "VGtM",
-	group: "Primary Sources",
+	group: "Legacy Sources",
 	url: "https://dnd.wizards.com/products/volos-guide-to-monsters",
 	date: "2016/11/15",
+	defaultExcluded: true,
 };
 
 // Races
-RaceList["fallen aasimar"] = {
-	regExpSearch: /^((?=.*aasimar)|((?=.*planetouched)(?=.*(celestial|angel))))(?=.*fallen).*$/i,
-	name: "Fallen Aasimar",
-	source: [["V", 104], ["W", 168]],
-	plural: "Fallen Aasimar",
-	sortname: "Aasimar, Fallen",
-	size: 3,
-	speed: {
-		walk: { spd: 30, enc: 20 },
-	},
-	languageProfs: ["Common", "Celestial"],
-	vision: [["Darkvision", 60]],
-	dmgres: ["Necrotic", "Radiant"],
-	age: " reach adulthood in their late teens and live around 160 years",
-	height: " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
-	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
-	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
-	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
-	scores: [1, 0, 0, 0, 0, 2],
-	trait: [
-		"**Fallen Aasimar** (+1 Strength, +2 Charisma)" + (typePF ? "\r" : " ") + "##\u25C6 Light Bearer##. I know the *Light* cantrip.",
-		"##\u25C6 Healing Hands##. As an action, once per long rest, I can touch to heal for my level in HP.",
-		"##\u25C6 Necrotic Shroud##. Once per long rest when I'm 3rd level, I can use an action to transform, causing all within 10 ft of me to make a Cha" + (typePF ? "" : "risma") + " saving throw (DC 8 + Cha mod + Prof Bonus) or be frightened of me until the end of my next turn. This lasts for 1 minute or until I end it as a bonus action. Once on my turn I can have one of my attacks or spells deals my level in extra necrotic damage to one target.",
-	],
-	abilitySave: 6,
-	spellcastingAbility: 6,
-	spellcastingBonus: [{
-		name: "Light Bearer",
-		spells: ["light"],
-		selection: ["light"],
-		firstCol: "atwill",
-	}],
-	features: {
-		"healing hands": {
-			name: "Healing Hands",
-			usages: 1,
-			minlevel: 1,
-			recovery: "long rest",
-			additional: levels.map(function (n) { return n + " HP"; }),
-			action: [["action", ""]],
-		},
-		"necrotic shroud": {
-			name: "Necrotic Shroud",
-			usages: 1,
-			minlevel: 3,
-			recovery: "long rest",
-			additional: levels.map(function (n) { return n < 3 ? "" : "+" + n + " damage"; }),
-			action: [["action", " (start)"], ["bonus action", " (end)"]],
-		},
-	},
-};
-RaceList["protector aasimar"] = {
-	regExpSearch: /^((?=.*aasimar)|((?=.*planetouched)(?=.*(celestial|angel))))(?=.*protector).*$/i,
-	name: "Protector Aasimar",
-	source: [["V", 104], ["W", 167]],
-	plural: "Protector Aasimar",
-	sortname: "Aasimar, Protector",
-	size: 3,
-	speed: {
-		walk: { spd: 30, enc: 20 },
-	},
-	languageProfs: ["Common", "Celestial"],
-	vision: [["Darkvision", 60]],
-	dmgres: ["Necrotic", "Radiant"],
-	age: " reach adulthood in their late teens and live around 160 years",
-	height: " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
-	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
-	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
-	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
-	scores: [0, 0, 0, 0, 1, 2],
-	trait: [
-		"**Protector Aasimar** (+1 Wisdom, +2 Charisma)",
-		"##\u25C6 Light Bearer##. I know the *Light* cantrip.",
-		"##\u25C6 Healing Hands##. As an action, once per long rest, I can touch to heal for my level in HP.",
-		"##\u25C6 Radiant Soul##. Once per long rest when I'm 3rd level, I can use an action to transform, gaining glimmer in my eyes and two incorporeal wings. For 1 minute or until I end it as a bonus action, I have 30 ft fly speed; once on my turn I can have one of my attacks or spells deal my level in extra radiant damage to one target.",
-	],
-	spellcastingAbility: 6,
-	spellcastingBonus: [{
-		name: "Light Bearer",
-		spells: ["light"],
-		selection: ["light"],
-		firstCol: "atwill",
-	}],
-	features: {
-		"healing hands": {
-			name: "Healing Hands",
-			usages: 1,
-			minlevel: 1,
-			recovery: "long rest",
-			additional: levels.map(function (n) { return n + " HP"; }),
-			action: [["action", ""]],
-		},
-		"radiant soul": {
-			name: "Radiant Soul",
-			usages: 1,
-			minlevel: 3,
-			recovery: "long rest",
-			additional: levels.map(function (n) { return n < 3 ? "" : "+" + n + " damage"; }),
-			action: [["action", " (start)"], ["bonus action", " (end)"]],
-		},
-	},
-};
-RaceList["scourge aasimar"] = {
-	regExpSearch: /^((?=.*aasimar)|((?=.*planetouched)(?=.*(celestial|angel))))(?=.*scourge).*$/i,
-	name: "Scourge Aasimar",
-	source: [["V", 104], ["W", 167]],
-	plural: "Scourge Aasimar",
-	sortname: "Aasimar, Scourge",
-	size: 3,
-	speed: {
-		walk: { spd: 30, enc: 20 },
-	},
-	languageProfs: ["Common", "Celestial"],
-	vision: [["Darkvision", 60]],
-	dmgres: ["Necrotic", "Radiant"],
-	age: " reach adulthood in their late teens and live around 160 years",
-	height: " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
-	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
-	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
-	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
-	scores: [0, 0, 1, 0, 0, 2],
-	trait: [
-		"**Scourge Aasimar** (+1 Constitution, +2 Charisma)" + (typePF ? "\r" : " ") + "##Light Bearer##. I know the *Light* cantrip.",
-		"##Healing Hands##. As an action, once per long rest, I can touch to heal for my level in HP.",
-		"##Radiant Consumption##. Once per long rest when I'm 3rd level, I can use an action to radiate bright light in 10-ft radius and dim light for another 10-ft, for 1 minute or until I end it as a bonus action. Once on my turn my attack or spell deals my level in extra radiant damage to one target, and at the end of my turns all creatures within 10 ft of me, including myself, take half my level in radiant damage.",
-	],
-	spellcastingAbility: 6,
-	spellcastingBonus: [{
-		name: "Light Bearer",
-		spells: ["light"],
-		selection: ["light"],
-		firstCol: "atwill",
-	}],
-	features: {
-		"healing hands": {
-			name: "Healing Hands",
-			usages: 1,
-			minlevel: 1,
-			recovery: "long rest",
-			additional: levels.map(function (n) { return n + " HP"; }),
-			action: [["action", ""]],
-		},
-		"radiant consumption": {
-			name: "Radiant Consumption",
-			usages: 1,
-			minlevel: 3,
-			recovery: "long rest",
-			additional: levels.map(function (n) {
-				if (n < 3) return ""
-				return Math.ceil(n / 2) + "/" + n + " damage";
-			}),
-			action: [["action", " (start)"], ["bonus action", " (end)"]],
-		},
-	},
-};
 RaceList["bugbear"] = {
 	regExpSearch: /bugbear/i,
 	name: "Bugbear",
@@ -184,7 +30,6 @@ RaceList["bugbear"] = {
 	weight: " weigh between 250 and 350 lb (200 + 2d12 \xD7 2d6 lb)",
 	heightMetric: " are between 1,9 and 2,4 metres tall (185 + 5d12 cm)",
 	weightMetric: " weigh between 115 and 160 kg (90 + 5d12 \xD7 4d6 / 10 kg)",
-	scores: [2, 1, 0, 0, 0, 0],
 	features: {
 		"surprise attack": {
 			name: "Surprise Attack",
@@ -195,7 +40,7 @@ RaceList["bugbear"] = {
 		},
 	},
 	trait: [
-		"**Bugbear** (+2 Strength, +1 Dexterity)",
+		"**Bugbear**",
 		"##\u25C6 Powerful Build##. I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.",
 		"##\u25C6 Long-Limbed##. I have an additional 5 ft reach with melee attacks that I make on my turn.",
 		"##\u25C6 Surprise Attack##. If I hit a surprised creature on my first turn in combat, that attack deals an extra 2d6 damage. I can do this only once per combat.",
@@ -217,12 +62,11 @@ RaceList["firbolg"] = {
 	weight: " weigh between 240 and 300 lb (175 + 2d12 \xD7 2d6 lb)",
 	heightMetric: " are between 2 and 2,5 metres tall (190 + 5d12 cm)",
 	weightMetric: " weigh between 110 and 135 kg (80 + 5d12 \xD7 4d6 / 10 kg)",
-	scores: [1, 0, 0, 0, 2, 0],
 	trait: [
-		"**Firbolg** (+1 Strength, +2 Wisdom)" + (typePF ? "\r" : " ") + "##Hidden Step##. Once per short rest, as a bonus action, I turn invisible until the start of my next turn as per the *invisibility* spell.",
+		"**Firbolg**" + (typePF ? "\r" : " ") + "##Hidden Step##. Once per Short Rest, as a Bonus Action, I turn Invisible until the start of my next turn as per the *invisibility* spell.",
 		"##Powerful Build##. I count as one size larger for the weight I can carry.",
-		"##Firbolg Magic##. I can cast the *Detect Magic* and *Disguise Self* spells each once per short rest. With *Disguise Self* I can seem up to 3 ft shorter. Wisdom is my ability for these spells.",
-		"##Speech of Beast and Leaf##. I can make my words understood, in a limited manner, by beasts and plants. I have advantage on Charisma checks to influence them.",
+		"##Firbolg Magic##. I can cast the *Detect Magic* and *Disguise Self* spells each once per Short Rest. With *Disguise Self* I can seem up to 3 ft shorter. Wisdom is my ability for these spells.",
+		"##Speech of Beast and Leaf##. I can make my words understood, in a limited manner, by Beasts and Plants. I have Advantage on Charisma checks to influence them.",
 	],
 	spellcastingAbility: 5,
 	features: {
@@ -238,8 +82,8 @@ RaceList["firbolg"] = {
 			}],
 			spellChanges: {
 				"disguise self": {
-					description: "Alter appearance, up to 3ft shorter/taller; Int(Investigation) check vs. spell DC to determine disguise",
-					changes: "Using Firbolg Magic, I can cast *Disguise Self* once per short rest to also seem up to 3 feet shorter or taller.",
+					description: "Alter appearance, up to 3ft shorter/taller; Int(Investigation) check vs spell DC to determine disguise",
+					changes: "Using Firbolg Magic, I can cast *Disguise Self* once per Short Rest to also seem up to 3 feet shorter or taller.",
 				},
 			},
 		},
@@ -247,7 +91,7 @@ RaceList["firbolg"] = {
 			name: "Hidden Step",
 			minlevel: 1,
 			usages: 1,
-			recovery: "short rest",
+			recovery: "Short Rest",
 			action: [["bonus action", ""]],
 		},
 	},
@@ -269,61 +113,22 @@ RaceList["goblin"] = {
 	weight: " weigh between 40 and 70 lb (35 + 2d4 \xD7 1 lb)",
 	heightMetric: " are between 100 and 120 cm tall (100 + 5d4 cm)",
 	weightMetric: " weigh between 20 and 30 kg (17 + 5d4 \xD7 2 / 10 kg)",
-	scores: [0, 2, 1, 0, 0, 0],
 	features: {
 		"fury of the small": {
 			name: "Fury of the Small",
 			minlevel: 1,
 			usages: 1,
-			recovery: "short rest",
+			recovery: "Short Rest",
 			additional: levels.map(function (n) { return "+" + n + " damage"; }),
 		},
 	},
 	action: [["bonus action", "Nimble Escape (disengage/hide)"]],
 	trait: [
-		"**Goblin** (+2 Dexterity, +1 Constitution)",
-		"##\u25C6 Fury of the Small##. Once per short rest, when I damage a creature of a size category larger than mine with an attack or a spell, I can have it take extra damage equal to my level.",
-		"##\u25C6 Nimble Escape##. As a bonus action, I can take the Disengage or Hide action.",
+		"**Goblin**",
+		"##\u25C6 Fury of the Small##. Once per Short Rest, when I damage a creature of a size category larger than mine with an attack or a spell, I can have it take extra damage equal to my level.",
+		"##\u25C6 Nimble Escape##. As a Bonus Action, I can take the Disengage or Hide action.",
 	],
 };
-// dupl_start
-if (!RaceList["goliath"]) {
-	RaceList["goliath"] = {
-		regExpSearch: /goliath/i,
-		name: "Goliath",
-		source: [["E", 11], ["V", 108], ["W", 176]],
-		plural: "Goliaths",
-		size: 3,
-		speed: {
-			walk: { spd: 30, enc: 20 },
-		},
-		languageProfs: ["Common", "Giant"],
-		dmgres: ["Cold"],
-		skills: ["Athletics"],
-		age: " reach adulthood in their late teens and live less than 100 years",
-		height: " are between 6 and a half and 8 feet tall (6'2\" + 2d10\")",
-		weight: " weigh between 280 and 340 lb (200 + 2d10 \xD7 2d6 lb)",
-		heightMetric: " are between 2 and 2,4 metres tall (190 + 5d10 cm)",
-		weightMetric: " weigh between 100 and 155 kg (90 + 5d10 \xD7 4d6 / 10 kg)",
-		scores: [2, 0, 1, 0, 0, 0],
-		features: {
-			"stone's endurance": {
-				name: "Stone's Endurance",
-				minlevel: 1,
-				usages: 1,
-				recovery: "short rest",
-				action: [["reaction", ""]],
-			},
-		},
-		trait: [
-			"**Goliath** (+2 Strength, +1 Constitution)",
-			"##\u25C6 Stone's Endurance##. Once per short rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Constitution modifier.",
-			"##\u25C6 Powerful Build##. I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.",
-			"##\u25C6 Mountain Born##. I have resistance to cold damage and I'm acclimated to high altitude, including elevations above 20000 ft." + (typePF ? "\r##\u25C6 Natural Athlete##. I have proficiency in the Athletics skill." : ""),
-		],
-		carryingCapacity: 2,
-	};
-} // dupl_end
 RaceList["hobgoblin"] = {
 	regExpSearch: /hobgoblin/i,
 	name: "Hobgoblin",
@@ -341,19 +146,18 @@ RaceList["hobgoblin"] = {
 	weight: " weigh between 150 and 200 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric: " weigh between 70 and 90 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
-	scores: [0, 0, 2, 1, 0, 0],
 	features: {
 		"saving face": {
 			name: "Saving Face",
 			minlevel: 1,
 			usages: 1,
-			recovery: "short rest",
+			recovery: "Short Rest",
 		},
 	},
 	trait: [
-		"**Hobgoblin** (+2 Constitution, +1 Intelligence)",
+		"**Hobgoblin**",
 		"##\u25C6 Martial Training##. I am proficient with two martial weapons of my choice and light armor.",
-		"##\u25C6 Saving Face##. Once per short rest, when I miss an attack roll or fail an ability check or a saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30 ft of me (max +5).",
+		"##\u25C6 Saving Face##. Once per Short Rest, when I miss an attack roll or fail an ability check or a saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30 ft of me (max +5).",
 	],
 };
 RaceList["kenku"] = {
@@ -372,10 +176,9 @@ RaceList["kenku"] = {
 	weight: " weigh between 90 and 120 lb (70 + 2d8 \xD7 1d4 lb)",
 	heightMetric: " are around 1,5 metres tall (135 + 5d8 cm)",
 	weightMetric: " weigh between 40 and 55 kg (35 + 5d8 \xD7 2d4 / 10 kg)",
-	scores: [0, 2, 0, 0, 1, 0],
 	trait: [
-		"**Kenku** (+2 Dexterity, +1 Wisdom)",
-		"##\u25C6 Expert Forgery##. Kenku can duplicate other creatures' handwriting and craftwork. I have advantage on all checks made to produce forgeries or duplicates of existing objects.",
+		"**Kenku**",
+		"##\u25C6 Expert Forgery##. Kenku can duplicate other creatures' handwriting and craftwork. I have Advantage on all checks made to produce forgeries or duplicates of existing objects.",
 		"##\u25C6 Mimicry##. I can mimic any sounds I have heard, including voices, but can otherwise not speak. Creatures hearing these sounds can determine they are imitations with a successful Wisdom (Insight) check opposed by my Charisma (Deception).",
 	],
 };
@@ -395,21 +198,20 @@ RaceList["kobold"] = {
 	weight: " weigh between 25 and 35 lb (25 + 2d4 \xD7 1 lb)",
 	heightMetric: " are between 65 and 90 cm tall (63 + 5d4 cm)",
 	weightMetric: " weigh between 10 and 15 kg (11 + 5d4 \xD7 2 / 10 kg)",
-	scores: [0, 2, 0, 0, 0, 0],
 	features: {
 		"grovel, cower, and beg": {
 			name: "Grovel, Cower, and Beg",
 			minlevel: 1,
 			usages: 1,
-			recovery: "short rest",
+			recovery: "Short Rest",
 			action: [["action", ""]],
 		},
 	},
 	trait: [
-		"**Kobold** (+2 Dexterity)",
+		"**Kobold**",
 		"##\u25C6 Sunlight Sensitivity##. Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.",
-		"##\u25C6 Grovel, Cower, and Beg##. As an action, I can distract all foes within 10 ft of me that can see me so that my allies gain advantage on attack rolls against them.",
-		"##\u25C6 Pack Tactics##. I have advantage on attack rolls against creatures when at least one of my allies is within 5 ft of that creature and that ally is not incapacitated.",
+		"##\u25C6 Grovel, Cower, and Beg##. As an action, I can distract all foes within 10 ft of me that can see me so that my allies gain Advantage on attack rolls against them.",
+		"##\u25C6 Pack Tactics##. I have Advantage on attack rolls against creatures when at least one of my allies is within 5 ft of that creature and that ally is not Incapacitated.",
 	],
 };
 RaceList["lizardfolk"] = {
@@ -444,49 +246,22 @@ RaceList["lizardfolk"] = {
 	weight: " weigh around 200 lb (120 + 2d10 \xD7 2d6 lb)",
 	heightMetric: " range from 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric: " weigh around 95 kg (55 + 5d10 \xD7 4d6 / 10 kg)",
-	scores: [0, 0, 2, 0, 1, 0],
 	features: {
 		"cunning artisan": {
 			name: "Cunning Artisan",
 			minlevel: 1,
 			usages: 1,
-			recovery: "short rest",
+			recovery: "Short Rest",
 		},
 		"hungry jaws": {
 			name: "Hungry Jaws",
 			minlevel: 1,
 			usages: 1,
-			recovery: "short rest",
+			recovery: "Short Rest",
 			action: [["bonus action", ""]],
 		},
 	},
-	trait: "**Lizardfolk** (+2 Constitution, +1 Wisdom) ##\u25C6 Bite##. I can use my fanged maw to make unarmed strikes dealing 1d6 piercing damage." + (typePF ? "\r" : " ") + "##\u25C6 Cunning Artisan##. As part of a short rest I can harvest parts of a slain creature to make a shield, club, javelin, or 1d4 darts/blowgun needles. This requires a suitable corpse and appropriate tools." + (typePF ? "\r" : " ") + "##\u25C6 Hold Breath##. I can hold my breath for up to 15 minutes at a time." + (typePF ? "\r" : " ") + "##\u25C6 Natural Armor##. I have an AC of 13 + Dexterity modifier + shield." + (typePF ? "\r" : " ") + "##\u25C6 Hungry Jaws##. As a bonus action, once per short rest, I can make a special bite attack and if it hits I gain temporary HP equal to my Con modifier (min 1).",
-};
-RaceList["orc"] = {
-	regExpSearch: /^(?!.*half)(?=.*\bor(c|k)).*$/i,
-	name: "Orc",
-	source: [["V", 120], ["E:RLW", 32], ["W", 178]],
-	plural: "Orcs",
-	size: 3,
-	speed: {
-		walk: { spd: 30, enc: 20 },
-	},
-	languageProfs: ["Common", "Orc"],
-	vision: [["Darkvision", 60]],
-	skillstxt: "Choose two from Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, and Survival.",
-	age: " reach adulthood at age 12 and live up to 50 years",
-	height: " are usually over 6 feet tall (5'4\" + 2d8\")",
-	weight: " weigh between 230 and 280 lb (175 + 2d8 \xD7 2d6 lb)",
-	heightMetric: " are usually over 1,8 metres tall (160 + 5d8 cm)",
-	weightMetric: " weigh between 100 and 125 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
-	scores: [2, 0, 1, 0, 0, 0],
-	trait: [
-		"**Orc** (+2 Strength, +1 Constitution)",
-		"##\u25C6 Powerful Build##. I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.",
-		"##\u25C6 Aggressive##. As a bonus action, I can move up to my speed toward an enemy that I can see or hear. I must end my move closer to this enemy than I started.",
-	],
-	action: [["bonus action", "Aggressive (dash to enemy)"]],
-	carryingCapacity: 2,
+	trait: "**Lizardfolk** ##Bite##. I can use my fanged maw to make unarmed strikes dealing 1d6 Piercing damage." + (typePF ? "\r" : " ") + "##Cunning Artisan##. As part of a Short Rest I can harvest parts of a slain creature to make a shield, club, javelin, or 1d4 darts/blowgun needles. This requires a suitable corpse and appropriate tools." + (typePF ? "\r" : " ") + "##Hold Breath##. I can hold my breath for up to 15 minutes at a time." + (typePF ? "\r" : " ") + "##Natural Armor##. I have an AC of 13 + Dexterity modifier + shield." + (typePF ? "\r" : " ") + "##Hungry Jaws##. As a Bonus Action, once per Short Rest, I can make a special bite attack and if it hits I gain Temporary HP equal to my Con modifier (min 1).",
 };
 RaceList["tabaxi"] = {
 	regExpSearch: /tabaxi/i,
@@ -514,7 +289,6 @@ RaceList["tabaxi"] = {
 	weight: " weigh around 150 lb (90 + 2d10 \xD7 2d4 lb)",
 	heightMetric: " range from 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric: " weigh around 70 kg (40 + 5d10 \xD7 4d4 / 10 kg)",
-	scores: [0, 2, 0, 0, 0, 1],
 	features: {
 		"feline agility": {
 			name: "Feline Agility",
@@ -526,9 +300,9 @@ RaceList["tabaxi"] = {
 		},
 	},
 	trait: [
-		"**Tabaxi** (+2 Dexterity, +1 Charisma)",
+		"**Tabaxi**",
 		"##\u25C6 Cat's Talent##. I have proficiency in Perception and Stealth.",
-		"##\u25C6 Cat's Claws##. I can use my retractable claws to make unarmed strikes dealing 1d4 slashing damage. They also give me a climbing speed of 20 ft.",
+		"##\u25C6 Cat's Claws##. I can use my retractable claws to make unarmed strikes dealing 1d4 Slashing damage. They also give me a 20 ft Climb Speed.",
 		"##\u25C6 Feline Agility##. When moving on my turn in combat, I can move double my speed. Once I do this, I can't do it again until I don't move at all on one of my turns.",
 	],
 };
@@ -550,12 +324,11 @@ RaceList["triton"] = {
 	weight: " weigh around 150 lb (90 + 2d10 \xD7 2d4 lb)",
 	heightMetric: " are around 1,6 metres tall (135 + 5d10 cm)",
 	weightMetric: " weigh around 70 kg (40 + 5d10 \xD7 4d4 / 10 kg)",
-	scores: [1, 0, 1, 0, 0, 1],
 	trait: [
-		"**Triton** (+1 Strength, +1 Constitution, and +1 Charisma)",
-		"##Control Air and Water##. I can cast the *Fog Cloud* spell. Once I reach 3rd level, I can cast the *Gust of Wind* spell. Once I reach 5th level, I can cast the *Wall of Water* spell. All three spells can be used once per long rest. Charisma is my spellcasting ability for these spells.",
-		"##Emissary of the Sea##. I can communicate simple ideas to beasts that can breathe water.",
-		"##Guardians of the Depths##. Adapted to even the most extreme ocean depths, I have resistance to cold damage." + (typePF ? "\r" : " ") + "##Amphibious##. I can breathe air and water.",
+		"**Triton**",
+		"##Control Air and Water##. I can cast the *Fog Cloud* spell. Once I reach 3rd level, I can cast the *Gust of Wind* spell. Once I reach 5th level, I can cast the *Wall of Water* spell. All three spells can be used once per Long Rest. Charisma is my spellcasting ability for these spells.",
+		"##Emissary of the Sea##. I can communicate simple ideas to Beasts that can breathe water.",
+		"##Guardians of the Depths##. Adapted to even the most extreme ocean depths, I have Resistance to Cold damage." + (typePF ? "\r" : " ") + "##Amphibious##. I can breathe air and water.",
 	],
 	spellcastingAbility: 6,
 	features: {
@@ -599,7 +372,7 @@ if (!SpellsList["wall of water"]) {
 		source: [["X", 170], ["E", 23], ["V", 116], ["MOT", 27]],
 		level: 3,
 		school: "Evoc",
-		time: "1 a",
+		time: "Act",
 		range: "60 ft",
 		components: "V,S,M",
 		compMaterial: "A drop of water",
@@ -624,7 +397,7 @@ RaceList["yuan-ti pureblood"] = {
 	languageProfs: ["Common", "Abyssal", "Draconic"],
 	vision: [["Darkvision", 60]],
 	savetxt: {
-		immune: ["poison"],
+		immune: ["Poison"],
 		adv_vs: ["magic"],
 	},
 	age: " reach adulthood in their late teens and live less than 100 years",
@@ -632,12 +405,11 @@ RaceList["yuan-ti pureblood"] = {
 	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
-	scores: [0, 0, 0, 1, 0, 2],
 	trait: [
-		"**Yuan-Ti Pureblood** (+1 Intelligence, +2 Charisma)",
-		"##\u25C6 Innate Spellcasting##. I know the *Poison Spray* cantrip and I can cast *Animal Friendship* on snakes at will. Once I reach 3rd level, I can cast *Suggestion* once per long rest. Charisma is my spellcasting ability for these spells.",
-		"##\u25C6 Magic Resistance##. I have advantage on saving throws against spells and other magical effects.",
-		"##\u25C6 Poison Immunity##. I am immune to poison damage and the poisoned condition.",
+		"**Yuan-Ti Pureblood**",
+		"##\u25C6 Innate Spellcasting##. I know the *Poison Spray* cantrip and I can cast *Animal Friendship* on snakes at will. Once I reach 3rd level, I can cast *Suggestion* once per Long Rest. Charisma is my spellcasting ability for these spells.",
+		"##\u25C6 Magic Resistance##. I have Advantage on saving throws against spells and other magical effects.",
+		"##\u25C6 Poison Immunity##. I am Immune to Poison damage and the Poisoned condition.",
 	],
 	spellcastingAbility: 6,
 	spellcastingBonus: [{
@@ -649,7 +421,7 @@ RaceList["yuan-ti pureblood"] = {
 	}],
 	spellChanges: {
 		"animal friendship": {
-			description: "One snake with Intelligence 3 or less save or charmed for the duration",
+			description: "One snake with Intelligence 3 or less save or Charmed for the duration",
 			changes: "I can cast *Animal Friendship* at-will, but only to target snakes.",
 		},
 	},
@@ -693,7 +465,7 @@ CreatureList["aurochs"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d8 piercing damage. A targeted creature must succeed on a DC 15 Strength saving throw or be knocked prone.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d8 Piercing damage. A targeted creature must succeed on a DC 15 Strength saving throw or be knocked Prone.",
 	}],
 };
 CreatureList["cow"] = {
@@ -721,7 +493,7 @@ CreatureList["cow"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 piercing damage.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 Piercing damage.",
 	}],
 };
 CreatureList["ox"] = {
@@ -749,7 +521,7 @@ CreatureList["ox"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 piercing damage.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 Piercing damage.",
 	}, {
 		name: "Beast of Burden",
 		description: "The [THIS] is considered to be a Huge animal for the purpose of determining its carrying capacity.",
@@ -783,7 +555,7 @@ CreatureList["deep rothe"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 piercing damage.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 Piercing damage.",
 	}, {
 		name: "Dancing Lights",
 		description: "The [THIS] casts *dancing lights*, requiring no spell components and using Wisdom as the spellcasting ability.",
@@ -815,7 +587,7 @@ CreatureList["rothe"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 piercing damage.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 Piercing damage.",
 	}],
 };
 CreatureList["stench kow"] = {
@@ -830,7 +602,7 @@ CreatureList["stench kow"] = {
 	hd: [2, 10], //[#, die]
 	speed: "30 ft",
 	scores: [18, 10, 12, 2, 10, 4], //[Str, Dex, Con, Int, Wis, Cha]
-	damage_resistances: "cold, fire, and poison damage",
+	resistances: "Cold, Fire, and Poison damage",
 	senses: "Darkvision 60 ft",
 	passivePerception: 10,
 	challengeRating: "1/4",
@@ -845,15 +617,15 @@ CreatureList["stench kow"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 piercing damage.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 Piercing damage.",
 	}, {
 		name: "Stench",
-		description: "Any creature other than a stench kow starting its turn within 5 ft of a stench kow must make a DC 12 Constitution saving throw or be poisoned until the start of the creature's next turn. On a successful saving throw, the creature is immune to the stench of all stench kows for 1 hour.",
+		description: "Any creature other than a stench kow starting its turn within 5 ft of a stench kow must make a DC 12 Constitution saving throw or be Poisoned until the start of the creature's next turn. On a successful saving throw, the creature is Immune to the stench of all stench kows for 1 hour.",
 	}],
 	wildshapeString: [
-		"##Senses##. Darkvision 60 ft." + (typePF ? "\n" : " ") + "##Resistances##. Cold, fire, poison.",
-		"##Charge##. If the stench kow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, it deals extra 2d6 piercing damage.",
-		"##Stench##. Any creature starting its turn within 5 ft of a stench kow must make a DC 12 Con save or be poisoned until the start of its next turn. On a success, it is immune to the stench of all stench kows for 1 hour.",
+		"##Senses##. Darkvision 60 ft." + (typePF ? "\n" : " ") + "##Resistances##. Cold, Fire, Poison.",
+		"##Charge##. If the stench kow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, it deals extra 2d6 Piercing damage.",
+		"##Stench##. Any creature starting its turn within 5 ft of a stench kow must make a DC 12 Con save or be Poisoned until the start of its next turn. On a success, it is Immune to the stench of all stench kows for 1 hour.",
 	].join("\n"),
 };
 CreatureList["dolphin"] = {
@@ -884,7 +656,7 @@ CreatureList["dolphin"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the [THIS] moves at least 30 ft straight toward a target and then hits it with a slam attack on the same turn, the target takes an extra 1d6 bludgeoning damage.",
+		description: "If the [THIS] moves at least 30 ft straight toward a target and then hits it with a slam attack on the same turn, the target takes an extra 1d6 Bludgeoning damage.",
 	}, {
 		name: "Hold Breath",
 		description: "The [THIS] can hold its breath for 20 minutes.",
@@ -896,7 +668,7 @@ CreatureList["cranium rat"] = {
 	source: [["V", 133], ["MotM", 83]],
 	size: 5, //Tiny
 	type: "Aberration", // Change in MotM from Beast
-	companion: "familiar_not_al",
+	companion: ["familiar_not_al"],
 	alignment: "Lawful Evil",
 	ac: 12,
 	hp: 2,
@@ -918,10 +690,10 @@ CreatureList["cranium rat"] = {
 	}],
 	traits: [{
 		name: "Illumination",
-		description: "As a bonus action, the [THIS] can shed dim light from its brain in a 5-foot radius or extinguish the light.",
+		description: "As a Bonus Action, the [THIS] can shed Dim Light from its brain in a 5-foot radius or extinguish the light.",
 	}, {
 		name: "Telepathic Shroud",
-		description: "The [THIS] is immune to any effect that would sense its emotions or read its thoughts, as well as to all divination spells.",
+		description: "The [THIS] is Immune to any effect that would sense its emotions or read its thoughts, as well as to all Divination spells.",
 	}],
 };
 CreatureList["brontosaurus"] = {
@@ -946,7 +718,7 @@ CreatureList["brontosaurus"] = {
 		ability: 1,
 		damage: [5, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
 		range: "Melee (20 ft)",
-		description: "Target must succeed on a DC 14 Strength saving throw or be knocked prone",
+		description: "Target must succeed on a DC 14 Strength saving throw or be knocked Prone",
 	}, {
 		name: "Tail",
 		ability: 1,
@@ -989,11 +761,11 @@ CreatureList["deinonychus"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the [THIS] can make two Claw and one Bite attack.",
+		description: "As an Attack action, the [THIS] can make two Claw and one Bite attack.",
 	}],
 	traits: [{
 		name: "Pounce",
-		description: "If the [THIS] moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the [THIS] can make one bite attack against it as a bonus action.",
+		description: "If the [THIS] moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked Prone. If the target is Prone, the [THIS] can make one bite attack against it as a Bonus Action.",
 	}],
 };
 CreatureList["dimetrodon"] = {
@@ -1081,7 +853,7 @@ CreatureList["quetzalcoatlus"] = {
 		description: "If the [THIS] is flying and dives at least 30 ft toward a creature and then hits it with a bite attack, the attack deals an extra 3d6 damage to the target.",
 	}, {
 		name: "Flyby",
-		description: "The [THIS] doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
+		description: "The [THIS] doesn't provoke Opportunity Attacks when it flies out of an enemy's reach.",
 	}],
 };
 CreatureList["stegosaurus"] = {
@@ -1142,11 +914,11 @@ CreatureList["velociraptor"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the [THIS] can make one Bite and one Claw attack.",
+		description: "As an Attack action, the [THIS] can make one Bite and one Claw attack.",
 	}],
 	traits: [{
 		name: "Pack Tactics",
-		description: "The [THIS] has advantage on an attack roll against a creature if at least one of the [THIS]'s allies is within 5 ft of the creature and the ally isn't incapacitated.",
+		description: "The [THIS] has Advantage on an attack roll against a creature if at least one of the [THIS]'s allies is within 5 ft of the creature and the ally isn't Incapacitated.",
 	}],
 };
 CreatureList["gazer"] = {
@@ -1155,7 +927,7 @@ CreatureList["gazer"] = {
 	size: 5, //Tiny
 	type: "Aberration",
 	subtype: "Beholder", // MotM addition
-	companion: "familiar_not_al",
+	companion: ["familiar_not_al"],
 	alignment: "Neutral Evil",
 	ac: 13,
 	hp: 13,
@@ -1197,9 +969,9 @@ CreatureList["gazer"] = {
 	}, {
 		name: "Eye Rays",
 		description: [
-			"1. **Dazing Ray**. Wisdom saving throw or charmed until the start of the [THIS]'s next turn. While charmed, half speed and disadv. on attacks.",
-			"2. **Fear Ray**. Wisdom saving throw or frightened until the start of the [THIS]'s next turn.",
-			"3. **Frost Ray**. Target must make a Dexterity saving throw or 3d6 cold damage.",
+			"1. **Dazing Ray**. Wisdom saving throw or Charmed until the start of the [THIS]'s next turn. While Charmed, half speed and Disadv on attacks.",
+			"2. **Fear Ray**. Wisdom saving throw or Frightened until the start of the [THIS]'s next turn.",
+			"3. **Frost Ray**. Target must make a Dexterity saving throw or 3d6 Cold damage.",
 			"4. **Telekinetic Ray**. Medium or smaller creature, Strength saving throw or be moved up to 30 ft away from the [THIS]. If it is an unattended Tiny object, the [THIS] moves it up to 30 ft in any direction. It can exert fine control on objects this way.", // MotM: no longer 10 lb limit, just Tiny object
 		].join("\n"),
 	}],
@@ -1213,9 +985,9 @@ CreatureList["gazer"] = {
 MagicItemsList["mind blade"] = {
 	name: "Mind Blade",
 	source: [["V", 81]],
-	type: "weapon (any sword)",
-	rarity: "rare",
-	description: "Mind flayers can turn any nonmagical sword into a mind blade. Only one creature can attune to this sword: either a specific mind flayer or one of its thralls. In the hands of its intended wielder, the mind blade is a magic weapon that deals an extra 2d6 psychic damage to any target it hits.",
+	type: "Weapon (Any Sword)",
+	rarity: "Rare",
+	description: "Mind flayers can turn any nonmagical sword into a mind blade. Only one creature can attune to this sword: either a specific mind flayer or one of its thralls. In the hands of its intended wielder, the mind blade is a magic weapon that deals an extra 2d6 Psychic damage to any target it hits.",
 	descriptionFull: "Mind flayers can turn any nonmagical sword into a *mind blade*. Only one creature can attune to it: either a specific mind flayer or one of its thralls. In the hands of any other creature, the *mind blade* functions as a normal sword of its kind. In the hands of its intended wielder, the *mind blade* is a magic weapon that deals an extra 2d6 psychic damage to any target it hits.",
 	attunement: true,
 	prerequisite: "Requires attunement by the creature this sword was made for: either a specific mind flayer or one of its thralls",
@@ -1238,7 +1010,7 @@ MagicItemsList["mind blade"] = {
 					fields.Description += (fields.Description ? "; " : "") + "+2d6 psychic damage";
 				}
 			},
-			'If I include the words "Mind Blade" in the name of a sword, it will be treated as the magic weapon Mind Blade, which adds +2d6 psychic damage on any hit as long as attuned to its intended wielder.',
+			'If I include the words "Mind Blade" in the name of a sword, it will be treated as the magic weapon Mind Blade, which adds +2d6 Psychic damage on any hit as long as attuned to its intended wielder.',
 		],
 	},
 }
@@ -1246,14 +1018,14 @@ MagicItemsList["mind carapace armor"] = {
 	name: "Mind Carapace Armor",
 	nameTest: /mind.carapace.*armou?r/i,
 	source: [["V", 81]],
-	type: "armor (heavy)",
-	rarity: "uncommon",
-	description: "Only one creature can attune to this armor: either a specific mind flayer or one of its thralls. To its intended wearer, the armor grants advantage on Intelligence, Wisdom, and Charisma saving throws and makes its wearer immune to the frightened condition.",
+	type: "Armor (Heavy)",
+	rarity: "Uncommon",
+	description: "Only one creature can attune to this armor: either a specific mind flayer or one of its thralls. To its intended wearer, the armor grants Advantage on Intelligence, Wisdom, and Charisma saving throws and makes its wearer Immune to the Frightened condition.",
 	descriptionFull: "Any nonmagical suit of heavy armor can be turned by mind flayers into *mind carapace armor*. Only one creature can attune to it: either a specific mind flayer or one of its thralls. While worn by any other creature, the *mind carapace armor* functions as normal armor of its kind. To its intended wearer, the armor grants advantage on Intelligence, Wisdom, and Charisma saving throws and makes its wearer immune to the frightened condition.",
 	attunement: true,
 	prerequisite: "Requires attunement by the creature this armor was made for: either a specific mind flayer or one of its thralls",
 	prereqeval: function (v) { return false; },
-	savetxt: { text: ["Adv. on Int, Wis, and Cha saves"], immune: ["frightened"] },
+	savetxt: { text: ["Adv on Int, Wis, and Cha saves"], immune: ["Frightened"] },
 	advantages: [["Intelligence", true], ["Wisdom", true], ["Charisma", true]],
 	allowDuplicates: true,
 	chooseGear: {
@@ -1269,9 +1041,9 @@ MagicItemsList["mind carapace armor"] = {
 MagicItemsList["mind lash"] = {
 	name: "Mind Lash",
 	source: [["V", 81]],
-	type: "weapon (whip)",
-	rarity: "rare",
-	description: "This magic whip strips away a creature's will to survive as it also strips away flesh and deals +2d4 psychic damage on each hit. Any target taking psychic damage must succeed on a DC 15 Wisdom save or have disadv. on Int, Wis, and Cha saves for 1 minute. It can repeat the save at the end of each of its turns.",
+	type: "Weapon (Whip)",
+	rarity: "Rare",
+	description: "This magic whip strips away a creature's will to survive as it also strips away flesh and deals +2d4 Psychic damage on each hit. Any target taking Psychic damage must succeed on a DC 15 Wisdom save or have Disadv on Int, Wis, and Cha saves for 1 minute. It can repeat the save at the end of each of its turns.",
 	descriptionFull: "In the hands of any creature other than a mind flayer, a *mind lash* functions as a normal whip. In the hands of an illithid, this magic weapon strips away a creature's will to survive as it also strips away flesh, dealing an extra 2d4 psychic damage to any target it hits. Any creature that takes psychic damage from the *mind lash* must also succeed on a DC 15 Wisdom saving throw or have disadvantage on Intelligence, Wisdom, and Charisma saving throws for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
 	attunement: true,
 	weight: 3,
@@ -1282,16 +1054,16 @@ MagicItemsList["mind lash"] = {
 		regExpSearch: /^(?=.*mind)(?=.*lash).*$/i,
 		name: "Mind Lash",
 		source: [["V", 81]],
-		description: "Finesse, reach; +2d4 psychic damage; DC 15 Wis save or disadv. on Int/Wis/Cha saves for 1 min",
+		description: "Finesse, Reach; +2d4 Psychic damage; DC 15 Wis save or Disadv on Int/Wis/Cha saves for 1 min",
 		selectNow: true,
 	}],
 }
 MagicItemsList["shield of far sight"] = {
 	name: "Shield of Far Sight",
 	source: [["V", 81]],
-	type: "shield",
-	rarity: "rare",
-	description: "The mind flayer that created this shield can see through its eye with 60 ft darkvision while it is on the same plane. While peering through this magical eye, the mind flayer can use its Mind Blast action as though it were standing behind the shield. If a shield of far sight is destroyed, its creator is blinded for 2d12 hours.",
+	type: "Shield",
+	rarity: "Rare",
+	description: "The mind flayer that created this shield can see through its eye with 60 ft Darkvision while it's on the same plane. While peering through this magical eye, the mind flayer can use its Mind Blast action as though it were standing behind the shield. If a shield of far sight is destroyed, its creator is Blinded for 2d12 hours.",
 	descriptionFull: [
 		"A mind flayer skilled at crafting magic items creates a *shield of far sight* by harvesting an eye from an intelligent humanoid and magically implanting it on the outer surface of a nonmagical shield. The shield becomes a magic item once the eye is implanted, whereupon the mind flayer can give the shield to a thrall or hang it on a wall in its lair. As long as the shield is on the same plane of existence as its creator, the mind flayer can see through the shield's eye, which has darkvision out to a range of 60 feet. While peering through this magical eye, the mind flayer can use its Mind Blast action as though it were standing behind the shield.",
 		"If a *shield of far sight* is destroyed, the mind flayer that created it is blinded for 2d12 hours.",
@@ -1302,9 +1074,9 @@ MagicItemsList["shield of far sight"] = {
 MagicItemsList["survival mantle"] = {
 	name: "Survival Mantle",
 	source: [["V", 81]],
-	type: "armor (half plate)",
-	rarity: "unknown",
-	description: "This mantle functions as a half plate and takes just as long to don or doff. It encases portions of my shoulders, neck, and chest so that I can breathe normally in any environment (including a vacuum) and gives me advantage on saving throws against gases (such as *Cloudkill*, *Stinking Cloud*, or inhaled poisons).",
+	type: "Armor (Half Plate)",
+	rarity: "Unknown",
+	description: "This mantle functions as a half plate and takes just as long to don or doff. It encases portions of my shoulders, neck, and chest so that I can breathe normally in any environment (including a vacuum) and gives me Advantage on saving throws against gases (such as *Cloudkill*, *Stinking Cloud*, or inhaled poisons).",
 	descriptionFull: [
 		"This carapace-like augmentation encases portions of the wearer's shoulders, neck, and chest. A *survival mantle* is equivalent to a suit of nonmagical half plate armor and takes just as long to don or doff. It can't be worn with other kinds of armor.",
 		"A creature wearing a *survival mantle* can breathe normally in any environment (including a vacuum) and has advantage on saving throws against harmful gases (such as those created by a *Cloudkill* spell, a *Stinking Cloud* spell, inhaled poisons, and the breath weapons of some dragons).",

@@ -241,10 +241,6 @@ MagicItemsList["ironfang"] = {
 	limfeaname: "Ironfang [Rumbling ritual]",
 	spellFirstColTitle: "Ch",
 	extraLimitedFeatures: [{
-		name: "Ironfang [Dominate Monster]",
-		usages: 1,
-		recovery: "dawn",
-	}, {
 		name: "Ironfang [Shatter] (regains 1d3)",
 		usages: 3,
 		recovery: "dawn",

@@ -176,7 +176,7 @@ AddSubClass("warlock", "undead", {
 });
 
 // Backgrounds
-
+// NB: take Haunted One traits/bonds/ideals/flaws from CoS/VRGtR
 
 // Feats - Origin
 
