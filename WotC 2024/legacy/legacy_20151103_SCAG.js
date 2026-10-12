@@ -608,7 +608,7 @@ AddSubClass("sorcerer", "storm sorcery", {
 	fullname: "Storm Sorcerer",
 	source: [["S", 137], ["X", 51]],
 	features: {
-		"subclassfeature3.0": {
+		"subclassfeature3": {
 			name: "Wind Speaker",
 			source: [["S", 137], ["X", 52]],
 			minlevel: 3,
@@ -667,7 +667,7 @@ AddSubClass("warlock", "the undying", {
 	subname: "the Undying",
 	source: [["S", 139]],
 	features: {
-		"subclassfeature3.0": {
+		"subclassfeature3": {
 			name: "Among the Dead",
 			source: [["S", 139]],
 			minlevel: 3,

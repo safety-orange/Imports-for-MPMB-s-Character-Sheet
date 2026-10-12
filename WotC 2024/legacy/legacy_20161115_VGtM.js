@@ -449,9 +449,9 @@ CreatureList["aurochs"] = {
 	alignment: "Unaligned",
 	ac: 11,
 	hp: 38,
-	hd: [4, 10], //[#, die]
+	hd: [4, 10],
 	speed: "50 ft",
-	scores: [20, 10, 19, 2, 12, 5], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [20, 10, 19, 2, 12, 5],
 	passivePerception: 11,
 	challengeRating: "2",
 	proficiencyBonus: 2,
@@ -477,9 +477,9 @@ CreatureList["cow"] = {
 	alignment: "Unaligned",
 	ac: 10,
 	hp: 15,
-	hd: [2, 10], //[#, die]
+	hd: [2, 10],
 	speed: "30 ft",
-	scores: [18, 10, 12, 2, 10, 4], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [18, 10, 12, 2, 10, 4],
 	passivePerception: 10,
 	challengeRating: "1/4",
 	proficiencyBonus: 2,
@@ -505,9 +505,9 @@ CreatureList["ox"] = {
 	alignment: "Unaligned",
 	ac: 10,
 	hp: 15,
-	hd: [2, 10], //[#, die]
+	hd: [2, 10],
 	speed: "30 ft",
-	scores: [18, 10, 12, 2, 10, 4], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [18, 10, 12, 2, 10, 4],
 	passivePerception: 10,
 	challengeRating: "1/4",
 	proficiencyBonus: 2,
@@ -538,9 +538,9 @@ CreatureList["deep rothe"] = {
 	alignment: "Unaligned",
 	ac: 10,
 	hp: 13,
-	hd: [2, 8], //[#, die]
+	hd: [2, 8],
 	speed: "30 ft",
-	scores: [18, 10, 12, 2, 10, 4], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [18, 10, 12, 2, 10, 4],
 	senses: "Darkvision 60 ft",
 	passivePerception: 10,
 	challengeRating: "1/4",
@@ -570,9 +570,9 @@ CreatureList["rothe"] = {
 	alignment: "Unaligned",
 	ac: 10,
 	hp: 15,
-	hd: [2, 10], //[#, die]
+	hd: [2, 10],
 	speed: "30 ft",
-	scores: [18, 10, 12, 2, 10, 4], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [18, 10, 12, 2, 10, 4],
 	senses: "Darkvision 30 ft",
 	passivePerception: 10,
 	challengeRating: "1/4",
@@ -599,9 +599,9 @@ CreatureList["stench kow"] = {
 	alignment: "Unaligned",
 	ac: 10,
 	hp: 15,
-	hd: [2, 10], //[#, die]
+	hd: [2, 10],
 	speed: "30 ft",
-	scores: [18, 10, 12, 2, 10, 4], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [18, 10, 12, 2, 10, 4],
 	resistances: "Cold, Fire, and Poison damage",
 	senses: "Darkvision 60 ft",
 	passivePerception: 10,
@@ -636,9 +636,9 @@ CreatureList["dolphin"] = {
 	alignment: "Unaligned",
 	ac: 12,
 	hp: 11,
-	hd: [2, 8], //[#, die]
+	hd: [2, 8],
 	speed: "swim 60 ft",
-	scores: [14, 13, 13, 6, 12, 7], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [14, 13, 13, 6, 12, 7],
 	skills: {
 		"perception": 3,
 	},
@@ -668,13 +668,12 @@ CreatureList["cranium rat"] = {
 	source: [["V", 133], ["MotM", 83]],
 	size: 5, //Tiny
 	type: "Aberration", // Change in MotM from Beast
-	companion: ["familiar_not_al"],
 	alignment: "Lawful Evil",
 	ac: 12,
 	hp: 2,
-	hd: [1, 4], //[#, die]
+	hd: [1, 4],
 	speed: "30 ft",
-	scores: [2, 14, 10, 4, 11, 8], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [2, 14, 10, 4, 11, 8],
 	senses: "Darkvision 30 ft",
 	passivePerception: 10,
 	challengeRating: "0",
@@ -705,10 +704,10 @@ CreatureList["brontosaurus"] = {
 	alignment: "Unaligned",
 	ac: 15,
 	hp: 121,
-	hd: [9, 20], //[#, die]
+	hd: [9, 20],
 	speed: "30 ft",
-	scores: [21, 9, 17, 2, 10, 7], //[Str, Dex, Con, Int, Wis, Cha]
-	saves: ["", "", 6, "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [21, 9, 17, 2, 10, 7],
+	saves: ["", "", 6, "", "", ""],
 	passivePerception: 10,
 	challengeRating: "5",
 	proficiencyBonus: 3,
@@ -736,9 +735,9 @@ CreatureList["deinonychus"] = {
 	alignment: "Unaligned",
 	ac: 13,
 	hp: 26,
-	hd: [4, 8], //[#, die]
+	hd: [4, 8],
 	speed: "40 ft",
-	scores: [15, 15, 14, 4, 12, 6], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [15, 15, 14, 4, 12, 6],
 	skills: {
 		"perception": 3,
 	},
@@ -777,9 +776,9 @@ CreatureList["dimetrodon"] = {
 	alignment: "Unaligned",
 	ac: 12,
 	hp: 19,
-	hd: [3, 8], //[#, die]
+	hd: [3, 8],
 	speed: "30 ft, swim 20 ft",
-	scores: [14, 10, 15, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [14, 10, 15, 2, 10, 5],
 	skills: {
 		"perception": 2,
 	},
@@ -804,9 +803,9 @@ CreatureList["hadrosaurus"] = {
 	alignment: "Unaligned",
 	ac: 11,
 	hp: 19,
-	hd: [3, 10], //[#, die]
+	hd: [3, 10],
 	speed: "40 ft",
-	scores: [15, 10, 13, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [15, 10, 13, 2, 10, 5],
 	skills: {
 		"perception": 2,
 	},
@@ -831,9 +830,9 @@ CreatureList["quetzalcoatlus"] = {
 	alignment: "Unaligned",
 	ac: 13,
 	hp: 30,
-	hd: [4, 12], //[#, die]
+	hd: [4, 12],
 	speed: "10 ft, fly 80 ft",
-	scores: [15, 13, 13, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [15, 13, 13, 2, 10, 5],
 	skills: {
 		"perception": 2,
 	},
@@ -865,9 +864,9 @@ CreatureList["stegosaurus"] = {
 	alignment: "Unaligned",
 	ac: 13,
 	hp: 76,
-	hd: [8, 12], //[#, die]
+	hd: [8, 12],
 	speed: "40 ft",
-	scores: [20, 9, 17, 2, 11, 5], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [20, 9, 17, 2, 11, 5],
 	passivePerception: 10,
 	challengeRating: "4",
 	proficiencyBonus: 2,
@@ -889,9 +888,9 @@ CreatureList["velociraptor"] = {
 	alignment: "Unaligned",
 	ac: 13,
 	hp: 10,
-	hd: [3, 4], //[#, die]
+	hd: [3, 4],
 	speed: "30 ft",
-	scores: [6, 14, 13, 4, 12, 6], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [6, 14, 13, 4, 12, 6],
 	skills: {
 		"perception": 3,
 	},
@@ -931,10 +930,10 @@ CreatureList["gazer"] = {
 	alignment: "Neutral Evil",
 	ac: 13,
 	hp: 13,
-	hd: [3, 4], //[#, die]
+	hd: [3, 4],
 	speed: "0 ft, fly 30 ft",
-	scores: [3, 17, 14, 3, 10, 7], //[Str, Dex, Con, Int, Wis, Cha]
-	saves: ["", "", "", "", 2, ""], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [3, 17, 14, 3, 10, 7],
+	saves: ["", "", "", "", 2, ""],
 	skills: {
 		"perception": 4,
 		"stealth": 5,

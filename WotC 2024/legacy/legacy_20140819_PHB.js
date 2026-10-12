@@ -317,7 +317,7 @@ AddSubClass("cleric", "nature domain", {
 	subname: "Nature Domain",
 	source: [["P", 62]],
 	features: {
-		"subclassfeature3.0": {
+		"subclassfeature3": {
 			name: "Bonus Proficiency",
 			source: [["P", 62]],
 			minlevel: 3,
@@ -366,7 +366,7 @@ AddSubClass("cleric", "tempest domain", {
 	subname: "Tempest Domain",
 	source: [["P", 62]],
 	features: {
-		"subclassfeature3.0": {
+		"subclassfeature3": {
 			name: "Bonus Proficiency",
 			source: [["P", 62]],
 			minlevel: 3,

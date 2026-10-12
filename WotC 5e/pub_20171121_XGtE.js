@@ -75,7 +75,7 @@ AddSubClass("barbarian", "ancestral guardian", {
 				"clairvoyance": {
 					components: "V,S",
 					compMaterial: "",
-					changes: "My casting of *Clairvoyance* is a practice of consulting my an ancestral spirit of mine, thus requiring no material components.",
+					changes: "My casting of *Clairvoyance* is a practice of consulting an ancestral spirit of mine, thus requiring no material components.",
 				},
 			},
 		},
@@ -111,7 +111,7 @@ AddSubClass("barbarian", "storm herald", {
 				description: desc([
 					"While raging, I emanate a 10-ft radius aura, but not through total cover",
 					"The aura's features activate when I enter my rage or as a bonus action while raging",
-					"Whenever I active my aura, anybody in my aura other than me takes fire damage",
+					"Whenever I activate my aura, anybody in my aura other than me takes fire damage",
 				]),
 				additional: levels.map(function (n) { return n < 3 ? "" : (n < 5 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 20 ? 5 : 6) + " fire damage"; }),
 			},
@@ -120,7 +120,7 @@ AddSubClass("barbarian", "storm herald", {
 				description: desc([
 					"While raging, I emanate a 10-ft radius aura, but not through total cover",
 					"The aura's features activate when I enter my rage or as a bonus action while raging",
-					"Whenever I active my aura, I can choose one creature in my aura other than me",
+					"Whenever I activate my aura, I can choose one creature in my aura other than me",
 					"It takes lightning damage, or half as much on a successful Dexterity saving throw",
 					"My Storm Herald features have DC 8 + my Proficiency Bonus + my Constitution modifier",
 				]),
@@ -131,7 +131,7 @@ AddSubClass("barbarian", "storm herald", {
 				description: desc([
 					"While raging, I emanate a 10-ft radius aura, but not through total cover",
 					"The aura's features activate when I enter my rage or as a bonus action while raging",
-					"Whenever I active my aura, all creatures of my choice in my aura gain temporary HP",
+					"Whenever I activate my aura, all creatures of my choice in my aura gain temporary HP",
 				]),
 				additional: levels.map(function (n) { return n < 3 ? "" : (n < 5 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 20 ? 5 : 6) + " temporary hit points"; }),
 			},
@@ -486,7 +486,6 @@ AddSubClass("bard", "college of whispers", {
 			minlevel: 6,
 			recovery: "short rest",
 			usages: 1,
-			action: [["reaction", ""]],
 			description: desc([
 				"As a reaction when a humanoid dies within 30 ft of me, I can capture its shadow",
 				"As an action, I can use it to make me look just like the dead person did while it was alive",
@@ -494,7 +493,11 @@ AddSubClass("bard", "college of whispers", {
 				"Others can see through the disguise with a Wis (Insight) check vs. my Cha (Deception) +5",
 				"A shadow lasts until used or next long rest; The disguise ends as a bonus action or 1 hour",
 			]),
-			action: [["action", "Shadow Disguise (start)"], ["bonus action", "Shadow Disguise (end)"]],
+			action: [
+				["reaction", ""],
+				["action", "Shadow Disguise (start)"],
+				["bonus action", "Shadow Disguise (end)"],
+			],
 		},
 		"subclassfeature14": {
 			name: "Shadow Lore",
@@ -800,7 +803,7 @@ AddSubClass("druid", "circle of the shepherd", {
 			description: desc([
 				"As a bonus action, I can summon, or move, a spirit to a point I can see within 60 ft",
 				"It is a spectral form of a Bear, Hawk, or Unicorn (my choice), with a 30-ft radius aura",
-				"It is incorporeal, immobile, doesn't counts as a creature or object, and persists for 1 min",
+				"It is incorporeal, immobile, doesn't count as a creature or object, and persists for 1 min",
 				"The spirit persists for 1 minute or until I'm incapacitated",
 				"\u2022 Bear: my allies and I, if in the aura, immediately gain 5 + my druid level in temp HP",
 				"  While in the aura, my allies and I gain advantage on Strength checks and saves",
@@ -848,7 +851,7 @@ AddSubClass("druid", "circle of the shepherd", {
 			minlevel: 14,
 			description: desc([
 				"When I am reduced to 0 HP or incapacitated against my will, I can cast *Conjure Animals*",
-				"This is done as if using a 9th-level spell slot to summon 4 beast of my choice up to CR 2",
+				"This is done as if using a 9th-level spell slot to summon 4 beasts of my choice up to CR 2",
 				"They appear within 20 ft of me, last 1 hour, and protect me from harm and attack foes",
 			]),
 			usages: 1,
@@ -865,7 +868,7 @@ AddSubClass("druid", "circle of the shepherd", {
 					range: "20 ft",
 					duration: "1 h",
 					description: "Summon 4 CR 2 beasts; protect me from harm and attack foes",
-					changes: "Using my Faithful Summons class feature when I'm reduced to 0 HP, I can cast *Conjure Animals* as if using a 9th-level spell slot. This then summons 4 beast of my choice up to CR 2 within 20 ft of me without needing concentration.",
+					changes: "Using my Faithful Summons class feature when I'm reduced to 0 HP, I can cast *Conjure Animals* as if using a 9th-level spell slot. This then summons 4 beasts of my choice up to CR 2 within 20 ft of me without needing concentration.",
 				},
 			},
 		},
@@ -1266,7 +1269,7 @@ RunFunctionAtEnd(function () {
 					"I gain proficiency with either calligrapher's supplies or painter's supplies",
 					"Some weapons, that don't have the heavy or special property, are kensei weapons for me",
 					"At least one ranged and one melee weapon, more at higher levels (longbow does qualify)",
-					"With these: proficient, count as a monk weapons, special bonuses depending on type held:",
+					"With these: proficient, count as monk weapons, special bonuses depending on type held:",
 					"\u2022 Melee: if I do unarmed strike during an Attack action, +2 AC until my next turn starts",
 					"\u2022 Ranged: as a bonus action, ranged weapon attacks deal +1d4 damage in current turn",
 				]),
@@ -1497,7 +1500,7 @@ AddSubClass("paladin", "oath of conquest", {
 			minlevel: 7,
 			description: desc([
 				"Creatures that are frightened of me have their speed reduced to 0 while in my aura",
-				"They also take psychic damage whenever they start theirs turn within my aura",
+				"They also take psychic damage whenever they start their turn within my aura",
 			]),
 			additional: levels.map(function (n) {
 				if (n < 7) return "";
@@ -2155,13 +2158,13 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 			source: [["X", 50]],
 			minlevel: 6,
 			description: desc([
-				"Once per turn, when I or an ally in 5 ft roll dice to healing with a spell, I can reroll dice",
+				"Once per turn, when I or an ally in 5 ft roll dice to heal with a spell, I can reroll dice",
 				"By spending 1 sorcery point; I can reroll any number of those dice for that spell once",
 			]),
 			additional: "1 sorcery point",
 		},
 		"subclassfeature14": {
-			name: "Otherworldy Wings",
+			name: "Otherworldly Wings",
 			source: [["X", 50]],
 			minlevel: 14,
 			description: desc([
@@ -2171,21 +2174,21 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 			choices: ["eagle", "bat", "dragonfly"],
 			choicesNotInMenu: true,
 			"eagle": {
-				name: "Otherworldy Wings",
+				name: "Otherworldly Wings",
 				description: desc([
 					"As a bonus action, I manifest a pair of spectral eagle wings, giving me 30 ft fly speed",
 					"These wings last until I become incapacitated or I dismiss them as a bonus action",
 				]),
 			},
 			"bat": {
-				name: "Otherworldy Wings",
+				name: "Otherworldly Wings",
 				description: desc([
 					"As a bonus action, I manifest a pair of spectral bat wings, giving me 30 ft fly speed",
 					"These wings last until I become incapacitated or I dismiss them as a bonus action",
 				]),
 			},
 			"dragonfly": {
-				name: "Otherworldy Wings",
+				name: "Otherworldly Wings",
 				description: desc([
 					"As a bonus action, I create a pair of spectral dragonfly wings, giving me 30 ft fly speed",
 					"These wings last until I become incapacitated or I dismiss them as a bonus action",
@@ -2536,7 +2539,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 			description: desc([
 				"As a bonus action, I can curse a creature I can see within 30 ft of me for 1 minute",
 				"\u2022 I add my proficiency bonus to damage rolls against the cursed target",
-				"\u2022 My attack rolls against the curse target score a critical hit on a roll of 19 and 20",
+				"\u2022 My attack rolls against the cursed target score a critical hit on a roll of 19 and 20",
 				"\u2022 If the target dies while cursed, I regain HP equal to my warlock level + Cha mod",
 				"The curse ends after 1 minute, when the target dies, I die, or I'm incapacitated",
 			]),
@@ -2663,7 +2666,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 			minlevel: 10,
 			description: desc([
 				"As a reaction when a Hexblade's Curse recipient hits me with an attack, I can roll a d6",
-				"On a result of 4 or higher, the attacks misses me instead, regardless of its d20 roll",
+				"On a result of 4 or higher, the attack misses me instead, regardless of its d20 roll",
 			]),
 		},
 		"subclassfeature14": {
@@ -2691,7 +2694,7 @@ AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
 	name: "Cloak of Flies",
 	description: desc([
 		"As a bonus action, I can surround myself with a 5-ft radius magical aura of buzzing flies",
-		"It lasts until I'm incapacitated or dismiss it as a bonus action; Total cover block the aura",
+		"It lasts until I'm incapacitated or dismiss it as a bonus action; Total cover blocks the aura",
 		"The aura grants me adv. on Cha (Intimidation), but disadv. on all other Cha checks",
 		"Creatures starting their turn in the aura take my Cha mod (min 0) in poison damage",
 	]),
@@ -2983,7 +2986,7 @@ FeatsList["bountiful luck"] = {
 	prereqeval: function (v) { return CurrentRace.known.indexOf("halfling") !== -1; },
 	descriptionFull: [
 		"Your people have extraordinary luck, which you have learned to mystically lend to your companions when you see them falter. You're not sure how you do it; you just wish it, and it happens. Surely a sign of *fortune's favor*!",
-		"When an ally you can see within 30 feet of you rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, you can use your reaction to let the ally reroll the die. The ally must use the new roll",
+		"When an ally you can see within 30 feet of you rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, you can use your reaction to let the ally reroll the die. The ally must use the new roll.",
 		"When you use this ability, you can't use your Lucky racial trait before the end of your next turn.",
 	],
 	description: "When an ally I can see within 30 ft of me rolls a 1 on an attack roll, an ability check, or a saving throw, I can use my reaction to let the ally reroll the die. The ally must use the new roll. When I use this, I can't use my racial Lucky trait until the end of my next turn.",
@@ -3164,7 +3167,7 @@ FeatsList["orcish fury"] = {
 		" \u2022 When you hit with an attack using a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.",
 		" \u2022 Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.",
 	],
-	description: "Once per short rest, I can roll an extra damage die for an attack with a simple or martial weapon. In addition, Immediately after I use my Relentless Endurance trait, I can use my reaction to make one weapon attack. [+1 Strength or Constitution]",
+	description: "Once per short rest, I can roll an extra damage die for an attack with a simple or martial weapon. In addition, immediately after I use my Relentless Endurance trait, I can use my reaction to make one weapon attack. [+1 Strength or Constitution]",
 	scorestxt: "+1 Strength or Constitution",
 	action: [["reaction", " (after Relentless Endurance)"]],
 	usages: 1,

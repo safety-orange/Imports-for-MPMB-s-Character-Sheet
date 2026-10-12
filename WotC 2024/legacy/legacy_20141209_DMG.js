@@ -18,7 +18,7 @@ AddSubClass("cleric", "death domain", {
 	subname: "Death Domain",
 	source: [["D", 96]],
 	features: {
-		"subclassfeature3.0": {
+		"subclassfeature3": {
 			name: "Bonus Proficiency",
 			source: [["D", 96]],
 			minlevel: 3,

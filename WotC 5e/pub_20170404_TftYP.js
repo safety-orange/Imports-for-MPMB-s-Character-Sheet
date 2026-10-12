@@ -282,7 +282,7 @@ MagicItemsList["eagle whistle"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	magicItemTable: "G",
-	description: "Three times per dawn, I can blow this whistle, gaining a flying speed equal to twice my walking speed while I do so continuously. I can blow it for a number for rounds equal to 5 + five times my Constitution modifier (minimum of 1 round) or until I talk, hold my breath, start suffocating, or land.",
+	description: "Three times per dawn, I can blow this whistle, gaining a flying speed equal to twice my walking speed while I do so continuously. I can blow it for a number of rounds equal to 5 + five times my Constitution modifier (minimum of 1 round) or until I talk, hold my breath, start suffocating, or land.",
 	descriptionFull: "While you blow an *eagle whistle* continuously, you can fly twice as fast as your walking speed. You can blow the whistle continuously for a number of rounds equal to 5 + five times your Constitution modifier (minimum of 1 round) or until you talk, hold your breath, or start suffocating. A use of the whistle also ends if you land. If you are aloft when you stop blowing the whistle, you fall. The whistle has three uses. It regains expended uses daily at dawn.",
 	weight: 1,
 	usages: 3,
@@ -312,7 +312,7 @@ MagicItemsList["javelin of backbiting"] = {
 	magicItemTable: "G",
 	description: "This javelin has +2 to hit and damage, +30 ft range, and deals +1d6 damage when thrown. After a throwing attack, it flies back to my hand immediately. While its curse lasts, I'm unwilling to part with it and have disadv. on attacks with other weapon. Also, on a roll of 1 to hit, I roll the attack again, but at myself with adv.",
 	descriptionFull: [
-		"You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, its normal and long ranges both increase by 30 feet. and it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately.",
+		"You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, its normal and long ranges both increase by 30 feet, and it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately.",
 		"***Curse***. This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with *Remove Curse* or similar magic, you are unwilling to part with the weapon, keeping it within reach at all times. In addition, you have disadvantage on attack rolls made with weapons other than this one.",
 		"Whenever you roll a 1 on an attack roll using this weapon, the weapon bends or flies to hit you in the back. Make a new attack roll with advantage against your own AC. If the result is a hit, you take damage as if you had attacked yourself with the spear.",
 	],
@@ -452,7 +452,7 @@ MagicItemsList["spear of backbiting"] = {
 	magicItemTable: "G",
 	description: "This spear has +2 to hit and damage, +30 ft range, and deals +1d6 damage when thrown. After a throwing attack, it flies back to my hand immediately. While its curse lasts, I'm unwilling to part with it and have disadv. on attacks with other weapon. Also, on a roll of 1 to hit, I roll the attack again, but at myself with adv.",
 	descriptionFull: [
-		"You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, its normal and long ranges both increase by 30 feet. and it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately.",
+		"You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, its normal and long ranges both increase by 30 feet, and it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately.",
 		"***Curse***. This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with *Remove Curse* or similar magic, you are unwilling to part with the weapon, keeping it within reach at all times. In addition, you have disadvantage on attack rolls made with weapons other than this one.",
 		"Whenever you roll a 1 on an attack roll using this weapon, the weapon bends or flies to hit you in the back. Make a new attack roll with advantage against your own AC. If the result is a hit, you take damage as if you had attacked yourself with the spear.",
 	],
@@ -476,7 +476,7 @@ MagicItemsList["stone of ill luck"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	magicItemTable: "C",
-	description: "Although this polished agate appears to be a stone of good luck to anyone who tries to identify it. While it is on my person, it gives me a +1 bonus and a -2 penalty (from the curse) to ability checks and saving throws (for a total of -1). Until the curse is broken, I am unwilling to part with the item.",
+	description: "This polished agate appears to be a stone of good luck to anyone who tries to identify it. While it is on my person, it gives me a +1 bonus and a -2 penalty (from the curse) to ability checks and saving throws (for a total of -1). Until the curse is broken, I am unwilling to part with the item.",
 	descriptionFull: [
 		"This polished agate appears to be a *stone of good luck* to anyone who tries to *Identify* it, and it confers that item's property while on your person.",
 		"***Curse***. This item is cursed. While it is on your person, you take a -2 penalty to ability checks and saving throws. Until the curse is discovered, the DM secretly applies this penalty, assuming you are adding the item's bonus. You are unwilling to part with the stone until the curse is broken with *Remove Curse* or similar magic.",
@@ -523,8 +523,8 @@ MagicItemsList["waythe"] = {
 	type: "weapon (greatsword)",
 	rarity: "legendary",
 	storyItemAL: true,
-	description: "This greatsword adds +1 to hit and damage. Against giants, it deal +2d6 damage and they must make a DC 15 Str save or be knocked prone. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can expend 1 charge to speak its command word to detect enemies within 60 ft. Waythe is sentient, see Notes page.",
-	descriptionLong: "This greatsword adds a +1 bonus to attack and damage rolls made with it. Against giants, it deal 2d6 extra slashing damage and when a giant is hit with it, they must make a DC 15 Strength saving throw or be knocked prone. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can expend 1 charge to speak its command, letting me know the direction of the nearest creature hostile to me within 60 ft, regardless of it being ethereal, invisible, disguised, or hidden. This lasts for 1 minute. Waythe is sentient and has a mind of its own, see Notes page.",
+	description: "This greatsword adds +1 to hit and damage. Against giants, it deals +2d6 damage and they must make a DC 15 Str save or be knocked prone. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can expend 1 charge to speak its command word to detect enemies within 60 ft. Waythe is sentient, see Notes page.",
+	descriptionLong: "This greatsword adds a +1 bonus to attack and damage rolls made with it. Against giants, it deals 2d6 extra slashing damage and when a giant is hit with it, they must make a DC 15 Strength saving throw or be knocked prone. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can expend 1 charge to speak its command, letting me know the direction of the nearest creature hostile to me within 60 ft, regardless of it being ethereal, invisible, disguised, or hidden. This lasts for 1 minute. Waythe is sentient and has a mind of its own, see Notes page.",
 	descriptionFull: [
 		"*Waythe* is a unique greatsword most recently in the possession of a high-ranking cloud giant ambassador.",
 		"You gain a +1 bonus to attack and damage rolls made with this magic weapon. When you hit a creature of the giant type with it, the giant takes an extra 2d6 slashing damage, and it must succeed on a DC 15 Strength saving throw or fall prone.",
@@ -639,7 +639,7 @@ MagicItemsList["berserker battleaxe (tamoachan)"] = {
 	spellChanges: {
 		"burning hands": {
 			description: "All in area 3d6+1d6/extra charge Fire dmg; save halves; unattended flammable objects ignite",
-			changes: "The spell level this is cast at depends on the amount of charges spend, 1 charge per spell slot level.",
+			changes: "The spell level this is cast at depends on the amount of charges spent, 1 charge per spell slot level.",
 		},
 	},
 	calcChanges: {

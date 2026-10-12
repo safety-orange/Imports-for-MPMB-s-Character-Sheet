@@ -290,7 +290,7 @@ if (!SourceList["G"]) {
 		subname: "Order Domain",
 		source: [["T", 31], ["G", 25]],
 		features: {
-			"subclassfeature3.0": {
+			"subclassfeature3": {
 				name: "Bonus Proficiency",
 				source: [["T", 32], ["G", 26]],
 				minlevel: 3,
@@ -347,7 +347,7 @@ AddSubClass("cleric", "peace domain", {
 	subname: "Peace Domain",
 	source: [["T", 32]],
 	features: {
-		"subclassfeature3.0": {
+		"subclassfeature3": {
 			name: "Emboldening Bond",
 			source: [["T", 33]],
 			minlevel: 3,
@@ -398,7 +398,7 @@ AddSubClass("cleric", "twilight domain", {
 	subnameShort: "Twilight",
 	source: [["T", 34]],
 	features: {
-		"subclassfeature3.0": {
+		"subclassfeature3": {
 			name: "Bonus Proficiency",
 			source: [["T", 34]],
 			minlevel: 3,
@@ -469,7 +469,7 @@ if (!SourceList["G"]) {
 		subnameShort: "Spores",
 		source: [["T", 36], ["G", 26]],
 		features: {
-			"subclassfeature3.0": {
+			"subclassfeature3": {
 				name: "Circle Spells",
 				source: [["T", 36], ["G", 27]],
 				minlevel: 3,
@@ -542,7 +542,7 @@ AddSubClass("druid", "circle of wildfire", {
 	subnameShort: "Wildfire",
 	source: [["T", 39]],
 	features: {
-		"subclassfeature3.0": {
+		"subclassfeature3": {
 			name: "Circle Spells",
 			source: [["T", 39]],
 			minlevel: 3,
@@ -1088,7 +1088,7 @@ AddSubClass("warlock", "the fathomless", {
 	subnameShort: "Fathomless",
 	source: [["T", 72]],
 	features: {
-		"subclassfeature3.0": {
+		"subclassfeature3": {
 			name: "Tentacle of the Deeps",
 			source: [["T", 72]],
 			minlevel: 3,
@@ -1200,7 +1200,7 @@ AddSubClass("warlock", "the genie", {
 	subname: "the Genie",
 	source: [["T", 73], ["UA:SR", 2]],
 	features: {
-		"subclassfeature3.0": {
+		"subclassfeature3": {
 			name: "Choose Genie Kind",
 			source: [["T", 73], ["UA:SR", 3]],
 			minlevel: 3,
@@ -1415,7 +1415,7 @@ AddSubClass("wizard","order of scribes", {
 	subnameShort: "Scribes",
 	source: [["T", 77]],
 	features: {
-		"subclassfeature3.0": {
+		"subclassfeature3": {
 			name: "Wizardly Quill",
 			source: [["T", 77]],
 			minlevel: 3,
