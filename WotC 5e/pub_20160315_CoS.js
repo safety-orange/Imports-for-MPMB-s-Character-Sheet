@@ -764,7 +764,7 @@ MagicItemsList["saint markovia's thighbone"] = {
 	source: [["CoS", 222]],
 	type: "weapon (mace)",
 	rarity: "rare",
-	description: "This mace sheds bright light in a 20-ft radius and dim light for another 20 ft while held. Fiends and undead hit with it take +2d6 radiant damage, become frightened of me until my next turn ends, and if below 26 HP after its damage, must make a DC 15 Wis save or die. If it hits an undead, it crumbles after the combat.",
+	description: "This mace sheds bright light in a 20 ft radius plus dim in 20 ft while held. Fiends \x26 undead hit by the mace take +2d6 radiant damage and if one is reduced to \u226425 HP, it must make a DC 15 Wis save. *Fail*: destroyed. *Success*: frightened of me until my next turn ends. If the mace hits a vampire, it crumbles after the battle",
 	descriptionFull: [
 		"*Saint Markovia's thighbone* has the properties of a *mace of disruption*. If it scores one or more hits against a vampire or a vampire spawn in the course of a single battle, the thighbone crumbles into dust once the battle concludes.",
 		"As a youth, Markovia followed her heart and became a priest of the Morninglord soon after her eighteenth birthday. She proved to be a charismatic proselytizer and, before the age of thirty, had gained a reputation for allowing no evil to stand before her.",

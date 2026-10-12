@@ -5923,7 +5923,7 @@ CreatureList["allosaurus"] = {
 	}],
 	traits: [{
 		name: "Pounce",
-		description: "If the allosaurus moves at least 30 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 13 Strength saving throw or be knocked prone. If the target is prone, the allosaurus can make one bite attack against it as a bonus action.",
+		description: "If the [THIS] moves at least 30 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 13 Strength saving throw or be knocked prone. If the target is prone, the [THIS] can make one bite attack against it as a bonus action.",
 	}],
 };
 CreatureList["ankylosaurus"] = {
@@ -5977,7 +5977,7 @@ CreatureList["pteranodon"] = {
 	}],
 	traits: [{
 		name: "Flyby",
-		description: "The pteranodon doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
+		description: "The [THIS] doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
 	}],
 };
 
@@ -5985,6 +5985,7 @@ CreatureList["pteranodon"] = {
 CreatureList["faerie dragon"] = { // With contributions by Patrick O.
 	name: "Faerie Dragon",
 	nameAlt: ["Dragon, Faerie"],
+	nameThis: "dragon",
 	source: [["M", 133]],
 	size: 5, //Tiny
 	type: "Dragon",
@@ -6024,13 +6025,13 @@ CreatureList["faerie dragon"] = { // With contributions by Patrick O.
 	}],
 	traits: [{
 		name: "Superior Invisibility",
-		description: "As a bonus action, the dragon can magically turn invisible until its concentration ends (as with a spell). Anything it wears or carries is invisible with it.",
+		description: "As a bonus action, the [THIS] can magically turn invisible until its concentration ends (as with a spell). Anything it wears or carries is invisible with it.",
 	}, {
 		name: "Limited Telepathy",
-		description: "Using telepathy, the dragon can magically communicate with any other faerie dragon within 60 feet of it.",
+		description: "Using telepathy, the [THIS] can magically communicate with any other faerie dragon within 60 feet of it.",
 	}, {
 		name: "Magic Resistance",
-		description: "The dragon has advantage on saves against spells and magical effects.",
+		description: "The [THIS] has advantage on saves against spells and magical effects.",
 	}, {
 		name: "Euphoria Breath (Recharge 5-6)",
 		description: "Exhale a puff of euphoria gas at a creature within 5 ft. It must succeed on a DC 11 Wisdom save, or for 1 minute, it can't take reactions and must roll a d6 at the start of each of its turns:\n 1-4 - No action or bonus action, using all movment to move in a random direction.\n 5-6 - The target does nothing except attempt another save to try end the effect on itself.",
@@ -6042,6 +6043,7 @@ CreatureList["faerie dragon"] = { // With contributions by Patrick O.
 };
 CreatureList["crawling claw"] = {
 	name: "Crawling Claw",
+	nameThis: "claw",
 	source: [["M", 44]],
 	size: 5, //Tiny
 	type: "Undead",
@@ -6069,7 +6071,7 @@ CreatureList["crawling claw"] = {
 	}],
 	traits: [{
 		name: "Turn Immunity",
-		description: "The claw is immune to effects that turn undead.",
+		description: "The [THIS] is immune to effects that turn undead.",
 	}],
 };
 CreatureList["peryton"] = {
@@ -6108,17 +6110,17 @@ CreatureList["peryton"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the peryton can make one Gore and one Talon attack.",
+		description: "As an action on its turn, the [THIS] can make one Gore and one Talon attack.",
 	}],
 	traits: [{
 		name: "Dive Attack",
-		description: "If the peryton is flying and dives at least 30 ft. straight toward a target and then hits it with a melee weapon attack, the attack deals an extra 9 (2d8) damage to the target.",
+		description: "If the [THIS] is flying and dives at least 30 ft. straight toward a target and then hits it with a melee weapon attack, the attack deals an extra 2d8 damage to the target.",
 	}, {
 		name: "Flyby",
-		description: "The peryton doesn't provoke an opportunity attack when it flies out of an enemy's reach.",
+		description: "The [THIS] doesn't provoke an opportunity attack when it flies out of an enemy's reach.",
 	}, {
 		name: "Keen Sight and Smell",
-		description: "The peryton has advantage on Wisdom (Perception) checks that rely on sight or smell.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on sight or smell.",
 	}],
 };
 
@@ -6159,6 +6161,7 @@ CreatureList["needle blight"] = {
 CreatureList["twig blight"] = {
 	name: "Twig Blight",
 	nameAlt: ["Blight, Twig"],
+	nameThis: "blight",
 	source: [["M", 32]],
 	size: 4, //Small
 	type: "Plant",
@@ -6185,12 +6188,13 @@ CreatureList["twig blight"] = {
 	}],
 	traits: [{
 		name: "False Appearance",
-		description: "While the blight remains motionless, it is indistinguishable from a dead shrub.",
+		description: "While the [THIS] remains motionless, it is indistinguishable from a dead shrub.",
 	}],
 };
 CreatureList["vine blight"] = {
 	name: "Vine Blight",
 	nameAlt: ["Blight, Vine"],
+	nameThis: "blight",
 	source: [["M", 32]],
 	size: 3, //Medium
 	type: "Plant",
@@ -6219,11 +6223,11 @@ CreatureList["vine blight"] = {
 	}],
 	traits: [{
 		name: "False Appearance",
-		description: "While the blight remains motionless, it is indistinguishable from a tangle of vines.",
+		description: "While the [THIS] remains motionless, it is indistinguishable from a tangle of vines.",
 	}],
 	actions: [{
 		name: "Entangling Plants (Recharge 5-6)",
-		description: "As an action, grasping roots and vines sprout in a 15-ft radius centered on the blight, withering away after 1 minute. For the duration, that area is difficult terrain for nonplant creatures. In addition, each creature of the blight's choice in that area when the plants appear must succeed on a DC 12 Strength saving throw or become restrained. A creature can use its action to make a DC 12 Strength check, freeing it self or another entangled creature within reach on a success.",
+		description: "As an action, grasping roots and vines sprout in a 15-ft radius centered on the [THIS], withering away after 1 minute. For the duration, that area is difficult terrain for nonplant creatures. In addition, each creature of the [THIS]'s choice in that area when the plants appear must succeed on a DC 12 Strength saving throw or become restrained. A creature can use its action to make a DC 12 Strength check, freeing it self or another entangled creature within reach on a success.",
 	}],
 	wildshapeString: [
 		(typePF ? "##Senses##. " : "") + "Blindsight 60 ft (blind beyond).",
@@ -6260,10 +6264,10 @@ CreatureList["gas spore"] = {
 	}],
 	traits: [{
 		name: "Death Burst",
-		description: "The gas spore explodes when it drops to 0 hit points. Each creature within 20 feet of it must succeed on a DC 15 Constitution saving throw or take 10 (3d6) poison damage and become infected with a disease on a failed save. Creatures immune to the poisoned condition are immune to this disease.\n   Spores invade an infected creature's system, killing the creature in a number of hours equal to 1d12+the creature's Constitution score, unless the disease is removed. In half that time, the creature becomes poisoned for the rest of the duration. After the creature dies, it sprouts 2d4 Tiny gas spores that grow to full size in 7 days.",
+		description: "The [THIS] explodes when it drops to 0 hit points. Each creature within 20 feet of it must succeed on a DC 15 Constitution saving throw or take 3d6 poison damage and become infected with a disease on a failed save. Creatures immune to the poisoned condition are immune to this disease.\n   Spores invade an infected creature's system, killing the creature in a number of hours equal to 1d12+the creature's Constitution score, unless the disease is removed. In half that time, the creature becomes poisoned for the rest of the duration. After the creature dies, it sprouts 2d4 Tiny gas spores that grow to full size in 7 days.",
 	}, {
 		name: "Eerie Resemblance",
-		description: "The gas spore resembles a beholder. A creature that can see the gas spore can discern its true nature with a successful DC 15 Intelligence (Nature) check.",
+		description: "The [THIS] resembles a beholder. A creature that can see the [THIS] can discern its true nature with a successful DC 15 Intelligence (Nature) check.",
 	}],
 	wildshapeString: [
 		(typePF ? "##Senses##. " : "") + "Blindsight 30 ft (blind beyond).",
@@ -11235,6 +11239,7 @@ BackgroundFeatureList["underdark experience"] = {
 CreatureList["cave badger"] = { // contributed by Nod_Hero
 	name: "Cave Badger",
 	nameAlt: ["Badger, Cave"],
+	nameThis: "badger",
 	source: [["OotA", 96]],
 	size: 3,
 	type: "Beast",
@@ -11264,16 +11269,17 @@ CreatureList["cave badger"] = { // contributed by Nod_Hero
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the badger can make one Bite and one Claws attack.",
+		description: "As an action on its turn, the [THIS] can make one Bite and one Claws attack.",
 	}],
 	traits: [{
 		name: "Keen Smell",
-		description: "The badger has advantage on Wisdom (Perception) checks that rely on smell.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on smell.",
 	}],
 };
 CreatureList["steeder, female"] = {
 	name: "Female Steeder",
 	nameAlt: ["Steeder, Female", "Steeder"],
+	nameThis: "steeder",
 	source: [["OotA", 231]],
 	size: 2,
 	type: "Beast",
@@ -11307,15 +11313,16 @@ CreatureList["steeder, female"] = {
 	}],
 	traits: [{
 		name: "Spider Climb",
-		description: "The steeder can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.",
+		description: "The [THIS] can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.",
 	}, {
 		name: "Leap",
-		description: "The steeder can expend all its movement on its turn to jump up to 90 ft vertically or horizontally, provided that its speed is at least 30 feet.",
+		description: "The [THIS] can expend all its movement on its turn to jump up to 90 ft vertically or horizontally, provided that its speed is at least 30 feet.",
 	}],
 };
 CreatureList["steeder, male"] = {
 	name: "Male Steeder",
 	nameAlt: ["Steeder, Male"],
+	nameThis: "steeder",
 	source: [["OotA", 231]],
 	size: 3,
 	type: "Beast",
@@ -11349,10 +11356,10 @@ CreatureList["steeder, male"] = {
 	}],
 	traits: [{
 		name: "Spider Climb",
-		description: "The steeder can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.",
+		description: "The [THIS] can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.",
 	}, {
 		name: "Leap",
-		description: "The steeder can expend all its movement on its turn to jump up to 60 ft vertically or horizontally, provided that its speed is at least 30 feet.",
+		description: "The [THIS] can expend all its movement on its turn to jump up to 60 ft vertically or horizontally, provided that its speed is at least 30 feet.",
 	}],
 };
 
@@ -13578,7 +13585,7 @@ BackgroundList["black fist double agent"] = {
 		"I have difficulty trusting strangers. I see spies and informants everywhere.",
 		"Years of getting away with minor crimes has left me believing that I am above the law, and have diplomatic immunity above my station.",
 		"Years of seeing innocent people suffer have left me despondent and pessimistic for the future.",
-		"My desire for vengeance often gets me into trouble",
+		"My desire for vengeance often gets me into trouble.",
 		"I am spendthrift, and share my wealth with the patrons of my favorite tavern.",
 	],
 	toolProfs: ["Disguise Kit", ["Artisan's tools or gaming set", 1]],
@@ -13629,10 +13636,10 @@ BackgroundList["dragon casualty"] = {
 	trait: [
 		"I am driven to escape my past, and rarely stay in one place long.",
 		"I know secrets of the Maimed Virulence, but fear the harm that may befall me should others learn them.",
-		"Speaking of my ordeal helps sooth the still open wounds in my soul.",
+		"Speaking of my ordeal helps soothe the still open wounds in my soul.",
 		"My former life is meaningless, and was ripped to shreds by the claws of Vorgansharax. All that matters now is what I do with the future.",
 		"I have faced the worst a dragon can deliver and survived. I am fearless, and my resolve unshakable.",
-		"I am haunted my tortured past, and wake at night screaming at half-remembered horrors.",
+		"I am haunted by my tortured past, and wake at night screaming at half-remembered horrors.",
 		"I sleep with my back to a wall or tree, and a weapon within arm's reach.",
 		"I am slow to trust, but incredibly loyal to those who have earned it.",
 	],
@@ -13724,7 +13731,7 @@ BackgroundList["iron route bandit"] = {
 		"I strongly dislike enclosed spaces and require intoxication or firm encouragement to enter them.",
 		"I robbed the wrong caravan once. The owner is a powerful merchant who holds a grudge.",
 		"I'm an inveterate gambler.",
-		"I judge people based on how well they stand their ground in a fight. I got not time for cowards…",
+		"I judge people based on how well they stand their ground in a fight. I got no time for cowards…",
 	],
 	lifestyle: "poor",
 };
@@ -13796,7 +13803,7 @@ BackgroundList["phlan insurgent"] = {
 		"It doesn't take much to get me into a fight.",
 		"Being an insurgent means doing things that aren't always ethical. I'm still learning to live with that.",
 		"My desire to liberate Phlan oftentimes clouds my judgement, despite my best efforts.",
-		"I relentlessly despise the Maimed Virulence and his allies. I'd abandon other goals in order to strike out at them",
+		"I relentlessly despise the Maimed Virulence and his allies. I'd abandon other goals in order to strike out at them.",
 	],
 	lifestyle: "poor",
 };
@@ -13824,7 +13831,7 @@ BackgroundList["stojanow prisoner"] = {
 		"I strive to obey the law. I will never again make the mistake of going against authority.",
 		"I always plan everything out. The one time I let others plan things it did not end well for me.",
 		"I take blame to protect others from pain.",
-		"I horde information, you never know what may come in handy.",
+		"I hoard information, you never know what may come in handy.",
 	],
 	ideal: [
 		["Loss", "Loss: I freely give those who offend me what was so brutally denied me, death. (Chaos)"],
@@ -14061,7 +14068,7 @@ MagicItemsList["holy symbol of ravenkind"] = {
 	storyItemAL: true,
 	prerequisite: "Requires attunement by a cleric or paladin of good alignment",
 	prereqeval: function (v) { return /good/i.test(What("Alignment")) && (classes.known.cleric || classes.known.paladin); },
-	description: "This platinum amulet has 10 charges, regaining 1d6+4 at dawn. As an action, I can use 1 charge to hold vampires (see 3rd page notes). I can use 3 charges with Turn Undead to give disadv. on its saves. As an action, ican use 5 charges to shed daylight, 30-ft radius bright light and dim light for another 30-ft for 10 minutes.",
+	description: "This platinum amulet has 10 charges, regaining 1d6+4 at dawn. As an action, I can use 1 charge to hold vampires (see 3rd page notes). I can use 3 charges with Turn Undead to give disadv. on its saves. As an action, I can use 5 charges to shed daylight, 30-ft radius bright light and dim light for another 30-ft for 10 minutes.",
 	descriptionFull: [
 		"The *Holy Symbol of Ravenkind* is a unique holy symbol sacred to the good-hearted faithful of Barovia. It predates the establishment of any church in Barovia. According to legend, it was delivered to a paladin named Lugdana by a giant raven - or an angel in the form of a giant raven. Lugdana used the holy symbol to root out and destroy nests of vampires until her death. The high priests of Ravenloft kept and wore the holy symbol after Lugdana's passing.",
 		"The holy symbol is a platinum amulet shaped like the sun, with a large crystal embedded in its center.",
@@ -14139,7 +14146,7 @@ MagicItemsList["icon of ravenloft"] = {
 		},
 		"cure wounds": {
 			range: "30 ft",
-			description: "1 living creature heals 3d8+3 HP if it not an undead, construct, or fiend",
+			description: "1 living creature heals 3d8+3 HP if it's not an undead, construct, or fiend",
 			dynamicDamageBonus: { doNotProcess: true },
 			changes: "Using the Icon of Ravenloft, it has a range of 30 ft and always heals 3d8+3 HP, but can't affect undead, a construct, or a fiend.",
 		},
@@ -14177,7 +14184,7 @@ MagicItemsList["lost sword"] = {
 	spellcastingBonus: [{
 		name: "Once per dawn",
 		spells: ["crusader's mantle"],
-		selection: ["protection from evil and good"],
+		selection: ["crusader's mantle"],
 		firstCol: "onceday",
 	}],
 	toNotesPage: [
@@ -14201,7 +14208,7 @@ MagicItemsList["saint markovia's thighbone"] = {
 	source: [["CoS", 222]],
 	type: "weapon (mace)",
 	rarity: "rare",
-	description: "This mace sheds bright light in a 20-ft radius and dim light for another 20 ft while held. Fiends and undead hit with it take +2d6 radiant damage, become frightened of me until my next turn ends, and if below 26 HP after its damage, must make a DC 15 Wis save or die. If it hits an undead, it crumbles after the combat.",
+	description: "This mace sheds bright light in a 20 ft radius plus dim in 20 ft while held. Fiends \x26 undead hit by the mace take +2d6 radiant damage and if one is reduced to \u226425 HP, it must make a DC 15 Wis save. *Fail*: destroyed. *Success*: frightened of me until my next turn ends. If the mace hits a vampire, it crumbles after the battle",
 	descriptionFull: [
 		"*Saint Markovia's thighbone* has the properties of a *mace of disruption*. If it scores one or more hits against a vampire or a vampire spawn in the course of a single battle, the thighbone crumbles into dust once the battle concludes.",
 		"As a youth, Markovia followed her heart and became a priest of the Morninglord soon after her eighteenth birthday. She proved to be a charismatic proselytizer and, before the age of thirty, had gained a reputation for allowing no evil to stand before her.",
@@ -14296,7 +14303,7 @@ MagicItemsList["sunsword"] = {
 				"I gain a +2 bonus to attack and damage rolls made with this weapon, which deals radiant damage instead of slashing damage. When I hit an undead with it, that target takes an extra 1d8 radiant damage.",
 				"The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 ft. The light is sunlight. As an action while the blade persists, I can expand or reduce its radius of bright and dim light by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each.",
 				"The Sunsword is a sentient chaotic good weapon with an Intelligence of 11, a Wisdom of 17, and a Charisma of 16. It has hearing and normal vision out to a range of 60 feet. The weapon communicates by transmitting emotions to the creature carrying it or wielding it.",
-				"The Sunsword's special purpose is to destroy Strahd, not so much because it wants to free the land of Barovia from evil but because it wants revenge for the loss of its crystal blade. The weapon secretly fears its own destruction",
+				"The Sunsword's special purpose is to destroy Strahd, not so much because it wants to free the land of Barovia from evil but because it wants revenge for the loss of its crystal blade. The weapon secretly fears its own destruction.",
 			],
 		},
 		Object.assign({}, sentientItemConflictNote, { amendTo: "Sunsword" }),
@@ -14320,6 +14327,7 @@ SourceList["SKT"] = {
 CreatureList["ice spider"] = { // contributed by Nod_Hero
 	name: "Ice Spider",
 	nameAlt: ["Spider, Ice"],
+	nameThis: "spider",
 	source: [["SKT", 127]],
 	size: 2,
 	type: "Beast",
@@ -14354,17 +14362,17 @@ CreatureList["ice spider"] = { // contributed by Nod_Hero
 	}],
 	features: [{
 		name: "Spider Climb",
-		description: "The spider can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.",
+		description: "The [THIS] can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.",
 	}, {
 		name: "Web Sense",
-		description: "While in contact with a web, the spider knows the exact location of any other creature in contact with the same web.",
+		description: "While in contact with a web, the [THIS] knows the exact location of any other creature in contact with the same web.",
 	}, {
 		name: "Web Walker",
-		description: "The spider ignores movement restrictions caused by webbing.",
+		description: "The [THIS] ignores movement restrictions caused by webbing.",
 	}],
 	actions: [{
 		name: "Bite",
-		description: "If the poison damage from the spider's bite attack reduces the target to 0 HP, the target is stable but poisoned for 1 hour, even after regaining HP, and is paralyzed while poisoned in this way.",
+		description: "If the poison damage from the [THIS]'s bite attack reduces the target to 0 HP, the target is stable but poisoned for 1 hour, even after regaining HP, and is paralyzed while poisoned in this way.",
 	}, {
 		name: "Icy Web (Recharge 5-6)",
 		description: "See attack. On a hit, the target is restrained by webbing and takes 1 cold damage at the start of each of its turns. As an action, the restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; hp 5; vulnerability to fire damage; immunity to bludgeoning, poison, and psychic damage).",
@@ -14395,7 +14403,7 @@ CreatureList["sheep"] = {
 	attacks: [],
 	traits: [{
 		name: "Sure-Footed",
-		description: "The sheep has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.",
+		description: "The [THIS] has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.",
 	}],
 };
 CreatureList["pig"] = {
@@ -14447,10 +14455,10 @@ CreatureList["hulking crab"] = {
 	],
 	traits: [{
 		name: "Amphibious",
-		description: "The hulking crab can breate air and water.",
+		description: "The [THIS] can breathe air and water.",
 	}, {
 		name: "Shell Camouflage",
-		description: "While the hulking crab remains motionless with its eyestalks and pincers tucked close to its body, it resembles a natural formation or a pile of detritus. A creature within 30 feet of it can discern its true nature with a DC 15 Intelligence (Nature) check.",
+		description: "While the [THIS] remains motionless with its eyestalks and pincers tucked close to its body, it resembles a natural formation or a pile of detritus. A creature within 30 feet of it can discern its true nature with a DC 15 Intelligence (Nature) check.",
 	},
 	],
 };
@@ -14490,13 +14498,13 @@ CreatureList["tressym"] = {
 	],
 	traits: [{
 		name: "Detect Invisibility",
-		description: "Within 60 feet of the tressym, magical invisibility fails to conceal anything from the tressym's sight.",
+		description: "Within 60 feet of the [THIS], magical invisibility fails to conceal anything from the [THIS]'s sight.",
 	}, {
 		name: "Keen Smell",
-		description: "The tressym has advantage on Wisdom (Perception) checks that rely on smell.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on smell.",
 	}, {
 		name: "Poison Sense",
-		description: "The tressym can detect whether a substance is poisonous by taste, touch, or smell.",
+		description: "The [THIS] can detect whether a substance is poisonous by taste, touch, or smell.",
 	},
 	],
 	wildshapeString: [
@@ -14594,7 +14602,7 @@ MagicItemsList["banner of the krig rune"] = {
 			"Crafted from a thick, red fabric, this banner measures 5 ft high and 3 ft wide. The krig (war) rune is displayed on the fabric with round, metal plates sewn into it. It can be attached to a 10-ft pole to serve as a standard. Furling or unfurling the banner requires an action. The banner has the following properties.",
 			"As a bonus action, I can touch the unfurled banner and use the Mark of Courage, have it emanate courage. Me and my allies are immune to the frightened condition while within 20 ft of it. This benefit lasts for 10 minutes or until the banner is furled. Once I use this property, I can't use it again until I finish a short or long rest.",
 			"I can see invisible creatures while they are within 20 ft of the unfurled banner and within my line of sight.",
-			"As a bonus action, I can touch the unfurled banner and invoke the Standard's Shield power. While within 20 ft of the unfurled banner, me and my allies are protected from ranged attacks. Any ranged attack roll targetting those protected has disadvantage. This benefit lasts for 1 minute or until the banner is furled. Once I use this property, I can't use it again until I finish a short or long rest.\n",
+			"As a bonus action, I can touch the unfurled banner and invoke the Standard's Shield power. While within 20 ft of the unfurled banner, me and my allies are protected from ranged attacks. Any ranged attack roll targeting those protected has disadvantage. This benefit lasts for 1 minute or until the banner is furled. Once I use this property, I can't use it again until I finish a short or long rest.\n",
 			"I can transfer the banner's magic to a place by tracing the krig rune on the ground with my finger. The point where I trace it becomes the center of a spherical area of magic that has a 500-ft radius and that is fixed to the place. The transfer takes 8 hours of work that requires the banner to be within 5 ft of me and during which I choose creatures, creature types, or both that will benefit from the magic. At the end, the banner is destroyed, and the creatures I chose during the transfer process are immune to the frightened condition and gain a +1 bonus to attack rolls and AC while within the area.",
 		],
 	}],
@@ -14605,7 +14613,7 @@ MagicItemsList["blod stone"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	magicItemTable: "D",
-	description: "As an action while I carry this diamond with the blod rune, I can divine the location of the creature nearest to me that is related to the blood in the item and that isn't undead. I sense the distance and direction of the creature. The diamond is worth at least 5000 gp. If it is destroyed, the blood inside evaporates.",
+	description: "As an action while I carry this diamond with the blod rune, I can divine the location of the creature nearest to me that is related to the blood in the item and that isn't undead. I sense the distance and direction of the creature. The diamond is worth at least 5,000 gp. If it is destroyed, the blood inside evaporates.",
 	descriptionFull: [
 		"This diamond contains the blood of a creature\u2014blood that appears in the form of the blod (blood) rune. While the item is on your person, you can use your action to divine the location of the creature nearest to you that is related to the blood in the item and that isn't undead. You sense the distance and direction of the creature relative to your location. The creature is either the one whose blood is in the item or a blood relative.",
 		"This item is made from a large diamond worth at least 5,000 gp. When the blood of a creature is poured onto it during the creation process, the blood seeps into the heart of the gem. If the gem is destroyed, the blood evaporates and is gone forever. A vengeful being might use a *blod stone* to hunt down an entire bloodline. Such stones are sometimes given as gifts to siblings or handed down from parent to child.",
@@ -14624,7 +14632,7 @@ MagicItemsList["claw of the wyrm rune"] = {
 		"This dragon's claw has been covered with a coat of molten silver, upon which has been inscribed the wyrm (dragon) rune. The claw has the following properties.",
 		"***Wyrmslayer***. As an action, you can point the claw at a dragon within 30 feet of you. The dragon must then succeed on a DC 15 Constitution saving throw or gain vulnerability to all damage types until the end of your next turn. This property can be used three times. The claw regains all expended uses at the next dawn.",
 		"***Wyrm Shield***. While the claw is displayed on your person, you have resistance to the damage caused by any dragon's breath weapon.",
-		"***Wyrm Ward***. You can transfer the c1aw's magic to a place by tracing the wyrm rune on the ground with your finger. The point where you trace it becomes the center of a spherical area of magic that has a 100-foot radius and that is fixed to the place. The transfer takes 8 hours of work that requires the claw to be within 5 feet of you. At the end, the claw is destroyed, and the area gains the following property:",
+		"***Wyrm Ward***. You can transfer the claw's magic to a place by tracing the wyrm rune on the ground with your finger. The point where you trace it becomes the center of a spherical area of magic that has a 100-foot radius and that is fixed to the place. The transfer takes 8 hours of work that requires the claw to be within 5 feet of you. At the end, the claw is destroyed, and the area gains the following property:",
 		"While in the 100-foot-radius sphere, any dragon has disadvantage on saving throws and can have a flying speed no higher than 10 feet.",
 	],
 	attunement: true,
@@ -14740,7 +14748,7 @@ MagicItemsList["ingot of the skold rune"] = {
 		sortname: "Rune Shield, Skold",
 		type: "shield",
 		rarity: "rare",
-		description: "This shield gives my +1 AC on top of its normal bonus to AC. While carrying it, the first time after a long rest that damage reduces me to 0 HP, I drop to 1 HP instead.",
+		description: "This shield gives me +1 AC on top of its normal bonus to AC. While carrying it, the first time after a long rest that damage reduces me to 0 HP, I drop to 1 HP instead.",
 		shieldAdd: ["Skold Rune Shield", 3, 6],
 		usages: 1,
 		recovery: "long rest",
@@ -14908,7 +14916,7 @@ MagicItemsList["orb of the stein rune"] = {
 		"***Indomitable Stand***. As an action, you can channel the orb's magic to hold your ground. For the next minute or until you move any distance, you have advantage on all checks and saving throws to resist effects that force you to move. In addition, any enemy that moves to a space within 10 feet of you must succeed on a DC 12 Strength saving throw or be unable to move any farther this turn.",
 		"***Stone Soul***. You can't be petrified.",
 		"***Earthen Step***. You can cast *Meld into Stone* as a bonus action. Once you use this property, you can't use it again until you finish a short or long rest.",
-		"***Gift of Stone***. You can transfer the orb's magic to a nonmagical item\u2014a shield or a pair of boots\u2014by tracing the stein rune there with your finger. The transfer takes8 hours of work that requires the two items to be within 5 feet of each other. At the end, the orb is destroyed, and the rune appears in silver on the chosen item, which gains a benefit based on its form:",
+		"***Gift of Stone***. You can transfer the orb's magic to a nonmagical item\u2014a shield or a pair of boots\u2014by tracing the stein rune there with your finger. The transfer takes 8 hours of work that requires the two items to be within 5 feet of each other. At the end, the orb is destroyed, and the rune appears in silver on the chosen item, which gains a benefit based on its form:",
 		" \u2022 ***Shield***. The shield is now a rare magic item that requires attunement. While you wield it, you have resistance to all damage dealt by ranged weapon attacks.",
 		" \u2022 ***Boots***. The pair of boots is now an uncommon magic item that requires attunement. While you wear the boots, you have advantage on Strength saving throws, and you can use your reaction to avoid being knocked prone.",
 	],
@@ -14939,7 +14947,7 @@ MagicItemsList["orb of the stein rune"] = {
 		sortname: "Rune Shield, Stein",
 		type: "shield",
 		rarity: "rare",
-		description: "This shield gives me resistance to all damage dealt by range weapon attack.",
+		description: "This shield gives me resistance to all damage dealt by ranged weapon attacks.",
 		attunement: true,
 		shieldAdd: "Stein Rune Shield",
 		dmgres: ["Ranged Weapon Attacks"],
@@ -14975,7 +14983,7 @@ MagicItemsList["pennant of the vind rune"] = {
 		name: "Pennant of the Vind Rune ",
 		type: "wondrous item",
 		rarity: "very rare",
-		description: "This blue pennant stops me from suffocating. As an action, I can fly up to 20 ft, but won't stay aloft at the end of it. As a reaction once per short rest when I fall, I can use Wind Grasp to take no damage from the fall. As a bonus action once per short rest, I can cast *Levitate*. I can transfer this rune, see book.",
+		description: "This blue pennant stops me from suffocating. As an action, I can fly up to 20 ft, but won't stay aloft at the end of it. As a reaction once per short rest when I fall, I can use Winds Grasp to take no damage from the fall. As a bonus action once per short rest, I can cast *Levitate*. I can transfer this rune, see book.",
 		attunement: true,
 		savetxt: { immune: ["suffocation"] },
 		action: [
@@ -15046,7 +15054,7 @@ MagicItemsList["potion of giant size"] = {
 	description: "Once as an action, I can drink this potion of pale white liquid or administer it to another to grow to Huge for 24 hours. This gives Str 25, +5 ft reach, double max HP (current HP also doubles), and roll three times damage die for weapons. When its effect ends, HP above the max HP becomes temporary HP.",
 	descriptionFull: [
 		"When you drink this potion, you become Huge for 24 hours if you are Medium or smaller, otherwise the potion does nothing. For that duration, your Strength becomes 25, if it isn't already higher, and your hit point maximum is doubled (your current hit points are doubled when you drink the potion). In addition, the reach of your melee attacks increases by 5 feet.",
-		"Everything you are carrying and wearing also increases in size for the duration. When rolling damage for weapons enlarged in this manner, roll three times the normal number of dice; for example, an enlarged longsword would deal 3d8 slashing damage (instead of1d8), or 3d10 slashing damage (instead of 1d10) when used with two hands.",
+		"Everything you are carrying and wearing also increases in size for the duration. When rolling damage for weapons enlarged in this manner, roll three times the normal number of dice; for example, an enlarged longsword would deal 3d8 slashing damage (instead of 1d8), or 3d10 slashing damage (instead of 1d10) when used with two hands.",
 		"When the effect ends, any hit points you have above your hit point maximum become temporary hit points. This potion is a pale white liquid made from the tongue of a giant clam, with a pungent aroma akin to that of rotting algae. It tastes sweet, however, when consumed.",
 	],
 	weight: 0.5,
@@ -15118,7 +15126,7 @@ MagicItemsList["shard of the ise rune"] = {
 	"shard": {
 		name: "Shard of the Ise Rune ",
 		rarity: "very rare",
-		description: "This shard of ice gives me fire resistance. As an action, I can use Frigid Touch, freezing water in a 10-ft radius where I touch it, or Icy Mantle, to prevent the first bludgeoning, slashing, or piercing damagein the next minute for a creature I touch. I can use it to cast *Sleet Storm* (DC 17). I can do all 3 each once per short rest.",
+		description: "This shard of ice gives me fire resistance. As an action, I can use Frigid Touch, freezing water in a 10-ft radius where I touch it, or Icy Mantle, to prevent the first bludgeoning, slashing, or piercing damage in the next minute for a creature I touch. I can use it to cast *Sleet Storm* (DC 17). I can do all 3 each once per short rest.",
 		dmgres: ["Fire"],
 		action: [
 			["action", "Frigid Touch (Ise Rune)"],
@@ -15163,7 +15171,7 @@ MagicItemsList["ring of hardened magma"] = {
 	type: "ring",
 	rarity: "unknown",
 	storyItemAL: true,
-	description: "Warm orange light spills from minuscule cracks that form on this rings outer surface. It automatically resizes to fit the creature attuned to it. It has 6 charges which can be used to cast *Conjure Minor Elementals* (summon 4 magma mephits or 4 magmins) or *Fire Shield* (warm shield version only), costing 1 charge each.",
+	description: "Warm orange light spills from minuscule cracks that form on this ring's outer surface. It automatically resizes to fit the creature attuned to it. It has 6 charges which can be used to cast *Conjure Minor Elementals* (summon 4 magma mephits or 4 magmins) or *Fire Shield* (warm shield version only), costing 1 charge each.",
 	descriptionFull: "This ring is sized for a fire giant's finger. When a creature attunes to the ring, it magically shrinks to fit that creature's index finger, and warm orange light spills from minuscule cracks that form on its outer surface. The ring has 6 charges. While attuned to the ring, a creature can expend 1 charge to cast *conjure minor elementals* (summoning either four magma mephits or four magmins, as the wearer wishes) or *fire shield* (warm shield version only) from the ring. Once all of its charges are spent, the ring loses its spellcasting properties but retains its resizing property.",
 	attunement: true,
 	usages: 6,
@@ -15204,7 +15212,7 @@ MagicItemsList["red dragon's thighbone"] = {
 		regExpSearch: /^(?=.*red)(?=.*dragon)(?=.*thighbone).*$/i,
 		name: "Red Dragon's Thighbone",
 		source: [["SKT", 105]],
-		description: "Two-handed; +2d6 damage vs. dragons",
+		description: "Two-handed; +2d8 damage vs. dragons",
 		selectNow: true,
 	}],
 }
@@ -15880,7 +15888,7 @@ CreatureList["aurochs"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the aurochs moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 9 (2d8) piercing damage. A targeted creature must succeed on a DC 15 Strength saving throw or be knocked prone.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d8 piercing damage. A targeted creature must succeed on a DC 15 Strength saving throw or be knocked prone.",
 	}],
 };
 CreatureList["cow"] = {
@@ -15908,7 +15916,7 @@ CreatureList["cow"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the cow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 piercing damage.",
 	}],
 };
 CreatureList["ox"] = {
@@ -15936,15 +15944,16 @@ CreatureList["ox"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the ox moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 piercing damage.",
 	}, {
 		name: "Beast of Burden",
-		description: "The oxen is considered to be a Huge animal for the purpose of determining its carrying capacity.",
+		description: "The [THIS] is considered to be a Huge animal for the purpose of determining its carrying capacity.",
 	}],
 };
 CreatureList["deep rothe"] = {
 	name: "Deep Roth\xE9",
 	nameAlt: ["Roth\xE9, Deep"],
+	nameThis: "roth\xe9",
 	source: [["V", 208], ["MotM", 71]],
 	size: 3, //Medium
 	type: "Beast",
@@ -15969,10 +15978,10 @@ CreatureList["deep rothe"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the roth\xE9 moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 piercing damage.",
 	}, {
 		name: "Dancing Lights",
-		description: "The roth\xE9 casts *dancing lights*, requiring no spell components and using Wisdom as the spellcasting ability.",
+		description: "The [THIS] casts *dancing lights*, requiring no spell components and using Wisdom as the spellcasting ability.",
 	}],
 };
 CreatureList["rothe"] = {
@@ -16001,7 +16010,7 @@ CreatureList["rothe"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the roth\xE9 moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 piercing damage.",
 	}],
 };
 CreatureList["stench kow"] = {
@@ -16031,7 +16040,7 @@ CreatureList["stench kow"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the stench kow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 piercing damage.",
 	}, {
 		name: "Stench",
 		description: "Any creature other than a stench kow starting its turn within 5 ft of a stench kow must make a DC 12 Constitution saving throw or be poisoned until the start of the creature's next turn. On a successful saving throw, the creature is immune to the stench of all stench kows for 1 hour.",
@@ -16039,7 +16048,7 @@ CreatureList["stench kow"] = {
 	wildshapeString: [
 		"##Senses##. Darkvision 60 ft." + (typePF ? "\n" : " ") + "##Resistances##. Cold, fire, poison.",
 		"##Charge##. If the stench kow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, it deals extra 2d6 piercing damage.",
-		"##Stench##. Any creature starting its turn within 5 ft of a stench kow must make a DC 12 Con save or be poisoned until the start of the its next turn. On a success, it is immune to the stench of all stench kows for 1 hour",
+		"##Stench##. Any creature starting its turn within 5 ft of a stench kow must make a DC 12 Con save or be poisoned until the start of its next turn. On a success, it is immune to the stench of all stench kows for 1 hour.",
 	].join("\n"),
 };
 CreatureList["dolphin"] = {
@@ -16070,10 +16079,10 @@ CreatureList["dolphin"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the dolphin moves at least 30 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 3 (1d6) bludgeoning damage.",
+		description: "If the [THIS] moves at least 30 ft straight toward a target and then hits it with a slam attack on the same turn, the target takes an extra 1d6 bludgeoning damage.",
 	}, {
 		name: "Hold Breath",
-		description: "The dolphin can hold its breath for 20 minutes.",
+		description: "The [THIS] can hold its breath for 20 minutes.",
 	}],
 };
 CreatureList["cranium rat"] = {
@@ -16104,10 +16113,10 @@ CreatureList["cranium rat"] = {
 	}],
 	traits: [{
 		name: "Illumination",
-		description: "As a bonus action, the cranium rat can shed dim light from its brain in a 5-foot radius or extinguish the light.",
+		description: "As a bonus action, the [THIS] can shed dim light from its brain in a 5-foot radius or extinguish the light.",
 	}, {
 		name: "Telepathic Shroud",
-		description: "The cranium rat is immune to any effect that would sense its emotions or read its thoughts, as well as to all divination spells.",
+		description: "The [THIS] is immune to any effect that would sense its emotions or read its thoughts, as well as to all divination spells.",
 	}],
 };
 CreatureList["brontosaurus"] = {
@@ -16175,11 +16184,11 @@ CreatureList["deinonychus"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the deinonychus can make two Claw and one Bite attack.",
+		description: "As an action on its turn, the [THIS] can make two Claw and one Bite attack.",
 	}],
 	traits: [{
 		name: "Pounce",
-		description: "If the deinonychus moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the deinonychus can make one bite attack against it as a bonus action.",
+		description: "If the [THIS] moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the [THIS] can make one bite attack against it as a bonus action.",
 	}],
 };
 CreatureList["dimetrodon"] = {
@@ -16264,10 +16273,10 @@ CreatureList["quetzalcoatlus"] = {
 	}],
 	traits: [{
 		name: "Dive Attack",
-		description: "If the quetzalcoatlus is flying and dives at least 30 ft toward a creature and then hits it with a bite attack, the attack deals an extra 10 (3d6) damage to the target.",
+		description: "If the [THIS] is flying and dives at least 30 ft toward a creature and then hits it with a bite attack, the attack deals an extra 3d6 damage to the target.",
 	}, {
 		name: "Flyby",
-		description: "The quetzalcoatlus doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
+		description: "The [THIS] doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
 	}],
 };
 CreatureList["stegosaurus"] = {
@@ -16328,11 +16337,11 @@ CreatureList["velociraptor"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the velociraptor can make one Bite and one Claw attack.",
+		description: "As an action on its turn, the [THIS] can make one Bite and one Claw attack.",
 	}],
 	traits: [{
 		name: "Pack Tactics",
-		description: "The velociraptor has advantage on an attack roll against a creature if at least one of the velociraptor's allies is within 5 ft of the creature and the ally isn't incapacitated.",
+		description: "The [THIS] has advantage on an attack roll against a creature if at least one of the [THIS]'s allies is within 5 ft of the creature and the ally isn't incapacitated.",
 	}],
 };
 CreatureList["gazer"] = {
@@ -16373,16 +16382,21 @@ CreatureList["gazer"] = {
 		dc: true,
 		abilitytodamage: false,
 	}],
-	traits: [{
-		name: "Aggressive",
-		description: "As a bonus action, the gazer moves its speed toward an enemy that it can see.",
-	}, {
+	features: [{
 		name: "Mimicry",
-		description: "The gazer can mimic simple speech it has heard, in any language. Any who hear this can tell it is an imitation with a successful DC 10 Wis (Insight) check.",
+		description: "The [THIS] can mimic simple speech it has heard, in any language. Any who hear this can tell it is an imitation with a successful DC 10 Wis (Insight) check.",
 	}],
 	actions: [{
+		name: "Aggressive",
+		description: "As a Bonus Action, the [THIS] moves its speed toward an enemy that it can see.",
+	}, {
 		name: "Eye Rays",
-		description: "1. Dazing Ray: Wisdom saving throw or charmed until the start of the gazer's next turn. While charmed, half speed and disadv. on attacks.\n2. Fear Ray: Wisdom saving throw or frightened until the start of the gazer's next turn.\n3. Frost Ray: Target must make a Dexterity saving throw or 10 (3d6) cold damage.\n4. Telekinetic Ray: Medium or smaller creature, Strength saving throw or be moved up to 30 ft away from the gazer. If it is an unattended Tiny object, the gazer moves it up to 30 ft in any direction. It can exert fine control on objects this way.", // MotM: no longer 10 lb limit, just Tiny object
+		description: [
+			"1. **Dazing Ray**. Wisdom saving throw or charmed until the start of the [THIS]'s next turn. While charmed, half speed and disadv. on attacks.",
+			"2. **Fear Ray**. Wisdom saving throw or frightened until the start of the [THIS]'s next turn.",
+			"3. **Frost Ray**. Target must make a Dexterity saving throw or 3d6 cold damage.",
+			"4. **Telekinetic Ray**. Medium or smaller creature, Strength saving throw or be moved up to 30 ft away from the [THIS]. If it is an unattended Tiny object, the [THIS] moves it up to 30 ft in any direction. It can exert fine control on objects this way.", // MotM: no longer 10 lb limit, just Tiny object
+		].join("\n"),
 	}],
 	variant: [{
 		name: "Variant: Familiar",
@@ -16399,7 +16413,7 @@ MagicItemsList["mind blade"] = {
 	description: "Mind flayers can turn any nonmagical sword into a mind blade. Only one creature can attune to this sword: either a specific mind flayer or one of its thralls. In the hands of its intended wielder, the mind blade is a magic weapon that deals an extra 2d6 psychic damage to any target it hits.",
 	descriptionFull: "Mind flayers can turn any nonmagical sword into a *mind blade*. Only one creature can attune to it: either a specific mind flayer or one of its thralls. In the hands of any other creature, the *mind blade* functions as a normal sword of its kind. In the hands of its intended wielder, the *mind blade* is a magic weapon that deals an extra 2d6 psychic damage to any target it hits.",
 	attunement: true,
-	prerequisite: "Requires attunement by the creature this armor was made for: either a specific mind flayer or one of its thralls",
+	prerequisite: "Requires attunement by the creature this sword was made for: either a specific mind flayer or one of its thralls",
 	prereqeval: function (v) { return false; },
 	chooseGear: {
 		type: "weapon",
@@ -16474,7 +16488,7 @@ MagicItemsList["shield of far sight"] = {
 	rarity: "rare",
 	description: "The mind flayer that created this shield can see through its eye with 60 ft darkvision while it is on the same plane. While peering through this magical eye, the mind flayer can use its Mind Blast action as though it were standing behind the shield. If a shield of far sight is destroyed, its creator is blinded for 2d12 hours.",
 	descriptionFull: [
-		"A mind flayer skilled at crafting magic items creates a *shield of far sight* by harvesting an eye from an intelligent humanoid and magically implanting it on the outer surface of a nonmagical shield. The shield becomes a magic item once the eyes is implanted, whereupon the mind flayer can give the shield to a thrall or hang it on a wall in its lair. As long as the shield is on the same plane of existence as its creator, the mind flayer can see through the shield's eye, which has darkvision out to a range of 60 feet. While peering through this magical eye, the mind flayer can use its Mind Blast action as though it were standing behind the shield.",
+		"A mind flayer skilled at crafting magic items creates a *shield of far sight* by harvesting an eye from an intelligent humanoid and magically implanting it on the outer surface of a nonmagical shield. The shield becomes a magic item once the eye is implanted, whereupon the mind flayer can give the shield to a thrall or hang it on a wall in its lair. As long as the shield is on the same plane of existence as its creator, the mind flayer can see through the shield's eye, which has darkvision out to a range of 60 feet. While peering through this magical eye, the mind flayer can use its Mind Blast action as though it were standing behind the shield.",
 		"If a *shield of far sight* is destroyed, the mind flayer that created it is blinded for 2d12 hours.",
 	],
 	weight: 6,
@@ -16522,6 +16536,7 @@ SourceList["TftYP"] = {
 CreatureList["giant crayfish"] = {
 	name: "Giant Crayfish",
 	nameAlt: ["Crayfish, Giant"],
+	nameThis: "giant crayfish",
 	source: [["TftYP", 235]],
 	size: 2, //Large
 	type: "Beast",
@@ -16549,13 +16564,14 @@ CreatureList["giant crayfish"] = {
 	],
 	traits: [{
 		name: "Amphibious",
-		description: "The giant crayfish can breathe air and water.",
+		description: "The [THIS] can breathe air and water.",
 	},
 	],
 };
 CreatureList["giant ice toad"] = {
 	name: "Giant Ice Toad",
 	nameAlt: ["Toad, Giant Ice"],
+	nameThis: "toad",
 	source: [["TftYP", 235]],
 	size: 2, //Large
 	type: "Monstrosity",
@@ -16582,18 +16598,18 @@ CreatureList["giant ice toad"] = {
 	],
 	traits: [{
 		name: "Amphibious",
-		description: "The toad can breathe air and water",
+		description: "The [THIS] can breathe air and water",
 	}, {
 		name: "Cold Aura",
-		description: "A creature that starts its turn within 10 feet of the toad takes 5 (1d10) cold damage.",
+		description: "A creature that starts its turn within 10 feet of the [THIS] takes 1d10 cold damage.",
 	}, {
 		name: "Standing Leap",
-		description: "The toad's long jump is up to 20 ft and its high jump is up to 10 ft, with or without a running start.",
+		description: "The [THIS]'s long jump is up to 20 ft and its high jump is up to 10 ft, with or without a running start.",
 	},
 	],
 	features: [{
 		name: "Swallow",
-		description: "The toad can make a bite attack against a Medium or smaller target it is grappling. If it hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the toad, and it takes 10 (3d6) acid damage and 11 (2d6) cold damage at the start of each of the toad's turns. The toad can have only one target swallowed at a time.\nIf the toad dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 5 feet of movement, exiting prone.",
+		description: "The [THIS] can make a bite attack against a Medium or smaller target it is grappling. If it hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the [THIS], and it takes 3d6 acid damage and 2d6 cold damage at the start of each of the [THIS]'s turns. The [THIS] can have only one target swallowed at a time.\nIf the [THIS] dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 5 feet of movement, exiting prone.",
 	},
 	],
 	wildshapeString: (typePF ? "##Senses##. " : "") + "Darkvision 60 ft. ##Cold Aura##. Any within 5 ft at start of their turn take 1d10 cold damage. ##Amphibious##. Breathes air and water. ##Standing Leap##. Long jump 20 ft and high jump 10 ft, regardless of start. ##Swallow##. If bite attack hits Medium or smaller being grappling, it takes bite damage and is swallowed: blinded, restrained, total cover, takes 3d6 acid and 2d6 cold damage at the start of each of the toad's turns; Only 1 swallowed at a time.",
@@ -16601,6 +16617,7 @@ CreatureList["giant ice toad"] = {
 CreatureList["giant lightning eel"] = {
 	name: "Giant Lightning Eel",
 	nameAlt: ["Eel, Giant Lightning"],
+	nameThis: "eel",
 	source: [["TftYP", 236]],
 	size: 2, //Large
 	type: "Beast",
@@ -16635,20 +16652,21 @@ CreatureList["giant lightning eel"] = {
 	}],
 	traits: [{
 		name: "Water Breathing",
-		description: "The eel can breathe only underwater.",
+		description: "The [THIS] can breathe only underwater.",
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the eel can make two Bite attacks.",
+		description: "As an action on its turn, the [THIS] can make two Bite attacks.",
 	}, {
 		name: "Lightning Jolt (Recharge 5-6)",
-		description: "See Attack. One creature the eel touches within 5 ft of it outside water, or each creature within 15 ft of it in a body of water, must make a DC 12 Constitution saving throw. On failed save, a target takes 3d8 lightning damage. If the target takes any of this damage, the target is stunned until the end of the eel's next turn. On a successful save, a target takes half as much damage and isn't stunned",
+		description: "See Attack. One creature the [THIS] touches within 5 ft of it outside water, or each creature within 15 ft of it in a body of water, must make a DC 12 Constitution saving throw. On failed save, a target takes 3d8 lightning damage. If the target takes any of this damage, the target is stunned until the end of the [THIS]'s next turn. On a successful save, a target takes half as much damage and isn't stunned",
 	}],
 	wildshapeString: "##Senses##. Blindsight 60 ft. ##Resistances##. Lightning. ##Multiattack##. On its turn, 2 Bite attacks.\n##Water Breathing##. The eel can breathe only underwater. ##Lightning Jolt (Recharge 5-6)##. One creature it touches in 5 ft outside water, or all within 15 ft in water, take 3d8 lightning damage and are stunned until the end of the eel's next turn if it was damaged. The target can make a DC 12 Con save to take half damage only.",
 };
 CreatureList["giant subterranean lizard"] = {
 	name: "Giant Subterranean Lizard",
 	nameAlt: ["Lizard, Giant Subterranean"],
+	nameThis: "lizard",
 	source: [["TftYP", 236]],
 	size: 1, //Huge
 	type: "Beast",
@@ -16681,7 +16699,7 @@ CreatureList["giant subterranean lizard"] = {
 	],
 	traits: [{
 		name: "Swallow",
-		description: "The lizard can make one bite attack against a Medium or smaller target it is grappling. If the attack hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the lizard, and it takes 10 (3d6) acid damage at the start of each of the lizard's turns. The lizard can have only one target swallowed at a time.\nIf the lizard dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 10 feet of movement, exiting prone.",
+		description: "The [THIS] can make one bite attack against a Medium or smaller target it is grappling. If the attack hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the [THIS], and it takes 3d6 acid damage at the start of each of the [THIS]'s turns. The [THIS] can have only one target swallowed at a time.\nIf the [THIS] dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 10 feet of movement, exiting prone.",
 	},
 	],
 	wildshapeString: "##Swallow##. If a bite attack hits a Small or smaller target that is currently being grappled by the lizard, the target is swallowed, ending the grapple. While swallowed, it is blinded, restrained, has total cover, and takes 3d4 acid damage at the start of each of the lizard's turns; The lizard can have only 1 swallowed at a time. If the lizard dies, the swallowed creature is no longer restrained and can escape using 10 ft movement.",
@@ -16783,7 +16801,7 @@ MagicItemsList["eagle whistle"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	magicItemTable: "G",
-	description: "Three times per dawn, I can blow this whistle, gaining a flying speed equal to twice my walking speed while I do so continuously. I can blow it for a number for rounds equal to 5 + five times my Constitution modifier (minimum of 1 round) or until I talk, hold my breath, start suffocating, or land.",
+	description: "Three times per dawn, I can blow this whistle, gaining a flying speed equal to twice my walking speed while I do so continuously. I can blow it for a number of rounds equal to 5 + five times my Constitution modifier (minimum of 1 round) or until I talk, hold my breath, start suffocating, or land.",
 	descriptionFull: "While you blow an *eagle whistle* continuously, you can fly twice as fast as your walking speed. You can blow the whistle continuously for a number of rounds equal to 5 + five times your Constitution modifier (minimum of 1 round) or until you talk, hold your breath, or start suffocating. A use of the whistle also ends if you land. If you are aloft when you stop blowing the whistle, you fall. The whistle has three uses. It regains expended uses daily at dawn.",
 	weight: 1,
 	usages: 3,
@@ -16813,7 +16831,7 @@ MagicItemsList["javelin of backbiting"] = {
 	magicItemTable: "G",
 	description: "This javelin has +2 to hit and damage, +30 ft range, and deals +1d6 damage when thrown. After a throwing attack, it flies back to my hand immediately. While its curse lasts, I'm unwilling to part with it and have disadv. on attacks with other weapon. Also, on a roll of 1 to hit, I roll the attack again, but at myself with adv.",
 	descriptionFull: [
-		"You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, its normal and long ranges both increase by 30 feet. and it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately.",
+		"You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, its normal and long ranges both increase by 30 feet, and it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately.",
 		"***Curse***. This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with *Remove Curse* or similar magic, you are unwilling to part with the weapon, keeping it within reach at all times. In addition, you have disadvantage on attack rolls made with weapons other than this one.",
 		"Whenever you roll a 1 on an attack roll using this weapon, the weapon bends or flies to hit you in the back. Make a new attack roll with advantage against your own AC. If the result is a hit, you take damage as if you had attacked yourself with the spear.",
 	],
@@ -16953,7 +16971,7 @@ MagicItemsList["spear of backbiting"] = {
 	magicItemTable: "G",
 	description: "This spear has +2 to hit and damage, +30 ft range, and deals +1d6 damage when thrown. After a throwing attack, it flies back to my hand immediately. While its curse lasts, I'm unwilling to part with it and have disadv. on attacks with other weapon. Also, on a roll of 1 to hit, I roll the attack again, but at myself with adv.",
 	descriptionFull: [
-		"You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, its normal and long ranges both increase by 30 feet. and it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately.",
+		"You gain a +2 bonus to attack and damage rolls made with this magic weapon. When you throw it, its normal and long ranges both increase by 30 feet, and it deals one extra die of damage on a hit. After you throw it and it hits or misses, it flies back to your hand immediately.",
 		"***Curse***. This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with *Remove Curse* or similar magic, you are unwilling to part with the weapon, keeping it within reach at all times. In addition, you have disadvantage on attack rolls made with weapons other than this one.",
 		"Whenever you roll a 1 on an attack roll using this weapon, the weapon bends or flies to hit you in the back. Make a new attack roll with advantage against your own AC. If the result is a hit, you take damage as if you had attacked yourself with the spear.",
 	],
@@ -16977,7 +16995,7 @@ MagicItemsList["stone of ill luck"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	magicItemTable: "C",
-	description: "Although this polished agate appears to be a stone of good luck to anyone who tries to identify it. While it is on my person, it gives me a +1 bonus and a -2 penalty (from the curse) to ability checks and saving throws (for a total of -1). Until the curse is broken, I am unwilling to part with the item.",
+	description: "This polished agate appears to be a stone of good luck to anyone who tries to identify it. While it is on my person, it gives me a +1 bonus and a -2 penalty (from the curse) to ability checks and saving throws (for a total of -1). Until the curse is broken, I am unwilling to part with the item.",
 	descriptionFull: [
 		"This polished agate appears to be a *stone of good luck* to anyone who tries to *Identify* it, and it confers that item's property while on your person.",
 		"***Curse***. This item is cursed. While it is on your person, you take a -2 penalty to ability checks and saving throws. Until the curse is discovered, the DM secretly applies this penalty, assuming you are adding the item's bonus. You are unwilling to part with the stone until the curse is broken with *Remove Curse* or similar magic.",
@@ -17024,8 +17042,8 @@ MagicItemsList["waythe"] = {
 	type: "weapon (greatsword)",
 	rarity: "legendary",
 	storyItemAL: true,
-	description: "This greatsword adds +1 to hit and damage. Against giants, it deal +2d6 damage and they must make a DC 15 Str save or be knocked prone. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can expend 1 charge to speak its command word to detect enemies within 60 ft. Waythe is sentient, see Notes page.",
-	descriptionLong: "This greatsword adds a +1 bonus to attack and damage rolls made with it. Against giants, it deal 2d6 extra slashing damage and when a giant is hit with it, they must make a DC 15 Strength saving throw or be knocked prone. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can expend 1 charge to speak its command, letting me know the direction of the nearest creature hostile to me within 60 ft, regardless of it being ethereal, invisible, disguised, or hidden. This lasts for 1 minute. Waythe is sentient and has a mind of its own, see Notes page.",
+	description: "This greatsword adds +1 to hit and damage. Against giants, it deals +2d6 damage and they must make a DC 15 Str save or be knocked prone. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can expend 1 charge to speak its command word to detect enemies within 60 ft. Waythe is sentient, see Notes page.",
+	descriptionLong: "This greatsword adds a +1 bonus to attack and damage rolls made with it. Against giants, it deals 2d6 extra slashing damage and when a giant is hit with it, they must make a DC 15 Strength saving throw or be knocked prone. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can expend 1 charge to speak its command, letting me know the direction of the nearest creature hostile to me within 60 ft, regardless of it being ethereal, invisible, disguised, or hidden. This lasts for 1 minute. Waythe is sentient and has a mind of its own, see Notes page.",
 	descriptionFull: [
 		"*Waythe* is a unique greatsword most recently in the possession of a high-ranking cloud giant ambassador.",
 		"You gain a +1 bonus to attack and damage rolls made with this magic weapon. When you hit a creature of the giant type with it, the giant takes an extra 2d6 slashing damage, and it must succeed on a DC 15 Strength saving throw or fall prone.",
@@ -17140,7 +17158,7 @@ MagicItemsList["berserker battleaxe (tamoachan)"] = {
 	spellChanges: {
 		"burning hands": {
 			description: "All in area 3d6+1d6/extra charge Fire dmg; save halves; unattended flammable objects ignite",
-			changes: "The spell level this is cast at depends on the amount of charges spend, 1 charge per spell slot level.",
+			changes: "The spell level this is cast at depends on the amount of charges spent, 1 charge per spell slot level.",
 		},
 	},
 	calcChanges: {
@@ -17580,12 +17598,13 @@ CreatureList["almiraj"] = {
 	}],
 	traits: [{
 		name: "Keen Senses",
-		description: "The almiraj has advantage on Wisdom (Perception) checks that rely on hearing or sight.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on hearing or sight.",
 	}],
 };
 CreatureList["flying monkey"] = {
 	name: "Flying Monkey",
 	nameAlt: ["Monkey, Flying"],
+	nameThis: "monkey",
 	source: [["ToA", 220]],
 	size: 4, //Small
 	type: "Beast",
@@ -17609,12 +17628,13 @@ CreatureList["flying monkey"] = {
 	}],
 	traits: [{
 		name: "Pack Tactics",
-		description: "The flying monkey has advantage on an attack roll against a creature if at least one of the monkey's allies is within 5 ft of the creature and the ally isn't incapacitated.",
+		description: "The [THIS] has advantage on an attack roll against a creature if at least one of the [THIS]'s allies is within 5 ft of the creature and the ally isn't incapacitated.",
 	}],
 };
 CreatureList["giant snapping turtle"] = {
 	name: "Giant Snapping Turtle",
 	nameAlt: ["Turtle, Giant Snapping"],
+	nameThis: "turtle",
 	source: [["ToA", 222]],
 	size: 2, //Large
 	type: "Beast",
@@ -17638,10 +17658,10 @@ CreatureList["giant snapping turtle"] = {
 	}],
 	traits: [{
 		name: "Amphibious",
-		description: "The turtle can breathe air and water.",
+		description: "The [THIS] can breathe air and water.",
 	}, {
 		name: "Stable",
-		description: "Whenever an effect knocks the turtle prone, it can make a DC 10 Constitution saving throw to avoid being knocked prone. A prone turtle is upside down. To stand up, it must succeed on a DC 10 Dexterity check on its turn and then use all its movement for that turn. While prone, the turtle's AC becomes 12.",
+		description: "Whenever an effect knocks the [THIS] prone, it can make a DC 10 Constitution saving throw to avoid being knocked prone. A prone turtle is upside down. To stand up, it must succeed on a DC 10 Dexterity check on its turn and then use all its movement for that turn. While prone, the [THIS]'s AC becomes 12.",
 	}],
 };
 CreatureList["jaculi"] = {
@@ -17674,20 +17694,20 @@ CreatureList["jaculi"] = {
 	}],
 	actions: [{
 		name: "Spring",
-		description: "The jaculi springs up to 30 feet in a straight line and makes a bite attack against a target within its reach. This attack has advantage if the jaculi springs at least 10 feet. If the attack hits, the bite deals an extra 7 (2d6) piercing damage.",
+		description: "The [THIS] springs up to 30 feet in a straight line and makes a bite attack against a target within its reach. This attack has advantage if the [THIS] springs at least 10 feet. If the attack hits, the bite deals an extra 2d6 piercing damage.",
 	}],
 	traits: [{
 		name: "Camouflage",
-		description: "The jaculi has advantage on Dexterity (Stealth) checks made to hide.",
+		description: "The [THIS] has advantage on Dexterity (Stealth) checks made to hide.",
 	}, {
 		name: "Keen Smell",
-		description: "The jaculi has advantage on Wisdom (Perception) checks that rely on smell.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on smell.",
 	}],
 	wildshapeString: [
 		"##Senses##. Blindsight 30 ft.",
 		"##Camouflage##. Advantage on Dexterity (Stealth) checks made to hide.",
 		"##Keen Smell##. Advantage on Wisdom (Perception) checks that rely on smell.",
-		"##Spring##. 30 ft in a straight line and make a bite attack. Advantage on the attack roll if springing at least 10 ft. It deals an extra 7 (2d6) piercing damage on a hit.",
+		"##Spring##. 30 ft in a straight line and make a bite attack. Advantage on the attack roll if springing at least 10 ft. It deals an extra 2d6 piercing damage on a hit.",
 	].join("\n"),
 };
 
@@ -18006,7 +18026,7 @@ AddSubClass("barbarian", "ancestral guardian", {
 				"clairvoyance": {
 					components: "V,S",
 					compMaterial: "",
-					changes: "My casting of *Clairvoyance* is a practice of consulting my an ancestral spirit of mine, thus requiring no material components.",
+					changes: "My casting of *Clairvoyance* is a practice of consulting an ancestral spirit of mine, thus requiring no material components.",
 				},
 			},
 		},
@@ -18042,7 +18062,7 @@ AddSubClass("barbarian", "storm herald", {
 				description: desc([
 					"While raging, I emanate a 10-ft radius aura, but not through total cover",
 					"The aura's features activate when I enter my rage or as a bonus action while raging",
-					"Whenever I active my aura, anybody in my aura other than me takes fire damage",
+					"Whenever I activate my aura, anybody in my aura other than me takes fire damage",
 				]),
 				additional: levels.map(function (n) { return n < 3 ? "" : (n < 5 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 20 ? 5 : 6) + " fire damage"; }),
 			},
@@ -18051,7 +18071,7 @@ AddSubClass("barbarian", "storm herald", {
 				description: desc([
 					"While raging, I emanate a 10-ft radius aura, but not through total cover",
 					"The aura's features activate when I enter my rage or as a bonus action while raging",
-					"Whenever I active my aura, I can choose one creature in my aura other than me",
+					"Whenever I activate my aura, I can choose one creature in my aura other than me",
 					"It takes lightning damage, or half as much on a successful Dexterity saving throw",
 					"My Storm Herald features have DC 8 + my Proficiency Bonus + my Constitution modifier",
 				]),
@@ -18062,7 +18082,7 @@ AddSubClass("barbarian", "storm herald", {
 				description: desc([
 					"While raging, I emanate a 10-ft radius aura, but not through total cover",
 					"The aura's features activate when I enter my rage or as a bonus action while raging",
-					"Whenever I active my aura, all creatures of my choice in my aura gain temporary HP",
+					"Whenever I activate my aura, all creatures of my choice in my aura gain temporary HP",
 				]),
 				additional: levels.map(function (n) { return n < 3 ? "" : (n < 5 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 20 ? 5 : 6) + " temporary hit points"; }),
 			},
@@ -18417,7 +18437,6 @@ AddSubClass("bard", "college of whispers", {
 			minlevel: 6,
 			recovery: "short rest",
 			usages: 1,
-			action: [["reaction", ""]],
 			description: desc([
 				"As a reaction when a humanoid dies within 30 ft of me, I can capture its shadow",
 				"As an action, I can use it to make me look just like the dead person did while it was alive",
@@ -18425,7 +18444,11 @@ AddSubClass("bard", "college of whispers", {
 				"Others can see through the disguise with a Wis (Insight) check vs. my Cha (Deception) +5",
 				"A shadow lasts until used or next long rest; The disguise ends as a bonus action or 1 hour",
 			]),
-			action: [["action", "Shadow Disguise (start)"], ["bonus action", "Shadow Disguise (end)"]],
+			action: [
+				["reaction", ""],
+				["action", "Shadow Disguise (start)"],
+				["bonus action", "Shadow Disguise (end)"],
+			],
 		},
 		"subclassfeature14": {
 			name: "Shadow Lore",
@@ -18731,7 +18754,7 @@ AddSubClass("druid", "circle of the shepherd", {
 			description: desc([
 				"As a bonus action, I can summon, or move, a spirit to a point I can see within 60 ft",
 				"It is a spectral form of a Bear, Hawk, or Unicorn (my choice), with a 30-ft radius aura",
-				"It is incorporeal, immobile, doesn't counts as a creature or object, and persists for 1 min",
+				"It is incorporeal, immobile, doesn't count as a creature or object, and persists for 1 min",
 				"The spirit persists for 1 minute or until I'm incapacitated",
 				"\u2022 Bear: my allies and I, if in the aura, immediately gain 5 + my druid level in temp HP",
 				"  While in the aura, my allies and I gain advantage on Strength checks and saves",
@@ -18779,7 +18802,7 @@ AddSubClass("druid", "circle of the shepherd", {
 			minlevel: 14,
 			description: desc([
 				"When I am reduced to 0 HP or incapacitated against my will, I can cast *Conjure Animals*",
-				"This is done as if using a 9th-level spell slot to summon 4 beast of my choice up to CR 2",
+				"This is done as if using a 9th-level spell slot to summon 4 beasts of my choice up to CR 2",
 				"They appear within 20 ft of me, last 1 hour, and protect me from harm and attack foes",
 			]),
 			usages: 1,
@@ -18796,7 +18819,7 @@ AddSubClass("druid", "circle of the shepherd", {
 					range: "20 ft",
 					duration: "1 h",
 					description: "Summon 4 CR 2 beasts; protect me from harm and attack foes",
-					changes: "Using my Faithful Summons class feature when I'm reduced to 0 HP, I can cast *Conjure Animals* as if using a 9th-level spell slot. This then summons 4 beast of my choice up to CR 2 within 20 ft of me without needing concentration.",
+					changes: "Using my Faithful Summons class feature when I'm reduced to 0 HP, I can cast *Conjure Animals* as if using a 9th-level spell slot. This then summons 4 beasts of my choice up to CR 2 within 20 ft of me without needing concentration.",
 				},
 			},
 		},
@@ -19197,7 +19220,7 @@ RunFunctionAtEnd(function () {
 					"I gain proficiency with either calligrapher's supplies or painter's supplies",
 					"Some weapons, that don't have the heavy or special property, are kensei weapons for me",
 					"At least one ranged and one melee weapon, more at higher levels (longbow does qualify)",
-					"With these: proficient, count as a monk weapons, special bonuses depending on type held:",
+					"With these: proficient, count as monk weapons, special bonuses depending on type held:",
 					"\u2022 Melee: if I do unarmed strike during an Attack action, +2 AC until my next turn starts",
 					"\u2022 Ranged: as a bonus action, ranged weapon attacks deal +1d4 damage in current turn",
 				]),
@@ -19321,7 +19344,7 @@ AddSubClass("paladin", "oath of conquest", {
 			minlevel: 7,
 			description: desc([
 				"Creatures that are frightened of me have their speed reduced to 0 while in my aura",
-				"They also take psychic damage whenever they start theirs turn within my aura",
+				"They also take psychic damage whenever they start their turn within my aura",
 			]),
 			additional: levels.map(function (n) {
 				if (n < 7) return "";
@@ -19855,13 +19878,13 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 			source: [["X", 50]],
 			minlevel: 6,
 			description: desc([
-				"Once per turn, when I or an ally in 5 ft roll dice to healing with a spell, I can reroll dice",
+				"Once per turn, when I or an ally in 5 ft roll dice to heal with a spell, I can reroll dice",
 				"By spending 1 sorcery point; I can reroll any number of those dice for that spell once",
 			]),
 			additional: "1 sorcery point",
 		},
 		"subclassfeature14": {
-			name: "Otherworldy Wings",
+			name: "Otherworldly Wings",
 			source: [["X", 50]],
 			minlevel: 14,
 			description: desc([
@@ -19871,21 +19894,21 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 			choices: ["eagle", "bat", "dragonfly"],
 			choicesNotInMenu: true,
 			"eagle": {
-				name: "Otherworldy Wings",
+				name: "Otherworldly Wings",
 				description: desc([
 					"As a bonus action, I manifest a pair of spectral eagle wings, giving me 30 ft fly speed",
 					"These wings last until I become incapacitated or I dismiss them as a bonus action",
 				]),
 			},
 			"bat": {
-				name: "Otherworldy Wings",
+				name: "Otherworldly Wings",
 				description: desc([
 					"As a bonus action, I manifest a pair of spectral bat wings, giving me 30 ft fly speed",
 					"These wings last until I become incapacitated or I dismiss them as a bonus action",
 				]),
 			},
 			"dragonfly": {
-				name: "Otherworldy Wings",
+				name: "Otherworldly Wings",
 				description: desc([
 					"As a bonus action, I create a pair of spectral dragonfly wings, giving me 30 ft fly speed",
 					"These wings last until I become incapacitated or I dismiss them as a bonus action",
@@ -20157,7 +20180,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 			description: desc([
 				"As a bonus action, I can curse a creature I can see within 30 ft of me for 1 minute",
 				"\u2022 I add my proficiency bonus to damage rolls against the cursed target",
-				"\u2022 My attack rolls against the curse target score a critical hit on a roll of 19 and 20",
+				"\u2022 My attack rolls against the cursed target score a critical hit on a roll of 19 and 20",
 				"\u2022 If the target dies while cursed, I regain HP equal to my warlock level + Cha mod",
 				"The curse ends after 1 minute, when the target dies, I die, or I'm incapacitated",
 			]),
@@ -20253,7 +20276,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 				}],
 				traits: [{
 					name: "Incorporeal Movement",
-					description: "The specter can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object.",
+					description: "The specter can move through other creatures and objects as if they were difficult terrain. It takes 1d10 force damage if it ends its turn inside an object.",
 				}, {
 					name: "Sunlight Sensitivity",
 					description: "While in sunlight, the specter has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.",
@@ -20284,7 +20307,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 			minlevel: 10,
 			description: desc([
 				"As a reaction when a Hexblade's Curse recipient hits me with an attack, I can roll a d6",
-				"On a result of 4 or higher, the attacks misses me instead, regardless of its d20 roll",
+				"On a result of 4 or higher, the attack misses me instead, regardless of its d20 roll",
 			]),
 		},
 		"subclassfeature14": {
@@ -20312,7 +20335,7 @@ AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
 	name: "Cloak of Flies",
 	description: desc([
 		"As a bonus action, I can surround myself with a 5-ft radius magical aura of buzzing flies",
-		"It lasts until I'm incapacitated or dismiss it as a bonus action; Total cover block the aura",
+		"It lasts until I'm incapacitated or dismiss it as a bonus action; Total cover blocks the aura",
 		"The aura grants me adv. on Cha (Intimidation), but disadv. on all other Cha checks",
 		"Creatures starting their turn in the aura take my Cha mod (min 0) in poison damage",
 	]),
@@ -20604,7 +20627,7 @@ FeatsList["bountiful luck"] = {
 	prereqeval: function (v) { return CurrentRace.known.indexOf("halfling") !== -1; },
 	descriptionFull: [
 		"Your people have extraordinary luck, which you have learned to mystically lend to your companions when you see them falter. You're not sure how you do it; you just wish it, and it happens. Surely a sign of *fortune's favor*!",
-		"When an ally you can see within 30 feet of you rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, you can use your reaction to let the ally reroll the die. The ally must use the new roll",
+		"When an ally you can see within 30 feet of you rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, you can use your reaction to let the ally reroll the die. The ally must use the new roll.",
 		"When you use this ability, you can't use your Lucky racial trait before the end of your next turn.",
 	],
 	description: "When an ally I can see within 30 ft of me rolls a 1 on an attack roll, an ability check, or a saving throw, I can use my reaction to let the ally reroll the die. The ally must use the new roll. When I use this, I can't use my racial Lucky trait until the end of my next turn.",
@@ -20785,7 +20808,7 @@ FeatsList["orcish fury"] = {
 		" \u2022 When you hit with an attack using a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.",
 		" \u2022 Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.",
 	],
-	description: "Once per short rest, I can roll an extra damage die for an attack with a simple or martial weapon. In addition, Immediately after I use my Relentless Endurance trait, I can use my reaction to make one weapon attack. [+1 Strength or Constitution]",
+	description: "Once per short rest, I can roll an extra damage die for an attack with a simple or martial weapon. In addition, immediately after I use my Relentless Endurance trait, I can use my reaction to make one weapon attack. [+1 Strength or Constitution]",
 	scorestxt: "+1 Strength or Constitution",
 	action: [["reaction", " (after Relentless Endurance)"]],
 	usages: 1,
@@ -21536,9 +21559,7 @@ SpellsList["shadow blade"] = {
 	components: "V,S",
 	duration: "Conc, 1 min",
 	description: "Sword 2d8 Psychic dmg, finesse, light, thrown (20/60 ft), adv. if target in dim/dark; +1d8 at SL3/5/7",
-	descriptionMetric: "Sword: 2d8 Psychic dmg, finesse, light, thrown (6/18 m), adv. if target in dim/dark; +1d8 at SL3/5/7",
 	descriptionShorter: "Sword 2d8 Psychic dmg, finesse, light, thrown (20/60ft), adv. in dim/dark; +1d8 SL3/5/7",
-	descriptionShorterMetric: "Sword 2d8 Psychic dmg, finesse, light, thrown (6/18 m), adv. in dim/dark; +1d8 SL3/5/7",
 	descriptionFull: [
 		"You weave together threads of shadow to create a sword of solidified gloom in your hand. This magic sword lasts until the spell ends. It counts as a simple melee weapon with which you are proficient. It deals 2d8 psychic damage on a hit and has the finesse, light, and thrown properties (range 20/60). In addition, when you use the sword to attack a target that is in dim light or darkness, you make the attack roll with advantage.",
 		"If you drop the weapon or throw it, it dissipates at the end of the turn. Thereafter, while the spell persists, you can use a bonus action to cause the sword to reappear in your hand.",
@@ -27741,12 +27762,13 @@ CreatureList["fish"] = {
 	attacks: [],
 	traits: [{
 		name: "Water Breathing",
-		description: "The fish can breathe only underwater.",
+		description: "The [THIS] can breathe only underwater.",
 	}],
 }
 CreatureList["giant white moray eel"] = {
 	name: "Giant White Moray Eel",
 	nameAlt: ["Eel, Giant White Moray"],
+	nameThis: "eel",
 	source: [["GoS", 216]],
 	size: 1,
 	type: "Beast",
@@ -27774,7 +27796,7 @@ CreatureList["giant white moray eel"] = {
 	}],
 	traits: [{
 		name: "Water Breathing",
-		description: "The eel can breathe only underwater.",
+		description: "The [THIS] can breathe only underwater.",
 	}],
 }
 CreatureList["giant coral snake"] = {
@@ -27808,6 +27830,7 @@ CreatureList["giant coral snake"] = {
 CreatureList["giant sea eel"] = {
 	name: "Giant Sea Eel",
 	nameAlt: ["Eel, Giant Sea"],
+	nameThis: "eel",
 	source: [["GoS", 237]],
 	size: 2,
 	type: "Beast",
@@ -27836,7 +27859,7 @@ CreatureList["giant sea eel"] = {
 	}],
 	traits: [{
 		name: "Water Breathing",
-		description: "The eel can breathe only underwater.",
+		description: "The [THIS] can breathe only underwater.",
 	}],
 }
 
@@ -28484,6 +28507,7 @@ BackgroundFeatureList["gateguide connection"] = {
 CreatureList["abyssal chicken"] = {
 	name: "Abyssal Chicken",
 	nameAlt: ["Chicken, Abyssal"],
+	nameThis: "chicken",
 	source: [["DiA", 97]],
 	size: 5,
 	type: "Fiend",
@@ -28519,11 +28543,11 @@ CreatureList["abyssal chicken"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the chicken can make one Bite and one Claws attack.",
+		description: "As an action on its turn, the [THIS] can make one Bite and one Claws attack.",
 	}],
 	traits: [{
 		name: "Bad Flier",
-		description: "The chicken falls at the end of a turn if it's airborne and the only thing holding it aloft is its flying speed.",
+		description: "The [THIS] falls at the end of a turn if it's airborne and the only thing holding it aloft is its flying speed.",
 	}],
 }
 
@@ -31150,14 +31174,14 @@ CreatureList["clawfoot"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the clawfoot can make one Bite and one Claws attack.",
+		description: "As an action on its turn, the [THIS] can make one Bite and one Claws attack.",
 	}],
 	traits: [{
 		name: "Pack Tactics",
-		description: "The clawfoot has advantage on an attack roll against a creature if at least one of the clawfoot's allies is within 5 ft of the creature and the ally isn't incapacitated.",
+		description: "The [THIS] has advantage on an attack roll against a creature if at least one of the [THIS]'s allies is within 5 ft of the creature and the ally isn't incapacitated.",
 	}, {
 		name: "Pounce",
-		description: "If the clawfoot moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 11 Strength saving throw or be knocked prone. If the target is prone, the clawfoot can make one bite attack against it as a bonus action.",
+		description: "If the [THIS] moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 11 Strength saving throw or be knocked prone. If the target is prone, the [THIS] can make one bite attack against it as a bonus action.",
 	}],
 	wildshapeString: "##Multiattack##. On its turn, 1 Bite and 1 Claws attack.\n##Pack Tactics##. Advantage on an attack roll if at least one ally, that isn't Incapacitated, is within 5 ft of the target. ##Pounce##. If the clawfoot moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target makes a DC 11 Str save or is knocked Prone and the clawfoot can make one bite attack against it as a bonus action.",
 };
@@ -31185,7 +31209,7 @@ CreatureList["fastieth"] = {
 	}],
 	traits: [{
 		name: "Quickness (Recharge 5-6)",
-		description: "The fastieth can take the Dodge action as a bonus action.",
+		description: "The [THIS] can take the Dodge action as a bonus action.",
 	}],
 };
 ERftLW_Valenar_Ancestral_Traits = [
@@ -31208,6 +31232,7 @@ ERftLW_Valenar_Ancestral_Traits = [
 ].join("\n");
 CreatureList["valenar hawk"] = { // contributed by Nod_Hero
 	name: "Valenar Hawk",
+	nameThis: "hawk",
 	source: [["E:RLW", 312]],
 	size: 5,
 	type: "Fey",
@@ -31234,10 +31259,10 @@ CreatureList["valenar hawk"] = { // contributed by Nod_Hero
 	}],
 	traits: [{
 		name: "Keen Sight",
-		description: "The hawk has advantage on Wisdom (Perception) checks that rely on sight.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on sight.",
 	}, {
 		name: "Bonding",
-		description: "The hawk can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the hawk bonds with a different creature or until the bonded creature dies. While bonded, the hawk and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
+		description: "The [THIS] can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the [THIS] bonds with a different creature or until the bonded creature dies. While bonded, the [THIS] and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
 	}],
 	notes: [{
 		name: "[Variant] Ancestral Traits (E:RLW 313)",
@@ -31264,6 +31289,7 @@ CreatureList["valenar hawk"] = { // contributed by Nod_Hero
 };
 CreatureList["valenar hound"] = { // contributed by Nod_Hero
 	name: "Valenar Hound",
+	nameThis: "hound",
 	source: [["E:RLW", 312]],
 	size: 3,
 	type: "Fey",
@@ -31291,15 +31317,16 @@ CreatureList["valenar hound"] = { // contributed by Nod_Hero
 	}],
 	traits: [{
 		name: "Keen Hearing and Smell",
-		description: "The hound has advantage on Wisdom (Perception) checks that rely on hearing or smell.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on hearing or smell.",
 	}, {
 		name: "Bonding",
-		description: "The hound can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the hound bonds with a different creature or until the bonded creature dies. While bonded, the hound and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
+		description: "The [THIS] can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the [THIS] bonds with a different creature or until the bonded creature dies. While bonded, the [THIS] and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
 	}],
 	notes: CreatureList["valenar hawk"].notes,
 };
 CreatureList["valenar steed"] = { // contributed by Nod_Hero
 	name: "Valenar Steed",
+	nameThis: "steed",
 	source: [["E:RLW", 313]],
 	size: 2,
 	type: "Fey",
@@ -31325,7 +31352,7 @@ CreatureList["valenar steed"] = { // contributed by Nod_Hero
 	}],
 	traits: [{
 		name: "Bonding",
-		description: "The steed can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the steed bonds with a different creature or until the bonded creature dies. While bonded, the steed and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
+		description: "The [THIS] can magically bond with one creature it can see, immediately after spending at least 1 hour observing that creature while within 30 ft of it. The bond lasts until the [THIS] bonds with a different creature or until the bonded creature dies. While bonded, the [THIS] and the bonded creature can communicate telepathically with each other at a distance of up to 100 ft.",
 	}],
 	notes: CreatureList["valenar hawk"].notes,
 };
@@ -32713,11 +32740,12 @@ CreatureList["moorbounder"] = {
 	}],
 	traits: [{
 		name: "Standing Leap",
-		description: "The moorbounder's long jump is up to 40 ft and its high jump is up to 20 ft, with or without a running start.",
+		description: "The [THIS]'s long jump is up to 40 ft and its high jump is up to 20 ft, with or without a running start.",
 	}],
 };
 CreatureList["bristled moorbounder"] = {
 	name: "Bristled Moorbounder",
+	nameThis: "moorbounder",
 	source: [["W", 295]],
 	size: 2,
 	type: "Beast",
@@ -32747,14 +32775,14 @@ CreatureList["bristled moorbounder"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the moorbounder can make one Blades and one Claws attack.",
+		description: "As an action on its turn, the [THIS] can make one Blades and one Claws attack.",
 	}],
 	traits: [{
 		name: "Bladed Hide",
-		description: "At the start of each of its turns, the moorbounder deals 2d4 piercing damage to any creature grappling it.",
+		description: "At the start of each of its turns, the [THIS] deals 2d4 piercing damage to any creature grappling it.",
 	}, {
 		name: "Standing Leap",
-		description: "The moorbounder's long jump is up to 40 ft and its high jump is up to 20 ft, with or without a running start.",
+		description: "The [THIS]'s long jump is up to 40 ft and its high jump is up to 20 ft, with or without a running start.",
 	}],
 };
 
@@ -34491,6 +34519,7 @@ BackgroundFeatureList["echoes of victory"] = { // includes contributions by Smas
 // Creature: possible familiar
 CreatureList["anvilwrought raptor"] = {
 	name: "Anvilwrought Raptor",
+	nameThis: "raptor",
 	source: [["MOT", 209]],
 	size: 5,
 	type: "Construct",
@@ -34521,14 +34550,14 @@ CreatureList["anvilwrought raptor"] = {
 	}],
 	traits: [{
 		name: "Keen Sight",
-		description: "The raptor has advantage on Wisdom (Perception) checks that rely on sight.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on sight.",
 	}, {
 		name: "Recorded Mimicry",
-		description: "The raptor can mimic any sound, including voices, it has heard in the last 24 hours. A creature that hears the sounds can tell they are imitations with a successful DC 12 Wisdom (Insight) check.",
+		description: "The [THIS] can mimic any sound, including voices, it has heard in the last 24 hours. A creature that hears the sounds can tell they are imitations with a successful DC 12 Wisdom (Insight) check.",
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the raptor can make two Beak attacks.",
+		description: "As an action on its turn, the [THIS] can make two Beak attacks.",
 	}],
 	variant: [{
 		name: "Variant: Familiar",
@@ -34975,6 +35004,7 @@ GearList["snowshoes"] = {
 CreatureList["awakened white moose"] = {
 	name: "Awakened White Moose",
 	nameAlt: ["Moose, Awakened White"],
+	nameThis: "moose",
 	source: [["RotF", 82]],
 	size: 2,
 	type: "Beast",
@@ -35004,14 +35034,14 @@ CreatureList["awakened white moose"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the moose moves at least 20 ft straight toward a target and then hits it with an antlers attack on the same turn, the target takes an extra 9 (2d8) bludgeoning damage. If the target is a creature, it must succeed on a DC 14 Strength saving throw or be knocked prone.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with an antlers attack on the same turn, the target takes an extra 2d8 bludgeoning damage. If the target is a creature, it must succeed on a DC 14 Strength saving throw or be knocked prone.",
 	}, {
 		name: "Sure-Footed",
-		description: "The moose has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.",
+		description: "The [THIS] has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.",
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the moose can make one Antlers and one Hooves attack.",
+		description: "As an action on its turn, the [THIS] can make one Antlers and one Hooves attack.",
 	}],
 	wildshapeString: [
 		"##Multiattack##. 1 Antlers and 1 Hooves attack.",
@@ -35050,7 +35080,7 @@ CreatureList["fox"] = {
 	}],
 	traits: [{
 		name: "Keen Hearing",
-		description: "The fox has advantage on Wisdom (Perception) checks that rely on hearing.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on hearing.",
 	}],
 };
 CreatureList["hare"] = {
@@ -35076,11 +35106,12 @@ CreatureList["hare"] = {
 	attacks: [],
 	traits: [{
 		name: "Escape",
-		description: "The hare can take the Dash, Disengage, or Hide action as a bonus action on each of its turns.",
+		description: "The [THIS] can take the Dash, Disengage, or Hide action as a bonus action on each of its turns.",
 	}],
 };
 CreatureList["knucklehead trout"] = {
 	name: "Knucklehead Trout",
+	nameThis: "trout",
 	source: [["RotF", 295]],
 	size: 4,
 	type: "Beast",
@@ -35110,12 +35141,13 @@ CreatureList["knucklehead trout"] = {
 	}],
 	traits: [{
 		name: "Water Breathing",
-		description: "The trout can breathe only underwater.",
+		description: "The [THIS] can breathe only underwater.",
 	}],
 };
 CreatureList["mountain goat"] = {
 	name: "Mountain Goat",
 	nameAlt: ["Goat, Mountain"],
+	nameThis: "goat",
 	source: [["RotF", 304]],
 	size: 3,
 	type: "Beast",
@@ -35138,10 +35170,10 @@ CreatureList["mountain goat"] = {
 	}],
 	traits: [{
 		name: "Charge",
-		description: "If the goat moves at least 20 ft straight toward a target and then hits it with a ram attack on the same turn, the target takes an extra 3 (1d6) bludgeoning damage. If the target is a creature, it must succeed on a DC 12 Strength saving throw or be knocked prone.",
+		description: "If the [THIS] moves at least 20 ft straight toward a target and then hits it with a ram attack on the same turn, the target takes an extra 1d6 bludgeoning damage. If the target is a creature, it must succeed on a DC 12 Strength saving throw or be knocked prone.",
 	}, {
 		name: "Sure-Footed",
-		description: "The goat has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.",
+		description: "The [THIS] has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.",
 	}],
 	wildshapeString: [
 		"##Charge##. After moving 20 ft straight toward a target and then hitting it with a ram attack on the same turn, the target takes an extra 1d6 bludgeoning damage and must make a DC 12 Strength save or be knocked prone.",
@@ -35174,15 +35206,16 @@ CreatureList["seal"] = {
 	}],
 	traits: [{
 		name: "Hold Breath",
-		description: "The seal can hold its breath for 15 minutes.",
+		description: "The [THIS] can hold its breath for 15 minutes.",
 	}, {
 		name: "Keen Smell",
-		description: "The seal has advantage on Wisdom (Perception) checks that rely on smell.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on smell.",
 	}],
 };
 CreatureList["sperm whale"] = {
 	name: "Sperm Whale",
 	nameAlt: ["Whale, Sperm"],
+	nameThis: "whale",
 	source: [["RotF", 309]],
 	size: 0,
 	type: "Beast",
@@ -35203,7 +35236,7 @@ CreatureList["sperm whale"] = {
 		damage: [3, 8, "piercing"],
 		range: "Melee (5 ft)",
 		description: "1 bite \u0026 1 tail attack as Attack action; See Swallow feature",
-		tooltip: "If the target is a Large or smaller creature, it must succeed on a DC 14 Dexterity saving throw or be swallowed by the whale. A swallowed creature has total cover against attacks and other effects outside the whale, and it takes 3 (1d6) acid damage at the start of each of the whale's turns. If the whale takes 30 damage or more on a single turn from a creature inside it, the whale must succeed on a DC 16 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, which fall prone in a space within 10 feet of the whale. If the whale dies, a swallowed creature can escape from the corpse by using 20 feet of movement, exiting prone.",
+		tooltip: "If the target is a Large or smaller creature, it must succeed on a DC 14 Dexterity saving throw or be swallowed by the whale. A swallowed creature has total cover against attacks and other effects outside the whale, and it takes 1d6 acid damage at the start of each of the whale's turns. If the whale takes 30 damage or more on a single turn from a creature inside it, the whale must succeed on a DC 16 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, which fall prone in a space within 10 feet of the whale. If the whale dies, a swallowed creature can escape from the corpse by using 20 feet of movement, exiting prone.",
 	}, {
 		name: "Tail",
 		ability: 1,
@@ -35214,21 +35247,21 @@ CreatureList["sperm whale"] = {
 	}],
 	features: [{
 		name: "Swallow",
-		description: "A Large or smaller creature hit by the whale's bite attack must make a DC 14 Dexterity saving throw or be swallowed whole. A swallowed creature has total cover against attacks and other effects outside the whale, and it takes 3 (1d6) acid damage at the start of each of the whale's turns. If the whale takes 30 damage or more on a single turn from a creature inside it, the whale must succeed on a DC 16 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, which fall prone in a space within 10 ft of the whale. If the whale dies, a swallowed creature can escape from the corpse by using 20 ft of movement, exiting prone.",
+		description: "A Large or smaller creature hit by the [THIS]'s bite attack must make a DC 14 Dexterity saving throw or be swallowed whole. A swallowed creature has total cover against attacks and other effects outside the [THIS], and it takes 1d6 acid damage at the start of each of the [THIS]'s turns. If the [THIS] takes 30 damage or more on a single turn from a creature inside it, the [THIS] must succeed on a DC 16 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, which fall prone in a space within 10 ft of the [THIS]. If the [THIS] dies, a swallowed creature can escape from the corpse by using 20 ft of movement, exiting prone.",
 	}],
 	traits: [{
 		name: "Echolocation",
-		description: "The whale can't use its blindsight while deafened.",
+		description: "The [THIS] can't use its blindsight while deafened.",
 	}, {
 		name: "Hold Breath",
-		description: "The whale can hold its breath for 90 minutes.",
+		description: "The [THIS] can hold its breath for 90 minutes.",
 	}, {
 		name: "Keen Hearing",
-		description: "The whale has advantage on Wisdom (Perception) checks that rely on hearing.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on hearing.",
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the whale can make one Bite and one Tail attack.",
+		description: "As an action on its turn, the [THIS] can make one Bite and one Tail attack.",
 	}],
 	wildshapeString: [
 		"##Senses##. Blindsight 120 ft (unless deafened); Adv. on Wis (Perception) checks using hearing.",
@@ -35260,7 +35293,7 @@ CreatureList["walrus"] = {
 	}],
 	traits: [{
 		name: "Hold Breath",
-		description: "The walrus can hold its breath for 10 minutes.",
+		description: "The [THIS] can hold its breath for 10 minutes.",
 	}],
 };
 CreatureList["giant walrus"] = {
@@ -35295,11 +35328,11 @@ CreatureList["giant walrus"] = {
 	}],
 	traits: [{
 		name: "Hold Breath",
-		description: "The walrus can hold its breath for 30 minutes.",
+		description: "The [THIS] can hold its breath for 30 minutes.",
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the walrus can make one Body Flop and one Tusks attack.",
+		description: "As an action on its turn, the [THIS] can make one Body Flop and one Tusks attack.",
 	}],
 };
 
@@ -35307,6 +35340,7 @@ CreatureList["giant walrus"] = {
 CreatureList["demos magen"] = {
 	name: "Demos Magen",
 	nameAlt: ["Magen, Demos"],
+	nameThis: "magen",
 	source: [["RotF", 300]],
 	size: 3,
 	type: "Construct",
@@ -35338,17 +35372,17 @@ CreatureList["demos magen"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the magen can make two melee attacks.",
+		description: "As an action on its turn, the [THIS] can make two melee attacks.",
 	}],
 	traits: [{
 		name: "Fiery End",
-		description: "If the magen dies, its body disintegrates in a harmless burst of fire and smoke, leaving behind anything it was wearing or carrying.",
+		description: "If the [THIS] dies, its body disintegrates in a harmless burst of fire and smoke, leaving behind anything it was wearing or carrying.",
 	}, {
 		name: "Magic Resistance",
-		description: "The magen has advantage on saving throws against spells and other magical effects.",
+		description: "The [THIS] has advantage on saving throws against spells and other magical effects.",
 	}, {
 		name: "Unusual Nature",
-		description: "The magen doesn't require air, food, drink, or sleep.",
+		description: "The [THIS] doesn't require air, food, drink, or sleep.",
 	}],
 	features: [{
 		name: "Magical Servants",
@@ -35358,6 +35392,7 @@ CreatureList["demos magen"] = {
 CreatureList["galvan magen"] = {
 	name: "Galvan Magen",
 	nameAlt: ["Magen, Galvan"],
+	nameThis: "magen",
 	source: [["RotF", 301]],
 	size: 3,
 	type: "Construct",
@@ -35388,17 +35423,17 @@ CreatureList["galvan magen"] = {
 		description: "Hits all in area; Dex save, success\u2015 half damage; Disadv. if wearing metal armor",
 		abilitytodamage: false,
 		dc: true,
-		tooltip: "The magen discharges a lightning bolt in a 60-foot line that is 5 feet wide. Each creature in that line must make a DC 14 Dexterity saving throw (with disadvantage if the creature is wearing armor made of metal), taking 22 (4d10) lightning damage on a failed save, or half as much damage on a successful one.",
+		tooltip: "The magen discharges a lightning bolt in a 60-foot line that is 5 feet wide. Each creature in that line must make a DC 14 Dexterity saving throw (with disadvantage if the creature is wearing armor made of metal), taking 4d10 lightning damage on a failed save, or half as much damage on a successful one.",
 	}],
 	traits: [{
 		name: "Fiery End",
-		description: "If the magen dies, its body disintegrates in a harmless burst of fire and smoke, leaving behind anything it was wearing or carrying.",
+		description: "If the [THIS] dies, its body disintegrates in a harmless burst of fire and smoke, leaving behind anything it was wearing or carrying.",
 	}, {
 		name: "Magic Resistance",
-		description: "The magen has advantage on saving throws against spells and other magical effects.",
+		description: "The [THIS] has advantage on saving throws against spells and other magical effects.",
 	}, {
 		name: "Unusual Nature",
-		description: "The magen doesn't require air, food, drink, or sleep.",
+		description: "The [THIS] doesn't require air, food, drink, or sleep.",
 	}],
 	features: [{
 		name: "Magical Servants",
@@ -35406,15 +35441,16 @@ CreatureList["galvan magen"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the magen can make two Shocking Touch attacks.",
+		description: "As an action on its turn, the [THIS] can make two Shocking Touch attacks.",
 	}, {
 		name: "Static Discharge (Recharge 5-6)",
-		description: "See Attack. The magen discharges a *lightning bolt* in a 60-ft line that is 5 ft wide. Each creature in that line must make a DC 14 Dexterity saving throw (with disadvantage if the creature is wearing armor made of metal), taking 4d12 lightning damage on a failed save, or half as much damage on a successful one.",
+		description: "See Attack. The [THIS] discharges a *lightning bolt* in a 60-ft line that is 5 ft wide. Each creature in that line must make a DC 14 Dexterity saving throw (with disadvantage if the creature is wearing armor made of metal), taking 4d12 lightning damage on a failed save, or half as much damage on a successful one.",
 	}],
 };
 CreatureList["hypnos magen"] = {
 	name: "Hypnos Magen",
 	nameAlt: ["Magen, Hypnos"],
+	nameThis: "magen",
 	source: [["RotF", 301]],
 	size: 3,
 	type: "Construct",
@@ -35442,13 +35478,13 @@ CreatureList["hypnos magen"] = {
 	}],
 	traits: [{
 		name: "Fiery End",
-		description: "If the magen dies, its body disintegrates in a harmless burst of fire and smoke, leaving behind anything it was wearing or carrying.",
+		description: "If the [THIS] dies, its body disintegrates in a harmless burst of fire and smoke, leaving behind anything it was wearing or carrying.",
 	}, {
 		name: "Magic Resistance",
-		description: "The magen has advantage on saving throws against spells and other magical effects.",
+		description: "The [THIS] has advantage on saving throws against spells and other magical effects.",
 	}, {
 		name: "Unusual Nature",
-		description: "The magen doesn't require air, food, drink, or sleep.",
+		description: "The [THIS] doesn't require air, food, drink, or sleep.",
 	}],
 	features: [{
 		name: "Magical Servants",
@@ -35456,7 +35492,7 @@ CreatureList["hypnos magen"] = {
 	}],
 	actions: [{
 		name: "Suggestion",
-		description: "The magen casts the *Suggestion* spell (save DC 12), requiring no material components. The target must be a creature that the magen can communicate with telepathically. If it succeeds on its saving throw, the target is immune to this magen's *suggestion* spell for the next 24 hours. The magen's spellcasting ability is Intelligence.",
+		description: "The [THIS] casts the *Suggestion* spell (save DC 12), requiring no material components. The target must be a creature that the [THIS] can communicate with telepathically. If it succeeds on its saving throw, the target is immune to this [THIS]'s *suggestion* spell for the next 24 hours. The [THIS]'s spellcasting ability is Intelligence.",
 	}],
 };
 
@@ -46287,11 +46323,11 @@ CreatureList["giant swan"] = { // a giant eagle except that it has no talons, ca
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the swan can make two Beak attacks.",
+		description: "As an action on its turn, the [THIS] can make two Beak attacks.",
 	}],
 	traits: [{
 		name: "Keen Sight",
-		description: "The swan has advantage on Wisdom (Perception) checks that rely on sight.",
+		description: "The [THIS] has advantage on Wisdom (Perception) checks that rely on sight.",
 	}],
 }
 CreatureList["giant dragonfly"] = {
@@ -46319,11 +46355,11 @@ CreatureList["giant dragonfly"] = {
 	}],
 	traits: [{
 		name: "Drone",
-		description: "When it beats its wings, the dragonfly emits a loud droning sound that can be heard out to a range of 120 ft.",
+		description: "When it beats its wings, the [THIS] emits a loud droning sound that can be heard out to a range of 120 ft.",
 	}],
 	actions: [{
 		name: "Uncanny Dodge",
-		description: "As a reaction, the dragonfly can halve the damage it takes from an attack made against it, provided it can see the attacker.",
+		description: "As a reaction, the [THIS] can halve the damage it takes from an attack made against it, provided it can see the attacker.",
 	}],
 }
 CreatureList["giant snail"] = {
@@ -46352,11 +46388,11 @@ CreatureList["giant snail"] = {
 	}],
 	traits: [{
 		name: "Salt Osmosis",
-		description: "Whenever the snail starts its turn in contact with a pound or more of salt, it takes 1d4 necrotic damage. Using an action to sprinkle a pound of salt on the snail deals 1d4 necrotic damage to it immediately and another 1d4 necrotic damage to it at the start of its next turn (after which the salt rubs off), provided the snail has not withdrawn into its shell.",
+		description: "Whenever the [THIS] starts its turn in contact with a pound or more of salt, it takes 1d4 necrotic damage. Using an action to sprinkle a pound of salt on the [THIS] deals 1d4 necrotic damage to it immediately and another 1d4 necrotic damage to it at the start of its next turn (after which the salt rubs off), provided the [THIS] has not withdrawn into its shell.",
 	}],
 	actions: [{
 		name: "Shell Defense",
-		description: "As an action, the snail withdraws into its shell, gaining a +4 bonus to its AC until it emerges. It can emerge from its shell as a bonus action on its turn.",
+		description: "As an action, the [THIS] withdraws into its shell, gaining a +4 bonus to its AC until it emerges. It can emerge from its shell as a bonus action on its turn.",
 	}],
 	wildshapeString: [
 		"##Senses##. Darkvision 60 ft.",
@@ -48220,11 +48256,11 @@ CreatureList["dragonnel"] = { // Alternate for Find Greater Steed spell (contrib
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the dragonnel can make two Rend attacks.",
+		description: "As an action on its turn, the [THIS] can make two Rend attacks.",
 	}],
 	traits: [{
 		name: "Flyby",
-		description: "The dragonnel doesn't provoke an opportunity attack when it flies out of an enemy's reach.",
+		description: "The [THIS] doesn't provoke an opportunity attack when it flies out of an enemy's reach.",
 	}],
 };
 
@@ -49025,6 +49061,7 @@ MagicItemsList["masque charm"] = {
 CreatureList["art elemental mascot"] = { // Prismari
 	name: "Art Elemental Mascot",
 	nameAlt: ["Mascot, Art Elemental"],
+	nameThis: "elemental",
 	source: [["SCC", 185]],
 	size: 4,
 	type: "Elemental",
@@ -49061,16 +49098,17 @@ CreatureList["art elemental mascot"] = { // Prismari
 	}],
 	actions: [{
 		name: "Captivating Artistry (1/Day)",
-		description: "As an action, the elemental can target one creature it can see within 30 ft of itself. The target must succeed on a DC 12 Charisma saving throw or be charmed for 1 minute. The charmed target can repeat the save at the end of each of its turns, ending the effect on itself on a success.",
+		description: "As an action, the [THIS] can target one creature it can see within 30 ft of itself. The target must succeed on a DC 12 Charisma saving throw or be charmed for 1 minute. The charmed target can repeat the save at the end of each of its turns, ending the effect on itself on a success.",
 	}],
 	traits: [{
 		name: "Death Burst",
-		description: "When the elemental dies, it explodes in a burst of colored light. Each creature within 5 ft of the elemental must succeed on a DC 11 Constitution saving throw or be blinded for 1 minute. A blinded creature can repeat the save at the end of each of its turns, ending the effect on itself on a success.",
+		description: "When the [THIS] dies, it explodes in a burst of colored light. Each creature within 5 ft of the [THIS] must succeed on a DC 11 Constitution saving throw or be blinded for 1 minute. A blinded creature can repeat the save at the end of each of its turns, ending the effect on itself on a success.",
 	}],
 };
 CreatureList["fractal mascot"] = { // Quandrix
 	name: "Fractal Mascot",
 	nameAlt: ["Mascot, Fractal"],
+	nameThis: "fractal",
 	source: [["SCC", 192]],
 	size: 4,
 	type: "Construct",
@@ -49097,19 +49135,20 @@ CreatureList["fractal mascot"] = { // Quandrix
 	}],
 	actions: [{
 		name: "Augment",
-		description: "As a bonus action, the fractal can increase its size by one category. While the fractal is Medium or bigger, it makes Strength checks and Strength saving throws with advantage. The fractal can become no larger than Huge via this bonus action.",
+		description: "As a bonus action, the [THIS] can increase its size by one category. While the [THIS] is Medium or bigger, it makes Strength checks and Strength saving throws with advantage. The [THIS] can become no larger than Huge via this bonus action.",
 	}, {
 		name: "Diminish",
-		description: "As a bonus action, the fractal can decreases its size by one category. While the fractal is Tiny, it makes attack rolls, Dexterity checks, and Dexterity saving throws with advantage. The fractal can become no smaller than 1 ft in height via this bonus action.",
+		description: "As a bonus action, the [THIS] can decreases its size by one category. While the [THIS] is Tiny, it makes attack rolls, Dexterity checks, and Dexterity saving throws with advantage. The [THIS] can become no smaller than 1 ft in height via this bonus action.",
 	}],
 	traits: [{
 		name: "Relative Density",
-		description: "The fractal can move through creatures and objects as if they were difficult terrain. It takes 1d10 force damage if it ends its turn inside an object.",
+		description: "The [THIS] can move through creatures and objects as if they were difficult terrain. It takes 1d10 force damage if it ends its turn inside an object.",
 	}],
 };
 CreatureList["inkling mascot"] = { // Silverquill
 	name: "Inkling Mascot",
 	nameAlt: ["Mascot, Inkling"],
+	nameThis: "inkling",
 	source: [["SCC", 195]],
 	size: 5,
 	type: "Ooze",
@@ -49140,19 +49179,20 @@ CreatureList["inkling mascot"] = { // Silverquill
 	}],
 	actions: [{
 		name: "Ink Spray (1/Day)",
-		description: "As an action, the inkling can spray viscous ink at one creature within 15 ft of itself. The target must succeed on a DC 12 Constitution saving throw or be blinded until the end of the inkling's next turn.",
+		description: "As an action, the [THIS] can spray viscous ink at one creature within 15 ft of itself. The target must succeed on a DC 12 Constitution saving throw or be blinded until the end of the [THIS]'s next turn.",
 	}, {
 		name: "Shadow Stealth",
-		description: "As a bonus action while in dim light or darkness, the inkling can take the Hide action.",
+		description: "As a bonus action while in dim light or darkness, the [THIS] can take the Hide action.",
 	}],
 	traits: [{
 		name: "Amorphous",
-		description: "The inkling can move through a space as narrow as 1 inch wide without squeezing.",
+		description: "The [THIS] can move through a space as narrow as 1 inch wide without squeezing.",
 	}],
 };
 CreatureList["pest mascot"] = { // Witherbloom
 	name: "Pest Mascot",
 	nameAlt: ["Mascot, Pest"],
+	nameThis: "pest",
 	source: [["SCC", 203]],
 	size: 5,
 	type: "Monstrosity",
@@ -49180,15 +49220,16 @@ CreatureList["pest mascot"] = { // Witherbloom
 	}],
 	traits: [{
 		name: "Regeneration",
-		description: "The pest regains 5 hit points at the start of its turn if it has at least 1 hit point. If it takes fire damage, this trait doesn't function at the start of the pest's next turn.",
+		description: "The [THIS] regains 5 hit points at the start of its turn if it has at least 1 hit point. If it takes fire damage, this trait doesn't function at the start of the [THIS]'s next turn.",
 	}, {
 		name: "Spiny Hide",
-		description: "At the start of each of its turns, the pest deals 1d4 piercing damage to any creature grappling it or that it is grappling.",
+		description: "At the start of each of its turns, the [THIS] deals 1d4 piercing damage to any creature grappling it or that it is grappling.",
 	}],
 };
 CreatureList["spirit statue mascot"] = { // Lorehold
 	name: "Spirit Statue Mascot",
 	nameAlt: ["Mascot, Spirit Statue"],
+	nameThis: "spirit statue",
 	source: [["SCC", 216]],
 	size: 3,
 	type: "Construct",
@@ -49218,11 +49259,11 @@ CreatureList["spirit statue mascot"] = { // Lorehold
 	}],
 	actions: [{
 		name: "Counsel of the Past (2/Day)",
-		description: "The spirit statue touches one creature. Once within the next 10 minutes, that creature can roll a d4 and add the number rolled to one ability check of its choice, immediately after rolling the d20.",
+		description: "The [THIS] touches one creature. Once within the next 10 minutes, that creature can roll a d4 and add the number rolled to one ability check of its choice, immediately after rolling the d20.",
 	}],
 	traits: [{
 		name: "Death Burst",
-		description: "When the spirit statue is reduced to 0 hit points, the statue crumbles, and the spirit returns to the afterlife in a burst of ghostly white flame. Each creature within 5 ft of it must succeed on a DC 12 Constitution saving throw or take 1d6 radiant damage.",
+		description: "When the [THIS] is reduced to 0 hit points, the statue crumbles, and the spirit returns to the afterlife in a burst of ghostly white flame. Each creature within 5 ft of it must succeed on a DC 12 Constitution saving throw or take 1d6 radiant damage.",
 	}],
 };
 
@@ -50923,6 +50964,7 @@ SourceList["CotN"] = {
 CreatureList["young horizonback tortoise"] = { // Contains contributions by Nod_Hero
 	name: "Young Horizonback Tortoise",
 	nameAlt: ["Tortoise, Young Horizonback"],
+	nameThis: "tortoise",
 	source: [["CotN", 26]],
 	size: 1,
 	type: "Beast",
@@ -50947,7 +50989,7 @@ CreatureList["young horizonback tortoise"] = { // Contains contributions by Nod_
 	}],
 	traits: [{
 		name: "Amphibious",
-		description: "The tortoise can breathe air and water.",
+		description: "The [THIS] can breathe air and water.",
 	}],
 };
 
@@ -51660,6 +51702,7 @@ MagicItemsList["wildspace orrery"] = {
 CreatureList["space eel"] = {
 	name: "Space Eel",
 	nameAlt: ["Eel, Space"],
+	nameThis: "eel",
 	source: [["S:AiS", 55]], // page number in Boo's Astral Menagerie
 	size: 4,
 	type: "Beast",
@@ -51691,17 +51734,17 @@ CreatureList["space eel"] = {
 	}],
 	features: [{
 		name: "Unusual Nature",
-		description: "The eel doesn't require air.",
+		description: "The [THIS] doesn't require air.",
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn if not attached to a creature, the eel can make one Bite and one Tail Spine attack.",
+		description: "As an action on its turn if not attached to a creature, the [THIS] can make one Bite and one Tail Spine attack.",
 	}, {
 		name: "Attach",
-		description: "If the eel hits with its bite attack, it attaches to the target. While attached, the eel can't make bite attacks. Instead, the target takes the bite damage at the start of each of the eel's turns. The eel can detach itself as a bonus action. A creature, including the target, can use its action to detach the eel.",
+		description: "If the [THIS] hits with its bite attack, it attaches to the target. While attached, the [THIS] can't make bite attacks. Instead, the target takes the bite damage at the start of each of the [THIS]'s turns. The [THIS] can detach itself as a bonus action. A creature, including the target, can use its action to detach the [THIS].",
 	}, {
 		name: "Tail Spine",
-		description: "If the eel hits with its tail spine, the target must succeed on a DC 10 Constitution saving throw or be poisoned for 1 minute. Until this poison ends, the target is paralyzed. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+		description: "If the [THIS] hits with its tail spine, the target must succeed on a DC 10 Constitution saving throw or be poisoned for 1 minute. Until this poison ends, the target is paralyzed. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
 	}],
 	wildshapeString: [
 		"##Senses##. Darkvision 60 ft",
@@ -51713,6 +51756,7 @@ CreatureList["space eel"] = {
 CreatureList["space guppy"] = {
 	name: "Space Guppy",
 	nameAlt: ["Guppy, Space"],
+	nameThis: "guppy",
 	source: [["S:AiS", 55]], // page number in Boo's Astral Menagerie
 	size: 4,
 	type: "Beast",
@@ -51735,10 +51779,10 @@ CreatureList["space guppy"] = {
 	}],
 	traits: [{
 		name: "Air Envelope",
-		description: "If it has at least 1 hit point, the guppy can generate an air envelope around itself when in a vacuum. This air envelope can sustain the guppy and one other Tiny creature in its space indefinitely.",
+		description: "If it has at least 1 hit point, the [THIS] can generate an air envelope around itself when in a vacuum. This air envelope can sustain the [THIS] and one other Tiny creature in its space indefinitely.",
 	}, {
 		name: "Flyby",
-		description: "The guppy doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
+		description: "The [THIS] doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
 	}],
 };
 CreatureList["giant space hamster"] = {
@@ -51767,6 +51811,7 @@ CreatureList["giant space hamster"] = {
 CreatureList["space mollymawk"] = {
 	name: "Space Mollymawk",
 	nameAlt: ["Mollymawk, Space"],
+	nameThis: "mollymawk",
 	source: [["S:AiS", 57]], // page number in Boo's Astral Menagerie
 	size: 4,
 	type: "Beast",
@@ -51791,10 +51836,10 @@ CreatureList["space mollymawk"] = {
 	}],
 	traits: [{
 		name: "Flyby",
-		description: "The mollymawk doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
+		description: "The [THIS] doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
 	}, {
 		name: "Hold Breath",
-		description: "The mollymawk can hold its breath for 15 minutes.",
+		description: "The [THIS] can hold its breath for 15 minutes.",
 	}],
 };
 CreatureList["space swine"] = {
@@ -53536,6 +53581,7 @@ FeatsList["rune shaper"] = {
 CreatureList["spotted lion"] = {
 	name: "Spotted Lion",
 	nameAlt: ["Lion, Spotted"],
+	nameThis: "lion",
 	source: [["GotG", 177]],
 	size: 1,
 	type: "Beast",
@@ -53564,10 +53610,10 @@ CreatureList["spotted lion"] = {
 	}],
 	traits: [{
 		name: "Pack Tactics",
-		description: "The lion has advantage on an attack roll against a creature if at least one of the lion's allies is within 5 feet of the target and the ally doesn't have the incapacitated condition.",
+		description: "The [THIS] has advantage on an attack roll against a creature if at least one of the [THIS]'s allies is within 5 feet of the target and the ally doesn't have the incapacitated condition.",
 	}, {
 		name: "Pounce",
-		description: "If the lion moved at least 20 ft straight toward the target immediately before hitting it, the target must succeed on a DC 16 Strength saving throw or have the prone condition. If the target has the prone condition, the lion can make another Rend attack against it as a bonus action.",
+		description: "If the [THIS] moved at least 20 ft straight toward the target immediately before hitting it, the target must succeed on a DC 16 Strength saving throw or have the prone condition. If the target has the prone condition, the [THIS] can make another Rend attack against it as a bonus action.",
 	}],
 	wildshapeString: [
 		"##Senses##. Darkvision 60 ft.",
@@ -53596,14 +53642,14 @@ CreatureList["titanothere"] = {
 		damage: [2, 8, "piercing"],
 		range: "Melee (10 ft)",
 		description: "If used after moving 20 ft straight in the same round, see Charge trait",
-		tooltip: "If the titanothere moved at least 20 feet straight toward the target immediately before hitting it, the target takes an extra 13 (3d8) bludgeoning damage, and if the target is a creature, it must succeed on a DC 18 Strength saving throw or be knocked prone.",
+		tooltip: "If the titanothere moved at least 20 feet straight toward the target immediately before hitting it, the target takes an extra 3d8 bludgeoning damage, and if the target is a creature, it must succeed on a DC 18 Strength saving throw or be knocked prone.",
 	}],
 	traits: [{
 		name: "Beast of Burden",
-		description: "The titanothere is considered to be one size larger for the purpose of determining its carrying capacity.",
+		description: "The [THIS] is considered to be one size larger for the purpose of determining its carrying capacity.",
 	}, {
 		name: "Charge",
-		description: "If the titanothere moved at least 20 feet straight toward the target immediately before hitting it, the target takes an extra 13 (3d8) bludgeoning damage, and if the target is a creature, it must succeed on a DC 18 Strength saving throw or be knocked prone.",
+		description: "If the [THIS] moved at least 20 feet straight toward the target immediately before hitting it, the target takes an extra 3d8 bludgeoning damage, and if the target is a creature, it must succeed on a DC 18 Strength saving throw or be knocked prone.",
 	}],
 };
 
