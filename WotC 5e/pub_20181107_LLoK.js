@@ -21,7 +21,7 @@ MagicItemsList["blade of the medusa"] = {
 	rarity: "very rare",
 	magicItemTable: "H",
 	description: "I'm unwilling to part with this magic blade. When I attack a creature with it and roll a 20 to hit, it must make a DC 15 Con save or be restrained, and on a roll of 1, I must make that save. At the end of each of the target's turns, it can save again, ending the effect with 3 successes, or petrified for 1 hour after 3 failures.",
-	descriptionLong: "I'm unwilling to part with this magic sword. When I attack a creature with it and roll a 20 to hit, it must make a DC 15 Constitution save or be restrained. However, if I roll of 1 on the attack roll, I must make that same save. At the end of each of the effected target's turns, it can make the save again. If it successfully saves against this effect three times, the effect ends. However, if it failed three times, it is turned to stone and petrified for 1 hour. A creature is immune to this effect if it is immune to damage of the weapon's type, does not have a body made of flesh, or has legendary actions.",
+	descriptionLong: "I'm unwilling to part with this magic sword. When I attack a creature with it and roll a 20 to hit, it must make a DC 15 Constitution save or be restrained. However, if I roll a 1 on the attack roll, I must make that same save. At the end of each of the affected target's turns, it can make the save again. If it successfully saves against this effect three times, the effect ends. However, if it failed three times, it is turned to stone and petrified for 1 hour. A creature is immune to this effect if it is immune to damage of the weapon's type, does not have a body made of flesh, or has legendary actions.",
 	descriptionFull: [
 		"When you attack a creature with this magic weapon and roll a 20 on the attack roll, the creature must make a DC 15 Constitution saving throw in addition to suffering the attack's normal effects. On a failed save, the creature is restrained and must make another Constitution saving throw at the end of each of its turns. If it successfully saves against this effect three times, the effect ends. If it fails its saves three times, it is turned to stone and subjected to the petrified condition for 1 hour.",
 		"A creature is immune to this effect if it is immune to damage of the weapon's type, does not have a body made of flesh, or has legendary actions.",
@@ -256,7 +256,7 @@ MagicItemsList["leather golem armor"] = {
 		" \u2022 **Lightning Absorption**. You gain resistance to lightning damage. Whenever you take lightning damage, you gain 5 temporary hit points.",
 		"***Curse***. This armor is cursed, and it extends to whomever becomes attuned to it. Until the curse is broken with a *remove curse* spell or similar magic, you are unwilling to part with the armor. In addition, while you wear the cursed armor, you gain the following properties:",
 		" \u2022 **Aversion of Fire**. If you take fire damage, you have disadvantage on attack rolls and ability checks until the end of your next turn.",
-		" \u2022 **Berserk**. Whenever you suffer a critical hit, roll a d6. On a 6, you go beserk because of the armor. On each of your turns while berserk, you attack the nearest creature you can see. If no creature is near enough to move to and attack, you attack an object, with preference for an object smaller than yourself. Once you go beserk because of the armor, it cannot be removed. You continue to attack until you are incapacitated or until another creature is able to change your state of mind with appropriate magic (such as a *calm emotions* spell) or a successful DC 15 Charisma (Persuasion) check.",
+		" \u2022 **Berserk**. Whenever you suffer a critical hit, roll a d6. On a 6, you go berserk because of the armor. On each of your turns while berserk, you attack the nearest creature you can see. If no creature is near enough to move to and attack, you attack an object, with preference for an object smaller than yourself. Once you go berserk because of the armor, it cannot be removed. You continue to attack until you are incapacitated or until another creature is able to change your state of mind with appropriate magic (such as a *calm emotions* spell) or a successful DC 15 Charisma (Persuasion) check.",
 	],
 	attunement: true,
 	weight: 10,
@@ -440,7 +440,7 @@ SpellsList["galder's tower"] = {
 	components: "V,S,M",
 	compMaterial: "A fragment of stone, wood, or other building material",
 	duration: "24 h",
-	description: "Conjure round or square tower with 2+1/Sl stories, each 100 sq ft and 10 ft high; see book",
+	description: "Conjure round or square tower with 2+1/SL stories, each 100 sq ft and 10 ft high; see book",
 	descriptionFull: [
 		"You conjure a two-story tower made of stone, wood, or similar suitably sturdy materials. The tower can be round or square in shape. Each level of the tower is 10 feet tall and has an area of up to 100 square feet. Access between levels consists of a simple ladder and hatch. Each level takes one of the following forms, chosen by you when you cast the spell:",
 		" \u2022 A bedroom with a bed, chairs, chest, and magical fireplace",

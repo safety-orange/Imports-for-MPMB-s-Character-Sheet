@@ -227,7 +227,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 			source: [["T", 21], ["UA:SP3", 3]],
 			description: desc("The wearer has advantage on Initiative rolls and can't be surprised while not incapacitated"),
 			additional: "helmet; requires attunement",
-			prereqeval: function (v) { return classes.known.artificer.level >= 10; },
+			minlevel: 10,
 			magicitemsAdd: ["Helm of Awareness"],
 		});
 		MagicItemsList["helm of awareness"] = {
@@ -250,7 +250,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 			"As a reaction when being knocked prone, the wearer can use 1 charge to not be prone",
 		]),
 		additional: typePF ? "armor; attunement" : "suit of armor; needs attunement",
-		prereqeval: function (v) { return classes.known.artificer.level >= 10; },
+		minlevel: 10,
 		magicitemsAdd: ["Armor of Magical Strength (UA)"],
 	});
 	MagicItemsList["armor of magical strength-ua"] = {
@@ -341,7 +341,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 			"The maximum level of the spell slot is equal to the number of magic items it is attuned to",
 		]),
 		additional: "ring; requires attunement",
-		prereqeval: function (v) { return classes.known.artificer.level >= 6; },
+		minlevel: 6,
 		magicitemsAdd: ["Spell-Refueling Ring (UA)"],
 	});
 	MagicItemsList["spell-refueling ring-ua"] = {
@@ -441,7 +441,7 @@ AddSubClass("druid", "circle of the stars-ua", {
 			],
 			"star flare": {
 				name: "Star Flare",
-				extraname: "Circle of the Stars 14",
+				extraname: "Stars 14",
 				source: [["UA:SP3", 3]],
 				description: desc([
 					"As an action, I conjure a 30-ft radius sphere of light on a point within 120 ft I can see",

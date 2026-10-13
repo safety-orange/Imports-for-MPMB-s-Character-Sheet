@@ -23,22 +23,26 @@ AddRacialVariant("human", "yuan-ti transformed", {
 		immune: ["poison"],
 		adv_vs: ["magic"],
 	},
-	spellcastingAbility: 6,
-	spellcastingBonus: [{
-		name: "Innate Spellcasting (level 1)",
-		spells: ["poison spray", "animal friendship"],
-		selection: ["poison spray", "animal friendship"],
-		firstCol: "atwill",
-		times: 2,
-	}],
-	spellChanges: {
-		"animal friendship": {
-			description: "1 snake (beast) with less than 4 Int save or charmed for the duration",
-			changes: "Using Innate Spellcasting, I can cast *Animal Friendship* at will, but only to target snakes.",
-		},
-	},
 	features: {
-		"suggestion": {
+		"innate spellcasting (level 1)": {
+			name: "Innate Spellcasting (level 1)",
+			minlevel: 1,
+			spellcastingAbility: 6,
+			spellcastingBonus: [{
+				name: "Innate Spellcasting (level 1)",
+				spells: ["poison spray", "animal friendship"],
+				selection: ["poison spray", "animal friendship"],
+				firstCol: "atwill",
+				times: 2,
+			}],
+			spellChanges: {
+				"animal friendship": {
+					description: "1 snake (beast) with less than 4 Int save or charmed for the duration",
+					changes: "Using Innate Spellcasting, I can cast *Animal Friendship* at will, but only to target snakes.",
+				},
+			},
+		},
+		"innate spellcasting (level 3)": {
 			name: "Innate Spellcasting (level 3)",
 			minlevel: 3,
 			spellcastingBonus: [{
@@ -64,28 +68,32 @@ if (RaceSubList["human-variant"]) {
 		source: [["ToA", 119]],
 		skillstxt: "Choose any one skill",
 		scorestxt: "+1 to two different ability scores of my choice",
-		scores: [0, 0, 0, 0, 0, 0],
+		scores: null,
 		vision: [["Darkvision", 60]],
 		savetxt: {
 			immune: ["poison"],
 			adv_vs: ["magic"],
 		},
-		spellcastingAbility: 6,
-		spellcastingBonus: [{
-			name: "Innate Spellcasting (level 1)",
-			spells: ["poison spray", "animal friendship"],
-			selection: ["poison spray", "animal friendship"],
-			firstCol: "atwill",
-			times: 2,
-		}],
-		spellChanges: {
-			"animal friendship": {
-				description: "1 snake (beast) with less than 4 Int save or charmed for the duration",
-				changes: "Using Innate Spellcasting, I can cast *Animal Friendship* at will, but only to target snakes.",
-			},
-		},
 		features: {
-			"suggestion": {
+			"innate spellcasting (level 1)": {
+				name: "Innate Spellcasting (level 1)",
+				minlevel: 1,
+				spellcastingAbility: 6,
+				spellcastingBonus: [{
+					name: "Innate Spellcasting (level 1)",
+					spells: ["poison spray", "animal friendship"],
+					selection: ["poison spray", "animal friendship"],
+					firstCol: "atwill",
+					times: 2,
+				}],
+				spellChanges: {
+					"animal friendship": {
+						description: "1 snake (beast) with less than 4 Int save or charmed for the duration",
+						changes: "Using Innate Spellcasting, I can cast *Animal Friendship* at will, but only to target snakes.",
+					},
+				},
+			},
+			"innate spellcasting (level 3)": {
 				name: "Innate Spellcasting (level 3)",
 				minlevel: 3,
 				spellcastingBonus: [{
@@ -326,10 +334,10 @@ if (!SourceList["V"]) {
 		alignment: "Unaligned",
 		ac: 15,
 		hp: 121,
-		hd: [9, 20], //[#, die]
+		hd: [9, 20],
 		speed: "30 ft",
-		scores: [21, 9, 17, 2, 10, 7], //[Str, Dex, Con, Int, Wis, Cha]
-		saves: ["", "", 6, "", "", ""], //[Str, Dex, Con, Int, Wis, Cha]
+		scores: [21, 9, 17, 2, 10, 7],
+		saves: ["", "", 6, "", "", ""],
 		passivePerception: 10,
 		challengeRating: "5",
 		proficiencyBonus: 3,
@@ -337,13 +345,13 @@ if (!SourceList["V"]) {
 		attacks: [{
 			name: "Stomp",
 			ability: 1,
-			damage: [5, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
+			damage: [5, 8, "bludgeoning"],
 			range: "Melee (20 ft)",
 			description: "Target must succeed on a DC 14 Strength saving throw or be knocked prone",
 		}, {
 			name: "Tail",
 			ability: 1,
-			damage: [6, 8, "bludgeoning"], //[#, die, type] "" for die is allowed
+			damage: [6, 8, "bludgeoning"],
 			range: "Melee (20 ft)",
 			description: "",
 		}],
@@ -357,9 +365,9 @@ if (!SourceList["V"]) {
 		alignment: "Unaligned",
 		ac: 13,
 		hp: 26,
-		hd: [4, 8], //[#, die]
+		hd: [4, 8],
 		speed: "40 ft",
-		scores: [15, 15, 14, 4, 12, 6], //[Str, Dex, Con, Int, Wis, Cha]
+		scores: [15, 15, 14, 4, 12, 6],
 		skills: {
 			"perception": 3,
 		},
@@ -370,13 +378,13 @@ if (!SourceList["V"]) {
 		attacks: [{
 			name: "Claw",
 			ability: 1,
-			damage: [1, 8, "slashing"], //[#, die, type] "" for die is allowed
+			damage: [1, 8, "slashing"],
 			range: "Melee (5 ft)",
 			description: "Two claw and one bite as one Attack action; If used after moving 20 ft straight in the same round, see Pounce trait",
 		}, {
 			name: "Bite",
 			ability: 1,
-			damage: [1, 8, "piercing"], //[#, die, type] "" for die is allowed
+			damage: [1, 8, "piercing"],
 			range: "Melee (5 ft)",
 			description: "Two claw and one bite as one Attack action (also, see Pounce trait)",
 		}],
@@ -398,9 +406,9 @@ if (!SourceList["V"]) {
 		alignment: "Unaligned",
 		ac: 12,
 		hp: 19,
-		hd: [3, 8], //[#, die]
+		hd: [3, 8],
 		speed: "30 ft, swim 20 ft",
-		scores: [14, 10, 15, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
+		scores: [14, 10, 15, 2, 10, 5],
 		skills: {
 			"perception": 2,
 		},
@@ -411,7 +419,7 @@ if (!SourceList["V"]) {
 		attacks: [{
 			name: "Bite",
 			ability: 1,
-			damage: [2, 6, "piercing"], //[#, die, type] "" for die is allowed
+			damage: [2, 6, "piercing"],
 			range: "Melee (5 ft)",
 			description: "",
 		}],
@@ -425,9 +433,9 @@ if (!SourceList["V"]) {
 		alignment: "Unaligned",
 		ac: 11,
 		hp: 19,
-		hd: [3, 10], //[#, die]
+		hd: [3, 10],
 		speed: "40 ft",
-		scores: [15, 10, 13, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
+		scores: [15, 10, 13, 2, 10, 5],
 		skills: {
 			"perception": 2,
 		},
@@ -438,7 +446,7 @@ if (!SourceList["V"]) {
 		attacks: [{
 			name: "Tail",
 			ability: 1,
-			damage: [1, 10, "bludgeoning"], //[#, die, type] "" for die is allowed
+			damage: [1, 10, "bludgeoning"],
 			range: "Melee (5 ft)",
 			description: "",
 		}],
@@ -452,9 +460,9 @@ if (!SourceList["V"]) {
 		alignment: "Unaligned",
 		ac: 13,
 		hp: 30,
-		hd: [4, 12], //[#, die]
+		hd: [4, 12],
 		speed: "10 ft, fly 80 ft",
-		scores: [15, 13, 13, 2, 10, 5], //[Str, Dex, Con, Int, Wis, Cha]
+		scores: [15, 13, 13, 2, 10, 5],
 		skills: {
 			"perception": 2,
 		},
@@ -465,7 +473,7 @@ if (!SourceList["V"]) {
 		attacks: [{
 			name: "Bite",
 			ability: 1,
-			damage: [3, 6, "piercing"], //[#, die, type] "" for die is allowed
+			damage: [3, 6, "piercing"],
 			range: "Melee (10 ft)",
 			description: "If used after diving 30 ft towards a target, the attack deals 3d6 extra damage (Dive Attack)",
 		}],
@@ -486,9 +494,9 @@ if (!SourceList["V"]) {
 		alignment: "Unaligned",
 		ac: 13,
 		hp: 76,
-		hd: [8, 12], //[#, die]
+		hd: [8, 12],
 		speed: "40 ft",
-		scores: [20, 9, 17, 2, 11, 5], //[Str, Dex, Con, Int, Wis, Cha]
+		scores: [20, 9, 17, 2, 11, 5],
 		passivePerception: 10,
 		challengeRating: "4",
 		proficiencyBonus: 2,
@@ -496,7 +504,7 @@ if (!SourceList["V"]) {
 		attacks: [{
 			name: "Bite",
 			ability: 1,
-			damage: [6, 6, "piercing"], //[#, die, type] "" for die is allowed
+			damage: [6, 6, "piercing"],
 			range: "Melee (10 ft)",
 			description: "",
 		}],
@@ -510,9 +518,9 @@ if (!SourceList["V"]) {
 		alignment: "Unaligned",
 		ac: 13,
 		hp: 10,
-		hd: [3, 4], //[#, die]
+		hd: [3, 4],
 		speed: "30 ft",
-		scores: [6, 14, 13, 4, 12, 6], //[Str, Dex, Con, Int, Wis, Cha]
+		scores: [6, 14, 13, 4, 12, 6],
 		skills: {
 			"perception": 3,
 		},
@@ -523,13 +531,13 @@ if (!SourceList["V"]) {
 		attacks: [{
 			name: "Bite",
 			ability: 2,
-			damage: [1, 6, "piercing"], //[#, die, type] "" for die is allowed
+			damage: [1, 6, "piercing"],
 			range: "Melee (5 ft)",
 			description: "One bite and one claw attack as an Attack action",
 		}, {
 			name: "Claw",
 			ability: 2,
-			damage: [1, 4, "slashing"], //[#, die, type] "" for die is allowed
+			damage: [1, 4, "slashing"],
 			range: "Melee (5 ft)",
 			description: "One bite and one claw attack as an Attack action",
 		}],
@@ -666,7 +674,7 @@ CreatureList["jaculi"] = {
 		ability: 1,
 		damage: [2, 6, "piercing"],
 		range: "Melee (5 ft)",
-		description: "If used after at least 10 ft jump, adv. on to hit and extra 2d6 damage, see Spring trait",
+		description: "If used after \u226510 ft jump: adv. to hit and +2d6 damage, see Spring trait",
 	}],
 	actions: [{
 		name: "Spring",
@@ -752,13 +760,15 @@ MagicItemsList["amulet of the black skull"] = {
 		note: [
 			"This amulet is carved from obsidian and shaped like a screaming humanoid skull, with ruby eyes and emeralds for teeth. It hangs from an iron chain necklace.",
 			"If I'm not undead, I must make a DC 16 Constitution save each time I use the amulet to teleport. On a failure, the black skull cackles as I'm transformed in transit. The transformation is random (see table below) and takes effect as soon as I arrive at the destination.",
-			"d100\tTRANSFORMATION",
-			"01-20\tThe symbol of Acererak is burned into my flesh, a curse that can only be removed with a *Remove Curse* spell or similar magic. Until the curse ends, my hit points can't be restored by magic.",
-			"21-35\tI grow larger as if affected by an *Enlarge/Reduce* spell, except the effect lasts for 1 hour.",
-			"36-50\tI grow smaller as if affected by an *Enlarge/Reduce* spell, except the effect lasts for 1 hour.",
-			"51-70\tI arrive at the destination wearing nothing but the amulet of the black skull. Everything else that I was wearing or carrying appears in a random unoccupied space within 100 ft.",
-			"71-95\tI am paralyzed for 1 minute or until this effect is ended with a *Lesser Restoration* spell or similar magic.",
-			"96-00\tI become petrified. This effect can be ended only with a *Greater Restoration* spell or similar magic.",
+			[
+				["d100", "Transformation"],
+				["01-20", "The symbol of Acererak is burned into my flesh, a curse that can only be removed with a *Remove Curse* spell or similar magic. Until the curse ends, my hit points can't be restored by magic."],
+				["21-35", "I grow larger as if affected by an *Enlarge/Reduce* spell, except the effect lasts for 1 hour."],
+				["36-50", "I grow smaller as if affected by an *Enlarge/Reduce* spell, except the effect lasts for 1 hour."],
+				["51-70", "I arrive at the destination wearing nothing but the amulet of the black skull. Everything else that I was wearing or carrying appears in a random unoccupied space within 100 ft."],
+				["71-95", "I am paralyzed for 1 minute or until this effect is ended with a *Lesser Restoration* spell or similar magic."],
+				["96-00", "I become petrified. This effect can be ended only with a *Greater Restoration* spell or similar magic."],
+			],
 		],
 	}],
 }

@@ -1178,7 +1178,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 6,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function (v) { return classes.known.monk.level >= 17; },
+				minlevel: 17,
 				spellChanges: {
 					"cone of cold": {
 						components: "V,S",
@@ -1200,7 +1200,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 3,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function (v) { return classes.known.monk.level >= 6; },
+				minlevel: 6,
 				spellChanges: {
 					"hold person": {
 						components: "V,S",
@@ -1222,7 +1222,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 5,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function (v) { return classes.known.monk.level >= 17; },
+				minlevel: 17,
 				spellChanges: {
 					"stoneskin": {
 						range: "Self",
@@ -1296,7 +1296,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 4,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function (v) { return classes.known.monk.level >= 11; },
+				minlevel: 11,
 				spellChanges: {
 					"fireball": {
 						components: "V,S",
@@ -1318,7 +1318,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 3,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function (v) { return classes.known.monk.level >= 6; },
+				minlevel: 6,
 				spellChanges: {
 					"shatter": {
 						components: "V,S",
@@ -1340,7 +1340,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 4,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function (v) { return classes.known.monk.level >= 11; },
+				minlevel: 11,
 				spellChanges: {
 					"gaseous form": {
 						range: "Self",
@@ -1363,7 +1363,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 4,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function (v) { return classes.known.monk.level >= 11; },
+				minlevel: 11,
 				spellChanges: {
 					"fly": {
 						range: "Self",
@@ -1386,7 +1386,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 5,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function (v) { return classes.known.monk.level >= 17; },
+				minlevel: 17,
 				spellChanges: {
 					"wall of fire": {
 						components: "V,S",
@@ -1470,7 +1470,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 6,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function (v) { return classes.known.monk.level >= 17; },
+				minlevel: 17,
 				spellChanges: {
 					"wall of stone": {
 						components: "V,S",

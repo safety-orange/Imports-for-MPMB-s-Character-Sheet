@@ -185,11 +185,11 @@ AddSubClass("druid", "circle of the primeval-ua", {
 					name: "Intercept attack",
 					description: "As a reaction when a creature the companion can see hits a target within 5 ft of the companion with an attack, the target instead takes half the damage. The companion takes the remainder of the damage",
 				}, {
-					name: "Prehistoric Conduit (Circle of the Primeval 6)",
+					name: "Prehistoric Conduit (Primeval 6)",
 					minlevel: 6,
 					description: "Spells cast by the companion's summoner with a range other than self can originate from the companion instead. Also, the companion has advantage on saving throws against spells cast by its summoner. If the companion would normally take half damage on a successful save against these spells, instead, it takes no damage on a success and half and no other effects on a fail.",
 				}, {
-					name: "Titanic Bond (Circle of the Primeval 10)",
+					name: "Titanic Bond (Primeval 10)",
 					minlevel: 10,
 					description: "The companion's size is now Large and it gains either a swimming or climbing speed equal to its walking speed.",
 					eval: function (prefix, lvl) {

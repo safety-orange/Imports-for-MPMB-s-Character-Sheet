@@ -1339,7 +1339,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 6,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function (v) { return classes.known.monk.level >= 17; },
+				minlevel: 17,
 				spellChanges: {
 					"cone of cold": {
 						components: "V,S",
@@ -1361,7 +1361,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 3,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function (v) { return classes.known.monk.level >= 6; },
+				minlevel: 6,
 				spellChanges: {
 					"hold person": {
 						components: "V,S",
@@ -1383,7 +1383,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 5,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function (v) { return classes.known.monk.level >= 17; },
+				minlevel: 17,
 				spellChanges: {
 					"stoneskin": {
 						range: "Self",
@@ -1457,7 +1457,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 4,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function (v) { return classes.known.monk.level >= 11; },
+				minlevel: 11,
 				spellChanges: {
 					"fireball": {
 						components: "V,S",
@@ -1479,7 +1479,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 3,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function (v) { return classes.known.monk.level >= 6; },
+				minlevel: 6,
 				spellChanges: {
 					"shatter": {
 						components: "V,S",
@@ -1501,7 +1501,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 4,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function (v) { return classes.known.monk.level >= 11; },
+				minlevel: 11,
 				spellChanges: {
 					"gaseous form": {
 						range: "Self",
@@ -1524,7 +1524,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 4,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function (v) { return classes.known.monk.level >= 11; },
+				minlevel: 11,
 				spellChanges: {
 					"fly": {
 						range: "Self",
@@ -1547,7 +1547,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 5,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function (v) { return classes.known.monk.level >= 17; },
+				minlevel: 17,
 				spellChanges: {
 					"wall of fire": {
 						components: "V,S",
@@ -1631,7 +1631,7 @@ AddSubClass("monk", "way of the four elements", {
 					firstCol: 6,
 				}],
 				spellFirstColTitle: "Ki",
-				prereqeval: function (v) { return classes.known.monk.level >= 17; },
+				minlevel: 17,
 				spellChanges: {
 					"wall of stone": {
 						components: "V,S",
@@ -6090,7 +6090,8 @@ CreatureList["peryton"] = {
 		"perception": 5,
 	},
 	senses: "Adv. on Wis (Perception) checks using sight/smell",
-	passivePerception: 16,
+	damage_resistances: "bludgeoning, piercing, and slashing from nonmagical attacks",
+	passivePerception: 15,
 	languages: "understands Common and Elvish, but can't speak",
 	challengeRating: "2",
 	proficiencyBonus: 2,
@@ -6110,7 +6111,7 @@ CreatureList["peryton"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the [THIS] can make one Gore and one Talon attack.",
+		description: "As an action on its turn, the [THIS] can make one Gore and one Talons attack.",
 	}],
 	traits: [{
 		name: "Dive Attack",
@@ -12398,7 +12399,7 @@ AddSubClass("monk", "way of the long death", {
 			description: desc("When I'm reduced to 0 HP, I can expend 1 ki point to have 1 HP instead"),
 			"touch of the long death": {
 				name: "Touch of the Long Death",
-				extraname: "Way of the Long Death 17",
+				extraname: "Long Death 17",
 				source: [["S", 131]],
 				additional: "1-10 ki points",
 				description: desc([
@@ -12445,7 +12446,7 @@ AddSubClass("monk", "way of the sun soul", {
 			}],
 			"searing arc strike": {
 				name: "Searing Arc Strike",
-				extraname: "Way of the Sun Soul 6",
+				extraname: "Sun Soul 6",
 				source: [["S", 131], ["X", 35]],
 				description: desc([
 					"After taking the Attack action, I can cast *Burning Hands* as a bonus action [PHB 220]",
@@ -16543,9 +16544,9 @@ CreatureList["giant crayfish"] = {
 	alignment: "Unaligned",
 	ac: 15,
 	hp: 45,
-	hd: [7, 10], //[#, die]
+	hd: [7, 10],
 	speed: "30 ft, swim 30 ft",
-	scores: [15, 13, 13, 1, 9, 3], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [15, 13, 13, 1, 9, 3],
 	skills: {
 		"stealth": 3,
 	},
@@ -16557,7 +16558,7 @@ CreatureList["giant crayfish"] = {
 	attacks: [{
 		name: "Claw",
 		ability: 1,
-		damage: [1, 10, "bludgeoning"], //[#, die, type] "" for die is allowed
+		damage: [1, 10, "bludgeoning"],
 		range: "Melee (5 ft)",
 		description: "Target grappled on hit (escape DC 12); 2 claw attacks as Attack action, if not grappling with claw",
 	},
@@ -16578,9 +16579,9 @@ CreatureList["giant ice toad"] = {
 	alignment: "Unaligned",
 	ac: 14,
 	hp: 52,
-	hd: [7, 10], //[#, die]
+	hd: [7, 10],
 	speed: "30 ft",
-	scores: [16, 13, 14, 8, 10, 6], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [16, 13, 14, 8, 10, 6],
 	damage_immunities: "cold",
 	senses: "Darkvision 60 ft",
 	passivePerception: 10,
@@ -16591,7 +16592,7 @@ CreatureList["giant ice toad"] = {
 	attacks: [{
 		name: "Bite",
 		ability: 1,
-		damage: [2, 6, "piercing"], //[#, die, type] "" for die is allowed
+		damage: [2, 6, "piercing"],
 		range: "Melee (5 ft)",
 		description: "Target is grappled and restrained (escape DC 13); Can't use bite again until grapple ends",
 	},
@@ -16624,9 +16625,9 @@ CreatureList["giant lightning eel"] = {
 	alignment: "Unaligned",
 	ac: 13,
 	hp: 42,
-	hd: [5, 10], //[#, die]
+	hd: [5, 10],
 	speed: "5 ft, swim 30 ft",
-	scores: [11, 17, 16, 2, 12, 3], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [11, 17, 16, 2, 12, 3],
 	damage_resistances: "lightning",
 	senses: "Blindsight 60 ft",
 	passivePerception: 11,
@@ -16636,13 +16637,13 @@ CreatureList["giant lightning eel"] = {
 	attacks: [{
 		name: "Bite",
 		ability: 1,
-		damage: [2, 6, "piercing"], //[#, die, type] "" for die is allowed
+		damage: [2, 6, "piercing"],
 		range: "Melee (5 ft)",
 		description: "+1d8 lightning damage on a hit; Two bite attacks as an Attack action",
 	}, {
 		name: "Lightning Jolt (Recharge 5-6)",
 		ability: 3,
-		damage: [3, 8, "lightning"], //[#, die, type] "" for die is allowed
+		damage: [3, 8, "lightning"],
 		range: "Out/in 5/15 ft",
 		dc: true,
 		description: "Out water: 5 ft, 1 crea; In water: all in 15 ft; Con save: fail― stunned until eel's next turn end, success― half damage",
@@ -16673,9 +16674,9 @@ CreatureList["giant subterranean lizard"] = {
 	alignment: "Unaligned",
 	ac: 14,
 	hp: 66,
-	hd: [7, 12], //[#, die]
+	hd: [7, 12],
 	speed: "30 ft, swim 50 ft",
-	scores: [21, 9, 17, 2, 10, 7], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [21, 9, 17, 2, 10, 7],
 	skills: {
 		"stealth": 3,
 	},
@@ -16686,13 +16687,13 @@ CreatureList["giant subterranean lizard"] = {
 	attacks: [{
 		name: "Bite",
 		ability: 1,
-		damage: [2, 10, "piercing"], //[#, die, type] "" for die is allowed
+		damage: [2, 10, "piercing"],
 		range: "Melee (5 ft)",
 		description: "1 bite \u0026 1 tail attack as Attack action; Target grappled \u0026 restrained (escape DC 15); Can't use bite until grapple ends",
 	}, {
 		name: "Tail",
 		ability: 1,
-		damage: [2, 6, "bludgeoning"], //[#, die, type] "" for die is allowed
+		damage: [2, 6, "bludgeoning"],
 		range: "Melee (10 ft)",
 		description: "1 bite \u0026 1 tail attack as Attack action; Target DC 15 Str save or knocked prone",
 	},
@@ -16702,7 +16703,7 @@ CreatureList["giant subterranean lizard"] = {
 		description: "The [THIS] can make one bite attack against a Medium or smaller target it is grappling. If the attack hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the [THIS], and it takes 3d6 acid damage at the start of each of the [THIS]'s turns. The [THIS] can have only one target swallowed at a time.\nIf the [THIS] dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 10 feet of movement, exiting prone.",
 	},
 	],
-	wildshapeString: "##Swallow##. If a bite attack hits a Small or smaller target that is currently being grappled by the lizard, the target is swallowed, ending the grapple. While swallowed, it is blinded, restrained, has total cover, and takes 3d4 acid damage at the start of each of the lizard's turns; The lizard can have only 1 swallowed at a time. If the lizard dies, the swallowed creature is no longer restrained and can escape using 10 ft movement.",
+	wildshapeString: "##Swallow##. If a bite attack hits a Small or smaller target that is currently being grappled by the lizard, the target is swallowed, ending the grapple. While swallowed, it is blinded, restrained, has total cover, and takes 3d6 acid damage at the start of each of the lizard's turns; The lizard can have only 1 swallowed at a time. If the lizard dies, the swallowed creature is no longer restrained and can escape using 10 ft movement.",
 };
 
 // Magic Items
@@ -17059,7 +17060,7 @@ MagicItemsList["waythe"] = {
 		regExpSearch: /waythe/i,
 		name: "Waythe",
 		source: [["TftYP", 229]],
-		description: "Heavy, two-handed; +2d6 damage vs. giants; Giants DC 15 Str save or fall prone",
+		description: "Heavy, two-handed; Vs. giants: +2d6 damage, DC 15 Str save or fall prone",
 		modifiers: [1, 1],
 		selectNow: true,
 	}],
@@ -17275,22 +17276,26 @@ AddRacialVariant("human", "yuan-ti transformed", {
 		immune: ["poison"],
 		adv_vs: ["magic"],
 	},
-	spellcastingAbility: 6,
-	spellcastingBonus: [{
-		name: "Innate Spellcasting (level 1)",
-		spells: ["poison spray", "animal friendship"],
-		selection: ["poison spray", "animal friendship"],
-		firstCol: "atwill",
-		times: 2,
-	}],
-	spellChanges: {
-		"animal friendship": {
-			description: "1 snake (beast) with less than 4 Int save or charmed for the duration",
-			changes: "Using Innate Spellcasting, I can cast *Animal Friendship* at will, but only to target snakes.",
-		},
-	},
 	features: {
-		"suggestion": {
+		"innate spellcasting (level 1)": {
+			name: "Innate Spellcasting (level 1)",
+			minlevel: 1,
+			spellcastingAbility: 6,
+			spellcastingBonus: [{
+				name: "Innate Spellcasting (level 1)",
+				spells: ["poison spray", "animal friendship"],
+				selection: ["poison spray", "animal friendship"],
+				firstCol: "atwill",
+				times: 2,
+			}],
+			spellChanges: {
+				"animal friendship": {
+					description: "1 snake (beast) with less than 4 Int save or charmed for the duration",
+					changes: "Using Innate Spellcasting, I can cast *Animal Friendship* at will, but only to target snakes.",
+				},
+			},
+		},
+		"innate spellcasting (level 3)": {
 			name: "Innate Spellcasting (level 3)",
 			minlevel: 3,
 			spellcastingBonus: [{
@@ -17316,28 +17321,32 @@ if (RaceSubList["human-variant"]) {
 		source: [["ToA", 119]],
 		skillstxt: "Choose any one skill",
 		scorestxt: "+1 to two different ability scores of my choice",
-		scores: [0, 0, 0, 0, 0, 0],
+		scores: null,
 		vision: [["Darkvision", 60]],
 		savetxt: {
 			immune: ["poison"],
 			adv_vs: ["magic"],
 		},
-		spellcastingAbility: 6,
-		spellcastingBonus: [{
-			name: "Innate Spellcasting (level 1)",
-			spells: ["poison spray", "animal friendship"],
-			selection: ["poison spray", "animal friendship"],
-			firstCol: "atwill",
-			times: 2,
-		}],
-		spellChanges: {
-			"animal friendship": {
-				description: "1 snake (beast) with less than 4 Int save or charmed for the duration",
-				changes: "Using Innate Spellcasting, I can cast *Animal Friendship* at will, but only to target snakes.",
-			},
-		},
 		features: {
-			"suggestion": {
+			"innate spellcasting (level 1)": {
+				name: "Innate Spellcasting (level 1)",
+				minlevel: 1,
+				spellcastingAbility: 6,
+				spellcastingBonus: [{
+					name: "Innate Spellcasting (level 1)",
+					spells: ["poison spray", "animal friendship"],
+					selection: ["poison spray", "animal friendship"],
+					firstCol: "atwill",
+					times: 2,
+				}],
+				spellChanges: {
+					"animal friendship": {
+						description: "1 snake (beast) with less than 4 Int save or charmed for the duration",
+						changes: "Using Innate Spellcasting, I can cast *Animal Friendship* at will, but only to target snakes.",
+					},
+				},
+			},
+			"innate spellcasting (level 3)": {
 				name: "Innate Spellcasting (level 3)",
 				minlevel: 3,
 				spellcastingBonus: [{
@@ -17690,7 +17699,7 @@ CreatureList["jaculi"] = {
 		ability: 1,
 		damage: [2, 6, "piercing"],
 		range: "Melee (5 ft)",
-		description: "If used after at least 10 ft jump, adv. on to hit and extra 2d6 damage, see Spring trait",
+		description: "If used after \u226510 ft jump: adv. to hit and +2d6 damage, see Spring trait",
 	}],
 	actions: [{
 		name: "Spring",
@@ -17776,13 +17785,15 @@ MagicItemsList["amulet of the black skull"] = {
 		note: [
 			"This amulet is carved from obsidian and shaped like a screaming humanoid skull, with ruby eyes and emeralds for teeth. It hangs from an iron chain necklace.",
 			"If I'm not undead, I must make a DC 16 Constitution save each time I use the amulet to teleport. On a failure, the black skull cackles as I'm transformed in transit. The transformation is random (see table below) and takes effect as soon as I arrive at the destination.",
-			"d100\tTRANSFORMATION",
-			"01-20\tThe symbol of Acererak is burned into my flesh, a curse that can only be removed with a *Remove Curse* spell or similar magic. Until the curse ends, my hit points can't be restored by magic.",
-			"21-35\tI grow larger as if affected by an *Enlarge/Reduce* spell, except the effect lasts for 1 hour.",
-			"36-50\tI grow smaller as if affected by an *Enlarge/Reduce* spell, except the effect lasts for 1 hour.",
-			"51-70\tI arrive at the destination wearing nothing but the amulet of the black skull. Everything else that I was wearing or carrying appears in a random unoccupied space within 100 ft.",
-			"71-95\tI am paralyzed for 1 minute or until this effect is ended with a *Lesser Restoration* spell or similar magic.",
-			"96-00\tI become petrified. This effect can be ended only with a *Greater Restoration* spell or similar magic.",
+			[
+				["d100", "Transformation"],
+				["01-20", "The symbol of Acererak is burned into my flesh, a curse that can only be removed with a *Remove Curse* spell or similar magic. Until the curse ends, my hit points can't be restored by magic."],
+				["21-35", "I grow larger as if affected by an *Enlarge/Reduce* spell, except the effect lasts for 1 hour."],
+				["36-50", "I grow smaller as if affected by an *Enlarge/Reduce* spell, except the effect lasts for 1 hour."],
+				["51-70", "I arrive at the destination wearing nothing but the amulet of the black skull. Everything else that I was wearing or carrying appears in a random unoccupied space within 100 ft."],
+				["71-95", "I am paralyzed for 1 minute or until this effect is ended with a *Lesser Restoration* spell or similar magic."],
+				["96-00", "I become petrified. This effect can be ended only with a *Greater Restoration* spell or similar magic."],
+			],
 		],
 	}],
 }
@@ -18388,9 +18399,9 @@ AddSubClass("bard", "college of swords", {
 				"I gain +10 ft to my walking speed until the end of the current turn",
 				"Once per turn when I hit with a weapon attack, I can expend a Bardic Inspiration die",
 				"The roll of that die is added to the weapon's damage, in addition to one of the following:",
-				"\u2022 Defensive Flourish: the result is also added to my AC until the start of my next turn",
-				"\u2022 Slashing Flourish: the extra damage is also dealt to any of my choosing in 5 ft of me",
-				"\u2022 Mobile Flourish: the target is also pushed 5 plus the die result in feet away from me",
+				"\u2022 **Defensive Flourish**: the result is also added to my AC until the start of my next turn",
+				"\u2022 **Slashing Flourish**: the extra damage is also dealt to any of my choosing in 5 ft of me",
+				"\u2022 **Mobile Flourish**: the target is also pushed 5 plus the die result in feet away from me",
 				"  As a reaction after this push, I can move my speed to a space within 5 ft of the target",
 			]),
 		},
@@ -18649,7 +18660,7 @@ AddSubClass("druid", "circle of dreams", {
 			minlevel: 2,
 			description: desc([
 				"I have a pool of fey energy represented by a number of d6s equal to my druid level",
-				"As a bonus action, I can spend dice to heal an ally within 120 ft of me that I can see",
+				"As a bonus action, I can spend dice to heal an ally that I can see within 120 ft",
 				"I can spend up to half my druid level worth of dice from the pool at once",
 				"The ally heals an amount equal to the total rolled and gains 1 temp HP per die spent",
 			]),
@@ -18756,11 +18767,11 @@ AddSubClass("druid", "circle of the shepherd", {
 				"It is a spectral form of a Bear, Hawk, or Unicorn (my choice), with a 30-ft radius aura",
 				"It is incorporeal, immobile, doesn't count as a creature or object, and persists for 1 min",
 				"The spirit persists for 1 minute or until I'm incapacitated",
-				"\u2022 Bear: my allies and I, if in the aura, immediately gain 5 + my druid level in temp HP",
+				"\u2022 **Bear**: my allies and I, if in the aura, immediately gain 5 + my druid level in temp HP",
 				"  While in the aura, my allies and I gain advantage on Strength checks and saves",
-				"\u2022 Hawk: As a reaction, I can grant advantage on an attack vs. a target in the aura",
+				"\u2022 **Hawk**: as a reaction, I can grant advantage on an attack vs. a target in the aura",
 				"  While in the aura, my allies and I gain advantage on Wisdom (Perception) checks",
-				"\u2022 Unicorn: my allies and I gain advantage on ability checks to detect targets in the aura",
+				"\u2022 **Unicorn**: my allies and I gain advantage on ability checks to detect targets in the aura",
 				"  When I cast a healing spell with a spell slot, allies in the aura heal my druid level in HP",
 			]),
 			usages: 1,
@@ -19265,14 +19276,14 @@ RunFunctionAtEnd(function () {
 				},
 				"deft strike": {
 					name: "Deft Strike",
-					extraname: "Way of the Kensei 6",
+					extraname: "Kensei 6",
 					source: [["X", 35]],
 					description: desc("Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage"),
 					additional: "1 ki point",
 				},
 				"sharpen the blade": {
 					name: "Sharpen the Blade",
-					extraname: "Way of the Kensei 11",
+					extraname: "Kensei 11",
 					source: [["X", 35]],
 					description: desc([
 						"As a bonus action, I can grant my kensei weapon a bonus to attack and damage rolls",
@@ -20341,7 +20352,7 @@ AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
 	]),
 	source: [["X", 56], ["UA:RCO", 5]],
 	submenu: "[warlock level  5+]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 5; },
+	minlevel: 5,
 	recovery: "short rest",
 	usages: 1,
 	action: [["bonus action", " (start/stop)"]],
@@ -20356,7 +20367,8 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 	]),
 	source: [["X", 56]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 5,
+	prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 });
 AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 	name: "Ghostly Gaze",
@@ -20366,7 +20378,7 @@ AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 	]),
 	source: [["X", 56]],
 	submenu: "[warlock level  7+]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 7; },
+	minlevel: 7,
 	recovery: "short rest",
 	usages: 1,
 	action: [["action", ""]],
@@ -20385,7 +20397,7 @@ AddWarlockInvocation("Gift of the Depths (prereq: level 5 warlock)", {
 		selection: ["water breathing"],
 		firstCol: "oncelr",
 	}],
-	prereqeval: function (v) { return classes.known.warlock.level >= 5; },
+	minlevel: 5,
 	speed: { swim: { spd: "walk", enc: "walk" } },
 });
 AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)", {
@@ -20489,7 +20501,8 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock, Hex spell or warlo
 	]),
 	source: [["X", 57]],
 	submenu: "[improves Hex spell or warlock feature that curses]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 5 && (isSpellUsed("hex", true) || (/hexblade/).test(classes.known.warlock.subclass)); },
+	minlevel: 5,
+	prereqeval: function (v) { return isSpellUsed("hex", true) || (/hexblade/).test(classes.known.warlock.subclass); },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock, Hex spell or warlock feature that curses)", {
@@ -20500,7 +20513,8 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock, Hex spell or warl
 	]),
 	source: [["X", 57]],
 	submenu: "[improves Hex spell or warlock feature that curses]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 7 && (isSpellUsed("hex", true) || (/hexblade/).test(classes.known.warlock.subclass)); },
+	minlevel: 7,
+	prereqeval: function (v) { return isSpellUsed("hex", true) || (/hexblade/).test(classes.known.warlock.subclass); },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
@@ -20514,7 +20528,7 @@ AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
 		selection: ["invisibility"],
 		firstCol: "atwill",
 	}],
-	prereqeval: function (v) { return classes.known.warlock.level >= 15; },
+	minlevel: 15,
 	spellChanges: {
 		"invisibility": {
 			description: "1 crea invisible; attacking/casting makes the crea visible; anything worn/carried also invisible",
@@ -20531,7 +20545,7 @@ AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
 	]),
 	source: [["X", 57], ["UA:RCO", 6]],
 	submenu: "[warlock level  5+]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 5; },
+	minlevel: 5,
 	recovery: "short rest",
 	usages: 1,
 	action: [["reaction", ""]],
@@ -20548,7 +20562,7 @@ AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 		selection: ["freedom of movement"],
 		firstCol: "oncelr",
 	}],
-	prereqeval: function (v) { return classes.known.warlock.level >= 7; },
+	minlevel: 7,
 	spellChanges: {
 		"freedom of movement": {
 			range: "Self",
@@ -23470,9 +23484,9 @@ RaceList["githyanki-mtof"] = {
 	weaponProfs: [false, false, ["shortsword", "longsword", "greatsword"]],
 	skillstxt: "Choose any one skill or tool",
 	age: " reach adulthood in their late teens and live for about a century",
-	height: " are more leaner and taller than humans, most are a slender 6 feet tall (5'0\" + 2d12\")",
+	height: " are leaner and taller than humans, most are a slender 6 feet tall (5'0\" + 2d12\")",
 	weight: " weigh around 135 lb (100 + 2d12 \xD7 2d4 lb)",
-	heightMetric: " are more leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
+	heightMetric: " are leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
 	weightMetric: " weigh around 61 kg (45 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [2, 0, 0, 1, 0, 0],
 	trait: [
@@ -23553,9 +23567,9 @@ RaceList["githzerai-mtof"] = {
 	},
 	languageProfs: ["Common", "Gith"],
 	age: " reach adulthood in their late teens and live for about a century",
-	height: " are more leaner and taller than humans, most are a slender 6 feet tall (4'11\" + 2d12\")",
+	height: " are leaner and taller than humans, most are a slender 6 feet tall (4'11\" + 2d12\")",
 	weight: " weigh around 115 lb (90 + 2d12 \xD7 1d4 lb)",
-	heightMetric: " are more leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
+	heightMetric: " are leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [0, 0, 0, 1, 2, 0],
 	trait: [
@@ -23819,9 +23833,9 @@ if (MagicItemsList["staff of power"]) {
 		descriptionFull: [
 			'The *Blackstaff* is a sentient, rune-carved staff set with thin silver veins. It is the symbol of office for the *Blackstaff*, the highest-ranking wizard in Waterdeep. As the rightful owner of the *Blackstaff*, Vajra Safahr is the only one who can become attuned to it. The staff can, however, choose a new owner (see "Personality" below).',
 			"This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you gain a +2 bonus to Armor Class, saving throws, and spell attack rolls.",
-			"The staff has 20 charges for the following properties. The staff regains 2d8+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff retains its +2 bonus to attack and damage roll but loses all other properties. On a 20, the staff regain 1d8+2 charges.",
+			"The staff has 20 charges for the following properties. The staff regains 2d8+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff retains its +2 bonus to attack and damage rolls but loses all other properties. On a 20, the staff regains 1d8+2 charges.",
 			"***Power Strike***. When you hit with a melee attack using the staff, you can expend 1 charge to deal an extra 1d6 force damage to the target.",
-			"***Spells***. While holding this staff, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC and spell attack bonus: *Cone of Cold* (5 charges), *Fireball* (5th-level version, 5 charges), *Globe of Invulnerability* (6 charges), *Hold Monster* (5 charges), *Levitate* (2 charges). *Lightning Bolt* (5th-level version, 5 charges), *Magic Missile* (1 charge), *Ray of Enfeeblement* (1 charge), or *Wall of Force* (5 charges).",
+			"***Spells***. While holding this staff, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC and spell attack bonus: *Cone of Cold* (5 charges), *Fireball* (5th-level version, 5 charges), *Globe of Invulnerability* (6 charges), *Hold Monster* (5 charges), *Levitate* (2 charges), *Lightning Bolt* (5th-level version, 5 charges), *Magic Missile* (1 charge), *Ray of Enfeeblement* (1 charge), or *Wall of Force* (5 charges).",
 			"***Retributive Strike***. You can use an action to break the staff over your knee or against a solid surface, performing a retributive strike. The staff is destroyed and releases its remaining magic in an explosion that expands to fill a 30-foot-radius sphere centered on it.",
 			"You have a 50% chance to instantly travel to a random plane of existence, avoiding the explosion. If you fail to avoid the effect, you take force damage equal to 16 \xD7 the number of charges in the staff. Every other creature in the area must make a DC 17 Dexterity saving throw. On a failed save, a creature takes an amount of damage based on how far away it is from the point of origin, as shown in the following table. On a successful save, a creature takes half as much damage.",
 			[
@@ -24003,7 +24017,7 @@ MagicItemsList["lord's ensemble"] = {
 	storyItemAL: true,
 	prerequisite: "Requires attunement by a creature with a humanoid build",
 	description: "While wearing this helm, amulet, and ring, my identity can't be determined. I move through difficult terrain as normal terrain. Magic can't be used to reduce my speed, paralyze me, restrain me, read my thoughts, or learn my alignment, creature type, or if I'm lying. I'm hidden from scrying and Divination magic.",
-	descriptionLong: "This set of a helm, amulet, and ring can be worn and attuned to as a single magic item, but only while within Waterdeep. The helm magically alters my voice to sound genderless, and makes me immune to magic that reads my thoughts, determines if I'm lying, or reveals my alignment or creature type. Creatures can't speak telepathically with me unless I allow it. The amulet causes me to be hidden from Divination magic and magical scrying sensors. The robe makes me look nondescript, makes difficult terrain not cost me extra movement, and stops magic from reducing my speed or me to be paralyze or restrained.",
+	descriptionLong: "This set of a helm, amulet, and ring can be worn and attuned to as a single magic item, but only while within Waterdeep. The helm magically alters my voice to sound genderless, and makes me immune to magic that reads my thoughts, determines if I'm lying, or reveals my alignment or creature type. Creatures can't speak telepathically with me unless I allow it. The amulet causes me to be hidden from Divination magic and magical scrying sensors. The robe makes me look nondescript, makes difficult terrain not cost me extra movement, and stops magic from reducing my speed or me to be paralyzed or restrained.",
 	descriptionFull: [
 		"The Masked Lords of Waterdeep don this ensemble when meeting with one another. This raiment renders each lord indistinguishable from the others. The ensemble consists of three pieces\u2014a helm, an amulet, and a robe\u2014that function as a single magic item when worn together, but only within the city of Waterdeep and its sewers. You become attuned to the ensemble as a single item.",
 		"***Lord's Helm***. This bucket helm covers your head and conceals your face. Screens over the eyes help to shroud your identity without blinding you. While you wear the helm, your voice is magically altered to sound genderless, and you are immune to magic that allows other creatures to read your thoughts, to determine whether you are lying, to know your alignment, or to know your creature type. Creatures can communicate telepathically with you only if you allow it.",
@@ -24064,7 +24078,7 @@ MagicItemsList["smokepowder"] = {
 	},
 	"keg (500 shots)": {
 		name: "Smokepowder Keg",
-		description: "This magical explosive is used to propel a bullet out of a firearm. This airtight wooden kegs contain enough for five hundred shots. Casting *dispel magic* on it renders it permanently inert. If it is set on fire, dropped, or handled roughly, it explodes and deals 9d6 fire damage to all within 20 ft, DC 12 Dex save halves.",
+		description: "This magical explosive is used to propel a bullet out of a firearm. These airtight wooden kegs contain enough for five hundred shots. Casting *dispel magic* on it renders it permanently inert. If it is set on fire, dropped, or handled roughly, it explodes and deals 9d6 fire damage to all within 20 ft, DC 12 Dex save halves.",
 		usages: 500,
 		recovery: "\u2013",
 		additional: "shots",
@@ -24097,7 +24111,7 @@ MagicItemsList["blade of the medusa"] = {
 	rarity: "very rare",
 	magicItemTable: "H",
 	description: "I'm unwilling to part with this magic blade. When I attack a creature with it and roll a 20 to hit, it must make a DC 15 Con save or be restrained, and on a roll of 1, I must make that save. At the end of each of the target's turns, it can save again, ending the effect with 3 successes, or petrified for 1 hour after 3 failures.",
-	descriptionLong: "I'm unwilling to part with this magic sword. When I attack a creature with it and roll a 20 to hit, it must make a DC 15 Constitution save or be restrained. However, if I roll of 1 on the attack roll, I must make that same save. At the end of each of the effected target's turns, it can make the save again. If it successfully saves against this effect three times, the effect ends. However, if it failed three times, it is turned to stone and petrified for 1 hour. A creature is immune to this effect if it is immune to damage of the weapon's type, does not have a body made of flesh, or has legendary actions.",
+	descriptionLong: "I'm unwilling to part with this magic sword. When I attack a creature with it and roll a 20 to hit, it must make a DC 15 Constitution save or be restrained. However, if I roll a 1 on the attack roll, I must make that same save. At the end of each of the affected target's turns, it can make the save again. If it successfully saves against this effect three times, the effect ends. However, if it failed three times, it is turned to stone and petrified for 1 hour. A creature is immune to this effect if it is immune to damage of the weapon's type, does not have a body made of flesh, or has legendary actions.",
 	descriptionFull: [
 		"When you attack a creature with this magic weapon and roll a 20 on the attack roll, the creature must make a DC 15 Constitution saving throw in addition to suffering the attack's normal effects. On a failed save, the creature is restrained and must make another Constitution saving throw at the end of each of its turns. If it successfully saves against this effect three times, the effect ends. If it fails its saves three times, it is turned to stone and subjected to the petrified condition for 1 hour.",
 		"A creature is immune to this effect if it is immune to damage of the weapon's type, does not have a body made of flesh, or has legendary actions.",
@@ -24332,7 +24346,7 @@ MagicItemsList["leather golem armor"] = {
 		" \u2022 **Lightning Absorption**. You gain resistance to lightning damage. Whenever you take lightning damage, you gain 5 temporary hit points.",
 		"***Curse***. This armor is cursed, and it extends to whomever becomes attuned to it. Until the curse is broken with a *remove curse* spell or similar magic, you are unwilling to part with the armor. In addition, while you wear the cursed armor, you gain the following properties:",
 		" \u2022 **Aversion of Fire**. If you take fire damage, you have disadvantage on attack rolls and ability checks until the end of your next turn.",
-		" \u2022 **Berserk**. Whenever you suffer a critical hit, roll a d6. On a 6, you go beserk because of the armor. On each of your turns while berserk, you attack the nearest creature you can see. If no creature is near enough to move to and attack, you attack an object, with preference for an object smaller than yourself. Once you go beserk because of the armor, it cannot be removed. You continue to attack until you are incapacitated or until another creature is able to change your state of mind with appropriate magic (such as a *calm emotions* spell) or a successful DC 15 Charisma (Persuasion) check.",
+		" \u2022 **Berserk**. Whenever you suffer a critical hit, roll a d6. On a 6, you go berserk because of the armor. On each of your turns while berserk, you attack the nearest creature you can see. If no creature is near enough to move to and attack, you attack an object, with preference for an object smaller than yourself. Once you go berserk because of the armor, it cannot be removed. You continue to attack until you are incapacitated or until another creature is able to change your state of mind with appropriate magic (such as a *calm emotions* spell) or a successful DC 15 Charisma (Persuasion) check.",
 	],
 	attunement: true,
 	weight: 10,
@@ -24516,7 +24530,7 @@ SpellsList["galder's tower"] = {
 	components: "V,S,M",
 	compMaterial: "A fragment of stone, wood, or other building material",
 	duration: "24 h",
-	description: "Conjure round or square tower with 2+1/Sl stories, each 100 sq ft and 10 ft high; see book",
+	description: "Conjure round or square tower with 2+1/SL stories, each 100 sq ft and 10 ft high; see book",
 	descriptionFull: [
 		"You conjure a two-story tower made of stone, wood, or similar suitably sturdy materials. The tower can be round or square in shape. Each level of the tower is 10 feet tall and has an area of up to 100 square feet. Access between levels consists of a simple ladder and hatch. Each level takes one of the following forms, chosen by you when you cast the spell:",
 		" \u2022 A bedroom with a bed, chairs, chest, and magical fireplace",
@@ -24653,7 +24667,7 @@ RaceList["minotaur"] = {
 		"**Minotaur** (+2 Strength +1 Constitution)",
 		"##\u25C6 Horns##. I can use my horns for unarmed strikes that deal 1d6 piercing damage.",
 		"##\u25C6 Goring Rush##. When taking a Dash action and moving at least 20 ft, I can make a horns attack as a bonus action.",
-		"##\u25C6 Hammering Horns##. As a bonus action after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is up to than one size larger than me. It must make a Str save (DC 8 + Str mod + Prof Bonus) or be pushed up to 10 ft away from me.",
+		"##\u25C6 Hammering Horns##. As a bonus action after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is up to one size larger than me. It must make a Str save (DC 8 + Str mod + Prof Bonus) or be pushed up to 10 ft away from me.",
 	],
 	features: {
 		"goring rush": {
@@ -24828,7 +24842,7 @@ AddRacialVariant("simic hybrid", "underwater adaptation", {
 	trait: [
 		"**Simic Hybrid** (+2 Constitution and +1 to one other ability score of my choice)",
 		"##\u25C6 Animal Enhancement (Underwater Adaptation)##. I can breathe air and water, and I have a swimming speed equal to my walking speed.",
-		"##\u25C6 Animal Enhancement (5th level)##. At 5th level, I gain another animal enhancement. I can choose Manta Glide, Nimble Climber, Grappling Appendages, Carapace, or Acid Split.",
+		"##\u25C6 Animal Enhancement (5th level)##. At 5th level, I gain another animal enhancement. I can choose Manta Glide, Nimble Climber, Grappling Appendages, Carapace, or Acid Spit.",
 	],
 });
 
@@ -25670,7 +25684,7 @@ BackgroundList["selesnya initiate"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["druidcraft", "friends", "aid", "animal friendship", "charm person", "animal messenger", "calm emotions", "warding bond", "plant growth", "speak with plants", "aura of life", "conjure minor elementals", "awaken", "commune with nature"]);
 			},
-			"My background adds extra spells to the spell list(s) of my spellcasting class(es): Druidcraft, *Friends*, *Aid*, *Animal Friendship*, *Charm Person*, *Animal Messenger*, *Calm Emotions*, *Warding Bond*, *Plant Growth*, *Speak with Plants*, *Aura of Life*, *Conjure Minor Elementals*, *Awaken*, and *Commune with Nature*.",
+			"My background adds extra spells to the spell list(s) of my spellcasting class(es): *Druidcraft*, *Friends*, *Aid*, *Animal Friendship*, *Charm Person*, *Animal Messenger*, *Calm Emotions*, *Warding Bond*, *Plant Growth*, *Speak with Plants*, *Aura of Life*, *Conjure Minor Elementals*, *Awaken*, and *Commune with Nature*.",
 		],
 	},
 	gold: 5,
@@ -25740,7 +25754,7 @@ BackgroundList["simic scientist"] = {
 				if (spType.indexOf("bonus") !== -1 && (spList.school || !spList["class"] || (spList["class"].indexOf(spName) === -1 && spName !== "fighter"))) return;
 				spList.extraspells = spList.extraspells.concat(["acid splash", "druidcraft", "detect poison and disease", "expeditious retreat", "jump", "alter self", "enhance ability", "enlarge/reduce", "gaseous form", "water breathing", "wind wall", "freedom of movement", "polymorph", "creation"]);
 			},
-			"My background adds extra spells to the spell list(s) of my spellcasting class(es): *Acid Splash*, *Druidcraft*, *Detect Poison and Disease*, *Expeditious Retreat*, *Jump*, *Alter Self*, *Enhance Ability*, *Enlarge/reduce*, *Gaseous Form*, *Water Breathing*, *Wind Wall*, *Freedom of Movement*, *Polymorph*, and *Creation*.",
+			"My background adds extra spells to the spell list(s) of my spellcasting class(es): *Acid Splash*, *Druidcraft*, *Detect Poison and Disease*, *Expeditious Retreat*, *Jump*, *Alter Self*, *Enhance Ability*, *Enlarge/Reduce*, *Gaseous Form*, *Water Breathing*, *Wind Wall*, *Freedom of Movement*, *Polymorph*, and *Creation*.",
 		],
 	},
 	gold: 10,
@@ -25806,7 +25820,7 @@ BackgroundList["simic scientist"] = {
 	],
 };
 BackgroundFeatureList["simic researcher"] = {
-	description: "I know where or from whom I can acquire scientific facts, usually from a Simic laboratory, or sometimes an Izzet facility, library, university, independent scholar, or creature. I might need to offer bribes, favors, or other incentives to induce people to reveal their secrets. The DM can rule that the knowledge is inaccessible place, can't be found, or requires a quest.",
+	description: "I know where or from whom I can acquire scientific facts, usually from a Simic laboratory, or sometimes an Izzet facility, library, university, independent scholar, or creature. I might need to offer bribes, favors, or other incentives to induce people to reveal their secrets. The DM can rule that the knowledge is inaccessible, can't be found, or requires a quest.",
 	source: [["G", 93]],
 };
 
@@ -25884,7 +25898,7 @@ MagicItemsList["guild keyrune"] = {
 	name: "Guild Keyrune",
 	source: [["G", 177]],
 	type: "wondrous item",
-	description: "As an action, I can speak this ceremonial key's command word to have it transforms into a creature. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for some hours, until it has 0 HP, or I dismiss it as an action.",
+	description: "As an action, I can speak this ceremonial key's command word to have it transform into a creature. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for some hours, until it has 0 HP, or I dismiss it as an action.",
 	descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a creature if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after some hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
 	descriptionFull: [
 		"Associated with a particular guild, a *guild keyrune* is a ceremonial, stylized key, about 1 foot long, made from carved stone. Not a literal key, the item is a badge of authority that gives its bearer access to privileged places in its guild's headquarters and outposts. At the DM's discretion, a character might be given a keyrune upon attaining a renown score of 25 in their guild.",
@@ -25898,7 +25912,7 @@ MagicItemsList["guild keyrune"] = {
 	"azorius": {
 		rarity: "rare",
 		description: "As an action, I can speak this ceremonial key's command word and have it transform into a giant eagle for 1 hour with which I can talk telepathically if within 1 mile. It is friendly to me and my allies and obeys my spoken commands. As an action, I can see and hear what it does. I can have it revert back as an action.",
-		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a a giant eagle for 1 hour. We can communicate telepathically while within 1 mile. It is friendly to me and my allies and obeys my spoken commands, otherwise using only the Dodge action. It reverts back to its keyrune form when it drops to 0 HP or if I touch it and speak the command word as an action. Once it does, it can't transform again for 36 hours. As an action, I can see/hear through its senses as if I had keen sight until the start of my next turn, but I can't use my own senses during that time.",
+		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a giant eagle for 1 hour. We can communicate telepathically while within 1 mile. It is friendly to me and my allies and obeys my spoken commands, otherwise using only the Dodge action. It reverts back to its keyrune form when it drops to 0 HP or if I touch it and speak the command word as an action. Once it does, it can't transform again for 36 hours. As an action, I can see/hear through its senses as if I had keen sight until the start of my next turn, but I can't use my own senses during that time.",
 		descriptionFull: [
 			"This keyrune is carved from white marble and lapis lazuli to resemble a noble bird of prey. It can become a giant eagle for up to 1 hour. While the transformed eagle is within 1 mile of you, you can communicate with it telepathically. As an action, you can see through the eagle's eyes and hear what it hears until the start of your next turn, and you gain the benefit of its keen sight. During this time, you are deaf and blind with regard to your own senses.",
 			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a giant eagle. If there isn't enough space for the eagle, the keyrune doesn't transform.",
@@ -25923,7 +25937,7 @@ MagicItemsList["guild keyrune"] = {
 	},
 	"boros": {
 		rarity: "rare",
-		description: "As an action, I can speak this ceremonial key's command word and place it on the ground to transforms into a human veteran. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 8 hours, until it has 0 HP, or I dismiss it as an action.",
+		description: "As an action, I can speak this ceremonial key's command word and place it on the ground to transform into a human veteran. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 8 hours, until it has 0 HP, or I dismiss it as an action.",
 		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a human veteran if there is enough space. The creature is friendly to me and my allies and gives tactical advice, but is easily revealed as an artificial human. It understands my languages and obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after some hours, when it drops to 0 HP, or if I dismiss it as an action by touching it and speaking the command word again. Once it does, it can't transform again until 36 hours have passed.",
 		descriptionFull: [
 			"Carved from red sandstone with white granite elements to resemble a member of the Boros Legion, this keyrune can become a veteran (human) for up to 8 hours. In addition to fighting on your behalf, this veteran cheerfully offers tactical advice, which is usually sound. Anyone who talks with the transformed keyrune or examines it closely can easily recognize that it is an artificial human.",
@@ -25998,10 +26012,10 @@ MagicItemsList["guild keyrune"] = {
 	},
 	"dimir": {
 		rarity: "very rare",
-		description: "As an action, I can speak this ceremonial key's command word to have it transform into an intellect devourer. I can command it to pursue only a single mission each times it transforms and it returns to me after. It is friendly to me and my allies, and lasts for 24 hours or until it has 0 HP or I dismiss it as an action. ",
-		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into an intellect devourer if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It lasts for 24 hours, during which time it pursues a single mission set by me, like information gathering, returning to me afterwards to report and transform back to the keyrune. It also reverts back when it drops to 0 HP or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again for 36 hours.",
+		description: "As an action, I can speak this ceremonial key's command word to have it transform into an **intellect devourer**. I can command it to pursue only a single mission each time it transforms and it returns to me after. It is friendly to me and my allies, and lasts for 24 hours or until it has 0 HP or I dismiss it as an action. ",
+		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into an **intellect devourer** if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It lasts for 24 hours, during which time it pursues a single mission set by me, like information gathering, returning to me afterwards to report and transform back to the keyrune. It also reverts back when it drops to 0 HP or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again for 36 hours.",
 		descriptionFull: [
-			"This keyrune, carved from black stone accented with steel, resembles a stylized horror. On command, it transforms into an intellect devourer that resembles the Dimir guild symbol, with six bladelike legs. The creature exists for up to 24 hours. During that time, it pursues only a single mission you give it\u2014usually an assignment to take over someone's body, either to impersonate that person for a brief time or to extract secrets from their mind. When the mission is complete, the creature returns to you, reports its success, and reverts to its keyrune form.",
+			"This keyrune, carved from black stone accented with steel, resembles a stylized horror. On command, it transforms into an **intellect devourer** that resembles the Dimir guild symbol, with six bladelike legs. The creature exists for up to 24 hours. During that time, it pursues only a single mission you give it\u2014usually an assignment to take over someone's body, either to impersonate that person for a brief time or to extract secrets from their mind. When the mission is complete, the creature returns to you, reports its success, and reverts to its keyrune form.",
 			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into an intellect devourer. If there isn't enough space for the creature, the keyrune doesn't transform.",
 			"The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.",
 			"At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
@@ -26015,6 +26029,7 @@ MagicItemsList["guild keyrune"] = {
 		creaturesAdd: [["Keyrune Intellect Devourer", true]],
 		creatureOptions: [{
 			name: "Keyrune Intellect Devourer",
+			nameThis: "devourer",
 			source: [["MM", 191], ["G", 177]],
 			size: 5,
 			type: "Aberration",
@@ -26053,34 +26068,34 @@ MagicItemsList["guild keyrune"] = {
 			}],
 			features: [{
 				name: "Detect Intelligence",
-				description: "The devourer magically senses the location of creatures within 300 ft that have an Int score of 3 or higher, regardless of barriers.",
+				description: "The [THIS] magically senses the location of creatures within 300 ft that have an Int score of 3 or higher, regardless of barriers.",
 			}, {
 				name: "Artificial",
-				description: "The devourer is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the devourer takes the Dodge action and moves to avoid danger.",
+				description: "The [THIS] is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the [THIS] takes the Dodge action and moves to avoid danger.",
 			}],
 			actions: [{
 				name: "Multiattack",
-				description: "As an action on its turn, the devourer can make one claws attack and uses Devour Intellect.",
+				description: "As an action on its turn, the [THIS] can make one claws attack and uses Devour Intellect.",
 			}, {
 				name: "Devour Intellect",
-				description: "As an action, the devourer targets one creature with a brain that it can see within 10 ft. The target must make an Intelligence save against this magic or take 2d10 psychic damage and if its Intelligence score is lower or equal to a roll of 3d6, that score is reduced to 0 and the target is stunned while its Int is 0.",
+				description: "As an action, the [THIS] targets one creature with a brain that it can see within 10 ft. The target must make an Intelligence save against this magic or take 2d10 psychic damage and if its Intelligence score is lower or equal to a roll of 3d6, that score is reduced to 0 and the target is stunned while its Int is 0.",
 			}, {
 				name: "Body Thief",
-				description: "As an action, the devourer can initiate an Int contest with an incapacitated humanoid within 5 ft. If it wins, the devourer magically consumes the target's brain, teleports into its skull, and takes control of its body. While inside, the intellect has total cover. The devourer retains its Int, Wis, and Cha, as well as its Telepathy and traits. It otherwise adopts the target's statistics and knows everything it knew, including spells and languages.",
+				description: "As an action, the [THIS] can initiate an Int contest with an incapacitated humanoid within 5 ft. If it wins, the [THIS] magically consumes the target's brain, teleports into its skull, and takes control of its body. While inside, the [THIS] has total cover. The [THIS] retains its Int, Wis, and Cha, as well as its Telepathy and traits. It otherwise adopts the target's statistics and knows everything it knew, including spells and languages.",
 			}],
 			notes: [{
 				name: "Body Thief (continued)",
-				description: "If the host body dies, the intellect devourer must leave it. The intellect devourer is also forced out if the target regains its devoured brain by means of *Wish*. By spending 5 ft of its movement, the intellect devourer can voluntarily leave the body, teleporting to the nearest unoccupied space within 5 ft. The body then dies, unless its brain is restored within 1 round. *Protection from Evil and Good* prevents the intellect devourer from consuming a brain, and when cast on a controlled body, it drives the intellect devourer out.",
+				description: "If the host body dies, the [THIS] must leave it. The [THIS] is also forced out if the target regains its devoured brain by means of *Wish*. By spending 5 ft of its movement, the [THIS] can voluntarily leave the body, teleporting to the nearest unoccupied space within 5 ft. The body then dies, unless its brain is restored within 1 round. *Protection from Evil and Good* prevents the [THIS] from consuming a brain, and when cast on a controlled body, it drives the [THIS] out.",
 			}, {
 				name: "Summon",
-				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a veteran. It reverts back to a keyrune after 24 hours, if it drops to 0 HP, if the keyrune's owner uses an action to touch it and speak the command word, or if it finishes it mission.\n   It pursues only a single mission given by its owner. This is usually an assignment to take over someone's body, either to impersonate that person for a brief time or to extract secrets from their mind. When the mission is complete, the creature returns to its owner, reports its success, and reverts to its keyrune form.",
+				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into an [THIS]. It reverts back to a keyrune after 24 hours, if it drops to 0 HP, if the keyrune's owner uses an action to touch it and speak the command word, or if it finishes its mission.\n   It pursues only a single mission given by its owner. This is usually an assignment to take over someone's body, either to impersonate that person for a brief time or to extract secrets from their mind. When the mission is complete, the creature returns to its owner, reports its success, and reverts to its keyrune form.",
 			}],
 			header: "Keyrune",
 		}],
 	},
 	"golgari": {
 		rarity: "very rare",
-		description: "As an action, I can speak this ceremonial key's command word to have it transforms into a giant scorpion with which I can talk telepathically if in 60 ft. It is friendly to me and my allies and obeys my commands. It reverts back after 6 hours, if it drops to 0 HP, or I touch it and speak its command word as an action.",
+		description: "As an action, I can speak this ceremonial key's command word to have it transform into a giant scorpion with which I can talk telepathically if in 60 ft. It is friendly to me and my allies and obeys my commands. It reverts back after 6 hours, if it drops to 0 HP, or I touch it and speak its command word as an action.",
 		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a giant scorpion if there is enough space. While within 60 ft of it, I can communicate with it telepathically. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after some hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
 		descriptionFull: [
 			"Made from deep green jade with black veins, this keyrune has an insectile shape. It can transform into a giant scorpion for up to 6 hours. The scorpion has an Intelligence of 4 and can communicate with you telepathically while it is within 60 feet of you, though its messages are largely limited to describing the passage of potential prey.",
@@ -26103,7 +26118,7 @@ MagicItemsList["guild keyrune"] = {
 	"gruul": {
 		type: "wondrous item",
 		rarity: "rare",
-		description: "As an action, I can speak this ceremonial key's command word to have it transforms into a ceratok (rhinoceros stats). It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 1 hour, until it has 0 HP, or I dismiss it as an action.",
+		description: "As an action, I can speak this ceremonial key's command word to have it transform into a ceratok (rhinoceros stats). It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 1 hour, until it has 0 HP, or I dismiss it as an action.",
 		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a ceratok (rhinoceros stats) if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 1 hour, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
 		descriptionFull: [
 			"This crude keyrune is cobbled together from bits of rubble, broken glass, bone, and animal hair. One end resembles a horned beast. On command, the keyrune transforms into a ceratok, a horned creature much like a rhinoceros (and with the same statistics). It remains in its ceratok form for 1 hour.",
@@ -26122,7 +26137,7 @@ MagicItemsList["guild keyrune"] = {
 	},
 	"izzet": {
 		rarity: "rare",
-		description: "As an action, I can speak this ceremonial key's command word to have it transforms into a galvanice weird. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 3 hours, until it has 0 HP, or I dismiss it as an action.",
+		description: "As an action, I can speak this ceremonial key's command word to have it transform into a galvanice weird. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 3 hours, until it has 0 HP, or I dismiss it as an action.",
 		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a galvanice weird if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 3 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
 		descriptionFull: [
 			"Formed of carved and polished red and blue stone, the keyrune includes bits of cable and wire. One end resembles a humanlike head, suggesting the jagged elemental form of the galvanice weird that it can become for a duration of 3 hours. In this form, it will serve you as a bodyguard, lift and carry things for you, act as a test subject for your experiments, or aid you in any other way that its capabilities allow.",
@@ -26199,7 +26214,7 @@ MagicItemsList["guild keyrune"] = {
 	},
 	"orzhov": {
 		rarity: "rare",
-		description: "As an action, I can speak this ceremonial key's command word to have it transforms into a winged thrull. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 2 hours, until it has 0 HP, or I dismiss it as an action.",
+		description: "As an action, I can speak this ceremonial key's command word to have it transform into a winged thrull. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 2 hours, until it has 0 HP, or I dismiss it as an action.",
 		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a winged thrull if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 2 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
 		descriptionFull: [
 			"This keyrune is carved from white marble with veins of black. The end is shaped like a thrull's head, with a gold faceplate affixed. On command, the keyrune transforms into a winged thrull for up to 2 hours. If you don't come from an Orzhov oligarch family, it serves you grudgingly, clownishly aping your movements and mannerisms while carrying out your orders.",
@@ -26255,14 +26270,14 @@ MagicItemsList["guild keyrune"] = {
 			}],
 			notes: [{
 				name: "Summon",
-				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a winged thrull. It reverts back to a keyrune after 2 hours, if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.\n   If the onwer doesn't come from an Orzhov oligarch family, the thrull serves them grudgingly, clownishly aping their movements and mannerisms while carrying out their orders.",
+				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a winged thrull. It reverts back to a keyrune after 2 hours, if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.\n   If the owner doesn't come from an Orzhov oligarch family, the thrull serves them grudgingly, clownishly aping their movements and mannerisms while carrying out their orders.",
 			}],
 			header: "Keyrune",
 		}],
 	},
 	"rakdos": {
 		rarity: "uncommon",
-		description: "As an action, I can speak this ceremonial key's command word to have it transforms into a cackler. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 1 hour, until it has 0 HP, or I dismiss it as an action.",
+		description: "As an action, I can speak this ceremonial key's command word to have it transform into a cackler. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 1 hour, until it has 0 HP, or I dismiss it as an action.",
 		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a cackler if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 1 hour, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
 		descriptionFull: [
 			"This dark granite keyrune is marbled with scarlet veins and carved with the leering visage of a mischievous demon. When activated, it transforms into a cackler for up to 1 hour.",
@@ -26352,7 +26367,7 @@ MagicItemsList["guild keyrune"] = {
 	},
 	"selesnya": {
 		rarity: "rare",
-		description: "As an action, I can speak this ceremonial key's command word to have it transforms into a wolf with Int 6 with which I can talk telepathically if within 1 mile. It is friendly to me and my allies. It obeys my commands, but only uses the Dodge action otherwise. It lasts for 8 hours, until it has 0 HP, or I dismiss it as an action.",
+		description: "As an action, I can speak this ceremonial key's command word to have it transform into a wolf with Int 6 with which I can talk telepathically if within 1 mile. It is friendly to me and my allies. It obeys my commands, but only uses the Dodge action otherwise. It lasts for 8 hours, until it has 0 HP, or I dismiss it as an action.",
 		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a wolf with Intelligence 6 if there is enough space. The creature is friendly to me and my allies, understands Elvish and Sylvan (but can't speak them), and obeys my commands. While within 1 mile, we can communicate telepathically. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 8 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
 		descriptionFull: [
 			"Carved from white and green marble in the shape of a wolf's head, this keyrune transforms into a dire wolf. The wolf persists for 8 hours. Its Intelligence is 6, and it understands Elvish and Sylvan but can't speak those languages. While it is within 1 mile of you, you can communicate with each other telepathically.",
@@ -26377,7 +26392,7 @@ MagicItemsList["guild keyrune"] = {
 	},
 	"simic": {
 		rarity: "uncommon",
-		description: "As an action, I can speak this ceremonial key's command word to have it transforms into a krasis (cat. 2, Grabber and Stabilizing Legs). It is friendly to me and my allies. It obeys my commands, taking only the Dodge action if not commanded otherwise. It lasts for 5 hours, until it has 0 HP, or I dismiss it as an action.",
+		description: "As an action, I can speak this ceremonial key's command word to have it transform into a krasis (cat. 2, Grabber and Stabilizing Legs). It is friendly to me and my allies. It obeys my commands, taking only the Dodge action if not commanded otherwise. It lasts for 5 hours, until it has 0 HP, or I dismiss it as an action.",
 		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a category 2 krasis that has the Grabber and Stabilizing Legs adaptations if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 5 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
 		descriptionFull: [
 			"This keyrune is assembled from coral, mother-of-pearl, and chrome and adorned with the spirals and curves characteristic of Simic ornamentation. The head resembles the shell of a sea creature. On command, the keyrune turns into a category 2 krasis that has the Grabber and Stabilizing Legs adaptations. The transformation lasts for up to 5 hours.",
@@ -26463,7 +26478,7 @@ MagicItemsList["guild signet"] = {
 			["Dimir", "*disguise self*"],
 			["Golgari", "entangle"],
 			["Gruul", "*compelled duel*"],
-			["lzzet", "*chaos bolt*"],
+			["Izzet", "*chaos bolt*"],
 			["Orzhov", "command"],
 			["Rakdos", "*hellish rebuke*"],
 			["Selesnya", "*charm person*"],
@@ -26531,7 +26546,7 @@ MagicItemsList["guild signet"] = {
 		}],
 	},
 	"izzet": {
-		description: "This signet ring bears a symbol of lzzet. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast *Chaos Bolt* (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
+		description: "This signet ring bears a symbol of Izzet. It has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing it, I can expend 1 charge to cast *Chaos Bolt* (save DC 13). Aside from its magical properties, the ring is also an indicator of the guild's recognition and favor.",
 		spellFirstColTitle: "Ch",
 		fixedDC: 13,
 		spellcastingBonus: [{
@@ -26607,7 +26622,7 @@ MagicItemsList["mizzium apparatus"] = {
 	source: [["G", 179]],
 	type: "wondrous item",
 	rarity: "uncommon",
-	description: "I can use this harness as an arcane focus and to attempt to cast a spells that I do not know or have prepared but is on my class' spell list. This requires an Int (Arcana) check DC 10 + twice the spell slot level and components and a spell slot as appropriate for the spell. On a failure, I cast a random spell, see Notes page.",
+	description: "I can use this harness as an arcane focus and to attempt to cast a spell that I do not know or have prepared but is on my class' spell list. This requires an Int (Arcana) check DC 10 + twice the spell slot level and components and a spell slot as appropriate for the spell. On a failure, I cast a random spell, see Notes page.",
 	descriptionLong: "This apparatus is a collection of leather straps, flexible tubing, glass cylinders, and plates, bracers, and fittings made from a magic-infused metal alloy called mizzium, all assembled into a harness. I can use it as an arcane focus. In addition, I can use it to attempt to cast a spell that I do not know or have prepared but is on my class' spell list. I use components and a spell slot as appropriate for the spell as normal, but I must succeed on an Intelligence (Arcana) check DC 10 + twice the spell slot level. On a failure, I cast a random spell, see Notes page. The DC for cantrips is 10, and on a failure nothing happens.",
 	descriptionFull: [
 		"Innovation is a dangerous pursuit, at least the way the mages of the Izzet League engage in it. As protection against the risk of an experiment going awry, they have developed a device to help channel and control their magic. This apparatus is a collection of leather straps, flexible tubing, glass cylinders, and plates, bracers, and fittings made from a magic-infused metal alloy called mizzium, all assembled into a harness. The item weighs 8 pounds.",
@@ -26666,26 +26681,32 @@ MagicItemsList["mizzium apparatus"] = {
 		note: [
 			"This apparatus is a collection of leather straps, flexible tubing, glass cylinders, and plates, bracers, and fittings made from a magic-infused metal alloy called mizzium, all assembled into a harness.",
 			"While I am wearing the mizzium apparatus, I can use it as an arcane focus. In addition, I can attempt to cast a spell that I do not know or have prepared. The spell I choose must be on my class's spell list and of a level for which I have a spell slot, and I must provide the spell's components.",
-			"I expend a spell slot to cast the spell as normal, but before resolving it I must make an Intelligence (Arcana) check. The DC is 10 + twice the level of the spell slot I expend to cast the spell. On a successful check, I cast the spell as normal, using my spell save DC and spellcasting ability modifier. On a failed check, I cast a different spell from the one I intended, randomly determining the spell I cast by rolling on the table for the level of the spell slot expended. If the slot is 6th level or higher, I roll on the table for 5th-level spells. If I try to cast a cantrip I don't know, the DC for the Intelligence (Arcana) check is 10, and on a failed check, there is no effect.\n",
-			"1D6\t1ST-LEVEL SPELL\t1D6\t2ND-LEVEL SPELL",
-			"  1\t*Burning Hands* \t  1\t*Blur*",
-			"  2\t*Chaos Bolt*    \t  2\t*Gust of Wind*",
-			"  3\t*Color Spray*   \t  3\t*Heat Metal*",
-			"  4\t*Faerie Fire*   \t  4\t*Melf's Acid Arrow*",
-			"  5\t*Fog Cloud*     \t  5\t*Scorching Ray*",
-			"  6\t*Thunderwave*   \t  6\t*Shatter*\n",
-			"1D6\t3RD-LEVEL SPELL",
-			"  1\t*Fear*",
-			"  2\t*Feign Death*",
-			"  3\t*Fireball*",
-			"  4\t*Gaseous Form*",
-			"  5\t*Sleet Storm*",
-			"  6\t*Stinking Cloud*\n",
-			"1D4\t4TH-LEVEL SPELL\t1D4\t5TH-LEVEL SPELL (AND HIGHER)",
-			"  1\t*Confusion*\t\t  1\t*Animate Objects*",
-			"  2\tConjure Minor Elem.\t  2\t*Cloudkill*",
-			"  3\t*Evard's Black Tentacles*\t  3\t*Cone of Cold*",
-			"  4\t*Ice Storm*\t\t  4\t*Flame Strike*",
+			"I expend a spell slot to cast the spell as normal, but before resolving it I must make an Intelligence (Arcana) check. The DC is 10 + twice the level of the spell slot I expend to cast the spell. On a successful check, I cast the spell as normal, using my spell save DC and spellcasting ability modifier. On a failed check, I cast a different spell from the one I intended, randomly determining the spell I cast by rolling on the table for the level of the spell slot expended. If the slot is 6th level or higher, I roll on the table for 5th-level spells. If I try to cast a cantrip I don't know, the DC for the Intelligence (Arcana) check is 10, and on a failed check, there is no effect.",
+			[
+				["1d6", "1st-Level Spell", "1d6", "2nd-Level Spell"],
+				["  1", "*Burning Hands* ", "  1", "*Blur*"],
+				["  2", "*Chaos Bolt*    ", "  2", "*Gust of Wind*"],
+				["  3", "*Color Spray*   ", "  3", "*Heat Metal*"],
+				["  4", "*Faerie Fire*   ", "  4", "*Melf's Acid Arrow*"],
+				["  5", "*Fog Cloud*     ", "  5", "*Scorching Ray*"],
+				["  6", "*Thunderwave*   ", "  6", "*Shatter*"],
+			],
+			[
+				["1d6", "3rd-Level Spell"],
+				["  1", "*Fear*"],
+				["  2", "*Feign Death*"],
+				["  3", "*Fireball*"],
+				["  4", "*Gaseous Form*"],
+				["  5", "*Sleet Storm*"],
+				["  6", "*Stinking Cloud*"],
+			],
+			[
+				["1d4", "4th-Level Spell", "1d4", "5th-Level Spell (And Higher)"],
+				["  1", "*Confusion*", "", "  1", "*Animate Objects*"],
+				["  2", "Conjure Minor Elem.", "  2", "*Cloudkill*"],
+				["  3", "*Evard's Black Tentacles*", "  3", "*Cone of Cold*"],
+				["  4", "*Ice Storm*", "", "  4", "*Flame Strike*"],
+			],
 		],
 	}],
 }
@@ -26743,7 +26764,7 @@ MagicItemsList["pariah's shield"] = {
 	source: [["G", 180]],
 	type: "shield",
 	rarity: "rare",
-	description: "While I wield this shield. I gain a +1 bonus to AC for every two allies within 5 ft of me on top of the shield's AC bonus, up to a +3 bonus. As a reaction when a creature I can see within 5 ft of me takes damage, I can take that damage instead, but the damage type for it changes to force.",
+	description: "While I wield this shield, I gain a +1 bonus to AC for every two allies within 5 ft of me on top of the shield's AC bonus, up to a +3 bonus. As a reaction when a creature I can see within 5 ft of me takes damage, I can take that damage instead, but the damage type for it changes to force.",
 	descriptionFull: [
 		"Soldiers of the Boros Legion consider it an honor to bear this shield, even knowing that it might be the last honor they receive. The front of the shield is sculpted to depict a grieving human face.",
 		"You gain a +1 bonus to AC for every two allies within 5 feet of you (up to a maximum of +3) while you wield this shield. This bonus is in addition to the shield's normal bonus to AC.",
@@ -27008,7 +27029,7 @@ MagicItemsList["potion of watchful rest"] = { // contains contributions by Nod_H
 	source: [["WDotMM", 62]],
 	type: "potion",
 	rarity: "common",
-	description: "Once as an action, I can drink this weet, amber-colored potion or administer it to another to gain the following benefits for the next 8 hours: magic can't put the consumer to sleep, and they can remain awake during a long rest and still gain its benefits. This brew has no effect on creatures that don't require sleep.",
+	description: "Once as an action, I can drink this sweet, amber-colored potion or administer it to another to gain the following benefits for the next 8 hours: magic can't put the consumer to sleep, and they can remain awake during a long rest and still gain its benefits. This brew has no effect on creatures that don't require sleep.",
 	descriptionFull: "When you drink this potion, you gain the following benefits for the next 8 hours: magic can't put you to sleep, and you can remain awake during a long rest and still gain its benefits. This sweet, amber-colored brew has no effect on creatures that don't require sleep, such as elves.",
 	weight: 0.5,
 };
@@ -27081,13 +27102,15 @@ MagicItemsList["dodecahedron of doom"] = {
 		note: [
 			"This twelve-sided metal die is 12 inches across and bears the numbers 1 through 12 engraved on its pentagonal sides. The dodecahedron contains arcane clockwork mechanisms that whir and click whenever the die is cast.",
 			"If an effect requires a target and no eligible target is within range, nothing happens.",
-			"d12\tEFFECT",
-			"1-2\tThe dodecahedron explodes and is destroyed. Each creature within 20 feet of the exploding die must make a DC 13 Dexterity saving throw, taking 40 (9d8) force damage on a failed save, or half as much damage on a successful one.",
-			"3-4\tThe dodecahedron casts *light* on itself. The effect lasts until a creature touches the die.",
-			"5-6\tThe dodecahedron casts *ray of frost* (+5 to hit), targeting a random creature within 60 feet of it that doesn't have total cover against the attack.",
-			"7-8\tThe dodecahedron casts *shocking grasp* (+5 to hit) on the next creature that touches it.",
-			"9-10\tThe dodecahedron casts *darkness* on itself. The effect has a duration of 10 minutes.",
-			"11-12\tThe next creature to touch the dodecahedron gains 1d10 temporary hit points that last for 1 hour.",
+			[
+				["d12", "Effect"],
+				["1-2", "The dodecahedron explodes and is destroyed. Each creature within 20 feet of the exploding die must make a DC 13 Dexterity saving throw, taking 40 (9d8) force damage on a failed save, or half as much damage on a successful one."],
+				["3-4", "The dodecahedron casts *light* on itself. The effect lasts until a creature touches the die."],
+				["5-6", "The dodecahedron casts *ray of frost* (+5 to hit), targeting a random creature within 60 feet of it that doesn't have total cover against the attack."],
+				["7-8", "The dodecahedron casts *shocking grasp* (+5 to hit) on the next creature that touches it."],
+				["9-10", "The dodecahedron casts *darkness* on itself. The effect has a duration of 10 minutes."],
+				["11-12", "The next creature to touch the dodecahedron gains 1d10 temporary hit points that last for 1 hour."],
+			],
 		],
 	}],
 }
@@ -27105,13 +27128,13 @@ MagicItemsList["black crystal tablet"] = { // contains contributions by Pengslot
 	type: "wondrous item",
 	rarity: "legendary",
 	magicItemTable: "I",
-	description: "As an action once per dawn, I can use the tablet to cast *Eyebite* or *Gate*, but the latter only links to the Far Realm. When attuning to it, I must make a DC 20 Wisdom saving throw or be afflicted by afflicted long-term madness (see table at SRD 201 or DMG 259).",
+	description: "As an action once per dawn, I can use the tablet to cast *Eyebite* or *Gate*, but the latter only links to the Far Realm. When attuning to it, I must make a DC 20 Wisdom saving throw or be afflicted by long-term madness (see table at SRD 201 or DMG 259).",
 	descriptionFull: [
 		"Any creature that attunes to the tablet must make a DC 20 Wisdom saving throw at the end of its next long rest. On a failed save, the creature becomes afflicted with a random form of long-term madness (see \"Madness\" in chapter 8 of the Dungeon Master's Guide).",
 		"As an action, a creature attuned to the *Black Crystal Tablet* can use it to cast *Eyebite* or *Gate* (the portal created by this spell links to the Far Realm only). After the tablet is used to cast a spell, it cannot be used again until the next dawn.",
 	],
 	attunement: true,
-	prerequisite: "Requires attunement by a creature that has proficiency in the arcana skill",
+	prerequisite: "Requires attunement by a creature that has proficiency in the Arcana skill",
 	prereqeval: function (v) { return v.skillProfs.indexOf("Arcana") !== -1; },
 	usages: 1,
 	recovery: "dawn",
@@ -27125,7 +27148,7 @@ MagicItemsList["black crystal tablet"] = { // contains contributions by Pengslot
 	}],
 	spellChanges: {
 		"gate": {
-			description: "Create a portal to a precise location in the far realm; can transport named crea to me",
+			description: "Create a portal to a precise location in the Far Realm; can transport named crea to me",
 			changes: "The spell can only connect to the Far Realm.",
 		},
 	},
@@ -27312,7 +27335,7 @@ MagicItemsList["tearulai"] = { // contains contributions by Pengsloth
 	type: "weapon (longsword)",
 	rarity: "very rare",
 	storyItemAL: true,
-	description: "If I roll a 20 on an attack with this sword, it deals +14 slashing damage and there is a 5% chance its lobs off a limb. It deals max damage to objects and has 6 charges, regaining 1d4+2 at dawn, which it can use to cast spells. It can shed light on command and is a sentient weapon with a will of its own, see Notes page.",
+	description: "If I roll a 20 on an attack with this sword, it deals +14 slashing damage and there is a 5% chance it lops off a limb. It deals max damage to objects and has 6 charges, regaining 1d4+2 at dawn, which it can use to cast spells. It can shed light on command and is a sentient weapon with a will of its own, see Notes page.",
 	descriptionFull: [
 		"The longsword, *Tearulai*, is a sentient, neutral good *sword of sharpness* with an emerald-colored blade and precious gemstones embedded in its hilt and pommel. The sword's magical properties are suppressed until it is removed from Valdemar's skull.",
 		"Evil creatures can't attune to *Tearulai*; any evil creature that tries to do so takes 20 psychic damage. The weapon's emerald blade can't be damaged or dulled, and the sword can't be teleported anywhere without its wielder while the two are attuned to one another.",
@@ -27362,7 +27385,7 @@ MagicItemsList["tearulai"] = { // contains contributions by Pengsloth
 			note: [
 				"Tearulai has an emerald-colored blade and precious gemstones embedded in its hilt and pommel. Evil creatures can't attune to it and take 20 psychic damage if they try to do so. Its emerald blade can't be damaged or dulled, and the sword can't be teleported anywhere without its wielder while the two are attuned to one another.",
 				"Objects hit by the sword take maximum damage from it. When I roll a 20 on the attack roll against a creature, that target takes an extra 14 slashing damage. Then roll another d20. If you roll a 20, you lop off one of the target's limbs, with the effect of such loss determined by the DM. If the creature has no limb to sever, you lop off a portion of its body instead.",
-				"I can speak the sword's command to cause the blade to shed bright light in a 10-ft radius and dim light for another 10 ft. The light stops when I sheath the sword or speaking the command word again.",
+				"I can speak the sword's command to cause the blade to shed bright light in a 10-ft radius and dim light for another 10 ft. The light stops when I sheath the sword or speak the command word again.",
 				"The sword has 6 charges and regains 1d4 + 2 expended charges daily at dawn. I can use the charges to cast *Fly* (2 charges), *Polymorph* (3 charges), or *Transport Via Plants* (4 charges).",
 				"Tearulai is sentient and has an Intelligence of 17, a Wisdom of 12, and a Charisma of 20. It has hearing and truesight out to a range of 120 ft. It communicates telepathically with its attuned wielder and can speak, read, and understand Common, Draconic, Elvish, and Sylvan. In addition, the sword can ascertain the true value of any gemstone brought within 5 ft of it.",
 				"Tearulai admires great beauty, music, fine art, and poetry. Vain, the weapon strives to improve its appearance. It craves gemstones and seeks out better ones with which to adorn itself. Most of all, it longs to return to the forests around Myth Drannor, where it was created. If its wielder's goals run counter to its own, Tearulai attempts to take control of its wielder and uses *Transport Via Plants* to return whence it came.",
@@ -27376,7 +27399,7 @@ MagicItemsList["vial of stardust"] = {
 	source: [["WDotMM", 251]],
 	type: "potion",
 	rarity: "unknown",
-	description: "Once as an action, I can sprinkles the stardust contained in this vial over myself. After I do so, I gain the ability to cast *Dream* once as an action (spell save DC 15), requiring no components.",
+	description: "Once as an action, I can sprinkle the stardust contained in this vial over myself. After I do so, I gain the ability to cast *Dream* once as an action (spell save DC 15), requiring no components.",
 	descriptionFull: "Any creature that sprinkles the contents of a *Vial of Stardust* over itself gains the ability to cast the *Dream* spell once as an action (spell save DC 15), requiring no components.",
 }
 
@@ -37024,7 +37047,7 @@ AddRacialVariant("custom lineage", "skill proficiency", {
 						"It must be a space that the wearer had occupied some time during the current turn",
 					]),
 					additional: typePF ? "two boots; attunement" : "pair of boots; requires attunement",
-					prereqeval: function (v) { return classes.known.artificer.level >= 6; },
+					minlevel: 6,
 					magicitemsAdd: ["Boots of the Winding Path"],
 				},
 				"enhanced arcane focus": {
@@ -37178,7 +37201,7 @@ AddRacialVariant("custom lineage", "skill proficiency", {
 						"The attacker makes a Con save (my spell save DC) or is blinded until its next turn ends",
 					]),
 					additional: "simple/martial" + (typePF ? "" : " weapon") + "; needs attunement",
-					prereqeval: function (v) { return classes.known.artificer.level >= 6; },
+					minlevel: 6,
 					magicitemsAdd: ["Radiant Weapon"],
 				},
 				"repeating shot": {
@@ -37200,7 +37223,7 @@ AddRacialVariant("custom lineage", "skill proficiency", {
 						"As a reaction when hit in melee, the wearer can use 1 charge to push the attacker 15 ft",
 					]),
 					additional: "shield; requires attunement",
-					prereqeval: function (v) { return classes.known.artificer.level >= 6; },
+					minlevel: 6,
 					magicitemsAdd: ["Repulsion Shield"],
 				},
 				"resistant armor (prereq: level 6 artificer)": {
@@ -37211,7 +37234,7 @@ AddRacialVariant("custom lineage", "skill proficiency", {
 						"Choose from: acid,	cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder",
 					]),
 					additional: "suit of armor; requires attunement",
-					prereqeval: function (v) { return classes.known.artificer.level >= 6; },
+					minlevel: 6,
 					magicitemsAdd: ["Armor of Resistance"],
 				},
 				"returning weapon": {
@@ -37299,9 +37322,6 @@ AddRacialVariant("custom lineage", "skill proficiency", {
 				},
 			},
 		},
-		prereqLvl6: function (v) { return classes.known.artificer.level >= 6; },
-		prereqLvl10: function (v) { return classes.known.artificer.level >= 10; },
-		prereqLvl14: function (v) { return classes.known.artificer.level >= 14; },
 	};
 
 	// Set the Artificer infusion list for Replicate Magic Item
@@ -37406,9 +37426,9 @@ AddRacialVariant("custom lineage", "skill proficiency", {
 				name: anArtMi.name,
 				description: "",
 				source: anArtMi.source,
+				minlevel: MI1 && MI1 > 2 ? MI1 : undefined,
 				magicitemsAdd: [anArtMi.name],
 				additional: !anArtMi.attunement ? undefined : typePF && anArtMi.name.length > 30 ? "attunement" : "requires attunement",
-				prereqeval: MI1 && MI1 > 2 ? ClassList.artificer["prereqLvl" + MI1] : undefined,
 				submenu: "Replicate Magic Item" + (MI1 ? " (prereq: level " + (" " + MI1).slice(-2) + " artificer)" : " (common magic items) [" + getLetterRange(anArtMi.name, ["A-F", "G-Q", "R-Z"]) + "]"),
 			};
 			theObj.extrachoices.push(theI);
@@ -38133,7 +38153,7 @@ AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Arcane Prop
 		"It increases the wearer's walking speed by 5 ft; Its gauntlet can be used as melee weapons",
 	]),
 	additional: "suit of armor;" + (typePF ? "" : " requires") + " attunement",
-	prereqeval: function (v) { return classes.known.artificer.level >= 14; },
+	minlevel: 14,
 	magicitemsAdd: ["Arcane Propulsion Armor"],
 });
 MagicItemsList["arcane propulsion armor"] = {
@@ -38208,7 +38228,7 @@ AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Helm of Awa
 	source: [["T", 21], ["UA:SP3", 3]],
 	description: desc("The wearer has advantage on Initiative rolls and can't be surprised while not incapacitated"),
 	additional: "helmet; requires attunement",
-	prereqeval: function (v) { return classes.known.artificer.level >= 10; },
+	minlevel: 10,
 	magicitemsAdd: ["Helm of Awareness"],
 });
 MagicItemsList["helm of awareness"] = {
@@ -38261,7 +38281,7 @@ AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Spell-Refue
 	source: [["T", 23]],
 	description: desc("As an action once per dawn, this ring's wearer can recover one 3rd-level or lower spell slot"),
 	additional: "ring; requires attunement",
-	prereqeval: function (v) { return classes.known.artificer.level >= 6; },
+	minlevel: 6,
 	magicitemsAdd: ["Spell-Refueling Ring"],
 });
 MagicItemsList["spell-refueling ring"] = {
@@ -38504,7 +38524,6 @@ AddFeatureChoice(TCoE_barbarianOptional3, true, "Primal Knowledge", {
 		"I can choose from Animal Handling, Athletics, Intimidation, Nature, Perception, Survival",
 	]),
 	skillstxt: "Choose one from Animal Handling, Athletics, Intimidation, Nature, Perception and Survival.\nChoose another from this list at 10th level",
-	prereqeval: function (v) { return classes.known.barbarian.level >= 3 ? true : "skip"; },
 });
 var TCoE_barbarianOptional7 = makeOptionalClassFeatureBase("barbarian", 7);
 AddFeatureChoice(TCoE_barbarianOptional7, true, "Instinctive Pounce", {
@@ -38662,7 +38681,7 @@ AddSubClass("barbarian", "path of wild magic", {
 					"The magical energy roiling inside me sometimes erupts from me. Whenever I enter my rage, I have to roll on the table below to see what happens.",
 					"If the effect calls for a saving throw, the DC is equal to 8 + my Proficiency Bonus + my Constitution modifier.",
 					[
-						["d8", "EFFECT"],
+						["d8", "Effect"],
 						[" 1", "Shadowy tendrils lash around me. Each creature of my choice that I can see within 30 ft of me must succeed on a Constitution saving throw or take 1d12 necrotic damage. I also gain 1d12 temporary hit points."],
 						[" 2", "I teleport up to 30 ft to an unoccupied space I can see. Until my rage ends, I can use this effect again on each of my turns as a bonus action."],
 						[" 3", "An intangible spirit, which looks like a flumph or a pixie (my choice), appears within 5 ft of one creature of my choice that I can see within 30 ft of me. At the end of the current turn, the spirit explodes, and each creature within 5 ft of it must succeed on a Dexterity saving throw or take 1d6 force damage. Until my rage ends, I can use this effect again, summoning another spirit, on each of my turns as a bonus action."],
@@ -38918,7 +38937,7 @@ AddFeatureChoice(TCoE_clericOptional2, true, "Harness Divine Power", {
 	]),
 	action: [["bonus action", ""]],
 	usages: levels.map(function (n) {
-		return n < 3 ? "" : n < 6 ? 1 : n < 18 ? 2 : 3;
+		return n < 2 ? "" : n < 6 ? 1 : n < 18 ? 2 : 3;
 	}),
 	recovery: typePF ? "LR" : "long rest",
 });
@@ -39892,7 +39911,7 @@ AddSubClass("fighter", "rune knight", {
 					"I always gain advantage on saves against being poisoned and resistance to poison damage",
 					"As a bonus action, I can invoke it to gain resistance to bludg/slash/pierc damage for 1 min",
 				]),
-				prereqeval: function (v) { return classes.known.fighter.level >= 7; },
+				minlevel: 7,
 				action: [["bonus action", " (invoke)"]],
 				additional: "invoke",
 				usages: ["", "", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2],
@@ -39910,7 +39929,7 @@ AddSubClass("fighter", "rune knight", {
 					"While in this state, I can use a reaction to cause a roll to gain advantage or disadvantage",
 					"I can do this for attacks, saves, and checks of myself or others I can see within 60 ft of me",
 				]),
-				prereqeval: function (v) { return classes.known.fighter.level >= 7; },
+				minlevel: 7,
 				action: [["bonus action", " (invoke)"]],
 				additional: "invoke",
 				usages: ["", "", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2],
@@ -40076,7 +40095,7 @@ AddSubClass("monk", "way of mercy", {
 			toolProfs: ["Herbalism kit"],
 			"hands of healing": {
 				name: "Hands of Healing",
-				extraname: "Way of Mercy 3",
+				extraname: "Mercy 3",
 				source: [["T", 49]],
 				description: levels.map(function (n) {
 					var a = "As an action, I can spend 1 ki point to touch a creature and restore a number of its HP";
@@ -40093,7 +40112,7 @@ AddSubClass("monk", "way of mercy", {
 			},
 			"hands of harm": {
 				name: "Hands of Harm",
-				extraname: "Way of Mercy 3",
+				extraname: "Mercy 3",
 				source: [["T", 50]],
 				description: levels.map(function (n) {
 					var a = "When I hit a creature with an unarmed strike, I can spend 1 ki point to deal extra damage";
@@ -40134,7 +40153,7 @@ AddSubClass("monk", "way of mercy", {
 			]),
 			"hand of ultimate mercy": {
 				name: "Hand of Ultimate Mercy",
-				extraname: "Way of Mercy 17",
+				extraname: "Mercy 17",
 				source: [["T", 50]],
 				description: desc([
 					"As an action, I can spend 5 ki points and touch a creature that died in the last 24 hours",
@@ -40181,7 +40200,7 @@ AddSubClass("monk", "way of the astral self", {
 			}],
 			"astral arms": {
 				name: "Astral Arms",
-				extraname: "Way of the Astral Self 3",
+				extraname: "Astral Self 3",
 				source: [["T", 50]],
 				description: desc([
 					"As a bonus action, I can summon my astral arms to hover next to or over my own arms",
@@ -40207,7 +40226,7 @@ AddSubClass("monk", "way of the astral self", {
 			action: [["bonus action", "Summon Astral Arms and/or Visage", "Summon Astral Arms"]],
 			"astral visage": {
 				name: "Astral Visage",
-				extraname: "Way of the Astral Self 6",
+				extraname: "Astral Self 6",
 				source: [["T", 50]],
 				additional: "1 ki point",
 				description: desc([
@@ -40232,7 +40251,7 @@ AddSubClass("monk", "way of the astral self", {
 			action: [["reaction", "Deflect Energy"]],
 			"astral body": {
 				name: "Astral Body",
-				extraname: "Way of the Astral Self 11",
+				extraname: "Astral Self 11",
 				source: [["T", 51]],
 				description: " [if both astral arms \u0026 visage are present]" + desc([
 					" \u2022 Deflect Energy: As a reaction when I take damage, I can reduce it by 1d10 + Wis mod",
@@ -40263,7 +40282,7 @@ AddSubClass("monk", "way of the astral self", {
 			action: [["bonus action", ""]],
 			"astral body": {
 				name: "Awakened Astral Self",
-				extraname: "Way of the Astral Self 17",
+				extraname: "Astral Self 17",
 				source: [["T", 50]],
 				additional: "5 ki points",
 				description: desc([
@@ -40487,7 +40506,7 @@ var TCoE_Favored_Foe = {
 	calcChanges: {
 		atkAdd: [
 			function (fields, v) {
-				if (!v.isSpell && (classes.known.rangerua || classes.known.ranger) && /favou?red.{1,2}(foe|enemy)/i.test(v.WeaponTextName)) {
+				if (!v.isDC && (classes.known.rangerua || classes.known.ranger) && /favou?red.{1,2}(foe|enemy)/i.test(v.WeaponTextName)) {
 					var rngrLvl = classes.known.ranger ? classes.known.ranger.level : classes.known.rangerua.level;
 					fields.Description += (fields.Description ? "; " : "") + "Once per turn +1d" + (rngrLvl < 6 ? 4 : rngrLvl < 14 ? 6 : 8) + " damage";
 				};
@@ -41670,13 +41689,14 @@ AddFeatureChoice(TCoE_warlockOptional4, true, "Eldritch Versatility", {
 AddWarlockInvocation("Bond of the Talisman (prereq: level 12 warlock, Pact of the Talisman)", {
 	name: "Bond of the Talisman",
 	source: [["T", 70]],
+	minlevel: 12,
 	submenu: "[improves Pact of the Talisman]",
 	description: desc([
 		"As an action, I can teleport to the unoccupied space closest to the wearer of my talisman",
 		"The talisman's wearer can do the same to teleport to me; Only works if both on same plane",
 	]),
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 12 && GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
+		return GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	action: [["action", ""]],
 	usages: (typePF ? "Prof" : "Proficiency") + " Bonus per ",
@@ -41692,6 +41712,7 @@ AddWarlockInvocation("Eldritch Mind", {
 AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome)", {
 	name: "Far Scribe",
 	source: [["T", 71]],
+	minlevel: 5,
 	submenu: "[improves Pact of the Tome]",
 	description: desc([
 		"My book of shadows has a new page; As an action, a creature can write its name on it",
@@ -41701,7 +41722,7 @@ AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome)", {
 		"This writing disappears after 1 minute; The target still hears the message in their mind",
 	]),
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
+		return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
 	},
 	action: [["action", " (erase name)"]],
 	spellcastingBonus: [{
@@ -41722,6 +41743,7 @@ AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome)", {
 AddWarlockInvocation("Gift of the Protectors (prereq: level 9 warlock, Pact of the Tome)", {
 	name: "Gift of the Protectors",
 	source: [["T", 71]],
+	minlevel: 9,
 	submenu: "[improves Pact of the Tome]",
 	description: desc([
 		"My book of shadows has a new page; As an action, a creature can write its name on it",
@@ -41730,7 +41752,7 @@ AddWarlockInvocation("Gift of the Protectors (prereq: level 9 warlock, Pact of t
 		"This doesn't work if the creature would be killed outright",
 	]),
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
+		return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
 	},
 	action: [["action", " (erase name)"]],
 	usages: 1,
@@ -41781,10 +41803,11 @@ AddWarlockInvocation("Investment of the Chain Master (prereq: Pact of the Chain)
 AddWarlockInvocation("Protection of the Talisman (prereq: level 7 warlock, Pact of the Talisman)", {
 	name: "Protection of the Talisman",
 	source: [["T", 71]],
+	minlevel: 7,
 	submenu: "[improves Pact of the Talisman]",
 	description: desc("When the wearer of my talisman fails a saving throw, they can add +1d4 to the roll"),
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 7 && GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
+		return GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	usages: (typePF ? "Prof" : "Proficiency") + " Bonus per ",
 	usagescalc: "event.value = How('Proficiency Bonus')",
@@ -41808,6 +41831,7 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 	name: "Undying Servitude",
 	description: desc("Once per long rest, I can cast *Animate Dead* without using a spell slot"),
 	source: [["T", 71]],
+	minlevel: 5,
 	submenu: "[warlock level  5+]",
 	usages: 1,
 	additional: "no spell slot",
@@ -41818,7 +41842,6 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 		selection: ["animate dead"],
 		firstCol: "oncelr",
 	}],
-	prereqeval: function (v) { return classes.known.warlock.level >= 5; },
 });
 
 // Warlock Subclasses
@@ -41936,7 +41959,8 @@ AddSubClass("warlock", "the fathomless", {
 				spellAdd: [
 					function (spellKey, spellObj, spName) {
 						if (spellKey === "evard's black tentacles") {
-							spellObj.description = "I temp hp; All enter/start in 20-ft rad save or restrained \u0026 3d6 Bludg. dmg/rnd; Str/Dex check escape";
+							spellObj.description = "I temp hp; All enter/start in 20-ft rad save or restrained \x26 3d6 Bludg. dmg/rnd; Str/Dex check escape";
+							spellObj.descriptionShorter = "I temp hp; All enter/start 20 ft sq save or restrain \x26 3d6 Bludg. dmg/rnd; Str/Dex chk esc" + (typePF ? "ape" : ""),
 							spellObj.duration = "Conc*, 1 min";
 							return true;
 						}
@@ -42353,7 +42377,7 @@ AddSubClass("wizard","order of scribes", {
 			advantages: [["Arcana", true]],
 			"one with the word": {
 				name: "One with the Word",
-				extraname: "Order of Scribes 14",
+				extraname: "Scribes 14",
 				source: [["T", 78]],
 				description: desc([
 					"While my awakened spellbook is on my person, I have advantage on Int (Arcana) checks",
@@ -64381,7 +64405,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 			},
 			"kensei defense": {
 				name: "Kensei Defense",
-				extraname: "Way of the Kensei 3",
+				extraname: "Kensei 3",
 				source: [["UA:MMT", 1]],
 				description: desc([
 					"If I make an unarmed strike with an Attack action, I can use my kensei weapon to defend",
@@ -64429,7 +64453,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 			},
 			"sharpen the blade": {
 				name: "Sharpen the Blade",
-				extraname: "Way of the Kensei 11",
+				extraname: "Kensei 11",
 				source: [["UA:MMT", 1]],
 				additional: "1 to 3 ki points",
 				description: desc([
@@ -64465,7 +64489,7 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 			usages: 1,
 			recovery: "1 min",
 			spellcastingBonus: [{
-				name: "Way of Tranquility",
+				name: "Path of Tranquility",
 				spells: ["sanctuary"],
 				selection: ["sanctuary"],
 			}],
@@ -64499,7 +64523,7 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 			skillstxt: "Choose one from: Performance or Persuasion",
 			"douse the flames of war": {
 				name: "Douse the Flames of War",
-				extraname: "Way of Tranquility 11",
+				extraname: "Tranquility 11",
 				source: [["UA:MMT", 1]],
 				description: desc([
 					"As an action, a creature I touch must make a Wisdom save or have no violent impulses",
@@ -64669,7 +64693,7 @@ AddSubClass("paladin", "oath of treachery-ua", { // Still valid 2021-09-21
 			action: [["reaction", ""]],
 			"icon of deceit": {
 				name: "Icon of Deceit",
-				extraname: "Oath of Treachery 20",
+				extraname: "Treachery 20",
 				source: [["UA:PSO", 3]],
 				description: desc([
 					"As an action, I can gain the following benefits for 1 minute:",
@@ -65594,7 +65618,8 @@ AddWarlockInvocation("Chronicle of the Raven Queen (prereq: the Raven Queen patr
 	]),
 	source: [["UA:WnW", 3]],
 	submenu: "[improves Pact of the Tome]",
-	prereqeval: function (v) { return (/raven queen/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome"; },
+	minlevel: 3,
+	prereqeval: function (v) { return (/raven queen/).test(classes.known.warlock.subclass) && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome"; },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of the Blade)", {
@@ -65606,7 +65631,8 @@ AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of 
 	]),
 	source: [["UA:WnW", 3]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 3,
+	prereqeval: function (v) { return (/great old one/).test(classes.known.warlock.subclass) && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	weaponOptions: [{
 		baseWeapon: "flail",
 		regExpSearch: /^(?=.*\bclaw\b)(?=.*\bacamar\b).*$/i,
@@ -65638,7 +65664,8 @@ AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Bl
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return (/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 3,
+	prereqeval: function (v) { return (/hexblade/).test(classes.known.warlock.subclass) && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	weaponOptions: [{
 		baseWeapon: "greatsword",
 		regExpSearch: /^(?=.*\bcurse)(?=.*bringer\b).*$/i,
@@ -65657,7 +65684,8 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, the Fiend
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Eldritch Blast]",
-	prereqeval: function (v) { return v.hasEldritchBlast && classes.known.warlock.level >= 5 && (/\bfiend\b/).test(classes.known.warlock.subclass); },
+	minlevel: 5,
+	prereqeval: function (v) { return v.hasEldritchBlast && (/\bfiend\b/).test(classes.known.warlock.subclass); },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast cantrip)", {
@@ -65685,7 +65713,8 @@ AddWarlockInvocation("Gaze of Khirad (prereq: level 7 warlock, the Great Old One
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[warlock level  7+]",
-	prereqeval: function (v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 7; },
+	minlevel: 7,
+	prereqeval: function (v) { return (/great old one/).test(classes.known.warlock.subclass); },
 	action: [["action", ""]],
 });
 AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch Blast cantrip)", {
@@ -65718,7 +65747,8 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 5,
+	prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	calcChanges: {
 		atkCalc: [
 			function (fields, v, output) {
@@ -65741,7 +65771,8 @@ AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Bl
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return (/\bfiend\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 3,
+	prereqeval: function (v) { return (/\bfiend\b/).test(classes.known.warlock.subclass) && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	weaponOptions: [{
 		baseWeapon: "mace",
 		regExpSearch: /^(?=.*\bmace\b)(?=.*\bdispater\b).*$/i,
@@ -65761,7 +65792,8 @@ AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)",
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return (/\barchfey\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 3,
+	prereqeval: function (v) { return (/\barchfey\b/).test(classes.known.warlock.subclass) && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	weaponOptions: [{
 		baseWeapon: "longbow",
 		regExpSearch: /^(?=.*\bmoon)(?=.*bow\b).*$/i,
@@ -65800,7 +65832,8 @@ AddWarlockInvocation("Relentless Hex (prereq: level 5 warlock, the Hexblade patr
 	]),
 	source: [["UA:WnW", 5]],
 	submenu: "[warlock level  5+]",
-	prereqeval: function (v) { return (/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 5; },
+	minlevel: 5,
+	prereqeval: function (v) { return (/hexblade/).test(classes.known.warlock.subclass); },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Sea Twins' Gift (prereq: the Archfey patron)", {
@@ -65836,7 +65869,8 @@ AddWarlockInvocation("Shroud of Ulban (prereq: level 18 warlock, the Great Old O
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[warlock level 18+]",
-	prereqeval: function (v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 18; },
+	minlevel: 18,
+	prereqeval: function (v) { return (/great old one/).test(classes.known.warlock.subclass); },
 	action: [["action", ""]],
 });
 AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the Blade)", {
@@ -65846,7 +65880,8 @@ AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the
 	]),
 	source: [["UA:WnW", 5]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 9,
+	prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	calcChanges: {
 		atkCalc: [
 			function (fields, v, output) {
@@ -65882,7 +65917,8 @@ AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of th
 	]),
 	source: [["UA:WnW", 5]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 15 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 15,
+	prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	calcChanges: {
 		atkCalc: [
 			function (fields, v, output) {
@@ -71721,14 +71757,14 @@ AddSubClass("monk", "way of the kensei2-ua", {
 			},
 			"precise strike": {
 				name: "Precise Strike",
-				extraname: "Way of the Kensei 6",
+				extraname: "Kensei 6",
 				source: [["UA:RS", 5]],
 				description: desc("Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage"),
 				additional: "1 ki point",
 			},
 			"sharpen the blade": {
 				name: "Sharpen the Blade",
-				extraname: "Way of the Kensei 11",
+				extraname: "Kensei 11",
 				source: [["UA:RS", 5]],
 				description: desc([
 					"As a bonus action, I can grant my kensei weapon a bonus to attack and damage rolls",
@@ -72212,7 +72248,8 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 5,
+	prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 });
 AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", { // Still valid 2021-09-21
 	name: "Frost Lance",
@@ -72240,7 +72277,7 @@ AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[warlock level  7+]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 7; },
+	minlevel: 7,
 	recovery: "short rest",
 	usages: 1,
 	action: [["action", ""]],
@@ -72294,7 +72331,8 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, Eldritch 
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[improves Eldritch Blast]",
-	prereqeval: function (v) { return v.hasEldritchBlast && classes.known.warlock.level >= 5; },
+	minlevel: 5,
+	prereqeval: function (v) { return v.hasEldritchBlast; },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
@@ -72305,7 +72343,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[warlock level  5+]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 5; },
+	minlevel: 5,
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
@@ -72316,7 +72354,7 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[warlock level  7+]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 7; },
+	minlevel: 7,
 	action: [["bonus action", ""]],
 });
 
@@ -75514,16 +75552,18 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 				source: [["UA:BnM", 1]],
 				note: [
 					"Magic erupts from me while I rage. Whenever I enter my rage, I have to roll on the table below to see what happens.",
-					"If the effect calls for a saving throw, the DC is equal to 8 + my proficiency bonus + my Constitution modifier.\n",
-					"d8\tEFFECT",
-					" 1\tNecrotic energy bursts from me. Each creature within 30 ft of me takes 1d10 necrotic damage, and I gain temporary HP equal to the sum of the necrotic damage dealt to the creatures.",
-					" 2\tI teleport up to 20 ft to an unoccupied space I can see. Until my rage ends, I can activate this effect again on each of my turns as a bonus action.",
-					" 3\tI conjure 1d4 intangible spirits that look like flumphs in unoccupied spaces within 30 ft of me. Each spirit immediately flies 30 ft in a random direction. At the end of my turn, all spirits explode and each creature within 5 ft of one or more of them must succeed on a Dexterity saving throw or take 2d8 force damage.",
-					" 4\tArcane energy enshrouds me. Until my rage ends, I gain a +2 bonus to AC, and whenever a creature within 10 ft of me hits me with an attack, that creature takes force damage equal to my Constitution modifier.",
-					" 5\tPlant life temporarily grows around me: until my rage ends, the ground within 10 ft of me is difficult terrain.",
-					" 6\tArcane energy taps into the minds of those around me. Each creature within 30 ft of me must succeed on a Wisdom saving throw or I see a glimpse of the creature's thoughts, learning how it plans to attack me. As a result, the creature has disadvantage on attack rolls against me until the start of my next turn.",
-					" 7\tShadows weave around a weapon of my choice I am holding. Until my rage ends, my weapon deals psychic damage instead of its bludgeoning, slashing, or piercing damage, and it gains the light and thrown properties with a normal range of 20 ft and a long range of 60 ft. If I drop the weapon or throw it, the weapon dissipates and reappears in my hand at the end of my turn.",
-					" 8\tA beam of brilliant light lances from my chest in a 5-ft-wide, 60-ft-long line. Each creature in the line must succeed on a Constitution saving throw or take 2d8 radiant damage and be blinded until the start of my next turn.",
+					"If the effect calls for a saving throw, the DC is equal to 8 + my proficiency bonus + my Constitution modifier.",
+					[
+						["d8", "Effect"],
+						[" 1", "Necrotic energy bursts from me. Each creature within 30 ft of me takes 1d10 necrotic damage, and I gain temporary HP equal to the sum of the necrotic damage dealt to the creatures."],
+						[" 2", "I teleport up to 20 ft to an unoccupied space I can see. Until my rage ends, I can activate this effect again on each of my turns as a bonus action."],
+						[" 3", "I conjure 1d4 intangible spirits that look like flumphs in unoccupied spaces within 30 ft of me. Each spirit immediately flies 30 ft in a random direction. At the end of my turn, all spirits explode and each creature within 5 ft of one or more of them must succeed on a Dexterity saving throw or take 2d8 force damage."],
+						[" 4", "Arcane energy enshrouds me. Until my rage ends, I gain a +2 bonus to AC, and whenever a creature within 10 ft of me hits me with an attack, that creature takes force damage equal to my Constitution modifier."],
+						[" 5", "Plant life temporarily grows around me: until my rage ends, the ground within 10 ft of me is difficult terrain."],
+						[" 6", "Arcane energy taps into the minds of those around me. Each creature within 30 ft of me must succeed on a Wisdom saving throw or I see a glimpse of the creature's thoughts, learning how it plans to attack me. As a result, the creature has disadvantage on attack rolls against me until the start of my next turn."],
+						[" 7", "Shadows weave around a weapon of my choice I am holding. Until my rage ends, my weapon deals psychic damage instead of its bludgeoning, slashing, or piercing damage, and it gains the light and thrown properties with a normal range of 20 ft and a long range of 60 ft. If I drop the weapon or throw it, the weapon dissipates and reappears in my hand at the end of my turn."],
+						[" 8", "A beam of brilliant light lances from my chest in a 5-ft-wide, 60-ft-long line. Each creature in the line must succeed on a Constitution saving throw or take 2d8 radiant damage and be blinded until the start of my next turn."],
+					],
 				],
 			}],
 		},
@@ -75591,7 +75631,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 			}],
 			"astral arms": {
 				name: "Astral Arms",
-				extraname: "Way of the Astral Self 3",
+				extraname: "Astral Self 3",
 				source: [["UA:BnM", 2]],
 				description: desc([
 					"As a bonus action, I can summon my astral arms for 10 minutes; I choose their appearance",
@@ -75614,7 +75654,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 			action: [["bonus action", "Summon Astral Arms and/or Visage", "Summon Astral Arms"]],
 			"astral visage": {
 				name: "Astral Visage",
-				extraname: "Way of the Astral Self 6",
+				extraname: "Astral Self 6",
 				source: [["UA:BnM", 3]],
 				additional: "1 ki point",
 				description: desc([
@@ -75673,7 +75713,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 			action: [["bonus action", "Summon Astral Arms and/or Visage, or Complete", "Summon Astral Arms and/or Visage"], ["reaction", "Ki Consumption (Complete Astral Self)"]],
 			"astral body": {
 				name: "Astral Body",
-				extraname: "Way of the Astral Self 17",
+				extraname: "Astral Self 17",
 				source: [["UA:BnM", 3]],
 				additional: "10 ki points",
 				description: desc([
@@ -77714,8 +77754,9 @@ AddWarlockInvocation("Bond of the Talisman (prereq: level 12 warlock, Pact of th
 		"As an action, I can teleport to the unoccupied space closest to the wearer of my talisman",
 		"The talisman's wearer can do the same to teleport to me; Only works if both on same plane",
 	]),
+	minlevel: 12,
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 12 && GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
+		return GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	action: [["action", ""]],
 });
@@ -77724,8 +77765,9 @@ AddWarlockInvocation("Chain Master's Fury (prereq: level 9 warlock, Pact of the 
 	source: [["UA:CFV", 11]],
 	submenu: "[improves Pact of the Chain]",
 	description: desc("As a bonus action, I can command my familiar to make one attack"),
+	minlevel: 9,
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the chain";
+		return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the chain";
 	},
 	action: [["bonus action", ""]],
 });
@@ -77763,8 +77805,9 @@ AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome) (ua
 		"Instead of saying the message, I write it on the page and any reply appears there as well",
 		"This writing disappears after 1 minute; The target still hears the message in their mind",
 	]),
+	minlevel: 5,
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
+		return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
 	},
 	action: [["action", " (erase name)"]],
 	spellcastingBonus: [{
@@ -77792,8 +77835,9 @@ AddWarlockInvocation("Gift of the Protectors (prereq: level 9 warlock, Pact of t
 		"If a creature whose name is on the page drops to 0 HP, it magically drops to 1 HP instead",
 		"This doesn't work if the creature would be killed outright",
 	]),
+	minlevel: 9,
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
+		return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
 	},
 	action: [["action", " (erase name)"]],
 	usages: 1,
@@ -77844,8 +77888,9 @@ AddWarlockInvocation("Protection of the Talisman (prereq: level 9 warlock, Pact 
 	source: [["UA:CFV", 12]],
 	submenu: "[improves Pact of the Talisman]",
 	description: desc("The wearer of my talisman adds 1d4 to saving throw rolls in which they lack proficiency"),
+	minlevel: 9,
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
+		return GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	savetxt: { text: ["+1d4 to nonproficient saves"] },
 });
@@ -78657,7 +78702,7 @@ AddSubClass("monk", "way of mercy-ua", {
 			},
 			"hands of healing": {
 				name: "Hands of Healing",
-				extraname: "Way of Mercy 3",
+				extraname: "Mercy 3",
 				source: [["UA:SP1", 2]],
 				description: levels.map(function (n) {
 					var a = "As an action, I can spend 1 ki point to touch a creature and restore a number of its HP";
@@ -78674,7 +78719,7 @@ AddSubClass("monk", "way of mercy-ua", {
 			},
 			"hands of harm": {
 				name: "Hands of Harm",
-				extraname: "Way of Mercy 3",
+				extraname: "Mercy 3",
 				source: [["UA:SP1", 3]],
 				description: desc([
 					"When I hit a creature with an unarmed strike, I can spend 1 ki point to deal extra damage",
@@ -78710,7 +78755,7 @@ AddSubClass("monk", "way of mercy-ua", {
 			description: desc("With hands of healing I can also end: 1 disease, blinded, deafened, paralyzed, or poisoned"),
 			"hand of mercy": {
 				name: "Hand of Mercy",
-				extraname: "Way of Mercy 17",
+				extraname: "Mercy 17",
 				source: [["UA:SP1", 3]],
 				description: desc([
 					"As an action, I can use 4 ki to have a touched creature make a Con save (can fail willingly)",
@@ -79387,7 +79432,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 			"As a reaction when being knocked prone, the wearer can use 1 charge to not be prone",
 		]),
 		additional: typePF ? "armor; attunement" : "suit of armor; needs attunement",
-		prereqeval: function (v) { return classes.known.artificer.level >= 10; },
+		minlevel: 10,
 		magicitemsAdd: ["Armor of Magical Strength (UA)"],
 	});
 	MagicItemsList["armor of magical strength-ua"] = {
@@ -79478,7 +79523,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 			"The maximum level of the spell slot is equal to the number of magic items it is attuned to",
 		]),
 		additional: "ring; requires attunement",
-		prereqeval: function (v) { return classes.known.artificer.level >= 6; },
+		minlevel: 6,
 		magicitemsAdd: ["Spell-Refueling Ring (UA)"],
 	});
 	MagicItemsList["spell-refueling ring-ua"] = {
@@ -79578,7 +79623,7 @@ AddSubClass("druid", "circle of the stars-ua", {
 			],
 			"star flare": {
 				name: "Star Flare",
-				extraname: "Circle of the Stars 14",
+				extraname: "Stars 14",
 				source: [["UA:SP3", 3]],
 				description: desc([
 					"As an action, I conjure a 30-ft radius sphere of light on a point within 120 ft I can see",
@@ -82658,11 +82703,11 @@ AddSubClass("druid", "circle of the primeval-ua", {
 					name: "Intercept attack",
 					description: "As a reaction when a creature the companion can see hits a target within 5 ft of the companion with an attack, the target instead takes half the damage. The companion takes the remainder of the damage",
 				}, {
-					name: "Prehistoric Conduit (Circle of the Primeval 6)",
+					name: "Prehistoric Conduit (Primeval 6)",
 					minlevel: 6,
 					description: "Spells cast by the companion's summoner with a range other than self can originate from the companion instead. Also, the companion has advantage on saving throws against spells cast by its summoner. If the companion would normally take half damage on a successful save against these spells, instead, it takes no damage on a success and half and no other effects on a fail.",
 				}, {
-					name: "Titanic Bond (Circle of the Primeval 10)",
+					name: "Titanic Bond (Primeval 10)",
 					minlevel: 10,
 					description: "The companion's size is now Large and it gains either a swimming or climbing speed equal to its walking speed.",
 					eval: function (prefix, lvl) {
@@ -83996,16 +84041,18 @@ FeatsList["rune carver apprentice-ua2"] = {
 			"I know two runes of my choice from the list below. Whenever I finish a long rest, I can mark one nonmagical weapon, armor, piece of clothing, or other object I touch with a rune I know. I temporarily learn one 1st-level spell based on the rune I inscribed and I know the spell until I finish a long rest, when the rune fades.",
 			"While I'm wearing or carrying the rune-marked object, I can cast its associated spell once per long rest without using a spell slot or material components. I can also cast the spell using any spell slots I have.",
 			"My spellcasting ability for this is Intelligence, Wisdom, or Charisma (choose when selecting this feat).",
-			"Each time I gain a level, I can replace one of the runes I know with a different one from the list.\n",
-			"RUNE\t\tSPELL\t\tSCHOOL",
-			"Death\t\t*Ray of Sickness*\tNecromancy",
-			"Dragon\t\t*Chromatic Orb*\tEvocation",
-			"Enemy\t\t*Disguise Self*   \tIllusion",
-			"Friend\t\t*Speak With Animals*\tDivination",
-			"Journey\t\t*Longstrider*\t\tTransmutation",
-			"King\t\t*Command*\t\tEnchantment",
-			"Mountain\t\t*Entangle*\t\tConjuration",
-			"Sacred\t\t*Sanctuary*\t\tAbjuration",
+			"Each time I gain a level, I can replace one of the runes I know with a different one from the list.",
+			[
+				["Rune", "", "Spell", "", "School"],
+				["Death", "", "*Ray of Sickness*", "Necromancy"],
+				["Dragon", "", "*Chromatic Orb*", "Evocation"],
+				["Enemy", "", "*Disguise Self*   ", "Illusion"],
+				["Friend", "", "*Speak With Animals*", "Divination"],
+				["Journey", "", "*Longstrider*", "", "Transmutation"],
+				["King", "", "*Command*", "", "Enchantment"],
+				["Mountain", "", "*Entangle*", "", "Conjuration"],
+				["Sacred", "", "*Sanctuary*", "", "Abjuration"],
+			],
 		],
 	}],
 };

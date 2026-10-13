@@ -143,7 +143,7 @@ ClassList["artificer-ua2"] = {
 					"It must be a space that the wearer had occupied some time during the current turn",
 				]),
 				additional: "pair of boots; requires attunement",
-				prereqeval: function (v) { return classes.known["artificer-ua2"].level >= 4; },
+				minlevel: 4,
 				eval: function (lvl, chc) { AddMagicItem("Boots of the Winding Path"); },
 				removeeval: function (lvl, chc) {
 					var loc = CurrentMagicItems.known.indexOf("boots of the winding path");
@@ -193,7 +193,7 @@ ClassList["artificer-ua2"] = {
 					"When the infusion ends, the contents is moved to one of the pouches, chosen randomly",
 				]),
 				additional: "2-5 pouches",
-				prereqeval: function (v) { return classes.known["artificer-ua2"].level >= 4; },
+				minlevel: 4,
 				eval: function (lvl, chc) { AddMagicItem("Many-Handed Pouch"); },
 				removeeval: function (lvl, chc) {
 					var loc = CurrentMagicItems.known.indexOf("many-handed pouch");
@@ -211,7 +211,7 @@ ClassList["artificer-ua2"] = {
 					"The attack must succeed on a Con save (spell save DC) or be blinded until its next turn ends",
 				]),
 				additional: "simple/martial" + (typePF ? "" : " weapon") + "; needs attunement",
-				prereqeval: function (v) { return classes.known["artificer-ua2"].level >= 8; },
+				minlevel: 8,
 				eval: function (lvl, chc) { AddMagicItem("Radiant Weapon"); },
 				removeeval: function (lvl, chc) {
 					var loc = CurrentMagicItems.known.indexOf("radiant weapon");
@@ -227,7 +227,7 @@ ClassList["artificer-ua2"] = {
 					"Choose from: acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder",
 				]),
 				additional: "suit of armor; requires attunement",
-				prereqeval: function (v) { return classes.known["artificer-ua2"].level >= 8; },
+				minlevel: 8,
 				eval: function (lvl, chc) { AddMagicItem("Armor of Resistance"); },
 				removeeval: function (lvl, chc) {
 					var loc = CurrentMagicItems.known.indexOf("armor of resistance");
@@ -1018,11 +1018,11 @@ var UAA2_SetArtificerSpells = function (){
 			name: anArtMi.name,
 			description: "",
 			source: anArtMi.source,
+			minlevel: MI1 ? MI1 : undefined,
 			eval: 'AddMagicItem("' + anArtMi.name + '");',
 			removeeval: MI2 ? 'if (CurrentMagicItems.choices.indexOf("' + MI2 + '") != -1) { MagicItemClear(CurrentMagicItems.choices.indexOf("' + MI2 + '") + 1, true); };' : 'if (CurrentMagicItems.known.indexOf("' + MI0 + '") != -1) { MagicItemClear(CurrentMagicItems.known.indexOf("' + MI0 + '") + 1, true); };',
 		};
 		if (anArtMi.attunement) theObj[theILC].additional = "requires attunement";
-		if (MI1) theObj[theILC].prereqeval = "classes.known['artificer-ua2'].level >= " + MI1;
 		theObj.extrachoices.push(theI);
 	};
 }();

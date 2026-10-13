@@ -27,7 +27,7 @@ MagicItemsList["potion of watchful rest"] = { // contains contributions by Nod_H
 	source: [["WDotMM", 62]],
 	type: "potion",
 	rarity: "common",
-	description: "Once as an action, I can drink this weet, amber-colored potion or administer it to another to gain the following benefits for the next 8 hours: magic can't put the consumer to sleep, and they can remain awake during a long rest and still gain its benefits. This brew has no effect on creatures that don't require sleep.",
+	description: "Once as an action, I can drink this sweet, amber-colored potion or administer it to another to gain the following benefits for the next 8 hours: magic can't put the consumer to sleep, and they can remain awake during a long rest and still gain its benefits. This brew has no effect on creatures that don't require sleep.",
 	descriptionFull: "When you drink this potion, you gain the following benefits for the next 8 hours: magic can't put you to sleep, and you can remain awake during a long rest and still gain its benefits. This sweet, amber-colored brew has no effect on creatures that don't require sleep, such as elves.",
 	weight: 0.5,
 };
@@ -100,13 +100,15 @@ MagicItemsList["dodecahedron of doom"] = {
 		note: [
 			"This twelve-sided metal die is 12 inches across and bears the numbers 1 through 12 engraved on its pentagonal sides. The dodecahedron contains arcane clockwork mechanisms that whir and click whenever the die is cast.",
 			"If an effect requires a target and no eligible target is within range, nothing happens.",
-			"d12\tEFFECT",
-			"1-2\tThe dodecahedron explodes and is destroyed. Each creature within 20 feet of the exploding die must make a DC 13 Dexterity saving throw, taking 40 (9d8) force damage on a failed save, or half as much damage on a successful one.",
-			"3-4\tThe dodecahedron casts *light* on itself. The effect lasts until a creature touches the die.",
-			"5-6\tThe dodecahedron casts *ray of frost* (+5 to hit), targeting a random creature within 60 feet of it that doesn't have total cover against the attack.",
-			"7-8\tThe dodecahedron casts *shocking grasp* (+5 to hit) on the next creature that touches it.",
-			"9-10\tThe dodecahedron casts *darkness* on itself. The effect has a duration of 10 minutes.",
-			"11-12\tThe next creature to touch the dodecahedron gains 1d10 temporary hit points that last for 1 hour.",
+			[
+				["d12", "Effect"],
+				["1-2", "The dodecahedron explodes and is destroyed. Each creature within 20 feet of the exploding die must make a DC 13 Dexterity saving throw, taking 40 (9d8) force damage on a failed save, or half as much damage on a successful one."],
+				["3-4", "The dodecahedron casts *light* on itself. The effect lasts until a creature touches the die."],
+				["5-6", "The dodecahedron casts *ray of frost* (+5 to hit), targeting a random creature within 60 feet of it that doesn't have total cover against the attack."],
+				["7-8", "The dodecahedron casts *shocking grasp* (+5 to hit) on the next creature that touches it."],
+				["9-10", "The dodecahedron casts *darkness* on itself. The effect has a duration of 10 minutes."],
+				["11-12", "The next creature to touch the dodecahedron gains 1d10 temporary hit points that last for 1 hour."],
+			],
 		],
 	}],
 }
@@ -124,13 +126,13 @@ MagicItemsList["black crystal tablet"] = { // contains contributions by Pengslot
 	type: "wondrous item",
 	rarity: "legendary",
 	magicItemTable: "I",
-	description: "As an action once per dawn, I can use the tablet to cast *Eyebite* or *Gate*, but the latter only links to the Far Realm. When attuning to it, I must make a DC 20 Wisdom saving throw or be afflicted by afflicted long-term madness (see table at SRD 201 or DMG 259).",
+	description: "As an action once per dawn, I can use the tablet to cast *Eyebite* or *Gate*, but the latter only links to the Far Realm. When attuning to it, I must make a DC 20 Wisdom saving throw or be afflicted by long-term madness (see table at SRD 201 or DMG 259).",
 	descriptionFull: [
 		"Any creature that attunes to the tablet must make a DC 20 Wisdom saving throw at the end of its next long rest. On a failed save, the creature becomes afflicted with a random form of long-term madness (see \"Madness\" in chapter 8 of the Dungeon Master's Guide).",
 		"As an action, a creature attuned to the *Black Crystal Tablet* can use it to cast *Eyebite* or *Gate* (the portal created by this spell links to the Far Realm only). After the tablet is used to cast a spell, it cannot be used again until the next dawn.",
 	],
 	attunement: true,
-	prerequisite: "Requires attunement by a creature that has proficiency in the arcana skill",
+	prerequisite: "Requires attunement by a creature that has proficiency in the Arcana skill",
 	prereqeval: function (v) { return v.skillProfs.indexOf("Arcana") !== -1; },
 	usages: 1,
 	recovery: "dawn",
@@ -144,7 +146,7 @@ MagicItemsList["black crystal tablet"] = { // contains contributions by Pengslot
 	}],
 	spellChanges: {
 		"gate": {
-			description: "Create a portal to a precise location in the far realm; can transport named crea to me",
+			description: "Create a portal to a precise location in the Far Realm; can transport named crea to me",
 			changes: "The spell can only connect to the Far Realm.",
 		},
 	},
@@ -331,7 +333,7 @@ MagicItemsList["tearulai"] = { // contains contributions by Pengsloth
 	type: "weapon (longsword)",
 	rarity: "very rare",
 	storyItemAL: true,
-	description: "If I roll a 20 on an attack with this sword, it deals +14 slashing damage and there is a 5% chance its lobs off a limb. It deals max damage to objects and has 6 charges, regaining 1d4+2 at dawn, which it can use to cast spells. It can shed light on command and is a sentient weapon with a will of its own, see Notes page.",
+	description: "If I roll a 20 on an attack with this sword, it deals +14 slashing damage and there is a 5% chance it lops off a limb. It deals max damage to objects and has 6 charges, regaining 1d4+2 at dawn, which it can use to cast spells. It can shed light on command and is a sentient weapon with a will of its own, see Notes page.",
 	descriptionFull: [
 		"The longsword, *Tearulai*, is a sentient, neutral good *sword of sharpness* with an emerald-colored blade and precious gemstones embedded in its hilt and pommel. The sword's magical properties are suppressed until it is removed from Valdemar's skull.",
 		"Evil creatures can't attune to *Tearulai*; any evil creature that tries to do so takes 20 psychic damage. The weapon's emerald blade can't be damaged or dulled, and the sword can't be teleported anywhere without its wielder while the two are attuned to one another.",
@@ -381,7 +383,7 @@ MagicItemsList["tearulai"] = { // contains contributions by Pengsloth
 			note: [
 				"Tearulai has an emerald-colored blade and precious gemstones embedded in its hilt and pommel. Evil creatures can't attune to it and take 20 psychic damage if they try to do so. Its emerald blade can't be damaged or dulled, and the sword can't be teleported anywhere without its wielder while the two are attuned to one another.",
 				"Objects hit by the sword take maximum damage from it. When I roll a 20 on the attack roll against a creature, that target takes an extra 14 slashing damage. Then roll another d20. If you roll a 20, you lop off one of the target's limbs, with the effect of such loss determined by the DM. If the creature has no limb to sever, you lop off a portion of its body instead.",
-				"I can speak the sword's command to cause the blade to shed bright light in a 10-ft radius and dim light for another 10 ft. The light stops when I sheath the sword or speaking the command word again.",
+				"I can speak the sword's command to cause the blade to shed bright light in a 10-ft radius and dim light for another 10 ft. The light stops when I sheath the sword or speak the command word again.",
 				"The sword has 6 charges and regains 1d4 + 2 expended charges daily at dawn. I can use the charges to cast *Fly* (2 charges), *Polymorph* (3 charges), or *Transport Via Plants* (4 charges).",
 				"Tearulai is sentient and has an Intelligence of 17, a Wisdom of 12, and a Charisma of 20. It has hearing and truesight out to a range of 120 ft. It communicates telepathically with its attuned wielder and can speak, read, and understand Common, Draconic, Elvish, and Sylvan. In addition, the sword can ascertain the true value of any gemstone brought within 5 ft of it.",
 				"Tearulai admires great beauty, music, fine art, and poetry. Vain, the weapon strives to improve its appearance. It craves gemstones and seeks out better ones with which to adorn itself. Most of all, it longs to return to the forests around Myth Drannor, where it was created. If its wielder's goals run counter to its own, Tearulai attempts to take control of its wielder and uses *Transport Via Plants* to return whence it came.",
@@ -395,7 +397,7 @@ MagicItemsList["vial of stardust"] = {
 	source: [["WDotMM", 251]],
 	type: "potion",
 	rarity: "unknown",
-	description: "Once as an action, I can sprinkles the stardust contained in this vial over myself. After I do so, I gain the ability to cast *Dream* once as an action (spell save DC 15), requiring no components.",
+	description: "Once as an action, I can sprinkle the stardust contained in this vial over myself. After I do so, I gain the ability to cast *Dream* once as an action (spell save DC 15), requiring no components.",
 	descriptionFull: "Any creature that sprinkles the contents of a *Vial of Stardust* over itself gains the ability to cast the *Dream* spell once as an action (spell save DC 15), requiring no components.",
 }
 

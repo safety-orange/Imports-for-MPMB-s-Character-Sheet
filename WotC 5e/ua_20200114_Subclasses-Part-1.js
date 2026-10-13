@@ -149,7 +149,7 @@ AddSubClass("monk", "way of mercy-ua", {
 			},
 			"hands of healing": {
 				name: "Hands of Healing",
-				extraname: "Way of Mercy 3",
+				extraname: "Mercy 3",
 				source: [["UA:SP1", 2]],
 				description: levels.map(function (n) {
 					var a = "As an action, I can spend 1 ki point to touch a creature and restore a number of its HP";
@@ -166,7 +166,7 @@ AddSubClass("monk", "way of mercy-ua", {
 			},
 			"hands of harm": {
 				name: "Hands of Harm",
-				extraname: "Way of Mercy 3",
+				extraname: "Mercy 3",
 				source: [["UA:SP1", 3]],
 				description: desc([
 					"When I hit a creature with an unarmed strike, I can spend 1 ki point to deal extra damage",
@@ -202,7 +202,7 @@ AddSubClass("monk", "way of mercy-ua", {
 			description: desc("With hands of healing I can also end: 1 disease, blinded, deafened, paralyzed, or poisoned"),
 			"hand of mercy": {
 				name: "Hand of Mercy",
-				extraname: "Way of Mercy 17",
+				extraname: "Mercy 17",
 				source: [["UA:SP1", 3]],
 				description: desc([
 					"As an action, I can use 4 ki to have a touched creature make a Con save (can fail willingly)",

@@ -5704,7 +5704,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 			},
 			"kensei defense": {
 				name: "Kensei Defense",
-				extraname: "Way of the Kensei 3",
+				extraname: "Kensei 3",
 				source: [["UA:MMT", 1]],
 				description: desc([
 					"If I make an unarmed strike with an Attack action, I can use my kensei weapon to defend",
@@ -5752,7 +5752,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 			},
 			"sharpen the blade": {
 				name: "Sharpen the Blade",
-				extraname: "Way of the Kensei 11",
+				extraname: "Kensei 11",
 				source: [["UA:MMT", 1]],
 				additional: "1 to 3 ki points",
 				description: desc([
@@ -5788,7 +5788,7 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 			usages: 1,
 			recovery: "1 min",
 			spellcastingBonus: [{
-				name: "Way of Tranquility",
+				name: "Path of Tranquility",
 				spells: ["sanctuary"],
 				selection: ["sanctuary"],
 			}],
@@ -5822,7 +5822,7 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 			skillstxt: "Choose one from: Performance or Persuasion",
 			"douse the flames of war": {
 				name: "Douse the Flames of War",
-				extraname: "Way of Tranquility 11",
+				extraname: "Tranquility 11",
 				source: [["UA:MMT", 1]],
 				description: desc([
 					"As an action, a creature I touch must make a Wisdom save or have no violent impulses",
@@ -5992,7 +5992,7 @@ AddSubClass("paladin", "oath of treachery-ua", { // Still valid 2021-09-21
 			action: [["reaction", ""]],
 			"icon of deceit": {
 				name: "Icon of Deceit",
-				extraname: "Oath of Treachery 20",
+				extraname: "Treachery 20",
 				source: [["UA:PSO", 3]],
 				description: desc([
 					"As an action, I can gain the following benefits for 1 minute:",
@@ -6917,7 +6917,8 @@ AddWarlockInvocation("Chronicle of the Raven Queen (prereq: the Raven Queen patr
 	]),
 	source: [["UA:WnW", 3]],
 	submenu: "[improves Pact of the Tome]",
-	prereqeval: function (v) { return (/raven queen/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome"; },
+	minlevel: 3,
+	prereqeval: function (v) { return (/raven queen/).test(classes.known.warlock.subclass) && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome"; },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of the Blade)", {
@@ -6929,7 +6930,8 @@ AddWarlockInvocation("Claw of Acamar (prereq: the Great Old One patron, Pact of 
 	]),
 	source: [["UA:WnW", 3]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 3,
+	prereqeval: function (v) { return (/great old one/).test(classes.known.warlock.subclass) && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	weaponOptions: [{
 		baseWeapon: "flail",
 		regExpSearch: /^(?=.*\bclaw\b)(?=.*\bacamar\b).*$/i,
@@ -6961,7 +6963,8 @@ AddWarlockInvocation("Curse Bringer (prereq: the Hexblade patron, Pact of the Bl
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return (/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 3,
+	prereqeval: function (v) { return (/hexblade/).test(classes.known.warlock.subclass) && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	weaponOptions: [{
 		baseWeapon: "greatsword",
 		regExpSearch: /^(?=.*\bcurse)(?=.*bringer\b).*$/i,
@@ -6980,7 +6983,8 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, the Fiend
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Eldritch Blast]",
-	prereqeval: function (v) { return v.hasEldritchBlast && classes.known.warlock.level >= 5 && (/\bfiend\b/).test(classes.known.warlock.subclass); },
+	minlevel: 5,
+	prereqeval: function (v) { return v.hasEldritchBlast && (/\bfiend\b/).test(classes.known.warlock.subclass); },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Frost Lance (prereq: the Archfey patron, Eldritch Blast cantrip)", {
@@ -7008,7 +7012,8 @@ AddWarlockInvocation("Gaze of Khirad (prereq: level 7 warlock, the Great Old One
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[warlock level  7+]",
-	prereqeval: function (v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 7; },
+	minlevel: 7,
+	prereqeval: function (v) { return (/great old one/).test(classes.known.warlock.subclass); },
 	action: [["action", ""]],
 });
 AddWarlockInvocation("Grasp of Hadar (prereq: the Great Old One patron, Eldritch Blast cantrip)", {
@@ -7041,7 +7046,8 @@ AddWarlockInvocation("Improved Pact Weapon (prereq: level 5 warlock, Pact of the
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 5,
+	prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	calcChanges: {
 		atkCalc: [
 			function (fields, v, output) {
@@ -7064,7 +7070,8 @@ AddWarlockInvocation("Mace of Dispater (prereq: the Fiend patron, Pact of the Bl
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return (/\bfiend\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 3,
+	prereqeval: function (v) { return (/\bfiend\b/).test(classes.known.warlock.subclass) && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	weaponOptions: [{
 		baseWeapon: "mace",
 		regExpSearch: /^(?=.*\bmace\b)(?=.*\bdispater\b).*$/i,
@@ -7084,7 +7091,8 @@ AddWarlockInvocation("Moon Bow (prereq: the Archfey patron, Pact of the Blade)",
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return (/\barchfey\b/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 3 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 3,
+	prereqeval: function (v) { return (/\barchfey\b/).test(classes.known.warlock.subclass) && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	weaponOptions: [{
 		baseWeapon: "longbow",
 		regExpSearch: /^(?=.*\bmoon)(?=.*bow\b).*$/i,
@@ -7123,7 +7131,8 @@ AddWarlockInvocation("Relentless Hex (prereq: level 5 warlock, the Hexblade patr
 	]),
 	source: [["UA:WnW", 5]],
 	submenu: "[warlock level  5+]",
-	prereqeval: function (v) { return (/hexblade/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 5; },
+	minlevel: 5,
+	prereqeval: function (v) { return (/hexblade/).test(classes.known.warlock.subclass); },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Sea Twins' Gift (prereq: the Archfey patron)", {
@@ -7159,7 +7168,8 @@ AddWarlockInvocation("Shroud of Ulban (prereq: level 18 warlock, the Great Old O
 	]),
 	source: [["UA:WnW", 4]],
 	submenu: "[warlock level 18+]",
-	prereqeval: function (v) { return (/great old one/).test(classes.known.warlock.subclass) && classes.known.warlock.level >= 18; },
+	minlevel: 18,
+	prereqeval: function (v) { return (/great old one/).test(classes.known.warlock.subclass); },
 	action: [["action", ""]],
 });
 AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the Blade)", {
@@ -7169,7 +7179,8 @@ AddWarlockInvocation("Superior Pact Weapon (prereq: level 9 warlock, Pact of the
 	]),
 	source: [["UA:WnW", 5]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 9,
+	prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	calcChanges: {
 		atkCalc: [
 			function (fields, v, output) {
@@ -7205,7 +7216,8 @@ AddWarlockInvocation("Ultimate Pact Weapon (prereq: level 15 warlock, Pact of th
 	]),
 	source: [["UA:WnW", 5]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 15 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 15,
+	prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	calcChanges: {
 		atkCalc: [
 			function (fields, v, output) {
@@ -13044,14 +13056,14 @@ AddSubClass("monk", "way of the kensei2-ua", {
 			},
 			"precise strike": {
 				name: "Precise Strike",
-				extraname: "Way of the Kensei 6",
+				extraname: "Kensei 6",
 				source: [["UA:RS", 5]],
 				description: desc("Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage"),
 				additional: "1 ki point",
 			},
 			"sharpen the blade": {
 				name: "Sharpen the Blade",
-				extraname: "Way of the Kensei 11",
+				extraname: "Kensei 11",
 				source: [["UA:RS", 5]],
 				description: desc([
 					"As a bonus action, I can grant my kensei weapon a bonus to attack and damage rolls",
@@ -13535,7 +13547,8 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 5,
+	prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 });
 AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", { // Still valid 2021-09-21
 	name: "Frost Lance",
@@ -13563,7 +13576,7 @@ AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[warlock level  7+]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 7; },
+	minlevel: 7,
 	recovery: "short rest",
 	usages: 1,
 	action: [["action", ""]],
@@ -13617,7 +13630,8 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, Eldritch 
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[improves Eldritch Blast]",
-	prereqeval: function (v) { return v.hasEldritchBlast && classes.known.warlock.level >= 5; },
+	minlevel: 5,
+	prereqeval: function (v) { return v.hasEldritchBlast; },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
@@ -13628,7 +13642,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[warlock level  5+]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 5; },
+	minlevel: 5,
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
@@ -13639,7 +13653,7 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[warlock level  7+]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 7; },
+	minlevel: 7,
 	action: [["bonus action", ""]],
 });
 
@@ -16837,16 +16851,18 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 				source: [["UA:BnM", 1]],
 				note: [
 					"Magic erupts from me while I rage. Whenever I enter my rage, I have to roll on the table below to see what happens.",
-					"If the effect calls for a saving throw, the DC is equal to 8 + my proficiency bonus + my Constitution modifier.\n",
-					"d8\tEFFECT",
-					" 1\tNecrotic energy bursts from me. Each creature within 30 ft of me takes 1d10 necrotic damage, and I gain temporary HP equal to the sum of the necrotic damage dealt to the creatures.",
-					" 2\tI teleport up to 20 ft to an unoccupied space I can see. Until my rage ends, I can activate this effect again on each of my turns as a bonus action.",
-					" 3\tI conjure 1d4 intangible spirits that look like flumphs in unoccupied spaces within 30 ft of me. Each spirit immediately flies 30 ft in a random direction. At the end of my turn, all spirits explode and each creature within 5 ft of one or more of them must succeed on a Dexterity saving throw or take 2d8 force damage.",
-					" 4\tArcane energy enshrouds me. Until my rage ends, I gain a +2 bonus to AC, and whenever a creature within 10 ft of me hits me with an attack, that creature takes force damage equal to my Constitution modifier.",
-					" 5\tPlant life temporarily grows around me: until my rage ends, the ground within 10 ft of me is difficult terrain.",
-					" 6\tArcane energy taps into the minds of those around me. Each creature within 30 ft of me must succeed on a Wisdom saving throw or I see a glimpse of the creature's thoughts, learning how it plans to attack me. As a result, the creature has disadvantage on attack rolls against me until the start of my next turn.",
-					" 7\tShadows weave around a weapon of my choice I am holding. Until my rage ends, my weapon deals psychic damage instead of its bludgeoning, slashing, or piercing damage, and it gains the light and thrown properties with a normal range of 20 ft and a long range of 60 ft. If I drop the weapon or throw it, the weapon dissipates and reappears in my hand at the end of my turn.",
-					" 8\tA beam of brilliant light lances from my chest in a 5-ft-wide, 60-ft-long line. Each creature in the line must succeed on a Constitution saving throw or take 2d8 radiant damage and be blinded until the start of my next turn.",
+					"If the effect calls for a saving throw, the DC is equal to 8 + my proficiency bonus + my Constitution modifier.",
+					[
+						["d8", "Effect"],
+						[" 1", "Necrotic energy bursts from me. Each creature within 30 ft of me takes 1d10 necrotic damage, and I gain temporary HP equal to the sum of the necrotic damage dealt to the creatures."],
+						[" 2", "I teleport up to 20 ft to an unoccupied space I can see. Until my rage ends, I can activate this effect again on each of my turns as a bonus action."],
+						[" 3", "I conjure 1d4 intangible spirits that look like flumphs in unoccupied spaces within 30 ft of me. Each spirit immediately flies 30 ft in a random direction. At the end of my turn, all spirits explode and each creature within 5 ft of one or more of them must succeed on a Dexterity saving throw or take 2d8 force damage."],
+						[" 4", "Arcane energy enshrouds me. Until my rage ends, I gain a +2 bonus to AC, and whenever a creature within 10 ft of me hits me with an attack, that creature takes force damage equal to my Constitution modifier."],
+						[" 5", "Plant life temporarily grows around me: until my rage ends, the ground within 10 ft of me is difficult terrain."],
+						[" 6", "Arcane energy taps into the minds of those around me. Each creature within 30 ft of me must succeed on a Wisdom saving throw or I see a glimpse of the creature's thoughts, learning how it plans to attack me. As a result, the creature has disadvantage on attack rolls against me until the start of my next turn."],
+						[" 7", "Shadows weave around a weapon of my choice I am holding. Until my rage ends, my weapon deals psychic damage instead of its bludgeoning, slashing, or piercing damage, and it gains the light and thrown properties with a normal range of 20 ft and a long range of 60 ft. If I drop the weapon or throw it, the weapon dissipates and reappears in my hand at the end of my turn."],
+						[" 8", "A beam of brilliant light lances from my chest in a 5-ft-wide, 60-ft-long line. Each creature in the line must succeed on a Constitution saving throw or take 2d8 radiant damage and be blinded until the start of my next turn."],
+					],
 				],
 			}],
 		},
@@ -16914,7 +16930,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 			}],
 			"astral arms": {
 				name: "Astral Arms",
-				extraname: "Way of the Astral Self 3",
+				extraname: "Astral Self 3",
 				source: [["UA:BnM", 2]],
 				description: desc([
 					"As a bonus action, I can summon my astral arms for 10 minutes; I choose their appearance",
@@ -16937,7 +16953,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 			action: [["bonus action", "Summon Astral Arms and/or Visage", "Summon Astral Arms"]],
 			"astral visage": {
 				name: "Astral Visage",
-				extraname: "Way of the Astral Self 6",
+				extraname: "Astral Self 6",
 				source: [["UA:BnM", 3]],
 				additional: "1 ki point",
 				description: desc([
@@ -16996,7 +17012,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 			action: [["bonus action", "Summon Astral Arms and/or Visage, or Complete", "Summon Astral Arms and/or Visage"], ["reaction", "Ki Consumption (Complete Astral Self)"]],
 			"astral body": {
 				name: "Astral Body",
-				extraname: "Way of the Astral Self 17",
+				extraname: "Astral Self 17",
 				source: [["UA:BnM", 3]],
 				additional: "10 ki points",
 				description: desc([
@@ -19037,8 +19053,9 @@ AddWarlockInvocation("Bond of the Talisman (prereq: level 12 warlock, Pact of th
 		"As an action, I can teleport to the unoccupied space closest to the wearer of my talisman",
 		"The talisman's wearer can do the same to teleport to me; Only works if both on same plane",
 	]),
+	minlevel: 12,
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 12 && GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
+		return GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	action: [["action", ""]],
 });
@@ -19047,8 +19064,9 @@ AddWarlockInvocation("Chain Master's Fury (prereq: level 9 warlock, Pact of the 
 	source: [["UA:CFV", 11]],
 	submenu: "[improves Pact of the Chain]",
 	description: desc("As a bonus action, I can command my familiar to make one attack"),
+	minlevel: 9,
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the chain";
+		return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the chain";
 	},
 	action: [["bonus action", ""]],
 });
@@ -19086,8 +19104,9 @@ AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome) (ua
 		"Instead of saying the message, I write it on the page and any reply appears there as well",
 		"This writing disappears after 1 minute; The target still hears the message in their mind",
 	]),
+	minlevel: 5,
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
+		return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
 	},
 	action: [["action", " (erase name)"]],
 	spellcastingBonus: [{
@@ -19115,8 +19134,9 @@ AddWarlockInvocation("Gift of the Protectors (prereq: level 9 warlock, Pact of t
 		"If a creature whose name is on the page drops to 0 HP, it magically drops to 1 HP instead",
 		"This doesn't work if the creature would be killed outright",
 	]),
+	minlevel: 9,
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
+		return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
 	},
 	action: [["action", " (erase name)"]],
 	usages: 1,
@@ -19167,8 +19187,9 @@ AddWarlockInvocation("Protection of the Talisman (prereq: level 9 warlock, Pact 
 	source: [["UA:CFV", 12]],
 	submenu: "[improves Pact of the Talisman]",
 	description: desc("The wearer of my talisman adds 1d4 to saving throw rolls in which they lack proficiency"),
+	minlevel: 9,
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
+		return GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	savetxt: { text: ["+1d4 to nonproficient saves"] },
 });
@@ -19980,7 +20001,7 @@ AddSubClass("monk", "way of mercy-ua", {
 			},
 			"hands of healing": {
 				name: "Hands of Healing",
-				extraname: "Way of Mercy 3",
+				extraname: "Mercy 3",
 				source: [["UA:SP1", 2]],
 				description: levels.map(function (n) {
 					var a = "As an action, I can spend 1 ki point to touch a creature and restore a number of its HP";
@@ -19997,7 +20018,7 @@ AddSubClass("monk", "way of mercy-ua", {
 			},
 			"hands of harm": {
 				name: "Hands of Harm",
-				extraname: "Way of Mercy 3",
+				extraname: "Mercy 3",
 				source: [["UA:SP1", 3]],
 				description: desc([
 					"When I hit a creature with an unarmed strike, I can spend 1 ki point to deal extra damage",
@@ -20033,7 +20054,7 @@ AddSubClass("monk", "way of mercy-ua", {
 			description: desc("With hands of healing I can also end: 1 disease, blinded, deafened, paralyzed, or poisoned"),
 			"hand of mercy": {
 				name: "Hand of Mercy",
-				extraname: "Way of Mercy 17",
+				extraname: "Mercy 17",
 				source: [["UA:SP1", 3]],
 				description: desc([
 					"As an action, I can use 4 ki to have a touched creature make a Con save (can fail willingly)",
@@ -20710,7 +20731,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 			"As a reaction when being knocked prone, the wearer can use 1 charge to not be prone",
 		]),
 		additional: typePF ? "armor; attunement" : "suit of armor; needs attunement",
-		prereqeval: function (v) { return classes.known.artificer.level >= 10; },
+		minlevel: 10,
 		magicitemsAdd: ["Armor of Magical Strength (UA)"],
 	});
 	MagicItemsList["armor of magical strength-ua"] = {
@@ -20801,7 +20822,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 			"The maximum level of the spell slot is equal to the number of magic items it is attuned to",
 		]),
 		additional: "ring; requires attunement",
-		prereqeval: function (v) { return classes.known.artificer.level >= 6; },
+		minlevel: 6,
 		magicitemsAdd: ["Spell-Refueling Ring (UA)"],
 	});
 	MagicItemsList["spell-refueling ring-ua"] = {
@@ -20901,7 +20922,7 @@ AddSubClass("druid", "circle of the stars-ua", {
 			],
 			"star flare": {
 				name: "Star Flare",
-				extraname: "Circle of the Stars 14",
+				extraname: "Stars 14",
 				source: [["UA:SP3", 3]],
 				description: desc([
 					"As an action, I conjure a 30-ft radius sphere of light on a point within 120 ft I can see",
@@ -23981,11 +24002,11 @@ AddSubClass("druid", "circle of the primeval-ua", {
 					name: "Intercept attack",
 					description: "As a reaction when a creature the companion can see hits a target within 5 ft of the companion with an attack, the target instead takes half the damage. The companion takes the remainder of the damage",
 				}, {
-					name: "Prehistoric Conduit (Circle of the Primeval 6)",
+					name: "Prehistoric Conduit (Primeval 6)",
 					minlevel: 6,
 					description: "Spells cast by the companion's summoner with a range other than self can originate from the companion instead. Also, the companion has advantage on saving throws against spells cast by its summoner. If the companion would normally take half damage on a successful save against these spells, instead, it takes no damage on a success and half and no other effects on a fail.",
 				}, {
-					name: "Titanic Bond (Circle of the Primeval 10)",
+					name: "Titanic Bond (Primeval 10)",
 					minlevel: 10,
 					description: "The companion's size is now Large and it gains either a swimming or climbing speed equal to its walking speed.",
 					eval: function (prefix, lvl) {
@@ -25319,16 +25340,18 @@ FeatsList["rune carver apprentice-ua2"] = {
 			"I know two runes of my choice from the list below. Whenever I finish a long rest, I can mark one nonmagical weapon, armor, piece of clothing, or other object I touch with a rune I know. I temporarily learn one 1st-level spell based on the rune I inscribed and I know the spell until I finish a long rest, when the rune fades.",
 			"While I'm wearing or carrying the rune-marked object, I can cast its associated spell once per long rest without using a spell slot or material components. I can also cast the spell using any spell slots I have.",
 			"My spellcasting ability for this is Intelligence, Wisdom, or Charisma (choose when selecting this feat).",
-			"Each time I gain a level, I can replace one of the runes I know with a different one from the list.\n",
-			"RUNE\t\tSPELL\t\tSCHOOL",
-			"Death\t\t*Ray of Sickness*\tNecromancy",
-			"Dragon\t\t*Chromatic Orb*\tEvocation",
-			"Enemy\t\t*Disguise Self*   \tIllusion",
-			"Friend\t\t*Speak With Animals*\tDivination",
-			"Journey\t\t*Longstrider*\t\tTransmutation",
-			"King\t\t*Command*\t\tEnchantment",
-			"Mountain\t\t*Entangle*\t\tConjuration",
-			"Sacred\t\t*Sanctuary*\t\tAbjuration",
+			"Each time I gain a level, I can replace one of the runes I know with a different one from the list.",
+			[
+				["Rune", "", "Spell", "", "School"],
+				["Death", "", "*Ray of Sickness*", "Necromancy"],
+				["Dragon", "", "*Chromatic Orb*", "Evocation"],
+				["Enemy", "", "*Disguise Self*   ", "Illusion"],
+				["Friend", "", "*Speak With Animals*", "Divination"],
+				["Journey", "", "*Longstrider*", "", "Transmutation"],
+				["King", "", "*Command*", "", "Enchantment"],
+				["Mountain", "", "*Entangle*", "", "Conjuration"],
+				["Sacred", "", "*Sanctuary*", "", "Abjuration"],
+			],
 		],
 	}],
 };

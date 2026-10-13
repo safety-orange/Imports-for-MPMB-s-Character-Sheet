@@ -54,16 +54,18 @@ AddSubClass("barbarian", "path of the wild soul-ua", {
 				source: [["UA:BnM", 1]],
 				note: [
 					"Magic erupts from me while I rage. Whenever I enter my rage, I have to roll on the table below to see what happens.",
-					"If the effect calls for a saving throw, the DC is equal to 8 + my proficiency bonus + my Constitution modifier.\n",
-					"d8\tEFFECT",
-					" 1\tNecrotic energy bursts from me. Each creature within 30 ft of me takes 1d10 necrotic damage, and I gain temporary HP equal to the sum of the necrotic damage dealt to the creatures.",
-					" 2\tI teleport up to 20 ft to an unoccupied space I can see. Until my rage ends, I can activate this effect again on each of my turns as a bonus action.",
-					" 3\tI conjure 1d4 intangible spirits that look like flumphs in unoccupied spaces within 30 ft of me. Each spirit immediately flies 30 ft in a random direction. At the end of my turn, all spirits explode and each creature within 5 ft of one or more of them must succeed on a Dexterity saving throw or take 2d8 force damage.",
-					" 4\tArcane energy enshrouds me. Until my rage ends, I gain a +2 bonus to AC, and whenever a creature within 10 ft of me hits me with an attack, that creature takes force damage equal to my Constitution modifier.",
-					" 5\tPlant life temporarily grows around me: until my rage ends, the ground within 10 ft of me is difficult terrain.",
-					" 6\tArcane energy taps into the minds of those around me. Each creature within 30 ft of me must succeed on a Wisdom saving throw or I see a glimpse of the creature's thoughts, learning how it plans to attack me. As a result, the creature has disadvantage on attack rolls against me until the start of my next turn.",
-					" 7\tShadows weave around a weapon of my choice I am holding. Until my rage ends, my weapon deals psychic damage instead of its bludgeoning, slashing, or piercing damage, and it gains the light and thrown properties with a normal range of 20 ft and a long range of 60 ft. If I drop the weapon or throw it, the weapon dissipates and reappears in my hand at the end of my turn.",
-					" 8\tA beam of brilliant light lances from my chest in a 5-ft-wide, 60-ft-long line. Each creature in the line must succeed on a Constitution saving throw or take 2d8 radiant damage and be blinded until the start of my next turn.",
+					"If the effect calls for a saving throw, the DC is equal to 8 + my proficiency bonus + my Constitution modifier.",
+					[
+						["d8", "Effect"],
+						[" 1", "Necrotic energy bursts from me. Each creature within 30 ft of me takes 1d10 necrotic damage, and I gain temporary HP equal to the sum of the necrotic damage dealt to the creatures."],
+						[" 2", "I teleport up to 20 ft to an unoccupied space I can see. Until my rage ends, I can activate this effect again on each of my turns as a bonus action."],
+						[" 3", "I conjure 1d4 intangible spirits that look like flumphs in unoccupied spaces within 30 ft of me. Each spirit immediately flies 30 ft in a random direction. At the end of my turn, all spirits explode and each creature within 5 ft of one or more of them must succeed on a Dexterity saving throw or take 2d8 force damage."],
+						[" 4", "Arcane energy enshrouds me. Until my rage ends, I gain a +2 bonus to AC, and whenever a creature within 10 ft of me hits me with an attack, that creature takes force damage equal to my Constitution modifier."],
+						[" 5", "Plant life temporarily grows around me: until my rage ends, the ground within 10 ft of me is difficult terrain."],
+						[" 6", "Arcane energy taps into the minds of those around me. Each creature within 30 ft of me must succeed on a Wisdom saving throw or I see a glimpse of the creature's thoughts, learning how it plans to attack me. As a result, the creature has disadvantage on attack rolls against me until the start of my next turn."],
+						[" 7", "Shadows weave around a weapon of my choice I am holding. Until my rage ends, my weapon deals psychic damage instead of its bludgeoning, slashing, or piercing damage, and it gains the light and thrown properties with a normal range of 20 ft and a long range of 60 ft. If I drop the weapon or throw it, the weapon dissipates and reappears in my hand at the end of my turn."],
+						[" 8", "A beam of brilliant light lances from my chest in a 5-ft-wide, 60-ft-long line. Each creature in the line must succeed on a Constitution saving throw or take 2d8 radiant damage and be blinded until the start of my next turn."],
+					],
 				],
 			}],
 		},
@@ -131,7 +133,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 			}],
 			"astral arms": {
 				name: "Astral Arms",
-				extraname: "Way of the Astral Self 3",
+				extraname: "Astral Self 3",
 				source: [["UA:BnM", 2]],
 				description: desc([
 					"As a bonus action, I can summon my astral arms for 10 minutes; I choose their appearance",
@@ -154,7 +156,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 			action: [["bonus action", "Summon Astral Arms and/or Visage", "Summon Astral Arms"]],
 			"astral visage": {
 				name: "Astral Visage",
-				extraname: "Way of the Astral Self 6",
+				extraname: "Astral Self 6",
 				source: [["UA:BnM", 3]],
 				additional: "1 ki point",
 				description: desc([
@@ -213,7 +215,7 @@ AddSubClass("monk", "way of the astral self-ua", {
 			action: [["bonus action", "Summon Astral Arms and/or Visage, or Complete", "Summon Astral Arms and/or Visage"], ["reaction", "Ki Consumption (Complete Astral Self)"]],
 			"astral body": {
 				name: "Astral Body",
-				extraname: "Way of the Astral Self 17",
+				extraname: "Astral Self 17",
 				source: [["UA:BnM", 3]],
 				additional: "10 ki points",
 				description: desc([

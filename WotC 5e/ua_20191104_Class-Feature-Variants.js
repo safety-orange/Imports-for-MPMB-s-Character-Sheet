@@ -985,8 +985,9 @@ AddWarlockInvocation("Bond of the Talisman (prereq: level 12 warlock, Pact of th
 		"As an action, I can teleport to the unoccupied space closest to the wearer of my talisman",
 		"The talisman's wearer can do the same to teleport to me; Only works if both on same plane",
 	]),
+	minlevel: 12,
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 12 && GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
+		return GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	action: [["action", ""]],
 });
@@ -995,8 +996,9 @@ AddWarlockInvocation("Chain Master's Fury (prereq: level 9 warlock, Pact of the 
 	source: [["UA:CFV", 11]],
 	submenu: "[improves Pact of the Chain]",
 	description: desc("As a bonus action, I can command my familiar to make one attack"),
+	minlevel: 9,
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the chain";
+		return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the chain";
 	},
 	action: [["bonus action", ""]],
 });
@@ -1034,8 +1036,9 @@ AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome) (ua
 		"Instead of saying the message, I write it on the page and any reply appears there as well",
 		"This writing disappears after 1 minute; The target still hears the message in their mind",
 	]),
+	minlevel: 5,
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
+		return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
 	},
 	action: [["action", " (erase name)"]],
 	spellcastingBonus: [{
@@ -1063,8 +1066,9 @@ AddWarlockInvocation("Gift of the Protectors (prereq: level 9 warlock, Pact of t
 		"If a creature whose name is on the page drops to 0 HP, it magically drops to 1 HP instead",
 		"This doesn't work if the creature would be killed outright",
 	]),
+	minlevel: 9,
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
+		return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
 	},
 	action: [["action", " (erase name)"]],
 	usages: 1,
@@ -1115,8 +1119,9 @@ AddWarlockInvocation("Protection of the Talisman (prereq: level 9 warlock, Pact 
 	source: [["UA:CFV", 12]],
 	submenu: "[improves Pact of the Talisman]",
 	description: desc("The wearer of my talisman adds 1d4 to saving throw rolls in which they lack proficiency"),
+	minlevel: 9,
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
+		return GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	savetxt: { text: ["+1d4 to nonproficient saves"] },
 });

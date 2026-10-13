@@ -321,14 +321,14 @@ AddSubClass("monk", "way of the kensei2-ua", {
 			},
 			"precise strike": {
 				name: "Precise Strike",
-				extraname: "Way of the Kensei 6",
+				extraname: "Kensei 6",
 				source: [["UA:RS", 5]],
 				description: desc("Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage"),
 				additional: "1 ki point",
 			},
 			"sharpen the blade": {
 				name: "Sharpen the Blade",
-				extraname: "Way of the Kensei 11",
+				extraname: "Kensei 11",
 				source: [["UA:RS", 5]],
 				description: desc([
 					"As a bonus action, I can grant my kensei weapon a bonus to attack and damage rolls",

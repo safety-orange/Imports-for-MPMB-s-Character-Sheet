@@ -236,7 +236,7 @@ if (!SourceList["E:RLW"] || !ClassList.artificer) {
 						"It must be a space that the wearer had occupied some time during the current turn",
 					]),
 					additional: typePF ? "two boots; attunement" : "pair of boots; requires attunement",
-					prereqeval: function (v) { return classes.known.artificer.level >= 6; },
+					minlevel: 6,
 					magicitemsAdd: ["Boots of the Winding Path"],
 				},
 				"enhanced arcane focus": {
@@ -390,7 +390,7 @@ if (!SourceList["E:RLW"] || !ClassList.artificer) {
 						"The attacker makes a Con save (my spell save DC) or is blinded until its next turn ends",
 					]),
 					additional: "simple/martial" + (typePF ? "" : " weapon") + "; needs attunement",
-					prereqeval: function (v) { return classes.known.artificer.level >= 6; },
+					minlevel: 6,
 					magicitemsAdd: ["Radiant Weapon"],
 				},
 				"repeating shot": {
@@ -412,7 +412,7 @@ if (!SourceList["E:RLW"] || !ClassList.artificer) {
 						"As a reaction when hit in melee, the wearer can use 1 charge to push the attacker 15 ft",
 					]),
 					additional: "shield; requires attunement",
-					prereqeval: function (v) { return classes.known.artificer.level >= 6; },
+					minlevel: 6,
 					magicitemsAdd: ["Repulsion Shield"],
 				},
 				"resistant armor (prereq: level 6 artificer)": {
@@ -423,7 +423,7 @@ if (!SourceList["E:RLW"] || !ClassList.artificer) {
 						"Choose from: acid,	cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder",
 					]),
 					additional: "suit of armor; requires attunement",
-					prereqeval: function (v) { return classes.known.artificer.level >= 6; },
+					minlevel: 6,
 					magicitemsAdd: ["Armor of Resistance"],
 				},
 				"returning weapon": {
@@ -511,9 +511,6 @@ if (!SourceList["E:RLW"] || !ClassList.artificer) {
 				},
 			},
 		},
-		prereqLvl6: function (v) { return classes.known.artificer.level >= 6; },
-		prereqLvl10: function (v) { return classes.known.artificer.level >= 10; },
-		prereqLvl14: function (v) { return classes.known.artificer.level >= 14; },
 	};
 
 	// Set the Artificer infusion list for Replicate Magic Item
@@ -618,9 +615,9 @@ if (!SourceList["E:RLW"] || !ClassList.artificer) {
 				name: anArtMi.name,
 				description: "",
 				source: anArtMi.source,
+				minlevel: MI1 && MI1 > 2 ? MI1 : undefined,
 				magicitemsAdd: [anArtMi.name],
 				additional: !anArtMi.attunement ? undefined : typePF && anArtMi.name.length > 30 ? "attunement" : "requires attunement",
-				prereqeval: MI1 && MI1 > 2 ? ClassList.artificer["prereqLvl" + MI1] : undefined,
 				submenu: "Replicate Magic Item" + (MI1 ? " (prereq: level " + (" " + MI1).slice(-2) + " artificer)" : " (common magic items) [" + getLetterRange(anArtMi.name, ["A-F", "G-Q", "R-Z"]) + "]"),
 			};
 			theObj.extrachoices.push(theI);
@@ -1349,7 +1346,7 @@ AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Arcane Prop
 		"It increases the wearer's walking speed by 5 ft; Its gauntlet can be used as melee weapons",
 	]),
 	additional: "suit of armor;" + (typePF ? "" : " requires") + " attunement",
-	prereqeval: function (v) { return classes.known.artificer.level >= 14; },
+	minlevel: 14,
 	magicitemsAdd: ["Arcane Propulsion Armor"],
 });
 MagicItemsList["arcane propulsion armor"] = {
@@ -1424,7 +1421,7 @@ AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Helm of Awa
 	source: [["T", 21], ["UA:SP3", 3]],
 	description: desc("The wearer has advantage on Initiative rolls and can't be surprised while not incapacitated"),
 	additional: "helmet; requires attunement",
-	prereqeval: function (v) { return classes.known.artificer.level >= 10; },
+	minlevel: 10,
 	magicitemsAdd: ["Helm of Awareness"],
 });
 MagicItemsList["helm of awareness"] = {
@@ -1477,7 +1474,7 @@ AddFeatureChoice(ClassList.artificer.features["infuse item"], true, "Spell-Refue
 	source: [["T", 23]],
 	description: desc("As an action once per dawn, this ring's wearer can recover one 3rd-level or lower spell slot"),
 	additional: "ring; requires attunement",
-	prereqeval: function (v) { return classes.known.artificer.level >= 6; },
+	minlevel: 6,
 	magicitemsAdd: ["Spell-Refueling Ring"],
 });
 MagicItemsList["spell-refueling ring"] = {
@@ -1734,7 +1731,6 @@ AddFeatureChoice(TCoE_barbarianOptional3, true, "Primal Knowledge", {
 		"I can choose from Animal Handling, Athletics, Intimidation, Nature, Perception, Survival",
 	]),
 	skillstxt: "Choose one from Animal Handling, Athletics, Intimidation, Nature, Perception and Survival.\nChoose another from this list at 10th level",
-	prereqeval: function (v) { return classes.known.barbarian.level >= 3 ? true : "skip"; },
 });
 var TCoE_barbarianOptional7 = makeOptionalClassFeatureBase("barbarian", 7);
 AddFeatureChoice(TCoE_barbarianOptional7, true, "Instinctive Pounce", {
@@ -1892,7 +1888,7 @@ AddSubClass("barbarian", "path of wild magic", {
 					"The magical energy roiling inside me sometimes erupts from me. Whenever I enter my rage, I have to roll on the table below to see what happens.",
 					"If the effect calls for a saving throw, the DC is equal to 8 + my Proficiency Bonus + my Constitution modifier.",
 					[
-						["d8", "EFFECT"],
+						["d8", "Effect"],
 						[" 1", "Shadowy tendrils lash around me. Each creature of my choice that I can see within 30 ft of me must succeed on a Constitution saving throw or take 1d12 necrotic damage. I also gain 1d12 temporary hit points."],
 						[" 2", "I teleport up to 30 ft to an unoccupied space I can see. Until my rage ends, I can use this effect again on each of my turns as a bonus action."],
 						[" 3", "An intangible spirit, which looks like a flumph or a pixie (my choice), appears within 5 ft of one creature of my choice that I can see within 30 ft of me. At the end of the current turn, the spirit explodes, and each creature within 5 ft of it must succeed on a Dexterity saving throw or take 1d6 force damage. Until my rage ends, I can use this effect again, summoning another spirit, on each of my turns as a bonus action."],
@@ -2210,7 +2206,7 @@ AddFeatureChoice(TCoE_clericOptional2, true, "Harness Divine Power", {
 	]),
 	action: [["bonus action", ""]],
 	usages: levels.map(function (n) {
-		return n < 3 ? "" : n < 6 ? 1 : n < 18 ? 2 : 3;
+		return n < 2 ? "" : n < 6 ? 1 : n < 18 ? 2 : 3;
 	}),
 	recovery: typePF ? "LR" : "long rest",
 });
@@ -3372,7 +3368,7 @@ AddSubClass("fighter", "rune knight", {
 					"I always gain advantage on saves against being poisoned and resistance to poison damage",
 					"As a bonus action, I can invoke it to gain resistance to bludg/slash/pierc damage for 1 min",
 				]),
-				prereqeval: function (v) { return classes.known.fighter.level >= 7; },
+				minlevel: 7,
 				action: [["bonus action", " (invoke)"]],
 				additional: "invoke",
 				usages: ["", "", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2],
@@ -3390,7 +3386,7 @@ AddSubClass("fighter", "rune knight", {
 					"While in this state, I can use a reaction to cause a roll to gain advantage or disadvantage",
 					"I can do this for attacks, saves, and checks of myself or others I can see within 60 ft of me",
 				]),
-				prereqeval: function (v) { return classes.known.fighter.level >= 7; },
+				minlevel: 7,
 				action: [["bonus action", " (invoke)"]],
 				additional: "invoke",
 				usages: ["", "", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2],
@@ -3556,7 +3552,7 @@ AddSubClass("monk", "way of mercy", {
 			toolProfs: ["Herbalism kit"],
 			"hands of healing": {
 				name: "Hands of Healing",
-				extraname: "Way of Mercy 3",
+				extraname: "Mercy 3",
 				source: [["T", 49]],
 				description: levels.map(function (n) {
 					var a = "As an action, I can spend 1 ki point to touch a creature and restore a number of its HP";
@@ -3573,7 +3569,7 @@ AddSubClass("monk", "way of mercy", {
 			},
 			"hands of harm": {
 				name: "Hands of Harm",
-				extraname: "Way of Mercy 3",
+				extraname: "Mercy 3",
 				source: [["T", 50]],
 				description: levels.map(function (n) {
 					var a = "When I hit a creature with an unarmed strike, I can spend 1 ki point to deal extra damage";
@@ -3614,7 +3610,7 @@ AddSubClass("monk", "way of mercy", {
 			]),
 			"hand of ultimate mercy": {
 				name: "Hand of Ultimate Mercy",
-				extraname: "Way of Mercy 17",
+				extraname: "Mercy 17",
 				source: [["T", 50]],
 				description: desc([
 					"As an action, I can spend 5 ki points and touch a creature that died in the last 24 hours",
@@ -3661,7 +3657,7 @@ AddSubClass("monk", "way of the astral self", {
 			}],
 			"astral arms": {
 				name: "Astral Arms",
-				extraname: "Way of the Astral Self 3",
+				extraname: "Astral Self 3",
 				source: [["T", 50]],
 				description: desc([
 					"As a bonus action, I can summon my astral arms to hover next to or over my own arms",
@@ -3687,7 +3683,7 @@ AddSubClass("monk", "way of the astral self", {
 			action: [["bonus action", "Summon Astral Arms and/or Visage", "Summon Astral Arms"]],
 			"astral visage": {
 				name: "Astral Visage",
-				extraname: "Way of the Astral Self 6",
+				extraname: "Astral Self 6",
 				source: [["T", 50]],
 				additional: "1 ki point",
 				description: desc([
@@ -3712,7 +3708,7 @@ AddSubClass("monk", "way of the astral self", {
 			action: [["reaction", "Deflect Energy"]],
 			"astral body": {
 				name: "Astral Body",
-				extraname: "Way of the Astral Self 11",
+				extraname: "Astral Self 11",
 				source: [["T", 51]],
 				description: " [if both astral arms \u0026 visage are present]" + desc([
 					" \u2022 Deflect Energy: As a reaction when I take damage, I can reduce it by 1d10 + Wis mod",
@@ -3743,7 +3739,7 @@ AddSubClass("monk", "way of the astral self", {
 			action: [["bonus action", ""]],
 			"astral body": {
 				name: "Awakened Astral Self",
-				extraname: "Way of the Astral Self 17",
+				extraname: "Astral Self 17",
 				source: [["T", 50]],
 				additional: "5 ki points",
 				description: desc([
@@ -4042,7 +4038,7 @@ var TCoE_Favored_Foe = {
 	calcChanges: {
 		atkAdd: [
 			function (fields, v) {
-				if (!v.isSpell && (classes.known.rangerua || classes.known.ranger) && /favou?red.{1,2}(foe|enemy)/i.test(v.WeaponTextName)) {
+				if (!v.isDC && (classes.known.rangerua || classes.known.ranger) && /favou?red.{1,2}(foe|enemy)/i.test(v.WeaponTextName)) {
 					var rngrLvl = classes.known.ranger ? classes.known.ranger.level : classes.known.rangerua.level;
 					fields.Description += (fields.Description ? "; " : "") + "Once per turn +1d" + (rngrLvl < 6 ? 4 : rngrLvl < 14 ? 6 : 8) + " damage";
 				};
@@ -5225,13 +5221,14 @@ AddFeatureChoice(TCoE_warlockOptional4, true, "Eldritch Versatility", {
 AddWarlockInvocation("Bond of the Talisman (prereq: level 12 warlock, Pact of the Talisman)", {
 	name: "Bond of the Talisman",
 	source: [["T", 70]],
+	minlevel: 12,
 	submenu: "[improves Pact of the Talisman]",
 	description: desc([
 		"As an action, I can teleport to the unoccupied space closest to the wearer of my talisman",
 		"The talisman's wearer can do the same to teleport to me; Only works if both on same plane",
 	]),
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 12 && GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
+		return GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	action: [["action", ""]],
 	usages: (typePF ? "Prof" : "Proficiency") + " Bonus per ",
@@ -5247,6 +5244,7 @@ AddWarlockInvocation("Eldritch Mind", {
 AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome)", {
 	name: "Far Scribe",
 	source: [["T", 71]],
+	minlevel: 5,
 	submenu: "[improves Pact of the Tome]",
 	description: desc([
 		"My book of shadows has a new page; As an action, a creature can write its name on it",
@@ -5256,7 +5254,7 @@ AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome)", {
 		"This writing disappears after 1 minute; The target still hears the message in their mind",
 	]),
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
+		return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
 	},
 	action: [["action", " (erase name)"]],
 	spellcastingBonus: [{
@@ -5277,6 +5275,7 @@ AddWarlockInvocation("Far Scribe (prereq: level 5 warlock, Pact of the Tome)", {
 AddWarlockInvocation("Gift of the Protectors (prereq: level 9 warlock, Pact of the Tome)", {
 	name: "Gift of the Protectors",
 	source: [["T", 71]],
+	minlevel: 9,
 	submenu: "[improves Pact of the Tome]",
 	description: desc([
 		"My book of shadows has a new page; As an action, a creature can write its name on it",
@@ -5285,7 +5284,7 @@ AddWarlockInvocation("Gift of the Protectors (prereq: level 9 warlock, Pact of t
 		"This doesn't work if the creature would be killed outright",
 	]),
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 9 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
+		return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the tome";
 	},
 	action: [["action", " (erase name)"]],
 	usages: 1,
@@ -5336,10 +5335,11 @@ AddWarlockInvocation("Investment of the Chain Master (prereq: Pact of the Chain)
 AddWarlockInvocation("Protection of the Talisman (prereq: level 7 warlock, Pact of the Talisman)", {
 	name: "Protection of the Talisman",
 	source: [["T", 71]],
+	minlevel: 7,
 	submenu: "[improves Pact of the Talisman]",
 	description: desc("When the wearer of my talisman fails a saving throw, they can add +1d4 to the roll"),
 	prereqeval: function (v) {
-		return classes.known.warlock.level >= 7 && GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
+		return GetFeatureChoice("class", "warlock", "pact boon").indexOf("pact of the talisman") !== -1;
 	},
 	usages: (typePF ? "Prof" : "Proficiency") + " Bonus per ",
 	usagescalc: "event.value = How('Proficiency Bonus')",
@@ -5363,6 +5363,7 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 	name: "Undying Servitude",
 	description: desc("Once per long rest, I can cast *Animate Dead* without using a spell slot"),
 	source: [["T", 71]],
+	minlevel: 5,
 	submenu: "[warlock level  5+]",
 	usages: 1,
 	additional: "no spell slot",
@@ -5373,7 +5374,6 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 		selection: ["animate dead"],
 		firstCol: "oncelr",
 	}],
-	prereqeval: function (v) { return classes.known.warlock.level >= 5; },
 });
 
 // Warlock Subclasses
@@ -5491,7 +5491,8 @@ AddSubClass("warlock", "the fathomless", {
 				spellAdd: [
 					function (spellKey, spellObj, spName) {
 						if (spellKey === "evard's black tentacles") {
-							spellObj.description = "I temp hp; All enter/start in 20-ft rad save or restrained \u0026 3d6 Bludg. dmg/rnd; Str/Dex check escape";
+							spellObj.description = "I temp hp; All enter/start in 20-ft rad save or restrained \x26 3d6 Bludg. dmg/rnd; Str/Dex check escape";
+							spellObj.descriptionShorter = "I temp hp; All enter/start 20 ft sq save or restrain \x26 3d6 Bludg. dmg/rnd; Str/Dex chk esc" + (typePF ? "ape" : ""),
 							spellObj.duration = "Conc*, 1 min";
 							return true;
 						}
@@ -5983,7 +5984,7 @@ AddSubClass("wizard","order of scribes", {
 			advantages: [["Arcana", true]],
 			"one with the word": {
 				name: "One with the Word",
-				extraname: "Order of Scribes 14",
+				extraname: "Scribes 14",
 				source: [["T", 78]],
 				description: desc([
 					"While my awakened spellbook is on my person, I have advantage on Int (Arcana) checks",

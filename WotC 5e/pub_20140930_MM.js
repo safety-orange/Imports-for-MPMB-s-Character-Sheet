@@ -212,7 +212,8 @@ CreatureList["peryton"] = {
 		"perception": 5,
 	},
 	senses: "Adv. on Wis (Perception) checks using sight/smell",
-	passivePerception: 16,
+	damage_resistances: "bludgeoning, piercing, and slashing from nonmagical attacks",
+	passivePerception: 15,
 	languages: "understands Common and Elvish, but can't speak",
 	challengeRating: "2",
 	proficiencyBonus: 2,
@@ -232,7 +233,7 @@ CreatureList["peryton"] = {
 	}],
 	actions: [{
 		name: "Multiattack",
-		description: "As an action on its turn, the [THIS] can make one Gore and one Talon attack.",
+		description: "As an action on its turn, the [THIS] can make one Gore and one Talons attack.",
 	}],
 	traits: [{
 		name: "Dive Attack",

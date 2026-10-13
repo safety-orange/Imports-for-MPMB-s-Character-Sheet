@@ -51,7 +51,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 			},
 			"kensei defense": {
 				name: "Kensei Defense",
-				extraname: "Way of the Kensei 3",
+				extraname: "Kensei 3",
 				source: [["UA:MMT", 1]],
 				description: desc([
 					"If I make an unarmed strike with an Attack action, I can use my kensei weapon to defend",
@@ -99,7 +99,7 @@ AddSubClass("monk", "way of the kensei-ua", {
 			},
 			"sharpen the blade": {
 				name: "Sharpen the Blade",
-				extraname: "Way of the Kensei 11",
+				extraname: "Kensei 11",
 				source: [["UA:MMT", 1]],
 				additional: "1 to 3 ki points",
 				description: desc([
@@ -135,7 +135,7 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 			usages: 1,
 			recovery: "1 min",
 			spellcastingBonus: [{
-				name: "Way of Tranquility",
+				name: "Path of Tranquility",
 				spells: ["sanctuary"],
 				selection: ["sanctuary"],
 			}],
@@ -169,7 +169,7 @@ AddSubClass("monk", "way of tranquility-ua", { // Still valid 2021-09-21
 			skillstxt: "Choose one from: Performance or Persuasion",
 			"douse the flames of war": {
 				name: "Douse the Flames of War",
-				extraname: "Way of Tranquility 11",
+				extraname: "Tranquility 11",
 				source: [["UA:MMT", 1]],
 				description: desc([
 					"As an action, a creature I touch must make a Wisdom save or have no violent impulses",

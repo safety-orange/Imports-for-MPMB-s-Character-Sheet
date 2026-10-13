@@ -140,7 +140,7 @@ AddSubClass("paladin", "oath of treachery-ua", { // Still valid 2021-09-21
 			action: [["reaction", ""]],
 			"icon of deceit": {
 				name: "Icon of Deceit",
-				extraname: "Oath of Treachery 20",
+				extraname: "Treachery 20",
 				source: [["UA:PSO", 3]],
 				description: desc([
 					"As an action, I can gain the following benefits for 1 minute:",

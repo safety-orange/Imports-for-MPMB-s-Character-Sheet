@@ -670,7 +670,7 @@ AddSubClass("monk", "way of the long death", {
 			description: desc("When I'm reduced to 0 HP, I can expend 1 ki point to have 1 HP instead"),
 			"touch of the long death": {
 				name: "Touch of the Long Death",
-				extraname: "Way of the Long Death 17",
+				extraname: "Long Death 17",
 				source: [["S", 131]],
 				additional: "1-10 ki points",
 				description: desc([
@@ -717,7 +717,7 @@ AddSubClass("monk", "way of the sun soul", {
 			}],
 			"searing arc strike": {
 				name: "Searing Arc Strike",
-				extraname: "Way of the Sun Soul 6",
+				extraname: "Sun Soul 6",
 				source: [["S", 131], ["X", 35]],
 				description: desc([
 					"After taking the Attack action, I can cast *Burning Hands* as a bonus action [PHB 220]",

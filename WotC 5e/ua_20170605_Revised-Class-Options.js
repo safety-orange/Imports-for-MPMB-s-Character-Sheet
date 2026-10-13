@@ -367,7 +367,7 @@ if (!SourceList["X"] || SourceList["X"].abbreviation !== "XGtE") {
 		]),
 		source: [["X", 56], ["UA:RCO", 5]],
 		submenu: "[warlock level  5+]",
-		prereqeval: function (v) { return classes.known.warlock.level >= 5; },
+		minlevel: 5,
 		recovery: "short rest",
 		usages: 1,
 		action: [["bonus action", " (start/stop)"]],
@@ -386,7 +386,7 @@ if (!SourceList["X"] || SourceList["X"].abbreviation !== "XGtE") {
 			selection: ["water breathing"],
 			firstCol: "oncelr",
 		}],
-		prereqeval: function (v) { return classes.known.warlock.level >= 5; },
+		minlevel: 5,
 		speed: { swim: { spd: "walk", enc: "walk" } },
 	});
 	AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)", {
@@ -422,7 +422,7 @@ if (!SourceList["X"] || SourceList["X"].abbreviation !== "XGtE") {
 			selection: ["invisibility"],
 			firstCol: "atwill",
 		}],
-		prereqeval: function (v) { return classes.known.warlock.level >= 15; },
+		minlevel: 15,
 		spellChanges: {
 			"invisibility": {
 				description: "1 crea invisible; attacking/casting makes the crea visible; anything worn/carried also invisible",
@@ -439,7 +439,7 @@ if (!SourceList["X"] || SourceList["X"].abbreviation !== "XGtE") {
 		]),
 		source: [["X", 57], ["UA:RCO", 6]],
 		submenu: "[warlock level  5+]",
-		prereqeval: function (v) { return classes.known.warlock.level >= 5; },
+		minlevel: 5,
 		recovery: "short rest",
 		usages: 1,
 		action: [["reaction", ""]],
@@ -456,7 +456,7 @@ if (!SourceList["X"] || SourceList["X"].abbreviation !== "XGtE") {
 			selection: ["freedom of movement"],
 			firstCol: "oncelr",
 		}],
-		prereqeval: function (v) { return classes.known.warlock.level >= 7; },
+		minlevel: 7,
 		spellChanges: {
 			"freedom of movement": {
 				range: "Self",
@@ -476,7 +476,8 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 5,
+	prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 });
 AddWarlockInvocation("Frost Lance (prereq: Eldritch Blast cantrip)", { // Still valid 2021-09-21
 	name: "Frost Lance",
@@ -504,7 +505,7 @@ AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[warlock level  7+]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 7; },
+	minlevel: 7,
 	recovery: "short rest",
 	usages: 1,
 	action: [["action", ""]],
@@ -558,7 +559,8 @@ AddWarlockInvocation("Kiss of Mephistopheles (prereq: level 5 warlock, Eldritch 
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[improves Eldritch Blast]",
-	prereqeval: function (v) { return v.hasEldritchBlast && classes.known.warlock.level >= 5; },
+	minlevel: 5,
+	prereqeval: function (v) { return v.hasEldritchBlast; },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
@@ -569,7 +571,7 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock)", {
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[warlock level  5+]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 5; },
+	minlevel: 5,
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
@@ -580,6 +582,6 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock)", {
 	]),
 	source: [["UA:RCO", 6]],
 	submenu: "[warlock level  7+]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 7; },
+	minlevel: 7,
 	action: [["bonus action", ""]],
 });

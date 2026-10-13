@@ -437,9 +437,9 @@ AddSubClass("bard", "college of swords", {
 				"I gain +10 ft to my walking speed until the end of the current turn",
 				"Once per turn when I hit with a weapon attack, I can expend a Bardic Inspiration die",
 				"The roll of that die is added to the weapon's damage, in addition to one of the following:",
-				"\u2022 Defensive Flourish: the result is also added to my AC until the start of my next turn",
-				"\u2022 Slashing Flourish: the extra damage is also dealt to any of my choosing in 5 ft of me",
-				"\u2022 Mobile Flourish: the target is also pushed 5 plus the die result in feet away from me",
+				"\u2022 **Defensive Flourish**: the result is also added to my AC until the start of my next turn",
+				"\u2022 **Slashing Flourish**: the extra damage is also dealt to any of my choosing in 5 ft of me",
+				"\u2022 **Mobile Flourish**: the target is also pushed 5 plus the die result in feet away from me",
 				"  As a reaction after this push, I can move my speed to a space within 5 ft of the target",
 			]),
 		},
@@ -698,7 +698,7 @@ AddSubClass("druid", "circle of dreams", {
 			minlevel: 2,
 			description: desc([
 				"I have a pool of fey energy represented by a number of d6s equal to my druid level",
-				"As a bonus action, I can spend dice to heal an ally within 120 ft of me that I can see",
+				"As a bonus action, I can spend dice to heal an ally that I can see within 120 ft",
 				"I can spend up to half my druid level worth of dice from the pool at once",
 				"The ally heals an amount equal to the total rolled and gains 1 temp HP per die spent",
 			]),
@@ -805,11 +805,11 @@ AddSubClass("druid", "circle of the shepherd", {
 				"It is a spectral form of a Bear, Hawk, or Unicorn (my choice), with a 30-ft radius aura",
 				"It is incorporeal, immobile, doesn't count as a creature or object, and persists for 1 min",
 				"The spirit persists for 1 minute or until I'm incapacitated",
-				"\u2022 Bear: my allies and I, if in the aura, immediately gain 5 + my druid level in temp HP",
+				"\u2022 **Bear**: my allies and I, if in the aura, immediately gain 5 + my druid level in temp HP",
 				"  While in the aura, my allies and I gain advantage on Strength checks and saves",
-				"\u2022 Hawk: As a reaction, I can grant advantage on an attack vs. a target in the aura",
+				"\u2022 **Hawk**: as a reaction, I can grant advantage on an attack vs. a target in the aura",
 				"  While in the aura, my allies and I gain advantage on Wisdom (Perception) checks",
-				"\u2022 Unicorn: my allies and I gain advantage on ability checks to detect targets in the aura",
+				"\u2022 **Unicorn**: my allies and I gain advantage on ability checks to detect targets in the aura",
 				"  When I cast a healing spell with a spell slot, allies in the aura heal my druid level in HP",
 			]),
 			usages: 1,
@@ -1314,14 +1314,14 @@ RunFunctionAtEnd(function () {
 				},
 				"deft strike": {
 					name: "Deft Strike",
-					extraname: "Way of the Kensei 6",
+					extraname: "Kensei 6",
 					source: [["X", 35]],
 					description: desc("Once per turn when I hit with a kensei weapon, I can do a martial arts die extra damage"),
 					additional: "1 ki point",
 				},
 				"sharpen the blade": {
 					name: "Sharpen the Blade",
-					extraname: "Way of the Kensei 11",
+					extraname: "Kensei 11",
 					source: [["X", 35]],
 					description: desc([
 						"As a bonus action, I can grant my kensei weapon a bonus to attack and damage rolls",
@@ -1397,7 +1397,7 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList["S"] || SourceList
 				}],
 				"searing arc strike": {
 					name: "Searing Arc Strike",
-					extraname: "Way of the Sun Soul 6",
+					extraname: "Sun Soul 6",
 					source: [["S", 131], ["X", 35]],
 					description: desc([
 						"After taking the Attack action, I can cast *Burning Hands* as a bonus action [PHB 220]",
@@ -2700,7 +2700,7 @@ AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
 	]),
 	source: [["X", 56], ["UA:RCO", 5]],
 	submenu: "[warlock level  5+]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 5; },
+	minlevel: 5,
 	recovery: "short rest",
 	usages: 1,
 	action: [["bonus action", " (start/stop)"]],
@@ -2715,7 +2715,8 @@ AddWarlockInvocation("Eldritch Smite (prereq: level 5 warlock, Pact of the Blade
 	]),
 	source: [["X", 56]],
 	submenu: "[improves Pact of the Blade]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 5 && GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
+	minlevel: 5,
+	prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 });
 AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 	name: "Ghostly Gaze",
@@ -2725,7 +2726,7 @@ AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 	]),
 	source: [["X", 56]],
 	submenu: "[warlock level  7+]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 7; },
+	minlevel: 7,
 	recovery: "short rest",
 	usages: 1,
 	action: [["action", ""]],
@@ -2744,7 +2745,7 @@ AddWarlockInvocation("Gift of the Depths (prereq: level 5 warlock)", {
 		selection: ["water breathing"],
 		firstCol: "oncelr",
 	}],
-	prereqeval: function (v) { return classes.known.warlock.level >= 5; },
+	minlevel: 5,
 	speed: { swim: { spd: "walk", enc: "walk" } },
 });
 AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)", {
@@ -2848,7 +2849,8 @@ AddWarlockInvocation("Maddening Hex (prereq: level 5 warlock, Hex spell or warlo
 	]),
 	source: [["X", 57]],
 	submenu: "[improves Hex spell or warlock feature that curses]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 5 && (isSpellUsed("hex", true) || (/hexblade/).test(classes.known.warlock.subclass)); },
+	minlevel: 5,
+	prereqeval: function (v) { return isSpellUsed("hex", true) || (/hexblade/).test(classes.known.warlock.subclass); },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock, Hex spell or warlock feature that curses)", {
@@ -2859,7 +2861,8 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock, Hex spell or warl
 	]),
 	source: [["X", 57]],
 	submenu: "[improves Hex spell or warlock feature that curses]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 7 && (isSpellUsed("hex", true) || (/hexblade/).test(classes.known.warlock.subclass)); },
+	minlevel: 7,
+	prereqeval: function (v) { return isSpellUsed("hex", true) || (/hexblade/).test(classes.known.warlock.subclass); },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
@@ -2873,7 +2876,7 @@ AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
 		selection: ["invisibility"],
 		firstCol: "atwill",
 	}],
-	prereqeval: function (v) { return classes.known.warlock.level >= 15; },
+	minlevel: 15,
 	spellChanges: {
 		"invisibility": {
 			description: "1 crea invisible; attacking/casting makes the crea visible; anything worn/carried also invisible",
@@ -2890,7 +2893,7 @@ AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
 	]),
 	source: [["X", 57], ["UA:RCO", 6]],
 	submenu: "[warlock level  5+]",
-	prereqeval: function (v) { return classes.known.warlock.level >= 5; },
+	minlevel: 5,
 	recovery: "short rest",
 	usages: 1,
 	action: [["reaction", ""]],
@@ -2907,7 +2910,7 @@ AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 		selection: ["freedom of movement"],
 		firstCol: "oncelr",
 	}],
-	prereqeval: function (v) { return classes.known.warlock.level >= 7; },
+	minlevel: 7,
 	spellChanges: {
 		"freedom of movement": {
 			range: "Self",

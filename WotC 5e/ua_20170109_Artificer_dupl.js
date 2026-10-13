@@ -656,10 +656,10 @@ var UAA_SetArtificerAttr = function (){
 			name: anArtMi.name,
 			description: "",
 			source: anArtMi.source,
+			minlevel: MI1 ? MI1 : undefined,
 			eval: 'AddMagicItem("' + anArtMi.name + '");',
 			removeeval: 'if (CurrentMagicItems.known.indexOf("' + MI0 + '") != -1) { MagicItemClear(CurrentMagicItems.known.indexOf("' + MI0 + '") + 1, true); };',
 		};
-		if (MI1) theObj[theILC].prereqeval = "classes.known['artificer-ua'].level >= " + MI1;
 		theObj.extrachoices.push(theI);
 	};
 }();

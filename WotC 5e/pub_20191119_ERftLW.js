@@ -1703,7 +1703,7 @@ ClassList.artificer = {
 					"It must be a space that the wearer had occupied some time during the current turn",
 				]),
 				additional: typePF ? "two boots; attunement" : "two boots; require attunement",
-				prereqeval: function (v) { return classes.known.artificer.level >= 6; },
+				minlevel: 6,
 				magicitemsAdd: ["Boots of the Winding Path"],
 			},
 			"enhanced arcane focus": {
@@ -1857,7 +1857,7 @@ ClassList.artificer = {
 					"The attacker makes a Con save (my spell save DC) or is blinded until its next turn ends",
 				]),
 				additional: "simple/martial" + (typePF ? "" : " weapon") + "; needs attunement",
-				prereqeval: function (v) { return classes.known.artificer.level >= 6; },
+				minlevel: 6,
 				magicitemsAdd: ["Radiant Weapon"],
 			},
 			"repeating shot": {
@@ -1879,7 +1879,7 @@ ClassList.artificer = {
 					"As a reaction when hit in melee, the wearer can use 1 charge to push the attacker 15 ft",
 				]),
 				additional: "shield; requires attunement",
-				prereqeval: function (v) { return classes.known.artificer.level >= 6; },
+				minlevel: 6,
 				magicitemsAdd: ["Repulsion Shield"],
 			},
 			"resistant armor (prereq: level 6 artificer)": {
@@ -1890,7 +1890,7 @@ ClassList.artificer = {
 					"Choose from: acid,	cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder",
 				]),
 				additional: "suit of armor; requires attunement",
-				prereqeval: function (v) { return classes.known.artificer.level >= 6; },
+				minlevel: 6,
 				magicitemsAdd: ["Armor of Resistance"],
 			},
 			"returning weapon": {
@@ -1976,9 +1976,6 @@ ClassList.artificer = {
 			},
 		},
 	},
-	prereqLvl6: function (v) { return classes.known.artificer.level >= 6; },
-	prereqLvl10: function (v) { return classes.known.artificer.level >= 10; },
-	prereqLvl14: function (v) { return classes.known.artificer.level >= 14; },
 };
 
 // Set the Artificer infusion list for Replicate Magic Item
@@ -2083,9 +2080,9 @@ RunFunctionAtEnd(function () {
 			name: anArtMi.name,
 			description: "",
 			source: anArtMi.source,
+			minlevel: MI1 && MI1 > 2 ? MI1 : undefined,
 			magicitemsAdd: [anArtMi.name],
 			additional: !anArtMi.attunement ? undefined : typePF && anArtMi.name.length > 30 ? "attunement" : "requires attunement",
-			prereqeval: MI1 && MI1 > 2 ? ClassList.artificer["prereqLvl" + MI1] : undefined,
 			submenu: "Replicate Magic Item" + (MI1 ? " (prereq: level " + (" " + MI1).slice(-2) + " artificer)" : " (common magic items) [" + getLetterRange(anArtMi.name, ["A-F", "G-Q", "R-Z"]) + "]"),
 		};
 		theObj.extrachoices.push(theI);

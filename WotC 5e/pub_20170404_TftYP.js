@@ -24,9 +24,9 @@ CreatureList["giant crayfish"] = {
 	alignment: "Unaligned",
 	ac: 15,
 	hp: 45,
-	hd: [7, 10], //[#, die]
+	hd: [7, 10],
 	speed: "30 ft, swim 30 ft",
-	scores: [15, 13, 13, 1, 9, 3], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [15, 13, 13, 1, 9, 3],
 	skills: {
 		"stealth": 3,
 	},
@@ -38,7 +38,7 @@ CreatureList["giant crayfish"] = {
 	attacks: [{
 		name: "Claw",
 		ability: 1,
-		damage: [1, 10, "bludgeoning"], //[#, die, type] "" for die is allowed
+		damage: [1, 10, "bludgeoning"],
 		range: "Melee (5 ft)",
 		description: "Target grappled on hit (escape DC 12); 2 claw attacks as Attack action, if not grappling with claw",
 	},
@@ -59,9 +59,9 @@ CreatureList["giant ice toad"] = {
 	alignment: "Unaligned",
 	ac: 14,
 	hp: 52,
-	hd: [7, 10], //[#, die]
+	hd: [7, 10],
 	speed: "30 ft",
-	scores: [16, 13, 14, 8, 10, 6], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [16, 13, 14, 8, 10, 6],
 	damage_immunities: "cold",
 	senses: "Darkvision 60 ft",
 	passivePerception: 10,
@@ -72,7 +72,7 @@ CreatureList["giant ice toad"] = {
 	attacks: [{
 		name: "Bite",
 		ability: 1,
-		damage: [2, 6, "piercing"], //[#, die, type] "" for die is allowed
+		damage: [2, 6, "piercing"],
 		range: "Melee (5 ft)",
 		description: "Target is grappled and restrained (escape DC 13); Can't use bite again until grapple ends",
 	},
@@ -105,9 +105,9 @@ CreatureList["giant lightning eel"] = {
 	alignment: "Unaligned",
 	ac: 13,
 	hp: 42,
-	hd: [5, 10], //[#, die]
+	hd: [5, 10],
 	speed: "5 ft, swim 30 ft",
-	scores: [11, 17, 16, 2, 12, 3], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [11, 17, 16, 2, 12, 3],
 	damage_resistances: "lightning",
 	senses: "Blindsight 60 ft",
 	passivePerception: 11,
@@ -117,13 +117,13 @@ CreatureList["giant lightning eel"] = {
 	attacks: [{
 		name: "Bite",
 		ability: 1,
-		damage: [2, 6, "piercing"], //[#, die, type] "" for die is allowed
+		damage: [2, 6, "piercing"],
 		range: "Melee (5 ft)",
 		description: "+1d8 lightning damage on a hit; Two bite attacks as an Attack action",
 	}, {
 		name: "Lightning Jolt (Recharge 5-6)",
 		ability: 3,
-		damage: [3, 8, "lightning"], //[#, die, type] "" for die is allowed
+		damage: [3, 8, "lightning"],
 		range: "Out/in 5/15 ft",
 		dc: true,
 		description: "Out water: 5 ft, 1 crea; In water: all in 15 ft; Con save: fail― stunned until eel's next turn end, success― half damage",
@@ -154,9 +154,9 @@ CreatureList["giant subterranean lizard"] = {
 	alignment: "Unaligned",
 	ac: 14,
 	hp: 66,
-	hd: [7, 12], //[#, die]
+	hd: [7, 12],
 	speed: "30 ft, swim 50 ft",
-	scores: [21, 9, 17, 2, 10, 7], //[Str, Dex, Con, Int, Wis, Cha]
+	scores: [21, 9, 17, 2, 10, 7],
 	skills: {
 		"stealth": 3,
 	},
@@ -167,13 +167,13 @@ CreatureList["giant subterranean lizard"] = {
 	attacks: [{
 		name: "Bite",
 		ability: 1,
-		damage: [2, 10, "piercing"], //[#, die, type] "" for die is allowed
+		damage: [2, 10, "piercing"],
 		range: "Melee (5 ft)",
 		description: "1 bite \u0026 1 tail attack as Attack action; Target grappled \u0026 restrained (escape DC 15); Can't use bite until grapple ends",
 	}, {
 		name: "Tail",
 		ability: 1,
-		damage: [2, 6, "bludgeoning"], //[#, die, type] "" for die is allowed
+		damage: [2, 6, "bludgeoning"],
 		range: "Melee (10 ft)",
 		description: "1 bite \u0026 1 tail attack as Attack action; Target DC 15 Str save or knocked prone",
 	},
@@ -183,7 +183,7 @@ CreatureList["giant subterranean lizard"] = {
 		description: "The [THIS] can make one bite attack against a Medium or smaller target it is grappling. If the attack hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the [THIS], and it takes 3d6 acid damage at the start of each of the [THIS]'s turns. The [THIS] can have only one target swallowed at a time.\nIf the [THIS] dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 10 feet of movement, exiting prone.",
 	},
 	],
-	wildshapeString: "##Swallow##. If a bite attack hits a Small or smaller target that is currently being grappled by the lizard, the target is swallowed, ending the grapple. While swallowed, it is blinded, restrained, has total cover, and takes 3d4 acid damage at the start of each of the lizard's turns; The lizard can have only 1 swallowed at a time. If the lizard dies, the swallowed creature is no longer restrained and can escape using 10 ft movement.",
+	wildshapeString: "##Swallow##. If a bite attack hits a Small or smaller target that is currently being grappled by the lizard, the target is swallowed, ending the grapple. While swallowed, it is blinded, restrained, has total cover, and takes 3d6 acid damage at the start of each of the lizard's turns; The lizard can have only 1 swallowed at a time. If the lizard dies, the swallowed creature is no longer restrained and can escape using 10 ft movement.",
 };
 
 // Magic Items
@@ -540,7 +540,7 @@ MagicItemsList["waythe"] = {
 		regExpSearch: /waythe/i,
 		name: "Waythe",
 		source: [["TftYP", 229]],
-		description: "Heavy, two-handed; +2d6 damage vs. giants; Giants DC 15 Str save or fall prone",
+		description: "Heavy, two-handed; Vs. giants: +2d6 damage, DC 15 Str save or fall prone",
 		modifiers: [1, 1],
 		selectNow: true,
 	}],

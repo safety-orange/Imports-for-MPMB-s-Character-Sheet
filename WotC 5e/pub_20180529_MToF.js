@@ -648,9 +648,9 @@ RaceList["githyanki-mtof"] = {
 	weaponProfs: [false, false, ["shortsword", "longsword", "greatsword"]],
 	skillstxt: "Choose any one skill or tool",
 	age: " reach adulthood in their late teens and live for about a century",
-	height: " are more leaner and taller than humans, most are a slender 6 feet tall (5'0\" + 2d12\")",
+	height: " are leaner and taller than humans, most are a slender 6 feet tall (5'0\" + 2d12\")",
 	weight: " weigh around 135 lb (100 + 2d12 \xD7 2d4 lb)",
-	heightMetric: " are more leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
+	heightMetric: " are leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
 	weightMetric: " weigh around 61 kg (45 + 5d10 \xD7 4d4 / 10 kg)",
 	scores: [2, 0, 0, 1, 0, 0],
 	trait: [
@@ -731,9 +731,9 @@ RaceList["githzerai-mtof"] = {
 	},
 	languageProfs: ["Common", "Gith"],
 	age: " reach adulthood in their late teens and live for about a century",
-	height: " are more leaner and taller than humans, most are a slender 6 feet tall (4'11\" + 2d12\")",
+	height: " are leaner and taller than humans, most are a slender 6 feet tall (4'11\" + 2d12\")",
 	weight: " weigh around 115 lb (90 + 2d12 \xD7 1d4 lb)",
-	heightMetric: " are more leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
+	heightMetric: " are leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores: [0, 0, 0, 1, 2, 0],
 	trait: [
