@@ -156,3 +156,56 @@ CreatureList["giant squid"] = {
 		description: "\u2264Huge is Grappled (escape DC 16) \x26 pulled 10 ft closer",
 	}],
 };
+// Exotic mounts and pets
+CreatureList["peryton"] = {
+	name: "Peryton",
+	source: [["MM24", 360]],
+	size: 3,
+	type: "Monstrosity",
+	alignment: "Chaotic Evil",
+	ac: 13,
+	hp: 33,
+	hd: [6, 8],
+	speed: "20 ft, Fly 60 ft",
+	scores: [16, 12, 13, 9, 12, 10],
+	skills: {
+		"perception": 5,
+		"stealth": 3,
+	},
+	passivePerception: 15,
+	languages: "Understands Common and Elvish, but can't speak",
+	challengeRating: "2",
+	proficiencyBonus: 2,
+	attacksAction: 2,
+	addMod: [{
+		type: "skill", field: "Init", mod: "Prof",
+		text: "The peryton adds its Proficiency Bonus to its Initiative rolls.",
+	}],
+	attacks: [{
+		name: "Gore",
+		ability: 1,
+		damage: [1, 8, "piercing"],
+		range: "Melee (5 ft)",
+		description: "+2d8 damage after 30 ft move straight; 1 Talons and 1 Gore as Attack action",
+	}, {
+		name: "Talons",
+		ability: 1,
+		damage: [2, 4, "piercing"],
+		range: "Melee (5 ft)",
+		description: "1 Talons and 1 Gore as Attack action; Target at 0 HP dies",
+	}],
+	actions: [{
+		name: "Multiattack",
+		description: "As an Attack action, the [THIS] can make one Gore and one Talons attack.",
+	}, {
+		name: "Gore",
+		description: "If the [THIS] moved 30 ft or more straight toward the target immediately before the hit, it deals +2d8 Piercing damage.",
+	}, {
+		name: "Talons",
+		description: "If the attack reduces a Humanoid target to 0 Hit Points, the [THIS] kills the target by removing its heart.",
+	}],
+	features: [{
+		name: "Flyby",
+		description: "The [THIS] doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.",
+	}],
+};

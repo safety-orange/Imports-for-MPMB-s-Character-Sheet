@@ -1564,7 +1564,7 @@ AddSubClass("monk", "shadow", {
 			},
 			"shadow arts: darkness": {
 				name: "Shadow Arts: Darkness",
-				extraname: "Warrior of Shadow 3",
+				extraname: "Shadow 3",
 				source: [["PHB24", 105]],
 				description: desc("I can expend 1 Focus Point to cast *Darkness* without spell components. When I do so, I can see within its area and I can move it to a space within 60 ft at the start of each of my turns."),
 				additional: "1 Focus Point",
@@ -1584,7 +1584,7 @@ AddSubClass("monk", "shadow", {
 			minlevel: 11,
 			"improved shadow step": {
 				name: "Improved Shadow Step",
-				extraname: "Warrior of Shadow 11",
+				extraname: "Shadow 11",
 				source: [["PHB24", 105]],
 				description: desc("When I use Shadow Step, I can expend 1 Focus Point to remove the need to start and end in Dim Light or Darkness, and I can make an Unarmed Strike immediately after I teleport."),
 				additional: "1 Focus Point",
@@ -1598,7 +1598,7 @@ AddSubClass("monk", "shadow", {
 			action: [["action", " (3 FP)"]],
 			"cloak of shadows": {
 				name: "Cloak of Shadows",
-				extraname: "Warrior of Shadow 17",
+				extraname: "Shadow 17",
 				source: [["PHB24", 105]],
 				description: desc([
 					"As a Magic action while in Dim Light or Darkness, I can expend 3 Focus Points to shroud myself in shadows for 1 min, until I'm Incapacitated, or I end my turn in Bright Light.",

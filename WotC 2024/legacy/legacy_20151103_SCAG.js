@@ -356,7 +356,7 @@ AddSubClass("monk", "way of the long death", {
 			description: desc("When I'm reduced to 0 HP, I can expend 1 Focus Point to have 1 HP instead."),
 			"touch of the long death": {
 				name: "Touch of the Long Death",
-				extraname: "Way of the Long Death 17",
+				extraname: "Long Death 17",
 				source: [["S", 131]],
 				additional: "1-10 Focus Points",
 				description: desc("As an action, a target within 5 ft takes 2d10 Necrotic damage per Focus Point I spent. It can make a Constitution saving throw to halve the damage."),
@@ -397,7 +397,7 @@ AddSubClass("monk", "way of the sun soul", {
 			}],
 			"searing arc strike": {
 				name: "Searing Arc Strike",
-				extraname: "Way of the Sun Soul 6",
+				extraname: "Sun Soul 6",
 				source: [["S", 131], ["X", 35]],
 				description: desc("After taking the Attack action, I can cast *Burning Hands* as a Bonus Action. For every additional Focus Point I spend, *Burning Hands* is cast at 1 higher spell level. The maximum total Focus Points I can spend for this (including the 2) is half my Monk level."),
 				additional: levels.map(function (n) {
@@ -580,8 +580,8 @@ AddSubClass("rogue", "swashbuckler", {
 			minlevel: 9,
 			description: desc([
 				"As an action, I can beguile a creature that hears and understands me, for 1 minute. It must succeed on a Wis (Insight) check opposed by my Cha (Persuasion) or be affected as:",
-				"\u2022 A hostile target gains Disadv on attacks and can't do Opportunity Attacks vs not-me. This effect ends if an ally attacks or casts a spell vs it, or if it and I are 60 ft apart.",
-				"\u2022 Targets that are not hostile are Charmed and regard me as a friendly acquaintance. This effect ends if me or an ally do anything harmful to it.",
+				" \u2022 A hostile target gains Disadv on attacks and can't do Opportunity Attacks vs not-me. This effect ends if an ally attacks or casts a spell vs it, or if it and I are 60 ft apart.",
+				" \u2022 Targets that are not hostile are Charmed and regard me as a friendly acquaintance. This effect ends if me or an ally do anything harmful to it.",
 			]),
 			action: [["action", ""]],
 		},

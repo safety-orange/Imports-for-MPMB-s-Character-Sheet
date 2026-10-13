@@ -49,6 +49,20 @@ AddRacialVariant("custom lineage", "skill proficiency", {
 	],
 });
 
+// [dupl_start] EGtW creates the same function
+// With v14 it is possible to have class features not appear in the field if no `description` is defined, so we can make features just for the purpose of adding optional features to the 3rd page
+var makeOptionalClassFeatureBase = function (sClass, iLevel) {
+	var sKey = "optional_" + iLevel;
+	if (!ClassList[sClass].features[sKey]) {
+		ClassList[sClass].features[sKey] = {
+			extraname: "Optional level " + iLevel + " " + ClassList[sClass].name + " features",
+			minlevel: iLevel,
+			extrachoices: [],
+		}
+	}
+	return ClassList[sClass].features[sKey];
+} // dupl_end
+
 // Barbarian Subclasses
 AddSubClass("barbarian", "path of the beast", {
 	regExpSearch: /^(?=.*\bbeast\b)(?=.*(warrior|marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n)).*$/i,
@@ -183,7 +197,7 @@ AddSubClass("barbarian", "path of wild magic", {
 					"The magical energy roiling inside me sometimes erupts from me. Whenever I enter my Rage, I have to roll on the table below to see what happens.",
 					"If the effect calls for a saving throw, the DC is equal to 8 + my Proficiency Bonus + my Constitution modifier.",
 					[
-						["d8", "EFFECT"],
+						["d8", "Effect"],
 						[" 1", "Shadowy tendrils lash around me. Each creature of my choice that I can see within 30 ft of me must succeed on a Constitution saving throw or take 1d12 Necrotic damage. I also gain 1d12 Temporary Hit Points."],
 						[" 2", "I teleport up to 30 ft to an unoccupied space I can see. Until my Rage ends, I can use this effect again on each of my turns as a Bonus Action."],
 						[" 3", "An intangible spirit, which looks like a flumph or a pixie (my choice), appears within 5 ft of one creature of my choice that I can see within 30 ft of me. At the end of the current turn, the spirit explodes, and each creature within 5 ft of it must succeed on a Dexterity saving throw or take 1d6 Force damage. Until my Rage ends, I can use this effect again, summoning another spirit, on each of my turns as a Bonus Action."],
@@ -225,6 +239,15 @@ AddSubClass("barbarian", "path of wild magic", {
 			description: desc("Whenever I roll on the Wild Magic table, I can roll two dice and choose which to use. If I roll the same on both dice, I can instead choose any effect on the Wild Magic table."),
 		},
 	},
+});
+
+// Bard Optional Class Features
+var TCoE_bardOptional2 = makeOptionalClassFeatureBase("bard", 2);
+AddFeatureChoice(TCoE_bardOptional2, true, "Magical Inspiration", {
+	name: "Magical Inspiration",
+	extraname: "Optional Bard 2",
+	source: [["T", 27]],
+	description: desc("When a recipient of a Bardic Inspiration Die casts a spell that deals damage or heals, they can expend the die and add it to the healing or damage dealt to one target of the spell."),
 });
 
 // Bard Subclasses
@@ -281,6 +304,22 @@ if (!SourceList["MOT"]) {
 		},
 	});
 } // dupl_end
+
+
+// Cleric Optional Class Features
+var TCoE_clericOptional2 = makeOptionalClassFeatureBase("cleric", 2);
+AddFeatureChoice(TCoE_clericOptional2, true, "Harness Divine Power", {
+	name: "Harness Divine Power",
+	extraname: "Optional Cleric 2",
+	source: [["T", 30]],
+	description: desc("As a Bonus Action, I can expend 1 Channel Divinity to regain one used spell slot. The level of this spell slot can be no more than half my Proficiency Bonus (rounded up). I can only do this so many times per Long Rest, even if I have uses of Channel Divinity left."),
+	action: [["bonus action", ""]],
+	usages: levels.map(function (n) {
+		return n < 2 ? "" : n < 6 ? 1 : n < 18 ? 2 : 3;
+	}),
+	recovery: typePF ? "LR" : "Long Rest",
+	additional: "1 Channel Divinity",
+});
 
 // Cleric Subclasses
 // [dupl_start] reprints from Guildmasters' Guide to Ravnica
@@ -659,6 +698,47 @@ AddSubClass("druid", "circle of wildfire", {
 	},
 });
 
+// Fighter Alternative Class Features if Battle Master subclass exists
+if (ClassSubList["fighter-battle master"]) {
+	// Fighter-only Fighting Style
+	AddFightingStyle(ClassList.fighter.features["fighting style"], false, "Superior Technique", {
+		name: "Superior Technique",
+		source: [["T", 41], ["UA:CFV", 5]],
+		additional: "1 maneuver; d6, 1\xD7 per short rest",
+		description: desc("I gain one superiority die (d6) that I can expend to fuel a special Maneuver. I can only use one Maneuver per attack; DCs are 8 + Prof B + Str/Dex mod, my choice. Use the \"Choose Feature\" button above to add a Maneuver to the third page."),
+		bonusClassExtrachoices: [{
+			"class": "fighter",
+			subclass: "fighter-battle master",
+			feature: "subclassfeature3.1",
+			bonus: 1,
+		}],
+		extraLimitedFeatures: [{
+			name: "Superiority Dice",
+			usages: 1,
+			additional: "d6",
+			recovery: "Short Rest",
+			addToExisting: true,
+		}],
+	}, true);
+	// Maneuver Options
+	// Left out Grappling Strike, because Grapple is no longer an Athletics check in the 2024 rules
+	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Brace", {
+		name: "Brace",
+		source: [["T", 42]],
+		description: desc("As a Reaction when a creature I can see moves within my melee reach, I can expend 1 SD and make one weapon attack. If that attack hits, I add the Superiority Die to its damage."),
+		additional: "add SD to damage",
+		action: [["reaction", ""]],
+	});
+	AddFeatureChoice(TCoE_battleMasterManeuvers, true, "Quick Toss", {
+		name: "Quick Toss",
+		source: [["T", 42]],
+		description: desc(
+			"As a Bonus Action, I can expend 1 SD to make a ranged attack with a thrown weapon, which I can draw as part of the attack. If that attack hits, I add the Superiority Die to its damage."),
+		additional: "add SD to damage",
+		action: [["bonus action", ""]],
+	});
+}
+
 // Fighter Subclasses
 AddSubClass("fighter", "rune knight", {
 	regExpSearch: /^(?=.*rune)(?=.*knight).*$/i,
@@ -754,7 +834,7 @@ AddSubClass("fighter", "rune knight", {
 					"While I wear an object inscribed with this rune, I gain a resilience reminiscent of hill giants. I always gain Advantage on saves against being Poisoned and Resistance to Poison damage.",
 					"As a Bonus Action, I can invoke it to gain Resistance to Bludg/Slash/Pierc damage for 1 min.",
 				]),
-				prereqeval: function (v) { return classes.known.fighter.level >= 7; },
+				minlevel: 7,
 				action: [["bonus action", " (invoke)"]],
 				additional: "invoke",
 				usages: ["", "", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2],
@@ -769,7 +849,7 @@ AddSubClass("fighter", "rune knight", {
 					"While I wear an object inscribed with this rune, I can glimpse the future like storm giants. I always gain Adv on Int (Arcana) checks and I can't be surprised while not Incapacitated.",
 					"As a Bonus Action, I can invoke it to enter a prophetic state for 1 min or till Incapacitated. While in this state, I can use a Reaction to cause a roll to gain Advantage or Disadvantage. I can do this for attacks, saves, and checks of myself or others I can see within 60 ft of me.",
 				]),
-				prereqeval: function (v) { return classes.known.fighter.level >= 7; },
+				minlevel: 7,
 				action: [["bonus action", " (invoke)"]],
 				additional: "invoke",
 				usages: ["", "", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2],
@@ -851,6 +931,51 @@ AddSubClass("fighter", "rune knight", {
 	},
 });
 
+// Monk Optional Class Features
+var TCoE_monkOptional2 = makeOptionalClassFeatureBase("monk", 2);
+AddFeatureChoice(TCoE_monkOptional2, true, "Dedicated Weapon", {
+	name: "Dedicated Weapon",
+	extraname: "Optional Monk 2",
+	source: [["T", 48]],
+	description: desc("When I finish a Short or Long Rest, I can focus my ki and touch one Simple or Martial weapon with which I'm proficient and that doesn't have the Heavy or Special property. From then on, until I use this feature again, this weapon counts as a Monk weapon for me."),
+	calcChanges: {
+		atkAdd: [
+			function (fields, v) {
+				if (!v.theWea.monkweapon && !v.theWea.special && classes.known.monk && classes.known.monk.level && /dedicated/i.test(v.WeaponTextName) && fields.Proficiency && /simple|martial/i.test(v.theWea.type) && !/\b(heavy|special)\b/i.test(fields.Description)) {
+					v.theWea.monkweapon = true;
+				};
+			},
+			'If I include the word "Dedicated" in the name of a Simple or Martial Weapon that I\'m proficient with and that doesn\'t have the Heavy or Special property, it will be treated as a Monk weapon.',
+			1,
+		],
+	},
+});
+var TCoE_monkOptional3 = makeOptionalClassFeatureBase("monk", 3);
+AddFeatureChoice(TCoE_monkOptional3, true, "Ki-Fueled Attack", {
+	name: "Ki-Fueled Attack",
+	extraname: "Optional Monk 3",
+	source: [["T", 48]],
+	description: desc("As a Bonus Action after I use any Focus Points during my action on my turn, I can make an attack with an Unarmed Strike or a Monk weapon on the same turn."),
+	action: [["bonus action", ""]],
+});
+var TCoE_monkOptional4 = makeOptionalClassFeatureBase("monk", 4);
+AddFeatureChoice(TCoE_monkOptional4, true, "Quickened Healing (2 Focus Points)", {
+	name: "Quickened Healing",
+	extraname: "Optional Monk 4",
+	source: [["T", 49]],
+	description: desc("As an action, I can regain HP equal to the roll of my Martial Arts die plus Proficiency Bonus."),
+	additional: "2 Focus Points",
+	action: [["action", ""]],
+});
+var TCoE_monkOptional5 = makeOptionalClassFeatureBase("monk", 5);
+AddFeatureChoice(TCoE_monkOptional5, true, "Focused Aim (1-3 Focus Points)", {
+	name: "Focused Aim",
+	extraname: "Optional Monk 5",
+	source: [["T", 49]],
+	description: desc("When I miss an attack roll, I can spend FP to increase the roll by +2 per Focus Point (max +6)."),
+	additional: "1-3 Focus Points",
+});
+
 // Monk Subclasses
 AddSubClass("monk", "way of the astral self", {
 	regExpSearch: /^(?=.*astral)(?=.*(self|projection|travel))((?=.*(monk|monastic))|((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior))).*$/i,
@@ -878,7 +1003,7 @@ AddSubClass("monk", "way of the astral self", {
 			}],
 			"astral arms": {
 				name: "Astral Arms",
-				extraname: "Way of the Astral Self 3",
+				extraname: "Astral Self 3",
 				source: [["T", 50]],
 				description: desc("As a Bonus Action, I can summon my astral arms to hover next to or over my own arms. When I summon them, all creatures of my choice I can see in 10 ft must make a Dex save or take twice my martial arts die in Force damage. I can use the arms to make unarmed strikes, using Wisdom instead of Strength/Dexterity. I have +5 ft reach on attacks made with my astral arms and they deal Force damage. They last for 10 minutes or until I'm Incapacitated or die. I choose their appearance."),
 				additional: levels.map(function (n) {
@@ -895,7 +1020,7 @@ AddSubClass("monk", "way of the astral self", {
 			action: [["bonus action", "Summon Astral Arms and/or Visage", "Summon Astral Arms"]],
 			"astral visage": {
 				name: "Astral Visage",
-				extraname: "Way of the Astral Self 6",
+				extraname: "Astral Self 6",
 				source: [["T", 50]],
 				additional: "1 Focus Point",
 				description: desc([
@@ -915,7 +1040,7 @@ AddSubClass("monk", "way of the astral self", {
 			action: [["reaction", "Deflect Energy"]],
 			"astral body": {
 				name: "Astral Body",
-				extraname: "Way of the Astral Self 11",
+				extraname: "Astral Self 11",
 				source: [["T", 51]],
 				description: " [if both astral arms \u0026 visage are present]" + desc([
 					" \u2022 **Deflect Energy**. As a Reaction when I take damage, I can reduce it by 1d10 + Wis mod. I can only do this if the damage I take is Acid, Cold, Fire, Force, Lightning, or Thunder.",
@@ -943,7 +1068,7 @@ AddSubClass("monk", "way of the astral self", {
 			action: [["bonus action", ""]],
 			"astral body": {
 				name: "Awakened Astral Self",
-				extraname: "Way of the Astral Self 17",
+				extraname: "Astral Self 17",
 				source: [["T", 50]],
 				additional: "5 Focus Points",
 				description: desc([
@@ -956,6 +1081,21 @@ AddSubClass("monk", "way of the astral self", {
 			autoSelectExtrachoices: [{ extrachoice: "astral body" }],
 		},
 	},
+});
+
+// Paladin Optional Class Features
+var TCoE_paladinOptional3 = makeOptionalClassFeatureBase("paladin", 3);
+AddFeatureChoice(TCoE_paladinOptional3, true, "Harness Divine Power", {
+	name: "Channel Divinity: Harness Divine Power",
+	extraname: "Optional Paladin 3",
+	source: [["T", 52]],
+	description: desc("As a Bonus Action, I can expend 1 Channel Divinity to regain one used spell slot. The level of this spell slot can be no more than half my Proficiency Bonus (rounded up). I can only do this so many times per Long Rest, even if I have uses of Channel Divinity left."),
+	action: [["bonus action", ""]],
+	usages: levels.map(function (n) {
+		return n < 3 ? "" : n < 7 ? 1 : n < 15 ? 2 : 3;
+	}),
+	recovery: typePF ? "LR" : "Long Rest",
+	additional: "1 Channel Divinity",
 });
 
 // Paladin Subclasses
@@ -1015,6 +1155,30 @@ AddSubClass("paladin", "oath of the watchers", {
 	},
 });
 
+// Ranger Optional Class Features
+CreateClassFeatureVariant("ranger", "favored enemy", "Favored Foe", {
+	name: "Favored Foe",
+	source: [["T", 56]],
+	description: desc("When I hit a creature with an attack roll, I can mark it as my favored enemy for 1 minute. I deal extra damage to it when I mark it and the first time I hit a marked creature on each of my turns. Keeping a creature marked as favored enemy requires my Concentration."),
+	additional: levels.map(function (n) {
+		return "+1d" + (n < 6 ? 4 : n < 14 ? 6 : 8) + " damage";
+	}),
+	usages: "Proficiency Bonus per ",
+	usagescalc: "event.value = How('Proficiency Bonus');",
+	recovery: typePF ? "LR" : "Long Rest",
+	calcChanges: {
+		atkAdd: [
+			function (fields, v) {
+				if (!v.isDC && classes.known.ranger && /favou?red.{1,2}(foe|enemy)/i.test(v.WeaponTextName)) {
+					var rngrLvl = classes.known.ranger.level;
+					fields.Description += (fields.Description ? "; " : "") + "Once per turn +1d" + (rngrLvl < 6 ? 4 : rngrLvl < 14 ? 6 : 8) + " damage";
+				};
+			},
+			'If I include the words "Favored Foe" or "Favored Enemy" in the name of a weapon, it gets the bonus damage I do against marked favored enemies added to its description.',
+		],
+	},
+});
+
 // Ranger Subclasses
 AddSubClass("ranger", "swarmkeeper", {
 	regExpSearch: /swarmkeeper/i,
@@ -1042,14 +1206,13 @@ AddSubClass("ranger", "swarmkeeper", {
 			name: "Swarmkeeper Magic",
 			source: [["T", 60]],
 			minlevel: 3,
-			description: desc("I learn *Mage Hand*. When cast, its hand takes the form of my swarming nature spirits. I get bonus spells known, which do not count against the number of spells I can know."),
+			description: desc("I learn *Mage Hand*. When cast, its hand takes the form of my swarming nature spirits."),
 			spellcastingBonus: [{
 				name: "Swarmkeeper Magic",
 				spells: ["mage hand"],
 				selection: ["mage hand"],
 			}],
 			spellcastingExtra: ["faerie fire", "web", "gaseous form", "arcane eye", "insect plague"],
-			spellcastingExtraApplyNonconform: true,
 		},
 		"subclassfeature7": {
 			name: "Writhing Tide",
@@ -1079,6 +1242,93 @@ AddSubClass("ranger", "swarmkeeper", {
 			recovery: "Long Rest",
 		},
 	},
+});
+
+// Sorcerer Optional Class Features
+var TCoE_sorcererOptional5 = makeOptionalClassFeatureBase("sorcerer", 5);
+AddFeatureChoice(TCoE_sorcererOptional5, true, "Magical Guidance", {
+	name: "Magical Guidance",
+	extraname: "Optional Sorcerer 5",
+	source: [["T", 66]],
+	description: desc("When I make an ability check that fails, I can reroll the d20 and must use the new roll."),
+	additional: "1 Sorcery Point",
+});
+
+// Eldritch Invocations
+AddWarlockInvocation("Pact of the Talisman", {
+	name: "Pact of the Talisman",
+	source: [["T", 70]],
+	description: desc("When the wearer of this amulet fails an ability check, they can add +1d4 to the roll. I can give the talisman to others to use. The talisman turns to ash when I die. If I lose my talisman, I can perform a 1-hour ceremony to gain a replacement. This ceremony destroys the previous amulet and can be done during a Short or Long Rest."),
+	usages: (typePF ? "Prof" : "Proficiency") + " Bonus per ",
+	usagescalc: "event.value = How('Proficiency Bonus')",
+	recovery: "Long Rest",
+});
+AddWarlockInvocation("Bond of the Talisman (req: lvl 12+, Pact of the Talisman)", {
+	name: "Bond of the Talisman",
+	source: [["T", 70]],
+	minlevel: 12,
+	submenu: ["[Warlock level 12+]", "[improves Pact of the Talisman]"],
+	description: desc("As an action, I can teleport to the unoccupied space closest to the wearer of my talisman if we are on the same plane. The talisman's wearer can do the same to teleport to me."),
+	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the talisman") !== -1; },
+	action: [["action", ""]],
+	usages: (typePF ? "Prof" : "Proficiency") + " Bonus per ",
+	usagescalc: "event.value = How('Proficiency Bonus')",
+	recovery: "Long Rest",
+});
+AddWarlockInvocation("Far Scribe (req: lvl 5+, Pact of the Tome)", {
+	name: "Far Scribe",
+	source: [["T", 71]],
+	minlevel: 5,
+	submenu: ["[Warlock level  5+]", "[improves Pact of the Tome]"],
+	description: desc("My Book of Shadows has a new page. As an action, a creature can write its name on it. This page can hold my Proficiency Bonus in creature names. I can remove one as an action. I can cast *Sending* without a spell slot or material components, targeting one on the page. Instead of saying the message, I write it on the page and any reply appears there as well. This writing disappears after 1 minute. The target still hears the message in their mind."),
+	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the tome") !== -1; },
+	action: [["action", " (erase name)"]],
+	spellcastingBonus: [{
+		name: "Far Scribe",
+		spells: ["sending"],
+		selection: ["sending"],
+		firstCol: "atwill",
+	}],
+	spellChanges: {
+		"sending": {
+			components: "V,S",
+			compMaterial: "",
+			description: "Send 25 word message to crea named in Book of Shadows; it recognizes me and can respond 25 words",
+			changes: "By using Far Scribe, I can cast *Sending* without using a spell slot or material components, but only to target one of the creatures that wrote their name in my Book of Shadows. Instead of speaking the message, I write it in my book and any response appears there as well, lasting for 1 minute. The target still hears the message in their mind.",
+		},
+	},
+});
+AddWarlockInvocation("Protection of the Talisman (req: lvl 7+, Pact of the Talisman)", {
+	name: "Protection of the Talisman",
+	source: [["T", 71]],
+	minlevel: 7,
+	submenu: ["[Warlock level  7+]", "[improves Pact of the Talisman]"],
+	description: desc("When the wearer of my talisman fails a saving throw, they can add +1d4 to the roll."),
+	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the talisman") !== -1; },
+	usages: (typePF ? "Prof" : "Proficiency") + " Bonus per ",
+	usagescalc: "event.value = How('Proficiency Bonus')",
+	recovery: typePF ? "LR" : "Long Rest",
+});
+AddWarlockInvocation("Rebuke of the Talisman (req: Pact of the Talisman)", {
+	name: "Rebuke of the Talisman",
+	source: [["T", 71]],
+	submenu: "[improves Pact of the Talisman]",
+	description: desc("As a Reaction when the wearer of my talisman is hit, I deal damage and push the attacker. To be able to do this, I have to see the attacker and it has to be within 30 ft of me. I deal it my Proficiency Bonus in Psychic damage and push it 10 ft away from the talisman."),
+	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the talisman") !== -1; },
+	action: [["reaction", ""]],
+});
+AddWarlockInvocation("Undying Servitude (req: lvl 5+)", {
+	name: "Undying Servitude",
+	description: desc("Once per Long Rest, I can cast *Animate Dead* without using a spell slot."),
+	source: [["T", 71]],
+	minlevel: 5,
+	submenu: "[Warlock level  5+]",
+	spellcastingBonus: [{
+		name: "Undying Servitude",
+		spells: ["animate dead"],
+		selection: ["animate dead"],
+		firstCol: "oncelr",
+	}],
 });
 
 // Warlock Subclasses
@@ -1141,7 +1391,7 @@ AddSubClass("warlock", "the fathomless", {
 			dmgres: ["Cold"],
 			spellChanges: {
 				"summon elemental": {
-					description: "Summon Water Elemental Spirit; obeys commands; takes turn after mine; vanishes at 0 HP (400gp)",
+					description: "Water Elemental Sirit; obeys verbal commands; takes turn after mine; vanishes at 0 HP; see B (400gp)",
 					changes: "My Warlock spell *Summon Elemental* can only call forth an elemental spirit of water.",
 				},
 			},
@@ -1175,12 +1425,13 @@ AddSubClass("warlock", "the fathomless", {
 				spellAdd: [
 					function (spellKey, spellObj, spName) {
 						if (spellKey === "evard's black tentacles") {
-							spellObj.description = "I temp hp; All enter/start in 20-ft rad save or Restrained \x26 3d6 Bludg. dmg/rnd; Str/Dex check escape";
+							spellObj.description = "I Temp HP; 20-ft sq dif. ter.; all cast/enter/end save or Restrained \x26 3d6 Bludg. dmg; Athl. to escape";
+							spellObj.descriptionShorter = "I Temp HP; 20-ft sq dif. ter.; all cast/enter/end save or Restrain \x26 3d6 Bludg. dmg; Athl. esc" + (typePF ? "ape" : ""),
 							spellObj.duration = "Conc*, 1 min";
 							return true;
 						}
 					},
-					"Whenever I cast *Evard's Black Tentacles*, I gain Temporary Hit Points equal to my Warlock level.\n \u2022 Damage can't break my concentration on this spell.",
+					"Whenever I cast *Evard's Black Tentacles*, I gain Temporary Hit Points equal to my Warlock level.\n \u2022 Damage can't break my Concentration on this spell.",
 				],
 			},
 		},
@@ -1525,7 +1776,7 @@ AddSubClass("wizard","order of scribes", {
 			advantages: [["Arcana", true]],
 			"one with the word": {
 				name: "One with the Word",
-				extraname: "Order of Scribes 14",
+				extraname: "Scribes 14",
 				source: [["T", 78]],
 				description: desc([
 					"While my awakened spellbook is on my person, I have Advantage on Int (Arcana) checks.",

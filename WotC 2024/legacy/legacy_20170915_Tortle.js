@@ -1,0 +1,56 @@
+var iFileName = "legacy_20170915_Tortle.js";
+RequiredSheetVersion("24.1.3");
+// This file adds the Tortle Race from the Tortle Package from Extra Life to MPMB's Character Record Sheet
+
+// Define the source
+SourceList["TP"] = {
+	name: "Tortle Package",
+	abbreviation: "TP",
+	group: "Legacy Extra Life",
+	url: "https://www.dmsguild.com/product/221716/Tortle-Package-5e",
+	date: "2017/09/15",
+	defaultExcluded: true,
+};
+
+// The Tortle race
+RaceList.tortle = {
+	regExpSearch: /tortle/i,
+	name: "Tortle",
+	source: [["TP", 4], ["W", 181]],
+	plural: "Tortles",
+	size: 3,
+	speed: {
+		walk: { spd: 30, enc: 20 },
+	},
+	languageProfs: ["Common", "Aquan"],
+	skills: ["Survival"],
+	armorOptions: [{
+		regExpSearch: /^(?=.*tortle)(?=.*shell).*$/i,
+		name: "Tortle's Shell",
+		source: [["TP", 4], ["W", 181]],
+		ac: 17,
+		dex: -10,
+		selectNow: true,
+	}],
+	weaponOptions: [{
+		baseWeapon: "unarmed strike",
+		regExpSearch: /^(?=.*tortle)(?=.*\bclaws?\b).*$/i,
+		name: "Tortle's Claws",
+		source: [["TP", 4], ["W", 181]],
+		damage: [1, 4, "slashing"],
+		selectNow: true,
+	}],
+	age: " reach adulthood by the age of 15 and live an average of 50 years",
+	height: " stand between 5 and 6 feet tall (4'10\" + 2d8\")",
+	weight: " weigh around 450 lb (400 + 2d8 \xD7 2d4 lb)",
+	heightMetric: " stand between 1,5 and 1,8 metres tall (150 + 5d8 cm)",
+	weightMetric: " weigh around 190 kg (180 + 5d8 \xD7 4d4 / 10 kg)",
+	action: [["action", "Shell Defense (start)"], ["bonus action", "Shell Defense (end)"]],
+	trait: [
+		"**Tortle**",
+		"##\u25C6 Claws##. My unarmed strikes with my claws deal 1d4 Slashing damage.",
+		"##\u25C6 Hold Breath##. I can hold my breath for up to 1 hour at a time.",
+		"##\u25C6 Natural Armor##. I have a base AC of 17, but I can't add my Dex to it or wear armor.",
+		"##\u25C6 Shell Defense##. As an action, I can withdraw into my shell and gain +4 AC and Adv on Str and Con saves, but I count as Prone, have speed 0, have Disadv on Dex saves, and can't take Reactions. The only action I can take is a Bonus Action to emerge from the shell.",
+	],
+};
