@@ -5651,11 +5651,11 @@ MagicItemsList["instrument of illusions"] = { // contains contributions by Aelar
 		return classes.known.bard ? "bard (15-ft radius)" : "not a bard (5-ft radius)";
 	},
 	"bard (15-ft radius)": {
-		name: "Instrument\u200A of Illusions",
+		name: "Instrument of Illusions \uFEFF",
 		description: "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 15-ft-radius sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing.",
 	},
 	"not a bard (5-ft radius)": {
-		name: "Instrument\u200A\u200A of Illusions",
+		name: "Instrument of Illusions \uFEFF\uFEFF",
 		description: "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 5-ft-radius sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing.",
 	},
 }
@@ -5676,11 +5676,11 @@ MagicItemsList["instrument of scribing"] = {
 		return classes.known.bard ? "bard (15-ft radius)" : "not a bard (5-ft radius)";
 	},
 	"bard (15-ft radius)": {
-		name: "Instrument\u200A of Scribing",
+		name: "Instrument of Scribing \uFEFF",
 		description: "As an action while I'm playing this musical instrument, I can write a magical message on a nonmagical surface that I can see within 30 ft. The message can be up to 7 words in a language I know and I can have it glow faintly. *Dispel Magic* erases it, otherwise it fades away after 24 hours. This can be used 3 times per dawn.",
 	},
 	"not a bard (5-ft radius)": {
-		name: "Instrument\u200A\u200A of Scribing",
+		name: "Instrument of Scribing \uFEFF\uFEFF",
 		description: "As an action while I'm playing this musical instrument, I can write a magical message on a nonmagical surface that I can see within 30 ft. The message can be up to 6 words in a language I know and fades away after 24 hours or when *Dispel Magic* is cast on it. The instrument can be used like this 3 times per dawn.",
 	},
 }

@@ -484,7 +484,7 @@ MagicItemsList["blood spear"] = {
 	choices: ["Chosen of Kavan", "Not a chosen of Kavan"],
 	choicesNotInMenu: true,
 	"chosen of kavan": {
-		name: "Blood\u200A Spear",
+		name: "Blood Spear \uFEFF",
 		weaponOptions: [{
 			baseWeapon: "spear",
 			regExpSearch: /^(?=.*blood)(?=.*spear).*$/i,
@@ -496,7 +496,7 @@ MagicItemsList["blood spear"] = {
 		}],
 	},
 	"not a chosen of kavan": {
-		name: "Blood\u200A\u200A Spear",
+		name: "Blood Spear \uFEFF\uFEFF",
 		weaponOptions: [{
 			baseWeapon: "spear",
 			regExpSearch: /^(?=.*blood)(?=.*spear).*$/i,

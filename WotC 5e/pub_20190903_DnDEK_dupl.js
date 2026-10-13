@@ -35,8 +35,8 @@ ClassList["sidekick-expert"] = {
 			if (AddRemove && !What(thisAbi)) Value(thisAbi, setA[s])
 		}
 		// (re)set the race and background
-		var expectedV = AddRemove ? ["", ""] : ["Hum\u200Aanoid", "Generic"];
-		var setV = AddRemove ? ["Hum\u200Aanoid", "Generic"] : ["", ""];
+		var expectedV = AddRemove ? ["", ""] : ["Hum\uFEFFanoid", "Generic"];
+		var setV = AddRemove ? ["Hum\uFEFFanoid", "Generic"] : ["", ""];
 		if (What("Race") == expectedV[0]) Value("Race", setV[0]);
 		if (What("Background") == expectedV[1]) Value("Background", setV[1]);
 	},

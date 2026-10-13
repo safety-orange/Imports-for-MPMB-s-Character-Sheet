@@ -736,11 +736,11 @@ MagicItemsList["nepenthe"] = {
 		return !classes.known.paladin ? "" : classes.known.paladin.level < 17 ? "paladin level 1-16 (10-ft aura)" : "paladin level 17+ (30-ft aura)";
 	},
 	"paladin level 1-16 (10-ft aura)": {
-		name: "Nepenthe\u200A",
+		name: "Nepenthe \uFEFF",
 		description: "This sentient holy avenger longsword gives me a +3 bonus to attack and damage rolls made with it. It does +2d10 radiant damage against fiends and undead. While holding the drawn sword, I have a 10-ft radius aura that grants me and my allies advantage on saving throws against spells and magical effects.",
 	},
 	"paladin level 17+ (30-ft aura)": {
-		name: "Nepenthe\u200A\u200A",
+		name: "Nepenthe \uFEFF\uFEFF",
 		description: "This sentient holy avenger longsword gives me a +3 bonus to attack and damage rolls made with it. It does +2d10 radiant damage against fiends and undead. While holding the drawn sword, I have a 30-ft radius aura that grants me and my allies advantage on saving throws against spells and magical effects.",
 	},
 }

@@ -277,7 +277,7 @@ MagicItemsList["hazirawn"] = {
 	weight: 6,
 	choices: ["not attuned", "attuned"],
 	"not attuned": {
-		name: "Hazirawn\u200A",
+		name: "Hazirawn \uFEFF",
 		description: "A sentient (neutral evil) greatsword, Hazirawn is capable of speech in Common and Netherese. While I'm not attuned to the sword, I gain a +1 bonus on attack and damage rolls made with it. It also deals an extra 1d6 necrotic damage on attacks made with the sword.",
 		weaponOptions: [{
 			baseWeapon: "greatsword",
@@ -290,7 +290,7 @@ MagicItemsList["hazirawn"] = {
 		}],
 	},
 	"attuned": {
-		name: "Hazirawn\u200A\u200A",
+		name: "Hazirawn \uFEFF\uFEFF",
 		attunement: true,
 		description: "This sentient, neutral evil, greatsword adds +2 to damage and to hit rolls, deals +2d6 necrotic damage, and those hit with it can't regain HP for 1 min, but can make a DC 15 Con save at the end of each turn to stop this effect. It has 4 charges to cast spells, regaining 1d4 at midnight. It speaks Common and Netherese.",
 		extraLimitedFeatures: [{

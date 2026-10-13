@@ -1282,11 +1282,11 @@ MagicItemsList["instrument of illusions"] = {
 		return classes.known.bard ? "bard (15-ft emanation)" : "not a bard (5-ft emanation)";
 	},
 	"bard (15-ft emanation)": {
-		name: "Instrument of Illusions \u200A",
+		name: "Instrument of Illusions \uFEFF",
 		description: "As a Magic action while playing this instrument, I can create harmless, illusory visual effects in a 15-ft Emanation originating from the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing.",
 	},
 	"not a bard (5-ft emanation)": {
-		name: "Instrument of Illusions \u200A\u200A",
+		name: "Instrument of Illusions \uFEFF\uFEFF",
 		description: "As a Magic action while playing this instrument, I can create harmless, illusory visual effects in a 5-ft Emanation originating from the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing.",
 	},
 };
@@ -1307,11 +1307,11 @@ MagicItemsList["instrument of scribing"] = {
 		return classes.known.bard ? "bard (13 words, glowing)" : "not a bard (6 words)";
 	},
 	"bard (13 words, glowing)": {
-		name: "Instrument of Scribing \u200A",
+		name: "Instrument of Scribing \uFEFF",
 		description: "This instrument has 3 charges, regaining all at dawn. As a Magic action while playing it, I can use 1 charge to write a message of 13 words on a nonmagical surface I can see in 30 ft. I can make the text glow, causing it to be visible in Darkness. *Dispel Magic* erases the message, otherwise it fades away after 24 hours.",
 	},
 	"not a bard (6 words)": {
-		name: "Instrument of Scribing \u200A\u200A",
+		name: "Instrument of Scribing \uFEFF\uFEFF",
 		description: "TThis instrument has 3 charges, regaining all at dawn. As a Magic action while playing it, I can expend 1 charge to write a message of 6 words in a language I know on a nonmagical surface that I can see within 30 ft. *Dispel Magic* erases the message, otherwise it fades away after 24 hours.",
 	},
 };

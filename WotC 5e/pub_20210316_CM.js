@@ -231,7 +231,6 @@ MagicItemsList["staff of fate"] = {
 		selectNow: true,
 	}],
 };
-var CM_NetherScrollOfAzumar = "After 30 days of studying 8 h/day, I make a DC 25 Int (Arcana) check. If failed, I take 16d10 psychic damage and start anew. On a success, I gain +2 Int to a max of 22, I gain advantage on saves against spells and magical effects, and a stone golem appears within 60 ft that acts as ally. If I die, the golem turns to dust.";
 MagicItemsList["nether scroll of azumar"] = {
 	name: "Nether Scroll of Azumar",
 	source: [["CM", 210]],
@@ -239,7 +238,7 @@ MagicItemsList["nether scroll of azumar"] = {
 	rarity: "legendary",
 	storyItemAL: true,
 	choicesNotInMenu: true,
-	description: CM_NetherScrollOfAzumar,
+	description: "After 30 days of studying 8 h/day, I make a DC 25 Int (Arcana) check. If failed, I take 16d10 psychic damage and start anew. On a success, I gain +2 Int to a max of 22, I gain advantage on saves against spells and magical effects, and a **stone golem** appears within 60 ft that acts as ally. If I die, the golem turns to dust.",
 	descriptionFull: [
 		"Unlike most scrolls, a *Nether Scroll of Azumar* is not a consumable magic item. It takes 30 days of concentrated study\u2014at least 8 hours per day\u2014to attempt to understand this scroll. After completing this study, you must make a DC 25 Intelligence (Arcana) check. If this check fails, you take 16d10 psychic damage, and you can attempt the check again after another 30 days of concentrated study.",
 		"When you succeed on the check, you gain the following benefits:",
@@ -247,17 +246,41 @@ MagicItemsList["nether scroll of azumar"] = {
 		" \u2022 You gain advantage on saving throws against spells and other magical effects.",
 		"When you gain the scroll's benefits, a stone golem magically appears in an unoccupied space within 60 feet of you and acts as your ally. If you die, the golem turns to dust.",
 	],
-	choices: ["Not Read", "Read"],
-	"not read": {
-		description: CM_NetherScrollOfAzumar,
-	},
-	"read": { // contains contributions by Nod_Hero
-		description: CM_NetherScrollOfAzumar,
-		eval: function () {
-			var src = "Nether Scroll of Azumar";
-			MagicItemsList["manual of bodily health"].applyStatBonus(src, "Intelligence", 2);
+	scores: [0, 0, 0, 2, 0, 0],
+	scoresMaximum: [0, 0, 0, 22, 0, 0],
+	scoresStackable: true,
+	eval: function () {
+		var src = "Nether Scroll of Azumar";
+		if (Who("Saving Throw advantages / disadvantages").indexOf(src) !== -1) return; // already exists
+		var iResponse = app.alert({
+			nIcon: 2, // Question
+			nType: 2, // Yes/No
+			nTitle: "Read Nether Scroll?",
+			cMsg: toUni("Do you want to apply the benefits of reading the scroll?", "**") +
+				"\n\nBecause the scroll gives a permanent effect after being used, the sheet doesn't simply apply this effect when the scroll is selected and remove it when the scroll is deselected. Instead, you get to decide.\nWhen selecting or removing the Nether Scroll of Azumar, you get this pop-up asking about the Advantage on Saves vs Magic and the Stone Golem, and you'll get another asking about the Intelligence increase." +
+				'\n\nClick "Yes" to add Advantage on Saves vs Magic to the first page and a Stone Golem to a companion page.' +
+				'\nClick "No" for nothing to change.',
+		});
+		if (iResponse == 4) { // Yes
 			SetProf("savetxt", true, { adv_vs: ["magic"] }, src);
-		},
-		creaturesAdd: [["Stone Golem", "stop"]],
+			processAddCompanions(true, src, [["Stone Golem"]]);
+		}
+	},
+	removeeval: function () {
+		var src = "Nether Scroll of Azumar";
+		if (Who("Saving Throw advantages / disadvantages").indexOf(src) === -1) return; // doesn't exists
+		var iResponse = app.alert({
+			nIcon: 2, // Question
+			nType: 2, // Yes/No
+			nTitle: "Keep Nether Scroll Bonuses?",
+			cMsg: toUni("Do you want to remove the benefits of reading the scroll?", "**") +
+				"\n\nBecause the scroll gives a permanent effect after being used, the sheet doesn't simply apply this effect when the scroll is selected and remove it when the scroll is deselected. Instead, you get to decide.\nWhen selecting or removing the Nether Scroll of Azumar, you get this pop-up asking about the Advantage on Saves vs Magic and the Stone Golem, and you'll get another asking about the Intelligence increase." +
+				'\n\nClick "Yes" for nothing to change.' +
+				'\nClick "No" to remove Advantage on Saves vs Magic from the first page and remove the Stone Golem from a companion page.',
+		});
+		if (iResponse == 3) { // No
+			SetProf("savetxt", false, { adv_vs: ["magic"] }, src);
+			processAddCompanions(false, src, [["Stone Golem"]]);
+		}
 	},
 };

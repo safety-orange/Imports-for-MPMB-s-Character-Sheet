@@ -20798,7 +20798,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 		action: [["reaction", ""]],
 		choices: ["Mind Sharpener Armor", "Mind Sharpener Robes"],
 		"mind sharpener armor": {
-			name: "Mind\u200A Sharpener (UA)",
+			name: "Mind Sharpener (UA) \uFEFF",
 			type: "armor (light, medium, or heavy)",
 			description: "This magic armor can send a jolt to refocus my mind. Whenever I fail a Constitution saving throw to maintain concentration on a spell, I can use my reaction to succeed instead.",
 			chooseGear: {

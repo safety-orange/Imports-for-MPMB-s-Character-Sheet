@@ -5718,7 +5718,7 @@ MagicItemsList["hazirawn"] = {
 	weight: 6,
 	choices: ["not attuned", "attuned"],
 	"not attuned": {
-		name: "Hazirawn\u200A",
+		name: "Hazirawn \uFEFF",
 		description: "A sentient (neutral evil) greatsword, Hazirawn is capable of speech in Common and Netherese. While I'm not attuned to the sword, I gain a +1 bonus on attack and damage rolls made with it. It also deals an extra 1d6 necrotic damage on attacks made with the sword.",
 		weaponOptions: [{
 			baseWeapon: "greatsword",
@@ -5731,7 +5731,7 @@ MagicItemsList["hazirawn"] = {
 		}],
 	},
 	"attuned": {
-		name: "Hazirawn\u200A\u200A",
+		name: "Hazirawn \uFEFF\uFEFF",
 		attunement: true,
 		description: "This sentient, neutral evil, greatsword adds +2 to damage and to hit rolls, deals +2d6 necrotic damage, and those hit with it can't regain HP for 1 min, but can make a DC 15 Con save at the end of each turn to stop this effect. It has 4 charges to cast spells, regaining 1d4 at midnight. It speaks Common and Netherese.",
 		extraLimitedFeatures: [{
@@ -14002,7 +14002,7 @@ MagicItemsList["blood spear"] = {
 	choices: ["Chosen of Kavan", "Not a chosen of Kavan"],
 	choicesNotInMenu: true,
 	"chosen of kavan": {
-		name: "Blood\u200A Spear",
+		name: "Blood Spear \uFEFF",
 		weaponOptions: [{
 			baseWeapon: "spear",
 			regExpSearch: /^(?=.*blood)(?=.*spear).*$/i,
@@ -14014,7 +14014,7 @@ MagicItemsList["blood spear"] = {
 		}],
 	},
 	"not a chosen of kavan": {
-		name: "Blood\u200A\u200A Spear",
+		name: "Blood Spear \uFEFF\uFEFF",
 		weaponOptions: [{
 			baseWeapon: "spear",
 			regExpSearch: /^(?=.*blood)(?=.*spear).*$/i,
@@ -22488,11 +22488,11 @@ MagicItemsList["instrument of illusions"] = { // contains contributions by Aelar
 		return classes.known.bard ? "bard (15-ft radius)" : "not a bard (5-ft radius)";
 	},
 	"bard (15-ft radius)": {
-		name: "Instrument\u200A of Illusions",
+		name: "Instrument of Illusions \uFEFF",
 		description: "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 15-ft-radius sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing.",
 	},
 	"not a bard (5-ft radius)": {
-		name: "Instrument\u200A\u200A of Illusions",
+		name: "Instrument of Illusions \uFEFF\uFEFF",
 		description: "While I am playing this musical instrument, I can create harmless, illusory visual effects within a 5-ft-radius sphere centered on the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing.",
 	},
 }
@@ -22513,11 +22513,11 @@ MagicItemsList["instrument of scribing"] = {
 		return classes.known.bard ? "bard (15-ft radius)" : "not a bard (5-ft radius)";
 	},
 	"bard (15-ft radius)": {
-		name: "Instrument\u200A of Scribing",
+		name: "Instrument of Scribing \uFEFF",
 		description: "As an action while I'm playing this musical instrument, I can write a magical message on a nonmagical surface that I can see within 30 ft. The message can be up to 7 words in a language I know and I can have it glow faintly. *Dispel Magic* erases it, otherwise it fades away after 24 hours. This can be used 3 times per dawn.",
 	},
 	"not a bard (5-ft radius)": {
-		name: "Instrument\u200A\u200A of Scribing",
+		name: "Instrument of Scribing \uFEFF\uFEFF",
 		description: "As an action while I'm playing this musical instrument, I can write a magical message on a nonmagical surface that I can see within 30 ft. The message can be up to 6 words in a language I know and fades away after 24 hours or when *Dispel Magic* is cast on it. The instrument can be used like this 3 times per dawn.",
 	},
 }
@@ -38260,7 +38260,7 @@ MagicItemsList["mind sharpener"] = {
 	choices: ["Mind Sharpener Armor", "Mind Sharpener Robes"],
 	choicesNotInMenu: true,
 	"mind sharpener armor": {
-		name: "Mind\u200A Sharpener",
+		name: "Mind Sharpener \uFEFF",
 		type: "armor (light, medium, or heavy)",
 		description: "This magic armor can send a jolt to refocus my mind. It has 4 charges and regains 1d4 expended charges daily at dawn. As a reaction when I fail a Constitution saving throw to maintain concentration on a spell, I can expend 1 charge to succeed instead.",
 		chooseGear: {
@@ -44912,7 +44912,6 @@ MagicItemsList["staff of fate"] = {
 		selectNow: true,
 	}],
 };
-var CM_NetherScrollOfAzumar = "After 30 days of studying 8 h/day, I make a DC 25 Int (Arcana) check. If failed, I take 16d10 psychic damage and start anew. On a success, I gain +2 Int to a max of 22, I gain advantage on saves against spells and magical effects, and a stone golem appears within 60 ft that acts as ally. If I die, the golem turns to dust.";
 MagicItemsList["nether scroll of azumar"] = {
 	name: "Nether Scroll of Azumar",
 	source: [["CM", 210]],
@@ -44920,7 +44919,7 @@ MagicItemsList["nether scroll of azumar"] = {
 	rarity: "legendary",
 	storyItemAL: true,
 	choicesNotInMenu: true,
-	description: CM_NetherScrollOfAzumar,
+	description: "After 30 days of studying 8 h/day, I make a DC 25 Int (Arcana) check. If failed, I take 16d10 psychic damage and start anew. On a success, I gain +2 Int to a max of 22, I gain advantage on saves against spells and magical effects, and a **stone golem** appears within 60 ft that acts as ally. If I die, the golem turns to dust.",
 	descriptionFull: [
 		"Unlike most scrolls, a *Nether Scroll of Azumar* is not a consumable magic item. It takes 30 days of concentrated study\u2014at least 8 hours per day\u2014to attempt to understand this scroll. After completing this study, you must make a DC 25 Intelligence (Arcana) check. If this check fails, you take 16d10 psychic damage, and you can attempt the check again after another 30 days of concentrated study.",
 		"When you succeed on the check, you gain the following benefits:",
@@ -44928,18 +44927,42 @@ MagicItemsList["nether scroll of azumar"] = {
 		" \u2022 You gain advantage on saving throws against spells and other magical effects.",
 		"When you gain the scroll's benefits, a stone golem magically appears in an unoccupied space within 60 feet of you and acts as your ally. If you die, the golem turns to dust.",
 	],
-	choices: ["Not Read", "Read"],
-	"not read": {
-		description: CM_NetherScrollOfAzumar,
-	},
-	"read": { // contains contributions by Nod_Hero
-		description: CM_NetherScrollOfAzumar,
-		eval: function () {
-			var src = "Nether Scroll of Azumar";
-			MagicItemsList["manual of bodily health"].applyStatBonus(src, "Intelligence", 2);
+	scores: [0, 0, 0, 2, 0, 0],
+	scoresMaximum: [0, 0, 0, 22, 0, 0],
+	scoresStackable: true,
+	eval: function () {
+		var src = "Nether Scroll of Azumar";
+		if (Who("Saving Throw advantages / disadvantages").indexOf(src) !== -1) return; // already exists
+		var iResponse = app.alert({
+			nIcon: 2, // Question
+			nType: 2, // Yes/No
+			nTitle: "Read Nether Scroll?",
+			cMsg: toUni("Do you want to apply the benefits of reading the scroll?", "**") +
+				"\n\nBecause the scroll gives a permanent effect after being used, the sheet doesn't simply apply this effect when the scroll is selected and remove it when the scroll is deselected. Instead, you get to decide.\nWhen selecting or removing the Nether Scroll of Azumar, you get this pop-up asking about the Advantage on Saves vs Magic and the Stone Golem, and you'll get another asking about the Intelligence increase." +
+				'\n\nClick "Yes" to add Advantage on Saves vs Magic to the first page and a Stone Golem to a companion page.' +
+				'\nClick "No" for nothing to change.',
+		});
+		if (iResponse == 4) { // Yes
 			SetProf("savetxt", true, { adv_vs: ["magic"] }, src);
-		},
-		creaturesAdd: [["Stone Golem", "stop"]],
+			processAddCompanions(true, src, [["Stone Golem"]]);
+		}
+	},
+	removeeval: function () {
+		var src = "Nether Scroll of Azumar";
+		if (Who("Saving Throw advantages / disadvantages").indexOf(src) === -1) return; // doesn't exists
+		var iResponse = app.alert({
+			nIcon: 2, // Question
+			nType: 2, // Yes/No
+			nTitle: "Keep Nether Scroll Bonuses?",
+			cMsg: toUni("Do you want to remove the benefits of reading the scroll?", "**") +
+				"\n\nBecause the scroll gives a permanent effect after being used, the sheet doesn't simply apply this effect when the scroll is selected and remove it when the scroll is deselected. Instead, you get to decide.\nWhen selecting or removing the Nether Scroll of Azumar, you get this pop-up asking about the Advantage on Saves vs Magic and the Stone Golem, and you'll get another asking about the Intelligence increase." +
+				'\n\nClick "Yes" for nothing to change.' +
+				'\nClick "No" to remove Advantage on Saves vs Magic from the first page and remove the Stone Golem from a companion page.',
+		});
+		if (iResponse == 3) { // No
+			SetProf("savetxt", false, { adv_vs: ["magic"] }, src);
+			processAddCompanions(false, src, [["Stone Golem"]]);
+		}
 	},
 };
 
@@ -45656,11 +45679,11 @@ MagicItemsList["nepenthe"] = {
 		return !classes.known.paladin ? "" : classes.known.paladin.level < 17 ? "paladin level 1-16 (10-ft aura)" : "paladin level 17+ (30-ft aura)";
 	},
 	"paladin level 1-16 (10-ft aura)": {
-		name: "Nepenthe\u200A",
+		name: "Nepenthe \uFEFF",
 		description: "This sentient holy avenger longsword gives me a +3 bonus to attack and damage rolls made with it. It does +2d10 radiant damage against fiends and undead. While holding the drawn sword, I have a 10-ft radius aura that grants me and my allies advantage on saving throws against spells and magical effects.",
 	},
 	"paladin level 17+ (30-ft aura)": {
-		name: "Nepenthe\u200A\u200A",
+		name: "Nepenthe \uFEFF\uFEFF",
 		description: "This sentient holy avenger longsword gives me a +3 bonus to attack and damage rolls made with it. It does +2d10 radiant damage against fiends and undead. While holding the drawn sword, I have a 30-ft radius aura that grants me and my allies advantage on saving throws against spells and magical effects.",
 	},
 }
@@ -55803,7 +55826,7 @@ MagicItemsList["stygian spear"] = {
 		weight: 2,
 	},
 	"spear": {
-		name: "Stygian\u200A Spear",
+		name: "Stygian Spear \uFEFF",
 		description: "This +2 spear deals +1d6 damage when thrown. It returns to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require *Remove Curse* to unattune, and have disadv. with other weapons. On a 1 to hit, I attack the closest ally with adv. and deal +2d6 poison damage.",
 		descriptionLong: "I have a +2 bonus to attack and damage rolls made with this magic spear. When I throw it, it deals one extra die of damage on a hit and it flies back to my hand immediately after it hits or misses. It is cursed and corrupting. I'm unwilling to part with it, require *Remove Curse* to unattune to it, and gives me disadvantage on attacks with other weapons. Whenever I roll a 1 on an attack roll using this weapon, I instead attack my closest ally. I make a new attack roll with advantage against my ally and if it hits, this weapon deals an extra +2d6 poison damage. If there are multiple allies, randomly determine the target.",
 		weaponOptions: [{

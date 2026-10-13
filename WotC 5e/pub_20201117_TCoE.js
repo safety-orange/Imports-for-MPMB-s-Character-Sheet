@@ -1453,7 +1453,7 @@ MagicItemsList["mind sharpener"] = {
 	choices: ["Mind Sharpener Armor", "Mind Sharpener Robes"],
 	choicesNotInMenu: true,
 	"mind sharpener armor": {
-		name: "Mind\u200A Sharpener",
+		name: "Mind Sharpener \uFEFF",
 		type: "armor (light, medium, or heavy)",
 		description: "This magic armor can send a jolt to refocus my mind. It has 4 charges and regains 1d4 expended charges daily at dawn. As a reaction when I fail a Constitution saving throw to maintain concentration on a spell, I can expend 1 charge to succeed instead.",
 		chooseGear: {
