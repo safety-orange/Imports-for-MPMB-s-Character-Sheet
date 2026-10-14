@@ -295,7 +295,7 @@ RaceList["simic hybrid"] = {
 		},
 	},
 };
-AddRacialVariant("simic hybrid", "manta glide", {
+AddSubRace("simic hybrid", "manta glide", {
 	regExpSearch: /manta glide/i,
 	source: [["G", 20]],
 	trait: [
@@ -304,7 +304,7 @@ AddRacialVariant("simic hybrid", "manta glide", {
 		"##\u25C6 Animal Enhancement (5th level)##. At 5th level, I gain another animal enhancement. I can choose Nimble Climber, Underwater Adaptation, Grappling Appendages, Carapace, or Acid Spit.",
 	],
 });
-AddRacialVariant("simic hybrid", "nimble climber", {
+AddSubRace("simic hybrid", "nimble climber", {
 	regExpSearch: /nimble climber/i,
 	source: [["G", 20]],
 	speed: {
@@ -317,7 +317,7 @@ AddRacialVariant("simic hybrid", "nimble climber", {
 		"##\u25C6 Animal Enhancement (5th level)##. At 5th level, I gain another animal enhancement. I can choose Manta Glide, Underwater Adaptation, Grappling Appendages, Carapace, or Acid Spit.",
 	],
 });
-AddRacialVariant("simic hybrid", "underwater adaptation", {
+AddSubRace("simic hybrid", "underwater adaptation", {
 	regExpSearch: /underwater adaptation/i,
 	source: [["G", 20]],
 	speed: {

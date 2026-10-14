@@ -14,15 +14,12 @@ SourceList["S"] = {
 };
 
 // Races
-AddRacialVariant("halfling", "ghostwise", {
+AddSubRace("halfling", "ghostwise", {
 	regExpSearch: /^(?=.*\b(halflings?|hobbits?)\b)(?=.*ghostwise).*$/i,
 	name: "Ghostwise Halfling",
-	plural: "Ghostwise halflings",
 	source: [["S", 110]],
-	size: 4,
-	speed: {
-		walk: { spd: 25, enc: 15 },
-	},
+	plural: "Ghostwise halflings",
+	speed: { walk: { spd: 25, enc: 15 } },
 	languageProfs: ["Common", "Halfling"],
 	trait: [
 		"**Ghostwise Halfling**",
@@ -31,7 +28,7 @@ AddRacialVariant("halfling", "ghostwise", {
 		"##\u25C6 Silent Speech##. I can speak telepathically to any one creature within 30 ft of me. It only understands me if we share a language.",
 	],
 });
-AddRacialVariant("dwarf", "gray", {
+AddSubRace("dwarf", "gray", {
 	regExpSearch: /^((?=.*\bduergars?\b)|((?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b)(?=.*\b(grey|gray|underdark)\b))).*$/i,
 	name: "Duergar",
 	sortname: "Gray Dwarf (Duergar)",
@@ -97,7 +94,7 @@ AddRacialVariant("dwarf", "gray", {
 });
 // [dupl_start] Reprint from Elemental Evil Player's Companion
 if (!RaceSubList["gnome-deep"]) {
-	AddRacialVariant("gnome", "deep", {
+	AddSubRace("gnome", "deep", {
 		regExpSearch: /^((?=.*svirfneblin)|((?=.*\bgnomes?\b)(?=.*\b(underdarks?|deep|depths?)\b))).*$/i,
 		name: "Svirfneblin",
 		sortname: "Deep Gnome (Svirfneblin)",
@@ -121,7 +118,7 @@ if (!RaceSubList["gnome-deep"]) {
 } // dupl_end
 
 // Racial variants
-AddRacialVariant("half-elf", "aquatic", {
+AddSubRace("half-elf", "aquatic", {
 	regExpSearch: /aquatic/i,
 	name: "Half-Aquatic Elf",
 	source: [["S", 116]],
@@ -130,19 +127,19 @@ AddRacialVariant("half-elf", "aquatic", {
 		walk: { spd: 30, enc: 20 },
 		swim: { spd: 30, enc: 20 },
 	},
-	skillstxt: "",
+	skillstxt: null,
 	trait: [
 		"**Half-Aquatic Elf**",
 		"##\u25C6 Swimming Speed##. My aquatic heritage gives me a 30 ft Swim Speed.",
 	],
 });
-AddRacialVariant("half-elf", "cantrip", {
+AddSubRace("half-elf", "cantrip", {
 	regExpSearch: /cantrip/i,
 	name: "Half-High Elf",
 	sortname: "Half-High Elf (Cantrip)",
 	source: [["S", 116]],
 	plural: "Half-high elves",
-	skillstxt: "",
+	skillstxt: null,
 	trait: [
 		"**Half-High Elf**",
 		"##\u25C6 Cantrip##. I know one cantrip of my choice from the Wizard spell list. Intelligence is my spellcasting ability for it.",
@@ -155,13 +152,13 @@ AddRacialVariant("half-elf", "cantrip", {
 		firstCol: "atwill",
 	}],
 });
-AddRacialVariant("half-elf", "drow magic", {
+AddSubRace("half-elf", "drow magic", {
 	regExpSearch: /^(?=.*drow)(?=.*magic).*$/i,
 	name: "Half-Drow",
 	sortname: "Half-Drow (Drow Magic)",
 	source: [["S", 116]],
 	plural: "Half-drow",
-	skillstxt: "",
+	skillstxt: null,
 	trait: [
 		"**Half-drow**",
 		"##\u25C6 Drow Magic##. I know the *Dancing Lights* cantrip.",
@@ -199,15 +196,15 @@ AddRacialVariant("half-elf", "drow magic", {
 		},
 	},
 });
-AddRacialVariant("half-elf", "elf weapon training", {
+AddSubRace("half-elf", "elf weapon training", {
 	sortname: "Half-Elf (Elf Weapon Training)",
 	regExpSearch: /^(?=.*\b(elf|elven)\b)(?=.*weapon)(?=.*training).*$/i,
 	source: [["S", 116]],
-	skillstxt: "",
+	skillstxt: null,
 	trait: "**Half-Elf**",
 	weaponProfs: [false, false, ["longsword", "shortsword", "longbow", "shortbow"]],
 });
-AddRacialVariant("half-elf", "fleet of foot", {
+AddSubRace("half-elf", "fleet of foot", {
 	regExpSearch: /^(?=.*fleet)(?=.*\b(foot|feet)\b).*$/i,
 	name: "Half-Wood Elf",
 	sortname: "Half-Wood Elf (Fleet of Foot)",
@@ -216,22 +213,22 @@ AddRacialVariant("half-elf", "fleet of foot", {
 	speed: {
 		walk: { spd: 35, enc: 25 },
 	},
-	skillstxt: "",
+	skillstxt: null,
 	trait: "**Half-Wood Elf**",
 });
-AddRacialVariant("half-elf", "mask of the wild", {
+AddSubRace("half-elf", "mask of the wild", {
 	regExpSearch: /^(?=.*\bmasks?\b)(?=.*\bwilds?\b).*$/i,
 	name: "Half-Wood Elf",
 	sortname: "Half-Wood Elf (Mask of the Wild)",
 	source: [["S", 116]],
 	plural: "Half-wood elves",
-	skillstxt: "",
+	skillstxt: null,
 	trait: [
 		"**Half-Wood Elf**",
 		"##\u25C6 Mask of the Wild##. I can attempt to Hide even when I am only Lightly Obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
 	],
 });
-AddRacialVariant("tiefling", "winged", {
+AddSubRace("tiefling", "winged", {
 	regExpSearch: /wing/i,
 	name: "Winged Tiefling",
 	source: [["S", 118]],
@@ -1057,7 +1054,7 @@ if (!FeatsList["svirfneblin magic"]) {
 		name: "Svirfneblin Magic",
 		source: [["E", 7], ["S", 115], ["MToF", 114]],
 		prerequisite: "Being a Svirfneblin (Deep Gnome)",
-		prereqeval: function (v) { return CurrentRace.known === "gnome" && CurrentRace.variant === "deep"; },
+		prereqeval: function (v) { return CurrentRace.known.indexOf("gnome") !== -1 && (CurrentRace.variant.indexOf("deep") !== -1 || CurrentRace.known.indexOf("deep") !== -1); },
 		descriptionFull: [
 			"You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast *Nondetection* on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: *Blindness/Deafness*, *Blur*, and *Disguise Self*. You regain the ability to cast these spells when you finish a long rest.",
 			"Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",

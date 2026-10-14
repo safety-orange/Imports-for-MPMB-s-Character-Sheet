@@ -14,7 +14,7 @@ SourceList["ToA"] = {
 };
 
 // Add Human to Yuan-ti tranformation from the ritual (excluded by default)
-AddRacialVariant("human", "yuan-ti transformed", {
+AddSubRace("human", "yuan-ti transformed", {
 	sortname: "Yuan-Ti Transformed Human",
 	defaultExcluded: true,
 	regExpSearch: /^(?=.*yuan.ti)(?=.*transformed)?.*$/i,

@@ -26,7 +26,7 @@ RaceList["custom lineage"] = {
 	languageProfs: ["Common", 1],
 	featsAdd: [{ type: /^(?!.*(blessing|boon|charm|gift|fighting style)).*$/i }],
 };
-AddRacialVariant("custom lineage", "darkvision", {
+AddSubRace("custom lineage", "darkvision", {
 	regExpSearch: /darkvision/i,
 	source: [["T", 8]],
 	vision: [["Darkvision", 60]],
@@ -37,7 +37,7 @@ AddRacialVariant("custom lineage", "darkvision", {
 		"##\u25C6 Variable Trait##. I have Darkvision with a range of 60 ft.",
 	],
 });
-AddRacialVariant("custom lineage", "skill proficiency", {
+AddSubRace("custom lineage", "skill proficiency", {
 	regExpSearch: /skill proficiency/i,
 	source: [["T", 8]],
 	skillstxt: "Choose any one skill",

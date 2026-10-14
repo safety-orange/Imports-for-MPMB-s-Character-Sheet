@@ -893,10 +893,11 @@ RaceList["dragonmark making human"] = {
 	scorestxt: "+2 Intelligence and +1 to one other ability score of my choice",
 	scores: [0, 0, 0, 2, 0, 0],
 	trait: [
-		"**Human, Dragonmark of Making** (+2 Intelligence, +1 to one other ability score of my choice)",
+		"**Human, Dragonmark of Making** (+2 Intelligence, +1 to " + (typePF ? "another)" : "one other ability score of my choice)"),
 		"##\u25C6 Artisan's Intuition##. I can add +1d4 to Arcana checks and checks with artisan's tools.",
-		"##\u25C6 Spellsmith##. I know the *Mending* cantrip. I can cast *Magic Weapon* once per long rest and when I do so, it doesn't require concentration and lasts for 1 hour. Intelligence is my spellcasting ability for these.",
-		"##\u25C6 Spells of the Mark##. I add several spells to the spell list of my spellcasting class(es)." + (typePF ? "" : "\r##\u25C6 Maker's Gift##. I gain proficiency with one type of artisan's tools of my choice."),
+		"##\u25C6 Spellsmith##. I know the *Mending* cantrip. I can cast *Magic Weapon* once per long rest without it requiring concentration and lasting for 1 hour. Intelligence is my spellcasting ability for these.",
+		"##\u25C6 Spells of the Mark##. I add several spells to the spell list of my spellcasting class(es).",
+		"##\u25C6 Maker's Gift##. I gain proficiency with one type of artisan's tools of my choice.",
 	],
 	spellcastingAbility: 4,
 	features: {

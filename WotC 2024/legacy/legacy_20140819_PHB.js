@@ -20,13 +20,11 @@ RaceList["half-elf"] = {
 	source: [["SRD", 6], ["P", 39]],
 	plural: "Half-elves",
 	size: 3,
-	speed: {
-		walk: { spd: 30, enc: 20 },
-	},
+	speed: { walk: { spd: 30, enc: 20 } },
 	languageProfs: ["Common", "Elvish", 1],
 	vision: [["Darkvision", 60]],
 	savetxt: {
-		text: ["Magic can't put me to sleep"],
+		text: ["Sleep magic"],
 		adv_vs: ["Charmed"],
 	},
 	skillstxt: "Choose any two skills",
@@ -47,9 +45,7 @@ RaceList["half-orc"] = {
 	source: [["SRD", 7], ["P", 41]],
 	plural: "Half-orcs",
 	size: 3,
-	speed: {
-		walk: { spd: 30, enc: 20 },
-	},
+	speed: { walk: { spd: 30, enc: 20 } },
 	languageProfs: ["Common", "Orc"],
 	vision: [["Darkvision", 60]],
 	skills: ["Intimidation"],

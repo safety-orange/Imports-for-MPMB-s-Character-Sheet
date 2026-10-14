@@ -45,7 +45,7 @@ RaceList["aarakocra"] = {
 		"##\u25C6 Talons##. My Unarmed Strikes deal 1d4 Slashing damage on a hit.",
 	],
 };
-AddRacialVariant("gnome", "deep", {
+AddSubRace("gnome", "deep", {
 	regExpSearch: /^((?=.*svirfneblin)|((?=.*\bgnomes?\b)(?=.*\b(underdarks?|deep|depths?)\b))).*$/i,
 	name: "Svirfneblin",
 	sortname: "Deep Gnome (Svirfneblin)",
@@ -75,14 +75,14 @@ RaceList["genasi"] = {
 	speed: { walk: { spd: 30, enc: 20 } },
 	languageProfs: ["Common", "Primordial"],
 	spellcastingAbility: 3,
-	variants: [], // filled by the AddRacialVariant() calls below
+	variants: [], // filled by the AddSubRace() calls below
 	age: " reach adulthood in their late teens and live up to 120 years",
 	height: " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
 	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
 	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 };
-AddRacialVariant("genasi", "air", {
+AddSubRace("genasi", "air", {
 	regExpSearch: /^(?=.*(genasi|planetouched))(?=.*\bairs?\b).*$/i,
 	name: "Air Genasi",
 	source: [["E", 9], ["W", 172]],
@@ -112,7 +112,7 @@ AddRacialVariant("genasi", "air", {
 		},
 	},
 });
-AddRacialVariant("genasi", "earth", {
+AddSubRace("genasi", "earth", {
 	regExpSearch: /^(?=.*(genasi|planetouched))(?=.*\bearths?\b).*$/i,
 	name: "Earth Genasi",
 	source: [["E", 9], ["W", 172]],
@@ -142,7 +142,7 @@ AddRacialVariant("genasi", "earth", {
 		},
 	},
 });
-AddRacialVariant("genasi", "fire", {
+AddSubRace("genasi", "fire", {
 	regExpSearch: /^(?=.*(genasi|planetouched))(?=.*\bfires?\b).*$/i,
 	name: "Fire Genasi",
 	source: [["E", 9], ["W", 172]],
@@ -175,7 +175,7 @@ AddRacialVariant("genasi", "fire", {
 		},
 	},
 });
-AddRacialVariant("genasi", "water", {
+AddSubRace("genasi", "water", {
 	regExpSearch: /^(?=.*(genasi|planetouched))(?=.*\bwaters?\b).*$/i,
 	name: "Water Genasi",
 	source: [["E", 10], ["W", 172]],
@@ -218,7 +218,7 @@ FeatsList["svirfneblin magic"] = {
 	name: "Svirfneblin Magic",
 	source: [["E", 7], ["S", 115], ["MToF", 114]],
 	prerequisite: "Being a Svirfneblin (Deep Gnome)",
-	prereqeval: function (v) { return CurrentRace.known === "gnome" && CurrentRace.variant === "deep"; },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("gnome") !== -1 && (CurrentRace.variant.indexOf("deep") !== -1 || CurrentRace.known.indexOf("deep") !== -1); },
 	descriptionFull: [
 		"You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast *Nondetection* on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: *Blindness/Deafness*, *Blur*, and *Disguise Self*. You regain the ability to cast these spells when you finish a long rest.",
 		"Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",

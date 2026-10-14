@@ -1925,7 +1925,7 @@ FeatsList["drow high magic"] = {
 	name: "Drow High Magic",
 	source: [["X", 74]],
 	prerequisite: "Being a Drow (Dark Elf)",
-	prereqeval: function (v) { return CurrentRace.known("elf") !== -1 && CurrentRace.variant.indexOf("drow") !== -1; },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("elf") !== -1 && CurrentRace.variant.indexOf("drow") !== -1; },
 	descriptionFull: "You learn more of the magic typical of dark elves. You learn the *Detect Magic* spell and can cast it at will, without expending a spell slot. You also learn *Levitate* and *Dispel Magic*, each of which you can cast once without expending a spell slot. You regain the ability to cast those two spells in this way when you finish a long rest. Charisma is your spellcasting ability for all three spells.",
 	description: "I can cast *Detect Magic* at will, without expending a spell slot. I can also cast *Levitate* and *Dispel Magic* without expending a spell slot, but each only once per Long Rest. Charisma is my spellcasting ability for these three spells.",
 	spellcastingBonus: [{
@@ -1992,7 +1992,7 @@ FeatsList["fey teleportation"] = { // this code includes contributions by Soilen
 	name: "Fey Teleportation",
 	source: [["X", 74]],
 	prerequisite: "Being a High Elf",
-	prereqeval: function (v) { return CurrentRace.known("elf") !== -1 && CurrentRace.variant.indexOf("high") !== -1; },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("elf") !== -1 && CurrentRace.variant.indexOf("high") !== -1; },
 	descriptionFull: [
 		"Your study of high elven lore has unlocked fey power that few other elves possess, except your eladrin cousins. Drawing on your fey ancestry, you can momentarily stride through the Feywild to shorten your path from one place to another. You gain the following benefits:",
 		" \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.",
@@ -2044,7 +2044,7 @@ FeatsList["orcish fury"] = {
 	name: "Orcish Fury",
 	source: [["X", 75]],
 	prerequisite: "Being a Half-Orc",
-	prereqeval: function (v) { return /^(?=.*half)(?=.*orc).*$/i.test(CurrentRace.known); },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("half-orc") !== -1; },
 	descriptionFull: [
 		"Your fury burns tirelessly. You gain the following benefits:",
 		" \u2022 Increase your Strength or Constitution score by 1, to a maximum of 20.",
@@ -2093,7 +2093,7 @@ FeatsList["squat nimbleness"] = {
 	name: "Squat Nimbleness",
 	source: [["X", 75]],
 	prerequisite: "Being a Dwarf or a small race",
-	prereqeval: function (v) { return /dwarf/i.test(CurrentRace.known) || tDoc.getField("Size Category").currentValueIndices === 4; },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("dwarf") !== -1 || tDoc.getField("Size Category").currentValueIndices === 4; },
 	descriptionFull: [
 		"You are uncommonly nimble for your race. You gain the following benefits:",
 		" \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.",
@@ -2110,7 +2110,7 @@ FeatsList["wood elf magic"] = {
 	name: "Wood Elf Magic",
 	source: [["X", 75]],
 	prerequisite: "Being a Wood Elf",
-	prereqeval: function (v) { return CurrentRace.known("elf") !== -1 && CurrentRace.variant.indexOf("wood") !== -1; },
+	prereqeval: function (v) { return CurrentRace.known.indexOf("elf") !== -1 && CurrentRace.variant.indexOf("wood") !== -1; },
 	descriptionFull: "You learn the magic of the primeval woods, which are revered and protected by your people. You learn one druid cantrip of your choice. You also learn the *Longstrider* and *Pass Without Trace* spells, each of which you can cast once without expending a spell slot. You regain the ability to cast these two spells in this way when you finish a long rest. Wisdom is your spellcasting ability for all three spells.",
 	description: "I learn a Druid cantrip. In addition, I can cast *Longstrider* and *Pass Without Trace*, without expending a spell slot, but each only once per Long Rest. Wisdom is my spellcasting ability for these three spells.",
 	spellcastingBonus: [{
@@ -3534,6 +3534,7 @@ SpellsList["soul cage"] = {
 };
 SpellsList["summon greater demon"] = {
 	name: "Summon Greater Demon",
+	nameShort: "Summon Great. Demon",
 	classes: ["warlock", "wizard"],
 	source: [["X", 166]],
 	reqLoS: true,
@@ -3556,6 +3557,7 @@ SpellsList["summon greater demon"] = {
 };
 SpellsList["summon lesser demons"] = {
 	name: "Summon Lesser Demons",
+	nameShort: "Summon Lesser Demon",
 	classes: ["warlock", "wizard"],
 	source: [["X", 167]],
 	reqLoS: true,
@@ -3797,10 +3799,9 @@ WeaponsList["primal savagery"] = {
 };
 
 // Companion options (Find Greater Steed spell)
-CompanionList.steed = {
+CompanionList["steed"] = {
 	name: "Find Greater Steed",
 	nameTooltip: "the Find Greater Steed spell",
-	nameOrigin: "4th-level Conjuration spell",
 	nameMenu: "Greater steed (Find Greater Steed spell)",
 	source: [["X", 156]],
 	includeCheck: function (sCrea, objCrea, iCreaCR, bIsAL) {
@@ -3817,13 +3818,13 @@ CompanionList.steed = {
 			description: "If dropped to 0 HP, the steed disappears, leaving behind no physical form.",
 		}],
 		languages: "understands one language its master speaks (master's choice)",
+		notes: [{
+			useSpellDescription: "find greater steed",
+		}],
 	},
 	attributesChange: function (sCrea, objCrea) {
 		if (objCrea.scores[3] < 6) objCrea.scores[3] = 6;
 	},
-	notes: [{
-		useSpellDescription: "find greater steed",
-	}],
 };
 
 // Add creatures

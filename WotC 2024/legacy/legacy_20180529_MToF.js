@@ -13,7 +13,7 @@ SourceList["MToF"] = {
 };
 
 // Tiefling subraces
-AddRacialVariant("tiefling", "baalzebul", {
+AddSubRace("tiefling", "baalzebul", {
 	regExpSearch: /^(?=.*baalzebul)(?=.*tiefling|planetouched).*$/i,
 	name: "Baalzebul Tiefling",
 	source: [["MToF", 21], ["UA:FO", 1]],
@@ -66,7 +66,7 @@ AddRacialVariant("tiefling", "baalzebul", {
 		},
 	},
 });
-AddRacialVariant("tiefling", "dispater", {
+AddSubRace("tiefling", "dispater", {
 	regExpSearch: /^(?=.*dispater)(?=.*tiefling|planetouched).*$/i,
 	name: "Dispater Tiefling",
 	source: [["MToF", 21]],
@@ -113,7 +113,7 @@ AddRacialVariant("tiefling", "dispater", {
 		},
 	},
 });
-AddRacialVariant("tiefling", "fierna", {
+AddSubRace("tiefling", "fierna", {
 	regExpSearch: /^(?=.*fierna)(?=.*tiefling|planetouched).*$/i,
 	name: "Fierna Tiefling",
 	source: [["MToF", 21], ["UA:FO", 1]],
@@ -166,7 +166,7 @@ AddRacialVariant("tiefling", "fierna", {
 		},
 	},
 });
-AddRacialVariant("tiefling", "glasya", {
+AddSubRace("tiefling", "glasya", {
 	regExpSearch: /^(?=.*glasya)(?=.*tiefling|planetouched).*$/i,
 	name: "Glasya Tiefling",
 	source: [["MToF", 22], ["UA:FO", 2]],
@@ -213,7 +213,7 @@ AddRacialVariant("tiefling", "glasya", {
 		},
 	},
 });
-AddRacialVariant("tiefling", "levistus", {
+AddSubRace("tiefling", "levistus", {
 	regExpSearch: /^(?=.*levistus)(?=.*tiefling|planetouched).*$/i,
 	name: "Levistus Tiefling",
 	source: [["MToF", 22], ["UA:FO", 2]],
@@ -266,7 +266,7 @@ AddRacialVariant("tiefling", "levistus", {
 		},
 	},
 });
-AddRacialVariant("tiefling", "mammon", {
+AddSubRace("tiefling", "mammon", {
 	regExpSearch: /^(?=.*mammon)(?=.*tiefling|planetouched).*$/i,
 	name: "Mammon Tiefling",
 	source: [["MToF", 22], ["UA:FO", 2]],
@@ -320,7 +320,7 @@ AddRacialVariant("tiefling", "mammon", {
 		},
 	},
 });
-AddRacialVariant("tiefling", "mephistopheles", {
+AddSubRace("tiefling", "mephistopheles", {
 	regExpSearch: /^(?=.*mephistopheles)(?=.*tiefling|planetouched).*$/i,
 	name: "Mephistopheles Tiefling",
 	source: [["MToF", 23]],
@@ -373,7 +373,7 @@ AddRacialVariant("tiefling", "mephistopheles", {
 		},
 	},
 });
-AddRacialVariant("tiefling", "zariel", {
+AddSubRace("tiefling", "zariel", {
 	regExpSearch: /^(?=.*zariel)(?=.*tiefling|planetouched).*$/i,
 	name: "Zariel Tiefling",
 	source: [["MToF", 23], ["UA:FO", 2]],
@@ -428,7 +428,7 @@ AddRacialVariant("tiefling", "zariel", {
 });
 
 // Elf subraces
-AddRacialVariant("elf", "fey", {
+AddSubRace("elf", "fey", {
 	regExpSearch: /^(?!.*half)((?=.*eladrin)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(feys?|feywild)\b))).*$/i,
 	name: "Eladrin",
 	sortname: "Eladrin (Fey Elf)",
@@ -436,7 +436,7 @@ AddRacialVariant("elf", "fey", {
 	plural: "Eladrin",
 	languageProfs: ["Common", "Elvish"],
 	skills: ["Perception"],
-	skillstxt: "",
+	skillstxt: null,
 	height: " range from under 5 to over 6 feet tall (4'6\" + 2d12\")",
 	weight: " weigh around 115 lb (90 + 2d12 \xD7 1d4 lb)",
 	heightMetric: " range from under 1,5 to over 1,8 metres tall (140 + 5d12 cm)",
@@ -475,7 +475,7 @@ AddRacialVariant("elf", "fey", {
 		],
 	}],
 });
-AddRacialVariant("elf", "sea", {
+AddSubRace("elf", "sea", {
 	regExpSearch: /^(?!.*half)((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(seas?|oceans?|water)\b)).*$/i,
 	name: "Sea Elf",
 	source: [["MToF", 62], ["W", 163], ["UA:ES", 1]],
@@ -487,7 +487,7 @@ AddRacialVariant("elf", "sea", {
 	weaponProfs: [false, false, ["spear", "trident", "light crossbow", "net"]],
 	languageProfs: ["Common", "Elvish", "Aquan", "Friend of the Sea"],
 	skills: ["Perception"],
-	skillstxt: "",
+	skillstxt: null,
 	height: " range from under 5 to almost 6 feet tall (4'6\" + 2d8\")",
 	weight: " weigh around 115 lb (90 + 2d8 \xD7 1d4 lb)",
 	heightMetric: " range from under 1,5 to almost 1,8 metres tall (140 + 5d8 cm)",
@@ -499,7 +499,7 @@ AddRacialVariant("elf", "sea", {
 		"##\u25C6 Friend of the Sea##. Through sounds and gestures, I can communicate simple ideas with any Beast that has an inborn Swim Speed.",
 	],
 });
-AddRacialVariant("elf", "shadow", {
+AddSubRace("elf", "shadow", {
 	regExpSearch: /^(?!.*half)((?=.*shadar-kai)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(shadows?|shadowfell)\b))).*$/i,
 	name: "Shadar-Kai",
 	sortname: "Shadar-Kai (Shadow Elf)",
@@ -508,7 +508,7 @@ AddRacialVariant("elf", "shadow", {
 	languageProfs: ["Common", "Elvish"],
 	dmgres: ["Necrotic"],
 	skills: ["Perception"],
-	skillstxt: "",
+	skillstxt: null,
 	height: " range from under 5 to over 6 feet tall (4'8\" + 2d8\")",
 	weight: " weigh around 115 lb (90 + 2d8 \xD7 1d4 lb)",
 	heightMetric: " range from under 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
@@ -607,12 +607,12 @@ RaceList["githyanki-mtof"] = {
 		},
 	},
 };
-AddRacialVariant("githyanki-mtof", "tool proficiency", {
+AddSubRace("githyanki-mtof", "tool proficiency", {
 	regExpSearch: /tool proficiency/i,
-	skillstxt: "",
+	skillstxt: null,
 	toolProfs: [["Any tool", 1]],
 });
-AddRacialVariant("githyanki-mtof", "skill proficiency", {
+AddSubRace("githyanki-mtof", "skill proficiency", {
 	regExpSearch: /skill proficiency/i,
 	skillstxt: "Choose any one skill",
 });
@@ -693,7 +693,7 @@ RaceList["githzerai-mtof"] = {
 
 // [dupl_start] Reprint from Sword Coast Adventure Guide
 if (!RaceSubList["dwarf-gray"]) {
-	AddRacialVariant("dwarf", "gray", {
+	AddSubRace("dwarf", "gray", {
 		regExpSearch: /^((?=.*\bduergars?\b)|((?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b)(?=.*\b(grey|gray|underdark)\b))).*$/i,
 		name: "Duergar",
 		sortname: "Gray Dwarf (Duergar)",
@@ -760,7 +760,7 @@ if (!RaceSubList["dwarf-gray"]) {
 }
 // Reprint from Elemental Evil Player's Companion and Sword Coast Adventure Guide
 if (!RaceSubList["gnome-deep"]) {
-	AddRacialVariant("gnome", "deep", {
+	AddSubRace("gnome", "deep", {
 		regExpSearch: /^((?=.*svirfneblin)|((?=.*\bgnomes?\b)(?=.*\b(underdarks?|deep|depths?)\b))).*$/i,
 		name: "Svirfneblin",
 		sortname: "Deep Gnome (Svirfneblin)",
@@ -788,7 +788,7 @@ if (!FeatsList["svirfneblin magic"]) {
 		name: "Svirfneblin Magic",
 		source: [["E", 7], ["S", 115], ["MToF", 114]],
 		prerequisite: "Being a Svirfneblin (Deep Gnome)",
-		prereqeval: function (v) { return CurrentRace.known === "gnome" && CurrentRace.variant === "deep"; },
+		prereqeval: function (v) { return CurrentRace.known.indexOf("gnome") !== -1 && (CurrentRace.variant.indexOf("deep") !== -1 || CurrentRace.known.indexOf("deep") !== -1); },
 		descriptionFull: [
 			"You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast *Nondetection* on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: *Blindness/Deafness*, *Blur*, and *Disguise Self*. You regain the ability to cast these spells when you finish a long rest.",
 			"Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
