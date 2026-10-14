@@ -17209,7 +17209,7 @@ SourceList["TP"] = {
 };
 
 // The Tortle race
-RaceList.tortle = {
+RaceList["tortle"] = {
 	regExpSearch: /tortle/i,
 	name: "Tortle",
 	source: [["TP", 4], ["W", 181]],
@@ -26365,7 +26365,7 @@ MagicItemsList["guild keyrune"] = {
 	},
 	"selesnya": {
 		rarity: "rare",
-		description: "As an action, I can speak this ceremonial key's command word to have it transform into a **dire wolf** with Int 6 with which I can talk telepathically if within 1 mile. It is friendly to me and my allies. It obeys my commands, but only uses the Dodge action otherwise. It lasts for 8 hours, until it has 0 HP, or I dismiss it as an action.",
+		description: "As an action, I can speak this ceremonial key's command word to have it transform into a **dire wolf** for 8 hours, until it has 0 HP, or I dismiss it as an action. It has Int 6 and I can talk with it telepathically if within 1 mile. It is Friendly to me and my allies, obeys my commands, but only uses the Dodge action otherwise.",
 		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a **dire wolf** with Intelligence 6 if there is enough space. The creature is friendly to me and my allies, understands Elvish and Sylvan (but can't speak them), and obeys my commands. While within 1 mile, we can communicate telepathically. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 8 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
 		descriptionFull: [
 			"Carved from white and green marble in the shape of a wolf's head, this keyrune transforms into a **dire wolf**. The wolf persists for 8 hours. Its Intelligence is 6, and it understands Elvish and Sylvan but can't speak those languages. While it is within 1 mile of you, you can communicate with each other telepathically.",
@@ -28199,12 +28199,12 @@ RaceList["verdan"] = {
 	heightMetric: " are between 100 and 120 cm tall, plus 60 cm from 5th level onwards",
 	scores: [0, 0, 1, 0, 0, 2],
 	trait: [
-		"Verdan (+1 Constitution, +2 Charisma)",
+		"**Verdan** (+1 Constitution, +2 Charisma)",
 		"##\u25C6 Sudden Growth Spurt##. At 5th level, I grow 2 ft and my size becomes Medium.",
-		"##\u25C6 Black Blood Healing##. When I roll a 1 or 2 on any HD I spend at the end of short rest, I can reroll the die and must use the new roll.",
+		"##\u25C6 Black Blood Healing##. When I roll a 1 or 2 on any HD spend at the end of a short rest, I can reroll the die and must use the new roll.",
 		"##\u25C6 Limited Telepathy##. I can telepathically communicate simple ideas and straightforward concepts to a creature I can see within 30 ft, if it can understand at least one language.",
 		"##\u25C6 Telepathic Insight##. I have advantage on Wisdom and Charisma saving throws.",
-	].join("\n"),
+	],
 	features: {
 		"sudden growth spurt": {
 			name: "Sudden Growth Spurt",
@@ -28231,7 +28231,7 @@ SpellsList["distort value"] = {
 	duration: "8 hours",
 	description: "1 obj up to 1+1/SL cu ft doubles/halves in perceived value; Investigation vs. spell DC to see true value",
 	descriptionFull: [
-		"Do you need to squeeze a few more gold pieces out of a merchant as you try to sell that weird octopus statue you liberated from the chaos temple? Do you need to downplay the worth of some magical assets when the tax collector stops by? Distort value has you covered.",
+		"Do you need to squeeze a few more gold pieces out of a merchant as you try to sell that weird octopus statue you liberated from the chaos temple? Do you need to downplay the worth of some magical assets when the tax collector stops by? *Distort value* has you covered.",
 		"You cast this spell on an object no more than 1 foot on a side, doubling the object's perceived value by adding illusory flourishes or polish to it, or reducing its perceived value by half with the help of illusory scratches, dents, and other unsightly features. Anyone examining the object can ascertain its true value with a successful Intelligence (Investigation) check against your spell save DC.",
 		"***At Higher Levels***. When you cast this spell using a spell slot of 2nd level or higher, the maximum size of the object increases by 1 foot for each slot level above 1st.",
 	],
@@ -28343,7 +28343,7 @@ SpellsList["motivational speech"] = {
 	description: "5 crea that hear me 5+5/SL temp HP, adv. Wis saves, if hit adv. on next atk; stops when temp HP gone",
 	descriptionFull: [
 		"You address allies, staff, or innocent bystanders to exhort and inspire them to greatness, whether they have anything to get excited about or not. Choose up to five creatures within range that can hear you. For the duration, each affected creature gains 5 temporary hit points and has advantage on Wisdom saving throws. If an affected creature is hit by an attack, it has advantage on the next attack roll it makes. Once an affected creature loses the temporary hit points granted by this spell, the spell ends for that creature.",
-		"***At Higher Levels***. At Higher Levels. When you cast this spell using a spell slot of 4th level or higher, the temporary hit points increase by 5 for each slot level above 3rd.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 4th level or higher, the temporary hit points increase by 5 for each slot level above 3rd.",
 	],
 };
 
@@ -28464,7 +28464,7 @@ BackgroundFeatureList["religious community"] = {
 	source: [["DiA", 202], ["ALbackground", 0]],
 };
 BackgroundFeatureList["long-lost heir"] = {
-	description: "I can pose as the long-lost heir to some imaginary or dead lineage. I'm well-versed in the mannerisms and idiosyncrasies of nobility, imitating them smoothly enough to convince anybody of my authenticity. However, any true test is likely to reveal my deception. I can enter places that only nobility can and might be able to bluff other through with me.",
+	description: "I can pose as the long-lost heir to some imaginary or dead lineage. I'm well-versed in the mannerisms and idiosyncrasies of nobility, imitating them smoothly enough to convince anybody of my authenticity. However, any true test is likely to reveal my deception. I can enter places that only nobility can and might be able to bluff others through with me.",
 	source: [["DiA", 202], ["ALbackground", 0]],
 };
 BackgroundFeatureList["criminal connections"] = {
@@ -28476,7 +28476,7 @@ BackgroundFeatureList["backstage pass"] = {
 	source: [["DiA", 202], ["ALbackground", 0]],
 };
 BackgroundFeatureList["dual personalities"] = {
-	description: "The world knows me as my persona and those who seek to learn more about me find themselves stymied by my disguise. I'm unidentifiable as my true self while disguised and behaving as my persona, allowing me to change appearances between my two personalities as I wish. My deception might lose its effectiveness if someone realize the connection.",
+	description: "The world knows me as my persona and those who seek to learn more about me find themselves stymied by my disguise. I'm unidentifiable as my true self while disguised and behaving as my persona, allowing me to change appearances between my two personalities as I wish. My deception might lose its effectiveness if someone realizes the connection.",
 	source: [["DiA", 204], ["ALbackground", 0]],
 };
 BackgroundFeatureList["social vengeance"] = {
@@ -28620,7 +28620,7 @@ MagicItemsList["gauntlets of flaming fury"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	description: "While wearing both these steel gauntlets, any weapons I grasp with them count as magical. As a bonus action once per dawn, I can use them to envelop one or two melee weapons in my grasp with magical flames, causing them to deal an extra 1d6 fire damage on a hit. This lasts until I sheathe or let go of a weapon.",
-	descriptionFull: "While you wear both of these steel gauntlets, any non- magical weapon you grasp with either gauntlet is treated as a magic weapon. As a bonus action, you can use the gauntlets to cause magical flames to envelop one or two melee weapons in your grasp. Each flaming weapon deals an extra 1d6 fire damage on a hit. The flames last until you sheathe or let go of either weapon. Once used, this property can't be used again until the next dawn.",
+	descriptionFull: "While you wear both of these steel gauntlets, any nonmagical weapon you grasp with either gauntlet is treated as a magic weapon. As a bonus action, you can use the gauntlets to cause magical flames to envelop one or two melee weapons in your grasp. Each flaming weapon deals an extra 1d6 fire damage on a hit. The flames last until you sheathe or let go of either weapon. Once used, this property can't be used again until the next dawn.",
 	attunement: true,
 	action: [["bonus action", ""]],
 	usages: 1,
@@ -28684,7 +28684,7 @@ MagicItemsList["hellfire weapon"] = {
 					fields.Description += (fields.Description ? "; " : "") + "Humanoids killed lose their soul";
 				}
 			},
-			'If I include the word "Hellfire" in the name of a weapon, it will be treated as the magic weapon Hellfire Weapon. Any humanoid killed by the weapon has its soul funneled into the River Styx, and are instantly reborn as a lemure devil.',
+			'If I include the word "Hellfire" in the name of a weapon, it will be treated as the magic weapon Hellfire Weapon. Any humanoid killed by the weapon has its soul funneled into the River Styx, and is instantly reborn as a lemure devil.',
 		],
 	},
 }
@@ -28702,7 +28702,7 @@ MagicItemsList["helm of devil command"] = {
 		"If you are not a devil, using the helm's *dominate monster* property in the Nine Hells has a 20 percent chance of attracting a narzugon, which arrives on the back of a nightmare mount in 1d4 hours. The narzugon tries to recover the helm, killing you if necessary to obtain it. If it gets the helm, the narzugon tries to deliver it to its infernal master.",
 	],
 	attunement: true,
-	prerequisite: "Requires attunement by a creature that can speak infernal",
+	prerequisite: "Requires attunement by a creature that can speak Infernal",
 	prereqeval: function (v) { return /infernal/i.test(v.languageProfs); },
 	usages: 3,
 	recovery: "Special",
@@ -28727,7 +28727,7 @@ MagicItemsList["infernal puzzle box"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	description: "This cube-shaped container is around 15 cm on a side and is composed of airtight, interlocking parts. It can't be magically opened and is immune to all damage. I can figure out how to open it in 1 hour with a DC 30 Investigation check. If failed by 5 or more, I take 12d6 psychic damage, Wis DC 18 halves.",
-	descriptionLong: "This cube-shaped container is around 15 cm on a side and is composed of airtight, interlocking parts made from materials found in the Nine Hells. It can't be magically opened and is immune to all damage while shut. Every infernal puzzle box has an unique mundane way of opening it. I can figure out how to open this box in 1 hour with a DC 30 Investigation check, but if I fail this check by 5 or more, I take 12d6 psychic damage, Wisdom save DC 18 halves. Once I figure out the trick or sequence of steps needed to open this box, I can open it as an action, allowing access to the box's contents.",
+	descriptionLong: "This cube-shaped container is around 15 cm on a side and is composed of airtight, interlocking parts made from materials found in the Nine Hells. It can't be magically opened and is immune to all damage while shut. Every infernal puzzle box has a unique mundane way of opening it. I can figure out how to open this box in 1 hour with a DC 30 Investigation check, but if I fail this check by 5 or more, I take 12d6 psychic damage, Wisdom save DC 18 halves. Once I figure out the trick or sequence of steps needed to open this box, I can open it as an action, allowing access to the box's contents.",
 	descriptionFull: [
 		"An *infernal puzzle box* is a cube-shaped container 5 to 6 inches on a side, composed of airtight, interlocking parts made from materials found in the Nine Hells. Most of these boxes are made of infernal iron, though some are carved from bone or horn. Infernal puzzle boxes are used to safeguard diabolical contracts signed between devils and mortals, even after the terms of these contracts are fulfilled. An empty *infernal puzzle box* weighs 3 pounds regardless of the materials used to fashion it.",
 		"When an object small enough to fit inside an *infernal puzzle box* is placed in it, the container magically seals shut around the object, and no magic can force the box open. The sealed box becomes immune to all damage as well. Every *infernal puzzle box* is constructed with a unique means of opening it. The trick to solving the puzzle is always mundane, never magical. Once a creature figures out the trick or sequence of steps needed to open a particular *infernal puzzle box*, that creature can open the box as an action, allowing access to the box's contents.",
@@ -28793,7 +28793,7 @@ MagicItemsList["shield of the hidden lord"] = {
 		" \u2022 The shield has an Intelligence of 22, a Wisdom of 18, and a Charisma of 24, as well as hearing and truesight out to a range of 120 feet.",
 		" \u2022 The shield can speak, read, and understand Common and Infernal, and it can communicate telepathically with any creature it can sense within 120 feet of it. Its voice is a deep, hollow whisper.",
 		" \u2022 The shield has 3 charges. You can use an action to expend 1 charge to cast *Fireball* or 2 charges to cast *Wall of Fire* from the shield (save DC 21 for each). The *Wall of Fire* spell lasts for 1 minute (no concentration required). The shield regains all expended charges daily at dawn.",
-		" \u2022 Anytime during your turn, the shield can choose to radiate an aura of dread for 1 minute. (This is not a power of the shield that you control.) Any creature hostile to you that starts its turn within 20 feet of the shield must make a DC 18 Wisdom saving throw. On a failed save, the creature is frightened until the start of its next turn. On a successful save, the creature is immune to this power of the shield for the next 24 hours. Once the shield uses this power, it can't use it again until the next dawn.\n",
+		" \u2022 Anytime during your turn, the shield can choose to radiate an aura of dread for 1 minute. (This is not a power of the shield that you control.) Any creature hostile to you that starts its turn within 20 feet of the shield must make a DC 18 Wisdom saving throw. On a failed save, the creature is frightened until the start of its next turn. On a successful save, the creature is immune to this power of the shield for the next 24 hours. Once the shield uses this power, it can't use it again until the next dawn.",
 		"***Gargauth's Personality***. Gargauth desperately seeks freedom but can't escape on its own. The pit fiend won't reveal its true nature, referring to itself only as the Hidden Lord. It drops hints and subtle suggestions that it is an angel trapped in an unholy prison. If released from the shield, the pit fiend honors the terms of whatever bargain it struck to facilitate its escape.",
 		"While trapped in the shield, Gargauth carefully steers the shield's current owner toward committing acts of cruelty and domination, hoping to condemn the individual's soul to the Nine Hells. Conflict occurs if the shield's owner does anything that would make it more difficult for Gargauth to escape its prison, such as leaving the shield in a place where others are unlikely to find it.",
 		"Gargauth doesn't know how to escape from the shield. The pit fiend believes (incorrectly) that it can break free of the shield if it's brought to the Nine Hells, for it's convinced that the shield's powers are weaker there.",
@@ -28843,7 +28843,7 @@ MagicItemsList["soul coin"] = {
 		"An evil creature can carry as many soul coins as it wishes (up to its maximum weight allowance). A non-evil creature can carry a number of soul coins equal to or less than its Constitution modifier without penalty. A non-evil creature carrying a number of soul coins greater than its Constitution modifier has disadvantage on its attack rolls, ability checks, and saving throws.",
 		"***Using a Soul Coin***. A *soul coin* has 3 charges. A creature carrying the coin can use its action to expend 1 charge from a *soul coin* and use it to do one of the following:",
 		" \u2022 **Drain Life**. You siphon away some of the soul's essence and gain 1d10 temporary hit points.",
-		" \u2022 **Query**. You telepathically ask the soul a question and receive a brief telepathic response, which you can understand. The soul knows only what it knew in life, but it must answer you truthfully and to the best of its ability. The answer is no more than a sentence or two and might be cryptic.\n",
+		" \u2022 **Query**. You telepathically ask the soul a question and receive a brief telepathic response, which you can understand. The soul knows only what it knew in life, but it must answer you truthfully and to the best of its ability. The answer is no more than a sentence or two and might be cryptic.",
 		"***Freeing a Soul***. Casting a spell that removes a curse on a *soul coin* frees the soul trapped within it, as does expending all of the coin's charges. The coin itself rusts from within and is destroyed once the soul is released. A freed soul travels to the realm of the god it served or the outer plane most closely tied to its alignment (DM's choice). The souls of lawful evil creatures released from soul coins typically emerge from the River Styx as lemure devils.",
 		"A soul can also be freed by destroying the coin that contains it. A *soul coin* has AC 19, 1 hit point for each charge it has remaining, and immunity to all damage except that which is dealt by a *hellfire weapon* or an infernal war machine's furnace.",
 		"Freeing a soul from a *soul coin* is considered a good act, even if the soul belongs to an evil creature.",
@@ -28872,7 +28872,7 @@ SourceList["LR"] = {
 	defaultExcluded: true,
 };
 
-RaceList.locathah = {
+RaceList["locathah"] = {
 	source: [["LR", 24]],
 	regExpSearch: /locathah/i,
 	name: "Locathah",
@@ -29584,7 +29584,7 @@ RaceList["dragonmark healing halfling"] = {
 		"**Halfling, Dragonmark of Healing** (+2 Dexterity, +1 Wisdom)",
 		"##\u25C6 Lucky##. When I roll a 1 on an attack, check, or save, I can reroll it but must use the result." + (typePF ? " " : "\r") + "##\u25C6 Halfling Nimbleness##. I can move through the space of Medium and larger creatures.",
 		"##\u25C6 Medical Intuition##. I can add +1d4 to my Wisdom (Medicine) and herbalism kit checks.",
-		"##\u25C6 Healing Touch##. I can cast *Cure Wounds* each once per long rest. At 3rd level, I can also cast *Lesser Restoration* once per long rest. Wisdom is my spellcasting ability for these.",
+		"##\u25C6 Healing Touch##. I can cast *Cure Wounds* once per long rest. At 3rd level, I can also cast *Lesser Restoration* once per long rest. Wisdom is my spellcasting ability for these.",
 		"##\u25C6 Spells of the Mark##. I add several spells to " + (typePF ? "my class' spell list." : "the spell list of my spellcasting class(es)."),
 	],
 	spellcastingAbility: 5,
@@ -29650,7 +29650,7 @@ RaceList["dragonmark hospitality halfling"] = {
 	trait: [
 		"**Halfling, Dragonmark of Hospitality** (+2 Dexterity, +1 Charisma)",
 		"##\u25C6 Lucky##. When I roll a 1 on an attack, check, or save, I can reroll it but must use the result." + (typePF ? " " : "\r") + "##\u25C6 Halfling Nimbleness##. I can move through the space of Medium and larger creatures.",
-		"##\u25C6 Ever Hospitable##. I can add +1d4 to my Charisma (Persuasion), brewer's supplies, and cook's utensils checks." + (typePF ? "\r" : " ") + "##\u25C6 Innkeeper's Magic##. I know the *Prestidigitation* cantrip and I can cast *Purify Food and Drink* and *Unseen Servant* each once per long rest. Charisma as my spellcasting ability for these. Spells of the Mark: I add several spells to my class' spell list.",
+		"##\u25C6 Ever Hospitable##. I can add +1d4 to my Charisma (Persuasion), brewer's supplies, and cook's utensils checks." + (typePF ? "\r" : " ") + "##\u25C6 Innkeeper's Magic##. I know the *Prestidigitation* cantrip and I can cast *Purify Food and Drink* and *Unseen Servant* each once per long rest. Charisma is my spellcasting ability for these. Spells of the Mark: I add several spells to my class' spell list.",
 	],
 	spellcastingAbility: 6,
 	features: {
@@ -29900,7 +29900,7 @@ RaceList["dragonmark sentinel human"] = {
 	scores: [0, 0, 2, 0, 1, 0],
 	trait: [
 		"**Human, Dragonmark of Sentinel** (+2 Constitution, +1 Wisdom)",
-		"##\u25C6 Sentinel's Intuition##. I can add +1d4 my Wisdom (Insight) and Wisdom (Perception) checks.",
+		"##\u25C6 Sentinel's Intuition##. I can add +1d4 to Wisdom (Insight) and Wisdom (Perception) checks.",
 		"##\u25C6 Guardian's Shield##. I can cast *Shield* once per long rest, using Wisdom as my spellcasting ability.",
 		"##\u25C6 Vigilant Guardian##. Once per long rest as a reaction when a creature I can see within 5 ft is hit by an attack roll, I can swap places with it and I'm hit by the attack instead.",
 		"##\u25C6 Spells of the Mark##. I add several spells to the spell list of my spellcasting class(es).",
@@ -30488,12 +30488,12 @@ MagicItemsList["docent"] = {
 	source: [["E:RLW", 276]],
 	type: "wondrous item",
 	rarity: "rare",
-	description: "I can embed this sentient small metal sphere studded with dragonshards into my chest or eye socket. I can communicate telepathically with it and it uses my senses. It can serve me as an advisor and a translator. It knowns 6 languages, a spells, an Intelligence skill, and can stabilize me. See Notes page.",
+	description: "I can embed this sentient small metal sphere studded with dragonshards into my chest or eye socket. I can communicate telepathically with it and it uses my senses. It can serve me as an advisor and a translator. It knows 6 languages, a spell, an Intelligence skill, and can stabilize me. See Notes page.",
 	descriptionFull: [
 		"A *docent* is a small metal sphere, about 2 inches across, studded with dragonshards. To attune to a *docent*, you must embed the item somewhere on your body, such as your chest or your eye socket.",
 		'***Sentience***. A *docent* is a sentient item of any alignment with an Intelligence of 16, a Wisdom of 14, and a Charisma of 14. It perceives the world through your senses. It communicates telepathically with you and can speak, read, and understand any language it knows (see "Random Properties" below).',
 		"***Life Support***. Whenever you end your turn with 0 hit points, the *docent* can make a Wisdom (Medicine) check with a +6 bonus. If this check succeeds, the *docent* stabilizes you.",
-		"***Random Properties**. A *docent* has the following properties:",
+		"***Random Properties***. A *docent* has the following properties:",
 		" \u2022 **Languages**. The *docent* knows Common, Giant, and 1d4 additional languages chosen by the DM. If a *docent* knows fewer than six languages, it can learn a new language after it hears or reads the language through your senses.",
 		" \u2022 **Skills**. The *docent* has a +7 bonus to one of the following skills (roll a d4): (1) Arcana, (2) History, (3) Investigation, or (4) Nature.",
 		" \u2022 **Spells**. The *docent* knows one of the following spells and can cast it at will, requiring no components (roll a d6): (1\u20132) *Detect Evil and Good* or (3\u20136) *Detect Magic*. The *docent* decides when to cast the spell.",
@@ -30520,7 +30520,7 @@ MagicItemsList["dyrrn's tentacle whip"] = {
 	source: [["E:RLW", 276]],
 	type: "weapon (whip)",
 	rarity: "very rare",
-	description: "This magic whip embeds itself in my arm once I attune to it and removing it requires ending a curse. It has a +2 bonus to attack and damage rolls, deals +1d6 psychic damage, but has disadv. vs. aberrations. On a roll of 20 to hit, the target is stunned until it next turn ends. As a bonus action, I can draw/sheath it in my arm",
+	description: "This magic whip embeds itself in my arm once I attune to it and removing it requires ending a curse. The +2 whip deals +1d6 psychic damage, but has disadvantage against aberrations. On a roll of 20 to hit, the target is stunned until the end of its next turn. As a bonus action, I can draw or sheath it in my arm.",
 	descriptionFull: [
 		"This long, whip-like strand of tough muscle bears a sharp stinger at one end. To attune to this symbiotic weapon, you wrap the whip around your wrist for the entire attunement period, during which time the whip painfully embeds its tendrils into your arm.",
 		"You gain a +2 bonus to attack and damage rolls made with this magic whip, but attack rolls made against aberrations with this weapon have disadvantage. A creature hit by this weapon takes an extra 1d6 psychic damage. When you roll a 20 on the d20 for an attack roll with this weapon, the target is stunned until the end of its next turn.",
@@ -30545,7 +30545,7 @@ MagicItemsList["earworm"] = {
 	source: [["E:RLW", 277]],
 	type: "wondrous item",
 	rarity: "uncommon",
-	description: "This symbiont bonds to my skull once I attune to it and removing it to end the attunement requires ending a curse. It has 4 charges, regaining 1d4 at dawn, which I can use to cast *Detect Thoughts* (2 charges) or *Dissonant Whispers* (1 charge) with DC 15. It allows me to speak, read, and write deep speech.",
+	description: "This symbiont bonds to my skull once I attune to it and removing it to end the attunement requires ending a curse. It has 4 charges, regaining 1d4 at dawn, which I can use to cast *Detect Thoughts* (2 charges) or *Dissonant Whispers* (1 charge) with DC 15. It allows me to speak, read, and write Deep Speech.",
 	descriptionFull: [
 		"To attune to this symbiont, you must hold it against the skin behind your ear for the entire attunement period, whereupon it burrows into your head and bonds to your skull. While the *earworm* is inside you, you can speak, read, and write Deep Speech.",
 		"***Spells***. The *earworm* has 4 charges. You can cast the following spells from it, expending the necessary number of charges (spell save DC 15): *detect thoughts* (2 charges) or *dissonant whispers* (1 charge). Each time you use the *earworm* to cast the *detect thoughts* spell, it sends the information gleaned to the nearest daelkyr, or to the next nearest *earworm* until it reaches a daelkyr.",
@@ -30637,7 +30637,7 @@ MagicItemsList["glamerweave"] = {
 	"uncommon (pattern rises from the cloth)": {
 		name: "Uncommon Glamerweave",
 		rarity: "uncommon",
-		description: "Glamerweave is clothing imbued with harmless illusory magic. As a bonus action while wearing these clothes, I can have the pattern within them rise as an illusory visage (e.g. wreathed in flames). Once per dawn, I can use this to gives me +1d4 on a Charisma (Performance) or Charisma (Persuasion) check.",
+		description: "Glamerweave is clothing imbued with harmless illusory magic. As a bonus action while wearing these clothes, I can have the pattern within them rise as an illusory visage (e.g. wreathed in flames). Once per dawn, I can use this to give me +1d4 on a Charisma (Performance) or Charisma (Persuasion) check.",
 		descriptionFull: [
 			"*Glamerweave* is clothing imbued with harmless illusory magic. While wearing these clothes, you can use a bonus action to create a moving illusory pattern within the cloth.",
 			"You can have the pattern rise from the cloth. For example, a *glamerweave* gown might be wreathed in harmless, illusory flames, while a *glamerweave* hat might have illusory butterflies fluttering around it.",
@@ -30864,7 +30864,7 @@ MagicItemsList["kyrzin's ooze"] = {
 	source: [["E:RLW", 278]],
 	type: "wondrous item",
 	rarity: "very rare",
-	description: "Once I attune to this opalescent goo by drinking it, it can only be removed by ending a curse. It gives me resistance to acid and poison damage and immunity to the poisoned condition. Each as an action once per short rest, I can exhale acid breath or become amorphous for 1 minute along with my equipment.",
+	description: "Once I attune to this opalescent goo by drinking it, it can only be removed by ending a curse. It gives me resistance to acid and poison damage and immunity to the poisoned condition. Each as an action once per dawn, I can exhale acid breath or become amorphous for 1 minute along with my equipment.",
 	descriptionLong: "I can only attune to this opalescent, symbiotic goo by drinking it. I can't remove it or end the attunement voluntarily, but it seeps out of me if the curse is removed. It gives me resistance to acid and poison damage and immunity to the poisoned condition. As an action once per dawn, I can become amorphous for 1 minute along with my equipment and can move through a space as narrow as 1 inch wide. As an action once per dawn, I can exhale a 30-ft line, 5-ft wide acid breath that deals 8d8 acid damage (Dexterity save DC 15 halves). If I die while it is inside me, it turns my corpse into a black pudding.",
 	descriptionFull: [
 		"This opalescent, symbiotic goo comes sealed in a jar and slowly shifts and moves, as if endlessly exploring the jar's interior. To attune to this item, you must first drink the contents of the jar, unlocking the following properties.",
@@ -31107,7 +31107,7 @@ MagicItemsList["ventilating lungs"] = {
 	source: [["E:RLW", 279]],
 	type: "wondrous item",
 	rarity: "very rare",
-	description: "These lungs replace those in my chest while I'm attuned to them. Their function can't be suppressed by (anti)magic. They allow me to breath normally in any environment and give me advantage on saves against harmful gases and vapors. Once per dawn, I can use them to cast *Gust of Wind* (save DC 15) by exhaling.",
+	description: "These lungs replace those in my chest while I'm attuned to them. Their function can't be suppressed by (anti)magic. They allow me to breathe normally in any environment and give me advantage on saves against harmful gases and vapors. Once per dawn, I can use them to cast *Gust of Wind* (save DC 15) by exhaling.",
 	descriptionFull: [
 		"These metallic nodules were created in response to the poisonous gases used on the battlefields of the Last War. When you attune to these lungs, they replace the lungs in your chest, which disappear. The lungs allow you to breathe normally, even in an *antimagic field*, and their breathing function can't be suppressed by magic.",
 		"Outside an *antimagic field* or any other effect that suppresses magic, these lungs allow you to breathe normally in any environment (including a vacuum), and you have advantage on saving throws against harmful gases such as those created by a *cloudkill* spell, a *stinking cloud* spell, inhaled poisons, and gaseous breath weapons.",
@@ -31132,7 +31132,7 @@ MagicItemsList["wand sheath"] = {
 	source: [["E:RLW", 279]],
 	type: "wondrous item",
 	rarity: "common",
-	description: "This sheath clamps unto my arm and can't be removed while I'm attuned to it. As an action, I can insert a wand in it, which then doesn't count to the number of items I can attune to. As a bonus action, I can then retract the wand or extend the wand and use it as if holding it, while keeping my hand free.",
+	description: "This sheath clamps onto my arm and can't be removed while I'm attuned to it. As an action, I can insert a wand in it, which then doesn't count to the number of items I can attune to. As a bonus action, I can then retract the wand or extend the wand and use it as if holding it, while keeping my hand free.",
 	descriptionFull: [
 		"A *wand sheath* clamps onto your arm and imparts the following benefits:",
 		" \u2022 The *wand sheath* can't be removed from you while you're attuned to it.",
@@ -31234,24 +31234,6 @@ CreatureList["fastieth"] = {
 		description: "The [THIS] can take the Dodge action as a bonus action.",
 	}],
 };
-ERftLW_Valenar_Ancestral_Traits = [
-	"\u25C6 [Variant] Ancestral Traits: Each Valenar animal can be customized with an ancestral gift, a supernatural trait granted by its ancestral spirit. Choose a trait or roll on the table below for each Valenar animal.",
-	" d8\tTrait",
-	"  1\tBestow Luck (1/day): As a bonus action, the animal chooses one creature it can see",
-	"\twithin 30 ft of it. The next ability check, attack roll, or saving throw the target",
-	"\tmakes in the next hour has advantage.",
-	"  2\tBurst of Speed (recharge 6): The animal can take the Dash action as a bonus action.",
-	"  3\tCamouflage: The animal has advantage on Dexterity (Stealth) checks it makes while",
-	"\toutdoors.",
-	"  4\tLie Detector: The animal knows when a creature within 15 ft of it tells a lie.",
-	"  5\tFey Ancestry: The animal has advantage on saving throws against being charmed or",
-	"\tfrightened, and magic can't put it to sleep.",
-	"  6\tFey Step (1/day): The animal, along with anything it is wearing or carrying,",
-	"\tteleports up to 30 ft to an unoccupied space it can see.",
-	"  7\tQuickness (recharge 6): The animal can take the Dodge action as a bonus action.",
-	"  8\tShrouded Step. The animal can't be tracked except by magical means, and it leaves",
-	"\tbehind no tracks or other traces of its passage.",
-].join("\n");
 CreatureList["valenar hawk"] = { // contributed by Nod_Hero
 	name: "Valenar Hawk",
 	nameThis: "hawk",
@@ -31292,19 +31274,19 @@ CreatureList["valenar hawk"] = { // contributed by Nod_Hero
 			"Each Valenar animal can be customized with an ancestral gift, a supernatural trait granted by its ancestral spirit. Choose a trait or roll on the table below for each Valenar animal.",
 			" **d8**\t**Trait**",
 			"  1\t***Bestow Luck (1/Day)***. As a bonus action, the animal chooses one creature it can see",
-			"\twithin 30 ft of it. The next ability check, attack roll, or saving throw the target",
-			"\tmakes in the next hour has advantage.",
+			"    \twithin 30 ft of it. The next ability check, attack roll, or saving throw the target",
+			"    \tmakes in the next hour has advantage.",
 			"  2\t***Burst of Speed (Recharge 6)***. The animal can take the Dash action as a bonus action.",
 			"  3\t***Camouflage***. The animal has advantage on Dexterity (Stealth) checks it makes while",
-			"\toutdoors.",
+			"    \toutdoors.",
 			"  4\t***Lie Detector***. The animal knows when a creature within 15 ft of it tells a lie.",
 			"  5\t***Fey Ancestry***. The animal has advantage on saving throws against being charmed or",
-			"\tfrightened, and magic can't put it to sleep.",
+			"    \tfrightened, and magic can't put it to sleep.",
 			"  6\t***Fey Step (1/Day)***. The animal, along with anything it is wearing or carrying,",
-			"\tteleports up to 30 ft to an unoccupied space it can see.",
+			"    \tteleports up to 30 ft to an unoccupied space it can see.",
 			"  7\t***Quickness (Recharge 6)***. The animal can take the Dodge action as a bonus action.",
 			"  8\t***Shrouded Step***. The animal can't be tracked except by magical means, and it leaves",
-			"\tbehind no tracks or other traces of its passage.",
+			"    \tbehind no tracks or other traces of its passage.",
 		].join("\n"),
 		joinString: "\n",
 	}],
@@ -43133,7 +43115,7 @@ SpellsList["tasha's mind whip"] = {
 	duration: "1 rnd",
 	save: "Int",
 	description: "1+1/SL crea, max 30 ft apart; 3d6 Psychic dmg; no rea; only move, act, or bns; save half, no act limit",
-	descriptionShorter: "1+1/SL crea, max 30 ft apart; 3d6 Psychic dmg; no rea; move, act, or bns; save half, no act limit",
+	descriptionShorter: "1+1/SL crea in 30-ft rad; 3d6 Psychic dmg; no rea; move, act, or bns; save: \xBD, no act limit",
 	descriptionFull: [
 		"You psychically lash out at one creature you can see within range. The target must make an Intelligence saving throw. On a failed save, the target takes 3d6 psychic damage, and it can't take a reaction until the end of its next turn. Moreover, on its next turn, it must choose whether it gets a move, an action, or a bonus action; it gets only one of the three. On a successful save, the target takes half as much damage and suffers none of the spell's other effects.",
 		"***At Higher Levels***. When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd. The creatures must be within 30 feet of each other when you target them.",

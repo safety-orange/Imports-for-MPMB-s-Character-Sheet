@@ -11,7 +11,7 @@ SourceList["LR"] = {
 	defaultExcluded: true,
 };
 
-RaceList.locathah = {
+RaceList["locathah"] = {
 	source: [["LR", 24]],
 	regExpSearch: /locathah/i,
 	name: "Locathah",

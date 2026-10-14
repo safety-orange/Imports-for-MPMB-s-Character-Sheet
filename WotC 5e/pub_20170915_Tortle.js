@@ -13,7 +13,7 @@ SourceList["TP"] = {
 };
 
 // The Tortle race
-RaceList.tortle = {
+RaceList["tortle"] = {
 	regExpSearch: /tortle/i,
 	name: "Tortle",
 	source: [["TP", 4], ["W", 181]],

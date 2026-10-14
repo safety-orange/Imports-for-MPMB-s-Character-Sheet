@@ -474,7 +474,7 @@ AddSubClass("sidekick-spellcaster", "healer", {
 						"1": ["guidance", "sacred flame"],
 						"4": ["resistance"],
 						"7": ["light"],
-						"10": ["spare they dying"],
+						"10": ["spare the dying"],
 					},
 					Sp: {
 						"1": ["cure wounds"],

@@ -313,9 +313,9 @@ RaceList["verdan"] = {
 	heightMetric: " are between 100 and 120 cm tall, plus 60 cm from 5th level onwards",
 	scores: [0, 0, 1, 0, 0, 2],
 	trait: [
-		"Verdan (+1 Constitution, +2 Charisma)",
+		"**Verdan** (+1 Constitution, +2 Charisma)",
 		"##\u25C6 Sudden Growth Spurt##. At 5th level, I grow 2 ft and my size becomes Medium.",
-		"##\u25C6 Black Blood Healing##. When I roll a 1 or 2 on any HD I spend at the end of a short rest, I can reroll the die and must use the new roll.",
+		"##\u25C6 Black Blood Healing##. When I roll a 1 or 2 on any HD spend at the end of a short rest, I can reroll the die and must use the new roll.",
 		"##\u25C6 Limited Telepathy##. I can telepathically communicate simple ideas and straightforward concepts to a creature I can see within 30 ft, if it can understand at least one language.",
 		"##\u25C6 Telepathic Insight##. I have advantage on Wisdom and Charisma saving throws.",
 	],
@@ -345,7 +345,7 @@ SpellsList["distort value"] = {
 	duration: "8 hours",
 	description: "1 obj up to 1+1/SL cu ft doubles/halves in perceived value; Investigation vs. spell DC to see true value",
 	descriptionFull: [
-		"Do you need to squeeze a few more gold pieces out of a merchant as you try to sell that weird octopus statue you liberated from the chaos temple? Do you need to downplay the worth of some magical assets when the tax collector stops by? Distort value has you covered.",
+		"Do you need to squeeze a few more gold pieces out of a merchant as you try to sell that weird octopus statue you liberated from the chaos temple? Do you need to downplay the worth of some magical assets when the tax collector stops by? *Distort value* has you covered.",
 		"You cast this spell on an object no more than 1 foot on a side, doubling the object's perceived value by adding illusory flourishes or polish to it, or reducing its perceived value by half with the help of illusory scratches, dents, and other unsightly features. Anyone examining the object can ascertain its true value with a successful Intelligence (Investigation) check against your spell save DC.",
 		"***At Higher Levels***. When you cast this spell using a spell slot of 2nd level or higher, the maximum size of the object increases by 1 foot for each slot level above 1st.",
 	],
