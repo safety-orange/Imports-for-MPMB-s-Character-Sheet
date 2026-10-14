@@ -235,35 +235,35 @@ RaceList["simic hybrid"] = {
 				var rNm = rObj.name;
 				switch (theChoice) {
 					case "Manta Glide":
-						feaTxt = "##◆ Animal Enhancement (Manta Glide)##. I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
+						feaTxt = "##\u25C6 Animal Enhancement (Manta Glide)##. I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
 						break;
 					case "Nimble Climber":
-						feaTxt = "##◆ Animal Enhancement (Nimble Climber)##. I have a climbing speed equal to my walking speed.";
+						feaTxt = "##\u25C6 Animal Enhancement (Nimble Climber)##. I have a climbing speed equal to my walking speed.";
 						SetProf("speed", true, { climb: { spd: "walk", enc: "walk" } }, rNm + ": Animal Enhancement (Nimble Climber)");
 						break;
 					case "Underwater Adaptation":
-						feaTxt = "##◆ Animal Enhancement (Underwater Adaptation)##. I can breathe air and water, and I have a swimming speed equal to my walking speed.";
+						feaTxt = "##\u25C6 Animal Enhancement (Underwater Adaptation)##. I can breathe air and water, and I have a swimming speed equal to my walking speed.";
 						SetProf("speed", true, { swim: { spd: "walk", enc: "walk" } }, rNm + ": Animal Enhancement (Underwater Adaptation)");
 						break;
 					case "Grappling Appendages":
-						feaTxt = "##◆ Animal Enhancement (Grappling Appendages)##. I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
+						feaTxt = "##\u25C6 Animal Enhancement (Grappling Appendages)##. I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
 						processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[0]);
 						AddWeapon("Grappling Appendages");
 						AddAction("bonus action", "Grappling Appendages (after hit)", rNm + ": Animal Enhancement (Grappling Appendages)");
 						break;
 					case "Carapace":
-						feaTxt = "##◆ Animal Enhancement (Carapace)##. My skin is covered by a thick shell, giving me a +1 to AC whenever I'm not wearing heavy armor.";
+						feaTxt = "##\u25C6 Animal Enhancement (Carapace)##. My skin is covered by a thick shell, giving me a +1 to AC whenever I'm not wearing heavy armor.";
 						processExtraAC(true, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
 						break;
 					case "Acid Spit":
-						feaTxt = "##◆ Animal Enhancement (Acid Spit)##. As an action, I can spit acid at a creature within 30 ft that I can see. It must make a Dex save (DC 8 + Con mod + Prof Bonus) or take 2d10 acid damage (+1d10 at 11th and 17th level). I can do this my Con mod times per long rest.";
+						feaTxt = "##\u25C6 Animal Enhancement (Acid Spit)##. As an action, I can spit acid at a creature within 30 ft that I can see. It must make a Dex save (DC 8 + Con mod + Prof Bonus) or take 2d10 acid damage (+1d10 at 11th and 17th level). I can do this my Con mod times per long rest.";
 						AddFeature("Acid Spit", "Con Mod", "", "long rest", rNm + ": Animal Enhancement (Acid Spit)", 0, "event.value = Math.max(1, What('Con Mod'));");
 						processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[1]);
 						AddWeapon("Acid Spit");
 						break;
 				};
 				if (What("Unit System") !== "imperial") feaTxt = ConvertToMetric(feaTxt, 0.5);
-				Value("Racial Traits", What("Racial Traits").replace(/(##)?(◆ )?Animal Enhancement \(5th level\)(##)?[:.].*/, "") + feaTxt);
+				Value("Racial Traits", What("Racial Traits").replace(/(##)?(\u25C6 )?Animal Enhancement \(5th level\)(##)?[:.].*/, "") + feaTxt);
 				Value("Race Remember", What("Race Remember") + "-*" + theChoice.replace(" ", "_") + "*");
 			},
 			removeeval: function () {
@@ -518,7 +518,7 @@ AddSubClass("druid", "circle of spores", {
 							fields.Description += (fields.Description ? "; " : "") + "+1d6 necrotic damage";
 						};
 					},
-					"If I include the word 'Spore' or 'Symbiotic' in a melee weapon's name, it gets treated as a weapon that is infused by my Symbiotic Entity feature, adding +1d6 necrotic damage in the description.",
+					"If I include the word \"Spore\" or \"Symbiotic\" in a melee weapon's name, it gets treated as a weapon that is infused by my Symbiotic Entity feature, adding +1d6 necrotic damage in the description.",
 				],
 			},
 		},
@@ -528,7 +528,7 @@ AddSubClass("druid", "circle of spores", {
 			minlevel: 6,
 			description: desc([
 				"As a reaction when a Small/Medium beast/humanoid dies in 10 ft, I can animate it",
-				"It rises as a zombie with 1 HP that follows my mental commands and dies after 1 hour",
+				"It rises as a **zombie** with 1 HP that follows my mental commands and dies after 1 hour",
 				"It can only take the attack action for one melee attack; It takes its turns after mine",
 			]),
 			usages: "Wisdom modifier per ",
@@ -1345,7 +1345,7 @@ if (!SourceList["X"]) {
 		components: "V,S",
 		duration: "Instantaneous",
 		description: "Spell atk 2d8+1d6+1d6/SL dmg, d8s set dmg type, see B; double on d8s: new atk vs. crea in 30 ft",
-		descriptionShorter: "Spell atk 2d8+1d6+1d6/SL dmg, d8s set dmg type, see B; double on d8s: new atk vs. crea in 30 ft",
+		descriptionShorter: "Spell atk 2d8+1d6+1d6/SL dmg, d8s set type, see B; double on d8s: new atk vs. crea in 30 ft",
 		descriptionFull: [
 			"You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack's damage type, as shown below.",
 			[
@@ -1382,7 +1382,7 @@ var GGtR_GuildKeyrune = {
 		name: "Summon",
 		description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a [TYPE]. It reverts back to a keyrune after [DURATION], if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.",
 	},
-	createCreatureOptions: function (type, nameThis, duration, aTraits, aActions, aFeatures, aNotes, fCallback) {
+	createCreatureOptions: function (type, nameThis, duration, aTraits, fCallback, aActions, aFeatures, aNotes) {
 		if (!CreatureList[type]) return false;
 		var obj = newObj(CreatureList[type]);
 		obj.name = "Keyrune " + obj.name;
@@ -1407,7 +1407,7 @@ var GGtR_GuildKeyrune = {
 		// actions
 		if (aActions) {
 			if (!obj.actions) obj.actions = [];
-			obj.actions = obj.actions.concat(aTraits);
+			obj.actions = obj.actions.concat(aActions);
 		}
 		// features
 		if (!obj.features) obj.features = [];
@@ -1417,7 +1417,7 @@ var GGtR_GuildKeyrune = {
 		if (!obj.notes) obj.notes = [];
 		obj.notes.push({
 			name: GGtR_GuildKeyrune.notesSummon.name,
-			description: GGtR_GuildKeyrune.notesSummon.description.replace("[TYPE]", type).replace("[DURATION]", duration),
+			description: GGtR_GuildKeyrune.notesSummon.description.replace("[TYPE]", "**" + type + "**").replace("[DURATION]", duration),
 		});
 		if (aNotes) obj.notes = obj.notes.concat(aNotes);
 		if (fCallback) fCallback(obj);
@@ -1441,11 +1441,11 @@ MagicItemsList["guild keyrune"] = {
 	choices: ["Azorius", "Boros", "Dimir", "Golgari", "Gruul", "Izzet", "Orzhov", "Rakdos", "Selesnya", "Simic"],
 	"azorius": {
 		rarity: "rare",
-		description: "As an action, I can speak this ceremonial key's command word and have it transform into a giant eagle for 1 hour with which I can talk telepathically if within 1 mile. It is friendly to me and my allies and obeys my spoken commands. As an action, I can see and hear what it does. I can have it revert back as an action.",
-		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a giant eagle for 1 hour. We can communicate telepathically while within 1 mile. It is friendly to me and my allies and obeys my spoken commands, otherwise using only the Dodge action. It reverts back to its keyrune form when it drops to 0 HP or if I touch it and speak the command word as an action. Once it does, it can't transform again for 36 hours. As an action, I can see/hear through its senses as if I had keen sight until the start of my next turn, but I can't use my own senses during that time.",
+		description: "As an action, I can speak this ceremonial key's command word and have it transform into a **giant eagle** for 1 hour with which I can talk telepathically if within 1 mile. It is friendly to me and my allies and obeys my spoken commands. As an action, I can see and hear what it does. I can have it revert back as an action.",
+		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a **giant eagle** for 1 hour. We can communicate telepathically while within 1 mile. It is friendly to me and my allies and obeys my spoken commands, otherwise using only the Dodge action. It reverts back to its keyrune form when it drops to 0 HP or if I touch it and speak the command word as an action. Once it does, it can't transform again for 36 hours. As an action, I can see/hear through its senses as if I had keen sight until the start of my next turn, but I can't use my own senses during that time.",
 		descriptionFull: [
-			"This keyrune is carved from white marble and lapis lazuli to resemble a noble bird of prey. It can become a giant eagle for up to 1 hour. While the transformed eagle is within 1 mile of you, you can communicate with it telepathically. As an action, you can see through the eagle's eyes and hear what it hears until the start of your next turn, and you gain the benefit of its keen sight. During this time, you are deaf and blind with regard to your own senses.",
-			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a giant eagle. If there isn't enough space for the eagle, the keyrune doesn't transform.",
+			"This keyrune is carved from white marble and lapis lazuli to resemble a noble bird of prey. It can become a **giant eagle** for up to 1 hour. While the transformed eagle is within 1 mile of you, you can communicate with it telepathically. As an action, you can see through the eagle's eyes and hear what it hears until the start of your next turn, and you gain the benefit of its keen sight. During this time, you are deaf and blind with regard to your own senses.",
+			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a **giant eagle**. If there isn't enough space for the eagle, the keyrune doesn't transform.",
 			"The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the eagle takes the Dodge action and moves to avoid danger.",
 			"At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		],
@@ -1459,19 +1459,19 @@ MagicItemsList["guild keyrune"] = {
 		creaturesAdd: [["Keyrune Giant Eagle", true]],
 		creatureOptions: GGtR_GuildKeyrune.createCreatureOptions("giant eagle", "eagle", "1 hour", [{
 			name: "Telepathy",
-			description: "While the eagle is within 1 mile of its owner, they can communicate telepathically.",
+			description: "While the [THIS] is within 1 mile of its owner, they can communicate telepathically.",
 		}, {
 			name: "Shared Vision",
-			description: "As an action, the owner can see through the eagle's eyes and hear what it hears until the start of their next turn, and gain the benefit of its keen sight. During this time, the owner is deaf and blind with regard to their own senses.",
+			description: "As an action, the owner can see through the [THIS]'s eyes and hear what it hears until the start of their next turn, and gain the benefit of its keen sight. During this time, the owner is deaf and blind with regard to their own senses.",
 		}]),
 	},
 	"boros": {
 		rarity: "rare",
-		description: "As an action, I can speak this ceremonial key's command word and place it on the ground to transform into a human veteran. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 8 hours, until it has 0 HP, or I dismiss it as an action.",
-		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a human veteran if there is enough space. The creature is friendly to me and my allies and gives tactical advice, but is easily revealed as an artificial human. It understands my languages and obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after some hours, when it drops to 0 HP, or if I dismiss it as an action by touching it and speaking the command word again. Once it does, it can't transform again until 36 hours have passed.",
+		description: "As an action, I can speak this ceremonial key's command word and place it on the ground to transform into a human **veteran**. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 8 hours, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a human **veteran** if there is enough space. The creature is friendly to me and my allies and gives tactical advice, but is easily revealed as an artificial human. It understands my languages and obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after some hours, when it drops to 0 HP, or if I dismiss it as an action by touching it and speaking the command word again. Once it does, it can't transform again until 36 hours have passed.",
 		descriptionFull: [
-			"Carved from red sandstone with white granite elements to resemble a member of the Boros Legion, this keyrune can become a veteran (human) for up to 8 hours. In addition to fighting on your behalf, this veteran cheerfully offers tactical advice, which is usually sound. Anyone who talks with the transformed keyrune or examines it closely can easily recognize that it is an artificial human.",
-			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a veteran (human). If there isn't enough space for the veteran, the keyrune doesn't transform.",
+			"Carved from red sandstone with white granite elements to resemble a member of the Boros Legion, this keyrune can become a **veteran** (human) for up to 8 hours. In addition to fighting on your behalf, this veteran cheerfully offers tactical advice, which is usually sound. Anyone who talks with the transformed keyrune or examines it closely can easily recognize that it is an artificial human.",
+			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a **veteran** (human). If there isn't enough space for the **veteran**, the keyrune doesn't transform.",
 			"The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.",
 			"At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		],
@@ -1484,6 +1484,7 @@ MagicItemsList["guild keyrune"] = {
 		creaturesAdd: [["Keyrune Veteran", true]],
 		creatureOptions: [{
 			name: "Keyrune Veteran",
+			nameThis: "veteran",
 			source: [["SRD", 403], ["MM", 350], ["G", 177]],
 			size: 3,
 			type: "Humanoid",
@@ -1523,19 +1524,19 @@ MagicItemsList["guild keyrune"] = {
 			}],
 			features: [{
 				name: "Artificial",
-				description: "The veteran is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the veteran takes the Dodge action and moves to avoid danger. Anyone who talks with the transformed keyrune or examines it closely can easily recognize that it is an artificial human.",
+				description: "The [THIS] is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the [THIS] takes the Dodge action and moves to avoid danger. Anyone who talks with the transformed keyrune or examines it closely can easily recognize that it is an artificial human.",
 			}],
 			actions: [{
 				name: "Multiattack",
-				description: "As an action on its turn, the veteran can make two Longsword attacks and, if it has a shortsword drawn, one Shortsword attack.",
+				description: "As an action on its turn, the [THIS] can make two Longsword attacks and, if it has a shortsword drawn, one Shortsword attack.",
 			}],
 			traits: [{
 				name: "Tactician",
-				description: "In addition to fighting on its owner's behalf, the veteran cheerfully offers tactical advice, which is usually sound.",
+				description: "In addition to fighting on its owner's behalf, the [THIS] cheerfully offers tactical advice, which is usually sound.",
 			}],
 			notes: [{
 				name: "Summon",
-				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a veteran. It reverts back to a keyrune after 8 hours, if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.",
+				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a **veteran**. It reverts back to a keyrune after 8 hours, if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.",
 			}],
 			header: "Keyrune",
 		}],
@@ -1546,7 +1547,7 @@ MagicItemsList["guild keyrune"] = {
 		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into an **intellect devourer** if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It lasts for 24 hours, during which time it pursues a single mission set by me, like information gathering, returning to me afterwards to report and transform back to the keyrune. It also reverts back when it drops to 0 HP or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again for 36 hours.",
 		descriptionFull: [
 			"This keyrune, carved from black stone accented with steel, resembles a stylized horror. On command, it transforms into an **intellect devourer** that resembles the Dimir guild symbol, with six bladelike legs. The creature exists for up to 24 hours. During that time, it pursues only a single mission you give it\u2014usually an assignment to take over someone's body, either to impersonate that person for a brief time or to extract secrets from their mind. When the mission is complete, the creature returns to you, reports its success, and reverts to its keyrune form.",
-			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into an intellect devourer. If there isn't enough space for the creature, the keyrune doesn't transform.",
+			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into an **intellect devourer**. If there isn't enough space for the creature, the keyrune doesn't transform.",
 			"The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.",
 			"At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		],
@@ -1618,18 +1619,18 @@ MagicItemsList["guild keyrune"] = {
 				description: "If the host body dies, the [THIS] must leave it. The [THIS] is also forced out if the target regains its devoured brain by means of *Wish*. By spending 5 ft of its movement, the [THIS] can voluntarily leave the body, teleporting to the nearest unoccupied space within 5 ft. The body then dies, unless its brain is restored within 1 round. *Protection from Evil and Good* prevents the [THIS] from consuming a brain, and when cast on a controlled body, it drives the [THIS] out.",
 			}, {
 				name: "Summon",
-				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into an [THIS]. It reverts back to a keyrune after 24 hours, if it drops to 0 HP, if the keyrune's owner uses an action to touch it and speak the command word, or if it finishes its mission.\n   It pursues only a single mission given by its owner. This is usually an assignment to take over someone's body, either to impersonate that person for a brief time or to extract secrets from their mind. When the mission is complete, the creature returns to its owner, reports its success, and reverts to its keyrune form.",
+				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into an **intellect devourer**. It reverts back to a keyrune after 24 hours, if it drops to 0 HP, if the keyrune's owner uses an action to touch it and speak the command word, or if it finishes its mission.\n   It pursues only a single mission given by its owner. This is usually an assignment to take over someone's body, either to impersonate that person for a brief time or to extract secrets from their mind. When the mission is complete, the creature returns to its owner, reports its success, and reverts to its keyrune form.",
 			}],
 			header: "Keyrune",
 		}],
 	},
 	"golgari": {
 		rarity: "very rare",
-		description: "As an action, I can speak this ceremonial key's command word to have it transform into a giant scorpion with which I can talk telepathically if in 60 ft. It is friendly to me and my allies and obeys my commands. It reverts back after 6 hours, if it drops to 0 HP, or I touch it and speak its command word as an action.",
-		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a giant scorpion if there is enough space. While within 60 ft of it, I can communicate with it telepathically. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after some hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		description: "As an action, I can speak this ceremonial key's command word to have it transform into a **giant scorpion** with which I can talk telepathically if in 60 ft. It is friendly to me and my allies and obeys my commands. It reverts back after 6 hours, if it drops to 0 HP, or I touch it and speak its command word as an action.",
+		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a **giant scorpion** if there is enough space. While within 60 ft of it, I can communicate with it telepathically. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after some hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
 		descriptionFull: [
-			"Made from deep green jade with black veins, this keyrune has an insectile shape. It can transform into a giant scorpion for up to 6 hours. The scorpion has an Intelligence of 4 and can communicate with you telepathically while it is within 60 feet of you, though its messages are largely limited to describing the passage of potential prey.",
-			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a giant scorpion. If there isn't enough space for the creature, the keyrune doesn't transform.",
+			"Made from deep green jade with black veins, this keyrune has an insectile shape. It can transform into a **giant scorpion** for up to 6 hours. The scorpion has an Intelligence of 4 and can communicate with you telepathically while it is within 60 feet of you, though its messages are largely limited to describing the passage of potential prey.",
+			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a **giant scorpion**. If there isn't enough space for the creature, the keyrune doesn't transform.",
 			"The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.",
 			"At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		],
@@ -1642,17 +1643,17 @@ MagicItemsList["guild keyrune"] = {
 		creaturesAdd: [["Keyrune Giant Scorpion", true]],
 		creatureOptions: GGtR_GuildKeyrune.createCreatureOptions("giant scorpion", "scorpion", "6 hours", [{
 			name: "Telepathy",
-			description: "While the scorpion is within 60 ft of its owner, they can communicate telepathically.",
+			description: "While the [THIS] is within 60 ft of its owner, they can communicate telepathically.",
 		}], function (obj) { obj.scores[3] = 4; }),
 	},
 	"gruul": {
 		type: "wondrous item",
 		rarity: "rare",
-		description: "As an action, I can speak this ceremonial key's command word to have it transform into a ceratok (rhinoceros stats). It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 1 hour, until it has 0 HP, or I dismiss it as an action.",
-		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a ceratok (rhinoceros stats) if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 1 hour, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		description: "As an action, I can speak this ceremonial key's command word to have it transform into a **ceratok** (rhinoceros stats). It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 1 hour, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a **ceratok** (rhinoceros stats) if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 1 hour, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
 		descriptionFull: [
-			"This crude keyrune is cobbled together from bits of rubble, broken glass, bone, and animal hair. One end resembles a horned beast. On command, the keyrune transforms into a ceratok, a horned creature much like a rhinoceros (and with the same statistics). It remains in its ceratok form for 1 hour.",
-			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a ceratok. If there isn't enough space for the creature, the keyrune doesn't transform.",
+			"This crude keyrune is cobbled together from bits of rubble, broken glass, bone, and animal hair. One end resembles a horned beast. On command, the keyrune transforms into a **ceratok**, a horned creature much like a rhinoceros (and with the same statistics). It remains in its **ceratok** form for 1 hour.",
+			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a **ceratok**. If there isn't enough space for the creature, the keyrune doesn't transform.",
 			"The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.",
 			"At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		],
@@ -1667,11 +1668,11 @@ MagicItemsList["guild keyrune"] = {
 	},
 	"izzet": {
 		rarity: "rare",
-		description: "As an action, I can speak this ceremonial key's command word to have it transform into a galvanice weird. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 3 hours, until it has 0 HP, or I dismiss it as an action.",
-		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a galvanice weird if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 3 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		description: "As an action, I can speak this ceremonial key's command word to have it transform into a **galvanice weird**. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 3 hours, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a **galvanice weird** if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 3 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
 		descriptionFull: [
-			"Formed of carved and polished red and blue stone, the keyrune includes bits of cable and wire. One end resembles a humanlike head, suggesting the jagged elemental form of the galvanice weird that it can become for a duration of 3 hours. In this form, it will serve you as a bodyguard, lift and carry things for you, act as a test subject for your experiments, or aid you in any other way that its capabilities allow.",
-			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a galvanice weird. If there isn't enough space for the creature, the keyrune doesn't transform.",
+			"Formed of carved and polished red and blue stone, the keyrune includes bits of cable and wire. One end resembles a humanlike head, suggesting the jagged elemental form of the **galvanice weird** that it can become for a duration of 3 hours. In this form, it will serve you as a bodyguard, lift and carry things for you, act as a test subject for your experiments, or aid you in any other way that its capabilities allow.",
+			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a **galvanice weird**. If there isn't enough space for the creature, the keyrune doesn't transform.",
 			"The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.",
 			"At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		],
@@ -1684,6 +1685,7 @@ MagicItemsList["guild keyrune"] = {
 		creaturesAdd: [["Keyrune Galvanice Weird", true]],
 		creatureOptions: [{
 			name: "Keyrune Galvanice Weird",
+			nameThis: "weird",
 			source: [["G", 209]],
 			size: 3,
 			type: "Elemental",
@@ -1729,26 +1731,26 @@ MagicItemsList["guild keyrune"] = {
 			}],
 			traits: [{
 				name: "Death Burst",
-				description: "When the weird dies, it explodes in a burst of ice and lightning. Each creature within 10 ft of the exploding weird must make a Dexterity saving throw, taking 2d6 lightning damage on a failed save, or half as much damage on a successful one.",
+				description: "When the [THIS] dies, it explodes in a burst of ice and lightning. Each creature within 10 ft of the exploding [THIS] must make a Dexterity saving throw, taking 2d6 lightning damage on a failed save, or half as much damage on a successful one.",
 			}],
 			features: [{
 				name: "Artificial",
-				description: "The weird is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the weird takes the Dodge action and moves to avoid danger.",
+				description: "The [THIS] is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the [THIS] takes the Dodge action and moves to avoid danger.",
 			}],
 			notes: [{
 				name: "Summon",
-				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a galvanice weird. It reverts back to a keyrune after 3 hours, if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.\n   In this form, it will serve as a bodyguard, lift and carry things, act as a test subject for experiments, or aid its owner in any other way that its capabilities allow.",
+				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a **galvanice weird**. It reverts back to a keyrune after 3 hours, if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.\n   In this form, it will serve as a bodyguard, lift and carry things, act as a test subject for experiments, or aid its owner in any other way that its capabilities allow.",
 			}],
 			header: "Keyrune",
 		}],
 	},
 	"orzhov": {
 		rarity: "rare",
-		description: "As an action, I can speak this ceremonial key's command word to have it transform into a winged thrull. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 2 hours, until it has 0 HP, or I dismiss it as an action.",
-		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a winged thrull if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 2 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		description: "As an action, I can speak this ceremonial key's command word to have it transform into a **winged thrull**. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 2 hours, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a **winged thrull** if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 2 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
 		descriptionFull: [
-			"This keyrune is carved from white marble with veins of black. The end is shaped like a thrull's head, with a gold faceplate affixed. On command, the keyrune transforms into a winged thrull for up to 2 hours. If you don't come from an Orzhov oligarch family, it serves you grudgingly, clownishly aping your movements and mannerisms while carrying out your orders.",
-			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a winged thrull. If there isn't enough space for the creature, the keyrune doesn't transform.",
+			"This keyrune is carved from white marble with veins of black. The end is shaped like a thrull's head, with a gold faceplate affixed. On command, the keyrune transforms into a **winged thrull** for up to 2 hours. If you don't come from an Orzhov oligarch family, it serves you grudgingly, clownishly aping your movements and mannerisms while carrying out your orders.",
+			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a **winged thrull**. If there isn't enough space for the creature, the keyrune doesn't transform.",
 			"The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.",
 			"At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		],
@@ -1761,6 +1763,7 @@ MagicItemsList["guild keyrune"] = {
 		creaturesAdd: [["Keyrune Winged Thrull", true]],
 		creatureOptions: [{
 			name: "Keyrune Winged Thrull",
+			nameThis: "thrull",
 			source: [["G", 221]],
 			size: 4,
 			type: "Construct",
@@ -1792,26 +1795,26 @@ MagicItemsList["guild keyrune"] = {
 			}],
 			actions: [{
 				name: "Self-Sacrifice",
-				description: "As a reaction when a creature within 5 ft of the thrull is hit by an attack, the thrull can swap places with that creature and be hit by the attack instead.",
+				description: "As a reaction when a creature within 5 ft of the [THIS] is hit by an attack, the [THIS] can swap places with that creature and be hit by the attack instead.",
 			}],
 			features: [{
 				name: "Artificial",
-				description: "The thrull is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the thrull takes the Dodge action and moves to avoid danger.",
+				description: "The [THIS] is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the [THIS] takes the Dodge action and moves to avoid danger.",
 			}],
 			notes: [{
 				name: "Summon",
-				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a winged thrull. It reverts back to a keyrune after 2 hours, if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.\n   If the owner doesn't come from an Orzhov oligarch family, the thrull serves them grudgingly, clownishly aping their movements and mannerisms while carrying out their orders.",
+				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a **winged thrull**. It reverts back to a keyrune after 2 hours, if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.\n   If the owner doesn't come from an Orzhov oligarch family, the [THIS] serves them grudgingly, clownishly aping their movements and mannerisms while carrying out their orders.",
 			}],
 			header: "Keyrune",
 		}],
 	},
 	"rakdos": {
 		rarity: "uncommon",
-		description: "As an action, I can speak this ceremonial key's command word to have it transform into a cackler. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 1 hour, until it has 0 HP, or I dismiss it as an action.",
-		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a cackler if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 1 hour, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		description: "As an action, I can speak this ceremonial key's command word to have it transform into a **cackler**. It is friendly to me and my allies. It obeys my spoken commands, taking only the Dodge action if not commanded otherwise. It lasts for 1 hour, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a **cackler** if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 1 hour, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
 		descriptionFull: [
-			"This dark granite keyrune is marbled with scarlet veins and carved with the leering visage of a mischievous demon. When activated, it transforms into a cackler for up to 1 hour.",
-			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a cackler. If there isn't enough space for the creature, the keyrune doesn't transform.",
+			"This dark granite keyrune is marbled with scarlet veins and carved with the leering visage of a mischievous demon. When activated, it transforms into a **cackler** for up to 1 hour.",
+			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a **cackler**. If there isn't enough space for the creature, the keyrune doesn't transform.",
 			"The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.",
 			"At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		],
@@ -1824,6 +1827,7 @@ MagicItemsList["guild keyrune"] = {
 		creaturesAdd: [["Keyrune Cackler", true]],
 		creatureOptions: [{
 			name: "Keyrune Cackler",
+			nameThis: "cackler",
 			source: [["G", 195]],
 			size: 4,
 			type: "Fiend",
@@ -1876,32 +1880,32 @@ MagicItemsList["guild keyrune"] = {
 			}],
 			traits: [{
 				name: "Innate Spellcasting",
-				description: "The cackler's innate spellcasting ability is Charisma (spell save DC 11, +3 to hit with spell attacks). The cackler can innately cast, without requiring material components, *Fire Bolt* (at will) and *Tasha's Hideous Laughter* (1/day).",
+				description: "The [THIS]'s innate spellcasting ability is Charisma (spell save DC 11, +3 to hit with spell attacks). The [THIS] can innately cast, without requiring material components, *Fire Bolt* (at will) and *Tasha's Hideous Laughter* (1/day).",
 			}, {
 				name: "Last Laugh",
-				description: "When the cackler dies, it releases a dying laugh that scars the minds of other nearby creatures. Each creature within 10 ft of the cackler must succeed on a Wisdom saving throw or take 1d4 psychic damage.",
+				description: "When the [THIS] dies, it releases a dying laugh that scars the minds of other nearby creatures. Each creature within 10 ft of the [THIS] must succeed on a Wisdom saving throw or take 1d4 psychic damage.",
 			}, {
 				name: "Mimicry",
-				description: "The cackler can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful DC 11 Wisdom (Insight) check.",
+				description: "The [THIS] can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful DC 11 Wisdom (Insight) check.",
 			}],
 			features: [{
 				name: "Artificial",
-				description: "The cackler is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the cackler takes the Dodge action and moves to avoid danger.",
+				description: "The [THIS] is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the [THIS] takes the Dodge action and moves to avoid danger.",
 			}],
 			notes: [{
 				name: "Summon",
-				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a cackler. It reverts back to a keyrune after 1 hour, if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.",
+				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a **cackler**. It reverts back to a keyrune after 1 hour, if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.",
 			}],
 			header: "Keyrune",
 		}],
 	},
 	"selesnya": {
 		rarity: "rare",
-		description: "As an action, I can speak this ceremonial key's command word to have it transform into a wolf with Int 6 with which I can talk telepathically if within 1 mile. It is friendly to me and my allies. It obeys my commands, but only uses the Dodge action otherwise. It lasts for 8 hours, until it has 0 HP, or I dismiss it as an action.",
-		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a wolf with Intelligence 6 if there is enough space. The creature is friendly to me and my allies, understands Elvish and Sylvan (but can't speak them), and obeys my commands. While within 1 mile, we can communicate telepathically. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 8 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		description: "As an action, I can speak this ceremonial key's command word to have it transform into a **dire wolf** with Int 6 with which I can talk telepathically if within 1 mile. It is friendly to me and my allies. It obeys my commands, but only uses the Dodge action otherwise. It lasts for 8 hours, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a **dire wolf** with Intelligence 6 if there is enough space. The creature is friendly to me and my allies, understands Elvish and Sylvan (but can't speak them), and obeys my commands. While within 1 mile, we can communicate telepathically. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 8 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
 		descriptionFull: [
-			"Carved from white and green marble in the shape of a wolf's head, this keyrune transforms into a dire wolf. The wolf persists for 8 hours. Its Intelligence is 6, and it understands Elvish and Sylvan but can't speak those languages. While it is within 1 mile of you, you can communicate with each other telepathically.",
-			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a dire wolf. If there isn't enough space for the creature, the keyrune doesn't transform.",
+			"Carved from white and green marble in the shape of a wolf's head, this keyrune transforms into a **dire wolf**. The wolf persists for 8 hours. Its Intelligence is 6, and it understands Elvish and Sylvan but can't speak those languages. While it is within 1 mile of you, you can communicate with each other telepathically.",
+			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a **dire wolf**. If there isn't enough space for the creature, the keyrune doesn't transform.",
 			"The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.",
 			"At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		],
@@ -1914,7 +1918,7 @@ MagicItemsList["guild keyrune"] = {
 		creaturesAdd: [["Keyrune Dire Wolf", true]],
 		creatureOptions: GGtR_GuildKeyrune.createCreatureOptions("dire wolf", "wolf", "8 hours", [{
 			name: "Telepathy",
-			description: "While the wolf is within 1 mile of its owner, they can communicate telepathically.",
+			description: "While the [THIS] is within 1 mile of its owner, they can communicate telepathically.",
 		}], function (obj) {
 			obj.scores[3] = 6;
 			obj.languages = "Understands the keyrune owner's languages, Elvish, and Sylvan, but can't speak";
@@ -1922,11 +1926,11 @@ MagicItemsList["guild keyrune"] = {
 	},
 	"simic": {
 		rarity: "uncommon",
-		description: "As an action, I can speak this ceremonial key's command word to have it transform into a krasis (cat. 2, Grabber and Stabilizing Legs). It is friendly to me and my allies. It obeys my commands, taking only the Dodge action if not commanded otherwise. It lasts for 5 hours, until it has 0 HP, or I dismiss it as an action.",
-		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a category 2 krasis that has the Grabber and Stabilizing Legs adaptations if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 5 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
+		description: "As an action, I can speak this ceremonial key's command word to have it transform into a **krasis** (cat. 1, Grabber and Stabilizing Legs). It is friendly to me and my allies. It obeys my commands, taking only the Dodge action if not commanded otherwise. It lasts for 5 hours, until it has 0 HP, or I dismiss it as an action.",
+		descriptionLong: "As an action, I can speak this ceremonial key's command word and place it on the ground where it transforms into a **category 1 krasis** that has the Grabber and Stabilizing Legs adaptations if there is enough space. The creature is friendly to me and my allies, understands my languages, and obeys my spoken commands. It takes only the Dodge action if not commanded otherwise. It reverts back to its keyrune form after 5 hours, when it drops to 0 HP, or if I touch it and speak its command word as an action. Once it reverts back, it can't transform again until 36 hours have passed.",
 		descriptionFull: [
-			"This keyrune is assembled from coral, mother-of-pearl, and chrome and adorned with the spirals and curves characteristic of Simic ornamentation. The head resembles the shell of a sea creature. On command, the keyrune turns into a category 2 krasis that has the Grabber and Stabilizing Legs adaptations. The transformation lasts for up to 5 hours.",
-			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a category 2 krasis that has the Grabber and Stabilizing Legs adaptations. If there isn't enough space for the creature, the keyrune doesn't transform.",
+			"This keyrune is assembled from coral, mother-of-pearl, and chrome and adorned with the spirals and curves characteristic of Simic ornamentation. The head resembles the shell of a sea creature. On command, the keyrune turns into a **category 1 krasis** that has the Grabber and Stabilizing Legs adaptations. The transformation lasts for up to 5 hours.",
+			"When you use an action to speak the item's command word and place the keyrune on the ground in an unoccupied space within 5 feet of you, the keyrune transforms into a **category 1 krasis** that has the Grabber and Stabilizing Legs adaptations. If there isn't enough space for the creature, the keyrune doesn't transform.",
 			"The creature is friendly to you, your companions, and other members of your guild (unless those guild members are hostile to you). It understands your languages and obeys your spoken commands. If you issue no commands, the creature takes the Dodge action and moves to avoid danger.",
 			"At the end of the duration, the creature reverts to its keyrune form. It reverts early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature reverts to its keyrune form, it can't transform again until 36 hours have passed.",
 		],
@@ -1939,6 +1943,7 @@ MagicItemsList["guild keyrune"] = {
 		creaturesAdd: [["Keyrune Krasis", true]],
 		creatureOptions: [{
 			name: "Keyrune Krasis",
+			nameThis: "krasis",
 			source: [["G", 210]],
 			size: 3,
 			type: "Monstrosity",
@@ -1968,25 +1973,25 @@ MagicItemsList["guild keyrune"] = {
 			}],
 			actions: [{
 				name: "Multiattack",
-				description: "As an action on its turn, the krasis can make one Bite and one Claws attack.",
+				description: "As an action on its turn, the [THIS] can make one Bite and one Claws attack.",
 			}],
 			traits: [{
 				name: "Amphibious",
-				description: "The krasis can breathe air and water.",
+				description: "The [THIS] can breathe air and water.",
 			}, {
 				name: "Grabber",
-				description: "When the krasis hits a creature with its claws, the target is grappled (escape DC 13) by a specialized grasping appendage on the krasis. It can have only one creature grappled in this way at a time.",
+				description: "When the [THIS] hits a creature with its claws, the target is grappled (escape DC 13) by a specialized grasping appendage on the [THIS]. It can have only one creature grappled in this way at a time.",
 			}, {
 				name: "Stabilizing Legs",
-				description: "The krasis has several crablike legs. As a result, it has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.",
+				description: "The [THIS] has several crablike legs. As a result, it has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.",
 			}],
 			features: [{
 				name: "Artificial",
-				description: "The krasis is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the krasis takes the Dodge action and moves to avoid danger.",
+				description: "The [THIS] is friendly to the owner of the keyrune, their companions, and (non-hostile) members of their guild. It obeys their spoken commands. If no command is issued, the [THIS] takes the Dodge action and moves to avoid danger.",
 			}],
 			notes: [{
 				name: "Summon",
-				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a category 1 krasis that has the Grabber and Stabilizing Legs adaptations. It reverts back to a keyrune after 5 hours, if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.",
+				description: "As an action, the owner of the keyrune can place it in an empty space within 5 ft and speak the item's command word. If space allows, the keyrune transforms into a **category 1 krasis** that has the Grabber and Stabilizing Legs adaptations. It reverts back to a keyrune after 5 hours, if it drops to 0 HP, or if the keyrune's owner uses an action to touch it and speak the command word.",
 			}],
 			header: "Keyrune",
 		}],
@@ -2167,29 +2172,29 @@ MagicItemsList["mizzium apparatus"] = {
 			[" 3", "*Color Spray*"],
 			[" 4", "*Faerie Fire*"],
 			[" 5", "*Fog Cloud*"],
-			[" 6", "Thunderwave"],
+			[" 6", "*Thunderwave*"],
 		],
 		[
 			["d6", "2nd-level spell"],
-			[" 1", "Blur"],
+			[" 1", "*Blur*"],
 			[" 2", "*Gust of Wind*"],
 			[" 3", "*Heat Metal*"],
 			[" 4", "*Melf's Acid Arrow*"],
 			[" 5", "*Scorching Ray*"],
-			[" 6", "Shatter"],
+			[" 6", "*Shatter*"],
 		],
 		[
 			["d6", "3rd-level spell"],
-			[" 1", "Fear"],
+			[" 1", "*Fear*"],
 			[" 2", "*Feign Death*"],
-			[" 3", "Fireball"],
+			[" 3", "*Fireball*"],
 			[" 4", "*Gaseous Form*"],
 			[" 5", "*Sleet Storm*"],
 			[" 6", "*Stinking Cloud*"],
 		],
 		[
 			["d4", "4th-level spell"],
-			[" 1", "Confusion"],
+			[" 1", "*Confusion*"],
 			[" 2", "*Conjure Minor Elementals*"],
 			[" 3", "*Evard's Black Tentacles*"],
 			[" 4", "*Ice Storm*"],
@@ -2197,7 +2202,7 @@ MagicItemsList["mizzium apparatus"] = {
 		[
 			["d4", "5th-level spell"],
 			[" 1", "*Animate Objects*"],
-			[" 2", "Cloudkill"],
+			[" 2", "*Cloudkill*"],
 			[" 3", "*Cone of Cold*"],
 			[" 4", "*Flame Strike*"],
 		],
@@ -2233,7 +2238,7 @@ MagicItemsList["mizzium apparatus"] = {
 			[
 				["1d4", "4th-Level Spell", "1d4", "5th-Level Spell (And Higher)"],
 				["  1", "*Confusion*", "", "  1", "*Animate Objects*"],
-				["  2", "Conjure Minor Elem.", "  2", "*Cloudkill*"],
+				["  2", "*Conjure Minor Elem.*", "  2", "*Cloudkill*"],
 				["  3", "*Evard's Black Tentacles*", "  3", "*Cone of Cold*"],
 				["  4", "*Ice Storm*", "", "  4", "*Flame Strike*"],
 			],
@@ -2264,8 +2269,8 @@ MagicItemsList["mizzium mortar"] = {
 	source: [["G", 179]],
 	type: "wondrous item",
 	rarity: "rare",
-	description: "This 4-ft-long, 6-inch-diameter tube has 4 charges, regaining 1d4 at dawn. As an action, I can expend 1 charge to have all in a 30-ft cone take 5d4 fire damage. As an action, I can expend 3 charges to have all in a 20-ft radius, 40-ft high cylinder in 60 ft take 5d8 fire damage. For both effects DC 15 Dex save halves.",
-	descriptionLong: "This 4-ft-long, 6-inch-diameter mizzium tube has 4 charges, regaining 1d4 expended charges at dawn. The end that's pointed toward a target is open, and a glowing ball of molten metal can be seen at the other end as long as the mortar has at least 1 charge remaining. As an action, I can expend 1 charge to create a spray of molten mizzium in a 30-ft cone. All within the cone take 5d4 fire damage, DC 15 Dexterity saving throw halves. As an action, I can expend 3 charges to create a 20-ft radius, 40-ft high cylinder within 60 ft of me that deals 5d8 fire damage to all within, DC 15 Dexterity saving throw halves.",
+	description: "This 2-ft-long, 6-inch-diameter tube has 4 charges, regaining 1d4 at dawn. As an action, I can expend 1 charge to have all in a 30-ft cone take 5d4 fire damage. As an action, I can expend 3 charges to have all in a 20-ft radius, 40-ft high cylinder in 60 ft take 5d8 fire damage. For both effects DC 15 Dex save halves.",
+	descriptionLong: "This 2-ft-long, 6-inch-diameter mizzium tube has 4 charges, regaining 1d4 expended charges at dawn. The end that's pointed toward a target is open, and a glowing ball of molten metal can be seen at the other end as long as the mortar has at least 1 charge remaining. As an action, I can expend 1 charge to create a spray of molten mizzium in a 30-ft cone. All within the cone take 5d4 fire damage, DC 15 Dexterity saving throw halves. As an action, I can expend 3 charges to create a 20-ft radius, 40-ft high cylinder within 60 ft of me that deals 5d8 fire damage to all within, DC 15 Dexterity saving throw halves.",
 	descriptionFull: [
 		"This short tube, about 2 feet long and 6 inches in diameter, is made from mizzium, a magically enhanced metal alloy forged by the Izzet League. The end that's pointed toward a target is open, and a glowing ball of molten metal can be seen at the other end as long as the mortar has at least 1 charge remaining.",
 		"The mortar has 4 charges for the following properties. It regains 1d4 expended charges daily at dawn.",

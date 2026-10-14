@@ -45,16 +45,13 @@ RaceList["aarakocra"] = {
 		"##\u25C6 Talons##. My unarmed strikes deal 1d4 Slashing damage on a hit.",
 	],
 };
-RaceList["deep gnome"] = {
+AddRacialVariant("gnome", "deep", {
 	regExpSearch: /^((?=.*svirfneblin)|((?=.*\bgnomes?\b)(?=.*\b(underdarks?|deep|depths?)\b))).*$/i,
 	name: "Svirfneblin",
-	sortname: "Gnome, Deep (Svirfneblin)",
+	sortname: "Deep Gnome (Svirfneblin)",
 	source: [["E", 7], ["S", 115], ["MToF", 113]],
 	plural: "Svirfneblin",
-	size: 4,
-	speed: {
-		walk: { spd: 25, enc: 15 },
-	},
+	speed: { walk: { spd: 25, enc: 15 } },
 	languageProfs: ["Common", "Gnomish", "Undercommon"],
 	vision: [["Darkvision", 120]],
 	savetxt: { text: ["Adv on Int/Wis/Cha saves vs magic"] },
@@ -65,9 +62,10 @@ RaceList["deep gnome"] = {
 	weightMetric: " weigh around 50 kg (35 + 5d4 \xD7 4d4 / 10 kg)",
 	trait: [
 		"**Svirfneblin**",
+		"##\u25C6 Gnomish Cunning##. I have Advantage on Intelligence, Wisdom, and Charisma saving throws against magic.",
 		"##\u25C6 Stone Camouflage##. I have Advantage on Dexterity (Stealth) checks to hide in rocky terrain.",
 	],
-};
+});
 RaceList["genasi"] = {
 	regExpSearch: /genasi|planetouched/i,
 	name: "Genasi",
@@ -220,7 +218,7 @@ FeatsList["svirfneblin magic"] = {
 	name: "Svirfneblin Magic",
 	source: [["E", 7], ["S", 115], ["MToF", 114]],
 	prerequisite: "Being a Svirfneblin (Deep Gnome)",
-	prereqeval: function (v) { return CurrentRace.known === "deep gnome"; },
+	prereqeval: function (v) { return CurrentRace.known === "gnome" && CurrentRace.variant === "deep"; },
 	descriptionFull: [
 		"You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast *Nondetection* on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: *Blindness/Deafness*, *Blur*, and *Disguise Self*. You regain the ability to cast these spells when you finish a long rest.",
 		"Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",

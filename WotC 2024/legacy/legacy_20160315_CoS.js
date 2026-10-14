@@ -568,8 +568,7 @@ MagicItemsList["holy symbol of ravenkind"] = {
 		name: "Hold Vampires",
 		page3notes: true,
 		note: [
-			"As an action, I can use 1 charge to have all vampires within 30 ft make a DC 15 Wis save",
-			"If failed, a target is Paralyzed for 1 minute but can repeat the save at the end of its turns",
+			"As an action, I can use 1 charge to have all vampires within 30 ft make a DC 15 Wis save or be Paralyzed for 1 minute. A target can repeat the save at the end of its turn.",
 		],
 		additional: "1 charge",
 	}],
@@ -649,12 +648,6 @@ MagicItemsList["lost sword"] = {
 		source: [["CoS", 81]],
 		modifiers: [1, 1],
 		selectNow: true,
-	}],
-	spellcastingBonus: [{
-		name: "Once per dawn",
-		spells: ["crusader's mantle"],
-		selection: ["crusader's mantle"],
-		firstCol: "onceday",
 	}],
 	toNotesPage: [
 		{

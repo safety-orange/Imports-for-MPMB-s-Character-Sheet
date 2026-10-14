@@ -74,16 +74,10 @@ MagicItemsList["azuredge"] = {
 		modifiers: [3, 3],
 		selectNow: true,
 	}],
-	spellcastingBonus: [{
-		name: "Once per dawn",
-		spells: ["crusader's mantle"],
-		selection: ["protection from evil and good"],
-		firstCol: "onceday",
-	}],
 	toNotesPage: [
 		{
 			name: "Azuredge",
-			useDescriptionFull: true,
+			useDescriptionFull: function (str) { return str.replace("(as me choose)", "(as I choose)"); },
 		},
 		Object.assign({}, sentientItemConflictNote, {
 			amendTo: "Azuredge",
@@ -310,8 +304,8 @@ MagicItemsList["lord's ensemble"] = {
 	rarity: "very rare",
 	storyItemAL: true,
 	prerequisite: "Requires attunement by a creature with a humanoid build",
-	description: "While wearing this helm, amulet, and ring, my identity can't be determined. I move through difficult terrain as normal terrain. Magic can't be used to reduce my speed, paralyze me, restrain me, read my thoughts, or learn my alignment, creature type, or if I'm lying. I'm hidden from scrying and Divination magic.",
-	descriptionLong: "This set of a helm, amulet, and ring can be worn and attuned to as a single magic item, but only while within Waterdeep. The helm magically alters my voice to sound genderless, and makes me immune to magic that reads my thoughts, determines if I'm lying, or reveals my alignment or creature type. Creatures can't speak telepathically with me unless I allow it. The amulet causes me to be hidden from Divination magic and magical scrying sensors. The robe makes me look nondescript, makes difficult terrain not cost me extra movement, and stops magic from reducing my speed or me to be paralyzed or restrained.",
+	description: "While wearing this helm, amulet, and robe, my identity can't be determined. I move through difficult terrain as normal terrain. Magic can't be used to reduce my speed, paralyze me, restrain me, read my thoughts, or learn my alignment, creature type, or if I'm lying. I'm hidden from scrying and Divination magic.",
+	descriptionLong: "This set of a helm, amulet, and robe can be worn and attuned to as a single magic item, but only while within Waterdeep. The helm magically alters my voice to sound genderless, and makes me immune to magic that reads my thoughts, determines if I'm lying, or reveals my alignment or creature type. Creatures can't speak telepathically with me unless I allow it. The amulet causes me to be hidden from Divination magic and magical scrying sensors. The robe makes me look nondescript, makes difficult terrain not cost me extra movement, and stops magic from reducing my speed or me to be paralyzed or restrained.",
 	descriptionFull: [
 		"The Masked Lords of Waterdeep don this ensemble when meeting with one another. This raiment renders each lord indistinguishable from the others. The ensemble consists of three pieces\u2014a helm, an amulet, and a robe\u2014that function as a single magic item when worn together, but only within the city of Waterdeep and its sewers. You become attuned to the ensemble as a single item.",
 		"***Lord's Helm***. This bucket helm covers your head and conceals your face. Screens over the eyes help to shroud your identity without blinding you. While you wear the helm, your voice is magically altered to sound genderless, and you are immune to magic that allows other creatures to read your thoughts, to determine whether you are lying, to know your alignment, or to know your creature type. Creatures can communicate telepathically with you only if you allow it.",

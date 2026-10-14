@@ -102,7 +102,7 @@ MagicItemsList["dodecahedron of doom"] = {
 			"If an effect requires a target and no eligible target is within range, nothing happens.",
 			[
 				["d12", "Effect"],
-				["1-2", "The dodecahedron explodes and is destroyed. Each creature within 20 feet of the exploding die must make a DC 13 Dexterity saving throw, taking 40 (9d8) force damage on a failed save, or half as much damage on a successful one."],
+				["1-2", "The dodecahedron explodes and is destroyed. Each creature within 20 feet of the exploding die must make a DC 13 Dexterity saving throw, taking 9d8 force damage on a failed save, or half as much damage on a successful one."],
 				["3-4", "The dodecahedron casts *light* on itself. The effect lasts until a creature touches the die."],
 				["5-6", "The dodecahedron casts *ray of frost* (+5 to hit), targeting a random creature within 60 feet of it that doesn't have total cover against the attack."],
 				["7-8", "The dodecahedron casts *shocking grasp* (+5 to hit) on the next creature that touches it."],

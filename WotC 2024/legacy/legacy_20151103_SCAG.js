@@ -38,27 +38,19 @@ RaceList["ghostwise halfling"] = {
 		"##\u25C6 Silent Speech##. I can speak telepathically to any one creature within 30 ft of me. It only understands me if we share a language.",
 	],
 };
-RaceList["gray dwarf"] = {
+AddRacialVariant("dwarf", "gray", {
 	regExpSearch: /^((?=.*\bduergars?\b)|((?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b)(?=.*\b(grey|gray|underdark)\b))).*$/i,
 	name: "Duergar",
-	sortname: "Dwarf, Gray (Duergar)",
+	sortname: "Gray Dwarf (Duergar)",
 	source: [["S", 104], ["MToF", 81]],
 	plural: "Duergar",
-	size: 3,
-	speed: {
-		walk: { spd: 25, enc: 25 },
-	},
+	speed: { walk: { spd: 25, enc: 25 } },
 	languageProfs: ["Common", "Dwarvish", "Undercommon"],
 	vision: [["Darkvision", 120], ["Sunlight Sensitivity", 0]],
-	savetxt: { adv_vs: ["Charmed", "Illusions", "Paralyzed", "Poison"] },
-	dmgres: ["Poison"],
+	savetxt: { adv_vs: ["Charmed", "Illusions", "Paralyzed", "Poisoned"] },
 	weaponProfs: [false, false, ["battleaxe", "handaxe", "warhammer", "light hammer"]],
 	toolProfs: [["Smith, brewer, or mason tools", 1]],
-	age: " are considered young until they are 50 and live about 350 years",
-	height: " stand between 4 and 5 feet tall (3'8\" + 2d4\")",
-	weight: " weigh around 150 lb (115 + 2d4 \xD7 2d6 lb)",
-	heightMetric: " stand between 1,2 and 1,5 metres tall (110 + 5d4 cm)",
-	weightMetric: " weigh around 70 kg (55 + 5d4 \xD7 4d6 / 10 kg)",
+	calcChanges: null, // no Dwarven Toughness
 	trait: [
 		"**Duergar**",
 		"##\u25C6 Stonecunning##. Whenever I make an Int (History) check related to the origin of stonework, I am considered proficient in the skill and add double my Proficiency Bonus to the check.",
@@ -67,6 +59,7 @@ RaceList["gray dwarf"] = {
 	],
 	spellcastingAbility: 4,
 	features: {
+		"stonecunning": null, // not the PHB'24 Tremorsense version
 		"enlarge": {
 			name: "Duergar Magic (level 3)",
 			minlevel: 3,
@@ -82,7 +75,8 @@ RaceList["gray dwarf"] = {
 					range: "Self",
 					components: "V,S",
 					compMaterial: "",
-					description: "I'm enlarged, Adv on Str checks/saves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
+					description: "I'm enlarged, Adv on Str checks/saves and +1d4 weapon dmg; Can't cast this in direct sunlight",
+					dependencies: null,
 					changes: "Using Duergar Magic, I cast *Enlarge/Reduce* while I'm not in direct sunlight, but only to enlarge myself.",
 				},
 			},
@@ -107,19 +101,16 @@ RaceList["gray dwarf"] = {
 			},
 		},
 	},
-};
+});
 // [dupl_start] Reprint from Elemental Evil Player's Companion
-if (!RaceList["deep gnome"]) {
-	RaceList["deep gnome"] = {
+if (!RaceSubList["gnome-deep"]) {
+	AddRacialVariant("gnome", "deep", {
 		regExpSearch: /^((?=.*svirfneblin)|((?=.*\bgnomes?\b)(?=.*\b(underdarks?|deep|depths?)\b))).*$/i,
 		name: "Svirfneblin",
-		sortname: "Gnome, Deep (Svirfneblin)",
+		sortname: "Deep Gnome (Svirfneblin)",
 		source: [["E", 7], ["S", 115], ["MToF", 113]],
 		plural: "Svirfneblin",
-		size: 4,
-		speed: {
-			walk: { spd: 25, enc: 15 },
-		},
+		speed: { walk: { spd: 25, enc: 15 } },
 		languageProfs: ["Common", "Gnomish", "Undercommon"],
 		vision: [["Darkvision", 120]],
 		savetxt: { text: ["Adv on Int/Wis/Cha saves vs magic"] },
@@ -130,9 +121,10 @@ if (!RaceList["deep gnome"]) {
 		weightMetric: " weigh around 50 kg (35 + 5d4 \xD7 4d4 / 10 kg)",
 		trait: [
 			"**Svirfneblin**",
+			"##\u25C6 Gnomish Cunning##. I have Advantage on Intelligence, Wisdom, and Charisma saving throws against magic.",
 			"##\u25C6 Stone Camouflage##. I have Advantage on Dexterity (Stealth) checks to hide in rocky terrain.",
 		],
-	};
+	});
 } // dupl_end
 
 // Racial variants
@@ -1072,7 +1064,7 @@ if (!FeatsList["svirfneblin magic"]) {
 		name: "Svirfneblin Magic",
 		source: [["E", 7], ["S", 115], ["MToF", 114]],
 		prerequisite: "Being a Svirfneblin (Deep Gnome)",
-		prereqeval: function (v) { return CurrentRace.known === "deep gnome"; },
+		prereqeval: function (v) { return CurrentRace.known === "gnome" && CurrentRace.variant === "deep"; },
 		descriptionFull: [
 			"You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast *Nondetection* on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: *Blindness/Deafness*, *Blur*, and *Disguise Self*. You regain the ability to cast these spells when you finish a long rest.",
 			"Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",

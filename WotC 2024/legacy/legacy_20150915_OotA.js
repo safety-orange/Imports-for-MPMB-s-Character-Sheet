@@ -319,10 +319,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 		name: "Storing Spells",
 		page3notes: true,
 		note: [
-			"Casting a spell stored from a spell gem doesn't require attunement",
-			"Only spells with a casting time of 1 action or 1 min or more can be stored in a spell gem",
-			"Imbuing a spell gem requires casting a spell as normal, but the spell produces no effect",
-			"I only need to provide half the costly material components for Abjuration spells to imbue",
+			"Casting a spell stored from a spell gem doesn't require attunement. Only spells with a casting time of 1 action or 1 min or more can be stored in a spell gem. Imbuing a spell gem requires casting a spell as normal, but the spell produces no effect. I only need to provide half the costly material components for Abjuration spells to imbue.",
 		],
 	}],
 	choices: ["Obsidian (cantrip, uncommon)", "Lapis Lazuli (1st-level, uncommon)", "Quartz (2nd-level, rare)", "Bloodstone (3rd-level, rare)", "Amber (4th-level, very rare)", "Jade (5th-level, very rare)", "Topaz (6th-level, very rare)", "Star Ruby (7th-level, legendary)", "Ruby (8th-level, legendary)", "Diamond (9th-level, legendary)"],

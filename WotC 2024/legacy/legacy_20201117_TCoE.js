@@ -49,7 +49,8 @@ AddRacialVariant("custom lineage", "skill proficiency", {
 	],
 });
 
-// [dupl_start] EGtW creates the same function
+// TEMPORARY REMOVE DUPLICATE CHECK WHILE legacy_EGtW doesn't exist
+// [dupl _start] EGtW creates the same function
 // With v14 it is possible to have class features not appear in the field if no `description` is defined, so we can make features just for the purpose of adding optional features to the 3rd page
 var makeOptionalClassFeatureBase = function (sClass, iLevel) {
 	var sKey = "optional_" + iLevel;
@@ -61,7 +62,7 @@ var makeOptionalClassFeatureBase = function (sClass, iLevel) {
 		}
 	}
 	return ClassList[sClass].features[sKey];
-} // dupl_end
+} // dupl _end
 
 // Barbarian Subclasses
 AddSubClass("barbarian", "path of the beast", {
@@ -701,7 +702,7 @@ AddSubClass("druid", "circle of wildfire", {
 // Fighter Alternative Class Features if Battle Master subclass exists
 if (ClassSubList["fighter-battle master"]) {
 	// Fighter-only Fighting Style
-	AddFightingStyle(ClassList.fighter.features["fighting style"], false, "Superior Technique", {
+	AddFeatureChoice(ClassList.fighter.features["fighting style"], false, "Superior Technique", {
 		name: "Superior Technique",
 		source: [["T", 41], ["UA:CFV", 5]],
 		additional: "1 maneuver; d6, 1\xD7 per short rest",
@@ -721,8 +722,9 @@ if (ClassSubList["fighter-battle master"]) {
 		}],
 	}, true);
 	// Maneuver Options
+	var TCoE_battleMasterManeuvers = ClassSubList["fighter-battle master"].features["subclassfeature3.1"];
 	// Left out Grappling Strike, because Grapple is no longer an Athletics check in the 2024 rules
-	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3.1"], true, "Brace", {
+	AddFeatureChoice(TCoE_battleMasterManeuvers, true, "Brace", {
 		name: "Brace",
 		source: [["T", 42]],
 		description: desc("As a Reaction when a creature I can see moves within my melee reach, I can expend 1 SD and make one weapon attack. If that attack hits, I add the Superiority Die to its damage."),
@@ -1086,7 +1088,7 @@ AddSubClass("monk", "way of the astral self", {
 // Paladin Optional Class Features
 var TCoE_paladinOptional3 = makeOptionalClassFeatureBase("paladin", 3);
 AddFeatureChoice(TCoE_paladinOptional3, true, "Harness Divine Power", {
-	name: "Channel Divinity: Harness Divine Power",
+	name: "Harness Divine Power",
 	extraname: "Optional Paladin 3",
 	source: [["T", 52]],
 	description: desc("As a Bonus Action, I can expend 1 Channel Divinity to regain one used spell slot. The level of this spell slot can be no more than half my Proficiency Bonus (rounded up). I can only do this so many times per Long Rest, even if I have uses of Channel Divinity left."),
@@ -1094,8 +1096,8 @@ AddFeatureChoice(TCoE_paladinOptional3, true, "Harness Divine Power", {
 	usages: levels.map(function (n) {
 		return n < 3 ? "" : n < 7 ? 1 : n < 15 ? 2 : 3;
 	}),
-	recovery: typePF ? "LR" : "Long Rest",
-	additional: "1 Channel Divinity",
+	recovery: "Long Rest",
+	additional: typePF ? "1 CD" : "1 Channel Divinity",
 });
 
 // Paladin Subclasses

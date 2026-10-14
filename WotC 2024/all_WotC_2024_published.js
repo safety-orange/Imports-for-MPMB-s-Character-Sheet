@@ -1568,7 +1568,7 @@ AddSubClass("monk", "shadow", {
 			},
 			"shadow arts: darkness": {
 				name: "Shadow Arts: Darkness",
-				extraname: "Warrior of Shadow 3",
+				extraname: "Shadow 3",
 				source: [["PHB24", 105]],
 				description: desc("I can expend 1 Focus Point to cast *Darkness* without spell components. When I do so, I can see within its area and I can move it to a space within 60 ft at the start of each of my turns."),
 				additional: "1 Focus Point",
@@ -1588,7 +1588,7 @@ AddSubClass("monk", "shadow", {
 			minlevel: 11,
 			"improved shadow step": {
 				name: "Improved Shadow Step",
-				extraname: "Warrior of Shadow 11",
+				extraname: "Shadow 11",
 				source: [["PHB24", 105]],
 				description: desc("When I use Shadow Step, I can expend 1 Focus Point to remove the need to start and end in Dim Light or Darkness, and I can make an Unarmed Strike immediately after I teleport."),
 				additional: "1 Focus Point",
@@ -1602,7 +1602,7 @@ AddSubClass("monk", "shadow", {
 			action: [["action", " (3 FP)"]],
 			"cloak of shadows": {
 				name: "Cloak of Shadows",
-				extraname: "Warrior of Shadow 17",
+				extraname: "Shadow 17",
 				source: [["PHB24", 105]],
 				description: desc([
 					"As a Magic action while in Dim Light or Darkness, I can expend 3 Focus Points to shroud myself in shadows for 1 min, until I'm Incapacitated, or I end my turn in Bright Light.",
@@ -8701,11 +8701,11 @@ MagicItemsList["instrument of illusions"] = {
 		return classes.known.bard ? "bard (15-ft emanation)" : "not a bard (5-ft emanation)";
 	},
 	"bard (15-ft emanation)": {
-		name: "Instrument of Illusions \u200A",
+		name: "Instrument of Illusions \uFEFF",
 		description: "As a Magic action while playing this instrument, I can create harmless, illusory visual effects in a 15-ft Emanation originating from the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing.",
 	},
 	"not a bard (5-ft emanation)": {
-		name: "Instrument of Illusions \u200A\u200A",
+		name: "Instrument of Illusions \uFEFF\uFEFF",
 		description: "As a Magic action while playing this instrument, I can create harmless, illusory visual effects in a 5-ft Emanation originating from the instrument. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when I stop playing.",
 	},
 };
@@ -8726,11 +8726,11 @@ MagicItemsList["instrument of scribing"] = {
 		return classes.known.bard ? "bard (13 words, glowing)" : "not a bard (6 words)";
 	},
 	"bard (13 words, glowing)": {
-		name: "Instrument of Scribing \u200A",
+		name: "Instrument of Scribing \uFEFF",
 		description: "This instrument has 3 charges, regaining all at dawn. As a Magic action while playing it, I can use 1 charge to write a message of 13 words on a nonmagical surface I can see in 30 ft. I can make the text glow, causing it to be visible in Darkness. *Dispel Magic* erases the message, otherwise it fades away after 24 hours.",
 	},
 	"not a bard (6 words)": {
-		name: "Instrument of Scribing \u200A\u200A",
+		name: "Instrument of Scribing \uFEFF\uFEFF",
 		description: "TThis instrument has 3 charges, regaining all at dawn. As a Magic action while playing it, I can expend 1 charge to write a message of 6 words in a language I know on a nonmagical surface that I can see within 30 ft. *Dispel Magic* erases the message, otherwise it fades away after 24 hours.",
 	},
 };
@@ -10432,6 +10432,59 @@ CreatureList["giant squid"] = {
 		description: "\u2264Huge is Grappled (escape DC 16) \x26 pulled 10 ft closer",
 	}],
 };
+// Exotic mounts and pets
+CreatureList["peryton"] = {
+	name: "Peryton",
+	source: [["MM24", 360]],
+	size: 3,
+	type: "Monstrosity",
+	alignment: "Chaotic Evil",
+	ac: 13,
+	hp: 33,
+	hd: [6, 8],
+	speed: "20 ft, Fly 60 ft",
+	scores: [16, 12, 13, 9, 12, 10],
+	skills: {
+		"perception": 5,
+		"stealth": 3,
+	},
+	passivePerception: 15,
+	languages: "Understands Common and Elvish, but can't speak",
+	challengeRating: "2",
+	proficiencyBonus: 2,
+	attacksAction: 2,
+	addMod: [{
+		type: "skill", field: "Init", mod: "Prof",
+		text: "The peryton adds its Proficiency Bonus to its Initiative rolls.",
+	}],
+	attacks: [{
+		name: "Gore",
+		ability: 1,
+		damage: [1, 8, "piercing"],
+		range: "Melee (5 ft)",
+		description: "+2d8 damage after 30 ft move straight; 1 Talons and 1 Gore as Attack action",
+	}, {
+		name: "Talons",
+		ability: 1,
+		damage: [2, 4, "piercing"],
+		range: "Melee (5 ft)",
+		description: "1 Talons and 1 Gore as Attack action; Target at 0 HP dies",
+	}],
+	actions: [{
+		name: "Multiattack",
+		description: "As an Attack action, the [THIS] can make one Gore and one Talons attack.",
+	}, {
+		name: "Gore",
+		description: "If the [THIS] moved 30 ft or more straight toward the target immediately before the hit, it deals +2d8 Piercing damage.",
+	}, {
+		name: "Talons",
+		description: "If the attack reduces a Humanoid target to 0 Hit Points, the [THIS] kills the target by removing its heart.",
+	}],
+	features: [{
+		name: "Flyby",
+		description: "The [THIS] doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.",
+	}],
+};
 
 // pub_20260616_RHW.js
 // This file adds material from Ravenloft: The Horrors Within to MPMB's Character Record Sheet for 5.5e
@@ -10610,7 +10663,7 @@ AddSubClass("warlock", "undead", {
 });
 
 // Backgrounds
-
+// NB: take Haunted One traits/bonds/ideals/flaws from CoS/VRGtR
 
 // Feats - Origin
 

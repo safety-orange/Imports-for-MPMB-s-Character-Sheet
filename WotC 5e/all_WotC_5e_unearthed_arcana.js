@@ -15589,34 +15589,34 @@ RaceList["simic hybrid-ua"] = {
 				var rNm = rObj.name;
 				switch (theChoice) {
 					case "Manta Glide":
-						feaTxt = "##◆ Animal Enhancement (Manta Glide)##. I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
+						feaTxt = "##\u25C6 Animal Enhancement (Manta Glide)##. I have manta ray-like wings that I can use to slow my fall. I subtract 100 ft when calculating falling damage and I can move 2 ft horizontally for every 1 ft I descend.";
 						break;
 					case "Nimble Climber":
-						feaTxt = "##◆ Animal Enhancement (Nimble Climber)##. I have a climbing speed equal to my walking speed.";
+						feaTxt = "##\u25C6 Animal Enhancement (Nimble Climber)##. I have a climbing speed equal to my walking speed.";
 						SetProf("speed", true, { climb: { spd: "walk", enc: "walk" } }, rNm);
 						break;
 					case "Underwater Adaptation":
-						feaTxt = "##◆ Animal Enhancement (Underwater Adaptation)##. I can breathe air and water, and I have a swimming speed equal to my walking speed.";
+						feaTxt = "##\u25C6 Animal Enhancement (Underwater Adaptation)##. I can breathe air and water, and I have a swimming speed equal to my walking speed.";
 						SetProf("speed", true, { swim: { spd: "walk", enc: "walk" } }, rNm);
 						break;
 					case "Grappling Appendages":
-						feaTxt = "##◆ Animal Enhancement (Grappling Appendages)##. I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
+						feaTxt = "##\u25C6 Animal Enhancement (Grappling Appendages)##. I have two extra appendages which I can use to make unarmed strikes for 1d6 bludgeoning damage. As a bonus action after hitting with them, I can try to grapple the target. I can't use these appendages to wield anything.";
 						processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[0]);
 						AddWeapon("Grappling Appendages");
 						AddAction("bonus action", "Grappling Appendages (after hit)", "being a " + rNm);
 						break;
 					case "Carapace":
-						feaTxt = "##◆ Animal Enhancement (Carapace)##. My skin is covered by a thick shell, giving me a +1 to AC whenever I'm not wearing heavy armor.";
+						feaTxt = "##\u25C6 Animal Enhancement (Carapace)##. My skin is covered by a thick shell, giving me a +1 to AC whenever I'm not wearing heavy armor.";
 						processExtraAC(true, rNm + ": Animal Enhancement (Carapace)", rObj.extraACSp, rNm);
 						break;
 					case "Acid Spit":
-						feaTxt = "##◆ Animal Enhancement (Acid Spit)##. As an action, I can spit acid at a single creature within 30 ft that I can see. It must make a Dexterity saving throw with DC 8 + Con modifier + Prof Bonus or take 2d10 acid damage. This increases with 1d10 at 11th and 17th level.";
+						feaTxt = "##\u25C6 Animal Enhancement (Acid Spit)##. As an action, I can spit acid at a single creature within 30 ft that I can see. It must make a Dexterity saving throw with DC 8 + Con modifier + Prof Bonus or take 2d10 acid damage. This increases with 1d10 at 11th and 17th level.";
 						processWeaponOptions(true, rObjNm, rObj.weaponOptionsSp[1]);
 						AddWeapon("Acid Spit");
 						break;
 				};
 				if (What("Unit System") !== "imperial") feaTxt = ConvertToMetric(feaTxt, 0.5);
-				Value("Racial Traits", What("Racial Traits").replace(/(##)?(◆ )?Animal Enhancement \(5th level\)(##)?[:.].*/, "") + feaTxt);
+				Value("Racial Traits", What("Racial Traits").replace(/(##)?(\u25C6 )?Animal Enhancement \(5th level\)(##)?[:.].*/, "") + feaTxt);
 				Value("Race Remember", What("Race Remember") + "-*" + theChoice.replace(" ", "_") + "*");
 			},
 			removeeval: function () {
