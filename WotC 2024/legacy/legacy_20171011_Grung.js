@@ -31,8 +31,8 @@ RaceList["grung"] = {
 	weight: " weigh around 30 lb",
 	trait: [
 		"**Grung**",
-		"##Poisonous Skin##. Creatures that touch me must make a DC 12 Con save or be Poisoned for 1 min, repeating the save at the end of each of its turns. My Piercing weapon attacks deal +2d4 Poison damage if the target fails a DC 12 Con save.",
-		"##Standing Leap##. Without a running start, I can long jump to 25 ft and high jump to 15 ft.",
-		"##Water Dependency##. I can breathe air and water. I need to be immersed in water for 1 hour every day or suffer 1 level of Exhaustion at the end of that day until I immerse for 1 hour.",
+		"##\u25C6 Poisonous Skin##. Creatures that touch me must make a DC 12 Con save or be Poisoned for 1 min, repeating the save at the end of each of its turns. My Piercing weapon attacks deal +2d4 Poison damage if the target fails a DC 12 Con save.",
+		"##\u25C6 Standing Leap##. Without a running start, I can Long Jump 25 ft and High Jump 15 ft.",
+		"##\u25C6 Water Dependency##. I can breathe air and water. At the end of a day on which I didn't immerse myself in water for 1 hour, I suffer 1 level of Exhaustion until I immerse " + (typePF ? "myself in water for 1 hour." : "for 1 h."),
 	],
 };

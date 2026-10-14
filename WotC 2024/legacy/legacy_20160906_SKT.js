@@ -48,7 +48,7 @@ CreatureList["ice spider"] = { // contributed by Nod_Hero
 		range: "30/60 ft",
 		description: "Target can escape as an action with a DC 12 Strength check, or by destroying the webbing (AC 10; 5 HP)",
 		abilitytodamage: false,
-		tooltip: "On a hit, the target is Restrained by webbing and takes 1 Cold damage at the start of each of its turns. As an action, the Restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; HP 5; vulnerability to Fire damage; Immunity to Poison and Psychic damage).",
+		tooltip: "On a hit, the target is Restrained by webbing and takes 1 Cold damage at the start of each of its turns. As an action, the Restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; HP 5; Vulnerability to Fire damage; Immunity to Poison and Psychic damage).",
 	}],
 	features: [{
 		name: "Spider Climb",
@@ -65,7 +65,7 @@ CreatureList["ice spider"] = { // contributed by Nod_Hero
 		description: "If the Poison damage from the [THIS]'s bite attack reduces the target to 0 HP, the target is stable but Poisoned for 1 hour, even after regaining HP, and is Paralyzed while Poisoned in this way.",
 	}, {
 		name: "Icy Web (Recharge 5-6)",
-		description: "See attack. On a hit, the target is Restrained by webbing and takes 1 Cold damage at the start of each of its turns. As an action, the Restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; HP 5; vulnerability to Fire damage; Immunity to Bludgeoning, Poison, and Psychic damage).",
+		description: "See attack. On a hit, the target is Restrained by webbing and takes 1 Cold damage at the start of each of its turns. As an action, the Restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; HP 5; Vulnerability to Fire damage; Immunity to Bludgeoning, Poison, and Psychic damage).",
 	}],
 	wildshapeString: [
 		"##Senses##. Blindsight 10 ft, Darkvision 60 ft.",
@@ -209,7 +209,7 @@ MagicItemsList["faerie dust"] = { // contains contributions by Nod_Hero
 	name: "Faerie Dust",
 	source: [["SKT", 35]],
 	type: "Wondrous Item",
-	description: "A pinch of this dust can substitute for the material components of any Enchantment spell of 3rd level or lower. If a pinch of faerie dust is sprinkled on a creature, roll percentile dice and consult the Faerie Dust Table to determine the effect, see notes.",
+	description: "A pinch of this dust can substitute for the Material components of any Enchantment spell of 3rd level or lower. If a pinch of faerie dust is sprinkled on a creature, roll percentile dice and consult the Faerie Dust Table to determine the effect, see notes.",
 	descriptionFull: [
 		"This small pouch contains ten pinches of *faerie dust*. A pinch of this dust can substitute for the material components of any enchantment spell of 3rd level or lower. If a pinch of *faerie dust* is sprinkled on a creature, roll percentile dice and consult the Faerie Dust table to determine the effect.",
 		"Faerie Dust Table",
@@ -396,8 +396,8 @@ MagicItemsList["gurt's greataxe"] = {
 	}],
 	spellChanges: {
 		"heat metal": {
-			description: "1 metal obj on touch 2d8 Cold dmg; save or drop obj; if held: dis. atk/chk; bns a cool obj again",
-			descriptionShorter: "1 metal obj, touch it 2d8 Cold dmg; save or drop it; if held: dis. atk/chk; bns a redo",
+			description: "1 metal obj on touch 2d8 Cold dmg; save or drop obj; if held: dis. atk/chk; Bns cool obj again",
+			descriptionShorter: "1 metal obj, touch it 2d8 Cold dmg; save or drop it; if held: dis. atk/chk; Bns redo",
 			changes: "Using Gurt's Greataxe, the spell deals Cold damage instead of Fire.",
 		},
 	},
@@ -691,7 +691,7 @@ MagicItemsList["pennant of the vind rune"] = {
 		sortname: "Rune Armor, Vind",
 		type: "Armor (Any)",
 		rarity: "Uncommon",
-		description: "This magic armor doesn't impose Disadvantage on stealth checks and gives me a 5 ft bonus to my speed.",
+		description: "This magic armor doesn't impose Disadvantage on Stealth checks and gives me a 5 ft bonus to my speed.",
 		attunement: true,
 		speed: { allModes: { bonus: "+5" } },
 		chooseGear: {
@@ -736,7 +736,7 @@ MagicItemsList["robe of serpents"] = {
 	source: [["SKT", 236]],
 	type: "Wondrous Item",
 	rarity: "Uncommon",
-	description: "As a Bonus Action, I can remove one of the 1d4+3 emblazoned, brightly colored snakes from this robe and have it turn into a giant poisonous snake within 5 ft of me. It acts on my initiative and attacks those hostile to me. It disappears after 1 hour, when it drops to 0 HP, or when I dismiss it (no action).",
+	description: "As a Bonus Action, I can remove one of the 1d4+3 emblazoned, brightly colored snakes from this robe and have it turn into a giant poisonous snake within 5 ft of me. It acts on my Initiative and attacks those hostile to me. It disappears after 1 hour, when it drops to 0 HP, or when I dismiss it (no action).",
 	descriptionFull: [
 		"A *robe of serpents* is a stylish silk garment that is popular among wealthy nobles and retired assassins. The robe is emblazoned with 1d4+3 stylized serpents, all brightly colored.",
 		"As a bonus action on your turn, you can transform one of the robe's serpents into a giant poisonous snake. The snake instantly falls from the robe, slithers into an unoccupied space next to you, and acts on your initiative count. The snake can tell friendly creatures from hostile ones and attacks the latter. The snake disappears in a harmless puff of smoke after 1 hour, when it drops to 0 hit points, or when you dismiss it (no action required). Once detached, a snake can't return to the robe. When all of the robe's snakes have detached, the robe becomes a nonmagical garment.",

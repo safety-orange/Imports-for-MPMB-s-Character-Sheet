@@ -22,7 +22,7 @@ AddSubClass("cleric", "death domain", {
 			name: "Bonus Proficiency",
 			source: [["D", 96]],
 			minlevel: 3,
-			description: desc("I gain proficiency with martial weapons."),
+			description: desc("I gain proficiency with Martial weapons."),
 			weaponProfs: [false, true],
 			spellcastingExtra: ["false life", "ray of sickness", "blindness/deafness", "ray of enfeeblement", "animate dead", "vampiric touch", "blight", "death ward", "antilife shell", "cloudkill"],
 		},
@@ -111,7 +111,7 @@ AddSubClass("cleric", "death domain", {
 									spellObj.description = spellObj.description.replace("1 corpse with mouth answers 5 questions", "2 corpses in 5 ft answer 5 questions each");
 									break;
 								case "enervation" :
-									spellObj.description = spellObj.description.replace("action", "1 a").replace("see book", "see B");
+									spellObj.description = spellObj.description.replace("action", "Act").replace("see book", "see B");
 								case "bestow curse" :
 								case "blight" :
 								case "cause fear-uass" :
@@ -123,12 +123,12 @@ AddSubClass("cleric", "death domain", {
 							return startDescr !== spellObj.description;
 						};
 					},
-					"My Necromancy, single-target 5th-level or lower spells can affect two targets within 5 ft of each other if both are within range of the spell. The spells still require material components for each target separately.",
+					"My Necromancy, single-target 5th-level or lower spells can affect two targets within 5 ft of each other if both are within range of the spell. The spells still require Material components for each target separately.",
 				],
 			},
 		},
 	},
-});
+}, true);
 AddSubClass("paladin", "oathbreaker", {
 	regExpSearch: /^((?=.*blackguard)|((?=.*(oath.*breaker|breaker.*oath))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper)))))).*$/i,
 	subname: "Oathbreaker",
@@ -140,7 +140,7 @@ AddSubClass("paladin", "oathbreaker", {
 			minlevel: 3,
 			additional: "1 Channel Divinity",
 			description: desc("As an action, one Undead (CR < Paladin level) I can see in 30 ft must make a Wis save or obey my commands for 24 hours or until I use this on another."),
-			action: [["action", ""]],
+			action: [["action", " (Channel Divinity)"]],
 			spellcastingExtra: ["hellish rebuke", "inflict wounds", "crown of madness", "darkness", "animate dead", "bestow curse", "blight", "confusion", "contagion", "dominate person"],
 		},
 		"subclassfeature3.1": {
@@ -149,7 +149,7 @@ AddSubClass("paladin", "oathbreaker", {
 			minlevel: 3,
 			additional: "1 Channel Divinity",
 			description: desc("As an action, any creature of my choice within 30 ft that can see me must make a Wisdom save or be Frightened for 1 min or until it succeeds on a save at the end of its turn. It can't save at the end of its turn if it's still within 30 ft of me."),
-			action: [["action", ""]],
+			action: [["action", " (Channel Divinity)"]],
 		},
 		"subclassfeature7": {
 			name: "Aura of Hate",
@@ -195,4 +195,4 @@ AddSubClass("paladin", "oathbreaker", {
 			action: [["action", ""]],
 		},
 	},
-});
+}, true);

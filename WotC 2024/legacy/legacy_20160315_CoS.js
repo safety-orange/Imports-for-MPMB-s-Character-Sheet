@@ -696,14 +696,14 @@ MagicItemsList["silver dragon shield +2"] = {
 	source: [["CoS", 68]],
 	type: "Shield",
 	rarity: "Rare",
-	description: "While holding this shield, I have a +2 bonus to AC. This bonus is in addition to the shield's normal bonus to AC. It is emblazoned with a stylized silver dragon that is the emblem of the Order of the Silver Dragon. The shield whispers warnings to me, granting me a +2 bonus to initiative while I am not Incapacitated.",
+	description: "While holding this shield, I have a +2 bonus to AC. This bonus is in addition to the shield's normal bonus to AC. It is emblazoned with a stylized silver dragon that is the emblem of the Order of the Silver Dragon. The shield whispers warnings to me, granting me a +2 bonus to Initiative while I am not Incapacitated.",
 	descriptionFull: [
 		"While holding this shield, you have a +2 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.",
 		"The shield is emblazoned with a stylized silver dragon that is the emblem of the Order of the Silver Dragon (see Curse of Strahd, chapter 7). The shield whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.",
 	],
 	weight: 6,
 	shieldAdd: "Silver Dragon Shield +2",
-	addMod: [{ type: "skill", field: "Init", mod: 2, text: "While I carry the Silver Dragon Shield, it whispers warnings to me, granting me a +2 bonus to initiative rolls." }],
+	addMod: [{ type: "skill", field: "Init", mod: 2, text: "While I carry the Silver Dragon Shield, it whispers warnings to me, granting me a +2 bonus to Initiative rolls." }],
 }
 MagicItemsList["statuette of saint markovia"] = {
 	name: "Statuette of Saint Markovia",

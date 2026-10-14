@@ -94,7 +94,7 @@ MagicItemsList["dodecahedron of doom"] = {
 				["d12", "Effect"],
 				["1-2", "The dodecahedron explodes and is destroyed. Each creature within 20 feet of the exploding die must make a DC 13 Dexterity saving throw, taking 9d8 Force damage on a failed save, or half as much damage on a successful one."],
 				["3-4", "The dodecahedron casts *light* on itself. The effect lasts until a creature touches the die."],
-				["5-6", "The dodecahedron casts *ray of frost* (+5 to hit), targeting a random creature within 60 feet of it that doesn't have total cover against the attack."],
+				["5-6", "The dodecahedron casts *ray of frost* (+5 to hit), targeting a random creature within 60 feet of it that doesn't have Total Cover against the attack."],
 				["7-8", "The dodecahedron casts *shocking grasp* (+5 to hit) on the next creature that touches it."],
 				["9-10", "The dodecahedron casts *darkness* on itself. The effect has a duration of 10 minutes."],
 				["11-12", "The next creature to touch the dodecahedron gains 1d10 Temporary Hit Points that last for 1 hour."],
@@ -196,7 +196,7 @@ MagicItemsList["shield of the uven rune"] = { // contains contributions by Pengs
 		name: "Shield of the Uven Rune ",
 		type: "Shield",
 		rarity: "Very Rare",
-		description: "This shield made from the scale of a white dragon gives me Cold damage Immunity. As a Reaction when I'm hit by a melee attack, I can deal 3d6 Necrotic damage to the attacker. Once per Short Rest, I can cast *Bane* (DC 17) needing no concentration. I can do an 8 hour ritual to transfer the rune to a weapon, see book.",
+		description: "This shield made from the scale of a white dragon gives me Cold damage Immunity. As a Reaction when I'm hit by a melee attack, I can deal 3d6 Necrotic damage to the attacker. Once per Short Rest, I can cast *Bane* (DC 17) needing no Concentration. I can do an 8 hour ritual to transfer the rune to a weapon, see book.",
 		weight: 6,
 		shieldAdd: "Shield of the Uven Rune",
 		action: [["reaction", ""]],
@@ -211,7 +211,7 @@ MagicItemsList["shield of the uven rune"] = { // contains contributions by Pengs
 		spellChanges: {
 			"bane": {
 				duration: "1 min",
-				changes: "The spell does not require concentration.",
+				changes: "The spell does not require Concentration.",
 			},
 		},
 	},

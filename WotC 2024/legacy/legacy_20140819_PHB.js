@@ -82,7 +82,7 @@ RaceList["half-orc"] = {
 							};
 						};
 					},
-					"My melee weapon attacks roll 1 additional dice on a critical hit.",
+					"My melee weapon attacks roll 1 additional dice on a Critical Hit.",
 					900,
 				],
 			},
@@ -91,7 +91,7 @@ RaceList["half-orc"] = {
 	trait: [
 		"**Half-Orc**",
 		"##\u25C6 Relentless Endurance##. When I am reduced to 0 Hit Points but not killed outright, I can drop to 1 Hit Point instead. I can't use this feature again until I finish a Long Rest.",
-		"##\u25C6 Savage Attacks##. When I score a critical hit with a melee weapon attack, I can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.",
+		"##\u25C6 Savage Attacks##. When I score a Critical Hit with a melee weapon attack, I can roll one of the weapon's damage dice one additional time and add it to the extra damage of the Critical Hit.",
 	],
 };
 
@@ -99,6 +99,7 @@ RaceList["half-orc"] = {
 AddWarlockInvocation("Beast Speech", {
 	name: "Beast Speech",
 	source: [["SRD", 48], ["P", 110]],
+	submenu: "[Warlock level  0+]",
 	description: desc("I can cast *Speak with Animals* without using a spell slot."),
 	spellcastingBonus: [{
 		name: "Beast Speech",
@@ -110,6 +111,7 @@ AddWarlockInvocation("Beast Speech", {
 AddWarlockInvocation("Beguiling Influence", {
 	name: "Beguiling Influence",
 	source: [["SRD", 48], ["P", 110]],
+	submenu: "[Warlock level  0+]",
 	description: desc("I gain proficiencies with the Deception and Persuasion skills."),
 	skills: ["Deception", "Persuasion"],
 });
@@ -128,9 +130,10 @@ AddWarlockInvocation("Bewitching Whispers (req: lvl 7+)", {
 });
 AddWarlockInvocation("Book of Ancient Secrets (req: Pact of the Tome)", {
 	name: "Book of Ancient Secrets",
-	description: desc("My Book of Shadows is inscribed with two 1st-level Ritual spells of my choice. When I come across other Ritual spells, I can inscribe them as well. I can cast these inscribed spells as Rituals, they are not automatically prepared. (Select only these inscribed spells in the 'Spells' column.)"),
 	source: [["SRD", 48], ["P", 110]],
-	submenu: "[improves Pact of the Tome]",
+	submenu: ["[Warlock level  0+]", "[improves Pact of the Blade]"],
+	description: desc("My Book of Shadows is inscribed with two 1st-level Ritual spells of my choice. When I come across other Ritual spells, I can inscribe them as well. I can cast these inscribed spells as Rituals, they are not automatically prepared. (Select only these inscribed spells in the 'Spells' column.)"),
+	submenu: ["[Warlock level  0+]", "[improves Pact of the Tome]"],
 	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the tome") !== -1; },
 	eval: function () {
 		var oSpells = CurrentSpells["warlock-book of shadows"];
@@ -195,7 +198,7 @@ AddWarlockInvocation("Chains of Carceri (req: lvl 15+, Pact of the Chain)", {
 	minlevel: 15,
 	submenu: ["[Warlock level 15+]", "[improves Pact of the Chain]"],
 	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the chain") !== -1; },
-	description: desc("I can cast *Hold Monster* without expending a spell slot or material components, but only on a Celestial, Fiend, or Elemental. I can only target a specific individual once per Long Rest."),
+	description: desc("I can cast *Hold Monster* without expending a spell slot or Material components, but only on a Celestial, Fiend, or Elemental. I can only target a specific individual once per Long Rest."),
 	spellcastingBonus: [{
 		name: "Chains of Carceri",
 		spells: ["hold monster"],
@@ -207,7 +210,7 @@ AddWarlockInvocation("Chains of Carceri (req: lvl 15+, Pact of the Chain)", {
 			components: "V,S",
 			compMaterial: "",
 			description: "1 Celestial, Fiend, or Elemental, save or Paralyzed; extra save at end of each turn",
-			changes: "With the Chains of Carceri invocation I can cast *Hold Monster* without a material component, but only on a Celestial, Fiend, or Elemental.",
+			changes: "With the Chains of Carceri invocation I can cast *Hold Monster* without a Material component, but only on a Celestial, Fiend, or Elemental.",
 		},
 	},
 });
@@ -227,6 +230,7 @@ AddWarlockInvocation("Dreadful Word (req: lvl 7+)", {
 AddWarlockInvocation("Eldritch Sight", {
 	name: "Eldritch Sight",
 	source: [["SRD", 49], ["P", 110]],
+	submenu: "[Warlock level  0+]",
 	description: desc("I can cast *Detect Magic* without expending a spell slot."),
 	spellcastingBonus: [{
 		name: "Eldritch Sight",
@@ -238,6 +242,7 @@ AddWarlockInvocation("Eldritch Sight", {
 AddWarlockInvocation("Eyes of the Rune Keeper", {
 	name: "Eyes of the Rune Keeper",
 	source: [["SRD", 49], ["P", 111]],
+	submenu: "[Warlock level  0+]",
 	description: " [I can read all writing]",
 });
 AddWarlockInvocation("Minions of Chaos", {
@@ -295,6 +300,7 @@ AddWarlockInvocation("Sign of Ill Omen", {
 AddWarlockInvocation("Thief of Five Fates", {
 	name: "Thief of Five Fates",
 	source: [["SRD", 50], ["P", 111]],
+	submenu: "[Warlock level  0+]",
 	description: desc("Once per Long Rest, I can cast *Bane* using a Pact Magic spell slot."),
 	spellcastingBonus: [{
 		name: "Thief of Five Fates",
@@ -303,10 +309,10 @@ AddWarlockInvocation("Thief of Five Fates", {
 		firstCol: "oncelr",
 	}],
 });
-AddWarlockInvocation("Voice of the Chain Master", {
+AddWarlockInvocation("Voice of the Chain Master (req: Pact of the Chain)", {
 	name: "Voice of the Chain Master",
 	source: [["SRD", 50], ["P", 111]],
-	submenu: "[improves Pact of the Chain]",
+	submenu: ["[Warlock level  0+]", "[improves Pact of the Chain]"],
 	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the chain") !== -1; },
 	description: desc("While on the same plane as my familiar, I can communicate telepathically with it and I can perceive through its senses. While doing the latter, I can speak through it with my voice."),
 });
@@ -321,7 +327,7 @@ AddSubClass("cleric", "nature domain", {
 			name: "Bonus Proficiency",
 			source: [["P", 62]],
 			minlevel: 3,
-			description: desc("I gain proficiency with heavy armor."),
+			description: desc("I gain proficiency with Heavy armor."),
 			armorProfs: [false, false, true, false],
 			spellcastingExtra: ["animal friendship", "speak with animals", "barkskin", "spike growth", "plant growth", "wind wall", "dominate beast", "grasping vine", "insect plague", "tree stride"],
 		},
@@ -343,7 +349,7 @@ AddSubClass("cleric", "nature domain", {
 			minlevel: 3,
 			description: desc("As an action, all Beasts and Plants within 30 ft that I can see must make a Wis save or be Charmed and friendly to allies and me for 1 min or until damaged."),
 			additional: "1 Channel Divinity",
-			action: [["action", ""]],
+			action: [["action", " (Channel Divinity)"]],
 		},
 		"subclassfeature6": {
 			name: "Dampen Elements",
@@ -360,7 +366,7 @@ AddSubClass("cleric", "nature domain", {
 			action: [["bonus action", ""]],
 		},
 	},
-});
+}, true);
 AddSubClass("cleric", "tempest domain", {
 	regExpSearch: /^(?=.*(cleric|priest|clergy|acolyte))(?=.*\b(tempest|destruction|storm)\b).*$/i,
 	subname: "Tempest Domain",
@@ -370,7 +376,7 @@ AddSubClass("cleric", "tempest domain", {
 			name: "Bonus Proficiency",
 			source: [["P", 62]],
 			minlevel: 3,
-			description: desc("I gain proficiency with martial weapons and heavy armor."),
+			description: desc("I gain proficiency with Martial weapons and Heavy armor."),
 			armorProfs: [false, false, true, false],
 			weaponProfs: [false, true],
 			spellcastingExtra: ["fog cloud", "thunderwave", "gust of wind", "shatter", "call lightning", "sleet storm", "control water", "ice storm", "destructive wave", "insect plague"],
@@ -406,7 +412,7 @@ AddSubClass("cleric", "tempest domain", {
 			speed: { fly: { spd: "walk", enc: "walk" } },
 		},
 	},
-});
+}, true);
 
 // Background Variants
 AddBackgroundVariant("entertainer", "gladiator", {
@@ -443,7 +449,7 @@ AddBackgroundVariant("sailor", "pirate", {
 
 // Background Features
 BackgroundFeatureList["shelter of the faithful"] = { // from Acolyte
-	description: "I command the respect of those who share my faith. I can perform the religious ceremonies of my faith. My companions and I can expect free healing and care at an establishment of my faith, though I must provide any material components needed for spells. Those who share my religion will support me at a modest lifestyle.",
+	description: "I command the respect of those who share my faith. I can perform the religious ceremonies of my faith. My companions and I can expect free healing and care at an establishment of my faith, though I must provide any Material components needed for spells. Those who share my religion will support me at a modest lifestyle.",
 	source: [["SRD", 61], ["P", 127]],
 };
 BackgroundFeatureList["false identity"] = { // from Charlatan
@@ -511,7 +517,7 @@ BackgroundFeatureList["city secrets"] = { // from Urchin
 FeatsList["dungeon delver"] = {
 	name: "Dungeon Delver",
 	source: [["P", 166]],
-	description: "I have Adv on Wis (Perception) and Int (Investigation) checks made to detect the presence of secret doors. I have Resistance to damage dealt by traps and Advantage on saves to avoid or resist traps. Travelling at a fast pace doesn't impose -5 on my passive Perception.",
+	description: "I have Adv on Wis (Perception) and Int (Investigation) checks made to detect the presence of secret doors. I have Resistance to damage dealt by traps and Advantage on saves to avoid or resist traps. Travelling at a fast pace doesn't impose -5 on my Passive Perception.",
 	descriptionFull: [
 		"Alert to the hidden traps and secret doors found in many dungeons, you gain the following benefits:",
 		" \u2022 You have advantage on Wisdom (Perception) and Intelligence (Investigation) checks made to detect the presence of secret doors.",

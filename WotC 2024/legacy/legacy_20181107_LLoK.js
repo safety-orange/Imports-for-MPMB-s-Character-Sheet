@@ -54,7 +54,7 @@ MagicItemsList["galder's bubble pipe"] = {
 	source: [["LLoK", 55]],
 	type: "Wondrous Item",
 	rarity: "Rare",
-	description: "This finely carved pipe has 3 charges to cast spells and regains all charges at dawn. As an action, I can expend all 3 charges to summon a Steam Mephit. It acts on its own initiative, is friendly to me, obeys my verbal commands, and disappears after 1 minute or if it ends its turn more than 60 ft from the pipe.",
+	description: "This finely carved pipe has 3 charges to cast spells and regains all charges at dawn. As an action, I can expend all 3 charges to summon a Steam Mephit. It acts on its own Initiative, is Friendly to me, obeys my verbal commands, and disappears after 1 minute or if it ends its turn more than 60 ft from the pipe.",
 	descriptionFull: [
 		"This finely carved pipe blows odorless bubbles instead of smoke when used. The pipe has 3 charges, and it regains all spent charges daily at dawn. While you hold the pipe, you can expend charges to gain access to the following properties:",
 		" \u2022 You can cast *Fog Cloud* as an action (1 charge).",
@@ -82,7 +82,7 @@ MagicItemsList["gambler's blade"] = {
 	source: [["LLoK", 55]],
 	type: "Weapon (Any Sword)",
 	rarity: "Rare",
-	description: "I am unwilling to part with this sword until I'm freed of its curse. Each day at dawn, I can choose its magical bonus to attack and damage rolls of +1, +2, or +3. However, I take a corresponding penalty (-1, -2, or -3) to my death saving throws.",
+	description: "I am unwilling to part with this sword until I'm freed of its curse. Each day at dawn, I can choose its magical bonus to attack and damage rolls of +1, +2, or +3. However, I take a corresponding penalty (-1, -2, or -3) to my Death Saving Throws.",
 	descriptionFull: [
 		"Choose a magical bonus of +1 to +3. This sword gains that bonus to its attack and damage rolls. For each point of bonus you choose for the sword, you take a corresponding penalty (-1 to -3) to your death saving throws. You can change this magical bonus each day at dawn.",
 		"***Curse***. This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with a *remove curse* spell or similar magic, you are unwilling to part with the weapon.",
@@ -103,7 +103,7 @@ MagicItemsList["gambler's blade"] = {
 				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && /sword|scimitar|rapier/i.test(v.baseWeaponName) && /gambler's/i.test(v.WeaponTextName)) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, "");
-					fields.Description += (fields.Description ? "; " : "") + "Choose its magic bonus (1-3), but equal penalty on death saves";
+					fields.Description += (fields.Description ? "; " : "") + "Choose its magic bonus (1-3), but equal penalty on Death Saves";
 				}
 			},
 			"If I include the word \"Gambler's\" in the name of a sword, it will be treated as the magic weapon Gambler's Blade.",
@@ -330,7 +330,7 @@ MagicItemsList["powered armor-llk"] = {
 	type: "Armor (Plate)",
 	rarity: "Legendary",
 	notLegalAL: true,
-	description: "This unusual plate armor looks like a heavily muscled warrior with a helm without openings. It gives me a +1 bonus to AC, increases my Strength to 18, and Adv on death saves. As a Bonus Action, I can use charges from its energy cell or expend my own HP to have it do various things, see Notes page.",
+	description: "This unusual plate armor looks like a heavily muscled warrior with a helm without openings. It gives me a +1 bonus to AC, increases my Strength to 18, and Adv on Death Saves. As a Bonus Action, I can use charges from its energy cell or expend my own HP to have it do various things, see Notes page.",
 	descriptionFull: [
 		"*Powered armor* resembles a suit of unusual plate armor, with finely articulated joints connected by an oily, black, leather-like material. The armor has been worked to create the appearance of a heavily muscled warrior, and its great helm is unusual in that it has no openings\u2014only a broad glass plate in the front with a second piece of glass above it. Strange plates, tubing, and large metal bosses adorn the armor in seemingly random fashion. On the back of the armor's left gauntlet is a rectangular metal box, from which projects a short rod tipped with a cone-shaped red crystal.",
 		"While wearing this armor, you gain the following benefits:",
@@ -349,7 +349,7 @@ MagicItemsList["powered armor-llk"] = {
 	attunement: true,
 	weight: 65,
 	scoresOverride: [18, 0, 0, 0, 0, 0],
-	savetxt: { text: ["Adv on death saves"] },
+	savetxt: { text: ["Adv on Death Saves"] },
 	action: [["bonus action", " (use energy)"]],
 	armorOptions: [{
 		regExpSearch: /^(?=.*powered)(?=.*armor).*$/i,

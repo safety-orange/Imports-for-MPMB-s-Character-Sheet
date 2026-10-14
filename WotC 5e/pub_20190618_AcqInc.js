@@ -315,10 +315,10 @@ RaceList["verdan"] = {
 	trait: [
 		"Verdan (+1 Constitution, +2 Charisma)",
 		"##\u25C6 Sudden Growth Spurt##. At 5th level, I grow 2 ft and my size becomes Medium.",
-		"##\u25C6 Black Blood Healing##. When I roll a 1 or 2 on any HD I spend at the end of short rest, I can reroll the die and must use the new roll.",
+		"##\u25C6 Black Blood Healing##. When I roll a 1 or 2 on any HD I spend at the end of a short rest, I can reroll the die and must use the new roll.",
 		"##\u25C6 Limited Telepathy##. I can telepathically communicate simple ideas and straightforward concepts to a creature I can see within 30 ft, if it can understand at least one language.",
 		"##\u25C6 Telepathic Insight##. I have advantage on Wisdom and Charisma saving throws.",
-	].join("\n"),
+	],
 	features: {
 		"sudden growth spurt": {
 			name: "Sudden Growth Spurt",
@@ -457,7 +457,7 @@ SpellsList["motivational speech"] = {
 	description: "5 crea that hear me 5+5/SL temp HP, adv. Wis saves, if hit adv. on next atk; stops when temp HP gone",
 	descriptionFull: [
 		"You address allies, staff, or innocent bystanders to exhort and inspire them to greatness, whether they have anything to get excited about or not. Choose up to five creatures within range that can hear you. For the duration, each affected creature gains 5 temporary hit points and has advantage on Wisdom saving throws. If an affected creature is hit by an attack, it has advantage on the next attack roll it makes. Once an affected creature loses the temporary hit points granted by this spell, the spell ends for that creature.",
-		"***At Higher Levels***. At Higher Levels. When you cast this spell using a spell slot of 4th level or higher, the temporary hit points increase by 5 for each slot level above 3rd.",
+		"***At Higher Levels***. When you cast this spell using a spell slot of 4th level or higher, the temporary hit points increase by 5 for each slot level above 3rd.",
 	],
 };
 

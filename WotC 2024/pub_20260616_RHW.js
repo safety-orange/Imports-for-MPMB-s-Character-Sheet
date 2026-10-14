@@ -99,7 +99,7 @@ AddSubClass("sorcerer", "shadow", {
 			altResource: "6 SP",
 		},
 	},
-});
+}, true);
 AddSubClass("warlock", "undead", {
 	regExpSearch: /^(?=.*undead)(?=.*warlock).*$/i,
 	subname: "Undead Patron",
@@ -173,7 +173,7 @@ AddSubClass("warlock", "undead", {
 			description: " [improves Form of Dread]",
 		},
 	},
-});
+}, true);
 
 // Backgrounds
 // NB: take Haunted One traits/bonds/ideals/flaws from CoS/VRGtR

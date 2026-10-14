@@ -766,7 +766,7 @@ RaceList["dragonmark healing halfling"] = {
 		"**Halfling, Dragonmark of Healing** (+2 Dexterity, +1 Wisdom)",
 		"##\u25C6 Lucky##. When I roll a 1 on an attack, check, or save, I can reroll it but must use the result." + (typePF ? " " : "\r") + "##\u25C6 Halfling Nimbleness##. I can move through the space of Medium and larger creatures.",
 		"##\u25C6 Medical Intuition##. I can add +1d4 to my Wisdom (Medicine) and herbalism kit checks.",
-		"##\u25C6 Healing Touch##. I can cast *Cure Wounds* each once per long rest. At 3rd level, I can also cast *Lesser Restoration* once per long rest. Wisdom is my spellcasting ability for these.",
+		"##\u25C6 Healing Touch##. I can cast *Cure Wounds* once per long rest. At 3rd level, I can also cast *Lesser Restoration* once per long rest. Wisdom is my spellcasting ability for these.",
 		"##\u25C6 Spells of the Mark##. I add several spells to " + (typePF ? "my class' spell list." : "the spell list of my spellcasting class(es)."),
 	],
 	spellcastingAbility: 5,
@@ -832,7 +832,7 @@ RaceList["dragonmark hospitality halfling"] = {
 	trait: [
 		"**Halfling, Dragonmark of Hospitality** (+2 Dexterity, +1 Charisma)",
 		"##\u25C6 Lucky##. When I roll a 1 on an attack, check, or save, I can reroll it but must use the result." + (typePF ? " " : "\r") + "##\u25C6 Halfling Nimbleness##. I can move through the space of Medium and larger creatures.",
-		"##\u25C6 Ever Hospitable##. I can add +1d4 to my Charisma (Persuasion), brewer's supplies, and cook's utensils checks." + (typePF ? "\r" : " ") + "##\u25C6 Innkeeper's Magic##. I know the *Prestidigitation* cantrip and I can cast *Purify Food and Drink* and *Unseen Servant* each once per long rest. Charisma as my spellcasting ability for these. Spells of the Mark: I add several spells to my class' spell list.",
+		"##\u25C6 Ever Hospitable##. I can add +1d4 to my Charisma (Persuasion), brewer's supplies, and cook's utensils checks." + (typePF ? "\r" : " ") + "##\u25C6 Innkeeper's Magic##. I know the *Prestidigitation* cantrip and I can cast *Purify Food and Drink* and *Unseen Servant* each once per long rest. Charisma is my spellcasting ability for these. Spells of the Mark: I add several spells to my class' spell list.",
 	],
 	spellcastingAbility: 6,
 	features: {
@@ -1357,7 +1357,7 @@ if (!SpellsList["gust"]) {
 			"You seize the air and compel it to create one of the following effects at a point you can see within range.",
 			" \u2022 One Medium or smaller creature that you choose must succeed on a Strength saving throw or be pushed up to 5 feet away from you.",
 			" \u2022 You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage.",
-			" \u2022 You create a harmless sensory affect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze.",
+			" \u2022 You create a harmless sensory effect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze.",
 		],
 	};
 } // dupl_end
@@ -2929,12 +2929,12 @@ MagicItemsList["docent"] = {
 	source: [["E:RLW", 276]],
 	type: "wondrous item",
 	rarity: "rare",
-	description: "I can embed this sentient small metal sphere studded with dragonshards into my chest or eye socket. I can communicate telepathically with it and it uses my senses. It can serve me as an advisor and a translator. It knowns 6 languages, a spells, an Intelligence skill, and can stabilize me. See Notes page.",
+	description: "I can embed this sentient small metal sphere studded with dragonshards into my chest or eye socket. I can communicate telepathically with it and it uses my senses. It can serve me as an advisor and a translator. It knows 6 languages, a spell, an Intelligence skill, and can stabilize me. See Notes page.",
 	descriptionFull: [
 		"A *docent* is a small metal sphere, about 2 inches across, studded with dragonshards. To attune to a *docent*, you must embed the item somewhere on your body, such as your chest or your eye socket.",
 		'***Sentience***. A *docent* is a sentient item of any alignment with an Intelligence of 16, a Wisdom of 14, and a Charisma of 14. It perceives the world through your senses. It communicates telepathically with you and can speak, read, and understand any language it knows (see "Random Properties" below).',
 		"***Life Support***. Whenever you end your turn with 0 hit points, the *docent* can make a Wisdom (Medicine) check with a +6 bonus. If this check succeeds, the *docent* stabilizes you.",
-		"***Random Properties**. A *docent* has the following properties:",
+		"***Random Properties***. A *docent* has the following properties:",
 		" \u2022 **Languages**. The *docent* knows Common, Giant, and 1d4 additional languages chosen by the DM. If a *docent* knows fewer than six languages, it can learn a new language after it hears or reads the language through your senses.",
 		" \u2022 **Skills**. The *docent* has a +7 bonus to one of the following skills (roll a d4): (1) Arcana, (2) History, (3) Investigation, or (4) Nature.",
 		" \u2022 **Spells**. The *docent* knows one of the following spells and can cast it at will, requiring no components (roll a d6): (1\u20132) *Detect Evil and Good* or (3\u20136) *Detect Magic*. The *docent* decides when to cast the spell.",
@@ -2961,7 +2961,7 @@ MagicItemsList["dyrrn's tentacle whip"] = {
 	source: [["E:RLW", 276]],
 	type: "weapon (whip)",
 	rarity: "very rare",
-	description: "This magic whip embeds itself in my arm once I attune to it and removing it requires ending a curse. It has a +2 bonus to attack and damage rolls, deals +1d6 psychic damage, but has disadv. vs. aberrations. On a roll of 20 to hit, the target is stunned until it next turn ends. As a bonus action, I can draw/sheath it in my arm",
+	description: "This magic whip embeds itself in my arm once I attune to it and removing it requires ending a curse. It has a +2 bonus to attack and damage rolls, deals +1d6 psychic dmg, but has disadv. vs. aberrations. On a roll of 20 to hit, the target is stunned until its next turn ends. As a bonus action, I can draw/sheath it in my arm",
 	descriptionFull: [
 		"This long, whip-like strand of tough muscle bears a sharp stinger at one end. To attune to this symbiotic weapon, you wrap the whip around your wrist for the entire attunement period, during which time the whip painfully embeds its tendrils into your arm.",
 		"You gain a +2 bonus to attack and damage rolls made with this magic whip, but attack rolls made against aberrations with this weapon have disadvantage. A creature hit by this weapon takes an extra 1d6 psychic damage. When you roll a 20 on the d20 for an attack roll with this weapon, the target is stunned until the end of its next turn.",
@@ -2986,7 +2986,7 @@ MagicItemsList["earworm"] = {
 	source: [["E:RLW", 277]],
 	type: "wondrous item",
 	rarity: "uncommon",
-	description: "This symbiont bonds to my skull once I attune to it and removing it to end the attunement requires ending a curse. It has 4 charges, regaining 1d4 at dawn, which I can use to cast *Detect Thoughts* (2 charges) or *Dissonant Whispers* (1 charge) with DC 15. It allows me to speak, read, and write deep speech.",
+	description: "This symbiont bonds to my skull once I attune to it and removing it to end the attunement requires ending a curse. It has 4 charges, regaining 1d4 at dawn, which I can use to cast *Detect Thoughts* (2 charges) or *Dissonant Whispers* (1 charge) with DC 15. It allows me to speak, read, and write Deep Speech.",
 	descriptionFull: [
 		"To attune to this symbiont, you must hold it against the skin behind your ear for the entire attunement period, whereupon it burrows into your head and bonds to your skull. While the *earworm* is inside you, you can speak, read, and write Deep Speech.",
 		"***Spells***. The *earworm* has 4 charges. You can cast the following spells from it, expending the necessary number of charges (spell save DC 15): *detect thoughts* (2 charges) or *dissonant whispers* (1 charge). Each time you use the *earworm* to cast the *detect thoughts* spell, it sends the information gleaned to the nearest daelkyr, or to the next nearest *earworm* until it reaches a daelkyr.",
@@ -3078,7 +3078,7 @@ MagicItemsList["glamerweave"] = {
 	"uncommon (pattern rises from the cloth)": {
 		name: "Uncommon Glamerweave",
 		rarity: "uncommon",
-		description: "Glamerweave is clothing imbued with harmless illusory magic. As a bonus action while wearing these clothes, I can have the pattern within them rise as an illusory visage (e.g. wreathed in flames). Once per dawn, I can use this to gives me +1d4 on a Charisma (Performance) or Charisma (Persuasion) check.",
+		description: "Glamerweave is clothing imbued with harmless illusory magic. As a bonus action while wearing these clothes, I can have the pattern within them rise as an illusory visage (e.g. wreathed in flames). Once per dawn, I can use this to give me +1d4 on a Charisma (Performance) or Charisma (Persuasion) check.",
 		descriptionFull: [
 			"*Glamerweave* is clothing imbued with harmless illusory magic. While wearing these clothes, you can use a bonus action to create a moving illusory pattern within the cloth.",
 			"You can have the pattern rise from the cloth. For example, a *glamerweave* gown might be wreathed in harmless, illusory flames, while a *glamerweave* hat might have illusory butterflies fluttering around it.",
@@ -3305,7 +3305,7 @@ MagicItemsList["kyrzin's ooze"] = {
 	source: [["E:RLW", 278]],
 	type: "wondrous item",
 	rarity: "very rare",
-	description: "Once I attune to this opalescent goo by drinking it, it can only be removed by ending a curse. It gives me resistance to acid and poison damage and immunity to the poisoned condition. Each as an action once per short rest, I can exhale acid breath or become amorphous for 1 minute along with my equipment.",
+	description: "Once I attune to this opalescent goo by drinking it, it can only be removed by ending a curse. It gives me resistance to acid and poison damage and immunity to the poisoned condition. Each as an action once per dawn, I can exhale acid breath or become amorphous for 1 minute along with my equipment.",
 	descriptionLong: "I can only attune to this opalescent, symbiotic goo by drinking it. I can't remove it or end the attunement voluntarily, but it seeps out of me if the curse is removed. It gives me resistance to acid and poison damage and immunity to the poisoned condition. As an action once per dawn, I can become amorphous for 1 minute along with my equipment and can move through a space as narrow as 1 inch wide. As an action once per dawn, I can exhale a 30-ft line, 5-ft wide acid breath that deals 8d8 acid damage (Dexterity save DC 15 halves). If I die while it is inside me, it turns my corpse into a black pudding.",
 	descriptionFull: [
 		"This opalescent, symbiotic goo comes sealed in a jar and slowly shifts and moves, as if endlessly exploring the jar's interior. To attune to this item, you must first drink the contents of the jar, unlocking the following properties.",
@@ -3548,7 +3548,7 @@ MagicItemsList["ventilating lungs"] = {
 	source: [["E:RLW", 279]],
 	type: "wondrous item",
 	rarity: "very rare",
-	description: "These lungs replace those in my chest while I'm attuned to them. Their function can't be suppressed by (anti)magic. They allow me to breath normally in any environment and give me advantage on saves against harmful gases and vapors. Once per dawn, I can use them to cast *Gust of Wind* (save DC 15) by exhaling.",
+	description: "These lungs replace those in my chest while I'm attuned to them. Their function can't be suppressed by (anti)magic. They allow me to breathe normally in any environment and give me advantage on saves against harmful gases and vapors. Once per dawn, I can use them to cast *Gust of Wind* (save DC 15) by exhaling.",
 	descriptionFull: [
 		"These metallic nodules were created in response to the poisonous gases used on the battlefields of the Last War. When you attune to these lungs, they replace the lungs in your chest, which disappear. The lungs allow you to breathe normally, even in an *antimagic field*, and their breathing function can't be suppressed by magic.",
 		"Outside an *antimagic field* or any other effect that suppresses magic, these lungs allow you to breathe normally in any environment (including a vacuum), and you have advantage on saving throws against harmful gases such as those created by a *cloudkill* spell, a *stinking cloud* spell, inhaled poisons, and gaseous breath weapons.",
@@ -3573,7 +3573,7 @@ MagicItemsList["wand sheath"] = {
 	source: [["E:RLW", 279]],
 	type: "wondrous item",
 	rarity: "common",
-	description: "This sheath clamps unto my arm and can't be removed while I'm attuned to it. As an action, I can insert a wand in it, which then doesn't count to the number of items I can attune to. As a bonus action, I can then retract the wand or extend the wand and use it as if holding it, while keeping my hand free.",
+	description: "This sheath clamps onto my arm and can't be removed while I'm attuned to it. As an action, I can insert a wand in it, which then doesn't count to the number of items I can attune to. As a bonus action, I can then retract the wand or extend the wand and use it as if holding it, while keeping my hand free.",
 	descriptionFull: [
 		"A *wand sheath* clamps onto your arm and imparts the following benefits:",
 		" \u2022 The *wand sheath* can't be removed from you while you're attuned to it.",
@@ -3675,24 +3675,6 @@ CreatureList["fastieth"] = {
 		description: "The [THIS] can take the Dodge action as a bonus action.",
 	}],
 };
-ERftLW_Valenar_Ancestral_Traits = [
-	"\u25C6 [Variant] Ancestral Traits: Each Valenar animal can be customized with an ancestral gift, a supernatural trait granted by its ancestral spirit. Choose a trait or roll on the table below for each Valenar animal.",
-	" d8\tTrait",
-	"  1\tBestow Luck (1/day): As a bonus action, the animal chooses one creature it can see",
-	"\twithin 30 ft of it. The next ability check, attack roll, or saving throw the target",
-	"\tmakes in the next hour has advantage.",
-	"  2\tBurst of Speed (recharge 6): The animal can take the Dash action as a bonus action.",
-	"  3\tCamouflage: The animal has advantage on Dexterity (Stealth) checks it makes while",
-	"\toutdoors.",
-	"  4\tLie Detector: The animal knows when a creature within 15 ft of it tells a lie.",
-	"  5\tFey Ancestry: The animal has advantage on saving throws against being charmed or",
-	"\tfrightened, and magic can't put it to sleep.",
-	"  6\tFey Step (1/day): The animal, along with anything it is wearing or carrying,",
-	"\tteleports up to 30 ft to an unoccupied space it can see.",
-	"  7\tQuickness (recharge 6): The animal can take the Dodge action as a bonus action.",
-	"  8\tShrouded Step. The animal can't be tracked except by magical means, and it leaves",
-	"\tbehind no tracks or other traces of its passage.",
-].join("\n");
 CreatureList["valenar hawk"] = { // contributed by Nod_Hero
 	name: "Valenar Hawk",
 	nameThis: "hawk",

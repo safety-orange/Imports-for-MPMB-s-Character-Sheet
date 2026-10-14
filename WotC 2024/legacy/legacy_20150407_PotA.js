@@ -49,7 +49,7 @@ MagicItemsList["balloon pack"] = {
 			duration: "10 min",
 			save: "",
 			description: "I rise vertically, up to 20 ft; move up/down 20 ft instead of normal move",
-			changes: "Using the Balloon Pack, I can only target myself, but the spell requires no concentration.",
+			changes: "Using the Balloon Pack, I can only target myself, but the spell requires no Concentration.",
 		},
 	},
 }
@@ -128,7 +128,7 @@ MagicItemsList["devastation orb"] = {
 			name: "Features",
 			note: PotA_tempDevastationOrbNoteTxt[1].replace(/tELEMENT/g, "earth").replace(/oELEMENT/g, "air") + desc([
 				"When this orb detonates, it subjects the area to the effects of the *Earthquake* spell for 1 minute (spell save DC 18). For the purpose of the spell's effects, the spell is cast on the turn that the orb explodes.",
-				"The *Earthquake* spell creates a seismic disturbance that shakes creatures and structures in contact with the ground in that area. The ground in the area becomes difficult terrain. Each creature on the ground that is concentrating must make a Constitution saving throw. On a failed save, the creature's concentration is broken.",
+				"The *Earthquake* spell creates a seismic disturbance that shakes creatures and structures in contact with the ground in that area. The ground in the area becomes difficult terrain. Each creature on the ground that is concentrating must make a Constitution saving throw. On a failed save, the creature's Concentration is broken.",
 				"At the end of each turn this goes on, each creature on the ground in the area must make a Dexterity saving throw. On a failed save, the creature is knocked Prone.",
 				"This spell can have additional effects depending on the terrain in the area, as determined by the DM.",
 				"\u2022 Fissures. Fissures open throughout the spell's area at the start of the turn after the orb detonates. A total of 1d6 such fissures open in locations chosen by the DM. Each is 1d10 \xD7 10 ft deep, 10 ft wide, and extends from one edge of the area to the opposite side. A creature standing on a spot where a fissure opens must succeed on a Dexterity saving throw or fall in. A creature that successfully saves moves with the fissure's edge as it opens. A fissure that opens beneath a structure causes it to automatically collapse (see below).",
@@ -258,7 +258,7 @@ MagicItemsList["ironfang"] = {
 	}],
 	spellChanges: {
 		"dominate monster": {
-			description: "Earth elemental save or Charmed, follows telepathic commands, 1 a for complete control; save on dmg",
+			description: "Earth elemental save or Charmed, follows telepathic commands, Act for complete control; save on dmg",
 			changes: "Can only affect an earth elemental.",
 		},
 		"shatter": {
@@ -344,7 +344,7 @@ MagicItemsList["orcsplitter"] = {
 			note: [
 				'A mighty axe wielded long ago by the dwarf king Torhild Flametongue, *Orcsplitter* is a battered weapon that appears unremarkable at first glance. Its head is graven with the Dwarvish runes for "orc," but the runes are depicted with a gap or slash through the markings; the word "orc" is literally split in two.',
 				"I gain a +2 bonus to attack and damage rolls made with it. When I roll a 20 on an attack roll with this weapon against an orc, that orc must succeed on a DC 17 Constitution saving throw or drop to 0 Hit Points.",
-				"While I am not Incapacitated, I can't be Surprised by orcs and I am aware when orcs are within 120 ft of me and aren't behind total cover, although I don't know their location. Also, me and any of my friends within 30 ft of me can't be Frightened while I am not Incapacitated.",
+				"While I am not Incapacitated, I can't be Surprised by orcs and I am aware when orcs are within 120 ft of me and aren't behind Total Cover, although I don't know their location. Also, me and any of my friends within 30 ft of me can't be Frightened while I am not Incapacitated.",
 				"*Orcsplitter* is a sentient, lawful good weapon with an Intelligence of 6, a Wisdom of 15, and a Charisma of 10. It can see and hear out to 120 feet and has Darkvision. It communicates by transmitting emotions to its wielder, although on rare occasions it uses a limited form of telepathy to bring to the wielder's mind a couplet or stanza of ancient Dwarvish verse.",
 				"*Orcsplitter* is grim, taciturn, and inflexible. It knows little more than the desire to face orcs in battle and serve a courageous, just wielder. It disdains cowards and any form of duplicity, deception, or disloyalty. The weapon's purpose is to defend dwarves and to serve as a symbol of dwarven resolve. It hates the traditional foes of dwarves\u2014giants, goblins, and, most of all, orcs\u2014and silently urges its possessor to meet such creatures in battle.",
 			],
@@ -444,7 +444,7 @@ MagicItemsList["tinderstrike"] = {
 	}],
 	spellChanges: {
 		"dominate monster": {
-			description: "Fire elemental save or Charmed, follows telepathic commands, 1 a for complete control; save on dmg",
+			description: "Fire elemental save or Charmed, follows telepathic commands, Act for complete control; save on dmg",
 			changes: "Can only affect a fire elemental.",
 		},
 	},
@@ -474,7 +474,7 @@ MagicItemsList["weird tank"] = {
 	type: "Wondrous Item",
 	rarity: "Rare",
 	description: "As an action, I can open (or close) this tank of water, allowing the water weird within it to act or not. The weird is bound to the tank, follows my telepathic commands, and acts after me in combat. If the weird is killed, a new one can be formed by placing the tank in a water node for 24 hours.",
-	descriptionLong: "As an action, I can open (or close) this tank of water, allowing the water weird within it to act or not. The weird is bound to the tank, follows my telepathic commands, and acts after me in combat. If it is killed, a new one can be formed by placing the tank in a water node for 24 hours. I can close the tank as an action, but I can only close the tank after commanding the weird to retract into it or if it died. The tank has AC 15, 50 HP, vulnerability to Bludgeoning damage, and Immunity to Poison and Psychic damage. Reducing the tank to 0 Hit Points destroys it and the water weird contained within it.",
+	descriptionLong: "As an action, I can open (or close) this tank of water, allowing the water weird within it to act or not. The weird is bound to the tank, follows my telepathic commands, and acts after me in combat. If it is killed, a new one can be formed by placing the tank in a water node for 24 hours. I can close the tank as an action, but I can only close the tank after commanding the weird to retract into it or if it died. The tank has AC 15, 50 HP, Vulnerability to Bludgeoning damage, and Immunity to Poison and Psychic damage. Reducing the tank to 0 Hit Points destroys it and the water weird contained within it.",
 	descriptionFull: [
 		"A *weird tank* is a ten-gallon tank of blown glass and sculpted bronze with a backpack-like carrying harness fashioned from tough leather. A water weird is contained within the tank. While wearing the tank, you can use an action to open it, allowing the water weird to emerge. The water weird acts immediately after you in the initiative order, and it is bound to the tank.",
 		"You can command the water weird telepathically (no action required) while you wear the tank. You can close the tank as an action only if you have first commanded the water weird to retract into it or if the water weird is dead.",
@@ -517,7 +517,7 @@ MagicItemsList["windvane"] = {
 	}],
 	spellChanges: {
 		"dominate monster": {
-			description: "Air elemental save or Charmed, follows telepathic commands, 1 a for complete control; save on dmg",
+			description: "Air elemental save or Charmed, follows telepathic commands, Act for complete control; save on dmg",
 			changes: "Can only affect an air elemental.",
 		},
 	},

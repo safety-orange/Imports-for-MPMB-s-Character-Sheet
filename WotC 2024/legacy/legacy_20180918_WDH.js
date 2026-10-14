@@ -268,7 +268,7 @@ MagicItemsList["feather of diatryma summoning"] = {
 	source: [["WDH", 191]],
 	type: "Wondrous Item",
 	rarity: "Rare",
-	description: "As an action once per 7 days, I can speak the command word and throw this feather to an empty large space in 5 ft, where it becomes a diatryma (axe beak stats) for 6 hours, until I speak the command again, or it has 0 HP. It is friendly, understands my languages, obeys my commands, and can be used as a mount.",
+	description: "As an action once per 7 days, I can speak the command word and throw this feather to an empty large space in 5 ft, where it becomes a diatryma (axe beak stats) for 6 hours, until I speak the command again, or it has 0 HP. It is Friendly, understands my languages, obeys my commands, and can be used as a mount.",
 	descriptionFull: [
 		"This bright plume is made from the feather of a diatryma (pronounced dee-ah-TRY-mah), a Large, colorful, flightless bird native to the Underdark. If you use an action to speak the command word and throw the feather into a Large unoccupied space on the ground within 5 feet of you, the feather becomes a living diatryma for up to 6 hours, after which it reverts to its feather form. It reverts to feather form early if it drops to 0 hit points or if you use an action to speak the command word again while touching the bird.",
 		"When the diatryma reverts to feather form, the magic of the feather can't be used again until 7 days have passed.",

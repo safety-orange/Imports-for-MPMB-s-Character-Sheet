@@ -39,7 +39,7 @@ AddSubClass("barbarian", "ancestral guardian", {
 			name: "Consult the Spirits",
 			source: [["X", 10]],
 			minlevel: 10,
-			description: desc("I can cast either *Clairvoyance* or *Augury*, without a spell slot or material components. *Augury* consults ancestral spirits. *Clairvoyance* summons an Invisible ancestral spirit. Wisdom is my spellcasting ability for these spells."),
+			description: desc("I can cast either *Clairvoyance* or *Augury*, without a spell slot or Material components. *Augury* consults ancestral spirits. *Clairvoyance* summons an Invisible ancestral spirit. Wisdom is my spellcasting ability for these spells."),
 			spellcastingAbility: 5,
 			spellcastingBonus: [{
 				name: "Consult the Spirits",
@@ -59,12 +59,12 @@ AddSubClass("barbarian", "ancestral guardian", {
 					components: "V,S",
 					compMaterial: "",
 					description: "Omen about specific course of action I plan to take in next 30 min: weal, woe, both, or neither",
-					changes: "My casting of *Augury* is a practice of consulting my ancestral spirits, thus requiring no material components.",
+					changes: "My casting of *Augury* is a practice of consulting my ancestral spirits, thus requiring no Material components.",
 				},
 				"clairvoyance": {
 					components: "V,S",
 					compMaterial: "",
-					changes: "My casting of *Clairvoyance* is a practice of consulting an ancestral spirit of mine, thus requiring no material components.",
+					changes: "My casting of *Clairvoyance* is a practice of consulting an ancestral spirit of mine, thus requiring no Material components.",
 				},
 			},
 		},
@@ -75,7 +75,7 @@ AddSubClass("barbarian", "ancestral guardian", {
 			description: desc("When using Spirit Shield, the attacker takes the reduced amount as Force damage."),
 		},
 	},
-});
+}, true);
 AddSubClass("barbarian", "storm herald", {
 	regExpSearch: /^(?=.*storm)(?=.*herald).*$/i,
 	subname: "Path of the Storm Herald",
@@ -88,22 +88,22 @@ AddSubClass("barbarian", "storm herald", {
 			name: "Storm Aura",
 			source: [["X", 10]],
 			minlevel: 3,
-			description: desc("While in Rage, I emanate a 10-ft radius aura, but not through total cover. The aura's features activate when I enter my Rage or as a Bonus Action while in Rage. Use the \"Choose Feature\" button above to select the type of aura."),
+			description: desc("While in Rage, I emanate a 10-ft radius aura, but not through Total Cover. The aura's features activate when I enter my Rage or as a Bonus Action while in Rage. Use the \"Choose Feature\" button above to select the type of aura."),
 			choices: ["Desert", "Sea", "Tundra"],
 			action: [["bonus action", " (reactivate)"]],
 			"desert": {
 				name: "Storm Aura: Desert",
-				description: desc("While in Rage, I emanate a 10-ft radius aura, but not through total cover. The aura's features activate when I enter my Rage or as a Bonus Action while in Rage. Whenever I activate my aura, anybody in my aura other than me takes Fire damage."),
+				description: desc("While in Rage, I emanate a 10-ft radius aura, but not through Total Cover. The aura's features activate when I enter my Rage or as a Bonus Action while in Rage. Whenever I activate my aura, anybody in my aura other than me takes Fire damage."),
 				additional: levels.map(function (n) { return n < 3 ? "" : (n < 5 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 20 ? 5 : 6) + " Fire damage"; }),
 			},
 			"sea": {
 				name: "Storm Aura: Sea",
-				description: desc("While in Rage, I emanate a 10-ft radius aura, but not through total cover. The aura's features activate when I enter my Rage or as a Bonus Action while in Rage. Whenever I activate my aura, I can choose one creature in my aura other than me. It takes Lightning damage, or half as much on a successful Dexterity saving throw. My Storm Herald features have DC 8 + my Proficiency Bonus + my Constitution modifier."),
+				description: desc("While in Rage, I emanate a 10-ft radius aura, but not through Total Cover. The aura's features activate when I enter my Rage or as a Bonus Action while in Rage. Whenever I activate my aura, I can choose one creature in my aura other than me. It takes Lightning damage, or half as much on a successful Dexterity saving throw. My Storm Herald features have DC 8 + my Proficiency Bonus + my Constitution modifier."),
 				additional: levels.map(function (n) { return n < 3 ? "" : (n < 10 ? 1 : n < 15 ? 2 : n < 20 ? 3 : 4) + "d6 Lightning damage"; }),
 			},
 			"tundra": {
 				name: "Storm Aura: Tundra",
-				description: desc("While in Rage, I emanate a 10-ft radius aura, but not through total cover. The aura's features activate when I enter my Rage or as a Bonus Action while in Rage. Whenever I activate my aura, all creatures of my choice in my aura gain Temporary HP."),
+				description: desc("While in Rage, I emanate a 10-ft radius aura, but not through Total Cover. The aura's features activate when I enter my Rage or as a Bonus Action while in Rage. Whenever I activate my aura, all creatures of my choice in my aura gain Temporary HP."),
 				additional: levels.map(function (n) { return n < 3 ? "" : (n < 5 ? 2 : n < 10 ? 3 : n < 15 ? 4 : n < 20 ? 5 : 6) + " Temporary Hit Points"; }),
 			},
 			choiceDependencies: [{
@@ -141,7 +141,7 @@ AddSubClass("barbarian", "storm herald", {
 				name: "Storm Soul: Tundra",
 				description: desc([
 					"I have Resistance to Cold damage and don't suffer the effects of extreme cold.",
-					"As an action, I can turn a 5-ft cube of water to ice, which melts after 1 minute. This action fails if there are any creatures within the cube of water.",
+					"As an action, I can turn a 5-ft Cube of water to ice, which melts after 1 minute. This action fails if there are any creatures within the Cube of water.",
 				]),
 				action: [["action", " (freeze)"]],
 				dmgres: ["Cold"],
@@ -192,7 +192,7 @@ AddSubClass("barbarian", "storm herald", {
 			},
 		},
 	},
-});
+}, true);
 
 // Bard subclasses
 AddSubClass("bard", "college of swords", {
@@ -206,7 +206,7 @@ AddSubClass("bard", "college of swords", {
 			name: "Bonus Proficiencies",
 			source: [["X", 15]],
 			minlevel: 3,
-			description: desc("I gain proficiency with medium armor and scimitars. My bardic spellcasting focus can be any simple or martial weapon I'm proficient with."),
+			description: desc("I gain proficiency with Medium armor and scimitars. My bardic spellcasting focus can be any Simple or Martial weapon I'm proficient with."),
 			armorProfs: [false, true, false, false],
 			weaponProfs: [false, false, ["scimitar"]],
 		},
@@ -237,7 +237,7 @@ AddSubClass("bard", "college of swords", {
 			description: desc("When I do a Blade Flourish, I can use a d6 instead of expending a Bardic Inspiration die."),
 		},
 	},
-});
+}, true);
 AddSubClass("bard", "college of whispers", {
 	regExpSearch: /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*whispers).*$/i,
 	subname: "College of Whispers",
@@ -286,7 +286,7 @@ AddSubClass("bard", "college of whispers", {
 			//"When the effect ends, the target has no idea why it was so afraid of me"
 		},
 	},
-});
+}, true);
 
 // Cleric subclass
 AddSubClass("cleric", "forge domain", {
@@ -299,7 +299,7 @@ AddSubClass("cleric", "forge domain", {
 			source: [["X", 19]],
 			minlevel: 3,
 			spellcastingExtra: ["identify", "searing smite", "heat metal", "magic weapon", "elemental weapon", "protection from energy", "fabricate", "wall of fire", "animate objects", "creation"],
-			description: desc("I gain proficiency with heavy armor and smith's tools."),
+			description: desc("I gain proficiency with Heavy armor and smith's tools."),
 			armorProfs: [false, false, true, false],
 			toolProfs: ["Smith's tools"],
 		},
@@ -316,14 +316,14 @@ AddSubClass("cleric", "forge domain", {
 			name: "Artisan's Blessing",
 			source: [["X", 19]],
 			minlevel: 3,
-			description: desc("With an hour-long ritual, I can craft a nonmagical item that is at least part metal, including: suit of armor, simple or martial weapon, set of tools, 10 pieces of ammunition. The creation can be worth up to 100 gp, and I must expend metals of equal value to it. The metals irretrievably coalesce into the new item, forming even nonmetal parts of it. The item can be an exact duplicate of a nonmagical item if I possess the original. The item comes into existence at the end of the hour in an unoccupied space within 5 ft."),
+			description: desc("With an hour-long ritual, I can craft a nonmagical item that is at least part metal, including: suit of armor, Simple or Martial weapon, set of tools, 10 pieces of ammunition. The creation can be worth up to 100 gp, and I must expend metals of equal value to it. The metals irretrievably coalesce into the new item, forming even nonmetal parts of it. The item can be an exact duplicate of a nonmagical item if I possess the original. The item comes into existence at the end of the hour in an unoccupied space within 5 ft."),
 			additional: "1 Channel Divinity",
 		},
 		"subclassfeature6": {
 			name: "Soul of the Forge",
 			source: [["X", 19]],
 			minlevel: 6,
-			description: desc("I gain Resistance to Fire damage and +1 to AC while wearing medium or heavy armor."),
+			description: desc("I gain Resistance to Fire damage and +1 to AC while wearing Medium or Heavy armor."),
 			dmgres: ["Fire"],
 			extraAC: {
 				mod: 1,
@@ -335,12 +335,12 @@ AddSubClass("cleric", "forge domain", {
 			name: "Saint of Forge and Fire",
 			source: [["X", 19]],
 			minlevel: 17,
-			description: desc("I gain Immunity to Fire damage. When wearing heavy armor, I'm resistant to nonmagical Bludg./Piercing/Slashing damage."),
+			description: desc("I gain Immunity to Fire damage. When wearing Heavy armor, I'm resistant to nonmagical Bludg./Piercing/Slashing damage."),
 			savetxt: { immune: ["Fire"] },
 			dmgres: [["Bludgeoning", "Bludg. (nonmagical)"], ["Piercing", "Pierc. (nonmagical)"], ["Slashing", "Slash. (nonmagical)"]],
 		},
 	},
-});
+}, true);
 
 // Druid subclasses
 AddSubClass("druid", "circle of dreams", {
@@ -365,7 +365,7 @@ AddSubClass("druid", "circle of dreams", {
 			name: "Hearth of Moonlight and Shadow",
 			source: [["X", 22]],
 			minlevel: 6,
-			description: desc("At the start of a rest, I can create a 30-ft radius invisible magical sphere. The sphere extends from a point in space I touch, but doesn't extend through total cover. Within this area, my allies and I gain +5 on Wis (Perception) and Dex (Stealth) checks. Also, any light from open flames that are in the sphere is invisible from outside the area. This effect lasts until the end of the rest or when I leave the sphere."),
+			description: desc("At the start of a rest, I can create a 30-ft radius invisible magical Sphere. The Sphere extends from a point in space I touch, but doesn't extend through Total Cover. Within this area, my allies and I gain +5 on Wis (Perception) and Dex (Stealth) checks. Also, any light from open flames that are in the Sphere is invisible from outside the area. This effect lasts until the end of the rest or when I leave the Sphere."),
 		},
 		"subclassfeature10": {
 			name: "Hidden Paths",
@@ -386,7 +386,7 @@ AddSubClass("druid", "circle of dreams", {
 			minlevel: 14,
 			usages: 1,
 			recovery: "Long Rest",
-			description: desc("When I finish a Short Rest, I can cast either *Dream*, *Scrying*, or *Teleportation Circle*. This doesn't require a spell slot or material components. *Dream* uses me as the messenger. *Teleportation Circle* connects to the last place I finished a Long Rest, if on the same plane."),
+			description: desc("When I finish a Short Rest, I can cast either *Dream*, *Scrying*, or *Teleportation Circle*. This doesn't require a spell slot or Material components. *Dream* uses me as the messenger. *Teleportation Circle* connects to the last place I finished a Long Rest, if on the same plane."),
 			spellcastingBonus: [{
 				name: "Walker in Dreams",
 				spells: ["dream"],
@@ -407,24 +407,24 @@ AddSubClass("druid", "circle of dreams", {
 				"dream": {
 					components: "V,S",
 					compMaterial: "",
-					changes: "Using Walker in Dreams, I can cast either *Dream*, *Scrying*, or *Teleportation Circle* once per Long Rest without requiring material components.",
+					changes: "Using Walker in Dreams, I can cast either *Dream*, *Scrying*, or *Teleportation Circle* once per Long Rest without requiring Material components.",
 				},
 				"scrying": {
 					components: "V,S",
 					compMaterial: "",
 					description: "1 creature save or followed by sensor, or create immobile sensor in familiar location; see book",
-					changes: "Using Walker in Dreams, I can cast either *Dream*, *Scrying*, or *Teleportation Circle* once per Long Rest without requiring material components.",
+					changes: "Using Walker in Dreams, I can cast either *Dream*, *Scrying*, or *Teleportation Circle* once per Long Rest without requiring Material components.",
 				},
 				"teleportation circle": {
 					components: "V",
 					compMaterial: "",
 					description: "Create a circle to teleport to the place where I finished my last Long Rest, if on the same plane; see B",
-					changes: "Using Walker in Dreams, I can cast either *Dream*, *Scrying*, or *Teleportation Circle* once per Long Rest without requiring material components.\n \u2022 The *teleportation circle* brings me back to the place where I finished my last Long Rest.",
+					changes: "Using Walker in Dreams, I can cast either *Dream*, *Scrying*, or *Teleportation Circle* once per Long Rest without requiring Material components.\n \u2022 The *teleportation circle* brings me back to the place where I finished my last Long Rest.",
 				},
 			},
 		},
 	},
-});
+}, true);
 AddSubClass("druid", "circle of the shepherd", {
 	regExpSearch: /^(?=.*(druid|shaman))(?=.*shepherd).*$/i,
 	subname: "Circle of the Shepherd",
@@ -482,12 +482,12 @@ AddSubClass("druid", "circle of the shepherd", {
 					range: "20 ft",
 					duration: "1 h",
 					description: "Summon 4 CR 2 Beasts; protect me from harm and attack foes",
-					changes: "Using my Faithful Summons class feature when I'm reduced to 0 HP, I can cast *Conjure Animals* as if using a 9th-level spell slot. This then summons 4 Beasts of my choice up to CR 2 within 20 ft of me without needing concentration.",
+					changes: "Using my Faithful Summons class feature when I'm reduced to 0 HP, I can cast *Conjure Animals* as if using a 9th-level spell slot. This then summons 4 Beasts of my choice up to CR 2 within 20 ft of me without needing Concentration.",
 				},
 			},
 		},
 	},
-});
+}, true);
 
 // Fighter subclasses
 AddSubClass("fighter", "cavalier", {
@@ -572,7 +572,7 @@ AddSubClass("fighter", "cavalier", {
 			description: desc("I can make Opportunity Attacks without using my Reaction. I can do this only once on every creature's turn, except on my own turn. I can't do this on the same turn that I use my normal Reaction."),
 		},
 	},
-});
+}, true);
 AddSubClass("fighter", "samurai", {
 	regExpSearch: /samurai/i,
 	subname: "Samurai",
@@ -618,7 +618,7 @@ AddSubClass("fighter", "samurai", {
 			name: "Tireless Spirit",
 			source: [["X", 31]],
 			minlevel: 10,
-			description: desc("I regain one use of Fighting Spirit if I have no more remaining when I roll initiative."),
+			description: desc("I regain one use of Fighting Spirit if I have no more remaining when I roll Initiative."),
 		},
 		"subclassfeature15": {
 			name: "Rapid Strike",
@@ -630,12 +630,12 @@ AddSubClass("fighter", "samurai", {
 			name: "Strength Before Death",
 			source: [["X", 31]],
 			minlevel: 18,
-			description: desc("If I'm reduced to 0 HP but not killed outright, I can delay falling Unconscious. I then immediately take a bonus turn, interrupting the current turn. While I'm at 0 HP, I suffer damage normally and die if I have 3 failed death saves. If I'm still at 0 HP at the end of this bonus turn, I fall Unconscious."),
+			description: desc("If I'm reduced to 0 HP but not killed outright, I can delay falling Unconscious. I then immediately take a bonus turn, interrupting the current turn. While I'm at 0 HP, I suffer damage normally and die if I have 3 failed Death Saves. If I'm still at 0 HP at the end of this bonus turn, I fall Unconscious."),
 			recovery: "Long Rest",
 			usages: 1,
 		},
 	},
-});
+}, true);
 
 // Add 3 subclasses for the Monk
 AddSubClass("monk", "way of the drunken master", {
@@ -681,7 +681,7 @@ AddSubClass("monk", "way of the drunken master", {
 			description: desc("I can make 3 extra attacks with Flurry of Blows if each is used on a different target."),
 		},
 	},
-});
+}, true);
 // Create the Kensei and its weapon options last, so we benefit of all possible weapons that were added
 RunFunctionAtEnd(function () {
 	var theKenseiSubclassName = AddSubClass("monk", "way of the kensei", {
@@ -697,7 +697,7 @@ RunFunctionAtEnd(function () {
 				minlevel: 3,
 				description: desc([
 					"I gain proficiency with either calligrapher's supplies or painter's supplies. Some weapons, that don't have the Heavy or special property, are kensei weapons for me. At least one ranged and one melee weapon, more at higher levels (longbow does qualify). With these: proficient, count as Monk weapons, special bonuses depending on type held.",
-					" \u2022 Melee: if I do unarmed strike during an Attack action, +2 AC until my next turn starts.",
+					" \u2022 Melee: if I do Unarmed Strike during an Attack action, +2 AC until my next turn starts.",
 					" \u2022 Ranged: as a Bonus Action, ranged weapon attacks deal +1d4 damage in current turn.",
 				]),
 				action: [["bonus action", " (with ranged)"]],
@@ -728,7 +728,7 @@ RunFunctionAtEnd(function () {
 				name: "One with the Blade",
 				source: [["X", 34]],
 				minlevel: 6,
-				description: desc("My unarmed strikes and kensei weapon attacks count as magical."),
+				description: desc("My Unarmed Strikes and kensei weapon attacks count as magical."),
 				calcChanges: {
 					atkAdd: [
 						function (fields, v) {
@@ -736,7 +736,7 @@ RunFunctionAtEnd(function () {
 								fields.Description += (fields.Description ? "; " : "") + "Counts as magical";
 							};
 						},
-						"My unarmed strikes and any Kensei Weapons count as magical for overcoming Resistances and Immunities.",
+						"My Unarmed Strikes and any Kensei Weapons count as magical for overcoming Resistances and Immunities.",
 					],
 				},
 				"deft strike": {
@@ -768,7 +768,7 @@ RunFunctionAtEnd(function () {
 				description: desc("Once per turn, if I miss a Monk weapon attack on my turn, I can reroll the attack roll."),
 			},
 		},
-	});
+	}, true);
 	var itsFea = ClassSubList[theKenseiSubclassName].features.subclassfeature3;
 	for (var weapon in WeaponsList) {
 		var aWea = WeaponsList[weapon];
@@ -850,7 +850,7 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList["S"] || SourceList
 				name: "Searing Sunburst",
 				source: [["S", 131], ["X", 35]],
 				minlevel: 11,
-				description: desc("As an action, anyone in a 20-ft radius light on a point within 150 ft makes a Con save. If failed and not behind opaque total cover, it takes 2d6+2d6/FP Radiant damage."),
+				description: desc("As an action, anyone in a 20-ft radius light on a point within 150 ft makes a Con save. If failed and not behind opaque Total Cover, it takes 2d6+2d6/FP Radiant damage."),
 				action: [["action", ""]],
 				additional: "0 Focus Points + max 3 Focus Points",
 				weaponOptions: [{
@@ -877,7 +877,7 @@ if (!ClassSubList["monk-way of the sun soul"] && (!SourceList["S"] || SourceList
 				additional: "30-ft rad Bright + 30 ft Dim Light",
 			},
 		},
-	});
+	}, true);
 }; // dupl_end
 
 // Add 2 subclasses for the Paladin
@@ -893,7 +893,7 @@ AddSubClass("paladin", "oath of conquest", {
 			minlevel: 3,
 			description: desc("As an action, all creatures of my choice within a 30 ft radius must make a Wisdom save or be Frightened for 1 minute. A target can save again at the end of each of its turns."),
 			additional: "1 Channel Divinity",
-			action: [["action", ""]],
+			action: [["action", " (Channel Divinity)"]],
 			spellcastingExtra: ["armor of agathys", "command", "hold person", "spiritual weapon", "bestow curse", "fear", "dominate beast", "stoneskin", "cloudkill", "dominate person"],
 		},
 		"subclassfeature3.1": {
@@ -927,14 +927,14 @@ AddSubClass("paladin", "oath of conquest", {
 				"As an action, I can gain the following benefits for 1 minute.",
 				" \u2022 I have Resistance to all damage.",
 				" \u2022 I can make an additional attack as part of my Attack action.",
-				" \u2022 My melee weapons score critical hits on a roll of 19 or 20.",
+				" \u2022 My melee weapons score Critical Hits on a roll of 19 or 20.",
 			]),
 			recovery: "Long Rest",
 			usages: 1,
 			action: [["action", ""]],
 		},
 	},
-});
+}, true);
 AddSubClass("paladin", "oath of redemption", {
 	regExpSearch: /^((?=.*redeemer)|((?=.*redemption)(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper))))))).*$/i,
 	subname: "Oath of Redemption",
@@ -947,7 +947,7 @@ AddSubClass("paladin", "oath of redemption", {
 			minlevel: 3,
 			description: desc("As a Bonus Action, I grant myself +5 on Charisma (Persuasion) checks for 10 minutes."),
 			additional: "1 Channel Divinity",
-			action: [["bonus action", ""]],
+			action: [["bonus action", " (Channel Divinity)"]],
 			spellcastingExtra: ["sanctuary", "sleep", "calm emotions", "hold person", "counterspell", "hypnotic pattern", "otiluke's resilient sphere", "stoneskin", "hold monster", "wall of force"],
 		},
 		"subclassfeature3.1": {
@@ -956,7 +956,7 @@ AddSubClass("paladin", "oath of redemption", {
 			minlevel: 3,
 			description: desc("As a Reaction after a creature within 30 ft attacks and damages another, I can rebuke it. It takes the same damage as it dealt but as Radiant damage, with a Wis save to halve it."),
 			additional: "1 Channel Divinity",
-			action: [["reaction", ""]],
+			action: [["reaction", " (Channel Divinity)"]],
 		},
 		"subclassfeature7": {
 			name: "Aura of the Guardian",
@@ -981,7 +981,7 @@ AddSubClass("paladin", "oath of redemption", {
 			dmgres: ["All from creatures"],
 		},
 	},
-});
+}, true);
 
 // Ranger subclasses
 AddSubClass("ranger", "horizon walker", {
@@ -1048,7 +1048,7 @@ AddSubClass("ranger", "horizon walker", {
 			action: [["reaction", ""]],
 		},
 	},
-});
+}, true);
 AddSubClass("ranger", "monster slayer", {
 	regExpSearch: /^(?=.*monster)(?=.*slayer).*$/i,
 	subname: "Monster Slayer",
@@ -1059,7 +1059,7 @@ AddSubClass("ranger", "monster slayer", {
 			name: "Hunter's Sense",
 			source: [["X", 43]],
 			minlevel: 3,
-			description: desc("As an action, I learn vulnerabilities/Immunities/Resistances of a target I see within 60 ft. If it is protected from Divination magic, I sense it has none of these."),
+			description: desc("As an action, I learn Vulnerabilities/Immunities/Resistances of a target I see within 60 ft. If it is protected from Divination magic, I sense it has none of these."),
 			action: [["action", ""]],
 			usages: "Wisdom modifier per ",
 			usagescalc: "event.value = Math.max(1, What('Wis Mod'));",
@@ -1102,7 +1102,7 @@ AddSubClass("ranger", "monster slayer", {
 			action: [["reaction", ""]],
 		},
 	},
-});
+}, true);
 
 // Add 4 subclasses for the Rogue
 AddSubClass("rogue", "inquisitive", {
@@ -1157,7 +1157,7 @@ AddSubClass("rogue", "inquisitive", {
 			description: desc("While my Insightful Fighting is active, I add 3d6 to sneak attacks against that target."),
 		},
 	},
-});
+}, true);
 // dupl_start
 if (!ClassSubList["rogue-mastermind"] && (!SourceList["S"] || SourceList["S"].abbreviation.toLowerCase() !== "scag")) {
 	// the Mastermind subclass is identical to the one in SCAG, so only add if it that one doesn't exist yet
@@ -1205,7 +1205,7 @@ if (!ClassSubList["rogue-mastermind"] && (!SourceList["S"] || SourceList["S"].ab
 				description: desc("My thoughts can't be read by telepathy or similar means and I can project false thoughts. For that, I must pass a Cha (Deception) vs Wis (Insight) check to fool the mind reader. Magic always determines I'm truthful and I can't be magically compelled to tell the truth."),
 			},
 		},
-	});
+	}, true);
 }; // dupl_end
 AddSubClass("rogue", "scout", {
 	regExpSearch: /scout/i,
@@ -1223,7 +1223,7 @@ AddSubClass("rogue", "scout", {
 			name: "Survivalist",
 			source: [["X", 47]],
 			minlevel: 3,
-			description: desc("I gain proficiency and expertise with the Nature and Survival skills."),
+			description: desc("I gain proficiency and Expertise with the Nature and Survival skills."),
 			skills: [["Nature", "full"], ["Survival", "full"]],
 		},
 		"subclassfeature9": {
@@ -1250,7 +1250,7 @@ AddSubClass("rogue", "scout", {
 			action: [["bonus action", " (with Attack action)"]],
 		},
 	},
-});
+}, true);
 // dupl_start
 if (!ClassSubList["rogue-swashbuckler"] && (!SourceList["S"] || SourceList["S"].abbreviation.toLowerCase() !== "scag")) {
 	// the Swashbuckler subclass is identical to the one in SCAG, so only add if it that one doesn't exist yet
@@ -1270,8 +1270,8 @@ if (!ClassSubList["rogue-swashbuckler"] && (!SourceList["S"] || SourceList["S"].
 				name: "Rakish Audacity",
 				source: [["S", 136], ["X", 47]],
 				minlevel: 3,
-				description: desc("I don't need Advantage to sneak attack if my target is the only one within 5 ft of me. I still can't sneak attack if I have Disadv. I add my Charisma modifier to initiative rolls."),
-				addMod: { type: "skill", field: "Init", mod: "max(Cha|0)", text: "I can add my Charisma modifier to initiative rolls." },
+				description: desc("I don't need Advantage to sneak attack if my target is the only one within 5 ft of me. I still can't sneak attack if I have Disadv. I add my Charisma modifier to Initiative rolls."),
+				addMod: { type: "skill", field: "Init", mod: "max(Cha|0)", text: "I can add my Charisma modifier to Initiative rolls." },
 			},
 			"subclassfeature9": {
 				name: "Panache",
@@ -1300,7 +1300,7 @@ if (!ClassSubList["rogue-swashbuckler"] && (!SourceList["S"] || SourceList["S"].
 				usages: 1,
 			},
 		},
-	});
+	}, true);
 }; // dupl_end
 
 // Sorcerer subclasses
@@ -1426,7 +1426,7 @@ AddSubClass("sorcerer", "divine soul", { // this code includes contributions by 
 			usages: 1,
 		},
 	},
-});
+}, true);
 // dupl_start
 if (!ClassSubList["sorcerer-storm sorcery"] && (!SourceList["S"] || SourceList["S"].abbreviation.toLowerCase() !== "scag")) {
 	// the Storm Sorcery subclass is identical to the one in SCAG, so only add if it that one doesn't exist yet
@@ -1489,7 +1489,7 @@ if (!ClassSubList["sorcerer-storm sorcery"] && (!SourceList["S"] || SourceList["
 				recovery: "Short Rest",
 			},
 		},
-	});
+	}, true);
 }; // dupl_end
 
 // Warlock subclass
@@ -1507,7 +1507,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 			description: desc([
 				"As a Bonus Action, I can curse a creature I can see within 30 ft of me for 1 minute.",
 				" \u2022 I add my Proficiency Bonus to damage rolls against the cursed target.",
-				" \u2022 My attack rolls against the cursed target score a critical hit on a roll of 19 and 20.",
+				" \u2022 My attack rolls against the cursed target score a Critical Hit on a roll of 19 and 20.",
 				" \u2022 If the target dies while cursed, I regain HP equal to my Warlock level + Cha mod.",
 				"The curse ends after 1 minute, when the target dies, I die, or I'm Incapacitated.",
 			]),
@@ -1522,7 +1522,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 							fields.Description += (fields.Description ? "; " : "") + "Crit on 19-20";
 						}
 					},
-					"If I include the word 'Curse' in the name of a weapon, the automation will treat the attack as being against a target of the Hexblade's Curse: adding my Proficiency Bonus to the damage and adding the increased chance of a critical hit to the description.",
+					"If I include the word 'Curse' in the name of a weapon, the automation will treat the attack as being against a target of the Hexblade's Curse: adding my Proficiency Bonus to the damage and adding the increased chance of a Critical Hit to the description.",
 					19,
 				],
 				atkCalc: [
@@ -1535,7 +1535,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 			name: "Hex Warrior",
 			source: [["X", 55]],
 			minlevel: 3,
-			description: desc("I gain proficiency with medium armor, shields, and martial weapons. When I finish a Long Rest, I can imbue one weapon I touch with my will. Until my next Long Rest, I can use it with Charisma instead of Strength or Dexterity. I have to be proficient with the weapon and it can't have the Two-Handed property. This benefit also works with every weapon from Pact of the Blade, with no restriction."),
+			description: desc("I gain proficiency with Medium armor, shields, and Martial weapons. When I finish a Long Rest, I can imbue one weapon I touch with my will. Until my next Long Rest, I can use it with Charisma instead of Strength or Dexterity. I have to be proficient with the weapon and it can't have the Two-Handed property. This benefit also works with every weapon from Pact of the Blade, with no restriction."),
 			armorProfs: [false, true, false, true],
 			weaponProfs: [false, true],
 			calcChanges: {
@@ -1553,7 +1553,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 			name: "Accursed Specter",
 			source: [["X", 56]],
 			minlevel: 6,
-			description: desc("When I slay a Humanoid, I can curse its soul and have it rise as a specter from its corpse. It has the stats of a specter with Temporary Hit Points equal to half my Warlock level. It rolls initiative and has its own turns, obeying my verbal commands. It gains a bonus to attack rolls equal to my Charisma modifier (min +0). The specter remains until the end of my next Long Rest, at which point it vanishes."),
+			description: desc("When I slay a Humanoid, I can curse its soul and have it rise as a specter from its corpse. It has the stats of a specter with Temporary Hit Points equal to half my Warlock level. It rolls Initiative and has its own turns, obeying my verbal commands. It gains a bonus to attack rolls equal to my Charisma modifier (min +0). The specter remains until the end of my next Long Rest, at which point it vanishes."),
 			additional: levels.map( function (n) { return n < 6 ? "" : Math.floor(n / 2) + " Temp HP"; }),
 			usages: 1,
 			recovery: "Long Rest",
@@ -1600,7 +1600,7 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 				}],
 				features: [{
 					name: "Bound Spirit",
-					description: "The specter obeys my verbal commands and remains in my service until the end of my next Long Rest, at which point it vanishes to the afterlife. It acts on its own turn with its own initiative.",
+					description: "The specter obeys my verbal commands and remains in my service until the end of my next Long Rest, at which point it vanishes to the afterlife. It acts on its own turn with its own Initiative.",
 				}],
 				header: "Bound Spirit",
 				eval: function (prefix) {
@@ -1628,49 +1628,49 @@ AddSubClass("warlock", "the hexblade", { // this code includes contributions by 
 			description: desc("When the target of my Hexblade's Curse dies, I can curse another I can see within 30 ft. I can't do this while Incapacitated and I don't regain HP from the death of the previous."),
 		},
 	},
-});
+}, true);
 
 // Add Warlock Invocations
 AddWarlockInvocation("Aspect of the Moon (req: Pact of the Tome)", {
 	name: "Aspect of the Moon",
 	description: desc("I don't need sleep nor can be forced to by any means. I can rest while doing light activity."),
 	source: [["X", 56], ["UA:RCO", 5]],
-	submenu: "[improves Pact of the Tome]",
+	submenu: ["[Warlock level  0+]", "[improves Pact of the Tome]"],
 	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the tome") !== -1; },
 	savetxt: { text: ["Nothing can force me to sleep"] },
 });
-AddWarlockInvocation("Cloak of Flies (req: level 5 warlock)", {
+AddWarlockInvocation("Cloak of Flies", {
 	name: "Cloak of Flies",
-	description: desc("As a Bonus Action, I can surround myself with a 5-ft radius magical aura of buzzing flies. It lasts until I'm Incapacitated or dismiss it as a Bonus Action. Total cover blocks the aura. The aura grants me Adv on Cha (Intimidation), but Disadv on all other Cha checks. Creatures starting their turn in the aura take my Cha mod (min 0) in Poison damage."),
 	source: [["X", 56], ["UA:RCO", 5]],
-	submenu: "[Warlock level  5+]",
 	minlevel: 5,
+	submenu: "[Warlock level  5+]",
+	description: desc("As a Bonus Action, I can surround myself with a 5-ft radius magical aura of buzzing flies. It lasts until I'm Incapacitated or dismiss it as a Bonus Action. Total Cover blocks the aura. The aura grants me Adv on Cha (Intimidation), but Disadv on all other Cha checks. Creatures starting their turn in the aura take my Cha mod (min 0) in Poison damage."),
 	recovery: "Short Rest",
 	usages: 1,
 	action: [["bonus action", " (start/stop)"]],
 });
 AddWarlockInvocation("Ghostly Gaze", {
 	name: "Ghostly Gaze",
-	description: desc("As an action, I can gain Darkvision, and the ability to see through solid objects, out to 30 ft. Objects then appear ghostly to me. This lasts up to 1 minute, and requires my Concentration."),
 	source: [["X", 56]],
-	submenu: "[Warlock level  7+]",
 	minlevel: 7,
+	submenu: "[Warlock level  7+]",
+	description: desc("As an action, I can gain Darkvision, and the ability to see through solid objects, out to 30 ft. Objects then appear ghostly to me. This lasts up to 1 minute, and requires my Concentration."),
 	recovery: "Short Rest",
 	usages: 1,
 	action: [["action", ""]],
 });
 AddWarlockInvocation("Gift of the Ever-Living Ones (req: Pact of the Chain)", {
 	name: "Gift of the Ever-Living Ones",
-	description: desc("When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll."),
 	source: [["X", 57], ["UA:RCO", 6]],
-	submenu: "[improves Pact of the Chain]",
+	submenu: ["[Warlock level  0+]", "[improves Pact of the Chain]"],
+	description: desc("When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll."),
 	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the chain") !== -1; },
 });
 AddWarlockInvocation("Grasp of Hadar (req: Eldritch Blast cantrip)", {
 	name: "Grasp of Hadar",
-	description: desc("Once per turn when my *Eldritch Blast* hits a creature, I can move it 10 ft closer to me."),
 	source: [["X", 57], ["UA:RCO", 6]],
-	submenu: "[upgrades Eldritch Blast]",
+	submenu: ["[Warlock level  0+]", "[upgrades Eldritch Blast]"],
+	description: desc("Once per turn when my *Eldritch Blast* hits a creature, I can move it 10 ft closer to me."),
 	prereqeval: function (v) { return isSpellUsed("eldritch blast", true); },
 	calcChanges: {
 		atkAdd: [
@@ -1683,9 +1683,9 @@ AddWarlockInvocation("Grasp of Hadar (req: Eldritch Blast cantrip)", {
 });
 AddWarlockInvocation("Improved Pact Weapon (req: Pact of the Blade)", {
 	name: "Improved Pact Weapon",
-	description: desc("I can use any pact weapon I create as my spellcasting focus for Warlock spells. Any pact weapon I create is a +1 magic weapon, if it isn't already a +1 magic weapon. I can now also conjure a shortbow, longbow, or light or heavy crossbow as my pact weapon."),
 	source: [["X", 57]],
-	submenu: "[improves Pact of the Blade]",
+	submenu: ["[Warlock level  0+]", "[improves Pact of the Blade]"],
+	description: desc("I can use any pact weapon I create as my spellcasting focus for Warlock spells. Any pact weapon I create is a +1 magic weapon, if it isn't already a +1 magic weapon. I can now also conjure a shortbow, longbow, or light or heavy crossbow as my pact weapon."),
 	prereqeval: function (v) { return GetFeatureChoice("class", "warlock", "pact boon") == "pact of the blade"; },
 	calcChanges: {
 		atkCalc: [
@@ -1731,9 +1731,9 @@ AddWarlockInvocation("Improved Pact Weapon (req: Pact of the Blade)", {
 });
 AddWarlockInvocation("Lance of Lethargy (req: Eldritch Blast cantrip)", {
 	name: "Lance of Lethargy",
-	description: desc("Once per turn when my *Eldritch Blast* hits a creature, I can reduce its speed by 10 ft. This speed reduction lasts until the end of my next turn."),
 	source: [["X", 57]],
-	submenu: "[upgrades Eldritch Blast]",
+	submenu: ["[Warlock level  0+]", "[upgrades Eldritch Blast]"],
+	description: desc("Once per turn when my *Eldritch Blast* hits a creature, I can reduce its speed by 10 ft. This speed reduction lasts until the end of my next turn."),
 	prereqeval: function (v) { return isSpellUsed("eldritch blast", true); },
 	calcChanges: {
 		atkAdd: [
@@ -1746,34 +1746,34 @@ AddWarlockInvocation("Lance of Lethargy (req: Eldritch Blast cantrip)", {
 });
 AddWarlockInvocation("Maddening Hex (req: lvl 5+, Hex spell or warlock feature that curses)", {
 	name: "Maddening Hex",
-	description: desc("As a Bonus Action, I cause pain around a target hexed by me that I can see within 30 ft. It and any of my choice I can see in 5 ft of it take my Cha mod (min 1) in Psychic damage. The *Hex* spell and all of my Warlock features that curse are considered a hex for this."),
 	source: [["X", 57]],
-	submenu: ["[Warlock level  5+]", "[improves Hex spell or curses]"],
 	minlevel: 5,
+	submenu: ["[Warlock level  5+]", "[improves Hex spell or curses]"],
+	description: desc("As a Bonus Action, I cause pain around a target hexed by me that I can see within 30 ft. It and any of my choice I can see in 5 ft of it take my Cha mod (min 1) in Psychic damage. The *Hex* spell and all of my Warlock features that curse are considered a hex for this."),
 	prereqeval: function (v) { return isSpellUsed("hex", true) || /hexblade/.test(classes.known.warlock.subclass); },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Relentless Hex (req: lvl 7+, Hex spell or warlock feature that curses)", {
 	name: "Relentless Hex",
-	description: desc("As a Bonus Action, I can teleport to a target hexed by me that I can see within 30 ft. I teleport up to 30 ft to an unoccupied space that I can see within 5 ft of the target."),
 	source: [["X", 57]],
-	submenu: ["[Warlock level  7+]", "[improves Hex spell or curses]"],
 	minlevel: 7,
+	submenu: ["[Warlock level  7+]", "[improves Hex spell or curses]"],
+	description: desc("As a Bonus Action, I can teleport to a target hexed by me that I can see within 30 ft. I teleport up to 30 ft to an unoccupied space that I can see within 5 ft of the target."),
 	prereqeval: function (v) { return isSpellUsed("hex", true) || /hexblade/.test(classes.known.warlock.subclass); },
 	action: [["bonus action", ""]],
 });
 AddWarlockInvocation("Shroud of Shadow", {
 	name: "Shroud of Shadow",
-	description: desc("I can cast *Invisibility* at will, without using spell slots."),
 	source: [["X", 57], ["UA:RCO", 6]],
+	minlevel: 15,
 	submenu: "[Warlock level 15+]",
+	description: desc("I can cast *Invisibility* at will, without using spell slots."),
 	spellcastingBonus: [{
 		name: "Shroud of Shadow",
 		spells: ["invisibility"],
 		selection: ["invisibility"],
 		firstCol: "atwill",
 	}],
-	minlevel: 15,
 	spellChanges: {
 		"invisibility": {
 			description: "I become Invisible; attacking, casting, or dealing damage ends the spell",
@@ -1783,10 +1783,10 @@ AddWarlockInvocation("Shroud of Shadow", {
 });
 AddWarlockInvocation("Tomb of Levistus", {
 	name: "Tomb of Levistus",
-	description: desc("As a Reaction when I take damage, I can entomb myself in ice until the end of my turn. During, I get 10 Temp HP per Warlock level, which I use to absorb the triggering damage. After, till the ice is gone, I also get vulnerability to Fire, 0 speed, and am Incapacitated."),
 	source: [["X", 57], ["UA:RCO", 6]],
-	submenu: "[Warlock level  5+]",
 	minlevel: 5,
+	submenu: "[Warlock level  5+]",
+	description: desc("As a Reaction when I take damage, I can entomb myself in ice until the end of my turn. During, I get 10 Temp HP per Warlock level, which I use to absorb the triggering damage. After, till the ice is gone, I also get Vulnerability to Fire, 0 speed, and am Incapacitated."),
 	recovery: "Short Rest",
 	usages: 1,
 	action: [["reaction", ""]],
@@ -1794,16 +1794,16 @@ AddWarlockInvocation("Tomb of Levistus", {
 });
 AddWarlockInvocation("Trickster's Escape", {
 	name: "Trickster's Escape",
-	description: desc("Once per Long Rest, I can cast *Freedom of Movement* on myself without using a spell slot."),
 	source: [["X", 57], ["UA:RCO", 7]],
+	minlevel: 7,
 	submenu: "[Warlock level  7+]",
+	description: desc("Once per Long Rest, I can cast *Freedom of Movement* on myself without using a spell slot."),
 	spellcastingBonus: [{
 		name: "Trickster's Escape",
 		spells: ["freedom of movement"],
 		selection: ["freedom of movement"],
 		firstCol: "oncelr",
 	}],
-	minlevel: 7,
 	spellChanges: {
 		"freedom of movement": {
 			range: "Self",
@@ -1836,7 +1836,7 @@ AddSubClass("wizard", "war magic", {
 			source: [["X", 60]],
 			minlevel: 3,
 			description: desc("I gain a bonus to my Initiative rolls equal to my Intelligence modifier."),
-			addMod: { type: "skill", field: "Init", mod: "max(Int|0)", text: "I can add my Intelligence modifier to initiative rolls." },
+			addMod: { type: "skill", field: "Init", mod: "max(Int|0)", text: "I can add my Intelligence modifier to Initiative rolls." },
 		},
 		"subclassfeature6": {
 			name: "Power Surge",
@@ -1862,7 +1862,7 @@ AddSubClass("wizard", "war magic", {
 			additional: levels.map( function (n) { return n < 14 ? "" : Math.floor(n / 2) + " Force damage"; }),
 		},
 	},
-});
+}, true);
 
 // Add feats
 FeatsList["bountiful luck"] = {
@@ -1903,7 +1903,7 @@ FeatsList["dragon hide"] = {
 		" \u2022 Your scales harden. While you aren't wearing armor, you can calculate your AC as 13 + your Dexterity modifier. You can use a shield and still gain this benefit.",
 		" \u2022 You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the normal bludgeoning damage for an unarmed strike.",
 	],
-	description: "I gain retractable claws that I can retract or extend, requiring no action. While extended, my unarmed strikes deal 1d4 Slashing damage. My scales harden, giving me an AC of 13 + Dexterity modifier + Shield when I'm not wearing armor. [+1 Str, Con, or Cha]",
+	description: "I gain retractable claws that I can retract or extend, requiring no action. While extended, my Unarmed Strikes deal 1d4 Slashing damage. My scales harden, giving me an AC of 13 + Dexterity modifier + Shield when I'm not wearing armor. [+1 Str, Con, or Cha]",
 	scorestxt: "+1 Strength, Constitution, or Charisma",
 	weaponOptions: [{
 		baseWeapon: "unarmed strike",
@@ -2051,7 +2051,7 @@ FeatsList["orcish fury"] = {
 		" \u2022 When you hit with an attack using a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.",
 		" \u2022 Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.",
 	],
-	description: "Once per Short Rest, I can roll an extra damage die for an attack with a simple or martial weapon. In addition, immediately after I use my Relentless Endurance trait, I can use my Reaction to make one weapon attack. [+1 Strength or Constitution]",
+	description: "Once per Short Rest, I can roll an extra damage die for an attack with a Simple or Martial weapon. In addition, immediately after I use my Relentless Endurance trait, I can use my Reaction to make one weapon attack. [+1 Strength or Constitution]",
 	scorestxt: "+1 Strength or Constitution",
 	action: [["reaction", " (after Relentless Endurance)"]],
 	usages: 1,
@@ -2068,7 +2068,7 @@ FeatsList["prodigy"] = {
 		" \u2022 You gain one skill proficiency of your choice, one tool proficiency of your choice, and fluency in one language of your choice.",
 		" \u2022 Choose one skill in which you have proficiency. You gain expertise with that skill, which means your proficiency bonus is doubled for any ability check you make with it. The skill you choose must be one that isn't already benefiting from a feature, such as Expertise, that doubles your proficiency bonus.",
 	],
-	description: "I gain proficiency with one skill of my choice and expertise with it, or expertise with another skill of my choice that I'm already proficient with. I also gain proficiency with one tool of my choice and fluency in one language of my choice.",
+	description: "I gain proficiency with one skill of my choice and Expertise with it, or Expertise with another skill of my choice that I'm already proficient with. I also gain proficiency with one tool of my choice and fluency in one language of my choice.",
 	skillstxt: "Proficiency with any one skill and Expertise with any one skill that you are already proficient with",
 	languageProfs: [1],
 	toolProfs: [["Any tool", 1]],
@@ -2083,7 +2083,7 @@ FeatsList["second chance"] = {
 		" \u2022 Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20.",
 		" \u2022 When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't use it again until you roll initiative at the start of combat or until you finish a short or long rest.",
 	],
-	description: "When a creature I can see hits me with an attack roll, I can use my Reaction to force that creature to reroll. Once I use this ability, I can't do so again until I roll initiative at the start of combat or I finish a Short Rest. [+1 Dexterity, Constitution, or Charisma]",
+	description: "When a creature I can see hits me with an attack roll, I can use my Reaction to force that creature to reroll. Once I use this ability, I can't do so again until I roll Initiative at the start of combat or I finish a Short Rest. [+1 Dexterity, Constitution, or Charisma]",
 	scorestxt: "+1 Dexterity, Constitution, or Charisma",
 	action: [["reaction", ""]],
 	usages: 1,
@@ -2148,7 +2148,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		compMaterial: "A bit of sponge",
 		duration: "Instantaneous",
 		save: "Con",
-		description: "30-ft cube all crea 12d8 Necrotic dmg; save halves; Plants/water elem. dis. const/Undead Immune",
+		description: "30-ft Cube all crea 12d8 Necrotic dmg; save halves; Plants/water elem. dis. const/Undead Immune",
 		descriptionFull: [
 			"You draw the moisture from every creature in a 30-foot cube centered on a point you choose within range. Each creature in that area must make a Constitution saving throw. Constructs and undead aren't affected, and plants and water elementals make this saving throw with disadvantage. A creature takes 12d8 necrotic damage on a failed save, or half as much damage on a successful one.",
 			"Nonmagical plants in the area that aren't creatures, such as trees and shrubs, wither and die instantly.",
@@ -2179,12 +2179,12 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		level: 2,
 		school: "Evoc",
 		time: "Act",
-		range: "30-ft line",
+		range: "30-ft Line",
 		components: "V,S,M",
 		compMaterial: "A red dragon's scale",
 		duration: "Instantaneous",
 		save: "Dex",
-		description: "30-ft long 5-ft wide line all creatures 3d8+1d8/SL Fire dmg; save halves",
+		description: "30-ft long 5-ft wide Line all creatures 3d8+1d8/SL Fire dmg; save halves",
 		descriptionFull: [
 			"A line of roaring flame 30 feet long and 5 feet wide emanates from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes 3d8 fire damage on a failed save, or half as much damage on a successful one.",
 			"***At Higher Levels***. When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd.",
@@ -2208,6 +2208,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Bones of the Earth",
 		classes: ["druid"],
 		source: [["X", 150], ["E", 15]],
+		reqLoS: true,
 		level: 6,
 		school: "Trans",
 		time: "Act",
@@ -2246,6 +2247,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Control Flames",
 		classes: ["druid", "sorcerer", "wizard"],
 		source: [["X", 152], ["E", 16]],
+		reqLoS: true,
 		level: 0,
 		school: "Trans",
 		time: "Act",
@@ -2266,13 +2268,14 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Control Winds",
 		classes: ["druid", "sorcerer", "wizard"],
 		source: [["X", 152], ["E", 16], ["UA:D", 8]],
+		reqLoS: true,
 		level: 5,
 		school: "Trans",
 		time: "Act",
 		range: "300 ft",
 		components: "V,S",
 		duration: "Conc, 1 h",
-		description: "100-ft cube of air either gusts, downdraft, or updraft; affects flying/jump/ranged; 1 a change; see B",
+		description: "100-ft Cube of air either gusts, downdraft, or updraft; affects flying/jump/ranged; Act change; see B",
 		descriptionFull: [
 			"You take control of the air in a 100-foot cube that you can see within range. Choose one of the following effects when you cast the spell. The effect lasts for the spell's duration, unless you use your action on a later turn to switch to a different effect. You can also use your action to temporarily halt the effect or to restart one you've halted.",
 			"***Gusts***: A wind picks up within the cube, continually blowing in a horizontal direction you designate. You choose the intensity of the wind: calm, moderate, or strong. If the wind is moderate or strong, ranged weapon attacks that enter or leave the cube or pass through it have disadvantage on their attack rolls. If the wind is strong, any creature moving against the wind must spend 1 extra foot of movement for each foot moved.",
@@ -2284,6 +2287,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Create Bonfire",
 		classes: ["artificer", "druid", "sorcerer", "warlock", "wizard"],
 		source: [["X", 152], ["E", 16]],
+		reqLoS: true,
 		level: 0,
 		school: "Conj",
 		time: "Act",
@@ -2291,10 +2295,10 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		components: "V,S",
 		duration: "Conc, 1 min",
 		save: "Dex",
-		description: "5-ft cube all crea now/enter/end turn save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
-		descriptionMetric: "1,5m cube all crea now/enter/end turn save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
-		descriptionShorter: "5-ft cube all now/enter/end save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5,11,17",
-		descriptionCantripDie: "5-ft cube all crea at casting, entering, or end turn in save or `CD`d8 Fire dmg; ignites flammable",
+		description: "5-ft Cube all crea now/enter/end turn save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
+		descriptionMetric: "1,5m Cube all crea now/enter/end turn save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
+		descriptionShorter: "5-ft Cube all now/enter/end save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5,11,17",
+		descriptionCantripDie: "5-ft Cube all crea at casting, entering, or end turn in save or `CD`d8 Fire dmg; ignites flammable",
 		descriptionFull: [
 			"You create a bonfire on ground that you can see within range. Until the spell ends, the magic bonfire fills a 5-foot cube. Any creature in the bonfire's space when you cast the spell must succeed on a Dexterity saving throw or take 1d8 fire damage. A creature must also make the saving throw when it moves into the bonfire's space for the first time on a turn or ends its turn there.",
 			"The bonfire ignites flammable objects in its area that aren't being worn or carried.",
@@ -2305,6 +2309,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Dust Devil",
 		classes: ["druid", "sorcerer", "wizard"],
 		source: [["X", 154], ["E", 17]],
+		reqLoS: true,
 		level: 2,
 		school: "Conj",
 		time: "Act",
@@ -2313,8 +2318,8 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		compMaterial: "A pinch of dust",
 		duration: "Conc, 1 min",
 		save: "Str",
-		description: "5-ft cube; all in 5-ft 1d8+1d8/SL Bludg. dmg and pushed 10 ft away; save halves, no push; see B",
-		descriptionShorterMetric: "1,5m cube; all in 1,5 m 1d8+1d8/SL Bludg. dmg \x26 push 3 m away; save half, no push; see B",
+		description: "5-ft Cube; all in 5-ft 1d8+1d8/SL Bludg. dmg and pushed 10 ft away; save halves, no push; see B",
+		descriptionShorterMetric: "1,5m Cube; all in 1,5 m 1d8+1d8/SL Bludg. dmg \x26 push 3 m away; save half, no push; see B",
 		descriptionFull: [
 			"Choose an unoccupied 5-foot cube of air that you can see within range. An elemental force that resembles a dust devil appears in the cube and lasts for the spell's duration.",
 			"Any creature that ends its turn within 5 feet of the dust devil must make a Strength saving throw. On a failed save, the creature takes 1d8 bludgeoning damage and is pushed 10 feet away from the dust devil. On a successful save, the creature takes half as much damage and isn't pushed.",
@@ -2326,6 +2331,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Earthbind",
 		classes: ["druid", "sorcerer", "warlock", "wizard"],
 		source: [["X", 154], ["E", 17]],
+		reqLoS: true,
 		level: 2,
 		school: "Trans",
 		time: "Act",
@@ -2357,6 +2363,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Elemental Bane",
 		classes: ["artificer", "druid", "warlock", "wizard"],
 		source: [["X", 155], ["E", 17]],
+		reqLoS: true,
 		level: 4,
 		school: "Trans",
 		time: "Act",
@@ -2381,6 +2388,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Erupting Earth",
 		classes: ["druid", "sorcerer", "wizard"],
 		source: [["X", 155], ["E", 17]],
+		reqLoS: true,
 		level: 3,
 		school: "Trans",
 		time: "Act",
@@ -2389,7 +2397,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		compMaterial: "A piece of obsidian",
 		duration: "Instantaneous",
 		save: "Dex",
-		description: "20-ft cube all crea 3d12+1d12/SL Bludgeoning dmg; save halves; area becomes difficult terrain",
+		description: "20-ft Cube all crea 3d12+1d12/SL Bludgeoning dmg; save halves; area becomes difficult terrain",
 		descriptionFull: [
 			"Choose a point you can see on the ground within range. A fountain of churned earth and stone erupts in a 20-foot cube centered on that point. Each creature in that area must make a Dexterity saving throw. A creature takes 3d12 bludgeoning damage on a failed save, or half as much damage on a successful one. Additionally, the ground in that area becomes difficult terrain until cleared. Each 5-foot-square portion of the area requires at least 1 minute to clear by hand.",
 			"***At Higher Levels***. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d12 for each slot level above 3rd.",
@@ -2415,6 +2423,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Frostbite",
 		classes: ["artificer", "druid", "sorcerer", "warlock", "wizard"],
 		source: [["X", 156], ["E", 18]],
+		reqLoS: true,
 		level: 0,
 		school: "Evoc",
 		time: "Act",
@@ -2433,6 +2442,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Gust",
 		classes: ["druid", "sorcerer", "wizard"],
 		source: [["X", 157], ["E", 19], ["E:RLW", 50], ["UA:D", 6], ["WGtE", 107]],
+		reqLoS: true,
 		level: 0,
 		school: "Trans",
 		time: "Act",
@@ -2452,6 +2462,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Immolation",
 		classes: ["sorcerer", "wizard"],
 		source: [["X", 158], ["E", 19]],
+		reqLoS: true,
 		level: 5,
 		school: "Evoc",
 		time: "Act",
@@ -2478,10 +2489,10 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		components: "V,S",
 		duration: "Conc, 10 min",
 		save: "Dex",
-		description: "Fire Immune; Cold res.; 1d10 Fire dmg in 5 ft; 1 a 15-ft long 5-ft wide all crea 4d8 Fire dmg, save half",
-		descriptionMetric: "Fire im.; Cold res.; 1d10 Fire dmg in 1,5 m; 1 a 4,5-m long 1,5-m wide all crea 4d8 Fire dmg, save half",
+		description: "Fire Immune; Cold res.; 1d10 Fire dmg in 5 ft; Act 15-ft long 5-ft wide all crea 4d8 Fire dmg, save half",
+		descriptionMetric: "Fire im.; Cold res.; 1d10 Fire dmg in 1,5 m; Act 4,5-m long 1,5-m wide all crea 4d8 Fire dmg, save half",
 		descriptionShorter: "Fire im.; Cold res.; 1d10 Fire dmg in 5 ft; 1a 15-ft long 5-ft wide all 4d8 Fire dmg, save half",
-		descriptionShorterMetric: "Fire Immune; Cold res.; 1d10 Fire dmg in 1,5 m; 1 a 4,5-m long all 4d8 Fire dmg, save half",
+		descriptionShorterMetric: "Fire Immune; Cold res.; 1d10 Fire dmg in 1,5 m; Act 4,5-m long all 4d8 Fire dmg, save half",
 		descriptionFull: [
 			"Flames race across your body, shedding bright light in a 30-foot radius and dim light for an additional 30 feet for the spell's duration. The flames don't harm you. Until the spell ends, you gain the following benefits.",
 			" \u2022 You are immune to fire damage and have resistance to cold damage.",
@@ -2500,8 +2511,8 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		components: "V,S",
 		duration: "Conc, 10 min",
 		save: "Con",
-		description: "Cold im.; Fire res.; 10-ft rad dif. ter.; 1 a 15-ft cone all crea 4d6 Cold dmg, half spd; save half, no spd",
-		descriptionShorter: "Cold im.; Fire res.; 10-ft rad dif. ter.; 1 a 15-ft cone all 4d6 Cold dmg, half speed; save half",
+		description: "Cold im.; Fire res.; 10-ft rad dif. ter.; Act 15-ft Cone all crea 4d6 Cold dmg, half spd; save half, no spd",
+		descriptionShorter: "Cold im.; Fire res.; 10-ft rad dif. ter.; Act 15-ft Cone all 4d6 Cold dmg, half speed; save half",
 		descriptionFull: [
 			"Until the spell ends, ice rimes your body, and you gain the following benefits.",
 			" \u2022 You are immune to cold damage and have resistance to fire damage.",
@@ -2521,7 +2532,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		components: "V,S",
 		duration: "Conc, 10 min",
 		save: "Dex",
-		description: "Nonmagical Bludg/Pierc/Slash resist.; 1 a 15-ft rad all crea save or Prone; move through earth/stone",
+		description: "Nonmagical Bludg/Pierc/Slash resist.; Act 15-ft rad all crea save or Prone; move through earth/stone",
 		descriptionFull: [
 			"Until the spell ends, bits of rock spread across your body, and you gain the following benefits:",
 			" \u2022 You have resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks.",
@@ -2540,8 +2551,8 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		components: "V,S",
 		duration: "Conc, 10 min",
 		save: "Con",
-		description: "Rngd wea atks dis. vs me; fly 60 ft; 1 a 15-ft cube in 60 ft all 2d10 Bludg. dmg, push 10 ft, save half",
-		descriptionShorter: "Rngd wea atk dis; fly 60 ft; 1 a 15-ft cu in 60 ft all 2d10 Bludg. dmg, push 10 ft, save half",
+		description: "Rngd wea atks dis. vs me; fly 60 ft; Act 15-ft Cube in 60 ft all 2d10 Bludg. dmg, push 10 ft, save half",
+		descriptionShorter: "Rngd wea atk dis; fly 60 ft; Act 15-ft cu in 60 ft all 2d10 Bludg. dmg, push 10 ft, save half",
 		descriptionFull: [
 			"Until the spell ends, wind whirls around you, and you gain the following benefits.",
 			" \u2022 Ranged weapon attacks made against you have disadvantage on the attack roll.",
@@ -2553,6 +2564,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Maelstrom",
 		classes: ["druid"],
 		source: [["X", 160], ["E", 20]],
+		reqLoS: true,
 		level: 5,
 		school: "Evoc",
 		time: "Act",
@@ -2588,6 +2600,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		nameAlt: "Earthen Grasp",
 		classes: ["sorcerer", "wizard"],
 		source: [["X", 161], ["E", 20]],
+		reqLoS: true,
 		level: 2,
 		school: "Trans",
 		time: "Act",
@@ -2596,8 +2609,8 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		compMaterial: "A miniature hand sculpted from clay",
 		duration: "Conc, 1 min",
 		save: "Str",
-		description: "Medium hand atks 1 crea: save or 2d6 Bludg. dmg \u0026 Restrained; 1 a hand moves/atks, releases; see B",
-		descriptionShorter: "Medium hand atk 1 crea: save or 2d6 Bludg. dmg \u0026 Restrained; 1 a move/atk, release; see B",
+		description: "Medium hand atks 1 crea: save or 2d6 Bludg. dmg \u0026 Restrained; Act hand moves/atks, releases; see B",
+		descriptionShorter: "Medium hand atk 1 crea: save or 2d6 Bludg. dmg \u0026 Restrained; Act move/atk, release; see B",
 		descriptionFull: [
 			"You choose a 5-foot-square unoccupied space on the ground that you can see within range. A Medium hand made from compacted soil rises there and reaches for one creature you can see within 5 feet of it. The target must make a Strength saving throw. On a failed save, the target takes 2d6 bludgeoning damage and is restrained for the spell's duration.",
 			"As an action, you can cause the hand to crush the restrained target, which must make a Strength saving throw. The target takes 2d6 bludgeoning damage on a failed save, or half as much damage on a successful one.",
@@ -2618,8 +2631,8 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		compMaterial: "Niter, sulfur, and pine tar formed into a bead",
 		duration: "Conc, 10 min",
 		save: "Dex",
-		description: "6+2/SL meteors; at casting/bns a send up to two 120 ft for 5-ft rad all crea 2d6 Fire dmg; save half",
-		descriptionShorter: "6+2/SL meteors; at cast/bns a send up to two 120 ft for 5-ft rad all 2d6 Fire dmg; save half",
+		description: "6+2/SL meteors; at casting/Bns send up to two 120 ft for 5-ft rad all crea 2d6 Fire dmg; save half",
+		descriptionShorter: "6+2/SL meteors; at cast/Bns send up to two 120 ft for 5-ft rad all 2d6 Fire dmg; save half",
 		descriptionFull: [
 			"You create six tiny meteors in your space. They float in the air and orbit you for the spell's duration. When you cast the spell-and as a bonus action on each of your turns thereafter-you can expend one or two of the meteors, sending them streaking toward a point or points you choose within 120 feet of you. Once a meteor reaches its destination or impacts against a solid surface, the meteor explodes. Each creature within 5 feet of the point where the meteor explodes must make a Dexterity saving throw. A creature takes 2d6 fire damage on a failed save, or half as much damage on a successful one.",
 			"***At Higher Levels***. When you cast this spell using a spell slot of 4th level or higher, the number of meteors created increases by two for each slot level above 3rd.",
@@ -2629,6 +2642,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Mold Earth",
 		classes: ["druid", "sorcerer", "wizard"],
 		source: [["X", 162], ["E", 21]],
+		reqLoS: true,
 		level: 0,
 		school: "Trans",
 		time: "Act",
@@ -2654,7 +2668,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		range: "Self",
 		components: "V,S",
 		duration: "Conc, 1 min",
-		description: "Acid, Cold, Fire, Lightning, and Thunder Resistance; use rea to gain 1 Immunity for 1 rnd, spell ends",
+		description: "Acid, Cold, Fire, Lightning, and Thunder Resistance; use React to gain 1 Immunity for 1 rnd, spell ends",
 		descriptionFull: [
 			"You have resistance to acid, cold, fire, lightning, and thunder damage for the spell's duration.",
 			"When you take damage of one of those types, you can use your reaction to gain immunity to that type of damage, including against the triggering damage. If you do so, the resistances end, and you have the immunity until the end of your next turn, at which time the spell ends.",
@@ -2664,6 +2678,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Pyrotechnics",
 		classes: ["artificer", "bard", "sorcerer", "wizard"],
 		source: [["X", 163], ["E", 21]],
+		reqLoS: true,
 		level: 2,
 		school: "Trans",
 		time: "Act",
@@ -2682,6 +2697,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Shape Water",
 		classes: ["druid", "sorcerer", "wizard"],
 		source: [["X", 164], ["E", 21], ["W", 172]],
+		reqLoS: true,
 		level: 0,
 		school: "Trans",
 		time: "Act",
@@ -2702,6 +2718,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Skywrite",
 		classes: ["artificer", "bard", "druid", "wizard"],
 		source: [["X", 165], ["E", 22]],
+		reqLoS: true,
 		ritual: true,
 		level: 2,
 		school: "Trans",
@@ -2742,8 +2759,8 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		components: "V,S",
 		duration: "Conc, 1 min",
 		save: "Str",
-		description: "20-ft rad dif. ter., all now/end turn save or 2d6 Bludg. dmg; bns a 60 ft atk 4d6 Lightn. dmg; +1d6/SL",
-		descriptionShorter: "20-ft rad dif. ter., all save/turn 2d6 Bludg. dmg; bns a 60 ft atk 4d6 Lightn. dmg; +1d6/SL",
+		description: "20-ft rad dif. ter., all now/end turn save or 2d6 Bludg. dmg; Bns 60 ft atk 4d6 Lightn. dmg; +1d6/SL",
+		descriptionShorter: "20-ft rad dif. ter., all save/turn 2d6 Bludg. dmg; Bns 60 ft atk 4d6 Lightn. dmg; +1d6/SL",
 		descriptionFull: [
 			"A 20-foot-radius sphere of whirling air springs into existence centered on a point you choose within range. The sphere remains for the spell's duration. Each creature in the sphere when it appears or that ends its turn there must succeed on a Strength saving throw or take 2d6 bludgeoning damage. The sphere's space is difficult terrain.",
 			"Until the spell ends, you can use a bonus action on each of your turns to cause a bolt of lightning to leap from the center of the sphere toward one creature you choose within 60 feet of the center. Make a ranged spell attack. You have advantage on the attack roll if the target is in the sphere. On a hit, the target takes 4d6 lightning damage.",
@@ -2770,6 +2787,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Transmute Rock",
 		classes: ["artificer", "druid", "wizard"],
 		source: [["X", 169], ["E", 22]],
+		reqLoS: true,
 		level: 5,
 		school: "Trans",
 		time: "Act",
@@ -2790,6 +2808,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Wall of Sand",
 		classes: ["wizard"],
 		source: [["X", 170], ["E", 23]],
+		reqLoS: true,
 		level: 3,
 		school: "Evoc",
 		time: "Act",
@@ -2805,6 +2824,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Wall of Water",
 		classes: ["druid", "sorcerer", "wizard"],
 		source: [["X", 170], ["E", 23], ["V", 116], ["MOT", 27]],
+		reqLoS: true,
 		level: 3,
 		school: "Evoc",
 		time: "Act",
@@ -2845,6 +2865,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Watery Sphere",
 		classes: ["druid", "sorcerer", "wizard"],
 		source: [["X", 170], ["E", 23]],
+		reqLoS: true,
 		level: 4,
 		school: "Conj",
 		time: "Act",
@@ -2853,7 +2874,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		compMaterial: "A droplet of water",
 		duration: "Conc, 1 min",
 		save: "Str",
-		description: "5-ft rad all crea < Huge save or Restrained; on save ejected; save each rnd; 1 a move sphere 30 ft",
+		description: "5-ft rad all crea < Huge save or Restrained; on save ejected; save each rnd; Act move sphere 30 ft",
 		descriptionFull: [
 			"You conjure up a sphere of water with a 5-foot radius at a point you can see within range. The sphere can hover but no more than 10 feet off the ground. The sphere remains for the spell's duration.",
 			"Any creature in the sphere's space must make a Strength saving throw. On a successful save, a creature is ejected from that space to the nearest unoccupied space of the creature's choice outside the sphere. A Huge or larger creature succeeds on the saving throw automatically, and a Large or smaller creature can choose to fail it. On a failed save, a creature is restrained by the sphere and is engulfed by the water. At the end of each of its turns, a restrained target can repeat the saving throw, ending the effect on itself on a success.",
@@ -2866,6 +2887,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		name: "Whirlwind",
 		classes: ["druid", "sorcerer", "wizard"],
 		source: [["X", 171], ["E", 24]],
+		reqLoS: true,
 		level: 7,
 		school: "Evoc",
 		time: "Act",
@@ -2874,7 +2896,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		compMaterial: "A piece of straw",
 		duration: "Conc, 1 min",
 		save: "Dex",
-		description: "10-ft rad 30-ft high all crea 10d6 Bludg. dmg; save halves; restrains; 1 a move 30 ft; see book",
+		description: "10-ft rad 30-ft high all crea 10d6 Bludg. dmg; save halves; restrains; Act move 30 ft; see book",
 		descriptionFull: [
 			"A whirlwind howls down to a point that you can see on the ground within range. The whirlwind is a 10-foot-radius, 30-foot-high cylinder centered on that point. Until the spell ends, you can use your action to move the whirlwind up to 30 feet in any direction along the ground. The whirlwind sucks up any Medium or smaller objects that aren't secured to anything and that aren't worn or carried by anyone.",
 			"A creature must make a Dexterity saving throw the first time on a turn that it enters the whirlwind or that the whirlwind enters its space, including when the whirlwind first appears. A creature takes 10d6 bludgeoning damage on a failed save, or half as much damage on a successful one. In addition, a Large or smaller creature that fails the save must succeed on a Strength saving throw or become restrained in the whirlwind until the spell ends. When a creature starts its turn restrained by the whirlwind, the creature is pulled 5 feet higher inside it, unless the creature is at the top. A restrained creature moves with the whirlwind and falls when the spell ends, unless the creature has some means to stay aloft.",
@@ -2888,6 +2910,7 @@ SpellsList["cause fear"] = {
 	name: "Cause Fear",
 	classes: ["warlock", "wizard"],
 	source: [["X", 151]],
+	reqLoS: true,
 	level: 1,
 	school: "Necro",
 	time: "Act",
@@ -2990,7 +3013,7 @@ SpellsList["crown of stars"] = {
 	components: "V,S",
 	duration: "1 h",
 	description: "7+2/SL motes shed 30-ft light; Bonus Action to fire one as 120 ft ranged atk for 4d12 Radiant dmg",
-	descriptionShorter: "7+2/SL motes shed 30-ft light; bns a to fire one as 120 ft ranged atk for 4d12 Radiant dmg",
+	descriptionShorter: "7+2/SL motes shed 30-ft light; Bns to fire one as 120 ft ranged atk for 4d12 Radiant dmg",
 	descriptionFull: [
 		"Seven star-like motes of light appear and orbit your head until the spell ends. You can use a bonus action to send one of the motes streaking toward one creature or object within 120 feet of you. When you do so, make a ranged spell attack. On a hit, the target takes 4d12 radiant damage. Whether you hit or miss, the mote is expended. The spell ends early if you expend the last mote.",
 		"If you have four or more motes remaining, they shed bright light in a 30-foot radius and dim light for an additional 30 feet. If you have one to three motes remaining, they shed dim light in a 30-foot radius.",
@@ -3001,13 +3024,14 @@ SpellsList["danse macabre"] = {
 	name: "Danse Macabre",
 	classes: ["warlock", "wizard"],
 	source: [["X", 153]],
+	reqLoS: true,
 	level: 5,
 	school: "Necro",
 	time: "Act",
 	range: "60 ft",
 	components: "V,S",
 	duration: "Conc, 1 h",
-	description: "5+2/SL small/medium corpses as zombie/skeleton; spellc. mod to atk/dmg; bns a command in 60 ft",
+	description: "5+2/SL small/medium corpses as zombie/skeleton; spellc. mod to atk/dmg; Bns command in 60 ft",
 	descriptionFull: [
 		"Threads of dark power leap from your fingers to pierce up to five Small or Medium corpses you can see within range. Each corpse immediately stands up and becomes undead. You decide whether it is a zombie or a skeleton (the statistics for zombies and skeletons are in the Monster Manual), and it gains a bonus to its attack and damage rolls equal to your spellcasting ability modifier.",
 		"You can use a bonus action to mentally command the creatures you make with this spell, issuing the same command to all of them. To receive the command, a creature must be within 60 feet of you. You decide what action the creatures will take and where they will move during their next turn, or you can issue a general command, such as to guard a chamber or passageway against your foes. If you issue no commands, the creatures do nothing except defend themselves against hostile creatures. Once given an order, the creatures continue to follow it until their task is complete.",
@@ -3027,7 +3051,7 @@ SpellsList["dawn"] = {
 	compMaterial: "A sunburst pendant worth at least 100 gp",
 	duration: "Conc, 1 min",
 	save: "Con",
-	description: "30-ft rad 40-ft high all crea 4d10 Radiant dmg at cast/end turn; bns a move it 60 ft (100gp)",
+	description: "30-ft rad 40-ft high all crea 4d10 Radiant dmg at cast/end turn; Bns move it 60 ft (100gp)",
 	descriptionFull: [
 		"The light of dawn shines down on a location you specify within range. Until the spell ends, a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight.",
 		"When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10 radiant damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw whenever it ends its turn in the cylinder.",
@@ -3045,7 +3069,7 @@ SpellsList["druid grove"] = {
 	components: "V,S,M\u2020",
 	compMaterial: "Mistletoe, which the spell consumes, that was harvested with a golden sickle under the light of a full moon",
 	duration: "24 h",
-	description: "Protect 30-ft to 90-ft cube outdoors or underground; see book for effects",
+	description: "Protect 30-ft to 90-ft Cube outdoors or underground; see book for effects",
 	descriptionFull: [
 		"You invoke the spirits of nature to protect an area outdoors or underground. The area can be as small as a 30-foot cube or as large as a 90-foot cube. Buildings and other structures are excluded from the affected area. If you cast this spell in the same area every day for a year, the spell lasts until dispelled.",
 		"The spell creates the following effects within the area. When you cast this spell, you can specify creatures as friends who are immune to the effects. You can also specify a password that, when spoken aloud, makes the speaker immune to these effects.",
@@ -3064,6 +3088,7 @@ SpellsList["enemies abound"] = {
 	name: "Enemies Abound",
 	classes: ["bard", "sorcerer", "warlock", "wizard"],
 	source: [["X", 155]],
+	reqLoS: true,
 	level: 3,
 	school: "Ench",
 	time: "Act",
@@ -3081,6 +3106,7 @@ SpellsList["far step"] = {
 	name: "Far Step",
 	classes: ["sorcerer", "warlock", "wizard"],
 	source: [["X", 155]],
+	reqLoS: true,
 	level: 5,
 	school: "Conj",
 	time: "Bns",
@@ -3138,15 +3164,15 @@ SpellsList["healing spirit"] = { // limited usages (https://media.wizards.com/20
 	name: "Healing Spirit",
 	classes: ["druid", "ranger"],
 	source: [["X", 157]],
+	reqLoS: true,
 	level: 2,
 	school: "Conj",
 	time: "Bns",
 	range: "60 ft",
 	components: "V,S",
 	duration: "Conc, 1 min",
-	description: "5-ft cube; any living crea I see start/enter heals 1d6+1d6/SL HP; 1+spell mod uses; bns a move it 30 ft",
-	descriptionMetric: "1,5-m cube; any living crea I see start/enter heals 1d6+1d6/SL HP; 1+spell mod uses; bns a move 9 m",
-	descriptionShorter: "5-ft cube; any living start/enter heals 1d6+1d6/SL HP; 1+spell mod uses; bns a move 30 ft",
+	description: "5 ft Cube; any living crea I see start/enter heals 1d6+1d6/SL HP; 1+spell mod uses; Bns move it 30 ft",
+	descriptionShorter: "5 ft Cube; any living start/enter heals 1d6+1d6/SL HP; 1+spell mod uses; Bns move it 30 ft",
 	descriptionFull: [
 		"You call forth a nature spirit to soothe the wounded. The intangible spirit appears in a space that is a 5-foot cube you can see within range. The spirit looks like a transparent beast or fey (your choice).",
 		"Until the spell ends, whenever you or a creature you can see moves into the spirit's space for the first time on a turn or starts its turn there, you can cause the spirit to restore 1d6 hit points to that creature (no action required). The spirit can't heal constructs or undead. The spirit can heal a number of times equal to 1 + your spellcasting ability modifier (minimum of twice). After healing that number of times, the spirit disappears.",
@@ -3165,8 +3191,8 @@ SpellsList["holy weapon"] = {
 	components: "V,S",
 	duration: "Conc, 1 h",
 	save: "Con",
-	description: "Wea +2d8 Radiant dmg; bns a end spell: 30-ft rad all crea 4d8 Radiant dmg, blind; save half, no blind",
-	descriptionShorter: "wea +2d8 Radiant dmg; bns a end: 30-ft rad all 4d8 Radiant dmg, blind; save half, no blind",
+	description: "Wea +2d8 Radiant dmg; Bns end spell: 30-ft rad all crea 4d8 Radiant dmg, blind; save half, no blind",
+	descriptionShorter: "wea +2d8 Radiant dmg; Bns end: 30-ft rad all 4d8 Radiant dmg, blind; save half, no blind",
 	descriptionFull: [
 		"You imbue a weapon you touch with holy power. Until the spell ends, the weapon emits bright light in a 30-foot radius and dim light for an additional 30 feet. In addition, weapon attacks made with it deal an extra 2d8 radiant damage on a hit. If the weapon isn't already a magic weapon, it becomes one for the duration.",
 		"As a bonus action on your turn, you can dismiss this spell and cause the weapon to emit a burst of radiance. Each creature of your choice that you can see within 30 feet of the weapon must make a Constitution saving throw. On a failed save, a creature takes 4d8 radiant damage, and it is blinded for 1 minute. On a successful save, a creature takes half as much damage and isn't blinded. At the end of each of its turns, a blinded creature can make a Constitution saving throw, ending the effect on itself on a success.",
@@ -3180,6 +3206,7 @@ SpellsList["infernal calling"] = {
 	name: "Infernal Calling",
 	classes: ["warlock", "wizard"],
 	source: [["X", 158]],
+	reqLoS: true,
 	level: 5,
 	school: "Conj",
 	time: "1 min",
@@ -3187,7 +3214,7 @@ SpellsList["infernal calling"] = {
 	components: "V,S,M\u0192",
 	compMaterial: "A ruby worth at least 999 gp",
 	duration: "Conc, 1 h",
-	description: "Summon 1 devil of CR 6+1/SL; hostile to all, obeys my command if to its liking or Cha check; see B",
+	description: "Summon 1 devil of CR 6+1/SL; Hostile to all, obeys my command if to its liking or Cha check; see B",
 	descriptionFull: [
 		"Uttering a dark incantation, you summon a devil from the Nine Hells. You choose the devil's type, which must be one of challenge rating 6 or lower, such as a barbed devil or a bearded devil. The devil appears in an unoccupied space that you can see within range. The devil disappears when it drops to 0 hit points or when the spell ends.",
 		"The devil is unfriendly toward you and your companions. Roll initiative for the devil, which has its own turns. It is under the Dungeon Master's control and acts according to its nature on each of its turns, which might result in its attacking you if it thinks it can prevail, or trying to tempt you to undertake an evil act in exchange for limited service. The DM has the creature's statistics.",
@@ -3201,6 +3228,7 @@ SpellsList["infestation"] = {
 	name: "Infestation",
 	classes: ["druid", "sorcerer", "warlock", "wizard"],
 	source: [["X", 158]],
+	reqLoS: true,
 	level: 0,
 	school: "Conj",
 	time: "Act",
@@ -3228,6 +3256,7 @@ SpellsList["life transference"] = { // can't reduce damage taken (https://media.
 	name: "Life Transference",
 	classes: ["cleric", "wizard"],
 	source: [["X", 160]],
+	reqLoS: true,
 	level: 3,
 	school: "Necro",
 	time: "Act",
@@ -3252,8 +3281,8 @@ SpellsList["maddening darkness"] = {
 	compMaterial: "A drop of pitch mixed with a drop of mercury",
 	duration: "Conc, 10 min",
 	save: "Wis",
-	description: "60-ft rad darkness; Darkvision, no light works; all crea starting turn in 8d8 Psychic dmg, save halves",
-	descriptionShorter: "60-ft rad darkness; Darkvision, no light works; all start turn in 8d8 Psychic dmg, save half",
+	description: "60-ft rad Darkness; Darkvision, no light works; all crea starting turn in 8d8 Psychic dmg, save halves",
+	descriptionShorter: "60-ft rad Darkness; Darkvision, no light works; all start turn in 8d8 Psychic dmg, save half",
 	descriptionFull: [
 		"Magical darkness spreads from a point you choose within range to fill a 60-foot-radius sphere until the spell ends. The darkness spreads around corners. A creature with darkvision can't see through this darkness. Nonmagical light, as well as light created by spells of 8th level or lower, can't illuminate the area.",
 		"Shrieks, gibbering, and mad laughter can be heard within the sphere. Whenever a creature starts its turn in the sphere, it must make a Wisdom saving throw, taking 8d8 psychic damage on a failed save, or half as much damage on a successful one.",
@@ -3263,6 +3292,7 @@ SpellsList["mass polymorph"] = {
 	name: "Mass Polymorph",
 	classes: ["bard", "sorcerer", "wizard"],
 	source: [["X", 160]],
+	reqLoS: true,
 	level: 9,
 	school: "Trans",
 	time: "Act",
@@ -3284,6 +3314,7 @@ SpellsList["mental prison"] = {
 	name: "Mental Prison",
 	classes: ["sorcerer", "warlock", "wizard"],
 	source: [["X", 161]],
+	reqLoS: true,
 	level: 6,
 	school: "Illus",
 	time: "Act",
@@ -3303,6 +3334,7 @@ SpellsList["mighty fortress"] = {
 	name: "Mighty Fortress",
 	classes: ["wizard"],
 	source: [["X", 161]],
+	reqLoS: true,
 	level: 8,
 	school: "Conj",
 	time: "1 min",
@@ -3342,6 +3374,7 @@ SpellsList["psychic scream"] = {
 	name: "Psychic Scream",
 	classes: ["bard", "sorcerer", "warlock", "wizard"],
 	source: [["X", 163]],
+	reqLoS: true,
 	level: 9,
 	school: "Ench",
 	time: "Act",
@@ -3360,6 +3393,7 @@ SpellsList["scatter"] = {
 	name: "Scatter",
 	classes: ["sorcerer", "warlock", "wizard"],
 	source: [["X", 164]],
+	reqLoS: true,
 	level: 6,
 	school: "Conj",
 	time: "Act",
@@ -3397,7 +3431,7 @@ WeaponsList["shadow blade"] = {
 	type: "Simple",
 	damage: [2, 8, "psychic"],
 	range: "Melee, 20/60 ft",
-	description: "Finesse, Light, Thrown; +1d8 at SL3/5/7; Adv if target in Dim Light/darkness",
+	description: "Finesse, Light, Thrown; +1d8 at SL3/5/7; Adv if target in Dim Light/Darkness",
 	abilitytodamage: true,
 	isAlwaysProf: true,
 	useSpellcastingAbility: false,
@@ -3448,7 +3482,7 @@ SpellsList["skill empowerment"] = {
 	range: "Touch",
 	components: "V,S",
 	duration: "Conc, 1 h",
-	description: "1 willing creature gains expertise in one skill of my choice that it is proficient with for the duration",
+	description: "1 willing creature gains Expertise in one skill of my choice that it is proficient with for the duration",
 	descriptionFull: [
 		"Your magic deepens a creature's understanding of its own talent. You touch one willing creature and give it expertise in one skill of your choice; until the spell ends, the creature doubles its proficiency bonus for ability checks it makes that use the chosen skill.",
 		"You must choose a skill in which the target is proficient and that isn't already benefiting from an effect, such as Expertise, that doubles its proficiency bonus.",
@@ -3502,6 +3536,7 @@ SpellsList["summon greater demon"] = {
 	name: "Summon Greater Demon",
 	classes: ["warlock", "wizard"],
 	source: [["X", 166]],
+	reqLoS: true,
 	level: 4,
 	school: "Conj",
 	time: "Act",
@@ -3523,6 +3558,7 @@ SpellsList["summon lesser demons"] = {
 	name: "Summon Lesser Demons",
 	classes: ["warlock", "wizard"],
 	source: [["X", 167]],
+	reqLoS: true,
 	level: 3,
 	school: "Conj",
 	time: "Act",
@@ -3549,6 +3585,7 @@ SpellsList["temple of the gods"] = {
 	name: "Temple of the Gods",
 	classes: ["cleric"],
 	source: [["X", 167]],
+	reqLoS: true,
 	level: 7,
 	school: "Conj",
 	time: "1 h",
@@ -3596,6 +3633,7 @@ SpellsList["thunder step"] = {
 	name: "Thunder Step",
 	classes: ["sorcerer", "warlock", "wizard"],
 	source: [["X", 168]],
+	reqLoS: true,
 	level: 3,
 	school: "Conj",
 	time: "Act",
@@ -3621,7 +3659,7 @@ SpellsList["tiny servant"] = {
 	range: "Touch",
 	components: "V,S",
 	duration: "8 h",
-	description: "Animate 1+2/SL Tiny, nonmagical, unattended obj as tiny servants; bns a to command telepathically",
+	description: "Animate 1+2/SL Tiny, nonmagical, unattended obj as tiny servants; Bns to command telepathically",
 	descriptionFull: [
 		"You touch one Tiny, nonmagical object that isn't attached to another object or a surface and isn't being carried by another creature. The target animates and sprouts little arms and legs, becoming a creature under your control until the spell ends or the creature drops to 0 hit points. See the Tiny Servant stat block for its statistics.",
 		"As a bonus action, you can mentally command the creature if it is within 120 feet of you. (If you control multiple creatures with this spell, you can command any or all of them at the same time, issuing the same command to each one.) You decide what action the creature will take and where it will move during its next turn, or you can issue a simple, general command, such as to fetch a key, stand watch, or stack some books. If you issue no commands, the servant does nothing other than defend itself against hostile creatures. Once given an order, the servant continues to follow that order until its task is complete.",
@@ -3641,10 +3679,10 @@ SpellsList["wall of light"] = {
 	compMaterial: "A hand mirror",
 	duration: "Conc, 10 min",
 	save: "Con",
-	description: "60\xD75\xD710ft (l\xD7w\xD7h) 4d8+1d8/SL Radiant dmg \u0026 blind; save half, not blind; 1 a rngd spell atk; see B",
-	descriptionShorter: "60|5|10ft (l|w|h) 4d8+1d8/SL Radiant dmg, blind; save half, no blind; 1 a rngd atk; see B",
-	descriptionMetric: "18\xD71,5\xD73m (l\xD7w\xD7h) 4d8+1d8/SL Radiant dmg \u0026 blind; save half, not blind; 1 a rngd spell atk; see B",
-	descriptionShorterMetric: "18|1,5|3m (l|w|h) 4d8+1d8/SL Radiant dmg, blind; save half, no blind; 1 a rngd atk; see B",
+	description: "60\xD75\xD710ft (l\xD7w\xD7h) 4d8+1d8/SL Radiant dmg \u0026 blind; save half, not blind; Act rngd spell atk; see B",
+	descriptionShorter: "60|5|10ft (l|w|h) 4d8+1d8/SL Radiant dmg, blind; save half, no blind; Act rngd atk; see B",
+	descriptionMetric: "18\xD71,5\xD73m (l\xD7w\xD7h) 4d8+1d8/SL Radiant dmg \u0026 blind; save half, not blind; Act rngd spell atk; see B",
+	descriptionShorterMetric: "18|1,5|3m (l|w|h) 4d8+1d8/SL Radiant dmg, blind; save half, no blind; Act rngd atk; see B",
 	descriptionFull: [
 		"A shimmering wall of bright light appears at a point you choose within range. The wall appears in any orientation you choose: horizontally, vertically, or diagonally. It can be free floating, or it can rest on a solid surface. The wall can be up to 60 feet long, 10 feet high, and 5 feet thick. The wall blocks line of sight, but creatures and objects can pass through it. It emits bright light out to 120 feet and dim light for an additional 120 feet.",
 		"When the wall appears, each creature in its area must make a Constitution saving throw. On a failed save, a creature takes 4d8 radiant damage, and it is blinded for 1 minute. On a successful save, it takes half as much damage and isn't blinded. A blinded creature can make a Constitution saving throw at the end of each of its turns, ending the effect on itself on a success.",
@@ -3657,6 +3695,7 @@ SpellsList["wrath of nature"] = {
 	name: "Wrath of Nature",
 	classes: ["druid", "ranger"],
 	source: [["X", 171]],
+	reqLoS: true,
 	level: 5,
 	school: "Evoc",
 	time: "Act",
@@ -3702,7 +3741,7 @@ WeaponsList["create bonfire"] = {
 	type: "Cantrip",
 	damage: ["C", 8, "fire"],
 	range: "60 ft",
-	description: "5-ft cube; Dex save at casting or when moved into, success - no damage; Conc, 1 min",
+	description: "5-ft Cube; Dex save at casting or when moved into, success - no damage; Conc, 1 min",
 	abilitytodamage: false,
 	dc: true,
 };

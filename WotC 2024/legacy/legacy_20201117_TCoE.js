@@ -168,7 +168,7 @@ AddSubClass("barbarian", "path of the beast", {
 			recovery: "Long Rest",
 		},
 	},
-});
+}, true);
 AddSubClass("barbarian", "path of wild magic", {
 	regExpSearch: /^(?=.*\bwild\b)(?=.*\bmagic\b).*$/i,
 	subname: "Path of Wild Magic",
@@ -180,7 +180,7 @@ AddSubClass("barbarian", "path of wild magic", {
 			name: "Magic Awareness",
 			source: [["T", 25]],
 			minlevel: 3,
-			description: desc("As an action, I can open my awareness to the presence of concentrated magic. Until my next turn ends, I know the location of any spell or magic item within 60 ft. I also learn the school of magic of a spell. This doesn't reveal anything behind total cover."),
+			description: desc("As an action, I can open my awareness to the presence of concentrated magic. Until my next turn ends, I know the location of any spell or magic item within 60 ft. I also learn the school of magic of a spell. This doesn't reveal anything behind Total Cover."),
 			usages: "Proficiency Bonus per ",
 			usagescalc: "event.value = How('Proficiency Bonus')",
 			recovery: "Long Rest",
@@ -240,7 +240,7 @@ AddSubClass("barbarian", "path of wild magic", {
 			description: desc("Whenever I roll on the Wild Magic table, I can roll two dice and choose which to use. If I roll the same on both dice, I can instead choose any effect on the Wild Magic table."),
 		},
 	},
-});
+}, true);
 
 // Bard Optional Class Features
 var TCoE_bardOptional2 = makeOptionalClassFeatureBase("bard", 2);
@@ -303,7 +303,7 @@ if (!SourceList["MOT"]) {
 				recovery: "Long Rest",
 			},
 		},
-	});
+	}, true);
 } // dupl_end
 
 
@@ -314,7 +314,7 @@ AddFeatureChoice(TCoE_clericOptional2, true, "Harness Divine Power", {
 	extraname: "Optional Cleric 2",
 	source: [["T", 30]],
 	description: desc("As a Bonus Action, I can expend 1 Channel Divinity to regain one used spell slot. The level of this spell slot can be no more than half my Proficiency Bonus (rounded up). I can only do this so many times per Long Rest, even if I have uses of Channel Divinity left."),
-	action: [["bonus action", ""]],
+	action: [["bonus action", " (Channel Divinity)"]],
 	usages: levels.map(function (n) {
 		return n < 2 ? "" : n < 6 ? 1 : n < 18 ? 2 : 3;
 	}),
@@ -334,7 +334,7 @@ if (!SourceList["G"]) {
 				name: "Bonus Proficiency",
 				source: [["T", 32], ["G", 26]],
 				minlevel: 3,
-				description: desc("I gain proficiency with heavy armor, and either the Intimidation or Persuasion skill."),
+				description: desc("I gain proficiency with Heavy armor, and either the Intimidation or Persuasion skill."),
 				armorProfs: [false, false, true, false],
 				skillstxt: "Choose one from Intimidation or Persuasion",
 				spellcastingExtra: ["command", "heroism", "hold person", "zone of truth", "mass healing word", "slow", "compulsion", "locate creature", "commune", "dominate person"],
@@ -351,7 +351,7 @@ if (!SourceList["G"]) {
 				minlevel: 3,
 				additional: "1 Channel Divinity",
 				description: desc("As an action, I can have all creatures of my choice within 30 ft that can see or hear me make a Wisdom save or be Charmed by me until the end of my next turn or it takes any damage. I can choose to have a Charmed target drop what it's holding when it fails its save."),
-				action: [["action", ""]],
+				action: [["action", " (Channel Divinity)"]],
 			},
 			"subclassfeature6": {
 				name: "Embodiment of the Law",
@@ -380,7 +380,7 @@ if (!SourceList["G"]) {
 				description: desc("If I deal my Divine Strike damage to a creature, it is cursed until my next turn starts. The next time it is hit by a weapon attack from my allies, it takes +2d8 Psychic damage."),
 			},
 		},
-	});
+	}, true);
 } // dupl_end
 AddSubClass("cleric", "peace domain", {
 	regExpSearch: /^(?=.*(cleric|priest|clergy|acolyte))(?=.*peace).*$/i,
@@ -413,7 +413,7 @@ AddSubClass("cleric", "peace domain", {
 			minlevel: 3,
 			additional: "1 Channel Divinity",
 			description: desc("As an action, I can move up to my Speed without provoking Opportunity Attacks. During this move, I can heal each creature that I come within 5 ft of once. I restore a number of Hit Points equal to 2d6 + my Wisdom modifier (minimum 1 HP)."),
-			action: [["action", ""]],
+			action: [["action", " (Channel Divinity)"]],
 		},
 		"subclassfeature6": {
 			name: "Protective Bond",
@@ -431,7 +431,7 @@ AddSubClass("cleric", "peace domain", {
 			description: desc("Emboldening and Protective Bond work when the bonded are within 60 ft of each other. Protective Bond now also grants Resistance when used to take damage for another."),
 		},
 	},
-});
+}, true);
 AddSubClass("cleric", "twilight domain", {
 	regExpSearch: /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(twilight|transition)).*$/i,
 	subname: "Twilight Domain",
@@ -442,7 +442,7 @@ AddSubClass("cleric", "twilight domain", {
 			name: "Bonus Proficiency",
 			source: [["T", 34]],
 			minlevel: 3,
-			description: desc("I gain proficiency with martial weapons and heavy armor."),
+			description: desc("I gain proficiency with Martial weapons and Heavy armor."),
 			armorProfs: [false, false, true, false],
 			weaponProfs: [false, true],
 			spellcastingExtra: ["faerie fire", "sleep", "moonbeam", "see invisibility", "aura of vitality", "leomund's tiny hut", "aura of life", "greater invisibility", "circle of power", "mislead"],
@@ -463,7 +463,7 @@ AddSubClass("cleric", "twilight domain", {
 			name: "Vigilant Blessing",
 			source: [["T", 35]],
 			minlevel: 3,
-			description: desc("As an action, I can grant myself or a creature I touch Adv on the next initiative roll. This benefit ends immediately after the roll or when I use this feature again."),
+			description: desc("As an action, I can grant myself or a creature I touch Adv on the next Initiative roll. This benefit ends immediately after the roll or when I use this feature again."),
 			action: [["action", ""]],
 		},
 		"subclassfeature3.3": {
@@ -471,10 +471,10 @@ AddSubClass("cleric", "twilight domain", {
 			source: [["T", 35]],
 			minlevel: 3,
 			description: desc([
-				"As an action, I can use my holy symbol to create a 30-ft radius sphere around myself. It moves with me, is filled with Dim Light, and lasts for 1 min or until I'm Incapacitated. When a creature, including me, ends its turn inside the sphere, I can grant it a benefit:",
+				"As an action, I can use my holy symbol to create a 30-ft radius Sphere around myself. It moves with me, is filled with Dim Light, and lasts for 1 min or until I'm Incapacitated. When a creature, including me, ends its turn inside the Sphere, I can grant it a benefit:",
 				" \u2022 I grant it Temporary Hit Points equal to 1d6 + my Cleric level.",
 				" \u2022 I end one effect on it causing it to be Charmed or Frightened.",
-				"From 17th-level onwards, me and my allies have half cover while inside the sphere.",
+				"From 17th-level onwards, me and my allies have Half Cover while inside the Sphere.",
 			]),
 			action: [["action", ""]],
 			additional: levels.map(function (n) {
@@ -495,10 +495,10 @@ AddSubClass("cleric", "twilight domain", {
 			name: "Twilight Shroud",
 			source: [["T", 35]],
 			minlevel: 17,
-			description: desc("Me and my allies have half cover while in the sphere created by my Twilight Sanctuary."),
+			description: desc("Me and my allies have Half Cover while in the Sphere created by my Twilight Sanctuary."),
 		},
 	},
-});
+}, true);
 
 // Druid Subclasses
 // [dupl_start] reprints from Guildmasters' Guide to Ravnica
@@ -563,18 +563,18 @@ if (!SourceList["G"]) {
 				name: "Spreading Spores",
 				source: [["T", 37], ["G", 27]],
 				minlevel: 10,
-				description: " [only while Symbiotic Entity is active]" + desc("As a Bonus Action, I create a 10-ft cube of fungal spores within 30 ft, lasting for 1 min. Any creature moving into or starting its turn in it must save against my Halo of Spores. The cube ends if I use this feature again. While it persists, I can't use my Halo of Spores."),
+				description: " [only while Symbiotic Entity is active]" + desc("As a Bonus Action, I create a 10-ft Cube of fungal spores within 30 ft, lasting for 1 min. Any creature moving into or starting its turn in it must save against my Halo of Spores. The Cube ends if I use this feature again. While it persists, I can't use my Halo of Spores."),
 				action: [["bonus action", " (start/end)"]],
 			},
 			"subclassfeature14": {
 				name: "Fungal Body",
 				source: [["T", 38], ["G", 27]],
 				minlevel: 14,
-				description: desc("I'm Immune to being Blinded, Deafened, Frightened, Poisoned, and critical hits."),
-				savetxt: { immune: ["Blinded", "Deafened", "Frightened", "Poisoned", "critical hits (unless Incapacitated)"] },
+				description: desc("I'm Immune to being Blinded, Deafened, Frightened, Poisoned, and Critical Hits."),
+				savetxt: { immune: ["Blinded", "Deafened", "Frightened", "Poisoned", "Critical Hits (unless Incapacitated)"] },
 			},
 		},
-	});
+	}, true);
 } // dupl_end
 AddSubClass("druid", "circle of wildfire", {
 	regExpSearch: /^(?=.*(druid|shaman))(?=.*wild.{0,1}fire).*$/i,
@@ -593,7 +593,7 @@ AddSubClass("druid", "circle of wildfire", {
 			name: "Summon Wildfire Spirit",
 			source: [["T", 40]],
 			minlevel: 3,
-			description: desc("As an action, I can expend a Wild Shape use to summon a **Wildfire Spirit** within 30 ft. All within 10 ft of where it manifests must make a Dex save or take 2d10 Fire damage. It is friendly and obeys my commands. It lasts for 1 hour, until it has 0 HP, or I die. Unless I use a Bonus Action to command it, it only takes the Dodge action on its turn. It can always take Reactions and move on its turn. It acts on my initiative, after me. It disappears if I summon another. See Wildfire Spirit on a Companion page for its stats."),
+			description: desc("As an action, I can expend a Wild Shape use to summon a **Wildfire Spirit** within 30 ft. All within 10 ft of where it manifests must make a Dex save or take 2d10 Fire damage. It is Friendly and obeys my commands. It lasts for 1 hour, until it has 0 HP, or I die. Unless I use a Bonus Action to command it, it only takes the Dodge action on its turn. It can always take Reactions and move on its turn. It acts on my Initiative, after me. It disappears if I summon another. See Wildfire Spirit on a Companion page for its stats."),
 			action: [["action", ""], ["bonus action", "Command Wildfire Spirit"]],
 			creaturesAdd: [["Wildfire Spirit", true]],
 			creatureOptions: [{
@@ -646,7 +646,7 @@ AddSubClass("druid", "circle of wildfire", {
 				}],
 				features: [{
 					name: "Creator",
-					description: "The spirit obeys the commands of its creator and has the same Proficiency Bonus. It takes its turn immediately after its creator, on the same initiative count. It can move and take Reactions on its own, but only takes the Dodge action on its turn unless its creator takes a Bonus Action to command it to take another action. If its creator is Incapacitated, it can take any action, not just Dodge.",
+					description: "The spirit obeys the commands of its creator and has the same Proficiency Bonus. It takes its turn immediately after its creator, on the same Initiative count. It can move and take Reactions on its own, but only takes the Dodge action on its turn unless its creator takes a Bonus Action to command it to take another action. If its creator is Incapacitated, it can take any action, not just Dodge.",
 				}],
 				actions: [{
 					name: "Fiery Teleportation",
@@ -697,7 +697,7 @@ AddSubClass("druid", "circle of wildfire", {
 			recovery: "Long Rest",
 		},
 	},
-});
+}, true);
 
 // Fighter Alternative Class Features if Battle Master subclass exists
 if (ClassSubList["fighter-battle master"]) {
@@ -705,8 +705,11 @@ if (ClassSubList["fighter-battle master"]) {
 	AddFeatureChoice(ClassList.fighter.features["fighting style"], false, "Superior Technique", {
 		name: "Superior Technique",
 		source: [["T", 41], ["UA:CFV", 5]],
-		additional: "1 maneuver; d6, 1\xD7 per short rest",
-		description: desc("I gain one superiority die (d6) that I can expend to fuel a special Maneuver. I can only use one Maneuver per attack; DCs are 8 + Prof B + Str/Dex mod, my choice. Use the \"Choose Feature\" button above to add a Maneuver to the third page."),
+		additional: "1 maneuver; d6, 1\xD7 per Short Rest",
+		description: desc([
+			"I gain one Superiority Die (d6) that I can expend to fuel a special Maneuver. I can only use one Maneuver per attack. The save DC for it is 8 + PB + Str/Dex modifier (my choice).",
+			'Use the "Choose Feature" button above to add a Maneuver to the third page.',
+		]),
 		bonusClassExtrachoices: [{
 			"class": "fighter",
 			subclass: "fighter-battle master",
@@ -798,7 +801,7 @@ AddSubClass("fighter", "rune knight", {
 				additional: "invoke",
 				usages: ["", "", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2],
 				recovery: "Short Rest",
-				skillstxt: "expertise with all tools I am proficient with",
+				skillstxt: "Expertise with all tools I am proficient with",
 				eval: function () { Checkbox("Too Exp", true); },
 				removeeval: function () { Checkbox("Too Exp", false); },
 			},
@@ -868,7 +871,7 @@ AddSubClass("fighter", "rune knight", {
 				"As a Bonus Action, I can imbue myself with giant magic for 1 minute and gain benefits:",
 				" \u2022 Space permitted, I grow to a larger size category along with everything I'm wearing.",
 				" \u2022 I have Advantage on my Strength check and saves.",
-				" \u2022 My weapon and unarmed strike attacks deal extra damage.",
+				" \u2022 My weapon and Unarmed Strike attacks deal extra damage.",
 			]),
 			additional: levels.map(function (n) {
 				if (n < 3) return "";
@@ -900,7 +903,7 @@ AddSubClass("fighter", "rune knight", {
 							if (classes.known.fighter.level >= 18 && v.isMeleeWeapon) fields.Description += (fields.Description ? "; " : "") + "+5 ft reach";
 						};
 					},
-					"If I include the words \"Giant Might\" in the name of a weapon or unarmed strike, it gets treated as a weapon that I use while imbued by my Giant's Might feature. It adds +1d6 weapon damage. From 10th-level onwards, this increases to +1d8 damage. From 18th-level onwards, this increases to +1d10 damage and my reach increases by 5 ft (for melee weapons).",
+					"If I include the words \"Giant Might\" in the name of a weapon or Unarmed Strike, it gets treated as a weapon that I use while imbued by my Giant's Might feature. It adds +1d6 weapon damage. From 10th-level onwards, this increases to +1d8 damage. From 18th-level onwards, this increases to +1d10 damage and my reach increases by 5 ft (for melee weapons).",
 					8,
 				],
 			},
@@ -931,7 +934,7 @@ AddSubClass("fighter", "rune knight", {
 			description: desc("Giant's Might now adds +1d10 weapon damage, and can make me grow up to Huge. While I'm Huge, my reach increases by 5 ft."),
 		},
 	},
-});
+}, true);
 
 // Monk Optional Class Features
 var TCoE_monkOptional2 = makeOptionalClassFeatureBase("monk", 2);
@@ -1007,7 +1010,7 @@ AddSubClass("monk", "way of the astral self", {
 				name: "Astral Arms",
 				extraname: "Astral Self 3",
 				source: [["T", 50]],
-				description: desc("As a Bonus Action, I can summon my astral arms to hover next to or over my own arms. When I summon them, all creatures of my choice I can see in 10 ft must make a Dex save or take twice my martial arts die in Force damage. I can use the arms to make unarmed strikes, using Wisdom instead of Strength/Dexterity. I have +5 ft reach on attacks made with my astral arms and they deal Force damage. They last for 10 minutes or until I'm Incapacitated or die. I choose their appearance."),
+				description: desc("As a Bonus Action, I can summon my astral arms to hover next to or over my own arms. When I summon them, all creatures of my choice I can see in 10 ft must make a Dex save or take twice my martial arts die in Force damage. I can use the arms to make Unarmed Strikes, using Wisdom instead of Strength/Dexterity. I have +5 ft reach on attacks made with my astral arms and they deal Force damage. They last for 10 minutes or until I'm Incapacitated or die. I choose their appearance."),
 				additional: levels.map(function (n) {
 					return n < 3 ? "" : "1 FP; 2d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10) + " Force " + (typePF ? "dmg" : "damage") + " on summon";
 				}),
@@ -1027,7 +1030,7 @@ AddSubClass("monk", "way of the astral self", {
 				additional: "1 Focus Point",
 				description: desc([
 					"As a Bonus Action (or when summoning my astral arms), I can summon my astral visage. It lasts for 10 minutes or until I'm Incapacitated or die. I choose its appearance. My astral visage covers my face like a helmet or mask and grants me the following benefits:",
-					" \u2022 **Astral Sight**. I can see normally in normal and magical darkness to a distance of 120 ft.",
+					" \u2022 **Astral Sight**. I can see normally in normal and magical Darkness to a distance of 120 ft.",
 					" \u2022 **Wisdom of the Spirit**. I have Advantage on Wisdom (Insight) and Charisma (Intimidation).",
 					" \u2022 **Word of the Spirit**. I can have only one target I can see in 60 ft hear me, or all in 300 ft.",
 				]),
@@ -1083,7 +1086,7 @@ AddSubClass("monk", "way of the astral self", {
 			autoSelectExtrachoices: [{ extrachoice: "astral body" }],
 		},
 	},
-});
+}, true);
 
 // Paladin Optional Class Features
 var TCoE_paladinOptional3 = makeOptionalClassFeatureBase("paladin", 3);
@@ -1092,7 +1095,7 @@ AddFeatureChoice(TCoE_paladinOptional3, true, "Harness Divine Power", {
 	extraname: "Optional Paladin 3",
 	source: [["T", 52]],
 	description: desc("As a Bonus Action, I can expend 1 Channel Divinity to regain one used spell slot. The level of this spell slot can be no more than half my Proficiency Bonus (rounded up). I can only do this so many times per Long Rest, even if I have uses of Channel Divinity left."),
-	action: [["bonus action", ""]],
+	action: [["bonus action", " (Channel Divinity)"]],
 	usages: levels.map(function (n) {
 		return n < 3 ? "" : n < 7 ? 1 : n < 15 ? 2 : 3;
 	}),
@@ -1113,7 +1116,7 @@ AddSubClass("paladin", "oath of the watchers", {
 			minlevel: 3,
 			additional: "1 Channel Divinity",
 			description: desc("As an action, Cha mod of creatures I see in 30 ft gain Adv on Int/Wis/Cha saves for 1 min."),
-			action: [["action", ""]],
+			action: [["action", " (Channel Divinity)"]],
 			spellcastingExtra: ["alarm", "detect magic", "moonbeam", "see invisibility", "counterspell", "nondetection", "aura of purity", "banishment", "hold monster", "scrying"],
 		},
 		"subclassfeature3.1": {
@@ -1122,7 +1125,7 @@ AddSubClass("paladin", "oath of the watchers", {
 			minlevel: 3,
 			additional: "1 Channel Divinity",
 			description: desc("As an action, all Aberration, Celestial, Elemental, Fey, Fiend in 30 ft must make a Wis save. Succeeds if it can't hear me. On fail, turned for 1 minute or until it takes any damage. Turned: move away, never within 30 ft of me, no Reactions or actions other than Dash. Turned: may Dodge instead of Dash when nowhere to move and unable to escape bonds."),
-			action: [["action", ""]],
+			action: [["action", " (Channel Divinity)"]],
 		},
 		"subclassfeature7": {
 			name: "Aura of the Sentinel",
@@ -1130,7 +1133,7 @@ AddSubClass("paladin", "oath of the watchers", {
 			minlevel: 7,
 			description: desc("If I'm not Incapacitated, chosen creatures in range and I add my Prof Bonus to Initiative."),
 			additional: levels.map(function (n) { return n < 7 ? "" : (n < 18 ? 10 : 30) + "-foot aura"; }),
-			addMod: [{ type: "skill", field: "Init", mod: "prof", text: "I can add my Proficiency Bonus to initiative rolls." }],
+			addMod: [{ type: "skill", field: "Init", mod: "prof", text: "I can add my Proficiency Bonus to Initiative rolls." }],
 		},
 		"subclassfeature15": {
 			name: "Vigilant Rebuke",
@@ -1155,7 +1158,7 @@ AddSubClass("paladin", "oath of the watchers", {
 			action: [["bonus action", ""]],
 		},
 	},
-});
+}, true);
 
 // Ranger Optional Class Features
 CreateClassFeatureVariant("ranger", "favored enemy", "Favored Foe", {
@@ -1197,7 +1200,7 @@ AddSubClass("ranger", "swarmkeeper", {
 					"I'm bonded to a swarm of nature spirits crawling in my space. I choose their appearance. Once on each of my turns, I can have it assist me after I hit a creature with an attack:",
 					" \u2022 The target takes an extra 1d" + (n < 11 ? 6 : 8) + " Piercing damage from the swarm.",
 					" \u2022 The target must make a Strength save or be moved 15 ft horizontally by the swarm." + (n < 11 ? "" : " Additionally, on a failed save, I can also have the target be knocked Prone."),
-					" \u2022 The swarm moves me 5 ft horizontally" + (n < 11 ? "" : " and I have half cover until my next turn starts") + ".",
+					" \u2022 The swarm moves me 5 ft horizontally" + (n < 11 ? "" : " and I have Half Cover until my next turn starts") + ".",
 					"I get to choose the direction whenever the target or I'm moved by the swarm.",
 				];
 				if (n >= 20) a.pop();
@@ -1231,7 +1234,7 @@ AddSubClass("ranger", "swarmkeeper", {
 			source: [["T", 60]],
 			minlevel: 11,
 			description: " [improves Gathered Swarm, see above]" +
-				desc("Now 1d8 damage, knocks Prone on failed save, or grants me half cover until next turn."),
+				desc("Now 1d8 damage, knocks Prone on failed save, or grants me Half Cover until next turn."),
 		},
 		"subclassfeature15": {
 			name: "Swarming Dispersal",
@@ -1244,7 +1247,7 @@ AddSubClass("ranger", "swarmkeeper", {
 			recovery: "Long Rest",
 		},
 	},
-});
+}, true);
 
 // Sorcerer Optional Class Features
 var TCoE_sorcererOptional5 = makeOptionalClassFeatureBase("sorcerer", 5);
@@ -1260,6 +1263,7 @@ AddFeatureChoice(TCoE_sorcererOptional5, true, "Magical Guidance", {
 AddWarlockInvocation("Pact of the Talisman", {
 	name: "Pact of the Talisman",
 	source: [["T", 70]],
+	submenu: "[Warlock level  0+]",
 	description: desc("When the wearer of this amulet fails an ability check, they can add +1d4 to the roll. I can give the talisman to others to use. The talisman turns to ash when I die. If I lose my talisman, I can perform a 1-hour ceremony to gain a replacement. This ceremony destroys the previous amulet and can be done during a Short or Long Rest."),
 	usages: (typePF ? "Prof" : "Proficiency") + " Bonus per ",
 	usagescalc: "event.value = How('Proficiency Bonus')",
@@ -1282,7 +1286,7 @@ AddWarlockInvocation("Far Scribe (req: lvl 5+, Pact of the Tome)", {
 	source: [["T", 71]],
 	minlevel: 5,
 	submenu: ["[Warlock level  5+]", "[improves Pact of the Tome]"],
-	description: desc("My Book of Shadows has a new page. As an action, a creature can write its name on it. This page can hold my Proficiency Bonus in creature names. I can remove one as an action. I can cast *Sending* without a spell slot or material components, targeting one on the page. Instead of saying the message, I write it on the page and any reply appears there as well. This writing disappears after 1 minute. The target still hears the message in their mind."),
+	description: desc("My Book of Shadows has a new page. As an action, a creature can write its name on it. This page can hold my Proficiency Bonus in creature names. I can remove one as an action. I can cast *Sending* without a spell slot or Material components, targeting one on the page. Instead of saying the message, I write it on the page and any reply appears there as well. This writing disappears after 1 minute. The target still hears the message in their mind."),
 	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the tome") !== -1; },
 	action: [["action", " (erase name)"]],
 	spellcastingBonus: [{
@@ -1296,7 +1300,7 @@ AddWarlockInvocation("Far Scribe (req: lvl 5+, Pact of the Tome)", {
 			components: "V,S",
 			compMaterial: "",
 			description: "Send 25 word message to crea named in Book of Shadows; it recognizes me and can respond 25 words",
-			changes: "By using Far Scribe, I can cast *Sending* without using a spell slot or material components, but only to target one of the creatures that wrote their name in my Book of Shadows. Instead of speaking the message, I write it in my book and any response appears there as well, lasting for 1 minute. The target still hears the message in their mind.",
+			changes: "By using Far Scribe, I can cast *Sending* without using a spell slot or Material components, but only to target one of the creatures that wrote their name in my Book of Shadows. Instead of speaking the message, I write it in my book and any response appears there as well, lasting for 1 minute. The target still hears the message in their mind.",
 		},
 	},
 });
@@ -1314,17 +1318,17 @@ AddWarlockInvocation("Protection of the Talisman (req: lvl 7+, Pact of the Talis
 AddWarlockInvocation("Rebuke of the Talisman (req: Pact of the Talisman)", {
 	name: "Rebuke of the Talisman",
 	source: [["T", 71]],
-	submenu: "[improves Pact of the Talisman]",
+	submenu: ["[Warlock level  0+]", "[improves Pact of the Talisman]"],
 	description: desc("As a Reaction when the wearer of my talisman is hit, I deal damage and push the attacker. To be able to do this, I have to see the attacker and it has to be within 30 ft of me. I deal it my Proficiency Bonus in Psychic damage and push it 10 ft away from the talisman."),
 	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the talisman") !== -1; },
 	action: [["reaction", ""]],
 });
 AddWarlockInvocation("Undying Servitude (req: lvl 5+)", {
 	name: "Undying Servitude",
-	description: desc("Once per Long Rest, I can cast *Animate Dead* without using a spell slot."),
 	source: [["T", 71]],
 	minlevel: 5,
 	submenu: "[Warlock level  5+]",
+	description: desc("Once per Long Rest, I can cast *Animate Dead* without using a spell slot."),
 	spellcastingBonus: [{
 		name: "Undying Servitude",
 		spells: ["animate dead"],
@@ -1412,7 +1416,7 @@ AddSubClass("warlock", "the fathomless", {
 			name: "Grasping Tentacles",
 			source: [["T", 73]],
 			minlevel: 10,
-			description: desc("I learn *Evard's Black Tentacles*. Once per Long Rest, I can cast it without using a spell slot. It counts as a Warlock spell for me, but not towards the number of spells I can know. Whenever I cast it, I gain Temporary Hit Points equal to my Warlock level. Moreover, damage can't break my concentration on this spell."),
+			description: desc("I learn *Evard's Black Tentacles*. Once per Long Rest, I can cast it without using a spell slot. It counts as a Warlock spell for me, but not towards the number of spells I can know. Whenever I cast it, I gain Temporary Hit Points equal to my Warlock level. Moreover, damage can't break my Concentration on this spell."),
 			action: [["action", ""]],
 			additional: levels.map(function (n) {
 				return n < 10 ? "" : n + " Temp HP; 1\xD7 per " + (typePF ? "LR" : "Long Rest") + " no SS";
@@ -1447,7 +1451,7 @@ AddSubClass("warlock", "the fathomless", {
 			usages: 1,
 		},
 	},
-});
+}, true);
 AddSubClass("warlock", "the genie", {
 	regExpSearch: /^(?=.*warlock)(?=.*(genie|dao|djinni|efreeti|marid)).*$/i,
 	subname: "the Genie",
@@ -1509,7 +1513,7 @@ AddSubClass("warlock", "the genie", {
 			source: [["T", 74], ["UA:SR", 3]],
 			minlevel: 3,
 			description: desc([
-				"As an action, I can vanish and enter the extradimensional space inside my genie's vessel. The vessel stays in its location. The space inside is a 20-ft high, 20-ft radius cylinder.",
+				"As an action, I can vanish and enter the extradimensional space inside my genie's vessel. The vessel stays in its location. The space inside is a 20-ft high, 20-ft radius Cylinder.",
 				"As a Bonus Action, I can exit my vessel. I exit it early if I die or the vessel is destroyed. I can remain inside for twice my Proficiency Bonus in hours. Objects can be left inside.",
 			]),
 			limfeaname: "Bottled Respite",
@@ -1659,7 +1663,7 @@ AddSubClass("warlock", "the genie", {
 			}],
 		},
 	},
-});
+}, true);
 
 // Wizard Subclasses
 AddSubClass("wizard","order of scribes", {
@@ -1689,10 +1693,10 @@ AddSubClass("wizard","order of scribes", {
 				"My spellbook gains sentience and grants me the following benefits while I am holding it:",
 				" \u2022 I can use the book as a spellcasting focus for my Wizard spells.",
 				" \u2022 When I cast a Wizard spell using a spell slot, I can temporarily replace its damage type. The new type must appear in my spellbook in a spell of the same level as the spell slot.",
-				" \u2022 Once per Long Rest, I can ritual cast a Wizard spell without 10 min extra casting time.",
+				" \u2022 Once per Long Rest, I can Ritual cast a Wizard spell without 10 min extra casting time.",
 				"I can replace it over a Short Rest, transferring its spells and sentience to a blank book.",
 			]),
-			additional: "fast ritual cast",
+			additional: "fast Ritual cast",
 			usages: 1,
 			recovery: "Long Rest",
 		},
@@ -1792,7 +1796,7 @@ AddSubClass("wizard","order of scribes", {
 			}],
 		},
 	},
-});
+}, true);
 
 // Feats
 FeatsList["artificer initiate"] = {
@@ -1967,6 +1971,7 @@ if (!SourceList["S"]) {
 		name: "Green-Flame Blade",
 		classes: ["artificer", "sorcerer", "warlock", "wizard"],
 		source: [["T", 107], ["S", 143]],
+		reqLoS: true,
 		level: 0,
 		school: "Evoc",
 		time: "Act",
@@ -1986,6 +1991,7 @@ if (!SourceList["S"]) {
 		name: "Lightning Lure",
 		classes: ["artificer", "sorcerer", "warlock", "wizard"],
 		source: [["T", 107], ["S", 143]],
+		reqLoS: true,
 		level: 0,
 		school: "Evoc",
 		time: "Act",
@@ -2092,9 +2098,10 @@ SpellsList["intellect fortress"] = {
 	name: "Intellect Fortress",
 	classes: ["artificer", "bard", "sorcerer", "warlock", "wizard"],
 	source: [["T", 107]],
+	reqLoS: true,
 	level: 3,
 	school: "Abjur",
-	time: "1 a",
+	time: "Act",
 	range: "30 ft",
 	components: "V",
 	duration: "Conc, 1 h",
@@ -2110,7 +2117,7 @@ SpellsList["spirit shroud"] = {
 	source: [["T", 108]],
 	level: 3,
 	school: "Necro",
-	time: "1 bns",
+	time: "Bns",
 	range: "S:10-ft rad",
 	components: "V,S",
 	duration: "Conc, 1 min",
@@ -2133,6 +2140,7 @@ SpellsList["summon shadowspawn"] = {
 	name: "Summon Shadowspawn",
 	classes: ["warlock", "wizard"],
 	source: [["T", 113]],
+	reqLoS: true,
 	level: 3,
 	school: "Conj",
 	time: "Act",
@@ -2155,13 +2163,13 @@ SpellsList["tasha's caustic brew"] = {
 	level: 1,
 	school: "Evoc",
 	time: "Act",
-	range: "S:30-ft line",
+	range: "S:30-ft Line",
 	components: "V,S,M",
 	compMaterial: "A bit of rotten food",
 	duration: "Conc, 1 min",
 	save: "Dex",
 	description: "30-ft long 5-ft wide all save or 2d4+2d4/SL Acid dmg at start of turn; action to clean self or adjacent",
-	descriptionShorter: "30-ft long 5-ft wide all save or 2d4+2d4/SL Acid dmg at turn start; 1 a clean self/adjacent",
+	descriptionShorter: "30-ft long 5-ft wide all save or 2d4+2d4/SL Acid dmg at turn start; Act clean self/adjacent",
 	descriptionFull: [
 		"A stream of acid emanates from you in a line 30 feet long and 5 feet wide in a direction you choose. Each creature in the line must succeed on a Dexterity saving throw or be covered in acid for the spell's duration or until a creature uses its action to scrape or wash the acid off itself or another creature. A creature covered in the acid takes 2d4 acid damage at start of each of its turns.",
 		"***At Higher Levels***. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 2d4 for each slot level above 1st.",
@@ -2173,6 +2181,7 @@ SpellsList["tasha's mind whip"] = {
 	regExpSearch: /^(?=.*mind)(?=.*(whip|thrust)).*$/i, // "Mind Thrust" in UA:POR
 	classes: ["sorcerer", "wizard"],
 	source: [["T", 115], ["UA:POR", 8]],
+	reqLoS: true,
 	level: 2,
 	school: "Ench",
 	time: "Act",
@@ -2180,8 +2189,8 @@ SpellsList["tasha's mind whip"] = {
 	components: "V",
 	duration: "1 rnd",
 	save: "Int",
-	description: "1+1/SL crea, max 30 ft apart; 3d6 Psychic dmg; no rea; only move, act, or bns; save half, no act limit",
-	descriptionShorter: "1+1/SL crea, max 30 ft apart; 3d6 Psychic dmg; no rea; move, act, or bns; save half, no act limit",
+	description: "1+1/SL crea, max 30 ft apart; 3d6 Psychic dmg; no Rea; only move, Act, or Bns; save: half, no act limit",
+	descriptionShorter: "1+1/SL crea in 30-ft rad; 3d6 Psychic dmg; no Rea; move, Act, or Bns; save: \xBD, no act limit",
 	descriptionFull: [
 		"You psychically lash out at one creature you can see within range. The target must make an Intelligence saving throw. On a failed save, the target takes 3d6 psychic damage, and it can't take a reaction until the end of its next turn. Moreover, on its next turn, it must choose whether it gets a move, an action, or a bonus action; it gets only one of the three. On a successful save, the target takes half as much damage and suffers none of the spell's other effects.",
 		"***At Higher Levels***. When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd. The creatures must be within 30 feet of each other when you target them.",
@@ -2383,7 +2392,7 @@ MagicItemsList["eldritch claw tattoo"] = {
 	type: "Wondrous Item (Tattoo)",
 	rarity: "Uncommon",
 	attunement: true,
-	description: "This magical tattoo featuring clawlike forms makes my unarmed strikes magical with a +1 bonus to attack and damage. As a Bonus Action once per dawn, I can have it empower me for 1 minute so that all my melee attacks with weapons and unarmed strikes have 15 ft reach and deal an extra 1d6 Force damage.",
+	description: "This magical tattoo featuring clawlike forms makes my Unarmed Strikes magical with a +1 bonus to attack and damage. As a Bonus Action once per dawn, I can have it empower me for 1 minute so that all my melee attacks with weapons and Unarmed Strikes have 15 ft reach and deal an extra 1d6 Force damage.",
 	descriptionFull: [
 		"Produced by a special needle, this magic tattoo depicts clawlike forms and other jagged shapes.",
 		"***Magical Strikes***. While the tattoo is on your skin, your unarmed strikes are considered magical for the purpose of overcoming immunity and resistance to nonmagical attacks, and you gain a +1 bonus to attack and damage rolls with unarmed strikes.",
@@ -2406,7 +2415,7 @@ MagicItemsList["eldritch claw tattoo"] = {
 					}
 				};
 			},
-			"If I include the words 'Eldritch Maul' or 'Eldritch Claw' in the name of a melee weapon or an unarmed strike, it gets +10 ft reach and +1d6 Force damage.",
+			"If I include the words 'Eldritch Maul' or 'Eldritch Claw' in the name of a melee weapon or an Unarmed Strike, it gets +10 ft reach and +1d6 Force damage.",
 			700,
 		],
 		atkCalc: [
@@ -2511,7 +2520,7 @@ MagicItemsList["spellwrought tattoo"] = {
 	name: "Spellwrought Tattoo",
 	source: [["T", 135]],
 	type: "Wondrous Item (Tattoo)",
-	description: "When I hold this magic needle against my skin and speak the command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its spell, requiring no material components. The tattoo glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
+	description: "When I hold this magic needle against my skin and speak the command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its spell, requiring no Material components. The tattoo glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 	descriptionFull: [
 		"Produced by a special needle, this magic tattoo contains a single spell of up to 5th level, wrought on your skin by a magic needle. To use the tattoo, you must hold the needle against your skin and speak the command word. The needle turns into ink that becomes the tattoo, which appears on the skin in whatever design you like. Once the tattoo is there, you can cast its spell, requiring no material components. The tattoo glows faintly while you cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes from your skin.",
 		"The level of the spell in the tattoo determines the spell's saving throw DC, attack bonus, spellcasting ability modifier, and the tattoo's rarity, as shown in the table below.",
@@ -2532,7 +2541,7 @@ MagicItemsList["spellwrought tattoo"] = {
 			function (spellKey, spellObj, spName) {
 				if (/^spellwrought tattoo/i.test(spName) && !spellObj.spellwroughtTattooProcessed) {
 					if (spellObj.components) spellObj.components = spellObj.components.replace(/,?[RM][\u0192\u2020]?/ig, "");
-					if (spellObj.compMaterial) spellObj.compMaterial = "Spell cast using a Spellwrought Tattoo, require no material components";
+					if (spellObj.compMaterial) spellObj.compMaterial = "Spell cast using a Spellwrought Tattoo, require no Material components";
 					spellObj.ritual = false;
 					["description", "descriptionMetric", "descriptionShorter", "descriptionShorterMetric"].forEach (function (attr) {
 						if (!spellObj[attr]) return;
@@ -2542,7 +2551,7 @@ MagicItemsList["spellwrought tattoo"] = {
 					return true;
 				}
 			},
-			"When casting a spell using a Spellwrought Tattoo, no material components are needed, and can't be cast as a ritual.",
+			"When casting a spell using a Spellwrought Tattoo, no Material components are needed, and can't be cast as a Ritual.",
 		],
 	},
 	choices: ["Cantrip (common)", "1st-level (common)", "2nd-level (uncommon)", "3rd-level (uncommon)", "4th-level (rare)", "5th-level (rare)"],
@@ -2551,7 +2560,7 @@ MagicItemsList["spellwrought tattoo"] = {
 		name: "Spellwrought Tattoo (cantrip)",
 		sortname: "Spellwrought Tattoo  (cantrip)",
 		rarity: "Common",
-		description: "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its cantrip, requiring no material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
+		description: "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its cantrip, requiring no Material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC: 13,
 		spellFirstColTitle: "Us", // used
 		spellcastingBonus: [{
@@ -2565,7 +2574,7 @@ MagicItemsList["spellwrought tattoo"] = {
 	"1st-level (common)": {
 		name: "Spellwrought Tattoo (1st-level)",
 		rarity: "Common",
-		description: "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 1st-level spell, requiring no material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
+		description: "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 1st-level spell, requiring no Material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC: 13,
 		spellFirstColTitle: "Us", // used
 		spellcastingBonus: [{
@@ -2579,7 +2588,7 @@ MagicItemsList["spellwrought tattoo"] = {
 	"2nd-level (uncommon)": {
 		name: "Spellwrought Tattoo (2nd-level)",
 		rarity: "Uncommon",
-		description: "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 2nd-level spell, requiring no material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
+		description: "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 2nd-level spell, requiring no Material components, with DC 13, +5 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC: 13,
 		spellFirstColTitle: "Us", // used
 		spellcastingBonus: [{
@@ -2593,7 +2602,7 @@ MagicItemsList["spellwrought tattoo"] = {
 	"3rd-level (uncommon)": {
 		name: "Spellwrought Tattoo (3rd-level)",
 		rarity: "Uncommon",
-		description: "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 3rd-level spell, requiring no material components, with DC 15, +7 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
+		description: "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 3rd-level spell, requiring no Material components, with DC 15, +7 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC: 15,
 		spellFirstColTitle: "Us", // used
 		spellcastingBonus: [{
@@ -2607,7 +2616,7 @@ MagicItemsList["spellwrought tattoo"] = {
 	"4th-level (rare)": {
 		name: "Spellwrought Tattoo (4th-level)",
 		rarity: "Rare",
-		description: "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 4th-level spell, requiring no material components, with DC 15, +7 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
+		description: "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 4th-level spell, requiring no Material components, with DC 15, +7 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC: 15,
 		spellFirstColTitle: "Us", // used
 		spellcastingBonus: [{
@@ -2621,7 +2630,7 @@ MagicItemsList["spellwrought tattoo"] = {
 	"5th-level (rare)": {
 		name: "Spellwrought Tattoo (5th-level)",
 		rarity: "Rare",
-		description: "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 5th-level spell, requiring no material components, with DC 17, +9 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
+		description: "When I put this needle on my skin and speak its command word, it disappears and I gain a magical tattoo. I can use this tattoo to cast its 5th-level spell, requiring no Material components, with DC 17, +9 spell attack. It glows faintly while I cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes.",
 		fixedDC: 17,
 		spellFirstColTitle: "Us", // used
 		spellcastingBonus: [{
@@ -3154,7 +3163,7 @@ MagicItemsList["crystalline chronicle"] = {
 	prerequisite: "Requires attunement by a wizard",
 	prereqeval: function (v) { return classes.known.wizard ? true : false; },
 	description: "I can use this orb with spells as a Wizard spellcasting focus and spellbook. It lets me use *Mage Hand*, *Mind Sliver*, and *Message*. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, I can change a prepared spell to another within. I can use 1 charge to ignore components of a Wizard spell (max 100 gp).",
-	descriptionLong: "This grapefruit sized, etched crystal sphere hums pulses with irregular flares of inner light. I can retrieve and store information within the crystal as a spellbook by touching it. It contains several spells and has 3 charges, regaining 1d3 at dawn. While holding it, I can use it as a spellcasting focus for my Wizard spells, I know the *Mage Hand*, *Mind Sliver*, and *Message* cantrips, I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to another within, and when I cast a Wizard spell, I can expend 1 charge to cast it without verbal, somatic, or material components of up to 100 gp value.",
+	descriptionLong: "This grapefruit sized, etched crystal sphere hums pulses with irregular flares of inner light. I can retrieve and store information within the crystal as a spellbook by touching it. It contains several spells and has 3 charges, regaining 1d3 at dawn. While holding it, I can use it as a spellcasting focus for my Wizard spells, I know the *Mage Hand*, *Mind Sliver*, and *Message* cantrips, I can study the book for 1 minute and expend 1 charge to change one of my prepared spells to another within, and when I cast a Wizard spell, I can expend 1 charge to cast it without Verbal, Somatic, or Material components of up to 100 gp value.",
 	descriptionFull: [
 		"An etched crystal sphere the size of a grapefruit hums faintly and pulses with irregular flares of inner light. While you are touching the crystal, you can retrieve and store information and spells within the crystal at the same rate as reading and writing. When found, the crystal contains the following spells: *detect thoughts*, *intellect fortress*, *Rary's telepathic bond*, *sending*, *telekinesis*, *Tasha's mind whip*, and *Tenser's floating disk*. It functions as a spellbook for you, with its spells and other writing psychically encoded within it.",
 		"While you are holding the crystal, you can use it as a spellcasting focus for your wizard spells, and you know the *mage hand*, *mind sliver*, and *message* cantrips if you don't already know them.",
@@ -3586,11 +3595,11 @@ MagicItemsList["lyre of building"] = {
 	}],
 	spellChanges: {
 		"fabricate": {
-			time: "1 a",
+			time: "Act",
 			changes: "Using the Lyre of Building, I can cast *Fabricate* as an action.",
 		},
 		"mending": {
-			time: "1 a",
+			time: "Act",
 			changes: "Using the Lyre of Building, I can cast *Mending* as an action.",
 		},
 	},
@@ -3607,7 +3616,7 @@ MagicItemsList["bell branch"] = {
 	prereqeval: function (v) {
 		return classes.known.druid || classes.known.warlock ? true : false;
 	},
-	description: "This silver branch with bells has 3 charges, regains 1d3 at dawn. I can use it as a spellcasting focus. As a Bonus Action, I can use 1 charge to detect if any Aberration, Celestial, Fey, Fiend, Undead, Construct, or Elemental are within 60 ft and not behind total cover. I can use 1 charge to cast *Protection from Evil and Good*.",
+	description: "This silver branch with bells has 3 charges, regains 1d3 at dawn. I can use it as a spellcasting focus. As a Bonus Action, I can use 1 charge to detect if any Aberration, Celestial, Fey, Fiend, Undead, Construct, or Elemental are within 60 ft and not behind Total Cover. I can use 1 charge to cast *Protection from Evil and Good*.",
 	descriptionFull: [
 		"This silver implement is shaped like a tree branch and is strung with small golden bells. The branch is a spellcasting focus for your spells while you hold it.",
 		"The branch has 3 charges, and it regains 1d3 expended charges daily at dawn. You can use the charges in the following ways while holding it.",
@@ -3665,7 +3674,7 @@ MagicItemsList["guardian emblem"] = {
 	prereqeval: function (v) {
 		return classes.known.cleric || classes.known.paladin ? true : false;
 	},
-	description: "As an action, I can attach or detach this symbol of a deity to a shield or a suit of armor. It has 3 charges, regaining all at dawn. As a Reaction when I or a creature I can see within 30 ft suffers a critical hit while I wear the armor or wield the shield that bears the emblem, I can expend 1 charge to turn it into a normal hit.",
+	description: "As an action, I can attach or detach this symbol of a deity to a shield or a suit of armor. It has 3 charges, regaining all at dawn. As a Reaction when I or a creature I can see within 30 ft suffers a Critical Hit while I wear the armor or wield the shield that bears the emblem, I can expend 1 charge to turn it into a normal hit.",
 	descriptionFull: [
 		"This emblem is the symbol of a deity or a spiritual tradition. As an action, you can attach the emblem to a suit of armor or a shield or remove it.",
 		"The emblem has 3 charges. When you or a creature you can see within 30 feet of you suffers a critical hit while you're wearing the armor or wielding the shield that bears the emblem, you can use your reaction to expend 1 charge to turn the critical hit into a normal hit instead.",

@@ -726,7 +726,7 @@ MagicItemsList["scorpion armor"] = {
 	source: [["ToA", 208]],
 	type: "Armor (Plate)",
 	rarity: "Rare",
-	description: "This suit of plate armor fashioned from giant scorpion chitin doesn't impose Disadv on stealth or saves against extreme heat. It gives me +5 bonus on initiative while I'm not Incapacitated. Whenever I don or doff it, I take 10d10+45 Poison damage, DC 15 Con save halves. Only a *Wish* can remove this curse.",
+	description: "This suit of plate armor fashioned from giant scorpion chitin doesn't impose Disadv on Stealth or saves against extreme heat. It gives me +5 bonus on Initiative while I'm not Incapacitated. Whenever I don or doff it, I take 10d10+45 Poison damage, DC 15 Con save halves. Only a *Wish* can remove this curse.",
 	descriptionFull: [
 		"This suit of plate armor is fashioned from giant scorpion chitin. While wearing this armor, you gain the following benefits:",
 		" \u2022 The armor improves your combat readiness, granting you a +5 bonus to initiative as long as you aren't incapacitated.",
@@ -737,7 +737,7 @@ MagicItemsList["scorpion armor"] = {
 	attunement: true,
 	weight: 65,
 	cursed: true,
-	addMod: [{ type: "skill", field: "Init", mod: 5, text: "I gain a +5 bonus on my initiative rolls." }],
+	addMod: [{ type: "skill", field: "Init", mod: 5, text: "I gain a +5 bonus on my Initiative rolls." }],
 	armorOptions: [{
 		regExpSearch: /^(?=.*scorpion)(?=.*armor).*$/i,
 		name: "Scorpion Armor",

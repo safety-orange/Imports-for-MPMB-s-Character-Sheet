@@ -93,7 +93,7 @@ BackgroundFeatureList["religious community"] = {
 	source: [["DiA", 202], ["ALbackground", 0]],
 };
 BackgroundFeatureList["long-lost heir"] = {
-	description: "I can pose as the long-lost heir to some imaginary or dead lineage. I'm well-versed in the mannerisms and idiosyncrasies of nobility, imitating them smoothly enough to convince anybody of my authenticity. However, any true test is likely to reveal my deception. I can enter places that only nobility can and might be able to bluff other through with me.",
+	description: "I can pose as the long-lost heir to some imaginary or dead lineage. I'm well-versed in the mannerisms and idiosyncrasies of nobility, imitating them smoothly enough to convince anybody of my authenticity. However, any true test is likely to reveal my deception. I can enter places that only nobility can and might be able to bluff others through with me.",
 	source: [["DiA", 202], ["ALbackground", 0]],
 };
 BackgroundFeatureList["criminal connections"] = {
@@ -105,7 +105,7 @@ BackgroundFeatureList["backstage pass"] = {
 	source: [["DiA", 202], ["ALbackground", 0]],
 };
 BackgroundFeatureList["dual personalities"] = {
-	description: "The world knows me as my persona and those who seek to learn more about me find themselves stymied by my disguise. I'm unidentifiable as my true self while disguised and behaving as my persona, allowing me to change appearances between my two personalities as I wish. My deception might lose its effectiveness if someone realize the connection.",
+	description: "The world knows me as my persona and those who seek to learn more about me find themselves stymied by my disguise. I'm unidentifiable as my true self while disguised and behaving as my persona, allowing me to change appearances between my two personalities as I wish. My deception might lose its effectiveness if someone realizes the connection.",
 	source: [["DiA", 204], ["ALbackground", 0]],
 };
 BackgroundFeatureList["social vengeance"] = {
@@ -249,7 +249,7 @@ MagicItemsList["gauntlets of flaming fury"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	description: "While wearing both these steel gauntlets, any weapons I grasp with them count as magical. As a bonus action once per dawn, I can use them to envelop one or two melee weapons in my grasp with magical flames, causing them to deal an extra 1d6 fire damage on a hit. This lasts until I sheathe or let go of a weapon.",
-	descriptionFull: "While you wear both of these steel gauntlets, any non- magical weapon you grasp with either gauntlet is treated as a magic weapon. As a bonus action, you can use the gauntlets to cause magical flames to envelop one or two melee weapons in your grasp. Each flaming weapon deals an extra 1d6 fire damage on a hit. The flames last until you sheathe or let go of either weapon. Once used, this property can't be used again until the next dawn.",
+	descriptionFull: "While you wear both of these steel gauntlets, any nonmagical weapon you grasp with either gauntlet is treated as a magic weapon. As a bonus action, you can use the gauntlets to cause magical flames to envelop one or two melee weapons in your grasp. Each flaming weapon deals an extra 1d6 fire damage on a hit. The flames last until you sheathe or let go of either weapon. Once used, this property can't be used again until the next dawn.",
 	attunement: true,
 	action: [["bonus action", ""]],
 	usages: 1,
@@ -313,7 +313,7 @@ MagicItemsList["hellfire weapon"] = {
 					fields.Description += (fields.Description ? "; " : "") + "Humanoids killed lose their soul";
 				}
 			},
-			'If I include the word "Hellfire" in the name of a weapon, it will be treated as the magic weapon Hellfire Weapon. Any humanoid killed by the weapon has its soul funneled into the River Styx, and are instantly reborn as a lemure devil.',
+			'If I include the word "Hellfire" in the name of a weapon, it will be treated as the magic weapon Hellfire Weapon. Any humanoid killed by the weapon has its soul funneled into the River Styx, and is instantly reborn as a lemure devil.',
 		],
 	},
 }
@@ -331,7 +331,7 @@ MagicItemsList["helm of devil command"] = {
 		"If you are not a devil, using the helm's *dominate monster* property in the Nine Hells has a 20 percent chance of attracting a narzugon, which arrives on the back of a nightmare mount in 1d4 hours. The narzugon tries to recover the helm, killing you if necessary to obtain it. If it gets the helm, the narzugon tries to deliver it to its infernal master.",
 	],
 	attunement: true,
-	prerequisite: "Requires attunement by a creature that can speak infernal",
+	prerequisite: "Requires attunement by a creature that can speak Infernal",
 	prereqeval: function (v) { return /infernal/i.test(v.languageProfs); },
 	usages: 3,
 	recovery: "Special",
@@ -356,7 +356,7 @@ MagicItemsList["infernal puzzle box"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	description: "This cube-shaped container is around 15 cm on a side and is composed of airtight, interlocking parts. It can't be magically opened and is immune to all damage. I can figure out how to open it in 1 hour with a DC 30 Investigation check. If failed by 5 or more, I take 12d6 psychic damage, Wis DC 18 halves.",
-	descriptionLong: "This cube-shaped container is around 15 cm on a side and is composed of airtight, interlocking parts made from materials found in the Nine Hells. It can't be magically opened and is immune to all damage while shut. Every infernal puzzle box has an unique mundane way of opening it. I can figure out how to open this box in 1 hour with a DC 30 Investigation check, but if I fail this check by 5 or more, I take 12d6 psychic damage, Wisdom save DC 18 halves. Once I figure out the trick or sequence of steps needed to open this box, I can open it as an action, allowing access to the box's contents.",
+	descriptionLong: "This cube-shaped container is around 15 cm on a side and is composed of airtight, interlocking parts made from materials found in the Nine Hells. It can't be magically opened and is immune to all damage while shut. Every infernal puzzle box has a unique mundane way of opening it. I can figure out how to open this box in 1 hour with a DC 30 Investigation check, but if I fail this check by 5 or more, I take 12d6 psychic damage, Wisdom save DC 18 halves. Once I figure out the trick or sequence of steps needed to open this box, I can open it as an action, allowing access to the box's contents.",
 	descriptionFull: [
 		"An *infernal puzzle box* is a cube-shaped container 5 to 6 inches on a side, composed of airtight, interlocking parts made from materials found in the Nine Hells. Most of these boxes are made of infernal iron, though some are carved from bone or horn. Infernal puzzle boxes are used to safeguard diabolical contracts signed between devils and mortals, even after the terms of these contracts are fulfilled. An empty *infernal puzzle box* weighs 3 pounds regardless of the materials used to fashion it.",
 		"When an object small enough to fit inside an *infernal puzzle box* is placed in it, the container magically seals shut around the object, and no magic can force the box open. The sealed box becomes immune to all damage as well. Every *infernal puzzle box* is constructed with a unique means of opening it. The trick to solving the puzzle is always mundane, never magical. Once a creature figures out the trick or sequence of steps needed to open a particular *infernal puzzle box*, that creature can open the box as an action, allowing access to the box's contents.",

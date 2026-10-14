@@ -122,7 +122,7 @@ RaceList["goblin"] = {
 			additional: levels.map(function (n) { return "+" + n + " damage"; }),
 		},
 	},
-	action: [["bonus action", "Nimble Escape (disengage/hide)"]],
+	action: [["bonus action", "Nimble Escape (Disengage/Hide)"]],
 	trait: [
 		"**Goblin**",
 		"##\u25C6 Fury of the Small##. Once per Short Rest, when I damage a creature of a size category larger than mine with an attack or a spell, I can have it take extra damage equal to my level.",
@@ -156,7 +156,7 @@ RaceList["hobgoblin"] = {
 	},
 	trait: [
 		"**Hobgoblin**",
-		"##\u25C6 Martial Training##. I am proficient with two martial weapons of my choice and light armor.",
+		"##\u25C6 Martial Training##. I am proficient with two Martial weapons of my choice and Light armor.",
 		"##\u25C6 Saving Face##. Once per Short Rest, when I miss an attack roll or fail an ability check or a saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30 ft of me (max +5).",
 	],
 };
@@ -261,7 +261,7 @@ RaceList["lizardfolk"] = {
 			action: [["bonus action", ""]],
 		},
 	},
-	trait: "**Lizardfolk** ##Bite##. I can use my fanged maw to make unarmed strikes dealing 1d6 Piercing damage." + (typePF ? "\r" : " ") + "##Cunning Artisan##. As part of a Short Rest I can harvest parts of a slain creature to make a shield, club, javelin, or 1d4 darts/blowgun needles. This requires a suitable corpse and appropriate tools." + (typePF ? "\r" : " ") + "##Hold Breath##. I can hold my breath for up to 15 minutes at a time." + (typePF ? "\r" : " ") + "##Natural Armor##. I have an AC of 13 + Dexterity modifier + shield." + (typePF ? "\r" : " ") + "##Hungry Jaws##. As a Bonus Action, once per Short Rest, I can make a special bite attack and if it hits I gain Temporary HP equal to my Con modifier (min 1).",
+	trait: "**Lizardfolk** ##Bite##. I can use my fanged maw to make Unarmed Strikes dealing 1d6 Piercing damage." + (typePF ? "\r" : " ") + "##Cunning Artisan##. As part of a Short Rest I can harvest parts of a slain creature to make a shield, club, javelin, or 1d4 darts/blowgun needles. This requires a suitable corpse and appropriate tools." + (typePF ? "\r" : " ") + "##Hold Breath##. I can hold my breath for up to 15 minutes at a time." + (typePF ? "\r" : " ") + "##Natural Armor##. I have an AC of 13 + Dexterity modifier + shield." + (typePF ? "\r" : " ") + "##Hungry Jaws##. As a Bonus Action, once per Short Rest, I can make a special bite attack and if it hits I gain Temporary HP equal to my Con modifier (min 1).",
 };
 RaceList["tabaxi"] = {
 	regExpSearch: /tabaxi/i,
@@ -302,7 +302,7 @@ RaceList["tabaxi"] = {
 	trait: [
 		"**Tabaxi**",
 		"##\u25C6 Cat's Talent##. I have proficiency in Perception and Stealth.",
-		"##\u25C6 Cat's Claws##. I can use my retractable claws to make unarmed strikes dealing 1d4 Slashing damage. They also give me a 20 ft Climb Speed.",
+		"##\u25C6 Cat's Claws##. I can use my retractable claws to make Unarmed Strikes dealing 1d4 Slashing damage. They also give me a 20 ft Climb Speed.",
 		"##\u25C6 Feline Agility##. When moving on my turn in combat, I can move double my speed. Once I do this, I can't do it again until I don't move at all on one of my turns.",
 	],
 };
@@ -370,6 +370,7 @@ if (!SpellsList["wall of water"]) {
 		name: "Wall of Water",
 		classes: ["druid", "sorcerer", "wizard"],
 		source: [["X", 170], ["E", 23], ["V", 116], ["MOT", 27]],
+		reqLoS: true,
 		level: 3,
 		school: "Evoc",
 		time: "Act",

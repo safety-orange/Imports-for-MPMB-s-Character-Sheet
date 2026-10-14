@@ -86,15 +86,15 @@ CreatureList["giant ice toad"] = {
 		description: "A creature that starts its turn within 10 feet of the [THIS] takes 1d10 Cold damage.",
 	}, {
 		name: "Standing Leap",
-		description: "The [THIS]'s long jump is up to 20 ft and its high jump is up to 10 ft, with or without a running start.",
+		description: "The [THIS]'s Long Jump is up to 20 ft and its High Jump is up to 10 ft, with or without a running start.",
 	},
 	],
 	features: [{
 		name: "Swallow",
-		description: "The [THIS] can make a bite attack against a Medium or smaller target it is grappling. If it hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is Blinded and Restrained, it has total cover against attacks and other effects outside the [THIS], and it takes 3d6 Acid damage and 2d6 Cold damage at the start of each of the [THIS]'s turns. The [THIS] can have only one target swallowed at a time.\nIf the [THIS] dies, a swallowed creature is no longer Restrained by it and can escape from the corpse using 5 feet of movement, exiting Prone.",
+		description: "The [THIS] can make a bite attack against a Medium or smaller target it is grappling. If it hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is Blinded and Restrained, it has Total Cover against attacks and other effects outside the [THIS], and it takes 3d6 Acid damage and 2d6 Cold damage at the start of each of the [THIS]'s turns. The [THIS] can have only one target swallowed at a time.\nIf the [THIS] dies, a swallowed creature is no longer Restrained by it and can escape from the corpse using 5 feet of movement, exiting Prone.",
 	},
 	],
-	wildshapeString: (typePF ? "##Senses##. " : "") + "Darkvision 60 ft. ##Cold Aura##. Any within 5 ft at start of their turn take 1d10 Cold damage. ##Amphibious##. Breathes air and water. ##Standing Leap##. Long jump 20 ft and high jump 10 ft, regardless of start. ##Swallow##. If bite attack hits Medium or smaller being grappling, it takes bite damage and is swallowed: Blinded, Restrained, total cover, takes 3d6 Acid and 2d6 Cold damage at the start of each of the toad's turns; Only 1 swallowed at a time.",
+	wildshapeString: (typePF ? "##Senses##. " : "") + "Darkvision 60 ft. ##Cold Aura##. Any within 5 ft at start of their turn take 1d10 Cold damage. ##Amphibious##. Breathes air and water. ##Standing Leap##. Long Jump 20 ft and High Jump 10 ft, regardless of start. ##Swallow##. If bite attack hits Medium or smaller being grappling, it takes bite damage and is swallowed: Blinded, Restrained, Total Cover, takes 3d6 Acid and 2d6 Cold damage at the start of each of the toad's turns; Only 1 swallowed at a time.",
 };
 CreatureList["giant lightning eel"] = {
 	name: "Giant Lightning Eel",
@@ -181,10 +181,10 @@ CreatureList["giant subterranean lizard"] = {
 	],
 	traits: [{
 		name: "Swallow",
-		description: "The [THIS] can make one bite attack against a Medium or smaller target it is grappling. If the attack hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is Blinded and Restrained, it has total cover against attacks and other effects outside the [THIS], and it takes 3d6 Acid damage at the start of each of the [THIS]'s turns. The [THIS] can have only one target swallowed at a time.\nIf the [THIS] dies, a swallowed creature is no longer Restrained by it and can escape from the corpse using 10 feet of movement, exiting Prone.",
+		description: "The [THIS] can make one bite attack against a Medium or smaller target it is grappling. If the attack hits, the target takes bite damage, is swallowed, and the grapple ends. The swallowed target is Blinded and Restrained, it has Total Cover against attacks and other effects outside the [THIS], and it takes 3d6 Acid damage at the start of each of the [THIS]'s turns. The [THIS] can have only one target swallowed at a time.\nIf the [THIS] dies, a swallowed creature is no longer Restrained by it and can escape from the corpse using 10 feet of movement, exiting Prone.",
 	},
 	],
-	wildshapeString: "##Swallow##. If a bite attack hits a Small or smaller target that is currently being grappled by the lizard, the target is swallowed, ending the grapple. While swallowed, it is Blinded, Restrained, has total cover, and takes 3d6 Acid damage at the start of each of the lizard's turns; The lizard can have only 1 swallowed at a time. If the lizard dies, the swallowed creature is no longer Restrained and can escape using 10 ft movement.",
+	wildshapeString: "##Swallow##. If a bite attack hits a Small or smaller target that is currently being grappled by the lizard, the target is swallowed, ending the grapple. While swallowed, it is Blinded, Restrained, has Total Cover, and takes 3d6 Acid damage at the start of each of the lizard's turns; The lizard can have only 1 swallowed at a time. If the lizard dies, the swallowed creature is no longer Restrained and can escape using 10 ft movement.",
 };
 
 // Magic Items
@@ -232,11 +232,11 @@ MagicItemsList["balance of harmony"] = {
 	source: [["TftYP", 228]],
 	type: "Wondrous Item",
 	rarity: "Uncommon",
-	description: "I can use the scale to cast *Detect Evil and Good* as a ritual by placing a gem of 100 gp or more or holy water on both pans. It then tips to the side it detected, good or evil, or fluctuates slightly if what it detected is neutral. After this, I can touch it to learn the rest of the information the spell normally conveys.",
+	description: "I can use the scale to cast *Detect Evil and Good* as a Ritual by placing a gem of 100 gp or more or holy water on both pans. It then tips to the side it detected, good or evil, or fluctuates slightly if what it detected is neutral. After this, I can touch it to learn the rest of the information the spell normally conveys.",
 	descriptionFull: "This scale bears celestial symbols on one pan and fiendish symbols on the other. You can use the scale to cast *Detect Evil and Good* as a ritual. Doing so requires you to place the scale on a solid surface, then sprinkle the pans with holy water or place a transparent gem worth 100 gp in each pan. The scale remains motionless if it detects nothing, tips to one side or the other for good (consecrated) or evil (desecrated), and fluctuates slightly if it detects a creature appropriate to the spell but neither good nor evil. By touching the scales after casting the ritual, you instantly learn any information the spell can normally convey, and then the effect ends.",
 	weight: 1,
 	spellcastingBonus: [{
-		name: "Only as ritual",
+		name: "Only as Ritual",
 		spells: ["detect evil and good"],
 		selection: ["detect evil and good"],
 		firstCol: SpellRitualTag,
@@ -245,7 +245,7 @@ MagicItemsList["balance of harmony"] = {
 		"detect evil and good": {
 			time: "10 min",
 			compMaterial: "The Balance of Harmony requires placing the scale on a solid surface and sprinkling the pans with holy water or placing a transparent gem worth 100 gp in each pan.",
-			changes: "I can cast this spell only as a ritual, thus its casting time is 10 minutes longer.",
+			changes: "I can cast this spell only as a Ritual, thus its casting time is 10 minutes longer.",
 		},
 	},
 }
@@ -356,7 +356,7 @@ MagicItemsList["night caller"] = {
 	source: [["TftYP", 228]],
 	type: "Wondrous Item",
 	rarity: "Uncommon",
-	description: "I can use this whistle to cast *Animate Dead*, if I blow it under the night sky or in darkness. Once used, it can't function for 7 days. It can affect targets through 10 ft of soft earth or similar, but they take 1 min to claw to the surface. Once per 24 hours, I can blow it to reassert control over 1 or 2 targ I animated with it.",
+	description: "I can use this whistle to cast *Animate Dead*, if I blow it under the night sky or in Darkness. Once used, it can't function for 7 days. It can affect targets through 10 ft of soft earth or similar, but they take 1 min to claw to the surface. Once per 24 hours, I can blow it to reassert control over 1 or 2 targ I animated with it.",
 	descriptionFull: [
 		"This whistle is carved from transparent crystal, and it resembles a tiny dragon curled up like a snail. The name *Night Caller* is etched on the whistle in Dwarvish runes. If a character succeeds on a DC 20 Intelligence (Arcana or History) check, the character recalls lore that says the duergar made several such whistles for various groups in an age past.",
 		"If you blow the whistle in darkness or under the night sky, it allows you to cast the *Animate Dead* spell. The target can be affected through up to 10 feet of soft earth or similar material, and if it is, it takes 1 minute to claw its way to the surface to serve you. Once the whistle has animated an undead creature, it can't do so again until 7 days have passed.",
@@ -374,8 +374,8 @@ MagicItemsList["night caller"] = {
 	}],
 	spellChanges: {
 		"animate dead": {
-			description: "In darkness, turn (buried) corpse into Skeleton/Zombie; control for 24h; bns a command within 60 ft",
-			changes: "Night Caller can only be used in darkness or under the night sky. It can only create a single Skeleton or Zombie, but can animate a corpse buried below up to 10 feet of soft earth or similar material.",
+			description: "In Darkness, turn (buried) corpse into Skeleton/Zombie; control for 24h; Bns command within 60 ft",
+			changes: "Night Caller can only be used in Darkness or under the night sky. It can only create a single Skeleton or Zombie, but can animate a corpse buried below up to 10 feet of soft earth or similar material.",
 		},
 	},
 }
@@ -392,15 +392,15 @@ MagicItemsList["potion of mind control"] = {
 	choices: ["Beast", "Humanoid", "Monster"],
 	"beast": {
 		rarity: "Rare",
-		description: "Once as an action, I can drink this potion or administer it to another. The consumer of the potion can cast *Dominate Beast* before the end of my next turn. The spell save DC is 15 and it lasts for 1 hour, requiring no concentration. Once Charmed, the target has Disadvantage on new saves to break the effect.",
+		description: "Once as an action, I can drink this potion or administer it to another. The consumer of the potion can cast *Dominate Beast* before the end of my next turn. The spell save DC is 15 and it lasts for 1 hour, requiring no Concentration. Once Charmed, the target has Disadvantage on new saves to break the effect.",
 	},
 	"humanoid": {
 		rarity: "Rare",
-		description: "Once as an action, I can drink this potion or administer it to another. The consumer of the potion can cast *Dominate Person* before the end of my next turn. The spell save DC is 15 and it lasts for 1 hour, requiring no concentration. Once Charmed, the target has Disadvantage on new saves to break the effect.",
+		description: "Once as an action, I can drink this potion or administer it to another. The consumer of the potion can cast *Dominate Person* before the end of my next turn. The spell save DC is 15 and it lasts for 1 hour, requiring no Concentration. Once Charmed, the target has Disadvantage on new saves to break the effect.",
 	},
 	"monster": {
 		rarity: "Very Rare",
-		description: "Once as an action, I can drink this potion or administer it to another. The consumer of the potion can cast *Dominate Monster* before the end of my next turn. The spell save DC is 15 and it lasts for 1 hour, requiring no concentration. Once Charmed, the target has Disadvantage on new saves to break the effect.",
+		description: "Once as an action, I can drink this potion or administer it to another. The consumer of the potion can cast *Dominate Monster* before the end of my next turn. The spell save DC is 15 and it lasts for 1 hour, requiring no Concentration. Once Charmed, the target has Disadvantage on new saves to break the effect.",
 	},
 }
 MagicItemsList["robe of summer"] = {
@@ -419,7 +419,7 @@ MagicItemsList["shatterspike"] = {
 	source: [["TftYP", 229]],
 	type: "Weapon (Longsword)",
 	rarity: "Uncommon",
-	description: "I have a +1 bonus to attack and damage rolls made with this magic longsword. If it hits an object, the hit is automatically a critical hit, and it can deal Bludgeoning or Slashing damage to the object (my choice). Further, damage from nonmagical sources can't harm the weapon.",
+	description: "I have a +1 bonus to attack and damage rolls made with this magic longsword. If it hits an object, the hit is automatically a Critical Hit, and it can deal Bludgeoning or Slashing damage to the object (my choice). Further, damage from nonmagical sources can't harm the weapon.",
 	descriptionFull: "You have a +1 bonus to attack and damage rolls made with this magic weapon. If it hits an object, the hit is automatically a critical hit, and it can deal bludgeoning or slashing damage to the object (your choice). Further, damage from nonmagical sources can't harm the weapon.",
 	attunement: true,
 	weight: 3,
@@ -428,7 +428,7 @@ MagicItemsList["shatterspike"] = {
 		regExpSearch: /Shatterspike/i,
 		name: "Shatterspike",
 		source: [["TftYP", 229]],
-		description: "Versatile (1d10); Against objects: always critical hit, can choose to deal Bludgeoning damage",
+		description: "Versatile (1d10); Against objects: always Critical Hit, can choose to deal Bludgeoning damage",
 		modifiers: [1, 1],
 		selectNow: true,
 	}],
@@ -577,7 +577,7 @@ MagicItemsList["spellcasting bolts"] = {
 	},
 	"bolt of vapors": {
 		name: "Bolt of Vapors",
-		description: "This magic crossbow bolt casts *Stinking Cloud* centered on the point it hits, creating a 20-ft radius sphere of yellow, nauseating gas there for 1 minute. It heavily obscures and creatures fully in the cloud or starting their turn in it must make a DC 15 Con save against poison or spend their action that turn retching.",
+		description: "This magic crossbow bolt casts *Stinking Cloud* centered on the point it hits, creating a 20-ft radius Sphere of yellow, nauseating gas there for 1 minute. It heavily obscures and creatures fully in the cloud or starting their turn in it must make a DC 15 Con save against poison or spend their action that turn retching.",
 		descriptionFull: "This magic bolt casts *stinking cloud* centered on the point it hits. The spell has a spell save DC of 15 and a duration of 1 minute.",
 	},
 }

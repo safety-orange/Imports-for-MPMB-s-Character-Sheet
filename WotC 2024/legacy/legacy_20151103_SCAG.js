@@ -14,10 +14,9 @@ SourceList["S"] = {
 };
 
 // Races
-RaceList["ghostwise halfling"] = {
+AddRacialVariant("halfling", "ghostwise", {
 	regExpSearch: /^(?=.*\b(halflings?|hobbits?)\b)(?=.*ghostwise).*$/i,
 	name: "Ghostwise Halfling",
-	sortname: "Halfling, Ghostwise",
 	plural: "Ghostwise halflings",
 	source: [["S", 110]],
 	size: 4,
@@ -25,19 +24,13 @@ RaceList["ghostwise halfling"] = {
 		walk: { spd: 25, enc: 15 },
 	},
 	languageProfs: ["Common", "Halfling"],
-	savetxt: { adv_vs: ["Frightened"] },
-	age: " reach adulthood at age 20 and live around 150 years",
-	height: " average about 3 feet tall (2'7\" + 2d4\")",
-	weight: " weigh around 40 lb (35 + 2d4 lb)",
-	heightMetric: " average about 90 cm tall (80 + 5d4)",
-	weightMetric: " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	trait: [
 		"**Ghostwise Halfling**",
 		"##\u25C6 Lucky##. When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.",
 		"##\u25C6 Halfling Nimbleness##. I can move through the space of any creature that is of a size larger than me.",
 		"##\u25C6 Silent Speech##. I can speak telepathically to any one creature within 30 ft of me. It only understands me if we share a language.",
 	],
-};
+});
 AddRacialVariant("dwarf", "gray", {
 	regExpSearch: /^((?=.*\bduergars?\b)|((?=.*\b(dwarfs?|dwarves|dwarfish|dwarvish|dwarven)\b)(?=.*\b(grey|gray|underdark)\b))).*$/i,
 	name: "Duergar",
@@ -55,7 +48,7 @@ AddRacialVariant("dwarf", "gray", {
 		"**Duergar**",
 		"##\u25C6 Stonecunning##. Whenever I make an Int (History) check related to the origin of stonework, I am considered proficient in the skill and add double my Proficiency Bonus to the check.",
 		"##\u25C6 Sunlight Sensitivity##. Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.",
-		"##\u25C6 Duergar Magic##. 3rd: *Enlarge/Reduce* to enlarge; 5th: *Invisibility*. If not in direct sunlight, I can cast both spells on myself once per Long Rest without material components, using Int.",
+		"##\u25C6 Duergar Magic##. 3rd: *Enlarge/Reduce* to enlarge; 5th: *Invisibility*. If not in direct sunlight, I can cast both spells on myself once per Long Rest without Material components, using Int.",
 	],
 	spellcastingAbility: 4,
 	features: {
@@ -235,7 +228,7 @@ AddRacialVariant("half-elf", "mask of the wild", {
 	skillstxt: "",
 	trait: [
 		"**Half-Wood Elf**",
-		"##\u25C6 Mask of the Wild##. I can attempt to hide even when I am only Lightly Obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
+		"##\u25C6 Mask of the Wild##. I can attempt to Hide even when I am only Lightly Obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
 	],
 });
 AddRacialVariant("tiefling", "winged", {
@@ -320,7 +313,7 @@ AddSubClass("barbarian", "battlerager", {
 			description: desc("When I'm hit in melee by an attacker within 5 ft, it takes 3 Piercing damage. This only works while I'm wearing Spiked Armor in Rage and I'm not Incapacitated."),
 		},
 	},
-});
+}, true);
 AddSubClass("monk", "way of the long death", {
 	regExpSearch: /^(?=.*\blong)(?=.*\b(death|dead))((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname: "Way of the Long Death",
@@ -360,7 +353,7 @@ AddSubClass("monk", "way of the long death", {
 			}],
 		},
 	},
-});
+}, true);
 AddSubClass("monk", "way of the sun soul", {
 	regExpSearch: /^(?=.*\bsun)(?=.*\b(soul|spirit))((?=.*(warrior|monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname: "Way of the Sun Soul",
@@ -449,7 +442,7 @@ AddSubClass("monk", "way of the sun soul", {
 			additional: "30-ft rad Bright + 30-ft Dim Light",
 		},
 	},
-});
+}, true);
 AddSubClass("paladin", "oath of the crown", {
 	regExpSearch: /^(?=.*(crown|king|country))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper))))).*$/i,
 	subname: "Oath of the Crown",
@@ -462,7 +455,7 @@ AddSubClass("paladin", "oath of the crown", {
 			minlevel: 3,
 			additional: "1 Channel Divinity",
 			description: desc("As a Bonus Action, I can have any chosen creatures within 30 ft of me make a Wis save or be unable to willingly move more than 30 ft away from me. The effect ends if I'm Incapacitated, die, or it is moved more than 30 ft away from me."),
-			action: [["bonus action", ""]], // changed to Bonus Action per errata (v1.0, 2017)
+			action: [["bonus action", " (Channel Divinity)"]], // changed to Bonus Action per errata (v1.0, 2017)
 			spellcastingExtra: ["command", "compelled duel", "warding bond", "zone of truth", "aura of vitality", "spirit guardians", "banishment", "guardian of faith", "circle of power", "geas"],
 		},
 		"subclassfeature3.1": {
@@ -471,7 +464,7 @@ AddSubClass("paladin", "oath of the crown", {
 			minlevel: 3,
 			additional: "1 Channel Divinity",
 			description: desc("As a Bonus Action, any chosen creatures within 30 ft that can hear me each regain 1d6 + my Charisma modifier HP, up to half of its total HP."),
-			action: [["bonus action", ""]],
+			action: [["bonus action", " (Channel Divinity)"]],
 		},
 		"subclassfeature7": {
 			name: "Divine Allegiance",
@@ -494,14 +487,14 @@ AddSubClass("paladin", "oath of the crown", {
 			description: desc([
 				"As an action, I gain the following benefits for 1 hour or until I'm Incapacitated:",
 				" \u2022 " + "Resistance to Bludgeoning, Piercing, and Slashing damage from nonmagical weapons.",
-				" \u2022 " + "My allies within 30 ft of me and I have Advantage on Wisdom and Death saves.",
+				" \u2022 " + "My allies within 30 ft of me and I have Advantage on Wisdom and Death Saves.",
 			]),
 			recovery: "Long Rest",
 			usages: 1,
 			action: [["action", ""]],
 		},
 	},
-});
+}, true);
 AddSubClass("rogue", "mastermind", {
 	regExpSearch: /^(?!.*(barbarian|bard|cleric|druid|fighter|monk|paladin|ranger|sorcerer|warlock|wizard))(?=.*(mastermind|strategist)).*$/i,
 	subname: "Mastermind",
@@ -546,7 +539,7 @@ AddSubClass("rogue", "mastermind", {
 			description: desc("My thoughts can't be read by telepathy or similar means and I can project false thoughts. For that, I must pass a Cha (Deception) vs Wis (Insight) check to fool the mind reader. Magic always determines I'm truthful and I can't be magically compelled to tell the truth."),
 		},
 	},
-});
+}, true);
 AddSubClass("rogue", "swashbuckler", {
 	regExpSearch: /^(?!.*(barbarian|bard|cleric|druid|fighter|monk|paladin|ranger|sorcerer|warlock|wizard))(?=.*swashbuckl).*$/i,
 	subname: "Swashbuckler",
@@ -563,8 +556,8 @@ AddSubClass("rogue", "swashbuckler", {
 			name: "Rakish Audacity",
 			source: [["S", 136], ["X", 47]],
 			minlevel: 3,
-			description: desc("I don't need Advantage to sneak attack if my target is the only one within 5 ft of me. I still can't sneak attack if I have Disadv. I add my Charisma modifier to initiative rolls."),
-			addMod: { type: "skill", field: "Init", mod: "max(Cha|0)", text: "I can add my Charisma modifier to initiative rolls." },
+			description: desc("I don't need Advantage to sneak attack if my target is the only one within 5 ft of me. I still can't sneak attack if I have Disadv. I add my Charisma modifier to Initiative rolls."),
+			addMod: { type: "skill", field: "Init", mod: "max(Cha|0)", text: "I can add my Charisma modifier to Initiative rolls." },
 		},
 		"subclassfeature9": {
 			name: "Panache",
@@ -593,7 +586,7 @@ AddSubClass("rogue", "swashbuckler", {
 			usages: 1,
 		},
 	},
-});
+}, true);
 AddSubClass("sorcerer", "storm sorcery", {
 	regExpSearch: /^(?=.*(sorcerer|witch))((?=.*(storm|tempest|hurricane))|((?=.*air)(?=.*element))).*$/i,
 	subname: "Storm Sorcery",
@@ -653,7 +646,7 @@ AddSubClass("sorcerer", "storm sorcery", {
 			recovery: "Short Rest",
 		},
 	},
-});
+}, true);
 AddSubClass("warlock", "the undying", {
 	regExpSearch: /^(?!.*light)(?=.*warlock)(?=.*(immortal|undying|neverending|unending)).*$/i,
 	subname: "the Undying",
@@ -676,7 +669,7 @@ AddSubClass("warlock", "the undying", {
 			name: "Defy Death",
 			source: [["S", 140]],
 			minlevel: 6,
-			description: desc("I regain 1d8 + my Constitution modifier in HP when I succeed on a Death saving throw. I also regain this amount whenever I use *Spare the Dying* to stabilize a creature."),
+			description: desc("I regain 1d8 + my Constitution modifier in HP when I succeed on a Death Saving Throw. I also regain this amount whenever I use *Spare the Dying* to stabilize a creature."),
 			recovery: "Long Rest",
 			usages: 1,
 		},
@@ -697,7 +690,7 @@ AddSubClass("warlock", "the undying", {
 			additional: levels.map(function (n) { return n < 14 ? "" : "1d8 + " + n + " HP"; }),
 		},
 	},
-});
+}, true);
 
 // Backgrounds
 BackgroundList["city watch"] = {
@@ -1069,7 +1062,7 @@ if (!FeatsList["svirfneblin magic"]) {
 			"You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast *Nondetection* on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: *Blindness/Deafness*, *Blur*, and *Disguise Self*. You regain the ability to cast these spells when you finish a long rest.",
 			"Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
 		],
-		description: "I can cast *Nondetection* on myself at will, without a material component. I can also cast the spells *Blindness/Deafness*, *Blur*, and *Disguise Self* once each. I regain the ability to cast these spells when I finish a Long Rest. Intelligence is my spellcasting ability for these spells.",
+		description: "I can cast *Nondetection* on myself at will, without a Material component. I can also cast the spells *Blindness/Deafness*, *Blur*, and *Disguise Self* once each. I regain the ability to cast these spells when I finish a Long Rest. Intelligence is my spellcasting ability for these spells.",
 		spellcastingBonus: [{
 			name: "at will (self only)",
 			spellcastingAbility: 4,
@@ -1089,7 +1082,7 @@ if (!FeatsList["svirfneblin magic"]) {
 				components: "V,S",
 				compMaterial: "",
 				description: "I am hidden from all Divination magic",
-				changes: "Using Svirfneblin Magic, I can cast *Nondetection* without a material component, but only on myself.",
+				changes: "Using Svirfneblin Magic, I can cast *Nondetection* without a Material component, but only on myself.",
 			},
 		},
 	};
@@ -1122,6 +1115,7 @@ SpellsList["green-flame blade"] = {
 	name: "Green-Flame Blade",
 	classes: ["artificer", "sorcerer", "warlock", "wizard"],
 	source: [["T", 107], ["S", 143]],
+	reqLoS: true,
 	level: 0,
 	school: "Evoc",
 	time: "Act",
@@ -1141,6 +1135,7 @@ SpellsList["lightning lure"] = {
 	name: "Lightning Lure",
 	classes: ["artificer", "sorcerer", "warlock", "wizard"],
 	source: [["T", 107], ["S", 143]],
+	reqLoS: true,
 	level: 0,
 	school: "Evoc",
 	time: "Act",

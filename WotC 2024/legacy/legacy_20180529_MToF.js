@@ -280,7 +280,7 @@ AddRacialVariant("tiefling", "mammon", {
 		"**Mammon Tiefling**",
 		"##\u25C6 Legacy of Minauros##. I know the *Mage Hand* cantrip.",
 		"At 3rd level, I can cast *Tenser's Floating Disk* once per Short Rest.",
-		"At 5th level, I can also cast *Arcane Lock* without a material component once per Long Rest.",
+		"At 5th level, I can also cast *Arcane Lock* without a Material component once per Long Rest.",
 		"Charisma is my spellcasting ability for these spells.",
 	],
 	spellcastingAbility: 6,
@@ -314,7 +314,7 @@ AddRacialVariant("tiefling", "mammon", {
 				"arcane lock": {
 					components: "V,S",
 					compMaterial: "",
-					changes: "I can cast this spell once per Long Rest without requiring material components.",
+					changes: "I can cast this spell once per Long Rest without requiring Material components.",
 				},
 			},
 		},
@@ -567,7 +567,7 @@ RaceList["githyanki-mtof"] = {
 	spellChanges: {
 		"mage hand": {
 			components: "",
-			description: "Create invisible spectral hand for simple tasks or carry up to 10 lb; 1 a to control; can't have multiple",
+			description: "Create invisible spectral hand for simple tasks or carry up to 10 lb; Act to control; can't have multiple",
 			changes: "Using Githyanki Psionics, I can cast *Mage Hand* without requiring components and the spectral hand is invisible.",
 		},
 	},
@@ -650,7 +650,7 @@ RaceList["githzerai-mtof"] = {
 	spellChanges: {
 		"mage hand": {
 			components: "",
-			description: "Create invisible spectral hand for simple tasks or carry up to 10 lb; 1 a to control; can't have multiple",
+			description: "Create invisible spectral hand for simple tasks or carry up to 10 lb; Act to control; can't have multiple",
 			changes: "Using Githzerai Psionics, I can cast *Mage Hand* without requiring components and the spectral hand is invisible.",
 		},
 	},
@@ -710,7 +710,7 @@ if (!RaceSubList["dwarf-gray"]) {
 			"**Duergar**",
 			"##\u25C6 Stonecunning##. Whenever I make an Int (History) check related to the origin of stonework, I am considered proficient in the skill and add double my Proficiency Bonus to the check.",
 			"##\u25C6 Sunlight Sensitivity##. Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.",
-			"##\u25C6 Duergar Magic##. 3rd: *Enlarge/Reduce* to enlarge; 5th: *Invisibility*. If not in direct sunlight, I can cast both spells on myself once per Long Rest without material components, using Int.",
+			"##\u25C6 Duergar Magic##. 3rd: *Enlarge/Reduce* to enlarge; 5th: *Invisibility*. If not in direct sunlight, I can cast both spells on myself once per Long Rest without Material components, using Int.",
 		],
 		spellcastingAbility: 4,
 		features: {
@@ -793,7 +793,7 @@ if (!FeatsList["svirfneblin magic"]) {
 			"You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast *Nondetection* on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: *Blindness/Deafness*, *Blur*, and *Disguise Self*. You regain the ability to cast these spells when you finish a long rest.",
 			"Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
 		],
-		description: "I can cast *Nondetection* on myself at will, without a material component. I can also cast the spells *Blindness/Deafness*, *Blur*, and *Disguise Self* once each. I regain the ability to cast these spells when I finish a Long Rest. Intelligence is my spellcasting ability for these spells.",
+		description: "I can cast *Nondetection* on myself at will, without a Material component. I can also cast the spells *Blindness/Deafness*, *Blur*, and *Disguise Self* once each. I regain the ability to cast these spells when I finish a Long Rest. Intelligence is my spellcasting ability for these spells.",
 		spellcastingBonus: [{
 			name: "at will (self only)",
 			spellcastingAbility: 4,
@@ -813,7 +813,7 @@ if (!FeatsList["svirfneblin magic"]) {
 				components: "V,S",
 				compMaterial: "",
 				description: "I am hidden from all Divination magic",
-				changes: "Using Svirfneblin Magic, I can cast *Nondetection* without a material component, but only on myself.",
+				changes: "Using Svirfneblin Magic, I can cast *Nondetection* without a Material component, but only on myself.",
 			},
 		},
 	};
@@ -825,7 +825,7 @@ MagicItemsList["greater silver sword"] = {
 	source: [["MToF", 89]],
 	type: "Weapon (Greatsword)",
 	rarity: "Legendary",
-	description: "This magic greatsword gives +3 to hit and damage. While holding it, I have Adv on Int, Wis, and Cha saves, Immunity to being Charmed, and Resistance to Psychic damage. If I score a critical hit with it on a creature's astral body, I can cut the cord tethering it to its material body, instead of dealing damage.",
+	description: "This magic greatsword gives +3 to hit and damage. While holding it, I have Adv on Int, Wis, and Cha saves, Immunity to being Charmed, and Resistance to Psychic damage. If I score a Critical Hit with it on a creature's astral body, I can cut the cord tethering it to its material body, instead of dealing damage.",
 	descriptionFull: "This magic weapon grants a +3 bonus to attack and damage rolls made with it. While you hold the sword, you have advantage on Intelligence, Wisdom, and Charisma saving throws, you are immune to being charmed, and you have resistance to psychic damage. In addition, if you score a critical hit with it against a creature's astral body, you can cut the silvery cord that tethers the target to its material body, instead of dealing damage.",
 	attunement: true,
 	weight: 6,
@@ -861,8 +861,8 @@ MagicItemsList["infernal tack"] = {
 	type: "Wondrous Item",
 	rarity: "Legendary",
 	notLegalAL: true,
-	description: "While wearing the spurs of this set, a nightmare equipped with the bridle, bit, reins, saddle, and stirrups is under my command. As an action, I can have it appear in 20 ft at the start of my next turn. It acts as my ally on my initiative, remains for 1 day until it or I die, or I dismiss it as an action. If it dies, it reforms in 24 h.",
-	descriptionLong: "This tack consists of a bridle, bit, reins, saddle, stirrups, and spurs. A nightmare equipped with the tack serves whoever wears the spurs until the wearer dies or the tack is removed. As an action, I can clash the spurs together or scrape them through blood, causing the nightmare to appear within 20 ft at the start of my next turn. It acts as my ally on my initiative count, remains for 1 day, until I or it dies, or until I dismiss it as an action. If it dies, it reforms within 24 hours, after which I can summon it again. The tack doesn't create a nightmare from thin air; one must first be subdued so the tack can be placed on it.",
+	description: "While wearing the spurs of this set, a nightmare equipped with the bridle, bit, reins, saddle, and stirrups is under my command. As an action, I can have it appear in 20 ft at the start of my next turn. It acts as my ally on my Initiative, remains for 1 day until it or I die, or I dismiss it as an action. If it dies, it reforms in 24 h.",
+	descriptionLong: "This tack consists of a bridle, bit, reins, saddle, stirrups, and spurs. A nightmare equipped with the tack serves whoever wears the spurs until the wearer dies or the tack is removed. As an action, I can clash the spurs together or scrape them through blood, causing the nightmare to appear within 20 ft at the start of my next turn. It acts as my ally on my Initiative count, remains for 1 day, until I or it dies, or until I dismiss it as an action. If it dies, it reforms within 24 hours, after which I can summon it again. The tack doesn't create a nightmare from thin air; one must first be subdued so the tack can be placed on it.",
 	descriptionFull: [
 		"A narzugon binds a nightmare to its service with *infernal tack*, which consists of a bridle, bit, reins, saddle, stirrups, and spurs. A nightmare equipped with *infernal tack* must serve whoever wears the spurs until the wearer dies or the tack is removed.",
 		"You can use an action to call a nightmare equipped with *infernal tack* by clashing the spurs together or scraping them through blood. The nightmare appears at the start of your next turn, within 20 feet of you. It acts as your ally and takes its turn on your initiative count. It remains for 1 day, until you or it dies, or until you dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which you can summon it again.",
@@ -887,7 +887,7 @@ MagicItemsList["infernal tack"] = {
 				AddToInv(prefix + "comp", "l", gear.name, gear.amount, gear.weight, "", false, false, false, false);
 			}
 			// Add notes
-			var note = "I can use an action to call a nightmare equipped with infernal tack by clashing the spurs together or scraping them through blood. The nightmare appears at the start of my next turn, within 20 ft of me.\nThe nightmare acts as my ally and takes its turn on my initiative count. It remains for 1 day, until I or it dies, or until I dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which I can summon it again.";
+			var note = "I can use an action to call a nightmare equipped with infernal tack by clashing the spurs together or scraping them through blood. The nightmare appears at the start of my next turn, within 20 ft of me.\nThe nightmare acts as my ally and takes its turn on my Initiative count. It remains for 1 day, until I or it dies, or until I dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which I can summon it again.";
 			Value(prefix + "Comp.eqp.Notes", What("Unit System") === "metric" ? ConvertToMetric(note, 0.5) : note);
 		}]],
 }

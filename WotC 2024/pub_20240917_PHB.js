@@ -121,7 +121,7 @@ AddSubClass("barbarian", "wild heart", {
 			]),
 		},
 	},
-});
+}, true);
 AddSubClass("barbarian", "world tree", {
 	regExpSearch: /^(?=.*barbarian)((?=.*world)(?=.*tree)|(?=.*yggdrasil)).*$/i,
 	subname: "Path of the World Tree",
@@ -183,7 +183,7 @@ AddSubClass("barbarian", "world tree", {
 			additional: "150 ft \x26 bring 6",
 		},
 	},
-});
+}, true);
 AddSubClass("barbarian", "zealot", {
 	regExpSearch: /zealot/i,
 	subname: "Path of the Zealot",
@@ -261,7 +261,7 @@ AddSubClass("barbarian", "zealot", {
 			action: [["reaction", " (Revivification)"]],
 		},
 	},
-});
+}, true);
 
 // Bard Subclasses
 AddSubClass("bard", "dance", {
@@ -340,7 +340,7 @@ AddSubClass("bard", "dance", {
 			savetxt: { text: ["**Dex Save for Half**. *Failure:* half dmg, *Success:* no dmg"] },
 		},
 	},
-});
+}, true);
 AddSubClass("bard", "glamour", {
 	regExpSearch: /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*glamour).*$/i,
 	subname: "College of Glamour",
@@ -406,7 +406,7 @@ AddSubClass("bard", "glamour", {
 			action: [["bonus action", ""]],
 		},
 	},
-});
+}, true);
 AddSubClass("bard", "valor", {
 	regExpSearch: /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*valor).*$/i,
 	subname: "College of Valor",
@@ -453,7 +453,7 @@ AddSubClass("bard", "valor", {
 			action: [["bonus action", "Weapon attack (after cast spell)"]],
 		},
 	},
-});
+}, true);
 
 // Cleric subclasses
 AddSubClass("cleric", "light", {
@@ -515,7 +515,7 @@ AddSubClass("cleric", "light", {
 			recovery: "Long Rest",
 		},
 	},
-});
+}, true);
 AddSubClass("cleric", "trickery", {
 	regExpSearch: /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(trickery|trickster|illusion)).*$/i,
 	subname: "Trickery Domain",
@@ -572,7 +572,7 @@ AddSubClass("cleric", "trickery", {
 			description: " [improves Invoke Duplicity]",
 		},
 	},
-});
+}, true);
 AddSubClass("cleric", "war", {
 	regExpSearch: /^(?=.*(cleric|priest|clergy|acolyte))(?=.*\b(war|fighting|conflict)\b).*$/i,
 	subname: "War Domain",
@@ -633,7 +633,7 @@ AddSubClass("cleric", "war", {
 			dmgres: ["Bludgeoning", "Piercing", "Slashing"],
 		},
 	},
-});
+}, true);
 
 // Druid Subclasses
 AddSubClass("druid", "moon", {
@@ -750,7 +750,7 @@ AddSubClass("druid", "moon", {
 			description: desc("***Improved Lunar Radiance***. Once per turn, I can deal +2d10 Radiant damage on a hit with a WS attack. ***Shared Moonlight***. I can bring along an ally with Moonlight Step, see above."),
 		},
 	},
-});
+}, true);
 AddSubClass("druid", "sea", {
 	regExpSearch: /^(?=.*druid)(?=.*\b(sea|waves|tides)\b).*$/i,
 	subname: "Circle of the Sea",
@@ -811,7 +811,7 @@ AddSubClass("druid", "sea", {
 			]),
 		},
 	},
-});
+}, true);
 AddSubClass("druid", "stars", {
 	regExpSearch: /^(?=.*druid)(?=.*\b(stars?|constellations?)\b).*$/i,
 	subname: "Circle of the Stars",
@@ -949,7 +949,7 @@ AddSubClass("druid", "stars", {
 			],
 		},
 	},
-});
+}, true);
 
 // Fighter Subclasses
 AddSubClass("fighter", "battle master", {
@@ -1189,7 +1189,7 @@ AddSubClass("fighter", "battle master", {
 			description: desc("Once per turn when I do a Maneuver, I can use a d8 instead of expending a Superiority Die."),
 		},
 	},
-});
+}, true);
 var PHB_EldritchKnight = {
 	cantrips: levels.map(function (n) {
 		return n < 3 ? 0 : n < 10 ? 2 : 3;
@@ -1268,7 +1268,7 @@ AddSubClass("fighter", "eldritch knight", {
 			description: desc("When I take the Attack action, I can replace two of the attacks with casting one of my level 1 or level 2 Wizard spells that has a casting time of one action."),
 		},
 	},
-});
+}, true);
 var PHB_PsiDSize = levels.map(function (n) {
 	return n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12;
 });
@@ -1405,7 +1405,7 @@ AddSubClass("fighter", "psi warrior", {
 			altResource: "PsiD",
 		},
 	},
-});
+}, true);
 
 // Monk Subclasses
 var PHB_WarriorMercy = {
@@ -1528,7 +1528,7 @@ AddSubClass("monk", "mercy", {
 			action: [["action", " (5 FP)"]],
 		},
 	},
-});
+}, true);
 AddSubClass("monk", "shadow", {
 	regExpSearch: /^(?=.*shadow)((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
 	subname: "Warrior of Shadow",
@@ -1609,7 +1609,7 @@ AddSubClass("monk", "shadow", {
 			autoSelectExtrachoices: [{ extrachoice: "cloak of shadows" }],
 		},
 	},
-});
+}, true);
 var PHB_WarriorOfTheElements = {
 	elementalBurst: {
 		description: desc("As a Magic action, I can " + (typePF ? "expend" : "use") + " 2 Focus Points to create a 20-ft-radius Sphere within 120 ft that deals three Martial Art dice damage (\u2605) to all within. Each can Dex save for half damage."),
@@ -1767,7 +1767,7 @@ AddSubClass("monk", "elements", {
 			},
 		},
 	},
-});
+}, true);
 
 // Paladin Subclasses
 AddSubClass("paladin", "glory", {
@@ -1856,7 +1856,7 @@ AddSubClass("paladin", "glory", {
 			],
 		},
 	},
-});
+}, true);
 AddSubClass("paladin", "ancients", {
 	regExpSearch: /^(?=.*(ancient|nature|natural|green|fey|horned))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine|green))(?=.*(knight|warrior|warlord|trooper))))).*$/i,
 	subname: "Oath of the Ancients",
@@ -1929,7 +1929,7 @@ AddSubClass("paladin", "ancients", {
 			action: [["bonus action", ""]],
 		},
 	},
-});
+}, true);
 AddSubClass("paladin", "vengeance", {
 	regExpSearch: /^(((?=.*(vengeance|wrath|justice))((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|warrior|warlord|trooper)))))|((?=.*dark)(?=.*knight))|(?=.*avenger)).*$/i,
 	subname: "Oath of Vengeance",
@@ -1995,7 +1995,7 @@ AddSubClass("paladin", "vengeance", {
 			action: [["bonus action", ""]],
 		},
 	},
-});
+}, true);
 
 // Ranger Subclasses
 var PHB_BeastMaster = {
@@ -2230,7 +2230,7 @@ AddSubClass("ranger", "beast master", {
 			description: desc("When I cast a spell on myself, I can also affect my Primal Companion if it is within 30 ft."),
 		},
 	},
-});
+}, true);
 AddSubClass("ranger", "fey wanderer", {
 	regExpSearch: /^(?=.*fey)(?=.*wanderer).*$/i,
 	subname: "Fey Wanderer",
@@ -2347,7 +2347,7 @@ AddSubClass("ranger", "fey wanderer", {
 			},
 		},
 	},
-});
+}, true);
 AddSubClass("ranger", "gloom stalker", {
 	regExpSearch: /^(?=.*gloom)(?=.*stalker).*$/i,
 	subname: "Gloom Stalker",
@@ -2460,7 +2460,7 @@ AddSubClass("ranger", "gloom stalker", {
 			action: [["reaction", ""]],
 		},
 	},
-});
+}, true);
 
 // Rogue Subclasses
 var PHB_ArcaneTrickster = {
@@ -2552,7 +2552,7 @@ AddSubClass("rogue", "arcane trickster", {
 			action: [["reaction", ""]],
 		},
 	},
-});
+}, true);
 AddSubClass("rogue", "assassin", {
 	regExpSearch: /^(?!.*(barbarian|bard|cleric|druid|fighter|monk|paladin|ranger|sorcerer|warlock|wizard))(?=.*assassin).*$/i,
 	subname: "Assassin",
@@ -2628,7 +2628,7 @@ AddSubClass("rogue", "assassin", {
 			),
 		},
 	},
-});
+}, true);
 AddSubClass("rogue", "soulknife", {
 	regExpSearch: /soulknife/i,
 	subname: "Soulknife",
@@ -2759,7 +2759,7 @@ AddSubClass("rogue", "soulknife", {
 			}),
 		}),
 	},
-});
+}, true);
 
 // Sorcerer Subclasses
 var PHB_AberrantSorcerer = AddSubClass("sorcerer", "aberrant", {
@@ -2853,7 +2853,7 @@ var PHB_AberrantSorcerer = AddSubClass("sorcerer", "aberrant", {
 			altResource: "5 SP",
 		},
 	},
-});
+}, true);
 AddSubClass("sorcerer", "clockwork", {
 	regExpSearch: /^((?=.*(sorcerer|witch))(?=.*mechanus)|(?=.*clockwork)(?=.*(sorcerer|sorcery|soul))).*$/i,
 	subname: "Clockwork Sorcery",
@@ -2915,7 +2915,7 @@ AddSubClass("sorcerer", "clockwork", {
 			action: [["action", ""]],
 		},
 	},
-});
+}, true);
 AddSubClass("sorcerer", "wild magic", {
 	regExpSearch: /^(?=.*(mage|magus|sorcerer|witch))(?=.*(wild|chaos|chaotic|limbo)).*$/i,
 	subname: "Wild Magic",
@@ -3081,7 +3081,7 @@ AddSubClass("sorcerer", "wild magic", {
 			recovery: "Long Rest",
 		},
 	},
-});
+}, true);
 
 // Warlock Subclasses
 AddSubClass("warlock", "archfey", {
@@ -3145,7 +3145,7 @@ AddSubClass("warlock", "archfey", {
 			),
 		},
 	},
-});
+}, true);
 AddSubClass("warlock", "celestial", {
 	regExpSearch: /^(?=.*warlock)(?=.*celestial).*$/i,
 	subname: "Celestial Patron",
@@ -3217,7 +3217,7 @@ AddSubClass("warlock", "celestial", {
 			recovery: "Long Rest",
 		},
 	},
-});
+}, true);
 AddSubClass("warlock", "great old one", {
 	regExpSearch: /^(((?=.*(tharizdun|cthulhu))(?=.*warlock))|((?=.*(great|dread))(?=.*(ancient|old))(?=.*\b(one|entity)\b))).*$/i,
 	subname: "Great Old One Patron",
@@ -3347,7 +3347,7 @@ AddSubClass("warlock", "great old one", {
 			},
 		},
 	},
-});
+}, true);
 
 // Wizard Subclasses
 AddSubClass("wizard", "abjurer", {
@@ -3432,7 +3432,7 @@ AddSubClass("wizard", "abjurer", {
 			savetxt: { adv_vs: ["spells"] },
 		},
 	},
-});
+}, true);
 AddSubClass("wizard", "diviner", {
 	regExpSearch: /divination|diviner|divinator/i,
 	subname: "Diviner",
@@ -3492,7 +3492,7 @@ AddSubClass("wizard", "diviner", {
 			description: " [improves Portent]",
 		},
 	},
-});
+}, true);
 AddSubClass("wizard", "illusionist", {
 	regExpSearch: /illusion|illusionist|illusionary/i,
 	subname: "Illusionist",
@@ -3614,7 +3614,7 @@ AddSubClass("wizard", "illusionist", {
 			action: [["bonus action", ""]],
 		},
 	},
-});
+}, true);
 
 
 // Backgrounds and their corresponding Background Features (which grant the origin feats)

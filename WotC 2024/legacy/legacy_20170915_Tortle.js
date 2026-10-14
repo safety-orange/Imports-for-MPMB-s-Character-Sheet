@@ -48,7 +48,7 @@ RaceList["tortle"] = {
 	action: [["action", "Shell Defense (start)"], ["bonus action", "Shell Defense (end)"]],
 	trait: [
 		"**Tortle**",
-		"##\u25C6 Claws##. My unarmed strikes with my claws deal 1d4 Slashing damage.",
+		"##\u25C6 Claws##. My Unarmed Strikes with my claws deal 1d4 Slashing damage.",
 		"##\u25C6 Hold Breath##. I can hold my breath for up to 1 hour at a time.",
 		"##\u25C6 Natural Armor##. I have a base AC of 17, but I can't add my Dex to it or wear armor.",
 		"##\u25C6 Shell Defense##. As an action, I can withdraw into my shell and gain +4 AC and Adv on Str and Con saves, but I count as Prone, have speed 0, have Disadv on Dex saves, and can't take Reactions. The only action I can take is a Bonus Action to emerge from the shell.",
