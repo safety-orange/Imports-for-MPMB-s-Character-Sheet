@@ -45,7 +45,7 @@ global_TCoE_Sidekick_fn = {
 			nIcon: 3, // Status
 			nType: 2, // Yes,No
 			cTitle: "Creating a Sidekick Works Differently",
-			cMsg: "You are about to create a character with a " + sClassName + " sidekick class. Sidekick classes use the rules as described in Tasha's Cauldron of Everything, page 142. As this character sheet is intended for regular, non-sidekick classes, some changes will be made that you need to be aware off:",
+			cMsg: "You are about to create a character with a " + sClassName + " sidekick class. Sidekick classes use the rules as described in Tasha's Cauldron of Everything, page 142. As this character sheet is intended for regular, non-sidekick classes, some changes will be made that you need to be aware of:",
 		};
 		var lineNo = 1;
 		[
@@ -54,9 +54,9 @@ global_TCoE_Sidekick_fn = {
 				"\n   \u2022 Proficiencies for: skills, saving throws, weapons, armor, languages, and tools" +
 				"\n   \u2022 Attacks (tip: use Modifier fields for attacks that aren't weapons/cantrips)" +
 				"\n   \u2022 Hit dice (you will be prompted to enter)",
-			sClass.indexOf("warrior") !== -1 ? false : "To gain either the Expert of Spellcaster sidekick class, a creature must have at least one language in its stat block that it can speak.",
+			sClass.indexOf("warrior") !== -1 ? false : "To gain either the Expert or Spellcaster sidekick class, a creature must have at least one language in its stat block that it can speak.",
 			"If you continue, the race and background automation will be turned off and the respective fields emptied. You can use these fields to enter the name and type of the base creature." +
-				"\nFor example. when using the bandit stat block, you could enter:" +
+				"\nFor example, when using the bandit stat block, you could enter:" +
 				"\n   \u2022 Race: Elf" +
 				"\n   \u2022 Background: Bandit" +
 				'\nYou can turn the automation back on with the "Auto/Manual" bookmark.',
@@ -212,9 +212,9 @@ ClassList["sidekick-expert-tcoe"] = {
 			source: [["T", 142]],
 			minlevel: 1,
 			description: desc([
-				"A sidekick can be any creature with challenge rating of 1/2 or lower",
+				"A sidekick can be any creature with a challenge rating of 1/2 or lower",
 				"The Spellcaster and Expert classes can only apply to creatures that can speak a language",
-				"Fill out the stats block into the character sheet manually, the class adds to it",
+				"Fill out the stat block into the character sheet manually, the class adds to it",
 				"The sidekick's level is the same as the average level of the group",
 				"The hit dice of a sidekick are the same as those of the base creature, gaining +1 per level",
 				"A sidekick does not get the benefits of a background, nor can it take feats or multiclass",
@@ -292,7 +292,7 @@ ClassList["sidekick-expert-tcoe"] = {
 				minlevel: 3,
 				description: desc([
 					"I gain expertise with two skills I am proficient with",
-					"At level 15th, I gain expertise with two more skills I am proficient with",
+					"At 15th-level, I gain expertise with two more skills I am proficient with",
 				]),
 				skillstxt: "Expertise with any two skill proficiencies, two more at level 15th",
 				extraname: "Expertise",
@@ -351,7 +351,7 @@ ClassList["sidekick-expert-tcoe"] = {
 			description: desc([
 				"When I use the Help action, the creature that receives the help adds +1d6 to its d20 roll",
 				"If it was an attack roll that hits without the +1d6, it can add it to the damage instead",
-				"At 20th level, this bonus increases to 2d6",
+				"At 20th-level, this bonus increases to 2d6",
 			]),
 			additional: levels.map(function (n) {
 				return n < 11 ? "" : "+" + (n < 20 ? 1 : 2) + "d6 bonus";
@@ -410,7 +410,7 @@ ClassList["sidekick-spellcaster-tcoe"] = {
 	},
 	equipment: "",
 	subclasses: ["Spellcaster's Role", []],
-	subclassGainedLevel: 100,
+	subclassGainedLevel: 1,
 	attacks: [1],
 	abilitySave: 4,
 	spellcastingFactor: 2,
@@ -431,9 +431,9 @@ ClassList["sidekick-spellcaster-tcoe"] = {
 			source: [["T", 142]],
 			minlevel: 1,
 			description: desc([
-				"A sidekick can be any creature with challenge rating of 1/2 or lower",
+				"A sidekick can be any creature with a challenge rating of 1/2 or lower",
 				"The Spellcaster and Expert classes can only apply to creatures that can speak a language",
-				"Fill out the stats block into the character sheet manually, the class adds to it",
+				"Fill out the stat block into the character sheet manually, the class adds to it",
 				"The sidekick's level is the same as the average level of the group",
 				"The hit dice of a sidekick are the same as those of the base creature, gaining +1 per level",
 				"A sidekick does not get the benefits of a background, nor can it take feats or multiclass",
@@ -668,8 +668,8 @@ ClassList["sidekick-warrior-tcoe"] = {
 			source: [["T", 142]],
 			minlevel: 1,
 			description: desc([
-				"A sidekick can be any creature with challenge rating of 1/2 or lower",
-				"Fill out the stats block into the character sheet manually, the class adds to it",
+				"A sidekick can be any creature with a challenge rating of 1/2 or lower",
+				"Fill out the stat block into the character sheet manually, the class adds to it",
 				"The sidekick's level is the same as the average level of the group",
 				"The hit dice of a sidekick are the same as those of the base creature, gaining +1 per level",
 				"A sidekick does not get the benefits of a background, nor can it take feats or multiclass",
@@ -781,7 +781,7 @@ ClassList["sidekick-warrior-tcoe"] = {
 			calcChanges: {
 				atkAdd: [
 					function (fields, v) {
-						if ((v.isWeapon || v.baseWeaponName === "unarmed strike") && !v.isDC && !v.CritChance && classes.known["sidekick-warrior"]) {
+						if ((v.isWeapon || v.baseWeaponName === "unarmed strike") && !v.isDC && !v.CritChance && classes.known["sidekick-warrior-tcoe"]) {
 							fields.Description += (fields.Description ? "; " : "") + "Crit on 19-20";
 							v.CritChance = 19;
 						};
@@ -813,7 +813,7 @@ ClassList["sidekick-warrior-tcoe"] = {
 				"If I have the Multiattack action, I can use either that or extra attack on a turn, not both",
 			]),
 			additional: levels.map(function (n) {
-				return n < 6 ? "" : (n < 15 ? 1 : 3) + " attacks as an action on my turn";
+				return n < 6 ? "" : (n < 15 ? 2 : 3) + " attacks as an action on my turn";
 			}),
 		},
 		"battle readiness": {

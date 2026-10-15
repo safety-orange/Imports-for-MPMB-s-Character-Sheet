@@ -49,8 +49,7 @@ AddSubRace("custom lineage", "skill proficiency", {
 	],
 });
 
-// TEMPORARY REMOVE DUPLICATE CHECK WHILE legacy_EGtW doesn't exist
-// [dupl _start] EGtW creates the same function
+// [dupl_start] EGtW creates the same function
 // With v14 it is possible to have class features not appear in the field if no `description` is defined, so we can make features just for the purpose of adding optional features to the 3rd page
 var makeOptionalClassFeatureBase = function (sClass, iLevel) {
 	var sKey = "optional_" + iLevel;
@@ -62,7 +61,7 @@ var makeOptionalClassFeatureBase = function (sClass, iLevel) {
 		}
 	}
 	return ClassList[sClass].features[sKey];
-} // dupl _end
+} // dupl_end
 
 // Barbarian Subclasses
 AddSubClass("barbarian", "path of the beast", {

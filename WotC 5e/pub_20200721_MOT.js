@@ -28,7 +28,7 @@ RaceList["leonin"] = { // includes contributions by BraabHimself
 		baseWeapon: "unarmed strike",
 		regExpSearch: /^(?=.*(leonin|\bcats?\b))(?=.*claw).*$/i,
 		name: "Leonin Claws",
-		source: [["MoT", 21]],
+		source: [["MOT", 21]],
 		damage: [1, 4, "slashing"],
 		selectNow: true,
 	}],
@@ -162,7 +162,7 @@ if (!SourceList["G"]) {
 			"**Minotaur** (+2 Strength +1 Constitution)",
 			"##\u25C6 Horns##. I can use my horns for unarmed strikes that deal 1d6 piercing damage.",
 			"##\u25C6 Goring Rush##. When taking a Dash action and moving at least 20 ft, I can make a horns attack as a bonus action.",
-			"##\u25C6 Hammering Horns##. As a bonus action after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is up to than one size larger than me. It must make a Str save (DC 8 + Str mod + Prof Bonus) or be pushed up to 10 ft away from me.",
+			"##\u25C6 Hammering Horns##. As a bonus action after I hit a melee attack during my Attack action, I can shove that target with my horns, if it is up to one size larger than me. It must make a Str save (DC 8 + Str mod + Prof Bonus) or be pushed up to 10 ft away from me.",
 		],
 		features: {
 			"goring rush": {
@@ -447,7 +447,7 @@ BackgroundList["athlete"] = { // includes contributions by Smashman
 	],
 };
 BackgroundFeatureList["echoes of victory"] = { // includes contributions by Smashman
-	description: "I have attracted admiration among spectators, fellow athletes, and trainers in the region that hosted my past athletic victories. When visiting any settlement within 100 miles of where I grew up, there is a 50 percent change that I can find someone there who admires me and is willing to provide information or temporary shelter.",
+	description: "I have attracted admiration among spectators, fellow athletes, and trainers in the region that hosted my past athletic victories. When visiting any settlement within 100 miles of where I grew up, there is a 50 percent chance that I can find someone there who admires me and is willing to provide information or temporary shelter.",
 	source: [["MOT", 31]],
 };
 
@@ -509,7 +509,7 @@ MagicItemsList["flying chariot"] = {
 	notLegalAL: true,
 	description: "I gain +1 AC while riding this chariot, as do any passengers and the creatures pulling it. If this chariot is pulled by one or more flying creatures, they too can fly.\n(The AC bonus is not added to the automation, as it is too situational.)",
 	descriptionFull: [
-		"The chariot's riders and creatures pulling the chariot gain a + 1 bonus to their AC.",
+		"The chariot's riders and creatures pulling the chariot gain a +1 bonus to their AC.",
 		"If this magic chariot is pulled by one or more flying creatures, it too can fly.",
 	],
 	weight: 100,
@@ -522,28 +522,28 @@ MagicItemsList["helm of the gods"] = {
 	notLegalAL: true,
 	attunement: true,
 	description: "While wearing this helm, I know the location of all celestials and fiends within 30 ft, provided they aren't behind total cover. The helm has 3 charges, regaining 1d3 charges at dawn. I can use 1 charge to cast the spell stored in the helm (DC 13). After I finish a long rest, I can pray to a god to change the stored spell.",
-	descriptionLong: "While wearing this helm, I know the location of all celestials/fiends within 30 ft not behind total cover. The helm has 3 charges, regaining 1d3 at dawn. I can use 1 charge to cast the spell stored in it (DC 13). After a long rest, I can pray to a god to change the stored spell: Athreos: Protection from Evil/Good, Ephara: Sanctuary, Erebos: *Inflict Wounds*, Heliod: *Guiding Bolt*, Iroas: Heroism, Karametra: Goodberry, Keranos: *Thunderous Smite*, Klothys: Entangle, Kruphix: *Dissonant Whispers*, Mogis: *Hellish Rebuke*, Nylea: *Faerie Fire*, Pharika: *Lesser Restoration*, Phenax: *Charm Person*, Purphoros: *Searing Smite*, Thassa: Identify",
+	descriptionLong: "While wearing this helm, I know the location of all celestials/fiends within 30 ft not behind total cover. The helm has 3 charges, regaining 1d3 at dawn. I can use 1 charge to cast the spell stored in it (DC 13). After a long rest, I can pray to a god to change the stored spell. Athreos: *Protection from Evil/Good*, Ephara: *Sanctuary*, Erebos: *Inflict Wounds*, Heliod: *Guiding Bolt*, Iroas: *Heroism*, Karametra: *Goodberry*, Keranos: *Thunderous Smite*, Klothys: *Entangle*, Kruphix: *Dissonant Whispers*, Mogis: *Hellish Rebuke*, Nylea: *Faerie Fire*, Pharika: *Lesser Restoration*, Phenax: *Charm Person*, Purphoros: *Searing Smite*, Thassa: *Identify*.",
 	descriptionFull: [
 		"While wearing this helm, you know whether there is a celestial or fiend within 30 feet of you, as well as where the creature is located, provided the creature isn't behind total cover.",
 		"Whenever you finish a long rest while wearing the helm, you can pray to one of the gods listed on the Helm of the Gods table and store the listed spell in the helm, replacing any spell that is already stored there. The save DC for the spell is 13.",
 		"The helm has 3 charges. To cast a spell from the helm, you must expend 1 charge, and the helm regains 1d3 charges daily at dawn.",
 		[
-			[" God", "Spell"],
-			[" Athreos", "", "*protection from evil and good*"],
-			[" Ephara", "", "sanctuary"],
-			[" Erebos", "", "*inflict wounds*"],
-			[" Heliod", "", "*guiding bolt*"],
-			[" Iroas", "", "heroism"],
-			[" Karametra", "goodberry"],
-			[" Keranos", "", "*thunderous smite*"],
-			[" Klothys", "", "entagle"],
-			[" Kruphix", "", "*dissonant whispers*"],
-			[" Mogis", "", "*hellish rebuke*"],
-			[" Nylea", "", "*faerie fire*"],
-			[" Pharika", "", "*lesser restoration*"],
-			[" Phenax", "", "*charm person*"],
-			[" Purphoros", "*searing smite*"],
-			[" Thassa", "", "identify"],
+			["God", "Spell"],
+			["Athreos", "", "*protection from evil and good*"],
+			["Ephara", "", "*sanctuary*"],
+			["Erebos", "", "*inflict wounds*"],
+			["Heliod", "", "*guiding bolt*"],
+			["Iroas", "", "*heroism*"],
+			["Karametra", "*goodberry*"],
+			["Keranos", "", "*thunderous smite*"],
+			["Klothys", "", "*entangle*"],
+			["Kruphix", "", "*dissonant whispers*"],
+			["Mogis", "", "*hellish rebuke*"],
+			["Nylea", "", "*faerie fire*"],
+			["Pharika", "", "*lesser restoration*"],
+			["Phenax", "", "*charm person*"],
+			["Purphoros", "*searing smite*"],
+			["Thassa", "", "*identify*"],
 		],
 	],
 	usages: 3,
@@ -767,8 +767,8 @@ MagicItemsList["pyxis of pandemonium"] = {
 	type: "wondrous item",
 	rarity: "legendary",
 	notLegalAL: true,
-	description: "Once per long rest, I gain the benefits of a short rest by touching this ornate vessel for 1 minute. I also gain the benefit of *Bless* until I finish my next rest. After benefiting from this vessel, I have to make a DC 17 Wis save or become charmed by the vessel for 1 hour. If charmed, I must do everything to open it. See Notes.",
-	descriptionLong: "Once per long rest, I can touch this ornate wooden vessel for 1 minute to gain the benefits of a short rest. I then also gain the benefit of the *Bless* spell until I finish my next rest. After I gain the benefits of a short rest from this vessel, I must make a DC 17 Wisdom save or become charmed by it for 1 hour. On a success, I am immune to its charm for 24 hours. If charmed, I will do everything I can to open the vessel as soon as possible. Once opened, the vessel causes a random effect to occur, then it disappears after 1 minute and reappears, sealed, in random location on the same plane. See Notes.",
+	description: "Once per long rest, I can touch this ornate vessel for 1 minute to gain the benefits of a short rest and the benefits of *Bless* until I finish my next rest. After benefiting from this vessel, I have to make a DC 17 Wis save or become charmed by the vessel for 1 hour. If charmed, I must do everything to open it. See Notes.",
+	descriptionLong: "Once per long rest, I can touch this ornate wooden vessel for 1 minute to gain the benefits of a short rest. I then also gain the benefit of the *Bless* spell until I finish my next rest. After I gain the benefits of a short rest from this vessel, I must make a DC 17 Wisdom save or become charmed by it for 1 hour. On a success, I am immune to its charm for 24 hours. If charmed, I will do everything I can to open the vessel as soon as possible. Once opened, the vessel causes a random effect to occur, then it disappears after 1 minute and reappears, sealed, in a random location on the same plane. See Notes.",
 	descriptionFull: [
 		"A creature that touches this ornate wooden vessel for 1 minute gains the benefits of a short rest. That creature also gains the effects of the *bless* spell until the creature finishes a short or long rest. The creature can't gain these benefits again until it finishes a long rest.",
 		"If the vessel is opened, roll on the Pyxis of Pandemonium table to determine what happens. Any spells cast by the vessel have a spell save DC of 17. One minute after the vessel is opened, it disappears. It reappears, sealed, in a random location on the same plane of existence 24 hours later.",
@@ -832,15 +832,6 @@ MagicItemsList["siren song lyre"] = {
 		times: 4,
 	}],
 };
-var MOT_SlingBulletsOfAlthemoneFullDescription = [
-	"The sling bullets come in a pouch, which contains 1d4 + 4 bullets. Roll on the Magic Sling Bullets table for each bullet to determine its magical property.",
-	"You have a +2 bonus to attack and damage rolls made with each of these bullets. If a bullet misses its target, the bullet teleports back into the pouch. Once a bullet hits a target, the bullet loses its magic.\n",
-	">>d4  Bullet<<",
-	"1   >>Banishment<<. A creature that takes damage from this bullet must succeed on a DC 15 Charisma saving throw or be banished as though affected by the *banishment* spell.",
-	"2   >>Fulguration<<. On a hit, this bullet deals an extra 2d8 lightning damage to its target. All other creatures within 10 feet of the target must each succeed on a DC 15 Constitution saving throw or take 1d8 thunder damage.",
-	"3   >>Stunning<<. On a hit, this bullet deals an extra ldlO force damage, and the target is stunned until the end of your next turn.",
-	"4   >>Tracking<<. A creature that takes damage from this bullet is marked with a glowing rune where the bullet hit. The mark lasts 24 hours. While the creature is marked, you always know the direction to it.",
-];
 MagicItemsList["sling bullets of althemone"] = {
 	name: "Sling Bullets of Althemone",
 	source: [["MOT", 198]],
@@ -848,7 +839,17 @@ MagicItemsList["sling bullets of althemone"] = {
 	rarity: "very rare",
 	notLegalAL: true,
 	description: "These bullets come in a pouch containing 1d4 + 4 bullets. Attacks made with these sling bullets add +2 to hit and damage. If a bullet misses, it teleports back to its pouch. On a hit, the bullet's effect happens and the bullet loses its magic. I roll on the table to determine each bullet's magical effect, see Notes.",
-	descriptionFull: MOT_SlingBulletsOfAlthemoneFullDescription.join("\n   "),
+	descriptionFull: [
+		"The sling bullets come in a pouch, which contains 1d4 + 4 bullets. Roll on the Magic Sling Bullets table for each bullet to determine its magical property.",
+		"You have a +2 bonus to attack and damage rolls made with each of these bullets. If a bullet misses its target, the bullet teleports back into the pouch. Once a bullet hits a target, the bullet loses its magic.",
+		[
+			["d4", "Bullet"],
+			[" 1", "**Banishment**. A creature that takes damage from this bullet must succeed on a DC 15 Charisma saving throw or be banished as though affected by the *banishment* spell."],
+			[" 2", "**Fulguration**. On a hit, this bullet deals an extra 2d8 lightning damage to its target. All other creatures within 10 feet of the target must each succeed on a DC 15 Constitution saving throw or take 1d8 thunder damage."],
+			[" 3", "**Stunning**. On a hit, this bullet deals an extra 1d10 force damage, and the target is stunned until the end of your next turn."],
+			[" 4", "**Tracking**. A creature that takes damage from this bullet is marked with a glowing rune where the bullet hit. The mark lasts 24 hours. While the creature is marked, you always know the direction to it."],
+		],
+	],
 	calcChanges: {
 		atkAdd: [
 			function (fields, v) {
@@ -870,7 +871,15 @@ MagicItemsList["sling bullets of althemone"] = {
 	toNotesPage: [{
 		name: "Magic Sling Bullets Table",
 		source: [["MOT", 198]],
-		note: desc(MOT_SlingBulletsOfAlthemoneFullDescription.slice(2)).replace(/>>(.*?)<</g, "***$1***").replace(/\bf(oo|ee)t\b/ig, "ft").replace(/\byou\b/ig, "I").replace(/your/g, "my"),
+		note: [
+			[
+				["d4", "Bullet"],
+				[" 1", "**Banishment**. A creature that takes damage from this bullet must succeed on a DC 15 Charisma saving throw or be banished as though affected by the *Banishment* spell."],
+				[" 2", "**Fulguration**. On a hit, this bullet deals an extra 2d8 lightning damage to its target. All other creatures within 10 ft of the target must each succeed on a DC 15 Constitution saving throw or take 1d8 thunder damage."],
+				[" 3", "**Stunning**. On a hit, this bullet deals an extra 1d10 force damage, and the target is stunned until the end of my next turn."],
+				[" 4", "**Tracking**. A creature that takes damage from this bullet is marked with a glowing rune where the bullet hit. The mark lasts 24 hours. While the creature is marked, I always know the direction to it."],
+			],
+		],
 	}],
 	weight: 1.5, // assuming an averyage of 6,5 bullets (0.4875) and a pouch (1)
 };
@@ -882,7 +891,7 @@ MagicItemsList["two-birds sling"] = {
 	notLegalAL: true,
 	description: "This sling adds +1 to hit and damage rolls made with it. On a hit, I can cause the ammunition to ricochet towards a second target within 10 ft of the first, rolling a ranged attack against the second target as well.",
 	descriptionFull: [
-		"You have a +l bonus to attack and damage rolls made with this weapon.",
+		"You have a +1 bonus to attack and damage rolls made with this weapon.",
 		"When you make a ranged attack with this sling and hit a target, you can cause the ammunition to ricochet toward a second target within 10 feet of the first, and then make a ranged attack against the second target.",
 	],
 	weaponOptions: [{

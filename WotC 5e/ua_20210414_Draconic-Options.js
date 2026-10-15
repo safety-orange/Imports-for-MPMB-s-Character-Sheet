@@ -375,7 +375,7 @@ if (!SourceList["FToD"]) {
 		level: 2,
 		school: "Evoc",
 		time: "1 a",
-		range: "S:15" + (typePF ? "-" : "") + "ft cone",
+		range: "S:15-ft cone",
 		components: "S,M",
 		compMaterial: "A vial of meltwater",
 		duration: "Instantaneous",

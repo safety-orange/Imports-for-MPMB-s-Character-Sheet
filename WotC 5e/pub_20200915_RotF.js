@@ -281,7 +281,7 @@ CreatureList["sperm whale"] = {
 		damage: [3, 6, "bludgeoning"],
 		range: "Melee (15 ft)",
 		description: "1 bite \u0026 1 tail attack as Attack action; Double damage vs. objects",
-		tooltip: "If the target is an object, the tail attack deal 6d6 + twice the Strength modifier bludgeoning damage.",
+		tooltip: "If the target is an object, the tail attack deals 6d6 + twice the Strength modifier bludgeoning damage.",
 	}],
 	features: [{
 		name: "Swallow",
@@ -424,7 +424,7 @@ CreatureList["demos magen"] = {
 	}],
 	features: [{
 		name: "Magical Servants",
-		description: "Magen make ideal servants. At creation, each is instilled with an instinct to protect itself and its creator, and it follows its creator's instructions without hesitation. When its taks is complete, a magen stands immobile and silent until its creator gives it new orders.",
+		description: "Magen make ideal servants. At creation, each is instilled with an instinct to protect itself and its creator, and it follows its creator's instructions without hesitation. When its task is complete, a magen stands immobile and silent until its creator gives it new orders.",
 	}],
 };
 CreatureList["galvan magen"] = {
@@ -475,7 +475,7 @@ CreatureList["galvan magen"] = {
 	}],
 	features: [{
 		name: "Magical Servants",
-		description: "Magen make ideal servants. At creation, each is instilled with an instinct to protect itself and its creator, and it follows its creator's instructions without hesitation. When its taks is complete, a magen stands immobile and silent until its creator gives it new orders.",
+		description: "Magen make ideal servants. At creation, each is instilled with an instinct to protect itself and its creator, and it follows its creator's instructions without hesitation. When its task is complete, a magen stands immobile and silent until its creator gives it new orders.",
 	}],
 	actions: [{
 		name: "Multiattack",
@@ -526,7 +526,7 @@ CreatureList["hypnos magen"] = {
 	}],
 	features: [{
 		name: "Magical Servants",
-		description: "Magen make ideal servants. At creation, each is instilled with an instinct to protect itself and its creator, and it follows its creator's instructions without hesitation. When its taks is complete, a magen stands immobile and silent until its creator gives it new orders.",
+		description: "Magen make ideal servants. At creation, each is instilled with an instinct to protect itself and its creator, and it follows its creator's instructions without hesitation. When its task is complete, a magen stands immobile and silent until its creator gives it new orders.",
 	}],
 	actions: [{
 		name: "Suggestion",
@@ -612,7 +612,7 @@ MagicItemsList["abracadabrus"] = { // contains contributions by BraabHimself
 	description: "This gemstone-studded wooden chest with a volume of 1.5 cu ft has 20 charges, regaining 1d20 charges at dawn. I roll a d20 if I use its last charge. On a 1, it loses its magic and gems. As an action, I can touch it and expend 1 charge to have up to 1 gp of nonmagical objects form inside, provided they fit and it's empty.",
 	descriptionLong: "This ornate, gemstone-studded wooden chest has a volume of 1.5 cu ft and weighs 25 lb. It has 20 charges and regains 1d20 expended charges daily at dawn. I roll a d20 if I use its last charge. On a 1, it loses its magic and gems. As an action, I can touch it and expend 1 charge to have up to 1 gp of nonmagical objects form inside (including raw materials, foodstuffs, and liquids), provided they fit inside and the chest is empty. Food and drink produced by the chest is delicious and spoils if not consumed after 24 hours. Gems and precious metals produced by the chest disappear after 1 minute.",
 	descriptionFull: [
-		"An *abracadabrus* is an ornate, gemstone-studded wooden chest that weighs 25 pounds while empty. Its interior compartment is a cube measuring 1\u00BD feet on a side.",
+		"An *abracadabrus* is an ornate, gemstone-studded wooden chest that weighs 25 pounds while empty. Its interior compartment is a cube measuring 1\xBD feet on a side.",
 		"The chest has 20 charges. A creature can use an action to touch the closed lid of the chest and expend 1 of the chest's charges while naming one or more nonmagical objects (including raw materials, foodstuffs, and liquids) worth a total of 1 gp or less. The named objects magically appear in the chest, provided they can all fit inside it and the chest doesn't contain anything else. For example, the chest can conjure a plate of strawberries, a bowl of hot soup, a flagon of water, a stuffed animal, or a bag of twenty caltrops. Food and drink conjured by the chest are delicious, and they spoil if not consumed after 24 hours. Gems and precious metals created by the chest disappear after 1 minute.",
 		"The chest regains 1d20 expended charges daily at dawn. If the item's last charge is expended, roll a d20. On a 1, the chest loses its magic (becoming an ordinary chest), and its gemstones turn to dust.",
 	],
@@ -628,9 +628,9 @@ MagicItemsList["cauldron of plenty"] = { // contains contributions by BraabHimse
 	type: "wondrous item",
 	rarity: "rare",
 	description: "This copper cauldron is 4 ft wide, 3.5 ft in diameter, and holds 30 gal. It has a lid, handles, and 5 clawed feet. Water stirred in it for 1 min becomes hot stew for 4 people per 1 gal. Stew stays hot in the cauldron, cools if removed, but cauldron's surface remains cool. Can be used 3 times per day, regaining all uses at dawn.",
-	descriptionLong: "This thick copper cauldron has turned green with age. It is 4ft wide, has a 3.5 ft diameter mouth, and holds 30 gallons. It has a lid, handles, and 5 clawed feet. If water is poured into the cauldron and stirred for 1 minute, it transforms into a hearty, hot stew, which can provide one nourishing meal for up to four people per 1 gallon. The stew remains hot while in the cauldron, then cools naturally after it is removed. The outside of the cauldron remains safe to touch despite the heat of the stew. The cauldron can create stew three times. It then ceases to function until the next dawn, when it regains all its uses.",
+	descriptionLong: "This thick copper cauldron has turned green with age. It is 4 ft wide, has a 3.5 ft diameter mouth, and holds 30 gallons. It has a lid, handles, and 5 clawed feet. If water is poured into the cauldron and stirred for 1 minute, it transforms into a hearty, hot stew, which can provide one nourishing meal for up to four people per 1 gallon. The stew remains hot while in the cauldron, then cools naturally after it is removed. The outside of the cauldron remains safe to touch despite the heat of the stew. The cauldron can create stew three times. It then ceases to function until the next dawn, when it regains all its uses.",
 	descriptionFull: [
-		"This cauldron is made of thick copper that has turned green with age. It is 4 feet wide, has a mouth 3\u00BD feet in diameter, weighs 50 pounds, and can hold up to 30 gallons of liquid. Embossed on its bulging sides are images of satyrs and nymphs in repose, holding ladles. The cauldron comes with a lid and has side handles. It sits on five little clawed feet that keep it from tipping.",
+		"This cauldron is made of thick copper that has turned green with age. It is 4 feet wide, has a mouth 3\xBD feet in diameter, weighs 50 pounds, and can hold up to 30 gallons of liquid. Embossed on its bulging sides are images of satyrs and nymphs in repose, holding ladles. The cauldron comes with a lid and has side handles. It sits on five little clawed feet that keep it from tipping.",
 		"If water is poured into the cauldron and stirred for 1 minute, it transforms into a hearty, hot stew, which can provide one nourishing meal for up to four people per gallon. The stew remains hot while in the cauldron, then cools naturally after it is removed. The outside of the cauldron remains safe to touch despite the heat of the stew.",
 		"The cauldron can create stew three times. It then ceases to function until the next dawn, when it regains all its uses.",
 	],
@@ -647,8 +647,8 @@ MagicItemsList["hook of fisher's delight"] = { // contains contributions by Braa
 	descriptionFull: [
 		"This tiny silver fishhook has a little gold feather attached to it. For it to function, the feathered hook must be tied to the end of a fishing line and immersed in enough water to fill at least a 10-foot cube. At the end of each uninterrupted hour of immersion, roll a d6. On a 6, a floppy, 6-inch-long magical fish appears on the end of the hook. The color and properties of the conjured fish are determined by rolling on the table below. Once the hook conjures a fish, it can't do so again until the next dawn.",
 		[
-			["d20", "Fish color and result"],
-			["1-10", "**Green with copper bands**. This tasty fish provides a day's worth of nourishment to one creature that eats it. The fish loses this property and rots if it's not eaten within 24 hours of being caught."],
+			["d20", "Fish Color and Result"],
+			["  1-10", "**Green with copper bands**. This tasty fish provides a day's worth of nourishment to one creature that eats it. The fish loses this property and rots if it's not eaten within 24 hours of being caught."],
 			["11-14", "**Yellow with black stripes**. Once removed from the hook, this awful-tasting fish can be thrown up to 120 feet, targeting a creature the thrower can see. The target must succeed on a DC 15 Strength saving throw or be knocked prone. The fish then disappears."],
 			["15-18", "**Blue with white bands**. When released from the hook, this fish squirms free, sprouts wings, follows you around, and sings a beautiful tune in Aquan. It disappears after 2d4 hours or when reduced to 0 hit points. The fish uses the quipper stat block, except that it can breathe air and has a flying speed of 30 feet."],
 			["19-20", "**Gold with silver stripes**. This tasty fish provides a day's worth of nourishment to one creature that eats it and grants 2d10 temporary hit points to that creature. The fish loses these properties and rots if it's not eaten within 24 hours of being caught."],
@@ -656,7 +656,7 @@ MagicItemsList["hook of fisher's delight"] = { // contains contributions by Braa
 	],
 	toNotesPage: [{
 		name: "Hook of Fisher's Delight",
-		useDescriptionFull: true,
+		useDescriptionFull: function (str) { return str.replace("follows I around", "follows me around"); },
 	}],
 	usages: 1,
 	recovery: "dawn",
@@ -725,7 +725,7 @@ MagicItemsList["professor skant"] = { // contains contributions by Pengsloth
 	type: "wondrous item",
 	rarity: "rare",
 	description: "This sentient orb with the personality of a scholar has Int 18, Wis 11, Cha 9, and no will of its own. It can hear and see out to 60 ft. It knows and reads Common, Draconic, Elvish, and Loross. It has +9 on checks regarding history of Netheril, vampirism, tarrasque, and Elverquisst. It moves itself around using *Mage Hand*.",
-	descriptionLong: "This sentient orb, which calls itself Professor Skant, has the personality of a scholar, but no will of its own to cause conflicts. It's a smooth, solid, 5 lb sphere of smoky gray quartz about the size of a grapefruit with two or more pinpricks of silver light deep inside. It's alignment is lawful good and it has Intelligence 18, Wisdom 11, and Charisma 9. It knows and reads Common, Draconic, Elvish, and Loross. It has expertise in the following academic topics (+9 on checks): history of Netheril, vampirism and the traits of vampires, rituals surrounding the making, bottling, and drinking of Elverquisst, and the tarrasque.",
+	descriptionLong: "This sentient orb, which calls itself Professor Skant, has the personality of a scholar, but no will of its own to cause conflicts. It's a smooth, solid, 5 lb sphere of smoky gray quartz about the size of a grapefruit with two or more pinpricks of silver light deep inside. Its alignment is lawful good and it has Intelligence 18, Wisdom 11, and Charisma 9. It knows and reads Common, Draconic, Elvish, and Loross. It has expertise in the following academic topics (+9 on checks): history of Netheril, vampirism and the traits of vampires, rituals surrounding the making, bottling, and drinking of Elverquisst, and the tarrasque.",
 	descriptionFull: [
 		"The *professor orb* owned by Vellynne Harpell and stolen by Nass Lantomir calls itself *Professor Skant*. It is lawful good, and it has a Wisdom of 11 and a Charisma of 9 (as a *professor orb*, it has an Intelligence of 18). It speaks and reads Common, Draconic, Elvish, and Loross (the dead language of the Empire of Netheril). *Professor Skant* is a chatterbox and assumes all humanoids are dunderheads. When elaborating on its areas of expertise, it adopts an unintentionally patronizing tone. It has the following four areas of expertise:",
 		" \u2022 The history of Netheril (see the \"Fate of Netheril\" sidebar)",
@@ -744,13 +744,13 @@ MagicItemsList["psi crystal"] = { // contains contributions by BraabHimself
 	type: "wondrous item",
 	rarity: "uncommon",
 	attunement: true,
-	prerequisite: "Requires attunement by a creature with an intelligence score of 3 or higher",
+	prerequisite: "Requires attunement by a creature with an Intelligence score of 3 or higher",
 	prereqeval: function (v) { return Number(What("Int")) >= 3; },
 	description: "While attuned to this orb, it glows with an inner purplish light and gives me telepathy. The range of telepathy and intensity of light are determined by my Intelligence score.",
 	descriptionFull: [
 		"This crystal grants you telepathy for as long as you remain attuned to it. See the introduction of the Monster Manual for rules on how this telepathy works.",
 		"The crystal also glows with a purplish inner light while you are attuned to it.",
-		"The higher your intelligence, the greater the light's intensity and the greater the range of the telepathy (see the table below).",
+		"The higher your Intelligence, the greater the light's intensity and the greater the range of the telepathy (see the table below).",
 		[
 			["Intelligence", "Range of   ", "Light"],
 			["    **Score**", "", "**Telepathy**  ", "**Intensity**"],
@@ -836,7 +836,7 @@ MagicItemsList["ythryn mythallar"] = { // contains contributions by BraabHimself
 			" \u2022 Sheds light in a 300 ft radius and dim light for an additional 300 ft",
 			" \u2022 Up to 8 creatures can attune to it, a 9th attunement fails",
 			" \u2022 To attune, a creature must short rest within 30 ft of it",
-			" \u2022 All those attuned to it can sense when sense when it is being used",
+			" \u2022 All those attuned to it can sense when it is being used",
 			" \u2022 All those attuned must agree to allow any properties to be used",
 			" \u2022 You can use an action to use the Ythryn Mythallar in the following ways:",
 			"  \u25E6 While on the same plane, give it a flying speed of 30 ft",
@@ -848,8 +848,7 @@ MagicItemsList["ythryn mythallar"] = { // contains contributions by BraabHimself
 			"  \u25E6 Cast the *control weather* spell without components or spell slots",
 			"    It has a radius of 50 miles and can be cast inside",
 			"    I must be within 30 ft of the ball for the casting time, or it will fail",
-			"\nTOUCHING THE MYTHALLAR",
-			"Any creature that touches the ball must make a DC 22 Constitution save",
+			"\n***Touching the Mythallar***. Any creature that touches the ball must make a DC 22 Constitution save",
 			"On a failure, they take 20d10 + 70 radiant damage, or half that on a success",
 			"Undead have disadvantage on this saving throw",
 			"Objects touching the ball, except artifacts or the cradle, disintegrate instantly",
@@ -862,11 +861,11 @@ MagicItemsList["the codicil of white"] = {
 	type: "wondrous item",
 	rarity: "",
 	notLegalAL: true,
-	description: 'This volume bound in white fur, sealed with a silver lock, containing velum pages with silver edges is cold to the touch. While I have this tome in my possession, I gain resistance to cold damage. It contains the *Frost Fingers* spell which a wizard can learn and a poem incantation "Rime of the Frostmaiden".',
+	description: 'This volume bound in white fur, sealed with a silver lock, containing vellum pages with silver edges is cold to the touch. While I have this tome in my possession, I gain resistance to cold damage. It contains the *Frost Fingers* spell which a wizard can learn and a poem incantation "Rime of the Frostmaiden".',
 	descriptionFull: [
 		"*The Codicil of White* is a tall, thin volume bound in white ermine fur over seasoned boards of white pine and sealed with a clasp and lock of tarnished silver. The book is cold to the touch, and the fur is worn about the edges from use. The twenty-seven pages within are of vellum painted with silver gilt on the outer edges. The whole is sewn to a leather binding with strips of sinews, making it quite durable.",
 		"A creature with the codicil in its possession has resistance to cold damage.",
-		"The codicil was written by followers of Auril as a primer on her worship. The first page is a title page with the snowflake symbol of Auril on it. The remaining pages describe various priestly rituals and ceremonies in chilling detail. Nestled among these descriptions is a spell that wizards can learn (*frost fingers*, and a poem called \"Rime of the Frostmaiden\", see appendix E of Icewind Dale: Rime of the Frostmaiden). The poem is an incantation, the power of which can be used to split a glacier (see chapter 6 of Icewind Dale: Rime of the Frostmaiden). The poem might have other capabilities, at the DM's discretion",
+		"The codicil was written by followers of Auril as a primer on her worship. The first page is a title page with the snowflake symbol of Auril on it. The remaining pages describe various priestly rituals and ceremonies in chilling detail. Nestled among these descriptions is a spell that wizards can learn (*frost fingers*, and a poem called \"Rime of the Frostmaiden\", see appendix E of Icewind Dale: Rime of the Frostmaiden). The poem is an incantation, the power of which can be used to split a glacier (see chapter 6 of Icewind Dale: Rime of the Frostmaiden). The poem might have other capabilities, at the DM's discretion.",
 	],
 	dmgres: ["Cold"],
 	weight: 3,
@@ -939,7 +938,7 @@ SpellsList["frost fingers"] = { // contains contributions by BraabHimself
 	level: 1,
 	school: "Evoc",
 	time: "1 a",
-	range: "S:15" + (typePF ? "-" : "") + "ft cone",
+	range: "S:15-ft cone",
 	components: "V,S",
 	duration: "Instantaneous",
 	save: "Con",

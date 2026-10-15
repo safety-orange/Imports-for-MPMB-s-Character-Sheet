@@ -2339,7 +2339,7 @@ SpellsList["spray of cards"] = {
 	level: 2,
 	school: "Conj",
 	time: "1 a",
-	range: "S:15" + (typePF ? "-" : "") + "ft cone",
+	range: "S:15-ft cone",
 	components: "V,S,M",
 	compMaterial: "A deck of cards",
 	duration: "Instantaneous",
