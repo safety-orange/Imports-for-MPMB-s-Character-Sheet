@@ -522,7 +522,6 @@ RaceList["tabaxi"] = {
 			usages: 1,
 			recovery: " Turn",
 			additional: "still for 1 turn to recover",
-			tooltip: " (can be replenished by not moving for one whole turn)",
 		},
 	},
 	trait: [
@@ -926,7 +925,7 @@ CreatureList["cranium rat"] = {
 };
 CreatureList["brontosaurus"] = {
 	name: "Brontosaurus",
-	source: [["V", 139], ["ToA", 215], ["MotM", 95]],
+	source: [["V", 139], ["MotM", 95], ["ToA", 215]],
 	size: 0, //Gargantuan
 	type: "Beast",
 	subtype: "dinosaur", // MotM addition
@@ -957,7 +956,7 @@ CreatureList["brontosaurus"] = {
 };
 CreatureList["deinonychus"] = {
 	name: "Deinonychus",
-	source: [["V", 139], ["ToA", 217], ["MotM", 95]],
+	source: [["V", 139], ["MotM", 95], ["ToA", 217]],
 	size: 3, //Medium
 	type: "Beast",
 	subtype: "dinosaur", // MotM addition
@@ -998,7 +997,7 @@ CreatureList["deinonychus"] = {
 };
 CreatureList["dimetrodon"] = {
 	name: "Dimetrodon",
-	source: [["V", 139], ["ToA", 217], ["MotM", 95]],
+	source: [["V", 139], ["MotM", 95], ["ToA", 217]],
 	size: 3, //Medium
 	type: "Beast",
 	subtype: "dinosaur", // MotM addition
@@ -1025,7 +1024,7 @@ CreatureList["dimetrodon"] = {
 };
 CreatureList["hadrosaurus"] = {
 	name: "Hadrosaurus",
-	source: [["V", 140], ["ToA", 224], ["MotM", 96]],
+	source: [["V", 140], ["MotM", 96], ["ToA", 224]],
 	size: 2, //Large
 	type: "Beast",
 	subtype: "dinosaur", // MotM addition
@@ -1052,7 +1051,7 @@ CreatureList["hadrosaurus"] = {
 };
 CreatureList["quetzalcoatlus"] = {
 	name: "Quetzalcoatlus",
-	source: [["V", 140], ["ToA", 230], ["MotM", 96]],
+	source: [["V", 140], ["MotM", 96], ["ToA", 230]],
 	size: 1, //Huge
 	type: "Beast",
 	subtype: "dinosaur", // MotM addition
@@ -1086,7 +1085,7 @@ CreatureList["quetzalcoatlus"] = {
 };
 CreatureList["stegosaurus"] = {
 	name: "Stegosaurus",
-	source: [["V", 140], ["ToA", 231], ["MotM", 96]],
+	source: [["V", 140], ["MotM", 96], ["ToA", 231]],
 	size: 1, //Huge
 	type: "Beast",
 	subtype: "dinosaur", // MotM addition
@@ -1110,7 +1109,7 @@ CreatureList["stegosaurus"] = {
 };
 CreatureList["velociraptor"] = {
 	name: "Velociraptor",
-	source: [["V", 140], ["ToA", 235], ["MotM", 96]],
+	source: [["V", 140], ["MotM", 96], ["ToA", 235]],
 	size: 5, //Tiny
 	type: "Beast",
 	subtype: "dinosaur", // MotM addition
@@ -1259,7 +1258,7 @@ MagicItemsList["mind carapace armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Mind Carapace", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["suffix", "Mind Carapace"],
 		excludeCheck: function (inObjKey, inObj) {
 			return !/heavy/i.test(inObj.type);

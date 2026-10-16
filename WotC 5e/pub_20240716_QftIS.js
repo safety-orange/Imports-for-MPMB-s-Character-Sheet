@@ -111,7 +111,7 @@ if (MagicItemsList["grenade"]) {
 		type: "explosive, futuristic",
 		rarity: "priceless",
 		defaultExcluded: true,
-		description: "As an action, I can throw a grenade at a point up to 60 ft away or double that with a grenade launcher. A soporific mist releases from a sleep grenade, then dissipates. All within 20 ft of it must make a DC 15 Con save or fall unconscious for 1 hour, until taking damage, or until another using an action to shake awake.",
+		description: "As an action, I can throw a grenade at a point up to 60 ft away or double that with a grenade launcher. A soporific mist releases from a sleep grenade, then dissipates. All within 20 ft of it must make a DC 15 Con save or fall unconscious for 1 hour, until taking damage, or until another uses an action to shake awake.",
 		descriptionFull: [
 			"As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away.",
 			"A sleep grenade releases a cloud of soporific mist that fills a 20-foot-radius sphere, then dissipates. Each creature in that area must succeed on a DC 15 Constitution saving throw or have the unconscious condition for 1 hour. The condition ends on a creature early if the creature takes damage or if another creature uses an action to shake it awake.",
@@ -125,7 +125,7 @@ MagicItemsList["needler pistol"] = {
 	type: "futuristic item",
 	rarity: "priceless",
 	defaultExcluded: true,
-	description: "This pistol has 10 charges per energy cell, which can be replaced as a (bonus) action once empty. As an action, I can use 1 charge to fire a burst needlelike darts from it in a 15-ft cone, dealing 8d4 piercing damage to all creatures in the area. Creatures can make a DC 15 Dexterity saving throw to half the damage.",
+	description: "This pistol has 10 charges per energy cell, which can be replaced as a (bonus) action once empty. As an action, I can use 1 charge to fire a burst of needlelike darts from it in a 15-ft cone, dealing 8d4 piercing damage to all creatures in the area. Creatures can make a DC 15 Dexterity saving throw to halve the damage.",
 	descriptionFull: [
 		"This strange pistol resembles a flask with a honeycomb of tubes sticking out its front. The weapon is powered by an energy cell stored at the base of the flask. Placing a full energy cell in the pistol gives the pistol 10 charges.",
 		"As an action while holding this pistol, you can expend 1 of its charges to fire a burst of glowing, needlelike darts from the pistol in a 15-foot cone. Each creature in that area must make a DC 15 Dexterity saving throw, taking 8d4 piercing damage on a failed save or half as much damage on a successful one.",
@@ -198,7 +198,7 @@ MagicItemsList["powered armor"] = {
 	type: "technological device",
 	rarity: "priceless",
 	defaultExcluded: true,
-	description: "This plate armor has 24 charges per energy cell, which can be replaced as a (bonus) action if empty. As an action, I can expend charges to active it for 1 hour per charge. While active, I gain adv. on Str, double carrying capacity, have my own atmosphere to breath in, and can use Force Field and Propulsion, see Notes.",
+	description: "This plate armor has 24 charges per energy cell, which can be replaced as a (bonus) action if empty. As an action, I can expend charges to activate it for 1 hour per charge. While active, I gain adv. on Str, double carrying capacity, have my own atmosphere to breathe in, and can use Force Field and Propulsion, see Notes.",
 	descriptionFull: [
 		"This suit of technologically advanced plate armor includes an under-suit that can fully seal, a helmet with a full face mask and crystal lenses in the eyeholes, and a set of gauntlets. The armor is powered by an energy cell stored in a compartment on the thigh plate.",
 		"Placing a full energy cell in the armor gives the armor 24 charges. A suit of *powered armor* functions as a suit of normal plate armor, even when it has 0 charges remaining.",

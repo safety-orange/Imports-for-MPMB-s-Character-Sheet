@@ -565,7 +565,7 @@ MagicItemsList["opal of the ild rune"] = {
 		chooseGear: {
 			type: "armor",
 			prefixOrSuffix: "brackets",
-			descriptionChange: ["prefix", "armor"],
+			descriptionChange: ["replace", "armor"],
 			itemName1stPage: ["suffix", "Ild Rune"],
 		},
 	},
@@ -712,7 +712,7 @@ MagicItemsList["pennant of the vind rune"] = {
 		chooseGear: {
 			type: "armor",
 			prefixOrSuffix: "brackets",
-			descriptionChange: ["prefix", "armor"],
+			descriptionChange: ["replace", "armor"],
 			itemName1stPage: ["suffix", "Vind Rune"],
 			noStealthDis: /^(?=.*\bvind)(?=.*rune\b).*$/i,
 		},

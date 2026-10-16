@@ -1,6 +1,6 @@
 var iFileName = "legacy_20160906_SKT.js";
 RequiredSheetVersion("24.1.3");
-// This file adds the beasts from the Storm King's Thunder adventure book to MPMB's Character Record Sheet
+// This file adds the beasts from the Storm King's Thunder adventure book to MPMB's Character Record Sheet that have not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source
 SourceList["SKT"] = {
@@ -556,7 +556,7 @@ MagicItemsList["opal of the ild rune"] = {
 		chooseGear: {
 			type: "armor",
 			prefixOrSuffix: "brackets",
-			descriptionChange: ["prefix", "armor"],
+			descriptionChange: ["replace", "armor"],
 			itemName1stPage: ["suffix", "Ild Rune"],
 		},
 	},
@@ -697,7 +697,7 @@ MagicItemsList["pennant of the vind rune"] = {
 		chooseGear: {
 			type: "armor",
 			prefixOrSuffix: "brackets",
-			descriptionChange: ["prefix", "armor"],
+			descriptionChange: ["replace", "armor"],
 			itemName1stPage: ["suffix", "Vind Rune"],
 			noStealthDis: /^(?=.*\bvind)(?=.*rune\b).*$/i,
 		},

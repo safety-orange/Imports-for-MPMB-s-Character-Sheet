@@ -351,10 +351,10 @@ FeatsList["strixhaven initiate"] = {
 FeatsList["strixhaven mascot"] = {
 	name: "Strixhaven Mascot",
 	source: [["SCC", 37]],
-	description: "I can cast *Find Familiar* as a ritual and it can take the form of my college's mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
+	description: "I can cast *Find Familiar* as a ritual and it can take the form of my college's mascot. When I take the Attack action on my turn, I can forgo one attack to have it make an attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while it's within 60 ft, I can teleport to swap places with it, if there's space.",
 	descriptionFull: [
 		"You have learned how to summon a Strixhaven mascot to assist you, granting you these benefits:",
-		" \u2022 You can cast the *find familiar* spell as a ritual. Your familiar can take the form of the mascot associated with the college you chose for the Strixhaven Initiate feat: a spirit statue mascot (Lorehold), an art elemental mascot (Prismari), a fractal mascot (Quandrix), an inkling mascot (Silverquill), or a pest mascot (Witherbloom).",
+		" \u2022 You can cast the *find familiar* spell as a ritual. Your familiar can take the form of the mascot associated with the college you chose for the Strixhaven Initiate feat: a **spirit statue mascot** (Lorehold), an **art elemental mascot** (Prismari), a **fractal mascot** (Quandrix), an **inkling mascot** (Silverquill), or a **pest mascot** (Witherbloom).",
 		" \u2022 When you take the Attack action on your turn, you can forgo one attack to allow your mascot familiar to make one attack of its own with its reaction.",
 		" \u2022 If your mascot familiar is within 60 feet of you, you can teleport as an action, swapping places with the familiar. If your destination space is too small for you to occupy, the teleportation fails and is wasted. Once you teleport in this way, you can't do so again until you finish a long rest, unless you expend a spell slot of 2nd level or higher to do it again.",
 	],
@@ -380,27 +380,27 @@ FeatsList["strixhaven mascot"] = {
 		}
 	},
 	"lorehold": {
-		description: "I can cast *Find Familiar* as a ritual and it can take the form of a Spirit Statue Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
+		description: "I can cast *Find Familiar* as a ritual and it can take the form of a **Spirit Statue Mascot**. When I take the Attack action on my turn, I can forgo one attack to have it make an attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while it's within 60 ft, I can teleport to swap places with it, if there's space.",
 		creaturesAdd: [["Spirit Statue Mascot", true, false, "strixhaven_mascot"]],
 	},
 	"prismari": {
-		description: "I can cast *Find Familiar* as a ritual and it can take the form of an Art Elemental Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make an attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
+		description: "I can cast *Find Familiar* as a ritual and it can take the form of an **Art Elemental Mascot**. When I do the Attack action on my turn, I can forgo one attack to have it make an attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while it's within 60 ft, I can teleport to swap places with it, if there's space.",
 		creaturesAdd: [["Art Elemental Mascot", true, false, "strixhaven_mascot"]],
 	},
 	"quandrix": {
-		description: "I can cast *Find Familiar* as a ritual and it can take the form of a Fractal Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
+		description: "I can cast *Find Familiar* as a ritual and it can take the form of a **Fractal Mascot**. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while it's within 60 ft, I can teleport to swap places with it, if there's space.",
 		creaturesAdd: [["Fractal Mascot", true, false, "strixhaven_mascot"]],
 	},
 	"silverquill": {
-		description: "I can cast *Find Familiar* as a ritual and it can take the form of an Inkling Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
+		description: "I can cast *Find Familiar* as a ritual and it can take the form of an **Inkling Mascot**. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while it's within 60 ft, I can teleport to swap places with it, if there's space.",
 		creaturesAdd: [["Inkling Mascot", true, false, "strixhaven_mascot"]],
 	},
 	"witherbloom": {
-		description: "I can cast *Find Familiar* as a ritual and it can take the form of a Pest Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
+		description: "I can cast *Find Familiar* as a ritual and it can take the form of a **Pest Mascot**. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while it's within 60 ft, I can teleport to swap places with it, if there's space.",
 		creaturesAdd: [["Pest Mascot", true, false, "strixhaven_mascot"]],
 	},
 };
-if (CompanionList.familiar && CompanionList.pact_of_the_chain) { // Needs to be revisited for v24
+if (CompanionList.familiar && CompanionList.pact_of_the_chain) {
 	CompanionList.strixhaven_mascot = {
 		name: "Strixhaven Mascot",
 		nameTooltip: "Strixhaven Mascot (feat)",
@@ -555,7 +555,7 @@ MagicItemsList["lorehold primer"] = {
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; },
-	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to an History or Religion check, after the d20 roll. If I study it during a long rest, I can pick a 1st-level cleric or wizard spell. I can cast the spell once without a spell slot before my next long rest ends.",
+	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to a History or Religion check, after the d20 roll. If I study it during a long rest, I can pick a 1st-level cleric or wizard spell. I can cast the spell once without a spell slot before my next long rest ends.",
 	descriptionFull: [
 		"The *Lorehold Primer* is a magic textbook created at Strixhaven's Lorehold College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make an Intelligence (History) or Intelligence (Religion) check while holding the primer, you can expend 1 charge to give yourself 1d4 bonus to the check, immediately after you roll the d20.",
 		"In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the cleric or wizard spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
@@ -768,7 +768,7 @@ MagicItemsList["murgaxor's orb"] = {
 		{
 			name: "Murgaxor's Orb",
 			useDescriptionFull: function (str) {
-				return str.replace("targeting I", "$1 me");
+				return str.replace("targeting I", "targeting me");
 			},
 		},
 		Object.assign({}, sentientItemConflictNote, { amendTo: "Murgaxor's Orb" }),
@@ -800,7 +800,7 @@ CreatureList["art elemental mascot"] = { // Prismari
 	source: [["SCC", 185]],
 	size: 4,
 	type: "Elemental",
-	companion: "strixhaven_mascot",
+	companion: ["strixhaven_mascot"],
 	alignment: "Neutral",
 	ac: 11,
 	hp: 18,
@@ -847,7 +847,7 @@ CreatureList["fractal mascot"] = { // Quandrix
 	source: [["SCC", 192]],
 	size: 4,
 	type: "Construct",
-	companion: "strixhaven_mascot",
+	companion: ["strixhaven_mascot"],
 	alignment: "Neutral",
 	ac: 12,
 	hp: 27,
@@ -873,7 +873,7 @@ CreatureList["fractal mascot"] = { // Quandrix
 		description: "As a bonus action, the [THIS] can increase its size by one category. While the [THIS] is Medium or bigger, it makes Strength checks and Strength saving throws with advantage. The [THIS] can become no larger than Huge via this bonus action.",
 	}, {
 		name: "Diminish",
-		description: "As a bonus action, the [THIS] can decreases its size by one category. While the [THIS] is Tiny, it makes attack rolls, Dexterity checks, and Dexterity saving throws with advantage. The [THIS] can become no smaller than 1 ft in height via this bonus action.",
+		description: "As a bonus action, the [THIS] can decrease its size by one category. While the [THIS] is Tiny, it makes attack rolls, Dexterity checks, and Dexterity saving throws with advantage. The [THIS] can become no smaller than 1 ft in height via this bonus action.",
 	}],
 	traits: [{
 		name: "Relative Density",
@@ -887,7 +887,7 @@ CreatureList["inkling mascot"] = { // Silverquill
 	source: [["SCC", 195]],
 	size: 5,
 	type: "Ooze",
-	companion: "strixhaven_mascot",
+	companion: ["strixhaven_mascot"],
 	alignment: "Neutral",
 	ac: 13,
 	hp: 18,
@@ -931,7 +931,7 @@ CreatureList["pest mascot"] = { // Witherbloom
 	source: [["SCC", 203]],
 	size: 5,
 	type: "Monstrosity",
-	companion: "strixhaven_mascot",
+	companion: ["strixhaven_mascot"],
 	alignment: "Unaligned",
 	ac: 13,
 	hp: 22,
@@ -968,7 +968,7 @@ CreatureList["spirit statue mascot"] = { // Lorehold
 	source: [["SCC", 216]],
 	size: 3,
 	type: "Construct",
-	companion: "strixhaven_mascot",
+	companion: ["strixhaven_mascot"],
 	alignment: "Any alignment",
 	ac: 14,
 	hp: 26,

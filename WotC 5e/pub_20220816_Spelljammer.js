@@ -374,7 +374,7 @@ MagicItemsList["spelljamming helm"] = {
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; },
-	description: "While attuned to  this ornate chair and sitting in it, I can propel and maneuver the ship on which it has been installed through space, air, or water up to the ship's speed. I need to maintain concentration as if concentrating on a spell to do so. The ship can move faster in space if nothing is nearby. See Notes page.",
+	description: "While attuned to this ornate chair and sitting in it, I can propel and maneuver the ship on which it has been installed through space, air, or water up to the ship's speed. I need to maintain concentration as if concentrating on a spell to do so. The ship can move faster in space if nothing is nearby. See Notes page.",
 	descriptionFull: [
 		"The function of this ornate chair is to propel and maneuver a ship on which it has been installed through space and air. It can also propel and maneuver a ship on water or underwater, provided the ship is built for such travel. The ship in question must weigh 1 ton or more.",
 		"The sensation of being attuned to a *spelljamming helm* is akin to the pins-and-needles effect one experiences after one's arm or leg falls asleep, but not as painful.",
@@ -387,7 +387,9 @@ MagicItemsList["spelljamming helm"] = {
 	action: [["action", " (Transfer Attunement)"]],
 	toNotesPage: [{
 		name: "Spelljamming Helm",
-		useDescriptionFull: true,
+		useDescriptionFull: function (str) {
+			return str.replace("as long as me maintain", "as long as I maintain");
+		},
 	}],
 };
 MagicItemsList["wildspace orrery"] = {

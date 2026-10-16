@@ -320,7 +320,7 @@ if (!BackgroundFeatureList["strike of the giants"]) {
 
 if (!BackgroundFeatureList["conviction"]) {
 	BackgroundFeatureList["conviction"] = {
-		description: "I subscribe to a distinct philosophy that seeks to understand the nature of the planes or a hidden truth of the multiverse and spread my philosophy. I am part of a network of like-minded believers who provide me free, modest lodging and food at any of their holding or the homes of other faction members. Also, I gain the Scion of the Outer Planes feat.",
+		description: "I subscribe to a distinct philosophy that seeks to understand the nature of the planes or a hidden truth of the multiverse and spread my philosophy. I am part of a network of like-\u200Aminded believers who provide me free, modest lodging and food at any of their holdings or the homes of other faction members. Also, I gain the Scion of the Outer Planes feat.",
 		source: [["P:AitM", 8], ["UA:WotM", 4]],
 		featsAdd: ["Scion of the Outer Planes"],
 	};

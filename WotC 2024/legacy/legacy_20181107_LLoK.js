@@ -1,6 +1,6 @@
 var iFileName = "legacy_20181107_LLoK.js";
 RequiredSheetVersion("24.1.3");
-// This file adds the magic items from the Lost Laboratory of Kwalish adventure to MPMB's Character Record Sheet
+// This file adds the magic items from the Lost Laboratory of Kwalish adventure to MPMB's Character Record Sheet that have not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source
 SourceList["LLoK"] = {

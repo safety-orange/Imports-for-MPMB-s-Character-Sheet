@@ -2452,7 +2452,7 @@ MagicItemsList["last stand armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Last Stand", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["between", "Last Stand", "(+1)"],
 	},
 	extraLimitedFeatures: [{

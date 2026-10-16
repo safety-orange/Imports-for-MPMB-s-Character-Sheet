@@ -1,6 +1,6 @@
 var iFileName = "legacy_20180918_WDH.js";
 RequiredSheetVersion("24.1.3");
-// This file adds the magic items from the Waterdeep: Dragon Heist adventure to MPMB's Character Record Sheet
+// This file adds the magic items from the Waterdeep: Dragon Heist adventure to MPMB's Character Record Sheet that have not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source
 SourceList["WDH"] = {

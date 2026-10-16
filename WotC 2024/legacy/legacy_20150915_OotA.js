@@ -1,6 +1,6 @@
 var iFileName = "legacy_20150915_OotA.js";
 RequiredSheetVersion("24.1.3");
-// This file adds all the beasts and background features from the Out of the Abyss adventure book to MPMB's Character Record Sheet
+// This file adds the beasts and background features from the Out of the Abyss adventure book to MPMB's Character Record Sheet that have not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source
 SourceList["OotA"] = {
@@ -306,7 +306,7 @@ MagicItemsList["spell gem"] = { // not legal in AL
 				if (spList.spellGemProcessed || !/spell gem/i.test(CurrentSpells[spName].name)) return;
 				// create the notspells array if it didn't already exist
 				if (!spList.notspells) spList.notspells = [];
-				// now add all the spells of this spell gem's level that have a casting time of 1 Reaction or 1 Bonus Action
+				// now add all the spells of this spell gem's level that have a casting time of Reaction or Bonus Action
 				for (var spell in SpellsList) {
 					var aSp = SpellsList[spell];
 					if (aSp.level <= spList.level[1] && aSp.time && /\b(rea(ct)?|bns)\b/i.test(aSp.time)) spList.notspells.push(spell);

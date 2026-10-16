@@ -42,7 +42,7 @@ RaceList["kender"] = {
 	},
 	trait: [
 		"**Kender**",
-		"##\u25C6 Fearless##. I have adv. on saves against the frightened condition. Once per long rest when I fail " + (typePF ? "such a save" : "a save to avoid being frightened") + ", I can choose to succeed" + (typePF ? "." : " instead"),
+		"##\u25C6 Fearless##. I have adv. on saves against the frightened condition. Once per long rest when I fail " + (typePF ? "such a save" : "a save to avoid being frightened") + ", I can choose to succeed" + (typePF ? "." : " instead."),
 		"##\u25C6 Taunt##. As a bonus action, I can taunt a creature within 60 ft of me that can hear and understand me. They must make a Wisdom " + (typePF ? "saving throw or have disadvantage" : "save (DC 8 + Prof B + Int/Wis/Cha mod; one-time choice) or have disadv.") + " on attack rolls not made against me until the start of my next turn. I can do this a number of times per long rest equal to my proficiency bonus." + (typePF ? " The DC equals 8 + my proficiency bonus + Intelligence, Wisdom, or Charisma modifier (one-time choice when selecting this race)." : ""),
 	],
 };
@@ -68,7 +68,7 @@ BackgroundList["knight of solamnia"] = {
 		"My comrades-in-arms are my family. I'll do whatever it takes to keep them safe.",
 		"The protection of innocent people comes first. All other concerns come second.",
 		"I joined the knights for the free meals, but their lessons grew on me over time.",
-		"I wish my deeds to become the stuff of legends\xD7just like those of the knighthood's heroic founders.",
+		"I wish my deeds to become the stuff of legends\u2014just like those of the knighthood's heroic founders.",
 		"A dishonorable act drove me to become a knight. I have acted with honor ever since.",
 	],
 	extra: [
@@ -133,7 +133,7 @@ BackgroundFeatureList["initiate of high sorcery"] = {
 FeatsList["initiate of high sorcery"] = {
 	name: "Initiate of High Sorcery",
 	source: [["D:SotDQ", 32], ["UA:HoKR", 4]],
-	description: "I learn a wizard cantrip and two 1st-levels spell from a list depending on my chosen moon. I can cast each spell once per long rest at its lowest levels without expending a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+	description: "I learn a wizard cantrip and two 1st-level spells from a list depending on my chosen moon. I can cast each spell once per long rest at its lowest levels without expending a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 	descriptionFull: [
 		"You've received training from magic-users affiliated with the Mages of High Sorcery.",
 		"Choose one of the three moons of Krynn to influence your magic: the black moon, Nuitari; the red moon, Lunitari; or the white moon, Solinari. You learn one cantrip of your choice from the wizard spell list and two 1st-level spells based on the moon you choose, as specified in the Lunar Spells table.",
@@ -144,9 +144,9 @@ FeatsList["initiate of high sorcery"] = {
 			["", "*hex*, and *ray of sickness*"],
 			["Lunitari", "Choose two from *color spray*, *disguise self*,"],
 			["", "*feather fall*, and *longstrider*"],
-			["Solinari", "Choose two from *comprehend languages*, detect"],
-			["", "evil and good, *protection from evil and good*, and"],
-			["", "shield"],
+			["Solinari", "Choose two from *comprehend languages*, *detect*"],
+			["", "*evil and good*, *protection from evil and good*, and"],
+			["", "*shield*"],
 		],
 		"You can cast each of the chosen 1st-level spells without a spell slot, and you must finish a long rest before you can cast them in this way again. You can also cast the spells using any spell slots you have.",
 		"Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
@@ -205,7 +205,7 @@ FeatsList["initiate of high sorcery"] = {
 FeatsList["adept of the black robes"] = {
 	name: "Adept of the Black Robes",
 	source: [["D:SotDQ", 31], ["UA:HoKR", 4]],
-	description: "I learn one 2nd-level Ench or Necro spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. When a creature I can see within 60 ft fails its save vs. my damaging spell, I can expend HD up to the spell's level and add the rolls to the damage of the spell for that one creature.",
+	description: "I learn one 2nd-level Evoc or Necro spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. When a creature I can see within 60 ft fails its save vs. my damaging spell, I can expend HD up to the spell's level and add the rolls to the damage of the spell for that one creature.",
 	descriptionFull: [
 		"You chose the moon Nuitari to influence your magic, and your ambition and loyalty to the Order of the Black Robes have been recognized, granting you these benefits:",
 		"***Ambitious Magic***. You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.",
@@ -233,7 +233,7 @@ FeatsList["adept of the red robes"] = {
 	descriptionFull: [
 		"You chose the moon Lunitari to influence your magic, and your dedication to maintaining the balance between all things has been recognized by the Order of the Red Robes, granting you these benefits:",
 		"***Insightful Magic***. You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the illusion or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.",
-		"***Magical Balance***. When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. you can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+		"***Magical Balance***. When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	],
 	prerequisite: "4th level, Initiate of High Sorcery (Lunitari) feat",
 	prereqeval: function (v) {
@@ -259,7 +259,7 @@ FeatsList["adept of the white robes"] = {
 	description: "I learn one 2nd-level Abjur or Div spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. As a reaction when I or a creature I can see within 30 ft is damaged, I can expend a spell slot and roll d6s equal to its level to reduce the damage by that much + my spellcasting modifier.",
 	descriptionFull: [
 		"You chose the moon Solinari to influence your magic, and your oath to use magic to make the world a better place has been recognized by the Order of the White Robes, granting you these benefits:",
-		"***Protective Magic***. You learn one 2nd-level spell of you choice. The 2nd-level spell must be from the abjuration or divination school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.",
+		"***Protective Magic***. You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the abjuration or divination school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.",
 		"***Protective Ward***. When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d6s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier.",
 	],
 	prerequisite: "4th level, Initiate of High Sorcery (Solinari) feat",
@@ -507,9 +507,9 @@ AddSubClass("sorcerer", "lunar sorcery", {
 			spellcastingExtraApplyNonconform: true,
 			description: levels.map(function (n) {
 				var phases = {
-					"\u25CB Full: ": ["Shield", "Lesser Restoration", "Dispel Magic", "Death Ward", "Rary's Telepathic Bond"],
-					"\u25CF New: ": ["Ray of Sickness", "Blindness/deafness", "Vampiric Touch", "Confusion", "Hold Monster"],
-					"\u25D6 Crescent: ": ["Color Spray", "Alter Self", "Phantom Steed", "Hallucinatory Terrain", "Mislead"],
+					"\u25CB **Full**. ": ["*Shield*", "*Lesser Restoration*", "*Dispel Magic*", "*Death Ward*", "*Rary's Telepathic Bond*"],
+					"\u25CF **New**. ": ["*Ray of Sickness*", "*Blindness/Deafness*", "*Vampiric Touch*", "*Confusion*", "*Hold Monster*"],
+					"\u25D6 **Crescent**. ": ["*Color Spray*", "*Alter Self*", "*Phantom Steed*", "*Hallucinatory Terrain*", "*Mislead*"],
 				};
 				var aReturn = [
 					"When I finish a long rest, I can choose a lunar phase: Full, New, or Crescent Moon",
@@ -585,7 +585,7 @@ AddSubClass("sorcerer", "lunar sorcery", {
 			minlevel: 6,
 			description: desc([
 				"Each lunar phase is additionally associated with spells of the following schools of magic:",
-				"\u25CB Full: Abjur \u0026 Div\t\t\u25CF New: Ench \u0026 Necro\t" + (typePF ? "\t" : Array(8).join(" ")) + "\u25D6 Crescent: Illus \u0026 Trans",
+				"\u25CB **Full**. Abjur \u0026 Div\t\t\u25CF **New**. Ench \u0026 Necro\t" + (typePF ? "\t" : Array(8).join(" ")) + "\u25D6 **Crescent**. Illus \u0026 Trans",
 				"I can reduce the sorcery point needed for Metamagic of spells of my current phase by 1",
 			]),
 			usages: "Proficiency bonus per ",
@@ -627,10 +627,10 @@ AddSubClass("sorcerer", "lunar sorcery", {
 			source: [["D:SotDQ", 0]],
 			minlevel: 14,
 			description: " [passive benefits for current phase]" + desc([
-				"\u25CB Full: I shed bright light in a 10-ft radius \u0026 dim light for extra 10 ft",
-				"  Myself and creatures I choose in 10 ft have adv. on Investigation and Perception checks",
-				"\u25CF New: I have adv. on Stealth checks; While I'm in darkness, attacks have disadv. vs me",
-				"\u25D6 Crescent: I have resistance to Necrotic and Radiant damage",
+				"\u25CB **Full**. I shed bright light in a 10-ft radius \u0026 dim light for extra 10 ft",
+				"  I and creatures I choose in 10 ft have adv. on Investigation and Perception checks",
+				"\u25CF **New**. I have adv. on Stealth checks; While I'm in darkness, attacks have disadv. vs me",
+				"\u25D6 **Crescent**. I have resistance to Necrotic and Radiant damage",
 			]),
 			dmgres: [
 				["Necrotic", "Necro. (in crescent)"],
@@ -644,12 +644,12 @@ AddSubClass("sorcerer", "lunar sorcery", {
 			additional: "per phase: 1\xD7 per " + (typePF ? "LR" : "long rest") + " or 5 SP",
 			description: desc([
 				"As a bonus action, or as part of changing phase, I can use a power of the (new) phase:",
-				"\u25CB Full: Chosen creatures within 30 ft of me must make a Constitution save or be blinded",
+				"\u25CB **Full**. Chosen creatures within 30 ft of me must make a Constitution save or be blinded",
 				"  This lasts until their next turn ends; I also heal one creature within 30 ft for 3d8 HP",
-				"\u25CF New: Chosen creatures within 30 ft of me must make a Dexterity save",
+				"\u25CF **New**. Chosen creatures within 30 ft of me must make a Dexterity save",
 				"  If failed, they take 3d10 Necrotic damage and have 0 speed until their next turn ends",
 				"  Also, I become invisible until the end of my next turn, or until I attack or cast a spell",
-				"\u25D6 Crescent: I can magically teleport to an unoccupied space I can see within 60 ft",
+				"\u25D6 **Crescent**. I can magically teleport to an unoccupied space I can see within 60 ft",
 				"  Both of us gain resistance to all damage until the start of my next turn",
 				"I can use each phase's bonus action 1/LR, or by spending 5 sorcery points to use it again",
 			]),
@@ -751,7 +751,7 @@ MagicItemsList["mirror of reflected pasts"] = {
 	rarity: "very rare",
 	attunement: true,
 	description: "As an action, I can (de)activate this mirror. It can be activated once per dawn, making it hover in the air, can't be moved, and when a non-construct sees its reflection in it while within 30 ft, it must make a DC 15 Wis save. It is paralyzed until the mirror is deactivated. It can retry the save at the end of each of its turns.",
-	descriptionLong: "As an action, I can activate this mirror of elven design once per dawn, or deactive it. While active, it hovers in the air and can't be moved. When a non-construct creature within 30 ft of the mirror sees its reflection in it, the creature must make a DC 15 Wisdom save or become paralyzed. The creature can repeat the save at the end of each of its turns, but is otherwise paralyzed until the  mirror is deactivated. A successful save makes a creature immune for 24 hours. While paralyzed by the mirror, the creature sees idealized versions of events from their past reflected in the mirror's glass.",
+	descriptionLong: "As an action, I can activate this mirror of elven design once per dawn, or deactivate it. While active, it hovers in the air and can't be moved. When a non-construct creature within 30 ft of the mirror sees its reflection in it, the creature must make a DC 15 Wisdom save or become paralyzed. The creature can repeat the save at the end of each of its turns, but is otherwise paralyzed until the mirror is deactivated. A successful save makes a creature immune for 24 hours. While paralyzed by the mirror, the creature sees idealized versions of events from their past reflected in the mirror's glass.",
 	descriptionFull: [
 		"This mirror of elven design allows those who stare into it to reflect on positive memories. The 3-foot-tall mirror weighs 25 pounds, and it has AC 11, 10 hit points, and vulnerability to bludgeoning damage. It shatters and is destroyed if reduced to 0 hit points.",
 		"While holding the mirror upright, you can use an action to speak its command word and activate it. While activated, the mirror hovers in the air, and it can be destroyed but not moved. It remains activated until you use an action to speak the command word again or your attunement to the mirror ends, at which point the mirror harmlessly floats to the ground. Once the mirror has been deactivated, it can't be activated again until the next dawn.",

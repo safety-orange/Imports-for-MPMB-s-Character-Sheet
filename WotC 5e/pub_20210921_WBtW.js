@@ -84,16 +84,18 @@ BackgroundList["feylost"] = {
 	toNotesPage: [{
 		name: "Feywild Visitor",
 		note: [
-			"Whenever I'm sound asleep or in a deep trance during a long rest, a spirit of the Feywild might pay me a visit, if the DM wishes it. Determine the spirit's form by rolling on the table below. No harm ever comes to me as a result of such visits, which can last for minutes or hours, and I remember each visit when I wake up. Conversations that occur with a visitor can contain any number of things, from messages and insights to nonsense and red herrings, at the DM's discretion. Such conversations are always conducted in a language I can understand, even if the Feywild visitor can't speak that language normally.\n",
-			"d8\tVisitor",
-			" 1\tAwakened creature (beast or plant that had the *Awaken* spell cast on it)",
-			" 2\tCentaur",
-			" 3\tDryad",
-			" 4\tFaerie dragon",
-			" 5\tPixie",
-			" 6\tSatyr",
-			" 7\tSprite",
-			" 8\tUnicorn",
+			"Whenever I'm sound asleep or in a deep trance during a long rest, a spirit of the Feywild might pay me a visit, if the DM wishes it. Determine the spirit's form by rolling on the table below. No harm ever comes to me as a result of such visits, which can last for minutes or hours, and I remember each visit when I wake up. Conversations that occur with a visitor can contain any number of things, from messages and insights to nonsense and red herrings, at the DM's discretion. Such conversations are always conducted in a language I can understand, even if the Feywild visitor can't speak that language normally.",
+			[
+				["d8", "Visitor"],
+				["1", "Awakened creature (beast or plant that had the *Awaken* spell cast on it)"],
+				["2", "Centaur"],
+				["3", "Dryad"],
+				["4", "Faerie dragon"],
+				["5", "Pixie"],
+				["6", "Satyr"],
+				["7", "Sprite"],
+				["8", "Unicorn"],
+			],
 		],
 	}],
 };
@@ -242,7 +244,7 @@ MagicItemsList["bobbing lily pad"] = {
 	type: "wondrous item",
 	rarity: "very rare",
 	attunement: true,
-	description: "This 10-ft diameter vehicle float on water and has a walking, flying, and swimming speed of 20 ft, and it can hover. While I ride it, it moves according to my spoken directions. The lily pad can transport up to 600 lb, but moves at only half speed when carrying more than 300 lb.",
+	description: "This 10-ft diameter vehicle floats on water and has a walking, flying, and swimming speed of 20 ft, and it can hover. While I ride it, it moves according to my spoken directions. The lily pad can transport up to 600 lb, but moves at only half speed when carrying more than 300 lb.",
 	descriptionFull: [
 		"This magic vehicle is a 10-foot-diameter leaf that floats on water. It has tendrils that propel it across land and across the water's surface (but not underwater), as well as through the air. It has a walking, flying, and swimming speed of 20 feet, and it can hover. It moves according to your spoken directions while you are riding it.",
 		"The lily pad can transport up to 300 pounds without hindrance. It can carry up to twice this weight, but it moves at half speed if it carries more than its normal capacity.",
@@ -314,8 +316,8 @@ MagicItemsList["eldritch staff"] = {
 	type: "staff",
 	rarity: "very rare",
 	attunement: true,
-	description: "This +1 quarterstaff has 10 charges, regaining 1d6+4 charges at dawn. 5% chance it's destroyed If I use its last charge. When I hit with it, I can deal +1d8 lightning damage per charge (max 3). As a reaction when I'm damaged, I can use 3 charges to teleport 60 ft and become invisible until my next turn starts, or I attack/cast.",
-	descriptionLong: "This magic quarterstaff grants a +1 bonus to attack and damage rolls made with it. It has 10 charges and regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff is destroyed in an otherwise harmless burst of eldritch energy. When I hit with it in melee, I can expend up to 3 charges, dealing +1d8 lightning damage per charge. As a reaction when I'm damaged while holding the staff, I can use 3 charges to become invisible and teleport 60 ft to an empty space I can see. I then remain invisible until the start of my next turn or until I attack, cast a spell, or deal damage.",
+	description: "This +1 quarterstaff has 10 charges, regaining 1d6+4 charges at dawn. 5% chance it's destroyed if I use its last charge. When I hit with it, I can deal +1d8 lightning damage per charge (max 3). As a reaction when I'm damaged, I can use 3 charges to teleport 60 ft and become invisible until my next turn starts, or I attack/cast.",
+	descriptionLong: "This magic quarterstaff grants a +1 bonus to attack and damage rolls made with it. It has 10 charges and regains 1d6 + 4 expended charges daily at dawn. If I expend the last charge, roll a d20. On a 1, the staff is destroyed in an otherwise harmless burst of eldritch energy. When I hit with it in melee, I can expend up to 3 charges, dealing +1d8 lightning damage per charge. As a reaction when I'm damaged while holding the staff, I can use 3 charges to become invisible and teleport 60 ft to an empty space I can see. I then remain invisible until the start of my next turn or until I attack, cast a spell, or deal damage.",
 	descriptionFull: [
 		"This staff can be wielded as a magic quarterstaff that grants a +1 bonus to attack and damage rolls made with it.",
 		"The staff has 10 charges and regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff is destroyed in an otherwise harmless burst of eldritch energy.",
@@ -404,7 +406,7 @@ MagicItemsList["snicker-snack"] = {
 	attunement: true,
 	prerequisite: "Requires attunement by a non-evil creature",
 	prereqeval: function (v) { return !/evil/i.test(What("Alignment")); },
-	description: "I have a +3 bonus on attack and damage rolls with this sentient magic greatsword and can use Cha instead of Str. It ignores slashing resistance. On a 20 to hit, it cuts off " + (typePF ? "a head" : "one head, possibly killing it instantly") + ". If the target has legendary actions, no head, too wide neck, or is immune to slashing damage, it takes +6d8 damage instead. See Notes.",
+	description: "When I attack with this sentient +3 greatsword, I can use Charisma instead of Strength and ignores resistance to slashing  damage. On a 20 to hit, the sword cuts off " + (typePF ? "a head" : "one head, possibly killing it instantly") + ". If the target has legendary actions, no head, too wide a neck, or is immune to slashing damage, it takes +6d8 damage instead. See Notes.",
 	descriptionFull: [
 		"You gain a +3 bonus to attack and damage rolls made with this magic *vorpal sword*. In addition, the weapon ignores resistance to slashing damage. When you use this weapon to attack a creature that has at least one head and roll a 20 on the attack roll, you cut off one of the creature's heads. The creature dies if it can't survive without the lost head. A creature is immune to this effect if it is immune to slashing damage, it doesn't have or need a head, it has legendary actions, or the DM decides that the creature is too big for its head to be cut off with this weapon. Such a creature instead takes an extra 6d8 slashing damage from the hit.",
 		"While attuned to *Snicker-Snack*, you have proficiency with greatswords, and you can use your Charisma modifier instead of your Strength modifier for attack and damage rolls made with the weapon.",
@@ -423,7 +425,7 @@ MagicItemsList["snicker-snack"] = {
 			amendTo: "Snicker-Snack",
 		}),
 	],
-	weaponProfs: [false, false ["greatsword"]],
+	weaponProfs: [false, false, ["greatsword"]],
 	weaponOptions: [{
 		baseWeapon: "greatsword",
 		regExpSearch: /snicker.snack/i,
@@ -513,9 +515,9 @@ MagicItemsList["witchlight vane"] = {
 	type: "wondrous item",
 	rarity: "legendary",
 	attunement: true,
-	prerequisite: "Requires attunement by a mister light or his handpicked successor",
+	prerequisite: "Requires attunement by a Mister Light or his handpicked successor",
 	description: "I can use this sentient ornate rod as a +3 mace that deals an extra 1d8 radiant damage on a hit. It can sense the mood of every creature in the carnival. As an action, I can pinpoint the happiest in the carnival. I can use it to cast spells. I can't be blinded, deafened, petrified, or stunned. See Notes page.",
-	descriptionLong: "This sentient ornate rod is topped by a pair of butterfly wings and incorporates bits of red glass into its length. I can use it as a +3 mace that deals an extra 1d8 radiant damage on a hit. It can sense the mood of every creature in the carnival. As an action, I can use it to pinpoint the happiest in the carnival. I can use it to cast Dancing *Light*, *Ray of Frost*, and *Polymorph*. After I use it to cast *Polymorph*, roll a d8. On a roll of 3 or 8, the vane can't be used to cast *Polymorph* again until the next dawn. It makes me vulnerable to lightning damage, but I can't be blinded, deafened, petrified, or stunned. See Notes page.",
+	descriptionLong: "This sentient ornate rod is topped by a pair of butterfly wings and incorporates bits of red glass into its length. I can use it as a +3 mace that deals an extra 1d8 radiant damage on a hit. It can sense the mood of every creature in the carnival. As an action, I can use it to pinpoint the happiest in the carnival. I can use it to cast *Dancing Lights*, *Ray of Frost*, and *Polymorph*. After I use it to cast *Polymorph*, roll a d8. On a roll of 3 or 8, the vane can't be used to cast *Polymorph* again until the next dawn. It makes me vulnerable to lightning damage, but I can't be blinded, deafened, petrified, or stunned. See Notes page.",
 	descriptionFull: [
 		"This ornate rod is topped by a pair of butterfly wings and incorporates bits of red glass into its length. It weighs 3 pounds.",
 		"***Magic Weapon***. In the hands of one who is attuned to it, the vane can be wielded as a magic mace that grants a +3 bonus to attack and damage rolls made with it. In addition, the vane deals an extra 1d8 radiant damage on a hit.",
@@ -572,7 +574,7 @@ MagicItemsList["witchlight watch"] = {
 	type: "wondrous item",
 	rarity: "legendary",
 	attunement: true,
-	prerequisite: "Requires attunement by a mister witch or his handpicked successor",
+	prerequisite: "Requires attunement by a Mister Witch or his handpicked successor",
 	description: "As an action once per 8 hours, I can use this ornate pocket watch to initiate the (un)packing of the carnival over the next hour. I can use it to cast *Fire Bolt*, *Message*, and *Invisibility*. After it casts *Invisibility*, I roll a d8. On a roll of 3 or 8, I can't cast this again until the next dawn. See Notes page.",
 	descriptionLong: "This ornate pocket watch is fastened to the end of a gold chain and glows with a faint golden light when opened. As an action once per 8 hours, I can use this ornate pocket watch to initiate the (un)packing of the carnival over the next hour, provided the carnival and I are on the same plane of existence. I can use it to cast *Fire Bolt*, *Message*, and *Invisibility*. After I use it to cast *Invisibility*, roll a d8. On a roll of 3 or 8, it can't be used to cast *Invisibility* again until the next dawn. As long as I'm attuned to it, I'm 30 lb heavier and must eat and drink eight times the normal amount each day. See Notes page.",
 	descriptionFull: [
@@ -750,7 +752,7 @@ CreatureList["giant swan"] = { // a giant eagle except that it has no talons, ca
 		ability: 1,
 		damage: [1, 6, "piercing"],
 		range: "Melee (5 ft)",
-		description: "Two beak attack as an Attack action",
+		description: "Two beak attacks as an Attack action",
 	}],
 	actions: [{
 		name: "Multiattack",

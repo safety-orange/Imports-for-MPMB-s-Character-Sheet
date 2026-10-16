@@ -71,7 +71,7 @@ CoA_Corruption = {
 		name: "Infernal Item Corruption",
 		popupName: 'The "Infernal Item Corruption" rules from Chains of Asmodeus (page 271)',
 		note: [
-			"Cursed infernal items can be used by mortals, but they always require attunement. Once attuned, the mortal risks an increasing chance of being corrupted by the item., eventually transforming into a devil.",
+			"Cursed infernal items can be used by mortals, but they always require attunement. Once attuned, the mortal risks an increasing chance of being corrupted by the item, eventually transforming into a devil.",
 			"Mortals that receive express permission from Asmodeus, or that make an infernal contract to acquire a magic item, don't suffer these corrupting effects.",
 			" #1. Stage One Corruption: Beginnings#",
 			"Once a character has attuned to a cursed infernal magic item or artifact, it begins the infernal corruption process. Each time that character finishes a long rest, they must make a DC 10 Wisdom save (tieflings have advantage on this save). On a success, the character suffers no effects, but the DC increases by 1 the next time they must make this save. On a failure, the character progresses to Stage Two unless *Dispel Evil and Good* is cast on them before their next long rest.",
@@ -168,7 +168,7 @@ MagicItemsList["canian fork"] = {
 	rarity: "rare",
 	attunement: true,
 	cursed: true,
-	description: "This magic, cursed, corrupting trident gives me +3 bonus to attack and damage rolls made with. I can't willing to part with it and can't unattune to it without *Remove Curse*. I'm vulnerable to radiant damage. When I receive magical healing I have to succeed on a DC 15 Con save or the healing has no effect.",
+	description: "This magic, cursed, corrupting trident gives me +3 bonus to attack and damage rolls made with it. I'm unwilling to part with it and can't unattune to it without *Remove Curse*. I'm vulnerable to radiant damage. When I receive magical healing I have to succeed on a DC 15 Con save or the healing has no effect.",
 	descriptionFull: [
 		"You have a +3 bonus to attack and damage rolls made with this magic weapon. In addition, you can make one additional attack with it as a bonus action on each of your turns.",
 		"***Curse***. You're unwilling to part with this weapon while attuned to it. You're also vulnerable to radiant damage and each time you receive magical healing, you must make a DC 15 Constitution saving throw.",
@@ -207,7 +207,7 @@ MagicItemsList["demonbone polearm"] = {
 	attunement: true,
 	cursed: true,
 	description: "As a reaction when damaged by a creature in reach, I can attack it once with this +2 weapon. ***Curse***. I can't unattune to it and have disadv. with other weapons. If I take damage, I must make a DC 15 Wis save or go berserk: I attack those near to me until none remain in 60 ft or I'm calmed with a DC 15 Persuasion" + (typePF ? "." : "check."),
-	descriptionLong: "I have a +2 bonus on attack and damage rolls made with this magic weapon. As a reaction when I'm damaged by a creature in this weapon's reach, I can make one melee attack against it. ***Curse***. I'm unwilling to part with it, can't unattune to it without *Remove Curse*, and have disadvantage with other weapons. When I take damage, I must make a DC 15 Wisdom save or go berserk: I attack the nearest creature using this weapon with all my attacks, moving to the next nearest until none remain that I can sea or hear within 60 ft of me. I can also be calmed with a DC 15 Charisma (Persuasion) check.",
+	descriptionLong: "I have a +2 bonus on attack and damage rolls made with this magic weapon. As a reaction when I'm damaged by a creature in this weapon's reach, I can make one melee attack against it. ***Curse***. I'm unwilling to part with it, can't unattune to it without *Remove Curse*, and have disadvantage with other weapons. When I take damage, I must make a DC 15 Wisdom save or go berserk: I attack the nearest creature using this weapon with all my attacks, moving to the next nearest until none remain that I can see or hear within 60 ft of me. I can also be calmed with a DC 15 Charisma (Persuasion) check.",
 	descriptionFull: [
 		"You have a +2 bonus to attack and damage rolls made with this magic weapon. In addition, when you're damaged by a creature in reach, you may use your reaction to make one melee attack against it with this weapon.",
 		"***Curse***. You're unwilling to part with this weapon while attuned to it. While attuned, you have disadvantage on attack rolls with weapons other than this one.",
@@ -234,7 +234,7 @@ MagicItemsList["demonbone polearm"] = {
 					output.magic = v.thisWeapon[1] + 2;
 				}
 			},
-			'If I include the word "Demonbone" in the name of a polearm, it will be treated as the magic weapon Demonbone Polearm. It adds +2 to hit and damage, can be used as a reaction when I\'m damaged by a creature within reach to attack them, an is cursed causing me to go beserk when I\'m damaged.',
+			'If I include the word "Demonbone" in the name of a polearm, it will be treated as the magic weapon Demonbone Polearm. It adds +2 to hit and damage, can be used as a reaction when I\'m damaged by a creature within reach to attack them, and is cursed causing me to go berserk when I\'m damaged.',
 		],
 	},
 	action: [["reaction", " (when damaged)"]],
@@ -248,7 +248,7 @@ MagicItemsList["gauntlets of rage"] = {
 	prerequisite: "Requires attunement by a bard, sorcerer, warlock, or wizard",
 	prereqeval: function (v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
 	description: "The first melee weapon attack I make after a short rest sends me into a fury for 1 minute. I can't cast spells or speak, am immune to charmed and frightened, and when I deal damage, I heal 2d8 hp and end this fury or one condition. Also, I can use a spell slot before a melee attack for +1d6 necrotic damage per spell level.",
-	descriptionLong: "I gain the power of never-ending fury. The first melee weapon attack I make after I finish a short or long rest automatically send me into a special fury for 1 minute. While furious, I can't cast spells, can't verbally communicate, and am immune to the charmed and frightened conditions. Each time I deal damage, I regain 2d8 hit points and may immediately remove a condition I currently suffer from or end this fury. Also, while in this fury, I may spend a spell slot before I make a melee attack. Doing so causes the attack to deal an extra 1d6 necrotic damage per level of spell slot expended, if it hits.",
+	descriptionLong: "I gain the power of never-ending fury. The first melee weapon attack I make after I finish a short or long rest automatically sends me into a special fury for 1 minute. While furious, I can't cast spells, can't verbally communicate, and am immune to the charmed and frightened conditions. Each time I deal damage, I regain 2d8 hit points and may immediately remove a condition I currently suffer from or end this fury. Also, while in this fury, I may spend a spell slot before I make a melee attack. Doing so causes the attack to deal an extra 1d6 necrotic damage per level of spell slot expended, if it hits.",
 	descriptionFull: "You gain the power of never-ending fury. After you make a melee weapon attack, you automatically enter a special fury for 1 minute. While furious, you can't cast spells, can't verbally communicate, and are immune to the charmed and frightened conditions. Each time you deal damage, you regain 2d8 hit points and may immediately remove a condition you currently suffer from or end this fury. Additionally, while in this fury, you may spend a spell slot before you make a melee attack. Doing so causes the attack to deal an extra 3 (1d6) necrotic damage per level of spell slot expended, if the attack hits. Once used you may not use this fury again until you finish a short or long rest.",
 	usages: 1,
 	recovery: "short rest",
@@ -261,7 +261,7 @@ MagicItemsList["infernal amulet"] = {
 	rarity: "rare",
 	attunement: true,
 	cursed: true,
-	description: "While wearing this amulet, I can use it as a spellcasting focus for my spells, and it grants a +2 bonus to my spell save DC and spell attack bonus. It is cursed and corrupting. I'm unwilling to part with it and require *Remove Curse* to unattune to it. It gives me disadvantage on Strength saving throws and Strenght checks.",
+	description: "While wearing this amulet, I can use it as a spellcasting focus for my spells, and it grants a +2 bonus to my spell save DC and spell attack bonus. It is cursed and corrupting. I'm unwilling to part with it and require *Remove Curse* to unattune to it. It gives me disadvantage on Strength saving throws and Strength checks.",
 	descriptionFull: [
 		"While wearing this amulet, you can use it as a spellcasting focus for your spells, and it grants a +2 bonus to your spell save DC and spell attack bonus.",
 		"***Curse***. You're unwilling to part with this amulet while attuned to it and you wear it always. While wearing the amulet you have disadvantage on Strength saving throws and Strength checks. Only the *Remove Curse* spell allows you to remove the item and end attunement.",
@@ -278,8 +278,8 @@ MagicItemsList["infernal amulet"] = {
 		],
 	},
 	advantages: [["Athletics", false], ["Strength", false]],
+	savetxt: typePF ? null : { text: ["Disadv. on Str saves/checks"] },
 }
-if (typePF) MagicItemsList["infernal amulet"].savetxt = { text: ["Disadv. on Str saves/checks"] }
 MagicItemsList["infernal plate armor"] = {
 	name: "Infernal Plate Armor",
 	source: [["CoA", 268]],
@@ -314,7 +314,7 @@ MagicItemsList["knife of stolen resistance"] = {
 	source: [["CoA", 268]],
 	type: "weapon (dagger)",
 	rarity: "rare",
-	description: "As an action once per long rest, I can use this knife to carve a single infernal rune into the flesh of an unconscious Beast, Celestial, Dragon, Fey, or Giant. Over the next 10 minutes the creature dies in agony, only *Wish* can stop this. If the creature has any resistances or immunities, I gain those while its dying.",
+	description: "As an action once per long rest, I can use this knife to carve a single infernal rune into the flesh of an unconscious Beast, Celestial, Dragon, Fey, or Giant. Over the next 10 minutes the creature dies in agony, only *Wish* can stop this. If the creature has any resistances or immunities, I gain those while it's dying.",
 	descriptionFull: "Using an action, you carve a single infernal rune into the flesh of an unconscious Beast, Celestial, Dragon, Fey, or Giant with this knife. Over the next 10 minutes the creature dies an agonizing death that can't be prevented short of the *Wish* spell. If the creature has any resistances or immunities, you gain those resistances and immunities until the creature dies or a *Wish* spell is used to save the creature. The knife's power can't be used again until you finish a long rest.",
 	weight: 1,
 	action: [["action", ""]],
@@ -334,7 +334,7 @@ MagicItemsList["ring of collecting"] = {
 	type: "ring",
 	rarity: "very rare",
 	attunement: true,
-	description: "As an action once per dawn, I can use this ring to cast *Tiny Hut*. As a bonus action, I can disintegrate a nonmagical piece of art up to Medium size within 60 ft. That art now appears inside the tiny hut, vanishing forever if removed from it. For every 1,000 gp of art added, the tiny hut get +1 ft radius and lasts +1 hour.",
+	description: "As an action once per dawn, I can use this ring to cast *Tiny Hut*. As a bonus action, I can disintegrate a nonmagical piece of art up to Medium size within 60 ft. That art now appears inside the tiny hut, vanishing forever if removed from it. For every 1,000 gp of art added, the tiny hut gets +1 ft radius and lasts +1 hour.",
 	descriptionLong: "As an action once per dawn, I can use this ring to cast *Leomund's Tiny Hut*. As a bonus action, I can use this ring to disintegrate an up to Medium sized, nonmagical piece of art (drawing, painting, or sculpture) within 60 ft. That art now appears inside the tiny hut, for me to appreciate whenever I desire. If I try to remove this art from the tiny hut, it vanishes forever. I can steadily improve this space, but only by denying such beauty from the rest of the world. For every 1,000 gp of art acquired, the tiny hut increases in size by adding +1 ft to its radius and lasts +1 hour.",
 	descriptionFull: "While wearing this ring you can use it to cast the *Leomund's Tiny Hut* spell as an action. Once this property is used, it can't be used again until the next dawn. Additionally, as a bonus action, you can use the ring to disintegrate any nonmagical piece of art (drawing, painting, or sculpture) within 60 feet that is no larger than Medium-sized. That art now appears inside the tiny hut, for you to appreciate whenever you desire. If you try to remove this art from the tiny hut, it vanishes forever. You can steadily improve this space, but only by denying such beauty to the rest of the world. For every 1,000 gp of art acquired, the tiny hut increases in size by adding another foot to its radius and lasts one additional hour.",
 	spellcastingBonus: [{
@@ -348,7 +348,7 @@ MagicItemsList["ring of collecting"] = {
 			time: "1 a",
 			duration: "8h+1h/1k gp",
 			description: "10ft+1ft/1,000 gp rad immobile dome of force; 9 Medium crea; blocks magic; ends if I leave; see B",
-			changes: "Using the Ring of Collecting, I can cast *Leomund's Tiny Hut* as an action instead of taking 1 minute. Once this property is used, it can't be used again until the next dawn. For every 1000 gp of art acquired, the tiny hut increases in size by adding +1 ft to its radius and lasts +1 hour.",
+			changes: "Using the Ring of Collecting, I can cast *Leomund's Tiny Hut* as an action instead of taking 1 minute. Once this property is used, it can't be used again until the next dawn. For every 1,000 gp of art acquired, the tiny hut increases in size by adding +1 ft to its radius and lasts +1 hour.",
 		},
 	},
 	usages: 1,

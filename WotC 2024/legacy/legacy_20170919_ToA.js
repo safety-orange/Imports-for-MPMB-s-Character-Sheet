@@ -1,6 +1,6 @@
 var iFileName = "legacy_20170919_ToA.js";
 RequiredSheetVersion("24.1.3");
-// This file adds the backgrounds and beasts from the Tomb of Annihilation adventure book to MPMB's Character Record Sheet
+// This file adds the backgrounds and beasts from the Tomb of Annihilation adventure book to MPMB's Character Record Sheet that have not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source
 SourceList["ToA"] = {
@@ -145,7 +145,7 @@ BackgroundFeatureList["adept linguist"] = {
 	description: "I can communicate with Humanoids who don't speak any language I know. I must observe the Humanoids interacting with one another for at least one day, after which I learn a handful of important words, expressions, and gestures \u2015 enough to communicate on a rudimentary level.",
 	source: [["ToA", 191]],
 };
-BackgroundFeatureList["historical knowledge"] = {
+BackgroundFeatureList["historical knowledge"] = { // from Archaeologist
 	description: "When I enter a ruin or dungeon, I can correctly ascertain its original purpose and determine its builders, whether those were dwarves, elves, humans, yuan-ti, or some other known race. In addition, I can determine the monetary value of art objects more than a century old.",
 	source: [["ToA", 192]],
 };
@@ -196,7 +196,7 @@ GearList["insect repellent incense"] = {
 if (!SourceList["V"]) {
 	CreatureList["brontosaurus"] = {
 		name: "Brontosaurus",
-		source: [["V", 139], ["ToA", 215], ["MotM", 95]],
+		source: [["ToA", 215], ["V", 139], ["MotM", 95]],
 		size: 0, //Gargantuan
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -227,7 +227,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["deinonychus"] = {
 		name: "Deinonychus",
-		source: [["V", 139], ["ToA", 217], ["MotM", 95]],
+		source: [["ToA", 217], ["V", 139], ["MotM", 95]],
 		size: 3, //Medium
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -268,7 +268,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["dimetrodon"] = {
 		name: "Dimetrodon",
-		source: [["V", 139], ["ToA", 217], ["MotM", 95]],
+		source: [["ToA", 217], ["V", 139], ["MotM", 95]],
 		size: 3, //Medium
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -295,7 +295,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["hadrosaurus"] = {
 		name: "Hadrosaurus",
-		source: [["V", 140], ["ToA", 224], ["MotM", 96]],
+		source: [["ToA", 224], ["V", 140], ["MotM", 96]],
 		size: 2, //Large
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -322,7 +322,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["quetzalcoatlus"] = {
 		name: "Quetzalcoatlus",
-		source: [["V", 140], ["ToA", 230], ["MotM", 96]],
+		source: [["ToA", 230], ["V", 140], ["MotM", 96]],
 		size: 1, //Huge
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -356,7 +356,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["stegosaurus"] = {
 		name: "Stegosaurus",
-		source: [["V", 140], ["ToA", 231], ["MotM", 96]],
+		source: [["ToA", 231], ["V", 140], ["MotM", 96]],
 		size: 1, //Huge
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -380,7 +380,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["velociraptor"] = {
 		name: "Velociraptor",
-		source: [["V", 140], ["ToA", 235], ["MotM", 96]],
+		source: [["ToA", 235], ["V", 140], ["MotM", 96]],
 		size: 5, //Tiny
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition

@@ -111,7 +111,7 @@ AddWarlockInvocation("Beguiling Influence", {
 	description: desc("I gain proficiencies with the Deception and Persuasion skills."),
 	skills: ["Deception", "Persuasion"],
 });
-AddWarlockInvocation("Bewitching Whispers (req: lvl 7+)", {
+AddWarlockInvocation("Bewitching Whispers", {
 	name: "Bewitching Whispers",
 	source: [["SRD", 48], ["P", 110]],
 	minlevel: 7,
@@ -210,7 +210,7 @@ AddWarlockInvocation("Chains of Carceri (req: lvl 15+, Pact of the Chain)", {
 		},
 	},
 });
-AddWarlockInvocation("Dreadful Word (req: lvl 7+)", {
+AddWarlockInvocation("Dreadful Word", {
 	name: "Dreadful Word",
 	source: [["SRD", 49], ["P", 110]],
 	minlevel: 7,

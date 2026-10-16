@@ -634,7 +634,7 @@ RaceList["shadar-kai elf"] = {
 };
 
 // Gith and its two subraces
-RaceList["githyanki-mtof"] = {
+RaceList["githyanki"] = {
 	regExpSearch: /githyanki/i,
 	name: "Githyanki",
 	source: [["MToF", 96]],
@@ -711,16 +711,16 @@ RaceList["githyanki-mtof"] = {
 		},
 	},
 };
-AddRacialVariant("githyanki-mtof", "tool proficiency", {
+AddRacialVariant("githyanki", "tool proficiency", {
 	regExpSearch: /tool proficiency/i,
 	skillstxt: "",
 	toolProfs: [["Any tool", 1]],
 });
-AddRacialVariant("githyanki-mtof", "skill proficiency", {
+AddRacialVariant("githyanki", "skill proficiency", {
 	regExpSearch: /skill proficiency/i,
 	skillstxt: "Choose any one skill",
 });
-RaceList["githzerai-mtof"] = {
+RaceList["githzerai"] = {
 	regExpSearch: /githzerai/i,
 	name: "Githzerai",
 	source: [["MToF", 96]],

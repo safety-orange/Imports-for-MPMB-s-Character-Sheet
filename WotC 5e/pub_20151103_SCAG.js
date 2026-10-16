@@ -1316,6 +1316,24 @@ AddBackgroundVariant("soldier", "city watch", {
 	languageProfs: [2],
 	lifestyle: "modest",
 });
+AddBackgroundVariant("soldier", "investigator", {
+	regExpSearch: /^(?=.*city)(?=.*(watch|guard))(?=.*(investigator|inspector)).*$/i,
+	name: "City Watch Investigator", // Name changed so it doesn't conflict with VRGtR investigator
+	source: [["S", 145], ["ALbackground", 0]],
+	skills: ["Insight", "Investigation"],
+	equipright: [
+		["Uniform", "", 3],
+		["Insignia of rank", "", ""],
+		["Horn", "", 2],
+		["Manacles", "", 6],
+		["Belt pouch (with coins)", "", 1],
+	],
+	feature: "Watcher's Eye",
+	extra: null,
+	toolProfs: null,
+	languageProfs: [2],
+	lifestyle: "modest",
+});
 AddBackgroundVariant("guild artisan", "clan crafter", {
 	regExpSearch: /^(?=.*clan)(?=.*(crafter|smith|builder|miner)).*$/i,
 	name: "Clan Crafter",
@@ -1431,24 +1449,6 @@ AddBackgroundVariant("folk hero", "inheritor", {
 	toolProfs: [["Gaming set or musical instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "wealthy",
-});
-AddBackgroundVariant("soldier", "investigator", {
-	regExpSearch: /investigator/i,
-	name: "Investigator",
-	source: [["S", 145], ["ALbackground", 0]],
-	skills: ["Insight", "Investigation"],
-	equipright: [
-		["Uniform", "", 3],
-		["Insignia of rank", "", ""],
-		["Horn", "", 2],
-		["Manacles", "", 6],
-		["Belt pouch (with coins)", "", 1],
-	],
-	feature: "Watcher's Eye",
-	extra: null,
-	toolProfs: null,
-	languageProfs: [2],
-	lifestyle: "modest",
 });
 AddBackgroundVariant("soldier", "knight of the order", {
 	regExpSearch: /^(?=.*knight)(?=.*order).*$/i,

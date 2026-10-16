@@ -1,6 +1,6 @@
 var iFileName = "legacy_20150416_EE.js";
 RequiredSheetVersion("24.1.3");
-// This file adds all the player-material from the Elemental Evil Player's Companion (November 2017, after the XGtE update) to MPMB's Character Record Sheet
+// This file adds the player-material from the Elemental Evil Player's Companion (November 2017, after the XGtE update) to MPMB's Character Record Sheet that has not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source
 SourceList["E"] = {
@@ -77,9 +77,9 @@ RaceList["genasi"] = {
 	spellcastingAbility: 3,
 	variants: [], // filled by the AddSubRace() calls below
 	age: " reach adulthood in their late teens and live up to 120 years",
-	height: " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
+	height: " are about 5-7 ft tall (4'8\" + 2d10\")",
 	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
-	heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
+	heightMetric: " are about 120-210 cm tall (145 + 5d10 cm)",
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 };
 AddSubRace("genasi", "air", {

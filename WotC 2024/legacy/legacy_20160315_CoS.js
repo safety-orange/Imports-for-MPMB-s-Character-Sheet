@@ -1,6 +1,6 @@
 var iFileName = "legacy_20160315_CoS.js";
 RequiredSheetVersion("24.1.3");
-// This file adds the backgrounds from the Curse of Strahd adventure book and the optional backgrounds from the Adventurers League season 4 (Curse of Strahd) to MPMB's Character Record Sheet
+// This file adds the backgrounds from the Curse of Strahd adventure book and the optional backgrounds from the Adventurers League season 4 (Curse of Strahd) to MPMB's Character Record Sheet that have not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the sources
 SourceList["CoS"] = {
@@ -424,7 +424,7 @@ BackgroundFeatureList["guerilla"] = {
 	description: "I've come to know the surrounding other natural features in which I can take refuge--or set up ambushes. I can quickly survey my environment for advantageous features. Additionally, I can scavenge around my natural surroundings to cobble together simple supplies (such as improvised torches, rope, patches of fabric, etc.) that are consumed after use.",
 	source: [["AL:CoS", 6]],
 };
-BackgroundFeatureList["heart of darkness"] = {
+BackgroundFeatureList["heart of darkness"] = { // from Haunted One
 	description: "Those who look into my eyes can see that I have faced unimaginable horror and that I am no stranger to darkness. Though they might fear me, commoners will extend me every courtesy and do their utmost to help. Unless I have shown myself to be a danger to them, they will even take up arms to fight with me, should I find myself facing an enemy alone.",
 	source: [["CoS", 209], ["VRGtR", 34]],
 };

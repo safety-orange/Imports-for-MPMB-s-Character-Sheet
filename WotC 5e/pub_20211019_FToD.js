@@ -251,7 +251,7 @@ AddSubClass("monk", "ascendant dragon", {
 								fields.Damage_Die = (v.theWea.WotAD_BreathWeaponAugmented ? 4 : n < 11 ? 2 : 3) + "d" + aMonkDie;
 							};
 						},
-						"My Breath of the Dragon deals damage equal to two rolls of my Martials Arts die. At 11th level, this increases to three rolls of my Martial Arts die. At 17th level, I can expend 1 ki point to augment the breath to increase the damage to four rolls of my Martial Arts die.",
+						"My Breath of the Dragon deals damage equal to two rolls of my Martial Arts die. At 11th level, this increases to three rolls of my Martial Arts die. At 17th level, I can expend 1 ki point to augment the breath to increase the damage to four rolls of my Martial Arts die.",
 					],
 				},
 			},
@@ -282,7 +282,7 @@ AddSubClass("monk", "ascendant dragon", {
 					];
 					if (n < 17) return desc(aDesc);
 					var aDesc17 = [
-						"From 17th-level, when I active this, I can choose any creatures I can see in the aura",
+						"From 17th-level, when I activate this, I can choose any creatures I can see in the aura",
 						"Each must then make a Dex save or take 3d10 acid, cold, fire, lightning, or poison damage",
 					];
 					return desc(aDesc.concat(aDesc17));
@@ -384,7 +384,7 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 					damage: [1, 6, "piercing"],
 					modifiers: ["", "Prof"],
 					range: "Melee (5 ft)",
-					description: "", //+1d6 damage of the chosen Draconic Essense type
+					description: "", //+1d6 damage of the chosen Draconic Essence type
 					abilitytodamage: false,
 				}],
 				features: [{
@@ -396,7 +396,7 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 					description: "Chosen when summoned: acid, cold, fire, lightning, or poison damage.",
 				}, {
 					name: "Infused Strikes",
-					description: "As a reaction when another creature within 30 ft of the drake that it can see hits with a weapon attack, the drake can infuse the strike with its essence, causing the attack to deal an extra 1d6 damage of its chosen Draconic Essence damage type",
+					description: "As a reaction when another creature within 30 ft of the drake that it can see hits with a weapon attack, the drake can infuse the strike with its essence, causing the attack to deal an extra 1d6 damage of its chosen Draconic Essence damage type.",
 				}, {
 					name: "Bond of Fang and Scale (Drakewarden 7)",
 					minlevel: 7,
@@ -405,7 +405,7 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 						var sMoveStr = (typePF ? ",\n" : ", ") + "fly 40 ft";
 						if (What("Unit System") === "metric") sMoveStr = ConvertToMetric(sMoveStr, 0.5);
 						tDoc.getField(prefix + "Comp.Use.Speed").value += sMoveStr;
-						AddString(prefix + "Comp.Use.Attack.1.Description", "+1d6 damage of the chosen Draconic Essense type");
+						AddString(prefix + "Comp.Use.Attack.1.Description", "+1d6 damage of the chosen Draconic Essence type");
 						PickDropdown(prefix + "Comp.Desc.Size", 3); // Medium
 					},
 					removeeval: function (prefix, lvl) {
@@ -413,21 +413,21 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 						if (What("Unit System") === "metric") sMoveStr = ConvertToMetric(sMoveStr, 0.5);
 						Value(prefix + "Comp.Use.Speed", What(prefix + "Comp.Use.Speed").replace(sMoveStr, ""));
 						var sAtkFld = prefix + "Comp.Use.Attack.1.Description";
-						Value(sAtkFld, What(sAtkFld).replace(/\+\d+d6 damage of the chosen Draconic Essense type/i, ""));
+						Value(sAtkFld, What(sAtkFld).replace(/\+\d+d6 damage of the chosen Draconic Essence type/i, ""));
 						PickDropdown(prefix + "Comp.Desc.Size", 4); // Small
 					},
 				}, {
 					name: "Perfected Bond (Drakewarden 15)",
 					minlevel: 15,
-					description: "The drake is now Large and can fly while its being ridden. Its bite attack deals an extra 1d6 damage (for a total of +2d6) of its chosen Draconic Essence type.",
+					description: "The drake is now Large and can fly while it's being ridden. Its bite attack deals an extra 1d6 damage (for a total of +2d6) of its chosen Draconic Essence type.",
 					eval: function (prefix, lvl) {
 						var sAtkFld = prefix + "Comp.Use.Attack.1.Description";
-						Value(sAtkFld, What(sAtkFld).replace(/\+\d+d6 damage of the chosen Draconic Essense type/i, "+2d6 damage of the chosen Draconic Essense type"));
+						Value(sAtkFld, What(sAtkFld).replace(/\+\d+d6 damage of the chosen Draconic Essence type/i, "+2d6 damage of the chosen Draconic Essence type"));
 						PickDropdown(prefix + "Comp.Desc.Size", 2); // Large
 					},
 					removeeval: function (prefix, lvl) {
 						var sAtkFld = prefix + "Comp.Use.Attack.1.Description";
-						Value(sAtkFld, What(sAtkFld).replace(/\+\d+d6 damage of the chosen Draconic Essense type/i, "+1d6 damage of the chosen Draconic Essense type"));
+						Value(sAtkFld, What(sAtkFld).replace(/\+\d+d6 damage of the chosen Draconic Essence type/i, "+1d6 damage of the chosen Draconic Essence type"));
 						PickDropdown(prefix + "Comp.Desc.Size", 3); // Medium
 					},
 				}],
@@ -449,8 +449,8 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 			minlevel: 7,
 			description: desc([
 				"My drake is now Medium, has a 40 ft fly speed, and can be ridden, but not while flying",
-				"The drake's bite attack deals an extra 1d6 damage chosen by its Draconic Essense",
-				"While it is summoned, I gain resistance to the damage type of its Draconic Essense",
+				"The drake's bite attack deals an extra 1d6 damage chosen by its Draconic Essence",
+				"While it is summoned, I gain resistance to the damage type of its Draconic Essence",
 			]),
 			dmgres: ["(See Drake)"],
 		},
@@ -653,7 +653,7 @@ SpellsList["fizban's platinum shield"] = {
 	components: "V,S,M\u0192",
 	compMaterial: "A platinum-plated dragon scale, worth at least 500 gp",
 	duration: "Conc, 1 min",
-	description: "1 crea Acid, Cold, Fire, Lightn. \u0026 Poison resist., half cover, better Dex saves; 1 bns change crea (500gp)",
+	description: "1 crea Acid, Cold, Fire, Lightn. \x26 Poison resist., half cover, better Dex saves; 1 bns change crea (500gp)",
 	descriptionFull: [
 		"You create a field of silvery light that surrounds a creature of your choice within range (you can choose yourself). The field sheds dim light out to 5 feet. While surrounded by the field, a creature gains the following benefits:",
 		"***Cover***. The creature has half cover.",
@@ -681,10 +681,10 @@ SpellsList["nathair's mischief"] = {
 		"Mischievous Surge",
 		[
 			["d4", "Effect"],
-			["  1", "The smell of apple pie fills the air, and each creature in the cube must succeed on a Wisdom saving throw or become charmed by you until the start of your next turn."],
-			["  2", "Bouquets of flowers appear all around, and each creature in the cube must succeed on a Dexterity saving throw or be blinded until the start of your next turn as the flowers spray water in their faces."],
-			["  3", "Each creature in the cube must succeed on a Wisdom saving throw or begin giggling until the start of your next turn. A giggling creature is incapacitated and uses all its movement to move in a random direction."],
-			["  4", "Drops of molasses hover in the cube, making it difficult terrain until the start of your next turn."],
+			[" 1", "The smell of apple pie fills the air, and each creature in the cube must succeed on a Wisdom saving throw or become charmed by you until the start of your next turn."],
+			[" 2", "Bouquets of flowers appear all around, and each creature in the cube must succeed on a Dexterity saving throw or be blinded until the start of your next turn as the flowers spray water in their faces."],
+			[" 3", "Each creature in the cube must succeed on a Wisdom saving throw or begin giggling until the start of your next turn. A giggling creature is incapacitated and uses all its movement to move in a random direction."],
+			[" 4", "Drops of molasses hover in the cube, making it difficult terrain until the start of your next turn."],
 		],
 	],
 };
@@ -722,7 +722,7 @@ SpellsList["rime's binding ice"] = { // Icingdeath's Frost in UA:DO
 	duration: "Instantaneous",
 	save: "Con",
 	description: "All in area 3d8+1d8/SL Cold dmg and speed 0 for 1 min until 1 a to undo; save halves, normal speed",
-	descriptionShorter: "All in area 3d8+1d8/SL Cold dmg \u0026 spd 0 for 1 min until 1 a to undo; save halves, normal spd",
+	descriptionShorter: "All in area 3d8+1d8/SL Cold dmg \x26 spd 0 for 1 min until 1 a to undo; save halves, normal spd",
 	descriptionFull: [
 		"A burst of cold energy emanates from you in a 30-foot cone. Each creature in that area must make a Constitution saving throw. On a failed save, a creature takes 3d8 cold damage and is hindered by ice formations for 1 minute, or until it or another creature within reach of it uses an action to break away the ice. A creature hindered by ice has its speed reduced to 0. On a successful save, a creature takes half as much damage and isn't hindered by ice.",
 		"***At Higher Levels***. When you cast this spell using a spell slot of 3rd level or higher, increase the cold damage by 1d8 for each slot level above 2nd.",
@@ -1047,12 +1047,12 @@ MagicItemsList["flail of tiamat"] = {
 AddFeatureChoice(MagicItemsList["figurine of wondrous power"], false, "Gold Canary", {
 	source: [["FToD", 23]],
 	rarity: "legendary",
-	description: "As an action, I can speak the command word and throw this statuette to an empty space within 60 ft, where it becomes a giant canary for 8 hours (or once a year an adult gold dragon for 1 hour), until I use the command again, or it drops to 0 hp. It is friendly, understands my languages, and obeys my commands.",
+	description: "As an action, I can speak the command word and throw this statuette to an empty space within 60 ft, where it becomes a **giant canary** for 8 hours (or once a year an **adult gold dragon** for 1 hour), until I use the command again, or it drops to 0 hp. It is friendly, understands my languages, and obeys my commands.",
 	descriptionLong: "As an action, I can speak the command word and throw this gold statuette of a canary to an unoccupied space within 60 ft, where it becomes a giant canary for up to 8 hours, until I use an action to repeat the command word, or it reaches 0 HP. It is friendly to me and my allies, understands my languages, and obeys my spoken commands. If I issue no commands, the creature defends itself but takes no other actions. Once per year, I can have it become an adult gold dragon for up to 1 hour. When it reverts back to a figurine, it can't be used again until the next dawn (canary) or 1 year has passed (dragon).",
 	descriptionFull: [
 		"This gold statuette is carved in the likeness of a canary and is small enough to fit in a pocket. If you use an action to speak the command word and throw the figurine to a point on the ground within 60 feet of you, the figurine becomes a living creature in one of two forms (you choose). If there isn't enough space for the creature where it would appear, the figurine doesn't become a creature. The two forms are as follows:",
-		"***Giant Canary Form***. The figurine becomes a giant canary for up to 8 hours and can be ridden as a mount. Once the figurine has become a giant canary, it can't be used this way again until the next dawn.",
-		"***Gold Dragon Form***. While you are missing half or more of your hit points, you can speak a different command word and the figurine becomes an adult gold dragon (see its stat block in the Monster Manual) for up to 1 hour. The dragon can't use any legendary actions or lair actions. Once the figurine has become an adult gold dragon, it can't be used this way again until 1 year has passed.",
+		"***Giant Canary Form***. The figurine becomes a **giant canary** for up to 8 hours and can be ridden as a mount. Once the figurine has become a giant canary, it can't be used this way again until the next dawn.",
+		"***Gold Dragon Form***. While you are missing half or more of your hit points, you can speak a different command word and the figurine becomes an **adult gold dragon** (see its stat block in the Monster Manual) for up to 1 hour. The dragon can't use any legendary actions or lair actions. Once the figurine has become an adult gold dragon, it can't be used this way again until 1 year has passed.",
 		"In either form, the creature is friendly to you and your companions. It understands your languages and obeys your spoken commands. If you issue no commands, the creature defends itself but takes no other actions.",
 		"The creature exists for a duration specific to each form. At the end of the duration, the creature reverts to its figurine form. It reverts to a figurine early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature becomes a figurine again, its property can't be used again until a certain amount of time has passed, as specified in the description.",
 	],
@@ -1274,7 +1274,7 @@ var FToD_HoardItems = {
 		},
 	},
 	"dww-wakened": {
-		description: "This weapon uses >>dmg type<< of >>a dragon<< dragon. It adds +2 to its attack and damage rolls and deals +2d6 >>dmg type<< damage. On a 20 to hit, any creature of my choice in 5 ft of the target take 5 damage. As an action once per dawn, it can do a 30-ft cone, Dex DC 16 half, 8d6 damage dragon breath.",
+		description: "This weapon uses >>dmg type<< of >>a dragon<< dragon. It adds +2 to its attack and damage rolls and deals +2d6 >>dmg type<< damage. On a 20 to hit, any creature of my choice in 5 ft of the target takes 5 damage. As an action once per dawn, it can do a 30-ft cone, Dex DC 16 half, 8d6 damage dragon breath.",
 		calcChanges: {
 			atkAdd: [
 				function (fields, v) {
@@ -1325,7 +1325,7 @@ var FToD_HoardItems = {
 		}],
 	},
 	"dww-ascendant": {
-		description: "This weapon uses >>dmg type<< of >>a dragon<< dragon. It adds +3 to its attack and damage rolls and deals +3d6 >>dmg type<< damage. On a 20 to hit, any creature of my choice in 5 ft of the target take 5 damage. As an action once per dawn, it can do a 60-ft cone, Dex DC 18 half, 12d6 damage dragon breath.",
+		description: "This weapon uses >>dmg type<< of >>a dragon<< dragon. It adds +3 to its attack and damage rolls and deals +3d6 >>dmg type<< damage. On a 20 to hit, any creature of my choice in 5 ft of the target takes 5 damage. As an action once per dawn, it can do a 60-ft cone, Dex DC 18 half, 12d6 damage dragon breath.",
 		calcChanges: {
 			atkAdd: [
 				function (fields, v) {
@@ -1623,14 +1623,14 @@ MagicItemsList["dragon-touched focus"] = {
 		description: "While holding this object, I can use it as my spellcasting focus. As a reaction when a creature I can see within 30 ft makes a saving throw, I can grant it advantage on that save. It also grants me advantage on initiative and allows me to cast *Fizban's Platinum Shield* and *Legend Lore* each once per dawn.",
 		action: [["reaction", "Dragon-Touched Focus (adv. on save)"]],
 		spellcastingAbility: "class",
-		extraLimitedFeatures: FToD_HoardItems.dtf_metallic.extraLimitedFeatures,
 		spellcastingBonus: FToD_HoardItems.dtf_metallic.spellcastingBonus,
+		extraLimitedFeatures: FToD_HoardItems.dtf_metallic.extraLimitedFeatures,
 	},
 	"ascendant - chromatic (legendary)": {
 		name: "Chromatic Dragon-Touched Focus (ascendant)",
 		nameTest: /^(?=.*chromatic)(?=.*ascendant)(?=.*dragon.touched)(?=.*(focus|rod|wand|staff|scepter|orb|amulet|crystal)).*$/i,
 		rarity: "legendary",
-		description: "While holding this, I can use it as my spellcasting focus and I can add 1d6 to a roll of acid, cold, fire, lightning, or poison damage for spells I cast with a spell slot. It grants me adv. on initiative and allows me to cast 2 spells once per dawn. Once per dawn, I can treat a spell I cast as if casted with a 9th-level spell slot.",
+		description: "While holding this, I can use it as my spellcasting focus and I can add 1d6 to a roll of acid, cold, fire, lightning, or poison damage for spells I cast with a spell slot. It grants me adv. on initiative and allows me to cast 2 spells once per dawn. Once per dawn, I can treat a spell I cast as if cast with a 9th-level spell slot.",
 		calcChanges: FToD_HoardItems.dtf_chromatic.calcChanges,
 		spellcastingAbility: "class",
 		spellcastingBonus: FToD_HoardItems.dtf_chromatic.spellcastingBonus,
@@ -1640,7 +1640,7 @@ MagicItemsList["dragon-touched focus"] = {
 		name: "Gem Dragon-Touched Focus (ascendant)",
 		nameTest: /^(?=.*gem)(?=.*ascendant)(?=.*dragon.touched)(?=.*(focus|rod|wand|staff|scepter|orb|amulet|crystal)).*$/i,
 		rarity: "legendary",
-		description: "While holding this, I can use it as my spellcasting focus and I can teleport to an empty space I can see in 15 ft when I cast a spell with a spell slot. It also grants me adv. on initiative and allows me to cast 2 spells each once per dawn. Once per dawn, I can treat a spell I cast as if casted with a 9th-level spell slot.",
+		description: "While holding this, I can use it as my spellcasting focus and I can teleport to an empty space I can see in 15 ft when I cast a spell with a spell slot. It also grants me adv. on initiative and allows me to cast 2 spells each once per dawn. Once per dawn, I can treat a spell I cast as if cast with a 9th-level spell slot.",
 		spellcastingAbility: "class",
 		spellcastingBonus: FToD_HoardItems.dtf_gem.spellcastingBonus,
 		extraLimitedFeatures: FToD_HoardItems.dtf_ascendant.extraLimitedFeatures.concat(FToD_HoardItems.dtf_gem.extraLimitedFeatures),
@@ -1649,11 +1649,11 @@ MagicItemsList["dragon-touched focus"] = {
 		name: "Metallic Dragon-Touched Focus (ascendant)",
 		nameTest: /^(?=.*metallic)(?=.*ascendant)(?=.*dragon.touched)(?=.*(focus|rod|wand|staff|scepter|orb|amulet|crystal)).*$/i,
 		rarity: "legendary",
-		description: "While holding this, I can use it as my spellcasting focus. As a reaction when a creature I can see in 30 ft makes a save, I can grant it adv. on that save. It also grants me adv. on initiative and allows me to cast 2 spells each once per dawn. Once per dawn, I can treat a spell I cast as if casted with a 9th-level spell slot.",
+		description: "While holding this, I can use it as my spellcasting focus. As a reaction when a creature I can see in 30 ft makes a save, I can grant it adv. on that save. It also grants me adv. on initiative and allows me to cast 2 spells each once per dawn. Once per dawn, I can treat a spell I cast as if cast with a 9th-level spell slot.",
 		action: [["reaction", "Dragon-Touched Focus (adv. on save)"]],
 		spellcastingAbility: "class",
-		extraLimitedFeatures: FToD_HoardItems.dtf_metallic.extraLimitedFeatures,
-		spellcastingBonus: FToD_HoardItems.dtf_ascendant.extraLimitedFeatures.concat(FToD_HoardItems.dtf_metallic.spellcastingBonus),
+		spellcastingBonus: FToD_HoardItems.dtf_metallic.spellcastingBonus,
+		extraLimitedFeatures: FToD_HoardItems.dtf_ascendant.extraLimitedFeatures.concat(FToD_HoardItems.dtf_metallic.extraLimitedFeatures),
 	},
 }
 MagicItemsList["dragon vessel"] = {
@@ -1687,22 +1687,22 @@ MagicItemsList["dragon vessel"] = {
 	"slumbering (uncommon)": {
 		name: "Dragon Vessel (slumbering)",
 		rarity: "uncommon",
-		description: "As a bonus action once per dawn, if this magical container is empty, I can speak the command word to fill the vessel with one of the following of my choice:  ale, olive oil, a potion of healing, or a potion of climbing. A potion loses its magic if it is not consumed within 24 hours.",
+		description: "As a bonus action once per dawn, if this magical container is empty, I can speak the command word to fill the vessel with one of the following of my choice: ale, olive oil, a potion of healing, or a potion of climbing. A potion loses its magic if it is not consumed within 24 hours.",
 	},
 	"stirring (rare)": {
 		name: "Dragon Vessel (stirring)",
 		rarity: "rare",
-		description: "As a bonus action once per dawn, if this magical container is empty, I can speak the command word to fill the vessel with one of the following of my choice:  ale, mead, olive oil, a potion of healing (normal or greater), or a potion of climbing. A potion loses its magic if it is not consumed within 24 hours.",
+		description: "As a bonus action once per dawn, if this magical container is empty, I can speak the command word to fill the vessel with one of the following of my choice: ale, mead, olive oil, a potion of healing (normal or greater), or a potion of climbing. A potion loses its magic if it is not consumed within 24 hours.",
 	},
 	"wakened (very rare)": {
 		name: "Dragon Vessel (wakened)",
 		rarity: "very rare",
-		description: "As a bonus action once per dawn, if this magical container is empty, I can speak the command word to fill it with one of the following of my choice:  ale, mead, wine, olive oil, a potion of healing (normal, greater, or superior), a potion of climbing, or a potion of flying. Unused potions lose their magic after 24 hours.",
+		description: "As a bonus action once per dawn, if this magical container is empty, I can speak the command word to fill it with one of the following of my choice: ale, mead, wine, olive oil, a potion of healing (normal, greater, or superior), a potion of climbing, or a potion of flying. Unused potions lose their magic after 24 hours.",
 	},
 	"ascendant (legendary)": {
 		name: "Dragon Vessel (ascendant)",
 		rarity: "legendary",
-		description: "As a bonus action once per dawn, I can speak the command word to fill this empty vessel with one of my choice:  ale, mead, wine, whiskey, olive oil, a potion of healing (normal, greater, superior, or supreme), a potion of climbing, a potion of flying, or a potion of dragon's majesty. Potions lose magic after 24 hours.",
+		description: "As a bonus action once per dawn, I can speak the command word to fill this empty vessel with one of my choice: ale, mead, wine, whiskey, olive oil, a potion of healing (normal, greater, superior, or supreme), a potion of climbing, a potion of flying, or a potion of dragon's majesty. Potions lose magic after 24 hours.",
 	},
 }
 MagicItemsList["scaled ornament"] = function (n) {

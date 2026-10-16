@@ -33,7 +33,7 @@ BackgroundList["gate warden"] = {
 	],
 	feature: "Planar Infusion",
 	trait: [
-		"Strange events and otherworldly creatures don't phase me.",
+		"Strange events and otherworldly creatures don't faze me.",
 		"I think in terms of exchange; something for something, nothing for nothing.",
 		"I speak with an unusual cadence.",
 		"I pepper my speech with borrowed words or curses from planar languages.",
@@ -212,7 +212,7 @@ AddBackgroundVariant("planar philosopher", "planar philosopher of transcendent o
 	],
 });
 BackgroundFeatureList["conviction"] = {
-	description: "I subscribe to a distinct philosophy that seeks to understand the nature of the planes or a hidden truth of the multiverse and spread my philosophy. I am part of a network of like-minded believers who provide me free, modest lodging and food at any of their holding or the homes of other faction members. Also, I gain the Scion of the Outer Planes feat.",
+	description: "I subscribe to a distinct philosophy that seeks to understand the nature of the planes or a hidden truth of the multiverse and spread my philosophy. I am part of a network of like-\u200Aminded believers who provide me free, modest lodging and food at any of their holdings or the homes of other faction members. Also, I gain the Scion of the Outer Planes feat.",
 	source: [["P:AitM", 8], ["UA:WotM", 4]],
 	featsAdd: ["Scion of the Outer Planes"],
 };
@@ -229,7 +229,7 @@ FeatsList["scion of the outer planes"] = {
 			["Chaotic Outer", "Poison", "", "*Minor Illusion*"],
 			["Evil Outer  ", "Necrotic", "", "*Chill Touch*"],
 			["Good Outer  ", "Radiant", "", "*Sacred Flame*"],
-			["Lawful Outer", "Force", "", "Guidance"],
+			["Lawful Outer", "Force", "", "*Guidance*"],
 			["The Outlands", "Psychic", "", "*Mage Hand*"],
 		],
 	],
@@ -308,7 +308,7 @@ FeatsList["agent of order"] = {
 	name: "Agent of Order",
 	source: [["P:AitM", 10]],
 	description: "Once per turn when I damage a creature I see within 60 ft, I can deal +1d8 force damage to it, and it must succeed on a Wis save (DC 8 + Prof Bonus + spellcasting ability mod of Scion of the Outer Planes) or be restrained until my next turn starts. I can do this a number of times equal to my Prof Bonus per long rest.",
-	calculate: "try { var a = Object.keys(CurrentSpells); var b = a.find(/scion of the outer planes/i); var c = CurrentSpells[a[b]]; var dc = c && c.calcSpellScores ? c.calcSpellScores.dc : '[Error: generate spell sheet first]'; } catch(e) { var dc = '[Error: select Scion of the Outer Planes feat]'; }; event.value = 'Once per turn when I damage a creature I see within 60 ft, I can deal +1d8 force damage to it, and it must succeed on a Wis save DC ' + dc + ' (= Scion of the Outer Planes spell DC) or be restrained until my next turn starts. I can do this a number of times equal to my Prof Bonus per long rest. [+1 to any one ability score].';",
+	calculate: "try { var a = Object.keys(CurrentSpells); var b = a.find(/scion of the outer planes/i); var c = CurrentSpells[a[b]]; var dc = c && c.calcSpellScores ? c.calcSpellScores.dc : '[Error: generate spell sheet first]'; } catch(e) { var dc = '[Error: select Scion of the Outer Planes feat]'; }; event.value = 'Once per turn when I damage a creature I see within 60 ft, I can deal +1d8 force damage to it, and it must make a Wis save DC ' + dc + ' (= Scion of the Outer Planes spell DC) or be restrained until my next turn starts. I can do this a number of times equal to my Prof Bonus per long rest. [+1 to one ability score].';",
 	descriptionFull: [
 		"You can channel cosmic forces of order to gain these benefits:",
 		"***Ability Score Increase***. Increase one ability score of your choice by 1, to a maximum of 20.",
@@ -346,17 +346,17 @@ FeatsList["baleful scion"] = {
 FeatsList["cohort of chaos"] = {
 	name: "Cohort of Chaos",
 	source: [["P:AitM", 10]],
-	description: "When I roll a 1 or a 20 on an attack roll or save, a the magic of chaos flares up and I roll on the Chaotic Flare table to determine what happens (see notes for table). As a bonus action, my Proficiency Bonus per long rest, I can force a flare to happen. [+1 to any one ability score]",
+	description: "When I roll a 1 or a 20 on an attack roll or save, the magic of chaos flares up and I roll on the Chaotic Flare table to determine what happens (see notes for table). As a bonus action, my Proficiency Bonus per long rest, I can force a flare to happen. [+1 to any one ability score]",
 	descriptionFull: [
 		"You can channel cosmic forces of chaos to gain these benefits:",
 		"***Ability Score Increase***. Increase one ability score of your choice by 1, to a maximum of 20.",
 		"***Chaotic Flare***. When you roll a 1 or a 20 on an attack roll or a saving throw, the magic of chaos flows through you. Roll a d4 and consult the table below to determine what happens. A flare lasts until the end of your next turn, and a new flare can't occur until after the first flare ends.",
 		[
 			["d4", "Flare"],
-			["  1", "Battle Fury: A creature of your choice that you can see is filled with reckless fury. It has advantage on attack rolls and disadvantage on ability checks."],
-			["  2", "Disruption Field: Waves of energy ripple around you. Every creature that starts its turn within 5 feet of you, or that moves into that area for the first time on a turn, takes 1d8 force damage."],
-			["  3", "Unbound: When you move, you can use some or all of your walking speed to teleport yourself once, along with any equipment you're wearing or carrying, up to the distance used to an unoccupied space that you can see."],
-			["  4", "Wailing Winds: Winds swirl in a 15-foot-radius sphere centered on you. You and any other creatures in that area have disadvantage on Wisdom saving throws."],
+			[" 1", "**Battle Fury**. A creature of your choice that you can see is filled with reckless fury. It has advantage on attack rolls and disadvantage on ability checks."],
+			[" 2", "**Disruption Field**. Waves of energy ripple around you. Every creature that starts its turn within 5 feet of you, or that moves into that area for the first time on a turn, takes 1d8 force damage."],
+			[" 3", "**Unbound**. When you move, you can use some or all of your walking speed to teleport yourself once, along with any equipment you're wearing or carrying, up to the distance used to an unoccupied space that you can see."],
+			[" 4", "**Wailing Winds**. Winds swirl in a 15-foot-radius sphere centered on you. You and any other creatures in that area have disadvantage on Wisdom saving throws."],
 		],
 		"You can also forcibly release a chaotic flare as a bonus action, rolling on the table as normal to determine the effects. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	],
@@ -374,13 +374,15 @@ FeatsList["cohort of chaos"] = {
 	toNotesPage: [{
 		name: "Chaotic Flare Table",
 		note: [
-			"When I roll a 1 or a 20 on an attack roll or a saving throw, the magic of chaos flows through Me. I roll a d4 on the table below to determine what happens. A flare lasts until the end of my next turn, and a new flare can't occur until after the first flare ends.",
-			"As a bonus action, I can forcibly release a chaotic flare, rolling on the table as normal to determine the effects. I can use this bonus action a number of times equal to my proficiency bonus, and I regain all expended uses when you finish a long rest.",
-			"\n d4  Flare",
-			"1  Battle Fury: A creature of my choice that I can see is filled with reckless fury. It has advantage on attack rolls and disadvantage on ability checks.",
-			"2  Disruption Field: Waves of energy ripple around me. Every creature that starts its turn within 5 ft of me, or that moves into that area for the first time on a turn, takes 1d8 force damage.",
-			"3  Unbound: When I move, I can use some or all of my walking speed to teleport once, along with any equipment I'm wearing or carrying, up to the distance used to an unoccupied space that I can see.",
-			"4  Wailing Winds: Winds swirl in a 15-ft radius sphere centered on me. Creatures in that area, myself included, have disadvantage on Wisdom saving throws.",
+			"When I roll a 1 or a 20 on an attack roll or a saving throw, the magic of chaos flows through me. I roll a d4 on the table below to determine what happens. A flare lasts until the end of my next turn, and a new flare can't occur until after the first flare ends.",
+			"As a bonus action, I can forcibly release a chaotic flare, rolling on the table as normal to determine the effects. I can use this bonus action a number of times equal to my proficiency bonus, and I regain all expended uses when I finish a long rest.",
+			[
+				["d4", "Flare"],
+				[" 1", "**Battle Fury**. A creature of my choice that I can see is filled with reckless fury. It has advantage on attack rolls and disadvantage on ability checks."],
+				[" 2", "**Disruption Field**. Waves of energy ripple around me. Every creature that starts its turn within 5 ft of me, or that moves into that area for the first time on a turn, takes 1d8 force damage."],
+				[" 3", "**Unbound**. When I move, I can use some or all of my walking speed to teleport once, along with any equipment I'm wearing or carrying, up to the distance used to an unoccupied space that I can see."],
+				[" 4", "**Wailing Winds**. Winds swirl in a 15-ft radius sphere centered on me. Creatures in that area, myself included, have disadvantage on Wisdom saving throws."],
+			],
 		],
 	}],
 };
@@ -482,12 +484,14 @@ MagicItemsList["mimir"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	attunement: true,
-	description: "As a bonus action, I can stow or toss this skull-shaped device in the air to activate it, making it float 1d3 ft near me. Once per dawn as an action while active, I can use it to cast *Legend Lore*. It speaks the revieled lore aloud. While active, it answers questions about the planes of existence I or someone I designate ask it.",
+	description: "As a bonus action, I can stow or toss this skull-shaped device in the air to activate it, making it float 1d3 ft near me. As an action once per dawn while active, I can use it to cast *Legend Lore*. It speaks the revealed lore aloud. It answers questions about the planes of existence asked by me or someone designated by me.",
 	descriptionLong: "As a bonus action, I can toss this skull-shaped device covered with planar sigils into the air to activate it, causing it to float 1d3 ft near me but considered worn by me. I can use another bonus action to seize and stow it. It has AC 22, 25 HP, immunity to poison and psychic damage, and resistance to all other damage. Another can use an action to grab it with a successful unarmed strike or DC 22 Acrobatics check. Once per dawn as an action while active, I can use it to cast *Legend Lore*. It speaks the revealed lore aloud. While active, it answers questions about the planes of existence I or someone I designate ask it.",
 	descriptionFull: [
-		"This skull-shaped device is filled with knowledge. The device weighs 5 pounds and is covered with subtle etchings of planar sigils.As a bonus action, you can toss the device into the air, whereupon it floats at a distance of 1d3 feet from you and you can access its properties. While the mimir is floating, a creature other than you can use an action to grasp or net the device, either by making a successful unarmed strike against AC 22 or a successful DC 22 Dexterity (Acrobatics) check. You can use a bonus action to seize and stow the device.The device has AC 22, 25 hit points, immunity to poison and psychic damage, and resistance to all other damage. It is considered to be an object that is being worn while it is floating near you.***",
-		"Esoteric Knowledge***. While the device is floating, you can use an action to cast legend lore from the device. The device speaks the revealed lore aloud. Once this property has been used, it can't be used again until the next dawn.***",
-		"Planar Knowledge***. The device knows basic, useful information about the planes of existence. While the device is floating, it verbally answers questions you or anyone you designate poses to it about that topic. It knows the information about the planes in the Dungeon Master's Guide, as well as basic information about the gate-towns of the Outlands (presented in chapter 3 of Sigil and the Outlands).",
+		"This skull-shaped device is filled with knowledge. The device weighs 5 pounds and is covered with subtle etchings of planar sigils.",
+		"As a bonus action, you can toss the device into the air, whereupon it floats at a distance of 1d3 feet from you and you can access its properties. While the mimir is floating, a creature other than you can use an action to grasp or net the device, either by making a successful unarmed strike against AC 22 or a successful DC 22 Dexterity (Acrobatics) check. You can use a bonus action to seize and stow the device.",
+		"The device has AC 22, 25 hit points, immunity to poison and psychic damage, and resistance to all other damage. It is considered to be an object that is being worn while it is floating near you.",
+		"***Esoteric Knowledge***. While the device is floating, you can use an action to cast legend lore from the device. The device speaks the revealed lore aloud. Once this property has been used, it can't be used again until the next dawn.",
+		"***Planar Knowledge***. The device knows basic, useful information about the planes of existence. While the device is floating, it verbally answers questions you or anyone you designate poses to it about that topic. It knows the information about the planes in the Dungeon Master's Guide, as well as basic information about the gate-towns of the Outlands (presented in chapter 3 of Sigil and the Outlands).",
 	],
 	action: [["bonus action", " (activate/stow)"]],
 	weight: 5,
@@ -516,9 +520,10 @@ MagicItemsList["sensory stone"] = {
 	rarity: "uncommon",
 	description: "This stone stores a single experience. As an action, one touching the stone can experience it harmlessly. As a reaction, I can replace the experience within with a new, six-second sensation experienced by a creature within 30 ft. As a bonus action, I can destroy it to end the charmed or frightened effect on myself.",
 	descriptionFull: [
-		"This small, smooth stone contains the essence of a single experience.As an action, you or a willing creature you designate can touch the stone and experience the sensation as if it happened to the designated creature. The illusory experience is fleeting and harmless, however real it might feel in the moment.***",
-		"Record Sensation***. You can use your reaction to record a short sensation lasting no longer than 6 seconds experienced by a creature of your choice within 30 feet of yourself, infusing the essence of that experience into the stone. This replaces any sensation already stored within the stone.***",
-		"Siphon Sensation***. As a bonus action, you can draw on the stone's magic to end the charmed or frightened condition on yourself, destroying the stone in the process.",
+		"This small, smooth stone contains the essence of a single experience.",
+		"As an action, you or a willing creature you designate can touch the stone and experience the sensation as if it happened to the designated creature. The illusory experience is fleeting and harmless, however real it might feel in the moment.",
+		"***Record Sensation***. You can use your reaction to record a short sensation lasting no longer than 6 seconds experienced by a creature of your choice within 30 feet of yourself, infusing the essence of that experience into the stone. This replaces any sensation already stored within the stone.",
+		"***Siphon Sensation***. As a bonus action, you can draw on the stone's magic to end the charmed or frightened condition on yourself, destroying the stone in the process.",
 	],
 	action: [
 		["action", " (experience)"],

@@ -5345,7 +5345,7 @@ MagicItemsList["armor of gleaming"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: "prefix",
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		excludeCheck: function (inObjKey, inObj) {
 			return !/medium|heavy/i.test(inObj.type);
 		},
@@ -5394,7 +5394,7 @@ MagicItemsList["cast-off armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: "suffix",
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 	},
 	action: [["action", ""]],
 }
@@ -5840,7 +5840,7 @@ MagicItemsList["smoldering armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: "suffix",
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 	},
 }
 MagicItemsList["staff of adornment"] = {

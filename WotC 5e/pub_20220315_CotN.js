@@ -72,7 +72,7 @@ MagicItemsList["earring of message"] = {
 		name: "1 charge",
 		spells: ["message"],
 		selection: ["message"],
-		firstCol: "1",
+		firstCol: 1,
 	}],
 };
 MagicItemsList["medal of muscle"] = {
@@ -117,7 +117,7 @@ MagicItemsList["medal of the meat pie"] = {
 	type: "wondrous item",
 	rarity: "common",
 	notLegalAL: true,
-	description: "Once as an action, I can press this medal to my mouth to gain 2d4 + 2 temporary hit points. Once this property has been used, it can't be used again, and the medal becomes nonmagical. While magical, this medal is slightly warm to the touch (as if it's fresh from the oven) and smells faintly of baked pie crust.",
+	description: "Once as an action, I can press this medal to my mouth to gain 2d4+2 temporary hit points. Once this property has been used, it can't be used again, and the medal becomes nonmagical. While magical, this medal is slightly warm to the touch (as if it's fresh from the oven) and smells faintly of baked pie crust.",
 	descriptionFull: [
 		"You gain 2d4 + 2 temporary hit points when you use an action to press this medal to your mouth. Once this property has been used, it can't be used again, and the medal becomes nonmagical.",
 		"While magical, this medal is slightly warm to the touch (as if it's fresh from the oven) and smells faintly of baked pie crust.",
@@ -167,7 +167,7 @@ MagicItemsList["ring of red fury"] = {
 };
 MagicItemsList["ruidium armor"] = {
 	name: "Ruidium Armor",
-	nameTest: /ruidium.*armou?r/i,
+	nameTest: /ruidium.+(armou?r|\u180C)/i,
 	source: [["CotN", 215]],
 	type: "armor (medium or heavy)",
 	rarity: "very rare",
@@ -185,12 +185,12 @@ MagicItemsList["ruidium armor"] = {
 	allowDuplicates: true,
 	chooseGear: {
 		type: "armor",
-		prefixOrSuffix: ["between", "Ruidium", "Armor"],
+		prefixOrSuffix: ["between", "Ruidium", "\u180C"],
 		itemName1stPage: ["suffix", "Ruidium"],
+		descriptionChange: ["replace", "armor"],
 		excludeCheck: function (inObjKey, inObj) {
 			return !/medium|heavy/i.test(inObj.type) || /hide/i.test(inObj.name);
 		},
-		descriptionChange: ["prefix", "armor"],
 	},
 	dmgres: ["Psychic"],
 	speed: { swim: { spd: "walk", enc: "walk" } },
@@ -220,13 +220,13 @@ MagicItemsList["ruidium shield"] = {
 }
 MagicItemsList["ruidium weapon"] = {
 	name: "Ruidium Weapon",
-	nameTest: "Ruidium",
+	nameTest: /ruidium.+(weapon|\uFEFF)/i,
 	source: [["CotN", 216]],
 	type: "weapon (any)",
 	rarity: "very rare",
 	notLegalAL: true,
 	attunement: true,
-	description: "This magic weapon deals an extra 2d6 psychic damage to creatures. It also allows me to breath water and gives me a swimming speed equal to my walking speed. If I roll a 1 on an attack roll with it, I must make a DC 20 Cha save or gain 1 level of exhaustion and become corrupted by ruidium.",
+	description: "This magic weapon deals an extra 2d6 psychic damage to creatures. It also allows me to breathe water and gives me a swimming speed equal to my walking speed. If I roll a 1 on an attack roll with it, I must make a DC 20 Cha save or gain 1 level of exhaustion and become corrupted by ruidium.",
 	descriptionFull: [
 		"This magic weapon has a dull, rusty color or has veins of ruidium running through it. While this weapon is on your person, you gain the following benefits:",
 		" \u2022 You can breathe water.",
@@ -238,7 +238,8 @@ MagicItemsList["ruidium weapon"] = {
 	allowDuplicates: true,
 	chooseGear: {
 		type: "weapon",
-		prefixOrSuffix: "suffix",
+		prefixOrSuffix: ["between", "Ruidium", "\uFEFF"],
+		itemName1stPage: ["suffix", "Ruidium"],
 		descriptionChange: ["replace", "weapon"],
 	},
 	calcChanges: {
@@ -259,7 +260,7 @@ MagicItemsList["teleportation tablet"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	notLegalAL: true,
-	description: "As an action, I can break this clay tablet in half to create a 5-ft radius *Teleportation Circle* within 30 ft that lasts until the end of my next turn and leads to its predetermined destination. I can learn its destination by studying it for 10 minutes and making a DC 21 Arcana check. Once broken, the tablet turns to dust",
+	description: "As an action, I can break this clay tablet in half to create a 5-ft radius *Teleportation Circle* within 30 ft that lasts until the end of my next turn and leads to its predetermined destination. I can learn its destination by studying it for 10 minutes and making a DC 21 Arcana check. Once broken, the tablet turns to dust.",
 	descriptionFull: [
 		"This clay tablet is eight inches long, four inches wide, and half an inch thick. Inscribed on it is the sigil sequence for a permanent *teleportation circle*. A creature that studies the sequence for 10 minutes can make a DC 21 Intelligence (Arcana) check, learning the circle's destination on a success.",
 		"You can use an action to break the tablet in half, turning it to dust. If the tablet is broken while it is on the same plane of existence as the *teleportation circle* whose sigil sequence was engraved on it, a 10-foot-diameter *teleportation circle* of glowing blue light appears on the ground in an unoccupied space you choose within 30 feet of you. This *teleportation circle* has the characteristics of one created using the *teleportation circle* spell, except that it connects to the *teleportation circle* whose sigil sequence appears on the tablet.",
@@ -268,13 +269,6 @@ MagicItemsList["teleportation tablet"] = {
 };
 
 // Vestige of Divergence
-var EGtW_Vestiges_Replace = function (sDescr) {
-	return desc(sDescr).replace(/\bf(oo|ee)t\b/ig, "ft")
-		.replace(/you are/ig, "I am").replace(/\byou\b/ig, "I")
-		.replace(/(by|giving|grants|of|to|for) I\b/ig, "$1 me")
-		.replace(/your/g, "my").replace(/Your/g, "My")
-		.replace(/   >>(.*?)<<\. /g, function (a, match) { return "\n" + match.toUpperCase() + "\n   "; });
-}
 MagicItemsList["jewel of three prayers"] = {
 	name: "Jewel of Three Prayers",
 	source: [["CotN", 213]],
@@ -340,7 +334,7 @@ MagicItemsList["jewel of three prayers"] = {
 	},
 	"exalted": {
 		name: "Jewel of Three Prayers [exalted]",
-		description: "This grants me +2 AC. It has 7 charges, regaining all at dawn. As an action, I can have it shed 15 ft radius bright light plus 15 ft dim. I can use 1 charge to cast *Invisibility* or end being grappled, paralyzed, or restrained. As a reaction when I see a creature in 60 ft fail a save, I can use 1 charge to have it reroll. See Notes page.",
+		description: "This grants me +3 AC. It has 7 charges, regaining all at dawn. As an action, I can have it shed 15 ft radius bright light plus 15 ft dim. I can use 1 charge to cast *Invisibility* or end being grappled, paralyzed, or restrained. As a reaction when I see a creature in 60 ft fail a save, I can use 1 charge to have it reroll. See Notes page.",
 		usages: 7,
 		recovery: "dawn",
 		extraAC: [{ name: "Jewel of Three Prayers", mod: 3, magic: true, text: "I gain a +3 bonus to AC while attuned." }],

@@ -4422,7 +4422,7 @@ RaceList["aasimar"] = {
 		"##\u25C6 Healing Hands##. As a Magic action once per Long Rest, I can touch a creature and restore HP to it for a number of d4s equal to my Proficiency Bonus.",
 		"##\u25C6 Light Bearer##. I know the *Light* cantrip. Charisma is my spellcasting ability for it.",
 		"##\u25C6 Celestial Revelation## (level 3). As a Bonus Action once per Long Rest, I can transform for 1 min or until I end it (no action). Once on each of my turns while transformed, I can deal my Prof Bonus in extra damage. I choose how I transform each time. See Notes page.",
-	].join("\n"),
+	],
 	// from VGM:
 	age: " reach adulthood in their late teens and live around 160 years",
 	height: " are about 2-4 ft (small) or 4-7 ft (medium) tall (4'8\" + 2d10\")",
@@ -4495,7 +4495,7 @@ FeatsList["lucky"] = {
 		"I gain a number of ##Luck Points## equal to my Proficiency Bonus that I regain " + (typePF ? "after" : "when") + " I finish a Long Rest. I can expend 1 of them to:",
 		" \u2022 Give myself Advantage on a D20 Test.",
 		" \u2022 Impose Disadvantage on an attack roll against me.",
-	].join("\n"),
+	],
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Luck Points***. You have a number of Luck Points equal to your Proficiency Bonus and can spend the points on the benefits below. You regain your expended Luck Points when you finish a Long Rest.",
@@ -4514,7 +4514,7 @@ FeatsList["musician"] = {
 	description: [
 		"At the end of a Short or Long Rest, I can play an instrument I'm proficient with to give Heroic Inspiration to a number of allies up to my Proficiency Bonus, if they hear the song.",
 		"I gain proficiency with three Musical Instruments of my choice.",
-	].join("\n"),
+	],
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Instrument Training***. You gain proficiency with three Musical Instruments of your choice.",
@@ -4593,7 +4593,7 @@ FeatsList["athlete"] = {
 		"I gain a Climb Speed equal to my Speed.",
 		"I can make a running Long or High Jump after moving only 5 ft.",
 		"I can right myself from the Prone condition with only 5 ft of movement. [+1 Str or Dex]",
-	].join("\n"),
+	],
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Strength or Dexterity score by 1, to a maximum of 20.",
@@ -4609,7 +4609,7 @@ FeatsList["athlete"] = {
 			"I gain a Climb Speed equal to my Speed.",
 			"I can make a running Long or High Jump after moving only 5 ft.",
 			"I can right myself from the Prone condition with only 5 ft of movement. [+1 Strength]",
-		].join("\n"),
+		],
 		scores: [1, 0, 0, 0, 0, 0],
 	},
 	"dexterity": {
@@ -4617,7 +4617,7 @@ FeatsList["athlete"] = {
 			"I gain a Climb Speed equal to my Speed.",
 			"I can make a running Long or High Jump after moving only 5 ft.",
 			"I can right myself from the Prone condition with only 5 ft of movement. [+1 Dexterity]",
-		].join("\n"),
+		],
 		scores: [0, 1, 0, 0, 0, 0],
 	},
 };
@@ -4797,7 +4797,7 @@ FeatsList["durable"] = {
 	description: [
 		"##Defy Death##. I have Advantage on Death Saving Throws.",
 		"##Speedy Recovery##. As a Bonus Action, I can expend and roll one of my Hit Dice to regain a number of Hit Points equal to the roll. [+1 Constitution]",
-	].join("\n"),
+	],
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Constitution score by 1, to a maximum of 20.",
@@ -4834,7 +4834,7 @@ FeatsList["elemental adept"] = {
 			"Spells cast by me ignore Resistance to Acid damage.",
 			"When I roll damage for a spell casted by me that deals Acid damage, I can treat any 1 on a damage die as a 2.",
 			"[+1 Intelligence, Wisdom, or Charisma]",
-		].join("\n"),
+		],
 	},
 	"cold energy mastery": {
 		name: "Elemental Adept [Cold]",
@@ -4842,7 +4842,7 @@ FeatsList["elemental adept"] = {
 			"Spells cast by me ignore Resistance to Cold damage.",
 			"When I roll damage for a spell casted by me that deals Cold damage, I can treat any 1 on a damage die as a 2.",
 			"[+1 Intelligence, Wisdom, or Charisma]",
-		].join("\n"),
+		],
 	},
 	"fire energy mastery": {
 		name: "Elemental Adept [Fire]",
@@ -4850,7 +4850,7 @@ FeatsList["elemental adept"] = {
 			"Spells cast by me ignore Resistance to Fire damage.",
 			"When I roll damage for a spell casted by me that deals Fire damage, I can treat any 1 on a damage die as a 2.",
 			"[+1 Intelligence, Wisdom, or Charisma]",
-		].join("\n"),
+		],
 	},
 	"lightning energy mastery": {
 		name: "Elemental Adept [Lightning]",
@@ -4858,7 +4858,7 @@ FeatsList["elemental adept"] = {
 			"Spells cast by me ignore Resistance to Lightning damage.",
 			"When I roll damage for a spell casted by me that deals Lightning damage, I can treat any 1 on a damage die as a 2.",
 			"[+1 Intelligence, Wisdom, or Charisma]",
-		].join("\n"),
+		],
 	},
 	"thunder energy mastery": {
 		name: "Elemental Adept [Thunder]",
@@ -4866,7 +4866,7 @@ FeatsList["elemental adept"] = {
 			"Spells cast by me ignore Resistance to Thunder damage.",
 			"When I roll damage for a spell casted by me that deals Thunder damage, I can treat any 1 on a damage die as a 2.",
 			"[+1 Intelligence, Wisdom, or Charisma]",
-		].join("\n"),
+		],
 	},
 };
 FeatsList["fey-touched"] = {
@@ -4924,7 +4924,7 @@ FeatsList["great weapon master"] = {
 	description: [
 		"##Heavy Weapon Mastery##. During the Attack action on my turn, I can add my Proficiency Bonus to the damage of " + (typePF ? "Heavy weapons. " : "weapons with the Heavy property."),
 		"##Hew##. Immediately after I reduce a creature to 0 HP with a melee weapon or score a Critical Hit with one, I can make another attack with that weapon as a Bonus Action. [+1 Str]",
-	].join("\n"),
+	],
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Strength score by 1, to a maximum of 20.",
@@ -5044,7 +5044,7 @@ FeatsList["keen mind"] = {
 			"##Quick Study##. I can take the Study action as a Bonus Action.",
 			"##Lore Knowledge##. I gain proficiency in the Arcana skill. If I already have proficiency in it, I gain Expertise in it.",
 			"[+1 Intelligence]",
-		].join("\n"),
+		],
 		skills: [["Arcana", "increment"]],
 	},
 	"history": {
@@ -5052,7 +5052,7 @@ FeatsList["keen mind"] = {
 			"##Quick Study##. I can take the Study action as a Bonus Action.",
 			"##Lore Knowledge##. I gain proficiency in the History skill. If I already have proficiency in it, I gain Expertise in it.",
 			"[+1 Intelligence]",
-		].join("\n"),
+		],
 		skills: [["History", "increment"]],
 	},
 	"investigation": {
@@ -5060,7 +5060,7 @@ FeatsList["keen mind"] = {
 			"##Quick Study##. I can take the Study action as a Bonus Action.",
 			"##Lore Knowledge##. I gain proficiency in the Investigation skill. If I already have proficiency in it, I gain Expertise in it.",
 			"[+1 Intelligence]",
-		].join("\n"),
+		],
 		skills: [["Investigation", "increment"]],
 	},
 	"nature": {
@@ -5068,7 +5068,7 @@ FeatsList["keen mind"] = {
 			"##Quick Study##. I can take the Study action as a Bonus Action.",
 			"##Lore Knowledge##. I gain proficiency in the Nature skill. If I already have proficiency in it, I gain Expertise in it.",
 			"[+1 Intelligence]",
-		].join("\n"),
+		],
 		skills: [["Nature", "increment"]],
 	},
 	"religion": {
@@ -5076,7 +5076,7 @@ FeatsList["keen mind"] = {
 			"##Quick Study##. I can take the Study action as a Bonus Action.",
 			"##Lore Knowledge##. I gain proficiency in the Religion skill. If I already have proficiency in it, I gain Expertise in it.",
 			"[+1 Intelligence]",
-		].join("\n"),
+		],
 		skills: [["Religion", "increment"]],
 	},
 };
@@ -5295,7 +5295,7 @@ FeatsList["observant"] = {
 			"##Quick Search##. I can take the Search action as a Bonus Action.",
 			"##Keen Observer##. I gain proficiency in the Insight skill. If I already have proficiency in it, I gain Expertise in it.",
 			"[+1 Intelligence]",
-		].join("\n"),
+		],
 		scores: [0, 0, 0, 1, 0, 0],
 		skills: [["Insight", "increment"]],
 	},
@@ -5304,7 +5304,7 @@ FeatsList["observant"] = {
 			"##Quick Search##. I can take the Search action as a Bonus Action.",
 			"##Keen Observer##. I gain proficiency in the Investigation skill. If I already have proficiency in it, I gain Expertise in it.",
 			"[+1 Intelligence]",
-		].join("\n"),
+		],
 		scores: [0, 0, 0, 1, 0, 0],
 		skills: [["Investigation", "increment"]],
 	},
@@ -5313,7 +5313,7 @@ FeatsList["observant"] = {
 			"##Quick Search##. I can take the Search action as a Bonus Action.",
 			"##Keen Observer##. I gain proficiency in the Perception skill. If I already have proficiency in it, I gain Expertise in it.",
 			"[+1 Intelligence]",
-		].join("\n"),
+		],
 		scores: [0, 0, 0, 1, 0, 0],
 		skills: [["Perception", "increment"]],
 	},
@@ -5322,7 +5322,7 @@ FeatsList["observant"] = {
 			"##Quick Search##. I can take the Search action as a Bonus Action.",
 			"##Keen Observer##. I gain proficiency in the Insight skill. If I already have proficiency in it, I gain Expertise in it.",
 			"[+1 Wisdom]",
-		].join("\n"),
+		],
 		scores: [0, 0, 0, 0, 1, 0],
 		skills: [["Insight", "increment"]],
 	},
@@ -5331,7 +5331,7 @@ FeatsList["observant"] = {
 			"##Quick Search##. I can take the Search action as a Bonus Action.",
 			"##Keen Observer##. I gain proficiency in the Investigation skill. If I already have proficiency in it, I gain Expertise in it.",
 			"[+1 Wisdom]",
-		].join("\n"),
+		],
 		scores: [0, 0, 0, 0, 1, 0],
 		skills: [["Investigation", "increment"]],
 	},
@@ -5340,7 +5340,7 @@ FeatsList["observant"] = {
 			"##Quick Search##. I can take the Search action as a Bonus Action.",
 			"##Keen Observer##. I gain proficiency in the Perception skill. If I already have proficiency in it, I gain Expertise in it.",
 			"[+1 Wisdom]",
-		].join("\n"),
+		],
 		scores: [0, 0, 0, 0, 1, 0],
 		skills: [["Perception", "increment"]],
 	},
@@ -5603,14 +5603,14 @@ FeatsList["sentinel"] = {
 		description: [
 			"##Guardian##. When a creature within 5 ft of me takes the Disengage action or hits a target other than me with an attack, I can make an Opportunity Attack against them.",
 			"##Halt##. When I make an Opportunity Attack against a creature, its Speed becomes 0 for the rest of the current turn. [+1 Strength]",
-		].join("\n"),
+		],
 		scores: [1, 0, 0, 0, 0, 0],
 	},
 	"dexterity": {
 		description: [
 			"##Guardian##. When a creature within 5 ft of me takes the Disengage action or hits a target other than me with an attack, I can make an Opportunity Attack against them.",
 			"##Halt##. When I make an Opportunity Attack against a creature, its Speed becomes 0 for the rest of the current turn. [+1 Dexterity]",
-		].join("\n"),
+		],
 		scores: [0, 1, 0, 0, 0, 0],
 	},
 };
@@ -5741,7 +5741,7 @@ FeatsList["skill expert"] = {
 		"I gain proficiency in one skill of my choice.",
 		"I also gain Expertise in one skill of my choice in which I have proficiency (can be the same skill).",
 		"Neither are automated. [+1 to one ability score of my choice]",
-	].join("\n"),
+	],
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase one ability score of your choice by 1, to a maximum of 20.",
@@ -5756,7 +5756,7 @@ FeatsList["skill expert"] = {
 			"I gain proficiency in one skill of my choice.",
 			"I also gain Expertise in one skill of my choice in which I have proficiency (can be the same skill).",
 			"Neither are automated. [+1 Strength]",
-		].join("\n"),
+		],
 		scores: [1, 0, 0, 0, 0, 0],
 	},
 	"dexterity": {
@@ -5764,7 +5764,7 @@ FeatsList["skill expert"] = {
 			"I gain proficiency in one skill of my choice.",
 			"I also gain Expertise in one skill of my choice in which I have proficiency (can be the same skill).",
 			"Neither are automated. [+1 Dexterity]",
-		].join("\n"),
+		],
 		scores: [0, 1, 0, 0, 0, 0],
 	},
 	"constitution": {
@@ -5772,7 +5772,7 @@ FeatsList["skill expert"] = {
 			"I gain proficiency in one skill of my choice.",
 			"I also gain Expertise in one skill of my choice in which I have proficiency (can be the same skill).",
 			"Neither are automated. [+1 Constitution]",
-		].join("\n"),
+		],
 		scores: [0, 0, 1, 0, 0, 0],
 	},
 	"intelligence": {
@@ -5780,7 +5780,7 @@ FeatsList["skill expert"] = {
 			"I gain proficiency in one skill of my choice.",
 			"I also gain Expertise in one skill of my choice in which I have proficiency (can be the same skill).",
 			"Neither are automated. [+1 Intelligence]",
-		].join("\n"),
+		],
 		scores: [0, 0, 0, 1, 0, 0],
 	},
 	"wisdom": {
@@ -5788,7 +5788,7 @@ FeatsList["skill expert"] = {
 			"I gain proficiency in one skill of my choice.",
 			"I also gain Expertise in one skill of my choice in which I have proficiency (can be the same skill).",
 			"Neither are automated. [+1 Wisdom]",
-		].join("\n"),
+		],
 		scores: [0, 0, 0, 0, 1, 0],
 	},
 	"charisma": {
@@ -5796,7 +5796,7 @@ FeatsList["skill expert"] = {
 			"I gain proficiency in one skill of my choice.",
 			"I also gain Expertise in one skill of my choice in which I have proficiency (can be the same skill).",
 			"Neither are automated. [+1 Charisma]",
-		].join("\n"),
+		],
 		scores: [0, 0, 0, 0, 0, 1],
 	},
 };
@@ -5812,7 +5812,7 @@ FeatsList["skulker"] = {
 		"##Fog of War##. I have Advantage on Dexterity (Stealth) checks when using the Hide action during combat.",
 		"##Sniper##. If I miss an attack while hidden, making the attack doesn't reveal my location.",
 		"##Blindsight##. I have Blindsight with a range of 10 ft. [+1 Dexterity]",
-	].join("\n"),
+	],
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase your Dexterity score by 1, to a maximum of 20.",
@@ -5889,7 +5889,7 @@ FeatsList["speedy"] = {
 			"##Agile Movement##. Opportunity Attacks have Disadvantage against me.",
 			"##Dash over Difficult Terrain##. When I take the Dash action on my turn, Difficult Terrain doesn't cost me extra movement that turn.",
 			"##Speed Increase##. I have +10 ft Speed. [+1 Dexterity]",
-		].join("\n"),
+		],
 		scores: [0, 1, 0, 0, 0, 0],
 	},
 	"constitution": {
@@ -5897,7 +5897,7 @@ FeatsList["speedy"] = {
 			"##Agile Movement##. Opportunity Attacks have Disadvantage against me.",
 			"##Dash over Difficult Terrain##. When I take the Dash action on my turn, Difficult Terrain doesn't cost me extra movement that turn.",
 			"##Speed Increase##. I have +10 ft Speed. [+1 Constitution]",
-		].join("\n"),
+		],
 		scores: [0, 0, 1, 0, 0, 0],
 	},
 };
@@ -6277,7 +6277,7 @@ FeatsList["boon of recovery"] = {
 	description: [
 		"##Last Stand##. Once per Long Rest when I would be reduced to 0 HP, I can instead drop to 1 HP and regain half my max HP.",
 		"n##Recover Vitality##. I have a pool of ten d10s, which replenish after a Long Rest. As a Bonus Action, I can expend and roll a number of dice from this pool to regain HP.",
-	].join("\n"),
+	],
 	descriptionFull: [
 		"You gain the following benefits.",
 		"***Ability Score Increase***. Increase one ability score of your choice by 1, to a maximum of 30.",

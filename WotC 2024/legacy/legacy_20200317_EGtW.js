@@ -1,6 +1,6 @@
 var iFileName = "legacy_20200317_EGtW.js";
 RequiredSheetVersion("24.1.3");
-// This file adds the content from Explorer's Guide to Wildemount to MPMB's Character Record Sheet
+// This file adds the content from Explorer's Guide to Wildemount to MPMB's Character Record Sheet that has not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source
 SourceList["W"] = {
@@ -91,7 +91,7 @@ AddSubRace("elf", "pallid", { // contains contributions by Smashman
 		},
 	},
 });
-AddSubRace("halfling", "lotusden", { // contains contributions by Metacomet10
+AddSubRace("halfling", "lotusden", {
 	regExpSearch: /^(?=.*\b(halflings?|hobbits?)\b)(?=.*lotusden).*$/i,
 	name: "Lotusden Halfling",
 	source: [["W", 164]],
@@ -449,7 +449,7 @@ if (!SourceList["V"]) {
 		],
 		spellcastingAbility: 5,
 		features: {
-			"firbolg magic (detect magic)": {
+			"firbolg magic": {
 				name: "Firbolg Magic",
 				minlevel: 1,
 				spellcastingBonus: [{
@@ -609,9 +609,9 @@ if (!SourceList["E"]) {
 		spellcastingAbility: 3,
 		variants: [], // filled by the AddSubRace() calls below
 		age: " reach adulthood in their late teens and live up to 120 years",
-		height: " range from barely 5 to well over 6 feet tall (4'8\" + 2d10\")",
+		height: " are about 5-7 ft tall (4'8\" + 2d10\")",
 		weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
-		heightMetric: " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
+		heightMetric: " are about 120-210 cm tall (145 + 5d10 cm)",
 		weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	};
 	AddSubRace("genasi", "air", {
@@ -1585,7 +1585,7 @@ SpellsList["temporal shunt"] = {
 	level: 5,
 	school: "Trans",
 	time: "React",
-	timeFull: "1 reaction, taken when a creature you can see makes an attack roll or starts to cast a spell",
+	timeFull: "Reaction, taken when a creature you can see makes an attack roll or starts to cast a spell",
 	range: "120 ft",
 	components: "V,S",
 	duration: "1 rnd",
@@ -2052,7 +2052,7 @@ MagicItemsList["duskcrusher"] = {
 		modifiers: [2, 2],
 		selectNow: true,
 	}],
-	weight: 2,
+	weight: 5,
 	fixedDC: 15,
 	spellcastingBonus: [{
 		name: "Once per dawn",
@@ -2123,7 +2123,7 @@ MagicItemsList["last stand armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Last Stand", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["between", "Last Stand", "(+1)"],
 	},
 	extraLimitedFeatures: [{

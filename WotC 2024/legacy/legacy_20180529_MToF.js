@@ -1,6 +1,6 @@
 var iFileName = "legacy_20180529_MToF.js";
 RequiredSheetVersion("24.1.3");
-// This file adds all the player-material from Mordenkainen's Tome of Foes to MPMB's Character Record Sheet
+// This file adds the player-material from Mordenkainen's Tome of Foes to MPMB's Character Record Sheet that has not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source
 SourceList["MToF"] = {
@@ -531,7 +531,7 @@ AddSubRace("elf", "shadow", {
 });
 
 // Gith and its two subraces
-RaceList["githyanki-mtof"] = {
+RaceList["githyanki"] = {
 	regExpSearch: /githyanki/i,
 	name: "Githyanki",
 	source: [["MToF", 96]],
@@ -572,7 +572,7 @@ RaceList["githyanki-mtof"] = {
 		},
 	},
 	features: {
-		"jump": {
+		"githyanki psionics (level 3)": {
 			name: "Githyanki Psionics (level 3)",
 			minlevel: 3,
 			spellcastingBonus: [{
@@ -589,7 +589,7 @@ RaceList["githyanki-mtof"] = {
 				},
 			},
 		},
-		"misty step": {
+		"githyanki psionics (level 5)": {
 			name: "Githyanki Psionics (level 5)",
 			minlevel: 5,
 			spellcastingBonus: [{
@@ -607,16 +607,16 @@ RaceList["githyanki-mtof"] = {
 		},
 	},
 };
-AddSubRace("githyanki-mtof", "tool proficiency", {
+AddSubRace("githyanki", "tool proficiency", {
 	regExpSearch: /tool proficiency/i,
 	skillstxt: null,
 	toolProfs: [["Any tool", 1]],
 });
-AddSubRace("githyanki-mtof", "skill proficiency", {
+AddSubRace("githyanki", "skill proficiency", {
 	regExpSearch: /skill proficiency/i,
 	skillstxt: "Choose any one skill",
 });
-RaceList["githzerai-mtof"] = {
+RaceList["githzerai"] = {
 	regExpSearch: /githzerai/i,
 	name: "Githzerai",
 	source: [["MToF", 96]],
@@ -655,7 +655,7 @@ RaceList["githzerai-mtof"] = {
 		},
 	},
 	features: {
-		"shield": {
+		"githzerai psionics (level 3)": {
 			name: "Githzerai Psionics (level 3)",
 			minlevel: 3,
 			spellcastingBonus: [{
@@ -671,7 +671,7 @@ RaceList["githzerai-mtof"] = {
 				},
 			},
 		},
-		"detect thoughts": {
+		"githzerai psionics (level 5)": {
 			name: "Githzerai Psionics (level 5)",
 			minlevel: 5,
 			spellcastingBonus: [{

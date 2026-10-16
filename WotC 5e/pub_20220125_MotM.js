@@ -409,7 +409,7 @@ RaceList["multiverse eladrin"] = {
 	trait: [
 		"**Eladrin** (my creature type is humanoid, elf)",
 		"##\u25C6 Trance##. I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours while meditating consciously. At the end of the trance, I gain 2 weapon/tool proficiencies until the end of my next long rest.",
-		"##\u25C6 Shifting Seasons##. After finish a long rest, I can align with a season.",
+		"##\u25C6 Shifting Seasons##. After a long rest, I can align with a season.",
 		"##\u25C6 Fey Step##. Prof Bonus per long rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see. At 3rd level, additional effects based on my season.",
 	],
 	features: {
@@ -832,7 +832,7 @@ RaceList["multiverse water genasi"] = {
 	scoresGeneric: true,
 	trait: [
 		"**Water Genasi**",
-		"##\u25C6 Amphibious##. I can breathe air and water" + (typePF ? "and I have a swimming speed equal to my walking speed." : ", have a swimming speed equal to walking speed."),
+		"##\u25C6 Amphibious##. I can breathe air and water" + (typePF ? " and I have a swimming speed equal to my walking speed." : ", have a swimming speed equal to walking speed."),
 		"##\u25C6 Acid Resistance##. I have resistance to acid damage.",
 		"##\u25C6 Call to the Wave##. I know the *Acid Splash* cantrip. At 3rd level, I can cast *Create or Destroy Water* without using a spell slot once per long rest. At 5th level, I can cast *Water Walk* without using a spell slot or material components once per long rest. I can also cast each spell using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these" + (typePF ? " (one-time choice)." : "."),
 	],
@@ -1053,7 +1053,7 @@ RaceList["multiverse githzerai"] = {
 	},
 };
 RaceList["multiverse goblin"] = {
-	regExpSearch: /^(?=.*(multiverse|motm\b))(?=.*goblin).*$/i,
+	regExpSearch: /^(?=.*(multiverse|motm\b))(?=.*\bgoblin)(?!.*(hobgoblin|bugbear)).*$/i,
 	name: "Multiverse Goblin",
 	sortname: "Goblin, Multiverse",
 	source: [["MotM", 20]],
@@ -1109,7 +1109,7 @@ RaceList["multiverse goliath"] = {
 		"**Goliath**",
 		"##\u25C6 Stone's Endurance##. Proficiency Bonus per long rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Constitution modifier.",
 		"##\u25C6 Little Giant##. I have proficiency in the Athletics skill and count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.",
-		"##\u25C6 Mountain Born##. I have resistance to cold damage and I'm acclimated to high altitude, including elevations above 20000 ft.",
+		"##\u25C6 Mountain Born##. I have resistance to cold damage and I'm acclimated to high altitude, including elevations above 20,000 ft.",
 	],
 	carryingCapacity: 2,
 };
@@ -1148,10 +1148,10 @@ RaceList["multiverse hobgoblin"] = {
 			toNotesPage: [{
 				page3notes: true,
 				note: [
-					"Whenever I use Fey Gift to take the Help action, I can choose one of these additional effects:",
-					" \u2022 Hospitality: The one I help and I each gain 1d6 + my Prof Bonus in temporary HP",
-					" \u2022 Passage: The one I help and I both gain +10 ft walking speed until my next turn stats",
-					" \u2022 Spite: The first time the one I help hits an attack roll before my next turn starts,",
+					"Whenever I use Fey Gift to take the Help action, I can choose one of these additional effects.",
+					" \u2022 **Hospitality**. The one I help and I each gain 1d6 + my Prof Bonus in temporary HP",
+					" \u2022 **Passage**. The one I help and I both gain +10 ft walking speed until my next turn starts",
+					" \u2022 **Spite**. The first time the one I help hits an attack roll before my next turn starts,",
 					"   the creature hit gains disadvantage on its next attack roll within the next minute",
 				],
 			}],
@@ -1593,7 +1593,6 @@ RaceList["tabaxi-motm"] = { // just a plain improvement over the previous, no ne
 			usages: 1,
 			recovery: " Turn",
 			additional: "still for 1 turn to recover",
-			tooltip: " (can be replenished by not moving for one whole turn)",
 		},
 	},
 	trait: [
@@ -1781,7 +1780,7 @@ RaceList["multiverse yuan-ti"] = {
 if (!SourceList["V"]) {
 	CreatureList["aurochs"] = {
 		name: "Aurochs",
-		source: [["V", 207], ["MotM", 71]],
+		source: [["MotM", 71], ["V", 207]],
 		size: 2, //Large
 		type: "Beast",
 		subtype: "cattle", // MotM addition
@@ -1809,7 +1808,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["ox"] = {
 		name: "Ox",
-		source: [["V", 208], ["MotM", 72]],
+		source: [["MotM", 72], ["V", 208]],
 		size: 2, //Large
 		type: "Beast",
 		subtype: "cattle", // MotM addition
@@ -1842,7 +1841,7 @@ if (!SourceList["V"]) {
 		name: "Deep Roth\xE9",
 		nameAlt: ["Roth\xE9, Deep"],
 		nameThis: "roth\xe9",
-		source: [["V", 208], ["MotM", 71]],
+		source: [["MotM", 71], ["V", 208]],
 		size: 3, //Medium
 		type: "Beast",
 		subtype: "cattle", // MotM addition
@@ -1874,7 +1873,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["stench kow"] = {
 		name: "Stench Kow",
-		source: [["V", 208], ["MotM", 72]],
+		source: [["MotM", 72], ["V", 208]],
 		size: 2, //Large
 		type: "Fiend", // Change in MotM from Beast
 		subtype: "cattle", // MotM addition
@@ -1905,14 +1904,14 @@ if (!SourceList["V"]) {
 			description: "Any creature other than a stench kow starting its turn within 5 ft of a stench kow must make a DC 12 Constitution saving throw or be poisoned until the start of the creature's next turn. On a successful saving throw, the creature is immune to the stench of all stench kows for 1 hour.",
 		}],
 		wildshapeString: [
-			typePF ? "##Senses##. Darkvision 60 ft.\n##Resistances##. cold, fire, poison." : "Darkvision 60 ft. ##Resistances##. cold, fire, poison.",
-			"##Charge##. If the stench kow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, it deals extra 2d6 piercing damage.",
-			"##Stench##. Any creature starting its turn within 5 ft of a stench kow must make a DC 12 Con save or be poisoned until the start of the its next turn. On a success, it is immune to the stench of all stench kows for 1 hour.",
+			"##Senses##. Darkvision 60 ft." + (typePF ? "\n" : " ") + "##Resistances##. Cold, Fire, Poison.",
+			"##Charge##. If the stench kow moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, it deals extra 2d6 Piercing damage.",
+			"##Stench##. Any creature starting its turn within 5 ft of a stench kow must make a DC 12 Con save or be Poisoned until the start of its next turn. On a success, it is Immune to the stench of all stench kows for 1 hour.",
 		].join("\n"),
 	};
 	CreatureList["dolphin"] = {
 		name: "Dolphin",
-		source: [["V", 208], ["MotM", 97]],
+		source: [["MotM", 97], ["V", 208]],
 		size: 3, //Medium
 		type: "Beast",
 		alignment: "Unaligned",
@@ -1947,7 +1946,7 @@ if (!SourceList["V"]) {
 	CreatureList["cranium rat"] = {
 		name: "Cranium Rat",
 		nameAlt: ["Rat, Cranium"],
-		source: [["V", 133], ["MotM", 83]],
+		source: [["MotM", 83], ["V", 133]],
 		size: 5, //Tiny
 		type: "Aberration", // Change in MotM from Beast
 		companion: "familiar_not_al",
@@ -1980,7 +1979,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["brontosaurus"] = {
 		name: "Brontosaurus",
-		source: [["V", 139], ["ToA", 215], ["MotM", 95]],
+		source: [["MotM", 95], ["V", 139], ["ToA", 215]],
 		size: 0, //Gargantuan
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -2011,7 +2010,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["deinonychus"] = {
 		name: "Deinonychus",
-		source: [["V", 139], ["ToA", 217], ["MotM", 95]],
+		source: [["MotM", 95], ["V", 139], ["ToA", 217]],
 		size: 3, //Medium
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -2052,7 +2051,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["dimetrodon"] = {
 		name: "Dimetrodon",
-		source: [["V", 139], ["ToA", 217], ["MotM", 95]],
+		source: [["MotM", 95], ["V", 139], ["ToA", 217]],
 		size: 3, //Medium
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -2079,7 +2078,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["hadrosaurus"] = {
 		name: "Hadrosaurus",
-		source: [["V", 140], ["ToA", 224], ["MotM", 96]],
+		source: [["MotM", 96], ["V", 140], ["ToA", 224]],
 		size: 2, //Large
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -2106,7 +2105,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["quetzalcoatlus"] = {
 		name: "Quetzalcoatlus",
-		source: [["V", 140], ["ToA", 230], ["MotM", 96]],
+		source: [["MotM", 96], ["V", 140], ["ToA", 230]],
 		size: 1, //Huge
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -2140,7 +2139,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["stegosaurus"] = {
 		name: "Stegosaurus",
-		source: [["V", 140], ["ToA", 231], ["MotM", 96]],
+		source: [["MotM", 96], ["V", 140], ["ToA", 231]],
 		size: 1, //Huge
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -2164,7 +2163,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["velociraptor"] = {
 		name: "Velociraptor",
-		source: [["V", 140], ["ToA", 235], ["MotM", 96]],
+		source: [["MotM", 96], ["V", 140], ["ToA", 235]],
 		size: 5, //Tiny
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -2205,11 +2204,11 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["gazer"] = {
 		name: "Gazer",
-		source: [["V", 126], ["MotM", 134]],
+		source: [["MotM", 134], ["V", 126]],
 		size: 5, //Tiny
 		type: "Aberration",
 		subtype: "Beholder", // MotM addition
-		companion: "familiar_not_al",
+		companion: ["familiar_not_al"],
 		alignment: "Neutral Evil",
 		ac: 13,
 		hp: 13,
@@ -2242,15 +2241,20 @@ if (!SourceList["V"]) {
 			abilitytodamage: false,
 		}],
 		traits: [{
-			name: "Aggressive",
-			description: "As a bonus action, the [THIS] moves its speed toward an enemy that it can see.",
-		}, {
 			name: "Mimicry",
 			description: "The [THIS] can mimic simple speech it has heard, in any language. Any who hear this can tell it is an imitation with a successful DC 10 Wis (Insight) check.",
 		}],
 		actions: [{
+			name: "Aggressive",
+			description: "As a Bonus Action, the [THIS] moves its speed toward an enemy that it can see.",
+		}, {
 			name: "Eye Rays",
-			description: "1. Dazing Ray: Wisdom saving throw or charmed until the start of the [THIS]'s next turn. While charmed, half speed and disadv. on attacks.\n2. Fear Ray: Wisdom saving throw or frightened until the start of the [THIS]'s next turn.\n3. Frost Ray: Target must make a Dexterity saving throw or 3d6 cold damage.\n4. Telekinetic Ray: Medium or smaller creature, Strength saving throw or be moved up to 30 ft away from the [THIS]. If it is an unattended Tiny object, the [THIS] moves it up to 30 ft in any direction. It can exert fine control on objects this way.", // MotM: no longer 10 lb limit, just Tiny object
+			description: [
+				"1. **Dazing Ray**. Wisdom saving throw or charmed until the start of the [THIS]'s next turn. While charmed, half speed and disadv. on attacks.",
+				"2. **Fear Ray**. Wisdom saving throw or frightened until the start of the [THIS]'s next turn.",
+				"3. **Frost Ray**. Target must make a Dexterity saving throw or 3d6 cold damage.",
+				"4. **Telekinetic Ray**. Medium or smaller creature, Strength saving throw or be moved up to 30 ft away from the [THIS]. If it is an unattended Tiny object, the [THIS] moves it up to 30 ft in any direction. It can exert fine control on objects this way.", // MotM: no longer 10 lb limit, just Tiny object
+			].join("\n"),
 		}],
 		variant: [{
 			name: "Variant: Familiar",

@@ -92,12 +92,12 @@ RaceList["hexblood"] = {
 	],
 	toNotesPage: [{
 		name: "Hexblood's Eerie Token",
-		note: ["As a bonus action, I can harmlessly remove a lock of my hair, one of my nails, or one of my teeth. This token is imbued with magic until I finish a long rest. While the token is imbued in this way, I can take these actions:" +
-		"\n \u2022 Telepathic Message",
-		"As an action, I can send a telepathic message to the creature holding or carrying the token, as long as I'm within 10 miles of it. The message can contain up to twenty-five words." +
-		"\n \u2022 Remote Viewing",
-		"If I'm within 10 miles of the token, I can enter a trance as an action. The trance lasts for 1 minute, but it ends early if I dismiss it (no action required) or I'm incapacitated. During this trance, I can see and hear from the token as if I were located where it is. While I'm using my senses at the token's location, I'm blinded and deafened in regard to my own surroundings. When the trance ends, the token is harmlessly destroyed.",
-		"\nOnce I create a token using this feature, I can't do so again until I finish a long rest, at which point my missing part regrows."],
+		note: [
+			"As a bonus action, I can harmlessly remove a lock of my hair, one of my nails, or one of my teeth. This token is imbued with magic until I finish a long rest. While the token is imbued in this way, I can take the following actions.",
+			"***Telepathic Message***. As an action, I can send a telepathic message to the creature holding or carrying the token, as long as I'm within 10 miles of it. The message can contain up to twenty-five words.",
+			"***Remote Viewing*** If I'm within 10 miles of the token, I can enter a trance as an action. The trance lasts for 1 minute, but it ends early if I dismiss it (no action required) or I'm incapacitated. During this trance, I can see and hear from the token as if I were located where it is. While I'm using my senses at the token's location, I'm blinded and deafened in regard to my own surroundings. When the trance ends, the token is harmlessly destroyed.",
+			"Once I create a token using this feature, I can't do so again until I finish a long rest, at which point my missing part regrows.",
+		],
 	}],
 	vision: [["Darkvision", 60]],
 	action: [["bonus action", "Eerie Token (create)"], ["action", "Eerie Token (use)"]],
@@ -438,7 +438,7 @@ BackgroundFeatureList["spirit medium"] = {
 	source: [["VRGtR", 31], ["ALbackground", 0]],
 };
 BackgroundFeatureList["trauma survivor"] = {
-	description: "I faced something specifically traumatic and survived. Now people view me as an expert on it and can help others make it through. I'm aware of nonmagical recovery techniques, common resources, and misinformation. I know how to speak to sympathetic doctors, clergy, and leaders to can convince them to shelter one other than myself up to one month.",
+	description: "I faced something specifically traumatic and survived. Now people view me as an expert on it and can help others make it through. I'm aware of nonmagical recovery techniques, common resources, and misinformation. I know how to speak to sympathetic doctors, clergy, and leaders to convince them to shelter one other than myself up to one month.",
 	source: [["VRGtR", 32], ["ALbackground", 0]],
 };
 BackgroundFeatureList["traveler"] = {

@@ -109,43 +109,60 @@ MagicItemsList["serpent's fang"] = {
 if (MagicItemsList["alchemy jug"]) {
 	// Make the default into a choice (if not done so already)
 	if (!MagicItemsList["alchemy jug"].choices) {
-		MagicItemsList["alchemy jug"].source = [["D", 150], ["CM", 144]];
+		if (!isArray(MagicItemsList["alchemy jug"].source[0])) { // Make sure the source is an array of sources
+			MagicItemsList["alchemy jug"].source = [MagicItemsList["alchemy jug"].source];
+		}
 		MagicItemsList["alchemy jug"].allowDuplicates = true;
 		AddFeatureChoice(MagicItemsList["alchemy jug"], false, "Regular (acid and poison)", {
-			name: "Alchemy Jug (regular)",
-			source: [["D", 150]],
+			name: "Alchemy Jug \uFEFF",
+			source: MagicItemsList["alchemy jug"].source.slice(0),
 			description: MagicItemsList["alchemy jug"].description,
 			descriptionLong: MagicItemsList["alchemy jug"].descriptionLong,
 			descriptionFull: MagicItemsList["alchemy jug"].descriptionFull,
 		}, true);
 	};
+	// Add CM to the source of the main Alchemy Jug object
+	var CM_AlchemyJugHasCM = MagicItemsList["alchemy jug"].source.some(function (arr) {
+		return arr[0] === "CM";
+	});
+	if (!CM_AlchemyJugHasCM) {
+		MagicItemsList["alchemy jug"].source.push(["CM", 144]);
+	}
 	// Add the blue and orange jugs as choices
 	AddFeatureChoice(MagicItemsList["alchemy jug"], false, "Blue (hot tea)", {
 		name: "Alchemy Jug (Blue)",
 		source: [["CM", 144]],
-		description: MagicItemsList["alchemy jug"].description.replace("acid (8 fl oz), basic poison (1/2 fl oz)", "boiling hot tea (1 qt)"),
-		descriptionLong: MagicItemsList["alchemy jug"].descriptionLong.replace("acid (8 fl. oz.), basic poison (1/2 fl. oz.)", "boiling hot tea (1 quart)"),
+		description: MagicItemsList["alchemy jug"].description.replace(/acid \(.*basic poison.*?\)/i, "boiling hot tea (1 qt)"),
+		descriptionLong: MagicItemsList["alchemy jug"].descriptionLong.map(function (s) { return s.replace(/acid \(.*basic poison.*?\)/i, "boiling hot tea (1 quart)"); }),
 		descriptionFull: MagicItemsList["alchemy jug"].descriptionFull.slice(0, -1).concat([[
-			MagicItemsList["alchemy jug"].descriptionFull.slice(-1)[0][0],
-			["4 gallons  ", "Beer", "", "2 gallons  ", "Vinegar"],
-			["1 quart   ", "Boiling hot tea", "8 gallons  ", "Water, fresh"],
-			["1 gallon    ", "Honey", "", "12 gallons", "Water, salt"],
-			["2 gallons ", "Mayonnaise", "1 gallon    ", "Wine"],
-			["1 quart   ", "Oil"],
+			["Liquid",      "", "Max Amount"],
+			["Beer",        "", "4 gallons"],
+			["Boiling hot tea", "1 quart"],
+			["Honey",       "", "1 gallon"],
+			["Mayonnaise",      "2 gallons"],
+			["Oil",         "", "1 quart"],
+			["Vinegar",     "", "2 gallons"],
+			["Water, fresh",    "8 gallons"],
+			["Water, salt  ",   "12 gallons"],
+			["Wine",        "", "1 gallon"],
 		]]),
 	});
 	AddFeatureChoice(MagicItemsList["alchemy jug"], false, "Orange (soy sauce)", {
 		name: "Alchemy Jug (Orange)",
 		source: [["CM", 144]],
-		description: MagicItemsList["alchemy jug"].description.replace("acid (8 fl oz), basic poison (1/2 fl oz)", "soy sauce (1 gal)"),
-		descriptionLong: MagicItemsList["alchemy jug"].descriptionLong.replace("acid (8 fl. oz.), basic poison (1/2 fl. oz.)", "soy sauce (1 gallon)"),
+		description: MagicItemsList["alchemy jug"].description.replace(/acid \(.*basic poison.*?\)/i, "soy sauce (1 gal)"),
+		descriptionLong: MagicItemsList["alchemy jug"].descriptionLong.map(function (s) { return s.replace(/acid \(.*basic poison.*?\)/i, "soy sauce (1 gallon)"); }),
 		descriptionFull: MagicItemsList["alchemy jug"].descriptionFull.slice(0, -1).concat([[
-			MagicItemsList["alchemy jug"].descriptionFull.slice(-1)[0][0],
-			["4 gallons  ", "Beer", "", "2 gallons  ", "Vinegar"],
-			["1 gallon    ", "Honey", "", "8 gallons  ", "Water, fresh"],
-			["2 gallons ", "Mayonnaise", "12 gallons", "Water, salt"],
-			["1 quart   ", "Oil", "", "1 gallon    ", "Wine"],
-			["1 gallon    ", "Soy sauce"],
+			["Liquid",      "", "Max Amount"],
+			["Beer",        "", "4 gallons"],
+			["Honey",       "", "1 gallon"],
+			["Mayonnaise",      "2 gallons"],
+			["Oil",         "", "1 quart"],
+			["Soy sauce     ",  "1 gallon"],
+			["Vinegar",     "", "2 gallons"],
+			["Water, fresh",    "8 gallons"],
+			["Water, salt  ",   "12 gallons"],
+			["Wine",        "", "1 gallon"],
 		]]),
 	});
 };
@@ -244,7 +261,7 @@ MagicItemsList["nether scroll of azumar"] = {
 		"When you succeed on the check, you gain the following benefits:",
 		" \u2022 Your Intelligence score increases by 2, to a maximum of 22. Once you gain this benefit, you can't use this scroll to increase your Intelligence again.",
 		" \u2022 You gain advantage on saving throws against spells and other magical effects.",
-		"When you gain the scroll's benefits, a stone golem magically appears in an unoccupied space within 60 feet of you and acts as your ally. If you die, the golem turns to dust.",
+		"When you gain the scroll's benefits, a **stone golem** magically appears in an unoccupied space within 60 feet of you and acts as your ally. If you die, the golem turns to dust.",
 	],
 	scores: [0, 0, 0, 2, 0, 0],
 	scoresMaximum: [0, 0, 0, 22, 0, 0],

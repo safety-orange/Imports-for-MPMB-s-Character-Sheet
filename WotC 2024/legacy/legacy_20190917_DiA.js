@@ -1,6 +1,6 @@
 var iFileName = "legacy_20190917_DiA.js";
 RequiredSheetVersion("24.1.3");
-// This file adds all material from the Baldur's Gate: Descent into Avernus adventure to MPMB's Character Record Sheet
+// This file adds the material from the Baldur's Gate: Descent into Avernus adventure to MPMB's Character Record Sheet that has not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source
 SourceList["DiA"] = {
@@ -414,7 +414,7 @@ MagicItemsList["matalotok"] = {
 		"You are immune to cold damage while holding *Matalotok*. Whenever it deals damage to a creature, the hammer radiates a burst of intense cold in a 30-foot-radius sphere. Each creature in that area takes 10 (3d6) cold damage.",
 	],
 	attunement: true,
-	weight: 2,
+	weight: 5,
 	weaponOptions: [{
 		baseWeapon: "warhammer",
 		regExpSearch: /matalotok/i,

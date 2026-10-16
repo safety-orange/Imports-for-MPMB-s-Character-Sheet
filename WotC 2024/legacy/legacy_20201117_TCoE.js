@@ -363,7 +363,7 @@ if (!SourceList["G"]) {
 				calcChanges: {
 					spellAdd: [
 						function (spellKey, spellObj, spName) {
-							if (CurrentSpells[spName].refType == "class" && spellObj.school == "Ench" && /1 a\b|Act/.test(spellObj.time)) {
+							if (CurrentSpells[spName].refType == "class" && spellObj.school == "Ench" && /\b(act|1 a)\b/i.test(spellObj.time)) {
 								spellObj.time = "act/bns";
 								return true;
 							};
@@ -1262,7 +1262,7 @@ AddFeatureChoice(TCoE_sorcererOptional5, true, "Magical Guidance", {
 AddWarlockInvocation("Pact of the Talisman", {
 	name: "Pact of the Talisman",
 	source: [["T", 70]],
-	submenu: "[Warlock level  0+]",
+	submenu: ["[Warlock level  0+]", "[improves Pact of the Talisman]"],
 	description: desc("When the wearer of this amulet fails an ability check, they can add +1d4 to the roll. I can give the talisman to others to use. The talisman turns to ash when I die. If I lose my talisman, I can perform a 1-hour ceremony to gain a replacement. This ceremony destroys the previous amulet and can be done during a Short or Long Rest."),
 	usages: (typePF ? "Prof" : "Proficiency") + " Bonus per ",
 	usagescalc: "event.value = How('Proficiency Bonus')",
@@ -1322,7 +1322,7 @@ AddWarlockInvocation("Rebuke of the Talisman (req: Pact of the Talisman)", {
 	prereqeval: function (v) { return v.choiceActive.indexOf("pact of the talisman") !== -1; },
 	action: [["reaction", ""]],
 });
-AddWarlockInvocation("Undying Servitude (req: lvl 5+)", {
+AddWarlockInvocation("Undying Servitude", {
 	name: "Undying Servitude",
 	source: [["T", 71]],
 	minlevel: 5,

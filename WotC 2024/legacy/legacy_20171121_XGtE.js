@@ -1,6 +1,6 @@
 var iFileName = "legacy_20171121_XGtE.js";
 RequiredSheetVersion("24.1.3");
-// This file adds the backgrounds and beasts from Xanathar's Guide to Everything to MPMB's Character Record Sheet
+// This file adds the backgrounds and beasts from Xanathar's Guide to Everything to MPMB's Character Record Sheet that have not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source
 SourceList["X"] = {
@@ -3517,7 +3517,7 @@ SpellsList["soul cage"] = {
 	level: 6,
 	school: "Necro",
 	time: "React",
-	timeFull: "1 reaction, which you take when a humanoid you can see within 60 feet of you dies",
+	timeFull: "Reaction, which you take when a humanoid you can see within 60 feet of you dies",
 	range: "60 ft",
 	components: "V,S,M\u0192",
 	compMaterial: "A tiny silver cage worth 100 gp",

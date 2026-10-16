@@ -69,10 +69,12 @@ RaceList["hexblood-ua"] = {
 	],
 	toNotesPage: [{
 		name: "Hexblood's Magic Token",
-		note: ["As an action, I can harmlessly pull out one of my nails, a tooth, or a lock of hair. This token is imbued with magic until I finish a long rest.",
+		note: [
+			"As an action, I can harmlessly pull out one of my nails, a tooth, or a lock of hair. This token is imbued with magic until I finish a long rest.",
 			"While the token is imbued in this way, I can use an action to send a telepathic message to the creature holding or carrying the token, as long as I'm on the same plane of existence and are within 10 miles of it. The message can contain up to twenty-five words.",
 			"In addition, while I'm within 10 miles of the token, I can use an action to enter a trance for 1 minute, during which I can see and hear from the token as if I was located where it is. While I'm using my senses at the token's location, I'm blinded and deafened in regard to my own surroundings. Afterward, the token is harmlessly destroyed.",
-			"Once I create a token using this feature, I can't do so again until I finish a long rest, at which point my missing part regrows."],
+			"Once I create a token using this feature, I can't do so again until I finish a long rest, at which point my missing part regrows.",
+		],
 	}],
 	savetxt: {
 		adv_vs: ["charmed"],

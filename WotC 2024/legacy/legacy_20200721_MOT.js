@@ -1,6 +1,6 @@
 var iFileName = "legacy_20200721_MOT.js";
 RequiredSheetVersion("24.1.3");
-// This file adds the content from Mythic Odysseys of Theros to MPMB's Character Record Sheet
+// This file adds the content from Mythic Odysseys of Theros to MPMB's Character Record Sheet that has not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source
 SourceList["MOT"] = {
@@ -203,7 +203,7 @@ if (!RaceList["triton"]) {
 		],
 		spellcastingAbility: 6,
 		features: {
-			"fog cloud": {
+			"control air and water (level 1)": {
 				name: "Control Air and Water (level 1)",
 				minlevel: 1,
 				spellcastingBonus: [{
@@ -213,7 +213,7 @@ if (!RaceList["triton"]) {
 					firstCol: "oncelr",
 				}],
 			},
-			"gust of wind": {
+			"control air and water (level 3)": {
 				name: "Control Air and Water (level 3)",
 				minlevel: 3,
 				spellcastingBonus: [{
@@ -223,7 +223,7 @@ if (!RaceList["triton"]) {
 					firstCol: "oncelr",
 				}],
 			},
-			"wall of water": {
+			"control air and water (level 5)": {
 				name: "Control Air and Water (level 5)",
 				minlevel: 5,
 				spellcastingBonus: [{

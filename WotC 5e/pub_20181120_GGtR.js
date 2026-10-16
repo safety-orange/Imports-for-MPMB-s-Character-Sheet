@@ -2261,7 +2261,7 @@ MagicItemsList["mizzium armor"] = {
 		excludeCheck: function (inObjKey, inObj) {
 			return !/medium|heavy/i.test(inObj.type) || /hide/i.test(inObj.name);
 		},
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 	},
 }
 MagicItemsList["mizzium mortar"] = {

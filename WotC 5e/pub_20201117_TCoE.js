@@ -1368,7 +1368,7 @@ MagicItemsList["arcane propulsion armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Arcane Propulsion", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["suffix", "Arcane Propulsion"],
 	},
 	speed: { walk: { spd: "+5", enc: "+5" } },
@@ -1413,6 +1413,7 @@ MagicItemsList["armor of magical strength"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: "prefix",
+		descriptionChange: ["replace", "armor"],
 	},
 	usages: 6,
 	recovery: "dawn",
@@ -1462,7 +1463,7 @@ MagicItemsList["mind sharpener"] = {
 			type: "armor",
 			prefixOrSuffix: "brackets",
 			itemName1stPage: ["suffix", "Mind Sharpener"],
-			descriptionChange: ["prefix", "armor"],
+			descriptionChange: ["replace", "armor"],
 		},
 	},
 	"mind sharpener robes": {
@@ -1539,17 +1540,17 @@ RunFunctionAtEnd(function () {
 					name: "Guardian Arcane Armor",
 					popupName: "Guardian Arcane Armor Features",
 					note: [
-						" \u2022 Thunder Gauntlets: Each of the armor's gauntlets counts as a simple melee weapon while I'm not holding anything in it, and it deals 1d8 thunder damage on a hit. A creature hit by the gauntlet has disadvantage on attack rolls against targets other than me until the start of me next turn, as the armor magically emits a distracting pulse when the creature attacks someone else.",
-						" \u2022 Defensive Field: As a bonus action, I can gain temporary hit points equal to my artificer level, replacing any temporary hit points I already have. I lose these temporary hit points if I doff the armor. I can use this bonus action a number of times equal to my proficiency bonus, and I regain all expended uses when I finish a long rest.",
+						" \u2022 **Thunder Gauntlets**. Each of the armor's gauntlets counts as a simple melee weapon while I'm not holding anything in it, and it deals 1d8 thunder damage on a hit. A creature hit by the gauntlet has disadvantage on attack rolls against targets other than me until the start of me next turn, as the armor magically emits a distracting pulse when the creature attacks someone else.",
+						" \u2022 **Defensive Field**. As a bonus action, I can gain temporary hit points equal to my artificer level, replacing any temporary hit points I already have. I lose these temporary hit points if I doff the armor. I can use this bonus action a number of times equal to my proficiency bonus, and I regain all expended uses when I finish a long rest.",
 					],
 					amendTo: "Arcane Armor Model Features",
 				}, {
 					name: "Infiltrator Arcane Armor",
 					popupName: "Infiltrator Arcane Armor Features",
 					note: [
-						" \u2022 Lightning Launcher: A gemlike node on one of the armored fists or on the chest (my choice) counts as a simple ranged weapon, with a normal range of 90 ft and a long range of 300 ft. It deals 1d6 lightning damage on a hit. Once on each of my turns when I hit a creature with it, I can deal an extra 1d6 lightning damage to that target.",
-						" \u2022 Powered Steps: My walking speed increases by 5 feet.",
-						" \u2022 Dampening Field: I have advantage on Dexterity (Stealth) checks. If the armor normally imposes disadvantage on such checks, the advantage and disadvantage cancel each other, as normal.",
+						" \u2022 **Lightning Launcher**. A gemlike node on one of the armored fists or on the chest (my choice) counts as a simple ranged weapon, with a normal range of 90 ft and a long range of 300 ft. It deals 1d6 lightning damage on a hit. Once on each of my turns when I hit a creature with it, I can deal an extra 1d6 lightning damage to that target.",
+						" \u2022 **Powered Steps**. My walking speed increases by 5 feet.",
+						" \u2022 **Dampening Field**. I have advantage on Dexterity (Stealth) checks. If the armor normally imposes disadvantage on such checks, the advantage and disadvantage cancel each other, as normal.",
 					],
 					amendTo: "Arcane Armor Model Features",
 				}],

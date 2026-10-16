@@ -1,6 +1,6 @@
 var iFileName = "legacy_20181120_GGtR.js";
 RequiredSheetVersion("24.1.3");
-// This file adds all material from the Guildmasters' Guide to Ravnica to MPMB's Character Record Sheet
+// This file adds the material from the Guildmasters' Guide to Ravnica to MPMB's Character Record Sheet that has not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source
 SourceList["G"] = {
@@ -407,7 +407,7 @@ AddSubClass("cleric", "order domain", {
 			calcChanges: {
 				spellAdd: [
 					function (spellKey, spellObj, spName) {
-						if (CurrentSpells[spName].refType == "class" && spellObj.school == "Ench" && /1 a\b|Act/.test(spellObj.time)) {
+						if (CurrentSpells[spName].refType == "class" && spellObj.school == "Ench" && /\b(act|1 a)\b/i.test(spellObj.time)) {
 							spellObj.time = "act/bns";
 							return true;
 						};
@@ -2198,7 +2198,7 @@ MagicItemsList["mizzium armor"] = {
 		excludeCheck: function (inObjKey, inObj) {
 			return !/medium|heavy/i.test(inObj.type) || /hide/i.test(inObj.name);
 		},
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 	},
 }
 MagicItemsList["mizzium mortar"] = {
@@ -2370,7 +2370,7 @@ MagicItemsList["sunforger"] = {
 		"If you don't call the weapon back to your hand, it reappears at the point where it exploded when you are no longer attuned to it or when 24 hours have passed.",
 	],
 	attunement: true,
-	weight: 2,
+	weight: 5,
 	action: [["action", " (hurl/recall)"]],
 	weaponOptions: [{
 		baseWeapon: "warhammer",

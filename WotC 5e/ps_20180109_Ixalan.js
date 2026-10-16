@@ -167,7 +167,7 @@ RaceList["ixalan orc"] = {
 };
 
 RaceList["ixalan goblin"] = {
-	regExpSearch: /^(?=.*ixalan)(?=.*goblin).*$/i,
+	regExpSearch: /^(?=.*ixalan)(?=.*\bgoblin).*$/i,
 	name: "Ixalan Goblin",
 	sortname: "Goblin, Ixalan",
 	source: [["PS:X", 16]],

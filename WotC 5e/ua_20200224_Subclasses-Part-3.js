@@ -268,6 +268,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 		chooseGear: {
 			type: "armor",
 			prefixOrSuffix: "prefix",
+			descriptionChange: ["replace", "armor"],
 		},
 		usages: 4,
 		recovery: "dawn",
@@ -324,7 +325,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 				type: "armor",
 				prefixOrSuffix: "brackets",
 				itemName1stPage: ["suffix", "Mind Sharpener"],
-				descriptionChange: ["prefix", "armor"],
+				descriptionChange: ["replace", "armor"],
 			},
 		},
 		"mind sharpener robes": {

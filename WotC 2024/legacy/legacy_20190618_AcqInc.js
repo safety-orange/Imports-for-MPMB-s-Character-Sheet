@@ -1,6 +1,6 @@
 var iFileName = "legacy_20190618_AcqInc.js";
 RequiredSheetVersion("24.1.3");
-// This file adds all material from the Acquisitions Incorporated book to MPMB's Character Record Sheet
+// This file adds the material from the Acquisitions Incorporated book to MPMB's Character Record Sheet that has not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source
 SourceList["AcqInc"] = {

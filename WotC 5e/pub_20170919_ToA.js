@@ -327,7 +327,7 @@ GearList["insect repellent incense"] = {
 if (!SourceList["V"]) {
 	CreatureList["brontosaurus"] = {
 		name: "Brontosaurus",
-		source: [["V", 139], ["ToA", 215], ["MotM", 95]],
+		source: [["ToA", 215], ["V", 139], ["MotM", 95]],
 		size: 0, //Gargantuan
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -358,7 +358,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["deinonychus"] = {
 		name: "Deinonychus",
-		source: [["V", 139], ["ToA", 217], ["MotM", 95]],
+		source: [["ToA", 217], ["V", 139], ["MotM", 95]],
 		size: 3, //Medium
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -399,7 +399,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["dimetrodon"] = {
 		name: "Dimetrodon",
-		source: [["V", 139], ["ToA", 217], ["MotM", 95]],
+		source: [["ToA", 217], ["V", 139], ["MotM", 95]],
 		size: 3, //Medium
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -426,7 +426,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["hadrosaurus"] = {
 		name: "Hadrosaurus",
-		source: [["V", 140], ["ToA", 224], ["MotM", 96]],
+		source: [["ToA", 224], ["V", 140], ["MotM", 96]],
 		size: 2, //Large
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -453,7 +453,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["quetzalcoatlus"] = {
 		name: "Quetzalcoatlus",
-		source: [["V", 140], ["ToA", 230], ["MotM", 96]],
+		source: [["ToA", 230], ["V", 140], ["MotM", 96]],
 		size: 1, //Huge
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -487,7 +487,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["stegosaurus"] = {
 		name: "Stegosaurus",
-		source: [["V", 140], ["ToA", 231], ["MotM", 96]],
+		source: [["ToA", 231], ["V", 140], ["MotM", 96]],
 		size: 1, //Huge
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition
@@ -511,7 +511,7 @@ if (!SourceList["V"]) {
 	};
 	CreatureList["velociraptor"] = {
 		name: "Velociraptor",
-		source: [["V", 140], ["ToA", 235], ["MotM", 96]],
+		source: [["ToA", 235], ["V", 140], ["MotM", 96]],
 		size: 5, //Tiny
 		type: "Beast",
 		subtype: "dinosaur", // MotM addition

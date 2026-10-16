@@ -32,7 +32,7 @@ MagicItemsList["constantori's portrait"] = {
 		{
 			name: "Constantori's Portrait",
 			useDescriptionFull: function (str) {
-				return str.replace("contact I", "contact me");
+				return str.replace("contact I", "contact me").replace("the painting and I am on", "the painting and I are on");
 			},
 		},
 		Object.assign({}, sentientItemConflictNote, { amendTo: "Constantori's Portrait" }),
@@ -63,13 +63,13 @@ MagicItemsList["shard of xeluan"] = {
 		"***Curse***. Attuning to this item extends its curse to you. You remain cursed until you are targeted by a *remove curse* spell or similar magic, or until the shard is reattached to Xeluan's petrified heart.",
 		"The shard's curse causes misfortune to befall you. When you roll a 1 on an attack roll, an ability check, or a saving throw, roll on the Shard Misfortunes table to determine the misfortune. For as long as this misfortune lasts, no other shard misfortunes befall you.",
 		[
-			[" d6", "Misfortune"],
-			["  1", "You accidentally cut yourself with the shard and are poisoned until the next dawn."],
-			["  2", "You experience a vision of an ancient calamity\u2014a beautiful city threatened by crumbling mountains and erupting volcanoes\u2014and are stunned until the end of your next turn."],
-			["  3", "For a few seconds, the ground shakes under you. You and each creature within 10 feet of you must succeed on a DC 16 Dexterity saving throw or be knocked prone."],
-			["  4", "The shard releases three glowing darts of magical force that target one random creature within 30 feet of you. If no such target exists, you become the target. Each dart hits automatically and deals 3 (1d4 + 1) force damage to the target."],
-			["  5", "Until the next dawn, Beasts with an Intelligence score of 3 or lower are hostile to you."],
-			["  6", "Nothing seems to go your way. Until the next dawn, you have disadvantage on ability checks."],
+			["d6", "Misfortune"],
+			["1", "You accidentally cut yourself with the shard and are poisoned until the next dawn."],
+			["2", "You experience a vision of an ancient calamity\u2014a beautiful city threatened by crumbling mountains and erupting volcanoes\u2014and are stunned until the end of your next turn."],
+			["3", "For a few seconds, the ground shakes under you. You and each creature within 10 feet of you must succeed on a DC 16 Dexterity saving throw or be knocked prone."],
+			["4", "The shard releases three glowing darts of magical force that target one random creature within 30 feet of you. If no such target exists, you become the target. Each dart hits automatically and deals 3 (1d4 + 1) force damage to the target."],
+			["5", "Until the next dawn, Beasts with an Intelligence score of 3 or lower are hostile to you."],
+			["6", "Nothing seems to go your way. Until the next dawn, you have disadvantage on ability checks."],
 		],
 	],
 	calcChanges: {
@@ -87,13 +87,15 @@ MagicItemsList["shard of xeluan"] = {
 		note: [
 			"Attuning to this item extends its curse to me. I remain cursed until I'm targeted by a *remove curse* spell or similar magic, or until the shard is reattached to Xeluan's petrified heart.",
 			"The shard's curse causes misfortune to befall me. When I roll a 1 on an attack roll, an ability check, or a saving throw, roll on the Shard Misfortunes table to determine the misfortune. For as long as this misfortune lasts, no other shard misfortunes befall me.",
-			"\n  d6\tMisfortune",
-			"1\tI accidentally cut myself with the shard and are poisoned until the next dawn." +
-			"2\tI experience a vision of an ancient calamity: a beautiful city threatened by crumbling mountains and erupting volcanoes. I am stunned until the end of my next turn." +
-			"3\tFor a few seconds, the ground shakes under me. Each creature within 10 ft of me, myself included, must succeed on a DC 16 Dexterity saving throw or be knocked prone." +
-			"4\tThe shard releases three glowing darts of magical force that target one random creature within 30 ft of me. If no such target exists, I become the target. Each dart hits automatically and deals 1d4+1 force damage to the target." +
-			"5\tUntil the next dawn, Beasts with an Intelligence score of 3 or lower are hostile to me." +
-			"6\tNothing seems to go my way. Until the next dawn, I have disadvantage on ability checks.",
+			[
+				["d6", "Misfortune"],
+				["1", "I accidentally cut myself with the shard and am poisoned until the next dawn."],
+				["2", "I experience a vision of an ancient calamity: a beautiful city threatened by crumbling mountains and erupting volcanoes. I am stunned until the end of my next turn."],
+				["3", "For a few seconds, the ground shakes under me. Each creature within 10 ft of me, myself included, must succeed on a DC 16 Dexterity saving throw or be knocked prone."],
+				["4", "The shard releases three glowing darts of magical force that target one random creature within 30 ft of me. If no such target exists, I become the target. Each dart hits automatically and deals 1d4+1 force damage to the target."],
+				["5", "Until the next dawn, Beasts with an Intelligence score of 3 or lower are hostile to me."],
+				["6", "Nothing seems to go my way. Until the next dawn, I have disadvantage on ability checks."],
+			],
 		],
 	}],
 };
@@ -106,7 +108,7 @@ var KftGV_ShardSolitaire = {
 		"***Spellcasting***. The stone has 6 charges and regains 1d6 expended charges daily at dawn. ",
 	].join("\n   "),
 	descriptionTable: [
-		"The Shard Solitaire Types table lists the spells common to all shard solitaires, as well as the spells specific to each kind of stone. As an action, you can cast one of the stone's spells by expending the requisite number of charges, requiring no material components (save DC 16).",
+		"The Shard Solitaire Types table lists the spells common to all *shard solitaires*, as well as the spells specific to each kind of stone. As an action, you can cast one of the stone's spells by expending the requisite number of charges, requiring no material components (save DC 16).",
 		[
 			[" Shard Solitaire", "Spells"],
 			["  All", "", "*Banishment* (3 charges; the target is banished to the stone's extradimensional space"],
@@ -144,7 +146,7 @@ MagicItemsList["shard solitaire"] = {
 	attunement: true,
 	description: "As a bonus action while wearing or holding this gemstone, I can teleport up to 60 ft to an empty space I can see. If I teleport over 30 ft, I need to make a DC 16 Con save or take 3d10 force damage. It has 6 charges, regaining 1d6 at dawn. I can use these charges to cast several spells as an action, see the spell sheet.",
 	descriptionFull: [
-		KftGV_ShardSolitaire.descriptionFull.replace(": black sapphire, diamond, jacinth, rainbow pearl, and ruby.", ", as shown in the *Shard Solitaire* Types table."),
+		KftGV_ShardSolitaire.descriptionFull.replace(": black sapphire, diamond, jacinth, rainbow pearl, and ruby.", ", as shown in the Shard Solitaire Types table."),
 	].concat(KftGV_ShardSolitaire.descriptionTable),
 	allowDuplicates: true,
 	usages: 6,

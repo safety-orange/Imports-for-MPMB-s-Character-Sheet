@@ -75,7 +75,7 @@ MagicItemsList["lightbringer"] = {
 		selectNow: true,
 	}],
 }
-MagicItemsList["spider staff"] = { // changed to the new version introduced in Phandelver and Below: The Shattered Obelisk with the prerequisite
+MagicItemsList["spider staff"] = { // changed to the new version introduced in Phandelver and Below: The Shattered Obelisk with the prerequisite, but didn't change the full description
 	name: "Spider Staff",
 	source: [["LMoP", 53], ["PaBTSO", 220]],
 	type: "staff",
@@ -116,7 +116,7 @@ MagicItemsList["spider staff"] = { // changed to the new version introduced in P
 		firstCol: 2,
 	}],
 }
-MagicItemsList["staff of defense"] = { // changed to the new version introduced in Phandelver and Below: The Shattered Obelisk with the prerequisite
+MagicItemsList["staff of defense"] = { // changed to the new version introduced in Phandelver and Below: The Shattered Obelisk with the prerequisite, but didn't change the full description
 	name: "Staff of Defense",
 	source: [["LMoP", 53]],
 	type: "staff",
@@ -7184,18 +7184,26 @@ MagicItemsList["alchemy jug"] = {
 	rarity: "uncommon",
 	magicItemTable: "B",
 	description: "As an action, command the jug to produce liquid; or an action to uncork it and pour 2 gal/min. After producing, it only makes the same up to its max, until next dawn. Oil (1 qt), acid (8 fl oz), basic poison (1/2 fl oz), beer (4 gal), honey/wine (1 gal), fresh water (8 gal), mayonnaise/vinegar (2 gal), salt water (12 gal).",
-	descriptionLong: "A heavy ceramic jug. As an action, the jug can be commanded to hold a chosen liquid. With another action, I can uncork the jug and pour the liquid out at 2 gallons per minute. Once commanded to produce a liquid, it can't produce a different one or more than the maximum of one, until the next dawn.\rLiquids (with maximum): acid (8 fl. oz.), basic poison (1/2 fl. oz.), beer (4 gallons), honey (1 gallon), mayonnaise (2 gallons), oil (1 quart), vinegar (2 gallons), fresh water (8 gallons), salt water (12 gallons), wine (1 gallon).",
+	descriptionLong: [
+		"A heavy ceramic jug. As an action, the jug can be commanded to hold a chosen liquid. With another action, I can uncork the jug and pour the liquid out at 2 gallons per minute. Once commanded to produce a liquid, it can't produce a different one or more than the maximum of one, until the next dawn.",
+		"Liquids (with maximum): acid (8 fl oz), basic poison (1/2 fl oz), beer (4 gallons), honey (1 gallon), mayonnaise (2 gallons), oil (1 quart), vinegar (2 gallons), fresh water (8 gallons), salt water (12 gallons), wine (1 gallon).",
+	],
 	descriptionFull: [
 		"This ceramic jug appears to be able to hold a gallon of liquid and weighs 12 pounds whether full or empty. Sloshing sounds can be heard from within the jug when it is shaken, even if the jug is empty.",
 		"You can use an action and name one liquid from the table below to cause the jug to produce the chosen liquid. Afterward, you can uncork the jug as an action and pour that liquid out, up to 2 gallons per minute. The maximum amount of liquid the jug can produce depends on the liquid you named.",
 		"Once the jug starts producing a liquid, it can't produce a different one, or more of one that has reached its maximum, until the next dawn.",
 		[
-			["Max        ", "Liquid", "", "Max        ", "Liquid"],
-			["8 ounces  ", "Acid", "", "1 quart   ", "Oil"],
-			["1/2 ounce", "Basic poison", "2 gallons  ", "Vinegar"],
-			["4 gallons  ", "Beer", "", "8 gallons  ", "Water, fresh"],
-			["1 gallon    ", "Honey", "", "12 gallons", "Water, salt"],
-			["2 gallons ", "Mayonnaise", "1 gallon    ", "Wine"],
+			["Liquid",    "", "Max Amount"],
+			["Acid",      "", "8 ounces"],
+			["Basic Poison",  "1/2 ounce"],
+			["Beer",      "", "4 gallons"],
+			["Honey",     "", "1 gallon"],
+			["Mayonnaise",    "2 gallons"],
+			["Oil",       "", "1 quart"],
+			["Vinegar",   "", "2 gallons"],
+			["Water, fresh",  "8 gallons"],
+			["Water, salt  ", "12 gallons"],
+			["Wine",      "", "1 gallon"],
 		],
 	],
 	weight: 12,
@@ -7520,7 +7528,7 @@ MagicItemsList["mariner's armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: "suffix",
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 	},
 	speed: { swim: { spd: "walk", enc: "walk" } },
 }
@@ -13045,6 +13053,24 @@ AddBackgroundVariant("soldier", "city watch", {
 	languageProfs: [2],
 	lifestyle: "modest",
 });
+AddBackgroundVariant("soldier", "investigator", {
+	regExpSearch: /^(?=.*city)(?=.*(watch|guard))(?=.*(investigator|inspector)).*$/i,
+	name: "City Watch Investigator", // Name changed so it doesn't conflict with VRGtR investigator
+	source: [["S", 145], ["ALbackground", 0]],
+	skills: ["Insight", "Investigation"],
+	equipright: [
+		["Uniform", "", 3],
+		["Insignia of rank", "", ""],
+		["Horn", "", 2],
+		["Manacles", "", 6],
+		["Belt pouch (with coins)", "", 1],
+	],
+	feature: "Watcher's Eye",
+	extra: null,
+	toolProfs: null,
+	languageProfs: [2],
+	lifestyle: "modest",
+});
 AddBackgroundVariant("guild artisan", "clan crafter", {
 	regExpSearch: /^(?=.*clan)(?=.*(crafter|smith|builder|miner)).*$/i,
 	name: "Clan Crafter",
@@ -13160,24 +13186,6 @@ AddBackgroundVariant("folk hero", "inheritor", {
 	toolProfs: [["Gaming set or musical instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "wealthy",
-});
-AddBackgroundVariant("soldier", "investigator", {
-	regExpSearch: /investigator/i,
-	name: "Investigator",
-	source: [["S", 145], ["ALbackground", 0]],
-	skills: ["Insight", "Investigation"],
-	equipright: [
-		["Uniform", "", 3],
-		["Insignia of rank", "", ""],
-		["Horn", "", 2],
-		["Manacles", "", 6],
-		["Belt pouch (with coins)", "", 1],
-	],
-	feature: "Watcher's Eye",
-	extra: null,
-	toolProfs: null,
-	languageProfs: [2],
-	lifestyle: "modest",
 });
 AddBackgroundVariant("soldier", "knight of the order", {
 	regExpSearch: /^(?=.*knight)(?=.*order).*$/i,
@@ -14877,7 +14885,7 @@ MagicItemsList["opal of the ild rune"] = {
 		chooseGear: {
 			type: "armor",
 			prefixOrSuffix: "brackets",
-			descriptionChange: ["prefix", "armor"],
+			descriptionChange: ["replace", "armor"],
 			itemName1stPage: ["suffix", "Ild Rune"],
 		},
 	},
@@ -15024,7 +15032,7 @@ MagicItemsList["pennant of the vind rune"] = {
 		chooseGear: {
 			type: "armor",
 			prefixOrSuffix: "brackets",
-			descriptionChange: ["prefix", "armor"],
+			descriptionChange: ["replace", "armor"],
 			itemName1stPage: ["suffix", "Vind Rune"],
 			noStealthDis: /^(?=.*\bvind)(?=.*rune\b).*$/i,
 		},
@@ -15739,7 +15747,6 @@ RaceList["tabaxi"] = {
 			usages: 1,
 			recovery: " Turn",
 			additional: "still for 1 turn to recover",
-			tooltip: " (can be replenished by not moving for one whole turn)",
 		},
 	},
 	trait: [
@@ -16122,7 +16129,7 @@ CreatureList["cranium rat"] = {
 };
 CreatureList["brontosaurus"] = {
 	name: "Brontosaurus",
-	source: [["V", 139], ["ToA", 215], ["MotM", 95]],
+	source: [["V", 139], ["MotM", 95], ["ToA", 215]],
 	size: 0, //Gargantuan
 	type: "Beast",
 	subtype: "dinosaur", // MotM addition
@@ -16153,7 +16160,7 @@ CreatureList["brontosaurus"] = {
 };
 CreatureList["deinonychus"] = {
 	name: "Deinonychus",
-	source: [["V", 139], ["ToA", 217], ["MotM", 95]],
+	source: [["V", 139], ["MotM", 95], ["ToA", 217]],
 	size: 3, //Medium
 	type: "Beast",
 	subtype: "dinosaur", // MotM addition
@@ -16194,7 +16201,7 @@ CreatureList["deinonychus"] = {
 };
 CreatureList["dimetrodon"] = {
 	name: "Dimetrodon",
-	source: [["V", 139], ["ToA", 217], ["MotM", 95]],
+	source: [["V", 139], ["MotM", 95], ["ToA", 217]],
 	size: 3, //Medium
 	type: "Beast",
 	subtype: "dinosaur", // MotM addition
@@ -16221,7 +16228,7 @@ CreatureList["dimetrodon"] = {
 };
 CreatureList["hadrosaurus"] = {
 	name: "Hadrosaurus",
-	source: [["V", 140], ["ToA", 224], ["MotM", 96]],
+	source: [["V", 140], ["MotM", 96], ["ToA", 224]],
 	size: 2, //Large
 	type: "Beast",
 	subtype: "dinosaur", // MotM addition
@@ -16248,7 +16255,7 @@ CreatureList["hadrosaurus"] = {
 };
 CreatureList["quetzalcoatlus"] = {
 	name: "Quetzalcoatlus",
-	source: [["V", 140], ["ToA", 230], ["MotM", 96]],
+	source: [["V", 140], ["MotM", 96], ["ToA", 230]],
 	size: 1, //Huge
 	type: "Beast",
 	subtype: "dinosaur", // MotM addition
@@ -16282,7 +16289,7 @@ CreatureList["quetzalcoatlus"] = {
 };
 CreatureList["stegosaurus"] = {
 	name: "Stegosaurus",
-	source: [["V", 140], ["ToA", 231], ["MotM", 96]],
+	source: [["V", 140], ["MotM", 96], ["ToA", 231]],
 	size: 1, //Huge
 	type: "Beast",
 	subtype: "dinosaur", // MotM addition
@@ -16306,7 +16313,7 @@ CreatureList["stegosaurus"] = {
 };
 CreatureList["velociraptor"] = {
 	name: "Velociraptor",
-	source: [["V", 140], ["ToA", 235], ["MotM", 96]],
+	source: [["V", 140], ["MotM", 96], ["ToA", 235]],
 	size: 5, //Tiny
 	type: "Beast",
 	subtype: "dinosaur", // MotM addition
@@ -16455,7 +16462,7 @@ MagicItemsList["mind carapace armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Mind Carapace", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["suffix", "Mind Carapace"],
 		excludeCheck: function (inObjKey, inObj) {
 			return !/heavy/i.test(inObj.type);
@@ -22182,7 +22189,7 @@ MagicItemsList["armor of gleaming"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: "prefix",
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		excludeCheck: function (inObjKey, inObj) {
 			return !/medium|heavy/i.test(inObj.type);
 		},
@@ -22231,7 +22238,7 @@ MagicItemsList["cast-off armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: "suffix",
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 	},
 	action: [["action", ""]],
 }
@@ -22677,7 +22684,7 @@ MagicItemsList["smoldering armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: "suffix",
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 	},
 }
 MagicItemsList["staff of adornment"] = {
@@ -23470,7 +23477,7 @@ RaceList["shadar-kai elf"] = {
 };
 
 // Gith and its two subraces
-RaceList["githyanki-mtof"] = {
+RaceList["githyanki"] = {
 	regExpSearch: /githyanki/i,
 	name: "Githyanki",
 	source: [["MToF", 96]],
@@ -23547,16 +23554,16 @@ RaceList["githyanki-mtof"] = {
 		},
 	},
 };
-AddRacialVariant("githyanki-mtof", "tool proficiency", {
+AddRacialVariant("githyanki", "tool proficiency", {
 	regExpSearch: /tool proficiency/i,
 	skillstxt: "",
 	toolProfs: [["Any tool", 1]],
 });
-AddRacialVariant("githyanki-mtof", "skill proficiency", {
+AddRacialVariant("githyanki", "skill proficiency", {
 	regExpSearch: /skill proficiency/i,
 	skillstxt: "Choose any one skill",
 });
-RaceList["githzerai-mtof"] = {
+RaceList["githzerai"] = {
 	regExpSearch: /githzerai/i,
 	name: "Githzerai",
 	source: [["MToF", 96]],
@@ -26725,7 +26732,7 @@ MagicItemsList["mizzium armor"] = {
 		excludeCheck: function (inObjKey, inObj) {
 			return !/medium|heavy/i.test(inObj.type) || /hide/i.test(inObj.name);
 		},
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 	},
 }
 MagicItemsList["mizzium mortar"] = {
@@ -30921,7 +30928,7 @@ MagicItemsList["living armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Living", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["suffix", "+1 Living"],
 	},
 }
@@ -33113,7 +33120,7 @@ MagicItemsList["last stand armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Last Stand", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["between", "Last Stand", "(+1)"],
 	},
 	extraLimitedFeatures: [{
@@ -35767,27 +35774,23 @@ MagicItemsList["ythryn mythallar"] = { // contains contributions by BraabHimself
 	toNotesPage: [{
 		name: "Properties",
 		note: [
-			"The Ythryn Mythallar is a 50 ft diameter crystal ball that sits on a cradle",
-			"It has the following properties:",
-			" \u2022 Sheds light in a 300 ft radius and dim light for an additional 300 ft",
-			" \u2022 Up to 8 creatures can attune to it, a 9th attunement fails",
-			" \u2022 To attune, a creature must short rest within 30 ft of it",
-			" \u2022 All those attuned to it can sense when it is being used",
-			" \u2022 All those attuned must agree to allow any properties to be used",
-			" \u2022 You can use an action to use the Ythryn Mythallar in the following ways:",
-			"  \u25E6 While on the same plane, give it a flying speed of 30 ft",
-			"    All matter within 500 ft of it moves with it",
-			"    The ball and all structures held aloft by it hover in place when not in motion",
-			"  \u25E6 Cause one magic item to regain all charges/uses",
-			"    I must be within 30 ft of the ball and holding the item",
-			"    It cannot be recharged again until all charges/uses are expended",
-			"  \u25E6 Cast the *control weather* spell without components or spell slots",
-			"    It has a radius of 50 miles and can be cast inside",
-			"    I must be within 30 ft of the ball for the casting time, or it will fail",
-			"\n***Touching the Mythallar***. Any creature that touches the ball must make a DC 22 Constitution save",
-			"On a failure, they take 20d10 + 70 radiant damage, or half that on a success",
-			"Undead have disadvantage on this saving throw",
-			"Objects touching the ball, except artifacts or the cradle, disintegrate instantly",
+			"The Ythryn Mythallar is a 50 ft diameter crystal ball that sits on a cradle. It has the following properties.",
+			" \u2022 Sheds light in a 300 ft radius and dim light for an additional 300 ft.",
+			" \u2022 Up to 8 creatures can attune to it, a 9th attunement fails.",
+			" \u2022 To attune, a creature must short rest within 30 ft of it.",
+			" \u2022 All those attuned to it can sense when it is being used.",
+			" \u2022 All those attuned must agree to allow any properties to be used.",
+			" \u2022 You can use an action to use the Ythryn Mythallar in the following ways.",
+			"  \u25E6 While on the same plane, give it a flying speed of 30 ft.",
+			"    All matter within 500 ft of it moves with it.",
+			"    The ball and all structures held aloft by it hover in place when not in motion.",
+			"  \u25E6 Cause one magic item to regain all charges/uses.",
+			"    I must be within 30 ft of the ball and holding the item.",
+			"    It cannot be recharged again until all charges/uses are expended.",
+			"  \u25E6 Cast *control weather* without components or spell slots.",
+			"    It has a radius of 50 miles and can be cast inside.",
+			"    I must be within 30 ft of the ball for the casting time, or it will fail.",
+			"***Touching the Mythallar***. Any creature that touches the ball takes 20d10 + 70 radiant damage, but can make a DC 22 Constitution save to halve the damage. Undead have disadvantage on this saving throw. Objects touching the ball, except artifacts or the cradle, disintegrate instantly",
 		],
 	}],
 };
@@ -38143,7 +38146,7 @@ MagicItemsList["arcane propulsion armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Arcane Propulsion", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["suffix", "Arcane Propulsion"],
 	},
 	speed: { walk: { spd: "+5", enc: "+5" } },
@@ -38188,6 +38191,7 @@ MagicItemsList["armor of magical strength"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: "prefix",
+		descriptionChange: ["replace", "armor"],
 	},
 	usages: 6,
 	recovery: "dawn",
@@ -38237,7 +38241,7 @@ MagicItemsList["mind sharpener"] = {
 			type: "armor",
 			prefixOrSuffix: "brackets",
 			itemName1stPage: ["suffix", "Mind Sharpener"],
-			descriptionChange: ["prefix", "armor"],
+			descriptionChange: ["replace", "armor"],
 		},
 	},
 	"mind sharpener robes": {
@@ -38314,17 +38318,17 @@ RunFunctionAtEnd(function () {
 					name: "Guardian Arcane Armor",
 					popupName: "Guardian Arcane Armor Features",
 					note: [
-						" \u2022 Thunder Gauntlets: Each of the armor's gauntlets counts as a simple melee weapon while I'm not holding anything in it, and it deals 1d8 thunder damage on a hit. A creature hit by the gauntlet has disadvantage on attack rolls against targets other than me until the start of me next turn, as the armor magically emits a distracting pulse when the creature attacks someone else.",
-						" \u2022 Defensive Field: As a bonus action, I can gain temporary hit points equal to my artificer level, replacing any temporary hit points I already have. I lose these temporary hit points if I doff the armor. I can use this bonus action a number of times equal to my proficiency bonus, and I regain all expended uses when I finish a long rest.",
+						" \u2022 **Thunder Gauntlets**. Each of the armor's gauntlets counts as a simple melee weapon while I'm not holding anything in it, and it deals 1d8 thunder damage on a hit. A creature hit by the gauntlet has disadvantage on attack rolls against targets other than me until the start of me next turn, as the armor magically emits a distracting pulse when the creature attacks someone else.",
+						" \u2022 **Defensive Field**. As a bonus action, I can gain temporary hit points equal to my artificer level, replacing any temporary hit points I already have. I lose these temporary hit points if I doff the armor. I can use this bonus action a number of times equal to my proficiency bonus, and I regain all expended uses when I finish a long rest.",
 					],
 					amendTo: "Arcane Armor Model Features",
 				}, {
 					name: "Infiltrator Arcane Armor",
 					popupName: "Infiltrator Arcane Armor Features",
 					note: [
-						" \u2022 Lightning Launcher: A gemlike node on one of the armored fists or on the chest (my choice) counts as a simple ranged weapon, with a normal range of 90 ft and a long range of 300 ft. It deals 1d6 lightning damage on a hit. Once on each of my turns when I hit a creature with it, I can deal an extra 1d6 lightning damage to that target.",
-						" \u2022 Powered Steps: My walking speed increases by 5 feet.",
-						" \u2022 Dampening Field: I have advantage on Dexterity (Stealth) checks. If the armor normally imposes disadvantage on such checks, the advantage and disadvantage cancel each other, as normal.",
+						" \u2022 **Lightning Launcher**. A gemlike node on one of the armored fists or on the chest (my choice) counts as a simple ranged weapon, with a normal range of 90 ft and a long range of 300 ft. It deals 1d6 lightning damage on a hit. Once on each of my turns when I hit a creature with it, I can deal an extra 1d6 lightning damage to that target.",
+						" \u2022 **Powered Steps**. My walking speed increases by 5 feet.",
+						" \u2022 **Dampening Field**. I have advantage on Dexterity (Stealth) checks. If the armor normally imposes disadvantage on such checks, the advantage and disadvantage cancel each other, as normal.",
 					],
 					amendTo: "Arcane Armor Model Features",
 				}],
@@ -44760,43 +44764,60 @@ MagicItemsList["serpent's fang"] = {
 if (MagicItemsList["alchemy jug"]) {
 	// Make the default into a choice (if not done so already)
 	if (!MagicItemsList["alchemy jug"].choices) {
-		MagicItemsList["alchemy jug"].source = [["D", 150], ["CM", 144]];
+		if (!isArray(MagicItemsList["alchemy jug"].source[0])) { // Make sure the source is an array of sources
+			MagicItemsList["alchemy jug"].source = [MagicItemsList["alchemy jug"].source];
+		}
 		MagicItemsList["alchemy jug"].allowDuplicates = true;
 		AddFeatureChoice(MagicItemsList["alchemy jug"], false, "Regular (acid and poison)", {
-			name: "Alchemy Jug (regular)",
-			source: [["D", 150]],
+			name: "Alchemy Jug \uFEFF",
+			source: MagicItemsList["alchemy jug"].source.slice(0),
 			description: MagicItemsList["alchemy jug"].description,
 			descriptionLong: MagicItemsList["alchemy jug"].descriptionLong,
 			descriptionFull: MagicItemsList["alchemy jug"].descriptionFull,
 		}, true);
 	};
+	// Add CM to the source of the main Alchemy Jug object
+	var CM_AlchemyJugHasCM = MagicItemsList["alchemy jug"].source.some(function (arr) {
+		return arr[0] === "CM";
+	});
+	if (!CM_AlchemyJugHasCM) {
+		MagicItemsList["alchemy jug"].source.push(["CM", 144]);
+	}
 	// Add the blue and orange jugs as choices
 	AddFeatureChoice(MagicItemsList["alchemy jug"], false, "Blue (hot tea)", {
 		name: "Alchemy Jug (Blue)",
 		source: [["CM", 144]],
-		description: MagicItemsList["alchemy jug"].description.replace("acid (8 fl oz), basic poison (1/2 fl oz)", "boiling hot tea (1 qt)"),
-		descriptionLong: MagicItemsList["alchemy jug"].descriptionLong.replace("acid (8 fl. oz.), basic poison (1/2 fl. oz.)", "boiling hot tea (1 quart)"),
+		description: MagicItemsList["alchemy jug"].description.replace(/acid \(.*basic poison.*?\)/i, "boiling hot tea (1 qt)"),
+		descriptionLong: MagicItemsList["alchemy jug"].descriptionLong.map(function (s) { return s.replace(/acid \(.*basic poison.*?\)/i, "boiling hot tea (1 quart)"); }),
 		descriptionFull: MagicItemsList["alchemy jug"].descriptionFull.slice(0, -1).concat([[
-			MagicItemsList["alchemy jug"].descriptionFull.slice(-1)[0][0],
-			["4 gallons  ", "Beer", "", "2 gallons  ", "Vinegar"],
-			["1 quart   ", "Boiling hot tea", "8 gallons  ", "Water, fresh"],
-			["1 gallon    ", "Honey", "", "12 gallons", "Water, salt"],
-			["2 gallons ", "Mayonnaise", "1 gallon    ", "Wine"],
-			["1 quart   ", "Oil"],
+			["Liquid",      "", "Max Amount"],
+			["Beer",        "", "4 gallons"],
+			["Boiling hot tea", "1 quart"],
+			["Honey",       "", "1 gallon"],
+			["Mayonnaise",      "2 gallons"],
+			["Oil",         "", "1 quart"],
+			["Vinegar",     "", "2 gallons"],
+			["Water, fresh",    "8 gallons"],
+			["Water, salt  ",   "12 gallons"],
+			["Wine",        "", "1 gallon"],
 		]]),
 	});
 	AddFeatureChoice(MagicItemsList["alchemy jug"], false, "Orange (soy sauce)", {
 		name: "Alchemy Jug (Orange)",
 		source: [["CM", 144]],
-		description: MagicItemsList["alchemy jug"].description.replace("acid (8 fl oz), basic poison (1/2 fl oz)", "soy sauce (1 gal)"),
-		descriptionLong: MagicItemsList["alchemy jug"].descriptionLong.replace("acid (8 fl. oz.), basic poison (1/2 fl. oz.)", "soy sauce (1 gallon)"),
+		description: MagicItemsList["alchemy jug"].description.replace(/acid \(.*basic poison.*?\)/i, "soy sauce (1 gal)"),
+		descriptionLong: MagicItemsList["alchemy jug"].descriptionLong.map(function (s) { return s.replace(/acid \(.*basic poison.*?\)/i, "soy sauce (1 gallon)"); }),
 		descriptionFull: MagicItemsList["alchemy jug"].descriptionFull.slice(0, -1).concat([[
-			MagicItemsList["alchemy jug"].descriptionFull.slice(-1)[0][0],
-			["4 gallons  ", "Beer", "", "2 gallons  ", "Vinegar"],
-			["1 gallon    ", "Honey", "", "8 gallons  ", "Water, fresh"],
-			["2 gallons ", "Mayonnaise", "12 gallons", "Water, salt"],
-			["1 quart   ", "Oil", "", "1 gallon    ", "Wine"],
-			["1 gallon    ", "Soy sauce"],
+			["Liquid",      "", "Max Amount"],
+			["Beer",        "", "4 gallons"],
+			["Honey",       "", "1 gallon"],
+			["Mayonnaise",      "2 gallons"],
+			["Oil",         "", "1 quart"],
+			["Soy sauce     ",  "1 gallon"],
+			["Vinegar",     "", "2 gallons"],
+			["Water, fresh",    "8 gallons"],
+			["Water, salt  ",   "12 gallons"],
+			["Wine",        "", "1 gallon"],
 		]]),
 	});
 };
@@ -44895,7 +44916,7 @@ MagicItemsList["nether scroll of azumar"] = {
 		"When you succeed on the check, you gain the following benefits:",
 		" \u2022 Your Intelligence score increases by 2, to a maximum of 22. Once you gain this benefit, you can't use this scroll to increase your Intelligence again.",
 		" \u2022 You gain advantage on saving throws against spells and other magical effects.",
-		"When you gain the scroll's benefits, a stone golem magically appears in an unoccupied space within 60 feet of you and acts as your ally. If you die, the golem turns to dust.",
+		"When you gain the scroll's benefits, a **stone golem** magically appears in an unoccupied space within 60 feet of you and acts as your ally. If you die, the golem turns to dust.",
 	],
 	scores: [0, 0, 0, 2, 0, 0],
 	scoresMaximum: [0, 0, 0, 22, 0, 0],
@@ -45029,12 +45050,12 @@ RaceList["hexblood"] = {
 	],
 	toNotesPage: [{
 		name: "Hexblood's Eerie Token",
-		note: ["As a bonus action, I can harmlessly remove a lock of my hair, one of my nails, or one of my teeth. This token is imbued with magic until I finish a long rest. While the token is imbued in this way, I can take these actions:" +
-		"\n \u2022 Telepathic Message",
-		"As an action, I can send a telepathic message to the creature holding or carrying the token, as long as I'm within 10 miles of it. The message can contain up to twenty-five words." +
-		"\n \u2022 Remote Viewing",
-		"If I'm within 10 miles of the token, I can enter a trance as an action. The trance lasts for 1 minute, but it ends early if I dismiss it (no action required) or I'm incapacitated. During this trance, I can see and hear from the token as if I were located where it is. While I'm using my senses at the token's location, I'm blinded and deafened in regard to my own surroundings. When the trance ends, the token is harmlessly destroyed.",
-		"\nOnce I create a token using this feature, I can't do so again until I finish a long rest, at which point my missing part regrows."],
+		note: [
+			"As a bonus action, I can harmlessly remove a lock of my hair, one of my nails, or one of my teeth. This token is imbued with magic until I finish a long rest. While the token is imbued in this way, I can take the following actions.",
+			"***Telepathic Message***. As an action, I can send a telepathic message to the creature holding or carrying the token, as long as I'm within 10 miles of it. The message can contain up to twenty-five words.",
+			"***Remote Viewing*** If I'm within 10 miles of the token, I can enter a trance as an action. The trance lasts for 1 minute, but it ends early if I dismiss it (no action required) or I'm incapacitated. During this trance, I can see and hear from the token as if I were located where it is. While I'm using my senses at the token's location, I'm blinded and deafened in regard to my own surroundings. When the trance ends, the token is harmlessly destroyed.",
+			"Once I create a token using this feature, I can't do so again until I finish a long rest, at which point my missing part regrows.",
+		],
 	}],
 	vision: [["Darkvision", 60]],
 	action: [["bonus action", "Eerie Token (create)"], ["action", "Eerie Token (use)"]],
@@ -45375,7 +45396,7 @@ BackgroundFeatureList["spirit medium"] = {
 	source: [["VRGtR", 31], ["ALbackground", 0]],
 };
 BackgroundFeatureList["trauma survivor"] = {
-	description: "I faced something specifically traumatic and survived. Now people view me as an expert on it and can help others make it through. I'm aware of nonmagical recovery techniques, common resources, and misinformation. I know how to speak to sympathetic doctors, clergy, and leaders to can convince them to shelter one other than myself up to one month.",
+	description: "I faced something specifically traumatic and survived. Now people view me as an expert on it and can help others make it through. I'm aware of nonmagical recovery techniques, common resources, and misinformation. I know how to speak to sympathetic doctors, clergy, and leaders to convince them to shelter one other than myself up to one month.",
 	source: [["VRGtR", 32], ["ALbackground", 0]],
 };
 BackgroundFeatureList["traveler"] = {
@@ -45784,16 +45805,18 @@ BackgroundList["feylost"] = {
 	toNotesPage: [{
 		name: "Feywild Visitor",
 		note: [
-			"Whenever I'm sound asleep or in a deep trance during a long rest, a spirit of the Feywild might pay me a visit, if the DM wishes it. Determine the spirit's form by rolling on the table below. No harm ever comes to me as a result of such visits, which can last for minutes or hours, and I remember each visit when I wake up. Conversations that occur with a visitor can contain any number of things, from messages and insights to nonsense and red herrings, at the DM's discretion. Such conversations are always conducted in a language I can understand, even if the Feywild visitor can't speak that language normally.\n",
-			"d8\tVisitor",
-			" 1\tAwakened creature (beast or plant that had the *Awaken* spell cast on it)",
-			" 2\tCentaur",
-			" 3\tDryad",
-			" 4\tFaerie dragon",
-			" 5\tPixie",
-			" 6\tSatyr",
-			" 7\tSprite",
-			" 8\tUnicorn",
+			"Whenever I'm sound asleep or in a deep trance during a long rest, a spirit of the Feywild might pay me a visit, if the DM wishes it. Determine the spirit's form by rolling on the table below. No harm ever comes to me as a result of such visits, which can last for minutes or hours, and I remember each visit when I wake up. Conversations that occur with a visitor can contain any number of things, from messages and insights to nonsense and red herrings, at the DM's discretion. Such conversations are always conducted in a language I can understand, even if the Feywild visitor can't speak that language normally.",
+			[
+				["d8", "Visitor"],
+				["1", "Awakened creature (beast or plant that had the *Awaken* spell cast on it)"],
+				["2", "Centaur"],
+				["3", "Dryad"],
+				["4", "Faerie dragon"],
+				["5", "Pixie"],
+				["6", "Satyr"],
+				["7", "Sprite"],
+				["8", "Unicorn"],
+			],
 		],
 	}],
 };
@@ -45942,7 +45965,7 @@ MagicItemsList["bobbing lily pad"] = {
 	type: "wondrous item",
 	rarity: "very rare",
 	attunement: true,
-	description: "This 10-ft diameter vehicle float on water and has a walking, flying, and swimming speed of 20 ft, and it can hover. While I ride it, it moves according to my spoken directions. The lily pad can transport up to 600 lb, but moves at only half speed when carrying more than 300 lb.",
+	description: "This 10-ft diameter vehicle floats on water and has a walking, flying, and swimming speed of 20 ft, and it can hover. While I ride it, it moves according to my spoken directions. The lily pad can transport up to 600 lb, but moves at only half speed when carrying more than 300 lb.",
 	descriptionFull: [
 		"This magic vehicle is a 10-foot-diameter leaf that floats on water. It has tendrils that propel it across land and across the water's surface (but not underwater), as well as through the air. It has a walking, flying, and swimming speed of 20 feet, and it can hover. It moves according to your spoken directions while you are riding it.",
 		"The lily pad can transport up to 300 pounds without hindrance. It can carry up to twice this weight, but it moves at half speed if it carries more than its normal capacity.",
@@ -46014,8 +46037,8 @@ MagicItemsList["eldritch staff"] = {
 	type: "staff",
 	rarity: "very rare",
 	attunement: true,
-	description: "This +1 quarterstaff has 10 charges, regaining 1d6+4 charges at dawn. 5% chance it's destroyed If I use its last charge. When I hit with it, I can deal +1d8 lightning damage per charge (max 3). As a reaction when I'm damaged, I can use 3 charges to teleport 60 ft and become invisible until my next turn starts, or I attack/cast.",
-	descriptionLong: "This magic quarterstaff grants a +1 bonus to attack and damage rolls made with it. It has 10 charges and regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff is destroyed in an otherwise harmless burst of eldritch energy. When I hit with it in melee, I can expend up to 3 charges, dealing +1d8 lightning damage per charge. As a reaction when I'm damaged while holding the staff, I can use 3 charges to become invisible and teleport 60 ft to an empty space I can see. I then remain invisible until the start of my next turn or until I attack, cast a spell, or deal damage.",
+	description: "This +1 quarterstaff has 10 charges, regaining 1d6+4 charges at dawn. 5% chance it's destroyed if I use its last charge. When I hit with it, I can deal +1d8 lightning damage per charge (max 3). As a reaction when I'm damaged, I can use 3 charges to teleport 60 ft and become invisible until my next turn starts, or I attack/cast.",
+	descriptionLong: "This magic quarterstaff grants a +1 bonus to attack and damage rolls made with it. It has 10 charges and regains 1d6 + 4 expended charges daily at dawn. If I expend the last charge, roll a d20. On a 1, the staff is destroyed in an otherwise harmless burst of eldritch energy. When I hit with it in melee, I can expend up to 3 charges, dealing +1d8 lightning damage per charge. As a reaction when I'm damaged while holding the staff, I can use 3 charges to become invisible and teleport 60 ft to an empty space I can see. I then remain invisible until the start of my next turn or until I attack, cast a spell, or deal damage.",
 	descriptionFull: [
 		"This staff can be wielded as a magic quarterstaff that grants a +1 bonus to attack and damage rolls made with it.",
 		"The staff has 10 charges and regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff is destroyed in an otherwise harmless burst of eldritch energy.",
@@ -46104,7 +46127,7 @@ MagicItemsList["snicker-snack"] = {
 	attunement: true,
 	prerequisite: "Requires attunement by a non-evil creature",
 	prereqeval: function (v) { return !/evil/i.test(What("Alignment")); },
-	description: "I have a +3 bonus on attack and damage rolls with this sentient magic greatsword and can use Cha instead of Str. It ignores slashing resistance. On a 20 to hit, it cuts off " + (typePF ? "a head" : "one head, possibly killing it instantly") + ". If the target has legendary actions, no head, too wide neck, or is immune to slashing damage, it takes +6d8 damage instead. See Notes.",
+	description: "When I attack with this sentient +3 greatsword, I can use Charisma instead of Strength and ignores resistance to slashing  damage. On a 20 to hit, the sword cuts off " + (typePF ? "a head" : "one head, possibly killing it instantly") + ". If the target has legendary actions, no head, too wide a neck, or is immune to slashing damage, it takes +6d8 damage instead. See Notes.",
 	descriptionFull: [
 		"You gain a +3 bonus to attack and damage rolls made with this magic *vorpal sword*. In addition, the weapon ignores resistance to slashing damage. When you use this weapon to attack a creature that has at least one head and roll a 20 on the attack roll, you cut off one of the creature's heads. The creature dies if it can't survive without the lost head. A creature is immune to this effect if it is immune to slashing damage, it doesn't have or need a head, it has legendary actions, or the DM decides that the creature is too big for its head to be cut off with this weapon. Such a creature instead takes an extra 6d8 slashing damage from the hit.",
 		"While attuned to *Snicker-Snack*, you have proficiency with greatswords, and you can use your Charisma modifier instead of your Strength modifier for attack and damage rolls made with the weapon.",
@@ -46123,7 +46146,7 @@ MagicItemsList["snicker-snack"] = {
 			amendTo: "Snicker-Snack",
 		}),
 	],
-	weaponProfs: [false, false ["greatsword"]],
+	weaponProfs: [false, false, ["greatsword"]],
 	weaponOptions: [{
 		baseWeapon: "greatsword",
 		regExpSearch: /snicker.snack/i,
@@ -46213,9 +46236,9 @@ MagicItemsList["witchlight vane"] = {
 	type: "wondrous item",
 	rarity: "legendary",
 	attunement: true,
-	prerequisite: "Requires attunement by a mister light or his handpicked successor",
+	prerequisite: "Requires attunement by a Mister Light or his handpicked successor",
 	description: "I can use this sentient ornate rod as a +3 mace that deals an extra 1d8 radiant damage on a hit. It can sense the mood of every creature in the carnival. As an action, I can pinpoint the happiest in the carnival. I can use it to cast spells. I can't be blinded, deafened, petrified, or stunned. See Notes page.",
-	descriptionLong: "This sentient ornate rod is topped by a pair of butterfly wings and incorporates bits of red glass into its length. I can use it as a +3 mace that deals an extra 1d8 radiant damage on a hit. It can sense the mood of every creature in the carnival. As an action, I can use it to pinpoint the happiest in the carnival. I can use it to cast Dancing *Light*, *Ray of Frost*, and *Polymorph*. After I use it to cast *Polymorph*, roll a d8. On a roll of 3 or 8, the vane can't be used to cast *Polymorph* again until the next dawn. It makes me vulnerable to lightning damage, but I can't be blinded, deafened, petrified, or stunned. See Notes page.",
+	descriptionLong: "This sentient ornate rod is topped by a pair of butterfly wings and incorporates bits of red glass into its length. I can use it as a +3 mace that deals an extra 1d8 radiant damage on a hit. It can sense the mood of every creature in the carnival. As an action, I can use it to pinpoint the happiest in the carnival. I can use it to cast *Dancing Lights*, *Ray of Frost*, and *Polymorph*. After I use it to cast *Polymorph*, roll a d8. On a roll of 3 or 8, the vane can't be used to cast *Polymorph* again until the next dawn. It makes me vulnerable to lightning damage, but I can't be blinded, deafened, petrified, or stunned. See Notes page.",
 	descriptionFull: [
 		"This ornate rod is topped by a pair of butterfly wings and incorporates bits of red glass into its length. It weighs 3 pounds.",
 		"***Magic Weapon***. In the hands of one who is attuned to it, the vane can be wielded as a magic mace that grants a +3 bonus to attack and damage rolls made with it. In addition, the vane deals an extra 1d8 radiant damage on a hit.",
@@ -46272,7 +46295,7 @@ MagicItemsList["witchlight watch"] = {
 	type: "wondrous item",
 	rarity: "legendary",
 	attunement: true,
-	prerequisite: "Requires attunement by a mister witch or his handpicked successor",
+	prerequisite: "Requires attunement by a Mister Witch or his handpicked successor",
 	description: "As an action once per 8 hours, I can use this ornate pocket watch to initiate the (un)packing of the carnival over the next hour. I can use it to cast *Fire Bolt*, *Message*, and *Invisibility*. After it casts *Invisibility*, I roll a d8. On a roll of 3 or 8, I can't cast this again until the next dawn. See Notes page.",
 	descriptionLong: "This ornate pocket watch is fastened to the end of a gold chain and glows with a faint golden light when opened. As an action once per 8 hours, I can use this ornate pocket watch to initiate the (un)packing of the carnival over the next hour, provided the carnival and I are on the same plane of existence. I can use it to cast *Fire Bolt*, *Message*, and *Invisibility*. After I use it to cast *Invisibility*, roll a d8. On a roll of 3 or 8, it can't be used to cast *Invisibility* again until the next dawn. As long as I'm attuned to it, I'm 30 lb heavier and must eat and drink eight times the normal amount each day. See Notes page.",
 	descriptionFull: [
@@ -46336,7 +46359,7 @@ CreatureList["giant swan"] = { // a giant eagle except that it has no talons, ca
 		ability: 1,
 		damage: [1, 6, "piercing"],
 		range: "Melee (5 ft)",
-		description: "Two beak attack as an Attack action",
+		description: "Two beak attacks as an Attack action",
 	}],
 	actions: [{
 		name: "Multiattack",
@@ -46670,7 +46693,7 @@ AddSubClass("monk", "ascendant dragon", {
 								fields.Damage_Die = (v.theWea.WotAD_BreathWeaponAugmented ? 4 : n < 11 ? 2 : 3) + "d" + aMonkDie;
 							};
 						},
-						"My Breath of the Dragon deals damage equal to two rolls of my Martials Arts die. At 11th level, this increases to three rolls of my Martial Arts die. At 17th level, I can expend 1 ki point to augment the breath to increase the damage to four rolls of my Martial Arts die.",
+						"My Breath of the Dragon deals damage equal to two rolls of my Martial Arts die. At 11th level, this increases to three rolls of my Martial Arts die. At 17th level, I can expend 1 ki point to augment the breath to increase the damage to four rolls of my Martial Arts die.",
 					],
 				},
 			},
@@ -46701,7 +46724,7 @@ AddSubClass("monk", "ascendant dragon", {
 					];
 					if (n < 17) return desc(aDesc);
 					var aDesc17 = [
-						"From 17th-level, when I active this, I can choose any creatures I can see in the aura",
+						"From 17th-level, when I activate this, I can choose any creatures I can see in the aura",
 						"Each must then make a Dex save or take 3d10 acid, cold, fire, lightning, or poison damage",
 					];
 					return desc(aDesc.concat(aDesc17));
@@ -46803,7 +46826,7 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 					damage: [1, 6, "piercing"],
 					modifiers: ["", "Prof"],
 					range: "Melee (5 ft)",
-					description: "", //+1d6 damage of the chosen Draconic Essense type
+					description: "", //+1d6 damage of the chosen Draconic Essence type
 					abilitytodamage: false,
 				}],
 				features: [{
@@ -46815,7 +46838,7 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 					description: "Chosen when summoned: acid, cold, fire, lightning, or poison damage.",
 				}, {
 					name: "Infused Strikes",
-					description: "As a reaction when another creature within 30 ft of the drake that it can see hits with a weapon attack, the drake can infuse the strike with its essence, causing the attack to deal an extra 1d6 damage of its chosen Draconic Essence damage type",
+					description: "As a reaction when another creature within 30 ft of the drake that it can see hits with a weapon attack, the drake can infuse the strike with its essence, causing the attack to deal an extra 1d6 damage of its chosen Draconic Essence damage type.",
 				}, {
 					name: "Bond of Fang and Scale (Drakewarden 7)",
 					minlevel: 7,
@@ -46824,7 +46847,7 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 						var sMoveStr = (typePF ? ",\n" : ", ") + "fly 40 ft";
 						if (What("Unit System") === "metric") sMoveStr = ConvertToMetric(sMoveStr, 0.5);
 						tDoc.getField(prefix + "Comp.Use.Speed").value += sMoveStr;
-						AddString(prefix + "Comp.Use.Attack.1.Description", "+1d6 damage of the chosen Draconic Essense type");
+						AddString(prefix + "Comp.Use.Attack.1.Description", "+1d6 damage of the chosen Draconic Essence type");
 						PickDropdown(prefix + "Comp.Desc.Size", 3); // Medium
 					},
 					removeeval: function (prefix, lvl) {
@@ -46832,21 +46855,21 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 						if (What("Unit System") === "metric") sMoveStr = ConvertToMetric(sMoveStr, 0.5);
 						Value(prefix + "Comp.Use.Speed", What(prefix + "Comp.Use.Speed").replace(sMoveStr, ""));
 						var sAtkFld = prefix + "Comp.Use.Attack.1.Description";
-						Value(sAtkFld, What(sAtkFld).replace(/\+\d+d6 damage of the chosen Draconic Essense type/i, ""));
+						Value(sAtkFld, What(sAtkFld).replace(/\+\d+d6 damage of the chosen Draconic Essence type/i, ""));
 						PickDropdown(prefix + "Comp.Desc.Size", 4); // Small
 					},
 				}, {
 					name: "Perfected Bond (Drakewarden 15)",
 					minlevel: 15,
-					description: "The drake is now Large and can fly while its being ridden. Its bite attack deals an extra 1d6 damage (for a total of +2d6) of its chosen Draconic Essence type.",
+					description: "The drake is now Large and can fly while it's being ridden. Its bite attack deals an extra 1d6 damage (for a total of +2d6) of its chosen Draconic Essence type.",
 					eval: function (prefix, lvl) {
 						var sAtkFld = prefix + "Comp.Use.Attack.1.Description";
-						Value(sAtkFld, What(sAtkFld).replace(/\+\d+d6 damage of the chosen Draconic Essense type/i, "+2d6 damage of the chosen Draconic Essense type"));
+						Value(sAtkFld, What(sAtkFld).replace(/\+\d+d6 damage of the chosen Draconic Essence type/i, "+2d6 damage of the chosen Draconic Essence type"));
 						PickDropdown(prefix + "Comp.Desc.Size", 2); // Large
 					},
 					removeeval: function (prefix, lvl) {
 						var sAtkFld = prefix + "Comp.Use.Attack.1.Description";
-						Value(sAtkFld, What(sAtkFld).replace(/\+\d+d6 damage of the chosen Draconic Essense type/i, "+1d6 damage of the chosen Draconic Essense type"));
+						Value(sAtkFld, What(sAtkFld).replace(/\+\d+d6 damage of the chosen Draconic Essence type/i, "+1d6 damage of the chosen Draconic Essence type"));
 						PickDropdown(prefix + "Comp.Desc.Size", 3); // Medium
 					},
 				}],
@@ -46868,8 +46891,8 @@ var FToD_Ranger_Subclass_Drakewarden = AddSubClass("ranger", "drakewarden", {
 			minlevel: 7,
 			description: desc([
 				"My drake is now Medium, has a 40 ft fly speed, and can be ridden, but not while flying",
-				"The drake's bite attack deals an extra 1d6 damage chosen by its Draconic Essense",
-				"While it is summoned, I gain resistance to the damage type of its Draconic Essense",
+				"The drake's bite attack deals an extra 1d6 damage chosen by its Draconic Essence",
+				"While it is summoned, I gain resistance to the damage type of its Draconic Essence",
 			]),
 			dmgres: ["(See Drake)"],
 		},
@@ -47072,7 +47095,7 @@ SpellsList["fizban's platinum shield"] = {
 	components: "V,S,M\u0192",
 	compMaterial: "A platinum-plated dragon scale, worth at least 500 gp",
 	duration: "Conc, 1 min",
-	description: "1 crea Acid, Cold, Fire, Lightn. \u0026 Poison resist., half cover, better Dex saves; 1 bns change crea (500gp)",
+	description: "1 crea Acid, Cold, Fire, Lightn. \x26 Poison resist., half cover, better Dex saves; 1 bns change crea (500gp)",
 	descriptionFull: [
 		"You create a field of silvery light that surrounds a creature of your choice within range (you can choose yourself). The field sheds dim light out to 5 feet. While surrounded by the field, a creature gains the following benefits:",
 		"***Cover***. The creature has half cover.",
@@ -47100,10 +47123,10 @@ SpellsList["nathair's mischief"] = {
 		"Mischievous Surge",
 		[
 			["d4", "Effect"],
-			["  1", "The smell of apple pie fills the air, and each creature in the cube must succeed on a Wisdom saving throw or become charmed by you until the start of your next turn."],
-			["  2", "Bouquets of flowers appear all around, and each creature in the cube must succeed on a Dexterity saving throw or be blinded until the start of your next turn as the flowers spray water in their faces."],
-			["  3", "Each creature in the cube must succeed on a Wisdom saving throw or begin giggling until the start of your next turn. A giggling creature is incapacitated and uses all its movement to move in a random direction."],
-			["  4", "Drops of molasses hover in the cube, making it difficult terrain until the start of your next turn."],
+			[" 1", "The smell of apple pie fills the air, and each creature in the cube must succeed on a Wisdom saving throw or become charmed by you until the start of your next turn."],
+			[" 2", "Bouquets of flowers appear all around, and each creature in the cube must succeed on a Dexterity saving throw or be blinded until the start of your next turn as the flowers spray water in their faces."],
+			[" 3", "Each creature in the cube must succeed on a Wisdom saving throw or begin giggling until the start of your next turn. A giggling creature is incapacitated and uses all its movement to move in a random direction."],
+			[" 4", "Drops of molasses hover in the cube, making it difficult terrain until the start of your next turn."],
 		],
 	],
 };
@@ -47141,7 +47164,7 @@ SpellsList["rime's binding ice"] = { // Icingdeath's Frost in UA:DO
 	duration: "Instantaneous",
 	save: "Con",
 	description: "All in area 3d8+1d8/SL Cold dmg and speed 0 for 1 min until 1 a to undo; save halves, normal speed",
-	descriptionShorter: "All in area 3d8+1d8/SL Cold dmg \u0026 spd 0 for 1 min until 1 a to undo; save halves, normal spd",
+	descriptionShorter: "All in area 3d8+1d8/SL Cold dmg \x26 spd 0 for 1 min until 1 a to undo; save halves, normal spd",
 	descriptionFull: [
 		"A burst of cold energy emanates from you in a 30-foot cone. Each creature in that area must make a Constitution saving throw. On a failed save, a creature takes 3d8 cold damage and is hindered by ice formations for 1 minute, or until it or another creature within reach of it uses an action to break away the ice. A creature hindered by ice has its speed reduced to 0. On a successful save, a creature takes half as much damage and isn't hindered by ice.",
 		"***At Higher Levels***. When you cast this spell using a spell slot of 3rd level or higher, increase the cold damage by 1d8 for each slot level above 2nd.",
@@ -47466,12 +47489,12 @@ MagicItemsList["flail of tiamat"] = {
 AddFeatureChoice(MagicItemsList["figurine of wondrous power"], false, "Gold Canary", {
 	source: [["FToD", 23]],
 	rarity: "legendary",
-	description: "As an action, I can speak the command word and throw this statuette to an empty space within 60 ft, where it becomes a giant canary for 8 hours (or once a year an adult gold dragon for 1 hour), until I use the command again, or it drops to 0 hp. It is friendly, understands my languages, and obeys my commands.",
+	description: "As an action, I can speak the command word and throw this statuette to an empty space within 60 ft, where it becomes a **giant canary** for 8 hours (or once a year an **adult gold dragon** for 1 hour), until I use the command again, or it drops to 0 hp. It is friendly, understands my languages, and obeys my commands.",
 	descriptionLong: "As an action, I can speak the command word and throw this gold statuette of a canary to an unoccupied space within 60 ft, where it becomes a giant canary for up to 8 hours, until I use an action to repeat the command word, or it reaches 0 HP. It is friendly to me and my allies, understands my languages, and obeys my spoken commands. If I issue no commands, the creature defends itself but takes no other actions. Once per year, I can have it become an adult gold dragon for up to 1 hour. When it reverts back to a figurine, it can't be used again until the next dawn (canary) or 1 year has passed (dragon).",
 	descriptionFull: [
 		"This gold statuette is carved in the likeness of a canary and is small enough to fit in a pocket. If you use an action to speak the command word and throw the figurine to a point on the ground within 60 feet of you, the figurine becomes a living creature in one of two forms (you choose). If there isn't enough space for the creature where it would appear, the figurine doesn't become a creature. The two forms are as follows:",
-		"***Giant Canary Form***. The figurine becomes a giant canary for up to 8 hours and can be ridden as a mount. Once the figurine has become a giant canary, it can't be used this way again until the next dawn.",
-		"***Gold Dragon Form***. While you are missing half or more of your hit points, you can speak a different command word and the figurine becomes an adult gold dragon (see its stat block in the Monster Manual) for up to 1 hour. The dragon can't use any legendary actions or lair actions. Once the figurine has become an adult gold dragon, it can't be used this way again until 1 year has passed.",
+		"***Giant Canary Form***. The figurine becomes a **giant canary** for up to 8 hours and can be ridden as a mount. Once the figurine has become a giant canary, it can't be used this way again until the next dawn.",
+		"***Gold Dragon Form***. While you are missing half or more of your hit points, you can speak a different command word and the figurine becomes an **adult gold dragon** (see its stat block in the Monster Manual) for up to 1 hour. The dragon can't use any legendary actions or lair actions. Once the figurine has become an adult gold dragon, it can't be used this way again until 1 year has passed.",
 		"In either form, the creature is friendly to you and your companions. It understands your languages and obeys your spoken commands. If you issue no commands, the creature defends itself but takes no other actions.",
 		"The creature exists for a duration specific to each form. At the end of the duration, the creature reverts to its figurine form. It reverts to a figurine early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature becomes a figurine again, its property can't be used again until a certain amount of time has passed, as specified in the description.",
 	],
@@ -47693,7 +47716,7 @@ var FToD_HoardItems = {
 		},
 	},
 	"dww-wakened": {
-		description: "This weapon uses >>dmg type<< of >>a dragon<< dragon. It adds +2 to its attack and damage rolls and deals +2d6 >>dmg type<< damage. On a 20 to hit, any creature of my choice in 5 ft of the target take 5 damage. As an action once per dawn, it can do a 30-ft cone, Dex DC 16 half, 8d6 damage dragon breath.",
+		description: "This weapon uses >>dmg type<< of >>a dragon<< dragon. It adds +2 to its attack and damage rolls and deals +2d6 >>dmg type<< damage. On a 20 to hit, any creature of my choice in 5 ft of the target takes 5 damage. As an action once per dawn, it can do a 30-ft cone, Dex DC 16 half, 8d6 damage dragon breath.",
 		calcChanges: {
 			atkAdd: [
 				function (fields, v) {
@@ -47744,7 +47767,7 @@ var FToD_HoardItems = {
 		}],
 	},
 	"dww-ascendant": {
-		description: "This weapon uses >>dmg type<< of >>a dragon<< dragon. It adds +3 to its attack and damage rolls and deals +3d6 >>dmg type<< damage. On a 20 to hit, any creature of my choice in 5 ft of the target take 5 damage. As an action once per dawn, it can do a 60-ft cone, Dex DC 18 half, 12d6 damage dragon breath.",
+		description: "This weapon uses >>dmg type<< of >>a dragon<< dragon. It adds +3 to its attack and damage rolls and deals +3d6 >>dmg type<< damage. On a 20 to hit, any creature of my choice in 5 ft of the target takes 5 damage. As an action once per dawn, it can do a 60-ft cone, Dex DC 18 half, 12d6 damage dragon breath.",
 		calcChanges: {
 			atkAdd: [
 				function (fields, v) {
@@ -48042,14 +48065,14 @@ MagicItemsList["dragon-touched focus"] = {
 		description: "While holding this object, I can use it as my spellcasting focus. As a reaction when a creature I can see within 30 ft makes a saving throw, I can grant it advantage on that save. It also grants me advantage on initiative and allows me to cast *Fizban's Platinum Shield* and *Legend Lore* each once per dawn.",
 		action: [["reaction", "Dragon-Touched Focus (adv. on save)"]],
 		spellcastingAbility: "class",
-		extraLimitedFeatures: FToD_HoardItems.dtf_metallic.extraLimitedFeatures,
 		spellcastingBonus: FToD_HoardItems.dtf_metallic.spellcastingBonus,
+		extraLimitedFeatures: FToD_HoardItems.dtf_metallic.extraLimitedFeatures,
 	},
 	"ascendant - chromatic (legendary)": {
 		name: "Chromatic Dragon-Touched Focus (ascendant)",
 		nameTest: /^(?=.*chromatic)(?=.*ascendant)(?=.*dragon.touched)(?=.*(focus|rod|wand|staff|scepter|orb|amulet|crystal)).*$/i,
 		rarity: "legendary",
-		description: "While holding this, I can use it as my spellcasting focus and I can add 1d6 to a roll of acid, cold, fire, lightning, or poison damage for spells I cast with a spell slot. It grants me adv. on initiative and allows me to cast 2 spells once per dawn. Once per dawn, I can treat a spell I cast as if casted with a 9th-level spell slot.",
+		description: "While holding this, I can use it as my spellcasting focus and I can add 1d6 to a roll of acid, cold, fire, lightning, or poison damage for spells I cast with a spell slot. It grants me adv. on initiative and allows me to cast 2 spells once per dawn. Once per dawn, I can treat a spell I cast as if cast with a 9th-level spell slot.",
 		calcChanges: FToD_HoardItems.dtf_chromatic.calcChanges,
 		spellcastingAbility: "class",
 		spellcastingBonus: FToD_HoardItems.dtf_chromatic.spellcastingBonus,
@@ -48059,7 +48082,7 @@ MagicItemsList["dragon-touched focus"] = {
 		name: "Gem Dragon-Touched Focus (ascendant)",
 		nameTest: /^(?=.*gem)(?=.*ascendant)(?=.*dragon.touched)(?=.*(focus|rod|wand|staff|scepter|orb|amulet|crystal)).*$/i,
 		rarity: "legendary",
-		description: "While holding this, I can use it as my spellcasting focus and I can teleport to an empty space I can see in 15 ft when I cast a spell with a spell slot. It also grants me adv. on initiative and allows me to cast 2 spells each once per dawn. Once per dawn, I can treat a spell I cast as if casted with a 9th-level spell slot.",
+		description: "While holding this, I can use it as my spellcasting focus and I can teleport to an empty space I can see in 15 ft when I cast a spell with a spell slot. It also grants me adv. on initiative and allows me to cast 2 spells each once per dawn. Once per dawn, I can treat a spell I cast as if cast with a 9th-level spell slot.",
 		spellcastingAbility: "class",
 		spellcastingBonus: FToD_HoardItems.dtf_gem.spellcastingBonus,
 		extraLimitedFeatures: FToD_HoardItems.dtf_ascendant.extraLimitedFeatures.concat(FToD_HoardItems.dtf_gem.extraLimitedFeatures),
@@ -48068,11 +48091,11 @@ MagicItemsList["dragon-touched focus"] = {
 		name: "Metallic Dragon-Touched Focus (ascendant)",
 		nameTest: /^(?=.*metallic)(?=.*ascendant)(?=.*dragon.touched)(?=.*(focus|rod|wand|staff|scepter|orb|amulet|crystal)).*$/i,
 		rarity: "legendary",
-		description: "While holding this, I can use it as my spellcasting focus. As a reaction when a creature I can see in 30 ft makes a save, I can grant it adv. on that save. It also grants me adv. on initiative and allows me to cast 2 spells each once per dawn. Once per dawn, I can treat a spell I cast as if casted with a 9th-level spell slot.",
+		description: "While holding this, I can use it as my spellcasting focus. As a reaction when a creature I can see in 30 ft makes a save, I can grant it adv. on that save. It also grants me adv. on initiative and allows me to cast 2 spells each once per dawn. Once per dawn, I can treat a spell I cast as if cast with a 9th-level spell slot.",
 		action: [["reaction", "Dragon-Touched Focus (adv. on save)"]],
 		spellcastingAbility: "class",
-		extraLimitedFeatures: FToD_HoardItems.dtf_metallic.extraLimitedFeatures,
-		spellcastingBonus: FToD_HoardItems.dtf_ascendant.extraLimitedFeatures.concat(FToD_HoardItems.dtf_metallic.spellcastingBonus),
+		spellcastingBonus: FToD_HoardItems.dtf_metallic.spellcastingBonus,
+		extraLimitedFeatures: FToD_HoardItems.dtf_ascendant.extraLimitedFeatures.concat(FToD_HoardItems.dtf_metallic.extraLimitedFeatures),
 	},
 }
 MagicItemsList["dragon vessel"] = {
@@ -48106,22 +48129,22 @@ MagicItemsList["dragon vessel"] = {
 	"slumbering (uncommon)": {
 		name: "Dragon Vessel (slumbering)",
 		rarity: "uncommon",
-		description: "As a bonus action once per dawn, if this magical container is empty, I can speak the command word to fill the vessel with one of the following of my choice:  ale, olive oil, a potion of healing, or a potion of climbing. A potion loses its magic if it is not consumed within 24 hours.",
+		description: "As a bonus action once per dawn, if this magical container is empty, I can speak the command word to fill the vessel with one of the following of my choice: ale, olive oil, a potion of healing, or a potion of climbing. A potion loses its magic if it is not consumed within 24 hours.",
 	},
 	"stirring (rare)": {
 		name: "Dragon Vessel (stirring)",
 		rarity: "rare",
-		description: "As a bonus action once per dawn, if this magical container is empty, I can speak the command word to fill the vessel with one of the following of my choice:  ale, mead, olive oil, a potion of healing (normal or greater), or a potion of climbing. A potion loses its magic if it is not consumed within 24 hours.",
+		description: "As a bonus action once per dawn, if this magical container is empty, I can speak the command word to fill the vessel with one of the following of my choice: ale, mead, olive oil, a potion of healing (normal or greater), or a potion of climbing. A potion loses its magic if it is not consumed within 24 hours.",
 	},
 	"wakened (very rare)": {
 		name: "Dragon Vessel (wakened)",
 		rarity: "very rare",
-		description: "As a bonus action once per dawn, if this magical container is empty, I can speak the command word to fill it with one of the following of my choice:  ale, mead, wine, olive oil, a potion of healing (normal, greater, or superior), a potion of climbing, or a potion of flying. Unused potions lose their magic after 24 hours.",
+		description: "As a bonus action once per dawn, if this magical container is empty, I can speak the command word to fill it with one of the following of my choice: ale, mead, wine, olive oil, a potion of healing (normal, greater, or superior), a potion of climbing, or a potion of flying. Unused potions lose their magic after 24 hours.",
 	},
 	"ascendant (legendary)": {
 		name: "Dragon Vessel (ascendant)",
 		rarity: "legendary",
-		description: "As a bonus action once per dawn, I can speak the command word to fill this empty vessel with one of my choice:  ale, mead, wine, whiskey, olive oil, a potion of healing (normal, greater, superior, or supreme), a potion of climbing, a potion of flying, or a potion of dragon's majesty. Potions lose magic after 24 hours.",
+		description: "As a bonus action once per dawn, I can speak the command word to fill this empty vessel with one of my choice: ale, mead, wine, whiskey, olive oil, a potion of healing (normal, greater, superior, or supreme), a potion of climbing, a potion of flying, or a potion of dragon's majesty. Potions lose magic after 24 hours.",
 	},
 }
 MagicItemsList["scaled ornament"] = function (n) {
@@ -48633,10 +48656,10 @@ FeatsList["strixhaven initiate"] = {
 FeatsList["strixhaven mascot"] = {
 	name: "Strixhaven Mascot",
 	source: [["SCC", 37]],
-	description: "I can cast *Find Familiar* as a ritual and it can take the form of my college's mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
+	description: "I can cast *Find Familiar* as a ritual and it can take the form of my college's mascot. When I take the Attack action on my turn, I can forgo one attack to have it make an attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while it's within 60 ft, I can teleport to swap places with it, if there's space.",
 	descriptionFull: [
 		"You have learned how to summon a Strixhaven mascot to assist you, granting you these benefits:",
-		" \u2022 You can cast the *find familiar* spell as a ritual. Your familiar can take the form of the mascot associated with the college you chose for the Strixhaven Initiate feat: a spirit statue mascot (Lorehold), an art elemental mascot (Prismari), a fractal mascot (Quandrix), an inkling mascot (Silverquill), or a pest mascot (Witherbloom).",
+		" \u2022 You can cast the *find familiar* spell as a ritual. Your familiar can take the form of the mascot associated with the college you chose for the Strixhaven Initiate feat: a **spirit statue mascot** (Lorehold), an **art elemental mascot** (Prismari), a **fractal mascot** (Quandrix), an **inkling mascot** (Silverquill), or a **pest mascot** (Witherbloom).",
 		" \u2022 When you take the Attack action on your turn, you can forgo one attack to allow your mascot familiar to make one attack of its own with its reaction.",
 		" \u2022 If your mascot familiar is within 60 feet of you, you can teleport as an action, swapping places with the familiar. If your destination space is too small for you to occupy, the teleportation fails and is wasted. Once you teleport in this way, you can't do so again until you finish a long rest, unless you expend a spell slot of 2nd level or higher to do it again.",
 	],
@@ -48662,27 +48685,27 @@ FeatsList["strixhaven mascot"] = {
 		}
 	},
 	"lorehold": {
-		description: "I can cast *Find Familiar* as a ritual and it can take the form of a Spirit Statue Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
+		description: "I can cast *Find Familiar* as a ritual and it can take the form of a **Spirit Statue Mascot**. When I take the Attack action on my turn, I can forgo one attack to have it make an attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while it's within 60 ft, I can teleport to swap places with it, if there's space.",
 		creaturesAdd: [["Spirit Statue Mascot", true, false, "strixhaven_mascot"]],
 	},
 	"prismari": {
-		description: "I can cast *Find Familiar* as a ritual and it can take the form of an Art Elemental Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make an attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
+		description: "I can cast *Find Familiar* as a ritual and it can take the form of an **Art Elemental Mascot**. When I do the Attack action on my turn, I can forgo one attack to have it make an attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while it's within 60 ft, I can teleport to swap places with it, if there's space.",
 		creaturesAdd: [["Art Elemental Mascot", true, false, "strixhaven_mascot"]],
 	},
 	"quandrix": {
-		description: "I can cast *Find Familiar* as a ritual and it can take the form of a Fractal Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
+		description: "I can cast *Find Familiar* as a ritual and it can take the form of a **Fractal Mascot**. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while it's within 60 ft, I can teleport to swap places with it, if there's space.",
 		creaturesAdd: [["Fractal Mascot", true, false, "strixhaven_mascot"]],
 	},
 	"silverquill": {
-		description: "I can cast *Find Familiar* as a ritual and it can take the form of an Inkling Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
+		description: "I can cast *Find Familiar* as a ritual and it can take the form of an **Inkling Mascot**. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while it's within 60 ft, I can teleport to swap places with it, if there's space.",
 		creaturesAdd: [["Inkling Mascot", true, false, "strixhaven_mascot"]],
 	},
 	"witherbloom": {
-		description: "I can cast *Find Familiar* as a ritual and it can take the form of a Pest Mascot. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while its within 60 ft, I can teleport to swap places with it, if there's space.",
+		description: "I can cast *Find Familiar* as a ritual and it can take the form of a **Pest Mascot**. When I take the Attack action on my turn, I can forgo one attack to have it make one attack with its reaction. As an action once per long rest (or 2nd-level spell slot) while it's within 60 ft, I can teleport to swap places with it, if there's space.",
 		creaturesAdd: [["Pest Mascot", true, false, "strixhaven_mascot"]],
 	},
 };
-if (CompanionList.familiar && CompanionList.pact_of_the_chain) { // Needs to be revisited for v24
+if (CompanionList.familiar && CompanionList.pact_of_the_chain) {
 	CompanionList.strixhaven_mascot = {
 		name: "Strixhaven Mascot",
 		nameTooltip: "Strixhaven Mascot (feat)",
@@ -48837,7 +48860,7 @@ MagicItemsList["lorehold primer"] = {
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; },
-	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to an History or Religion check, after the d20 roll. If I study it during a long rest, I can pick a 1st-level cleric or wizard spell. I can cast the spell once without a spell slot before my next long rest ends.",
+	description: "This magic textbook has 3 charges, regaining 1d3 used charges at dawn. While holding it, I can use 1 charge to add +1d4 to a History or Religion check, after the d20 roll. If I study it during a long rest, I can pick a 1st-level cleric or wizard spell. I can cast the spell once without a spell slot before my next long rest ends.",
 	descriptionFull: [
 		"The *Lorehold Primer* is a magic textbook created at Strixhaven's Lorehold College. The primer has 3 charges, and it regains 1d3 expended charges daily at dawn. If you make an Intelligence (History) or Intelligence (Religion) check while holding the primer, you can expend 1 charge to give yourself 1d4 bonus to the check, immediately after you roll the d20.",
 		"In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the cleric or wizard spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
@@ -49050,7 +49073,7 @@ MagicItemsList["murgaxor's orb"] = {
 		{
 			name: "Murgaxor's Orb",
 			useDescriptionFull: function (str) {
-				return str.replace("targeting I", "$1 me");
+				return str.replace("targeting I", "targeting me");
 			},
 		},
 		Object.assign({}, sentientItemConflictNote, { amendTo: "Murgaxor's Orb" }),
@@ -49082,7 +49105,7 @@ CreatureList["art elemental mascot"] = { // Prismari
 	source: [["SCC", 185]],
 	size: 4,
 	type: "Elemental",
-	companion: "strixhaven_mascot",
+	companion: ["strixhaven_mascot"],
 	alignment: "Neutral",
 	ac: 11,
 	hp: 18,
@@ -49129,7 +49152,7 @@ CreatureList["fractal mascot"] = { // Quandrix
 	source: [["SCC", 192]],
 	size: 4,
 	type: "Construct",
-	companion: "strixhaven_mascot",
+	companion: ["strixhaven_mascot"],
 	alignment: "Neutral",
 	ac: 12,
 	hp: 27,
@@ -49155,7 +49178,7 @@ CreatureList["fractal mascot"] = { // Quandrix
 		description: "As a bonus action, the [THIS] can increase its size by one category. While the [THIS] is Medium or bigger, it makes Strength checks and Strength saving throws with advantage. The [THIS] can become no larger than Huge via this bonus action.",
 	}, {
 		name: "Diminish",
-		description: "As a bonus action, the [THIS] can decreases its size by one category. While the [THIS] is Tiny, it makes attack rolls, Dexterity checks, and Dexterity saving throws with advantage. The [THIS] can become no smaller than 1 ft in height via this bonus action.",
+		description: "As a bonus action, the [THIS] can decrease its size by one category. While the [THIS] is Tiny, it makes attack rolls, Dexterity checks, and Dexterity saving throws with advantage. The [THIS] can become no smaller than 1 ft in height via this bonus action.",
 	}],
 	traits: [{
 		name: "Relative Density",
@@ -49169,7 +49192,7 @@ CreatureList["inkling mascot"] = { // Silverquill
 	source: [["SCC", 195]],
 	size: 5,
 	type: "Ooze",
-	companion: "strixhaven_mascot",
+	companion: ["strixhaven_mascot"],
 	alignment: "Neutral",
 	ac: 13,
 	hp: 18,
@@ -49213,7 +49236,7 @@ CreatureList["pest mascot"] = { // Witherbloom
 	source: [["SCC", 203]],
 	size: 5,
 	type: "Monstrosity",
-	companion: "strixhaven_mascot",
+	companion: ["strixhaven_mascot"],
 	alignment: "Unaligned",
 	ac: 13,
 	hp: 22,
@@ -49250,7 +49273,7 @@ CreatureList["spirit statue mascot"] = { // Lorehold
 	source: [["SCC", 216]],
 	size: 3,
 	type: "Construct",
-	companion: "strixhaven_mascot",
+	companion: ["strixhaven_mascot"],
 	alignment: "Any alignment",
 	ac: 14,
 	hp: 26,
@@ -49694,7 +49717,7 @@ RaceList["multiverse eladrin"] = {
 	trait: [
 		"**Eladrin** (my creature type is humanoid, elf)",
 		"##\u25C6 Trance##. I don't need to sleep, and magic can't put me to sleep. I can finish a long rest in 4 hours while meditating consciously. At the end of the trance, I gain 2 weapon/tool proficiencies until the end of my next long rest.",
-		"##\u25C6 Shifting Seasons##. After finish a long rest, I can align with a season.",
+		"##\u25C6 Shifting Seasons##. After a long rest, I can align with a season.",
 		"##\u25C6 Fey Step##. Prof Bonus per long rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see. At 3rd level, additional effects based on my season.",
 	],
 	features: {
@@ -50019,7 +50042,7 @@ RaceList["multiverse water genasi"] = {
 	scoresGeneric: true,
 	trait: [
 		"**Water Genasi**",
-		"##\u25C6 Amphibious##. I can breathe air and water" + (typePF ? "and I have a swimming speed equal to my walking speed." : ", have a swimming speed equal to walking speed."),
+		"##\u25C6 Amphibious##. I can breathe air and water" + (typePF ? " and I have a swimming speed equal to my walking speed." : ", have a swimming speed equal to walking speed."),
 		"##\u25C6 Acid Resistance##. I have resistance to acid damage.",
 		"##\u25C6 Call to the Wave##. I know the *Acid Splash* cantrip. At 3rd level, I can cast *Create or Destroy Water* without using a spell slot once per long rest. At 5th level, I can cast *Water Walk* without using a spell slot or material components once per long rest. I can also cast each spell using spell slots as normal. Int, Wis, or Cha is my spellcasting ability for these" + (typePF ? " (one-time choice)." : "."),
 	],
@@ -50240,7 +50263,7 @@ RaceList["multiverse githzerai"] = {
 	},
 };
 RaceList["multiverse goblin"] = {
-	regExpSearch: /^(?=.*(multiverse|motm\b))(?=.*goblin).*$/i,
+	regExpSearch: /^(?=.*(multiverse|motm\b))(?=.*\bgoblin)(?!.*(hobgoblin|bugbear)).*$/i,
 	name: "Multiverse Goblin",
 	sortname: "Goblin, Multiverse",
 	source: [["MotM", 20]],
@@ -50296,7 +50319,7 @@ RaceList["multiverse goliath"] = {
 		"**Goliath**",
 		"##\u25C6 Stone's Endurance##. Proficiency Bonus per long rest, when I take damage, I can use my reaction to reduce the damage by 1d12 + my Constitution modifier.",
 		"##\u25C6 Little Giant##. I have proficiency in the Athletics skill and count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.",
-		"##\u25C6 Mountain Born##. I have resistance to cold damage and I'm acclimated to high altitude, including elevations above 20000 ft.",
+		"##\u25C6 Mountain Born##. I have resistance to cold damage and I'm acclimated to high altitude, including elevations above 20,000 ft.",
 	],
 	carryingCapacity: 2,
 };
@@ -50335,10 +50358,10 @@ RaceList["multiverse hobgoblin"] = {
 			toNotesPage: [{
 				page3notes: true,
 				note: [
-					"Whenever I use Fey Gift to take the Help action, I can choose one of these additional effects:",
-					" \u2022 Hospitality: The one I help and I each gain 1d6 + my Prof Bonus in temporary HP",
-					" \u2022 Passage: The one I help and I both gain +10 ft walking speed until my next turn stats",
-					" \u2022 Spite: The first time the one I help hits an attack roll before my next turn starts,",
+					"Whenever I use Fey Gift to take the Help action, I can choose one of these additional effects.",
+					" \u2022 **Hospitality**. The one I help and I each gain 1d6 + my Prof Bonus in temporary HP",
+					" \u2022 **Passage**. The one I help and I both gain +10 ft walking speed until my next turn starts",
+					" \u2022 **Spite**. The first time the one I help hits an attack roll before my next turn starts,",
 					"   the creature hit gains disadvantage on its next attack roll within the next minute",
 				],
 			}],
@@ -50780,7 +50803,6 @@ RaceList["tabaxi-motm"] = { // just a plain improvement over the previous, no ne
 			usages: 1,
 			recovery: " Turn",
 			additional: "still for 1 turn to recover",
-			tooltip: " (can be replenished by not moving for one whole turn)",
 		},
 	},
 	trait: [
@@ -51038,7 +51060,7 @@ MagicItemsList["earring of message"] = {
 		name: "1 charge",
 		spells: ["message"],
 		selection: ["message"],
-		firstCol: "1",
+		firstCol: 1,
 	}],
 };
 MagicItemsList["medal of muscle"] = {
@@ -51083,7 +51105,7 @@ MagicItemsList["medal of the meat pie"] = {
 	type: "wondrous item",
 	rarity: "common",
 	notLegalAL: true,
-	description: "Once as an action, I can press this medal to my mouth to gain 2d4 + 2 temporary hit points. Once this property has been used, it can't be used again, and the medal becomes nonmagical. While magical, this medal is slightly warm to the touch (as if it's fresh from the oven) and smells faintly of baked pie crust.",
+	description: "Once as an action, I can press this medal to my mouth to gain 2d4+2 temporary hit points. Once this property has been used, it can't be used again, and the medal becomes nonmagical. While magical, this medal is slightly warm to the touch (as if it's fresh from the oven) and smells faintly of baked pie crust.",
 	descriptionFull: [
 		"You gain 2d4 + 2 temporary hit points when you use an action to press this medal to your mouth. Once this property has been used, it can't be used again, and the medal becomes nonmagical.",
 		"While magical, this medal is slightly warm to the touch (as if it's fresh from the oven) and smells faintly of baked pie crust.",
@@ -51133,7 +51155,7 @@ MagicItemsList["ring of red fury"] = {
 };
 MagicItemsList["ruidium armor"] = {
 	name: "Ruidium Armor",
-	nameTest: /ruidium.*armou?r/i,
+	nameTest: /ruidium.+(armou?r|\u180C)/i,
 	source: [["CotN", 215]],
 	type: "armor (medium or heavy)",
 	rarity: "very rare",
@@ -51151,12 +51173,12 @@ MagicItemsList["ruidium armor"] = {
 	allowDuplicates: true,
 	chooseGear: {
 		type: "armor",
-		prefixOrSuffix: ["between", "Ruidium", "Armor"],
+		prefixOrSuffix: ["between", "Ruidium", "\u180C"],
 		itemName1stPage: ["suffix", "Ruidium"],
+		descriptionChange: ["replace", "armor"],
 		excludeCheck: function (inObjKey, inObj) {
 			return !/medium|heavy/i.test(inObj.type) || /hide/i.test(inObj.name);
 		},
-		descriptionChange: ["prefix", "armor"],
 	},
 	dmgres: ["Psychic"],
 	speed: { swim: { spd: "walk", enc: "walk" } },
@@ -51186,13 +51208,13 @@ MagicItemsList["ruidium shield"] = {
 }
 MagicItemsList["ruidium weapon"] = {
 	name: "Ruidium Weapon",
-	nameTest: "Ruidium",
+	nameTest: /ruidium.+(weapon|\uFEFF)/i,
 	source: [["CotN", 216]],
 	type: "weapon (any)",
 	rarity: "very rare",
 	notLegalAL: true,
 	attunement: true,
-	description: "This magic weapon deals an extra 2d6 psychic damage to creatures. It also allows me to breath water and gives me a swimming speed equal to my walking speed. If I roll a 1 on an attack roll with it, I must make a DC 20 Cha save or gain 1 level of exhaustion and become corrupted by ruidium.",
+	description: "This magic weapon deals an extra 2d6 psychic damage to creatures. It also allows me to breathe water and gives me a swimming speed equal to my walking speed. If I roll a 1 on an attack roll with it, I must make a DC 20 Cha save or gain 1 level of exhaustion and become corrupted by ruidium.",
 	descriptionFull: [
 		"This magic weapon has a dull, rusty color or has veins of ruidium running through it. While this weapon is on your person, you gain the following benefits:",
 		" \u2022 You can breathe water.",
@@ -51204,7 +51226,8 @@ MagicItemsList["ruidium weapon"] = {
 	allowDuplicates: true,
 	chooseGear: {
 		type: "weapon",
-		prefixOrSuffix: "suffix",
+		prefixOrSuffix: ["between", "Ruidium", "\uFEFF"],
+		itemName1stPage: ["suffix", "Ruidium"],
 		descriptionChange: ["replace", "weapon"],
 	},
 	calcChanges: {
@@ -51225,7 +51248,7 @@ MagicItemsList["teleportation tablet"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	notLegalAL: true,
-	description: "As an action, I can break this clay tablet in half to create a 5-ft radius *Teleportation Circle* within 30 ft that lasts until the end of my next turn and leads to its predetermined destination. I can learn its destination by studying it for 10 minutes and making a DC 21 Arcana check. Once broken, the tablet turns to dust",
+	description: "As an action, I can break this clay tablet in half to create a 5-ft radius *Teleportation Circle* within 30 ft that lasts until the end of my next turn and leads to its predetermined destination. I can learn its destination by studying it for 10 minutes and making a DC 21 Arcana check. Once broken, the tablet turns to dust.",
 	descriptionFull: [
 		"This clay tablet is eight inches long, four inches wide, and half an inch thick. Inscribed on it is the sigil sequence for a permanent *teleportation circle*. A creature that studies the sequence for 10 minutes can make a DC 21 Intelligence (Arcana) check, learning the circle's destination on a success.",
 		"You can use an action to break the tablet in half, turning it to dust. If the tablet is broken while it is on the same plane of existence as the *teleportation circle* whose sigil sequence was engraved on it, a 10-foot-diameter *teleportation circle* of glowing blue light appears on the ground in an unoccupied space you choose within 30 feet of you. This *teleportation circle* has the characteristics of one created using the *teleportation circle* spell, except that it connects to the *teleportation circle* whose sigil sequence appears on the tablet.",
@@ -51234,13 +51257,6 @@ MagicItemsList["teleportation tablet"] = {
 };
 
 // Vestige of Divergence
-var EGtW_Vestiges_Replace = function (sDescr) {
-	return desc(sDescr).replace(/\bf(oo|ee)t\b/ig, "ft")
-		.replace(/you are/ig, "I am").replace(/\byou\b/ig, "I")
-		.replace(/(by|giving|grants|of|to|for) I\b/ig, "$1 me")
-		.replace(/your/g, "my").replace(/Your/g, "My")
-		.replace(/   >>(.*?)<<\. /g, function (a, match) { return "\n" + match.toUpperCase() + "\n   "; });
-}
 MagicItemsList["jewel of three prayers"] = {
 	name: "Jewel of Three Prayers",
 	source: [["CotN", 213]],
@@ -51306,7 +51322,7 @@ MagicItemsList["jewel of three prayers"] = {
 	},
 	"exalted": {
 		name: "Jewel of Three Prayers [exalted]",
-		description: "This grants me +2 AC. It has 7 charges, regaining all at dawn. As an action, I can have it shed 15 ft radius bright light plus 15 ft dim. I can use 1 charge to cast *Invisibility* or end being grappled, paralyzed, or restrained. As a reaction when I see a creature in 60 ft fail a save, I can use 1 charge to have it reroll. See Notes page.",
+		description: "This grants me +3 AC. It has 7 charges, regaining all at dawn. As an action, I can have it shed 15 ft radius bright light plus 15 ft dim. I can use 1 charge to cast *Invisibility* or end being grappled, paralyzed, or restrained. As a reaction when I see a creature in 60 ft fail a save, I can use 1 charge to have it reroll. See Notes page.",
 		usages: 7,
 		recovery: "dawn",
 		extraAC: [{ name: "Jewel of Three Prayers", mod: 3, magic: true, text: "I gain a +3 bonus to AC while attuned." }],
@@ -51690,7 +51706,7 @@ MagicItemsList["spelljamming helm"] = {
 	attunement: true,
 	prerequisite: "Requires attunement by a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; },
-	description: "While attuned to  this ornate chair and sitting in it, I can propel and maneuver the ship on which it has been installed through space, air, or water up to the ship's speed. I need to maintain concentration as if concentrating on a spell to do so. The ship can move faster in space if nothing is nearby. See Notes page.",
+	description: "While attuned to this ornate chair and sitting in it, I can propel and maneuver the ship on which it has been installed through space, air, or water up to the ship's speed. I need to maintain concentration as if concentrating on a spell to do so. The ship can move faster in space if nothing is nearby. See Notes page.",
 	descriptionFull: [
 		"The function of this ornate chair is to propel and maneuver a ship on which it has been installed through space and air. It can also propel and maneuver a ship on water or underwater, provided the ship is built for such travel. The ship in question must weigh 1 ton or more.",
 		"The sensation of being attuned to a *spelljamming helm* is akin to the pins-and-needles effect one experiences after one's arm or leg falls asleep, but not as painful.",
@@ -51703,7 +51719,9 @@ MagicItemsList["spelljamming helm"] = {
 	action: [["action", " (Transfer Attunement)"]],
 	toNotesPage: [{
 		name: "Spelljamming Helm",
-		useDescriptionFull: true,
+		useDescriptionFull: function (str) {
+			return str.replace("as long as me maintain", "as long as I maintain");
+		},
 	}],
 };
 MagicItemsList["wildspace orrery"] = {
@@ -51935,7 +51953,7 @@ RaceList["kender"] = {
 	},
 	trait: [
 		"**Kender**",
-		"##\u25C6 Fearless##. I have adv. on saves against the frightened condition. Once per long rest when I fail " + (typePF ? "such a save" : "a save to avoid being frightened") + ", I can choose to succeed" + (typePF ? "." : " instead"),
+		"##\u25C6 Fearless##. I have adv. on saves against the frightened condition. Once per long rest when I fail " + (typePF ? "such a save" : "a save to avoid being frightened") + ", I can choose to succeed" + (typePF ? "." : " instead."),
 		"##\u25C6 Taunt##. As a bonus action, I can taunt a creature within 60 ft of me that can hear and understand me. They must make a Wisdom " + (typePF ? "saving throw or have disadvantage" : "save (DC 8 + Prof B + Int/Wis/Cha mod; one-time choice) or have disadv.") + " on attack rolls not made against me until the start of my next turn. I can do this a number of times per long rest equal to my proficiency bonus." + (typePF ? " The DC equals 8 + my proficiency bonus + Intelligence, Wisdom, or Charisma modifier (one-time choice when selecting this race)." : ""),
 	],
 };
@@ -51961,7 +51979,7 @@ BackgroundList["knight of solamnia"] = {
 		"My comrades-in-arms are my family. I'll do whatever it takes to keep them safe.",
 		"The protection of innocent people comes first. All other concerns come second.",
 		"I joined the knights for the free meals, but their lessons grew on me over time.",
-		"I wish my deeds to become the stuff of legends\xD7just like those of the knighthood's heroic founders.",
+		"I wish my deeds to become the stuff of legends\u2014just like those of the knighthood's heroic founders.",
 		"A dishonorable act drove me to become a knight. I have acted with honor ever since.",
 	],
 	extra: [
@@ -52026,7 +52044,7 @@ BackgroundFeatureList["initiate of high sorcery"] = {
 FeatsList["initiate of high sorcery"] = {
 	name: "Initiate of High Sorcery",
 	source: [["D:SotDQ", 32], ["UA:HoKR", 4]],
-	description: "I learn a wizard cantrip and two 1st-levels spell from a list depending on my chosen moon. I can cast each spell once per long rest at its lowest levels without expending a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
+	description: "I learn a wizard cantrip and two 1st-level spells from a list depending on my chosen moon. I can cast each spell once per long rest at its lowest levels without expending a spell slot, or by using a spell slot as normal. I can choose Int, Wis, or Cha as my spellcasting ability for this.",
 	descriptionFull: [
 		"You've received training from magic-users affiliated with the Mages of High Sorcery.",
 		"Choose one of the three moons of Krynn to influence your magic: the black moon, Nuitari; the red moon, Lunitari; or the white moon, Solinari. You learn one cantrip of your choice from the wizard spell list and two 1st-level spells based on the moon you choose, as specified in the Lunar Spells table.",
@@ -52037,9 +52055,9 @@ FeatsList["initiate of high sorcery"] = {
 			["", "*hex*, and *ray of sickness*"],
 			["Lunitari", "Choose two from *color spray*, *disguise self*,"],
 			["", "*feather fall*, and *longstrider*"],
-			["Solinari", "Choose two from *comprehend languages*, detect"],
-			["", "evil and good, *protection from evil and good*, and"],
-			["", "shield"],
+			["Solinari", "Choose two from *comprehend languages*, *detect*"],
+			["", "*evil and good*, *protection from evil and good*, and"],
+			["", "*shield*"],
 		],
 		"You can cast each of the chosen 1st-level spells without a spell slot, and you must finish a long rest before you can cast them in this way again. You can also cast the spells using any spell slots you have.",
 		"Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
@@ -52098,7 +52116,7 @@ FeatsList["initiate of high sorcery"] = {
 FeatsList["adept of the black robes"] = {
 	name: "Adept of the Black Robes",
 	source: [["D:SotDQ", 31], ["UA:HoKR", 4]],
-	description: "I learn one 2nd-level Ench or Necro spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. When a creature I can see within 60 ft fails its save vs. my damaging spell, I can expend HD up to the spell's level and add the rolls to the damage of the spell for that one creature.",
+	description: "I learn one 2nd-level Evoc or Necro spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. When a creature I can see within 60 ft fails its save vs. my damaging spell, I can expend HD up to the spell's level and add the rolls to the damage of the spell for that one creature.",
 	descriptionFull: [
 		"You chose the moon Nuitari to influence your magic, and your ambition and loyalty to the Order of the Black Robes have been recognized, granting you these benefits:",
 		"***Ambitious Magic***. You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.",
@@ -52126,7 +52144,7 @@ FeatsList["adept of the red robes"] = {
 	descriptionFull: [
 		"You chose the moon Lunitari to influence your magic, and your dedication to maintaining the balance between all things has been recognized by the Order of the Red Robes, granting you these benefits:",
 		"***Insightful Magic***. You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the illusion or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.",
-		"***Magical Balance***. When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. you can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+		"***Magical Balance***. When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the d20, you can use your reaction to balance fate and treat the roll as a 10. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	],
 	prerequisite: "4th level, Initiate of High Sorcery (Lunitari) feat",
 	prereqeval: function (v) {
@@ -52152,7 +52170,7 @@ FeatsList["adept of the white robes"] = {
 	description: "I learn one 2nd-level Abjur or Div spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. As a reaction when I or a creature I can see within 30 ft is damaged, I can expend a spell slot and roll d6s equal to its level to reduce the damage by that much + my spellcasting modifier.",
 	descriptionFull: [
 		"You chose the moon Solinari to influence your magic, and your oath to use magic to make the world a better place has been recognized by the Order of the White Robes, granting you these benefits:",
-		"***Protective Magic***. You learn one 2nd-level spell of you choice. The 2nd-level spell must be from the abjuration or divination school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.",
+		"***Protective Magic***. You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the abjuration or divination school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.",
 		"***Protective Ward***. When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d6s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier.",
 	],
 	prerequisite: "4th level, Initiate of High Sorcery (Solinari) feat",
@@ -52400,9 +52418,9 @@ AddSubClass("sorcerer", "lunar sorcery", {
 			spellcastingExtraApplyNonconform: true,
 			description: levels.map(function (n) {
 				var phases = {
-					"\u25CB Full: ": ["Shield", "Lesser Restoration", "Dispel Magic", "Death Ward", "Rary's Telepathic Bond"],
-					"\u25CF New: ": ["Ray of Sickness", "Blindness/deafness", "Vampiric Touch", "Confusion", "Hold Monster"],
-					"\u25D6 Crescent: ": ["Color Spray", "Alter Self", "Phantom Steed", "Hallucinatory Terrain", "Mislead"],
+					"\u25CB **Full**. ": ["*Shield*", "*Lesser Restoration*", "*Dispel Magic*", "*Death Ward*", "*Rary's Telepathic Bond*"],
+					"\u25CF **New**. ": ["*Ray of Sickness*", "*Blindness/Deafness*", "*Vampiric Touch*", "*Confusion*", "*Hold Monster*"],
+					"\u25D6 **Crescent**. ": ["*Color Spray*", "*Alter Self*", "*Phantom Steed*", "*Hallucinatory Terrain*", "*Mislead*"],
 				};
 				var aReturn = [
 					"When I finish a long rest, I can choose a lunar phase: Full, New, or Crescent Moon",
@@ -52478,7 +52496,7 @@ AddSubClass("sorcerer", "lunar sorcery", {
 			minlevel: 6,
 			description: desc([
 				"Each lunar phase is additionally associated with spells of the following schools of magic:",
-				"\u25CB Full: Abjur \u0026 Div\t\t\u25CF New: Ench \u0026 Necro\t" + (typePF ? "\t" : Array(8).join(" ")) + "\u25D6 Crescent: Illus \u0026 Trans",
+				"\u25CB **Full**. Abjur \u0026 Div\t\t\u25CF **New**. Ench \u0026 Necro\t" + (typePF ? "\t" : Array(8).join(" ")) + "\u25D6 **Crescent**. Illus \u0026 Trans",
 				"I can reduce the sorcery point needed for Metamagic of spells of my current phase by 1",
 			]),
 			usages: "Proficiency bonus per ",
@@ -52520,10 +52538,10 @@ AddSubClass("sorcerer", "lunar sorcery", {
 			source: [["D:SotDQ", 0]],
 			minlevel: 14,
 			description: " [passive benefits for current phase]" + desc([
-				"\u25CB Full: I shed bright light in a 10-ft radius \u0026 dim light for extra 10 ft",
-				"  Myself and creatures I choose in 10 ft have adv. on Investigation and Perception checks",
-				"\u25CF New: I have adv. on Stealth checks; While I'm in darkness, attacks have disadv. vs me",
-				"\u25D6 Crescent: I have resistance to Necrotic and Radiant damage",
+				"\u25CB **Full**. I shed bright light in a 10-ft radius \u0026 dim light for extra 10 ft",
+				"  I and creatures I choose in 10 ft have adv. on Investigation and Perception checks",
+				"\u25CF **New**. I have adv. on Stealth checks; While I'm in darkness, attacks have disadv. vs me",
+				"\u25D6 **Crescent**. I have resistance to Necrotic and Radiant damage",
 			]),
 			dmgres: [
 				["Necrotic", "Necro. (in crescent)"],
@@ -52537,12 +52555,12 @@ AddSubClass("sorcerer", "lunar sorcery", {
 			additional: "per phase: 1\xD7 per " + (typePF ? "LR" : "long rest") + " or 5 SP",
 			description: desc([
 				"As a bonus action, or as part of changing phase, I can use a power of the (new) phase:",
-				"\u25CB Full: Chosen creatures within 30 ft of me must make a Constitution save or be blinded",
+				"\u25CB **Full**. Chosen creatures within 30 ft of me must make a Constitution save or be blinded",
 				"  This lasts until their next turn ends; I also heal one creature within 30 ft for 3d8 HP",
-				"\u25CF New: Chosen creatures within 30 ft of me must make a Dexterity save",
+				"\u25CF **New**. Chosen creatures within 30 ft of me must make a Dexterity save",
 				"  If failed, they take 3d10 Necrotic damage and have 0 speed until their next turn ends",
 				"  Also, I become invisible until the end of my next turn, or until I attack or cast a spell",
-				"\u25D6 Crescent: I can magically teleport to an unoccupied space I can see within 60 ft",
+				"\u25D6 **Crescent**. I can magically teleport to an unoccupied space I can see within 60 ft",
 				"  Both of us gain resistance to all damage until the start of my next turn",
 				"I can use each phase's bonus action 1/LR, or by spending 5 sorcery points to use it again",
 			]),
@@ -52644,7 +52662,7 @@ MagicItemsList["mirror of reflected pasts"] = {
 	rarity: "very rare",
 	attunement: true,
 	description: "As an action, I can (de)activate this mirror. It can be activated once per dawn, making it hover in the air, can't be moved, and when a non-construct sees its reflection in it while within 30 ft, it must make a DC 15 Wis save. It is paralyzed until the mirror is deactivated. It can retry the save at the end of each of its turns.",
-	descriptionLong: "As an action, I can activate this mirror of elven design once per dawn, or deactive it. While active, it hovers in the air and can't be moved. When a non-construct creature within 30 ft of the mirror sees its reflection in it, the creature must make a DC 15 Wisdom save or become paralyzed. The creature can repeat the save at the end of each of its turns, but is otherwise paralyzed until the  mirror is deactivated. A successful save makes a creature immune for 24 hours. While paralyzed by the mirror, the creature sees idealized versions of events from their past reflected in the mirror's glass.",
+	descriptionLong: "As an action, I can activate this mirror of elven design once per dawn, or deactivate it. While active, it hovers in the air and can't be moved. When a non-construct creature within 30 ft of the mirror sees its reflection in it, the creature must make a DC 15 Wisdom save or become paralyzed. The creature can repeat the save at the end of each of its turns, but is otherwise paralyzed until the mirror is deactivated. A successful save makes a creature immune for 24 hours. While paralyzed by the mirror, the creature sees idealized versions of events from their past reflected in the mirror's glass.",
 	descriptionFull: [
 		"This mirror of elven design allows those who stare into it to reflect on positive memories. The 3-foot-tall mirror weighs 25 pounds, and it has AC 11, 10 hit points, and vulnerability to bludgeoning damage. It shatters and is destroyed if reduced to 0 hit points.",
 		"While holding the mirror upright, you can use an action to speak its command word and activate it. While activated, the mirror hovers in the air, and it can be destroyed but not moved. It remains activated until you use an action to speak the command word again or your attunement to the mirror ends, at which point the mirror harmlessly floats to the ground. Once the mirror has been deactivated, it can't be activated again until the next dawn.",
@@ -52690,7 +52708,7 @@ MagicItemsList["constantori's portrait"] = {
 		{
 			name: "Constantori's Portrait",
 			useDescriptionFull: function (str) {
-				return str.replace("contact I", "contact me");
+				return str.replace("contact I", "contact me").replace("the painting and I am on", "the painting and I are on");
 			},
 		},
 		Object.assign({}, sentientItemConflictNote, { amendTo: "Constantori's Portrait" }),
@@ -52721,13 +52739,13 @@ MagicItemsList["shard of xeluan"] = {
 		"***Curse***. Attuning to this item extends its curse to you. You remain cursed until you are targeted by a *remove curse* spell or similar magic, or until the shard is reattached to Xeluan's petrified heart.",
 		"The shard's curse causes misfortune to befall you. When you roll a 1 on an attack roll, an ability check, or a saving throw, roll on the Shard Misfortunes table to determine the misfortune. For as long as this misfortune lasts, no other shard misfortunes befall you.",
 		[
-			[" d6", "Misfortune"],
-			["  1", "You accidentally cut yourself with the shard and are poisoned until the next dawn."],
-			["  2", "You experience a vision of an ancient calamity\u2014a beautiful city threatened by crumbling mountains and erupting volcanoes\u2014and are stunned until the end of your next turn."],
-			["  3", "For a few seconds, the ground shakes under you. You and each creature within 10 feet of you must succeed on a DC 16 Dexterity saving throw or be knocked prone."],
-			["  4", "The shard releases three glowing darts of magical force that target one random creature within 30 feet of you. If no such target exists, you become the target. Each dart hits automatically and deals 3 (1d4 + 1) force damage to the target."],
-			["  5", "Until the next dawn, Beasts with an Intelligence score of 3 or lower are hostile to you."],
-			["  6", "Nothing seems to go your way. Until the next dawn, you have disadvantage on ability checks."],
+			["d6", "Misfortune"],
+			["1", "You accidentally cut yourself with the shard and are poisoned until the next dawn."],
+			["2", "You experience a vision of an ancient calamity\u2014a beautiful city threatened by crumbling mountains and erupting volcanoes\u2014and are stunned until the end of your next turn."],
+			["3", "For a few seconds, the ground shakes under you. You and each creature within 10 feet of you must succeed on a DC 16 Dexterity saving throw or be knocked prone."],
+			["4", "The shard releases three glowing darts of magical force that target one random creature within 30 feet of you. If no such target exists, you become the target. Each dart hits automatically and deals 3 (1d4 + 1) force damage to the target."],
+			["5", "Until the next dawn, Beasts with an Intelligence score of 3 or lower are hostile to you."],
+			["6", "Nothing seems to go your way. Until the next dawn, you have disadvantage on ability checks."],
 		],
 	],
 	calcChanges: {
@@ -52745,13 +52763,15 @@ MagicItemsList["shard of xeluan"] = {
 		note: [
 			"Attuning to this item extends its curse to me. I remain cursed until I'm targeted by a *remove curse* spell or similar magic, or until the shard is reattached to Xeluan's petrified heart.",
 			"The shard's curse causes misfortune to befall me. When I roll a 1 on an attack roll, an ability check, or a saving throw, roll on the Shard Misfortunes table to determine the misfortune. For as long as this misfortune lasts, no other shard misfortunes befall me.",
-			"\n  d6\tMisfortune",
-			"1\tI accidentally cut myself with the shard and are poisoned until the next dawn." +
-			"2\tI experience a vision of an ancient calamity: a beautiful city threatened by crumbling mountains and erupting volcanoes. I am stunned until the end of my next turn." +
-			"3\tFor a few seconds, the ground shakes under me. Each creature within 10 ft of me, myself included, must succeed on a DC 16 Dexterity saving throw or be knocked prone." +
-			"4\tThe shard releases three glowing darts of magical force that target one random creature within 30 ft of me. If no such target exists, I become the target. Each dart hits automatically and deals 1d4+1 force damage to the target." +
-			"5\tUntil the next dawn, Beasts with an Intelligence score of 3 or lower are hostile to me." +
-			"6\tNothing seems to go my way. Until the next dawn, I have disadvantage on ability checks.",
+			[
+				["d6", "Misfortune"],
+				["1", "I accidentally cut myself with the shard and am poisoned until the next dawn."],
+				["2", "I experience a vision of an ancient calamity: a beautiful city threatened by crumbling mountains and erupting volcanoes. I am stunned until the end of my next turn."],
+				["3", "For a few seconds, the ground shakes under me. Each creature within 10 ft of me, myself included, must succeed on a DC 16 Dexterity saving throw or be knocked prone."],
+				["4", "The shard releases three glowing darts of magical force that target one random creature within 30 ft of me. If no such target exists, I become the target. Each dart hits automatically and deals 1d4+1 force damage to the target."],
+				["5", "Until the next dawn, Beasts with an Intelligence score of 3 or lower are hostile to me."],
+				["6", "Nothing seems to go my way. Until the next dawn, I have disadvantage on ability checks."],
+			],
 		],
 	}],
 };
@@ -52764,7 +52784,7 @@ var KftGV_ShardSolitaire = {
 		"***Spellcasting***. The stone has 6 charges and regains 1d6 expended charges daily at dawn. ",
 	].join("\n   "),
 	descriptionTable: [
-		"The Shard Solitaire Types table lists the spells common to all shard solitaires, as well as the spells specific to each kind of stone. As an action, you can cast one of the stone's spells by expending the requisite number of charges, requiring no material components (save DC 16).",
+		"The Shard Solitaire Types table lists the spells common to all *shard solitaires*, as well as the spells specific to each kind of stone. As an action, you can cast one of the stone's spells by expending the requisite number of charges, requiring no material components (save DC 16).",
 		[
 			[" Shard Solitaire", "Spells"],
 			["  All", "", "*Banishment* (3 charges; the target is banished to the stone's extradimensional space"],
@@ -52802,7 +52822,7 @@ MagicItemsList["shard solitaire"] = {
 	attunement: true,
 	description: "As a bonus action while wearing or holding this gemstone, I can teleport up to 60 ft to an empty space I can see. If I teleport over 30 ft, I need to make a DC 16 Con save or take 3d10 force damage. It has 6 charges, regaining 1d6 at dawn. I can use these charges to cast several spells as an action, see the spell sheet.",
 	descriptionFull: [
-		KftGV_ShardSolitaire.descriptionFull.replace(": black sapphire, diamond, jacinth, rainbow pearl, and ruby.", ", as shown in the *Shard Solitaire* Types table."),
+		KftGV_ShardSolitaire.descriptionFull.replace(": black sapphire, diamond, jacinth, rainbow pearl, and ruby.", ", as shown in the Shard Solitaire Types table."),
 	].concat(KftGV_ShardSolitaire.descriptionTable),
 	allowDuplicates: true,
 	usages: 6,
@@ -53529,15 +53549,15 @@ FeatsList["rune shaper"] = {
 			["Fire", "*Burning Hands*"],
 			["Friend", "*Speak with Animals*"],
 			["Frost", "*Armor of Agathys*"],
-			["Hill", "Goodberry"],
-			["Journey", "Longstrider"],
-			["King", "Command"],
-			["Mountain", "Entangle"],
-			["Stone", "Sanctuary"],
-			["Storm", "Thunderwave"],
+			["Hill", "*Goodberry*"],
+			["Journey", "*Longstrider*"],
+			["King", "*Command*"],
+			["Mountain", "*Entangle*"],
+			["Stone", "*Sanctuary*"],
+			["Storm", "*Thunderwave*"],
 		],
 	],
-	description: "I know half my Prof Bonus, rounded down, in runes. After a long rest, I can inscribe each rune on a nonmagical objects I touch. It lasts until my next long rest. I can cast *Comprehend Languages* and each inscribed rune's spell once per long rest without a spell slot or material components, or by using spell slots. See Notes.",
+	description: "I know half my Prof Bonus, rounded down, in runes. After a long rest, I can inscribe each rune on a nonmagical object I touch. It lasts until my next long rest. I can cast *Comprehend Languages* and each inscribed rune's spell once per long rest without a spell slot or material components, or by using spell slots. See Notes.",
 	spellcastingAbility: [4, 5, 6],
 	spellFirstColTitle: "PR",
 	allowUpCasting: true,
@@ -53713,7 +53733,7 @@ MagicItemsList["armor of safeguarding"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: "prefix",
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		excludeCheck: function (inObjKey, inObj) {
 			return !/heavy/i.test(inObj.type);
 		},
@@ -53785,7 +53805,7 @@ MagicItemsList["crown of the wrath bringer"] = {
 		"When you make an attack roll against a creature and hit it while wearing this crown, you can spend and roll one of your unspent Hit Dice. The creature takes extra psychic damage equal to the number rolled.",
 		"***Invoking the Rune***. As an action, you can invoke the crown's rune to cast the *fear* spell (save DC 15) with it; the spell has a duration of 1 minute and doesn't require concentration. Once the rune has been invoked, it can't be invoked again until the next dawn.",
 	],
-	description: "When I hit a creature with an attack roll while wearing this jagged icon circlet, I can spend one HD to have the attack deal that much extra psychic damage. As an action once per dawn, I can invoke its enemy rune to cast *Fear* (DC 15) with a duration of 1 minute without requiring concentration.",
+	description: "When I hit a creature with an attack roll while wearing this jagged iron circlet, I can spend one HD to have the attack deal that much extra psychic damage. As an action once per dawn, I can invoke its enemy rune to cast *Fear* (DC 15) with a duration of 1 minute without requiring concentration.",
 	usages: 1,
 	recovery: "dawn",
 	additional: "Fear",
@@ -53812,7 +53832,7 @@ MagicItemsList["delver's claws"] = {
 	descriptionFull: [
 		"The back of this weatherworn leather glove is adorned with three large metal hooks shaped like a mole's claws. Stitched into the glove's palm is the mountain rune.",
 		"The glove is considered a simple melee weapon with the finesse and light properties, and it deals 1d4 slashing damage on a hit. While attuned to the glove, you gain a burrowing speed equal to your walking speed and blindsight to 15 feet.",
-		"***Invoking the Rune***As an action, you can invoke the glove's rune to bolster yourself with the sturdiness of the earth. Spend and roll a number of your unspent Hit Dice up to a maximum equal to your proficiency bonus. You then regain a number of hit points equal to the total roll plus your Constitution modifier.",
+		"***Invoking the Rune***. As an action, you can invoke the glove's rune to bolster yourself with the sturdiness of the earth. Spend and roll a number of your unspent Hit Dice up to a maximum equal to your proficiency bonus. You then regain a number of hit points equal to the total roll plus your Constitution modifier.",
 		"Once the rune has been invoked, it can't be invoked again until the next dawn.",
 	],
 	description: "This weatherworn leather glove is a simple, finesse, light melee weapon, dealing 1d4 slashing damage. While attuned, I gain 15 ft blindsight and a burrow speed equal to my walking speed. As an action once per dawn, I can invoke its mountain rune to spend up to Prof Bonus HD to regain hp (total roll + Con mod).",
@@ -53916,7 +53936,7 @@ MagicItemsList["lash of immolation"] = {
 		"***Invoking the Rune***. When you make an attack with the whip and hit, you can use your reaction to invoke the whip's rune. Doing so increases the extra fire damage dealt by the whip to 2d6.",
 		"Once the rune has been invoked, it can't be invoked again until the next dawn.",
 	],
-	description: "This +1 dark leather whip ha embers dancing around its tail. It deals +1d6 fire damage. When I score a critical hit with it, the target is restrained until my next turn starts, as fiery bands lash around it. As a reaction once per dawn when I hit with it, I can invoke its fire rune to increase the fire damage to 2d6.",
+	description: "This +1 dark leather whip has embers dancing around its tail. It deals +1d6 fire damage. When I score a critical hit with it, the target is restrained until my next turn starts, as fiery bands lash around it. As a reaction once per dawn when I hit with it, I can invoke its fire rune to increase the fire damage to 2d6.",
 	weight: 3,
 	weaponOptions: [{
 		baseWeapon: "whip",
@@ -54082,7 +54102,10 @@ MagicItemsList["orb of skoraeus"] = {
 		"***Astute Mind***. You gain a +2 bonus to any Constitution saving throw you make to maintain your concentration on a spell.",
 		"***Divine Sight***. You can see normally in darkness, both magical and nonmagical, to a distance of 120 feet.",
 	],
-	description: 'I can use this polished stone orb as a spellcasting focus that grants me +2 to concentration saves and "Divine Sight", the ability to see in normal and magical darkness out to 120 ft. It has 3 charges per dawn. When I cast a spell, I can expend charges to ignore 300 gp worth of material components per charge used.',
+	description: [
+		"This polished stone orb is a spellcasting focus. ***Astute Mind***. +2 bonus to concentration saves. ***Abundant Components***. It has 3 charges per dawn. When I cast a spell, I can expend charges to ignore 300 gp worth of material components per charge.",
+		"***Divine Sight***. See in normal and magical carkness out to 120 ft.",
+	],
 	weight: 8,
 	usages: 3,
 	recovery: "dawn",
@@ -54266,10 +54289,12 @@ MagicItemsList["shield of the blazing dreadnought"] = {
 		"***Shield Bash***. When you take the Attack action on your turn, you can replace one of your attacks with a shield bash, targeting one creature you can see within 5 feet of yourself. The target must make a Strength saving throw (DC equals 8 + your proficiency bonus + your Strength modifier). On a failed save, the target takes 3d6 bludgeoning damage plus 3d6 fire damage and is knocked prone. On a successful save, the target takes half as much damage only. You can use Shield Bash only once per turn.",
 		"Once the shield has been activated, it can't be activated again until the next dawn.",
 	],
-	description: "As a bonus action once per dawn, I can activate this iron shield to grant me the following for 1 minute: \u2022 Immune to fire. \u2022 As an action, I can remove disease, blinded, charmed, deafened, or poisoned from myself a creature I can see within 30 ft (Cleansing Fire). \u2022 I can make a shield bash attack once per turn (see attack).",
-	descriptionLong: "As a bonus action once per dawn, I can activate this iron shield to grant me the following benefits for 1 minute: \u2022 ***Blazing Soul***. Immunity to fire damage." +
-	"\n\u2022 ***Cleansing Fire***. As an action, I can remove a disease from myself or a creature I can see within 30 ft or the blinded, charmed, deafened, or poisoned condition." +
-	"\n\u2022 ***Shield Bash***. When I take the Attack action on my turn, I can replace one attack with a shield bash to deal 3d6 bludgeoning and 3d6 fire damage and knock prone one creature within 5 ft. It can make a Str save (DC 8 + Prof B + Str mod) to take only half damage.",
+	description: "As a bonus action once per dawn, I can activate this iron shield to grant me the following for 1 minute: \u2022 Immune to fire. \u2022 As an action, I can remove disease, blinded, charmed, deafened, or poisoned from me or a creature I can see within 30 ft (Cleansing Fire). \u2022 I can make a shield bash attack once per turn (see attack).",
+	descriptionLong: [
+		"As a bonus action once per dawn, I can activate this iron shield to grant me the following benefits for 1 minute. ***Blazing Soul***. Immunity to fire damage.",
+		"***Cleansing Fire***. As an action, I can remove a disease from myself or a creature I can see within 30 ft or the blinded, charmed, deafened, or poisoned condition.",
+		"***Shield Bash***. When I take the Attack action on my turn, I can replace one attack with a shield bash to deal 3d6 bludgeoning and 3d6 fire damage and knock prone one creature within 5 ft. It can make a Str save (DC 8 + Prof B + Str mod) to take only half damage.",
+	],
 	weight: 6,
 	shieldAdd: "Shield of the Blazing Dreadnought",
 	savetxt: { immune: ["fire (while Blazing Dreadnought active)"] },
@@ -54376,7 +54401,7 @@ MagicItemsList["thunderbuss"] = {
 		"Once the rune has been invoked, it can't be invoked again until the next dawn.",
 		"It's up to the DM to decide whether a character has proficiency with a firearm. Characters in most D\u0026D worlds wouldn't have such proficiency. During their downtime, characters can use the training rules in the Player's Handbook to acquire proficiency, assuming that they have enough ammunition to keep the weapons working while mastering their use.",
 	],
-	description: "This +1 pistol deals thunder damage and requires loading nor ammunition. As a bonus action once per dawn, I can invoke its storm rune on a point within 30 ft. All creatures in a 10-ft radius must make a DC 14 Con save or take 3d6 thunder damage and no reactions until my next turn ends. Only half damage if saved.",
+	description: "This +1 pistol deals thunder damage and requires no loading or ammunition. As a bonus action once per dawn, I can invoke its storm rune on a point within 30 ft. All creatures in a 10-ft radius must make a DC 14 Con save or take 3d6 thunder damage and no reactions until my next turn ends. Only half damage if saved.",
 	weight: 3,
 	weaponOptions: [{
 		baseWeapon: "pistol",
@@ -54481,7 +54506,7 @@ MagicItemsList["zephyr armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Zephyr", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["suffix", "Zephyr"],
 		excludeCheck: function (inObjKey, inObj) {
 			return !/light/i.test(inObj.type);
@@ -54515,6 +54540,89 @@ SourceList["PaBTSO"] = {
 };
 
 // Magic Items
+MagicItemsList["spider staff"] = { // overwrite so it uses the new version introduced in Phandelver and Below: The Shattered Obelisk with the prerequisite
+	name: "Spider Staff",
+	source: [["PaBTSO", 220], ["LMoP", 53]],
+	type: "staff",
+	rarity: "rare",
+	magicItemTable: "G",
+	description: "Attacks with this black adamantine quarterstaff topped with a spider deal +1d6 poison damage on a hit. It has 10 charges and regains 1d6+4 expended charges at dawn. If I use its last charge, roll a d20. On a 1, it is destroyed. I can use its charges to cast *Spider Climb* (1 charge) or *Web* (2 charges, spell save DC 15).",
+	descriptionFull: [
+		"The top of this magic quarterstaff is shaped like a spider. It deals an extra 1d6 poison damage on a hit when used to make a weapon attack.",
+		"***Spells***. The staff has 10 charges. While holding it, you can expend the requisite number of charges to cast one of the following spells from the staff: *spider climb* (1 charge) or *web* (2 charges; spell save DC 15).",
+		"The staff regains 1d6+4 expended charges daily at dusk. If you expend the staff's last charge, roll a d20. On a 1, the staff crumbles to dust and is destroyed.",
+	],
+	attunement: true,
+	prerequisite: "Requires attunement by a bard, sorcerer, warlock, or wizard",
+	prereqeval: function (v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
+	weight: 6, // kept to the original weight
+	usages: 10,
+	recovery: "dawn",
+	additional: "regains 1d6+4",
+	weaponOptions: [{
+		baseWeapon: "quarterstaff",
+		regExpSearch: /^(?=.*spider)(?=.*staff).*$/i,
+		name: "Spider Staff",
+		source: [["PaBTSO", 220], ["LMoP", 53]],
+		description: "Versatile (1d8); +1d6 poison damage",
+		selectNow: true,
+	}],
+	fixedDC: 15,
+	spellFirstColTitle: "Ch",
+	spellcastingBonus: [{
+		name: "1 charge",
+		spells: ["spider climb"],
+		selection: ["spider climb"],
+		firstCol: 1,
+	}, {
+		name: "2 charges",
+		spells: ["web"],
+		selection: ["web"],
+		firstCol: 2,
+	}],
+}
+MagicItemsList["staff of defense"] = { // overwrite so it uses the new version introduced in Phandelver and Below: The Shattered Obelisk with the prerequisite
+	name: "Staff of Defense",
+	source: [["PaBTSO", 220], ["LMoP", 53]],
+	type: "staff",
+	rarity: "rare",
+	magicItemTable: "G",
+	description: "This slender, hollow staff is made of glass yet is as strong as oak. While holding it, I gain a +1 bonus to AC. It has 10 charges and regains 1d6+4 expended charges at dawn. If I use its last charge, roll a d20. On a 1, it is destroyed. I can use its charges to cast *Mage Armor* (1 charge) or *Shield* (2 charges) as an action.",
+	descriptionFull: [
+		"This slender, hollow staff is made of glass yet is as strong as oak. It weighs 3 pounds. While holding the staff, you have a +1 bonus to your Armor Class.",
+		"***Spells***. The staff has 10 charges. While holding it, you can expend the requisite number of charges to cast one of the following spells from the staff: *mage armor* (1 charge) or *shield* (2 charges).",
+		"The staff regains 1d6+4 expended charges daily at dawn. If you expend the staff's last charge, roll a d20. On a 1, the staff shatters and is destroyed.",
+	],
+	attunement: true,
+	prerequisite: "Requires attunement by a bard, sorcerer, warlock, or wizard",
+	prereqeval: function (v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
+	weight: 3,
+	usages: 10,
+	recovery: "dawn",
+	additional: "regains 1d6+4",
+	spellcastingAbility: "class",
+	spellFirstColTitle: "Ch",
+	weaponsAdd: { options: ["Staff of Defense"] },
+	spellcastingBonus: [{
+		name: "1 charge",
+		spells: ["mage armor"],
+		selection: ["mage armor"],
+		firstCol: 1,
+	}, {
+		name: "2 charges",
+		spells: ["shield"],
+		selection: ["shield"],
+		firstCol: 2,
+	}],
+	spellChanges: {
+		"shield": {
+			time: "1 a",
+			timeFull: "",
+			changes: "Cast as an action.",
+		},
+	},
+	extraAC: [{ name: "Staff of Defense", mod: 1, magic: true, text: "I gain a +1 bonus to AC while holding the Staff of Defense." }],
+}
 MagicItemsList["netherese ring of protection"] = {
 	name: "Netherese Ring of Protection",
 	source: [["PaBTSO", 50]],
@@ -54643,17 +54751,17 @@ MagicItemsList["mind crystal"] = {
 	source: [["PaBTSO", 218]],
 	type: "wondrous item",
 	rarity: "rare",
-	description: "When you cast a spell that has a casting time of 1 action while holding a mind crystal, I can modify it in a specific way determined by the type of mind crystal. I can't use a mind crystal and a Metamagic option on the same spell. Once a mind crystal is used, it becomes a nonmagical gem worth 50 gp.",
+	description: "When I cast a spell that has a casting time of 1 action while holding a mind crystal, I can modify it in a specific way determined by the type of mind crystal. I can't use a mind crystal and a Metamagic option on the same spell. Once a mind crystal is used, it becomes a nonmagical gem worth 50 gp.",
 	descriptionFull: [
 		"These gemstones contain a crystallized bit of spellcasting magic. Different types of mind crystals exist, each with a different single-use effect.",
-		"When you cast a spell that has a casting time of 1 action while holding a *mind crystal*, you can modify the spell in a specific way. You can use only a single *mind crystal* to modify the spell, and you can't use a *mind crystal* and a Metamagic option on the same spell. Once you use a *mind crystal*, it becomes a nonmagical gem worth 50 gp.***",
-		"Careful***. (Uncommon) Choose up to three creatures affected by the spell. The chosen creatures automatically succeed on their saving throws against the spell.***",
-		"Distant***. (Uncommon) If the spell has a range of 5 feet or more and doesn't have a range of self, the spell's range increases by 100 feet. If the spell has a range of touch, its range becomes 30 feet.***",
-		"Empowered***. (Uncommon) When you roll damage for the spell, you can reroll up to three damage dice. You must use the new rolls.***",
-		"Extended***. (Uncommon) If the spell has a duration of 1 minute or longer, double the spell's duration, to a maximum duration of 24 hours.***",
-		"Heightened***. (Rare) Choose one creature affected by the spell. That creature has disadvantage on the first saving throw it makes against the spell.***",
-		"Quickened***. (Rare) You change the spell's casting time to 1 bonus action for this casting.***",
-		"Subtle***. (Common) You cast the spell without any somatic or verbal components for this casting.",
+		"When you cast a spell that has a casting time of 1 action while holding a *mind crystal*, you can modify the spell in a specific way. You can use only a single *mind crystal* to modify the spell, and you can't use a *mind crystal* and a Metamagic option on the same spell. Once you use a *mind crystal*, it becomes a nonmagical gem worth 50 gp.",
+		"***Careful***. (Uncommon) Choose up to three creatures affected by the spell. The chosen creatures automatically succeed on their saving throws against the spell.",
+		"***Distant***. (Uncommon) If the spell has a range of 5 feet or more and doesn't have a range of self, the spell's range increases by 100 feet. If the spell has a range of touch, its range becomes 30 feet.",
+		"***Empowered***. (Uncommon) When you roll damage for the spell, you can reroll up to three damage dice. You must use the new rolls.",
+		"***Extended***. (Uncommon) If the spell has a duration of 1 minute or longer, double the spell's duration, to a maximum duration of 24 hours.",
+		"***Heightened***. (Rare) Choose one creature affected by the spell. That creature has disadvantage on the first saving throw it makes against the spell.",
+		"***Quickened***. (Rare) You change the spell's casting time to 1 bonus action for this casting.",
+		"***Subtle***. (Common) You cast the spell without any somatic or verbal components for this casting.",
 	],
 	allowDuplicates: true,
 	choices: ["Careful", "Distant", "Empowered", "Extended", "Heightened", "Quickened", "Subtle"],
@@ -54663,7 +54771,7 @@ MagicItemsList["mind crystal"] = {
 	},
 	"distant": {
 		rarity: "uncommon",
-		description: "I can use this crystal once while holding it and casting a spell with a casting time of 1 action and a range other then self. If the spell has a range of touch, its range becomes 30 ft. If the spell has a range of 5 ft or more, it increases by 100 ft. A spell can be modified only by a single mind crystal or metamagic, not both.",
+		description: "I can use this crystal once while holding it and casting a spell with a casting time of 1 action and a range other than self. If the spell has a range of touch, its range becomes 30 ft. If the spell has a range of 5 ft or more, it increases by 100 ft. A spell can be modified only by a single mind crystal or metamagic, not both.",
 	},
 	"empowered": {
 		rarity: "uncommon",
@@ -54733,10 +54841,10 @@ MagicItemsList["mudslick tower"] = {
 	source: [["PaBTSO", 218]],
 	type: "wondrous item",
 	rarity: "very rare",
-	description: "As an action, I can command this granite sphere to expand to a 20-ft square, 30-ft high tower of adamantine. If it is empty, I can command it to shrink back down as an action. It has two floors  and a roof with battlements, connected by ladders. The front door only opens on my command, as a bonus action.",
+	description: "As an action, I can command this granite sphere to expand to a 20-ft square, 30-ft high tower of adamantine. If it is empty, I can command it to shrink back down as an action. It has two floors and a roof with battlements, connected by ladders. The front door only opens on my command, as a bonus action.",
 	descriptionFull: [
 		'You can use an action to place this 1-inch-diameter granite sphere on the ground and speak its command word, which is "petrification" in Terran. The sphere rapidly grows into a stout tower that remains until you use an action to touch the tower and speak the command word again, whereupon the tower shrinks back to a 1-inch-diameter granite sphere. The tower must be empty to shrink in this way. The tower bristles with muddy knobs that constantly extrude and retract across its surface, as though the tower were breathing through a coating of thick mud.',
-		"Each creature in the area where the tower appears must make a DC 15 Dexterity saving throw, taking 10d10 bludgeoning damage on a failed save, or half as much damage on a successful one. In either case, the creature is pushed to an unoccupied space outside but next to the tower. Objects in the area that aren't being worn or carried take this damage and are pushed automatically." +
+		"Each creature in the area where the tower appears must make a DC 15 Dexterity saving throw, taking 10d10 bludgeoning damage on a failed save, or half as much damage on a successful one. In either case, the creature is pushed to an unoccupied space outside but next to the tower. Objects in the area that aren't being worn or carried take this damage and are pushed automatically.",
 		"Whenever it expands, the *mudslick tower* merges with any natural stone it touches, awkwardly tipping and wedging itself to touch as much natural stone as it can.",
 		"The tower is 20 feet on a side and 30 feet high, with arrow slits on all sides and a battlement atop it. Its interior is divided into two floors, with a ladder running along one wall to connect them. The ladder ends at a trapdoor leading to the roof. When activated, the tower has a small door on the side facing you. The door opens only at your command, which you can speak as a bonus action. It is immune to the *knock* spell and similar magic, such as that of a *chime of opening*.",
 		"Although it looks like stone, the tower is made of adamantine, and its magic prevents creatures from tipping it over. The roof, the door, and the walls each have 100 hit points, immunity to damage from nonmagical weapons excluding siege weapons, and resistance to all other damage. While merged with natural stone, the *mudslick tower* has immunity to all damage. Only a *wish* spell can repair the tower (this use of the spell counts as replicating a spell of 8th level or lower). Each casting of *wish* causes the roof, the door, or one wall to regain 50 hit points.",
@@ -54806,7 +54914,7 @@ BackgroundList["gate warden"] = {
 	],
 	feature: "Planar Infusion",
 	trait: [
-		"Strange events and otherworldly creatures don't phase me.",
+		"Strange events and otherworldly creatures don't faze me.",
 		"I think in terms of exchange; something for something, nothing for nothing.",
 		"I speak with an unusual cadence.",
 		"I pepper my speech with borrowed words or curses from planar languages.",
@@ -54985,7 +55093,7 @@ AddBackgroundVariant("planar philosopher", "planar philosopher of transcendent o
 	],
 });
 BackgroundFeatureList["conviction"] = {
-	description: "I subscribe to a distinct philosophy that seeks to understand the nature of the planes or a hidden truth of the multiverse and spread my philosophy. I am part of a network of like-minded believers who provide me free, modest lodging and food at any of their holding or the homes of other faction members. Also, I gain the Scion of the Outer Planes feat.",
+	description: "I subscribe to a distinct philosophy that seeks to understand the nature of the planes or a hidden truth of the multiverse and spread my philosophy. I am part of a network of like-\u200Aminded believers who provide me free, modest lodging and food at any of their holdings or the homes of other faction members. Also, I gain the Scion of the Outer Planes feat.",
 	source: [["P:AitM", 8], ["UA:WotM", 4]],
 	featsAdd: ["Scion of the Outer Planes"],
 };
@@ -55002,7 +55110,7 @@ FeatsList["scion of the outer planes"] = {
 			["Chaotic Outer", "Poison", "", "*Minor Illusion*"],
 			["Evil Outer  ", "Necrotic", "", "*Chill Touch*"],
 			["Good Outer  ", "Radiant", "", "*Sacred Flame*"],
-			["Lawful Outer", "Force", "", "Guidance"],
+			["Lawful Outer", "Force", "", "*Guidance*"],
 			["The Outlands", "Psychic", "", "*Mage Hand*"],
 		],
 	],
@@ -55081,7 +55189,7 @@ FeatsList["agent of order"] = {
 	name: "Agent of Order",
 	source: [["P:AitM", 10]],
 	description: "Once per turn when I damage a creature I see within 60 ft, I can deal +1d8 force damage to it, and it must succeed on a Wis save (DC 8 + Prof Bonus + spellcasting ability mod of Scion of the Outer Planes) or be restrained until my next turn starts. I can do this a number of times equal to my Prof Bonus per long rest.",
-	calculate: "try { var a = Object.keys(CurrentSpells); var b = a.find(/scion of the outer planes/i); var c = CurrentSpells[a[b]]; var dc = c && c.calcSpellScores ? c.calcSpellScores.dc : '[Error: generate spell sheet first]'; } catch(e) { var dc = '[Error: select Scion of the Outer Planes feat]'; }; event.value = 'Once per turn when I damage a creature I see within 60 ft, I can deal +1d8 force damage to it, and it must succeed on a Wis save DC ' + dc + ' (= Scion of the Outer Planes spell DC) or be restrained until my next turn starts. I can do this a number of times equal to my Prof Bonus per long rest. [+1 to any one ability score].';",
+	calculate: "try { var a = Object.keys(CurrentSpells); var b = a.find(/scion of the outer planes/i); var c = CurrentSpells[a[b]]; var dc = c && c.calcSpellScores ? c.calcSpellScores.dc : '[Error: generate spell sheet first]'; } catch(e) { var dc = '[Error: select Scion of the Outer Planes feat]'; }; event.value = 'Once per turn when I damage a creature I see within 60 ft, I can deal +1d8 force damage to it, and it must make a Wis save DC ' + dc + ' (= Scion of the Outer Planes spell DC) or be restrained until my next turn starts. I can do this a number of times equal to my Prof Bonus per long rest. [+1 to one ability score].';",
 	descriptionFull: [
 		"You can channel cosmic forces of order to gain these benefits:",
 		"***Ability Score Increase***. Increase one ability score of your choice by 1, to a maximum of 20.",
@@ -55119,17 +55227,17 @@ FeatsList["baleful scion"] = {
 FeatsList["cohort of chaos"] = {
 	name: "Cohort of Chaos",
 	source: [["P:AitM", 10]],
-	description: "When I roll a 1 or a 20 on an attack roll or save, a the magic of chaos flares up and I roll on the Chaotic Flare table to determine what happens (see notes for table). As a bonus action, my Proficiency Bonus per long rest, I can force a flare to happen. [+1 to any one ability score]",
+	description: "When I roll a 1 or a 20 on an attack roll or save, the magic of chaos flares up and I roll on the Chaotic Flare table to determine what happens (see notes for table). As a bonus action, my Proficiency Bonus per long rest, I can force a flare to happen. [+1 to any one ability score]",
 	descriptionFull: [
 		"You can channel cosmic forces of chaos to gain these benefits:",
 		"***Ability Score Increase***. Increase one ability score of your choice by 1, to a maximum of 20.",
 		"***Chaotic Flare***. When you roll a 1 or a 20 on an attack roll or a saving throw, the magic of chaos flows through you. Roll a d4 and consult the table below to determine what happens. A flare lasts until the end of your next turn, and a new flare can't occur until after the first flare ends.",
 		[
 			["d4", "Flare"],
-			["  1", "Battle Fury: A creature of your choice that you can see is filled with reckless fury. It has advantage on attack rolls and disadvantage on ability checks."],
-			["  2", "Disruption Field: Waves of energy ripple around you. Every creature that starts its turn within 5 feet of you, or that moves into that area for the first time on a turn, takes 1d8 force damage."],
-			["  3", "Unbound: When you move, you can use some or all of your walking speed to teleport yourself once, along with any equipment you're wearing or carrying, up to the distance used to an unoccupied space that you can see."],
-			["  4", "Wailing Winds: Winds swirl in a 15-foot-radius sphere centered on you. You and any other creatures in that area have disadvantage on Wisdom saving throws."],
+			[" 1", "**Battle Fury**. A creature of your choice that you can see is filled with reckless fury. It has advantage on attack rolls and disadvantage on ability checks."],
+			[" 2", "**Disruption Field**. Waves of energy ripple around you. Every creature that starts its turn within 5 feet of you, or that moves into that area for the first time on a turn, takes 1d8 force damage."],
+			[" 3", "**Unbound**. When you move, you can use some or all of your walking speed to teleport yourself once, along with any equipment you're wearing or carrying, up to the distance used to an unoccupied space that you can see."],
+			[" 4", "**Wailing Winds**. Winds swirl in a 15-foot-radius sphere centered on you. You and any other creatures in that area have disadvantage on Wisdom saving throws."],
 		],
 		"You can also forcibly release a chaotic flare as a bonus action, rolling on the table as normal to determine the effects. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	],
@@ -55147,13 +55255,15 @@ FeatsList["cohort of chaos"] = {
 	toNotesPage: [{
 		name: "Chaotic Flare Table",
 		note: [
-			"When I roll a 1 or a 20 on an attack roll or a saving throw, the magic of chaos flows through Me. I roll a d4 on the table below to determine what happens. A flare lasts until the end of my next turn, and a new flare can't occur until after the first flare ends.",
-			"As a bonus action, I can forcibly release a chaotic flare, rolling on the table as normal to determine the effects. I can use this bonus action a number of times equal to my proficiency bonus, and I regain all expended uses when you finish a long rest.",
-			"\n d4  Flare",
-			"1  Battle Fury: A creature of my choice that I can see is filled with reckless fury. It has advantage on attack rolls and disadvantage on ability checks.",
-			"2  Disruption Field: Waves of energy ripple around me. Every creature that starts its turn within 5 ft of me, or that moves into that area for the first time on a turn, takes 1d8 force damage.",
-			"3  Unbound: When I move, I can use some or all of my walking speed to teleport once, along with any equipment I'm wearing or carrying, up to the distance used to an unoccupied space that I can see.",
-			"4  Wailing Winds: Winds swirl in a 15-ft radius sphere centered on me. Creatures in that area, myself included, have disadvantage on Wisdom saving throws.",
+			"When I roll a 1 or a 20 on an attack roll or a saving throw, the magic of chaos flows through me. I roll a d4 on the table below to determine what happens. A flare lasts until the end of my next turn, and a new flare can't occur until after the first flare ends.",
+			"As a bonus action, I can forcibly release a chaotic flare, rolling on the table as normal to determine the effects. I can use this bonus action a number of times equal to my proficiency bonus, and I regain all expended uses when I finish a long rest.",
+			[
+				["d4", "Flare"],
+				[" 1", "**Battle Fury**. A creature of my choice that I can see is filled with reckless fury. It has advantage on attack rolls and disadvantage on ability checks."],
+				[" 2", "**Disruption Field**. Waves of energy ripple around me. Every creature that starts its turn within 5 ft of me, or that moves into that area for the first time on a turn, takes 1d8 force damage."],
+				[" 3", "**Unbound**. When I move, I can use some or all of my walking speed to teleport once, along with any equipment I'm wearing or carrying, up to the distance used to an unoccupied space that I can see."],
+				[" 4", "**Wailing Winds**. Winds swirl in a 15-ft radius sphere centered on me. Creatures in that area, myself included, have disadvantage on Wisdom saving throws."],
+			],
 		],
 	}],
 };
@@ -55255,12 +55365,14 @@ MagicItemsList["mimir"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	attunement: true,
-	description: "As a bonus action, I can stow or toss this skull-shaped device in the air to activate it, making it float 1d3 ft near me. Once per dawn as an action while active, I can use it to cast *Legend Lore*. It speaks the revieled lore aloud. While active, it answers questions about the planes of existence I or someone I designate ask it.",
+	description: "As a bonus action, I can stow or toss this skull-shaped device in the air to activate it, making it float 1d3 ft near me. As an action once per dawn while active, I can use it to cast *Legend Lore*. It speaks the revealed lore aloud. It answers questions about the planes of existence asked by me or someone designated by me.",
 	descriptionLong: "As a bonus action, I can toss this skull-shaped device covered with planar sigils into the air to activate it, causing it to float 1d3 ft near me but considered worn by me. I can use another bonus action to seize and stow it. It has AC 22, 25 HP, immunity to poison and psychic damage, and resistance to all other damage. Another can use an action to grab it with a successful unarmed strike or DC 22 Acrobatics check. Once per dawn as an action while active, I can use it to cast *Legend Lore*. It speaks the revealed lore aloud. While active, it answers questions about the planes of existence I or someone I designate ask it.",
 	descriptionFull: [
-		"This skull-shaped device is filled with knowledge. The device weighs 5 pounds and is covered with subtle etchings of planar sigils.As a bonus action, you can toss the device into the air, whereupon it floats at a distance of 1d3 feet from you and you can access its properties. While the mimir is floating, a creature other than you can use an action to grasp or net the device, either by making a successful unarmed strike against AC 22 or a successful DC 22 Dexterity (Acrobatics) check. You can use a bonus action to seize and stow the device.The device has AC 22, 25 hit points, immunity to poison and psychic damage, and resistance to all other damage. It is considered to be an object that is being worn while it is floating near you.***",
-		"Esoteric Knowledge***. While the device is floating, you can use an action to cast legend lore from the device. The device speaks the revealed lore aloud. Once this property has been used, it can't be used again until the next dawn.***",
-		"Planar Knowledge***. The device knows basic, useful information about the planes of existence. While the device is floating, it verbally answers questions you or anyone you designate poses to it about that topic. It knows the information about the planes in the Dungeon Master's Guide, as well as basic information about the gate-towns of the Outlands (presented in chapter 3 of Sigil and the Outlands).",
+		"This skull-shaped device is filled with knowledge. The device weighs 5 pounds and is covered with subtle etchings of planar sigils.",
+		"As a bonus action, you can toss the device into the air, whereupon it floats at a distance of 1d3 feet from you and you can access its properties. While the mimir is floating, a creature other than you can use an action to grasp or net the device, either by making a successful unarmed strike against AC 22 or a successful DC 22 Dexterity (Acrobatics) check. You can use a bonus action to seize and stow the device.",
+		"The device has AC 22, 25 hit points, immunity to poison and psychic damage, and resistance to all other damage. It is considered to be an object that is being worn while it is floating near you.",
+		"***Esoteric Knowledge***. While the device is floating, you can use an action to cast legend lore from the device. The device speaks the revealed lore aloud. Once this property has been used, it can't be used again until the next dawn.",
+		"***Planar Knowledge***. The device knows basic, useful information about the planes of existence. While the device is floating, it verbally answers questions you or anyone you designate poses to it about that topic. It knows the information about the planes in the Dungeon Master's Guide, as well as basic information about the gate-towns of the Outlands (presented in chapter 3 of Sigil and the Outlands).",
 	],
 	action: [["bonus action", " (activate/stow)"]],
 	weight: 5,
@@ -55289,9 +55401,10 @@ MagicItemsList["sensory stone"] = {
 	rarity: "uncommon",
 	description: "This stone stores a single experience. As an action, one touching the stone can experience it harmlessly. As a reaction, I can replace the experience within with a new, six-second sensation experienced by a creature within 30 ft. As a bonus action, I can destroy it to end the charmed or frightened effect on myself.",
 	descriptionFull: [
-		"This small, smooth stone contains the essence of a single experience.As an action, you or a willing creature you designate can touch the stone and experience the sensation as if it happened to the designated creature. The illusory experience is fleeting and harmless, however real it might feel in the moment.***",
-		"Record Sensation***. You can use your reaction to record a short sensation lasting no longer than 6 seconds experienced by a creature of your choice within 30 feet of yourself, infusing the essence of that experience into the stone. This replaces any sensation already stored within the stone.***",
-		"Siphon Sensation***. As a bonus action, you can draw on the stone's magic to end the charmed or frightened condition on yourself, destroying the stone in the process.",
+		"This small, smooth stone contains the essence of a single experience.",
+		"As an action, you or a willing creature you designate can touch the stone and experience the sensation as if it happened to the designated creature. The illusory experience is fleeting and harmless, however real it might feel in the moment.",
+		"***Record Sensation***. You can use your reaction to record a short sensation lasting no longer than 6 seconds experienced by a creature of your choice within 30 feet of yourself, infusing the essence of that experience into the stone. This replaces any sensation already stored within the stone.",
+		"***Siphon Sensation***. As a bonus action, you can draw on the stone's magic to end the charmed or frightened condition on yourself, destroying the stone in the process.",
 	],
 	action: [
 		["action", " (experience)"],
@@ -55413,7 +55526,7 @@ CoA_Corruption = {
 		name: "Infernal Item Corruption",
 		popupName: 'The "Infernal Item Corruption" rules from Chains of Asmodeus (page 271)',
 		note: [
-			"Cursed infernal items can be used by mortals, but they always require attunement. Once attuned, the mortal risks an increasing chance of being corrupted by the item., eventually transforming into a devil.",
+			"Cursed infernal items can be used by mortals, but they always require attunement. Once attuned, the mortal risks an increasing chance of being corrupted by the item, eventually transforming into a devil.",
 			"Mortals that receive express permission from Asmodeus, or that make an infernal contract to acquire a magic item, don't suffer these corrupting effects.",
 			" #1. Stage One Corruption: Beginnings#",
 			"Once a character has attuned to a cursed infernal magic item or artifact, it begins the infernal corruption process. Each time that character finishes a long rest, they must make a DC 10 Wisdom save (tieflings have advantage on this save). On a success, the character suffers no effects, but the DC increases by 1 the next time they must make this save. On a failure, the character progresses to Stage Two unless *Dispel Evil and Good* is cast on them before their next long rest.",
@@ -55510,7 +55623,7 @@ MagicItemsList["canian fork"] = {
 	rarity: "rare",
 	attunement: true,
 	cursed: true,
-	description: "This magic, cursed, corrupting trident gives me +3 bonus to attack and damage rolls made with. I can't willing to part with it and can't unattune to it without *Remove Curse*. I'm vulnerable to radiant damage. When I receive magical healing I have to succeed on a DC 15 Con save or the healing has no effect.",
+	description: "This magic, cursed, corrupting trident gives me +3 bonus to attack and damage rolls made with it. I'm unwilling to part with it and can't unattune to it without *Remove Curse*. I'm vulnerable to radiant damage. When I receive magical healing I have to succeed on a DC 15 Con save or the healing has no effect.",
 	descriptionFull: [
 		"You have a +3 bonus to attack and damage rolls made with this magic weapon. In addition, you can make one additional attack with it as a bonus action on each of your turns.",
 		"***Curse***. You're unwilling to part with this weapon while attuned to it. You're also vulnerable to radiant damage and each time you receive magical healing, you must make a DC 15 Constitution saving throw.",
@@ -55549,7 +55662,7 @@ MagicItemsList["demonbone polearm"] = {
 	attunement: true,
 	cursed: true,
 	description: "As a reaction when damaged by a creature in reach, I can attack it once with this +2 weapon. ***Curse***. I can't unattune to it and have disadv. with other weapons. If I take damage, I must make a DC 15 Wis save or go berserk: I attack those near to me until none remain in 60 ft or I'm calmed with a DC 15 Persuasion" + (typePF ? "." : "check."),
-	descriptionLong: "I have a +2 bonus on attack and damage rolls made with this magic weapon. As a reaction when I'm damaged by a creature in this weapon's reach, I can make one melee attack against it. ***Curse***. I'm unwilling to part with it, can't unattune to it without *Remove Curse*, and have disadvantage with other weapons. When I take damage, I must make a DC 15 Wisdom save or go berserk: I attack the nearest creature using this weapon with all my attacks, moving to the next nearest until none remain that I can sea or hear within 60 ft of me. I can also be calmed with a DC 15 Charisma (Persuasion) check.",
+	descriptionLong: "I have a +2 bonus on attack and damage rolls made with this magic weapon. As a reaction when I'm damaged by a creature in this weapon's reach, I can make one melee attack against it. ***Curse***. I'm unwilling to part with it, can't unattune to it without *Remove Curse*, and have disadvantage with other weapons. When I take damage, I must make a DC 15 Wisdom save or go berserk: I attack the nearest creature using this weapon with all my attacks, moving to the next nearest until none remain that I can see or hear within 60 ft of me. I can also be calmed with a DC 15 Charisma (Persuasion) check.",
 	descriptionFull: [
 		"You have a +2 bonus to attack and damage rolls made with this magic weapon. In addition, when you're damaged by a creature in reach, you may use your reaction to make one melee attack against it with this weapon.",
 		"***Curse***. You're unwilling to part with this weapon while attuned to it. While attuned, you have disadvantage on attack rolls with weapons other than this one.",
@@ -55576,7 +55689,7 @@ MagicItemsList["demonbone polearm"] = {
 					output.magic = v.thisWeapon[1] + 2;
 				}
 			},
-			'If I include the word "Demonbone" in the name of a polearm, it will be treated as the magic weapon Demonbone Polearm. It adds +2 to hit and damage, can be used as a reaction when I\'m damaged by a creature within reach to attack them, an is cursed causing me to go beserk when I\'m damaged.',
+			'If I include the word "Demonbone" in the name of a polearm, it will be treated as the magic weapon Demonbone Polearm. It adds +2 to hit and damage, can be used as a reaction when I\'m damaged by a creature within reach to attack them, and is cursed causing me to go berserk when I\'m damaged.',
 		],
 	},
 	action: [["reaction", " (when damaged)"]],
@@ -55590,7 +55703,7 @@ MagicItemsList["gauntlets of rage"] = {
 	prerequisite: "Requires attunement by a bard, sorcerer, warlock, or wizard",
 	prereqeval: function (v) { return classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
 	description: "The first melee weapon attack I make after a short rest sends me into a fury for 1 minute. I can't cast spells or speak, am immune to charmed and frightened, and when I deal damage, I heal 2d8 hp and end this fury or one condition. Also, I can use a spell slot before a melee attack for +1d6 necrotic damage per spell level.",
-	descriptionLong: "I gain the power of never-ending fury. The first melee weapon attack I make after I finish a short or long rest automatically send me into a special fury for 1 minute. While furious, I can't cast spells, can't verbally communicate, and am immune to the charmed and frightened conditions. Each time I deal damage, I regain 2d8 hit points and may immediately remove a condition I currently suffer from or end this fury. Also, while in this fury, I may spend a spell slot before I make a melee attack. Doing so causes the attack to deal an extra 1d6 necrotic damage per level of spell slot expended, if it hits.",
+	descriptionLong: "I gain the power of never-ending fury. The first melee weapon attack I make after I finish a short or long rest automatically sends me into a special fury for 1 minute. While furious, I can't cast spells, can't verbally communicate, and am immune to the charmed and frightened conditions. Each time I deal damage, I regain 2d8 hit points and may immediately remove a condition I currently suffer from or end this fury. Also, while in this fury, I may spend a spell slot before I make a melee attack. Doing so causes the attack to deal an extra 1d6 necrotic damage per level of spell slot expended, if it hits.",
 	descriptionFull: "You gain the power of never-ending fury. After you make a melee weapon attack, you automatically enter a special fury for 1 minute. While furious, you can't cast spells, can't verbally communicate, and are immune to the charmed and frightened conditions. Each time you deal damage, you regain 2d8 hit points and may immediately remove a condition you currently suffer from or end this fury. Additionally, while in this fury, you may spend a spell slot before you make a melee attack. Doing so causes the attack to deal an extra 3 (1d6) necrotic damage per level of spell slot expended, if the attack hits. Once used you may not use this fury again until you finish a short or long rest.",
 	usages: 1,
 	recovery: "short rest",
@@ -55603,7 +55716,7 @@ MagicItemsList["infernal amulet"] = {
 	rarity: "rare",
 	attunement: true,
 	cursed: true,
-	description: "While wearing this amulet, I can use it as a spellcasting focus for my spells, and it grants a +2 bonus to my spell save DC and spell attack bonus. It is cursed and corrupting. I'm unwilling to part with it and require *Remove Curse* to unattune to it. It gives me disadvantage on Strength saving throws and Strenght checks.",
+	description: "While wearing this amulet, I can use it as a spellcasting focus for my spells, and it grants a +2 bonus to my spell save DC and spell attack bonus. It is cursed and corrupting. I'm unwilling to part with it and require *Remove Curse* to unattune to it. It gives me disadvantage on Strength saving throws and Strength checks.",
 	descriptionFull: [
 		"While wearing this amulet, you can use it as a spellcasting focus for your spells, and it grants a +2 bonus to your spell save DC and spell attack bonus.",
 		"***Curse***. You're unwilling to part with this amulet while attuned to it and you wear it always. While wearing the amulet you have disadvantage on Strength saving throws and Strength checks. Only the *Remove Curse* spell allows you to remove the item and end attunement.",
@@ -55620,8 +55733,8 @@ MagicItemsList["infernal amulet"] = {
 		],
 	},
 	advantages: [["Athletics", false], ["Strength", false]],
+	savetxt: typePF ? null : { text: ["Disadv. on Str saves/checks"] },
 }
-if (typePF) MagicItemsList["infernal amulet"].savetxt = { text: ["Disadv. on Str saves/checks"] }
 MagicItemsList["infernal plate armor"] = {
 	name: "Infernal Plate Armor",
 	source: [["CoA", 268]],
@@ -55656,7 +55769,7 @@ MagicItemsList["knife of stolen resistance"] = {
 	source: [["CoA", 268]],
 	type: "weapon (dagger)",
 	rarity: "rare",
-	description: "As an action once per long rest, I can use this knife to carve a single infernal rune into the flesh of an unconscious Beast, Celestial, Dragon, Fey, or Giant. Over the next 10 minutes the creature dies in agony, only *Wish* can stop this. If the creature has any resistances or immunities, I gain those while its dying.",
+	description: "As an action once per long rest, I can use this knife to carve a single infernal rune into the flesh of an unconscious Beast, Celestial, Dragon, Fey, or Giant. Over the next 10 minutes the creature dies in agony, only *Wish* can stop this. If the creature has any resistances or immunities, I gain those while it's dying.",
 	descriptionFull: "Using an action, you carve a single infernal rune into the flesh of an unconscious Beast, Celestial, Dragon, Fey, or Giant with this knife. Over the next 10 minutes the creature dies an agonizing death that can't be prevented short of the *Wish* spell. If the creature has any resistances or immunities, you gain those resistances and immunities until the creature dies or a *Wish* spell is used to save the creature. The knife's power can't be used again until you finish a long rest.",
 	weight: 1,
 	action: [["action", ""]],
@@ -55676,7 +55789,7 @@ MagicItemsList["ring of collecting"] = {
 	type: "ring",
 	rarity: "very rare",
 	attunement: true,
-	description: "As an action once per dawn, I can use this ring to cast *Tiny Hut*. As a bonus action, I can disintegrate a nonmagical piece of art up to Medium size within 60 ft. That art now appears inside the tiny hut, vanishing forever if removed from it. For every 1,000 gp of art added, the tiny hut get +1 ft radius and lasts +1 hour.",
+	description: "As an action once per dawn, I can use this ring to cast *Tiny Hut*. As a bonus action, I can disintegrate a nonmagical piece of art up to Medium size within 60 ft. That art now appears inside the tiny hut, vanishing forever if removed from it. For every 1,000 gp of art added, the tiny hut gets +1 ft radius and lasts +1 hour.",
 	descriptionLong: "As an action once per dawn, I can use this ring to cast *Leomund's Tiny Hut*. As a bonus action, I can use this ring to disintegrate an up to Medium sized, nonmagical piece of art (drawing, painting, or sculpture) within 60 ft. That art now appears inside the tiny hut, for me to appreciate whenever I desire. If I try to remove this art from the tiny hut, it vanishes forever. I can steadily improve this space, but only by denying such beauty from the rest of the world. For every 1,000 gp of art acquired, the tiny hut increases in size by adding +1 ft to its radius and lasts +1 hour.",
 	descriptionFull: "While wearing this ring you can use it to cast the *Leomund's Tiny Hut* spell as an action. Once this property is used, it can't be used again until the next dawn. Additionally, as a bonus action, you can use the ring to disintegrate any nonmagical piece of art (drawing, painting, or sculpture) within 60 feet that is no larger than Medium-sized. That art now appears inside the tiny hut, for you to appreciate whenever you desire. If you try to remove this art from the tiny hut, it vanishes forever. You can steadily improve this space, but only by denying such beauty to the rest of the world. For every 1,000 gp of art acquired, the tiny hut increases in size by adding another foot to its radius and lasts one additional hour.",
 	spellcastingBonus: [{
@@ -55690,7 +55803,7 @@ MagicItemsList["ring of collecting"] = {
 			time: "1 a",
 			duration: "8h+1h/1k gp",
 			description: "10ft+1ft/1,000 gp rad immobile dome of force; 9 Medium crea; blocks magic; ends if I leave; see B",
-			changes: "Using the Ring of Collecting, I can cast *Leomund's Tiny Hut* as an action instead of taking 1 minute. Once this property is used, it can't be used again until the next dawn. For every 1000 gp of art acquired, the tiny hut increases in size by adding +1 ft to its radius and lasts +1 hour.",
+			changes: "Using the Ring of Collecting, I can cast *Leomund's Tiny Hut* as an action instead of taking 1 minute. Once this property is used, it can't be used again until the next dawn. For every 1,000 gp of art acquired, the tiny hut increases in size by adding +1 ft to its radius and lasts +1 hour.",
 		},
 	},
 	usages: 1,
@@ -56024,7 +56137,7 @@ BackgroundList["ruined"] = {
 	],
 };
 BackgroundFeatureList["still standing"] = {
-	description: "I have weathered ruinous misfortune in my life and I possess hidden reserves because of this. Possibly I've had to keep my senses sharp, had to redouble my efforts to reclaim what is mine, had to stoically persevered through it, or experienced something else transformative. How I've dealt with this is reflected in my choice of one free feat: Alert, Skilled, or Tough.",
+	description: "I have weathered ruinous misfortune in my life and I possess hidden reserves because of this. Possibly I've had to keep my senses sharp, had to redouble my efforts to reclaim what is mine, had to stoically persevere through it, or experienced something else transformative. How I've dealt with this is reflected in my choice of one free feat: Alert, Skilled, or Tough.",
 	source: [["BoMT", 58]],
 	featsAdd: [{
 		options: [
@@ -56088,7 +56201,7 @@ MagicItemsList["antimagic armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Antimagic", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["suffix", "Antimagic"],
 	},
 	action: [["reaction", "Adv. save vs. spell (1\xD7 per dawn)"]],
@@ -56126,7 +56239,7 @@ MagicItemsList["armor of fungal spores"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: "prefix",
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		excludeCheck: function (inObjKey, inObj) {
 			return !/medium/i.test(inObj.type);
 		},
@@ -56150,7 +56263,7 @@ MagicItemsList["armor of the fallen"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: "prefix",
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		excludeCheck: function (inObjKey, inObj) {
 			return !/heavy|medium/i.test(inObj.type);
 		},
@@ -56180,7 +56293,7 @@ MagicItemsList["armor of weightlessness"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: "prefix",
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 	},
 	usages: 5,
 	recovery: "dawn",
@@ -56275,8 +56388,8 @@ MagicItemsList["bloodseeker ammunition"] = {
 	source: [["BoMT", 66]], // Chapter 9: Knight
 	type: "weapon (any ammunition)",
 	rarity: "very rare",
-	description: "Ranged attack rolls made with this magic ammunition have advantage against any creature doesn't have all its hit points.",
-	descriptionFull: "Ranged attack rolls made with this ammunition have advantage against any creature doesn't have all its hit points.",
+	description: "Ranged attack rolls made with this magic ammunition have advantage against any creature that doesn't have all its hit points.",
+	descriptionFull: "Ranged attack rolls made with this ammunition have advantage against any creature that doesn't have all its hit points.",
 	allowDuplicates: true,
 	chooseGear: {
 		type: "ammo",
@@ -56382,10 +56495,10 @@ MagicItemsList["bow of melodies"] = {
 				if (!v.theWea.isMagicWeapon && chaMod > 0 && v.isRangedWeapon && /bow/i.test(v.baseWeaponName) && /^(?=.*melod(ies|y))(?!.*precision).*$/i.test(v.WeaponTextName) && (/reverberation/i.test(v.WeaponTextName) || !hasSkillProf("Performance")[0])) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, "");
-					fields.Description += (fields.Description ? "; " : "") + "+",  chaMod + " (Cha mod) thunder damage";
+					fields.Description += (fields.Description ? "; " : "") + "+" + chaMod + " (Cha mod) thunder damage";
 				}
 			},
-			'If I include the word "Melody" or "Melodies" in the name of a bow, it will be treated as the magic weapon Bow of Melodies. If I also include either "Precision" or "Reverberation" in the name, the respective bonus will be added. if I include neither of those in the name, the bonus will be determined automatically, the Melody of Precision if proficient with Performance (+1 or +2 bonus to hit) or Melody of Reverberation otherwise (+Cha mod thunder damage).',
+			'If I include the word "Melody" or "Melodies" in the name of a bow, it will be treated as the magic weapon Bow of Melodies. If I also include either "Precision" or "Reverberation" in the name, the respective bonus will be added. If I include neither of those in the name, the bonus will be determined automatically, the Melody of Precision if proficient with Performance (+1 or +2 bonus to hit) or Melody of Reverberation otherwise (+Cha mod thunder damage).',
 		],
 		atkCalc: [
 			function (fields, v, output) {
@@ -56492,7 +56605,7 @@ MagicItemsList["clockwork armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Clockwork", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["suffix", "Clockwork"],
 		excludeCheck: function (inObjKey, inObj) {
 			return !/heavy/i.test(inObj.type);
@@ -56882,8 +56995,8 @@ MagicItemsList["donjon's sundering sphere"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	attunement: true,
-	description: "Attuning to this marble-size crystal sphere includes attaching it to a nonmagical melee weapon, that then becomes magical +1. It grants me adv. on saves vs. being send to another dimension. Once per dawn when I hit a creature, I can have it make a DC 16 Cha save or be stuck in a demiplane until its next turn ends.",
-	descriptionLong: "Attuning to this marble-size crystal sphere includes attaching it to the hilt of a nonmagical melee weapon, that then becomes a magic weapon with a +1 bonus to attack and damage rolls. While wielding it, I have advantage on save against being send to an extradimensional space or another plane of existence. Once per dawn when I hit a creature with this weapon, I can have it make a DC 16 Charisma save or be banished to a harmless demiplane until its next turn ends. It returns to the space it left, or the nearest empty space. When I end my attunement to the sphere, it detaches from the weapon.",
+	description: "Attuning to this marble-size crystal sphere includes attaching it to a nonmagical melee weapon, that then becomes magical +1. It grants me adv. on saves vs. being sent to another dimension. Once per dawn when I hit a creature, I can have it make a DC 16 Cha save or be stuck in a demiplane until its next turn ends.",
+	descriptionLong: "Attuning to this marble-size crystal sphere includes attaching it to the hilt of a nonmagical melee weapon, that then becomes a magic weapon with a +1 bonus to attack and damage rolls. While wielding it, I have advantage on save against being sent to an extradimensional space or another plane of existence. Once per dawn when I hit a creature with this weapon, I can have it make a DC 16 Charisma save or be banished to a harmless demiplane until its next turn ends. It returns to the space it left, or the nearest empty space. When I end my attunement to the sphere, it detaches from the weapon.",
 	descriptionFull: [
 		"This marble-size crystal sphere glows with extraplanar energy.",
 		"As part of attuning to this item, you press the crystal sphere to the hilt of a nonmagical melee weapon of your choice, magically attaching the sphere to the weapon. The weapon becomes a magic weapon with a +1 bonus to attack and damage rolls. While wielding this weapon, you gain the following benefits:",
@@ -56892,7 +57005,7 @@ MagicItemsList["donjon's sundering sphere"] = {
 		"When you end your attunement to the sphere, the sphere harmlessly detaches from the weapon, and the weapon reverts to a nonmagical piece of equipment.",
 	],
 	savetxt: {
-		adv_vs: ["being send to other plane/dimension"],
+		adv_vs: ["being sent to other plane/dimension"],
 	},
 	usages: 1,
 	recovery: "dawn",
@@ -56933,7 +57046,10 @@ MagicItemsList["euryale's aegis"] = {
 	rarity: "legendary",
 	attunement: true,
 	description: "This brass shield grants me poison resistance and petrification immunity. I can use it to cast 3 spells, each once per dawn. As a bonus action once per dawn, a target I can see within 30 ft must make a DC 20 Con save or be restrained until its next turn starts, at which point it must save again or be petrified for 24 hours.",
-	descriptionLong: "This gleaming brass shield bears a relief of the legendary medusa druid Euryale. It grants me poison resistance and immunity to being petrified. I can use it to cast 3 spells, each once per dawn: *Lesser Restoration*, *Locate Creature*, and *Transport via Plants*.\nAs a bonus action once per dawn, I can try to petrify a creature I can see within 30 ft. It must make a DC 20 Constitution save or be restrained while its body turns to stone. When its next turn starts, it must then make a DC 20 Constitution save again or be petrified for 24 hours. On a successful save, the restrained condition ends.",
+	descriptionLong: [
+		"This gleaming brass shield bears a relief of the legendary medusa druid Euryale. It grants me poison resistance and immunity to being petrified. I can use it to cast 3 spells, each once per dawn: *Lesser Restoration*, *Locate Creature*, and *Transport via Plants*.",
+		"As a bonus action once per dawn, I can try to petrify a creature I can see within 30 ft. It must make a DC 20 Constitution save or be restrained while its body turns to stone. When its next turn starts, it must then make a DC 20 Constitution save again or be petrified for 24 hours. On a successful save, the restrained condition ends.",
+	],
 	descriptionFull: [
 		"This gleaming brass shield bears a relief of the legendary medusa druid Euryale.",
 		"While wielding this shield, you gain the following benefits:",
@@ -56945,9 +57061,7 @@ MagicItemsList["euryale's aegis"] = {
 	action: [["bonus action", " - Petrify"]],
 	shieldAdd: "Euryale's Aegis",
 	dmgres: ["Poison"],
-	savetxt: {
-		immune: ["petrified"],
-	},
+	savetxt: { immune: ["petrified"] },
 	spellcastingBonus: [{
 		name: "Once per dawn",
 		spells: ["lesser restoration", "locate creature", "transport via plants"],
@@ -57001,7 +57115,7 @@ MagicItemsList["fate cutter shears"] = {
 	type: "weapon (dagger)",
 	rarity: "very rare",
 	attunement: true,
-	description: "The blades of these pruning shears bear many nicks and dents but still cut cleanly. They function as a magic dagger that deal +1d6 force damage. Once per dawn when I hit a creature with them, I can cut their fate. Until that target finishes a long rest, attack rolls against them score a critical hit on a roll of 19 or 20.",
+	description: "The blades of these pruning shears bear many nicks and dents but still cut cleanly. They function as a magic dagger that deals +1d6 force damage. Once per dawn when I hit a creature with them, I can cut their fate. Until that target finishes a long rest, attack rolls against them score a critical hit on a roll of 19 or 20.",
 	descriptionFull: [
 		"The blades of these pruning shears bear many nicks and dents but still cut cleanly. The shears function as a magic dagger. The weapon has the following properties:",
 		"***Ever Sharp***. When you hit with an attack using the shears, the target takes an extra 1d6 force damage.",
@@ -57092,7 +57206,7 @@ MagicItemsList["feywrought armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Feywrought", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["suffix", "Feywrought"],
 	},
 	usages: 3,
@@ -57115,7 +57229,11 @@ MagicItemsList["fool's blade"] = {
 	rarity: "very rare",
 	attunement: true,
 	description: "As a bonus action once per dawn, I can use this weapon +2 to feint a target within 5 ft, giving me adv. on attacks vs. it until my next turn starts. As a reaction once per dawn when a creature within 60 ft attacks me, I can have it make a DC 15 Int save or have it target another of my choice within its reach.",
-	descriptionLong: "This magic weapon appears ordinary, but bears strong illusion magic that allows me to deceive opponents. I have a +2 bonus to attack and damage rolls with it.\nFool's Feint: As a bonus action once per dawn, I can feint a creature within 5 ft, giving me advantage on attack rolls against it until the start of my next turn.\nMisdirect: As a reaction once per dawn when a creature within 60 ft targets me with an attack roll, I can have it make a DC 15 Intelligence save. On a failed save, the attack instead targets another creature of my choice that is within the attacker's reach.",
+	descriptionLong: [
+		"This magic weapon appears ordinary, but bears strong illusion magic that allows me to deceive opponents. I have a +2 bonus to attack and damage rolls with it.",
+		"***Fool's Feint***. As a bonus action once per dawn, I can feint a creature within 5 ft, giving me advantage on attack rolls against it until the start of my next turn.",
+		"***Misdirect***. As a reaction once per dawn when a creature within 60 ft targets me with an attack roll, I can have it make a DC 15 Intelligence save. On a failed save, the attack instead targets another creature of my choice that is within the attacker's reach.",
+	],
 	descriptionFull: [
 		"This weapon appears ordinary, but it bears strong illusion magic that allows its wielder to skillfully deceive opponents.",
 		"You have a +2 bonus to attack and damage rolls made with this magic weapon. While wielding it, you also gain the following benefits:",
@@ -57193,7 +57311,7 @@ MagicItemsList["glimmering moonbow"] = {
 	type: "weapon (any bow)",
 	rarity: "rare",
 	attunement: true,
-	description: "This silver-and-black bow adds +1 to its to hit and damage rolls, creates its own ammo that lasts until it hits or misses a target, and deals +1d6 radiant damage. As a bonus action once per dawn, I can use it to gain resistance to piercing, bludgeoning, and slashing damage until my next turn starts, ",
+	description: "This silver-and-black bow adds +1 to its to hit and damage rolls, creates its own ammo that lasts until it hits or misses a target, and deals +1d6 radiant damage. As a bonus action once per dawn, I can use it to gain resistance to piercing, bludgeoning, and slashing damage until my next turn starts.",
 	descriptionFull: [
 		"This silver-and-black bow is engraved with the phases of the moon. You gain a +1 bonus to attack and damage rolls made with this magic weapon.",
 		"When you hit with a ranged attack roll using this magic bow, the target takes an extra 1d6 radiant damage. If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic ammunition when you make a ranged attack with it. The ammunition created by the bow vanishes the instant after it hits or misses a target.",
@@ -57249,7 +57367,7 @@ MagicItemsList["gloomwrought armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Gloomwrought", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["suffix", "Gloomwrought"],
 	},
 	usages: 3,
@@ -57309,7 +57427,7 @@ MagicItemsList["house of cards"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	description: "As an action once per dawn, I can have this deck of cards deal themselves into a shelter centered on a point within 30 ft. It can be any shape that fits in a 40-ft cube, with 1 door and up to 4 windows, that only I can open or close. It has 15 AC, 50 HP, and lasts for 24 hours, I dismiss it as an action, or it reaches 0 HP.",
-	descriptionLong: "This deck of cards is decorated with geometric shapes that have a protective motif. As an action once per dawn, I can cause the cards to transform into a shelter made of cards centered on a point within 30 ft. It can be any shaped I want that fits in a 40-ft cube. It has a floor, a roof, one door and up to four windows, and only I can open or close them. It has a comfortable temperature inside, AC 15, 50 HP, and immunity to poison and psychic damage. It lasts for 24 hours, until I dismiss it as an action, or until it is reduced to 0 HP. When the shelter's duration ends, it transforms back into a deck of cards in my hand.",
+	descriptionLong: "This deck of cards is decorated with geometric shapes that have a protective motif. As an action once per dawn, I can cause the cards to transform into a shelter made of cards centered on a point within 30 ft. It can be any shape I want that fits in a 40-ft cube. It has a floor, a roof, one door and up to four windows, and only I can open or close them. It has a comfortable temperature inside, AC 15, 50 HP, and immunity to poison and psychic damage. It lasts for 24 hours, until I dismiss it as an action, or until it is reduced to 0 HP. When the shelter's duration ends, it transforms back into a deck of cards in my hand.",
 	descriptionFull: [
 		"This deck of cards is decorated with geometric shapes that have a protective motif. While you're holding the deck, you can use an action to shuffle it and cause the cards to deal themselves out and transform into a shelter made of cards. The shelter can be shaped however you desire, but it must fit in a 40-foot cube centered on a point within 30 feet of you. The shelter has one door and up to four windows, and only you can open or close them. It has a floor and a roof, and it maintains a comfortable temperature inside.",
 		"The shelter has AC 15, 50 hit points, and immunity to poison and psychic damage. The shelter lasts for 24 hours, until you dismiss it as an action, or until it is reduced to 0 hit points. When the shelter's duration ends, it transforms back into a deck of cards and appears in your hand. Once the deck has transformed into a shelter, it can't be used again until the next dawn.",
@@ -57329,10 +57447,10 @@ MagicItemsList["jester's mask"] = {
 	description: "I can use this harlequin mask as a spellcasting focus. It adds a +3 bonus to my spell attacks and spell save DCs that use Charisma. Once per dawn when I roll a 1 on a d20, I can change it to a 20. As a reaction once per dawn when I'm hit by an attack roll, I can teleport 30 ft to an empty space I can see, taking no damage.",
 	descriptionLong: [
 		"While I'm wearing this colorful, harlequin domino mask edged with pearls, it grants me:",
-		"\u2022 **Charismatic Focus**. I can use it as a spellcasting focus and it grants me a +3 bonus to spell attack rolls and spell saving throw DCs that use Charisma as the spellcasting ability.",
-		"\u2022 **Marvelous Escape**. As a reaction once per dawn when a creature hits me with an attack roll, I can teleport in a puff of smoke and sparkles instead of taking damage. I teleport to an empty space I can see within 30 ft, along with anything I'm wearing or carrying.",
-		"\u2022 **Topsy-Turvy**. Once per dawn when I roll a 1 on a d20, I can treat it as a 20 instead.",
-	].join("\n"),
+		"***Charismatic Focus***. I can use it as a spellcasting focus and it grants me a +3 bonus to spell attack rolls and spell saving throw DCs that use Charisma as the spellcasting ability.",
+		"***Marvelous Escape***. As a reaction once per dawn when a creature hits me with an attack roll, I can teleport in a puff of smoke and sparkles instead of taking damage. I teleport to an empty space I can see within 30 ft, along with anything I'm wearing or carrying.",
+		"***Topsy-Turvy***. Once per dawn when I roll a 1 on a d20, I can treat it as a 20 instead.",
+	],
 	descriptionFull: [
 		"This colorful, harlequin domino mask is edged with pearls. While wearing this mask, you gain the following benefits:",
 		"***Charismatic Focus***. You can use the mask as a spellcasting focus. You gain a +3 bonus to any spell attack rolls and spell saving throw DCs that use Charisma as the spellcasting ability.",
@@ -57555,10 +57673,10 @@ MagicItemsList["sage's signet"] = {
 		"Six varieties of *Sage's Signet* rings exist, each with a different signet (see the table below). A ring's signet determines its rarity as well as the additional spells it can cast. While wearing a *Sage's Signet*, you can cast each of its additional spells once from the ring using your Intelligence as the spellcasting ability. Once you cast each of the additional spells from the ring, it can't cast the spell again until the next dawn.",
 		[
 			["Signet", "Rarity", "Spells"],
-			["Bear", "Very rare", "Enlarge/Reduce, *Polymorph*"],
+			["Bear", "Very rare", "*Enlarge/Reduce*, *Polymorph*"],
 			["Hart", "Very rare", "*Aura of Vitality*, *Mass Cure Wounds*"],
 			["Lion", "Very rare", "*Destructive Wave*, *Fireball*"],
-			["Serpent", "Rare", "Fear, *Hex*"],
+			["Serpent", "Rare", "*Fear*, *Hex*"],
 			["Songbird", "Rare", "*Charm Person*, *Hypnotic Pattern*"],
 			["Wolf", "Very rare", "*Freedom of Movement*, *Pass without Trace*"],
 		],
@@ -57772,7 +57890,7 @@ MagicItemsList["starshot crossbow"] = {
 	rarity: "rare",
 	attunement: true,
 	description: "This black wooden crossbow has pearl inlays depicting three constellations. It has 3 charges, regaining 1d3 at dawn. It produces its own ammo that lasts until it hits or misses a target. As a bonus action, I can use 1 charge to tap and invoke one of its constellations, see Notes page for the options.",
-	descriptionLong: "This crossbow of blackened wood has pearl inlays depicting three different constellations. It has 3 charges and regains 1d3 used charged daily at dawn. It produces its own ammo that lasts until it hits or misses a target. As a bonus action, I can use 1 charge to tap and invoke one of its constellations, see Notes for full text. Balance: next hit with the crossbow before my next turn ends heals me or another within 30 ft of me for 1d8+my Prof Bonus. Flames: until my next turn ends, the crossbow deals +2d8 fire damage. Rogue: until my next turn ends, I become invisible as well as anything I'm wearing or carrying.",
+	descriptionLong: "This crossbow of blackened wood has pearl inlays depicting three different constellations. It has 3 charges and regains 1d3 used charges daily at dawn. It produces its own ammo that lasts until it hits or misses a target. As a bonus action, I can use 1 charge to tap and invoke one of its constellations, see Notes for full text. Balance: next hit with the crossbow before my next turn ends heals me or another within 30 ft of me for 1d8+my Prof Bonus. Flames: until my next turn ends, the crossbow deals +2d8 fire damage. Rogue: until my next turn ends, I become invisible as well as anything I'm wearing or carrying.",
 	descriptionFull: [
 		"This crossbow is crafted from blackened wood, and its limbs bear pearl inlays depicting constellations. You ignore the loading property with this crossbow. If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic ammunition when you make a ranged attack with it. The ammunition created by the weapon vanishes the instant after it hits or misses a target. The crossbow has 3 charges and regains 1d3 expended charges daily at dawn.",
 		"***Constellations***. The crossbow is decorated with three constellations. As a bonus action, you can tap one of the constellations to invoke it, expending 1 charge and producing one of the following effects:",
@@ -58267,8 +58385,8 @@ SpellsList["spray of cards"] = {
 	compMaterial: "A deck of cards",
 	duration: "Instantaneous",
 	save: "Dex",
-	description: "All in area 2d10+1d10/SL Force dmg and blinded until their next turn ends; save halves \u0026 not blinded",
-	descriptionShorter: "All in area 2d10+1d10/SL Force dmg, blinded till their next turn ends; save half \u0026 not blinded",
+	description: "All in area 2d10+1d10/SL Force dmg and blinded until their next turn ends; save halves \x26 not blinded",
+	descriptionShorter: "All in area 2d10+1d10/SL Force dmg, blinded till their next turn ends; save half \x26 not blinded",
 	descriptionFull: [
 		"You spray a 15-foot cone of spectral cards. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes 2d10 force damage and has the blinded condition until the end of its next turn. On a successful save, a creature takes half as much damage only.",
 		"***At Higher Levels***. When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d10 for each slot level above 2nd.",
@@ -58418,7 +58536,7 @@ if (MagicItemsList["grenade"]) {
 		type: "explosive, futuristic",
 		rarity: "priceless",
 		defaultExcluded: true,
-		description: "As an action, I can throw a grenade at a point up to 60 ft away or double that with a grenade launcher. A soporific mist releases from a sleep grenade, then dissipates. All within 20 ft of it must make a DC 15 Con save or fall unconscious for 1 hour, until taking damage, or until another using an action to shake awake.",
+		description: "As an action, I can throw a grenade at a point up to 60 ft away or double that with a grenade launcher. A soporific mist releases from a sleep grenade, then dissipates. All within 20 ft of it must make a DC 15 Con save or fall unconscious for 1 hour, until taking damage, or until another uses an action to shake awake.",
 		descriptionFull: [
 			"As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away.",
 			"A sleep grenade releases a cloud of soporific mist that fills a 20-foot-radius sphere, then dissipates. Each creature in that area must succeed on a DC 15 Constitution saving throw or have the unconscious condition for 1 hour. The condition ends on a creature early if the creature takes damage or if another creature uses an action to shake it awake.",
@@ -58432,7 +58550,7 @@ MagicItemsList["needler pistol"] = {
 	type: "futuristic item",
 	rarity: "priceless",
 	defaultExcluded: true,
-	description: "This pistol has 10 charges per energy cell, which can be replaced as a (bonus) action once empty. As an action, I can use 1 charge to fire a burst needlelike darts from it in a 15-ft cone, dealing 8d4 piercing damage to all creatures in the area. Creatures can make a DC 15 Dexterity saving throw to half the damage.",
+	description: "This pistol has 10 charges per energy cell, which can be replaced as a (bonus) action once empty. As an action, I can use 1 charge to fire a burst of needlelike darts from it in a 15-ft cone, dealing 8d4 piercing damage to all creatures in the area. Creatures can make a DC 15 Dexterity saving throw to halve the damage.",
 	descriptionFull: [
 		"This strange pistol resembles a flask with a honeycomb of tubes sticking out its front. The weapon is powered by an energy cell stored at the base of the flask. Placing a full energy cell in the pistol gives the pistol 10 charges.",
 		"As an action while holding this pistol, you can expend 1 of its charges to fire a burst of glowing, needlelike darts from the pistol in a 15-foot cone. Each creature in that area must make a DC 15 Dexterity saving throw, taking 8d4 piercing damage on a failed save or half as much damage on a successful one.",
@@ -58505,7 +58623,7 @@ MagicItemsList["powered armor"] = {
 	type: "technological device",
 	rarity: "priceless",
 	defaultExcluded: true,
-	description: "This plate armor has 24 charges per energy cell, which can be replaced as a (bonus) action if empty. As an action, I can expend charges to active it for 1 hour per charge. While active, I gain adv. on Str, double carrying capacity, have my own atmosphere to breath in, and can use Force Field and Propulsion, see Notes.",
+	description: "This plate armor has 24 charges per energy cell, which can be replaced as a (bonus) action if empty. As an action, I can expend charges to activate it for 1 hour per charge. While active, I gain adv. on Str, double carrying capacity, have my own atmosphere to breathe in, and can use Force Field and Propulsion, see Notes.",
 	descriptionFull: [
 		"This suit of technologically advanced plate armor includes an under-suit that can fully seal, a helmet with a full face mask and crystal lenses in the eyeholes, and a set of gauntlets. The armor is powered by an energy cell stored in a compartment on the thigh plate.",
 		"Placing a full energy cell in the armor gives the armor 24 charges. A suit of *powered armor* functions as a suit of normal plate armor, even when it has 0 charges remaining.",
@@ -79443,6 +79561,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 		chooseGear: {
 			type: "armor",
 			prefixOrSuffix: "prefix",
+			descriptionChange: ["replace", "armor"],
 		},
 		usages: 4,
 		recovery: "dawn",
@@ -79499,7 +79618,7 @@ if (ClassList.artificer && ClassList.artificer.features["infuse item"]) {
 				type: "armor",
 				prefixOrSuffix: "brackets",
 				itemName1stPage: ["suffix", "Mind Sharpener"],
-				descriptionChange: ["prefix", "armor"],
+				descriptionChange: ["replace", "armor"],
 			},
 		},
 		"mind sharpener robes": {
@@ -80116,19 +80235,21 @@ AddSubClass("bard", "college of spirits-ua",{
 					"As a bonus action while I'm holding my spiritual focus, I can reach out to spirits who tell their tales through me. I expend one use of my Bardic Inspiration and roll on the table below using my Bardic Inspiration die to determine the tale. I retain the tale in mind until I bestow the tale's effect or finish a short or long rest.",
 					"I can retain only one of these tales in mind at a time, and rolling on the table immediately ends the effect of the previous tale.",
 					"As an action, I can choose myself or one creature I can see within 30 ft to be the target of the tale's effect. If the tale requires a saving throw, the DC equals my spell save DC.",
-					"Roll " + (typePF ? "" : " ") + "Tale",
-					"  1    Beast: I recite the tale of a clever animal. For 1 minute, the target has advantage on Wisdom (Perception) checks and advantage on attack rolls against a creature if another enemy is within 5 ft of it, and that enemy isn't incapacitated.",
-					"  2    Warrior: I recount the story of a renowned duelist. Make a melee spell attack against the target as an attacking spectral warrior briefly appears in a unoccupied space within 5 ft of the target before vanishing. On a hit, the target takes force damage equal to two rolls of my Bardic Inspiration die + my Charisma modifier.",
-					"  3    Friends: I recite the tale of friends who found each other in the afterlife. The target and another creature of its choice it can see within 5 ft of it regains hit points equal to a roll of my Bardic Inspiration die + my Charisma modifier.",
-					"  4    Runaway: I tell the tale of an adventurer that could escape any confinement. The target can immediately use its reaction to teleport up to 30 ft to an unoccupied space it can see. When the target teleports, it can choose a number of creatures it can see within 30 ft of it up to my Charisma modifier (minimum of 1) to immediately use the same reaction.",
-					"  5    Avenger: I recount the tale of an avenging knight. For 1 minute, whenever a creature the target can see within 30 ft of it is damaged by a creature, the target can use its reaction to deal force damage equal to a roll of my Bardic Inspiration die to the attacker.",
-					"  6    Hero: I speak the tale of an epic hero. The target gains temporary hit points equal to a roll of my Bardic Inspiration die + my bard level. While it has these temporary hit points, the target's walking speed increases by 10 ft.",
-					"  7    Fey: I recount the tale of a mischievous fey. The target must succeed on a Wisdom saving throw or become charmed by me until the end of its next turn. The charmed target must use its action to make a melee attack against a creature other than itself that I mentally choose. The target can act normally on its turn if I choose no other creature.",
-					"  8    Dark Spirit: I speak a dreadful tale of a slayer in the dark. The target becomes invisible until the end of its next turn or until it hits a creature with an attack. If it hits a creature with an attack during this invisibility, that creature takes necrotic damage equal to a roll of my Bardic Inspiration die and is frightened of the target until the end of its next turn.",
-					"  9    Giant: I speak of the deeds of a mighty giant. Each creature of the target's choice it can see within 30 ft of it must make a Strength saving throw, taking force damage equal to two rolls of my Bardic Inspiration die on a failed save and is knocked prone. A creature that succeeds on its saving throw takes half as much damage and isn't knocked prone.",
-					" 10    Dragon: I breathe a poem of a wrathful dragon. The target magically spews fire from their mouth in a 30-ft cone. Each creature in that area must make a Dexterity saving throw, taking fire damage equal to three rolls of my Bardic Inspiration die on a failed save, or half as much damage on a successful one.",
-					" 11    Celestial: I speak of the exalted deeds of a celestial. The target regains hit points equal to two rolls of my Bardic Inspiration die + my bard level, and I end one disease or a condition from the following list affecting the target: blinded, deafened, paralyzed, petrified, or poisoned.",
-					" 12    Unknown: I utter an incomprehensible fable from a being beyond the stars. The target must succeed on an Intelligence saving throw or take psychic damage equal to three rolls of my Bardic Inspiration die, and the target is unable to speak any language for 1 minute.",
+					[
+						["Roll", "Tale"],
+						["  1", "**Beast**. I recite the tale of a clever animal. For 1 minute, the target has advantage on Wisdom (Perception) checks and advantage on attack rolls against a creature if another enemy is within 5 ft of it, and that enemy isn't incapacitated."],
+						["  2", "**Warrior**. I recount the story of a renowned duelist. Make a melee spell attack against the target as an attacking spectral warrior briefly appears in a unoccupied space within 5 ft of the target before vanishing. On a hit, the target takes force damage equal to two rolls of my Bardic Inspiration die + my Charisma modifier."],
+						["  3", "**Friends**. I recite the tale of friends who found each other in the afterlife. The target and another creature of its choice it can see within 5 ft of it regains hit points equal to a roll of my Bardic Inspiration die + my Charisma modifier."],
+						["  4", "**Runaway**. I tell the tale of an adventurer that could escape any confinement. The target can immediately use its reaction to teleport up to 30 ft to an unoccupied space it can see. When the target teleports, it can choose a number of creatures it can see within 30 ft of it up to my Charisma modifier (minimum of 1) to immediately use the same reaction."],
+						["  5", "**Avenger**. I recount the tale of an avenging knight. For 1 minute, whenever a creature the target can see within 30 ft of it is damaged by a creature, the target can use its reaction to deal force damage equal to a roll of my Bardic Inspiration die to the attacker."],
+						["  6", "**Hero**. I speak the tale of an epic hero. The target gains temporary hit points equal to a roll of my Bardic Inspiration die + my bard level. While it has these temporary hit points, the target's walking speed increases by 10 ft."],
+						["  7", "**Fey**. I recount the tale of a mischievous fey. The target must succeed on a Wisdom saving throw or become charmed by me until the end of its next turn. The charmed target must use its action to make a melee attack against a creature other than itself that I mentally choose. The target can act normally on its turn if I choose no other creature."],
+						["  8", "**Dark Spirit**. I speak a dreadful tale of a slayer in the dark. The target becomes invisible until the end of its next turn or until it hits a creature with an attack. If it hits a creature with an attack during this invisibility, that creature takes necrotic damage equal to a roll of my Bardic Inspiration die and is frightened of the target until the end of its next turn."],
+						["  9", "**Giant**. I speak of the deeds of a mighty giant. Each creature of the target's choice it can see within 30 ft of it must make a Strength saving throw, taking force damage equal to two rolls of my Bardic Inspiration die on a failed save and is knocked prone. A creature that succeeds on its saving throw takes half as much damage and isn't knocked prone."],
+						["10", "**Dragon**. I breathe a poem of a wrathful dragon. The target magically spews fire from their mouth in a 30-ft cone. Each creature in that area must make a Dexterity saving throw, taking fire damage equal to three rolls of my Bardic Inspiration die on a failed save, or half as much damage on a successful one."],
+						["11", "**Celestial**. I speak of the exalted deeds of a celestial. The target regains hit points equal to two rolls of my Bardic Inspiration die + my bard level, and I end one disease or a condition from the following list affecting the target: blinded, deafened, paralyzed, petrified, or poisoned."],
+						["12", "**Unknown**. I utter an incomprehensible fable from a being beyond the stars. The target must succeed on an Intelligence saving throw or take psychic damage equal to three rolls of my Bardic Inspiration die, and the target is unable to speak any language for 1 minute."],
+					],
 				],
 			}],
 		},
@@ -80715,10 +80836,12 @@ RaceList["hexblood-ua"] = {
 	],
 	toNotesPage: [{
 		name: "Hexblood's Magic Token",
-		note: ["As an action, I can harmlessly pull out one of my nails, a tooth, or a lock of hair. This token is imbued with magic until I finish a long rest.",
+		note: [
+			"As an action, I can harmlessly pull out one of my nails, a tooth, or a lock of hair. This token is imbued with magic until I finish a long rest.",
 			"While the token is imbued in this way, I can use an action to send a telepathic message to the creature holding or carrying the token, as long as I'm on the same plane of existence and are within 10 miles of it. The message can contain up to twenty-five words.",
 			"In addition, while I'm within 10 miles of the token, I can use an action to enter a trance for 1 minute, during which I can see and hear from the token as if I was located where it is. While I'm using my senses at the token's location, I'm blinded and deafened in regard to my own surroundings. Afterward, the token is harmlessly destroyed.",
-			"Once I create a token using this feature, I can't do so again until I finish a long rest, at which point my missing part regrows."],
+			"Once I create a token using this feature, I can't do so again until I finish a long rest, at which point my missing part regrows.",
+		],
 	}],
 	savetxt: {
 		adv_vs: ["charmed"],
@@ -81557,14 +81680,16 @@ RaceList["kender-ua"] = {
 					"I possess a magical ability to pull an item out of a bag or another container.",
 					"As a bonus action, I can reach into a container I'm carrying and roll a d6 to determine the item I pull out.",
 					"The object glimmers softly and disappears after 1 hour.",
-					"I can use this bonus action a number of times equal to my proficiency bonus, and you regain all expended uses when I finish a long rest.\n",
-					"  d6\tItem",
-					"   1\t5d6 gold pieces",
-					"   2\t1 simple weapon of my choice that has the light property",
-					"   3\t1 item of my choice from the Adventuring Gear table (PHB 148), no more than 1 gp and 1 lb",
-					"   4\t1 random item from the Trinkets table (PHB 159)",
-					"   5\tMy choice of a crowbar or a grappling hook",
-					"   6\t1 item of my choice from the Tools table (PHB 154), no more than 10 gp",
+					"I can use this bonus action a number of times equal to my proficiency bonus, and you regain all expended uses when I finish a long rest.",
+					[
+						["d6", "Item"],
+						["1", "5d6 gold pieces"],
+						["2", "1 simple weapon of my choice that has the light property"],
+						["3", "1 item of my choice from the Adventuring Gear table (PHB 148), no more than 1 gp and 1 lb"],
+						["4", "1 random item from the Trinkets table (PHB 159)"],
+						["5", "My choice of a crowbar or a grappling hook"],
+						["6", "1 item of my choice from the Tools table (PHB 154), no more than 10 gp"],
+					],
 				],
 			}],
 		},

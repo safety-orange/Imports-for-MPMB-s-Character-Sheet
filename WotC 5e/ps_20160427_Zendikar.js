@@ -173,7 +173,7 @@ RaceList["zendikar vampire"] = {
 };
 
 RaceList["grotag tribe goblin"] = {
-	regExpSearch: /^(?=.*\bgrotag)(?=.*goblin\b).*$/i,
+	regExpSearch: /^(?=.*\bgrotag)(?=.*\bgoblin\b).*$/i,
 	name: "Grotag Tribe Goblin",
 	sortname: "Goblin, Grotag Tribe",
 	source: [["PS:Z", 17]],
@@ -187,7 +187,7 @@ RaceList["grotag tribe goblin"] = {
 	dmgres: ["Fire", "Psychic"],
 	skills: ["Animal Handling"],
 	armourOptions: [{
-		regExpSearch: /^(?=.*goblin)(?=.*grit).*$/i,
+		regExpSearch: /^(?=.*\bgoblin)(?=.*grit).*$/i,
 		name: "Goblin Grit",
 		source: [["PS:Z", 17]],
 		ac: 11,
@@ -206,7 +206,7 @@ RaceList["grotag tribe goblin"] = {
 	],
 };
 RaceList["lavastep tribe goblin"] = {
-	regExpSearch: /^(?=.*\blavastep)(?=.*goblin\b).*$/i,
+	regExpSearch: /^(?=.*\blavastep)(?=.*\bgoblin\b).*$/i,
 	name: "Lavastep Tribe Goblin",
 	sortname: "Goblin, Lavastep Tribe",
 	source: [["PS:Z", 17]],
@@ -219,7 +219,7 @@ RaceList["lavastep tribe goblin"] = {
 	vision: [["Darkvision", 60]],
 	dmgres: ["Fire", "Psychic"],
 	armourOptions: [{
-		regExpSearch: /^(?=.*goblin)(?=.*grit).*$/i,
+		regExpSearch: /^(?=.*\bgoblin)(?=.*grit).*$/i,
 		name: "Goblin Grit",
 		source: [["PS:Z", 17]],
 		ac: 11,
@@ -239,7 +239,7 @@ RaceList["lavastep tribe goblin"] = {
 	],
 };
 RaceList["tuktuk tribe goblin"] = {
-	regExpSearch: /^(?=.*\btuktuk)(?=.*goblin\b).*$/i,
+	regExpSearch: /^(?=.*\btuktuk)(?=.*\bgoblin\b).*$/i,
 	name: "Tuktuk Tribe Goblin",
 	sortname: "Goblin, Tuktuk Tribe",
 	source: [["PS:Z", 17]],
@@ -253,7 +253,7 @@ RaceList["tuktuk tribe goblin"] = {
 	dmgres: ["Fire", "Psychic"],
 	toolProfs: [["Thieves' tools", "Dex"]],
 	armourOptions: [{
-		regExpSearch: /^(?=.*goblin)(?=.*grit).*$/i,
+		regExpSearch: /^(?=.*\bgoblin)(?=.*grit).*$/i,
 		name: "Goblin Grit",
 		source: [["PS:Z", 17]],
 		ac: 11,

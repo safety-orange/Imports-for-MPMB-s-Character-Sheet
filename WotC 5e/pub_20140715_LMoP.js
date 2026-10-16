@@ -71,7 +71,7 @@ MagicItemsList["lightbringer"] = {
 		selectNow: true,
 	}],
 }
-MagicItemsList["spider staff"] = { // changed to the new version introduced in Phandelver and Below: The Shattered Obelisk with the prerequisite
+MagicItemsList["spider staff"] = { // changed to the new version introduced in Phandelver and Below: The Shattered Obelisk with the prerequisite, but didn't change the full description
 	name: "Spider Staff",
 	source: [["LMoP", 53], ["PaBTSO", 220]],
 	type: "staff",
@@ -112,7 +112,7 @@ MagicItemsList["spider staff"] = { // changed to the new version introduced in P
 		firstCol: 2,
 	}],
 }
-MagicItemsList["staff of defense"] = { // changed to the new version introduced in Phandelver and Below: The Shattered Obelisk with the prerequisite
+MagicItemsList["staff of defense"] = { // changed to the new version introduced in Phandelver and Below: The Shattered Obelisk with the prerequisite, but didn't change the full description
 	name: "Staff of Defense",
 	source: [["LMoP", 53]],
 	type: "staff",

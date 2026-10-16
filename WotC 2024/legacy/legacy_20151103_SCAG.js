@@ -1,6 +1,6 @@
 var iFileName = "legacy_20151103_SCAG.js";
 RequiredSheetVersion("24.1.3");
-// This file adds all the player-material from Sword Coast Adventure Guide to MPMB's Character Record Sheet
+// This file adds the player-material from Sword Coast Adventure Guide to MPMB's Character Record Sheet that has not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source
 SourceList["S"] = {
@@ -707,6 +707,11 @@ BackgroundList["city watch"] = {
 	languageProfs: [2],
 	lifestyle: "modest",
 };
+AddBackgroundVariant("city watch", "investigator", {
+	regExpSearch: /^(?=.*city)(?=.*(watch|guard))(?=.*(investigator|inspector)).*$/i,
+	name: "City Watch Investigator", // Name changed so it doesn't conflict with VRGtR investigator
+	skills: ["Insight", "Investigation"],
+});
 BackgroundList["clan crafter"] = {
 	regExpSearch: /^(?=.*clan)(?=.*(crafter|smith|builder|miner)).*$/i,
 	name: "Clan Crafter",
@@ -892,23 +897,6 @@ BackgroundList["inheritor"] = {
 	toolProfs: [["Gaming set or musical instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "wealthy",
-};
-BackgroundList["investigator"] = {
-	regExpSearch: /investigator/i,
-	name: "Investigator",
-	source: [["S", 145]],
-	skills: ["Insight", "Investigation"],
-	gold: 10,
-	equipright: [
-		["Uniform", "", 3],
-		["Insignia of rank", "", ""],
-		["Horn", "", 2],
-		["Manacles", "", 6],
-		["Belt pouch (with coins)", "", 1],
-	],
-	feature: "Watcher's Eye",
-	languageProfs: [2],
-	lifestyle: "modest",
 };
 BackgroundList["knight of the order"] = {
 	regExpSearch: /^(?=.*knight)(?=.*order).*$/i,

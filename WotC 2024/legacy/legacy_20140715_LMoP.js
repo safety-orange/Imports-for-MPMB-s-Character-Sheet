@@ -1,6 +1,6 @@
 var iFileName = "legacy_20140715_LMoP.js";
 RequiredSheetVersion("24.1.3");
-// This file adds the magic items from the Lost Mines of Phandelver adventure from the D&D 5e starter set to MPMB's Character Record Sheet
+// This file adds the magic items from the Lost Mines of Phandelver adventure from the D&D 5e starter set to MPMB's Character Record Sheet that have not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source
 SourceList["LMoP"] = {
@@ -69,7 +69,7 @@ MagicItemsList["lightbringer"] = {
 		selectNow: true,
 	}],
 }
-MagicItemsList["spider staff"] = { // changed to the new version introduced in Phandelver and Below: The Shattered Obelisk with the prerequisite
+MagicItemsList["spider staff"] = { // changed to the new version introduced in Phandelver and Below: The Shattered Obelisk with the prerequisite, but didn't change the full description
 	name: "Spider Staff",
 	source: [["LMoP", 53], ["PaBTSO", 220]],
 	type: "Staff",
@@ -109,7 +109,7 @@ MagicItemsList["spider staff"] = { // changed to the new version introduced in P
 		firstCol: 2,
 	}],
 }
-MagicItemsList["staff of defense"] = { // changed to the new version introduced in Phandelver and Below: The Shattered Obelisk with the prerequisite
+MagicItemsList["staff of defense"] = { // changed to the new version introduced in Phandelver and Below: The Shattered Obelisk with the prerequisite, but didn't change the full description
 	name: "Staff of Defense",
 	source: [["LMoP", 53]],
 	type: "Staff",

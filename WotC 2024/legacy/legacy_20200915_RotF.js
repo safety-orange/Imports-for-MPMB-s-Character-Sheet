@@ -1,6 +1,6 @@
 var iFileName = "legacy_20200915_RotF.js";
 RequiredSheetVersion("24.1.3");
-// This file adds the content from the Icewind Dale: Rime of the Frostmaiden adventure to MPMB's Character Record Sheet
+// This file adds the content from the Icewind Dale: Rime of the Frostmaiden adventure to MPMB's Character Record Sheet that has not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source
 SourceList["RotF"] = {
@@ -826,24 +826,23 @@ MagicItemsList["ythryn mythallar"] = { // contains contributions by BraabHimself
 	toNotesPage: [{
 		name: "Properties",
 		note: [
-			"The Ythryn Mythallar is a 50 ft diameter crystal ball that sits on a cradle",
-			"It has the following properties:",
-			" \u2022 Sheds light in a 300 ft radius and Dim Light for an additional 300 ft",
-			" \u2022 Up to 8 creatures can attune to it, a 9th attunement fails",
-			" \u2022 To attune, a creature must Short Rest within 30 ft of it",
-			" \u2022 All those attuned to it can sense when it is being used",
-			" \u2022 All those attuned must agree to allow any properties to be used",
-			" \u2022 You can use an action to use the Ythryn Mythallar in the following ways:",
-			"  \u25E6 While on the same plane, give it a 30 ft Fly Speed",
-			"    All matter within 500 ft of it moves with it",
-			"    The ball and all structures held aloft by it hover in place when not in motion",
-			"  \u25E6 Cause one magic item to regain all charges/uses",
-			"    I must be within 30 ft of the ball and holding the item",
-			"    It cannot be recharged again until all charges/uses are expended",
-			"  \u25E6 Cast the *Control Weather* spell without components or spell slots",
-			"    It has a radius of 50 miles and can be cast inside",
-			"    I must be within 30 ft of the ball for the casting time, or it will fail",
-			"\n***Touching the Mythallar***. Any creature that touches the ball must make a DC 22 Constitution save. On a failure, they take 20d10 + 70 Radiant damage, or half that on a success. Undead have Disadvantage on this saving throw. Objects touching the ball, except artifacts or the cradle, disintegrate instantly",
+			"The Ythryn Mythallar is a 50 ft diameter crystal ball that sits on a cradle. It has the following properties.",
+			" \u2022 Sheds light in a 300 ft radius and Dim Light for an additional 300 ft.",
+			" \u2022 Up to 8 creatures can attune to it, a 9th attunement fails.",
+			" \u2022 To attune, a creature must Short Rest within 30 ft of it.",
+			" \u2022 All those attuned to it can sense when it is being used.",
+			" \u2022 All those attuned must agree to allow any properties to be used.",
+			" \u2022 You can use an action to use the Ythryn Mythallar in the following ways.",
+			"  \u25E6 While on the same plane, give it a 30 ft Fly Speed.",
+			"    All matter within 500 ft of it moves with it.",
+			"    The ball and all structures held aloft by it hover in place when not in motion.",
+			"  \u25E6 Cause one magic item to regain all charges/uses.",
+			"    I must be within 30 ft of the ball and holding the item.",
+			"    It cannot be recharged again until all charges/uses are expended.",
+			"  \u25E6 Cast *Control Weather* without components or spell slots.",
+			"    It has a radius of 50 miles and can be cast inside.",
+			"    I must be within 30 ft of the ball for the casting time, or it will fail.",
+			"***Touching the Mythallar***. Any creature that touches the ball takes 20d10 + 70 Radiant damage, but can make a DC 22 Constitution save to halve the damage. Undead have Disadvantage on this saving throw. Objects touching the ball, except artifacts or the cradle, disintegrate instantly",
 		],
 	}],
 };

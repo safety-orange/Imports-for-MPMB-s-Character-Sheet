@@ -101,7 +101,7 @@ BackgroundList["ruined"] = {
 	],
 };
 BackgroundFeatureList["still standing"] = {
-	description: "I have weathered ruinous misfortune in my life and I possess hidden reserves because of this. Possibly I've had to keep my senses sharp, had to redouble my efforts to reclaim what is mine, had to stoically persevered through it, or experienced something else transformative. How I've dealt with this is reflected in my choice of one free feat: Alert, Skilled, or Tough.",
+	description: "I have weathered ruinous misfortune in my life and I possess hidden reserves because of this. Possibly I've had to keep my senses sharp, had to redouble my efforts to reclaim what is mine, had to stoically persevere through it, or experienced something else transformative. How I've dealt with this is reflected in my choice of one free feat: Alert, Skilled, or Tough.",
 	source: [["BoMT", 58]],
 	featsAdd: [{
 		options: [
@@ -165,7 +165,7 @@ MagicItemsList["antimagic armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Antimagic", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["suffix", "Antimagic"],
 	},
 	action: [["reaction", "Adv. save vs. spell (1\xD7 per dawn)"]],
@@ -203,7 +203,7 @@ MagicItemsList["armor of fungal spores"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: "prefix",
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		excludeCheck: function (inObjKey, inObj) {
 			return !/medium/i.test(inObj.type);
 		},
@@ -227,7 +227,7 @@ MagicItemsList["armor of the fallen"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: "prefix",
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		excludeCheck: function (inObjKey, inObj) {
 			return !/heavy|medium/i.test(inObj.type);
 		},
@@ -257,7 +257,7 @@ MagicItemsList["armor of weightlessness"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: "prefix",
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 	},
 	usages: 5,
 	recovery: "dawn",
@@ -352,8 +352,8 @@ MagicItemsList["bloodseeker ammunition"] = {
 	source: [["BoMT", 66]], // Chapter 9: Knight
 	type: "weapon (any ammunition)",
 	rarity: "very rare",
-	description: "Ranged attack rolls made with this magic ammunition have advantage against any creature doesn't have all its hit points.",
-	descriptionFull: "Ranged attack rolls made with this ammunition have advantage against any creature doesn't have all its hit points.",
+	description: "Ranged attack rolls made with this magic ammunition have advantage against any creature that doesn't have all its hit points.",
+	descriptionFull: "Ranged attack rolls made with this ammunition have advantage against any creature that doesn't have all its hit points.",
 	allowDuplicates: true,
 	chooseGear: {
 		type: "ammo",
@@ -459,10 +459,10 @@ MagicItemsList["bow of melodies"] = {
 				if (!v.theWea.isMagicWeapon && chaMod > 0 && v.isRangedWeapon && /bow/i.test(v.baseWeaponName) && /^(?=.*melod(ies|y))(?!.*precision).*$/i.test(v.WeaponTextName) && (/reverberation/i.test(v.WeaponTextName) || !hasSkillProf("Performance")[0])) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, "");
-					fields.Description += (fields.Description ? "; " : "") + "+",  chaMod + " (Cha mod) thunder damage";
+					fields.Description += (fields.Description ? "; " : "") + "+" + chaMod + " (Cha mod) thunder damage";
 				}
 			},
-			'If I include the word "Melody" or "Melodies" in the name of a bow, it will be treated as the magic weapon Bow of Melodies. If I also include either "Precision" or "Reverberation" in the name, the respective bonus will be added. if I include neither of those in the name, the bonus will be determined automatically, the Melody of Precision if proficient with Performance (+1 or +2 bonus to hit) or Melody of Reverberation otherwise (+Cha mod thunder damage).',
+			'If I include the word "Melody" or "Melodies" in the name of a bow, it will be treated as the magic weapon Bow of Melodies. If I also include either "Precision" or "Reverberation" in the name, the respective bonus will be added. If I include neither of those in the name, the bonus will be determined automatically, the Melody of Precision if proficient with Performance (+1 or +2 bonus to hit) or Melody of Reverberation otherwise (+Cha mod thunder damage).',
 		],
 		atkCalc: [
 			function (fields, v, output) {
@@ -569,7 +569,7 @@ MagicItemsList["clockwork armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Clockwork", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["suffix", "Clockwork"],
 		excludeCheck: function (inObjKey, inObj) {
 			return !/heavy/i.test(inObj.type);
@@ -959,8 +959,8 @@ MagicItemsList["donjon's sundering sphere"] = {
 	type: "wondrous item",
 	rarity: "rare",
 	attunement: true,
-	description: "Attuning to this marble-size crystal sphere includes attaching it to a nonmagical melee weapon, that then becomes magical +1. It grants me adv. on saves vs. being send to another dimension. Once per dawn when I hit a creature, I can have it make a DC 16 Cha save or be stuck in a demiplane until its next turn ends.",
-	descriptionLong: "Attuning to this marble-size crystal sphere includes attaching it to the hilt of a nonmagical melee weapon, that then becomes a magic weapon with a +1 bonus to attack and damage rolls. While wielding it, I have advantage on save against being send to an extradimensional space or another plane of existence. Once per dawn when I hit a creature with this weapon, I can have it make a DC 16 Charisma save or be banished to a harmless demiplane until its next turn ends. It returns to the space it left, or the nearest empty space. When I end my attunement to the sphere, it detaches from the weapon.",
+	description: "Attuning to this marble-size crystal sphere includes attaching it to a nonmagical melee weapon, that then becomes magical +1. It grants me adv. on saves vs. being sent to another dimension. Once per dawn when I hit a creature, I can have it make a DC 16 Cha save or be stuck in a demiplane until its next turn ends.",
+	descriptionLong: "Attuning to this marble-size crystal sphere includes attaching it to the hilt of a nonmagical melee weapon, that then becomes a magic weapon with a +1 bonus to attack and damage rolls. While wielding it, I have advantage on save against being sent to an extradimensional space or another plane of existence. Once per dawn when I hit a creature with this weapon, I can have it make a DC 16 Charisma save or be banished to a harmless demiplane until its next turn ends. It returns to the space it left, or the nearest empty space. When I end my attunement to the sphere, it detaches from the weapon.",
 	descriptionFull: [
 		"This marble-size crystal sphere glows with extraplanar energy.",
 		"As part of attuning to this item, you press the crystal sphere to the hilt of a nonmagical melee weapon of your choice, magically attaching the sphere to the weapon. The weapon becomes a magic weapon with a +1 bonus to attack and damage rolls. While wielding this weapon, you gain the following benefits:",
@@ -969,7 +969,7 @@ MagicItemsList["donjon's sundering sphere"] = {
 		"When you end your attunement to the sphere, the sphere harmlessly detaches from the weapon, and the weapon reverts to a nonmagical piece of equipment.",
 	],
 	savetxt: {
-		adv_vs: ["being send to other plane/dimension"],
+		adv_vs: ["being sent to other plane/dimension"],
 	},
 	usages: 1,
 	recovery: "dawn",
@@ -1010,7 +1010,10 @@ MagicItemsList["euryale's aegis"] = {
 	rarity: "legendary",
 	attunement: true,
 	description: "This brass shield grants me poison resistance and petrification immunity. I can use it to cast 3 spells, each once per dawn. As a bonus action once per dawn, a target I can see within 30 ft must make a DC 20 Con save or be restrained until its next turn starts, at which point it must save again or be petrified for 24 hours.",
-	descriptionLong: "This gleaming brass shield bears a relief of the legendary medusa druid Euryale. It grants me poison resistance and immunity to being petrified. I can use it to cast 3 spells, each once per dawn: *Lesser Restoration*, *Locate Creature*, and *Transport via Plants*.\nAs a bonus action once per dawn, I can try to petrify a creature I can see within 30 ft. It must make a DC 20 Constitution save or be restrained while its body turns to stone. When its next turn starts, it must then make a DC 20 Constitution save again or be petrified for 24 hours. On a successful save, the restrained condition ends.",
+	descriptionLong: [
+		"This gleaming brass shield bears a relief of the legendary medusa druid Euryale. It grants me poison resistance and immunity to being petrified. I can use it to cast 3 spells, each once per dawn: *Lesser Restoration*, *Locate Creature*, and *Transport via Plants*.",
+		"As a bonus action once per dawn, I can try to petrify a creature I can see within 30 ft. It must make a DC 20 Constitution save or be restrained while its body turns to stone. When its next turn starts, it must then make a DC 20 Constitution save again or be petrified for 24 hours. On a successful save, the restrained condition ends.",
+	],
 	descriptionFull: [
 		"This gleaming brass shield bears a relief of the legendary medusa druid Euryale.",
 		"While wielding this shield, you gain the following benefits:",
@@ -1022,9 +1025,7 @@ MagicItemsList["euryale's aegis"] = {
 	action: [["bonus action", " - Petrify"]],
 	shieldAdd: "Euryale's Aegis",
 	dmgres: ["Poison"],
-	savetxt: {
-		immune: ["petrified"],
-	},
+	savetxt: { immune: ["petrified"] },
 	spellcastingBonus: [{
 		name: "Once per dawn",
 		spells: ["lesser restoration", "locate creature", "transport via plants"],
@@ -1078,7 +1079,7 @@ MagicItemsList["fate cutter shears"] = {
 	type: "weapon (dagger)",
 	rarity: "very rare",
 	attunement: true,
-	description: "The blades of these pruning shears bear many nicks and dents but still cut cleanly. They function as a magic dagger that deal +1d6 force damage. Once per dawn when I hit a creature with them, I can cut their fate. Until that target finishes a long rest, attack rolls against them score a critical hit on a roll of 19 or 20.",
+	description: "The blades of these pruning shears bear many nicks and dents but still cut cleanly. They function as a magic dagger that deals +1d6 force damage. Once per dawn when I hit a creature with them, I can cut their fate. Until that target finishes a long rest, attack rolls against them score a critical hit on a roll of 19 or 20.",
 	descriptionFull: [
 		"The blades of these pruning shears bear many nicks and dents but still cut cleanly. The shears function as a magic dagger. The weapon has the following properties:",
 		"***Ever Sharp***. When you hit with an attack using the shears, the target takes an extra 1d6 force damage.",
@@ -1169,7 +1170,7 @@ MagicItemsList["feywrought armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Feywrought", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["suffix", "Feywrought"],
 	},
 	usages: 3,
@@ -1192,7 +1193,11 @@ MagicItemsList["fool's blade"] = {
 	rarity: "very rare",
 	attunement: true,
 	description: "As a bonus action once per dawn, I can use this weapon +2 to feint a target within 5 ft, giving me adv. on attacks vs. it until my next turn starts. As a reaction once per dawn when a creature within 60 ft attacks me, I can have it make a DC 15 Int save or have it target another of my choice within its reach.",
-	descriptionLong: "This magic weapon appears ordinary, but bears strong illusion magic that allows me to deceive opponents. I have a +2 bonus to attack and damage rolls with it.\nFool's Feint: As a bonus action once per dawn, I can feint a creature within 5 ft, giving me advantage on attack rolls against it until the start of my next turn.\nMisdirect: As a reaction once per dawn when a creature within 60 ft targets me with an attack roll, I can have it make a DC 15 Intelligence save. On a failed save, the attack instead targets another creature of my choice that is within the attacker's reach.",
+	descriptionLong: [
+		"This magic weapon appears ordinary, but bears strong illusion magic that allows me to deceive opponents. I have a +2 bonus to attack and damage rolls with it.",
+		"***Fool's Feint***. As a bonus action once per dawn, I can feint a creature within 5 ft, giving me advantage on attack rolls against it until the start of my next turn.",
+		"***Misdirect***. As a reaction once per dawn when a creature within 60 ft targets me with an attack roll, I can have it make a DC 15 Intelligence save. On a failed save, the attack instead targets another creature of my choice that is within the attacker's reach.",
+	],
 	descriptionFull: [
 		"This weapon appears ordinary, but it bears strong illusion magic that allows its wielder to skillfully deceive opponents.",
 		"You have a +2 bonus to attack and damage rolls made with this magic weapon. While wielding it, you also gain the following benefits:",
@@ -1270,7 +1275,7 @@ MagicItemsList["glimmering moonbow"] = {
 	type: "weapon (any bow)",
 	rarity: "rare",
 	attunement: true,
-	description: "This silver-and-black bow adds +1 to its to hit and damage rolls, creates its own ammo that lasts until it hits or misses a target, and deals +1d6 radiant damage. As a bonus action once per dawn, I can use it to gain resistance to piercing, bludgeoning, and slashing damage until my next turn starts, ",
+	description: "This silver-and-black bow adds +1 to its to hit and damage rolls, creates its own ammo that lasts until it hits or misses a target, and deals +1d6 radiant damage. As a bonus action once per dawn, I can use it to gain resistance to piercing, bludgeoning, and slashing damage until my next turn starts.",
 	descriptionFull: [
 		"This silver-and-black bow is engraved with the phases of the moon. You gain a +1 bonus to attack and damage rolls made with this magic weapon.",
 		"When you hit with a ranged attack roll using this magic bow, the target takes an extra 1d6 radiant damage. If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic ammunition when you make a ranged attack with it. The ammunition created by the bow vanishes the instant after it hits or misses a target.",
@@ -1326,7 +1331,7 @@ MagicItemsList["gloomwrought armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Gloomwrought", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["suffix", "Gloomwrought"],
 	},
 	usages: 3,
@@ -1386,7 +1391,7 @@ MagicItemsList["house of cards"] = {
 	type: "wondrous item",
 	rarity: "uncommon",
 	description: "As an action once per dawn, I can have this deck of cards deal themselves into a shelter centered on a point within 30 ft. It can be any shape that fits in a 40-ft cube, with 1 door and up to 4 windows, that only I can open or close. It has 15 AC, 50 HP, and lasts for 24 hours, I dismiss it as an action, or it reaches 0 HP.",
-	descriptionLong: "This deck of cards is decorated with geometric shapes that have a protective motif. As an action once per dawn, I can cause the cards to transform into a shelter made of cards centered on a point within 30 ft. It can be any shaped I want that fits in a 40-ft cube. It has a floor, a roof, one door and up to four windows, and only I can open or close them. It has a comfortable temperature inside, AC 15, 50 HP, and immunity to poison and psychic damage. It lasts for 24 hours, until I dismiss it as an action, or until it is reduced to 0 HP. When the shelter's duration ends, it transforms back into a deck of cards in my hand.",
+	descriptionLong: "This deck of cards is decorated with geometric shapes that have a protective motif. As an action once per dawn, I can cause the cards to transform into a shelter made of cards centered on a point within 30 ft. It can be any shape I want that fits in a 40-ft cube. It has a floor, a roof, one door and up to four windows, and only I can open or close them. It has a comfortable temperature inside, AC 15, 50 HP, and immunity to poison and psychic damage. It lasts for 24 hours, until I dismiss it as an action, or until it is reduced to 0 HP. When the shelter's duration ends, it transforms back into a deck of cards in my hand.",
 	descriptionFull: [
 		"This deck of cards is decorated with geometric shapes that have a protective motif. While you're holding the deck, you can use an action to shuffle it and cause the cards to deal themselves out and transform into a shelter made of cards. The shelter can be shaped however you desire, but it must fit in a 40-foot cube centered on a point within 30 feet of you. The shelter has one door and up to four windows, and only you can open or close them. It has a floor and a roof, and it maintains a comfortable temperature inside.",
 		"The shelter has AC 15, 50 hit points, and immunity to poison and psychic damage. The shelter lasts for 24 hours, until you dismiss it as an action, or until it is reduced to 0 hit points. When the shelter's duration ends, it transforms back into a deck of cards and appears in your hand. Once the deck has transformed into a shelter, it can't be used again until the next dawn.",
@@ -1406,10 +1411,10 @@ MagicItemsList["jester's mask"] = {
 	description: "I can use this harlequin mask as a spellcasting focus. It adds a +3 bonus to my spell attacks and spell save DCs that use Charisma. Once per dawn when I roll a 1 on a d20, I can change it to a 20. As a reaction once per dawn when I'm hit by an attack roll, I can teleport 30 ft to an empty space I can see, taking no damage.",
 	descriptionLong: [
 		"While I'm wearing this colorful, harlequin domino mask edged with pearls, it grants me:",
-		"\u2022 **Charismatic Focus**. I can use it as a spellcasting focus and it grants me a +3 bonus to spell attack rolls and spell saving throw DCs that use Charisma as the spellcasting ability.",
-		"\u2022 **Marvelous Escape**. As a reaction once per dawn when a creature hits me with an attack roll, I can teleport in a puff of smoke and sparkles instead of taking damage. I teleport to an empty space I can see within 30 ft, along with anything I'm wearing or carrying.",
-		"\u2022 **Topsy-Turvy**. Once per dawn when I roll a 1 on a d20, I can treat it as a 20 instead.",
-	].join("\n"),
+		"***Charismatic Focus***. I can use it as a spellcasting focus and it grants me a +3 bonus to spell attack rolls and spell saving throw DCs that use Charisma as the spellcasting ability.",
+		"***Marvelous Escape***. As a reaction once per dawn when a creature hits me with an attack roll, I can teleport in a puff of smoke and sparkles instead of taking damage. I teleport to an empty space I can see within 30 ft, along with anything I'm wearing or carrying.",
+		"***Topsy-Turvy***. Once per dawn when I roll a 1 on a d20, I can treat it as a 20 instead.",
+	],
 	descriptionFull: [
 		"This colorful, harlequin domino mask is edged with pearls. While wearing this mask, you gain the following benefits:",
 		"***Charismatic Focus***. You can use the mask as a spellcasting focus. You gain a +3 bonus to any spell attack rolls and spell saving throw DCs that use Charisma as the spellcasting ability.",
@@ -1632,10 +1637,10 @@ MagicItemsList["sage's signet"] = {
 		"Six varieties of *Sage's Signet* rings exist, each with a different signet (see the table below). A ring's signet determines its rarity as well as the additional spells it can cast. While wearing a *Sage's Signet*, you can cast each of its additional spells once from the ring using your Intelligence as the spellcasting ability. Once you cast each of the additional spells from the ring, it can't cast the spell again until the next dawn.",
 		[
 			["Signet", "Rarity", "Spells"],
-			["Bear", "Very rare", "Enlarge/Reduce, *Polymorph*"],
+			["Bear", "Very rare", "*Enlarge/Reduce*, *Polymorph*"],
 			["Hart", "Very rare", "*Aura of Vitality*, *Mass Cure Wounds*"],
 			["Lion", "Very rare", "*Destructive Wave*, *Fireball*"],
-			["Serpent", "Rare", "Fear, *Hex*"],
+			["Serpent", "Rare", "*Fear*, *Hex*"],
 			["Songbird", "Rare", "*Charm Person*, *Hypnotic Pattern*"],
 			["Wolf", "Very rare", "*Freedom of Movement*, *Pass without Trace*"],
 		],
@@ -1849,7 +1854,7 @@ MagicItemsList["starshot crossbow"] = {
 	rarity: "rare",
 	attunement: true,
 	description: "This black wooden crossbow has pearl inlays depicting three constellations. It has 3 charges, regaining 1d3 at dawn. It produces its own ammo that lasts until it hits or misses a target. As a bonus action, I can use 1 charge to tap and invoke one of its constellations, see Notes page for the options.",
-	descriptionLong: "This crossbow of blackened wood has pearl inlays depicting three different constellations. It has 3 charges and regains 1d3 used charged daily at dawn. It produces its own ammo that lasts until it hits or misses a target. As a bonus action, I can use 1 charge to tap and invoke one of its constellations, see Notes for full text. Balance: next hit with the crossbow before my next turn ends heals me or another within 30 ft of me for 1d8+my Prof Bonus. Flames: until my next turn ends, the crossbow deals +2d8 fire damage. Rogue: until my next turn ends, I become invisible as well as anything I'm wearing or carrying.",
+	descriptionLong: "This crossbow of blackened wood has pearl inlays depicting three different constellations. It has 3 charges and regains 1d3 used charges daily at dawn. It produces its own ammo that lasts until it hits or misses a target. As a bonus action, I can use 1 charge to tap and invoke one of its constellations, see Notes for full text. Balance: next hit with the crossbow before my next turn ends heals me or another within 30 ft of me for 1d8+my Prof Bonus. Flames: until my next turn ends, the crossbow deals +2d8 fire damage. Rogue: until my next turn ends, I become invisible as well as anything I'm wearing or carrying.",
 	descriptionFull: [
 		"This crossbow is crafted from blackened wood, and its limbs bear pearl inlays depicting constellations. You ignore the loading property with this crossbow. If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic ammunition when you make a ranged attack with it. The ammunition created by the weapon vanishes the instant after it hits or misses a target. The crossbow has 3 charges and regains 1d3 expended charges daily at dawn.",
 		"***Constellations***. The crossbow is decorated with three constellations. As a bonus action, you can tap one of the constellations to invoke it, expending 1 charge and producing one of the following effects:",
@@ -2344,8 +2349,8 @@ SpellsList["spray of cards"] = {
 	compMaterial: "A deck of cards",
 	duration: "Instantaneous",
 	save: "Dex",
-	description: "All in area 2d10+1d10/SL Force dmg and blinded until their next turn ends; save halves \u0026 not blinded",
-	descriptionShorter: "All in area 2d10+1d10/SL Force dmg, blinded till their next turn ends; save half \u0026 not blinded",
+	description: "All in area 2d10+1d10/SL Force dmg and blinded until their next turn ends; save halves \x26 not blinded",
+	descriptionShorter: "All in area 2d10+1d10/SL Force dmg, blinded till their next turn ends; save half \x26 not blinded",
 	descriptionFull: [
 		"You spray a 15-foot cone of spectral cards. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes 2d10 force damage and has the blinded condition until the end of its next turn. On a successful save, a creature takes half as much damage only.",
 		"***At Higher Levels***. When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d10 for each slot level above 2nd.",

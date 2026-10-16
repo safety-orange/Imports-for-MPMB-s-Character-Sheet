@@ -3364,7 +3364,7 @@ MagicItemsList["living armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Living", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["suffix", "+1 Living"],
 	},
 }

@@ -617,15 +617,15 @@ FeatsList["rune shaper"] = {
 			["Fire", "*Burning Hands*"],
 			["Friend", "*Speak with Animals*"],
 			["Frost", "*Armor of Agathys*"],
-			["Hill", "Goodberry"],
-			["Journey", "Longstrider"],
-			["King", "Command"],
-			["Mountain", "Entangle"],
-			["Stone", "Sanctuary"],
-			["Storm", "Thunderwave"],
+			["Hill", "*Goodberry*"],
+			["Journey", "*Longstrider*"],
+			["King", "*Command*"],
+			["Mountain", "*Entangle*"],
+			["Stone", "*Sanctuary*"],
+			["Storm", "*Thunderwave*"],
 		],
 	],
-	description: "I know half my Prof Bonus, rounded down, in runes. After a long rest, I can inscribe each rune on a nonmagical objects I touch. It lasts until my next long rest. I can cast *Comprehend Languages* and each inscribed rune's spell once per long rest without a spell slot or material components, or by using spell slots. See Notes.",
+	description: "I know half my Prof Bonus, rounded down, in runes. After a long rest, I can inscribe each rune on a nonmagical object I touch. It lasts until my next long rest. I can cast *Comprehend Languages* and each inscribed rune's spell once per long rest without a spell slot or material components, or by using spell slots. See Notes.",
 	spellcastingAbility: [4, 5, 6],
 	spellFirstColTitle: "PR",
 	allowUpCasting: true,
@@ -801,7 +801,7 @@ MagicItemsList["armor of safeguarding"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: "prefix",
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		excludeCheck: function (inObjKey, inObj) {
 			return !/heavy/i.test(inObj.type);
 		},
@@ -873,7 +873,7 @@ MagicItemsList["crown of the wrath bringer"] = {
 		"When you make an attack roll against a creature and hit it while wearing this crown, you can spend and roll one of your unspent Hit Dice. The creature takes extra psychic damage equal to the number rolled.",
 		"***Invoking the Rune***. As an action, you can invoke the crown's rune to cast the *fear* spell (save DC 15) with it; the spell has a duration of 1 minute and doesn't require concentration. Once the rune has been invoked, it can't be invoked again until the next dawn.",
 	],
-	description: "When I hit a creature with an attack roll while wearing this jagged icon circlet, I can spend one HD to have the attack deal that much extra psychic damage. As an action once per dawn, I can invoke its enemy rune to cast *Fear* (DC 15) with a duration of 1 minute without requiring concentration.",
+	description: "When I hit a creature with an attack roll while wearing this jagged iron circlet, I can spend one HD to have the attack deal that much extra psychic damage. As an action once per dawn, I can invoke its enemy rune to cast *Fear* (DC 15) with a duration of 1 minute without requiring concentration.",
 	usages: 1,
 	recovery: "dawn",
 	additional: "Fear",
@@ -900,7 +900,7 @@ MagicItemsList["delver's claws"] = {
 	descriptionFull: [
 		"The back of this weatherworn leather glove is adorned with three large metal hooks shaped like a mole's claws. Stitched into the glove's palm is the mountain rune.",
 		"The glove is considered a simple melee weapon with the finesse and light properties, and it deals 1d4 slashing damage on a hit. While attuned to the glove, you gain a burrowing speed equal to your walking speed and blindsight to 15 feet.",
-		"***Invoking the Rune***As an action, you can invoke the glove's rune to bolster yourself with the sturdiness of the earth. Spend and roll a number of your unspent Hit Dice up to a maximum equal to your proficiency bonus. You then regain a number of hit points equal to the total roll plus your Constitution modifier.",
+		"***Invoking the Rune***. As an action, you can invoke the glove's rune to bolster yourself with the sturdiness of the earth. Spend and roll a number of your unspent Hit Dice up to a maximum equal to your proficiency bonus. You then regain a number of hit points equal to the total roll plus your Constitution modifier.",
 		"Once the rune has been invoked, it can't be invoked again until the next dawn.",
 	],
 	description: "This weatherworn leather glove is a simple, finesse, light melee weapon, dealing 1d4 slashing damage. While attuned, I gain 15 ft blindsight and a burrow speed equal to my walking speed. As an action once per dawn, I can invoke its mountain rune to spend up to Prof Bonus HD to regain hp (total roll + Con mod).",
@@ -1004,7 +1004,7 @@ MagicItemsList["lash of immolation"] = {
 		"***Invoking the Rune***. When you make an attack with the whip and hit, you can use your reaction to invoke the whip's rune. Doing so increases the extra fire damage dealt by the whip to 2d6.",
 		"Once the rune has been invoked, it can't be invoked again until the next dawn.",
 	],
-	description: "This +1 dark leather whip ha embers dancing around its tail. It deals +1d6 fire damage. When I score a critical hit with it, the target is restrained until my next turn starts, as fiery bands lash around it. As a reaction once per dawn when I hit with it, I can invoke its fire rune to increase the fire damage to 2d6.",
+	description: "This +1 dark leather whip has embers dancing around its tail. It deals +1d6 fire damage. When I score a critical hit with it, the target is restrained until my next turn starts, as fiery bands lash around it. As a reaction once per dawn when I hit with it, I can invoke its fire rune to increase the fire damage to 2d6.",
 	weight: 3,
 	weaponOptions: [{
 		baseWeapon: "whip",
@@ -1170,7 +1170,10 @@ MagicItemsList["orb of skoraeus"] = {
 		"***Astute Mind***. You gain a +2 bonus to any Constitution saving throw you make to maintain your concentration on a spell.",
 		"***Divine Sight***. You can see normally in darkness, both magical and nonmagical, to a distance of 120 feet.",
 	],
-	description: 'I can use this polished stone orb as a spellcasting focus that grants me +2 to concentration saves and "Divine Sight", the ability to see in normal and magical darkness out to 120 ft. It has 3 charges per dawn. When I cast a spell, I can expend charges to ignore 300 gp worth of material components per charge used.',
+	description: [
+		"This polished stone orb is a spellcasting focus. ***Astute Mind***. +2 bonus to concentration saves. ***Abundant Components***. It has 3 charges per dawn. When I cast a spell, I can expend charges to ignore 300 gp worth of material components per charge.",
+		"***Divine Sight***. See in normal and magical carkness out to 120 ft.",
+	],
 	weight: 8,
 	usages: 3,
 	recovery: "dawn",
@@ -1354,10 +1357,12 @@ MagicItemsList["shield of the blazing dreadnought"] = {
 		"***Shield Bash***. When you take the Attack action on your turn, you can replace one of your attacks with a shield bash, targeting one creature you can see within 5 feet of yourself. The target must make a Strength saving throw (DC equals 8 + your proficiency bonus + your Strength modifier). On a failed save, the target takes 3d6 bludgeoning damage plus 3d6 fire damage and is knocked prone. On a successful save, the target takes half as much damage only. You can use Shield Bash only once per turn.",
 		"Once the shield has been activated, it can't be activated again until the next dawn.",
 	],
-	description: "As a bonus action once per dawn, I can activate this iron shield to grant me the following for 1 minute: \u2022 Immune to fire. \u2022 As an action, I can remove disease, blinded, charmed, deafened, or poisoned from myself a creature I can see within 30 ft (Cleansing Fire). \u2022 I can make a shield bash attack once per turn (see attack).",
-	descriptionLong: "As a bonus action once per dawn, I can activate this iron shield to grant me the following benefits for 1 minute: \u2022 ***Blazing Soul***. Immunity to fire damage." +
-	"\n\u2022 ***Cleansing Fire***. As an action, I can remove a disease from myself or a creature I can see within 30 ft or the blinded, charmed, deafened, or poisoned condition." +
-	"\n\u2022 ***Shield Bash***. When I take the Attack action on my turn, I can replace one attack with a shield bash to deal 3d6 bludgeoning and 3d6 fire damage and knock prone one creature within 5 ft. It can make a Str save (DC 8 + Prof B + Str mod) to take only half damage.",
+	description: "As a bonus action once per dawn, I can activate this iron shield to grant me the following for 1 minute: \u2022 Immune to fire. \u2022 As an action, I can remove disease, blinded, charmed, deafened, or poisoned from me or a creature I can see within 30 ft (Cleansing Fire). \u2022 I can make a shield bash attack once per turn (see attack).",
+	descriptionLong: [
+		"As a bonus action once per dawn, I can activate this iron shield to grant me the following benefits for 1 minute. ***Blazing Soul***. Immunity to fire damage.",
+		"***Cleansing Fire***. As an action, I can remove a disease from myself or a creature I can see within 30 ft or the blinded, charmed, deafened, or poisoned condition.",
+		"***Shield Bash***. When I take the Attack action on my turn, I can replace one attack with a shield bash to deal 3d6 bludgeoning and 3d6 fire damage and knock prone one creature within 5 ft. It can make a Str save (DC 8 + Prof B + Str mod) to take only half damage.",
+	],
 	weight: 6,
 	shieldAdd: "Shield of the Blazing Dreadnought",
 	savetxt: { immune: ["fire (while Blazing Dreadnought active)"] },
@@ -1464,7 +1469,7 @@ MagicItemsList["thunderbuss"] = {
 		"Once the rune has been invoked, it can't be invoked again until the next dawn.",
 		"It's up to the DM to decide whether a character has proficiency with a firearm. Characters in most D\u0026D worlds wouldn't have such proficiency. During their downtime, characters can use the training rules in the Player's Handbook to acquire proficiency, assuming that they have enough ammunition to keep the weapons working while mastering their use.",
 	],
-	description: "This +1 pistol deals thunder damage and requires loading nor ammunition. As a bonus action once per dawn, I can invoke its storm rune on a point within 30 ft. All creatures in a 10-ft radius must make a DC 14 Con save or take 3d6 thunder damage and no reactions until my next turn ends. Only half damage if saved.",
+	description: "This +1 pistol deals thunder damage and requires no loading or ammunition. As a bonus action once per dawn, I can invoke its storm rune on a point within 30 ft. All creatures in a 10-ft radius must make a DC 14 Con save or take 3d6 thunder damage and no reactions until my next turn ends. Only half damage if saved.",
 	weight: 3,
 	weaponOptions: [{
 		baseWeapon: "pistol",
@@ -1569,7 +1574,7 @@ MagicItemsList["zephyr armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Zephyr", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["suffix", "Zephyr"],
 		excludeCheck: function (inObjKey, inObj) {
 			return !/light/i.test(inObj.type);

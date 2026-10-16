@@ -200,7 +200,7 @@ if (!SourceList["D:SotDQ"]) {
 	FeatsList["adept of the black robes"] = {
 		name: "Adept of the Black Robes",
 		source: [["D:SotDQ", 31], ["UA:HoKR", 4]],
-		description: "I learn one 2nd-level Ench or Necro spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. When a creature I can see within 60 ft fails its save vs. my damaging spell, I can expend HD up to the spell's level and add the rolls to the damage of the spell for that one creature.",
+		description: "I learn one 2nd-level Evoc or Necro spell, which I can cast once per long rest at its lowest level without a spell slot, or as normal with one. When a creature I can see within 60 ft fails its save vs. my damaging spell, I can expend HD up to the spell's level and add the rolls to the damage of the spell for that one creature.",
 		descriptionFull: [
 			"You chose the moon Nuitari to influence your magic, and your ambition and loyalty to the Order of the Black Robes has been recognized, granting you these benefits:",
 			"***Ambitious Magic***. You learn one 2nd-level spell of your choice. The 2nd-level spell must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gain the Initiate of High Sorcery feat.",

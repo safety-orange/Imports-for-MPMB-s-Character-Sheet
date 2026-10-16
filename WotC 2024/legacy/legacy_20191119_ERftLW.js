@@ -1,6 +1,6 @@
 var iFileName = "legacy_20191119_ERftLW.js";
 RequiredSheetVersion("24.1.3");
-// This file adds the content from Eberron: Rising from the Last War to MPMB's Character Record Sheet
+// This file adds the content from Eberron: Rising from the Last War to MPMB's Character Record Sheet that has not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source
 SourceList["E:RLW"] = {
@@ -853,6 +853,12 @@ if (!SpellsList["gust"]) {
 	};
 } // dupl_end
 
+// Background Feature
+BackgroundFeatureList["house connections"] = { // from House Agent
+	description: "As an agent of my house, I can always get food and lodging for my friends at a house enclave. My house usually provides me with necessary supplies and transportation if it assigns me a mission. I have many old friends, mentors, and rivals in my house that I might run into and be willing to help me depending on my current standing in the house.",
+	source: [["E:RLW", 53], ["WGtE", 95]],
+};
+
 // Magic Items
 MagicItemsList["arcane propulsion arm"] = {
 	name: "Arcane Propulsion Arm",
@@ -1414,7 +1420,7 @@ MagicItemsList["living armor"] = {
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: ["between", "Living", "Armor"],
-		descriptionChange: ["prefix", "armor"],
+		descriptionChange: ["replace", "armor"],
 		itemName1stPage: ["suffix", "+1 Living"],
 	},
 }

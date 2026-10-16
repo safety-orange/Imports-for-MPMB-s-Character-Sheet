@@ -1,6 +1,6 @@
 var iFileName = "legacy_20191112_AWM.js";
 RequiredSheetVersion("24.1.3");
-// This file adds the Dankwood Goblin race from the Adventure with Muk from Extra Life to MPMB's Character Record Sheet
+// This file adds the Dankwood Goblin race from the Adventure with Muk from Extra Life to MPMB's Character Record Sheet that has not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 // Be aware that this race is not legal in adventurers league!
 
 SourceList["AwM"] = {
