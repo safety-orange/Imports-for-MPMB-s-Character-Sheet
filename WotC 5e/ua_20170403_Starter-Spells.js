@@ -111,7 +111,7 @@ SpellsList["hand of radiance-uass"] = {
 	components: "V,S",
 	duration: "Instantaneous",
 	save: "Con",
-	description: "Any creatures I can see in 5-ft radius save or 1d6 Radiant damage; +1d6 damage at CL 5, 11, and 17",
+	description: "Any creatures I see in 5-ft radius save or 1d6 Radiant damage; +1d6 damage at CL 5, 11, and 17",
 	descriptionCantripDie: "Any creatures I can see in 5-ft radius save or `CD`d6 Radiant damage",
 	descriptionFull: [
 		"You raise your hand, and burning radiance erupts from it. Each creature of your choice that you can see within 5 feet of you must succeed on a Constitution saving throw or take 1d6 radiant damage.",

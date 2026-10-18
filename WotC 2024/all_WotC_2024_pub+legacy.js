@@ -11000,8 +11000,7 @@ AddWarlockInvocation("Book of Ancient Secrets (req: Pact of the Tome)", {
 		spellAdd: [
 			function (spellKey, spellObj, spName) {
 				if (spName !== "warlock-book of shadows") return;
-				var oSpells = CurrentSpells[spName];
-				if (oSpells.selectSp.indexOf(spellKey)) {
+				if (CurrentSpells[spName].selectSp.indexOf(spellKey) !== -1) {
 					spellObj.firstCol = SpellRitualTag;
 					if (!/.*(\d+ ?h\b|special|see b).*/i.test(spellObj.time)) {
 						var numMinutes = Number(spellObj.time.replace(/(\d+) ?min.*/, "$1"));
@@ -11032,7 +11031,7 @@ AddWarlockInvocation("Chains of Carceri (req: lvl 15+, Pact of the Chain)", {
 		"hold monster": {
 			components: "V,S",
 			compMaterial: "",
-			description: "1 Celestial, Fiend, or Elemental, save or Paralyzed; extra save at end of each turn",
+			description: "1 Celestial, Fiend, or Elemental; save or Paralyzed; repeat save at end of each turn",
 			changes: "With the Chains of Carceri invocation I can cast *Hold Monster* without a Material component, but only on a Celestial, Fiend, or Elemental.",
 		},
 	},
@@ -11556,21 +11555,27 @@ AddSubClass("cleric", "death domain", {
 			calcChanges: {
 				spellAdd: [
 					function (spellKey, spellObj, spName) {
-						if (spellObj.school == "Necro" && spellObj.level === 0) {
-							var startDescr = spellObj.description;
-							switch (spellKey) {
-								case "chill touch" :
-									spellObj.description = spellObj.description.replace("Spell attack", "2 crea in 5 ft spell atk").replace("Necrotic", "Necro.").replace("at CL 5, 11, and 17", "CL 5/11/17");
-									break;
-								case "spare the dying" :
-									spellObj.description = spellObj.description.replace("1 living creature", "1 living creature (or 2 within 5 ft of each other)");
-									break;
-								case "toll the dead" :
-								default :
-									spellObj.description = spellObj.description.replace(/1 crea(ture)?/i, "2 crea in 5 ft").replace("disadvantage", "Disadv").replace("save halves", "save half");
-							}
-							return startDescr !== spellObj.description;
-						};
+						if (spellObj.school !== "Necro" || spellObj.level !== 0) return;
+						var in5ft = "in 5 ft";
+						if (What("Unit System") === "metric") in5ft = ConvertToMetric(in5ft, 0.5);
+						// The shorter description if the spell has one and it wasn't changed yet, with the sheet's usual abbreviations
+						var sDescr = getSpellShortDescription(spellKey, spellObj);
+						var sNew = sDescr;
+						switch (spellKey) {
+							case "chill touch":
+							case "poison spray":
+								sNew = sNew.replace(/(melee|rngd) spell atk/i, "2 crea " + in5ft + " spell atk");
+								break;
+							case "spare the dying":
+								sNew = sNew.replace(/1 living crea/i, "1 (or 2 " + in5ft + ") living crea");
+								break;
+							case "toll the dead":
+							default:
+								sNew = sNew.replace(/\b1 crea\b/i, "2 crea " + in5ft);
+						}
+						if (sNew === sDescr) return;
+						spellObj.description = sNew.replace(/\bat CL 5(, 11,? (and |& )?|\/11\/)17\b/, "CL 5/11/17");
+						return true;
 					},
 					"My Necromancy, single-target cantrips can affect two targets within 5 ft of each other.",
 				],
@@ -11597,47 +11602,59 @@ AddSubClass("cleric", "death domain", {
 			calcChanges: {
 				spellAdd: [
 					function (spellKey, spellObj, spName) {
-						if (spellObj.school == "Necro" && spellObj.level && spellObj.level < 6) {
-							var startDescr = spellObj.description;
-							switch (spellKey) {
-								case "blindness/deafness" :
-									// only 2 target if not cast at higher SL
-									spellObj.description = "2 crea in 5 ft or " + spellObj.description;
-									break;
-								case "contagion" :
-								case "inflict wounds" :
-								case "ray of enfeeblement" :
-									spellObj.description = spellObj.description.replace(/(Melee )?spell attack/i, "2 " + "$1".toLowerCase() + "spell atk in 5 ft").replace("spell ends", "ends");
-									break;
-								case "cause fear" :
-									spellObj.description = "2 crea in 5 ft or 1+1/SL crea max 30 ft apart (no constr/undead), save or frightened; save end of turn";
-									break;
-								case "feign death" :
-									spellObj.description = "2 willing crea in 5 ft appear dead; Are blinded, incapacitated, dmg resist. all but Psychic, speed 0";
-									break;
-								case "gentle repose" :
-									spellObj.description = spellObj.description.replace("1 corpse protected from", "2 corpses in 5 ft suffer no");
-									break;
-								case "raise dead" :
-								case "revivify" :
-									spellObj.description = spellObj.description.replace("a creature's body that has", "body of 2 crea in 5 ft that").replace("cons.)", "cons. \xD72)");
-									spellObj.compMaterial += " (once for each target)";
-									break;
-								case "speak with dead" :
-									spellObj.description = spellObj.description.replace("1 corpse with mouth answers 5 questions", "2 corpses in 5 ft answer 5 questions each");
-									break;
-								case "enervation" :
-									spellObj.description = spellObj.description.replace("action", "Act").replace("see book", "see B");
-								case "bestow curse" :
-								case "blight" :
-								case "cause fear-uass" :
-								case "life transference" :
-								case "negative energy flood" :
-								default :
-									spellObj.description = spellObj.description.replace(/1 crea(ture)?/i, "2 crea in 5 ft").replace("disadvantage", "Disadv").replace("save halves", "save half");
-							}
-							return startDescr !== spellObj.description;
-						};
+						if (spellObj.school !== "Necro" || !spellObj.level || spellObj.level > 5) return;
+						var in5ft = "in 5 ft";
+						if (What("Unit System") === "metric") in5ft = ConvertToMetric(in5ft, 0.5);
+						// The shorter description if the spell has one and it wasn't changed yet, with the sheet's usual abbreviations
+						var sDescr = getSpellShortDescription(spellKey, spellObj);
+						var sNew = sDescr;
+						switch (spellKey) {
+							case "cause fear":
+								// the description is already in metric if the sheet is set to it
+								sNew = sNew.replace(/1\+1\/SL crea \(not Construct\/Undead\), each max (\d+[.,]?\d* ?(ft|m)) apart,/, "2 crea " + in5ft + " or 1+1/SL crea max $1 apart (no Construct/Undead)")
+									.replace("save end of each turn", "save EoT");
+								break;
+							case "enervation":
+								sNew = sNew.replace(/action/i, "Act").replace(/\b1 crea\b/i, "2 crea " + in5ft);
+								break;
+							case "feign death":
+								sNew = sNew.replace(/Willing crea looks dead/i, "2 willing " + in5ft + " look dead")
+									.replace(/resist\. all dmg but/i, "resist all but");
+								break;
+							case "gentle repose":
+								sNew = sNew.replace(/1 corpse/i, "2 corpses " + in5ft)
+									.replace(/add duration to time limit for raising dead/i, "add duration to raise dead time limit");
+								break;
+							case "raise dead":
+							case "revivify":
+							case "reincarnate":
+								sNew = sNew
+									.replace(/Bring corpse that died within the last/i, "Bring 2 corpses " + in5ft + " that died in last")
+									.replace(/Bring humanoid that died in last 10 days to life in a new random adult body/i, "Bring 2 Humanoids " + in5ft + " dead \u226410 days to life in new random body")
+									.replace(/(\d+k? ?gp cons)\b/i, "$1 \xD72");
+								break;
+							case "ray of sickness":
+								sNew = sNew.replace(/rngd spell atk/i, "2 crea " + in5ft + " rngd spell atk");
+								break;
+							case "speak with dead":
+								sNew = sNew.replace(/1 corpse with mouth .*? 10 days/i, "2 corpses " + in5ft + " with mouths each answer 5 questions with what they knew; same 1/10 days");
+								break;
+							case "blight":
+							case "contagion":
+							case "ray of enfeeblement":
+							default:
+								sNew = sNew.replace(/\b1 crea\b/i, "2 crea " + in5ft)
+									.replace(/Plant crea auto-fails save/i, "Plants auto-fail save") // blight
+									.replace(/save at end of 5 turns/i, "save EoT 5 turns") // contagion
+									.replace(/deal -1d8 dmg, repeat save EoT/i, "-1d8 dmg, save EoT"); // ray of enfeeblement
+						}
+						if (sNew === sDescr) return;
+						spellObj.description = sNew;
+						// Material components that the spell consumes have to be provided for each target
+						if (spellObj.compMaterial && (/consume/i.test(spellObj.compMaterial) || /\u2020/.test(spellObj.components))) {
+							spellObj.compMaterial += " (once for each target)";
+						}
+						return true;
 					},
 					"My Necromancy, single-target 5th-level or lower spells can affect two targets within 5 ft of each other if both are within range of the spell. The spells still require Material components for each target separately.",
 				],
@@ -11755,14 +11772,15 @@ MagicItemsList["balloon pack"] = {
 	spellChanges: {
 		"feather fall": {
 			range: "Self",
-			description: "I descend only 60 ft/rnd for duration or until landed, taking no falling damage",
+			description: "I descend only 60 ft/round for duration or until I land, taking no falling damage",
 			changes: "Using the Balloon Pack, I can only target myself.",
 		},
 		"levitate": {
+			reqLoS: false,
 			range: "Self",
 			duration: "10 min",
 			save: "",
-			description: "I rise vertically, up to 20 ft; move up/down 20 ft instead of normal move",
+			description: "I rise vertically, up to 20 ft; move up/down 20 ft as part of my move",
 			changes: "Using the Balloon Pack, I can only target myself, but the spell requires no Concentration.",
 		},
 	},
@@ -11901,7 +11919,7 @@ MagicItemsList["drown"] = {
 	}],
 	spellChanges: {
 		"dominate monster": {
-			description: "Water elemental save or Charmed, obeys telepathic commands, Act for complete control; save on dmg",
+			description: "Water elemental save or Charmed; redo on dmg; follows telepathic commands; Rea to use its Rea",
 			changes: "Can only affect a water elemental.",
 		},
 	},
@@ -11972,12 +11990,8 @@ MagicItemsList["ironfang"] = {
 	}],
 	spellChanges: {
 		"dominate monster": {
-			description: "Earth elemental save or Charmed, follows telepathic commands, Act for complete control; save on dmg",
+			description: "Earth elemental save or Charmed; redo on dmg; follows telepathic commands; Rea to use its Rea",
 			changes: "Can only affect an earth elemental.",
-		},
-		"shatter": {
-			description: "10-ft rad all 4d8 Thunder dmg; save halves; nonmagical unattended objects also take dmg",
-			changes: "Cast as if using a 2nd-level spell slot.",
 		},
 	},
 	vision: [["Tremorsense", "fixed 60"]],
@@ -12158,7 +12172,7 @@ MagicItemsList["tinderstrike"] = {
 	}],
 	spellChanges: {
 		"dominate monster": {
-			description: "Fire elemental save or Charmed, follows telepathic commands, Act for complete control; save on dmg",
+			description: "Fire elemental save or Charmed; redo on dmg; follows telepathic commands; Rea to use its Rea",
 			changes: "Can only affect a fire elemental.",
 		},
 	},
@@ -12231,7 +12245,7 @@ MagicItemsList["windvane"] = {
 	}],
 	spellChanges: {
 		"dominate monster": {
-			description: "Air elemental save or Charmed, follows telepathic commands, Act for complete control; save on dmg",
+			description: "Air elemental save or Charmed; redo on dmg; follows telepathic commands; Rea to use its Rea",
 			changes: "Can only affect an air elemental.",
 		},
 	},
@@ -14794,10 +14808,12 @@ AddSubRace("dwarf", "gray", {
 			spellChanges: {
 				"enlarge/reduce": {
 					name: "Enlarge",
+					reqLoS: false,
 					range: "Self",
 					components: "V,S",
 					compMaterial: "",
-					description: "I'm enlarged, Adv on Str checks/saves and +1d4 weapon dmg; Can't cast this in direct sunlight",
+					save: "",
+					description: "I'm Enlarged: +1 size, Adv on Str checks/saves, +1d4 weapon/unarmed dmg; not in direct sunlight",
 					dependencies: null,
 					changes: "Using Duergar Magic, I cast *Enlarge/Reduce* while I'm not in direct sunlight, but only to enlarge myself.",
 				},
@@ -14817,7 +14833,7 @@ AddSubRace("dwarf", "gray", {
 					range: "Self",
 					components: "V,S",
 					compMaterial: "",
-					description: "Me and my worn/carried Invisible until I attack or cast; Can't cast this spell in direct sunlight",
+					description: "I and worn/carried become Invisible; attacking, casting, or dealing dmg ends it; not in direct sunlight",
 					changes: "Using Duergar Magic, I can cast *Invisibility* while I'm not in direct sunlight, but only on myself.",
 				},
 			},
@@ -16485,7 +16501,7 @@ MagicItemsList["icon of ravenloft"] = {
 		"protection from evil and good": {
 			range: "30-ft rad",
 			time: "Always",
-			description: "All in range Immune to fear, charm, and possession by Fiends and Undead, they also Disadv on attacks",
+			description: "All in range no fear/charm/possess and atks Dis from Fiends/Undead",
 			duration: "Unlimited",
 			changes: "All within 30 ft of the Icon of Ravenloft have this spell protect them from Undead and Fiends.",
 		},
@@ -16494,8 +16510,9 @@ MagicItemsList["icon of ravenloft"] = {
 			changes: "Using the Icon of Ravenloft, it only takes an action to cast.",
 		},
 		"cure wounds": {
+			reqLoS: true,
 			range: "30 ft",
-			description: "1 living creature heals 3d8+3 HP if it's not an Undead, Construct, or Fiend",
+			description: "1 crea heals 3d8+3 HP, unless it's an Undead, Construct, or Fiend",
 			dynamicDamageBonus: { doNotProcess: true },
 			changes: "Using the Icon of Ravenloft, it has a range of 30 ft and always heals 3d8+3 HP, but can't affect Undead, a Construct, or a Fiend.",
 		},
@@ -17046,8 +17063,7 @@ MagicItemsList["gurt's greataxe"] = {
 	}],
 	spellChanges: {
 		"heat metal": {
-			description: "1 metal obj on touch 2d8 Cold dmg; save or drop obj; if held: dis. atk/chk; Bns cool obj again",
-			descriptionShorter: "1 metal obj, touch it 2d8 Cold dmg; save or drop it; if held: dis. atk/chk; Bns redo",
+			description: "1 metal object on touch 2d8 Cold dmg; save or drop obj; if held: Dis atk/chk; Bns cool obj again",
 			changes: "Using Gurt's Greataxe, the spell deals Cold damage instead of Fire.",
 		},
 	},
@@ -17420,7 +17436,7 @@ MagicItemsList["rod of the vonindod"] = {
 	}],
 	spellChanges: {
 		"locate object": {
-			description: "Learn direction to closest described kind or specific obj in 1000 ft (10 miles if adamantine); see book",
+			description: "Direction to closest named/described familiar obj (specific/kind) in 1000 ft (10 miles if adamantine)",
 			changes: "Using the Rod of the Vonindod, the spell detection range increases to 10 miles when used to locate adamantine objects.",
 		},
 	},
@@ -17502,11 +17518,23 @@ MagicItemsList["ring of hardened magma"] = {
 	}],
 	spellChanges: {
 		"conjure minor elementals": {
+			source: [["SKT", 105]],
+			reqLoS: true,
+			time: "1 min",
+			range: "90 ft",
+			duration: "Conc, 1 h",
 			description: "Summon 4 magma mephits or 4 magmins that obey my verbal commands",
-			changes: "Using the Ring of Hardened Magma, the spell summons either four magma mephits or four magmins.",
+			descriptionShorter: undefined,
+			descriptionFull: [
+				"You summon either four **Magma Mephits** or four **Magmins**, as you wish. They appear in unoccupied spaces that you can see within range. An elemental summoned by this spell disappears when it drops to 0 Hit Points or when the spell ends.",
+				"The summoned creatures are Friendly to you and your companions. Roll Initiative for the summoned creatures as a group, which has its own turns. They obey any verbal commands that you issue to them (no action required by you). If you don't issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions. The DM has the creatures' statistics.",
+			],
+			dynamicDamageBonus: undefined,
+			completeRewrite: true, // i.e. even overwrite the tooltip with these changes
+			changes: "The listing of *Conjure Minor Elementals* has been completely changed to the 2014 version of the spell, which the *Ring of Hardened Magma* uses to summon either four magma mephits or four magmins. Even the information above has been changed.",
 		},
 		"fire shield": {
-			description: "Fiery shield gives Resistance to Cold damage and deals 2d8 Fire damage to melee attackers",
+			description: "Resist Cold; 2d8 Fire dmg to melee atkers if hit in 5ft; 10-ft rad bright/10-ft dim light",
 			dynamicDamageBonus: false,
 			changes: "Using the Ring of Hardened Magma, the spell can only produce the warm shield.",
 		},
@@ -17650,7 +17678,7 @@ RaceList["firbolg"] = {
 			}],
 			spellChanges: {
 				"disguise self": {
-					description: "Alter appearance, up to 3ft shorter/taller; Int(Investigation) check vs spell DC to determine disguise",
+					description: "Alter appearance with illusion, \u22643 ft shorter/taller; Study action: Int (Investigation) vs DC discerns",
 					changes: "Using Firbolg Magic, I can cast *Disguise Self* once per Short Rest to also seem up to 3 feet shorter or taller.",
 				},
 			},
@@ -19802,7 +19830,7 @@ MagicItemsList["bookmark"] = {
 		"compulsion": {
 			time: "Bns",
 			range: "90 ft",
-			description: "Any spiders that hear me save or I can, as bns, have it move fully in a direction; save again after move",
+			description: "Spiders save or Charmed; Bns pick direction: Charmed move in it on their turn then repeat save",
 			changes: "Using Bookmark, I can cast this as a Bonus Action with a range of 90 ft, but it can only target spiders with the Beast type.",
 		},
 	},
@@ -20396,10 +20424,21 @@ AddSubClass("druid", "circle of the shepherd", {
 			spellChanges: {
 				"conjure animals": {
 					nameShort: "Conjure Animals (lvl 9)",
+					source: [["X", 24]],
+					time: "0 HP",
+					timeFull: "Immediately when I'm reduced to 0 Hit Points or Incapacitated against my will",
 					range: "20 ft",
 					duration: "1 h",
+					save: "",
 					description: "Summon 4 CR 2 Beasts; protect me from harm and attack foes",
-					changes: "Using my Faithful Summons class feature when I'm reduced to 0 HP, I can cast *Conjure Animals* as if using a 9th-level spell slot. This then summons 4 Beasts of my choice up to CR 2 within 20 ft of me without needing Concentration.",
+					descriptionShorter: undefined,
+					descriptionFull: [
+						"When you are reduced to 0 Hit Points or are Incapacitated against your will, you can immediately gain the benefits of this spell as if it were cast using a level 9 spell slot. It summons four Beasts of your choice that are Challenge Rating 2 or lower. They are fey spirits that take the form of Beasts and appear in unoccupied spaces within 20 feet of you. Each Beast is also considered Fey, and it disappears when it drops to 0 Hit Points or when the spell ends.",
+						"The summoned creatures are Friendly to you and your companions. Roll Initiative for the summoned creatures as a group, which has its own turns. They obey any verbal commands that you issue to them (no action required by you). If they receive no commands from you, they protect you from harm and attack your foes. The DM has the creatures' statistics.",
+						"The spell lasts for 1 hour, requiring no Concentration, or until you dismiss it (no action required).",
+					],
+					completeRewrite: true, // i.e. even overwrite the tooltip with these changes
+					changes: "The listing of *Conjure Animals* has been completely changed to the 2014 version of the spell, which my Faithful Summons class feature uses as if cast with a level 9 spell slot to summon 4 Beasts up to CR 2 within 20 ft of me, without needing Concentration. Even the information above has been changed.",
 				},
 			},
 		},
@@ -20852,7 +20891,7 @@ AddSubClass("ranger", "horizon walker", {
 				"etherealness": {
 					time: "Bns",
 					duration: "1 rnd",
-					description: "I go to Ethereal Plane; move there, but able to perceive 60 ft into the normal plane",
+					description: "I step into Ethereal Plane until the end of my turn; can perceive 60 ft into source plane",
 					changes: "Using my Ethereal Step class feature I can cast *Etherealness* as a Bonus Action once per Short Rest, but it only affects myself and lasts until the end of my turn.",
 				},
 			},
@@ -22829,7 +22868,7 @@ AddSubRace("tiefling", "baalzebul", {
 			}],
 			spellChanges: {
 				"ray of sickness": {
-					description: "Spell attack for 3d8 Poison dmg; save or also Poisoned until end of my next turn",
+					description: "Ranged spell attack for 3d8 Poison damage and Poisoned until my next turn ends",
 					changes: "Using Legacy of Maladomini, I cast *Ray of Sickness* as if I'm using a 2nd-level spell slot.",
 				},
 			},
@@ -22929,7 +22968,7 @@ AddSubRace("tiefling", "fierna", {
 			}],
 			spellChanges: {
 				"charm person": {
-					description: "2 Humanoids, max 30 ft apart, save or Charmed; Adv on save if me/ally is fighting it",
+					description: "2 Humanoids save or Charmed \x26 Friendly; Adv on save if fighting me/ally; ends if we dmg it",
 					changes: "Using Legacy of Phlegethos, I cast *Charm Person* as if I'm using a 2nd-level spell slot.",
 				},
 			},
@@ -23029,7 +23068,7 @@ AddSubRace("tiefling", "levistus", {
 			}],
 			spellChanges: {
 				"armor of agathys": {
-					description: "10 Temp HP; as long as Temp HP last any crea that hits in melee takes 10 Cold dmg",
+					description: "10 temp HP; crea that hit me with melee atk take 10 Cold dmg; spell ends if 0 temp HP left",
 					changes: "Using Legacy of Stygia, I cast *Armor of Agathys* as if I'm using a 2nd-level spell slot.",
 				},
 			},
@@ -23189,7 +23228,7 @@ AddSubRace("tiefling", "zariel", {
 			}],
 			spellChanges: {
 				"searing smite": {
-					description: "Next melee weapon hit +2d6 Fire dmg and target ignites; save to end spell or 1d6 Fire dmg",
+					description: "Cast on melee wea hit; +2d6 Fire dmg; its SoT: 2d6 Fire dmg, then save to end",
 					changes: "Using Legacy of Avernus, I cast *Searing Smite* as if I'm using a 2nd-level spell slot.",
 				},
 			},
@@ -23347,7 +23386,7 @@ RaceList["githyanki"] = {
 	spellChanges: {
 		"mage hand": {
 			components: "",
-			description: "Create invisible spectral hand for simple tasks or carry up to 10 lb; Act to control; can't have multiple",
+			description: "Invisible hand does simple task, carry \u226410lb; Act to control again, move 30ft; ends if recast/out range",
 			changes: "Using Githyanki Psionics, I can cast *Mage Hand* without requiring components and the spectral hand is invisible.",
 		},
 	},
@@ -23430,7 +23469,7 @@ RaceList["githzerai"] = {
 	spellChanges: {
 		"mage hand": {
 			components: "",
-			description: "Create invisible spectral hand for simple tasks or carry up to 10 lb; Act to control; can't have multiple",
+			description: "Invisible hand does simple task, carry \u226410lb; Act to control again, move 30ft; ends if recast/out range",
 			changes: "Using Githzerai Psionics, I can cast *Mage Hand* without requiring components and the spectral hand is invisible.",
 		},
 	},
@@ -23732,7 +23771,7 @@ if (MagicItemsList["staff of power"]) {
 			"dispel magic": {
 				time: "Bns",
 				range: "Melee atk",
-				description: "Dispel all magic on crea or object hit with melee atk; DC 10+SL spellcasting ability check if level >3",
+				description: "Dispel all spells on 1 crea/obj hit with melee atk; spellcasting ability check DC 10+SL if level >3",
 				changes: "Can cast as a Bonus Action, but only on something touched by the staff. It might first require an attack by the staff to be able to cast it on",
 			},
 		},
@@ -23803,7 +23842,7 @@ MagicItemsList["dragonstaff of ahghairon"] = { // contains contributions by Peng
 	}],
 	spellChanges: {
 		"command": {
-			description: "1 crea, save or follow one word command, e.g. approach, drop, flee, halt; Dragons Disadv on save",
+			description: "1 crea save or next turn only does command: Approach, Drop, Flee, Grovel, Halt; Dragons Dis on save",
 			changes: "When this spell is cast on a Dragon they have Disadvantage on the saving throw.",
 		},
 	},
@@ -26901,7 +26940,8 @@ MagicItemsList["black crystal tablet"] = { // contains contributions by Pengslot
 	}],
 	spellChanges: {
 		"gate": {
-			description: "Create a portal to a precise location in the Far Realm; can transport named crea to me",
+			description: "Create a 5-20 ft portal to exact spot in the Far Realm; can transport named creature to me; see book",
+			descriptionMetric: "Create a 1,5-6 m portal to exact spot in the Far Realm; can transport named creature to me; see book",
 			changes: "The spell can only connect to the Far Realm.",
 		},
 	},
@@ -27036,7 +27076,7 @@ MagicItemsList["blast scepter"] = { // contains contributions by Pengsloth
 	spellChanges: {
 		"thunderwave": {
 			nameShort: "Thunderwave (4th level)",
-			description: "All crea/obj in area 5d8 Thunder dmg, pushed 10 ft away; save halves and not pushed",
+			description: "All crea/loose obj 5d8 Thunder dmg, pushed 10 ft away; save half only; audible in 300 ft",
 			changes: "Cast as if using a 4th-level spell slot",
 		},
 	},
@@ -27989,7 +28029,7 @@ MagicItemsList["helm of devil command"] = {
 	}],
 	spellChanges: {
 		"dominate monster": {
-			description: "Devil save or Charmed, follows telepathic commands, Act for complete control; save on dmg",
+			description: "Devil save or Charmed; redo on dmg; follows telepathic commands; Rea to use its Rea",
 			changes: "Can only affect a devil.",
 		},
 	},
@@ -28475,10 +28515,10 @@ AddSubRace("human", "mark of handling", {
 			function (spellKey, spellObj, spName) {
 				switch (spellKey) {
 					case "animal friendship" :
-						spellObj.description = spellObj.description.replace("Beasts", "Beasts/Monstrosities");
+						spellObj.description = spellObj.description.replace("Beasts", "Beasts/Int\u22643 Monstrosities").replace("the Beast is", "it's");
 						return true;
 					case "speak with animals" :
-						spellObj.description = "Communicate with Beasts \x26 Int\u22643 Monstrosities; get info on nearby stuff, recent sights; can Influence";
+						spellObj.description = spellObj.description.replace("Speak with and understand Beasts", "Speak with Beasts & Int\u22643 Monstrosities").replace("nearby locations/monsters/recent sights", "nearby places/monsters/sights");
 						return true;
 				}
 			},
@@ -29333,13 +29373,13 @@ MagicItemsList["imbued wood focus"] = {
 		calcChanges: {
 			atkCalc: [
 				function (fields, v, output) {
-					if (v.thisWeapon[3] && /lightning|thunder/i.test(fields.Damage_Type)) output.extraDmg += 1;
+					if (v.thisWeapon[3] && /lightning|lightn\.?|thunder/i.test(fields.Damage_Type)) output.extraDmg += 1;
 				},
 				"When I use this as my spellcasting focus, spells I cast that deal Lightning or Thunder damage get a +1 bonus added to one of their damage rolls.",
 			],
 			spellAdd: [
 				function (spellKey, spellObj, spName) {
-					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "lightning|thunder", 1, true, true);
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "lightning|lightn\\.?|thunder", 1, true, true);
 				},
 				"When I use this as my spellcasting focus, spells I cast that deal Lightning or Thunder damage get a +1 bonus added to one of their damage rolls.",
 			],
@@ -30021,7 +30061,7 @@ AddSubRace("elf", "pallid", { // contains contributions by Smashman
 					range: "Self",
 					components: "V,S",
 					compMaterial: "",
-					description: "Me and my worn/carried invisible until I attack or cast; Can't cast this spell in direct sunlight",
+					description: "I and my worn/carried become Invisible; attacking, casting, or dealing damage ends the spell",
 					changes: "Using Blessing of the Moonweaver, I can cast *Invisibility* once per Long Rest without requiring a Material component, but only on myself.",
 				},
 			},
@@ -32215,8 +32255,10 @@ MagicItemsList["hide of the feral guardian"] = {
 		spellChanges: {
 			"polymorph": {
 				name: "Polymorph (special)",
+				reqLoS: false,
 				range: "Self",
-				description: "I transform into a giant owl; I retain my Int, Wis, Cha",
+				save: "",
+				description: "I turn into a giant owl; keep Int/Wis/Cha; its HP as Temp HP; ends if 0 Temp HP; see B",
 				changes: "Using the Hide of the Feral Guardian, I can cast *Polymorph* on myself once per dawn to transform myself into a giant owl, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the armor.",
 			},
 		},
@@ -32236,8 +32278,10 @@ MagicItemsList["hide of the feral guardian"] = {
 		spellChanges: {
 			"polymorph": {
 				name: "Polymorph (special)",
+				reqLoS: false,
 				range: "Self",
-				description: "I transform into a giant owl or cave bear; I retain my Int, Wis, Cha",
+				save: "",
+				description: "I turn into a giant owl or cave bear; keep Int/Wis/Cha; its HP as Temp HP; ends if 0 Temp HP; see B",
 				changes: "Using the Hide of the Feral Guardian, I can cast *Polymorph* on myself once per dawn to transform myself into a giant owl or a cave bear, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the armor.",
 			},
 		},
@@ -32257,8 +32301,10 @@ MagicItemsList["hide of the feral guardian"] = {
 		spellChanges: {
 			"polymorph": {
 				name: "Polymorph (special)",
+				reqLoS: false,
 				range: "Self",
-				description: "I transform into a giant owl, cave bear, or guardian wolf; I retain my Int, Wis, Cha",
+				save: "",
+				description: "I turn into a giant owl, cave bear, or guardian wolf; keep Int/Wis/Cha; its HP as Temp HP; see B",
 				changes: "Using the Hide of the Feral Guardian, I can cast *Polymorph* on myself once per dawn to transform myself into a giant owl, cave bear, or guardian wolf, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the armor.",
 			},
 		},
@@ -32523,8 +32569,10 @@ MagicItemsList["verminshroud"] = {
 		spellChanges: {
 			"polymorph": {
 				name: "Polymorph (special)",
+				reqLoS: false,
 				range: "Self",
-				description: "I transform into a rat or giant rat; I retain my Int, Wis, Cha",
+				save: "",
+				description: "I turn into a rat or giant rat; keep Int/Wis/Cha; its HP as Temp HP; ends if 0 Temp HP; see B",
 				changes: "Using Verminshroud, I can cast *Polymorph* on myself once per dawn to transform myself into a rat or giant rat, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the cloak.",
 			},
 		},
@@ -32544,8 +32592,10 @@ MagicItemsList["verminshroud"] = {
 		spellChanges: {
 			"polymorph": {
 				name: "Polymorph (special)",
+				reqLoS: false,
 				range: "Self",
-				description: "I transform into a rat, giant rat, or giant wasp; I retain my Int, Wis, Cha",
+				save: "",
+				description: "I turn into a rat, giant rat, or giant wasp; keep Int/Wis/Cha; its HP as Temp HP; ends if 0 Temp HP",
 				changes: "Using Verminshroud, I can cast *Polymorph* on myself once per dawn to transform myself into a rat, giant rat, or giant wasp, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the cloak.",
 			},
 		},
@@ -32565,8 +32615,10 @@ MagicItemsList["verminshroud"] = {
 		spellChanges: {
 			"polymorph": {
 				name: "Polymorph (special)",
+				reqLoS: false,
 				range: "Self",
-				description: "I transform into a rat, giant rat, giant wasp, or giant scorpion; I retain my Int, Wis, Cha",
+				save: "",
+				description: "I turn into a rat, giant rat, giant wasp, or giant scorpion; keep Int/Wis/Cha; its HP as Temp HP; see B",
 				changes: "Using Verminshroud, I can cast *Polymorph* on myself once per dawn to transform myself into a rat, giant rat, giant wasp, or giant scorpion, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the cloak.",
 			},
 		},
@@ -32621,7 +32673,7 @@ MagicItemsList["wreath of the prism"] = {
 		}],
 		spellChanges: {
 			"dominate monster": {
-				description: "Cast on attack hit on CR 5 or lower Beast, Dragon, or Monstrosity; spell ends if I do this again",
+				description: "Cast on hit: CR \u22645 Beast/Dragon/Monstrosity save or Charmed; redo on dmg; telepathic commands",
 				changes: "I can cast *Dominate Monster* on a Beast, Dragon, or Monstrosity of CR 5 when I hit it with an attack (save DC 13). If I use the wreath to charm a second creature, the first spell immediately ends. When the spell ends, the target knows it was Charmed by me.",
 			},
 		},
@@ -32637,7 +32689,7 @@ MagicItemsList["wreath of the prism"] = {
 		}],
 		spellChanges: {
 			"dominate monster": {
-				description: "Cast on attack hit on CR 10 or lower Beast, Dragon, or Monstrosity; spell ends if I do this again",
+				description: "Cast on hit: CR \u226410 Beast/Dragon/Monstrosity save or Charmed; redo on dmg; telepathic commands",
 				changes: "I can cast *Dominate Monster* on a Beast, Dragon, or Monstrosity of CR 10 when I hit it with an attack (save DC 15). If I use the wreath to charm a second creature, the first spell immediately ends. When the spell ends, the target knows it was Charmed by me.",
 			},
 		},
@@ -32653,7 +32705,7 @@ MagicItemsList["wreath of the prism"] = {
 		}],
 		spellChanges: {
 			"dominate monster": {
-				description: "Cast on attack hit on CR 15 or lower Beast, Dragon, or Monstrosity; spell ends if I do this again",
+				description: "Cast on hit: CR \u226415 Beast/Dragon/Monstrosity save or Charmed; redo on dmg; telepathic commands",
 				changes: "I can cast *Dominate Monster* on a Beast, Dragon, or Monstrosity of CR 15 when I hit it with an attack (save DC 17). If I use the wreath to charm a second creature, the first spell immediately ends. When the spell ends, the target knows it was Charmed by me.",
 			},
 		},
@@ -36195,7 +36247,7 @@ AddSubClass("warlock", "the fathomless", {
 			dmgres: ["Cold"],
 			spellChanges: {
 				"summon elemental": {
-					description: "Water Elemental Sirit; obeys verbal commands; takes turn after mine; vanishes at 0 HP; see B (400gp)",
+					description: "Water Elemental Spirit; obeys verbal commands; takes turn after mine; vanishes at 0 HP; see B (400gp)",
 					changes: "My Warlock spell *Summon Elemental* can only call forth an elemental spirit of water.",
 				},
 			},
@@ -36228,12 +36280,10 @@ AddSubClass("warlock", "the fathomless", {
 			calcChanges: {
 				spellAdd: [
 					function (spellKey, spellObj, spName) {
-						if (spellKey === "evard's black tentacles") {
-							spellObj.description = "I Temp HP; 20-ft sq dif. ter.; all cast/enter/end save or Restrained \x26 3d6 Bludg. dmg; Athl. to escape";
-							spellObj.descriptionShorter = "I Temp HP; 20-ft sq dif. ter.; all cast/enter/end save or Restrain \x26 3d6 Bludg. dmg; Athl. esc" + (typePF ? "ape" : ""),
-							spellObj.duration = "Conc*, 1 min";
-							return true;
-						}
+						if (spellKey !== "evard's black tentacles") return;
+						spellObj.description = "I Temp HP; " + spellObj.description.replace("square", "sq").replace("Athletics chk to escape", "Athl. to escape");
+						spellObj.duration = spellObj.duration.replace("Conc,", "Conc*,");
+						return true;
 					},
 					"Whenever I cast *Evard's Black Tentacles*, I gain Temporary Hit Points equal to my Warlock level.\n \u2022 Damage can't break my Concentration on this spell.",
 				],
@@ -42432,7 +42482,7 @@ var MotM_Firbolg = {
 			}],
 			spellChanges: {
 				"disguise self": {
-					description: "Alter appearance, up to 3ft shorter/taller; Int(Investigation) check vs spell DC to determine disguise",
+					description: "Alter appearance with illusion, \u22643 ft shorter/taller; Study action: Int (Investigation) vs DC discerns",
 					changes: "Using Firbolg Magic, I can cast *Disguise Self* once per Long Rest without using a spell slot. When I cast it using Firbolg Magic, I can also seem up to 3 feet shorter or taller.",
 				},
 			},
@@ -44833,9 +44883,8 @@ AddSubClass("sorcerer", "lunar sorcery", {
 			weaponsAdd: { select: ["Sacred Flame"] },
 			spellChanges: {
 				"sacred flame": {
-					description: "Up to 2 creas I see, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus; +1d8 at CL 5/11/17",
-					descriptionShorter: "Up to 2 creas I see, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus; +1d8 CL 5/11/17",
-					descriptionCantripDie: "Up to 2 creas I see, max 5 ft apart, save or `CD`d8 Radiant dmg; no bonus for cover on save",
+					description: "Up to 2 crea, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus on save; +1d8 CL 5/11/17",
+					descriptionCantripDie: "Up to 2 crea, max 5 ft apart, save or `CD`d8 Radiant dmg; no save bonus for 1/2 or 3/4 Cover",
 					changes: "When I cast *Sacred Flame*, I can target one creature as normal or target two creatures within range that are within 5 feet of each other.",
 				},
 			},
@@ -45220,7 +45269,7 @@ MagicItemsList["shard solitaire"] = {
 			"banishment": KftGV_ShardSolitaire.spellChanges_banishment,
 			"simulacrum": {
 				time: "Act",
-				description: "Create snow/ice cuplicate of Humanoid/Beast; follows commands \x26 acts on my turn; has full HP; see B",
+				description: "Create snow/ice copy of Humanoid/Beast; follows commands \x26 acts on my turn; has full HP; see B",
 				changes: "Cast as 1 action and the duplicate created by the spell has the same number of Hit Points as the creature it imitates.",
 			},
 		},
@@ -48115,7 +48164,7 @@ MagicItemsList["ring of collecting"] = {
 		"leomund's tiny hut": {
 			time: "Act",
 			duration: "8h+1h/1k gp",
-			description: "10ft+1ft/1,000 gp rad immobile dome of force; 9 Medium crea; blocks magic; ends if I leave; see B",
+			description: "10ft+1ft/1k gp Emanation; blocks crea/obj not in it at cast & level \u22643 spells; ends if I leave; see B",
 			changes: "Using the Ring of Collecting, I can cast *Leomund's Tiny Hut* as an action instead of taking 1 minute. Once this property is used, it can't be used again until the next dawn. For every 1,000 gp of art acquired, the tiny hut increases in size by adding +1 ft to its radius and lasts +1 hour.",
 		},
 	},
@@ -48480,7 +48529,7 @@ FeatsList["cartomancer"] = {
 		"prestidigitation": {
 			components: "V,S*",
 			compMaterial: "When I duplicate the effects of stage magic, I can conceal the Verbal and Somatic components of the spell as ordinary conversation and card handling.",
-			description: "Harmless sensation, illusory image, snuff light, clean/soil/chill/warm/flavor, stage magic (hide comp)",
+			description: "Stage magic: hide comp; harmless effect, snuff/light fire, clean/soil, chill/warm/flavor, illusion; <3",
 			changes: "When I duplicate the effects of stage magic, I can conceal the Verbal and Somatic components of the spell as ordinary conversation and card handling.",
 		},
 	},
@@ -48617,19 +48666,13 @@ MagicItemsList["armor of weightlessness"] = {
 		firstCol: 2,
 	}],
 	spellChanges: {
-		"jump": {
-			name: "Jump (self only)",
-			time: "Bns",
-			range: "Self",
-			description: "I can spend 10 ft movement to jump 30 ft once per turn",
-			changes: "Using the Armor of Weightlessness, I can cast *Jump* as a Bonus Action, but only on myself.",
-		},
 		"levitate": {
 			name: "Levitate (self only)",
+			reqLoS: false,
 			time: "Bns",
 			range: "Self",
 			save: "",
-			description: "I float and move up vertically up to 20 ft; As part of my move each round, I can move up/down 20 ft",
+			description: "I rise vertically, up to 20 ft; I can move up/down 20 ft as part of my move",
 			changes: "Using the Armor of Weightlessness, I can cast *Levitate* as a Bonus Action, but only on myself.",
 		},
 	},
@@ -48848,12 +48891,6 @@ MagicItemsList["breastplate of balance"] = {
 		selection: ["lesser restoration"],
 		firstCol: 2,
 	}],
-	spellChanges: {
-		"lesser restoration": {
-			time: "Bns",
-			changes: "While wearing the armor, I can use 2 of its charges to cast *Lesser Restoration* as a Bonus Action.",
-		},
-	},
 };
 MagicItemsList["card sharp's deck"] = {
 	name: "Card Sharp's Deck",
@@ -49891,7 +49928,7 @@ MagicItemsList["rod of hellish flames"] = {
 	}],
 	spellChanges: {
 		"hellish rebuke": {
-			description: "Cast when taking damage, creature that dealt damage takes 5d10 Fire damage; save halves",
+			description: "Cast on taking damage; creature that dealt damage takes 5d10 Fire dmg; save halves",
 			changes: "Using the Rod of Hellish Flames, I cast *Hellish Rebuke* as if I'm using a 4th-level spell slot, doing 5d10 damage, once per dawn.",
 		},
 	},
@@ -50117,14 +50154,6 @@ MagicItemsList["skull helm"] = {
 		selection: ["spirit of death"],
 		firstCol: "onceday",
 	}],
-	spellChanges: {
-		"spirit of death": {
-			components: "",
-			compMaterial: "",
-			description: "Summon a Reaper Spirit; obeys commands; takes turn after mine; disappears at 0 HP",
-			changes: "While wearing the helmet, it requires no Material components to cast *Spirit of Death*.",
-		},
-	},
 };
 MagicItemsList["sling of giant felling"] = {
 	name: "Sling of Giant Felling",
@@ -50773,7 +50802,7 @@ if (MagicItemsList["grenade"]) {
 		name: "Concussion Grenade",
 		sortname: "Grenade, Concussion",
 		source: [["QftIS", 192]],
-		type: "Explosive, Futuristic",
+		type: "Explosive (futuristic)",
 		rarity: "Priceless",
 		defaultExcluded: true,
 		description: "As an action, I can throw a grenade at a point up to 60 ft away or double that with a grenade launcher. All creatures within 20 ft of an exploding concussion grenade take 6d6 Force damage, but can make a DC 15 Dexterity save to halve that damage.",
@@ -50791,7 +50820,7 @@ if (MagicItemsList["grenade"]) {
 		name: "Sleep Grenade",
 		sortname: "Grenade, Sleep",
 		source: [["QftIS", 192]],
-		type: "Explosive, Futuristic",
+		type: "Explosive (futuristic)",
 		rarity: "Priceless",
 		defaultExcluded: true,
 		description: "As an action, I can throw a grenade at a point up to 60 ft away or double that with a grenade launcher. A soporific mist releases from a sleep grenade, then dissipates. All within 20 ft of it must make a DC 15 Con save or fall Unconscious for 1 hour, until taking damage, or until another uses an action to shake awake.",
@@ -50803,7 +50832,7 @@ if (MagicItemsList["grenade"]) {
 }
 // Futuristic Weapons
 MagicItemsList["needler pistol"] = {
-	name: "Needler pistol",
+	name: "Needler Pistol",
 	source: [["QftIS", 192]],
 	type: "Futuristic Item",
 	rarity: "Priceless",
@@ -50841,7 +50870,7 @@ MagicItemsList["needler pistol"] = {
 MagicItemsList["paralysis pistol"] = {
 	name: "Paralysis Pistol",
 	source: [["QftIS", 192]],
-	type: "Technological Device",
+	type: "Futuristic Item",
 	rarity: "Priceless",
 	defaultExcluded: true,
 	description: "This pistol has 6 charges per energy cell, which can be replaced as a (Bonus) Action once empty. As an action, I can use 1 charge to fire the pistol at a creature I can see within 60 ft, which must then make a DC 15 Constitution save or be Paralyzed for 1 min. The target can repeat the save at the end of each of its turns.",
@@ -50878,7 +50907,7 @@ MagicItemsList["paralysis pistol"] = {
 MagicItemsList["powered armor"] = {
 	name: "Powered Armor",
 	source: [["QftIS", 192]],
-	type: "Technological Device",
+	type: "Futuristic Item",
 	rarity: "Priceless",
 	defaultExcluded: true,
 	description: "This plate armor has 24 charges per energy cell, which can be replaced as a (Bonus) Action if empty. As an action, I can expend charges to activate it for 1 hour per charge. While active, I gain Adv on Str, double carrying capacity, have my own atmosphere to breathe in, and can use Force Field and Propulsion, see Notes.",

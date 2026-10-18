@@ -134,7 +134,7 @@ FeatsList["cartomancer"] = {
 		"prestidigitation": {
 			components: "V,S*",
 			compMaterial: "When I duplicate the effects of stage magic, I can conceal the Verbal and Somatic components of the spell as ordinary conversation and card handling.",
-			description: "Harmless sensation, illusory image, snuff light, clean/soil/chill/warm/flavor, stage magic (hide comp)",
+			description: "Stage magic: hide comp; harmless effect, snuff/light fire, clean/soil, chill/warm/flavor, illusion; <3",
 			changes: "When I duplicate the effects of stage magic, I can conceal the Verbal and Somatic components of the spell as ordinary conversation and card handling.",
 		},
 	},
@@ -271,19 +271,13 @@ MagicItemsList["armor of weightlessness"] = {
 		firstCol: 2,
 	}],
 	spellChanges: {
-		"jump": {
-			name: "Jump (self only)",
-			time: "Bns",
-			range: "Self",
-			description: "I can spend 10 ft movement to jump 30 ft once per turn",
-			changes: "Using the Armor of Weightlessness, I can cast *Jump* as a Bonus Action, but only on myself.",
-		},
 		"levitate": {
 			name: "Levitate (self only)",
+			reqLoS: false,
 			time: "Bns",
 			range: "Self",
 			save: "",
-			description: "I float and move up vertically up to 20 ft; As part of my move each round, I can move up/down 20 ft",
+			description: "I rise vertically, up to 20 ft; I can move up/down 20 ft as part of my move",
 			changes: "Using the Armor of Weightlessness, I can cast *Levitate* as a Bonus Action, but only on myself.",
 		},
 	},
@@ -502,12 +496,6 @@ MagicItemsList["breastplate of balance"] = {
 		selection: ["lesser restoration"],
 		firstCol: 2,
 	}],
-	spellChanges: {
-		"lesser restoration": {
-			time: "Bns",
-			changes: "While wearing the armor, I can use 2 of its charges to cast *Lesser Restoration* as a Bonus Action.",
-		},
-	},
 };
 MagicItemsList["card sharp's deck"] = {
 	name: "Card Sharp's Deck",
@@ -1545,7 +1533,7 @@ MagicItemsList["rod of hellish flames"] = {
 	}],
 	spellChanges: {
 		"hellish rebuke": {
-			description: "Cast when taking damage, creature that dealt damage takes 5d10 Fire damage; save halves",
+			description: "Cast on taking damage; creature that dealt damage takes 5d10 Fire dmg; save halves",
 			changes: "Using the Rod of Hellish Flames, I cast *Hellish Rebuke* as if I'm using a 4th-level spell slot, doing 5d10 damage, once per dawn.",
 		},
 	},
@@ -1771,14 +1759,6 @@ MagicItemsList["skull helm"] = {
 		selection: ["spirit of death"],
 		firstCol: "onceday",
 	}],
-	spellChanges: {
-		"spirit of death": {
-			components: "",
-			compMaterial: "",
-			description: "Summon a Reaper Spirit; obeys commands; takes turn after mine; disappears at 0 HP",
-			changes: "While wearing the helmet, it requires no Material components to cast *Spirit of Death*.",
-		},
-	},
 };
 MagicItemsList["sling of giant felling"] = {
 	name: "Sling of Giant Felling",
@@ -2141,7 +2121,7 @@ MagicItemsList["weapon of throne's command"] = {
 	calcChanges: {
 		atkCalc: [
 			function (fields, v, output) {
-				if (/of throne'?s? command/.test(v.WeaponTextName)) {
+				if (/of throne'?s? command/i.test(v.WeaponTextName)) {
 					output.magic = v.thisWeapon[1] + 1;
 				}
 			},

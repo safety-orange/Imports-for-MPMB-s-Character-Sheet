@@ -62,10 +62,12 @@ AddSubRace("dwarf", "gray", {
 			spellChanges: {
 				"enlarge/reduce": {
 					name: "Enlarge",
+					reqLoS: false,
 					range: "Self",
 					components: "V,S",
 					compMaterial: "",
-					description: "I'm enlarged, Adv on Str checks/saves and +1d4 weapon dmg; Can't cast this in direct sunlight",
+					save: "",
+					description: "I'm Enlarged: +1 size, Adv on Str checks/saves, +1d4 weapon/unarmed dmg; not in direct sunlight",
 					dependencies: null,
 					changes: "Using Duergar Magic, I cast *Enlarge/Reduce* while I'm not in direct sunlight, but only to enlarge myself.",
 				},
@@ -85,7 +87,7 @@ AddSubRace("dwarf", "gray", {
 					range: "Self",
 					components: "V,S",
 					compMaterial: "",
-					description: "Me and my worn/carried Invisible until I attack or cast; Can't cast this spell in direct sunlight",
+					description: "I and worn/carried become Invisible; attacking, casting, or dealing dmg ends it; not in direct sunlight",
 					changes: "Using Duergar Magic, I can cast *Invisibility* while I'm not in direct sunlight, but only on myself.",
 				},
 			},

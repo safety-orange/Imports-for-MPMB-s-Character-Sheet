@@ -5493,12 +5493,10 @@ AddSubClass("warlock", "the fathomless", {
 			calcChanges: {
 				spellAdd: [
 					function (spellKey, spellObj, spName) {
-						if (spellKey === "evard's black tentacles") {
-							spellObj.description = "I temp hp; All enter/start in 20-ft rad save or restrained \x26 3d6 Bludg. dmg/rnd; Str/Dex check escape";
-							spellObj.descriptionShorter = "I temp hp; All enter/start 20 ft sq save or restrain \x26 3d6 Bludg. dmg/rnd; Str/Dex chk esc" + (typePF ? "ape" : ""),
-							spellObj.duration = "Conc*, 1 min";
-							return true;
-						}
+						if (spellKey !== "evard's black tentacles") return;
+						spellObj.description = "I temp hp; " + spellObj.description.replace("All who enter", "All enter").replace("square", "sq");
+						spellObj.duration = spellObj.duration.replace("Conc,", "Conc*,");
+						return true;
 					},
 					"Whenever I cast *Evard's Black Tentacles*, I gain temporary hit points equal to my warlock level.\n \u2022 Damage can't break my concentration on this spell.",
 				],

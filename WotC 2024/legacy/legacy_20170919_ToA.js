@@ -675,7 +675,7 @@ MagicItemsList["bookmark"] = {
 		"compulsion": {
 			time: "Bns",
 			range: "90 ft",
-			description: "Any spiders that hear me save or I can, as bns, have it move fully in a direction; save again after move",
+			description: "Spiders save or Charmed; Bns pick direction: Charmed move in it on their turn then repeat save",
 			changes: "Using Bookmark, I can cast this as a Bonus Action with a range of 90 ft, but it can only target spiders with the Beast type.",
 		},
 	},

@@ -280,7 +280,7 @@ SpellsList["absorb elements"] = {
 	range: "Self",
 	components: "S",
 	duration: "1 rnd",
-	description: "Acid, Cold, Fire, Lightning, or Thunder Resistance till next turn start; first melee hit +1d6+1d6/SL dmg",
+	description: "Acid, Cold, Fire, Lightning, or Thunder Resistance until next SoT; first melee hit +1d6+1d6/SL dmg",
 	descriptionFull: [
 		"The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends.",
 		"***At Higher Levels***. When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st.",
@@ -411,7 +411,7 @@ SpellsList["create bonfire"] = {
 	duration: "Conc, 1 min",
 	save: "Dex",
 	description: "5-ft Cube all crea now/enter/end turn save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
-	descriptionMetric: "1,5m Cube all crea now/enter/end turn save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
+	descriptionMetric: "1,5m cube all crea now/enter/end turn save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
 	descriptionShorter: "5-ft Cube all now/enter/end save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5,11,17",
 	descriptionCantripDie: "5-ft Cube all crea at casting, entering, or end turn in save or `CD`d8 Fire dmg; ignites flammable",
 	descriptionFull: [
@@ -605,9 +605,9 @@ SpellsList["investiture of flame"] = {
 	duration: "Conc, 10 min",
 	save: "Dex",
 	description: "Fire Immune; Cold res.; 1d10 Fire dmg in 5 ft; Act 15-ft long 5-ft wide all crea 4d8 Fire dmg, save half",
-	descriptionMetric: "Fire im.; Cold res.; 1d10 Fire dmg in 1,5 m; Act 4,5-m long 1,5-m wide all crea 4d8 Fire dmg, save half",
-	descriptionShorter: "Fire im.; Cold res.; 1d10 Fire dmg in 5 ft; 1a 15-ft long 5-ft wide all 4d8 Fire dmg, save half",
-	descriptionShorterMetric: "Fire Immune; Cold res.; 1d10 Fire dmg in 1,5 m; Act 4,5-m long all 4d8 Fire dmg, save half",
+	descriptionMetric: "Fire im.; Cold res.; 1d10 Fire dmg in 1,5m; Act 4,5m long 1,5m wide all crea 4d8 Fire dmg, save half",
+	descriptionShorter: "Fire im.; Cold res.; 1d10 Fire dmg in 5 ft; 1a 15ft long 5ft wide all 4d8 Fire dmg, save half",
+	descriptionShorterMetric: "Fire Immune; Cold res.; 1d10 Fire dmg in 1,5m; Act 4,5m long all 4d8 Fire dmg, save half",
 	descriptionFull: [
 		"Flames race across your body, shedding bright light in a 30-foot radius and dim light for an additional 30 feet for the spell's duration. The flames don't harm you. Until the spell ends, you gain the following benefits.",
 		" \u2022 You are immune to fire damage and have resistance to cold damage.",

@@ -561,9 +561,8 @@ AddSubClass("sorcerer", "lunar sorcery", {
 			weaponsAdd: { select: ["Sacred Flame"] },
 			spellChanges: {
 				"sacred flame": {
-					description: "Up to 2 creas I see, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus; +1d8 at CL 5/11/17",
-					descriptionShorter: "Up to 2 creas I see, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus; +1d8 CL 5/11/17",
-					descriptionCantripDie: "Up to 2 creas I see, max 5 ft apart, save or `CD`d8 Radiant dmg; no bonus for cover on save",
+					description: "Up to 2 crea, max 5 ft apart, save or 1d8 Radiant dmg; no cover bonus on save; +1d8 CL 5/11/17",
+					descriptionCantripDie: "Up to 2 crea, max 5 ft apart, save or `CD`d8 Radiant dmg; no save bonus for 1/2 or 3/4 Cover",
 					changes: "When I cast *Sacred Flame*, I can target one creature as normal or target two creatures within range that are within 5 feet of each other.",
 				},
 			},

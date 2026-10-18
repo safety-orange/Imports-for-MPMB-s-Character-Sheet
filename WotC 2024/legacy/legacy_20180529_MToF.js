@@ -49,7 +49,7 @@ AddSubRace("tiefling", "baalzebul", {
 			}],
 			spellChanges: {
 				"ray of sickness": {
-					description: "Spell attack for 3d8 Poison dmg; save or also Poisoned until end of my next turn",
+					description: "Ranged spell attack for 3d8 Poison damage and Poisoned until my next turn ends",
 					changes: "Using Legacy of Maladomini, I cast *Ray of Sickness* as if I'm using a 2nd-level spell slot.",
 				},
 			},
@@ -149,7 +149,7 @@ AddSubRace("tiefling", "fierna", {
 			}],
 			spellChanges: {
 				"charm person": {
-					description: "2 Humanoids, max 30 ft apart, save or Charmed; Adv on save if me/ally is fighting it",
+					description: "2 Humanoids save or Charmed \x26 Friendly; Adv on save if fighting me/ally; ends if we dmg it",
 					changes: "Using Legacy of Phlegethos, I cast *Charm Person* as if I'm using a 2nd-level spell slot.",
 				},
 			},
@@ -249,7 +249,7 @@ AddSubRace("tiefling", "levistus", {
 			}],
 			spellChanges: {
 				"armor of agathys": {
-					description: "10 Temp HP; as long as Temp HP last any crea that hits in melee takes 10 Cold dmg",
+					description: "10 temp HP; crea that hit me with melee atk take 10 Cold dmg; spell ends if 0 temp HP left",
 					changes: "Using Legacy of Stygia, I cast *Armor of Agathys* as if I'm using a 2nd-level spell slot.",
 				},
 			},
@@ -409,7 +409,7 @@ AddSubRace("tiefling", "zariel", {
 			}],
 			spellChanges: {
 				"searing smite": {
-					description: "Next melee weapon hit +2d6 Fire dmg and target ignites; save to end spell or 1d6 Fire dmg",
+					description: "Cast on melee wea hit; +2d6 Fire dmg; its SoT: 2d6 Fire dmg, then save to end",
 					changes: "Using Legacy of Avernus, I cast *Searing Smite* as if I'm using a 2nd-level spell slot.",
 				},
 			},
@@ -567,7 +567,7 @@ RaceList["githyanki"] = {
 	spellChanges: {
 		"mage hand": {
 			components: "",
-			description: "Create invisible spectral hand for simple tasks or carry up to 10 lb; Act to control; can't have multiple",
+			description: "Invisible hand does simple task, carry \u226410lb; Act to control again, move 30ft; ends if recast/out range",
 			changes: "Using Githyanki Psionics, I can cast *Mage Hand* without requiring components and the spectral hand is invisible.",
 		},
 	},
@@ -650,7 +650,7 @@ RaceList["githzerai"] = {
 	spellChanges: {
 		"mage hand": {
 			components: "",
-			description: "Create invisible spectral hand for simple tasks or carry up to 10 lb; Act to control; can't have multiple",
+			description: "Invisible hand does simple task, carry \u226410lb; Act to control again, move 30ft; ends if recast/out range",
 			changes: "Using Githzerai Psionics, I can cast *Mage Hand* without requiring components and the spectral hand is invisible.",
 		},
 	},
@@ -727,10 +727,12 @@ if (!RaceSubList["dwarf-gray"]) {
 				spellChanges: {
 					"enlarge/reduce": {
 						name: "Enlarge",
+						reqLoS: false,
 						range: "Self",
 						components: "V,S",
 						compMaterial: "",
-						description: "I'm enlarged, Adv on Str checks/saves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
+						save: "",
+						description: "I'm Enlarged: +1 size, Adv on Str checks/saves, +1d4 weapon/unarmed dmg; not in direct sunlight",
 						dependencies: null,
 						changes: "Using Duergar Magic, I cast *Enlarge/Reduce* while I'm not in direct sunlight, but only to enlarge myself.",
 					},
@@ -750,7 +752,7 @@ if (!RaceSubList["dwarf-gray"]) {
 						range: "Self",
 						components: "V,S",
 						compMaterial: "",
-						description: "Me and my worn/carried Invisible until I attack or cast; Can't cast this spell in direct sunlight",
+						description: "I and worn/carried become Invisible; attacking, casting, or dealing dmg ends it; not in direct sunlight",
 						changes: "Using Duergar Magic, I can cast *Invisibility* while I'm not in direct sunlight, but only on myself.",
 					},
 				},

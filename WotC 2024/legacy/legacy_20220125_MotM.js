@@ -421,7 +421,7 @@ var MotM_Firbolg = {
 			}],
 			spellChanges: {
 				"disguise self": {
-					description: "Alter appearance, up to 3ft shorter/taller; Int(Investigation) check vs spell DC to determine disguise",
+					description: "Alter appearance with illusion, \u22643 ft shorter/taller; Study action: Int (Investigation) vs DC discerns",
 					changes: "Using Firbolg Magic, I can cast *Disguise Self* once per Long Rest without using a spell slot. When I cast it using Firbolg Magic, I can also seem up to 3 feet shorter or taller.",
 				},
 			},
@@ -776,7 +776,7 @@ if (!RaceList["githyanki"]) {
 		spellChanges: {
 			"mage hand": {
 				components: "",
-				description: "Create invisible spectral hand for simple tasks or carry up to 10 lb; Act to control; can't have multiple",
+				description: "Invisible hand does simple task, carry \u226410lb; Act to control again, move 30ft; ends if recast/out range",
 				changes: "Using Githyanki Psionics, I can cast *Mage Hand* without requiring components and the spectral hand is invisible.",
 			},
 		},
@@ -861,7 +861,7 @@ if (!RaceList["githzerai"]) {
 		spellChanges: {
 			"mage hand": {
 				components: "",
-				description: "Create invisible spectral hand for simple tasks or carry up to 10 lb; Act to control; can't have multiple",
+				description: "Invisible hand does simple task, carry \u226410lb; Act to control again, move 30ft; ends if recast/out range",
 				changes: "Using Githzerai Psionics, I can cast *Mage Hand* without requiring components and the spectral hand is invisible.",
 			},
 		},

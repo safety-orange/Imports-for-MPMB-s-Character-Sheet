@@ -608,7 +608,7 @@ MagicItemsList["icon of ravenloft"] = {
 		"protection from evil and good": {
 			range: "30-ft rad",
 			time: "Always",
-			description: "All in range Immune to fear, charm, and possession by Fiends and Undead, they also Disadv on attacks",
+			description: "All in range no fear/charm/possess and atks Dis from Fiends/Undead",
 			duration: "Unlimited",
 			changes: "All within 30 ft of the Icon of Ravenloft have this spell protect them from Undead and Fiends.",
 		},
@@ -617,8 +617,9 @@ MagicItemsList["icon of ravenloft"] = {
 			changes: "Using the Icon of Ravenloft, it only takes an action to cast.",
 		},
 		"cure wounds": {
+			reqLoS: true,
 			range: "30 ft",
-			description: "1 living creature heals 3d8+3 HP if it's not an Undead, Construct, or Fiend",
+			description: "1 crea heals 3d8+3 HP, unless it's an Undead, Construct, or Fiend",
 			dynamicDamageBonus: { doNotProcess: true },
 			changes: "Using the Icon of Ravenloft, it has a range of 30 ft and always heals 3d8+3 HP, but can't affect Undead, a Construct, or a Fiend.",
 		},

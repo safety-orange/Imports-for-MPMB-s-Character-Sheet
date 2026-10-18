@@ -40,21 +40,27 @@ AddSubClass("cleric", "death domain", {
 			calcChanges: {
 				spellAdd: [
 					function (spellKey, spellObj, spName) {
-						if (spellObj.school == "Necro" && spellObj.level === 0) {
-							var startDescr = spellObj.description;
-							switch (spellKey) {
-								case "chill touch" :
-									spellObj.description = spellObj.description.replace("Spell attack", "2 crea in 5 ft spell atk").replace("Necrotic", "Necro.").replace("at CL 5, 11, and 17", "CL 5/11/17");
-									break;
-								case "spare the dying" :
-									spellObj.description = spellObj.description.replace("1 living creature", "1 living creature (or 2 within 5 ft of each other)");
-									break;
-								case "toll the dead" :
-								default :
-									spellObj.description = spellObj.description.replace(/1 crea(ture)?/i, "2 crea in 5 ft").replace("disadvantage", "Disadv").replace("save halves", "save half");
-							}
-							return startDescr !== spellObj.description;
-						};
+						if (spellObj.school !== "Necro" || spellObj.level !== 0) return;
+						var in5ft = "in 5 ft";
+						if (What("Unit System") === "metric") in5ft = ConvertToMetric(in5ft, 0.5);
+						// The shorter description if the spell has one and it wasn't changed yet, with the sheet's usual abbreviations
+						var sDescr = getSpellShortDescription(spellKey, spellObj);
+						var sNew = sDescr;
+						switch (spellKey) {
+							case "chill touch":
+							case "poison spray":
+								sNew = sNew.replace(/(melee|rngd) spell atk/i, "2 crea " + in5ft + " spell atk");
+								break;
+							case "spare the dying":
+								sNew = sNew.replace(/1 living crea/i, "1 (or 2 " + in5ft + ") living crea");
+								break;
+							case "toll the dead":
+							default:
+								sNew = sNew.replace(/\b1 crea\b/i, "2 crea " + in5ft);
+						}
+						if (sNew === sDescr) return;
+						spellObj.description = sNew.replace(/\bat CL 5(, 11,? (and |& )?|\/11\/)17\b/, "CL 5/11/17");
+						return true;
 					},
 					"My Necromancy, single-target cantrips can affect two targets within 5 ft of each other.",
 				],
@@ -81,47 +87,59 @@ AddSubClass("cleric", "death domain", {
 			calcChanges: {
 				spellAdd: [
 					function (spellKey, spellObj, spName) {
-						if (spellObj.school == "Necro" && spellObj.level && spellObj.level < 6) {
-							var startDescr = spellObj.description;
-							switch (spellKey) {
-								case "blindness/deafness" :
-									// only 2 target if not cast at higher SL
-									spellObj.description = "2 crea in 5 ft or " + spellObj.description;
-									break;
-								case "contagion" :
-								case "inflict wounds" :
-								case "ray of enfeeblement" :
-									spellObj.description = spellObj.description.replace(/(Melee )?spell attack/i, "2 " + "$1".toLowerCase() + "spell atk in 5 ft").replace("spell ends", "ends");
-									break;
-								case "cause fear" :
-									spellObj.description = "2 crea in 5 ft or 1+1/SL crea max 30 ft apart (no constr/undead), save or frightened; save end of turn";
-									break;
-								case "feign death" :
-									spellObj.description = "2 willing crea in 5 ft appear dead; Are blinded, incapacitated, dmg resist. all but Psychic, speed 0";
-									break;
-								case "gentle repose" :
-									spellObj.description = spellObj.description.replace("1 corpse protected from", "2 corpses in 5 ft suffer no");
-									break;
-								case "raise dead" :
-								case "revivify" :
-									spellObj.description = spellObj.description.replace("a creature's body that has", "body of 2 crea in 5 ft that").replace("cons.)", "cons. \xD72)");
-									spellObj.compMaterial += " (once for each target)";
-									break;
-								case "speak with dead" :
-									spellObj.description = spellObj.description.replace("1 corpse with mouth answers 5 questions", "2 corpses in 5 ft answer 5 questions each");
-									break;
-								case "enervation" :
-									spellObj.description = spellObj.description.replace("action", "Act").replace("see book", "see B");
-								case "bestow curse" :
-								case "blight" :
-								case "cause fear-uass" :
-								case "life transference" :
-								case "negative energy flood" :
-								default :
-									spellObj.description = spellObj.description.replace(/1 crea(ture)?/i, "2 crea in 5 ft").replace("disadvantage", "Disadv").replace("save halves", "save half");
-							}
-							return startDescr !== spellObj.description;
-						};
+						if (spellObj.school !== "Necro" || !spellObj.level || spellObj.level > 5) return;
+						var in5ft = "in 5 ft";
+						if (What("Unit System") === "metric") in5ft = ConvertToMetric(in5ft, 0.5);
+						// The shorter description if the spell has one and it wasn't changed yet, with the sheet's usual abbreviations
+						var sDescr = getSpellShortDescription(spellKey, spellObj);
+						var sNew = sDescr;
+						switch (spellKey) {
+							case "cause fear":
+								// the description is already in metric if the sheet is set to it
+								sNew = sNew.replace(/1\+1\/SL crea \(not Construct\/Undead\), each max (\d+[.,]?\d* ?(ft|m)) apart,/, "2 crea " + in5ft + " or 1+1/SL crea max $1 apart (no Construct/Undead)")
+									.replace("save end of each turn", "save EoT");
+								break;
+							case "enervation":
+								sNew = sNew.replace(/action/i, "Act").replace(/\b1 crea\b/i, "2 crea " + in5ft);
+								break;
+							case "feign death":
+								sNew = sNew.replace(/Willing crea looks dead/i, "2 willing " + in5ft + " look dead")
+									.replace(/resist\. all dmg but/i, "resist all but");
+								break;
+							case "gentle repose":
+								sNew = sNew.replace(/1 corpse/i, "2 corpses " + in5ft)
+									.replace(/add duration to time limit for raising dead/i, "add duration to raise dead time limit");
+								break;
+							case "raise dead":
+							case "revivify":
+							case "reincarnate":
+								sNew = sNew
+									.replace(/Bring corpse that died within the last/i, "Bring 2 corpses " + in5ft + " that died in last")
+									.replace(/Bring humanoid that died in last 10 days to life in a new random adult body/i, "Bring 2 Humanoids " + in5ft + " dead \u226410 days to life in new random body")
+									.replace(/(\d+k? ?gp cons)\b/i, "$1 \xD72");
+								break;
+							case "ray of sickness":
+								sNew = sNew.replace(/rngd spell atk/i, "2 crea " + in5ft + " rngd spell atk");
+								break;
+							case "speak with dead":
+								sNew = sNew.replace(/1 corpse with mouth .*? 10 days/i, "2 corpses " + in5ft + " with mouths each answer 5 questions with what they knew; same 1/10 days");
+								break;
+							case "blight":
+							case "contagion":
+							case "ray of enfeeblement":
+							default:
+								sNew = sNew.replace(/\b1 crea\b/i, "2 crea " + in5ft)
+									.replace(/Plant crea auto-fails save/i, "Plants auto-fail save") // blight
+									.replace(/save at end of 5 turns/i, "save EoT 5 turns") // contagion
+									.replace(/deal -1d8 dmg, repeat save EoT/i, "-1d8 dmg, save EoT"); // ray of enfeeblement
+						}
+						if (sNew === sDescr) return;
+						spellObj.description = sNew;
+						// Material components that the spell consumes have to be provided for each target
+						if (spellObj.compMaterial && (/consume/i.test(spellObj.compMaterial) || /\u2020/.test(spellObj.components))) {
+							spellObj.compMaterial += " (once for each target)";
+						}
+						return true;
 					},
 					"My Necromancy, single-target 5th-level or lower spells can affect two targets within 5 ft of each other if both are within range of the spell. The spells still require Material components for each target separately.",
 				],

@@ -347,7 +347,7 @@ MagicItemsList["ring of collecting"] = {
 		"leomund's tiny hut": {
 			time: "Act",
 			duration: "8h+1h/1k gp",
-			description: "10ft+1ft/1,000 gp rad immobile dome of force; 9 Medium crea; blocks magic; ends if I leave; see B",
+			description: "10ft+1ft/1k gp Emanation; blocks crea/obj not in it at cast & level \u22643 spells; ends if I leave; see B",
 			changes: "Using the Ring of Collecting, I can cast *Leomund's Tiny Hut* as an action instead of taking 1 minute. Once this property is used, it can't be used again until the next dawn. For every 1,000 gp of art acquired, the tiny hut increases in size by adding +1 ft to its radius and lasts +1 hour.",
 		},
 	},

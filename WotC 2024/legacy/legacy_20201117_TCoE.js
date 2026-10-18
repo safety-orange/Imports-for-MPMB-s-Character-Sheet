@@ -1396,7 +1396,7 @@ AddSubClass("warlock", "the fathomless", {
 			dmgres: ["Cold"],
 			spellChanges: {
 				"summon elemental": {
-					description: "Water Elemental Sirit; obeys verbal commands; takes turn after mine; vanishes at 0 HP; see B (400gp)",
+					description: "Water Elemental Spirit; obeys verbal commands; takes turn after mine; vanishes at 0 HP; see B (400gp)",
 					changes: "My Warlock spell *Summon Elemental* can only call forth an elemental spirit of water.",
 				},
 			},
@@ -1429,12 +1429,10 @@ AddSubClass("warlock", "the fathomless", {
 			calcChanges: {
 				spellAdd: [
 					function (spellKey, spellObj, spName) {
-						if (spellKey === "evard's black tentacles") {
-							spellObj.description = "I Temp HP; 20-ft sq dif. ter.; all cast/enter/end save or Restrained \x26 3d6 Bludg. dmg; Athl. to escape";
-							spellObj.descriptionShorter = "I Temp HP; 20-ft sq dif. ter.; all cast/enter/end save or Restrain \x26 3d6 Bludg. dmg; Athl. esc" + (typePF ? "ape" : ""),
-							spellObj.duration = "Conc*, 1 min";
-							return true;
-						}
+						if (spellKey !== "evard's black tentacles") return;
+						spellObj.description = "I Temp HP; " + spellObj.description.replace("square", "sq").replace("Athletics chk to escape", "Athl. to escape");
+						spellObj.duration = spellObj.duration.replace("Conc,", "Conc*,");
+						return true;
 					},
 					"Whenever I cast *Evard's Black Tentacles*, I gain Temporary Hit Points equal to my Warlock level.\n \u2022 Damage can't break my Concentration on this spell.",
 				],

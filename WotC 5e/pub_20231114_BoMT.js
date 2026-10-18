@@ -1795,14 +1795,6 @@ MagicItemsList["skull helm"] = {
 		selection: ["spirit of death"],
 		firstCol: "onceday",
 	}],
-	spellChanges: {
-		"spirit of death": {
-			components: "",
-			compMaterial: "",
-			description: "Summon a Reaper Spirit; obeys commands; takes turn after mine; disappears at 0 hp",
-			changes: "While wearing the helmet, it requires no material components to cast *Spirit of Death*.",
-		},
-	},
 };
 MagicItemsList["sling of giant felling"] = {
 	name: "Sling of Giant Felling",
@@ -2169,7 +2161,7 @@ MagicItemsList["weapon of throne's command"] = {
 	calcChanges: {
 		atkCalc: [
 			function (fields, v, output) {
-				if (/of throne'?s? command/.test(v.WeaponTextName)) {
+				if (/of throne'?s? command/i.test(v.WeaponTextName)) {
 					output.magic = v.thisWeapon[1] + 1;
 				}
 			},

@@ -3190,13 +3190,13 @@ MagicItemsList["imbued wood focus"] = {
 		calcChanges: {
 			atkCalc: [
 				function (fields, v, output) {
-					if (v.thisWeapon[3] && /lightning|thunder/i.test(fields.Damage_Type)) output.extraDmg += 1;
+					if (v.thisWeapon[3] && /lightning|lightn\.?|thunder/i.test(fields.Damage_Type)) output.extraDmg += 1;
 				},
 				"When I use this as my spellcasting focus, spells I cast that deal lightning or thunder damage get a +1 bonus added to one of their damage rolls.",
 			],
 			spellAdd: [
 				function (spellKey, spellObj, spName) {
-					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "lightning|thunder", 1, true, true);
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "lightning|lightn\\.?|thunder", 1, true, true);
 				},
 				"When I use this as my spellcasting focus, spells I cast that deal lightning or thunder damage get a +1 bonus added to one of their damage rolls.",
 			],

@@ -396,8 +396,7 @@ MagicItemsList["gurt's greataxe"] = {
 	}],
 	spellChanges: {
 		"heat metal": {
-			description: "1 metal obj on touch 2d8 Cold dmg; save or drop obj; if held: dis. atk/chk; Bns cool obj again",
-			descriptionShorter: "1 metal obj, touch it 2d8 Cold dmg; save or drop it; if held: dis. atk/chk; Bns redo",
+			description: "1 metal object on touch 2d8 Cold dmg; save or drop obj; if held: Dis atk/chk; Bns cool obj again",
 			changes: "Using Gurt's Greataxe, the spell deals Cold damage instead of Fire.",
 		},
 	},
@@ -770,7 +769,7 @@ MagicItemsList["rod of the vonindod"] = {
 	}],
 	spellChanges: {
 		"locate object": {
-			description: "Learn direction to closest described kind or specific obj in 1000 ft (10 miles if adamantine); see book",
+			description: "Direction to closest named/described familiar obj (specific/kind) in 1000 ft (10 miles if adamantine)",
 			changes: "Using the Rod of the Vonindod, the spell detection range increases to 10 miles when used to locate adamantine objects.",
 		},
 	},
@@ -852,11 +851,23 @@ MagicItemsList["ring of hardened magma"] = {
 	}],
 	spellChanges: {
 		"conjure minor elementals": {
+			source: [["SKT", 105]],
+			reqLoS: true,
+			time: "1 min",
+			range: "90 ft",
+			duration: "Conc, 1 h",
 			description: "Summon 4 magma mephits or 4 magmins that obey my verbal commands",
-			changes: "Using the Ring of Hardened Magma, the spell summons either four magma mephits or four magmins.",
+			descriptionShorter: undefined,
+			descriptionFull: [
+				"You summon either four **Magma Mephits** or four **Magmins**, as you wish. They appear in unoccupied spaces that you can see within range. An elemental summoned by this spell disappears when it drops to 0 Hit Points or when the spell ends.",
+				"The summoned creatures are Friendly to you and your companions. Roll Initiative for the summoned creatures as a group, which has its own turns. They obey any verbal commands that you issue to them (no action required by you). If you don't issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions. The DM has the creatures' statistics.",
+			],
+			dynamicDamageBonus: undefined,
+			completeRewrite: true, // i.e. even overwrite the tooltip with these changes
+			changes: "The listing of *Conjure Minor Elementals* has been completely changed to the 2014 version of the spell, which the *Ring of Hardened Magma* uses to summon either four magma mephits or four magmins. Even the information above has been changed.",
 		},
 		"fire shield": {
-			description: "Fiery shield gives Resistance to Cold damage and deals 2d8 Fire damage to melee attackers",
+			description: "Resist Cold; 2d8 Fire dmg to melee atkers if hit in 5ft; 10-ft rad bright/10-ft dim light",
 			dynamicDamageBonus: false,
 			changes: "Using the Ring of Hardened Magma, the spell can only produce the warm shield.",
 		},

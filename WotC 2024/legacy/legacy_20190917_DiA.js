@@ -345,7 +345,7 @@ MagicItemsList["helm of devil command"] = {
 	}],
 	spellChanges: {
 		"dominate monster": {
-			description: "Devil save or Charmed, follows telepathic commands, Act for complete control; save on dmg",
+			description: "Devil save or Charmed; redo on dmg; follows telepathic commands; Rea to use its Rea",
 			changes: "Can only affect a devil.",
 		},
 	},

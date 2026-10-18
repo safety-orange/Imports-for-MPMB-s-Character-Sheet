@@ -8655,7 +8655,7 @@ MagicItemsList["balloon pack"] = {
 			range: "Self",
 			duration: "10 min",
 			save: "",
-			description: "I rise vertically, up to 20 ft; move up/down 20 ft instead of normal move",
+			description: "I rise vertically, up to 20 ft; I can move up/down 20 ft as part of my move",
 			changes: "Using the Balloon Pack, I can only target myself, but the spell requires no concentration.",
 		},
 	},
@@ -8874,10 +8874,6 @@ MagicItemsList["ironfang"] = {
 		"dominate monster": {
 			description: "Earth elemental save or charmed, follows telepathic commands, 1 a for complete control; save on dmg",
 			changes: "Can only affect an earth elemental.",
-		},
-		"shatter": {
-			description: "10-ft rad all 4d8 Thunder dmg; save halves; nonmagical unattended objects also take dmg",
-			changes: "Cast as if using a 2nd-level spell slot.",
 		},
 	},
 	vision: [["Tremorsense", "fixed 60"]],
@@ -11848,6 +11844,7 @@ RaceList["gray dwarf"] = {
 					range: "Self",
 					components: "V,S",
 					compMaterial: "",
+					save: "",
 					description: "I'm enlarged, adv. on Str checks/saves and +1d4 on weapon dmg; Can't cast this in direct sunlight",
 					changes: "Using Duergar Magic, I cast *Enlarge/Reduce* while I'm not in direct sunlight, but only to enlarge myself.",
 				},
@@ -30754,13 +30751,13 @@ MagicItemsList["imbued wood focus"] = {
 		calcChanges: {
 			atkCalc: [
 				function (fields, v, output) {
-					if (v.thisWeapon[3] && /lightning|thunder/i.test(fields.Damage_Type)) output.extraDmg += 1;
+					if (v.thisWeapon[3] && /lightning|lightn\.?|thunder/i.test(fields.Damage_Type)) output.extraDmg += 1;
 				},
 				"When I use this as my spellcasting focus, spells I cast that deal lightning or thunder damage get a +1 bonus added to one of their damage rolls.",
 			],
 			spellAdd: [
 				function (spellKey, spellObj, spName) {
-					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "lightning|thunder", 1, true, true);
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "lightning|lightn\\.?|thunder", 1, true, true);
 				},
 				"When I use this as my spellcasting focus, spells I cast that deal lightning or thunder damage get a +1 bonus added to one of their damage rolls.",
 			],
@@ -31465,7 +31462,7 @@ RaceList["pallid elf"] = { // contains contributions by Smashman
 					range: "Self",
 					components: "V,S",
 					compMaterial: "",
-					description: "Me and my worn/carried invisible until I attack or cast; Can't cast this spell in direct sunlight",
+					description: "Me and my worn/carried invisible until I attack or cast",
 					changes: "Using Blessing of the Moonweaver, I can cast *Invisibility* once per long rest without requiring a material component, but only on myself.",
 				},
 			},
@@ -33736,6 +33733,7 @@ MagicItemsList["hide of the feral guardian"] = {
 			"polymorph": {
 				name: "Polymorph (special)",
 				range: "Self",
+				save: "",
 				description: "I transform into a giant owl; I retain my Int, Wis, Cha",
 				changes: "Using the Hide of the Feral Guardian, I can cast *Polymorph* on myself once per dawn to transform myself into a giant owl, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the armor.",
 			},
@@ -33757,6 +33755,7 @@ MagicItemsList["hide of the feral guardian"] = {
 			"polymorph": {
 				name: "Polymorph (special)",
 				range: "Self",
+				save: "",
 				description: "I transform into a giant owl or cave bear; I retain my Int, Wis, Cha",
 				changes: "Using the Hide of the Feral Guardian, I can cast *Polymorph* on myself once per dawn to transform myself into a giant owl or a cave bear, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the armor.",
 			},
@@ -33778,6 +33777,7 @@ MagicItemsList["hide of the feral guardian"] = {
 			"polymorph": {
 				name: "Polymorph (special)",
 				range: "Self",
+				save: "",
 				description: "I transform into a giant owl, cave bear, or guardian wolf; I retain my Int, Wis, Cha",
 				changes: "Using the Hide of the Feral Guardian, I can cast *Polymorph* on myself once per dawn to transform myself into a giant owl, cave bear, or guardian wolf, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the armor.",
 			},
@@ -34049,6 +34049,7 @@ MagicItemsList["verminshroud"] = {
 			"polymorph": {
 				name: "Polymorph (special)",
 				range: "Self",
+				save: "",
 				description: "I transform into a rat or giant rat; I retain my Int, Wis, Cha",
 				changes: "Using Verminshroud, I can cast *Polymorph* on myself once per dawn to transform myself into a rat or giant rat, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the cloak.",
 			},
@@ -34075,6 +34076,7 @@ MagicItemsList["verminshroud"] = {
 			"polymorph": {
 				name: "Polymorph (special)",
 				range: "Self",
+				save: "",
 				description: "I transform into a rat, giant rat, or giant wasp; I retain my Int, Wis, Cha",
 				changes: "Using Verminshroud, I can cast *Polymorph* on myself once per dawn to transform myself into a rat, giant rat, or giant wasp, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the cloak.",
 			},
@@ -34101,6 +34103,7 @@ MagicItemsList["verminshroud"] = {
 			"polymorph": {
 				name: "Polymorph (special)",
 				range: "Self",
+				save: "",
 				description: "I transform into a rat, giant rat, giant wasp, or giant scorpion; I retain my Int, Wis, Cha",
 				changes: "Using Verminshroud, I can cast *Polymorph* on myself once per dawn to transform myself into a rat, giant rat, giant wasp, or giant scorpion, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the cloak.",
 			},
@@ -41932,12 +41935,10 @@ AddSubClass("warlock", "the fathomless", {
 			calcChanges: {
 				spellAdd: [
 					function (spellKey, spellObj, spName) {
-						if (spellKey === "evard's black tentacles") {
-							spellObj.description = "I temp hp; All enter/start in 20-ft rad save or restrained \x26 3d6 Bludg. dmg/rnd; Str/Dex check escape";
-							spellObj.descriptionShorter = "I temp hp; All enter/start 20 ft sq save or restrain \x26 3d6 Bludg. dmg/rnd; Str/Dex chk esc" + (typePF ? "ape" : ""),
-							spellObj.duration = "Conc*, 1 min";
-							return true;
-						}
+						if (spellKey !== "evard's black tentacles") return;
+						spellObj.description = "I temp hp; " + spellObj.description.replace("All who enter", "All enter").replace("square", "sq");
+						spellObj.duration = spellObj.duration.replace("Conc,", "Conc*,");
+						return true;
 					},
 					"Whenever I cast *Evard's Black Tentacles*, I gain temporary hit points equal to my warlock level.\n \u2022 Damage can't break my concentration on this spell.",
 				],
@@ -57831,14 +57832,6 @@ MagicItemsList["skull helm"] = {
 		selection: ["spirit of death"],
 		firstCol: "onceday",
 	}],
-	spellChanges: {
-		"spirit of death": {
-			components: "",
-			compMaterial: "",
-			description: "Summon a Reaper Spirit; obeys commands; takes turn after mine; disappears at 0 hp",
-			changes: "While wearing the helmet, it requires no material components to cast *Spirit of Death*.",
-		},
-	},
 };
 MagicItemsList["sling of giant felling"] = {
 	name: "Sling of Giant Felling",
@@ -58515,7 +58508,7 @@ if (MagicItemsList["grenade"]) {
 		name: "Concussion Grenade",
 		sortname: "Grenade, Concussion",
 		source: [["QftIS", 192]],
-		type: "explosive, futuristic",
+		type: "explosive (futuristic)",
 		rarity: "priceless",
 		defaultExcluded: true,
 		description: "As an action, I can throw a grenade at a point up to 60 ft away or double that with a grenade launcher. All creatures within 20 ft of an exploding concussion grenade take 6d6 force damage, but can make a DC 15 Dexterity save to halve that damage.",
@@ -58533,7 +58526,7 @@ if (MagicItemsList["grenade"]) {
 		name: "Sleep Grenade",
 		sortname: "Grenade, Sleep",
 		source: [["QftIS", 192]],
-		type: "explosive, futuristic",
+		type: "explosive (futuristic)",
 		rarity: "priceless",
 		defaultExcluded: true,
 		description: "As an action, I can throw a grenade at a point up to 60 ft away or double that with a grenade launcher. A soporific mist releases from a sleep grenade, then dissipates. All within 20 ft of it must make a DC 15 Con save or fall unconscious for 1 hour, until taking damage, or until another uses an action to shake awake.",
@@ -58545,7 +58538,7 @@ if (MagicItemsList["grenade"]) {
 }
 // Futuristic Weapons
 MagicItemsList["needler pistol"] = {
-	name: "Needler pistol",
+	name: "Needler Pistol",
 	source: [["QftIS", 192]],
 	type: "futuristic item",
 	rarity: "priceless",
@@ -58583,7 +58576,7 @@ MagicItemsList["needler pistol"] = {
 MagicItemsList["paralysis pistol"] = {
 	name: "Paralysis Pistol",
 	source: [["QftIS", 192]],
-	type: "technological device",
+	type: "Futuristic Item",
 	rarity: "priceless",
 	defaultExcluded: true,
 	description: "This pistol has 6 charges per energy cell, which can be replaced as a (bonus) action once empty. As an action, I can use 1 charge to fire the pistol at a creature I can see within 60 ft, which must then make a DC 15 Constitution save or be paralyzed for 1 min. The target can repeat the save at the end of each of its turns.",
@@ -58620,7 +58613,7 @@ MagicItemsList["paralysis pistol"] = {
 MagicItemsList["powered armor"] = {
 	name: "Powered Armor",
 	source: [["QftIS", 192]],
-	type: "technological device",
+	type: "Futuristic Item",
 	rarity: "priceless",
 	defaultExcluded: true,
 	description: "This plate armor has 24 charges per energy cell, which can be replaced as a (bonus) action if empty. As an action, I can expend charges to activate it for 1 hour per charge. While active, I gain adv. on Str, double carrying capacity, have my own atmosphere to breathe in, and can use Force Field and Propulsion, see Notes.",

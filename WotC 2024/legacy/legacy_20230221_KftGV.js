@@ -192,7 +192,7 @@ MagicItemsList["shard solitaire"] = {
 			"banishment": KftGV_ShardSolitaire.spellChanges_banishment,
 			"simulacrum": {
 				time: "Act",
-				description: "Create snow/ice cuplicate of Humanoid/Beast; follows commands \x26 acts on my turn; has full HP; see B",
+				description: "Create snow/ice copy of Humanoid/Beast; follows commands \x26 acts on my turn; has full HP; see B",
 				changes: "Cast as 1 action and the duplicate created by the spell has the same number of Hit Points as the creature it imitates.",
 			},
 		},

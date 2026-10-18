@@ -479,10 +479,21 @@ AddSubClass("druid", "circle of the shepherd", {
 			spellChanges: {
 				"conjure animals": {
 					nameShort: "Conjure Animals (lvl 9)",
+					source: [["X", 24]],
+					time: "0 HP",
+					timeFull: "Immediately when I'm reduced to 0 Hit Points or Incapacitated against my will",
 					range: "20 ft",
 					duration: "1 h",
+					save: "",
 					description: "Summon 4 CR 2 Beasts; protect me from harm and attack foes",
-					changes: "Using my Faithful Summons class feature when I'm reduced to 0 HP, I can cast *Conjure Animals* as if using a 9th-level spell slot. This then summons 4 Beasts of my choice up to CR 2 within 20 ft of me without needing Concentration.",
+					descriptionShorter: undefined,
+					descriptionFull: [
+						"When you are reduced to 0 Hit Points or are Incapacitated against your will, you can immediately gain the benefits of this spell as if it were cast using a level 9 spell slot. It summons four Beasts of your choice that are Challenge Rating 2 or lower. They are fey spirits that take the form of Beasts and appear in unoccupied spaces within 20 feet of you. Each Beast is also considered Fey, and it disappears when it drops to 0 Hit Points or when the spell ends.",
+						"The summoned creatures are Friendly to you and your companions. Roll Initiative for the summoned creatures as a group, which has its own turns. They obey any verbal commands that you issue to them (no action required by you). If they receive no commands from you, they protect you from harm and attack your foes. The DM has the creatures' statistics.",
+						"The spell lasts for 1 hour, requiring no Concentration, or until you dismiss it (no action required).",
+					],
+					completeRewrite: true, // i.e. even overwrite the tooltip with these changes
+					changes: "The listing of *Conjure Animals* has been completely changed to the 2014 version of the spell, which my Faithful Summons class feature uses as if cast with a level 9 spell slot to summon 4 Beasts up to CR 2 within 20 ft of me, without needing Concentration. Even the information above has been changed.",
 				},
 			},
 		},
@@ -1029,7 +1040,7 @@ AddSubClass("ranger", "horizon walker", {
 				"etherealness": {
 					time: "Bns",
 					duration: "1 rnd",
-					description: "I go to Ethereal Plane; move there, but able to perceive 60 ft into the normal plane",
+					description: "I step into Ethereal Plane until the end of my turn; can perceive 60 ft into source plane",
 					changes: "Using my Ethereal Step class feature I can cast *Etherealness* as a Bonus Action once per Short Rest, but it only affects myself and lasts until the end of my turn.",
 				},
 			},
@@ -2165,7 +2176,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		range: "Self",
 		components: "S",
 		duration: "1 rnd",
-		description: "Acid, Cold, Fire, Lightning, or Thunder Resistance till next turn start; first melee hit +1d6+1d6/SL dmg",
+		description: "Acid, Cold, Fire, Lightning, or Thunder Resistance until next SoT; first melee hit +1d6+1d6/SL dmg",
 		descriptionFull: [
 			"The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends.",
 			"***At Higher Levels***. When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st.",
@@ -2296,7 +2307,7 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		duration: "Conc, 1 min",
 		save: "Dex",
 		description: "5-ft Cube all crea now/enter/end turn save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
-		descriptionMetric: "1,5m Cube all crea now/enter/end turn save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
+		descriptionMetric: "1,5m cube all crea now/enter/end turn save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
 		descriptionShorter: "5-ft Cube all now/enter/end save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5,11,17",
 		descriptionCantripDie: "5-ft Cube all crea at casting, entering, or end turn in save or `CD`d8 Fire dmg; ignites flammable",
 		descriptionFull: [
@@ -2490,9 +2501,9 @@ if (!SourceList["E"] || !/Elemental.*Evil.*Player.*Companion/i.test(SourceList["
 		duration: "Conc, 10 min",
 		save: "Dex",
 		description: "Fire Immune; Cold res.; 1d10 Fire dmg in 5 ft; Act 15-ft long 5-ft wide all crea 4d8 Fire dmg, save half",
-		descriptionMetric: "Fire im.; Cold res.; 1d10 Fire dmg in 1,5 m; Act 4,5-m long 1,5-m wide all crea 4d8 Fire dmg, save half",
-		descriptionShorter: "Fire im.; Cold res.; 1d10 Fire dmg in 5 ft; 1a 15-ft long 5-ft wide all 4d8 Fire dmg, save half",
-		descriptionShorterMetric: "Fire Immune; Cold res.; 1d10 Fire dmg in 1,5 m; Act 4,5-m long all 4d8 Fire dmg, save half",
+		descriptionMetric: "Fire im.; Cold res.; 1d10 Fire dmg in 1,5m; Act 4,5m long 1,5m wide all crea 4d8 Fire dmg, save half",
+		descriptionShorter: "Fire im.; Cold res.; 1d10 Fire dmg in 5 ft; 1a 15ft long 5ft wide all 4d8 Fire dmg, save half",
+		descriptionShorterMetric: "Fire Immune; Cold res.; 1d10 Fire dmg in 1,5m; Act 4,5m long all 4d8 Fire dmg, save half",
 		descriptionFull: [
 			"Flames race across your body, shedding bright light in a 30-foot radius and dim light for an additional 30 feet for the spell's duration. The flames don't harm you. Until the spell ends, you gain the following benefits.",
 			" \u2022 You are immune to fire damage and have resistance to cold damage.",
@@ -3322,8 +3333,8 @@ SpellsList["mental prison"] = {
 	components: "S",
 	duration: "Conc, 1 min",
 	save: "Int",
-	description: "1 crea 5d10 Psychic dmg; save or Restrained, blind, deaf, and if moved: 10d10 dmg, ends; charm effect",
-	descriptionShorter: "1 crea 5d10 Psychic dmg; save or Restrained, blind, deaf, if move: 10d10 dmg, ends; charm",
+	description: "1 crea 5d10 Psychic dmg; save or restrained, blind, deaf, and if moved: 10d10 dmg, ends; charm effect",
+	descriptionShorter: "1 crea 5d10 Psychic dmg; save or restrained, blind, deaf, if move: 10d10 dmg, ends; charm",
 	descriptionFull: "You attempt to bind a creature within an illusory cell that only it perceives. One creature you can see within range must make an Intelligence saving throw. The target succeeds automatically if it is immune to being charmed. On a successful save, the target takes 5d10 psychic damage, and the spell ends. On a failed save, the target takes 5d10 psychic damage, and you make the area immediately around the target's space appear dangerous to it in some way. You might cause the target to perceive itself as being surrounded by fire, floating razors, or hideous maws filled with dripping teeth. Whatever form the illusion takes, the target can't see or hear anything beyond it and is restrained for the spell's duration. If the target is moved out of the illusion, makes a melee attack through it, or reaches any part of its body through it, the target takes 10d10 psychic damage, and the spell ends.",
 	dynamicDamageBonus: {
 		multipleDmgMoments: false,

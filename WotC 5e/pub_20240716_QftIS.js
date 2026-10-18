@@ -90,7 +90,7 @@ if (MagicItemsList["grenade"]) {
 		name: "Concussion Grenade",
 		sortname: "Grenade, Concussion",
 		source: [["QftIS", 192]],
-		type: "explosive, futuristic",
+		type: "explosive (futuristic)",
 		rarity: "priceless",
 		defaultExcluded: true,
 		description: "As an action, I can throw a grenade at a point up to 60 ft away or double that with a grenade launcher. All creatures within 20 ft of an exploding concussion grenade take 6d6 force damage, but can make a DC 15 Dexterity save to halve that damage.",
@@ -108,7 +108,7 @@ if (MagicItemsList["grenade"]) {
 		name: "Sleep Grenade",
 		sortname: "Grenade, Sleep",
 		source: [["QftIS", 192]],
-		type: "explosive, futuristic",
+		type: "explosive (futuristic)",
 		rarity: "priceless",
 		defaultExcluded: true,
 		description: "As an action, I can throw a grenade at a point up to 60 ft away or double that with a grenade launcher. A soporific mist releases from a sleep grenade, then dissipates. All within 20 ft of it must make a DC 15 Con save or fall unconscious for 1 hour, until taking damage, or until another uses an action to shake awake.",
@@ -120,7 +120,7 @@ if (MagicItemsList["grenade"]) {
 }
 // Futuristic Weapons
 MagicItemsList["needler pistol"] = {
-	name: "Needler pistol",
+	name: "Needler Pistol",
 	source: [["QftIS", 192]],
 	type: "futuristic item",
 	rarity: "priceless",
@@ -158,7 +158,7 @@ MagicItemsList["needler pistol"] = {
 MagicItemsList["paralysis pistol"] = {
 	name: "Paralysis Pistol",
 	source: [["QftIS", 192]],
-	type: "technological device",
+	type: "Futuristic Item",
 	rarity: "priceless",
 	defaultExcluded: true,
 	description: "This pistol has 6 charges per energy cell, which can be replaced as a (bonus) action once empty. As an action, I can use 1 charge to fire the pistol at a creature I can see within 60 ft, which must then make a DC 15 Constitution save or be paralyzed for 1 min. The target can repeat the save at the end of each of its turns.",
@@ -195,7 +195,7 @@ MagicItemsList["paralysis pistol"] = {
 MagicItemsList["powered armor"] = {
 	name: "Powered Armor",
 	source: [["QftIS", 192]],
-	type: "technological device",
+	type: "Futuristic Item",
 	rarity: "priceless",
 	defaultExcluded: true,
 	description: "This plate armor has 24 charges per energy cell, which can be replaced as a (bonus) action if empty. As an action, I can expend charges to activate it for 1 hour per charge. While active, I gain adv. on Str, double carrying capacity, have my own atmosphere to breathe in, and can use Force Field and Propulsion, see Notes.",

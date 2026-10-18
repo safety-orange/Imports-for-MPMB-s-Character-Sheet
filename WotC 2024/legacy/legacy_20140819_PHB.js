@@ -173,8 +173,7 @@ AddWarlockInvocation("Book of Ancient Secrets (req: Pact of the Tome)", {
 		spellAdd: [
 			function (spellKey, spellObj, spName) {
 				if (spName !== "warlock-book of shadows") return;
-				var oSpells = CurrentSpells[spName];
-				if (oSpells.selectSp.indexOf(spellKey)) {
+				if (CurrentSpells[spName].selectSp.indexOf(spellKey) !== -1) {
 					spellObj.firstCol = SpellRitualTag;
 					if (!/.*(\d+ ?h\b|special|see b).*/i.test(spellObj.time)) {
 						var numMinutes = Number(spellObj.time.replace(/(\d+) ?min.*/, "$1"));
@@ -205,7 +204,7 @@ AddWarlockInvocation("Chains of Carceri (req: lvl 15+, Pact of the Chain)", {
 		"hold monster": {
 			components: "V,S",
 			compMaterial: "",
-			description: "1 Celestial, Fiend, or Elemental, save or Paralyzed; extra save at end of each turn",
+			description: "1 Celestial, Fiend, or Elemental; save or Paralyzed; repeat save at end of each turn",
 			changes: "With the Chains of Carceri invocation I can cast *Hold Monster* without a Material component, but only on a Celestial, Fiend, or Elemental.",
 		},
 	},

@@ -48,7 +48,7 @@ MagicItemsList["balloon pack"] = {
 			range: "Self",
 			duration: "10 min",
 			save: "",
-			description: "I rise vertically, up to 20 ft; move up/down 20 ft instead of normal move",
+			description: "I rise vertically, up to 20 ft; I can move up/down 20 ft as part of my move",
 			changes: "Using the Balloon Pack, I can only target myself, but the spell requires no concentration.",
 		},
 	},
@@ -267,10 +267,6 @@ MagicItemsList["ironfang"] = {
 		"dominate monster": {
 			description: "Earth elemental save or charmed, follows telepathic commands, 1 a for complete control; save on dmg",
 			changes: "Can only affect an earth elemental.",
-		},
-		"shatter": {
-			description: "10-ft rad all 4d8 Thunder dmg; save halves; nonmagical unattended objects also take dmg",
-			changes: "Cast as if using a 2nd-level spell slot.",
 		},
 	},
 	vision: [["Tremorsense", "fixed 60"]],

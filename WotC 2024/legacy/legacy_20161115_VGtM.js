@@ -82,7 +82,7 @@ RaceList["firbolg"] = {
 			}],
 			spellChanges: {
 				"disguise self": {
-					description: "Alter appearance, up to 3ft shorter/taller; Int(Investigation) check vs spell DC to determine disguise",
+					description: "Alter appearance with illusion, \u22643 ft shorter/taller; Study action: Int (Investigation) vs DC discerns",
 					changes: "Using Firbolg Magic, I can cast *Disguise Self* once per Short Rest to also seem up to 3 feet shorter or taller.",
 				},
 			},

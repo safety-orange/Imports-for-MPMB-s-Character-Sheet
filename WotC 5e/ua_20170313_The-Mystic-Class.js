@@ -680,7 +680,7 @@ PsionicsList["delusion-ua-psy"] = {
 	time: "1 a",
 	range: "60 ft",
 	duration: "1 min",
-	description: "1 crea either hears a sound (whisper-scream), or sees up to 5-ft cube object that disappears on touch",
+	description: "1 crea either hears a sound (whisper-scream), or sees up to 5 ft cube object that disappears on touch",
 	descriptionFull: [
 		"As an action, you plant a false belief in the mind of one creature that you can see within 60 feet of you. You can create a sound or an image. Only the target of this talent perceives the sound or image you create.",
 		"If you create a sound, its volume can range from a whisper to a scream. It can be your voice, someone else's voice, a creature's roar, a musical instrument, or any other sound you pick. It lasts for 1 minute.",

@@ -135,7 +135,8 @@ MagicItemsList["black crystal tablet"] = { // contains contributions by Pengslot
 	}],
 	spellChanges: {
 		"gate": {
-			description: "Create a portal to a precise location in the Far Realm; can transport named crea to me",
+			description: "Create a 5-20 ft portal to exact spot in the Far Realm; can transport named creature to me; see book",
+			descriptionMetric: "Create a 1,5-6 m portal to exact spot in the Far Realm; can transport named creature to me; see book",
 			changes: "The spell can only connect to the Far Realm.",
 		},
 	},
@@ -270,7 +271,7 @@ MagicItemsList["blast scepter"] = { // contains contributions by Pengsloth
 	spellChanges: {
 		"thunderwave": {
 			nameShort: "Thunderwave (4th level)",
-			description: "All crea/obj in area 5d8 Thunder dmg, pushed 10 ft away; save halves and not pushed",
+			description: "All crea/loose obj 5d8 Thunder dmg, pushed 10 ft away; save half only; audible in 300 ft",
 			changes: "Cast as if using a 4th-level spell slot",
 		},
 	},

@@ -41,14 +41,15 @@ MagicItemsList["balloon pack"] = {
 	spellChanges: {
 		"feather fall": {
 			range: "Self",
-			description: "I descend only 60 ft/rnd for duration or until landed, taking no falling damage",
+			description: "I descend only 60 ft/round for duration or until I land, taking no falling damage",
 			changes: "Using the Balloon Pack, I can only target myself.",
 		},
 		"levitate": {
+			reqLoS: false,
 			range: "Self",
 			duration: "10 min",
 			save: "",
-			description: "I rise vertically, up to 20 ft; move up/down 20 ft instead of normal move",
+			description: "I rise vertically, up to 20 ft; move up/down 20 ft as part of my move",
 			changes: "Using the Balloon Pack, I can only target myself, but the spell requires no Concentration.",
 		},
 	},
@@ -187,7 +188,7 @@ MagicItemsList["drown"] = {
 	}],
 	spellChanges: {
 		"dominate monster": {
-			description: "Water elemental save or Charmed, obeys telepathic commands, Act for complete control; save on dmg",
+			description: "Water elemental save or Charmed; redo on dmg; follows telepathic commands; Rea to use its Rea",
 			changes: "Can only affect a water elemental.",
 		},
 	},
@@ -258,12 +259,8 @@ MagicItemsList["ironfang"] = {
 	}],
 	spellChanges: {
 		"dominate monster": {
-			description: "Earth elemental save or Charmed, follows telepathic commands, Act for complete control; save on dmg",
+			description: "Earth elemental save or Charmed; redo on dmg; follows telepathic commands; Rea to use its Rea",
 			changes: "Can only affect an earth elemental.",
-		},
-		"shatter": {
-			description: "10-ft rad all 4d8 Thunder dmg; save halves; nonmagical unattended objects also take dmg",
-			changes: "Cast as if using a 2nd-level spell slot.",
 		},
 	},
 	vision: [["Tremorsense", "fixed 60"]],
@@ -444,7 +441,7 @@ MagicItemsList["tinderstrike"] = {
 	}],
 	spellChanges: {
 		"dominate monster": {
-			description: "Fire elemental save or Charmed, follows telepathic commands, Act for complete control; save on dmg",
+			description: "Fire elemental save or Charmed; redo on dmg; follows telepathic commands; Rea to use its Rea",
 			changes: "Can only affect a fire elemental.",
 		},
 	},
@@ -517,7 +514,7 @@ MagicItemsList["windvane"] = {
 	}],
 	spellChanges: {
 		"dominate monster": {
-			description: "Air elemental save or Charmed, follows telepathic commands, Act for complete control; save on dmg",
+			description: "Air elemental save or Charmed; redo on dmg; follows telepathic commands; Rea to use its Rea",
 			changes: "Can only affect an air elemental.",
 		},
 	},

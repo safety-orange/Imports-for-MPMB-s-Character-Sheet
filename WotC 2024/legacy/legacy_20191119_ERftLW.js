@@ -364,10 +364,10 @@ AddSubRace("human", "mark of handling", {
 			function (spellKey, spellObj, spName) {
 				switch (spellKey) {
 					case "animal friendship" :
-						spellObj.description = spellObj.description.replace("Beasts", "Beasts/Monstrosities");
+						spellObj.description = spellObj.description.replace("Beasts", "Beasts/Int\u22643 Monstrosities").replace("the Beast is", "it's");
 						return true;
 					case "speak with animals" :
-						spellObj.description = "Communicate with Beasts \x26 Int\u22643 Monstrosities; get info on nearby stuff, recent sights; can Influence";
+						spellObj.description = spellObj.description.replace("Speak with and understand Beasts", "Speak with Beasts & Int\u22643 Monstrosities").replace("nearby locations/monsters/recent sights", "nearby places/monsters/sights");
 						return true;
 				}
 			},
@@ -1246,13 +1246,13 @@ MagicItemsList["imbued wood focus"] = {
 		calcChanges: {
 			atkCalc: [
 				function (fields, v, output) {
-					if (v.thisWeapon[3] && /lightning|thunder/i.test(fields.Damage_Type)) output.extraDmg += 1;
+					if (v.thisWeapon[3] && /lightning|lightn\.?|thunder/i.test(fields.Damage_Type)) output.extraDmg += 1;
 				},
 				"When I use this as my spellcasting focus, spells I cast that deal Lightning or Thunder damage get a +1 bonus added to one of their damage rolls.",
 			],
 			spellAdd: [
 				function (spellKey, spellObj, spName) {
-					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "lightning|thunder", 1, true, true);
+					if (!spellObj.psionic) return genericSpellDmgEdit(spellKey, spellObj, "lightning|lightn\\.?|thunder", 1, true, true);
 				},
 				"When I use this as my spellcasting focus, spells I cast that deal Lightning or Thunder damage get a +1 bonus added to one of their damage rolls.",
 			],

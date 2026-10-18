@@ -95,7 +95,7 @@ RaceList["pallid elf"] = { // contains contributions by Smashman
 					range: "Self",
 					components: "V,S",
 					compMaterial: "",
-					description: "Me and my worn/carried invisible until I attack or cast; Can't cast this spell in direct sunlight",
+					description: "Me and my worn/carried invisible until I attack or cast",
 					changes: "Using Blessing of the Moonweaver, I can cast *Invisibility* once per long rest without requiring a material component, but only on myself.",
 				},
 			},
@@ -643,7 +643,7 @@ if (!SourceList["V"]) {
 				}],
 				spellChanges: {
 					"disguise self": {
-						description: "Alter appearance, up to 3ft shorter/taller; Int(Investigation) check vs. spell DC to determine disguise",
+						description: "Alter appearance, \u22643 ft shorter/taller; Int(Investigation) check vs. spell DC to determine disguise",
 						changes: "Using Firbolg Magic, I can cast *Disguise Self* once per short rest to also seem up to 3 feet shorter or taller.",
 					},
 				},
@@ -3081,6 +3081,7 @@ MagicItemsList["hide of the feral guardian"] = {
 			"polymorph": {
 				name: "Polymorph (special)",
 				range: "Self",
+				save: "",
 				description: "I transform into a giant owl; I retain my Int, Wis, Cha",
 				changes: "Using the Hide of the Feral Guardian, I can cast *Polymorph* on myself once per dawn to transform myself into a giant owl, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the armor.",
 			},
@@ -3102,6 +3103,7 @@ MagicItemsList["hide of the feral guardian"] = {
 			"polymorph": {
 				name: "Polymorph (special)",
 				range: "Self",
+				save: "",
 				description: "I transform into a giant owl or cave bear; I retain my Int, Wis, Cha",
 				changes: "Using the Hide of the Feral Guardian, I can cast *Polymorph* on myself once per dawn to transform myself into a giant owl or a cave bear, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the armor.",
 			},
@@ -3123,6 +3125,7 @@ MagicItemsList["hide of the feral guardian"] = {
 			"polymorph": {
 				name: "Polymorph (special)",
 				range: "Self",
+				save: "",
 				description: "I transform into a giant owl, cave bear, or guardian wolf; I retain my Int, Wis, Cha",
 				changes: "Using the Hide of the Feral Guardian, I can cast *Polymorph* on myself once per dawn to transform myself into a giant owl, cave bear, or guardian wolf, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the armor.",
 			},
@@ -3394,6 +3397,7 @@ MagicItemsList["verminshroud"] = {
 			"polymorph": {
 				name: "Polymorph (special)",
 				range: "Self",
+				save: "",
 				description: "I transform into a rat or giant rat; I retain my Int, Wis, Cha",
 				changes: "Using Verminshroud, I can cast *Polymorph* on myself once per dawn to transform myself into a rat or giant rat, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the cloak.",
 			},
@@ -3420,6 +3424,7 @@ MagicItemsList["verminshroud"] = {
 			"polymorph": {
 				name: "Polymorph (special)",
 				range: "Self",
+				save: "",
 				description: "I transform into a rat, giant rat, or giant wasp; I retain my Int, Wis, Cha",
 				changes: "Using Verminshroud, I can cast *Polymorph* on myself once per dawn to transform myself into a rat, giant rat, or giant wasp, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the cloak.",
 			},
@@ -3446,6 +3451,7 @@ MagicItemsList["verminshroud"] = {
 			"polymorph": {
 				name: "Polymorph (special)",
 				range: "Self",
+				save: "",
 				description: "I transform into a rat, giant rat, giant wasp, or giant scorpion; I retain my Int, Wis, Cha",
 				changes: "Using Verminshroud, I can cast *Polymorph* on myself once per dawn to transform myself into a rat, giant rat, giant wasp, or giant scorpion, while retaining my Intelligence, Wisdom, and Charisma scores as well as the benefits of the cloak.",
 			},

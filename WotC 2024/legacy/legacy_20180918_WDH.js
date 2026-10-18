@@ -187,7 +187,7 @@ if (MagicItemsList["staff of power"]) {
 			"dispel magic": {
 				time: "Bns",
 				range: "Melee atk",
-				description: "Dispel all magic on crea or object hit with melee atk; DC 10+SL spellcasting ability check if level >3",
+				description: "Dispel all spells on 1 crea/obj hit with melee atk; spellcasting ability check DC 10+SL if level >3",
 				changes: "Can cast as a Bonus Action, but only on something touched by the staff. It might first require an attack by the staff to be able to cast it on",
 			},
 		},
@@ -258,7 +258,7 @@ MagicItemsList["dragonstaff of ahghairon"] = { // contains contributions by Peng
 	}],
 	spellChanges: {
 		"command": {
-			description: "1 crea, save or follow one word command, e.g. approach, drop, flee, halt; Dragons Disadv on save",
+			description: "1 crea save or next turn only does command: Approach, Drop, Flee, Grovel, Halt; Dragons Dis on save",
 			changes: "When this spell is cast on a Dragon they have Disadvantage on the saving throw.",
 		},
 	},
