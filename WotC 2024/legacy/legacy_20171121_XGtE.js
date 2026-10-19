@@ -546,11 +546,11 @@ AddSubClass("fighter", "cavalier", {
 			calcChanges: {
 				atkCalc: [
 					function (fields, v, output) {
-						if (v.isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 2 && /\b(unwavering.?mark|marked)\b/i.test(v.WeaponTextName)) {
+						if ((v.isMeleeWeapon || v.baseWeaponName === "unarmed strike") && classes.known.fighter && classes.known.fighter.level > 2 && /\b(unwavering.?mark|marked)\b/i.test(v.WeaponTextName)) {
 							output.extraDmg += Math.floor(classes.known.fighter.level / 2);
 						};
 					},
-					"If I include the words 'Unwavering Mark' or 'Marked' in the name of a melee weapon, it gets half my Fighter level added to its Damage.",
+					"If I include the words 'Unwavering Mark' or 'Marked' in the name of a melee weapon or Unarmed Strike, it gets half my Fighter level added to its Damage.",
 				],
 			},
 		},

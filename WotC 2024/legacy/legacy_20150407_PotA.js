@@ -85,12 +85,13 @@ MagicItemsList["claws of the umber hulk"] = {
 		name: "Claws of the Umber Hulk",
 		source: [["PotA", 222]],
 		ability: 1,
-		type: "Natural",
+		type: "Weapon",
 		damage: [1, 8, "slashing"],
 		range: "Melee",
 		description: "",
 		abilitytodamage: true,
 		selectNow: true,
+		isAlwaysProf: true,
 	}],
 }
 var PotA_tempDevastationOrbNoteTxt = [

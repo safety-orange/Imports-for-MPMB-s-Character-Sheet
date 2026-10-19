@@ -15498,7 +15498,7 @@ RaceList["firbolg"] = {
 			}],
 			spellChanges: {
 				"disguise self": {
-					description: "Alter appearance, up to 3ft shorter/taller; Int(Investigation) check vs. spell DC to determine disguise",
+					description: "Alter appearance, \u22643 ft shorter/taller; Int(Investigation) check vs. spell DC to determine disguise",
 					changes: "Using Firbolg Magic, I can cast *Disguise Self* once per short rest to also seem up to 3 feet shorter or taller.",
 				},
 			},
@@ -49796,7 +49796,7 @@ RaceList["multiverse firbolg"] = {
 			}],
 			spellChanges: {
 				"disguise self": {
-					description: "Alter appearance, up to 3ft shorter/taller; Int(Investigation) check vs. spell DC to determine disguise",
+					description: "Alter appearance, \u22643 ft shorter/taller; Int(Investigation) check vs. spell DC to determine disguise",
 					changes: "Using Firbolg Magic, I can cast *Disguise Self* once per long rest without using a spell slot. When I cast it using Firbolg Magic, I can also seem up to 3 feet shorter or taller.",
 				},
 			},
@@ -58198,7 +58198,7 @@ MagicItemsList["weapon of throne's command"] = {
 	calcChanges: {
 		atkCalc: [
 			function (fields, v, output) {
-				if (/of throne'?s? command/.test(v.WeaponTextName)) {
+				if (/of throne'?s? command/i.test(v.WeaponTextName)) {
 					output.magic = v.thisWeapon[1] + 1;
 				}
 			},
@@ -66720,7 +66720,7 @@ PsionicsList["delusion-ua-psy"] = {
 	time: "1 a",
 	range: "60 ft",
 	duration: "1 min",
-	description: "1 crea either hears a sound (whisper-scream), or sees up to 5-ft cube object that disappears on touch",
+	description: "1 crea either hears a sound (whisper-scream), or sees up to 5 ft cube object that disappears on touch",
 	descriptionFull: [
 		"As an action, you plant a false belief in the mind of one creature that you can see within 60 feet of you. You can create a sound or an image. Only the target of this talent perceives the sound or image you create.",
 		"If you create a sound, its volume can range from a whisper to a scream. It can be your voice, someone else's voice, a creature's roar, a musical instrument, or any other sound you pick. It lasts for 1 minute.",
@@ -70554,7 +70554,7 @@ SpellsList["hand of radiance-uass"] = {
 	components: "V,S",
 	duration: "Instantaneous",
 	save: "Con",
-	description: "Any creatures I can see in 5-ft radius save or 1d6 Radiant damage; +1d6 damage at CL 5, 11, and 17",
+	description: "Any creatures I see in 5-ft radius save or 1d6 Radiant damage; +1d6 damage at CL 5, 11, and 17",
 	descriptionCantripDie: "Any creatures I can see in 5-ft radius save or `CD`d6 Radiant damage",
 	descriptionFull: [
 		"You raise your hand, and burning radiance erupts from it. Each creature of your choice that you can see within 5 feet of you must succeed on a Constitution saving throw or take 1d6 radiant damage.",

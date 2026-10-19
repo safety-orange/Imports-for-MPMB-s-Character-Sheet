@@ -10894,7 +10894,7 @@ RaceList["half-orc"] = {
 			calcChanges: {
 				atkAdd: [
 					function (fields, v) {
-						if (v.isMeleeWeapon && (/d\d+/).test(fields.Damage_Die)) {
+						if ((v.isMeleeWeapon || v.baseWeaponName === "unarmed strike") && (/d\d+/).test(fields.Damage_Die)) {
 							if (v.extraCritM) {
 								v.extraCritM += 1;
 								var extraCritRegex = /\d+(d\d+ extra on a crit(ical)?( hit)? in melee)/i;
@@ -10905,7 +10905,7 @@ RaceList["half-orc"] = {
 							};
 						};
 					},
-					"My melee weapon attacks roll 1 additional dice on a Critical Hit.",
+					"My melee weapon attacks and Unarmed Strikes roll 1 additional dice on a Critical Hit.",
 					900,
 				],
 			},
@@ -11693,15 +11693,15 @@ AddSubClass("paladin", "oathbreaker", {
 			calcChanges: {
 				atkAdd: [
 					function (fields, v) {
-						if (v.isMeleeWeapon) {
+						if (v.isMeleeWeapon || v.baseWeaponName === "unarmed strike") {
 							fields.Description += (fields.Description ? "; " : "") + "Cha mod added to damage";
 						}
 					},
-					"I add my Charisma modifier to my melee weapon damage.",
+					"I add my Charisma modifier to the damage of my melee weapons and Unarmed Strikes.",
 				],
 				atkCalc: [
 					function (fields, v, output) {
-						if (v.isMeleeWeapon) {
+						if (v.isMeleeWeapon || v.baseWeaponName === "unarmed strike") {
 							output.extraDmg += Number(What("Cha Mod"));
 						};
 					},
@@ -11816,12 +11816,13 @@ MagicItemsList["claws of the umber hulk"] = {
 		name: "Claws of the Umber Hulk",
 		source: [["PotA", 222]],
 		ability: 1,
-		type: "Natural",
+		type: "Weapon",
 		damage: [1, 8, "slashing"],
 		range: "Melee",
 		description: "",
 		abilitytodamage: true,
 		selectNow: true,
+		isAlwaysProf: true,
 	}],
 }
 var PotA_tempDevastationOrbNoteTxt = [
@@ -12927,7 +12928,7 @@ SpellsList["absorb elements"] = {
 	range: "Self",
 	components: "S",
 	duration: "1 rnd",
-	description: "Acid, Cold, Fire, Lightning, or Thunder Resistance till next turn start; first melee hit +1d6+1d6/SL dmg",
+	description: "Acid, Cold, Fire, Lightning, or Thunder Resistance until next SoT; first melee hit +1d6+1d6/SL dmg",
 	descriptionFull: [
 		"The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends.",
 		"***At Higher Levels***. When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st.",
@@ -13058,7 +13059,7 @@ SpellsList["create bonfire"] = {
 	duration: "Conc, 1 min",
 	save: "Dex",
 	description: "5-ft Cube all crea now/enter/end turn save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
-	descriptionMetric: "1,5m Cube all crea now/enter/end turn save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
+	descriptionMetric: "1,5m cube all crea now/enter/end turn save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5/11/17",
 	descriptionShorter: "5-ft Cube all now/enter/end save or 1d8 Fire dmg; ignites flammable; +1d8 at CL 5,11,17",
 	descriptionCantripDie: "5-ft Cube all crea at casting, entering, or end turn in save or `CD`d8 Fire dmg; ignites flammable",
 	descriptionFull: [
@@ -13252,9 +13253,9 @@ SpellsList["investiture of flame"] = {
 	duration: "Conc, 10 min",
 	save: "Dex",
 	description: "Fire Immune; Cold res.; 1d10 Fire dmg in 5 ft; Act 15-ft long 5-ft wide all crea 4d8 Fire dmg, save half",
-	descriptionMetric: "Fire im.; Cold res.; 1d10 Fire dmg in 1,5 m; Act 4,5-m long 1,5-m wide all crea 4d8 Fire dmg, save half",
-	descriptionShorter: "Fire im.; Cold res.; 1d10 Fire dmg in 5 ft; 1a 15-ft long 5-ft wide all 4d8 Fire dmg, save half",
-	descriptionShorterMetric: "Fire Immune; Cold res.; 1d10 Fire dmg in 1,5 m; Act 4,5-m long all 4d8 Fire dmg, save half",
+	descriptionMetric: "Fire im.; Cold res.; 1d10 Fire dmg in 1,5m; Act 4,5m long 1,5m wide all crea 4d8 Fire dmg, save half",
+	descriptionShorter: "Fire im.; Cold res.; 1d10 Fire dmg in 5 ft; 1a 15ft long 5ft wide all 4d8 Fire dmg, save half",
+	descriptionShorterMetric: "Fire Immune; Cold res.; 1d10 Fire dmg in 1,5m; Act 4,5m long all 4d8 Fire dmg, save half",
 	descriptionFull: [
 		"Flames race across your body, shedding bright light in a 30-foot radius and dim light for an additional 30 feet for the spell's duration. The flames don't harm you. Until the spell ends, you gain the following benefits.",
 		" \u2022 You are immune to fire damage and have resistance to cold damage.",
@@ -20491,11 +20492,11 @@ AddSubClass("fighter", "cavalier", {
 			calcChanges: {
 				atkCalc: [
 					function (fields, v, output) {
-						if (v.isMeleeWeapon && classes.known.fighter && classes.known.fighter.level > 2 && /\b(unwavering.?mark|marked)\b/i.test(v.WeaponTextName)) {
+						if ((v.isMeleeWeapon || v.baseWeaponName === "unarmed strike") && classes.known.fighter && classes.known.fighter.level > 2 && /\b(unwavering.?mark|marked)\b/i.test(v.WeaponTextName)) {
 							output.extraDmg += Math.floor(classes.known.fighter.level / 2);
 						};
 					},
-					"If I include the words 'Unwavering Mark' or 'Marked' in the name of a melee weapon, it gets half my Fighter level added to its Damage.",
+					"If I include the words 'Unwavering Mark' or 'Marked' in the name of a melee weapon or Unarmed Strike, it gets half my Fighter level added to its Damage.",
 				],
 			},
 		},
@@ -22245,8 +22246,8 @@ SpellsList["mental prison"] = {
 	components: "S",
 	duration: "Conc, 1 min",
 	save: "Int",
-	description: "1 crea 5d10 Psychic dmg; save or Restrained, blind, deaf, and if moved: 10d10 dmg, ends; charm effect",
-	descriptionShorter: "1 crea 5d10 Psychic dmg; save or Restrained, blind, deaf, if move: 10d10 dmg, ends; charm",
+	description: "1 crea 5d10 Psychic dmg; save or restrained, blind, deaf, and if moved: 10d10 dmg, ends; charm effect",
+	descriptionShorter: "1 crea 5d10 Psychic dmg; save or restrained, blind, deaf, if move: 10d10 dmg, ends; charm",
 	descriptionFull: "You attempt to bind a creature within an illusory cell that only it perceives. One creature you can see within range must make an Intelligence saving throw. The target succeeds automatically if it is immune to being charmed. On a successful save, the target takes 5d10 psychic damage, and the spell ends. On a failed save, the target takes 5d10 psychic damage, and you make the area immediately around the target's space appear dangerous to it in some way. You might cause the target to perceive itself as being surrounded by fire, floating razors, or hideous maws filled with dripping teeth. Whatever form the illusion takes, the target can't see or hear anything beyond it and is restrained for the spell's duration. If the target is moved out of the illusion, makes a melee attack through it, or reaches any part of its body through it, the target takes 10d10 psychic damage, and the spell ends.",
 	dynamicDamageBonus: {
 		multipleDmgMoments: false,
@@ -24835,11 +24836,11 @@ AddSubClass("druid", "circle of spores", {
 			calcChanges: {
 				atkAdd: [
 					function (fields, v) {
-						if (v.isMeleeWeapon && /\b(spore|symbiotic)\b/i.test(v.WeaponTextName)) {
+						if ((v.isMeleeWeapon || v.baseWeaponName === "unarmed strike") && /\b(spore|symbiotic)\b/i.test(v.WeaponTextName)) {
 							fields.Description += (fields.Description ? "; " : "") + "+1d6 Necrotic damage";
 						};
 					},
-					"If I include the word \"Spore\" or \"Symbiotic\" in a melee weapon's name, it gets treated as a weapon that is infused by my Symbiotic Entity feature, adding +1d6 Necrotic damage in the description.",
+					"If I include the word \"Spore\" or \"Symbiotic\" in a melee weapon's or Unarmed Strike's name, it gets treated as a weapon that is infused by my Symbiotic Entity feature, adding +1d6 Necrotic damage in the description.",
 				],
 			},
 		},
@@ -35126,11 +35127,12 @@ AddSubClass("barbarian", "path of the beast", {
 				name: "Bestial Bite",
 				source: [["T", 24]],
 				ability: 1,
-				type: "Natural",
+				type: "Weapon",
 				damage: [1, 8, "piercing"],
 				range: "Melee",
 				description: "Only in Rage; On a hit once on my turn, regain Prof Bonus in HP (if below 1/2 HP)",
 				abilitytodamage: true,
+				isAlwaysProf: true,
 				bestialNaturalWeapon: true,
 				selectNow: true,
 			}, {
@@ -35138,11 +35140,12 @@ AddSubClass("barbarian", "path of the beast", {
 				name: "Bestial Claws",
 				source: [["T", 24]],
 				ability: 1,
-				type: "Natural",
+				type: "Weapon",
 				damage: [1, 6, "slashing"],
 				range: "Melee",
 				description: "Only in Rage; Extra attack if used as part of Attack action",
 				abilitytodamage: true,
+				isAlwaysProf: true,
 				bestialNaturalWeapon: true,
 				selectNow: true,
 			}, {
@@ -35150,11 +35153,12 @@ AddSubClass("barbarian", "path of the beast", {
 				name: "Bestial Tail",
 				source: [["T", 25]],
 				ability: 1,
-				type: "Natural",
+				type: "Weapon",
 				damage: [1, 8, "piercing"],
 				range: "Melee",
 				description: "Reach; Only in Rage",
 				abilitytodamage: true,
+				isAlwaysProf: true,
 				bestialNaturalWeapon: true,
 				selectNow: true,
 			}],
@@ -35750,10 +35754,10 @@ AddSubClass("fighter", "rune knight", {
 							} else {
 								fields.Description += (fields.Description ? "; " : "") + "+1" + GMdmgDie + " damage";
 							}
-							if (classes.known.fighter.level >= 18 && v.isMeleeWeapon) fields.Description += (fields.Description ? "; " : "") + "+5 ft reach";
+							if (classes.known.fighter.level >= 18 && (v.isMeleeWeapon || v.baseWeaponName === "unarmed strike")) fields.Description += (fields.Description ? "; " : "") + "+5 ft reach";
 						};
 					},
-					"If I include the words \"Giant Might\" in the name of a weapon or Unarmed Strike, it gets treated as a weapon that I use while imbued by my Giant's Might feature. It adds +1d6 weapon damage. From 10th-level onwards, this increases to +1d8 damage. From 18th-level onwards, this increases to +1d10 damage and my reach increases by 5 ft (for melee weapons).",
+					"If I include the words \"Giant Might\" in the name of a weapon or Unarmed Strike, it gets treated as a weapon that I use while imbued by my Giant's Might feature. It adds +1d6 weapon damage. From 10th-level onwards, this increases to +1d8 damage. From 18th-level onwards, this increases to +1d10 damage and my reach increases by 5 ft (for melee weapons and Unarmed Strikes).",
 					8,
 				],
 			},
@@ -35862,7 +35866,7 @@ AddSubClass("monk", "way of the astral self", {
 				source: [["T", 50]],
 				description: desc("As a Bonus Action, I can summon my astral arms to hover next to or over my own arms. When I summon them, all creatures of my choice I can see in 10 ft must make a Dex save or take twice my martial arts die in Force damage. I can use the arms to make Unarmed Strikes, using Wisdom instead of Strength/Dexterity. I have +5 ft reach on attacks made with my astral arms and they deal Force damage. They last for 10 minutes or until I'm Incapacitated or die. I choose their appearance."),
 				additional: levels.map(function (n) {
-					return n < 3 ? "" : "1 FP; 2d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10) + " Force " + (typePF ? "dmg" : "damage") + " on summon";
+					return n < 3 ? "" : "1 FP; 2d" + (n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12) + " Force " + (typePF ? "dmg" : "damage") + " on summon";
 				}),
 			},
 			autoSelectExtrachoices: [{ extrachoice: "astral arms" }],
@@ -35907,7 +35911,7 @@ AddSubClass("monk", "way of the astral self", {
 				atkAdd: [
 					function (fields, v) {
 						if (v.theWea.isAstralArms && classes.known.monk && classes.known.monk.level) {
-							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
+							var aMonkDie = function (n) { return n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12; }(classes.known.monk.level);
 							fields.Description += (fields.Description ? "; " : "") + "Once on each of my turns +1d" + aMonkDie + " damage";
 						}
 					},
@@ -39594,7 +39598,7 @@ AddSubClass("monk", "ascendant dragon", {
 				extraname: "Ascendant Dragon 3",
 				source: [["FToD", 13]],
 				description: levels.map(function (n) {
-					var iMonkDie = n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10;;
+					var iMonkDie = n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12;
 					var sDesc = "When I take the Attack action on my turn, I can replace one attack with a breath weapon. This deals " + (n < 11 ? 2 : 3) + "d" + iMonkDie + " Acid, Cold, Fire, Lightning, or Poison (my choice) damage to all in the area. The area can be a 20-ft Cone or a 5-ft wide, 30-ft Line, and a Dex save halves the damage. I can do this my Proficiency Bonus times per Long Rest, or by expending 2 Focus Points.";
 					if (n < 17) return desc(sDesc);
 					return desc(sDesc + " From 17th level, I can expend 1 (extra) Focus Point when I use this feature to augment it. The damage increases to 4d" + iMonkDie + " and the area to a 60-ft Cone or a 5-ft wide, 90-ft Line.");
@@ -39604,7 +39608,7 @@ AddSubClass("monk", "ascendant dragon", {
 				recovery: typePF ? "LR" : "Long Rest",
 				altResource: "2 FP",
 				additional: levels.map(function (n) {
-					return n < 3 ? "" : (n < 11 ? 2 : 3) + "d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10);
+					return n < 3 ? "" : (n < 11 ? 2 : 3) + "d" + (n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12);
 				}),
 				weaponOptions: [{
 					regExpSearch: /^(?=.*breath)(?=.*dragon).*$/i,
@@ -39612,7 +39616,7 @@ AddSubClass("monk", "ascendant dragon", {
 					source: [["FToD", 13]],
 					ability: 5,
 					type: "Natural",
-					damage: [2, 4, "My choice"],
+					damage: [2, 6, "My choice"],
 					range: "5-ft \xD7 30-ft Line",
 					description: "All in area; Dex save for half damage; Alt: 20-ft Cone; Type: Acid/Cold/Fire/Lightning/Poison",
 					dc: true,
@@ -39626,7 +39630,7 @@ AddSubClass("monk", "ascendant dragon", {
 						function (fields, v) {
 							if (classes.known.monk && classes.known.monk.level && v.theWea.WotAD_BreathWeapon) {
 								var n = classes.known.monk.level;
-								var aMonkDie = n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10;;
+								var aMonkDie = n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12;
 								fields.Damage_Die = (v.theWea.WotAD_BreathWeaponAugmented ? 4 : n < 11 ? 2 : 3) + "d" + aMonkDie;
 							};
 						},
@@ -39681,7 +39685,7 @@ AddSubClass("monk", "ascendant dragon", {
 				source: [["FToD", 13]],
 				ability: 5,
 				type: "Natural",
-				damage: [4, 10, "My choice"],
+				damage: [4, 12, "My choice"],
 				range: "5-ft \xD7 90-ft Line",
 				description: "[1 FP] All in area; Dex save for half damage; Alt: 60-ft Cone; Type: Acid/Cold/Fire/Lightning/Poison",
 				dc: true,
@@ -45408,11 +45412,11 @@ AddSubClass("barbarian", "giant", {
 							fields.Description += (fields.Description ? "; " : "") + extraProp + extraDmg;
 						}
 					},
-					"If I include the words 'Elemental Cleaver' in a weapon's name, the Elemental Cleaver infused weapon properties will be added to it and its damage type will be set to 'Varies'. Also, my Rage's bonus damage will be added to it if it is a melee weapon that uses Strength.",
+					"If I include the words 'Elemental Cleaver' in a weapon's name, the Elemental Cleaver infused weapon properties will be added to it and its damage type will be set to 'Varies'. Also, my Rage's bonus damage will be added to it if it uses Strength.",
 				],
 				atkCalc: [
 					function (fields, v, output) {
-						if (v.isMeleeWeapon && fields.Mod === 1 && classes.known.barbarian && classes.known.barbarian.level && /^(?!.*\brage\b)(?=.*elemental)(?=.*cleaver).*$/i.test(v.WeaponTextName)) {
+						if (v.isWeapon && fields.Mod === 1 && classes.known.barbarian && classes.known.barbarian.level && /^(?!.*\b(rage|frenzy)\b)(?=.*elemental)(?=.*cleaver).*$/i.test(v.WeaponTextName)) {
 							output.extraDmg += classes.known.barbarian.level < 9 ? 2 : classes.known.barbarian.level < 16 ? 3 : 4;
 						}
 					},
@@ -50516,7 +50520,7 @@ MagicItemsList["weapon of throne's command"] = {
 	calcChanges: {
 		atkCalc: [
 			function (fields, v, output) {
-				if (/of throne'?s? command/.test(v.WeaponTextName)) {
+				if (/of throne'?s? command/i.test(v.WeaponTextName)) {
 					output.magic = v.thisWeapon[1] + 1;
 				}
 			},

@@ -464,11 +464,11 @@ AddSubClass("druid", "circle of spores", {
 			calcChanges: {
 				atkAdd: [
 					function (fields, v) {
-						if (v.isMeleeWeapon && /\b(spore|symbiotic)\b/i.test(v.WeaponTextName)) {
+						if ((v.isMeleeWeapon || v.baseWeaponName === "unarmed strike") && /\b(spore|symbiotic)\b/i.test(v.WeaponTextName)) {
 							fields.Description += (fields.Description ? "; " : "") + "+1d6 Necrotic damage";
 						};
 					},
-					"If I include the word \"Spore\" or \"Symbiotic\" in a melee weapon's name, it gets treated as a weapon that is infused by my Symbiotic Entity feature, adding +1d6 Necrotic damage in the description.",
+					"If I include the word \"Spore\" or \"Symbiotic\" in a melee weapon's or Unarmed Strike's name, it gets treated as a weapon that is infused by my Symbiotic Entity feature, adding +1d6 Necrotic damage in the description.",
 				],
 			},
 		},

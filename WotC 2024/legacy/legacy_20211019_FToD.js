@@ -107,7 +107,7 @@ AddSubClass("monk", "ascendant dragon", {
 				extraname: "Ascendant Dragon 3",
 				source: [["FToD", 13]],
 				description: levels.map(function (n) {
-					var iMonkDie = n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10;;
+					var iMonkDie = n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12;
 					var sDesc = "When I take the Attack action on my turn, I can replace one attack with a breath weapon. This deals " + (n < 11 ? 2 : 3) + "d" + iMonkDie + " Acid, Cold, Fire, Lightning, or Poison (my choice) damage to all in the area. The area can be a 20-ft Cone or a 5-ft wide, 30-ft Line, and a Dex save halves the damage. I can do this my Proficiency Bonus times per Long Rest, or by expending 2 Focus Points.";
 					if (n < 17) return desc(sDesc);
 					return desc(sDesc + " From 17th level, I can expend 1 (extra) Focus Point when I use this feature to augment it. The damage increases to 4d" + iMonkDie + " and the area to a 60-ft Cone or a 5-ft wide, 90-ft Line.");
@@ -117,7 +117,7 @@ AddSubClass("monk", "ascendant dragon", {
 				recovery: typePF ? "LR" : "Long Rest",
 				altResource: "2 FP",
 				additional: levels.map(function (n) {
-					return n < 3 ? "" : (n < 11 ? 2 : 3) + "d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10);
+					return n < 3 ? "" : (n < 11 ? 2 : 3) + "d" + (n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12);
 				}),
 				weaponOptions: [{
 					regExpSearch: /^(?=.*breath)(?=.*dragon).*$/i,
@@ -125,7 +125,7 @@ AddSubClass("monk", "ascendant dragon", {
 					source: [["FToD", 13]],
 					ability: 5,
 					type: "Natural",
-					damage: [2, 4, "My choice"],
+					damage: [2, 6, "My choice"],
 					range: "5-ft \xD7 30-ft Line",
 					description: "All in area; Dex save for half damage; Alt: 20-ft Cone; Type: Acid/Cold/Fire/Lightning/Poison",
 					dc: true,
@@ -139,7 +139,7 @@ AddSubClass("monk", "ascendant dragon", {
 						function (fields, v) {
 							if (classes.known.monk && classes.known.monk.level && v.theWea.WotAD_BreathWeapon) {
 								var n = classes.known.monk.level;
-								var aMonkDie = n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10;;
+								var aMonkDie = n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12;
 								fields.Damage_Die = (v.theWea.WotAD_BreathWeaponAugmented ? 4 : n < 11 ? 2 : 3) + "d" + aMonkDie;
 							};
 						},
@@ -194,7 +194,7 @@ AddSubClass("monk", "ascendant dragon", {
 				source: [["FToD", 13]],
 				ability: 5,
 				type: "Natural",
-				damage: [4, 10, "My choice"],
+				damage: [4, 12, "My choice"],
 				range: "5-ft \xD7 90-ft Line",
 				description: "[1 FP] All in area; Dex save for half damage; Alt: 60-ft Cone; Type: Acid/Cold/Fire/Lightning/Poison",
 				dc: true,

@@ -86,11 +86,12 @@ AddSubClass("barbarian", "path of the beast", {
 				name: "Bestial Bite",
 				source: [["T", 24]],
 				ability: 1,
-				type: "Natural",
+				type: "Weapon",
 				damage: [1, 8, "piercing"],
 				range: "Melee",
 				description: "Only in Rage; On a hit once on my turn, regain Prof Bonus in HP (if below 1/2 HP)",
 				abilitytodamage: true,
+				isAlwaysProf: true,
 				bestialNaturalWeapon: true,
 				selectNow: true,
 			}, {
@@ -98,11 +99,12 @@ AddSubClass("barbarian", "path of the beast", {
 				name: "Bestial Claws",
 				source: [["T", 24]],
 				ability: 1,
-				type: "Natural",
+				type: "Weapon",
 				damage: [1, 6, "slashing"],
 				range: "Melee",
 				description: "Only in Rage; Extra attack if used as part of Attack action",
 				abilitytodamage: true,
+				isAlwaysProf: true,
 				bestialNaturalWeapon: true,
 				selectNow: true,
 			}, {
@@ -110,11 +112,12 @@ AddSubClass("barbarian", "path of the beast", {
 				name: "Bestial Tail",
 				source: [["T", 25]],
 				ability: 1,
-				type: "Natural",
+				type: "Weapon",
 				damage: [1, 8, "piercing"],
 				range: "Melee",
 				description: "Reach; Only in Rage",
 				abilitytodamage: true,
+				isAlwaysProf: true,
 				bestialNaturalWeapon: true,
 				selectNow: true,
 			}],
@@ -540,11 +543,11 @@ if (!SourceList["G"]) {
 				calcChanges: {
 					atkAdd: [
 						function (fields, v) {
-							if (v.isMeleeWeapon && /\b(spore|symbiotic)\b/i.test(v.WeaponTextName)) {
+							if ((v.isMeleeWeapon || v.baseWeaponName === "unarmed strike") && /\b(spore|symbiotic)\b/i.test(v.WeaponTextName)) {
 								fields.Description += (fields.Description ? "; " : "") + "+1d6 Necrotic damage";
 							};
 						},
-						"If I include the word \"Spore\" or \"Symbiotic\" in a melee weapon's name, it gets treated as a weapon that is infused by my Symbiotic Entity feature, adding +1d6 Necrotic damage in the description.",
+						"If I include the word \"Spore\" or \"Symbiotic\" in a melee weapon's or Unarmed Strike's name, it gets treated as a weapon that is infused by my Symbiotic Entity feature, adding +1d6 Necrotic damage in the description.",
 					],
 				},
 			},
@@ -899,10 +902,10 @@ AddSubClass("fighter", "rune knight", {
 							} else {
 								fields.Description += (fields.Description ? "; " : "") + "+1" + GMdmgDie + " damage";
 							}
-							if (classes.known.fighter.level >= 18 && v.isMeleeWeapon) fields.Description += (fields.Description ? "; " : "") + "+5 ft reach";
+							if (classes.known.fighter.level >= 18 && (v.isMeleeWeapon || v.baseWeaponName === "unarmed strike")) fields.Description += (fields.Description ? "; " : "") + "+5 ft reach";
 						};
 					},
-					"If I include the words \"Giant Might\" in the name of a weapon or Unarmed Strike, it gets treated as a weapon that I use while imbued by my Giant's Might feature. It adds +1d6 weapon damage. From 10th-level onwards, this increases to +1d8 damage. From 18th-level onwards, this increases to +1d10 damage and my reach increases by 5 ft (for melee weapons).",
+					"If I include the words \"Giant Might\" in the name of a weapon or Unarmed Strike, it gets treated as a weapon that I use while imbued by my Giant's Might feature. It adds +1d6 weapon damage. From 10th-level onwards, this increases to +1d8 damage. From 18th-level onwards, this increases to +1d10 damage and my reach increases by 5 ft (for melee weapons and Unarmed Strikes).",
 					8,
 				],
 			},
@@ -1011,7 +1014,7 @@ AddSubClass("monk", "way of the astral self", {
 				source: [["T", 50]],
 				description: desc("As a Bonus Action, I can summon my astral arms to hover next to or over my own arms. When I summon them, all creatures of my choice I can see in 10 ft must make a Dex save or take twice my martial arts die in Force damage. I can use the arms to make Unarmed Strikes, using Wisdom instead of Strength/Dexterity. I have +5 ft reach on attacks made with my astral arms and they deal Force damage. They last for 10 minutes or until I'm Incapacitated or die. I choose their appearance."),
 				additional: levels.map(function (n) {
-					return n < 3 ? "" : "1 FP; 2d" + (n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10) + " Force " + (typePF ? "dmg" : "damage") + " on summon";
+					return n < 3 ? "" : "1 FP; 2d" + (n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12) + " Force " + (typePF ? "dmg" : "damage") + " on summon";
 				}),
 			},
 			autoSelectExtrachoices: [{ extrachoice: "astral arms" }],
@@ -1056,7 +1059,7 @@ AddSubClass("monk", "way of the astral self", {
 				atkAdd: [
 					function (fields, v) {
 						if (v.theWea.isAstralArms && classes.known.monk && classes.known.monk.level) {
-							var aMonkDie = function (n) { return n < 5 ? 4 : n < 11 ? 6 : n < 17 ? 8 : 10; }(classes.known.monk.level);
+							var aMonkDie = function (n) { return n < 5 ? 6 : n < 11 ? 8 : n < 17 ? 10 : 12; }(classes.known.monk.level);
 							fields.Description += (fields.Description ? "; " : "") + "Once on each of my turns +1d" + aMonkDie + " damage";
 						}
 					},

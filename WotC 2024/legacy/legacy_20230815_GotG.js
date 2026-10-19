@@ -74,11 +74,11 @@ AddSubClass("barbarian", "giant", {
 							fields.Description += (fields.Description ? "; " : "") + extraProp + extraDmg;
 						}
 					},
-					"If I include the words 'Elemental Cleaver' in a weapon's name, the Elemental Cleaver infused weapon properties will be added to it and its damage type will be set to 'Varies'. Also, my Rage's bonus damage will be added to it if it is a melee weapon that uses Strength.",
+					"If I include the words 'Elemental Cleaver' in a weapon's name, the Elemental Cleaver infused weapon properties will be added to it and its damage type will be set to 'Varies'. Also, my Rage's bonus damage will be added to it if it uses Strength.",
 				],
 				atkCalc: [
 					function (fields, v, output) {
-						if (v.isMeleeWeapon && fields.Mod === 1 && classes.known.barbarian && classes.known.barbarian.level && /^(?!.*\brage\b)(?=.*elemental)(?=.*cleaver).*$/i.test(v.WeaponTextName)) {
+						if (v.isWeapon && fields.Mod === 1 && classes.known.barbarian && classes.known.barbarian.level && /^(?!.*\b(rage|frenzy)\b)(?=.*elemental)(?=.*cleaver).*$/i.test(v.WeaponTextName)) {
 							output.extraDmg += classes.known.barbarian.level < 9 ? 2 : classes.known.barbarian.level < 16 ? 3 : 4;
 						}
 					},

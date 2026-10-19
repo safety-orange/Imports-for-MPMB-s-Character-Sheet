@@ -178,15 +178,15 @@ AddSubClass("paladin", "oathbreaker", {
 			calcChanges: {
 				atkAdd: [
 					function (fields, v) {
-						if (v.isMeleeWeapon) {
+						if (v.isMeleeWeapon || v.baseWeaponName === "unarmed strike") {
 							fields.Description += (fields.Description ? "; " : "") + "Cha mod added to damage";
 						}
 					},
-					"I add my Charisma modifier to my melee weapon damage.",
+					"I add my Charisma modifier to the damage of my melee weapons and Unarmed Strikes.",
 				],
 				atkCalc: [
 					function (fields, v, output) {
-						if (v.isMeleeWeapon) {
+						if (v.isMeleeWeapon || v.baseWeaponName === "unarmed strike") {
 							output.extraDmg += Number(What("Cha Mod"));
 						};
 					},

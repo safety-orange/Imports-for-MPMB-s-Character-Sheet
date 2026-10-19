@@ -67,7 +67,7 @@ RaceList["half-orc"] = {
 			calcChanges: {
 				atkAdd: [
 					function (fields, v) {
-						if (v.isMeleeWeapon && (/d\d+/).test(fields.Damage_Die)) {
+						if ((v.isMeleeWeapon || v.baseWeaponName === "unarmed strike") && (/d\d+/).test(fields.Damage_Die)) {
 							if (v.extraCritM) {
 								v.extraCritM += 1;
 								var extraCritRegex = /\d+(d\d+ extra on a crit(ical)?( hit)? in melee)/i;
@@ -78,7 +78,7 @@ RaceList["half-orc"] = {
 							};
 						};
 					},
-					"My melee weapon attacks roll 1 additional dice on a Critical Hit.",
+					"My melee weapon attacks and Unarmed Strikes roll 1 additional dice on a Critical Hit.",
 					900,
 				],
 			},

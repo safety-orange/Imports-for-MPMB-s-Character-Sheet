@@ -15498,7 +15498,7 @@ RaceList["firbolg"] = {
 			}],
 			spellChanges: {
 				"disguise self": {
-					description: "Alter appearance, up to 3ft shorter/taller; Int(Investigation) check vs. spell DC to determine disguise",
+					description: "Alter appearance, \u22643 ft shorter/taller; Int(Investigation) check vs. spell DC to determine disguise",
 					changes: "Using Firbolg Magic, I can cast *Disguise Self* once per short rest to also seem up to 3 feet shorter or taller.",
 				},
 			},
@@ -49796,7 +49796,7 @@ RaceList["multiverse firbolg"] = {
 			}],
 			spellChanges: {
 				"disguise self": {
-					description: "Alter appearance, up to 3ft shorter/taller; Int(Investigation) check vs. spell DC to determine disguise",
+					description: "Alter appearance, \u22643 ft shorter/taller; Int(Investigation) check vs. spell DC to determine disguise",
 					changes: "Using Firbolg Magic, I can cast *Disguise Self* once per long rest without using a spell slot. When I cast it using Firbolg Magic, I can also seem up to 3 feet shorter or taller.",
 				},
 			},
@@ -58198,7 +58198,7 @@ MagicItemsList["weapon of throne's command"] = {
 	calcChanges: {
 		atkCalc: [
 			function (fields, v, output) {
-				if (/of throne'?s? command/.test(v.WeaponTextName)) {
+				if (/of throne'?s? command/i.test(v.WeaponTextName)) {
 					output.magic = v.thisWeapon[1] + 1;
 				}
 			},
