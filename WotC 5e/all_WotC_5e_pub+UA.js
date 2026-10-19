@@ -5501,14 +5501,14 @@ MagicItemsList["dragongleam"] = {
 	}],
 	spellChanges: {
 		"daylight": {
-			component: "V,M\u0192",
+			components: "V,M\u0192",
 		},
 	},
 	weaponOptions: [{
 		baseWeapon: "spear",
 		regExpSearch: /dragongleam/i,
 		name: "Dragongleam",
-		source: [["HotDQ", 69]],
+		source: [["HotDQ", 69], ["ToD", 84]],
 		selectNow: true,
 	}],
 }
@@ -5563,7 +5563,7 @@ MagicItemsList["dragon mask"] = {
 		atkAdd: [
 			function (fields, v) {
 				if (v.theWea.dbBreathWeapon || /^(?=.*breath)(?=.*weapon).*$/i.test(v.theWea.name)) {
-					fields.Description = fields.Description.replace(/(Us(e|able)( only)? )?once per (short|long) rest/i, "Recharge 6");
+					fields.Description = fields.Description.replace(/(Us(e|able)( only)? )?(once|Prof(iciency)? B(onus)?) per (short|long) rest/i, "Recharge 6");
 				};
 			},
 		],
@@ -5582,7 +5582,7 @@ MagicItemsList["dragon mask"] = {
 		name: "Black Dragon Mask",
 		source: [["HotDQ", 94], ["ToD", 179]],
 		description: "This mask reshapes to fit my head. It grants me the ability to absorb acid damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. black dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
-		descriptionLong: "This horned mask of glossy ebony has horns and a skull-like mien. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb acid damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against black dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and water breathing. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
+		descriptionLong: "This horned mask of glossy ebony has horns and a skull-like mien. The mask reshapes to fit my face and head when I attune to it. It grants me the ability to absorb acid damage, depending on how resistant I am to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against black dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and water breathing. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
 		descriptionFull: [
 			"This horned mask of glossy ebony has horns and a skull-like mien. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.",
 		].concat(HotDQ_DragonMask.map(function (s) { return s.replace(/DTYPE/g, "acid").replace("DCOLOUR", "black"); }), [
@@ -5604,8 +5604,8 @@ MagicItemsList["dragon mask"] = {
 	"blue": {
 		name: "Blue Dragon Mask",
 		source: [["RoTOS", 4], ["ToD", 179]],
-		description: "This mask reshapes to fit my head. It grants me the ability to absorb lightning damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. Cha checks vs. blue dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
-		descriptionLong: "This mask of glossy azure has spikes around its edges and a ridged horn in its center. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb lightning damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against blue dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and Lingering Shock. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
+		description: "This mask reshapes to fit my head. It grants me the ability to absorb lightning damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. blue dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
+		descriptionLong: "This mask of glossy azure has spikes around its edges and a ridged horn in its center. The mask reshapes to fit my face and head when I attune to it. It grants me the ability to absorb lightning damage, depending on how resistant I am to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against blue dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and Lingering Shock. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
 		descriptionFull: [
 			"This mask of glossy azure has spikes around its edges and a ridged horn in its center. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.",
 		].concat(HotDQ_DragonMask.map(function (s) { return s.replace(/DTYPE/g, "lightning").replace("DCOLOUR", "blue"); }), [
@@ -5622,7 +5622,7 @@ MagicItemsList["dragon mask"] = {
 		name: "Green Dragon Mask",
 		source: [["RoTOS", 4], ["ToD", 179]],
 		description: "This mask reshapes to fit my head. It grants me the ability to absorb poison damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. green dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
-		descriptionLong: "This mottled green mask is surmounted by a frilled crest and has spikes along its jaw. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb poison damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against green dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and water breathing. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
+		descriptionLong: "This mottled green mask is surmounted by a frilled crest and has spikes along its jaw. The mask reshapes to fit my face and head when I attune to it. It grants me the ability to absorb poison damage, depending on how resistant I am to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against green dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and water breathing. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
 		descriptionFull: [
 			"This mottled green mask is surmounted by a frilled crest and has leathery spiked plates along its jaw. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.",
 		].concat(HotDQ_DragonMask.map(function (s) { return s.replace(/DTYPE/g, "poison").replace("DCOLOUR", "green"); }), [
@@ -5639,7 +5639,7 @@ MagicItemsList["dragon mask"] = {
 		name: "Red Dragon Mask",
 		source: [["RoTOS", 4], ["ToD", 179]],
 		description: "This mask reshapes to fit my head. It grants me the ability to absorb fire damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. red dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
-		descriptionLong: "This mask of glossy crimson has swept-back horns and spiked cheek ridges. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb fire damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against red dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and Dragon Fire. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
+		descriptionLong: "This mask of glossy crimson has swept-back horns and spiked cheek ridges. The mask reshapes to fit my face and head when I attune to it. It grants me the ability to absorb fire damage, depending on how resistant I am to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against red dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and Dragon Fire. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
 		descriptionFull: [
 			"This mask of glossy crimson has swept-back horns and spiked cheek ridges. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.",
 		].concat(HotDQ_DragonMask.map(function (s) { return s.replace(/DTYPE/g, "fire").replace("DCOLOUR", "red"); }), [
@@ -5656,7 +5656,7 @@ MagicItemsList["dragon mask"] = {
 		name: "White Dragon Mask",
 		source: [["RoTOS", 4], ["ToD", 179]],
 		description: "This mask reshapes to fit my head. It grants me the ability to absorb cold damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (1/day), adv. on Cha checks vs. white dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
-		descriptionLong: "This gleaming mask is white with highlights of pale blue and is topped by a spined crest. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb cold damage, depending on how resistant I'm to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against white dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and Winter's Fury. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
+		descriptionLong: "This gleaming mask is white with highlights of pale blue and is topped by a spined crest. The mask reshapes to fit my face and head when I attune to it. It grants me the ability to absorb cold damage, depending on how resistant I am to it already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against white dragons, lets me add my Charisma modifier to AC while I'm not wearing armor, and Winter's Fury. Once per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
 		descriptionFull: [
 			"This gleaming mask is white with highlights of pale blue and is topped by a spined crest. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.",
 		].concat(HotDQ_DragonMask.map(function (s) { return s.replace(/DTYPE/g, "cold").replace("DCOLOUR", "white"); }), [
@@ -5673,8 +5673,8 @@ MagicItemsList["dragon mask"] = {
 		name: "Mask of the Dragon Queen",
 		rarity: "artifact",
 		source: [["RoT", 94], ["ToD", 179]],
-		description: "This mask reshapes to fit my head. It allows to absorb acid, cold, fire, lightning, and poison damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (5/day), adv. on Cha checks vs. dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
-		descriptionLong: "This mask gives me a draconic visage and covers my face, neck, and shoulders. The mask reshapes to fit my face and head when I attuned to it. It grants me the ability to absorb acid, cold, fire, lightning, and poison damage, depending on how resistant I'm already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against dragons, lets me add my Charisma modifier to AC while not wearing armor, and more. 5 times per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
+		description: "This mask reshapes to fit my head. It lets me absorb acid, cold, fire, lightning, and poison damage, darkvision 60 ft, blindsight 30 ft (1/day), Legendary Resistance (5/day), adv. on Cha checks vs. dragons, lets me know Draconic, and lets me add my Cha mod to AC while not wearing armor, and more, see Notes page.",
+		descriptionLong: "This mask gives me a draconic visage and covers my face, neck, and shoulders. The mask reshapes to fit my face and head when I attune to it. It grants me the ability to absorb acid, cold, fire, lightning, and poison damage, depending on how resistant I am already. Additionally, it gives me darkvision 60 ft (or +60 ft) and blindsight 30 ft once per day for 5 min, lets me know Draconic, advantage on Charisma checks against dragons, lets me add my Charisma modifier to AC while not wearing armor, and more. 5 times per day when I fail a saving throw, I can use the mask to succeed on it instead. See Notes page.",
 		descriptionFull: [
 			"When two or more of the dragon masks are assembled they magically transform into the *Mask of the Dragon Queen*. Each mask shrinks to become the modeled head of a chromatic dragon, appearing to roar its devotion to Tiamat where all the masks brought together are arranged crown-like on the wearer's head. Below the five masks, a new mask shapes itself, granting the wearer a draconic visage that covers the face, neck, and shoulders. The mask reshapes to fit a wearer attuned to it. While you are wearing the mask and attuned to it, you can access the following properties.",
 			"***Damage Absorption***. You have resistance against acid, cold, fire, lightning, and poison damage. If you already have resistance to a damage type from another source, you instead have immunity to that damage type. If you already have immunity to a damage type from another source, whenever you are subjected to that damage type, you take none of that damage and regain a number of hit points equal to half the damage dealt of that type.",
@@ -5708,7 +5708,7 @@ MagicItemsList["hazirawn"] = {
 	type: "weapon (greatsword)",
 	rarity: "legendary",
 	storyItemAL: true,
-	description: "This sentient, neutral evil, greatsword functions depend on whether you are attuned to it or not.",
+	description: "This sentient, neutral evil, greatsword's functions depend on whether you are attuned to it or not.",
 	descriptionFull: [
 		"A sentient (neutral evil) greatsword, *Hazirawn* is capable of speech in Common and Netherese. Even if you aren't attuned to the sword, you gain a +1 bonus on attack and damage rolls made with this weapon and you deal an extra 1d6 necrotic damage when you hit with the weapon.",
 		"***Increased Potency***. While you are attuned to this weapon, its bonus on attack and damage rolls increases to +2, and a hit deals an extra 2d6 necrotic damage (instead of 1d6).",
@@ -5724,7 +5724,7 @@ MagicItemsList["hazirawn"] = {
 			baseWeapon: "greatsword",
 			regExpSearch: /hazirawn/i,
 			name: "Hazirawn",
-			source: [["HotDQ", 94]],
+			source: [["HotDQ", 94], ["ToD", 178]],
 			description: "Heavy, two-handed; +1d6 necrotic damage",
 			modifiers: [1, 1],
 			selectNow: true,
@@ -5743,7 +5743,7 @@ MagicItemsList["hazirawn"] = {
 			baseWeapon: "greatsword",
 			regExpSearch: /hazirawn/i,
 			name: "Hazirawn",
-			source: [["HotDQ", 94]],
+			source: [["HotDQ", 94], ["ToD", 178]],
 			description: "Heavy, two-handed; +2d6 necrotic damage; Wounding (can't regain HP for 1 min, DC 15 Con save to stop)",
 			modifiers: [2, 2],
 			selectNow: true,
@@ -5791,6 +5791,23 @@ MagicItemsList["insignia of claws"] = {
 				}
 			}, "",
 		],
+		wildshapeCallback: [
+			function (prefix, fieldNo, oWildshape, sCrea) {
+				oWildshape.attacks.forEach(function (atk) {
+					if (!atk.modifiers) {
+						atk.modifiers = [1, 1];
+					} else {
+						atk.modifiers = atk.modifiers.map(function (n, idx) {
+							if (idx > 1) return n;
+							if (!n) return 1;
+							if (!isNaN(n)) return Number(n) + 1;
+							return n + "+" + 1;
+						});
+					}
+				});
+			},
+			"I gain a +1 bonus to attack and damage rolls made with natural weapons, which include those in a wild shape.",
+		],
 	},
 }
 MagicItemsList["wand of winter"] = {
@@ -5837,12 +5854,13 @@ MagicItemsList["wand of winter"] = {
 		spellAdd: [
 			function (spellKey, spellObj, spName, isDuplicate) {
 				if (spellKey == "ray of frost" && spName == "wand of winter") {
-					if (isDuplicate) {
-						spellObj.firstCol = "1";
-						spellObj.description = "Spell attack for 2d8 Cold dmg and -10 ft speed until start of my next turn";
-					} else {
-						spellObj.description = "Spell attack for 1d8 Cold dmg and -10 ft speed until start of my next turn";
-					}
+					spellObj.firstCol = isDuplicate ? 1 : "atwill";
+					// Cast at a fixed level: 1d8 without charges, 2d8 for 1 charge (as if cast at 5th level)
+					var sDescr = getSpellShortDescription(spellKey, spellObj);
+					var sNew = sDescr.replace(/\b\d+d8\b/i, (isDuplicate ? 2 : 1) + "d8")
+						.replace(/; \+1d8 at CL.*?17/i, "");
+					if (sNew === sDescr) return;
+					spellObj.description = sNew;
 					return true;
 				};
 			},
@@ -5867,8 +5885,8 @@ MagicItemsList["dragontooth dagger"] = {
 		baseWeapon: "dagger",
 		regExpSearch: /^(?=.*dragontooth)(?=.*dagger).*$/i,
 		name: "Dragontooth Dagger",
-		source: [["RoT", 94]],
-		description: "Finesse, light, thrown; +1d6 acid damage; Vs. Cult of the Dragon enemies: +2 magic \u0026 +2d6 acid damage",
+		source: [["RoT", 94], ["ToD", 178]],
+		description: "Finesse, light, thrown; +1d6 acid damage; Vs. Cult of the Dragon enemies: +2 magic \x26 +2d6 acid damage",
 		modifiers: [1, 1],
 		selectNow: true,
 	}],
@@ -33728,6 +33746,7 @@ MagicItemsList["hide of the feral guardian"] = {
 			ac: "12+1",
 			weight: 13,
 			selectNow: true,
+			affectsWildShape: true,
 		}],
 		spellChanges: {
 			"polymorph": {
@@ -33750,6 +33769,7 @@ MagicItemsList["hide of the feral guardian"] = {
 			ac: "12+2",
 			weight: 13,
 			selectNow: true,
+			affectsWildShape: true,
 		}],
 		spellChanges: {
 			"polymorph": {
@@ -33772,6 +33792,7 @@ MagicItemsList["hide of the feral guardian"] = {
 			ac: "12+3",
 			weight: 13,
 			selectNow: true,
+			affectsWildShape: true,
 		}],
 		spellChanges: {
 			"polymorph": {
@@ -70127,6 +70148,7 @@ ArmourList["inertial armor-ua-psy"] = {
 	source: [["UA:TMC", 18]],
 	ac: 14,
 	list: "magic",
+	affectsWildShape: true,
 };
 
 // Psionic Talents that work like damage cantrips
@@ -70325,6 +70347,7 @@ AddSubClass("paladin", "oath of redemption-ua", {
 				source: [["UA:AToS", 2]],
 				ac: 16,
 				selectNow: true,
+				affectsWildShape: true,
 			}],
 			spellcastingExtra: ["shield", "sleep", "hold person", "ray of enfeeblement", "counterspell", "hypnotic pattern", "otiluke's resilient sphere", "stoneskin", "hold monster", "wall of force"],
 		},
@@ -75882,6 +75905,7 @@ AddSubClass("sorcerer", "aberrant mind-ua", {
 				source: [["UA:SnW", 1]],
 				ac: 13,
 				selectNow: true,
+				affectsWildShape: true,
 			}],
 		},
 		"subclassfeature6": {

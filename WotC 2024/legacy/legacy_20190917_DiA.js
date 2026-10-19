@@ -232,16 +232,6 @@ MagicItemsList["battle standard of infernal power"] = {
 		"While you hold the banner, your weapon attacks and those of all allied creatures within 300 feet of you count as magical for the purposes of overcoming damage immunities and resistances.",
 	],
 	attunement: true,
-	calcChanges: {
-		atkAdd: [
-			function (fields, v) {
-				if (!v.isSpell && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !/counts as( a)? magical/i.test(fields.Description)) {
-					fields.Description += (fields.Description ? "; " : "") + "Counts as magical";
-				};
-			},
-			"My weapon attacks count as magical for overcoming Resistances and Immunities.",
-		],
-	},
 }
 MagicItemsList["gauntlets of flaming fury"] = {
 	name: "Gauntlets of Flaming Fury",
@@ -254,16 +244,6 @@ MagicItemsList["gauntlets of flaming fury"] = {
 	action: [["bonus action", ""]],
 	usages: 1,
 	recovery: "dawn",
-	calcChanges: {
-		atkAdd: [
-			function (fields, v) {
-				if (!v.isSpell && !v.isNaturalWeapon && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !/dancing|counts as( a)? magical/i.test(fields.Description)) {
-					fields.Description += (fields.Description ? "; " : "") + "Counts as magical";
-				};
-			},
-			"Any nonmagical weapons that I grasp with my Gauntlets of Flaming Fury count as magical for overcoming Resistances and Immunities.",
-		],
-	},
 }
 MagicItemsList["fane-eater"] = {
 	name: "Fane-Eater",

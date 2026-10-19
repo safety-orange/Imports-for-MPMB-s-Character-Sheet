@@ -11322,6 +11322,7 @@ ArmourList["inertial armor-ua-psy"] = {
 	source: [["UA:TMC", 18]],
 	ac: 14,
 	list: "magic",
+	affectsWildShape: true,
 };
 
 // Psionic Talents that work like damage cantrips
@@ -11520,6 +11521,7 @@ AddSubClass("paladin", "oath of redemption-ua", {
 				source: [["UA:AToS", 2]],
 				ac: 16,
 				selectNow: true,
+				affectsWildShape: true,
 			}],
 			spellcastingExtra: ["shield", "sleep", "hold person", "ray of enfeeblement", "counterspell", "hypnotic pattern", "otiluke's resilient sphere", "stoneskin", "hold monster", "wall of force"],
 		},
@@ -17077,6 +17079,7 @@ AddSubClass("sorcerer", "aberrant mind-ua", {
 				source: [["UA:SnW", 1]],
 				ac: 13,
 				selectNow: true,
+				affectsWildShape: true,
 			}],
 		},
 		"subclassfeature6": {

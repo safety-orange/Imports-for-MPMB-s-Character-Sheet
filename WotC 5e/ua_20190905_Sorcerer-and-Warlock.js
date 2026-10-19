@@ -49,6 +49,7 @@ AddSubClass("sorcerer", "aberrant mind-ua", {
 				source: [["UA:SnW", 1]],
 				ac: 13,
 				selectNow: true,
+				affectsWildShape: true,
 			}],
 		},
 		"subclassfeature6": {

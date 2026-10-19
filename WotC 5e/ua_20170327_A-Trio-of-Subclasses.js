@@ -70,6 +70,7 @@ AddSubClass("paladin", "oath of redemption-ua", {
 				source: [["UA:AToS", 2]],
 				ac: 16,
 				selectNow: true,
+				affectsWildShape: true,
 			}],
 			spellcastingExtra: ["shield", "sleep", "hold person", "ray of enfeeblement", "counterspell", "hypnotic pattern", "otiluke's resilient sphere", "stoneskin", "hold monster", "wall of force"],
 		},

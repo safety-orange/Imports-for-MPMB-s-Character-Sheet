@@ -136,16 +136,6 @@ AddSubClass("barbarian", "path of the beast", {
 				" \u2022 Climb Speed equal to my Speed and no check to climb difficult surfaces or upside down.",
 				" \u2022 Once per turn when I jump, I can extend it by the result of an Athletics check in feet.",
 			]),
-			calcChanges: {
-				atkAdd: [
-					function (fields, v) {
-						if (v.theWea.bestialNaturalWeapon && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !/counts as( a)? magical/i.test(fields.Description)) {
-							fields.Description += (fields.Description ? "; " : "") + "Counts as magical";
-						};
-					},
-					"The natural melee weapon that I gain from Form of the Beast count as magical for the purpose of overcoming Resistance and Immunity to nonmagical attacks and damage.",
-				],
-			},
 		},
 		"subclassfeature10": {
 			name: "Infectious Fury",

@@ -4087,6 +4087,7 @@ ArmourList["inertial armor-ua-psy"] = {
 	source: [["UA:TMC", 18]],
 	ac: 14,
 	list: "magic",
+	affectsWildShape: true,
 };
 
 // Psionic Talents that work like damage cantrips

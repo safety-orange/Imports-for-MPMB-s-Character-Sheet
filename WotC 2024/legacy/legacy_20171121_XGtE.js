@@ -740,16 +740,6 @@ RunFunctionAtEnd(function () {
 				source: [["X", 34]],
 				minlevel: 6,
 				description: desc("My Unarmed Strikes and kensei weapon attacks count as magical."),
-				calcChanges: {
-					atkAdd: [
-						function (fields, v) {
-							if (!v.isSpell && !v.thisWeapon[1] && !v.theWea.isMagicWeapon && !/counts as( a)? magical/i.test(fields.Description) && (v.baseWeaponName === "unarmed strike" || v.theWea.kenseiweapon)) {
-								fields.Description += (fields.Description ? "; " : "") + "Counts as magical";
-							};
-						},
-						"My Unarmed Strikes and any Kensei Weapons count as magical for overcoming Resistances and Immunities.",
-					],
-				},
 				"deft strike": {
 					name: "Deft Strike",
 					extraname: "Kensei 6",

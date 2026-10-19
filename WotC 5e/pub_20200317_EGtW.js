@@ -3076,6 +3076,7 @@ MagicItemsList["hide of the feral guardian"] = {
 			ac: "12+1",
 			weight: 13,
 			selectNow: true,
+			affectsWildShape: true,
 		}],
 		spellChanges: {
 			"polymorph": {
@@ -3098,6 +3099,7 @@ MagicItemsList["hide of the feral guardian"] = {
 			ac: "12+2",
 			weight: 13,
 			selectNow: true,
+			affectsWildShape: true,
 		}],
 		spellChanges: {
 			"polymorph": {
@@ -3120,6 +3122,7 @@ MagicItemsList["hide of the feral guardian"] = {
 			ac: "12+3",
 			weight: 13,
 			selectNow: true,
+			affectsWildShape: true,
 		}],
 		spellChanges: {
 			"polymorph": {
