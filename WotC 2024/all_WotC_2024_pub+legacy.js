@@ -10485,7 +10485,7 @@ CreatureList["peryton"] = {
 	}],
 };
 
-// pub_20260616_RHW.js
+// pub_20260616_RHW_incomplete.js
 // This file adds material from Ravenloft: The Horrors Within to MPMB's Character Record Sheet for 5.5e
 
 SourceList["RHW"] = {
@@ -14854,6 +14854,7 @@ AddSubRace("half-elf", "aquatic", {
 	skillstxt: null,
 	trait: [
 		"**Half-Aquatic Elf**",
+		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
 		"##\u25C6 Swimming Speed##. My aquatic heritage gives me a 30 ft Swim Speed.",
 	],
 });
@@ -14866,6 +14867,7 @@ AddSubRace("half-elf", "cantrip", {
 	skillstxt: null,
 	trait: [
 		"**Half-High Elf**",
+		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
 		"##\u25C6 Cantrip##. I know one cantrip of my choice from the Wizard spell list. Intelligence is my spellcasting ability for it.",
 	],
 	spellcastingAbility: 4,
@@ -14884,10 +14886,11 @@ AddSubRace("half-elf", "drow magic", {
 	plural: "Half-drow",
 	skillstxt: null,
 	trait: [
-		"**Half-drow**",
+		"**Half-Drow**",
+		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
 		"##\u25C6 Drow Magic##. I know the *Dancing Lights* cantrip.",
-		"Once I reach 3rd level, I can cast the *Faerie Fire* spell once per Long Rest.",
-		"Once I reach 5th level, I can also cast the *Darkness* spell once per Long Rest.",
+		"Once I reach 3rd level, I can cast *Faerie Fire* once per Long Rest.",
+		"Once I reach 5th level, I can also cast *Darkness* once per Long Rest.",
 		"Charisma is my spellcasting ability for these spells.",
 	],
 	spellcastingAbility: 6,
@@ -14921,11 +14924,15 @@ AddSubRace("half-elf", "drow magic", {
 	},
 });
 AddSubRace("half-elf", "elf weapon training", {
-	sortname: "Half-Elf (Elf Weapon Training)",
+	sortname: "Half-Wood Elf (Elf Weapon Training)",
 	regExpSearch: /^(?=.*\b(elf|elven)\b)(?=.*weapon)(?=.*training).*$/i,
 	source: [["S", 116]],
 	skillstxt: null,
-	trait: "**Half-Elf**",
+	trait: [
+		"**Half-Wood Elf**",
+		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
+		"##\u25C6 Elf Weapon Training##. I have proficiency with the Longsword, Shortsword, Longbow, and Shortbow.",
+	],
 	weaponProfs: [false, false, ["longsword", "shortsword", "longbow", "shortbow"]],
 });
 AddSubRace("half-elf", "fleet of foot", {
@@ -14938,7 +14945,11 @@ AddSubRace("half-elf", "fleet of foot", {
 		walk: { spd: 35, enc: 25 },
 	},
 	skillstxt: null,
-	trait: "**Half-Wood Elf**",
+	trait: [
+		"**Half-Wood Elf**",
+		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
+		"##\u25C6 Fleet of Foot##. My Speed is 35 ft.",
+	],
 });
 AddSubRace("half-elf", "mask of the wild", {
 	regExpSearch: /^(?=.*\bmasks?\b)(?=.*\bwilds?\b).*$/i,
@@ -14949,6 +14960,7 @@ AddSubRace("half-elf", "mask of the wild", {
 	skillstxt: null,
 	trait: [
 		"**Half-Wood Elf**",
+		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
 		"##\u25C6 Mask of the Wild##. I can attempt to Hide even when I am only Lightly Obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
 	],
 });
@@ -23361,7 +23373,8 @@ RaceList["githyanki"] = {
 	weightMetric: " weigh around 61 kg (45 + 5d10 \xD7 4d4 / 10 kg)",
 	trait: [
 		"**Githyanki**",
-		"##\u25C6 Githyanki Psionics##. I know the *Mage Hand* cantrip, but the hand is invisible.",
+		"##\u25C6 Decadent Mastery##. I am proficient with one skill or tool of my choice.",
+		"##\u25C6 Githyanki Psionics##. I know the *Mage Hand* cantrip and the hand is invisible.",
 		"At 3rd level, I can cast *Jump* once per Long Rest.",
 		"At 5th level, I can also cast *Misty Step* once per Long Rest.",
 		"Intelligence is my spellcasting ability for these spells.",
@@ -23416,15 +23429,24 @@ RaceList["githyanki"] = {
 			},
 		},
 	},
+	variants: [], // filled by the AddSubRace() calls below
 };
 AddSubRace("githyanki", "tool proficiency", {
 	regExpSearch: /tool proficiency/i,
+	source: [["MToF", 96]],
 	skillstxt: null,
 	toolProfs: [["Any tool", 1]],
+	trait: RaceList["githyanki"].trait.map(function (s, i) {
+		return i !== 1 ? s : "##\u25C6 Decadent Mastery##. I am proficient with one tool of my choice.";
+	}),
 });
 AddSubRace("githyanki", "skill proficiency", {
 	regExpSearch: /skill proficiency/i,
+	source: [["MToF", 96]],
 	skillstxt: "Choose any one skill",
+	trait: RaceList["githyanki"].trait.map(function (s, i) {
+		return i !== 1 ? s : "##\u25C6 Decadent Mastery##. I am proficient with one skill of my choice.";
+	}),
 });
 RaceList["githzerai"] = {
 	regExpSearch: /githzerai/i,
@@ -23443,7 +23465,7 @@ RaceList["githzerai"] = {
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	trait: [
 		"**Githzerai**",
-		"##\u25C6 Githzerai Psionics##. I know the *Mage Hand* cantrip, but the hand is invisible.",
+		"##\u25C6 Githzerai Psionics##. I know the *Mage Hand* cantrip and the hand is invisible.",
 		"At 3rd level, I can cast *Shield* once per Long Rest.",
 		"At 5th level, I can also cast *Detect Thoughts* once per Long Rest.",
 		"Wisdom is my spellcasting ability for these spells.",
@@ -24656,6 +24678,7 @@ RaceList["simic hybrid"] = {
 			},
 		},
 	},
+	variants: [], // filled by the AddSubRace() calls below
 };
 AddSubRace("simic hybrid", "manta glide", {
 	regExpSearch: /manta glide/i,
@@ -30613,60 +30636,70 @@ AddSubRace("halfling", "lotusden", {
 	};
 	AddSubRace("draconblood dragonborn", "black", {
 		regExpSearch: /black/i,
+		source: [["W", 168]],
 		name: "Black Draconblood Dragonborn",
 		trait: ["**Black Draconblood Dragonborn**"].concat(EGtW_acidBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "acid",
 	});
 	AddSubRace("draconblood dragonborn", "blue", {
 		regExpSearch: /blue/i,
+		source: [["W", 168]],
 		name: "Blue Draconblood Dragonborn",
 		trait: ["**Blue Draconblood Dragonborn**"].concat(EGtW_lightningBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "lightning",
 	});
 	AddSubRace("draconblood dragonborn", "brass", {
 		regExpSearch: /brass/i,
+		source: [["W", 168]],
 		name: "Brass Draconblood Dragonborn",
 		trait: ["**Brass Draconblood Dragonborn**"].concat(EGtW_fireBreathLine, EGtW_forcefulPresenceStr),
 		breathDmgType: "fire",
 	});
 	AddSubRace("draconblood dragonborn", "bronze", {
 		regExpSearch: /bronze/i,
+		source: [["W", 168]],
 		name: "Bronze Draconblood Dragonborn",
 		trait: ["**Bronze Draconblood Dragonborn**"].concat(EGtW_lightningBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "lightning",
 	});
 	AddSubRace("draconblood dragonborn", "copper", {
 		regExpSearch: /copper/i,
+		source: [["W", 168]],
 		name: "Copper Draconblood Dragonborn",
 		trait: ["**Copper Draconblood Dragonborn**"].concat(EGtW_acidBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "acid",
 	});
 	AddSubRace("draconblood dragonborn", "gold", {
 		regExpSearch: /gold/i,
+		source: [["W", 168]],
 		name: "Gold Draconblood Dragonborn",
 		trait: ["**Gold Draconblood Dragonborn**"].concat(EGtW_fireBreathCone, EGtW_forcefulPresenceStr),
 		breathDmgType: "fire",
 	});
 	AddSubRace("draconblood dragonborn", "green", {
 		regExpSearch: /green/i,
+		source: [["W", 168]],
 		name: "Green Draconblood Dragonborn",
 		trait: ["**Green Draconblood Dragonborn**"].concat(EGtW_poisonBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "poison",
 	});
 	AddSubRace("draconblood dragonborn", "red", {
 		regExpSearch: /red/i,
+		source: [["W", 168]],
 		name: "Red Draconblood Dragonborn",
 		trait: ["**Red Draconblood Dragonborn**"].concat(EGtW_fireBreathCone, EGtW_forcefulPresenceStr),
 		breathDmgType: "fire",
 	});
 	AddSubRace("draconblood dragonborn", "silver", {
 		regExpSearch: /silver/i,
+		source: [["W", 168]],
 		name: "Silver Draconblood Dragonborn",
 		trait: ["**Silver Draconblood Dragonborn**"].concat(EGtW_coldBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "cold",
 	});
 	AddSubRace("draconblood dragonborn", "white", {
 		regExpSearch: /white/i,
+		source: [["W", 168]],
 		name: "White Draconblood Dragonborn",
 		trait: ["**White Draconblood Dragonborn**"].concat(EGtW_coldBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "cold",
@@ -30704,60 +30737,70 @@ AddSubRace("halfling", "lotusden", {
 	};
 	AddSubRace("ravenite dragonborn", "black", {
 		regExpSearch: /black/i,
+		source: [["W", 169]],
 		name: "Black Ravenite Dragonborn",
 		trait: ["**Black Ravenite Dragonborn**"].concat(EGtW_acidBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "acid",
 	});
 	AddSubRace("ravenite dragonborn", "blue", {
 		regExpSearch: /blue/i,
+		source: [["W", 169]],
 		name: "Blue Ravenite Dragonborn",
 		trait: ["**Blue Ravenite Dragonborn**"].concat(EGtW_lightningBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "lightning",
 	});
 	AddSubRace("ravenite dragonborn", "brass", {
 		regExpSearch: /brass/i,
+		source: [["W", 169]],
 		name: "Brass Ravenite Dragonborn",
 		trait: ["**Brass Ravenite Dragonborn**"].concat(EGtW_fireBreathLine, EGtW_vengefulAssaultStr),
 		breathDmgType: "fire",
 	});
 	AddSubRace("ravenite dragonborn", "bronze", {
 		regExpSearch: /bronze/i,
+		source: [["W", 169]],
 		name: "Bronze Ravenite Dragonborn",
 		trait: ["**Bronze Ravenite Dragonborn**"].concat(EGtW_lightningBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "lightning",
 	});
 	AddSubRace("ravenite dragonborn", "copper", {
 		regExpSearch: /copper/i,
+		source: [["W", 169]],
 		name: "Copper Ravenite Dragonborn",
 		trait: ["**Copper Ravenite Dragonborn**"].concat(EGtW_acidBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "acid",
 	});
 	AddSubRace("ravenite dragonborn", "gold", {
 		regExpSearch: /gold/i,
+		source: [["W", 169]],
 		name: "Gold Ravenite Dragonborn",
 		trait: ["**Gold Ravenite Dragonborn**"].concat(EGtW_fireBreathCone, EGtW_vengefulAssaultStr),
 		breathDmgType: "fire",
 	});
 	AddSubRace("ravenite dragonborn", "green", {
 		regExpSearch: /green/i,
+		source: [["W", 169]],
 		name: "Green Ravenite Dragonborn",
 		trait: ["**Green Ravenite Dragonborn**"].concat(EGtW_poisonBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "poison",
 	});
 	AddSubRace("ravenite dragonborn", "red", {
 		regExpSearch: /red/i,
+		source: [["W", 169]],
 		name: "Red Ravenite Dragonborn",
 		trait: ["**Red Ravenite Dragonborn**"].concat(EGtW_fireBreathCone, EGtW_vengefulAssaultStr),
 		breathDmgType: "fire",
 	});
 	AddSubRace("ravenite dragonborn", "silver", {
 		regExpSearch: /silver/i,
+		source: [["W", 169]],
 		name: "Silver Ravenite Dragonborn",
 		trait: ["**Silver Ravenite Dragonborn**"].concat(EGtW_coldBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "cold",
 	});
 	AddSubRace("ravenite dragonborn", "white", {
 		regExpSearch: /white/i,
+		source: [["W", 169]],
 		name: "White Ravenite Dragonborn",
 		trait: ["**White Ravenite Dragonborn**"].concat(EGtW_coldBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "cold",
@@ -35481,6 +35524,7 @@ RaceList["custom lineage"] = {
 	},
 	languageProfs: ["Common", 1],
 	featsAdd: [{ type: /^(?!.*(blessing|boon|charm|gift|fighting style)).*$/i }],
+	variants: [], // filled by the AddSubRace() calls below
 };
 AddSubRace("custom lineage", "darkvision", {
 	regExpSearch: /darkvision/i,

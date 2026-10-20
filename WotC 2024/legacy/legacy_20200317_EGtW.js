@@ -237,60 +237,70 @@ AddSubRace("halfling", "lotusden", {
 	};
 	AddSubRace("draconblood dragonborn", "black", {
 		regExpSearch: /black/i,
+		source: [["W", 168]],
 		name: "Black Draconblood Dragonborn",
 		trait: ["**Black Draconblood Dragonborn**"].concat(EGtW_acidBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "acid",
 	});
 	AddSubRace("draconblood dragonborn", "blue", {
 		regExpSearch: /blue/i,
+		source: [["W", 168]],
 		name: "Blue Draconblood Dragonborn",
 		trait: ["**Blue Draconblood Dragonborn**"].concat(EGtW_lightningBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "lightning",
 	});
 	AddSubRace("draconblood dragonborn", "brass", {
 		regExpSearch: /brass/i,
+		source: [["W", 168]],
 		name: "Brass Draconblood Dragonborn",
 		trait: ["**Brass Draconblood Dragonborn**"].concat(EGtW_fireBreathLine, EGtW_forcefulPresenceStr),
 		breathDmgType: "fire",
 	});
 	AddSubRace("draconblood dragonborn", "bronze", {
 		regExpSearch: /bronze/i,
+		source: [["W", 168]],
 		name: "Bronze Draconblood Dragonborn",
 		trait: ["**Bronze Draconblood Dragonborn**"].concat(EGtW_lightningBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "lightning",
 	});
 	AddSubRace("draconblood dragonborn", "copper", {
 		regExpSearch: /copper/i,
+		source: [["W", 168]],
 		name: "Copper Draconblood Dragonborn",
 		trait: ["**Copper Draconblood Dragonborn**"].concat(EGtW_acidBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "acid",
 	});
 	AddSubRace("draconblood dragonborn", "gold", {
 		regExpSearch: /gold/i,
+		source: [["W", 168]],
 		name: "Gold Draconblood Dragonborn",
 		trait: ["**Gold Draconblood Dragonborn**"].concat(EGtW_fireBreathCone, EGtW_forcefulPresenceStr),
 		breathDmgType: "fire",
 	});
 	AddSubRace("draconblood dragonborn", "green", {
 		regExpSearch: /green/i,
+		source: [["W", 168]],
 		name: "Green Draconblood Dragonborn",
 		trait: ["**Green Draconblood Dragonborn**"].concat(EGtW_poisonBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "poison",
 	});
 	AddSubRace("draconblood dragonborn", "red", {
 		regExpSearch: /red/i,
+		source: [["W", 168]],
 		name: "Red Draconblood Dragonborn",
 		trait: ["**Red Draconblood Dragonborn**"].concat(EGtW_fireBreathCone, EGtW_forcefulPresenceStr),
 		breathDmgType: "fire",
 	});
 	AddSubRace("draconblood dragonborn", "silver", {
 		regExpSearch: /silver/i,
+		source: [["W", 168]],
 		name: "Silver Draconblood Dragonborn",
 		trait: ["**Silver Draconblood Dragonborn**"].concat(EGtW_coldBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "cold",
 	});
 	AddSubRace("draconblood dragonborn", "white", {
 		regExpSearch: /white/i,
+		source: [["W", 168]],
 		name: "White Draconblood Dragonborn",
 		trait: ["**White Draconblood Dragonborn**"].concat(EGtW_coldBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "cold",
@@ -328,60 +338,70 @@ AddSubRace("halfling", "lotusden", {
 	};
 	AddSubRace("ravenite dragonborn", "black", {
 		regExpSearch: /black/i,
+		source: [["W", 169]],
 		name: "Black Ravenite Dragonborn",
 		trait: ["**Black Ravenite Dragonborn**"].concat(EGtW_acidBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "acid",
 	});
 	AddSubRace("ravenite dragonborn", "blue", {
 		regExpSearch: /blue/i,
+		source: [["W", 169]],
 		name: "Blue Ravenite Dragonborn",
 		trait: ["**Blue Ravenite Dragonborn**"].concat(EGtW_lightningBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "lightning",
 	});
 	AddSubRace("ravenite dragonborn", "brass", {
 		regExpSearch: /brass/i,
+		source: [["W", 169]],
 		name: "Brass Ravenite Dragonborn",
 		trait: ["**Brass Ravenite Dragonborn**"].concat(EGtW_fireBreathLine, EGtW_vengefulAssaultStr),
 		breathDmgType: "fire",
 	});
 	AddSubRace("ravenite dragonborn", "bronze", {
 		regExpSearch: /bronze/i,
+		source: [["W", 169]],
 		name: "Bronze Ravenite Dragonborn",
 		trait: ["**Bronze Ravenite Dragonborn**"].concat(EGtW_lightningBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "lightning",
 	});
 	AddSubRace("ravenite dragonborn", "copper", {
 		regExpSearch: /copper/i,
+		source: [["W", 169]],
 		name: "Copper Ravenite Dragonborn",
 		trait: ["**Copper Ravenite Dragonborn**"].concat(EGtW_acidBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "acid",
 	});
 	AddSubRace("ravenite dragonborn", "gold", {
 		regExpSearch: /gold/i,
+		source: [["W", 169]],
 		name: "Gold Ravenite Dragonborn",
 		trait: ["**Gold Ravenite Dragonborn**"].concat(EGtW_fireBreathCone, EGtW_vengefulAssaultStr),
 		breathDmgType: "fire",
 	});
 	AddSubRace("ravenite dragonborn", "green", {
 		regExpSearch: /green/i,
+		source: [["W", 169]],
 		name: "Green Ravenite Dragonborn",
 		trait: ["**Green Ravenite Dragonborn**"].concat(EGtW_poisonBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "poison",
 	});
 	AddSubRace("ravenite dragonborn", "red", {
 		regExpSearch: /red/i,
+		source: [["W", 169]],
 		name: "Red Ravenite Dragonborn",
 		trait: ["**Red Ravenite Dragonborn**"].concat(EGtW_fireBreathCone, EGtW_vengefulAssaultStr),
 		breathDmgType: "fire",
 	});
 	AddSubRace("ravenite dragonborn", "silver", {
 		regExpSearch: /silver/i,
+		source: [["W", 169]],
 		name: "Silver Ravenite Dragonborn",
 		trait: ["**Silver Ravenite Dragonborn**"].concat(EGtW_coldBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "cold",
 	});
 	AddSubRace("ravenite dragonborn", "white", {
 		regExpSearch: /white/i,
+		source: [["W", 169]],
 		name: "White Ravenite Dragonborn",
 		trait: ["**White Ravenite Dragonborn**"].concat(EGtW_coldBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "cold",

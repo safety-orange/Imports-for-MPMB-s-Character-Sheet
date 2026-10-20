@@ -132,6 +132,7 @@ AddSubRace("half-elf", "aquatic", {
 	skillstxt: null,
 	trait: [
 		"**Half-Aquatic Elf**",
+		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
 		"##\u25C6 Swimming Speed##. My aquatic heritage gives me a 30 ft Swim Speed.",
 	],
 });
@@ -144,6 +145,7 @@ AddSubRace("half-elf", "cantrip", {
 	skillstxt: null,
 	trait: [
 		"**Half-High Elf**",
+		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
 		"##\u25C6 Cantrip##. I know one cantrip of my choice from the Wizard spell list. Intelligence is my spellcasting ability for it.",
 	],
 	spellcastingAbility: 4,
@@ -162,10 +164,11 @@ AddSubRace("half-elf", "drow magic", {
 	plural: "Half-drow",
 	skillstxt: null,
 	trait: [
-		"**Half-drow**",
+		"**Half-Drow**",
+		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
 		"##\u25C6 Drow Magic##. I know the *Dancing Lights* cantrip.",
-		"Once I reach 3rd level, I can cast the *Faerie Fire* spell once per Long Rest.",
-		"Once I reach 5th level, I can also cast the *Darkness* spell once per Long Rest.",
+		"Once I reach 3rd level, I can cast *Faerie Fire* once per Long Rest.",
+		"Once I reach 5th level, I can also cast *Darkness* once per Long Rest.",
 		"Charisma is my spellcasting ability for these spells.",
 	],
 	spellcastingAbility: 6,
@@ -199,11 +202,15 @@ AddSubRace("half-elf", "drow magic", {
 	},
 });
 AddSubRace("half-elf", "elf weapon training", {
-	sortname: "Half-Elf (Elf Weapon Training)",
+	sortname: "Half-Wood Elf (Elf Weapon Training)",
 	regExpSearch: /^(?=.*\b(elf|elven)\b)(?=.*weapon)(?=.*training).*$/i,
 	source: [["S", 116]],
 	skillstxt: null,
-	trait: "**Half-Elf**",
+	trait: [
+		"**Half-Wood Elf**",
+		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
+		"##\u25C6 Elf Weapon Training##. I have proficiency with the Longsword, Shortsword, Longbow, and Shortbow.",
+	],
 	weaponProfs: [false, false, ["longsword", "shortsword", "longbow", "shortbow"]],
 });
 AddSubRace("half-elf", "fleet of foot", {
@@ -216,7 +223,11 @@ AddSubRace("half-elf", "fleet of foot", {
 		walk: { spd: 35, enc: 25 },
 	},
 	skillstxt: null,
-	trait: "**Half-Wood Elf**",
+	trait: [
+		"**Half-Wood Elf**",
+		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
+		"##\u25C6 Fleet of Foot##. My Speed is 35 ft.",
+	],
 });
 AddSubRace("half-elf", "mask of the wild", {
 	regExpSearch: /^(?=.*\bmasks?\b)(?=.*\bwilds?\b).*$/i,
@@ -227,6 +238,7 @@ AddSubRace("half-elf", "mask of the wild", {
 	skillstxt: null,
 	trait: [
 		"**Half-Wood Elf**",
+		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
 		"##\u25C6 Mask of the Wild##. I can attempt to Hide even when I am only Lightly Obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
 	],
 });

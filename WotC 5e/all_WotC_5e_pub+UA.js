@@ -199,6 +199,7 @@ RaceList["mountain dwarf"] = {
 	scores: [2, 0, 2, 0, 0, 0],
 	trait: [
 		"**Mountain Dwarf** (+2 Strength, +2 Constitution)",
+		"##\u25C6 Dwarven Armor Training##. I have proficiency with light and medium armor.",
 		"##\u25C6 Stonecunning##. Whenever I make an Intelligence (History) check related to the origin of stonework, I am considered proficient in the History skill and add double my proficiency bonus to the check, instead of my normal proficiency bonus.",
 	],
 };
@@ -318,6 +319,7 @@ RaceList["forest gnome"] = {
 	scores: [0, 1, 0, 2, 0, 0],
 	trait: [
 		"**Forest Gnome** (+1 Dexterity, +2 Intelligence)",
+		"##\u25C6 Gnome Cunning##. I have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.",
 		"##\u25C6 Natural Illusionist##. I know the *Minor Illusion* cantrip. Intelligence is my spellcasting ability for it.",
 		"##\u25C6 Speak with Small Beasts##. Through sounds and gestures, I can communicate simple ideas with Small or smaller beasts.",
 	],
@@ -9617,6 +9619,7 @@ RaceList["deep gnome"] = {
 	scores: [0, 1, 0, 2, 0, 0],
 	trait: [
 		"**Svirfneblin** (+1 Dexterity, +2 Intelligence)",
+		"##\u25C6 Gnome Cunning##. I have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.",
 		"##\u25C6 Stone Camouflage##. I have advantage on Dexterity (Stealth) checks to hide in rocky terrain.",
 	],
 };
@@ -11899,9 +11902,10 @@ AddRacialVariant("half-elf", "aquatic", {
 		walk: { spd: 30, enc: 20 },
 		swim: { spd: 30, enc: 20 },
 	},
-	skillstxt: "",
+	skillstxt: null,
 	trait: [
 		"**Half-Aquatic Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
+		"##\u25C6 Fey Ancestry##. I have advantage on saving throws against being charmed, and magic can't put me to sleep.",
 		"##\u25C6 Swimming Speed##. My aquatic heritage gives me a swimming speed of 30 ft.",
 	],
 });
@@ -11911,9 +11915,10 @@ AddRacialVariant("half-elf", "cantrip", {
 	sortname: "Half-High Elf (Cantrip)",
 	source: [["S", 116]],
 	plural: "Half-high elves",
-	skillstxt: "",
+	skillstxt: null,
 	trait: [
 		"**Half-High Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
+		"##\u25C6 Fey Ancestry##. I have advantage on saving throws against being charmed, and magic can't put me to sleep.",
 		"##\u25C6 Cantrip##. I know one cantrip of my choice from the wizard spell list.",
 		"Intelligence is my spellcasting ability for it.",
 	],
@@ -11931,12 +11936,13 @@ AddRacialVariant("half-elf", "drow magic", {
 	sortname: "Half-Drow (Drow Magic)",
 	source: [["S", 116]],
 	plural: "Half-drow",
-	skillstxt: "",
+	skillstxt: null,
 	trait: [
-		"**Half-drow** (+2 Charisma and +1 to two other ability scores of my choice)",
+		"**Half-Drow** (+2 Charisma and +1 to two other ability scores of my choice)",
+		"##\u25C6 Fey Ancestry##. I have advantage on saving throws against being charmed, and magic can't put me to sleep.",
 		"##\u25C6 Drow Magic##. I know the *Dancing Lights* cantrip.",
-		"Once I reach 3rd level, I can cast the *Faerie Fire* spell once per long rest.",
-		"Once I reach 5th level, I can also cast the *Darkness* spell once per long rest.",
+		"Once I reach 3rd level, I can cast *Faerie Fire* once per long rest.",
+		"Once I reach 5th level, I can also cast *Darkness* once per long rest.",
 		"Charisma is my spellcasting ability for these spells.",
 	],
 	spellcastingAbility: 6,
@@ -11970,11 +11976,15 @@ AddRacialVariant("half-elf", "drow magic", {
 	},
 });
 AddRacialVariant("half-elf", "elf weapon training", {
-	sortname: "Half-Elf (Elf Weapon Training)",
+	sortname: "Half-Wood Elf (Elf Weapon Training)",
 	regExpSearch: /^(?=.*\b(elf|elven)\b)(?=.*weapon)(?=.*training).*$/i,
 	source: [["S", 116]],
-	skillstxt: "",
-	trait: "**Half-Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
+	skillstxt: null,
+	trait: [
+		"**Half-Wood Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
+		"##\u25C6 Fey Ancestry##. I have advantage on saving throws against being charmed, and magic can't put me to sleep.",
+		"##\u25C6 Elf Weapon Training##. I have proficiency with the longsword, shortsword, longbow, and shortbow.",
+	],
 	weaponProfs: [false, false, ["longsword", "shortsword", "longbow", "shortbow"]],
 });
 AddRacialVariant("half-elf", "fleet of foot", {
@@ -11986,8 +11996,12 @@ AddRacialVariant("half-elf", "fleet of foot", {
 	speed: {
 		walk: { spd: 35, enc: 25 },
 	},
-	skillstxt: "",
-	trait: "**Half-Wood Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
+	skillstxt: null,
+	trait: [
+		"**Half-Wood Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
+		"##\u25C6 Fey Ancestry##. I have advantage on saving throws against being charmed, and magic can't put me to sleep.",
+		"##\u25C6 Fleet of Foot##. My base walking speed is 35 ft.",
+	],
 });
 AddRacialVariant("half-elf", "mask of the wild", {
 	regExpSearch: /^(?=.*\bmasks?\b)(?=.*\bwilds?\b).*$/i,
@@ -11995,9 +12009,10 @@ AddRacialVariant("half-elf", "mask of the wild", {
 	sortname: "Half-Wood Elf (Mask of the Wild)",
 	source: [["S", 116]],
 	plural: "Half-wood elves",
-	skillstxt: "",
+	skillstxt: null,
 	trait: [
 		"**Half-Wood Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
+		"##\u25C6 Fey Ancestry##. I have advantage on saving throws against being charmed, and magic can't put me to sleep.",
 		"##\u25C6 Mask of the Wild##. I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
 	],
 });
@@ -23513,6 +23528,7 @@ RaceList["githyanki"] = {
 	scores: [2, 0, 0, 1, 0, 0],
 	trait: [
 		"**Githyanki** (+2 Strength, +1 Intelligence)",
+		"##\u25C6 Decadent Mastery##. I am proficient with one skill or tool of my choice.",
 		"##\u25C6 Githyanki Psionics##. I know the *Mage Hand* cantrip, but the hand is invisible.",
 		"At 3rd level, I can cast *Jump* once per long rest.",
 		"At 5th level, I can also cast *Misty Step* once per long rest.",
@@ -23568,15 +23584,25 @@ RaceList["githyanki"] = {
 			},
 		},
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("githyanki", "tool proficiency", {
 	regExpSearch: /tool proficiency/i,
-	skillstxt: "",
+	source: [["MToF", 96]],
+	skillstxt: null,
 	toolProfs: [["Any tool", 1]],
+	trait: RaceList["githyanki"].trait.map(function (s, i) {
+		return i !== 1 ? s : "##\u25C6 Decadent Mastery##. I am proficient with one tool of my choice.";
+	}),
 });
 AddRacialVariant("githyanki", "skill proficiency", {
 	regExpSearch: /skill proficiency/i,
+	source: [["MToF", 96]],
 	skillstxt: "Choose any one skill",
+	trait: RaceList["githyanki"].trait.map(function (s, i) {
+		return i !== 1 ? s : "##\u25C6 Decadent Mastery##. I am proficient with one skill of my choice.";
+	}),
 });
 RaceList["githzerai"] = {
 	regExpSearch: /githzerai/i,
@@ -24825,6 +24851,8 @@ RaceList["simic hybrid"] = {
 			},
 		},
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("simic hybrid", "manta glide", {
 	regExpSearch: /manta glide/i,
@@ -31645,60 +31673,70 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 	};
 	AddRacialVariant("draconblood dragonborn", "black", {
 		regExpSearch: /black/i,
+		source: [["W", 168]],
 		name: "Black Draconblood Dragonborn",
 		trait: ["**Black draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_acidBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "acid",
 	});
 	AddRacialVariant("draconblood dragonborn", "blue", {
 		regExpSearch: /blue/i,
+		source: [["W", 168]],
 		name: "Blue Draconblood Dragonborn",
 		trait: ["**Blue draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_lightningBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "lightning",
 	});
 	AddRacialVariant("draconblood dragonborn", "brass", {
 		regExpSearch: /brass/i,
+		source: [["W", 168]],
 		name: "Brass Draconblood Dragonborn",
 		trait: ["**Brass draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_fireBreathLine, EGtW_forcefulPresenceStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("draconblood dragonborn", "bronze", {
 		regExpSearch: /bronze/i,
+		source: [["W", 168]],
 		name: "Bronze Draconblood Dragonborn",
 		trait: ["**Bronze draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_lightningBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "lightning",
 	});
 	AddRacialVariant("draconblood dragonborn", "copper", {
 		regExpSearch: /copper/i,
+		source: [["W", 168]],
 		name: "Copper Draconblood Dragonborn",
 		trait: ["**Copper draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_acidBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "acid",
 	});
 	AddRacialVariant("draconblood dragonborn", "gold", {
 		regExpSearch: /gold/i,
+		source: [["W", 168]],
 		name: "Gold Draconblood Dragonborn",
 		trait: ["**Gold draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_fireBreathCone, EGtW_forcefulPresenceStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("draconblood dragonborn", "green", {
 		regExpSearch: /green/i,
+		source: [["W", 168]],
 		name: "Green Draconblood Dragonborn",
 		trait: ["**Green draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_poisonBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "poison",
 	});
 	AddRacialVariant("draconblood dragonborn", "red", {
 		regExpSearch: /red/i,
+		source: [["W", 168]],
 		name: "Red Draconblood Dragonborn",
 		trait: ["**Red draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_fireBreathCone, EGtW_forcefulPresenceStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("draconblood dragonborn", "silver", {
 		regExpSearch: /silver/i,
+		source: [["W", 168]],
 		name: "Silver Draconblood Dragonborn",
 		trait: ["**Silver draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_coldBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "cold",
 	});
 	AddRacialVariant("draconblood dragonborn", "white", {
 		regExpSearch: /white/i,
+		source: [["W", 168]],
 		name: "White Draconblood Dragonborn",
 		trait: ["**White draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_coldBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "cold",
@@ -31738,60 +31776,70 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 	};
 	AddRacialVariant("ravenite dragonborn", "black", {
 		regExpSearch: /black/i,
+		source: [["W", 169]],
 		name: "Black Ravenite Dragonborn",
 		trait: ["**Black ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_acidBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "acid",
 	});
 	AddRacialVariant("ravenite dragonborn", "blue", {
 		regExpSearch: /blue/i,
+		source: [["W", 169]],
 		name: "Blue Ravenite Dragonborn",
 		trait: ["**Blue ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_lightningBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "lightning",
 	});
 	AddRacialVariant("ravenite dragonborn", "brass", {
 		regExpSearch: /brass/i,
+		source: [["W", 169]],
 		name: "Brass Ravenite Dragonborn",
 		trait: ["**Brass ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_fireBreathLine, EGtW_vengefulAssaultStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("ravenite dragonborn", "bronze", {
 		regExpSearch: /bronze/i,
+		source: [["W", 169]],
 		name: "Bronze Ravenite Dragonborn",
 		trait: ["**Bronze ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_lightningBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "lightning",
 	});
 	AddRacialVariant("ravenite dragonborn", "copper", {
 		regExpSearch: /copper/i,
+		source: [["W", 169]],
 		name: "Copper Ravenite Dragonborn",
 		trait: ["**Copper ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_acidBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "acid",
 	});
 	AddRacialVariant("ravenite dragonborn", "gold", {
 		regExpSearch: /gold/i,
+		source: [["W", 169]],
 		name: "Gold Ravenite Dragonborn",
 		trait: ["**Gold ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_fireBreathCone, EGtW_vengefulAssaultStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("ravenite dragonborn", "green", {
 		regExpSearch: /green/i,
+		source: [["W", 169]],
 		name: "Green Ravenite Dragonborn",
 		trait: ["**Green ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_poisonBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "poison",
 	});
 	AddRacialVariant("ravenite dragonborn", "red", {
 		regExpSearch: /red/i,
+		source: [["W", 169]],
 		name: "Red Ravenite Dragonborn",
 		trait: ["**Red ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_fireBreathCone, EGtW_vengefulAssaultStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("ravenite dragonborn", "silver", {
 		regExpSearch: /silver/i,
+		source: [["W", 169]],
 		name: "Silver Ravenite Dragonborn",
 		trait: ["**Silver ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_coldBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "cold",
 	});
 	AddRacialVariant("ravenite dragonborn", "white", {
 		regExpSearch: /white/i,
+		source: [["W", 169]],
 		name: "White Ravenite Dragonborn",
 		trait: ["**White ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_coldBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "cold",
@@ -36876,6 +36924,8 @@ RaceList["custom lineage"] = {
 		"##\u25C6 Feat##. I gain one feat of my choice for which I qualify.",
 		"##\u25C6 Variable Trait##. I gain either darkvision with a range of 60 ft or proficiency with a skill of my choice. Use the Racial Options button to select either one.",
 	],
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("custom lineage", "darkvision", {
 	regExpSearch: /darkvision/i,
@@ -46614,6 +46664,7 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 				},
 			},
 			variants: [],
+			forceVariantSelection: true,
 		};
 		if (oDrBrn.features) {
 			for (var sFea in oDrBrn.features) {
@@ -46626,6 +46677,7 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 			AddRacialVariant(sDrBrnLC + " dragonborn", sDrBrnVar.toLowerCase(), {
 				regExpSearch: RegExp(sDrBrnVar, "i"),
 				name: sDrBrnVar + " " + sDrBrn + " Dragonborn",
+				source: oDrBrn.source,
 				trait: ["**" + sDrBrnVar + " " + sDrBrnLC + " dragonborn**"].concat(oDrBrn.trait.map(function (sTrait) { return sTrait.replace(/>>TYPE<</g, sDrBrnDmg).replace(/>>type<</g, sDrBrnDmg.toLowerCase()); })),
 				dmgres: [sDrBrnDmg],
 			});
@@ -49434,6 +49486,8 @@ RaceList["multiverse aasimar"] = {
 	features: {
 		"healing hands": MotM_Aasimar_HealingHands,
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("multiverse aasimar", "necrotic shroud", {
 	regExpSearch: /shroud/i,
@@ -58932,6 +58986,8 @@ RaceList["shifter-ua"] = {
 			action: [["bonus action", ""]],
 		},
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("shifter-ua", "beasthide", {
 	regExpSearch: /beasthide/i,
@@ -59784,6 +59840,8 @@ RaceList["minotaur-ua"] = {
 			action: [["bonus action", " (after hit)"]],
 		},
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("minotaur-ua", "cunning", {
 	regExpSearch: /(cunning|wisdom)/i,
@@ -72608,13 +72666,17 @@ RaceList["githyanki-ua"] = {
 			}],
 		},
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("githyanki-ua", "tool proficiency", {
 	regExpSearch: /tool proficiency/i,
+	source: [["UA:EnG", 2]],
 	toolProfs: [["Any tool", 1]],
 });
 AddRacialVariant("githyanki-ua", "skill proficiency", {
 	regExpSearch: /skill proficiency/i,
+	source: [["UA:EnG", 2]],
 	skillstxt: "Choose any one skill",
 });
 // Githzerai
@@ -75078,6 +75140,8 @@ RaceList["dragonmark shadow elf-ua"] = {
 			action: [["bonus action", ""]],
 		},
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("dragonmark shadow elf-ua", "performance, ", {
 	regExpSearch: /performance/i,
@@ -80931,6 +80995,8 @@ RaceList["reborn-ua"] = {
 		gainTraits: ["size", "age", "height", "weight", "heightMetric", "weightMetric", "languageProfs", "skillstxt", "skills", "speed.climb", "speed.fly", "speed.swim"],
 		updateName: "suffix",
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("reborn-ua", "undead", {
 	regExpSearch: /undead/i,
@@ -81260,6 +81326,7 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 				},
 			},
 			variants: [],
+			forceVariantSelection: true,
 		};
 		if (oDrBrn.features) {
 			for (var sFea in oDrBrn.features) {
@@ -81272,6 +81339,7 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			AddRacialVariant(sDrBrnLC + " dragonborn-ua", sDrBrnVar.toLowerCase(), {
 				regExpSearch: RegExp(sDrBrnVar, "i"),
 				name: sDrBrnVar + " " + sDrBrn + " Dragonborn",
+				source: oDrBrn.source,
 				trait: ["**" + sDrBrnVar + " " + sDrBrnLC + " dragonborn**"].concat(oDrBrn.trait.map(function (sTrait) { return sTrait.replace(/>>TYPE<</g, sDrBrnDmg).replace(/>>type<</g, sDrBrnDmg.toLowerCase()); })),
 				dmgres: [sDrBrnDmg],
 			});
@@ -81311,6 +81379,8 @@ RaceList["draconic kobold-ua"] = {
 		"##\u25C6 Draconic Legacy##. Choose one of the following with the \"Racial Options\" button: (1) Brave: advantage on saves vs. being frightened, (2) Cantrip: I know one sorcerer cantrip of my choice, or (3) Tail: I can use my tail that deals 1d6 damage to make unarmed strikes.",
 		"##\u25C6 Draconic Roar##. As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest.",
 	],
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("draconic kobold-ua", "brave", {
 	regExpSearch: /brave/i,

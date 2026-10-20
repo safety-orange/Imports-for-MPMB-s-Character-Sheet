@@ -10486,7 +10486,7 @@ CreatureList["peryton"] = {
 	}],
 };
 
-// pub_20260616_RHW.js
+// pub_20260616_RHW_incomplete.js
 // This file adds material from Ravenloft: The Horrors Within to MPMB's Character Record Sheet for 5.5e
 
 SourceList["RHW"] = {

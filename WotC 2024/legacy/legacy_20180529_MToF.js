@@ -551,7 +551,8 @@ RaceList["githyanki"] = {
 	weightMetric: " weigh around 61 kg (45 + 5d10 \xD7 4d4 / 10 kg)",
 	trait: [
 		"**Githyanki**",
-		"##\u25C6 Githyanki Psionics##. I know the *Mage Hand* cantrip, but the hand is invisible.",
+		"##\u25C6 Decadent Mastery##. I am proficient with one skill or tool of my choice.",
+		"##\u25C6 Githyanki Psionics##. I know the *Mage Hand* cantrip and the hand is invisible.",
 		"At 3rd level, I can cast *Jump* once per Long Rest.",
 		"At 5th level, I can also cast *Misty Step* once per Long Rest.",
 		"Intelligence is my spellcasting ability for these spells.",
@@ -606,15 +607,24 @@ RaceList["githyanki"] = {
 			},
 		},
 	},
+	variants: [], // filled by the AddSubRace() calls below
 };
 AddSubRace("githyanki", "tool proficiency", {
 	regExpSearch: /tool proficiency/i,
+	source: [["MToF", 96]],
 	skillstxt: null,
 	toolProfs: [["Any tool", 1]],
+	trait: RaceList["githyanki"].trait.map(function (s, i) {
+		return i !== 1 ? s : "##\u25C6 Decadent Mastery##. I am proficient with one tool of my choice.";
+	}),
 });
 AddSubRace("githyanki", "skill proficiency", {
 	regExpSearch: /skill proficiency/i,
+	source: [["MToF", 96]],
 	skillstxt: "Choose any one skill",
+	trait: RaceList["githyanki"].trait.map(function (s, i) {
+		return i !== 1 ? s : "##\u25C6 Decadent Mastery##. I am proficient with one skill of my choice.";
+	}),
 });
 RaceList["githzerai"] = {
 	regExpSearch: /githzerai/i,
@@ -633,7 +643,7 @@ RaceList["githzerai"] = {
 	weightMetric: " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	trait: [
 		"**Githzerai**",
-		"##\u25C6 Githzerai Psionics##. I know the *Mage Hand* cantrip, but the hand is invisible.",
+		"##\u25C6 Githzerai Psionics##. I know the *Mage Hand* cantrip and the hand is invisible.",
 		"At 3rd level, I can cast *Shield* once per Long Rest.",
 		"At 5th level, I can also cast *Detect Thoughts* once per Long Rest.",
 		"Wisdom is my spellcasting ability for these spells.",

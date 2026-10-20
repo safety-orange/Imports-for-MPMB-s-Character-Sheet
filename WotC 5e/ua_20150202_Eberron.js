@@ -102,6 +102,8 @@ RaceList["shifter-ua"] = {
 			action: [["bonus action", ""]],
 		},
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("shifter-ua", "beasthide", {
 	regExpSearch: /beasthide/i,

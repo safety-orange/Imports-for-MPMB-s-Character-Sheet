@@ -298,6 +298,7 @@ RaceList["tajuru elf"] = {
 	scores: [0, 0, 0, 0, 2, 1],
 	trait: [
 		"**Tajuru Elf** (+2 Wisdom, +1 Charisma)",
+		"##\u25C6 Fey Ancestry##. I have advantage on saving throws against being charmed, and magic can't put me to sleep.",
 		"##\u25C6 Tajuru Nation##. Tajuru elves are the most open to people of other races, seeing their skills and perspectives as valuable new tools for survival.",
 	],
 };
@@ -327,6 +328,7 @@ RaceList["joraga elf"] = {
 	scores: [0, 1, 0, 0, 2, 0],
 	trait: [
 		"**Joraga Elf** (+1 Dexterity, +2 Wisdom)",
+		"##\u25C6 Fey Ancestry##. I have advantage on saving throws against being charmed, and magic can't put me to sleep.",
 		"##\u25C6 Mask of the Wild##. I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
 	],
 };
@@ -356,6 +358,7 @@ RaceList["mul daya elf"] = {
 	scores: [1, 0, 0, 0, 2, 0],
 	trait: [
 		"**Mul Daya Elf** (+1 Strength, +2 Wisdom)",
+		"##\u25C6 Fey Ancestry##. I have advantage on saving throws against being charmed, and magic can't put me to sleep.",
 		"##\u25C6 Sunlight Sensitivity##. Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.",
 		"##\u25C6 Mul Daya Magic##. 1st level: *Chill Touch* cantrip; 3rd level: *Hex*; 5th level: *Darkness*. Both spells can be used once per long rest. Wisdom is my spellcasting ability for these.",
 	],

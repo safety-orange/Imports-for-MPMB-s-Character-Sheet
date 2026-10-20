@@ -299,6 +299,8 @@ RaceList["simic hybrid"] = {
 			},
 		},
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("simic hybrid", "manta glide", {
 	regExpSearch: /manta glide/i,

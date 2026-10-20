@@ -1249,6 +1249,8 @@ if (!SourceList["UA:D"]) {
 				action: [["bonus action", ""]],
 			},
 		},
+		variants: [],
+		forceVariantSelection: true,
 	};
 	AddRacialVariant("dragonmark shadow elf-ua", "performance, ", {
 		regExpSearch: /performance/i,

@@ -66,6 +66,7 @@ RaceList["deep gnome"] = {
 	scores: [0, 1, 0, 2, 0, 0],
 	trait: [
 		"**Svirfneblin** (+1 Dexterity, +2 Intelligence)",
+		"##\u25C6 Gnome Cunning##. I have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.",
 		"##\u25C6 Stone Camouflage##. I have advantage on Dexterity (Stealth) checks to hide in rocky terrain.",
 	],
 };

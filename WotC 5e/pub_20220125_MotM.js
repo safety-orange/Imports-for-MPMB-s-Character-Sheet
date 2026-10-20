@@ -104,6 +104,8 @@ RaceList["multiverse aasimar"] = {
 	features: {
 		"healing hands": MotM_Aasimar_HealingHands,
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("multiverse aasimar", "necrotic shroud", {
 	regExpSearch: /shroud/i,

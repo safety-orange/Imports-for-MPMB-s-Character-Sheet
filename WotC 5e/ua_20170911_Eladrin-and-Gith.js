@@ -122,13 +122,17 @@ RaceList["githyanki-ua"] = {
 			}],
 		},
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("githyanki-ua", "tool proficiency", {
 	regExpSearch: /tool proficiency/i,
+	source: [["UA:EnG", 2]],
 	toolProfs: [["Any tool", 1]],
 });
 AddRacialVariant("githyanki-ua", "skill proficiency", {
 	regExpSearch: /skill proficiency/i,
+	source: [["UA:EnG", 2]],
 	skillstxt: "Choose any one skill",
 });
 // Githzerai

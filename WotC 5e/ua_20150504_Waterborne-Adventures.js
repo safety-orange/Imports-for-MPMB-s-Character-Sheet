@@ -80,6 +80,8 @@ RaceList["minotaur-ua"] = {
 			action: [["bonus action", " (after hit)"]],
 		},
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("minotaur-ua", "cunning", {
 	regExpSearch: /(cunning|wisdom)/i,

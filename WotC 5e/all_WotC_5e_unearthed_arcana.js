@@ -106,6 +106,8 @@ RaceList["shifter-ua"] = {
 			action: [["bonus action", ""]],
 		},
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("shifter-ua", "beasthide", {
 	regExpSearch: /beasthide/i,
@@ -958,6 +960,8 @@ RaceList["minotaur-ua"] = {
 			action: [["bonus action", " (after hit)"]],
 		},
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("minotaur-ua", "cunning", {
 	regExpSearch: /(cunning|wisdom)/i,
@@ -13782,13 +13786,17 @@ RaceList["githyanki-ua"] = {
 			}],
 		},
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("githyanki-ua", "tool proficiency", {
 	regExpSearch: /tool proficiency/i,
+	source: [["UA:EnG", 2]],
 	toolProfs: [["Any tool", 1]],
 });
 AddRacialVariant("githyanki-ua", "skill proficiency", {
 	regExpSearch: /skill proficiency/i,
+	source: [["UA:EnG", 2]],
 	skillstxt: "Choose any one skill",
 });
 // Githzerai
@@ -16252,6 +16260,8 @@ RaceList["dragonmark shadow elf-ua"] = {
 			action: [["bonus action", ""]],
 		},
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("dragonmark shadow elf-ua", "performance, ", {
 	regExpSearch: /performance/i,
@@ -22105,6 +22115,8 @@ RaceList["reborn-ua"] = {
 		gainTraits: ["size", "age", "height", "weight", "heightMetric", "weightMetric", "languageProfs", "skillstxt", "skills", "speed.climb", "speed.fly", "speed.swim"],
 		updateName: "suffix",
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("reborn-ua", "undead", {
 	regExpSearch: /undead/i,
@@ -22434,6 +22446,7 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 				},
 			},
 			variants: [],
+			forceVariantSelection: true,
 		};
 		if (oDrBrn.features) {
 			for (var sFea in oDrBrn.features) {
@@ -22446,6 +22459,7 @@ var UADO_dragonborns_add = function () { // New dragonborn variants
 			AddRacialVariant(sDrBrnLC + " dragonborn-ua", sDrBrnVar.toLowerCase(), {
 				regExpSearch: RegExp(sDrBrnVar, "i"),
 				name: sDrBrnVar + " " + sDrBrn + " Dragonborn",
+				source: oDrBrn.source,
 				trait: ["**" + sDrBrnVar + " " + sDrBrnLC + " dragonborn**"].concat(oDrBrn.trait.map(function (sTrait) { return sTrait.replace(/>>TYPE<</g, sDrBrnDmg).replace(/>>type<</g, sDrBrnDmg.toLowerCase()); })),
 				dmgres: [sDrBrnDmg],
 			});
@@ -22485,6 +22499,8 @@ RaceList["draconic kobold-ua"] = {
 		"##\u25C6 Draconic Legacy##. Choose one of the following with the \"Racial Options\" button: (1) Brave: advantage on saves vs. being frightened, (2) Cantrip: I know one sorcerer cantrip of my choice, or (3) Tail: I can use my tail that deals 1d6 damage to make unarmed strikes.",
 		"##\u25C6 Draconic Roar##. As a bonus action, I can let out a draconic roar at enemies within 10 ft. Until the end of my next turn, my allies and I have advantage on attack rolls against any enemies who could hear the roar. I can do this my Proficiency Bonus per long rest.",
 	],
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("draconic kobold-ua", "brave", {
 	regExpSearch: /brave/i,

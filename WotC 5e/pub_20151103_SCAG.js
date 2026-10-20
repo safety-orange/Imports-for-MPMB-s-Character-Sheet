@@ -133,6 +133,7 @@ if (!RaceList["deep gnome"]) {
 		scores: [0, 1, 0, 2, 0, 0],
 		trait: [
 			"**Svirfneblin** (+1 Dexterity, +2 Intelligence)",
+			"##\u25C6 Gnome Cunning##. I have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.",
 			"##\u25C6 Stone Camouflage##. I have advantage on Dexterity (Stealth) checks to hide in rocky terrain.",
 		],
 	};
@@ -148,9 +149,10 @@ AddRacialVariant("half-elf", "aquatic", {
 		walk: { spd: 30, enc: 20 },
 		swim: { spd: 30, enc: 20 },
 	},
-	skillstxt: "",
+	skillstxt: null,
 	trait: [
 		"**Half-Aquatic Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
+		"##\u25C6 Fey Ancestry##. I have advantage on saving throws against being charmed, and magic can't put me to sleep.",
 		"##\u25C6 Swimming Speed##. My aquatic heritage gives me a swimming speed of 30 ft.",
 	],
 });
@@ -160,9 +162,10 @@ AddRacialVariant("half-elf", "cantrip", {
 	sortname: "Half-High Elf (Cantrip)",
 	source: [["S", 116]],
 	plural: "Half-high elves",
-	skillstxt: "",
+	skillstxt: null,
 	trait: [
 		"**Half-High Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
+		"##\u25C6 Fey Ancestry##. I have advantage on saving throws against being charmed, and magic can't put me to sleep.",
 		"##\u25C6 Cantrip##. I know one cantrip of my choice from the wizard spell list.",
 		"Intelligence is my spellcasting ability for it.",
 	],
@@ -180,12 +183,13 @@ AddRacialVariant("half-elf", "drow magic", {
 	sortname: "Half-Drow (Drow Magic)",
 	source: [["S", 116]],
 	plural: "Half-drow",
-	skillstxt: "",
+	skillstxt: null,
 	trait: [
-		"**Half-drow** (+2 Charisma and +1 to two other ability scores of my choice)",
+		"**Half-Drow** (+2 Charisma and +1 to two other ability scores of my choice)",
+		"##\u25C6 Fey Ancestry##. I have advantage on saving throws against being charmed, and magic can't put me to sleep.",
 		"##\u25C6 Drow Magic##. I know the *Dancing Lights* cantrip.",
-		"Once I reach 3rd level, I can cast the *Faerie Fire* spell once per long rest.",
-		"Once I reach 5th level, I can also cast the *Darkness* spell once per long rest.",
+		"Once I reach 3rd level, I can cast *Faerie Fire* once per long rest.",
+		"Once I reach 5th level, I can also cast *Darkness* once per long rest.",
 		"Charisma is my spellcasting ability for these spells.",
 	],
 	spellcastingAbility: 6,
@@ -219,11 +223,15 @@ AddRacialVariant("half-elf", "drow magic", {
 	},
 });
 AddRacialVariant("half-elf", "elf weapon training", {
-	sortname: "Half-Elf (Elf Weapon Training)",
+	sortname: "Half-Wood Elf (Elf Weapon Training)",
 	regExpSearch: /^(?=.*\b(elf|elven)\b)(?=.*weapon)(?=.*training).*$/i,
 	source: [["S", 116]],
-	skillstxt: "",
-	trait: "**Half-Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
+	skillstxt: null,
+	trait: [
+		"**Half-Wood Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
+		"##\u25C6 Fey Ancestry##. I have advantage on saving throws against being charmed, and magic can't put me to sleep.",
+		"##\u25C6 Elf Weapon Training##. I have proficiency with the longsword, shortsword, longbow, and shortbow.",
+	],
 	weaponProfs: [false, false, ["longsword", "shortsword", "longbow", "shortbow"]],
 });
 AddRacialVariant("half-elf", "fleet of foot", {
@@ -235,8 +243,12 @@ AddRacialVariant("half-elf", "fleet of foot", {
 	speed: {
 		walk: { spd: 35, enc: 25 },
 	},
-	skillstxt: "",
-	trait: "**Half-Wood Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
+	skillstxt: null,
+	trait: [
+		"**Half-Wood Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
+		"##\u25C6 Fey Ancestry##. I have advantage on saving throws against being charmed, and magic can't put me to sleep.",
+		"##\u25C6 Fleet of Foot##. My base walking speed is 35 ft.",
+	],
 });
 AddRacialVariant("half-elf", "mask of the wild", {
 	regExpSearch: /^(?=.*\bmasks?\b)(?=.*\bwilds?\b).*$/i,
@@ -244,9 +256,10 @@ AddRacialVariant("half-elf", "mask of the wild", {
 	sortname: "Half-Wood Elf (Mask of the Wild)",
 	source: [["S", 116]],
 	plural: "Half-wood elves",
-	skillstxt: "",
+	skillstxt: null,
 	trait: [
 		"**Half-Wood Elf** (+2 Charisma and +1 to two other ability scores of my choice)",
+		"##\u25C6 Fey Ancestry##. I have advantage on saving throws against being charmed, and magic can't put me to sleep.",
 		"##\u25C6 Mask of the Wild##. I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
 	],
 });

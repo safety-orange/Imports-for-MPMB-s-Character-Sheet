@@ -67,6 +67,8 @@ RaceList["custom lineage"] = {
 		"##\u25C6 Feat##. I gain one feat of my choice for which I qualify.",
 		"##\u25C6 Variable Trait##. I gain either darkvision with a range of 60 ft or proficiency with a skill of my choice. Use the Racial Options button to select either one.",
 	],
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("custom lineage", "darkvision", {
 	regExpSearch: /darkvision/i,

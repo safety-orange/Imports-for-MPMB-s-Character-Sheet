@@ -294,6 +294,7 @@ RaceList["simic hybrid"] = {
 			},
 		},
 	},
+	variants: [], // filled by the AddSubRace() calls below
 };
 AddSubRace("simic hybrid", "manta glide", {
 	regExpSearch: /manta glide/i,

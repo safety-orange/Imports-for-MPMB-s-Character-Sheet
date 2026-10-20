@@ -38,6 +38,7 @@ RaceList["mountain dwarf"] = {
 	scores: [2, 0, 2, 0, 0, 0],
 	trait: [
 		"**Mountain Dwarf** (+2 Strength, +2 Constitution)",
+		"##\u25C6 Dwarven Armor Training##. I have proficiency with light and medium armor.",
 		"##\u25C6 Stonecunning##. Whenever I make an Intelligence (History) check related to the origin of stonework, I am considered proficient in the History skill and add double my proficiency bonus to the check, instead of my normal proficiency bonus.",
 	],
 };
@@ -157,6 +158,7 @@ RaceList["forest gnome"] = {
 	scores: [0, 1, 0, 2, 0, 0],
 	trait: [
 		"**Forest Gnome** (+1 Dexterity, +2 Intelligence)",
+		"##\u25C6 Gnome Cunning##. I have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.",
 		"##\u25C6 Natural Illusionist##. I know the *Minor Illusion* cantrip. Intelligence is my spellcasting ability for it.",
 		"##\u25C6 Speak with Small Beasts##. Through sounds and gestures, I can communicate simple ideas with Small or smaller beasts.",
 	],

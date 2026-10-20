@@ -25,6 +25,7 @@ RaceList["custom lineage"] = {
 	},
 	languageProfs: ["Common", 1],
 	featsAdd: [{ type: /^(?!.*(blessing|boon|charm|gift|fighting style)).*$/i }],
+	variants: [], // filled by the AddSubRace() calls below
 };
 AddSubRace("custom lineage", "darkvision", {
 	regExpSearch: /darkvision/i,

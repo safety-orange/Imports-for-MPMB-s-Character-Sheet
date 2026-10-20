@@ -150,6 +150,7 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 				},
 			},
 			variants: [],
+			forceVariantSelection: true,
 		};
 		if (oDrBrn.features) {
 			for (var sFea in oDrBrn.features) {
@@ -162,6 +163,7 @@ var FToD_dragonborns_add = function () { // New dragonborn variants
 			AddRacialVariant(sDrBrnLC + " dragonborn", sDrBrnVar.toLowerCase(), {
 				regExpSearch: RegExp(sDrBrnVar, "i"),
 				name: sDrBrnVar + " " + sDrBrn + " Dragonborn",
+				source: oDrBrn.source,
 				trait: ["**" + sDrBrnVar + " " + sDrBrnLC + " dragonborn**"].concat(oDrBrn.trait.map(function (sTrait) { return sTrait.replace(/>>TYPE<</g, sDrBrnDmg).replace(/>>type<</g, sDrBrnDmg.toLowerCase()); })),
 				dmgres: [sDrBrnDmg],
 			});

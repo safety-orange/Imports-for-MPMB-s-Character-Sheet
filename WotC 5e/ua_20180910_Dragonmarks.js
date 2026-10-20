@@ -489,6 +489,8 @@ RaceList["dragonmark shadow elf-ua"] = {
 			action: [["bonus action", ""]],
 		},
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("dragonmark shadow elf-ua", "performance, ", {
 	regExpSearch: /performance/i,

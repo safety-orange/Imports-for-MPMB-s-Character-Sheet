@@ -147,6 +147,8 @@ RaceList["reborn-ua"] = {
 		gainTraits: ["size", "age", "height", "weight", "heightMetric", "weightMetric", "languageProfs", "skillstxt", "skills", "speed.climb", "speed.fly", "speed.swim"],
 		updateName: "suffix",
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("reborn-ua", "undead", {
 	regExpSearch: /undead/i,

@@ -260,60 +260,70 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 	};
 	AddRacialVariant("draconblood dragonborn", "black", {
 		regExpSearch: /black/i,
+		source: [["W", 168]],
 		name: "Black Draconblood Dragonborn",
 		trait: ["**Black draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_acidBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "acid",
 	});
 	AddRacialVariant("draconblood dragonborn", "blue", {
 		regExpSearch: /blue/i,
+		source: [["W", 168]],
 		name: "Blue Draconblood Dragonborn",
 		trait: ["**Blue draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_lightningBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "lightning",
 	});
 	AddRacialVariant("draconblood dragonborn", "brass", {
 		regExpSearch: /brass/i,
+		source: [["W", 168]],
 		name: "Brass Draconblood Dragonborn",
 		trait: ["**Brass draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_fireBreathLine, EGtW_forcefulPresenceStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("draconblood dragonborn", "bronze", {
 		regExpSearch: /bronze/i,
+		source: [["W", 168]],
 		name: "Bronze Draconblood Dragonborn",
 		trait: ["**Bronze draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_lightningBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "lightning",
 	});
 	AddRacialVariant("draconblood dragonborn", "copper", {
 		regExpSearch: /copper/i,
+		source: [["W", 168]],
 		name: "Copper Draconblood Dragonborn",
 		trait: ["**Copper draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_acidBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "acid",
 	});
 	AddRacialVariant("draconblood dragonborn", "gold", {
 		regExpSearch: /gold/i,
+		source: [["W", 168]],
 		name: "Gold Draconblood Dragonborn",
 		trait: ["**Gold draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_fireBreathCone, EGtW_forcefulPresenceStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("draconblood dragonborn", "green", {
 		regExpSearch: /green/i,
+		source: [["W", 168]],
 		name: "Green Draconblood Dragonborn",
 		trait: ["**Green draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_poisonBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "poison",
 	});
 	AddRacialVariant("draconblood dragonborn", "red", {
 		regExpSearch: /red/i,
+		source: [["W", 168]],
 		name: "Red Draconblood Dragonborn",
 		trait: ["**Red draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_fireBreathCone, EGtW_forcefulPresenceStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("draconblood dragonborn", "silver", {
 		regExpSearch: /silver/i,
+		source: [["W", 168]],
 		name: "Silver Draconblood Dragonborn",
 		trait: ["**Silver draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_coldBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "cold",
 	});
 	AddRacialVariant("draconblood dragonborn", "white", {
 		regExpSearch: /white/i,
+		source: [["W", 168]],
 		name: "White Draconblood Dragonborn",
 		trait: ["**White draconblood dragonborn** (+2 Intelligence, +1 Charisma)"].concat(EGtW_coldBreath, EGtW_forcefulPresenceStr),
 		breathDmgType: "cold",
@@ -353,60 +363,70 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 	};
 	AddRacialVariant("ravenite dragonborn", "black", {
 		regExpSearch: /black/i,
+		source: [["W", 169]],
 		name: "Black Ravenite Dragonborn",
 		trait: ["**Black ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_acidBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "acid",
 	});
 	AddRacialVariant("ravenite dragonborn", "blue", {
 		regExpSearch: /blue/i,
+		source: [["W", 169]],
 		name: "Blue Ravenite Dragonborn",
 		trait: ["**Blue ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_lightningBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "lightning",
 	});
 	AddRacialVariant("ravenite dragonborn", "brass", {
 		regExpSearch: /brass/i,
+		source: [["W", 169]],
 		name: "Brass Ravenite Dragonborn",
 		trait: ["**Brass ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_fireBreathLine, EGtW_vengefulAssaultStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("ravenite dragonborn", "bronze", {
 		regExpSearch: /bronze/i,
+		source: [["W", 169]],
 		name: "Bronze Ravenite Dragonborn",
 		trait: ["**Bronze ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_lightningBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "lightning",
 	});
 	AddRacialVariant("ravenite dragonborn", "copper", {
 		regExpSearch: /copper/i,
+		source: [["W", 169]],
 		name: "Copper Ravenite Dragonborn",
 		trait: ["**Copper ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_acidBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "acid",
 	});
 	AddRacialVariant("ravenite dragonborn", "gold", {
 		regExpSearch: /gold/i,
+		source: [["W", 169]],
 		name: "Gold Ravenite Dragonborn",
 		trait: ["**Gold ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_fireBreathCone, EGtW_vengefulAssaultStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("ravenite dragonborn", "green", {
 		regExpSearch: /green/i,
+		source: [["W", 169]],
 		name: "Green Ravenite Dragonborn",
 		trait: ["**Green ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_poisonBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "poison",
 	});
 	AddRacialVariant("ravenite dragonborn", "red", {
 		regExpSearch: /red/i,
+		source: [["W", 169]],
 		name: "Red Ravenite Dragonborn",
 		trait: ["**Red ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_fireBreathCone, EGtW_vengefulAssaultStr),
 		breathDmgType: "fire",
 	});
 	AddRacialVariant("ravenite dragonborn", "silver", {
 		regExpSearch: /silver/i,
+		source: [["W", 169]],
 		name: "Silver Ravenite Dragonborn",
 		trait: ["**Silver ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_coldBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "cold",
 	});
 	AddRacialVariant("ravenite dragonborn", "white", {
 		regExpSearch: /white/i,
+		source: [["W", 169]],
 		name: "White Ravenite Dragonborn",
 		trait: ["**White ravenite dragonborn** (+2 Strength, +1 Constitution)"].concat(EGtW_coldBreath, EGtW_vengefulAssaultStr),
 		breathDmgType: "cold",

@@ -655,6 +655,7 @@ RaceList["githyanki"] = {
 	scores: [2, 0, 0, 1, 0, 0],
 	trait: [
 		"**Githyanki** (+2 Strength, +1 Intelligence)",
+		"##\u25C6 Decadent Mastery##. I am proficient with one skill or tool of my choice.",
 		"##\u25C6 Githyanki Psionics##. I know the *Mage Hand* cantrip, but the hand is invisible.",
 		"At 3rd level, I can cast *Jump* once per long rest.",
 		"At 5th level, I can also cast *Misty Step* once per long rest.",
@@ -710,15 +711,25 @@ RaceList["githyanki"] = {
 			},
 		},
 	},
+	variants: [],
+	forceVariantSelection: true,
 };
 AddRacialVariant("githyanki", "tool proficiency", {
 	regExpSearch: /tool proficiency/i,
-	skillstxt: "",
+	source: [["MToF", 96]],
+	skillstxt: null,
 	toolProfs: [["Any tool", 1]],
+	trait: RaceList["githyanki"].trait.map(function (s, i) {
+		return i !== 1 ? s : "##\u25C6 Decadent Mastery##. I am proficient with one tool of my choice.";
+	}),
 });
 AddRacialVariant("githyanki", "skill proficiency", {
 	regExpSearch: /skill proficiency/i,
+	source: [["MToF", 96]],
 	skillstxt: "Choose any one skill",
+	trait: RaceList["githyanki"].trait.map(function (s, i) {
+		return i !== 1 ? s : "##\u25C6 Decadent Mastery##. I am proficient with one skill of my choice.";
+	}),
 });
 RaceList["githzerai"] = {
 	regExpSearch: /githzerai/i,
@@ -894,6 +905,7 @@ if (!RaceList["deep gnome"]) {
 		scores: [0, 1, 0, 2, 0, 0],
 		trait: [
 			"**Svirfneblin** (+1 Dexterity, +2 Intelligence)",
+			"##\u25C6 Gnome Cunning##. I have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.",
 			"##\u25C6 Stone Camouflage##. I have advantage on Dexterity (stealth) checks to hide in rocky terrain.",
 		],
 	};
