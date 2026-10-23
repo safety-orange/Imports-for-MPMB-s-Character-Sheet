@@ -459,7 +459,7 @@ var MM_lycanthrope = {
 		"\nIf you choose not to use a previous race as the base race or you selected a " + sLycanName + " at character creation, a human (non-variant) will be used as the base race." +
 		"\nThe " + sLycanName + "'s features added to the base race are:" +
 		desc(aGained, "\n   \u2022 ") +
-		"\n\nThe possible alignment change and moon-related limitations of lycanthrope are not mentioned in this race. Discuss with your DM how they want to handle lycanthrope."
+		"\n\nThe possible alignment change and moon-related limitations of a lycanthrope are not mentioned in this race. Discuss with your DM how they want to handle lycanthropy."
 	},
 };
 RaceList["lycanthrope-werebear"] = {
@@ -470,8 +470,8 @@ RaceList["lycanthrope-werebear"] = {
 	size: 3,
 	speed: { walk: { spd: 30, enc: 20 } },
 	trait: [
-		"**Human Werebear** (+1 to all ability scores; min 19 Str)",
-		"##\u25C6 Shapechanger##. As an action, I can polymorph into a Large bear-hybrid, into a Large bear, or back. In those forms, I gain 40 ft walking speed, 30 ft climb speed, +1 AC, and a bite and claw attack. My stats don't otherwise change when transformed, but my equipment doesn't change and I revert back when I die. Humanoids hit by my bite must save or be cursed with werebear lycanthrope.",
+		"**Werebear** (+1 to all ability scores; min 19 Str)",
+		"##\u25C6 Shapechanger##. As an action, I can polymorph into a Large bear-hybrid, into a Large bear, or back. In those forms, I gain 40 ft walking speed, 30 ft climb speed, +1 AC, and a bite and claw attack. My stats don't otherwise change when transformed, but my equipment doesn't change and I revert back when I die. Humanoids hit by my bite must save or be cursed with werebear lycanthropy.",
 		"##\u25C6 Keen Smell##. I have adv. on Wis (Perception) checks using smell.",
 	],
 	features: {
@@ -487,7 +487,7 @@ RaceList["lycanthrope-werebear"] = {
 					"In my bear and hybrid forms, I gain 40 ft walking speed, 30 ft climb speed, and +1 AC",
 					"In these forms I also gain a bite and claw attack, but can't use bite as part of a multiattack",
 					"My stats don't otherwise change, my equipment doesn't transform and I revert back if I die",
-					"Humanoids hit by my bite must make a Con save or be cursed with werebear lycanthrope",
+					"Humanoids hit by my bite must make a Con save or be cursed with werebear lycanthropy",
 					"The DC to avoid this curse is 8 + my Proficiency bonus + my Constitution modifier",
 				],
 				page3notes: true,
@@ -565,8 +565,8 @@ RaceList["lycanthrope-wereboar"] = {
 	size: 3,
 	speed: { walk: { spd: 30, enc: 20 } },
 	trait: [
-		"**Human Wereboar** (+1 to all ability scores; min 17 Str)",
-		"##\u25C6 Shapechanger##. As an action, I can polymorph into a boar-" + (typePF ? "" : "humanoid ") + "hybrid, into a boar, or back. In those forms, I gain 40 ft walking speed, +1 AC, and a tusks attack. My stats don't otherwise change when transformed, but my equipment doesn't change and I revert back when I die. Humanoids hit by my tusks must save or be cursed" + (typePF ? "." : " with lycanthrope."),
+		"**Wereboar** (+1 to all ability scores; min 17 Str)",
+		"##\u25C6 Shapechanger##. As an action, I can polymorph into a boar-" + (typePF ? "" : "humanoid ") + "hybrid, into a boar, or back. In those forms, I gain 40 ft walking speed, +1 AC, and a tusks attack. My stats don't otherwise change when transformed, but my equipment doesn't change and I revert back when I die. Humanoids hit by my tusks must save or be cursed" + (typePF ? "." : " with lycanthropy."),
 		"##\u25C6 Relentless##. If I'm reduced to 0 HP by 14 damage or less, I can instead drop to 1 HP.",
 		"##\u25C6 Charge##. If I move 15 ft straight before a tusks hit, +2d6 damage and Str save or prone.",
 	],
@@ -581,9 +581,8 @@ RaceList["lycanthrope-wereboar"] = {
 					"My Strength score increases to 17 unless it was already higher",
 					"As an action, I can polymorph into a boar-humanoid hybrid, into a boar, or back",
 					"In my boar and hybrid forms, I gain 40 ft walking speed, a tusks attack, and +1 AC",
-					"I also gain a bite and claw attack; As an action, I can make two claw attacks (multiattack)",
 					"My stats don't otherwise change, my equipment doesn't transform and I revert back if I die",
-					"Humanoids hit by my bite must make a Con save or be cursed with wereboar lycanthrope",
+					"Humanoids hit by my tusks must make a Con save or be cursed with wereboar lycanthropy",
 					"The DC to avoid this curse is 8 + my Proficiency bonus + my Constitution modifier",
 				],
 				page3notes: true,
@@ -626,7 +625,7 @@ RaceList["lycanthrope-wereboar"] = {
 			toNotesPage: [{
 				name: "Relentless",
 				note: [
-					"If I'm reduced to 0 HP by an affect dealing 14 damage or less, I can instead drop to 1 HP",
+					"If I'm reduced to 0 HP by an effect dealing 14 damage or less, I can instead drop to 1 HP",
 				],
 				page3notes: true,
 				additional: "in boar or hybrid form only",
@@ -668,8 +667,8 @@ RaceList["lycanthrope-wererat"] = {
 	size: 3,
 	speed: { walk: { spd: 30, enc: 20 } },
 	trait: [
-		"**Human Wererat** (+1 to all ability scores; min 15 Dex)",
-		"##\u25C6 Shapechanger##. As an action, I can transform into a rat-humanoid hybrid, into a giant rat, or back. In those forms, I gain a bite attack, which can use Strength or Dexterity. In my giant rat form, I also become small and gain Darkvision 60 ft My stats don't otherwise change when transformed, but my equipment doesn't change and I revert back when I die. Humanoids hit by my bite must save or be cursed with wererat lycanthrope.",
+		"**Wererat** (+1 to all ability scores; min 15 Dex)",
+		"##\u25C6 Shapechanger##. As an action, I can transform into a rat-humanoid hybrid, into a giant rat, or back. In those forms, I gain a bite attack, which can use Strength or Dexterity. In my giant rat form, I also become small and gain Darkvision 60 ft. My stats don't otherwise change when transformed, but my equipment doesn't change and I revert back when I die. Humanoids hit by my bite must save or be cursed with wererat lycanthropy.",
 		"##\u25C6 Keen Smell##. I have adv. on Wis (Perception) checks using smell.",
 	],
 	features: {
@@ -685,7 +684,7 @@ RaceList["lycanthrope-wererat"] = {
 					"In my rat and hybrid forms, I gain a bite attack that can use either Strength or Dexterity",
 					"In my giant rat form, I also become small and gain Darkvision 60 ft",
 					"My stats don't otherwise change, my equipment doesn't transform and I revert back if I die",
-					"Humanoids hit by my bite must make a Con save or be cursed with wererat lycanthrope",
+					"Humanoids hit by my bite must make a Con save or be cursed with wererat lycanthropy",
 					"The DC to avoid this curse is 8 + my Proficiency bonus + my Constitution modifier",
 				],
 				page3notes: true,
@@ -757,8 +756,8 @@ RaceList["lycanthrope-weretiger"] = {
 	size: 3,
 	speed: { walk: { spd: 30, enc: 20 } },
 	trait: [
-		"**Human Weretiger** (+1 to all ability scores; min 15 Str)",
-		"##\u25C6 Shapechanger##. As an action, I can polymorph into a tiger-humanoid hybrid, into a Large tiger, or back. In those forms, I gain 40 ft walking speed, a bite attack, and a claw attack. My stats don't otherwise change when transformed, but my equipment doesn't transform and I revert back when I die. Humanoids hit by my bite must save or be cursed with weretiger lycanthrope." +
+		"**Weretiger** (+1 to all ability scores; min 17 Str)",
+		"##\u25C6 Shapechanger##. As an action, I can polymorph into a tiger-humanoid hybrid, into a Large tiger, or back. In those forms, I gain 40 ft walking speed, a bite attack, and a claw attack. My stats don't otherwise change when transformed, but my equipment doesn't transform and I revert back when I die. Humanoids hit by my bite must save or be cursed with weretiger lycanthropy." +
 		(typePF ? "\r##\u25C6 Pounce##. " : " ") + "I can pounce in my tiger and hybrid form, see notes.",
 		"##\u25C6 Keen Hearing and Smell##. I have adv. on Wis (Perception) checks using hearing or smell.",
 	],
@@ -774,7 +773,7 @@ RaceList["lycanthrope-weretiger"] = {
 					"As an action, I can polymorph into a tiger-humanoid hybrid, into a Large tiger, or back",
 					"In my tiger and hybrid forms, I gain 40 ft walking speed, a bite attack, and a claw attack",
 					"My stats don't otherwise change, my equipment doesn't transform and I revert back if I die",
-					"Humanoids hit by my bite must make a Con save or be cursed with weretiger lycanthrope",
+					"Humanoids hit by my bite must make a Con save or be cursed with weretiger lycanthropy",
 					"The DC to avoid this curse is 8 + my Proficiency bonus + my Constitution modifier",
 				],
 				page3notes: true,
@@ -811,7 +810,7 @@ RaceList["lycanthrope-weretiger"] = {
 				type: "Natural",
 				damage: [1, 8, "slashing"],
 				range: "Melee",
-				description: "Tiger and Hybrid form only; Can be use to pounce",
+				description: "Tiger and Hybrid form only; Can be used to pounce",
 				abilitytodamage: true,
 				selectNow: true,
 			}],
@@ -866,8 +865,8 @@ RaceList["lycanthrope-werewolf"] = {
 	size: 3,
 	speed: { walk: { spd: 30, enc: 20 } },
 	trait: [
-		"**Human Werewolf** (+1 to all ability scores; min 15 Str)",
-		"##\u25C6 Shapechanger##. As an action, I can polymorph into a wolf-humanoid hybrid, into a wolf, or back. In those forms, I gain 40 ft walking speed, a bite attack, and +1 AC. In my hybrid form, I also gain a claws attack. My stats don't otherwise change when transformed, but my equipment doesn't transform and I revert back when I die. Humanoids hit by my bite must save or be cursed with werewolf lycanthrope.",
+		"**Werewolf** (+1 to all ability scores; min 15 Str)",
+		"##\u25C6 Shapechanger##. As an action, I can polymorph into a wolf-humanoid hybrid, into a wolf, or back. In those forms, I gain 40 ft walking speed, a bite attack, and +1 AC. In my hybrid form, I also gain a claws attack. My stats don't otherwise change when transformed, but my equipment doesn't transform and I revert back when I die. Humanoids hit by my bite must save or be cursed with werewolf lycanthropy.",
 		"##\u25C6 Keen Hearing and Smell##. I have adv. on Wis (Perception) checks using hearing or smell.",
 	],
 	features: {
@@ -883,7 +882,7 @@ RaceList["lycanthrope-werewolf"] = {
 					"In my wolf and hybrid forms, I gain 40 ft walking speed, a bite attack, and +1 AC",
 					"In my hybrid form, I also gain a claws attack",
 					"My stats don't otherwise change, my equipment doesn't transform and I revert back if I die",
-					"Humanoids hit by my bite must make a Con save or be cursed with werewolf lycanthrope",
+					"Humanoids hit by my bite must make a Con save or be cursed with werewolf lycanthropy",
 					"The DC to avoid this curse is 8 + my Proficiency bonus + my Constitution modifier",
 				],
 				page3notes: true,

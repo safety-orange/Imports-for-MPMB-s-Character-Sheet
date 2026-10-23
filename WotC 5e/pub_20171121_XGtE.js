@@ -375,13 +375,13 @@ AddSubClass("bard", "college of glamour", {
 				name: "Mantle of Majesty",
 				spells: ["command"],
 				selection: ["command"],
-				firstCol: "oncelr",
+				firstCol: "Sp",
 			}],
 			spellChanges: {
 				"command": {
 					time: "1 bns",
 					description: "1 crea save or follow one word command, e.g. approach, drop, flee, halt",
-					changes: "Using my Mantle of Majesty class feature, I can cast *Command* as a bonus action once per long rest without using a spell slot, thus only affect a single target.",
+					changes: "Once per long rest I can use my Mantle of Majesty class feature to be able to cast *Command* as a bonus action for 1 minute. When cast this way, it doesn't require a spell slot, thus only affects a single creature.",
 				},
 			},
 		},
@@ -854,8 +854,6 @@ AddSubClass("druid", "circle of the shepherd", {
 				"This is done as if using a 9th-level spell slot to summon 4 beasts of my choice up to CR 2",
 				"They appear within 20 ft of me, last 1 hour, and protect me from harm and attack foes",
 			]),
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Faithful Summons",
 				spells: ["conjure animals"],
@@ -1691,8 +1689,6 @@ var XGtE_Ranger_Subclass_Horizon_Walker = AddSubClass("ranger", "horizon walker"
 			source: [["X", 43]],
 			minlevel: 7,
 			description: desc("As a bonus action, I can cast the *Etherealness* spell, which lasts until the end of my turn"),
-			usages: 1,
-			recovery: "short rest",
 			spellcastingBonus: [{
 				name: "Ethereal Step",
 				spells: ["etherealness"],
@@ -3126,8 +3122,6 @@ FeatsList["fey teleportation"] = { // this code includes contributions by Soilen
 		firstCol: "oncesr",
 	}],
 	languageProfs: ["Sylvan"],
-	usages: 1,
-	recovery: "short rest",
 };
 FeatsList["flames of phlegethos"] = {
 	name: "Flames of Phlegethos",

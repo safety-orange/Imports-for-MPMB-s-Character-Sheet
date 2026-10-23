@@ -41,14 +41,8 @@ RaceList["multiverse aarakocra"] = {
 				name: "Wind Caller",
 				spells: ["gust of wind"],
 				selection: ["gust of wind"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Gust of Wind",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
 			}],
 			spellChanges: {
 				"gust of wind": {
@@ -278,14 +272,8 @@ RaceList["multiverse deep gnome"] = {
 				name: "Gift of the Svirfneblin",
 				spells: ["disguise self"],
 				selection: ["disguise self"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Disguise Self",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
 			}],
 		},
 		"gift of the svirfneblin (level 5)": {
@@ -295,7 +283,7 @@ RaceList["multiverse deep gnome"] = {
 				name: "Gift of the Svirfneblin",
 				spells: ["nondetection"],
 				selection: ["nondetection"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 			spellChanges: {
@@ -305,12 +293,6 @@ RaceList["multiverse deep gnome"] = {
 					changes: "Using Gift of the Svirfneblin, I can cast *Nondetection* once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
 				},
 			},
-			extraLimitedFeatures: [{
-				name: "Nondetection",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 3+",
-			}],
 		},
 	},
 };
@@ -343,7 +325,7 @@ RaceList["multiverse duergar"] = {
 				name: "Duergar Magic",
 				spells: ["enlarge/reduce"],
 				selection: ["enlarge/reduce"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 			spellChanges: {
@@ -354,12 +336,6 @@ RaceList["multiverse duergar"] = {
 					changes: "Using Duergar Magic, I can cast *Enlarge/Reduce* on myself once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
 				},
 			},
-			extraLimitedFeatures: [{
-				name: "Enlarge/Reduce",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
-			}],
 		},
 		"duergar magic (level 5)": {
 			name: "Duergar Magic (level 5)",
@@ -368,7 +344,7 @@ RaceList["multiverse duergar"] = {
 				name: "Duergar Magic",
 				spells: ["invisibility"],
 				selection: ["invisibility"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 			spellChanges: {
@@ -379,12 +355,6 @@ RaceList["multiverse duergar"] = {
 					changes: "Using Duergar Magic, I can cast *Invisibility* on myself once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
 				},
 			},
-			extraLimitedFeatures: [{
-				name: "Invisibility",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
-			}],
 		},
 	},
 };
@@ -472,14 +442,8 @@ if (!RaceList["fairy"]) {
 					name: "Fairy Magic (level 3)",
 					spells: ["faerie fire"],
 					selection: ["faerie fire"],
-					firstCol: "oncelr",
+					firstCol: "oncelr+markedbox",
 					allowUpCasting: true,
-				}],
-				extraLimitedFeatures: [{
-					name: "Faerie Fire",
-					usages: 1,
-					recovery: "long rest",
-					altResource: "SS 1+",
 				}],
 			},
 			"fairy magic (level 5)": {
@@ -489,14 +453,8 @@ if (!RaceList["fairy"]) {
 					name: "Fairy Magic (level 5)",
 					spells: ["enlarge/reduce"],
 					selection: ["enlarge/reduce"],
-					firstCol: "oncelr",
+					firstCol: "oncelr+markedbox",
 					allowUpCasting: true,
-				}],
-				extraLimitedFeatures: [{
-					name: "Enlarge/Reduce",
-					usages: 1,
-					recovery: "long rest",
-					altResource: "SS 2+",
 				}],
 			},
 		},
@@ -570,20 +528,9 @@ RaceList["multiverse firbolg"] = {
 				name: "Firbolg Magic",
 				spells: ["detect magic", "disguise self"],
 				selection: ["detect magic", "disguise self"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				times: 2,
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Detect Magic",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
-			}, {
-				name: "Disguise Self",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
 			}],
 			spellChanges: {
 				"disguise self": {
@@ -637,14 +584,8 @@ RaceList["multiverse air genasi"] = {
 				name: "Mingle with the Wind",
 				spells: ["feather fall"],
 				selection: ["feather fall"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Feather Fall",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
 			}],
 			spellChanges: {
 				"feather fall": {
@@ -661,14 +602,8 @@ RaceList["multiverse air genasi"] = {
 				name: "Mingle with the Wind",
 				spells: ["levitate"],
 				selection: ["levitate"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Levitate",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
 			}],
 			spellChanges: {
 				"levitate": {
@@ -729,14 +664,8 @@ RaceList["multiverse earth genasi"] = {
 				name: "Merge with Stone",
 				spells: ["pass without trace"],
 				selection: ["pass without trace"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Pass Without Trace",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
 			}],
 			spellChanges: {
 				"pass without trace": {
@@ -781,14 +710,8 @@ RaceList["multiverse fire genasi"] = {
 				name: "Reach to the Blaze",
 				spells: ["burning hands"],
 				selection: ["burning hands"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Burning Hands",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
 			}],
 		},
 		"reach to the blaze (level 5)": {
@@ -798,14 +721,8 @@ RaceList["multiverse fire genasi"] = {
 				name: "Reach to the Blaze",
 				spells: ["flame blade"],
 				selection: ["flame blade"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Flame Blade",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
 			}],
 			spellChanges: {
 				"flame blade": {
@@ -852,14 +769,8 @@ RaceList["multiverse water genasi"] = {
 				name: "Call to the Wave",
 				spells: ["create or destroy water"],
 				selection: ["create or destroy water"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Create or Destroy Water",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
 			}],
 		},
 		"call to the wave (level 5)": {
@@ -869,14 +780,8 @@ RaceList["multiverse water genasi"] = {
 				name: "Call to the Wave",
 				spells: ["water walk"],
 				selection: ["water walk"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Water Walk",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 3+",
 			}],
 			spellChanges: {
 				"water walk": {
@@ -929,14 +834,8 @@ RaceList["multiverse githyanki"] = {
 				name: "Githyanki Psionics (3)",
 				spells: ["jump"],
 				selection: ["jump"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Jump",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
 			}],
 			spellChanges: {
 				"jump": {
@@ -953,14 +852,8 @@ RaceList["multiverse githyanki"] = {
 				name: "Githyanki Psionics (5)",
 				spells: ["misty step"],
 				selection: ["misty step"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Misty Step",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
 			}],
 			spellChanges: {
 				"misty step": {
@@ -1012,14 +905,8 @@ RaceList["multiverse githzerai"] = {
 				name: "Githzerai Psionics (3)",
 				spells: ["shield"],
 				selection: ["shield"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Shield",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
 			}],
 			spellChanges: {
 				"shield": {
@@ -1035,14 +922,8 @@ RaceList["multiverse githzerai"] = {
 				name: "Githzerai Psionics (5)",
 				spells: ["detect thoughts"],
 				selection: ["detect thoughts"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Detect Thoughts",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
 			}],
 			spellChanges: {
 				"detect thoughts": {
@@ -1675,14 +1556,8 @@ RaceList["multiverse triton"] = {
 				name: "Control Air and Water",
 				spells: ["fog cloud"],
 				selection: ["fog cloud"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Fog Cloud",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
 			}],
 		},
 		"control air and water (level 3)": {
@@ -1692,14 +1567,8 @@ RaceList["multiverse triton"] = {
 				name: "Control Air and Water",
 				spells: ["gust of wind"],
 				selection: ["gust of wind"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Gust of Wind",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
 			}],
 		},
 		"control air and water (level 5)": {
@@ -1709,14 +1578,8 @@ RaceList["multiverse triton"] = {
 				name: "Control Air and Water",
 				spells: ["water walk"],
 				selection: ["water walk"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Water Walk",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 3+",
 			}],
 		},
 	},
@@ -1764,14 +1627,8 @@ RaceList["multiverse yuan-ti"] = {
 				name: "Serpentine Spellcasting (level 3)",
 				spells: ["suggestion"],
 				selection: ["suggestion"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Suggestion",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
 			}],
 		},
 	},

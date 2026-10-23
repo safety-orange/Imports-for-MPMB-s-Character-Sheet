@@ -381,8 +381,6 @@ MagicItemsList["gurt's greataxe"] = {
 	],
 	attunement: true,
 	weight: 325,
-	usages: 1,
-	recovery: "dawn",
 	weaponOptions: [{
 		baseWeapon: "greataxe",
 		regExpSearch: /^(?=.*gurt)(?=.*greataxe).*$/i,
@@ -680,10 +678,6 @@ MagicItemsList["pennant of the vind rune"] = {
 			["reaction", "Winds Grasp (Vind Rune)"],
 		],
 		extraLimitedFeatures: [{
-			name: "Levitate (Vind Rune)",
-			usages: 1,
-			recovery: "short rest",
-		}, {
 			name: "Winds Grasp (Vind Rune)",
 			usages: 1,
 			recovery: "short rest",
@@ -725,8 +719,6 @@ MagicItemsList["pennant of the vind rune"] = {
 		rarity: "rare",
 		description: "While wearing this item, I can convert up to 20 ft of my movement on each of my turns into flight. If I don't land at the end of this flight, I fall unless I have other means of staying aloft. Once per short rest, I can use this item to cast *Feather Fall*.",
 		attunement: true,
-		usages: 1,
-		recovery: "short rest",
 		spellcastingBonus: [{
 			name: "Once per short rest",
 			spells: ["feather fall"],
@@ -827,10 +819,6 @@ MagicItemsList["shard of the ise rune"] = {
 			recovery: "short rest",
 		}, {
 			name: "Icy Mantle (Ise Rune)",
-			usages: 1,
-			recovery: "short rest",
-		}, {
-			name: "Sleet Storm (Ise Rune)",
 			usages: 1,
 			recovery: "short rest",
 		}],

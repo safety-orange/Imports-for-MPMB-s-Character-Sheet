@@ -495,9 +495,6 @@ MagicItemsList["mimir"] = {
 	],
 	action: [["bonus action", " (activate/stow)"]],
 	weight: 5,
-	usages: 1,
-	recovery: "dawn",
-	additional: "Legend Lore",
 	spellcastingBonus: [{
 		name: "Once per dawn",
 		spells: ["legend lore"],

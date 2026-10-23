@@ -81,10 +81,7 @@ RaceList["dark elf"] = {
 	features: {
 		"faerie fire": {
 			name: "Drow Magic (level 3)",
-			limfeaname: "Faerie Fire",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Drow Magic (level 3)",
 				spells: ["faerie fire"],
@@ -94,10 +91,7 @@ RaceList["dark elf"] = {
 		},
 		"darkness": {
 			name: "Drow Magic (level 5)",
-			limfeaname: "Darkness",
 			minlevel: 5,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Drow Magic (level 5)",
 				spells: ["darkness"],
@@ -2554,17 +2548,11 @@ AddSubClass("wizard", "transmutation", {
 				"I add *Polymorph* to my spellbook; I can cast it on myself without using a spell slot",
 				"When I do that, I can only transform into a beast with a challenge rating of 1 or lower",
 			]),
-			recovery: "short rest",
-			usages: 1,
 			spellcastingBonus: [{
-				name: "Add to spellbook",
+				name: "Shapechanger",
 				spells: ["polymorph"],
 				selection: ["polymorph"],
-			}, {
-				name: "1/SR no spell slot",
-				spells: ["polymorph"],
-				selection: ["polymorph"],
-				firstCol: "oncesr",
+				firstCol: "oncesr+markedbox",
 			}],
 			spellChanges: {
 				"polymorph": {

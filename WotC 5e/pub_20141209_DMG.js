@@ -47,10 +47,7 @@ RaceList["aasimar"] = {
 	features: {
 		"lesser restoration": {
 			name: "Celestial Legacy (level 3)",
-			limfeaname: "Lesser Restoration",
-			usages: 1,
 			minlevel: 3,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Celestial Legacy (level 3)",
 				spells: ["lesser restoration"],
@@ -60,10 +57,7 @@ RaceList["aasimar"] = {
 		},
 		"daylight": {
 			name: "Celestial Legacy (level 5)",
-			limfeaname: "Daylight",
-			usages: 1,
 			minlevel: 5,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Celestial Legacy (level 5)",
 				spells: ["daylight"],
@@ -106,10 +100,7 @@ RaceList["eladrin"] = {
 	features: {
 		"fey step": {
 			name: "Fey Step",
-			limfeaname: "Misty Step",
 			minlevel: 1,
-			usages: 1,
-			recovery: "short rest",
 			spellcastingBonus: [{
 				name: "Fey Step",
 				spells: ["misty step"],
@@ -414,9 +405,6 @@ MagicItemsList["driftglobe"] = {
 	],
 	weight: 1,
 	action: [["action", " (hover)"]],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Daylight",
 	spellcastingBonus: [{
 		name: "On globe",
 		spells: ["light"],
@@ -919,8 +907,6 @@ MagicItemsList["sending stones"] = {
 		selection: ["sending"],
 		firstCol: "onceday",
 	}],
-	usages: 1,
-	recovery: "dawn",
 	spellChanges: {
 		"sending": {
 			description: "Send a 25 word message to the bearer of the other Sending Stone, who can respond with 25 words",
@@ -1234,9 +1220,6 @@ MagicItemsList["blackrazor"] = {
 		Object.assign({}, sentientItemConflictNote, { amendTo: "Blackrazor" }),
 	],
 	savetxt: { immune: ["charmed", "frightened"] },
-	usages: 1,
-	recovery: "day",
-	additional: "Haste",
 	spellcastingBonus: [{
 		name: "Once per day",
 		spells: ["haste"],
@@ -1378,14 +1361,6 @@ MagicItemsList["whelm"] = {
 		name: "Whelm [Shock Wave]",
 		usages: 1,
 		recovery: "dawn",
-	}, {
-		name: "Whelm [Detect Evil and Good]",
-		usages: 1,
-		recovery: "dawn",
-	}, {
-		name: "Whelm [Locate Object]",
-		usages: 1,
-		recovery: "dawn",
 	}],
 	vision: [["Know location of secret doors", 30]],
 	spellcastingBonus: [{
@@ -1393,6 +1368,7 @@ MagicItemsList["whelm"] = {
 		spells: ["detect evil and good", "locate object"],
 		selection: ["detect evil and good", "locate object"],
 		firstCol: "onceday",
+		times: 2,
 	}],
 }
 

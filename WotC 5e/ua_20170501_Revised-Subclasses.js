@@ -52,8 +52,6 @@ AddSubClass("barbarian", "ancestral guardian2-ua", {
 				selection: ["clairvoyance"],
 				firstCol: "oncesr",
 			}],
-			usages: 1,
-			recovery: "short rest",
 		},
 		"subclassfeature14": {
 			name: "Vengeful Ancestors",

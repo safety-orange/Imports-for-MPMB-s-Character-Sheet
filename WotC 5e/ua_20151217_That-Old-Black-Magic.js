@@ -50,8 +50,6 @@ RaceList["abyssal tiefling-ua"] = {
 		"abyssal arcana (level 3)": {
 			name: "Abyssal Arcana (level 3)",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			action: [["action", ""]],
 			spellcastingBonus: [{
 				name: "Abyssal Arcana (level 3)",
@@ -62,8 +60,6 @@ RaceList["abyssal tiefling-ua"] = {
 		"abyssal arcana (level 5)": {
 			name: "Abyssal Arcana (level 5)",
 			minlevel: 5,
-			usages: 1,
-			recovery: "long rest",
 			action: [["action", ""]],
 			spellcastingBonus: [{
 				name: "Abyssal Arcana (level 5)",

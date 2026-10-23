@@ -797,15 +797,6 @@ MagicItemsList["bookmark"] = {
 		modifiers: [3, 3],
 		selectNow: true,
 	}],
-	extraLimitedFeatures: [{
-		name: "Compulsion (Bookmark)",
-		usages: 1,
-		recovery: "dawn",
-	}, {
-		name: "Dimension Door (Bookmark)",
-		usages: 1,
-		recovery: "dawn",
-	}],
 	fixedDC: 15,
 	spellcastingBonus: [{
 		name: "Once per dawn",

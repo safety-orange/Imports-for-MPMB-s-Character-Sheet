@@ -1196,9 +1196,6 @@ MagicItemsList["topaz annihilator"] = {
 		abilitytodamage: true,
 		selectNow: true,
 	}],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Disintegrate",
 	fixedDC: 18,
 	spellcastingBonus: [{
 		name: "Once per dawn",
@@ -1465,15 +1462,6 @@ var FToD_HoardItems = {
 				"Whenever I use a spell slot to cast a spell that deals acid, cold, fire, lightning, or poison damage, roll a d6, and I gain a bonus equal to the number rolled to one of the spell's damage rolls.",
 			],
 		},
-		extraLimitedFeatures: [{
-			name: "Dragon-Touched Focus (Hold Monster)",
-			usages: 1,
-			recovery: "dawn",
-		}, {
-			name: "Dragon-Touched Focus (Rime's Binding Ice)",
-			usages: 1,
-			recovery: "dawn",
-		}],
 		spellcastingBonus: [{
 			name: "Once per dawn",
 			spells: ["hold monster", "rime's binding ice"],
@@ -1483,15 +1471,6 @@ var FToD_HoardItems = {
 		}],
 	},
 	dtf_gem: {
-		extraLimitedFeatures: [{
-			name: "Dragon-Touched Focus (Rary's Telepathic Bond)",
-			usages: 1,
-			recovery: "dawn",
-		}, {
-			name: "Dragon-Touched Focus (R's Psychic Lance)",
-			usages: 1,
-			recovery: "dawn",
-		}],
 		spellcastingBonus: [{
 			name: "Once per dawn",
 			spells: ["rary's telepathic bond", "raulothim's psychic lance"],
@@ -1501,15 +1480,6 @@ var FToD_HoardItems = {
 		}],
 	},
 	dtf_metallic: {
-		extraLimitedFeatures: [{
-			name: "Dragon-Touched Focus (F's Platinum Shield)",
-			usages: 1,
-			recovery: "dawn",
-		}, {
-			name: "Dragon-Touched Focus (Legend Lore)",
-			usages: 1,
-			recovery: "dawn",
-		}],
 		spellcastingBonus: [{
 			name: "Once per dawn",
 			spells: ["fizban's platinum shield", "legend lore"],
@@ -1607,7 +1577,6 @@ MagicItemsList["dragon-touched focus"] = {
 		calcChanges: FToD_HoardItems.dtf_chromatic.calcChanges,
 		spellcastingAbility: "class",
 		spellcastingBonus: FToD_HoardItems.dtf_chromatic.spellcastingBonus,
-		extraLimitedFeatures: FToD_HoardItems.dtf_chromatic.extraLimitedFeatures,
 	},
 	"wakened - gem (very rare)": {
 		name: "Gem Dragon-Touched Focus (wakened)",
@@ -1616,7 +1585,6 @@ MagicItemsList["dragon-touched focus"] = {
 		description: "While holding this object, I can use it as my spellcasting focus and I can immediately teleport to an unoccupied space I can see within 15 ft when I cast a spell with a spell slot. It also grants me advantage on initiative and allows me to cast *Rary's Telepathic Bond* and *Raulothim's Psychic Lance* each once per dawn.",
 		spellcastingAbility: "class",
 		spellcastingBonus: FToD_HoardItems.dtf_gem.spellcastingBonus,
-		extraLimitedFeatures: FToD_HoardItems.dtf_gem.extraLimitedFeatures,
 	},
 	"wakened - metallic (very rare)": {
 		name: "Metallic Dragon-Touched Focus (wakened)",
@@ -1626,7 +1594,6 @@ MagicItemsList["dragon-touched focus"] = {
 		action: [["reaction", "Dragon-Touched Focus (adv. on save)"]],
 		spellcastingAbility: "class",
 		spellcastingBonus: FToD_HoardItems.dtf_metallic.spellcastingBonus,
-		extraLimitedFeatures: FToD_HoardItems.dtf_metallic.extraLimitedFeatures,
 	},
 	"ascendant - chromatic (legendary)": {
 		name: "Chromatic Dragon-Touched Focus (ascendant)",
@@ -1636,7 +1603,7 @@ MagicItemsList["dragon-touched focus"] = {
 		calcChanges: FToD_HoardItems.dtf_chromatic.calcChanges,
 		spellcastingAbility: "class",
 		spellcastingBonus: FToD_HoardItems.dtf_chromatic.spellcastingBonus,
-		extraLimitedFeatures: FToD_HoardItems.dtf_ascendant.extraLimitedFeatures.concat(FToD_HoardItems.dtf_chromatic.extraLimitedFeatures),
+		extraLimitedFeatures: FToD_HoardItems.dtf_ascendant.extraLimitedFeatures,
 	},
 	"ascendant - gem (legendary)": {
 		name: "Gem Dragon-Touched Focus (ascendant)",
@@ -1645,7 +1612,7 @@ MagicItemsList["dragon-touched focus"] = {
 		description: "While holding this, I can use it as my spellcasting focus and I can teleport to an empty space I can see in 15 ft when I cast a spell with a spell slot. It also grants me adv. on initiative and allows me to cast 2 spells each once per dawn. Once per dawn, I can treat a spell I cast as if cast with a 9th-level spell slot.",
 		spellcastingAbility: "class",
 		spellcastingBonus: FToD_HoardItems.dtf_gem.spellcastingBonus,
-		extraLimitedFeatures: FToD_HoardItems.dtf_ascendant.extraLimitedFeatures.concat(FToD_HoardItems.dtf_gem.extraLimitedFeatures),
+		extraLimitedFeatures: FToD_HoardItems.dtf_ascendant.extraLimitedFeatures,
 	},
 	"ascendant - metallic (legendary)": {
 		name: "Metallic Dragon-Touched Focus (ascendant)",
@@ -1655,7 +1622,7 @@ MagicItemsList["dragon-touched focus"] = {
 		action: [["reaction", "Dragon-Touched Focus (adv. on save)"]],
 		spellcastingAbility: "class",
 		spellcastingBonus: FToD_HoardItems.dtf_metallic.spellcastingBonus,
-		extraLimitedFeatures: FToD_HoardItems.dtf_ascendant.extraLimitedFeatures.concat(FToD_HoardItems.dtf_metallic.extraLimitedFeatures),
+		extraLimitedFeatures: FToD_HoardItems.dtf_ascendant.extraLimitedFeatures,
 	},
 }
 MagicItemsList["dragon vessel"] = {

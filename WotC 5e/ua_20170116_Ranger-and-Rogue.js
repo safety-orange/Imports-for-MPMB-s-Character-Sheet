@@ -58,8 +58,6 @@ var UARnR_theHorizonWalkerSubclass = {
 			source: [["UA:RnR", 1]],
 			minlevel: 7,
 			description: desc("As a bonus action, I can cast the *Etherealness* spell, which lasts until the end of the turn"),
-			usages: 1,
-			recovery: "short rest",
 			action: [["bonus action", ""]],
 			spellcastingBonus: [{
 				name: "Ethereal Step",

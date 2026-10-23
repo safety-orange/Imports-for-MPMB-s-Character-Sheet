@@ -561,7 +561,7 @@ MagicItemsList["lorehold primer"] = {
 		"In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the cleric or wizard spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
 	],
 	extraLimitedFeatures: [{
-		name: "Lorehold Primer charges (regains 1d3)",
+		name: "Lorehold Primer (charges; regains 1d3)",
 		usages: 3,
 		recovery: "dawn",
 	}, {
@@ -781,8 +781,6 @@ MagicItemsList["masque charm"] = {
 	rarity: "common",
 	description: "While wearing this small silver pin, I can cast *Disguise Self* once per sunset. It has DC 13 to discern the disguise. I can have the spell last its normal 1 hour duration, or 6 hours. If I choose 6 hours, the charm becomes nonmagical when the spell ends. In either case, the spell ends if the pin is removed from me.",
 	descriptionFull: "A *masque charm* is a small silver pin. While wearing this charm, you can use an action to cast the *disguise self* spell (DC 13 to discern the disguise). Once the spell is cast, it can't be cast from the charm again until the next sunset. When casting the spell, you can have the spell last for its normal 1 hour duration or for 6 hours. If you choose the 6-hour duration, the charm becomes nonmagical when the spell ends. In either case, the spell ends if the charm is removed from you.",
-	usages: 1,
-	recovery: "Sunset",
 	spellcastingBonus: [{
 		name: "Once per sunset",
 		spells: ["disguise self"],

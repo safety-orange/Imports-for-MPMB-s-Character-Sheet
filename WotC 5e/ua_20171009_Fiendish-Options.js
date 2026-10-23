@@ -51,10 +51,7 @@ if (!RaceList["baalzebul tiefling"]) {
 		features: {
 			"ray of sickness": {
 				name: "Legacy of Maladomini (level 3)",
-				limfeaname: "Ray of Sickness (3d8)",
 				minlevel: 3,
-				usages: 1,
-				recovery: "long rest",
 				spellcastingBonus: [{
 					name: "Legacy of Maladomini (3)",
 					spells: ["ray of sickness"],
@@ -70,10 +67,7 @@ if (!RaceList["baalzebul tiefling"]) {
 			},
 			"crown of madness": {
 				name: "Legacy of Maladomini (level 5)",
-				limfeaname: "Crown of Madness",
 				minlevel: 5,
-				usages: 1,
-				recovery: "long rest",
 				spellcastingBonus: [{
 					name: "Legacy of Maladomini (5)",
 					spells: ["crown of madness"],
@@ -122,10 +116,7 @@ if (!RaceList["fierna tiefling"]) {
 		features: {
 			"charm person": {
 				name: "Legacy of Phlegethos (level 3)",
-				limfeaname: "Charm Person (2 targets)",
 				minlevel: 3,
-				usages: 1,
-				recovery: "long rest",
 				spellcastingBonus: [{
 					name: "Legacy of Phlegethos (3)",
 					spells: ["charm person"],
@@ -141,10 +132,7 @@ if (!RaceList["fierna tiefling"]) {
 			},
 			"suggestion": {
 				name: "Legacy of Phlegethos (level 5)",
-				limfeaname: "Suggestion",
 				minlevel: 5,
-				usages: 1,
-				recovery: "long rest",
 				spellcastingBonus: [{
 					name: "Legacy of Phlegethos (5)",
 					spells: ["suggestion"],
@@ -192,10 +180,7 @@ if (!RaceList["glasya tiefling"]) {
 		features: {
 			"disguise self": {
 				name: "Legacy of Malbolge (level 3)",
-				limfeaname: "Disguise Self",
 				minlevel: 3,
-				usages: 1,
-				recovery: "long rest",
 				spellcastingBonus: [{
 					name: "Legacy of Malbolge (3)",
 					spells: ["disguise self"],
@@ -205,10 +190,7 @@ if (!RaceList["glasya tiefling"]) {
 			},
 			"invisibility": {
 				name: "Legacy of Malbolge (level 5)",
-				limfeaname: "Invisibility",
 				minlevel: 5,
-				usages: 1,
-				recovery: "long rest",
 				spellcastingBonus: [{
 					name: "Legacy of Malbolge (5)",
 					spells: ["invisibility"],
@@ -256,10 +238,7 @@ if (!RaceList["levistus tiefling"]) {
 		features: {
 			"armor of agathys": {
 				name: "Legacy of Stygia (level 3)",
-				limfeaname: "Armor of Agathys (2nd-level)",
 				minlevel: 3,
-				usages: 1,
-				recovery: "long rest",
 				spellcastingBonus: [{
 					name: "Legacy of Stygia (3)",
 					spells: ["armor of agathys"],
@@ -275,10 +254,7 @@ if (!RaceList["levistus tiefling"]) {
 			},
 			"darkness": {
 				name: "Legacy of Stygia (level 5)",
-				limfeaname: "Darkness",
 				minlevel: 5,
-				usages: 1,
-				recovery: "long rest",
 				spellcastingBonus: [{
 					name: "Legacy of Stygia (5)",
 					spells: ["darkness"],
@@ -326,10 +302,7 @@ if (!RaceList["mammon tiefling"]) {
 		features: {
 			"tenser's floating disk": {
 				name: "Legacy of Minauros (level 3)",
-				limfeaname: "Tenser's Floating Disk",
 				minlevel: 3,
-				usages: 1,
-				recovery: "long rest",
 				spellcastingBonus: [{
 					name: "Legacy of Minauros (3)",
 					spells: ["tenser's floating disk"],
@@ -339,10 +312,7 @@ if (!RaceList["mammon tiefling"]) {
 			},
 			"arcane lock": {
 				name: "Legacy of Minauros (level 5)",
-				limfeaname: "Arcane Lock",
 				minlevel: 5,
-				usages: 1,
-				recovery: "long rest",
 				spellcastingBonus: [{
 					name: "Legacy of Minauros (5)",
 					spells: ["arcane lock"],
@@ -398,10 +368,7 @@ if (!RaceList["zariel tiefling"]) {
 		features: {
 			"searing smite": {
 				name: "Legacy of Avernus (level 3)",
-				limfeaname: "Searing Smite (2d6)",
 				minlevel: 3,
-				usages: 1,
-				recovery: "long rest",
 				spellcastingBonus: [{
 					name: "Legacy of Avernus (3)",
 					spells: ["searing smite"],
@@ -417,10 +384,7 @@ if (!RaceList["zariel tiefling"]) {
 			},
 			"branding smite": {
 				name: "Legacy of Avernus (level 5)",
-				limfeaname: "Branding Smite",
 				minlevel: 5,
-				usages: 1,
-				recovery: "long rest",
 				spellcastingBonus: [{
 					name: "Legacy of Avernus (5)",
 					spells: ["branding smite"],
@@ -467,10 +431,7 @@ RaceList["dispater tiefling-ua"] = {
 	features: {
 		"disguise self": {
 			name: "Legacy of Dis (level 3)",
-			limfeaname: "Disguise Self",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Legacy of Dis (level 3)",
 				spells: ["disguise self"],
@@ -480,10 +441,7 @@ RaceList["dispater tiefling-ua"] = {
 		},
 		"invisibility": {
 			name: "Legacy of Dis (level 5)",
-			limfeaname: "Invisibility",
 			minlevel: 5,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Legacy of Dis (level 5)",
 				spells: ["invisibility"],
@@ -529,10 +487,7 @@ RaceList["mephistopheles tiefling-ua"] = {
 	features: {
 		"magic missile": {
 			name: "Legacy of Cania (level 3)",
-			limfeaname: "Magic Missile (2 darts)",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Legacy of Cania (level 3)",
 				spells: ["magic missile"],
@@ -548,10 +503,7 @@ RaceList["mephistopheles tiefling-ua"] = {
 		},
 		"web": {
 			name: "Legacy of Cania (level 5)",
-			limfeaname: "Web",
 			minlevel: 5,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Legacy of Cania (level 5)",
 				spells: ["web"],

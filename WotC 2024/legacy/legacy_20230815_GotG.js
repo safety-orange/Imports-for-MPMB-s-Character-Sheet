@@ -248,7 +248,7 @@ FeatsList["ember of the fire giant"] = {
 		"***Born of Flame***. You have resistance to fire damage.",
 		"***Searing Ignition***. When you take the Attack action on your turn, you can replace a single attack with a magical burst of flame. Each creature of your choice in a 15-foot-radius sphere centered on you must make a Dexterity saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, a creature takes fire damage equal to 1d8 + your proficiency bonus, and it has the blinded condition until the start of your next turn. On a successful save, the creature takes half as much damage only. You can use your Searing Ignition a number of times equal to your proficiency bonus (but no more than once per turn), and you regain all expended uses when you finish a long rest.",
 	],
-	description: "I get Fire Resistance. Prof B per Long Rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius Sphere on me take 1d8 + Prof B Fire damage, blind until my next turn starts. Dex save DC 8 + Prof B + Str/Con/Wis mod half damage, not blind. [+1 Str/Con/Wis]",
+	description: "I get Fire Resistance. Prof B per Long Rest, when I use the Attack action on my turn, I can replace one attack with ***Searing Ignition***. Chosen targets in 15-ft radius Sphere on me take 1d8 + Prof B Fire damage, blind until my next turn starts. Dex save DC 8 + Prof B + Str/Con/Wis mod half damage, not blind. [+1 Str/Con/Wis]",
 	extraLimitedFeatures: [{
 		name: "Searing Ignition",
 		usages: "Proficiency Bonus per ",
@@ -332,7 +332,7 @@ FeatsList["fury of the frost giant"] = {
 		"***Born of Ice***. You have resistance to cold damage.",
 		"***Frigid Retaliation***. Immediately after a creature you can see within 30 feet of you hits you with an attack roll and deals damage, you can use your reaction to retaliate with a conjured blast of ice. The creature must make a Constitution saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, the creature takes cold damage equal to 1d8 + your proficiency bonus, and its speed is reduced to 0 until the end of its next turn. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	],
-	description: "I gain Cold Resistance. As a Reaction when a creature I see within 30 ft damages me with an attack, I can, Prof B times per Long Rest, use Frigid Retaliation: it must make a Con save DC 8 + Prof B + Str/Con/Wis mod or take 1d8 + Prof B Cold damage and have Speed 0 until its next turn ends. [+1 Str/Con/Wis]",
+	description: "I gain Cold Resistance. As a Reaction when a creature I see within 30 ft damages me with an attack, I can, Prof B times per Long Rest, use ***Frigid Retaliation***. it must make a Con save DC 8 + Prof B + Str/Con/Wis mod or take 1d8 + Prof B Cold damage and have Speed 0 until its next turn ends. [+1 Str/Con/Wis]",
 	action: [["reaction", "Frigid Retaliation"]],
 	extraLimitedFeatures: [{
 		name: "Frigid Retaliation",
@@ -344,7 +344,7 @@ FeatsList["fury of the frost giant"] = {
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I gain Cold Resistance. As a Reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B) per Long Rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Str mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have Speed 0 until its next turn ends. [+1 Str]';",
+		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I gain Cold Resistance. As a Reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B) per Long Rest, use ***Frigid Retaliation***. it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Str mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have Speed 0 until its next turn ends. [+1 Str]';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name: "Frigid Retaliation",
@@ -364,7 +364,7 @@ FeatsList["fury of the frost giant"] = {
 	},
 	"constitution": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I gain Cold Resistance. As a Reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B) per Long Rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Con mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have Speed 0 until its next turn ends. [+1 Con]';",
+		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I gain Cold Resistance. As a Reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B) per Long Rest, use ***Frigid Retaliation***. it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Con mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have Speed 0 until its next turn ends. [+1 Con]';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name: "Frigid Retaliation",
@@ -384,7 +384,7 @@ FeatsList["fury of the frost giant"] = {
 	},
 	"wisdom": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I gain Cold Resistance. As a Reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B) per Long Rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Wis mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have Speed 0 until its next turn ends. [+1 Wis]';",
+		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I gain Cold Resistance. As a Reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B) per Long Rest, use ***Frigid Retaliation***. it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Wis mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have Speed 0 until its next turn ends. [+1 Wis]';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name: "Frigid Retaliation",
@@ -426,15 +426,15 @@ FeatsList["guile of the cloud giant"] = {
 	}],
 	choices: ["Strength", "Constitution", "Charisma"],
 	"strength": {
-		description: "As a Reaction when a creature I see within 30 ft hits me with an attack roll, I can use Cloudy Escape: I give myself Resistance to that attack's damage and then I teleport to an unoccupied space that I can see within 30 ft. I can do this Proficiency Bonus per Long Rest. [+1 Strength]",
+		description: "As a Reaction when a creature I see within 30 ft hits me with an attack roll, I can use ***Cloudy Escape***. I give myself Resistance to that attack's damage and then I teleport to an unoccupied space that I can see within 30 ft. I can do this Proficiency Bonus per Long Rest. [+1 Strength]",
 		scores: [1,0,0,0,0,0],
 	},
 	"constitution": {
-		description: "As a Reaction when a creature I see within 30 ft hits me with an attack roll, I can use Cloudy Escape: I give myself Resistance to that attack's damage and then I teleport to an unoccupied space that I can see within 30 ft. I can do this Proficiency Bonus per Long Rest. [+1 Constitution]",
+		description: "As a Reaction when a creature I see within 30 ft hits me with an attack roll, I can use ***Cloudy Escape***. I give myself Resistance to that attack's damage and then I teleport to an unoccupied space that I can see within 30 ft. I can do this Proficiency Bonus per Long Rest. [+1 Constitution]",
 		scores: [0,0,1,0,0,0],
 	},
 	"charisma": {
-		description: "As a Reaction when a creature I see within 30 ft hits me with an attack roll, I can use Cloudy Escape: I give myself Resistance to that attack's damage and then I teleport to an unoccupied space that I can see within 30 ft. I can do this Proficiency Bonus per Long Rest. [+1 Charisma]",
+		description: "As a Reaction when a creature I see within 30 ft hits me with an attack roll, I can use ***Cloudy Escape***. I give myself Resistance to that attack's damage and then I teleport to an unoccupied space that I can see within 30 ft. I can do this Proficiency Bonus per Long Rest. [+1 Charisma]",
 		scores: [0,0,0,0,0,1],
 	},
 };
@@ -452,7 +452,7 @@ FeatsList["keenness of the stone giant"] = {
 		"***Cavernous Sight***. You gain darkvision with a range of 60 feet. If you already have darkvision from another source, its range increases by 60 feet.",
 		"***Stone Throw***. As a bonus action, you can take a rock and make a magical attack with it. The attack is a ranged spell attack with a range of 60 feet that uses the ability score you increased with this feat as the spellcasting ability. On a hit, the rock deals 1d10 force damage, and the target must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + the spellcasting ability modifier) or have the prone condition. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	],
-	description: "I gain +60 ft Darkvision. As a Bonus Action, Prof Bonus times per Long Rest, I can make a magical Stone Throw attack. It is a spell attack with 60 ft range that deals 1d10 Force damage and the target hit must make a Str save or be knocked Prone. This uses the ability increased as spellcasting ability. [+1 Str/Con/Wis]",
+	description: "I gain +60 ft Darkvision. As a Bonus Action, Prof Bonus times per Long Rest, I can make a magical ***Stone Throw*** attack. It is a spell attack with 60 ft range that deals 1d10 Force damage and the target hit must make a Str save or be knocked Prone. This uses the ability increased as spellcasting ability. [+1 Str/Con/Wis]",
 	vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
 	action: [["bonus action", "Stone Throw"]],
 	extraLimitedFeatures: [{
@@ -464,7 +464,7 @@ FeatsList["keenness of the stone giant"] = {
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I gain +60 ft Darkvision. As a Bonus Action, ' + iProfB + ' (Prof Bonus) times per Long Rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 Force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked Prone. This uses Strength as spellcasting ability. [+1 Strength]';",
+		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I gain +60 ft Darkvision. As a Bonus Action, ' + iProfB + ' (Prof Bonus) times per Long Rest, I can make a magical ***Stone Throw*** attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 Force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked Prone. This uses Strength as spellcasting ability. [+1 Strength]';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*stone)(?=.*throw).*$/i,
 			name: "Stone Throw",
@@ -481,7 +481,7 @@ FeatsList["keenness of the stone giant"] = {
 	},
 	"constitution": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I gain +60 ft Darkvision. As a Bonus Action, ' + iProfB + ' (Prof Bonus) times per Long Rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 Force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked Prone. This uses Constitution as spellcasting ability. [+1 Con]';",
+		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I gain +60 ft Darkvision. As a Bonus Action, ' + iProfB + ' (Prof Bonus) times per Long Rest, I can make a magical ***Stone Throw*** attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 Force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked Prone. This uses Constitution as spellcasting ability. [+1 Con]';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*stone)(?=.*throw).*$/i,
 			name: "Stone Throw",
@@ -498,7 +498,7 @@ FeatsList["keenness of the stone giant"] = {
 	},
 	"wisdom": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I gain +60 ft Darkvision. As a Bonus Action, ' + iProfB + ' (Prof Bonus) times per Long Rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 Force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked Prone. This uses Wisdom as spellcasting ability. [+1 Wisdom]';",
+		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I gain +60 ft Darkvision. As a Bonus Action, ' + iProfB + ' (Prof Bonus) times per Long Rest, I can make a magical ***Stone Throw*** attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 Force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked Prone. This uses Wisdom as spellcasting ability. [+1 Wisdom]';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*stone)(?=.*throw).*$/i,
 			name: "Stone Throw",
@@ -527,7 +527,7 @@ FeatsList["soul of the storm giant"] = {
 		"***Ability Score Increase***. Increase your Strength, Constitution, or Charisma by 1, to a maximum of 20.",
 		"***Maelstrom Aura***. As a bonus action, you surround yourself with an aura of magical wind and lightning that extends 10 feet from you in every direction but not through total cover. The aura lasts until the start of your next turn or until you are incapacitated. While the aura is active, you have resistance to lightning and thunder damage. In addition, attack rolls against you have disadvantage, and whenever another creature starts its turn within the aura, you can force the creature to make a Strength saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, the creature's speed is halved until the start of its next turn. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	],
-	description: "As a Bonus Action, Prof B per Long Rest, I can make a 10-ft radius Maelstrom Aura until my next turn starts: I get Lightning/Thunder Resistance, attacks vs me have Disadv, I can force those starting their turn inside to a Str save DC 8 + Prof + Str/Con/Cha mod or halve their Speed until their next turn starts. [+1 Str/Con/Cha]",
+	description: "As a Bonus Action, Prof B per Long Rest, I can make a 10-ft radius ***Maelstrom Aura*** until my next turn starts: I get Lightning/Thunder Resistance, attacks vs me have Disadv, I can force those starting their turn inside to a Str save DC 8 + Prof + Str/Con/Cha mod or halve their Speed until their next turn starts. [+1 Str/Con/Cha]",
 	action: [["bonus action", "Maelstrom Aura"]],
 	extraLimitedFeatures: [{
 		name: "Maelstrom Aura",
@@ -566,19 +566,19 @@ FeatsList["vigor of the hill giant"] = {
 		"***Bulwark***. When you are subjected to an effect that would move you at least 5 feet or give you the prone condition, you can use your reaction to steady yourself. You aren't moved and don't have the prone condition.",
 		"***Iron Stomach***. Whenever you eat food as part of a short rest and spend one or more Hit Dice to regain hit points, you regain additional hit points equal to your Constitution modifier + your proficiency bonus.",
 	],
-	description: "Bulwark: When I would be moved or knocked Prone I can use my Reaction to prevent that. Iron Stomach: Whenever I eat food as part of a Short Rest and spend HD to regain Hit Points, I regain additional HP equal to my Constitution modifier + my Proficiency Bonus. [+1 Strength/Constitution/Wisdom]",
+	description: "***Bulwark***. When I would be moved or knocked Prone I can use my Reaction to prevent that. ***Iron Stomach***. Whenever I eat food as part of a Short Rest and spend HD to regain Hit Points, I regain additional HP equal to my Constitution modifier + my Proficiency Bonus. [+1 Strength/Constitution/Wisdom]",
 	action: [["reaction", "Bulwark"]],
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
-		description: "Bulwark: When I would be moved or knocked Prone I can use my Reaction to prevent that. Iron Stomach: Whenever I eat food as part of a Short Rest and spend HD to regain Hit Points, I regain additional HP equal to my Con" + (typePF ? "stitution" : "") + " modifier + my Proficiency Bonus. [+1 St" + (typePF ? "rength" : "") + "]",
+		description: "***Bulwark***. When I would be moved or knocked Prone I can use my Reaction to prevent that. ***Iron Stomach***. Whenever I eat food as part of a Short Rest and spend HD to regain Hit Points, I regain additional HP equal to my Con" + (typePF ? "stitution" : "") + " modifier + my Proficiency Bonus. [+1 St" + (typePF ? "rength" : "") + "]",
 		scores: [1,0,0,0,0,0],
 	},
 	"constitution": {
-		description: "Bulwark: When I would be moved or knocked Prone I can use my Reaction to prevent that. Iron Stomach: Whenever I eat food as part of a Short Rest and spend HD to regain Hit Points, I regain additional HP equal to my Con" + (typePF ? "stitution" : "") + " modifier + my Proficiency Bonus. [+1 Con" + (typePF ? "stitution" : "") + "]",
+		description: "***Bulwark***. When I would be moved or knocked Prone I can use my Reaction to prevent that. ***Iron Stomach***. Whenever I eat food as part of a Short Rest and spend HD to regain Hit Points, I regain additional HP equal to my Con" + (typePF ? "stitution" : "") + " modifier + my Proficiency Bonus. [+1 Con" + (typePF ? "stitution" : "") + "]",
 		scores: [0,0,1,0,0,0],
 	},
 	"wisdom": {
-		description: "Bulwark: When I would be moved or knocked Prone I can use my Reaction to prevent that. Iron Stomach: Whenever I eat food as part of a Short Rest and spend HD to regain Hit Points, I regain additional HP equal to my Con" + (typePF ? "stitution" : "") + " modifier + my Proficiency Bonus. [+1 Wis" + (typePF ? "dom" : "") + "]",
+		description: "***Bulwark***. When I would be moved or knocked Prone I can use my Reaction to prevent that. ***Iron Stomach***. Whenever I eat food as part of a Short Rest and spend HD to regain Hit Points, I regain additional HP equal to my Con" + (typePF ? "stitution" : "") + " modifier + my Proficiency Bonus. [+1 Wis" + (typePF ? "dom" : "") + "]",
 		scores: [0,0,0,0,1,0],
 	},
 };
@@ -1387,19 +1387,14 @@ MagicItemsList["staff of the rooted hills"] = {
 	}],
 	usages: 1,
 	recovery: "dawn",
-	additional: "Hold Person or Speak with Plants",
 	fixedDC: 12,
 	spellFirstColTitle: "Ch",
 	spellcastingBonus: [{
-		name: "Hold Person",
-		spells: ["hold person"],
+		name: "1 charge",
+		spells: ["hold person", "speak with plants"],
 		selection: ["hold person"],
 		firstCol: 1,
-	}, {
-		name: "Speak with Plants",
-		spells: ["speak with plants"],
-		selection: ["speak with plants"],
-		firstCol: 1,
+		times: 2,
 	}],
 };
 MagicItemsList["stonebreaker's breastplate"] = {

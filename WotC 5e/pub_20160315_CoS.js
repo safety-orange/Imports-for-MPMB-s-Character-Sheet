@@ -667,15 +667,6 @@ MagicItemsList["icon of ravenloft"] = {
 	],
 	attunement: true,
 	weight: 10,
-	extraLimitedFeatures: [{
-		name: "Icon of Ravenloft [Augury]",
-		usages: 1,
-		recovery: "dawn",
-	}, {
-		name: "Icon of Ravenloft [Cure Wounds]",
-		usages: 1,
-		recovery: "dawn",
-	}],
 	spellcastingBonus: [{
 		name: "All in 30 ft",
 		spells: ["protection from evil and good"],
@@ -726,9 +717,6 @@ MagicItemsList["lost sword"] = {
 	],
 	attunement: true,
 	weight: 2,
-	usages: 1,
-	recovery: "dawn",
-	additional: "Crusader's Mantle",
 	weaponOptions: [{
 		baseWeapon: "shortsword",
 		regExpSearch: /^(?=.*lost)(?=.*sword).*$/i,

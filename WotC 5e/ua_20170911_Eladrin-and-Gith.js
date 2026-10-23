@@ -97,10 +97,7 @@ RaceList["githyanki-ua"] = {
 	features: {
 		"jump": {
 			name: "Githyanki Psionics (level 3)",
-			limfeaname: "Jump",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Githyanki Psionics (3)",
 				spells: ["jump"],
@@ -110,10 +107,7 @@ RaceList["githyanki-ua"] = {
 		},
 		"misty step": {
 			name: "Githyanki Psionics (level 5)",
-			limfeaname: "Misty Step",
 			minlevel: 5,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Githyanki Psionics (5)",
 				spells: ["misty step"],
@@ -167,10 +161,7 @@ RaceList["githzerai-ua"] = {
 	features: {
 		"shield": {
 			name: "Githzerai Psionics (level 3)",
-			limfeaname: "Shield",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Githzerai Psionics (3)",
 				spells: ["shield"],
@@ -180,10 +171,7 @@ RaceList["githzerai-ua"] = {
 		},
 		"detect thoughts": {
 			name: "Githzerai Psionics (level 5)",
-			limfeaname: "Detect Thoughts",
 			minlevel: 5,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Githzerai Psionics (5)",
 				spells: ["detect thoughts"],

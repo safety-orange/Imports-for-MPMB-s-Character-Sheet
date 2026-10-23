@@ -451,9 +451,6 @@ AddSubClass("artificer-ua2", "alchemist", {
 			]),
 			dmgres: ["Acid", "Poison"],
 			savetxt: { immune: ["poisoned condition"] },
-			usages: 1,
-			recovery: "long rest",
-			additional: "Greater Restoration",
 			spellcastingBonus: [{
 				name: "Chemical Savant",
 				spells: ["greater restoration"],

@@ -2564,8 +2564,8 @@ MagicItemsList["danoth's visor"] = {
 		name: "Danoth's Visor [exalted]",
 		description: "These goggles grant me the ability to see, out to 60 ft, in normal and magical Darkness, invisible creatures and objects, and into the Ethereal plane. They allow me to automatically detect illusions for what they are, succeed on saves against them, and see if creatures aren't in their true form. See Notes for more.",
 		action: [
-			["bonus action", "Danoth's Visor (see through matter)"]
-				["bonus action", "Danoth's Visor (spyglass mode)"],
+			["bonus action", "Danoth's Visor (see through matter)"],
+			["bonus action", "Danoth's Visor (spyglass mode)"],
 		],
 		extraLimitedFeatures: [{
 			name: "Danoth's Visor (see through matter)",

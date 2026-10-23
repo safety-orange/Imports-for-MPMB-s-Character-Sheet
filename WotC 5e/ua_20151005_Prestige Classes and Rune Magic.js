@@ -92,11 +92,6 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 						changes: "Using my Orb of the Stein Rune, I can cast *Meld Into Stone* as a bonus action once per short rest.",
 					},
 				},
-				extraLimitedFeatures: [{
-					name: "Earthen Step (Orb of the Stein Rune)",
-					usages: 1,
-					recovery: "short rest",
-				}],
 			},
 			"pennant of the vind rune": {
 				name: "Pennant of the Vind Rune",
@@ -128,11 +123,6 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 						changes: "Using my Pennant of the Vind Rune, I can cast *Levitate* as a bonus action once per short rest.",
 					},
 				},
-				extraLimitedFeatures: [{
-					name: "Wind Walker (Pennant of the Vind Rune)",
-					usages: 1,
-					recovery: "short rest",
-				}],
 			},
 			"shard of the kalt rune": {
 				name: "Shard of the Kalt Rune",
@@ -157,11 +147,6 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 					spells: ["sleet storm"],
 					selection: ["sleet storm"],
 					firstCol: "oncesr",
-				}],
-				extraLimitedFeatures: [{
-					name: "Winter's Howl (Shard of the Kalt Rune)",
-					usages: 1,
-					recovery: "short rest",
 				}],
 			},
 		},

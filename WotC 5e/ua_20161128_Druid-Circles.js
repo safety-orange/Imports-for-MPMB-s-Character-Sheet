@@ -191,8 +191,6 @@ AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 				"Once per short rest, I can cast *Speak with Dead* without spell slots or material comp.",
 				"The target and I can understand each other, regardless of language or intelligence",
 			]),
-			usages: 1,
-			recovery: "short rest",
 			spellcastingBonus: [{
 				name: "Speech Beyond the Grave",
 				spells: ["speak with dead"],
@@ -222,8 +220,6 @@ AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 			source: [["UA:DC", 3]],
 			minlevel: 14,
 			description: desc("Once per short rest, I can cast *Etherealness* without needing a spell slot"),
-			usages: 1,
-			recovery: "short rest",
 			spellcastingBonus: [{
 				name: "Paths of the Dead",
 				spells: ["etherealness"],

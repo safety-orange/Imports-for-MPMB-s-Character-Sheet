@@ -872,7 +872,7 @@ if (!MagicItemsList["shield guardian amulet"]) {
 		notLegalAL: true,
 		prerequisite: "Requires attunement by a humanoid",
 		prereqeval: function (v) { return !CurrentRace.known || !RaceList[CurrentRace.known] || !/creature type/i.test(RaceList[CurrentRace.known].trait); },
-		description: "A shield guardian is magically linked to this amulet. It has AC 10, 10 HP, and Immunity to Poison and Psychic damage. I know the distance and direction of the guardian while I'm wearing the amulet and I'm on the same plane as it. While within 10 ft of it, I can use the amulet to reactivate it with a DC 20 Arcana check.",
+		description: "A **Shield Guardian** is magically linked to this amulet. It has AC 10, 10 HP, and Immunity to Poison and Psychic damage. I know the distance and direction of the guardian while I'm wearing the amulet and I'm on the same plane as it. While within 10 ft of it, I can use the amulet to reactivate it with a DC 20 Arcana check.",
 		descriptionFull: [
 			"The amulet is a 4-inch-wide disk composed of silver-framed wood, with a rune carved into its face. A *detect magic* spell reveals a magical aura of enchantment around the amulet.",
 			"Every shield guardian has an amulet magically linked to it. A shield guardian can have only one corresponding amulet, and if that amulet is destroyed, the shield guardian is incapacitated until a replacement amulet is created.",

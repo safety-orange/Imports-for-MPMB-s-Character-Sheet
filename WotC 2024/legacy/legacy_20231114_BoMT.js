@@ -228,15 +228,16 @@ MagicItemsList["armor of the fallen"] = {
 			return !/heavy|medium/i.test(inObj.type);
 		},
 	},
+	usages: 1,
+	recovery: "dawn",
+	spellFirstColTitle: "Ch",
 	spellcastingBonus: [{
 		name: "either or",
 		spells: ["animate dead", "speak with dead"],
 		selection: ["animate dead", "speak with dead"],
-		firstCol: "SP",
+		firstCol: 1,
 		times: 2,
 	}],
-	usages: 1,
-	recovery: "dawn",
 };
 MagicItemsList["armor of weightlessness"] = {
 	name: "Armor of Weightlessness",
@@ -1612,9 +1613,6 @@ MagicItemsList["sage's signet"] = {
 			["Wolf", "Very rare", "*Freedom of Movement*, *Pass without Trace*"],
 		],
 	],
-	usages: 3,
-	recovery: "dawn",
-	additional: "each spell once",
 	choices: ["Bear (very rare)", "Hart (very rare)", "Lion (very rare)", "Serpent (rare)", "Songbird (rare)", "Wolf (very rare)"],
 	"bear (very rare)": {
 		name: "Sage's Signet (Bear)",

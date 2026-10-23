@@ -87,8 +87,6 @@ AddSubClass("druid", "circle of the shepherd2-ua", {
 				"This is done as if using a 9th-level spell slot to summon 4 beast of my choice up to CR 2",
 				"They appear within 20 ft of me, last 1 hour, and protect me from harm and attack foes",
 			]),
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Faithful Summons",
 				spells: ["conjure animals"],

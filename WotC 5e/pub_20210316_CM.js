@@ -41,11 +41,6 @@ MagicItemsList["radiance (wand)"] = {
 	],
 	prerequisite: "Requires attunement by a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; },
-	extraLimitedFeatures: [{
-		name: "Radiance (Enhance Ability)",
-		usages: 1,
-		recovery: "dawn",
-	}],
 	spellcastingBonus: [{
 		name: "Once per dawn, self only",
 		spells: ["enhance ability"],
@@ -201,11 +196,6 @@ MagicItemsList["watchful helm"] = {
 	],
 	weight: 1,
 	extraAC: [{ name: "Watchful Helm", mod: 1, magic: true, text: "I gain a +1 bonus to AC while attuned." }],
-	extraLimitedFeatures: [{
-		name: "Watchful Helm (See Invisibility)",
-		usages: 1,
-		recovery: "dawn",
-	}],
 	vision: [["Adv. on Perception checks that rely on sight", 0]],
 	spellcastingBonus: [{
 		name: "Once per dawn",

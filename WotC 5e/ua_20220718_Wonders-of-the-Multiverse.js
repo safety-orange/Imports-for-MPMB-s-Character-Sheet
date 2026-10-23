@@ -70,9 +70,6 @@ AddSubClass("cleric", "fate-ua", {
 				"I can cast *Augury* once per long rest without using a spell slot or requiring components",
 				"Once I do, my divination spells have -25% of no/random answer until I finish a long rest",
 			]),
-			usages: 1,
-			recovery: "long rest",
-			additional: "Augury",
 			spellcastingBonus: [{
 				name: "Omens and Portents",
 				spells: ["augury"],
@@ -139,9 +136,6 @@ AddSubClass("cleric", "fate-ua", {
 			source: [["UA:WotM", 3]],
 			minlevel: 17,
 			description: desc(["Once per long rest, I can cast *Foresight* without a spell slot with a duration of 1 minute"]),
-			usages: 1,
-			recovery: "long rest",
-			limfeaname: "Visions of the Future (Foresight)",
 			spellcastingBonus: [{
 				name: "Visions of the Future",
 				spells: ["foresight"],
@@ -709,7 +703,7 @@ FeatsList["strike of the giants-ua"] = {
 FeatsList["ember of the fire giant-ua2"] = {
 	name: "Fury of the Fire Giant",
 	source: [["UA:WotM", 7]],
-	description: "I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+Prof Bonus fire damage & are blinded until my next turn starts. Dex save (8 + Prof B + Str/Con/Wis mod) for half damage & not blinded.",
+	description: "I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with ***Searing Ignition***. Chosen creatures I can see within 15 ft take 1d8+Prof Bonus fire damage & are blinded until my next turn starts. Dex save (8 + Prof B + Str/Con/Wis mod) for half damage & not blinded.",
 	descriptionFull: [
 		"You've manifested the fiery combat emblematic of fire giants, granting you the following benefits:",
 		"***Ability Score Increase***. Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20.",
@@ -727,7 +721,7 @@ FeatsList["ember of the fire giant-ua2"] = {
 	dmgres: ["Fire"],
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
-		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B + Str mod) for half damage \u0026 not blinded. [+1 Str]';",
+		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with ***Searing Ignition***. Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B + Str mod) for half damage \u0026 not blinded. [+1 Str]';",
 		scores: [1, 0, 0, 0, 0, 0],
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
@@ -745,7 +739,7 @@ FeatsList["ember of the fire giant-ua2"] = {
 		}],
 	},
 	"constitution": {
-		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B+ Con mod) for half damage \u0026 not blinded. [+1 Con]';",
+		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with ***Searing Ignition***. Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B+ Con mod) for half damage \u0026 not blinded. [+1 Con]';",
 		scores: [0, 0, 1, 0, 0, 0],
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
@@ -763,7 +757,7 @@ FeatsList["ember of the fire giant-ua2"] = {
 		}],
 	},
 	"wisdom": {
-		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B + Wis mod) for half damage \u0026 not blinded. [+1 Wis]';",
+		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with ***Searing Ignition***. Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B + Wis mod) for half damage \u0026 not blinded. [+1 Wis]';",
 		scores: [0, 0, 0, 0, 1, 0],
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,

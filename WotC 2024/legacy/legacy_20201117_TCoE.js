@@ -1412,7 +1412,7 @@ AddSubClass("warlock", "the fathomless", {
 			description: desc("I learn *Evard's Black Tentacles*. Once per Long Rest, I can cast it without using a spell slot. It counts as a Warlock spell for me, but not towards the number of spells I can know. Whenever I cast it, I gain Temporary Hit Points equal to my Warlock level. Moreover, damage can't break my Concentration on this spell."),
 			action: [["action", ""]],
 			additional: levels.map(function (n) {
-				return n < 10 ? "" : n + " Temp HP; 1\xD7 per " + (typePF ? "LR" : "Long Rest") + " no SS";
+				return n < 10 ? "" : n + " Temp HP";
 			}),
 			spellcastingBonus: [{
 				name: "Grasping Tentacles",
@@ -1810,7 +1810,7 @@ FeatsList["artificer initiate"] = {
 		name: "1st-level Artificer spell",
 		"class": "artificer",
 		level: [1, 1],
-		firstCol: "oncelr",
+		firstCol: "oncelr+markedbox",
 	}],
 	toolProfs: [["Artisan's tools", 1]],
 };

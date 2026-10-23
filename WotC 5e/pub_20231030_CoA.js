@@ -351,9 +351,6 @@ MagicItemsList["ring of collecting"] = {
 			changes: "Using the Ring of Collecting, I can cast *Leomund's Tiny Hut* as an action instead of taking 1 minute. Once this property is used, it can't be used again until the next dawn. For every 1,000 gp of art acquired, the tiny hut increases in size by adding +1 ft to its radius and lasts +1 hour.",
 		},
 	},
-	usages: 1,
-	recovery: "dawn",
-	additional: "Leomund's Tiny Hut",
 	action: [["bonus action", " (steal art)"]],
 }
 MagicItemsList["ring of the copycat"] = {

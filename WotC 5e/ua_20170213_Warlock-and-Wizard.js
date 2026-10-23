@@ -191,8 +191,6 @@ AddSubClass("warlock", "the raven queen-ua", { // Still valid 2021-09-21
 			source: [["UA:WnW", 3]],
 			minlevel: 14,
 			description: desc("I can cast *Finger of Death* once per long rest"),
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Queen's Right Hand",
 				spells: ["finger of death"],

@@ -34,7 +34,7 @@ if (!SourceList["T"]) {
 			name: "1st-level artificer spell",
 			"class": "artificer",
 			level: [1, 1],
-			firstCol: "oncelr",
+			firstCol: "oncelr+markedbox",
 		}],
 		toolProfs: [ ["Artisan's tools", 1] ],
 	};

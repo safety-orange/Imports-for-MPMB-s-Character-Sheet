@@ -3258,8 +3258,6 @@ AddSubClass("fighter", "psi warrior", {
 				},
 			},
 			action: [["bonus action", "Weapon Attack while Telekinesis conc."]],
-			usages: 1,
-			recovery: "long rest",
 			altResource: "PsiD",
 		},
 	},
@@ -4484,8 +4482,6 @@ var TCoE_Ranger_Subclass_Fey_Wanderer = AddSubClass("ranger", "fey wanderer", {
 				"Once per long rest, I can cast it without expending a spell slot",
 				"When I cast it, I can have it not require concentration, but than its duration is 1 minute",
 			]),
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Fey Reinforcements",
 				spells: ["summon fey"],
@@ -5370,9 +5366,6 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 	source: [["T", 71]],
 	minlevel: 5,
 	submenu: "[warlock level  5+]",
-	usages: 1,
-	additional: "no spell slot",
-	recovery: "long rest",
 	spellcastingBonus: [{
 		name: "Undying Servitude",
 		spells: ["animate dead"],
@@ -5479,18 +5472,13 @@ AddSubClass("warlock", "the fathomless", {
 			]),
 			action: [["action", ""]],
 			additional: levels.map(function (n) {
-				return n < 10 ? "" : n + " temp HP; 1\xD7 per " + (typePF ? "LR" : "long rest") + " no SS";
+				return n < 10 ? "" : n + " temp HP";
 			}),
 			spellcastingBonus: [{
 				name: "Grasping Tentacles",
 				spells: ["evard's black tentacles"],
 				selection: ["evard's black tentacles"],
 				firstCol: "oncelr+markedbox",
-			}],
-			extraLimitedFeatures: [{
-				name: "Evard's Black Tentacles (no spell slot)",
-				usages: 1,
-				recovery: "long rest",
 			}],
 			calcChanges: {
 				spellAdd: [
@@ -6032,7 +6020,7 @@ FeatsList["artificer initiate"] = {
 		name: "1st-level artificer spell",
 		"class": "artificer",
 		level: [1, 1],
-		firstCol: "oncelr",
+		firstCol: "oncelr+markedbox",
 	}],
 	toolProfs: [ ["Artisan's tools", 1] ],
 };
@@ -7198,9 +7186,6 @@ MagicItemsList["masquerade tattoo"] = {
 		"***Fluid Ink***. As a bonus action, you can shape the tattoo into any color or pattern and move it to any area of your skin. Whatever form it takes, it is always obviously a tattoo. It can range in size from no smaller than a copper piece to an intricate work of art that covers all your skin.",
 		"***Disguise Self***. As an action, you can use the tattoo to cast the *disguise self* spell (DC 13 to discern the disguise). Once the spell is cast from the tattoo, it can't be cast from the tattoo again until the next dawn.",
 	].concat(TCoE_magicTattoosDescription),
-	usages: 1,
-	recovery: "dawn",
-	additional: "Disguise Self",
 	action: [["bonus action", " (change)"]],
 	fixedDC: 13,
 	spellcastingBonus: [{
@@ -8262,9 +8247,6 @@ MagicItemsList["reveler's concertina"] = {
 		"While holding this concertina, you gain a +2 bonus to the saving throw DC of your bard spells.",
 		"As an action, you can use the concertina to cast *Otto's irresistible dance* from the item. This property of the concertina can't be used again until the next dawn.",
 	],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Irresistible Dance",
 	spellcastingAbility: "class", // https://www.sageadvice.eu/2015/11/27/hat-of-disguise-dc/
 	spellcastingBonus: [{
 		name: "Otto's Irresistible Dance",

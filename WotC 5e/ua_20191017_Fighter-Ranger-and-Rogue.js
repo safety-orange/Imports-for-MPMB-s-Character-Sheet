@@ -382,8 +382,6 @@ AddSubClass("rogue", "the revived-ua", {
 					changes: "Using Connect with the Dead, I can cast *Speak with Dead* once per short rest without using a spell slot or material component.",
 				},
 			},
-			usages: 1,
-			recovery: "short rest",
 		},
 		"subclassfeature13": {
 			name: "Audience with Death",

@@ -141,10 +141,7 @@ RaceList["dragonmark handling human-ua"] = {
 	features: {
 		"animal friendship": {
 			name: "Primal Connection",
-			limfeaname: "Animal Friendship",
 			minlevel: 1,
-			usages: 1,
-			recovery: "short rest",
 			spellcastingBonus: [{
 				name: "Primal Connection",
 				spells: ["animal friendship"],
@@ -382,10 +379,7 @@ RaceList["dragonmark scribing gnome-ua"] = {
 	features: {
 		"comprehend languages": {
 			name: "Scribe's Insight",
-			limfeaname: "Comprehend Languages",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Scribe's Insight",
 				spells: ["comprehend languages"],
@@ -423,10 +417,7 @@ RaceList["dragonmark sentinel human-ua"] = {
 	features: {
 		"shield": {
 			name: "Sentinel's Shield",
-			limfeaname: "Shield",
 			minlevel: 1,
-			usages: 1,
-			recovery: "short rest",
 			action: [["reaction", ""]],
 			spellcastingBonus: [{
 				name: "Sentinel's Shield",
@@ -544,10 +535,7 @@ RaceList["dragonmark storm half-elf-ua"] = {
 	features: {
 		"gust of wind": {
 			name: "Headwinds (level 3)",
-			limfeaname: "Gust of Wind",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Headwinds (level 3)",
 				spells: ["gust of wind"],
@@ -601,10 +589,7 @@ RaceList["dragonmark warding dwarf-ua"] = {
 	features: {
 		"arcane lock": {
 			name: "Wards and Seals (level 3)",
-			limfeaname: "Arcane Lock",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Wards and Seals (level 3)",
 				spells: ["arcane lock"],

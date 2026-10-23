@@ -2370,11 +2370,6 @@ MagicItemsList["duskcrusher"] = {
 		"While you are holding *Duskcrusher* and its radiant head is active, you can use an action to cast the *sunbeam* spell (save DC 15) from the weapon, and this action can't be used again until the next dawn.",
 	],
 	action: [ ["bonus action", " (activate)"], ["action", " (deactivate)"] ],
-	extraLimitedFeatures: [{
-		name: "Duskcrusher (Sunbeam)",
-		usages: 1,
-		recovery: "dawn",
-	}],
 	weaponOptions: [{
 		baseWeapon: "warhammer",
 		regExpSearch: /duskcrusher/i,
@@ -2427,9 +2422,6 @@ MagicItemsList["goggles of object reading"] = {
 	attunement: true,
 	description: "While wearing these leather-framed goggles featuring purple crystal lenses, I have advantage on Intelligence (Arcana) checks made to reveal information about a creature or object I can see. Once per dawn, I can cast *Identify* using the goggles.",
 	descriptionFull: "These leather-framed goggles feature purple crystal lenses. While wearing the goggles, you have advantage on Intelligence (Arcana) checks made to reveal information about a creature or object you can see. In addition, you can cast the *identify* spell using the goggles. Once you do so, you can't do so again until the next dawn.", // Changed googles to goggles, as this is clearly a typo in the book
-	additional: "Identify",
-	usages: 1,
-	recovery: "dawn",
 	spellcastingBonus: [{
 		name: "Once per dawn",
 		spells: ["identify"],
@@ -2907,15 +2899,11 @@ MagicItemsList["danoth's visor"] = {
 		name: "Danoth's Visor [exalted]",
 		description: "These goggles grant me the ability to see, out to 60 ft, in normal and magical darkness, invisible creatures and objects, and into the Ethereal plane. They allow me to automatically detect illusions for what they are, succeed on saves against them, and see if creatures aren't in their true form. See Notes for more.",
 		action: [
-			["bonus action", "Danoth's Visor (see through matter)"]
-				["bonus action", "Danoth's Visor (spyglass mode)"],
+			["bonus action", "Danoth's Visor (see through matter)"],
+			["bonus action", "Danoth's Visor (spyglass mode)"],
 		],
 		extraLimitedFeatures: [{
 			name: "Danoth's Visor (see through matter)",
-			usages: 1,
-			recovery: "dawn",
-		}, {
-			name: "Danoth's Visor (Antimagic Field)",
 			usages: 1,
 			recovery: "dawn",
 		}],
@@ -3035,11 +3023,6 @@ MagicItemsList["hide of the feral guardian"] = {
 		useDescriptionFull: function (str) {
 			return str.replace("grants I", "grants me");
 		},
-	}],
-	extraLimitedFeatures: [{
-		name: "Hide of the Feral Guardian (Polymorph)",
-		usages: 1,
-		recovery: "dawn",
 	}],
 	spellcastingAbility: "class",
 	spellcastingBonus: [{
@@ -3399,11 +3382,6 @@ MagicItemsList["verminshroud"] = {
 	}],
 	savetxt: { immune: ["disease"] },
 	vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"], ["Adv. on Perception checks that rely on smell", 0]],
-	extraLimitedFeatures: [{
-		name: "Verminshroud (Polymorph)",
-		usages: 1,
-		recovery: "dawn",
-	}],
 	choices: ["Dormant", "Awakened", "Exalted"],
 	choicesNotInMenu: true,
 	"dormant": {
@@ -3430,11 +3408,6 @@ MagicItemsList["verminshroud"] = {
 		name: "Verminshroud [awakened]",
 		description: "This patchy cloak of rat pelts grants me immunity to disease, darkvision out to 60 ft, or extends it by 60 ft, adv. on Perception checks that rely on smell, and resistance to poison. Once per dawn, I can use it to cast *Polymorph* on myself to become a rat, giant rat, or giant wasp. I can cast *Insect Plague*. See Notes.",
 		dmgres: ["Poison"],
-		extraLimitedFeatures: [{
-			name: "Verminshroud (Insect Plague)",
-			usages: 1,
-			recovery: "dawn",
-		}],
 		fixedDC: 15,
 		spellcastingBonus: [{
 			name: "Once per dawn",
@@ -3457,11 +3430,6 @@ MagicItemsList["verminshroud"] = {
 		name: "Verminshroud [exalted]",
 		description: "This patchy cloak grants me immunity to disease, darkvision out to 60 ft, or extends it by 60 ft, adv. on Perception checks that rely on smell, resistance to poison, and a climbing speed. Once per dawn, I can use it to cast *Polymorph* on myself to become a rat, giant rat, giant wasp, or giant scorpion. See Notes page.",
 		dmgres: ["Poison"],
-		extraLimitedFeatures: [{
-			name: "Verminshroud (Insect Plague)",
-			usages: 1,
-			recovery: "dawn",
-		}],
 		fixedDC: 15,
 		spellcastingBonus: [{
 			name: "Once per dawn",

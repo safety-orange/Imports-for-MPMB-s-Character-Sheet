@@ -211,8 +211,6 @@ FeatsList["fey teleportation-ua"] = {
 		selection: ["misty step"],
 		firstCol: "oncesr",
 	}],
-	usages: 1,
-	recovery: "short rest",
 };
 FeatsList["flames of phlegethos-ua"] = {
 	name: "Flames of Phlegethos",

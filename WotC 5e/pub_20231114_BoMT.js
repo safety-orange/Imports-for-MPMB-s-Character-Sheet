@@ -179,10 +179,6 @@ MagicItemsList["antimagic armor"] = {
 		name: "Adv. save vs. spell (Antimagic Armor)",
 		usages: 1,
 		recovery: "dawn",
-	}, {
-		name: "Antimagic Field (Antimagic Armor)",
-		usages: 1,
-		recovery: "dawn",
 	}],
 	spellChanges: {
 		"antimagic field": {
@@ -232,15 +228,16 @@ MagicItemsList["armor of the fallen"] = {
 			return !/heavy|medium/i.test(inObj.type);
 		},
 	},
-	spellcastingBonus: [{
-		name: "either or",
-		spells: ["animate dead", "speak with dead"],
-		selection: ["animate dead", "speak with dead"],
-		firstCol: "SP",
-		times: 2,
-	}],
 	usages: 1,
 	recovery: "dawn",
+	spellFirstColTitle: "Ch",
+	spellcastingBonus: [{
+		name: "1 charge",
+		spells: ["animate dead", "speak with dead"],
+		selection: ["animate dead", "speak with dead"],
+		firstCol: 1,
+		times: 2,
+	}],
 };
 MagicItemsList["armor of weightlessness"] = {
 	name: "Armor of Weightlessness",
@@ -537,9 +534,6 @@ MagicItemsList["card sharp's deck"] = {
 		abilitytodamage: false,
 		selectNow: true,
 	}],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Spray of Cards",
 	spellcastingBonus: [{
 		name: "Once per dawn",
 		spells: ["spray of cards"],
@@ -834,9 +828,6 @@ MagicItemsList["deck of oracles"] = {
 		"Additionally, while holding the cards, you can cast *Divination* from them. Once this property is used, it can't be used again until the next dawn.",
 	],
 	action: [["reaction", ""]],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Divination",
 	spellcastingBonus: [{
 		name: "Once per dawn",
 		spells: ["divination"],
@@ -1036,10 +1027,6 @@ MagicItemsList["euryale's aegis"] = {
 	extraLimitedFeatures: [{
 		name: "Euryale's Aegis - Petrify",
 		usages: 1,
-		recovery: "dawn",
-	}, {
-		name: "Euryale's Aegis (each spell once)",
-		usages: 3,
 		recovery: "dawn",
 	}],
 };
@@ -1546,10 +1533,6 @@ MagicItemsList["rod of hellish flames"] = {
 	],
 	weight: 2,
 	extraLimitedFeatures: [{
-		name: "Rod of Hellish Flames (Hellish Rebuke)",
-		usages: 1,
-		recovery: "dawn",
-	}, {
 		name: "Rod of Hellish Flames (maximize)",
 		usages: 1,
 		recovery: "dawn",
@@ -1581,9 +1564,6 @@ MagicItemsList["rogue's mantle"] = {
 		"***Move in Shadows***. While you are in dim light or darkness, you can use a bonus action to teleport, along with anything you are wearing or carrying, up to 30 feet to an unoccupied space you can see that is also in dim light or darkness. You then have advantage on the first melee attack you make before the end of the turn.",
 		"***Willful Enmity***. You can cast the *Antagonize* spell (save DC 15) from the mantle. Once the mantle has cast the spell, it can't cast the spell again until the next dawn.",
 	],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Antagonize",
 	vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
 	action: [["bonus action", " (teleport)"]],
 	fixedDC: 15,
@@ -1645,9 +1625,6 @@ MagicItemsList["sage's signet"] = {
 			["Wolf", "Very rare", "*Freedom of Movement*, *Pass without Trace*"],
 		],
 	],
-	usages: 3,
-	recovery: "dawn",
-	additional: "each spell once",
 	choices: ["Bear (very rare)", "Hart (very rare)", "Lion (very rare)", "Serpent (rare)", "Songbird (rare)", "Wolf (very rare)"],
 	"bear (very rare)": {
 		name: "Sage's Signet (Bear)",
@@ -1786,9 +1763,6 @@ MagicItemsList["skull helm"] = {
 		"Additionally, while wearing the helm, you can cast *Spirit of Death* from it without requiring material components. Once you use the helm to cast the spell, the helm can't cast this spell again until the next dawn.",
 	],
 	dmgres: ["Cold", "Poison", "Necrotic"],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Spirit of Death",
 	spellcastingBonus: [{
 		name: "Once per dawn",
 		spells: ["spirit of death"],
@@ -1896,10 +1870,6 @@ MagicItemsList["stonemaker war pick"] = {
 	],
 	weight: 2,
 	extraLimitedFeatures: [{
-		name: "Stonemaker War Pick - Meld into Stone",
-		usages: 1,
-		recovery: "dawn",
-	}, {
 		name: "Stonemaker War Pick - Petrification",
 		usages: "1d6+1",
 		recovery: "\u2013",

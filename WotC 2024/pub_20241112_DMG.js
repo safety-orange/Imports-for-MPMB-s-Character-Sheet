@@ -2438,6 +2438,7 @@ MagicItemsList["whelm"] = {
 		spells: ["detect evil and good", "locate object"],
 		selection: ["detect evil and good", "locate object"],
 		firstCol: "onceday",
+		times: 2,
 	}],
 	toNotesPage: [
 		{

@@ -388,10 +388,19 @@ AddSubClass("bard", "glamour", {
 			spellcastingBonus: [{
 				name: "Mantle of Majesty",
 				spells: ["command"],
-				selection: ["command"],
+				selection: ["command", "command"],
 				firstCol: "markedbox",
+				times: 2,
 			}],
 			action: [["bonus action", ""]],
+			spellChanges: {
+				"command": {
+					time: "Bns",
+					description: "1 crea, save or use next turn only doing command: Approach, Drop, Flee, Grovel, or Halt; see book",
+					changes: "Once per Long Rest I can use my Mantle of Majesty class feature to be able to cast *Command* as a Bonus Action for 1 minute. When cast this way, it doesn't require a spell slot, thus only affects a single creature.",
+					firstCol: "Sp",
+				},
+			},
 		},
 		"subclassfeature14": {
 			name: "Unbreakable Majesty",

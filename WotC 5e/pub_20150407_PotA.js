@@ -179,8 +179,6 @@ MagicItemsList["drown"] = {
 	weight: 4,
 	languageProfs: ["Aquan"],
 	dmgres: ["Cold"],
-	usages: 1,
-	recovery: "dawn",
 	fixedDC: 17,
 	spellcastingBonus: [{
 		name: "Once per dawn",
@@ -244,10 +242,6 @@ MagicItemsList["ironfang"] = {
 	limfeaname: "Ironfang [Rumbling ritual]",
 	spellFirstColTitle: "Ch",
 	extraLimitedFeatures: [{
-		name: "Ironfang [Dominate Monster]",
-		usages: 1,
-		recovery: "dawn",
-	}, {
 		name: "Ironfang [Shatter] (regains 1d3)",
 		usages: 3,
 		recovery: "dawn",
@@ -439,8 +433,6 @@ MagicItemsList["tinderstrike"] = {
 	weight: 1,
 	languageProfs: ["Ignan"],
 	dmgres: ["Fire"],
-	usages: 1,
-	recovery: "dawn",
 	fixedDC: 17,
 	spellcastingBonus: [{
 		name: "Once per dawn",
@@ -513,8 +505,6 @@ MagicItemsList["windvane"] = {
 	weight: 3,
 	languageProfs: ["Auran"],
 	dmgres: ["Lightning"],
-	usages: 1,
-	recovery: "dawn",
 	fixedDC: 17,
 	spellcastingBonus: [{
 		name: "Once per dawn",

@@ -268,9 +268,6 @@ MagicItemsList["luminous war pick"] = {
 		selection: ["daylight"],
 		firstCol: "onceday",
 	}],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Daylight",
 	action: [["bonus action", " (Daylight)"]],
 	spellChanges: {
 		"daylight": {

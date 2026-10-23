@@ -60,13 +60,13 @@ AddSubClass("bard", "college of glamour-ua", {
 				name: "Mantle of Majesty",
 				spells: ["command"],
 				selection: ["command"],
-				firstCol: "oncelr",
+				firstCol: "Sp",
 			}],
 			spellChanges: {
 				"command": {
 					time: "1 bns",
-					description: "1 crea save (fails save if charmed) or follow one word command, e.g. approach, drop, flee, halt",
-					changes: "Using my Mantle of Majesty class feature, I can cast *Command* as a bonus action once per long rest without using a spell slot, thus only affect a single target.",
+					description: "1 crea save or follow one word command, e.g. approach, drop, flee, halt",
+					changes: "Once per long rest I can use my Mantle of Majesty class feature to be able to cast *Command* as a bonus action for 1 minute. When cast this way, it doesn't require a spell slot, thus only affects a single creature.",
 				},
 			},
 		},
@@ -74,8 +74,6 @@ AddSubClass("bard", "college of glamour-ua", {
 			name: "Unbreakable Majesty",
 			source: [["UA:BC", 2]],
 			minlevel: 14,
-			recovery: "short rest",
-			usages: 1,
 			action: [["action", ""]],
 			description: desc([
 				"As an action, I can cast *Sanctuary* on myself without using a spell slot",

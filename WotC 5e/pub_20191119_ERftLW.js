@@ -482,21 +482,13 @@ RaceList["dragonmark detection half-elf"] = {
 	features: {
 		"magical detection": {
 			name: "Magical Detection (level 1)",
-			limfeaname: "Detect Magic",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Magical Detection (level 1)",
 				spells: ["detect magic", "detect poison and disease"],
 				selection: ["detect magic", "detect poison and disease"],
 				firstCol: "oncelr",
 				times: 2,
-			}],
-			extraLimitedFeatures: [{
-				name: "Detect Poison and Disease",
-				usages: 1,
-				recovery: "long rest",
 			}],
 			spellChanges: {
 				"detect poison and disease": {
@@ -508,10 +500,7 @@ RaceList["dragonmark detection half-elf"] = {
 		},
 		"see invisibility": {
 			name: "Magical Detection (level 3)",
-			limfeaname: "See Invisibility",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Magical Detection (level 3)",
 				spells: ["see invisibility"],
@@ -568,10 +557,7 @@ RaceList["dragonmark finding half-orc"] = {
 	features: {
 		"finder's magic": {
 			name: "Finder's Magic (level 1)",
-			limfeaname: "Hunter's Mark",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Finder's Magic (level 1)",
 				spells: ["hunter's mark"],
@@ -581,10 +567,7 @@ RaceList["dragonmark finding half-orc"] = {
 		},
 		"locate object": {
 			name: "Finder's Magic (level 3)",
-			limfeaname: "Locate Object",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Finder's Magic (level 3)",
 				spells: ["locate object"],
@@ -634,10 +617,7 @@ RaceList["dragonmark finding human"] = {
 	features: {
 		"finder's magic": {
 			name: "Finder's Magic (level 1)",
-			limfeaname: "Hunter's Mark",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Finder's Magic (level 1)",
 				spells: ["hunter's mark"],
@@ -647,10 +627,7 @@ RaceList["dragonmark finding human"] = {
 		},
 		"locate object": {
 			name: "Finder's Magic (level 3)",
-			limfeaname: "Locate Object",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Finder's Magic (level 3)",
 				spells: ["locate object"],
@@ -700,15 +677,7 @@ RaceList["dragonmark handling human"] = {
 	features: {
 		"primal connection": {
 			name: "Primal Connection",
-			limfeaname: "Animal Friendship",
 			minlevel: 1,
-			usages: 1,
-			recovery: "short rest",
-			extraLimitedFeatures: [{
-				name: "Speak with Animals",
-				usages: 1,
-				recovery: "short rest",
-			}],
 			spellcastingBonus: [{
 				name: "Primal Connection",
 				spells: ["animal friendship", "speak with animals"],
@@ -773,10 +742,7 @@ RaceList["dragonmark healing halfling"] = {
 	features: {
 		"healing touch": {
 			name: "Healing Touch (level 1)",
-			limfeaname: "Cure Wounds",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Healing Touch (level 1)",
 				spells: ["cure wounds"],
@@ -786,10 +752,7 @@ RaceList["dragonmark healing halfling"] = {
 		},
 		"lesser restoration": {
 			name: "Healing Touch (level 3)",
-			limfeaname: "Lesser Restoration",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Healing Touch (level 3)",
 				spells: ["lesser restoration"],
@@ -838,10 +801,7 @@ RaceList["dragonmark hospitality halfling"] = {
 	features: {
 		"innkeeper's magic": {
 			name: "Innkeeper's Magic",
-			limfeaname: "Purify Food and Drink",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Innkeeper's Magic",
 				spells: ["prestidigitation"],
@@ -852,11 +812,6 @@ RaceList["dragonmark hospitality halfling"] = {
 				selection: ["purify food and drink", "unseen servant"],
 				firstCol: "oncelr",
 				times: 2,
-			}],
-			extraLimitedFeatures: [{
-				name: "Unseen Servant",
-				usages: 1,
-				recovery: "long rest",
 			}],
 		},
 	},
@@ -903,10 +858,7 @@ RaceList["dragonmark making human"] = {
 	features: {
 		"spellsmith": {
 			name: "Spellsmith",
-			limfeaname: "Magic Weapon",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Spellsmith",
 				spells: ["mending"],
@@ -968,10 +920,7 @@ RaceList["dragonmark passage human"] = {
 	features: {
 		"magical passage": {
 			name: "Magical Passage",
-			limfeaname: "Misty Step",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Magical Passage",
 				spells: ["misty step"],
@@ -1022,10 +971,7 @@ RaceList["dragonmark scribing gnome"] = {
 	features: {
 		"scribe's insight": {
 			name: "Scribe's Insight (level 1)",
-			limfeaname: "Comprehend Languages",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Scribe's Insight (level 1)",
 				spells: ["message"],
@@ -1039,10 +985,7 @@ RaceList["dragonmark scribing gnome"] = {
 		},
 		"magic mouth": {
 			name: "Scribe's Insight (level 3)",
-			limfeaname: "Magic Mouth",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Scribe's Insight (level 3)",
 				spells: ["magic mouth"],
@@ -1099,10 +1042,7 @@ RaceList["dragonmark sentinel human"] = {
 		},
 		"guardian's shield": {
 			name: "Guardian's Shield",
-			limfeaname: "Shield",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Guardian's Shield",
 				spells: ["shield"],
@@ -1163,10 +1103,7 @@ RaceList["dragonmark shadow elf"] = {
 	features: {
 		"shape shadows": {
 			name: "Shape Shadows (level 3)",
-			limfeaname: "Invisibility",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Shape Shadows (level 3)",
 				spells: ["invisibility"],
@@ -1226,10 +1163,7 @@ RaceList["dragonmark storm half-elf"] = {
 	features: {
 		"gust of wind": {
 			name: "Headwinds (level 3)",
-			limfeaname: "Gust of Wind",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Headwinds (level 3)",
 				spells: ["gust of wind"],
@@ -1283,21 +1217,13 @@ RaceList["dragonmark warding dwarf"] = {
 	features: {
 		"wards and seals": {
 			name: "Wards and Seals (level 1)",
-			limfeaname: "Alarm",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Wards and Seals (level 1)",
 				spells: ["alarm", "mage armor"],
 				selection: ["alarm", "mage armor"],
 				firstCol: "oncelr",
 				times: 2,
-			}],
-			extraLimitedFeatures: [{
-				name: "Mage Armor",
-				usages: 1,
-				recovery: "long rest",
 			}],
 			spellChanges: {
 				"alarm": {
@@ -1314,10 +1240,7 @@ RaceList["dragonmark warding dwarf"] = {
 		},
 		"arcane lock": {
 			name: "Wards and Seals (level 3)",
-			limfeaname: "Arcane Lock",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Wards and Seals (level 3)",
 				spells: ["arcane lock"],
@@ -3559,9 +3482,6 @@ MagicItemsList["ventilating lungs"] = {
 		"If your attunement to the lungs ends, your original lungs reappear.",
 	],
 	attunement: true,
-	usages: 1,
-	recovery: "dawn",
-	additional: "Gust of Wind",
 	fixedDC: 15,
 	spellcastingBonus: [{
 		name: "Once per dawn",

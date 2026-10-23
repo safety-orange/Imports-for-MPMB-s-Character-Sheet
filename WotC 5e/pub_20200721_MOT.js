@@ -807,23 +807,6 @@ MagicItemsList["siren song lyre"] = {
 	],
 	weight: 2,
 	fixedDC: 13,
-	extraLimitedFeatures: [{
-		name: "Siren's Song Lyre [Animal Friendship]",
-		usages: 1,
-		recovery: "dawn",
-	}, {
-		name: "Siren's Song Lyre [Charm Person]",
-		usages: 1,
-		recovery: "dawn",
-	}, {
-		name: "Siren's Song Lyre [Enthrall]",
-		usages: 1,
-		recovery: "dawn",
-	}, {
-		name: "Siren's Song Lyre [Suggestion]",
-		usages: 1,
-		recovery: "dawn",
-	}],
 	spellcastingBonus: [{
 		name: "Once per dawn",
 		spells: ["animal friendship", "charm person", "enthrall", "suggestion"],
