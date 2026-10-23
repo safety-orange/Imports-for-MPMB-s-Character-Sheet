@@ -1,5 +1,5 @@
 var iFileName = "legacy_20220125_MotM.js";
-RequiredSheetVersion("24.1.3");
+RequiredSheetVersion("24.2.0");
 // This file adds the player-material from Mordenkainen Presents: Monsters of the Multiverse to MPMB's Character Record Sheet that has not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 // Includes many contributions by Nod_Hero and BraabHimself
 
@@ -466,7 +466,7 @@ var MotM_Genasi = {
 	age: " reach adulthood in their late teens and live up to 120 years",
 	height: " are about 2-4 ft (small) or 5-7 ft (medium) tall (4'8\" + 2d10\")",
 	weight: " (medium) weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
-	heightMetric: " are about 60-120 cm (small) or 120-210 cm (medium) tall (145 + 5d10 cm)",
+	heightMetric: " are about 60-120 cm (small) or 150-210 cm (medium) tall (145 + 5d10 cm)",
 	weightMetric: " (medium) weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	spellcastingAbility: [4, 5, 6],
 };
@@ -1503,7 +1503,7 @@ var MotM_YuanTi = {
 	},
 	height: " are about 2-4 ft (small) or 5-7 ft (medium) tall (4'8\" + 2d10\")",
 	weight: " (medium) weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
-	heightMetric: " are about 60-120 cm (small) or 120-210 cm (medium) tall (145 + 5d10 cm)",
+	heightMetric: " are about 60-120 cm (small) or 150-210 cm (medium) tall (145 + 5d10 cm)",
 	weightMetric: " (medium) weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 };
 // [dupl_start] In case the yuan-ti race doesn't exist, create a new one

@@ -1,7 +1,7 @@
-if (sheetVersion < 24001003) { throw "This add-on script was made for a newer version of the sheet (v24.1.3). Please use the latest version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion < 24002000) { throw "This add-on script was made for a newer version of the sheet (v24.2.0). Please use the latest version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
 
 var iFileName = "all_WotC_2024_published.js";
-RequiredSheetVersion("24.1.3");
+RequiredSheetVersion("24.2.0");
 
 // pub_20240917_PHB.js
 // This file adds material from the 2024 Player's Handbook that isn't in the SRD v5.2.1 to MPMB's Character Record Sheet for 5.5e
@@ -392,10 +392,19 @@ AddSubClass("bard", "glamour", {
 			spellcastingBonus: [{
 				name: "Mantle of Majesty",
 				spells: ["command"],
-				selection: ["command"],
+				selection: ["command", "command"],
 				firstCol: "markedbox",
+				times: 2,
 			}],
 			action: [["bonus action", ""]],
+			spellChanges: {
+				"command": {
+					time: "Bns",
+					description: "1 crea, save or use next turn only doing command: Approach, Drop, Flee, Grovel, or Halt; see book",
+					changes: "Once per Long Rest I can use my Mantle of Majesty class feature to be able to cast *Command* as a Bonus Action for 1 minute. When cast this way, it doesn't require a spell slot, thus only affects a single creature.",
+					firstCol: "Sp",
+				},
+			},
 		},
 		"subclassfeature14": {
 			name: "Unbreakable Majesty",
@@ -4431,7 +4440,7 @@ RaceList["aasimar"] = {
 	age: " reach adulthood in their late teens and live around 160 years",
 	height: " are about 2-4 ft (small) or 4-7 ft (medium) tall (4'8\" + 2d10\")",
 	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
-	heightMetric: " are about 60-120 cm (small) or 120-210 cm (medium) tall (145 + 5d10 cm)",
+	heightMetric: " are about 60-120 cm (small) or 150-210 cm (medium) tall (145 + 5d10 cm)",
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 };
 
@@ -9857,6 +9866,7 @@ MagicItemsList["whelm"] = {
 		spells: ["detect evil and good", "locate object"],
 		selection: ["detect evil and good", "locate object"],
 		firstCol: "onceday",
+		times: 2,
 	}],
 	toNotesPage: [
 		{

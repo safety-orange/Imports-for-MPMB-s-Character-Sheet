@@ -1,5 +1,5 @@
 var iFileName = "ua_20170206_Sorcerous-Origins.js";
-RequiredSheetVersion("14.1.0");
+RequiredSheetVersion("14.2.0");
 // This file adds the content from the Unearthed Arcana: Sorcerous Origins article to MPMB's Character Record Sheet
 
 // Define the source

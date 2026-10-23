@@ -1,5 +1,5 @@
 var iFileName = "legacy_20210518_VRGtR.js";
-RequiredSheetVersion("24.1.3");
+RequiredSheetVersion("24.2.0");
 // This file adds the player-material from Van Richten's Guide to Ravenloft to MPMB's Character Record Sheet that has not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source

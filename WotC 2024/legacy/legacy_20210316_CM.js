@@ -1,5 +1,5 @@
 var iFileName = "legacy_20210316_CM.js";
-RequiredSheetVersion("24.1.3");
+RequiredSheetVersion("24.2.0");
 // This file adds the content from the Candlekeep Mysteries adventure to MPMB's Character Record Sheet that has not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 // All content in this file contains contributions by Ratatoskr589
 

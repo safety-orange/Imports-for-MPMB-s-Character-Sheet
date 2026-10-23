@@ -1,5 +1,5 @@
 var iFileName = "pub_20190919_LR.js";
-RequiredSheetVersion("14.1.3", 15);
+RequiredSheetVersion("14.2.0", 15);
 // This file adds the Locathah from the Locathah Rising adventure from Extra Life to MPMB's Character Record Sheet
 
 SourceList["LR"] = {

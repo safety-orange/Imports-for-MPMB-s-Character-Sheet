@@ -1,5 +1,5 @@
 var iFileName = "ua_20150406_Modifying-Classes.js";
-RequiredSheetVersion("13.0.8", 15);
+RequiredSheetVersion("14.2.0", 15);
 // This file adds the content from the Unearthed Arcana: Modifying Classes article to MPMB's Character Record Sheet
 
 // Define the source

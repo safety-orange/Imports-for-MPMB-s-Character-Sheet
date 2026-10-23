@@ -1,5 +1,5 @@
 var iFileName = "pub_20240716_QftIS.js";
-RequiredSheetVersion("14.1.3", 15);
+RequiredSheetVersion("14.2.0", 15);
 // This file adds the futuristic and magic item from the Quests from the Infinite Staircase adventure anthology to MPMB's Character Record Sheet
 
 // Define the source

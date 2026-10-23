@@ -1,5 +1,5 @@
 var iFileName = "legacy_20150915_OotA.js";
-RequiredSheetVersion("24.1.3");
+RequiredSheetVersion("24.2.0");
 // This file adds the beasts and background features from the Out of the Abyss adventure book to MPMB's Character Record Sheet that have not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source

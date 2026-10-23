@@ -1,5 +1,5 @@
 var iFileName = "legacy_20191022_ToD.js";
-RequiredSheetVersion("24.1.3");
+RequiredSheetVersion("24.2.0");
 // This file adds the background features and magic items from the Tyranny of Dragons adventure book (reprint of Hoard of the Dragon Queen and Rise of Tiamat) to MPMB's Character Record Sheet that has not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source

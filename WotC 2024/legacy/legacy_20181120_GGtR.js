@@ -1,5 +1,5 @@
 var iFileName = "legacy_20181120_GGtR.js";
-RequiredSheetVersion("24.1.3");
+RequiredSheetVersion("24.2.0");
 // This file adds the material from the Guildmasters' Guide to Ravnica to MPMB's Character Record Sheet that has not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 // Define the source

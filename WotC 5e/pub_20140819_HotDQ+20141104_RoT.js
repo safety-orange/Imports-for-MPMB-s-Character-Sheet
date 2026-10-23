@@ -1,5 +1,5 @@
 var iFileName = "pub_20140819_HotDQ+20141104_RoT.js";
-RequiredSheetVersion("14.1.3", 15);
+RequiredSheetVersion("14.2.0", 15);
 // This file adds the background features and magic items from the Hoard of the Dragon Queen and Rise of Tiamat adventure books to MPMB's Character Record Sheet
 
 // Define the source

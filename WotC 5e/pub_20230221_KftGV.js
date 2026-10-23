@@ -1,5 +1,5 @@
 var iFileName = "pub_20230221_KftGV.js";
-RequiredSheetVersion("14.1.3", 15);
+RequiredSheetVersion("14.2.0", 15);
 // This file adds the magic items from the Keys from the Golden Vault adventure book to MPMB's Character Record Sheet
 
 SourceList["KftGV"] = {

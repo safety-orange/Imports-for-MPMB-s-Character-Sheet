@@ -1,6 +1,6 @@
-if (sheetVersion < 24001003) { throw "This add-on script was made for a newer version of the sheet (v24.1.3). Please use the latest version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion < 24002000) { throw "This add-on script was made for a newer version of the sheet (v24.2.0). Please use the latest version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
 var iFileName = "all_WotC_2024_pub+legacy.js";
-RequiredSheetVersion("24.1.3");
+RequiredSheetVersion("24.2.0");
 
 // pub_20240917_PHB.js
 // This file adds material from the 2024 Player's Handbook that isn't in the SRD v5.2.1 to MPMB's Character Record Sheet for 5.5e
@@ -391,10 +391,19 @@ AddSubClass("bard", "glamour", {
 			spellcastingBonus: [{
 				name: "Mantle of Majesty",
 				spells: ["command"],
-				selection: ["command"],
+				selection: ["command", "command"],
 				firstCol: "markedbox",
+				times: 2,
 			}],
 			action: [["bonus action", ""]],
+			spellChanges: {
+				"command": {
+					time: "Bns",
+					description: "1 crea, save or use next turn only doing command: Approach, Drop, Flee, Grovel, or Halt; see book",
+					changes: "Once per Long Rest I can use my Mantle of Majesty class feature to be able to cast *Command* as a Bonus Action for 1 minute. When cast this way, it doesn't require a spell slot, thus only affects a single creature.",
+					firstCol: "Sp",
+				},
+			},
 		},
 		"subclassfeature14": {
 			name: "Unbreakable Majesty",
@@ -4430,7 +4439,7 @@ RaceList["aasimar"] = {
 	age: " reach adulthood in their late teens and live around 160 years",
 	height: " are about 2-4 ft (small) or 4-7 ft (medium) tall (4'8\" + 2d10\")",
 	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
-	heightMetric: " are about 60-120 cm (small) or 120-210 cm (medium) tall (145 + 5d10 cm)",
+	heightMetric: " are about 60-120 cm (small) or 150-210 cm (medium) tall (145 + 5d10 cm)",
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 };
 
@@ -9856,6 +9865,7 @@ MagicItemsList["whelm"] = {
 		spells: ["detect evil and good", "locate object"],
 		selection: ["detect evil and good", "locate object"],
 		firstCol: "onceday",
+		times: 2,
 	}],
 	toNotesPage: [
 		{
@@ -11537,7 +11547,7 @@ MagicItemsList["shield guardian amulet"] = {
 	notLegalAL: true,
 	prerequisite: "Requires attunement by a humanoid",
 	prereqeval: function (v) { return !CurrentRace.known || !RaceList[CurrentRace.known] || !/creature type/i.test(RaceList[CurrentRace.known].trait); },
-	description: "A shield guardian is magically linked to this amulet. It has AC 10, 10 HP, and Immunity to Poison and Psychic damage. I know the distance and direction of the guardian while I'm wearing the amulet and I'm on the same plane as it. While within 10 ft of it, I can use the amulet to reactivate it with a DC 20 Arcana check.",
+	description: "A **Shield Guardian** is magically linked to this amulet. It has AC 10, 10 HP, and Immunity to Poison and Psychic damage. I know the distance and direction of the guardian while I'm wearing the amulet and I'm on the same plane as it. While within 10 ft of it, I can use the amulet to reactivate it with a DC 20 Arcana check.",
 	descriptionFull: [
 		"The amulet is a 4-inch-wide disk composed of silver-framed wood, with a rune carved into its face. A *detect magic* spell reveals a magical aura of enchantment around the amulet.",
 		"Every shield guardian has an amulet magically linked to it. A shield guardian can have only one corresponding amulet, and if that amulet is destroyed, the shield guardian is incapacitated until a replacement amulet is created.",
@@ -11582,10 +11592,10 @@ var MM_lycanthrope = {
 			"Shapechanger trait.",
 		].concat(aOtherGains);
 		return "The lycanthrope species are template species. All features and traits of the base species are retained and all the " + sLycanName + "'s features are added to it." +
-		"\nIf you choose not to use a previous species as the base species or you selected a " + sLycanName + " at character creation, a human (non-variant) will be used as the base species." +
+		"\nIf you choose not to use a previous species as the base species or you selected a " + sLycanName + " at character creation, a human will be used as the base species." +
 		"\nThe " + sLycanName + "'s features added to the base species are:" +
-		desc(aGained, "\n   • ") +
-		"\n\nThe possible alignment change and moon-related limitations of lycanthropy are not mentioned in this species. Discuss with your DM how they want to handle lycanthropy."
+		desc(aGained, "\n   \u2022 ") +
+		"\n\nThe possible alignment change and moon-related limitations of a lycanthrope are not mentioned in this species. Discuss with your DM how they want to handle lycanthropy."
 	},
 };
 RaceList["lycanthrope"] = {
@@ -11603,7 +11613,7 @@ AddSubRace("lycanthrope", "werebear", {
 	source: [["M", 208]],
 	plural: "Werebears",
 	trait: [
-		"**Werebear** (min 19 Str)",
+		"**Werebear** (Strength increases to 19)",
 		"##\u25C6 Shapechanger##. As an action, I can polymorph into a Large bear-hybrid, into a Large bear, or back. In those forms, I gain 40 ft Speed, 30 ft Climb Speed, +1 AC, and a bite and claw attack. My stats don't otherwise change when transformed, but my equipment doesn't change and I revert back when I die. Humanoids hit by my bite must save or be cursed with werebear lycanthropy.",
 		"##\u25C6 Keen Smell##. I have Adv on Wis (Perception) checks using smell.",
 	],
@@ -11622,7 +11632,7 @@ AddSubRace("lycanthrope", "werebear", {
 			}, {
 				name: "Multiattack",
 				note: [
-					"As an action, I can make two attacks, none of which can be with my werebear bite.",
+					"As an Attack action, I can make two attacks, but none of these with my Werebear Bite.",
 				],
 				page3notes: true,
 			}],
@@ -11691,7 +11701,7 @@ AddSubRace("lycanthrope", "wereboar", {
 	source: [["M", 209]],
 	plural: "Wereboars",
 	trait: [
-		"**Wereboar** (min 17 Str)",
+		"**Wereboar** (Strength increases to 17)",
 		"##\u25C6 Shapechanger##. As an action, I can polymorph into a boar-" + (typePF ? "" : "humanoid ") + "hybrid, into a boar, or back. In those forms, I gain 40 ft Speed, +1 AC, and a tusks attack. My stats don't otherwise change when transformed, but my equipment doesn't change and I revert back when I die. Humanoids hit by my tusks must save or be cursed" + (typePF ? "." : " with lycanthropy."),
 		"##\u25C6 Relentless##. If I'm reduced to 0 HP by 14 damage or less, I can instead drop to 1 HP.",
 		"##\u25C6 Charge##. If I move 15 ft straight before a tusks hit, +2d6 damage and Str save or Prone.",
@@ -11711,7 +11721,7 @@ AddSubRace("lycanthrope", "wereboar", {
 			}, {
 				name: "Multiattack",
 				note: [
-					"As an action, I can make two attacks, only one of which can be with my wereboar tusks.",
+					"As an Attack action, I can make two attacks, but only one of these with my Wereboar Tusks.",
 				],
 				page3notes: true,
 				additional: "in humanoid or hybrid form only",
@@ -11786,7 +11796,7 @@ AddSubRace("lycanthrope", "wererat", {
 	source: [["M", 209]],
 	plural: "Wererats",
 	trait: [
-		"**Wererat** (min 15 Dex)",
+		"**Wererat** (Dexterity increases to 15)",
 		"##\u25C6 Shapechanger##. As an action, I can transform into a rat-humanoid hybrid, into a giant rat, or back. In those forms, I gain a bite attack, which can use Strength or Dexterity. In my giant rat form, I also become small and gain Darkvision 60 ft. My stats don't otherwise change when transformed, but my equipment doesn't change and I revert back when I die. Humanoids hit by my bite must save or be cursed with wererat lycanthropy.",
 		"##\u25C6 Keen Smell##. I have Adv on Wis (Perception) checks using smell.",
 	],
@@ -11805,7 +11815,7 @@ AddSubRace("lycanthrope", "wererat", {
 			}, {
 				name: "Multiattack",
 				note: [
-					"As an action, I can make two attacks, only one of which can be with my wererat bite.",
+					"As an Attack action, I can make two attacks, but only one of these with my Wererat Bite.",
 				],
 				page3notes: true,
 				additional: "in humanoid or hybrid form only",
@@ -11868,7 +11878,7 @@ AddSubRace("lycanthrope", "weretiger", {
 	source: [["M", 210]],
 	plural: "Weretigers",
 	trait: [
-		"**Weretiger** (min 17 Strength increases to 17)",
+		"**Weretiger** (Strength increases to 17)",
 		"##\u25C6 Shapechanger##. As an action, I can polymorph into a tiger-humanoid hybrid, into a Large tiger, or back. In those forms, I gain 40 ft Speed, a bite attack, and a claw attack. My stats don't otherwise change when transformed, but my equipment doesn't transform and I revert back when I die. Humanoids hit by my bite must save or be cursed with weretiger lycanthropy." +
 		(typePF ? "\r##\u25C6 Pounce##. " : " ") + "I can pounce in my tiger and hybrid form, see notes.",
 		"##\u25C6 Keen Hearing and Smell##. I have Adv on Wis (Perception) checks using hearing or smell.",
@@ -11888,7 +11898,7 @@ AddSubRace("lycanthrope", "weretiger", {
 			}, {
 				name: "Multiattack",
 				note: [
-					"As an action, I can make two attacks, none of which can be with my weretiger bite.",
+					"As an Attack action, I can make two attacks, but none of these with my Weretiger Bite.",
 				],
 				page3notes: true,
 				additional: "in humanoid or hybrid form only",
@@ -11969,7 +11979,7 @@ AddSubRace("lycanthrope", "werewolf", {
 	source: [["M", 211]],
 	plural: "Werewolves",
 	trait: [
-		"**Werewolf** (min 15 Str)",
+		"**Werewolf** (Strength increases to 15)",
 		"##\u25C6 Shapechanger##. As an action, I can polymorph into a wolf-humanoid hybrid, into a wolf, or back. In those forms, I gain 40 ft Speed, a bite attack, and +1 AC. In my hybrid form, I also gain a claws attack. My stats don't otherwise change when transformed, but my equipment doesn't transform and I revert back when I die. Humanoids hit by my bite must save or be cursed with werewolf lycanthropy.",
 		"##\u25C6 Keen Hearing and Smell##. I have Adv on Wis (Perception) checks using hearing or smell.",
 	],
@@ -11988,7 +11998,7 @@ AddSubRace("lycanthrope", "werewolf", {
 			}, {
 				name: "Multiattack",
 				note: [
-					"As an action, I can make two attacks, only one of which can be with my werewolf bite.",
+					"As an Attack action, I can make two attacks, but only one of these with my Werewolf Bite.",
 				],
 				page3notes: true,
 				additional: "in humanoid or hybrid form only",
@@ -13266,7 +13276,7 @@ RaceList["genasi"] = {
 	age: " reach adulthood in their late teens and live up to 120 years",
 	height: " are about 5-7 ft tall (4'8\" + 2d10\")",
 	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
-	heightMetric: " are about 120-210 cm tall (145 + 5d10 cm)",
+	heightMetric: " are about 150-210 cm tall (145 + 5d10 cm)",
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 };
 AddSubRace("genasi", "air", {
@@ -33052,8 +33062,8 @@ MagicItemsList["danoth's visor"] = {
 		name: "Danoth's Visor [exalted]",
 		description: "These goggles grant me the ability to see, out to 60 ft, in normal and magical Darkness, invisible creatures and objects, and into the Ethereal plane. They allow me to automatically detect illusions for what they are, succeed on saves against them, and see if creatures aren't in their true form. See Notes for more.",
 		action: [
-			["bonus action", "Danoth's Visor (see through matter)"]
-				["bonus action", "Danoth's Visor (spyglass mode)"],
+			["bonus action", "Danoth's Visor (see through matter)"],
+			["bonus action", "Danoth's Visor (spyglass mode)"],
 		],
 		extraLimitedFeatures: [{
 			name: "Danoth's Visor (see through matter)",
@@ -37247,7 +37257,7 @@ AddSubClass("warlock", "the fathomless", {
 			description: desc("I learn *Evard's Black Tentacles*. Once per Long Rest, I can cast it without using a spell slot. It counts as a Warlock spell for me, but not towards the number of spells I can know. Whenever I cast it, I gain Temporary Hit Points equal to my Warlock level. Moreover, damage can't break my Concentration on this spell."),
 			action: [["action", ""]],
 			additional: levels.map(function (n) {
-				return n < 10 ? "" : n + " Temp HP; 1\xD7 per " + (typePF ? "LR" : "Long Rest") + " no SS";
+				return n < 10 ? "" : n + " Temp HP";
 			}),
 			spellcastingBonus: [{
 				name: "Grasping Tentacles",
@@ -37645,7 +37655,7 @@ FeatsList["artificer initiate"] = {
 		name: "1st-level Artificer spell",
 		"class": "artificer",
 		level: [1, 1],
-		firstCol: "oncelr",
+		firstCol: "oncelr+markedbox",
 	}],
 	toolProfs: [["Artisan's tools", 1]],
 };
@@ -39927,7 +39937,7 @@ RaceList["fairy"] = {
 				name: "Fairy Magic (level 3)",
 				spells: ["faerie fire"],
 				selection: ["faerie fire"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 		},
@@ -39938,7 +39948,7 @@ RaceList["fairy"] = {
 				name: "Fairy Magic (level 5)",
 				spells: ["enlarge/reduce"],
 				selection: ["enlarge/reduce"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 		},
@@ -42724,7 +42734,7 @@ MagicItemsList["lorehold primer"] = {
 		"In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the cleric or wizard spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
 	],
 	extraLimitedFeatures: [{
-		name: "Lorehold Primer charges (regains 1d3)",
+		name: "Lorehold Primer (charges; regains 1d3)",
 		usages: 3,
 		recovery: "dawn",
 	}, {
@@ -42944,8 +42954,6 @@ MagicItemsList["masque charm"] = {
 	rarity: "Common",
 	description: "While wearing this small silver pin, I can cast *Disguise Self* once per sunset. It has DC 13 to discern the disguise. I can have the spell last its normal 1 hour duration, or 6 hours. If I choose 6 hours, the charm becomes nonmagical when the spell ends. In either case, the spell ends if the pin is removed from me.",
 	descriptionFull: "A *masque charm* is a small silver pin. While wearing this charm, you can use an action to cast the *disguise self* spell (DC 13 to discern the disguise). Once the spell is cast, it can't be cast from the charm again until the next sunset. When casting the spell, you can have the spell last for its normal 1 hour duration or for 6 hours. If you choose the 6-hour duration, the charm becomes nonmagical when the spell ends. In either case, the spell ends if the charm is removed from you.",
-	usages: 1,
-	recovery: "Sunset",
 	spellcastingBonus: [{
 		name: "Once per sunset",
 		spells: ["disguise self"],
@@ -43204,7 +43212,7 @@ var MotM_Aarakocra = {
 				name: "Wind Caller",
 				spells: ["gust of wind"],
 				selection: ["gust of wind"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 			spellChanges: {
@@ -43307,7 +43315,7 @@ AddSubRace("gnome", "deep-multiverse", {
 				name: "Gift of the Svirfneblin",
 				spells: ["disguise self"],
 				selection: ["disguise self"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 		},
@@ -43318,7 +43326,7 @@ AddSubRace("gnome", "deep-multiverse", {
 				name: "Gift of the Svirfneblin",
 				spells: ["nondetection"],
 				selection: ["nondetection"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 			spellChanges: {
@@ -43357,7 +43365,7 @@ AddSubRace("dwarf", "gray-multiverse", {
 				name: "Duergar Magic",
 				spells: ["enlarge/reduce"],
 				selection: ["enlarge/reduce"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 			spellChanges: {
@@ -43376,7 +43384,7 @@ AddSubRace("dwarf", "gray-multiverse", {
 				name: "Duergar Magic",
 				spells: ["invisibility"],
 				selection: ["invisibility"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 			spellChanges: {
@@ -43454,7 +43462,7 @@ var MotM_Firbolg = {
 				name: "Firbolg Magic",
 				spells: ["detect magic", "disguise self"],
 				selection: ["detect magic", "disguise self"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				times: 2,
 				allowUpCasting: true,
 			}],
@@ -43492,7 +43500,7 @@ var MotM_Genasi = {
 	age: " reach adulthood in their late teens and live up to 120 years",
 	height: " are about 2-4 ft (small) or 5-7 ft (medium) tall (4'8\" + 2d10\")",
 	weight: " (medium) weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
-	heightMetric: " are about 60-120 cm (small) or 120-210 cm (medium) tall (145 + 5d10 cm)",
+	heightMetric: " are about 60-120 cm (small) or 150-210 cm (medium) tall (145 + 5d10 cm)",
 	weightMetric: " (medium) weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	spellcastingAbility: [4, 5, 6],
 };
@@ -43527,7 +43535,7 @@ var MotM_Genasi = {
 					name: "Mingle with the Wind",
 					spells: ["feather fall"],
 					selection: ["feather fall"],
-					firstCol: "oncelr",
+					firstCol: "oncelr+markedbox",
 					allowUpCasting: true,
 				}],
 				spellChanges: {
@@ -43545,7 +43553,7 @@ var MotM_Genasi = {
 					name: "Mingle with the Wind",
 					spells: ["levitate"],
 					selection: ["levitate"],
-					firstCol: "oncelr",
+					firstCol: "oncelr+markedbox",
 					allowUpCasting: true,
 				}],
 				spellChanges: {
@@ -43599,7 +43607,7 @@ var MotM_Genasi = {
 					name: "Merge with Stone",
 					spells: ["pass without trace"],
 					selection: ["pass without trace"],
-					firstCol: "oncelr",
+					firstCol: "oncelr+markedbox",
 					allowUpCasting: true,
 				}],
 				spellChanges: {
@@ -43637,7 +43645,7 @@ var MotM_Genasi = {
 					name: "Reach to the Blaze",
 					spells: ["burning hands"],
 					selection: ["burning hands"],
-					firstCol: "oncelr",
+					firstCol: "oncelr+markedbox",
 					allowUpCasting: true,
 				}],
 			},
@@ -43648,7 +43656,7 @@ var MotM_Genasi = {
 					name: "Reach to the Blaze",
 					spells: ["flame blade"],
 					selection: ["flame blade"],
-					firstCol: "oncelr",
+					firstCol: "oncelr+markedbox",
 					allowUpCasting: true,
 				}],
 				spellChanges: {
@@ -43691,7 +43699,7 @@ var MotM_Genasi = {
 					name: "Call to the Wave",
 					spells: ["create or destroy water"],
 					selection: ["create or destroy water"],
-					firstCol: "oncelr",
+					firstCol: "oncelr+markedbox",
 					allowUpCasting: true,
 				}],
 			},
@@ -43702,7 +43710,7 @@ var MotM_Genasi = {
 					name: "Call to the Wave",
 					spells: ["water walk"],
 					selection: ["water walk"],
-					firstCol: "oncelr",
+					firstCol: "oncelr+markedbox",
 					allowUpCasting: true,
 				}],
 				spellChanges: {
@@ -43752,7 +43760,7 @@ var MotM_Githyanki = {
 				name: "Githyanki Psionics (3)",
 				spells: ["jump"],
 				selection: ["jump"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 			spellChanges: {
@@ -43770,7 +43778,7 @@ var MotM_Githyanki = {
 				name: "Githyanki Psionics (5)",
 				spells: ["misty step"],
 				selection: ["misty step"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 			spellChanges: {
@@ -43817,7 +43825,7 @@ var MotM_Githzerai = {
 				name: "Githzerai Psionics (3)",
 				spells: ["shield"],
 				selection: ["shield"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 			spellChanges: {
@@ -43834,7 +43842,7 @@ var MotM_Githzerai = {
 				name: "Githzerai Psionics (5)",
 				spells: ["detect thoughts"],
 				selection: ["detect thoughts"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 			spellChanges: {
@@ -44306,7 +44314,7 @@ var MotM_Triton = {
 				name: "Control Air and Water",
 				spells: ["fog cloud"],
 				selection: ["fog cloud"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 		},
@@ -44317,7 +44325,7 @@ var MotM_Triton = {
 				name: "Control Air and Water",
 				spells: ["gust of wind"],
 				selection: ["gust of wind"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 		},
@@ -44328,7 +44336,7 @@ var MotM_Triton = {
 				name: "Control Air and Water",
 				spells: ["water walk"],
 				selection: ["water walk"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 		},
@@ -44370,14 +44378,14 @@ var MotM_YuanTi = {
 				name: "Serpentine Spellcasting (level 3)",
 				spells: ["suggestion"],
 				selection: ["suggestion"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 		},
 	},
 	height: " are about 2-4 ft (small) or 5-7 ft (medium) tall (4'8\" + 2d10\")",
 	weight: " (medium) weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
-	heightMetric: " are about 60-120 cm (small) or 120-210 cm (medium) tall (145 + 5d10 cm)",
+	heightMetric: " are about 60-120 cm (small) or 150-210 cm (medium) tall (145 + 5d10 cm)",
 	weightMetric: " (medium) weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 };
 { AddSubRace("yuan-ti pureblood", "multiverse", MotM_YuanTi); }
@@ -46560,7 +46568,7 @@ FeatsList["ember of the fire giant"] = {
 		"***Born of Flame***. You have resistance to fire damage.",
 		"***Searing Ignition***. When you take the Attack action on your turn, you can replace a single attack with a magical burst of flame. Each creature of your choice in a 15-foot-radius sphere centered on you must make a Dexterity saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, a creature takes fire damage equal to 1d8 + your proficiency bonus, and it has the blinded condition until the start of your next turn. On a successful save, the creature takes half as much damage only. You can use your Searing Ignition a number of times equal to your proficiency bonus (but no more than once per turn), and you regain all expended uses when you finish a long rest.",
 	],
-	description: "I get Fire Resistance. Prof B per Long Rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius Sphere on me take 1d8 + Prof B Fire damage, blind until my next turn starts. Dex save DC 8 + Prof B + Str/Con/Wis mod half damage, not blind. [+1 Str/Con/Wis]",
+	description: "I get Fire Resistance. Prof B per Long Rest, when I use the Attack action on my turn, I can replace one attack with ***Searing Ignition***. Chosen targets in 15-ft radius Sphere on me take 1d8 + Prof B Fire damage, blind until my next turn starts. Dex save DC 8 + Prof B + Str/Con/Wis mod half damage, not blind. [+1 Str/Con/Wis]",
 	extraLimitedFeatures: [{
 		name: "Searing Ignition",
 		usages: "Proficiency Bonus per ",
@@ -46571,7 +46579,7 @@ FeatsList["ember of the fire giant"] = {
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
 		description: "",
-		calculate: "var abi = 'Str', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I have Fire resistance. When I take the Attack action on my turn, I can replace one attack with ***Searing Ignition*** (' + iProfB + '/LR, Prof B/LR). Chosen targets in a 15-ft radius Sphere on me take 1d8+' + iProfB + ' (Prof B) Fire damage, Blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) for half damage, not Blinded. [+1 ' + abi + ']';",
+		calculate: "var abi = 'Str', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I have Fire Resistance. When I take the Attack action on my turn, I can replace one attack with ***Searing Ignition*** (' + iProfB + '/LR, Prof B/LR). Chosen targets in a 15-ft radius Sphere on me take 1d8+' + iProfB + ' (Prof B) Fire damage, Blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) for half damage, not Blinded. [+1 ' + abi + ']';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
 			name: "Searing Ignition",
@@ -46591,7 +46599,7 @@ FeatsList["ember of the fire giant"] = {
 	},
 	"constitution": {
 		description: "",
-		calculate: "var abi = 'Con', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I have Fire resistance. When I take the Attack action on my turn, I can replace one attack with ***Searing Ignition*** (' + iProfB + '/LR, Prof B/LR). Chosen targets in a 15-ft radius Sphere on me take 1d8+' + iProfB + ' (Prof B) Fire damage, Blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) for half damage, not Blinded. [+1 ' + abi + ']';",
+		calculate: "var abi = 'Con', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I have Fire Resistance. When I take the Attack action on my turn, I can replace one attack with ***Searing Ignition*** (' + iProfB + '/LR, Prof B/LR). Chosen targets in a 15-ft radius Sphere on me take 1d8+' + iProfB + ' (Prof B) Fire damage, Blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) for half damage, not Blinded. [+1 ' + abi + ']';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
 			name: "Searing Ignition",
@@ -46611,7 +46619,7 @@ FeatsList["ember of the fire giant"] = {
 	},
 	"wisdom": {
 		description: "",
-		calculate: "var abi = 'Wis', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I have Fire resistance. When I take the Attack action on my turn, I can replace one attack with ***Searing Ignition*** (' + iProfB + '/LR, Prof B/LR). Chosen targets in a 15-ft radius Sphere on me take 1d8+' + iProfB + ' (Prof B) Fire damage, Blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) for half damage, not Blinded. [+1 ' + abi + ']';",
+		calculate: "var abi = 'Wis', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I have Fire Resistance. When I take the Attack action on my turn, I can replace one attack with ***Searing Ignition*** (' + iProfB + '/LR, Prof B/LR). Chosen targets in a 15-ft radius Sphere on me take 1d8+' + iProfB + ' (Prof B) Fire damage, Blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) for half damage, not Blinded. [+1 ' + abi + ']';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
 			name: "Searing Ignition",
@@ -46644,7 +46652,7 @@ FeatsList["fury of the frost giant"] = {
 		"***Born of Ice***. You have resistance to cold damage.",
 		"***Frigid Retaliation***. Immediately after a creature you can see within 30 feet of you hits you with an attack roll and deals damage, you can use your reaction to retaliate with a conjured blast of ice. The creature must make a Constitution saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, the creature takes cold damage equal to 1d8 + your proficiency bonus, and its speed is reduced to 0 until the end of its next turn. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	],
-	description: "I gain Cold Resistance. As a Reaction when a creature I see within 30 ft damages me with an attack, I can, Prof B times per Long Rest, use Frigid Retaliation: it must make a Con save DC 8 + Prof B + Str/Con/Wis mod or take 1d8 + Prof B Cold damage and have Speed 0 until its next turn ends. [+1 Str/Con/Wis]",
+	description: "I gain Cold Resistance. As a Reaction when a creature I see within 30 ft damages me with an attack, I can, Prof B times per Long Rest, use ***Frigid Retaliation***. it must make a Con save DC 8 + Prof B + Str/Con/Wis mod or take 1d8 + Prof B Cold damage and have Speed 0 until its next turn ends. [+1 Str/Con/Wis]",
 	action: [["reaction", "Frigid Retaliation"]],
 	extraLimitedFeatures: [{
 		name: "Frigid Retaliation",
@@ -46656,7 +46664,7 @@ FeatsList["fury of the frost giant"] = {
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I gain Cold Resistance. As a Reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B) per Long Rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Str mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have Speed 0 until its next turn ends. [+1 Str]';",
+		calculate: "var abi = 'Str', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I gain Cold Resistance. ***Frigid Retaliation*** (' + iProfB + '\xD7 per Long Rest, Prof B/LR). As a Reaction when a creature I can see within 30 ft hits me with an attack roll and deals damage, I can have it make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have Speed 0 until its next turn ends. [+1 ' + abi + ']';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name: "Frigid Retaliation",
@@ -46676,7 +46684,7 @@ FeatsList["fury of the frost giant"] = {
 	},
 	"constitution": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I gain Cold Resistance. As a Reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B) per Long Rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Con mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have Speed 0 until its next turn ends. [+1 Con]';",
+		calculate: "var abi = 'Con', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I gain Cold Resistance. ***Frigid Retaliation*** (' + iProfB + '\xD7 per Long Rest, Prof B/LR). As a Reaction when a creature I can see within 30 ft hits me with an attack roll and deals damage, I can have it make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have Speed 0 until its next turn ends. [+1 ' + abi + ']';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name: "Frigid Retaliation",
@@ -46696,7 +46704,7 @@ FeatsList["fury of the frost giant"] = {
 	},
 	"wisdom": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I gain Cold Resistance. As a Reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B) per Long Rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Wis mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have Speed 0 until its next turn ends. [+1 Wis]';",
+		calculate: "var abi = 'Wis', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I gain Cold Resistance. ***Frigid Retaliation*** (' + iProfB + '\xD7 per Long Rest, Prof B/LR). As a Reaction when a creature I can see within 30 ft hits me with an attack roll and deals damage, I can have it make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have Speed 0 until its next turn ends. [+1 ' + abi + ']';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name: "Frigid Retaliation",
@@ -46738,15 +46746,15 @@ FeatsList["guile of the cloud giant"] = {
 	}],
 	choices: ["Strength", "Constitution", "Charisma"],
 	"strength": {
-		description: "As a Reaction when a creature I see within 30 ft hits me with an attack roll, I can use Cloudy Escape: I give myself Resistance to that attack's damage and then I teleport to an unoccupied space that I can see within 30 ft. I can do this Proficiency Bonus per Long Rest. [+1 Strength]",
+		description: "As a Reaction when a creature I see within 30 ft hits me with an attack roll, I can use ***Cloudy Escape***. I give myself Resistance to that attack's damage and then I teleport to an unoccupied space that I can see within 30 ft. I can do this Proficiency Bonus per Long Rest. [+1 Strength]",
 		scores: [1,0,0,0,0,0],
 	},
 	"constitution": {
-		description: "As a Reaction when a creature I see within 30 ft hits me with an attack roll, I can use Cloudy Escape: I give myself Resistance to that attack's damage and then I teleport to an unoccupied space that I can see within 30 ft. I can do this Proficiency Bonus per Long Rest. [+1 Constitution]",
+		description: "As a Reaction when a creature I see within 30 ft hits me with an attack roll, I can use ***Cloudy Escape***. I give myself Resistance to that attack's damage and then I teleport to an unoccupied space that I can see within 30 ft. I can do this Proficiency Bonus per Long Rest. [+1 Constitution]",
 		scores: [0,0,1,0,0,0],
 	},
 	"charisma": {
-		description: "As a Reaction when a creature I see within 30 ft hits me with an attack roll, I can use Cloudy Escape: I give myself Resistance to that attack's damage and then I teleport to an unoccupied space that I can see within 30 ft. I can do this Proficiency Bonus per Long Rest. [+1 Charisma]",
+		description: "As a Reaction when a creature I see within 30 ft hits me with an attack roll, I can use ***Cloudy Escape***. I give myself Resistance to that attack's damage and then I teleport to an unoccupied space that I can see within 30 ft. I can do this Proficiency Bonus per Long Rest. [+1 Charisma]",
 		scores: [0,0,0,0,0,1],
 	},
 };
@@ -46764,7 +46772,7 @@ FeatsList["keenness of the stone giant"] = {
 		"***Cavernous Sight***. You gain darkvision with a range of 60 feet. If you already have darkvision from another source, its range increases by 60 feet.",
 		"***Stone Throw***. As a bonus action, you can take a rock and make a magical attack with it. The attack is a ranged spell attack with a range of 60 feet that uses the ability score you increased with this feat as the spellcasting ability. On a hit, the rock deals 1d10 force damage, and the target must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + the spellcasting ability modifier) or have the prone condition. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	],
-	description: "I gain +60 ft Darkvision. As a Bonus Action, Prof Bonus times per Long Rest, I can make a magical Stone Throw attack. It is a spell attack with 60 ft range that deals 1d10 Force damage and the target hit must make a Str save or be knocked Prone. This uses the ability increased as spellcasting ability. [+1 Str/Con/Wis]",
+	description: "I gain +60 ft Darkvision. As a Bonus Action, Prof Bonus times per Long Rest, I can make a magical ***Stone Throw*** attack. It is a spell attack with 60 ft range that deals 1d10 Force damage and the target hit must make a Str save or be knocked Prone. This uses the ability increased as spellcasting ability. [+1 Str/Con/Wis]",
 	vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
 	action: [["bonus action", "Stone Throw"]],
 	extraLimitedFeatures: [{
@@ -46776,7 +46784,7 @@ FeatsList["keenness of the stone giant"] = {
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I gain +60 ft Darkvision. As a Bonus Action, ' + iProfB + ' (Prof Bonus) times per Long Rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 Force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked Prone. This uses Strength as spellcasting ability. [+1 Strength]';",
+		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I gain +60 ft Darkvision. As a Bonus Action, ' + iProfB + ' (Prof Bonus) times per Long Rest, I can make a magical ***Stone Throw*** attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 Force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked Prone. This uses Strength as spellcasting ability. [+1 Strength]';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*stone)(?=.*throw).*$/i,
 			name: "Stone Throw",
@@ -46793,7 +46801,7 @@ FeatsList["keenness of the stone giant"] = {
 	},
 	"constitution": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I gain +60 ft Darkvision. As a Bonus Action, ' + iProfB + ' (Prof Bonus) times per Long Rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 Force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked Prone. This uses Constitution as spellcasting ability. [+1 Con]';",
+		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I gain +60 ft Darkvision. As a Bonus Action, ' + iProfB + ' (Prof Bonus) times per Long Rest, I can make a magical ***Stone Throw*** attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 Force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked Prone. This uses Constitution as spellcasting ability. [+1 Con]';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*stone)(?=.*throw).*$/i,
 			name: "Stone Throw",
@@ -46810,7 +46818,7 @@ FeatsList["keenness of the stone giant"] = {
 	},
 	"wisdom": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I gain +60 ft Darkvision. As a Bonus Action, ' + iProfB + ' (Prof Bonus) times per Long Rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 Force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked Prone. This uses Wisdom as spellcasting ability. [+1 Wisdom]';",
+		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I gain +60 ft Darkvision. As a Bonus Action, ' + iProfB + ' (Prof Bonus) times per Long Rest, I can make a magical ***Stone Throw*** attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 Force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked Prone. This uses Wisdom as spellcasting ability. [+1 Wisdom]';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*stone)(?=.*throw).*$/i,
 			name: "Stone Throw",
@@ -46839,7 +46847,7 @@ FeatsList["soul of the storm giant"] = {
 		"***Ability Score Increase***. Increase your Strength, Constitution, or Charisma by 1, to a maximum of 20.",
 		"***Maelstrom Aura***. As a bonus action, you surround yourself with an aura of magical wind and lightning that extends 10 feet from you in every direction but not through total cover. The aura lasts until the start of your next turn or until you are incapacitated. While the aura is active, you have resistance to lightning and thunder damage. In addition, attack rolls against you have disadvantage, and whenever another creature starts its turn within the aura, you can force the creature to make a Strength saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, the creature's speed is halved until the start of its next turn. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	],
-	description: "As a Bonus Action, Prof B per Long Rest, I can make a 10-ft radius Maelstrom Aura until my next turn starts: I get Lightning/Thunder Resistance, attacks vs me have Disadv, I can force those starting their turn inside to a Str save DC 8 + Prof + Str/Con/Cha mod or halve their Speed until their next turn starts. [+1 Str/Con/Cha]",
+	description: "As a Bonus Action, Prof B per Long Rest, I can make a 10-ft radius ***Maelstrom Aura*** until my next turn starts: I get Lightning/Thunder Resistance, attacks vs me have Disadv, I can force those starting their turn inside to a Str save DC 8 + Prof + Str/Con/Cha mod or halve their Speed until their next turn starts. [+1 Str/Con/Cha]",
 	action: [["bonus action", "Maelstrom Aura"]],
 	extraLimitedFeatures: [{
 		name: "Maelstrom Aura",
@@ -46850,17 +46858,17 @@ FeatsList["soul of the storm giant"] = {
 	choices: ["Strength", "Constitution", "Charisma"],
 	"strength": {
 		description: "",
-		calculate: "var abi = 'Str', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'As a Bonus Action, ' + iProfB + '\xD7 (Prof B) per LR, I can invoke a 10-ft radius ***Maelstrom Aura*** until my next turn starts: I get Lightning and Thunder Resistance, attacks vs me have Disadv, I can have those starting their turn inside make a Str save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or halve their Speed until their next turn starts. [+1 ' + abi + ']';",
+		calculate: "var abi = 'Str', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'As a Bonus Action, ' + iProfB + '\xD7 (Prof B) per LR, I can invoke a ***Maelstrom Aura*** until my next turn starts: I get Resistance to Lightning and Thunder, attacks vs me have Disadv, I can have those starting their turn within 10 ft make a Str save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or halve their Speed until their next turn starts. [+1 ' + abi + ']';",
 		scores: [1,0,0,0,0,0],
 	},
 	"constitution": {
 		description: "",
-		calculate: "var abi = 'Con', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'As a Bonus Action, ' + iProfB + '\xD7 (Prof B) per LR, I can invoke a 10-ft radius ***Maelstrom Aura*** until my next turn starts: I get Lightning and Thunder Resistance, attacks vs me have Disadv, I can have those starting their turn inside make a Str save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or halve their Speed till their next turn starts. [+1 ' + abi + ']';",
+		calculate: "var abi = 'Con', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'As a Bonus Action, ' + iProfB + '\xD7 (Prof B) per LR, I can invoke a ***Maelstrom Aura*** until my next turn starts: I get Resistance to Lightning and Thunder, attacks vs me have Disadv, I can have those starting their turn within 10 ft make a Str save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or halve their Speed until their next turn starts. [+1 ' + abi + ']';",
 		scores: [0,0,1,0,0,0],
 	},
 	"charisma": {
 		description: "",
-		calculate: "var abi = 'Wis', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'As a Bonus Action, ' + iProfB + '\xD7 (Prof B) per LR, I can invoke a 10-ft radius ***Maelstrom Aura*** until my next turn starts: I get Lightning and Thunder Resistance, attacks vs me have Disadv, I can have those starting their turn inside make a Str save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or halve their Speed until their next turn starts. [+1 ' + abi + ']';",
+		calculate: "var abi = 'Cha', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'As a Bonus Action, ' + iProfB + '\xD7 (Prof B) per LR, I can invoke a ***Maelstrom Aura*** until my next turn starts: I get Resistance to Lightning and Thunder, attacks vs me have Disadv, I can have those starting their turn within 10 ft make a Str save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or halve their Speed until their next turn starts. [+1 ' + abi + ']';",
 		scores: [0,0,0,0,0,1],
 	},
 };
@@ -46878,19 +46886,19 @@ FeatsList["vigor of the hill giant"] = {
 		"***Bulwark***. When you are subjected to an effect that would move you at least 5 feet or give you the prone condition, you can use your reaction to steady yourself. You aren't moved and don't have the prone condition.",
 		"***Iron Stomach***. Whenever you eat food as part of a short rest and spend one or more Hit Dice to regain hit points, you regain additional hit points equal to your Constitution modifier + your proficiency bonus.",
 	],
-	description: "Bulwark: When I would be moved or knocked Prone I can use my Reaction to prevent that. Iron Stomach: Whenever I eat food as part of a Short Rest and spend HD to regain Hit Points, I regain additional HP equal to my Constitution modifier + my Proficiency Bonus. [+1 Strength/Constitution/Wisdom]",
+	description: "***Bulwark***. When I would be moved or knocked Prone I can use my Reaction to prevent that. ***Iron Stomach***. Whenever I eat food as part of a Short Rest and spend HD to regain Hit Points, I regain additional HP equal to my Constitution modifier + my Proficiency Bonus. [+1 Strength/Constitution/Wisdom]",
 	action: [["reaction", "Bulwark"]],
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
-		description: "Bulwark: When I would be moved or knocked Prone I can use my Reaction to prevent that. Iron Stomach: Whenever I eat food as part of a Short Rest and spend HD to regain Hit Points, I regain additional HP equal to my Con" + (typePF ? "stitution" : "") + " modifier + my Proficiency Bonus. [+1 St" + (typePF ? "rength" : "") + "]",
+		description: "***Bulwark***. When I would be moved or knocked Prone I can use my Reaction to prevent that. ***Iron Stomach***. Whenever I eat food as part of a Short Rest and spend HD to regain Hit Points, I regain additional HP equal to my Con" + (typePF ? "stitution" : "") + " modifier + my Proficiency Bonus. [+1 St" + (typePF ? "rength" : "") + "]",
 		scores: [1,0,0,0,0,0],
 	},
 	"constitution": {
-		description: "Bulwark: When I would be moved or knocked Prone I can use my Reaction to prevent that. Iron Stomach: Whenever I eat food as part of a Short Rest and spend HD to regain Hit Points, I regain additional HP equal to my Con" + (typePF ? "stitution" : "") + " modifier + my Proficiency Bonus. [+1 Con" + (typePF ? "stitution" : "") + "]",
+		description: "***Bulwark***. When I would be moved or knocked Prone I can use my Reaction to prevent that. ***Iron Stomach***. Whenever I eat food as part of a Short Rest and spend HD to regain Hit Points, I regain additional HP equal to my Con" + (typePF ? "stitution" : "") + " modifier + my Proficiency Bonus. [+1 Con" + (typePF ? "stitution" : "") + "]",
 		scores: [0,0,1,0,0,0],
 	},
 	"wisdom": {
-		description: "Bulwark: When I would be moved or knocked Prone I can use my Reaction to prevent that. Iron Stomach: Whenever I eat food as part of a Short Rest and spend HD to regain Hit Points, I regain additional HP equal to my Con" + (typePF ? "stitution" : "") + " modifier + my Proficiency Bonus. [+1 Wis" + (typePF ? "dom" : "") + "]",
+		description: "***Bulwark***. When I would be moved or knocked Prone I can use my Reaction to prevent that. ***Iron Stomach***. Whenever I eat food as part of a Short Rest and spend HD to regain Hit Points, I regain additional HP equal to my Con" + (typePF ? "stitution" : "") + " modifier + my Proficiency Bonus. [+1 Wis" + (typePF ? "dom" : "") + "]",
 		scores: [0,0,0,0,1,0],
 	},
 };
@@ -47699,19 +47707,14 @@ MagicItemsList["staff of the rooted hills"] = {
 	}],
 	usages: 1,
 	recovery: "dawn",
-	additional: "Hold Person or Speak with Plants",
 	fixedDC: 12,
 	spellFirstColTitle: "Ch",
 	spellcastingBonus: [{
-		name: "Hold Person",
-		spells: ["hold person"],
+		name: "1 charge",
+		spells: ["hold person", "speak with plants"],
 		selection: ["hold person"],
 		firstCol: 1,
-	}, {
-		name: "Speak with Plants",
-		spells: ["speak with plants"],
-		selection: ["speak with plants"],
-		firstCol: 1,
+		times: 2,
 	}],
 };
 MagicItemsList["stonebreaker's breastplate"] = {
@@ -49601,15 +49604,16 @@ MagicItemsList["armor of the fallen"] = {
 			return !/heavy|medium/i.test(inObj.type);
 		},
 	},
+	usages: 1,
+	recovery: "dawn",
+	spellFirstColTitle: "Ch",
 	spellcastingBonus: [{
 		name: "either or",
 		spells: ["animate dead", "speak with dead"],
 		selection: ["animate dead", "speak with dead"],
-		firstCol: "SP",
+		firstCol: 1,
 		times: 2,
 	}],
-	usages: 1,
-	recovery: "dawn",
 };
 MagicItemsList["armor of weightlessness"] = {
 	name: "Armor of Weightlessness",
@@ -50985,9 +50989,6 @@ MagicItemsList["sage's signet"] = {
 			["Wolf", "Very rare", "*Freedom of Movement*, *Pass without Trace*"],
 		],
 	],
-	usages: 3,
-	recovery: "dawn",
-	additional: "each spell once",
 	choices: ["Bear (very rare)", "Hart (very rare)", "Lion (very rare)", "Serpent (rare)", "Songbird (rare)", "Wolf (very rare)"],
 	"bear (very rare)": {
 		name: "Sage's Signet (Bear)",

@@ -1,5 +1,5 @@
 var iFileName = "pub_20201117-2_TCoE-sidekicks.js";
-RequiredSheetVersion("14.1.3", 15);
+RequiredSheetVersion("14.2.0", 15);
 // This file adds the sidekick classes from Tasha's Cauldron of Everything (p142-147) to MPMB's Character Record Sheet
 
 /* - NOTICE -

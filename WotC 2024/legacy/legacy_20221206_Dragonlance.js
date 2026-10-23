@@ -1,5 +1,5 @@
 var iFileName = "legacy_20221206_Dragonlance.js";
-RequiredSheetVersion("24.1.3");
+RequiredSheetVersion("24.2.0");
 // This file adds the Character Options content from Dragonlance: Shadow of the Dragon Queen to MPMB's Character Record Sheet that has not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 SourceList["D:SotDQ"] = {

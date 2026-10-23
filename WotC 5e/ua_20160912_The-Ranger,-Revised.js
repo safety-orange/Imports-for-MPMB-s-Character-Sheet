@@ -1,5 +1,5 @@
 var iFileName = "ua_20160912_The-Ranger,-Revised.js";
-RequiredSheetVersion(14);
+RequiredSheetVersion("14.2.0", 15);
 // This file adds the content from the Unearthed Arcana: The Ranger, Revised article to MPMB's Character Record Sheet
 
 // Define the source

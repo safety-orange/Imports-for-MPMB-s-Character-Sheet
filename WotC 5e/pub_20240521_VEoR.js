@@ -1,5 +1,5 @@
 var iFileName = "pub_20240521_VEoR.js";
-RequiredSheetVersion("14.1.3", 15);
+RequiredSheetVersion("14.2.0", 15);
 // This file adds the magic item from the Vecna: Eve of Ruin adventure to MPMB's Character Record Sheet
 
 // Define the source

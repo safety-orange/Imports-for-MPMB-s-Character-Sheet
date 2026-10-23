@@ -22,7 +22,7 @@ const types = {
 const editions = {
 	"5e": {
 		folder: "WotC 5e",
-		version: '"14.1.3"',
+		version: '"14.2.0"',
 		maxVersion: '"15.0.0"',
 		types: ["pub", "ua"],
 		combos: [
@@ -31,7 +31,7 @@ const editions = {
 	},
 	"2024": {
 		folder: "WotC 2024",
-		version: '"24.1.3"',
+		version: '"24.2.0"',
 		maxVersion: false,
 		types: ["pub", "legacy", "ua"],
 		// Types whose source files are in a subfolder; the output files still go to the edition's folder

@@ -1,5 +1,5 @@
 var iFileName = "pub_20180723_WGtE.js";
-RequiredSheetVersion("14.1.3");
+RequiredSheetVersion("14.2.0");
 // This file adds the content from Wayfinder's Guide to Eberron to MPMB's Character Record Sheet
 // Be aware that this script is for the version from 9th of October 2018, not the original version,
 // nor the updated version of November 2019 that uses the identical rules to Eberron: Rising from the Last War.

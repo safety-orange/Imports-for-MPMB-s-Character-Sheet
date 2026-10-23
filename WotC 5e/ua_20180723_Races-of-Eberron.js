@@ -1,5 +1,5 @@
 var iFileName = "ua_20180723_Races-of-Eberron.js";
-RequiredSheetVersion("14.1.3");
+RequiredSheetVersion("14.2.0");
 // This file adds the content from the Unearthed Arcana: Races of Eberron article to MPMB's Character Record Sheet
 // Note that this content also appears in the script for Wayfinder's Guide to Eberron and thus both sources are included for all things here
 

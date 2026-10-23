@@ -4436,7 +4436,7 @@ RaceList["aasimar"] = {
 	age: " reach adulthood in their late teens and live around 160 years",
 	height: " are about 2-4 ft (small) or 4-7 ft (medium) tall (4'8\" + 2d10\")",
 	weight: " weigh around 165 lb (110 + 2d10 \xD7 2d4 lb)",
-	heightMetric: " are about 60-120 cm (small) or 120-210 cm (medium) tall (145 + 5d10 cm)",
+	heightMetric: " are about 60-120 cm (small) or 150-210 cm (medium) tall (145 + 5d10 cm)",
 	weightMetric: " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 };
 

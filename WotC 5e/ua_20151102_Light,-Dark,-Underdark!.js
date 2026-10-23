@@ -1,5 +1,5 @@
 var iFileName = "ua_20151102_Light,-Dark,-Underdark!.js";
-RequiredSheetVersion("14.1.3");
+RequiredSheetVersion("14.2.0");
 // This file adds the content from the Unearthed Arcana: Light, Dark, Underdark! article to MPMB's Character Record Sheet
 
 // Define the source

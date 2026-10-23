@@ -1,5 +1,5 @@
 var iFileName = "pub_20190917_DiA.js";
-RequiredSheetVersion("14.1.3", 15);
+RequiredSheetVersion("14.2.0", 15);
 // This file adds all material from the Baldur's Gate: Descent into Avernus adventure to MPMB's Character Record Sheet
 
 // Define the source

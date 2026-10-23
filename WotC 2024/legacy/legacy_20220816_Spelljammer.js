@@ -1,5 +1,5 @@
 var iFileName = "legacy_20220816_Spelljammer.js";
-RequiredSheetVersion("24.1.3");
+RequiredSheetVersion("24.2.0");
 /*
 	This file adds the Character Options content from the "Spelljammer: Adventures in Space" set
 	(the "Astral Adventurer's Guide" book and the "Boo's Astral Menagerie" book)

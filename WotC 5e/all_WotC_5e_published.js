@@ -1,7 +1,7 @@
-if (sheetVersion < 14001003) { throw "This add-on script was made for a newer version of the sheet (v14.1.3). Please use this required version or a later version (but lower than v15.0.0) and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
-if (sheetVersion >= 15000000) { throw "This add-on script was made for a lower version of the sheet (one before v15.0.0). Please use the required version (v14.1.3) or a later version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion < 14002000) { throw "This add-on script was made for a newer version of the sheet (v14.2.0). Please use this required version or a later version (but lower than v15.0.0) and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion >= 15000000) { throw "This add-on script was made for a lower version of the sheet (one before v15.0.0). Please use the required version (v14.2.0) or a later version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
 var iFileName = "all_WotC_5e_published.js";
-RequiredSheetVersion("14.1.3", "15.0.0");
+RequiredSheetVersion("14.2.0", "15.0.0");
 
 // pub_20140715_LMoP.js
 // This file adds the magic items from the Lost Mines of Phandelver adventure from the D&D 5e starter set to MPMB's Character Record Sheet
@@ -242,10 +242,7 @@ RaceList["dark elf"] = {
 	features: {
 		"faerie fire": {
 			name: "Drow Magic (level 3)",
-			limfeaname: "Faerie Fire",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Drow Magic (level 3)",
 				spells: ["faerie fire"],
@@ -255,10 +252,7 @@ RaceList["dark elf"] = {
 		},
 		"darkness": {
 			name: "Drow Magic (level 5)",
-			limfeaname: "Darkness",
 			minlevel: 5,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Drow Magic (level 5)",
 				spells: ["darkness"],
@@ -2715,17 +2709,11 @@ AddSubClass("wizard", "transmutation", {
 				"I add *Polymorph* to my spellbook; I can cast it on myself without using a spell slot",
 				"When I do that, I can only transform into a beast with a challenge rating of 1 or lower",
 			]),
-			recovery: "short rest",
-			usages: 1,
 			spellcastingBonus: [{
-				name: "Add to spellbook",
+				name: "Shapechanger",
 				spells: ["polymorph"],
 				selection: ["polymorph"],
-			}, {
-				name: "1/SR no spell slot",
-				spells: ["polymorph"],
-				selection: ["polymorph"],
-				firstCol: "oncesr",
+				firstCol: "oncesr+markedbox",
 			}],
 			spellChanges: {
 				"polymorph": {
@@ -6357,7 +6345,7 @@ var MM_lycanthrope = {
 		"\nIf you choose not to use a previous race as the base race or you selected a " + sLycanName + " at character creation, a human (non-variant) will be used as the base race." +
 		"\nThe " + sLycanName + "'s features added to the base race are:" +
 		desc(aGained, "\n   \u2022 ") +
-		"\n\nThe possible alignment change and moon-related limitations of lycanthropy are not mentioned in this race. Discuss with your DM how they want to handle lycanthropy."
+		"\n\nThe possible alignment change and moon-related limitations of a lycanthrope are not mentioned in this race. Discuss with your DM how they want to handle lycanthropy."
 	},
 };
 RaceList["lycanthrope-werebear"] = {
@@ -6900,10 +6888,7 @@ RaceList["aasimar"] = {
 	features: {
 		"lesser restoration": {
 			name: "Celestial Legacy (level 3)",
-			limfeaname: "Lesser Restoration",
-			usages: 1,
 			minlevel: 3,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Celestial Legacy (level 3)",
 				spells: ["lesser restoration"],
@@ -6913,10 +6898,7 @@ RaceList["aasimar"] = {
 		},
 		"daylight": {
 			name: "Celestial Legacy (level 5)",
-			limfeaname: "Daylight",
-			usages: 1,
 			minlevel: 5,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Celestial Legacy (level 5)",
 				spells: ["daylight"],
@@ -6959,10 +6941,7 @@ RaceList["eladrin"] = {
 	features: {
 		"fey step": {
 			name: "Fey Step",
-			limfeaname: "Misty Step",
 			minlevel: 1,
-			usages: 1,
-			recovery: "short rest",
 			spellcastingBonus: [{
 				name: "Fey Step",
 				spells: ["misty step"],
@@ -7267,9 +7246,6 @@ MagicItemsList["driftglobe"] = {
 	],
 	weight: 1,
 	action: [["action", " (hover)"]],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Daylight",
 	spellcastingBonus: [{
 		name: "On globe",
 		spells: ["light"],
@@ -7772,8 +7748,6 @@ MagicItemsList["sending stones"] = {
 		selection: ["sending"],
 		firstCol: "onceday",
 	}],
-	usages: 1,
-	recovery: "dawn",
 	spellChanges: {
 		"sending": {
 			description: "Send a 25 word message to the bearer of the other Sending Stone, who can respond with 25 words",
@@ -8087,9 +8061,6 @@ MagicItemsList["blackrazor"] = {
 		Object.assign({}, sentientItemConflictNote, { amendTo: "Blackrazor" }),
 	],
 	savetxt: { immune: ["charmed", "frightened"] },
-	usages: 1,
-	recovery: "day",
-	additional: "Haste",
 	spellcastingBonus: [{
 		name: "Once per day",
 		spells: ["haste"],
@@ -8231,14 +8202,6 @@ MagicItemsList["whelm"] = {
 		name: "Whelm [Shock Wave]",
 		usages: 1,
 		recovery: "dawn",
-	}, {
-		name: "Whelm [Detect Evil and Good]",
-		usages: 1,
-		recovery: "dawn",
-	}, {
-		name: "Whelm [Locate Object]",
-		usages: 1,
-		recovery: "dawn",
 	}],
 	vision: [["Know location of secret doors", 30]],
 	spellcastingBonus: [{
@@ -8246,6 +8209,7 @@ MagicItemsList["whelm"] = {
 		spells: ["detect evil and good", "locate object"],
 		selection: ["detect evil and good", "locate object"],
 		firstCol: "onceday",
+		times: 2,
 	}],
 }
 
@@ -8805,8 +8769,6 @@ MagicItemsList["drown"] = {
 	weight: 4,
 	languageProfs: ["Aquan"],
 	dmgres: ["Cold"],
-	usages: 1,
-	recovery: "dawn",
 	fixedDC: 17,
 	spellcastingBonus: [{
 		name: "Once per dawn",
@@ -8870,10 +8832,6 @@ MagicItemsList["ironfang"] = {
 	limfeaname: "Ironfang [Rumbling ritual]",
 	spellFirstColTitle: "Ch",
 	extraLimitedFeatures: [{
-		name: "Ironfang [Dominate Monster]",
-		usages: 1,
-		recovery: "dawn",
-	}, {
 		name: "Ironfang [Shatter] (regains 1d3)",
 		usages: 3,
 		recovery: "dawn",
@@ -9065,8 +9023,6 @@ MagicItemsList["tinderstrike"] = {
 	weight: 1,
 	languageProfs: ["Ignan"],
 	dmgres: ["Fire"],
-	usages: 1,
-	recovery: "dawn",
 	fixedDC: 17,
 	spellcastingBonus: [{
 		name: "Once per dawn",
@@ -9139,8 +9095,6 @@ MagicItemsList["windvane"] = {
 	weight: 3,
 	languageProfs: ["Auran"],
 	dmgres: ["Lightning"],
-	usages: 1,
-	recovery: "dawn",
 	fixedDC: 17,
 	spellcastingBonus: [{
 		name: "Once per dawn",
@@ -11432,9 +11386,6 @@ MagicItemsList["dawnbringer"] = {
 			}, "",
 		],
 	},
-	usages: 1,
-	recovery: "dawn",
-	additional: "Lesser Restoration",
 	spellcastingBonus: [{
 		name: "Once per dawn",
 		spells: ["lesser restoration"],
@@ -14149,15 +14100,6 @@ MagicItemsList["icon of ravenloft"] = {
 	],
 	attunement: true,
 	weight: 10,
-	extraLimitedFeatures: [{
-		name: "Icon of Ravenloft [Augury]",
-		usages: 1,
-		recovery: "dawn",
-	}, {
-		name: "Icon of Ravenloft [Cure Wounds]",
-		usages: 1,
-		recovery: "dawn",
-	}],
 	spellcastingBonus: [{
 		name: "All in 30 ft",
 		spells: ["protection from evil and good"],
@@ -14208,9 +14150,6 @@ MagicItemsList["lost sword"] = {
 	],
 	attunement: true,
 	weight: 2,
-	usages: 1,
-	recovery: "dawn",
-	additional: "Crusader's Mantle",
 	weaponOptions: [{
 		baseWeapon: "shortsword",
 		regExpSearch: /^(?=.*lost)(?=.*sword).*$/i,
@@ -14730,8 +14669,6 @@ MagicItemsList["gurt's greataxe"] = {
 	],
 	attunement: true,
 	weight: 325,
-	usages: 1,
-	recovery: "dawn",
 	weaponOptions: [{
 		baseWeapon: "greataxe",
 		regExpSearch: /^(?=.*gurt)(?=.*greataxe).*$/i,
@@ -15029,10 +14966,6 @@ MagicItemsList["pennant of the vind rune"] = {
 			["reaction", "Winds Grasp (Vind Rune)"],
 		],
 		extraLimitedFeatures: [{
-			name: "Levitate (Vind Rune)",
-			usages: 1,
-			recovery: "short rest",
-		}, {
 			name: "Winds Grasp (Vind Rune)",
 			usages: 1,
 			recovery: "short rest",
@@ -15074,8 +15007,6 @@ MagicItemsList["pennant of the vind rune"] = {
 		rarity: "rare",
 		description: "While wearing this item, I can convert up to 20 ft of my movement on each of my turns into flight. If I don't land at the end of this flight, I fall unless I have other means of staying aloft. Once per short rest, I can use this item to cast *Feather Fall*.",
 		attunement: true,
-		usages: 1,
-		recovery: "short rest",
 		spellcastingBonus: [{
 			name: "Once per short rest",
 			spells: ["feather fall"],
@@ -15176,10 +15107,6 @@ MagicItemsList["shard of the ise rune"] = {
 			recovery: "short rest",
 		}, {
 			name: "Icy Mantle (Ise Rune)",
-			usages: 1,
-			recovery: "short rest",
-		}, {
-			name: "Sleet Storm (Ise Rune)",
 			usages: 1,
 			recovery: "short rest",
 		}],
@@ -17858,15 +17785,6 @@ MagicItemsList["bookmark"] = {
 		modifiers: [3, 3],
 		selectNow: true,
 	}],
-	extraLimitedFeatures: [{
-		name: "Compulsion (Bookmark)",
-		usages: 1,
-		recovery: "dawn",
-	}, {
-		name: "Dimension Door (Bookmark)",
-		usages: 1,
-		recovery: "dawn",
-	}],
 	fixedDC: 15,
 	spellcastingBonus: [{
 		name: "Once per dawn",
@@ -18373,13 +18291,13 @@ AddSubClass("bard", "college of glamour", {
 				name: "Mantle of Majesty",
 				spells: ["command"],
 				selection: ["command"],
-				firstCol: "oncelr",
+				firstCol: "Sp",
 			}],
 			spellChanges: {
 				"command": {
 					time: "1 bns",
 					description: "1 crea save or follow one word command, e.g. approach, drop, flee, halt",
-					changes: "Using my Mantle of Majesty class feature, I can cast *Command* as a bonus action once per long rest without using a spell slot, thus only affect a single target.",
+					changes: "Once per long rest I can use my Mantle of Majesty class feature to be able to cast *Command* as a bonus action for 1 minute. When cast this way, it doesn't require a spell slot, thus only affects a single creature.",
 				},
 			},
 		},
@@ -18852,8 +18770,6 @@ AddSubClass("druid", "circle of the shepherd", {
 				"This is done as if using a 9th-level spell slot to summon 4 beasts of my choice up to CR 2",
 				"They appear within 20 ft of me, last 1 hour, and protect me from harm and attack foes",
 			]),
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Faithful Summons",
 				spells: ["conjure animals"],
@@ -19582,8 +19498,6 @@ var XGtE_Ranger_Subclass_Horizon_Walker = AddSubClass("ranger", "horizon walker"
 			source: [["X", 43]],
 			minlevel: 7,
 			description: desc("As a bonus action, I can cast the *Etherealness* spell, which lasts until the end of my turn"),
-			usages: 1,
-			recovery: "short rest",
 			spellcastingBonus: [{
 				name: "Ethereal Step",
 				spells: ["etherealness"],
@@ -20814,8 +20728,6 @@ FeatsList["fey teleportation"] = { // this code includes contributions by Soilen
 		firstCol: "oncesr",
 	}],
 	languageProfs: ["Sylvan"],
-	usages: 1,
-	recovery: "short rest",
 };
 FeatsList["flames of phlegethos"] = {
 	name: "Flames of Phlegethos",
@@ -27259,9 +27171,6 @@ MagicItemsList["shield of the uven rune"] = { // contains contributions by Pengs
 		rarity: "very rare",
 		description: "This shield made from the scale of a white dragon gives me cold damage immunity. As a reaction when I'm hit by a melee attack, I can deal 3d6 necrotic damage to the attacker. Once per short rest, I can cast *Bane* (DC 17) needing no concentration. I can do an 8 hour ritual to transfer the rune to a weapon, see book.",
 		weight: 6,
-		usages: 1,
-		recovery: "short rest",
-		additional: "Bane",
 		shieldAdd: "Shield of the Uven Rune",
 		action: [["reaction", ""]],
 		savetxt: {	immune: ["cold"] },
@@ -29349,21 +29258,13 @@ RaceList["dragonmark detection half-elf"] = {
 	features: {
 		"magical detection": {
 			name: "Magical Detection (level 1)",
-			limfeaname: "Detect Magic",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Magical Detection (level 1)",
 				spells: ["detect magic", "detect poison and disease"],
 				selection: ["detect magic", "detect poison and disease"],
 				firstCol: "oncelr",
 				times: 2,
-			}],
-			extraLimitedFeatures: [{
-				name: "Detect Poison and Disease",
-				usages: 1,
-				recovery: "long rest",
 			}],
 			spellChanges: {
 				"detect poison and disease": {
@@ -29375,10 +29276,7 @@ RaceList["dragonmark detection half-elf"] = {
 		},
 		"see invisibility": {
 			name: "Magical Detection (level 3)",
-			limfeaname: "See Invisibility",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Magical Detection (level 3)",
 				spells: ["see invisibility"],
@@ -29435,10 +29333,7 @@ RaceList["dragonmark finding half-orc"] = {
 	features: {
 		"finder's magic": {
 			name: "Finder's Magic (level 1)",
-			limfeaname: "Hunter's Mark",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Finder's Magic (level 1)",
 				spells: ["hunter's mark"],
@@ -29448,10 +29343,7 @@ RaceList["dragonmark finding half-orc"] = {
 		},
 		"locate object": {
 			name: "Finder's Magic (level 3)",
-			limfeaname: "Locate Object",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Finder's Magic (level 3)",
 				spells: ["locate object"],
@@ -29501,10 +29393,7 @@ RaceList["dragonmark finding human"] = {
 	features: {
 		"finder's magic": {
 			name: "Finder's Magic (level 1)",
-			limfeaname: "Hunter's Mark",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Finder's Magic (level 1)",
 				spells: ["hunter's mark"],
@@ -29514,10 +29403,7 @@ RaceList["dragonmark finding human"] = {
 		},
 		"locate object": {
 			name: "Finder's Magic (level 3)",
-			limfeaname: "Locate Object",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Finder's Magic (level 3)",
 				spells: ["locate object"],
@@ -29567,15 +29453,7 @@ RaceList["dragonmark handling human"] = {
 	features: {
 		"primal connection": {
 			name: "Primal Connection",
-			limfeaname: "Animal Friendship",
 			minlevel: 1,
-			usages: 1,
-			recovery: "short rest",
-			extraLimitedFeatures: [{
-				name: "Speak with Animals",
-				usages: 1,
-				recovery: "short rest",
-			}],
 			spellcastingBonus: [{
 				name: "Primal Connection",
 				spells: ["animal friendship", "speak with animals"],
@@ -29640,10 +29518,7 @@ RaceList["dragonmark healing halfling"] = {
 	features: {
 		"healing touch": {
 			name: "Healing Touch (level 1)",
-			limfeaname: "Cure Wounds",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Healing Touch (level 1)",
 				spells: ["cure wounds"],
@@ -29653,10 +29528,7 @@ RaceList["dragonmark healing halfling"] = {
 		},
 		"lesser restoration": {
 			name: "Healing Touch (level 3)",
-			limfeaname: "Lesser Restoration",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Healing Touch (level 3)",
 				spells: ["lesser restoration"],
@@ -29705,10 +29577,7 @@ RaceList["dragonmark hospitality halfling"] = {
 	features: {
 		"innkeeper's magic": {
 			name: "Innkeeper's Magic",
-			limfeaname: "Purify Food and Drink",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Innkeeper's Magic",
 				spells: ["prestidigitation"],
@@ -29719,11 +29588,6 @@ RaceList["dragonmark hospitality halfling"] = {
 				selection: ["purify food and drink", "unseen servant"],
 				firstCol: "oncelr",
 				times: 2,
-			}],
-			extraLimitedFeatures: [{
-				name: "Unseen Servant",
-				usages: 1,
-				recovery: "long rest",
 			}],
 		},
 	},
@@ -29770,10 +29634,7 @@ RaceList["dragonmark making human"] = {
 	features: {
 		"spellsmith": {
 			name: "Spellsmith",
-			limfeaname: "Magic Weapon",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Spellsmith",
 				spells: ["mending"],
@@ -29835,10 +29696,7 @@ RaceList["dragonmark passage human"] = {
 	features: {
 		"magical passage": {
 			name: "Magical Passage",
-			limfeaname: "Misty Step",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Magical Passage",
 				spells: ["misty step"],
@@ -29889,10 +29747,7 @@ RaceList["dragonmark scribing gnome"] = {
 	features: {
 		"scribe's insight": {
 			name: "Scribe's Insight (level 1)",
-			limfeaname: "Comprehend Languages",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Scribe's Insight (level 1)",
 				spells: ["message"],
@@ -29906,10 +29761,7 @@ RaceList["dragonmark scribing gnome"] = {
 		},
 		"magic mouth": {
 			name: "Scribe's Insight (level 3)",
-			limfeaname: "Magic Mouth",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Scribe's Insight (level 3)",
 				spells: ["magic mouth"],
@@ -29966,10 +29818,7 @@ RaceList["dragonmark sentinel human"] = {
 		},
 		"guardian's shield": {
 			name: "Guardian's Shield",
-			limfeaname: "Shield",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Guardian's Shield",
 				spells: ["shield"],
@@ -30030,10 +29879,7 @@ RaceList["dragonmark shadow elf"] = {
 	features: {
 		"shape shadows": {
 			name: "Shape Shadows (level 3)",
-			limfeaname: "Invisibility",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Shape Shadows (level 3)",
 				spells: ["invisibility"],
@@ -30093,10 +29939,7 @@ RaceList["dragonmark storm half-elf"] = {
 	features: {
 		"gust of wind": {
 			name: "Headwinds (level 3)",
-			limfeaname: "Gust of Wind",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Headwinds (level 3)",
 				spells: ["gust of wind"],
@@ -30150,21 +29993,13 @@ RaceList["dragonmark warding dwarf"] = {
 	features: {
 		"wards and seals": {
 			name: "Wards and Seals (level 1)",
-			limfeaname: "Alarm",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Wards and Seals (level 1)",
 				spells: ["alarm", "mage armor"],
 				selection: ["alarm", "mage armor"],
 				firstCol: "oncelr",
 				times: 2,
-			}],
-			extraLimitedFeatures: [{
-				name: "Mage Armor",
-				usages: 1,
-				recovery: "long rest",
 			}],
 			spellChanges: {
 				"alarm": {
@@ -30181,10 +30016,7 @@ RaceList["dragonmark warding dwarf"] = {
 		},
 		"arcane lock": {
 			name: "Wards and Seals (level 3)",
-			limfeaname: "Arcane Lock",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Wards and Seals (level 3)",
 				spells: ["arcane lock"],
@@ -31165,9 +30997,6 @@ MagicItemsList["ventilating lungs"] = {
 		"If your attunement to the lungs ends, your original lungs reappear.",
 	],
 	attunement: true,
-	usages: 1,
-	recovery: "dawn",
-	additional: "Gust of Wind",
 	fixedDC: 15,
 	spellcastingBonus: [{
 		name: "Once per dawn",
@@ -33093,11 +32922,6 @@ MagicItemsList["duskcrusher"] = {
 		"While you are holding *Duskcrusher* and its radiant head is active, you can use an action to cast the *sunbeam* spell (save DC 15) from the weapon, and this action can't be used again until the next dawn.",
 	],
 	action: [ ["bonus action", " (activate)"], ["action", " (deactivate)"] ],
-	extraLimitedFeatures: [{
-		name: "Duskcrusher (Sunbeam)",
-		usages: 1,
-		recovery: "dawn",
-	}],
 	weaponOptions: [{
 		baseWeapon: "warhammer",
 		regExpSearch: /duskcrusher/i,
@@ -33137,9 +32961,6 @@ MagicItemsList["goggles of object reading"] = {
 	attunement: true,
 	description: "While wearing these leather-framed goggles featuring purple crystal lenses, I have advantage on Intelligence (Arcana) checks made to reveal information about a creature or object I can see. Once per dawn, I can cast *Identify* using the goggles.",
 	descriptionFull: "These leather-framed goggles feature purple crystal lenses. While wearing the goggles, you have advantage on Intelligence (Arcana) checks made to reveal information about a creature or object you can see. In addition, you can cast the *identify* spell using the goggles. Once you do so, you can't do so again until the next dawn.", // Changed googles to goggles, as this is clearly a typo in the book
-	additional: "Identify",
-	usages: 1,
-	recovery: "dawn",
 	spellcastingBonus: [{
 		name: "Once per dawn",
 		spells: ["identify"],
@@ -33604,15 +33425,11 @@ MagicItemsList["danoth's visor"] = {
 		name: "Danoth's Visor [exalted]",
 		description: "These goggles grant me the ability to see, out to 60 ft, in normal and magical darkness, invisible creatures and objects, and into the Ethereal plane. They allow me to automatically detect illusions for what they are, succeed on saves against them, and see if creatures aren't in their true form. See Notes for more.",
 		action: [
-			["bonus action", "Danoth's Visor (see through matter)"]
-				["bonus action", "Danoth's Visor (spyglass mode)"],
+			["bonus action", "Danoth's Visor (see through matter)"],
+			["bonus action", "Danoth's Visor (spyglass mode)"],
 		],
 		extraLimitedFeatures: [{
 			name: "Danoth's Visor (see through matter)",
-			usages: 1,
-			recovery: "dawn",
-		}, {
-			name: "Danoth's Visor (Antimagic Field)",
 			usages: 1,
 			recovery: "dawn",
 		}],
@@ -33732,11 +33549,6 @@ MagicItemsList["hide of the feral guardian"] = {
 		useDescriptionFull: function (str) {
 			return str.replace("grants I", "grants me");
 		},
-	}],
-	extraLimitedFeatures: [{
-		name: "Hide of the Feral Guardian (Polymorph)",
-		usages: 1,
-		recovery: "dawn",
 	}],
 	spellcastingAbility: "class",
 	spellcastingBonus: [{
@@ -34096,11 +33908,6 @@ MagicItemsList["verminshroud"] = {
 	}],
 	savetxt: { immune: ["disease"] },
 	vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"], ["Adv. on Perception checks that rely on smell", 0]],
-	extraLimitedFeatures: [{
-		name: "Verminshroud (Polymorph)",
-		usages: 1,
-		recovery: "dawn",
-	}],
 	choices: ["Dormant", "Awakened", "Exalted"],
 	choicesNotInMenu: true,
 	"dormant": {
@@ -34127,11 +33934,6 @@ MagicItemsList["verminshroud"] = {
 		name: "Verminshroud [awakened]",
 		description: "This patchy cloak of rat pelts grants me immunity to disease, darkvision out to 60 ft, or extends it by 60 ft, adv. on Perception checks that rely on smell, and resistance to poison. Once per dawn, I can use it to cast *Polymorph* on myself to become a rat, giant rat, or giant wasp. I can cast *Insect Plague*. See Notes.",
 		dmgres: ["Poison"],
-		extraLimitedFeatures: [{
-			name: "Verminshroud (Insect Plague)",
-			usages: 1,
-			recovery: "dawn",
-		}],
 		fixedDC: 15,
 		spellcastingBonus: [{
 			name: "Once per dawn",
@@ -34154,11 +33956,6 @@ MagicItemsList["verminshroud"] = {
 		name: "Verminshroud [exalted]",
 		description: "This patchy cloak grants me immunity to disease, darkvision out to 60 ft, or extends it by 60 ft, adv. on Perception checks that rely on smell, resistance to poison, and a climbing speed. Once per dawn, I can use it to cast *Polymorph* on myself to become a rat, giant rat, giant wasp, or giant scorpion. See Notes page.",
 		dmgres: ["Poison"],
-		extraLimitedFeatures: [{
-			name: "Verminshroud (Insect Plague)",
-			usages: 1,
-			recovery: "dawn",
-		}],
 		fixedDC: 15,
 		spellcastingBonus: [{
 			name: "Once per dawn",
@@ -34933,23 +34730,6 @@ MagicItemsList["siren song lyre"] = {
 	],
 	weight: 2,
 	fixedDC: 13,
-	extraLimitedFeatures: [{
-		name: "Siren's Song Lyre [Animal Friendship]",
-		usages: 1,
-		recovery: "dawn",
-	}, {
-		name: "Siren's Song Lyre [Charm Person]",
-		usages: 1,
-		recovery: "dawn",
-	}, {
-		name: "Siren's Song Lyre [Enthrall]",
-		usages: 1,
-		recovery: "dawn",
-	}, {
-		name: "Siren's Song Lyre [Suggestion]",
-		usages: 1,
-		recovery: "dawn",
-	}],
 	spellcastingBonus: [{
 		name: "Once per dawn",
 		spells: ["animal friendship", "charm person", "enthrall", "suggestion"],
@@ -39843,8 +39623,6 @@ AddSubClass("fighter", "psi warrior", {
 				},
 			},
 			action: [["bonus action", "Weapon Attack while Telekinesis conc."]],
-			usages: 1,
-			recovery: "long rest",
 			altResource: "PsiD",
 		},
 	},
@@ -40994,8 +40772,6 @@ var TCoE_Ranger_Subclass_Fey_Wanderer = AddSubClass("ranger", "fey wanderer", {
 				"Once per long rest, I can cast it without expending a spell slot",
 				"When I cast it, I can have it not require concentration, but than its duration is 1 minute",
 			]),
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Fey Reinforcements",
 				spells: ["summon fey"],
@@ -41880,9 +41656,6 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 	source: [["T", 71]],
 	minlevel: 5,
 	submenu: "[warlock level  5+]",
-	usages: 1,
-	additional: "no spell slot",
-	recovery: "long rest",
 	spellcastingBonus: [{
 		name: "Undying Servitude",
 		spells: ["animate dead"],
@@ -41989,18 +41762,13 @@ AddSubClass("warlock", "the fathomless", {
 			]),
 			action: [["action", ""]],
 			additional: levels.map(function (n) {
-				return n < 10 ? "" : n + " temp HP; 1\xD7 per " + (typePF ? "LR" : "long rest") + " no SS";
+				return n < 10 ? "" : n + " temp HP";
 			}),
 			spellcastingBonus: [{
 				name: "Grasping Tentacles",
 				spells: ["evard's black tentacles"],
 				selection: ["evard's black tentacles"],
 				firstCol: "oncelr+markedbox",
-			}],
-			extraLimitedFeatures: [{
-				name: "Evard's Black Tentacles (no spell slot)",
-				usages: 1,
-				recovery: "long rest",
 			}],
 			calcChanges: {
 				spellAdd: [
@@ -42467,7 +42235,7 @@ FeatsList["artificer initiate"] = {
 		name: "1st-level artificer spell",
 		"class": "artificer",
 		level: [1, 1],
-		firstCol: "oncelr",
+		firstCol: "oncelr+markedbox",
 	}],
 	toolProfs: [ ["Artisan's tools", 1] ],
 };
@@ -43481,9 +43249,6 @@ MagicItemsList["masquerade tattoo"] = {
 		"***Fluid Ink***. As a bonus action, you can shape the tattoo into any color or pattern and move it to any area of your skin. Whatever form it takes, it is always obviously a tattoo. It can range in size from no smaller than a copper piece to an intricate work of art that covers all your skin.",
 		"***Disguise Self***. As an action, you can use the tattoo to cast the *disguise self* spell (DC 13 to discern the disguise). Once the spell is cast from the tattoo, it can't be cast from the tattoo again until the next dawn.",
 	].concat(TCoE_magicTattoosDescription),
-	usages: 1,
-	recovery: "dawn",
-	additional: "Disguise Self",
 	action: [["bonus action", " (change)"]],
 	fixedDC: 13,
 	spellcastingBonus: [{
@@ -44545,9 +44310,6 @@ MagicItemsList["reveler's concertina"] = {
 		"While holding this concertina, you gain a +2 bonus to the saving throw DC of your bard spells.",
 		"As an action, you can use the concertina to cast *Otto's irresistible dance* from the item. This property of the concertina can't be used again until the next dawn.",
 	],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Irresistible Dance",
 	spellcastingAbility: "class", // https://www.sageadvice.eu/2015/11/27/hat-of-disguise-dc/
 	spellcastingBonus: [{
 		name: "Otto's Irresistible Dance",
@@ -44767,11 +44529,6 @@ MagicItemsList["radiance (wand)"] = {
 	],
 	prerequisite: "Requires attunement by a spellcaster",
 	prereqeval: function (v) { return v.isSpellcaster; },
-	extraLimitedFeatures: [{
-		name: "Radiance (Enhance Ability)",
-		usages: 1,
-		recovery: "dawn",
-	}],
 	spellcastingBonus: [{
 		name: "Once per dawn, self only",
 		spells: ["enhance ability"],
@@ -44927,11 +44684,6 @@ MagicItemsList["watchful helm"] = {
 	],
 	weight: 1,
 	extraAC: [{ name: "Watchful Helm", mod: 1, magic: true, text: "I gain a +1 bonus to AC while attuned." }],
-	extraLimitedFeatures: [{
-		name: "Watchful Helm (See Invisibility)",
-		usages: 1,
-		recovery: "dawn",
-	}],
 	vision: [["Adv. on Perception checks that rely on sight", 0]],
 	spellcastingBonus: [{
 		name: "Once per dawn",
@@ -45960,14 +45712,8 @@ RaceList["fairy"] = {
 				name: "Fairy Magic (level 3)",
 				spells: ["faerie fire"],
 				selection: ["faerie fire"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Faerie Fire",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
 			}],
 		},
 		"fairy magic (level 5)": {
@@ -45977,14 +45723,8 @@ RaceList["fairy"] = {
 				name: "Fairy Magic (level 5)",
 				spells: ["enlarge/reduce"],
 				selection: ["enlarge/reduce"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Enlarge/Reduce",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
 			}],
 		},
 	},
@@ -46271,8 +46011,6 @@ MagicItemsList["steel"] = {
 		modifiers: [2, 2],
 		selectNow: true,
 	}],
-	usages: 1,
-	recovery: "dawn",
 	spellcastingBonus: [{
 		name: "Once per dawn",
 		spells: ["revivify"],
@@ -47709,9 +47447,6 @@ MagicItemsList["topaz annihilator"] = {
 		abilitytodamage: true,
 		selectNow: true,
 	}],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Disintegrate",
 	fixedDC: 18,
 	spellcastingBonus: [{
 		name: "Once per dawn",
@@ -47978,15 +47713,6 @@ var FToD_HoardItems = {
 				"Whenever I use a spell slot to cast a spell that deals acid, cold, fire, lightning, or poison damage, roll a d6, and I gain a bonus equal to the number rolled to one of the spell's damage rolls.",
 			],
 		},
-		extraLimitedFeatures: [{
-			name: "Dragon-Touched Focus (Hold Monster)",
-			usages: 1,
-			recovery: "dawn",
-		}, {
-			name: "Dragon-Touched Focus (Rime's Binding Ice)",
-			usages: 1,
-			recovery: "dawn",
-		}],
 		spellcastingBonus: [{
 			name: "Once per dawn",
 			spells: ["hold monster", "rime's binding ice"],
@@ -47996,15 +47722,6 @@ var FToD_HoardItems = {
 		}],
 	},
 	dtf_gem: {
-		extraLimitedFeatures: [{
-			name: "Dragon-Touched Focus (Rary's Telepathic Bond)",
-			usages: 1,
-			recovery: "dawn",
-		}, {
-			name: "Dragon-Touched Focus (R's Psychic Lance)",
-			usages: 1,
-			recovery: "dawn",
-		}],
 		spellcastingBonus: [{
 			name: "Once per dawn",
 			spells: ["rary's telepathic bond", "raulothim's psychic lance"],
@@ -48014,15 +47731,6 @@ var FToD_HoardItems = {
 		}],
 	},
 	dtf_metallic: {
-		extraLimitedFeatures: [{
-			name: "Dragon-Touched Focus (F's Platinum Shield)",
-			usages: 1,
-			recovery: "dawn",
-		}, {
-			name: "Dragon-Touched Focus (Legend Lore)",
-			usages: 1,
-			recovery: "dawn",
-		}],
 		spellcastingBonus: [{
 			name: "Once per dawn",
 			spells: ["fizban's platinum shield", "legend lore"],
@@ -48120,7 +47828,6 @@ MagicItemsList["dragon-touched focus"] = {
 		calcChanges: FToD_HoardItems.dtf_chromatic.calcChanges,
 		spellcastingAbility: "class",
 		spellcastingBonus: FToD_HoardItems.dtf_chromatic.spellcastingBonus,
-		extraLimitedFeatures: FToD_HoardItems.dtf_chromatic.extraLimitedFeatures,
 	},
 	"wakened - gem (very rare)": {
 		name: "Gem Dragon-Touched Focus (wakened)",
@@ -48129,7 +47836,6 @@ MagicItemsList["dragon-touched focus"] = {
 		description: "While holding this object, I can use it as my spellcasting focus and I can immediately teleport to an unoccupied space I can see within 15 ft when I cast a spell with a spell slot. It also grants me advantage on initiative and allows me to cast *Rary's Telepathic Bond* and *Raulothim's Psychic Lance* each once per dawn.",
 		spellcastingAbility: "class",
 		spellcastingBonus: FToD_HoardItems.dtf_gem.spellcastingBonus,
-		extraLimitedFeatures: FToD_HoardItems.dtf_gem.extraLimitedFeatures,
 	},
 	"wakened - metallic (very rare)": {
 		name: "Metallic Dragon-Touched Focus (wakened)",
@@ -48139,7 +47845,6 @@ MagicItemsList["dragon-touched focus"] = {
 		action: [["reaction", "Dragon-Touched Focus (adv. on save)"]],
 		spellcastingAbility: "class",
 		spellcastingBonus: FToD_HoardItems.dtf_metallic.spellcastingBonus,
-		extraLimitedFeatures: FToD_HoardItems.dtf_metallic.extraLimitedFeatures,
 	},
 	"ascendant - chromatic (legendary)": {
 		name: "Chromatic Dragon-Touched Focus (ascendant)",
@@ -48149,7 +47854,7 @@ MagicItemsList["dragon-touched focus"] = {
 		calcChanges: FToD_HoardItems.dtf_chromatic.calcChanges,
 		spellcastingAbility: "class",
 		spellcastingBonus: FToD_HoardItems.dtf_chromatic.spellcastingBonus,
-		extraLimitedFeatures: FToD_HoardItems.dtf_ascendant.extraLimitedFeatures.concat(FToD_HoardItems.dtf_chromatic.extraLimitedFeatures),
+		extraLimitedFeatures: FToD_HoardItems.dtf_ascendant.extraLimitedFeatures,
 	},
 	"ascendant - gem (legendary)": {
 		name: "Gem Dragon-Touched Focus (ascendant)",
@@ -48158,7 +47863,7 @@ MagicItemsList["dragon-touched focus"] = {
 		description: "While holding this, I can use it as my spellcasting focus and I can teleport to an empty space I can see in 15 ft when I cast a spell with a spell slot. It also grants me adv. on initiative and allows me to cast 2 spells each once per dawn. Once per dawn, I can treat a spell I cast as if cast with a 9th-level spell slot.",
 		spellcastingAbility: "class",
 		spellcastingBonus: FToD_HoardItems.dtf_gem.spellcastingBonus,
-		extraLimitedFeatures: FToD_HoardItems.dtf_ascendant.extraLimitedFeatures.concat(FToD_HoardItems.dtf_gem.extraLimitedFeatures),
+		extraLimitedFeatures: FToD_HoardItems.dtf_ascendant.extraLimitedFeatures,
 	},
 	"ascendant - metallic (legendary)": {
 		name: "Metallic Dragon-Touched Focus (ascendant)",
@@ -48168,7 +47873,7 @@ MagicItemsList["dragon-touched focus"] = {
 		action: [["reaction", "Dragon-Touched Focus (adv. on save)"]],
 		spellcastingAbility: "class",
 		spellcastingBonus: FToD_HoardItems.dtf_metallic.spellcastingBonus,
-		extraLimitedFeatures: FToD_HoardItems.dtf_ascendant.extraLimitedFeatures.concat(FToD_HoardItems.dtf_metallic.extraLimitedFeatures),
+		extraLimitedFeatures: FToD_HoardItems.dtf_ascendant.extraLimitedFeatures,
 	},
 }
 MagicItemsList["dragon vessel"] = {
@@ -48939,7 +48644,7 @@ MagicItemsList["lorehold primer"] = {
 		"In addition, if you study the primer at the end of a long rest, you can choose one 1st-level spell from the cleric or wizard spell list. Before you finish your next long rest, you can cast the chosen spell once without a spell slot if you are holding the primer. Your spellcasting ability for this spell is your choice of Intelligence, Wisdom, or Charisma.",
 	],
 	extraLimitedFeatures: [{
-		name: "Lorehold Primer charges (regains 1d3)",
+		name: "Lorehold Primer (charges; regains 1d3)",
 		usages: 3,
 		recovery: "dawn",
 	}, {
@@ -49159,8 +48864,6 @@ MagicItemsList["masque charm"] = {
 	rarity: "common",
 	description: "While wearing this small silver pin, I can cast *Disguise Self* once per sunset. It has DC 13 to discern the disguise. I can have the spell last its normal 1 hour duration, or 6 hours. If I choose 6 hours, the charm becomes nonmagical when the spell ends. In either case, the spell ends if the pin is removed from me.",
 	descriptionFull: "A *masque charm* is a small silver pin. While wearing this charm, you can use an action to cast the *disguise self* spell (DC 13 to discern the disguise). Once the spell is cast, it can't be cast from the charm again until the next sunset. When casting the spell, you can have the spell last for its normal 1 hour duration or for 6 hours. If you choose the 6-hour duration, the charm becomes nonmagical when the spell ends. In either case, the spell ends if the charm is removed from you.",
-	usages: 1,
-	recovery: "Sunset",
 	spellcastingBonus: [{
 		name: "Once per sunset",
 		spells: ["disguise self"],
@@ -49422,14 +49125,8 @@ RaceList["multiverse aarakocra"] = {
 				name: "Wind Caller",
 				spells: ["gust of wind"],
 				selection: ["gust of wind"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Gust of Wind",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
 			}],
 			spellChanges: {
 				"gust of wind": {
@@ -49659,14 +49356,8 @@ RaceList["multiverse deep gnome"] = {
 				name: "Gift of the Svirfneblin",
 				spells: ["disguise self"],
 				selection: ["disguise self"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Disguise Self",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
 			}],
 		},
 		"gift of the svirfneblin (level 5)": {
@@ -49676,7 +49367,7 @@ RaceList["multiverse deep gnome"] = {
 				name: "Gift of the Svirfneblin",
 				spells: ["nondetection"],
 				selection: ["nondetection"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 			spellChanges: {
@@ -49686,12 +49377,6 @@ RaceList["multiverse deep gnome"] = {
 					changes: "Using Gift of the Svirfneblin, I can cast *Nondetection* once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
 				},
 			},
-			extraLimitedFeatures: [{
-				name: "Nondetection",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 3+",
-			}],
 		},
 	},
 };
@@ -49724,7 +49409,7 @@ RaceList["multiverse duergar"] = {
 				name: "Duergar Magic",
 				spells: ["enlarge/reduce"],
 				selection: ["enlarge/reduce"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 			spellChanges: {
@@ -49735,12 +49420,6 @@ RaceList["multiverse duergar"] = {
 					changes: "Using Duergar Magic, I can cast *Enlarge/Reduce* on myself once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
 				},
 			},
-			extraLimitedFeatures: [{
-				name: "Enlarge/Reduce",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
-			}],
 		},
 		"duergar magic (level 5)": {
 			name: "Duergar Magic (level 5)",
@@ -49749,7 +49428,7 @@ RaceList["multiverse duergar"] = {
 				name: "Duergar Magic",
 				spells: ["invisibility"],
 				selection: ["invisibility"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
 			}],
 			spellChanges: {
@@ -49760,12 +49439,6 @@ RaceList["multiverse duergar"] = {
 					changes: "Using Duergar Magic, I can cast *Invisibility* on myself once per long rest without requiring material components. I can also cast it using a spell slot as normal, but then it does require material components.",
 				},
 			},
-			extraLimitedFeatures: [{
-				name: "Invisibility",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
-			}],
 		},
 	},
 };
@@ -49853,20 +49526,9 @@ RaceList["multiverse firbolg"] = {
 				name: "Firbolg Magic",
 				spells: ["detect magic", "disguise self"],
 				selection: ["detect magic", "disguise self"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				times: 2,
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Detect Magic",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
-			}, {
-				name: "Disguise Self",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
 			}],
 			spellChanges: {
 				"disguise self": {
@@ -49920,14 +49582,8 @@ RaceList["multiverse air genasi"] = {
 				name: "Mingle with the Wind",
 				spells: ["feather fall"],
 				selection: ["feather fall"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Feather Fall",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
 			}],
 			spellChanges: {
 				"feather fall": {
@@ -49944,14 +49600,8 @@ RaceList["multiverse air genasi"] = {
 				name: "Mingle with the Wind",
 				spells: ["levitate"],
 				selection: ["levitate"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Levitate",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
 			}],
 			spellChanges: {
 				"levitate": {
@@ -50012,14 +49662,8 @@ RaceList["multiverse earth genasi"] = {
 				name: "Merge with Stone",
 				spells: ["pass without trace"],
 				selection: ["pass without trace"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Pass Without Trace",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
 			}],
 			spellChanges: {
 				"pass without trace": {
@@ -50064,14 +49708,8 @@ RaceList["multiverse fire genasi"] = {
 				name: "Reach to the Blaze",
 				spells: ["burning hands"],
 				selection: ["burning hands"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Burning Hands",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
 			}],
 		},
 		"reach to the blaze (level 5)": {
@@ -50081,14 +49719,8 @@ RaceList["multiverse fire genasi"] = {
 				name: "Reach to the Blaze",
 				spells: ["flame blade"],
 				selection: ["flame blade"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Flame Blade",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
 			}],
 			spellChanges: {
 				"flame blade": {
@@ -50135,14 +49767,8 @@ RaceList["multiverse water genasi"] = {
 				name: "Call to the Wave",
 				spells: ["create or destroy water"],
 				selection: ["create or destroy water"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Create or Destroy Water",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
 			}],
 		},
 		"call to the wave (level 5)": {
@@ -50152,14 +49778,8 @@ RaceList["multiverse water genasi"] = {
 				name: "Call to the Wave",
 				spells: ["water walk"],
 				selection: ["water walk"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Water Walk",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 3+",
 			}],
 			spellChanges: {
 				"water walk": {
@@ -50212,14 +49832,8 @@ RaceList["multiverse githyanki"] = {
 				name: "Githyanki Psionics (3)",
 				spells: ["jump"],
 				selection: ["jump"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Jump",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
 			}],
 			spellChanges: {
 				"jump": {
@@ -50236,14 +49850,8 @@ RaceList["multiverse githyanki"] = {
 				name: "Githyanki Psionics (5)",
 				spells: ["misty step"],
 				selection: ["misty step"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Misty Step",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
 			}],
 			spellChanges: {
 				"misty step": {
@@ -50295,14 +49903,8 @@ RaceList["multiverse githzerai"] = {
 				name: "Githzerai Psionics (3)",
 				spells: ["shield"],
 				selection: ["shield"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Shield",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
 			}],
 			spellChanges: {
 				"shield": {
@@ -50318,14 +49920,8 @@ RaceList["multiverse githzerai"] = {
 				name: "Githzerai Psionics (5)",
 				spells: ["detect thoughts"],
 				selection: ["detect thoughts"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Detect Thoughts",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
 			}],
 			spellChanges: {
 				"detect thoughts": {
@@ -50958,14 +50554,8 @@ RaceList["multiverse triton"] = {
 				name: "Control Air and Water",
 				spells: ["fog cloud"],
 				selection: ["fog cloud"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Fog Cloud",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
 			}],
 		},
 		"control air and water (level 3)": {
@@ -50975,14 +50565,8 @@ RaceList["multiverse triton"] = {
 				name: "Control Air and Water",
 				spells: ["gust of wind"],
 				selection: ["gust of wind"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Gust of Wind",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
 			}],
 		},
 		"control air and water (level 5)": {
@@ -50992,14 +50576,8 @@ RaceList["multiverse triton"] = {
 				name: "Control Air and Water",
 				spells: ["water walk"],
 				selection: ["water walk"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Water Walk",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 3+",
 			}],
 		},
 	},
@@ -51047,14 +50625,8 @@ RaceList["multiverse yuan-ti"] = {
 				name: "Serpentine Spellcasting (level 3)",
 				spells: ["suggestion"],
 				selection: ["suggestion"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Suggestion",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 2+",
 			}],
 		},
 	},
@@ -53269,7 +52841,7 @@ FeatsList["ember of the fire giant"] = {
 		"***Born of Flame***. You have resistance to fire damage.",
 		"***Searing Ignition***. When you take the Attack action on your turn, you can replace a single attack with a magical burst of flame. Each creature of your choice in a 15-foot-radius sphere centered on you must make a Dexterity saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, a creature takes fire damage equal to 1d8 + your proficiency bonus, and it has the blinded condition until the start of your next turn. On a successful save, the creature takes half as much damage only. You can use your Searing Ignition a number of times equal to your proficiency bonus (but no more than once per turn), and you regain all expended uses when you finish a long rest.",
 	],
-	description: "I get fire resistance. Prof B per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8 + Prof B fire damage, blind until my next turn starts. Dex save DC 8 + Prof B + Str/Con/Wis mod half damage, not blind. [+1 Str/Con/Wis]",
+	description: "I get fire resistance. Prof B per long rest, when I use the Attack action on my turn, I can replace one attack with ***Searing Ignition***. Chosen targets in 15-ft radius sphere on me take 1d8 + Prof B fire damage, blind until my next turn starts. Dex save DC 8 + Prof B + Str/Con/Wis mod half damage, not blind. [+1 Str/Con/Wis]",
 	extraLimitedFeatures: [{
 		name: "Searing Ignition",
 		usages: "Proficiency bonus per ",
@@ -53280,7 +52852,7 @@ FeatsList["ember of the fire giant"] = {
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Str mod) halves damage, not blinded. [+1 Str]';",
+		calculate: "var abi = 'Str', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I have fire resistance. When I take the Attack action on my turn, I can replace one attack with ***Searing Ignition*** (' + iProfB + '/LR, Prof B/LR). Chosen targets in a 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) for half damage, not blinded. [+1 ' + abi + ']';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
 			name: "Searing Ignition",
@@ -53300,7 +52872,7 @@ FeatsList["ember of the fire giant"] = {
 	},
 	"constitution": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Con mod) halves damage, not blinded. [+1 Con]';",
+		calculate: "var abi = 'Con', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I have fire resistance. When I take the Attack action on my turn, I can replace one attack with ***Searing Ignition*** (' + iProfB + '/LR, Prof B/LR). Chosen targets in a 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) for half damage, not blinded. [+1 ' + abi + ']';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
 			name: "Searing Ignition",
@@ -53320,7 +52892,7 @@ FeatsList["ember of the fire giant"] = {
 	},
 	"wisdom": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I get fire resistance. ' + iProfB + '\xD7 (Prof) per long rest, when I use the Attack action on my turn, I can replace one attack with Searing Ignition: Chosen targets in 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Wis mod) halves damage, not blinded. [+1 Wis]';",
+		calculate: "var abi = 'Wis', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I have fire resistance. When I take the Attack action on my turn, I can replace one attack with ***Searing Ignition*** (' + iProfB + '/LR, Prof B/LR). Chosen targets in a 15-ft radius sphere on me take 1d8+' + iProfB + ' (Prof B) fire damage, blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) for half damage, not blinded. [+1 ' + abi + ']';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
 			name: "Searing Ignition",
@@ -53353,7 +52925,7 @@ FeatsList["fury of the frost giant"] = {
 		"***Born of Ice***. You have resistance to cold damage.",
 		"***Frigid Retaliation***. Immediately after a creature you can see within 30 feet of you hits you with an attack roll and deals damage, you can use your reaction to retaliate with a conjured blast of ice. The creature must make a Constitution saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, the creature takes cold damage equal to 1d8 + your proficiency bonus, and its speed is reduced to 0 until the end of its next turn. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	],
-	description: "I gain cold resistance. As a reaction when a creature I see within 30 ft damages me with an attack, I can, Prof B times per long rest, use Frigid Retaliation: it must make a Con save DC 8 + Prof B + Str/Con/Wis mod or take 1d8 + Prof B cold damage and have speed 0 until its next turn ends. [+1 Str/Con/Wis]",
+	description: "I gain cold resistance. As a reaction when a creature I see within 30 ft damages me with an attack, I can, Prof B times per long rest, use ***Frigid Retaliation***. it must make a Con save DC 8 + Prof B + Str/Con/Wis mod or take 1d8 + Prof B cold damage and have speed 0 until its next turn ends. [+1 Str/Con/Wis]",
 	action: [["reaction", "Frigid Retaliation"]],
 	extraLimitedFeatures: [{
 		name: "Frigid Retaliation",
@@ -53365,7 +52937,7 @@ FeatsList["fury of the frost giant"] = {
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Str mod) or take 1d8+' + iProfB + ' (Prof B) cold damage and have speed 0 until its next turn ends. [+1 Str]';",
+		calculate: "var abi = 'Str', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I gain cold resistance. ***Frigid Retaliation*** (' + iProfB + '\xD7 per Long Rest, Prof B/LR). As a reaction when a creature I can see within 30 ft hits me with an attack roll and deals damage, I can have it make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have speed 0 until its next turn ends. [+1 ' + abi + ']';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name: "Frigid Retaliation",
@@ -53385,7 +52957,7 @@ FeatsList["fury of the frost giant"] = {
 	},
 	"constitution": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Con mod) or take 1d8+' + iProfB + ' (Prof B) cold damage and have speed 0 until its next turn ends. [+1 Con]';",
+		calculate: "var abi = 'Con', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I gain cold resistance. ***Frigid Retaliation*** (' + iProfB + '\xD7 per Long Rest, Prof B/LR). As a reaction when a creature I can see within 30 ft hits me with an attack roll and deals damage, I can have it make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have speed 0 until its next turn ends. [+1 ' + abi + ']';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name: "Frigid Retaliation",
@@ -53405,7 +52977,7 @@ FeatsList["fury of the frost giant"] = {
 	},
 	"wisdom": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I gain cold resistance. As a reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B) per long rest, use Frigid Retaliation: it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Wis mod) or take 1d8+' + iProfB + ' (Prof B) cold damage and have speed 0 until its next turn ends. [+1 Wis]';",
+		calculate: "var abi = 'Wis', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I gain cold resistance. ***Frigid Retaliation*** (' + iProfB + '\xD7 per Long Rest, Prof B/LR). As a reaction when a creature I can see within 30 ft hits me with an attack roll and deals damage, I can have it make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have speed 0 until its next turn ends. [+1 ' + abi + ']';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name: "Frigid Retaliation",
@@ -53447,15 +53019,15 @@ FeatsList["guile of the cloud giant"] = {
 	}],
 	choices: ["Strength", "Constitution", "Charisma"],
 	"strength": {
-		description: "As a reaction when a creature I see within 30 ft hits me with an attack roll, I can use Cloudy Escape: I give myself resistance to that attack's damage and then I teleport to an unoccupied space that I can see within 30 ft. I can do this Proficiency Bonus per long rest. [+1 Strength]",
+		description: "As a reaction when a creature I see within 30 ft hits me with an attack roll, I can use ***Cloudy Escape***. I give myself resistance to that attack's damage and then I teleport to an unoccupied space that I can see within 30 ft. I can do this Proficiency Bonus per long rest. [+1 Strength]",
 		scores: [1,0,0,0,0,0],
 	},
 	"constitution": {
-		description: "As a reaction when a creature I see within 30 ft hits me with an attack roll, I can use Cloudy Escape: I give myself resistance to that attack's damage and then I teleport to an unoccupied space that I can see within 30 ft. I can do this Proficiency Bonus per long rest. [+1 Constitution]",
+		description: "As a reaction when a creature I see within 30 ft hits me with an attack roll, I can use ***Cloudy Escape***. I give myself resistance to that attack's damage and then I teleport to an unoccupied space that I can see within 30 ft. I can do this Proficiency Bonus per long rest. [+1 Constitution]",
 		scores: [0,0,1,0,0,0],
 	},
 	"charisma": {
-		description: "As a reaction when a creature I see within 30 ft hits me with an attack roll, I can use Cloudy Escape: I give myself resistance to that attack's damage and then I teleport to an unoccupied space that I can see within 30 ft. I can do this Proficiency Bonus per long rest. [+1 Charisma]",
+		description: "As a reaction when a creature I see within 30 ft hits me with an attack roll, I can use ***Cloudy Escape***. I give myself resistance to that attack's damage and then I teleport to an unoccupied space that I can see within 30 ft. I can do this Proficiency Bonus per long rest. [+1 Charisma]",
 		scores: [0,0,0,0,0,1],
 	},
 };
@@ -53473,7 +53045,7 @@ FeatsList["keenness of the stone giant"] = {
 		"***Cavernous Sight***. You gain darkvision with a range of 60 feet. If you already have darkvision from another source, its range increases by 60 feet.",
 		"***Stone Throw***. As a bonus action, you can take a rock and make a magical attack with it. The attack is a ranged spell attack with a range of 60 feet that uses the ability score you increased with this feat as the spellcasting ability. On a hit, the rock deals 1d10 force damage, and the target must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + the spellcasting ability modifier) or have the prone condition. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	],
-	description: "I gain +60 ft Darkvision. As a bonus action, Prof Bonus times per long rest, I can make a magical Stone Throw attack. It is a spell attack with 60 ft range that deals 1d10 force damage and the target hit must make a Str save or be knocked prone. This uses the ability increased as spellcasting ability. [+1 Str/Con/Wis]",
+	description: "I gain +60 ft Darkvision. As a bonus action, Prof Bonus times per long rest, I can make a magical ***Stone Throw*** attack. It is a spell attack with 60 ft range that deals 1d10 force damage and the target hit must make a Str save or be knocked prone. This uses the ability increased as spellcasting ability. [+1 Str/Con/Wis]",
 	vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
 	action: [["bonus action", "Stone Throw"]],
 	extraLimitedFeatures: [{
@@ -53485,7 +53057,7 @@ FeatsList["keenness of the stone giant"] = {
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Strength as spellcasting ability. [+1 Strength]';",
+		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical ***Stone Throw*** attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Strength as spellcasting ability. [+1 Strength]';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*stone)(?=.*throw).*$/i,
 			name: "Stone Throw",
@@ -53502,7 +53074,7 @@ FeatsList["keenness of the stone giant"] = {
 	},
 	"constitution": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Constitution as spellcasting ability. [+1 Con]';",
+		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical ***Stone Throw*** attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Constitution as spellcasting ability. [+1 Con]';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*stone)(?=.*throw).*$/i,
 			name: "Stone Throw",
@@ -53519,7 +53091,7 @@ FeatsList["keenness of the stone giant"] = {
 	},
 	"wisdom": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical Stone Throw attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Wisdom as spellcasting ability. [+1 Wisdom]';",
+		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I gain +60 ft Darkvision. As a bonus action, ' + iProfB + ' (Prof Bonus) times per long rest, I can make a magical ***Stone Throw*** attack: a spell attack (+' + (iProfB + iMod) + ') with 60 ft range that deals 1d10 force damage and the target hit must make a Strength save (DC ' + (8 + iProfB + iMod) + ') or be knocked prone. This uses Wisdom as spellcasting ability. [+1 Wisdom]';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*stone)(?=.*throw).*$/i,
 			name: "Stone Throw",
@@ -53548,7 +53120,7 @@ FeatsList["soul of the storm giant"] = {
 		"***Ability Score Increase***. Increase your Strength, Constitution, or Charisma by 1, to a maximum of 20.",
 		"***Maelstrom Aura***. As a bonus action, you surround yourself with an aura of magical wind and lightning that extends 10 feet from you in every direction but not through total cover. The aura lasts until the start of your next turn or until you are incapacitated. While the aura is active, you have resistance to lightning and thunder damage. In addition, attack rolls against you have disadvantage, and whenever another creature starts its turn within the aura, you can force the creature to make a Strength saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, the creature's speed is halved until the start of its next turn. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
 	],
-	description: "As a bonus action, Prof B per long rest, I can make a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning/thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to a Str save DC 8 + Prof + Str/Con/Cha mod or halve their speed until their next turn starts. [+1 Str/Con/Cha]",
+	description: "As a bonus action, Prof B per long rest, I can make a 10-ft radius ***Maelstrom Aura*** until my next turn starts: I get lightning/thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to a Str save DC 8 + Prof + Str/Con/Cha mod or halve their speed until their next turn starts. [+1 Str/Con/Cha]",
 	action: [["bonus action", "Maelstrom Aura"]],
 	extraLimitedFeatures: [{
 		name: "Maelstrom Aura",
@@ -53559,17 +53131,17 @@ FeatsList["soul of the storm giant"] = {
 	choices: ["Strength", "Constitution", "Charisma"],
 	"strength": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + (8 + iProfB + iMod) + ' (8+Prof+Str mod) or halve their speed until their next turn starts. [+1 Str]';",
+		calculate: "var abi = 'Str', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof B) per LR, I can invoke a ***Maelstrom Aura*** until my next turn starts: I have resistance to lightning and thunder, attacks vs me have disadv., I can have those starting their turn within 10 ft make a Str save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or halve their speed until their next turn starts. [+1 ' + abi + ']';",
 		scores: [1,0,0,0,0,0],
 	},
 	"constitution": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + (8 + iProfB + iMod) + ' (8+Prof+Con mod) or halve their speed until their next turn starts. [+1 Con]';",
+		calculate: "var abi = 'Con', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof B) per LR, I can invoke a ***Maelstrom Aura*** until my next turn starts: I have resistance to lightning and thunder, attacks vs me have disadv., I can have those starting their turn within 10 ft make a Str save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or halve their speed until their next turn starts. [+1 ' + abi + ']';",
 		scores: [0,0,1,0,0,0],
 	},
 	"charisma": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Cha Mod')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof) per long rest, I can invoke a 10-ft radius Maelstrom Aura until my next turn starts: I get lightning \u0026 thunder resistance, attacks vs. me have disadv., I can force those starting their turn inside to make a Str save DC ' + (8 + iProfB + iMod) + ' (8+Prof+Cha mod) or halve their speed until their next turn starts. [+1 Cha]';",
+		calculate: "var abi = 'Cha', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'As a bonus action, ' + iProfB + '\xD7 (Prof B) per LR, I can invoke a ***Maelstrom Aura*** until my next turn starts: I have resistance to lightning and thunder, attacks vs me have disadv., I can have those starting their turn within 10 ft make a Str save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or halve their speed until their next turn starts. [+1 ' + abi + ']';",
 		scores: [0,0,0,0,0,1],
 	},
 };
@@ -53587,19 +53159,19 @@ FeatsList["vigor of the hill giant"] = {
 		"***Bulwark***. When you are subjected to an effect that would move you at least 5 feet or give you the prone condition, you can use your reaction to steady yourself. You aren't moved and don't have the prone condition.",
 		"***Iron Stomach***. Whenever you eat food as part of a short rest and spend one or more Hit Dice to regain hit points, you regain additional hit points equal to your Constitution modifier + your proficiency bonus.",
 	],
-	description: "Bulwark: When I would be moved or knocked prone I can use my reaction to prevent that. Iron Stomach: Whenever I eat food as part of a short rest and spend HD to regain hit points, I regain additional hp equal to my Constitution modifier + my proficiency bonus. [+1 Strength/Constitution/Wisdom]",
+	description: "***Bulwark***. When I would be moved or knocked prone I can use my reaction to prevent that. ***Iron Stomach***. Whenever I eat food as part of a short rest and spend HD to regain hit points, I regain additional hp equal to my Constitution modifier + my proficiency bonus. [+1 Strength/Constitution/Wisdom]",
 	action: [["reaction", "Bulwark"]],
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
-		description: "Bulwark: When I would be moved or knocked prone I can use my reaction to prevent that. Iron Stomach: Whenever I eat food as part of a short rest and spend HD to regain hit points, I regain additional hp equal to my Con" + (typePF ? "stitution" : "") + " modifier + my proficiency bonus. [+1 St" + (typePF ? "rength" : "") + "]",
+		description: "***Bulwark***. When I would be moved or knocked prone I can use my reaction to prevent that. ***Iron Stomach***. Whenever I eat food as part of a short rest and spend HD to regain hit points, I regain additional hp equal to my Con" + (typePF ? "stitution" : "") + " modifier + my proficiency bonus. [+1 St" + (typePF ? "rength" : "") + "]",
 		scores: [1,0,0,0,0,0],
 	},
 	"constitution": {
-		description: "Bulwark: When I would be moved or knocked prone I can use my reaction to prevent that. Iron Stomach: Whenever I eat food as part of a short rest and spend HD to regain hit points, I regain additional hp equal to my Con" + (typePF ? "stitution" : "") + " modifier + my proficiency bonus. [+1 Con" + (typePF ? "stitution" : "") + "]",
+		description: "***Bulwark***. When I would be moved or knocked prone I can use my reaction to prevent that. ***Iron Stomach***. Whenever I eat food as part of a short rest and spend HD to regain hit points, I regain additional hp equal to my Con" + (typePF ? "stitution" : "") + " modifier + my proficiency bonus. [+1 Con" + (typePF ? "stitution" : "") + "]",
 		scores: [0,0,1,0,0,0],
 	},
 	"wisdom": {
-		description: "Bulwark: When I would be moved or knocked prone I can use my reaction to prevent that. Iron Stomach: Whenever I eat food as part of a short rest and spend HD to regain hit points, I regain additional hp equal to my Con" + (typePF ? "stitution" : "") + " modifier + my proficiency bonus. [+1 Wis" + (typePF ? "dom" : "") + "]",
+		description: "***Bulwark***. When I would be moved or knocked prone I can use my reaction to prevent that. ***Iron Stomach***. Whenever I eat food as part of a short rest and spend HD to regain hit points, I regain additional hp equal to my Con" + (typePF ? "stitution" : "") + " modifier + my proficiency bonus. [+1 Wis" + (typePF ? "dom" : "") + "]",
 		scores: [0,0,0,0,1,0],
 	},
 };
@@ -53802,9 +53374,6 @@ MagicItemsList["armor of safeguarding"] = {
 		"***Invoking the Rune***. As an action, you can invoke the armor's rune to cast the *beacon of hope* spell with it; the spell has a duration of 1 minute and doesn't require concentration. Once the rune has been invoked, it can't be invoked again until the next dawn.",
 	],
 	description: "Set in the center of this armor's chest is a citrine engraved with the shield rune. While wearing this armor, my max hp increases by my level + 10. As an action once per dawn, I can invoke its shield rune to cast *Beacon of Hope* with a duration of 1 minute without requiring concentration.",
-	usages: 1,
-	recovery: "dawn",
-	additional: "Beacon of Hope",
 	chooseGear: {
 		type: "armor",
 		prefixOrSuffix: "prefix",
@@ -53881,9 +53450,6 @@ MagicItemsList["crown of the wrath bringer"] = {
 		"***Invoking the Rune***. As an action, you can invoke the crown's rune to cast the *fear* spell (save DC 15) with it; the spell has a duration of 1 minute and doesn't require concentration. Once the rune has been invoked, it can't be invoked again until the next dawn.",
 	],
 	description: "When I hit a creature with an attack roll while wearing this jagged iron circlet, I can spend one HD to have the attack deal that much extra psychic damage. As an action once per dawn, I can invoke its enemy rune to cast *Fear* (DC 15) with a duration of 1 minute without requiring concentration.",
-	usages: 1,
-	recovery: "dawn",
-	additional: "Fear",
 	fixedDC: 15,
 	spellcastingBonus: [{
 		name: "Once per dawn",
@@ -54101,9 +53667,6 @@ MagicItemsList["lucent destroyer"] = {
 		ammo: "",
 		selectNow: true,
 	}],
-	usages: 1,
-	recovery: "dawn",
-	additional: "invoke rune: Sunbeam",
 	fixedDC: 17,
 	spellcastingBonus: [{
 		name: "At will",
@@ -54138,9 +53701,6 @@ MagicItemsList["mistral mantle"] = {
 		selection: ["sleet storm"],
 		firstCol: "onceday",
 	}],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Sleet Storm",
 };
 MagicItemsList["nimbus coronet"] = {
 	name: "Nimbus Coronet",
@@ -54420,19 +53980,14 @@ MagicItemsList["staff of the rooted hills"] = {
 	}],
 	usages: 1,
 	recovery: "dawn",
-	additional: "Hold Person or Speak with Plants",
 	fixedDC: 12,
 	spellFirstColTitle: "Ch",
 	spellcastingBonus: [{
-		name: "Hold Person",
-		spells: ["hold person"],
+		name: "1 charge",
+		spells: ["hold person", "speak with plants"],
 		selection: ["hold person"],
 		firstCol: 1,
-	}, {
-		name: "Speak with Plants",
-		spells: ["speak with plants"],
-		selection: ["speak with plants"],
-		firstCol: 1,
+		times: 2,
 	}],
 };
 MagicItemsList["stonebreaker's breastplate"] = {
@@ -54460,9 +54015,6 @@ MagicItemsList["stonebreaker's breastplate"] = {
 		selection: ["wall of stone"],
 		firstCol: "onceday",
 	}],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Wall of Stone",
 };
 MagicItemsList["thunderbuss"] = {
 	name: "Thunderbuss",
@@ -54530,9 +54082,6 @@ MagicItemsList["wayfarer's boots"] = {
 		selection: ["expeditious retreat"],
 		firstCol: "onceday",
 	}],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Expeditious Retreat",
 };
 MagicItemsList["wyrmreaver gauntlets"] = {
 	name: "Wyrmreaver Gauntlets",
@@ -54596,9 +54145,6 @@ MagicItemsList["zephyr armor"] = {
 		selection: ["wind wall"],
 		firstCol: "onceday",
 	}],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Wind Wall",
 };
 
 // pub_20230919_PaBTSO.js
@@ -54809,9 +54355,6 @@ MagicItemsList["luminous war pick"] = {
 		selection: ["daylight"],
 		firstCol: "onceday",
 	}],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Daylight",
 	action: [["bonus action", " (Daylight)"]],
 	spellChanges: {
 		"daylight": {
@@ -55451,9 +54994,6 @@ MagicItemsList["mimir"] = {
 	],
 	action: [["bonus action", " (activate/stow)"]],
 	weight: 5,
-	usages: 1,
-	recovery: "dawn",
-	additional: "Legend Lore",
 	spellcastingBonus: [{
 		name: "Once per dawn",
 		spells: ["legend lore"],
@@ -55881,9 +55421,6 @@ MagicItemsList["ring of collecting"] = {
 			changes: "Using the Ring of Collecting, I can cast *Leomund's Tiny Hut* as an action instead of taking 1 minute. Once this property is used, it can't be used again until the next dawn. For every 1,000 gp of art acquired, the tiny hut increases in size by adding +1 ft to its radius and lasts +1 hour.",
 		},
 	},
-	usages: 1,
-	recovery: "dawn",
-	additional: "Leomund's Tiny Hut",
 	action: [["bonus action", " (steal art)"]],
 }
 MagicItemsList["ring of the copycat"] = {
@@ -56290,10 +55827,6 @@ MagicItemsList["antimagic armor"] = {
 		name: "Adv. save vs. spell (Antimagic Armor)",
 		usages: 1,
 		recovery: "dawn",
-	}, {
-		name: "Antimagic Field (Antimagic Armor)",
-		usages: 1,
-		recovery: "dawn",
 	}],
 	spellChanges: {
 		"antimagic field": {
@@ -56343,15 +55876,16 @@ MagicItemsList["armor of the fallen"] = {
 			return !/heavy|medium/i.test(inObj.type);
 		},
 	},
-	spellcastingBonus: [{
-		name: "either or",
-		spells: ["animate dead", "speak with dead"],
-		selection: ["animate dead", "speak with dead"],
-		firstCol: "SP",
-		times: 2,
-	}],
 	usages: 1,
 	recovery: "dawn",
+	spellFirstColTitle: "Ch",
+	spellcastingBonus: [{
+		name: "1 charge",
+		spells: ["animate dead", "speak with dead"],
+		selection: ["animate dead", "speak with dead"],
+		firstCol: 1,
+		times: 2,
+	}],
 };
 MagicItemsList["armor of weightlessness"] = {
 	name: "Armor of Weightlessness",
@@ -56648,9 +56182,6 @@ MagicItemsList["card sharp's deck"] = {
 		abilitytodamage: false,
 		selectNow: true,
 	}],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Spray of Cards",
 	spellcastingBonus: [{
 		name: "Once per dawn",
 		spells: ["spray of cards"],
@@ -56945,9 +56476,6 @@ MagicItemsList["deck of oracles"] = {
 		"Additionally, while holding the cards, you can cast *Divination* from them. Once this property is used, it can't be used again until the next dawn.",
 	],
 	action: [["reaction", ""]],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Divination",
 	spellcastingBonus: [{
 		name: "Once per dawn",
 		spells: ["divination"],
@@ -57147,10 +56675,6 @@ MagicItemsList["euryale's aegis"] = {
 	extraLimitedFeatures: [{
 		name: "Euryale's Aegis - Petrify",
 		usages: 1,
-		recovery: "dawn",
-	}, {
-		name: "Euryale's Aegis (each spell once)",
-		usages: 3,
 		recovery: "dawn",
 	}],
 };
@@ -57657,10 +57181,6 @@ MagicItemsList["rod of hellish flames"] = {
 	],
 	weight: 2,
 	extraLimitedFeatures: [{
-		name: "Rod of Hellish Flames (Hellish Rebuke)",
-		usages: 1,
-		recovery: "dawn",
-	}, {
 		name: "Rod of Hellish Flames (maximize)",
 		usages: 1,
 		recovery: "dawn",
@@ -57692,9 +57212,6 @@ MagicItemsList["rogue's mantle"] = {
 		"***Move in Shadows***. While you are in dim light or darkness, you can use a bonus action to teleport, along with anything you are wearing or carrying, up to 30 feet to an unoccupied space you can see that is also in dim light or darkness. You then have advantage on the first melee attack you make before the end of the turn.",
 		"***Willful Enmity***. You can cast the *Antagonize* spell (save DC 15) from the mantle. Once the mantle has cast the spell, it can't cast the spell again until the next dawn.",
 	],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Antagonize",
 	vision: [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
 	action: [["bonus action", " (teleport)"]],
 	fixedDC: 15,
@@ -57756,9 +57273,6 @@ MagicItemsList["sage's signet"] = {
 			["Wolf", "Very rare", "*Freedom of Movement*, *Pass without Trace*"],
 		],
 	],
-	usages: 3,
-	recovery: "dawn",
-	additional: "each spell once",
 	choices: ["Bear (very rare)", "Hart (very rare)", "Lion (very rare)", "Serpent (rare)", "Songbird (rare)", "Wolf (very rare)"],
 	"bear (very rare)": {
 		name: "Sage's Signet (Bear)",
@@ -57897,9 +57411,6 @@ MagicItemsList["skull helm"] = {
 		"Additionally, while wearing the helm, you can cast *Spirit of Death* from it without requiring material components. Once you use the helm to cast the spell, the helm can't cast this spell again until the next dawn.",
 	],
 	dmgres: ["Cold", "Poison", "Necrotic"],
-	usages: 1,
-	recovery: "dawn",
-	additional: "Spirit of Death",
 	spellcastingBonus: [{
 		name: "Once per dawn",
 		spells: ["spirit of death"],
@@ -58007,10 +57518,6 @@ MagicItemsList["stonemaker war pick"] = {
 	],
 	weight: 2,
 	extraLimitedFeatures: [{
-		name: "Stonemaker War Pick - Meld into Stone",
-		usages: 1,
-		recovery: "dawn",
-	}, {
 		name: "Stonemaker War Pick - Petrification",
 		usages: "1d6+1",
 		recovery: "\u2013",
@@ -58479,9 +57986,6 @@ MagicItemsList["chime of exile"] = {
 	rarity: "very rare",
 	description: "This silver chime is engraved with delicate magic sigils. As an action once per dawn, I can hold the chime and cast the *Banishment* spell (save DC 20). If the target of the spell has 50 hit points or fewer, it automatically fails its saving throw.",
 	descriptionFull: "This silver chime is engraved with delicate magic sigils. While holding the chime, you can use an action to cast the *Banishment* spell (spell save DC 20). If the target of the spell has 50 hit points or fewer, it automatically fails its saving throw. Once the chime has been used to cast the spell, it can't be used this way again until the next dawn.",
-	usages: 1,
-	recovery: "dawn",
-	additional: "Banishment",
 	fixedDC: 20,
 	spellcastingBonus: [{
 		name: "Once per dawn",

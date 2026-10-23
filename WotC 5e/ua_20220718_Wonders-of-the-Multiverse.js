@@ -1,6 +1,6 @@
 // This file adds the content from the Unearthed Arcana 2022: Wonders of the Multiverse article to MPMB's Character Record Sheet
 var iFileName = "ua_20220718_Wonders-of-the-Multiverse.js";
-RequiredSheetVersion("14.1.3");
+RequiredSheetVersion("14.2.0");
 
 SourceList["UA:WotM"] = {
 	name: "Unearthed Arcana: Wonders of the Multiverse",

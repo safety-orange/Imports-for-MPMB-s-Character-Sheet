@@ -2,7 +2,7 @@
 // Contains contributions by Thravieus Windhelm / PoetOfGod (GitHub) / @PoetOfGod#6077 (Discord)
 
 var iFileName = "ua_20220425_Heroes-of-Krynn-Revisited.js";
-RequiredSheetVersion("14.1.3");
+RequiredSheetVersion("14.2.0");
 
 SourceList["UA:HoKR"] = {
 	name: "Unearthed Arcana: Heroes of Krynn Revisited",

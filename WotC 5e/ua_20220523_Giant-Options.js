@@ -1,7 +1,7 @@
 // This file adds the content from the Unearthed Arcana 2022: Giant Options article to MPMB's Character Record Sheet
 // Contains contributions by Thravieus Windhelm / PoetOfGod (GitHub) / @PoetOfGod#6077 (Discord)
 var iFileName = "ua_20220523_Giant-Options.js";
-RequiredSheetVersion("14.1.3");
+RequiredSheetVersion("14.2.0");
 
 SourceList["UA:GO"] = {
 	name: "Unearthed Arcana: Giant Options",

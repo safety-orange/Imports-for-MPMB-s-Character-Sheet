@@ -1,5 +1,5 @@
 var iFileName = "legacy_20230815_GotG.js";
-RequiredSheetVersion("24.1.3");
+RequiredSheetVersion("24.2.0");
 // This file adds the player-material from Bigby Presents: Glory of the Giants to MPMB's Character Record Sheet that has not (yet) been replaced in any rulebook for the 5.5e (2024) rules
 
 SourceList["GotG"] = {
@@ -259,7 +259,7 @@ FeatsList["ember of the fire giant"] = {
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
 		description: "",
-		calculate: "var abi = 'Str', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I have Fire resistance. When I take the Attack action on my turn, I can replace one attack with ***Searing Ignition*** (' + iProfB + '/LR, Prof B/LR). Chosen targets in a 15-ft radius Sphere on me take 1d8+' + iProfB + ' (Prof B) Fire damage, Blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) for half damage, not Blinded. [+1 ' + abi + ']';",
+		calculate: "var abi = 'Str', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I have Fire Resistance. When I take the Attack action on my turn, I can replace one attack with ***Searing Ignition*** (' + iProfB + '/LR, Prof B/LR). Chosen targets in a 15-ft radius Sphere on me take 1d8+' + iProfB + ' (Prof B) Fire damage, Blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) for half damage, not Blinded. [+1 ' + abi + ']';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
 			name: "Searing Ignition",
@@ -279,7 +279,7 @@ FeatsList["ember of the fire giant"] = {
 	},
 	"constitution": {
 		description: "",
-		calculate: "var abi = 'Con', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I have Fire resistance. When I take the Attack action on my turn, I can replace one attack with ***Searing Ignition*** (' + iProfB + '/LR, Prof B/LR). Chosen targets in a 15-ft radius Sphere on me take 1d8+' + iProfB + ' (Prof B) Fire damage, Blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) for half damage, not Blinded. [+1 ' + abi + ']';",
+		calculate: "var abi = 'Con', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I have Fire Resistance. When I take the Attack action on my turn, I can replace one attack with ***Searing Ignition*** (' + iProfB + '/LR, Prof B/LR). Chosen targets in a 15-ft radius Sphere on me take 1d8+' + iProfB + ' (Prof B) Fire damage, Blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) for half damage, not Blinded. [+1 ' + abi + ']';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
 			name: "Searing Ignition",
@@ -299,7 +299,7 @@ FeatsList["ember of the fire giant"] = {
 	},
 	"wisdom": {
 		description: "",
-		calculate: "var abi = 'Wis', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I have Fire resistance. When I take the Attack action on my turn, I can replace one attack with ***Searing Ignition*** (' + iProfB + '/LR, Prof B/LR). Chosen targets in a 15-ft radius Sphere on me take 1d8+' + iProfB + ' (Prof B) Fire damage, Blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) for half damage, not Blinded. [+1 ' + abi + ']';",
+		calculate: "var abi = 'Wis', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I have Fire Resistance. When I take the Attack action on my turn, I can replace one attack with ***Searing Ignition*** (' + iProfB + '/LR, Prof B/LR). Chosen targets in a 15-ft radius Sphere on me take 1d8+' + iProfB + ' (Prof B) Fire damage, Blinded until my next turn starts. Dex save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) for half damage, not Blinded. [+1 ' + abi + ']';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
 			name: "Searing Ignition",
@@ -344,7 +344,7 @@ FeatsList["fury of the frost giant"] = {
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Str Mod')); event.value = 'I gain Cold Resistance. As a Reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B) per Long Rest, use ***Frigid Retaliation***. it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Str mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have Speed 0 until its next turn ends. [+1 Str]';",
+		calculate: "var abi = 'Str', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I gain Cold Resistance. ***Frigid Retaliation*** (' + iProfB + '\xD7 per Long Rest, Prof B/LR). As a Reaction when a creature I can see within 30 ft hits me with an attack roll and deals damage, I can have it make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have Speed 0 until its next turn ends. [+1 ' + abi + ']';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name: "Frigid Retaliation",
@@ -364,7 +364,7 @@ FeatsList["fury of the frost giant"] = {
 	},
 	"constitution": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Con Mod')); event.value = 'I gain Cold Resistance. As a Reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B) per Long Rest, use ***Frigid Retaliation***. it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Con mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have Speed 0 until its next turn ends. [+1 Con]';",
+		calculate: "var abi = 'Con', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I gain Cold Resistance. ***Frigid Retaliation*** (' + iProfB + '\xD7 per Long Rest, Prof B/LR). As a Reaction when a creature I can see within 30 ft hits me with an attack roll and deals damage, I can have it make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have Speed 0 until its next turn ends. [+1 ' + abi + ']';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name: "Frigid Retaliation",
@@ -384,7 +384,7 @@ FeatsList["fury of the frost giant"] = {
 	},
 	"wisdom": {
 		description: "",
-		calculate: "var iProfB = Number(How('Proficiency Bonus')), iMod = Number(What('Wis Mod')); event.value = 'I gain Cold Resistance. As a Reaction when a creature I see within 30 ft hits me with an attack roll and deals damage, I can, ' + iProfB + ' times (Prof B) per Long Rest, use ***Frigid Retaliation***. it must make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + Wis mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have Speed 0 until its next turn ends. [+1 Wis]';",
+		calculate: "var abi = 'Wis', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'I gain Cold Resistance. ***Frigid Retaliation*** (' + iProfB + '\xD7 per Long Rest, Prof B/LR). As a Reaction when a creature I can see within 30 ft hits me with an attack roll and deals damage, I can have it make a Con save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or take 1d8+' + iProfB + ' (Prof B) Cold damage and have Speed 0 until its next turn ends. [+1 ' + abi + ']';",
 		weaponOptions: [{
 			regExpSearch: /^(?=.*frigid)(?=.*retaliation).*$/i,
 			name: "Frigid Retaliation",
@@ -538,17 +538,17 @@ FeatsList["soul of the storm giant"] = {
 	choices: ["Strength", "Constitution", "Charisma"],
 	"strength": {
 		description: "",
-		calculate: "var abi = 'Str', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'As a Bonus Action, ' + iProfB + '\xD7 (Prof B) per LR, I can invoke a 10-ft radius ***Maelstrom Aura*** until my next turn starts: I get Lightning and Thunder Resistance, attacks vs me have Disadv, I can have those starting their turn inside make a Str save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or halve their Speed until their next turn starts. [+1 ' + abi + ']';",
+		calculate: "var abi = 'Str', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'As a Bonus Action, ' + iProfB + '\xD7 (Prof B) per LR, I can invoke a ***Maelstrom Aura*** until my next turn starts: I get Resistance to Lightning and Thunder, attacks vs me have Disadv, I can have those starting their turn within 10 ft make a Str save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or halve their Speed until their next turn starts. [+1 ' + abi + ']';",
 		scores: [1,0,0,0,0,0],
 	},
 	"constitution": {
 		description: "",
-		calculate: "var abi = 'Con', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'As a Bonus Action, ' + iProfB + '\xD7 (Prof B) per LR, I can invoke a 10-ft radius ***Maelstrom Aura*** until my next turn starts: I get Lightning and Thunder Resistance, attacks vs me have Disadv, I can have those starting their turn inside make a Str save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or halve their Speed till their next turn starts. [+1 ' + abi + ']';",
+		calculate: "var abi = 'Con', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'As a Bonus Action, ' + iProfB + '\xD7 (Prof B) per LR, I can invoke a ***Maelstrom Aura*** until my next turn starts: I get Resistance to Lightning and Thunder, attacks vs me have Disadv, I can have those starting their turn within 10 ft make a Str save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or halve their Speed until their next turn starts. [+1 ' + abi + ']';",
 		scores: [0,0,1,0,0,0],
 	},
 	"charisma": {
 		description: "",
-		calculate: "var abi = 'Wis', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'As a Bonus Action, ' + iProfB + '\xD7 (Prof B) per LR, I can invoke a 10-ft radius ***Maelstrom Aura*** until my next turn starts: I get Lightning and Thunder Resistance, attacks vs me have Disadv, I can have those starting their turn inside make a Str save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or halve their Speed until their next turn starts. [+1 ' + abi + ']';",
+		calculate: "var abi = 'Cha', iProfB = Number(How('Proficiency Bonus')), iMod = Number(What(abi + ' Mod')); event.value = 'As a Bonus Action, ' + iProfB + '\xD7 (Prof B) per LR, I can invoke a ***Maelstrom Aura*** until my next turn starts: I get Resistance to Lightning and Thunder, attacks vs me have Disadv, I can have those starting their turn within 10 ft make a Str save DC ' + (8 + iProfB + iMod) + ' (8 + Prof B + ' + abi + ' mod) or halve their Speed until their next turn starts. [+1 ' + abi + ']';",
 		scores: [0,0,0,0,0,1],
 	},
 };

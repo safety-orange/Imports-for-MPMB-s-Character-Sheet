@@ -1,7 +1,7 @@
-if (sheetVersion < 14001003) { throw "This add-on script was made for a newer version of the sheet (v14.1.3). Please use this required version or a later version (but lower than v15.0.0) and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
-if (sheetVersion >= 15000000) { throw "This add-on script was made for a lower version of the sheet (one before v15.0.0). Please use the required version (v14.1.3) or a later version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion < 14002000) { throw "This add-on script was made for a newer version of the sheet (v14.2.0). Please use this required version or a later version (but lower than v15.0.0) and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
+if (sheetVersion >= 15000000) { throw "This add-on script was made for a lower version of the sheet (one before v15.0.0). Please use the required version (v14.2.0) or a later version and try again.\n\nYou can get the different versions at www.flapkan.com.\n\nFrom v24.0.0 onwards, the sheet uses the 2024 (5.5e) rules, while lower versions use the 5e (2014) rules."; };
 var iFileName = "all_WotC_5e_unearthed_arcana.js";
-RequiredSheetVersion("14.1.3", "15.0.0");
+RequiredSheetVersion("14.2.0", "15.0.0");
 
 // ua_20150202_Eberron.js
 // This file adds the content from the Unearthed Arcana: Eberron article to MPMB's Character Record Sheet
@@ -1807,11 +1807,6 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 						changes: "Using my Orb of the Stein Rune, I can cast *Meld Into Stone* as a bonus action once per short rest.",
 					},
 				},
-				extraLimitedFeatures: [{
-					name: "Earthen Step (Orb of the Stein Rune)",
-					usages: 1,
-					recovery: "short rest",
-				}],
 			},
 			"pennant of the vind rune": {
 				name: "Pennant of the Vind Rune",
@@ -1843,11 +1838,6 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 						changes: "Using my Pennant of the Vind Rune, I can cast *Levitate* as a bonus action once per short rest.",
 					},
 				},
-				extraLimitedFeatures: [{
-					name: "Wind Walker (Pennant of the Vind Rune)",
-					usages: 1,
-					recovery: "short rest",
-				}],
 			},
 			"shard of the kalt rune": {
 				name: "Shard of the Kalt Rune",
@@ -1872,11 +1862,6 @@ ClassList["rune scribe"] = { // Still valid 2021-09-21
 					spells: ["sleet storm"],
 					selection: ["sleet storm"],
 					firstCol: "oncesr",
-				}],
-				extraLimitedFeatures: [{
-					name: "Winter's Howl (Shard of the Kalt Rune)",
-					usages: 1,
-					recovery: "short rest",
 				}],
 			},
 		},
@@ -2223,8 +2208,6 @@ RaceList["abyssal tiefling-ua"] = {
 		"abyssal arcana (level 3)": {
 			name: "Abyssal Arcana (level 3)",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			action: [["action", ""]],
 			spellcastingBonus: [{
 				name: "Abyssal Arcana (level 3)",
@@ -2235,8 +2218,6 @@ RaceList["abyssal tiefling-ua"] = {
 		"abyssal arcana (level 5)": {
 			name: "Abyssal Arcana (level 5)",
 			minlevel: 5,
-			usages: 1,
-			recovery: "long rest",
 			action: [["action", ""]],
 			spellcastingBonus: [{
 				name: "Abyssal Arcana (level 5)",
@@ -2965,8 +2946,6 @@ AddSubClass("fighter", "monster hunter-ua", { // Still valid 2021-09-21
 			name: "Hunter's Mysticism",
 			source: [["UA:GH", 2]],
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			description: desc([
 				"I can cast *Detect Magic* as a ritual and Protection from Evil & Good once per long rest",
 				"I gain the ability to speak one of the following languages: Abyssal, Celestial, or Infernal",
@@ -4574,13 +4553,13 @@ AddSubClass("bard", "college of glamour-ua", {
 				name: "Mantle of Majesty",
 				spells: ["command"],
 				selection: ["command"],
-				firstCol: "oncelr",
+				firstCol: "Sp",
 			}],
 			spellChanges: {
 				"command": {
 					time: "1 bns",
-					description: "1 crea save (fails save if charmed) or follow one word command, e.g. approach, drop, flee, halt",
-					changes: "Using my Mantle of Majesty class feature, I can cast *Command* as a bonus action once per long rest without using a spell slot, thus only affect a single target.",
+					description: "1 crea save or follow one word command, e.g. approach, drop, flee, halt",
+					changes: "Once per long rest I can use my Mantle of Majesty class feature to be able to cast *Command* as a bonus action for 1 minute. When cast this way, it doesn't require a spell slot, thus only affects a single creature.",
 				},
 			},
 		},
@@ -4588,8 +4567,6 @@ AddSubClass("bard", "college of glamour-ua", {
 			name: "Unbreakable Majesty",
 			source: [["UA:BC", 2]],
 			minlevel: 14,
-			recovery: "short rest",
-			usages: 1,
 			action: [["action", ""]],
 			description: desc([
 				"As an action, I can cast *Sanctuary* on myself without using a spell slot",
@@ -5183,8 +5160,6 @@ AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 				"Once per short rest, I can cast *Speak with Dead* without spell slots or material comp.",
 				"The target and I can understand each other, regardless of language or intelligence",
 			]),
-			usages: 1,
-			recovery: "short rest",
 			spellcastingBonus: [{
 				name: "Speech Beyond the Grave",
 				spells: ["speak with dead"],
@@ -5214,8 +5189,6 @@ AddSubClass("druid", "circle of twilight-ua", { // Still valid 2021-09-21
 			source: [["UA:DC", 3]],
 			minlevel: 14,
 			description: desc("Once per short rest, I can cast *Etherealness* without needing a spell slot"),
-			usages: 1,
-			recovery: "short rest",
 			spellcastingBonus: [{
 				name: "Paths of the Dead",
 				spells: ["etherealness"],
@@ -6076,8 +6049,6 @@ var UARnR_theHorizonWalkerSubclass = {
 			source: [["UA:RnR", 1]],
 			minlevel: 7,
 			description: desc("As a bonus action, I can cast the *Etherealness* spell, which lasts until the end of the turn"),
-			usages: 1,
-			recovery: "short rest",
 			action: [["bonus action", ""]],
 			spellcastingBonus: [{
 				name: "Ethereal Step",
@@ -6790,8 +6761,6 @@ AddSubClass("warlock", "the raven queen-ua", { // Still valid 2021-09-21
 			source: [["UA:WnW", 3]],
 			minlevel: 14,
 			description: desc("I can cast *Finger of Death* once per long rest"),
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Queen's Right Hand",
 				spells: ["finger of death"],
@@ -12504,8 +12473,6 @@ FeatsList["fey teleportation-ua"] = {
 		selection: ["misty step"],
 		firstCol: "oncesr",
 	}],
-	usages: 1,
-	recovery: "short rest",
 };
 FeatsList["flames of phlegethos-ua"] = {
 	name: "Flames of Phlegethos",
@@ -12793,8 +12760,6 @@ AddSubClass("barbarian", "ancestral guardian2-ua", {
 				selection: ["clairvoyance"],
 				firstCol: "oncesr",
 			}],
-			usages: 1,
-			recovery: "short rest",
 		},
 		"subclassfeature14": {
 			name: "Vengeful Ancestors",
@@ -13283,8 +13248,6 @@ AddSubClass("druid", "circle of the shepherd2-ua", {
 				"This is done as if using a 9th-level spell slot to summon 4 beast of my choice up to CR 2",
 				"They appear within 20 ft of me, last 1 hour, and protect me from harm and attack foes",
 			]),
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Faithful Summons",
 				spells: ["conjure animals"],
@@ -13761,10 +13724,7 @@ RaceList["githyanki-ua"] = {
 	features: {
 		"jump": {
 			name: "Githyanki Psionics (level 3)",
-			limfeaname: "Jump",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Githyanki Psionics (3)",
 				spells: ["jump"],
@@ -13774,10 +13734,7 @@ RaceList["githyanki-ua"] = {
 		},
 		"misty step": {
 			name: "Githyanki Psionics (level 5)",
-			limfeaname: "Misty Step",
 			minlevel: 5,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Githyanki Psionics (5)",
 				spells: ["misty step"],
@@ -13831,10 +13788,7 @@ RaceList["githzerai-ua"] = {
 	features: {
 		"shield": {
 			name: "Githzerai Psionics (level 3)",
-			limfeaname: "Shield",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Githzerai Psionics (3)",
 				spells: ["shield"],
@@ -13844,10 +13798,7 @@ RaceList["githzerai-ua"] = {
 		},
 		"detect thoughts": {
 			name: "Githzerai Psionics (level 5)",
-			limfeaname: "Detect Thoughts",
 			minlevel: 5,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Githzerai Psionics (5)",
 				spells: ["detect thoughts"],
@@ -13914,10 +13865,7 @@ RaceList["dispater tiefling-ua"] = {
 	features: {
 		"disguise self": {
 			name: "Legacy of Dis (level 3)",
-			limfeaname: "Disguise Self",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Legacy of Dis (level 3)",
 				spells: ["disguise self"],
@@ -13927,10 +13875,7 @@ RaceList["dispater tiefling-ua"] = {
 		},
 		"invisibility": {
 			name: "Legacy of Dis (level 5)",
-			limfeaname: "Invisibility",
 			minlevel: 5,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Legacy of Dis (level 5)",
 				spells: ["invisibility"],
@@ -13976,10 +13921,7 @@ RaceList["mephistopheles tiefling-ua"] = {
 	features: {
 		"magic missile": {
 			name: "Legacy of Cania (level 3)",
-			limfeaname: "Magic Missile (2 darts)",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Legacy of Cania (level 3)",
 				spells: ["magic missile"],
@@ -13995,10 +13937,7 @@ RaceList["mephistopheles tiefling-ua"] = {
 		},
 		"web": {
 			name: "Legacy of Cania (level 5)",
-			limfeaname: "Web",
 			minlevel: 5,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Legacy of Cania (level 5)",
 				spells: ["web"],
@@ -15912,10 +15851,7 @@ RaceList["dragonmark handling human-ua"] = {
 	features: {
 		"animal friendship": {
 			name: "Primal Connection",
-			limfeaname: "Animal Friendship",
 			minlevel: 1,
-			usages: 1,
-			recovery: "short rest",
 			spellcastingBonus: [{
 				name: "Primal Connection",
 				spells: ["animal friendship"],
@@ -16153,10 +16089,7 @@ RaceList["dragonmark scribing gnome-ua"] = {
 	features: {
 		"comprehend languages": {
 			name: "Scribe's Insight",
-			limfeaname: "Comprehend Languages",
 			minlevel: 1,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Scribe's Insight",
 				spells: ["comprehend languages"],
@@ -16194,10 +16127,7 @@ RaceList["dragonmark sentinel human-ua"] = {
 	features: {
 		"shield": {
 			name: "Sentinel's Shield",
-			limfeaname: "Shield",
 			minlevel: 1,
-			usages: 1,
-			recovery: "short rest",
 			action: [["reaction", ""]],
 			spellcastingBonus: [{
 				name: "Sentinel's Shield",
@@ -16315,10 +16245,7 @@ RaceList["dragonmark storm half-elf-ua"] = {
 	features: {
 		"gust of wind": {
 			name: "Headwinds (level 3)",
-			limfeaname: "Gust of Wind",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Headwinds (level 3)",
 				spells: ["gust of wind"],
@@ -16372,10 +16299,7 @@ RaceList["dragonmark warding dwarf-ua"] = {
 	features: {
 		"arcane lock": {
 			name: "Wards and Seals (level 3)",
-			limfeaname: "Arcane Lock",
 			minlevel: 3,
-			usages: 1,
-			recovery: "long rest",
 			spellcastingBonus: [{
 				name: "Wards and Seals (level 3)",
 				spells: ["arcane lock"],
@@ -18191,8 +18115,6 @@ AddSubClass("rogue", "the revived-ua", {
 					changes: "Using Connect with the Dead, I can cast *Speak with Dead* once per short rest without using a spell slot or material component.",
 				},
 			},
-			usages: 1,
-			recovery: "short rest",
 		},
 		"subclassfeature13": {
 			name: "Audience with Death",
@@ -22168,14 +22090,8 @@ RaceList["fairy-ua"] = {
 				name: "Fairy Magic",
 				spells: ["faerie fire"],
 				selection: ["faerie fire"],
-				firstCol: "oncelr",
+				firstCol: "oncelr+markedbox",
 				allowUpCasting: true,
-			}],
-			extraLimitedFeatures: [{
-				name: "Faerie Fire",
-				usages: 1,
-				recovery: "long rest",
-				altResource: "SS 1+",
 			}],
 		},
 	},
@@ -24330,7 +24246,8 @@ FeatsList["soul of the storm giant-ua"] = {
 		"Intelligence, Wisdom, or Charisma is your spellcasting ability for this feature (choose when you gain this feat). Once you cast the spell in this way, you can't do so again until you finish a long rest.",
 	],
 	description: "I learn *Divination* and can cast it once per long rest as a ritual without using a spell slot or materials. Once per long rest as a bonus action I create a 10 ft rad that lasts for 1 min or until I am incapacitated. Atks against me have disadv, when creas start their turn in the area I can halve their spd until their next turn.",
-	action: [["bonus action", "Maelstrom Aura"]],
+	limfeaname: "Soul of the Storm Giant (Maelstrom Aura)",
+	action: [["bonus action", ""]],
 	usages: 1,
 	recovery: "long rest",
 	spellcastingAbility: [4, 5, 6],
@@ -24486,9 +24403,6 @@ AddSubClass("cleric", "fate-ua", {
 				"I can cast *Augury* once per long rest without using a spell slot or requiring components",
 				"Once I do, my divination spells have -25% of no/random answer until I finish a long rest",
 			]),
-			usages: 1,
-			recovery: "long rest",
-			additional: "Augury",
 			spellcastingBonus: [{
 				name: "Omens and Portents",
 				spells: ["augury"],
@@ -24555,9 +24469,6 @@ AddSubClass("cleric", "fate-ua", {
 			source: [["UA:WotM", 3]],
 			minlevel: 17,
 			description: desc(["Once per long rest, I can cast *Foresight* without a spell slot with a duration of 1 minute"]),
-			usages: 1,
-			recovery: "long rest",
-			limfeaname: "Visions of the Future (Foresight)",
 			spellcastingBonus: [{
 				name: "Visions of the Future",
 				spells: ["foresight"],
@@ -25060,7 +24971,7 @@ FeatsList["strike of the giants-ua"] = {
 FeatsList["ember of the fire giant-ua2"] = {
 	name: "Fury of the Fire Giant",
 	source: [["UA:WotM", 7]],
-	description: "I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+Prof Bonus fire damage & are blinded until my next turn starts. Dex save (8 + Prof B + Str/Con/Wis mod) for half damage & not blinded.",
+	description: "I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with ***Searing Ignition***. Chosen creatures I can see within 15 ft take 1d8+Prof Bonus fire damage & are blinded until my next turn starts. Dex save (8 + Prof B + Str/Con/Wis mod) for half damage & not blinded.",
 	descriptionFull: [
 		"You've manifested the fiery combat emblematic of fire giants, granting you the following benefits:",
 		"***Ability Score Increase***. Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20.",
@@ -25078,7 +24989,7 @@ FeatsList["ember of the fire giant-ua2"] = {
 	dmgres: ["Fire"],
 	choices: ["Strength", "Constitution", "Wisdom"],
 	"strength": {
-		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B + Str mod) for half damage \u0026 not blinded. [+1 Str]';",
+		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with ***Searing Ignition***. Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Str Mod'))) + ' (8 + Prof B + Str mod) for half damage \u0026 not blinded. [+1 Str]';",
 		scores: [1, 0, 0, 0, 0, 0],
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
@@ -25096,7 +25007,7 @@ FeatsList["ember of the fire giant-ua2"] = {
 		}],
 	},
 	"constitution": {
-		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B+ Con mod) for half damage \u0026 not blinded. [+1 Con]';",
+		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with ***Searing Ignition***. Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Con Mod'))) + ' (8 + Prof B+ Con mod) for half damage \u0026 not blinded. [+1 Con]';",
 		scores: [0, 0, 1, 0, 0, 0],
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,
@@ -25114,7 +25025,7 @@ FeatsList["ember of the fire giant-ua2"] = {
 		}],
 	},
 	"wisdom": {
-		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with Searing Ignition: Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B + Wis mod) for half damage \u0026 not blinded. [+1 Wis]';",
+		calculate: "event.value = 'I have fire resistance. My Prof Bonus per long rest, I can replace one attack of an Attack action on my turn with ***Searing Ignition***. Chosen creatures I can see within 15 ft take 1d8+' + How('Proficiency Bonus') + ' (Prof B) fire damage \u0026 are blinded until my next turn starts. Dex save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(What('Wis Mod'))) + ' (8 + Prof B + Wis mod) for half damage \u0026 not blinded. [+1 Wis]';",
 		scores: [0, 0, 0, 0, 1, 0],
 		weaponOptions: [{
 			regExpSearch: /^(?=.*searing)(?=.*ignition).*$/i,

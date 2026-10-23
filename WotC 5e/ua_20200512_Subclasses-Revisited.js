@@ -1,5 +1,5 @@
 var iFileName = "ua_20200512_Subclasses-Revisited.js";
-RequiredSheetVersion("14.1.3");
+RequiredSheetVersion("14.2.0");
 // This file adds the content from the Unearthed Arcana: Fighter, Ranger, and Rogue article to MPMB's Character Record Sheet
 // This file contains contributions by Undrhil and Metacomet10
 

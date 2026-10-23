@@ -1,5 +1,5 @@
 var iFileName = "pub_20171011_One-Grung-Above.js";
-RequiredSheetVersion("14.1.3", 15);
+RequiredSheetVersion("14.2.0", 15);
 // This file adds the Grung Race from the One Grung Above from Extra Life to MPMB's Character Record Sheet
 // This file contains contributions by /u/GoldenSnurp
 // Be aware that this race is not legal in adventurers league!

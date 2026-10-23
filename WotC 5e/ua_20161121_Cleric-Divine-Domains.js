@@ -1,5 +1,5 @@
 var iFileName = "ua_20161121_Cleric-Divine-Domains.js";
-RequiredSheetVersion("14.1.3");
+RequiredSheetVersion("14.2.0");
 // This file adds the content from the Unearthed Arcana: Cleric Divine Domains article to MPMB's Character Record Sheet
 
 // Define the source
