@@ -1,4 +1,4 @@
-var iFileName = "pub_20140818_PHB.js";
+var iFileName = "pub_20140819_PHB.js";
 RequiredSheetVersion("14.2.0", 15);
 // This file adds all material from the Player's Handbook to MPMB's Character Record Sheet
 

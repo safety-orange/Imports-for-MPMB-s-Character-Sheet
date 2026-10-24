@@ -193,7 +193,7 @@ BackgroundList["shipwright"] = {
 		"I don't know when to throw something away. You never know when it might be useful again.",
 		"I get frustrated to the point of distraction by shoddy craftsmanship.",
 		"Though I am an excellent crafter, my work tends to look as though it belongs on a ship.",
-		"I am so obsessed with sketching my ideas for elaborate inventions that I sometimes forget little thing like eating and sleeping.",
+		"I am so obsessed with sketching my ideas for elaborate inventions that I sometimes forget little things like eating and sleeping.",
 		"I'm judgmental of those who are not skilled with tools of some kind.",
 		"I sometimes take things that don't belong to me, especially if they are very well made.",
 	],
@@ -208,7 +208,7 @@ BackgroundList["shipwright"] = {
 	],
 };
 BackgroundFeatureList["i'll patch it!"] = {
-	description: "Provided I have carpenter's tools and wood, I can perform repairs on a water vehicle. When I use this ability, I restore a number of hit points to the hull of a water vehicle equal to 5\xD7 my proficiency modifier. A vehicle cannot be patched by me in this way again until after it has been pulled ashore and fully repaired.",
+	description: "Provided I have carpenter's tools and wood, I can perform repairs on a water vehicle. When I use this ability, I restore a number of hit points to the hull of a water vehicle equal to 5\xD7 my Proficiency Bonus. A vehicle cannot be patched by me in this way again until after it has been pulled ashore and fully repaired.",
 	source: [["GoS", 33], ["ALbackground", 0]],
 };
 
@@ -311,7 +311,7 @@ MagicItemsList["cursed luckstone"] = {
 	description: "This flat, gray-and-black river stone is inscribed with an arcane symbol. It is cursed and attuning to it curses me. Once per dawn while it is on my person, I can gain adv. on one ability check of my choice, but disadv. on my next two ability checks. Discarding the stone will cause it to teleport back into my pocket.",
 	descriptionFull: [
 		"This flat, gray-and-black river stone is inscribed with an unknown arcane symbol and feels cool to the touch. While carrying the stone, you can gain advantage on one ability check of your choice. The stone can't be used this way again until the next dawn.",
-		"***Curse***This item is cursed. Attuning to it curses you until you are targeted by a *remove curse* spell or similar magic. As long as you remain cursed, you cannot discard the stone, which immediately teleports back into your pocket or pack. After you use the stone's magic, your next two ability checks are made with disadvantage.",
+		"***Curse***. This item is cursed. Attuning to it curses you until you are targeted by a *remove curse* spell or similar magic. As long as you remain cursed, you cannot discard the stone, which immediately teleports back into your pocket or pack. After you use the stone's magic, your next two ability checks are made with disadvantage.",
 	],
 	attunement: true,
 	usages: 1,
@@ -345,7 +345,7 @@ MagicItemsList["pressure capsule"] = {
 	source: [["GoS", 229]],
 	type: "wondrous item",
 	rarity: "common",
-	description: "Consuming this capsule of beeswax, sand, and enchanted water plants will prevent the effects of swimming at depths greater than 100 ft for 1 hour. Thus, a creature without a swimming speed does not multiply the time spend swimming at depth for the purpose of determining exhaustion.",
+	description: "Consuming this capsule of beeswax, sand, and enchanted water plants will prevent the effects of swimming at depths greater than 100 ft for 1 hour. Thus, a creature without a swimming speed does not multiply the time spent swimming at depth for the purpose of determining exhaustion.",
 	descriptionFull: "This small capsule is made of beeswax blended with sand and a variety of enchanted water plants. A creature who consumes a *pressure capsule* ignores the effects of swimming at depths greater than 100 feet for 1 hour (see \"Unusual Environments\" in chapter 5 of the Dungeon Master's Guide).", // addition of 1 hour duration from AL content catalogue v8.08
 }
 MagicItemsList["sekolahian worshiping statuette"] = {
