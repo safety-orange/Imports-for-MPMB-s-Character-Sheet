@@ -226,7 +226,7 @@ AddSubRace("half-elf", "mark of detection", {
 			"My race adds extra spells to the spell list(s) of my spellcasting class(es): *Detect Evil and Good*, *Detect Poison and Disease*, *Detect Thoughts*, *Find Traps*, *Clairvoyance*, *Nondetection*, *Arcane Eye*, *Divination*, and *Legend Lore*.",
 		],
 	},
-});
+}, true);
 AddSubRace("half-orc", "mark of finding", {
 	regExpSearch: /^((?=.*half)(?=.*\bor(c|k))((?=.*mark)(?=.*finding)|(?=.*house)(?=.*tharashk))).*$/i,
 	name: "Half-Orc, Mark of Finding",
@@ -277,7 +277,7 @@ AddSubRace("half-orc", "mark of finding", {
 			"My race adds extra spells to the spell list(s) of my spellcasting class(es): *Faerie Fire*, *Longstrider*, *Locate Animals or Plants*, *Locate Object*, *Clairvoyance*, *Speak with Plants*, *Divination*, *Locate Creature*, and *Commune with Nature*.",
 		],
 	},
-});
+}, true);
 AddSubRace("human", "mark of finding", {
 	regExpSearch: /^((?=.*human)((?=.*mark)(?=.*finding)|(?=.*house)(?=.*tharashk))).*$/i,
 	name: "Human, Mark of Finding",
@@ -761,7 +761,7 @@ AddSubRace("half-elf", "mark of storm", {
 			"My race adds extra spells to the spell list(s) of my spellcasting class(es): *Feather Fall*, *Fog Cloud*, *Gust of Wind*, *Levitate*, *Sleet Storm*, *Wind Wall*, *Conjure Minor Elementals*, *Control Water*, and *Conjure Elemental*.",
 		],
 	},
-});
+}, true);
 AddSubRace("dwarf", "mark of warding", {
 	regExpSearch: /^((?=.*mark)(?=.*warding)|(?=.*house)(?=.*kundarak)).*$/i,
 	name: "Dwarf, Mark of Warding",

@@ -54,5 +54,5 @@ if (!RaceList["goblin"]) {
 			"##\u25C6 Speak with Small Beasts##. Through sounds and gestures, I can communicate simple ideas with Small or smaller Beasts. Dankwood goblins love animals and often keep squirrels, badgers, rabbits, moles, woodpeckers, and other creatures as beloved pets.",
 			"##\u25C6 Nimble Escape##. As a Bonus Action, I can take the Disengage or Hide action.",
 		],
-	});
+	}, true);
 }

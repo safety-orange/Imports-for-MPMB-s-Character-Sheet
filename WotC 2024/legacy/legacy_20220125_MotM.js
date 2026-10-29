@@ -69,7 +69,7 @@ if (!RaceList["aarakocra"]) {
 	});
 } else // But otherwise make it a subrace
 // dupl_end
-{ AddSubRace("aarakocra", "multiverse", MotM_Aarakocra); }
+{ AddSubRace("aarakocra", "multiverse", MotM_Aarakocra, true); }
 
 // Bugbear
 var MotM_Bugbear = {
@@ -108,7 +108,7 @@ if (!RaceList["bugbear"]) {
 		features: {
 			"surprise attack": null, // no longer once per combat
 		},
-	}));
+	}), true);
 }
 
 // Centaur
@@ -150,7 +150,7 @@ if (!RaceList["centaur"]) {
 	});
 } else // But otherwise make it a subrace
 // dupl_end
-{ AddSubRace("centaur", "multiverse", MotM_Centaur); }
+{ AddSubRace("centaur", "multiverse", MotM_Centaur, true); }
 
 // Svirfneblin
 AddSubRace("gnome", "deep-multiverse", {
@@ -449,7 +449,7 @@ if (!RaceList["firbolg"]) {
 	});
 } else // But otherwise make it a subrace
 // dupl_end
-{ AddSubRace("firbolg", "multiverse", MotM_Firbolg); }
+{ AddSubRace("firbolg", "multiverse", MotM_Firbolg, true); }
 
 // Genasi
 var MotM_Genasi = {
@@ -698,10 +698,11 @@ if (!RaceList["genasi"]) {
 		},
 	}),
 ].forEach(function (oGenasi) {
-	var sParent = !RaceList["genasi"] ? "multiverse genasi" : "genasi";
+	var bGenericParentExists = !!RaceList["genasi"];
+	var sParent = bGenericParentExists ? "genasi" : "multiverse genasi";
 	var sVariant = oGenasi.name.split(" ")[0].toLowerCase();
-	if (RaceList["genasi"]) sVariant += "-multiverse";
-	AddSubRace(sParent, sVariant, oGenasi);
+	if (bGenericParentExists) sVariant += "-multiverse";
+	AddSubRace(sParent, sVariant, oGenasi, bGenericParentExists);
 });
 
 // Githyanki
@@ -787,7 +788,7 @@ if (!RaceList["githyanki"]) {
 	AddSubRace("githyanki", "multiverse", Object.assign(MotM_Githyanki, {
 		armorProfs: null, // no Martial Prodigy
 		weaponProfs: null, // no Martial Prodigy
-	}));
+	}), true);
 }
 
 // Githzerai
@@ -868,7 +869,7 @@ if (!RaceList["githzerai"]) {
 	});
 } else // But otherwise make it a subrace
 // dupl_end
-{ AddSubRace("githzerai", "multiverse", MotM_Githzerai); }
+{ AddSubRace("githzerai", "multiverse", MotM_Githzerai, true); }
 
 // Goblin
 var MotM_Goblin = {
@@ -909,7 +910,7 @@ if (!RaceList["goblin"]) {
 	});
 } else // But otherwise make it a subrace
 // dupl_end
-{ AddSubRace("goblin", "multiverse", MotM_Goblin); }
+{ AddSubRace("goblin", "multiverse", MotM_Goblin, true); }
 
 // Hobgoblin
 var MotM_Hobgoblin = {
@@ -975,7 +976,7 @@ if (!RaceList["hobgoblin"]) {
 		features: Object.assign({
 			"saving face": null, // replaced by Fortune from the Many
 		}, MotM_Hobgoblin.features),
-	}));
+	}), true);
 }
 
 // Kenku
@@ -1015,7 +1016,7 @@ if (!RaceList["kenku"]) {
 	});
 } else // But otherwise make it a subrace
 // dupl_end
-{ AddSubRace("kenku", "multiverse", MotM_Kenku); }
+{ AddSubRace("kenku", "multiverse", MotM_Kenku, true); }
 
 // Kobold
 var MotM_Kobold_Draconic_Cry = "##\u25C6 Draconic Cry##. As a Bonus Action, I can let out a cry. Until the start of my next turn, my allies and I have Advantage on attack rolls against enemies within 10 ft of me who could hear the cry. I can do this a number of times per Long Rest equal to my Proficiency Bonus.";
@@ -1105,7 +1106,7 @@ if (!RaceList["kobold"]) {
 				"grovel, cower, and beg": null, // replaced by Draconic Cry
 			}, MotM_Kobold.features),
 		}, oLegacy)
-		AddSubRace("kobold", "multiverse-" + type, oSubrace);
+		AddSubRace("kobold", "multiverse-" + type, oSubrace, true);
 	});
 }
 
@@ -1170,7 +1171,7 @@ if (!RaceList["lizardfolk"]) {
 		features: Object.assign({
 			"cunning artisan": null, // not part of the multiverse lizardfolk
 		}, MotM_Lizardfolk.features),
-	}));
+	}), true);
 }
 
 // Minotaur
@@ -1217,7 +1218,7 @@ if (!RaceList["minotaur"]) {
 {
 	AddSubRace("minotaur", "multiverse", Object.assign(MotM_Minotaur, {
 		skillstxt: null, // no Imposing Presence
-	}));
+	}), true);
 }
 
 // Satyr
@@ -1258,7 +1259,7 @@ if (!RaceList["satyr"]) {
 	});
 } else // But otherwise make it a subrace
 // dupl_end
-{ AddSubRace("satyr", "multiverse", MotM_Satyr); }
+{ AddSubRace("satyr", "multiverse", MotM_Satyr, true); }
 
 // Sea Elf
 AddSubRace("elf", "sea-multiverse", {
@@ -1460,7 +1461,7 @@ if (!RaceList["triton"]) {
 	});
 } else // But otherwise make it a subrace
 // dupl_end
-{ AddSubRace("triton", "multiverse", MotM_Triton); }
+{ AddSubRace("triton", "multiverse", MotM_Triton, true); }
 
 // Yuan-Ti
 var MotM_YuanTi = {
@@ -1523,7 +1524,7 @@ if (!RaceList["yuan-ti pureblood"]) {
 	});
 } else // But otherwise make it a subrace
 // dupl_end
-{ AddSubRace("yuan-ti pureblood", "multiverse", MotM_YuanTi); }
+{ AddSubRace("yuan-ti pureblood", "multiverse", MotM_YuanTi, true); }
 
 // Creatures
 // [dupl_start] reprints from Volo's Guide to Monsters

@@ -4726,7 +4726,7 @@ AddSubRace("half-elf", "aquatic", {
 		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
 		"##\u25C6 Swimming Speed##. My aquatic heritage gives me a 30 ft Swim Speed.",
 	],
-});
+}, true);
 AddSubRace("half-elf", "cantrip", {
 	regExpSearch: /cantrip/i,
 	name: "Half-High Elf",
@@ -4746,7 +4746,7 @@ AddSubRace("half-elf", "cantrip", {
 		level: [0, 0],
 		firstCol: "atwill",
 	}],
-});
+}, true);
 AddSubRace("half-elf", "drow magic", {
 	regExpSearch: /^(?=.*drow)(?=.*magic).*$/i,
 	name: "Half-Drow",
@@ -4791,7 +4791,7 @@ AddSubRace("half-elf", "drow magic", {
 			}],
 		},
 	},
-});
+}, true);
 AddSubRace("half-elf", "elf weapon training", {
 	sortname: "Half-Wood Elf (Elf Weapon Training)",
 	regExpSearch: /^(?=.*\b(elf|elven)\b)(?=.*weapon)(?=.*training).*$/i,
@@ -4803,7 +4803,7 @@ AddSubRace("half-elf", "elf weapon training", {
 		"##\u25C6 Elf Weapon Training##. I have proficiency with the Longsword, Shortsword, Longbow, and Shortbow.",
 	],
 	weaponProfs: [false, false, ["longsword", "shortsword", "longbow", "shortbow"]],
-});
+}, true);
 AddSubRace("half-elf", "fleet of foot", {
 	regExpSearch: /^(?=.*fleet)(?=.*\b(foot|feet)\b).*$/i,
 	name: "Half-Wood Elf",
@@ -4819,7 +4819,7 @@ AddSubRace("half-elf", "fleet of foot", {
 		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
 		"##\u25C6 Fleet of Foot##. My Speed is 35 ft.",
 	],
-});
+}, true);
 AddSubRace("half-elf", "mask of the wild", {
 	regExpSearch: /^(?=.*\bmasks?\b)(?=.*\bwilds?\b).*$/i,
 	name: "Half-Wood Elf",
@@ -4832,7 +4832,7 @@ AddSubRace("half-elf", "mask of the wild", {
 		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
 		"##\u25C6 Mask of the Wild##. I can attempt to Hide even when I am only Lightly Obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
 	],
-});
+}, true);
 AddSubRace("tiefling", "winged", {
 	regExpSearch: /wing/i,
 	name: "Winged Tiefling",
@@ -19016,7 +19016,7 @@ SourceList["AwM"] = {
 			"##\u25C6 Speak with Small Beasts##. Through sounds and gestures, I can communicate simple ideas with Small or smaller Beasts. Dankwood goblins love animals and often keep squirrels, badgers, rabbits, moles, woodpeckers, and other creatures as beloved pets.",
 			"##\u25C6 Nimble Escape##. As a Bonus Action, I can take the Disengage or Hide action.",
 		],
-	});
+	}, true);
 }
 
 // legacy_20191119_ERftLW.js
@@ -19145,7 +19145,7 @@ AddSubRace("half-elf", "mark of detection", {
 			"My race adds extra spells to the spell list(s) of my spellcasting class(es): *Detect Evil and Good*, *Detect Poison and Disease*, *Detect Thoughts*, *Find Traps*, *Clairvoyance*, *Nondetection*, *Arcane Eye*, *Divination*, and *Legend Lore*.",
 		],
 	},
-});
+}, true);
 AddSubRace("half-orc", "mark of finding", {
 	regExpSearch: /^((?=.*half)(?=.*\bor(c|k))((?=.*mark)(?=.*finding)|(?=.*house)(?=.*tharashk))).*$/i,
 	name: "Half-Orc, Mark of Finding",
@@ -19196,7 +19196,7 @@ AddSubRace("half-orc", "mark of finding", {
 			"My race adds extra spells to the spell list(s) of my spellcasting class(es): *Faerie Fire*, *Longstrider*, *Locate Animals or Plants*, *Locate Object*, *Clairvoyance*, *Speak with Plants*, *Divination*, *Locate Creature*, and *Commune with Nature*.",
 		],
 	},
-});
+}, true);
 AddSubRace("human", "mark of finding", {
 	regExpSearch: /^((?=.*human)((?=.*mark)(?=.*finding)|(?=.*house)(?=.*tharashk))).*$/i,
 	name: "Human, Mark of Finding",
@@ -19680,7 +19680,7 @@ AddSubRace("half-elf", "mark of storm", {
 			"My race adds extra spells to the spell list(s) of my spellcasting class(es): *Feather Fall*, *Fog Cloud*, *Gust of Wind*, *Levitate*, *Sleet Storm*, *Wind Wall*, *Conjure Minor Elementals*, *Control Water*, and *Conjure Elemental*.",
 		],
 	},
-});
+}, true);
 AddSubRace("dwarf", "mark of warding", {
 	regExpSearch: /^((?=.*mark)(?=.*warding)|(?=.*house)(?=.*kundarak)).*$/i,
 	name: "Dwarf, Mark of Warding",
@@ -33028,7 +33028,7 @@ var MotM_Aarakocra = {
 		"##\u25C6 Wind Caller##. At 3rd level, I can cast *Gust of Wind* without using a spell slot or Material component once per Long Rest, and by using spell slots as normal. Intelligence, Wisdom, or Charisma is my spellcasting ability for this (one-time choice).",
 	],
 };
-{ AddSubRace("aarakocra", "multiverse", MotM_Aarakocra); }
+{ AddSubRace("aarakocra", "multiverse", MotM_Aarakocra, true); }
 
 // Bugbear
 var MotM_Bugbear = {
@@ -33052,7 +33052,7 @@ var MotM_Bugbear = {
 		features: {
 			"surprise attack": null, // no longer once per combat
 		},
-	}));
+	}), true);
 }
 
 // Centaur
@@ -33079,7 +33079,7 @@ var MotM_Centaur = {
 		"##\u25C6 Equine Build##. I count as one size larger for my carrying capacity and the weight I can push, drag, or lift. Because of my hooves, 1 ft of movement while climbing costs me 4 ft.",
 	],
 };
-{ AddSubRace("centaur", "multiverse", MotM_Centaur); }
+{ AddSubRace("centaur", "multiverse", MotM_Centaur, true); }
 
 // Svirfneblin
 AddSubRace("gnome", "deep-multiverse", {
@@ -33280,7 +33280,7 @@ var MotM_Firbolg = {
 		},
 	},
 };
-{ AddSubRace("firbolg", "multiverse", MotM_Firbolg); }
+{ AddSubRace("firbolg", "multiverse", MotM_Firbolg, true); }
 
 // Genasi
 var MotM_Genasi = {
@@ -33521,10 +33521,11 @@ var MotM_Genasi = {
 		},
 	}),
 ].forEach(function (oGenasi) {
-	var sParent = !RaceList["genasi"] ? "multiverse genasi" : "genasi";
+	var bGenericParentExists = !!RaceList["genasi"];
+	var sParent = bGenericParentExists ? "genasi" : "multiverse genasi";
 	var sVariant = oGenasi.name.split(" ")[0].toLowerCase();
-	if (RaceList["genasi"]) sVariant += "-multiverse";
-	AddSubRace(sParent, sVariant, oGenasi);
+	if (bGenericParentExists) sVariant += "-multiverse";
+	AddSubRace(sParent, sVariant, oGenasi, bGenericParentExists);
 });
 
 // Githyanki
@@ -33591,7 +33592,7 @@ var MotM_Githyanki = {
 	AddSubRace("githyanki", "multiverse", Object.assign(MotM_Githyanki, {
 		armorProfs: null, // no Martial Prodigy
 		weaponProfs: null, // no Martial Prodigy
-	}));
+	}), true);
 }
 
 // Githzerai
@@ -33652,7 +33653,7 @@ var MotM_Githzerai = {
 		},
 	},
 };
-{ AddSubRace("githzerai", "multiverse", MotM_Githzerai); }
+{ AddSubRace("githzerai", "multiverse", MotM_Githzerai, true); }
 
 // Goblin
 var MotM_Goblin = {
@@ -33679,7 +33680,7 @@ var MotM_Goblin = {
 		"##\u25C6 Nimble Escape##. As a Bonus Action, I can take the Disengage or Hide action.",
 	],
 };
-{ AddSubRace("goblin", "multiverse", MotM_Goblin); }
+{ AddSubRace("goblin", "multiverse", MotM_Goblin, true); }
 
 // Hobgoblin
 var MotM_Hobgoblin = {
@@ -33732,7 +33733,7 @@ var MotM_Hobgoblin = {
 		features: Object.assign({
 			"saving face": null, // replaced by Fortune from the Many
 		}, MotM_Hobgoblin.features),
-	}));
+	}), true);
 }
 
 // Kenku
@@ -33761,7 +33762,7 @@ var MotM_Kenku = {
 		"##\u25C6 Mimicry##. I can mimic sounds and voices I have heard. Creatures hearing me can determine the imitation with a successful Wisdom (Insight) check against a DC of 8 + my Proficiency Bonus + my Charisma modifier.",
 	],
 };
-{ AddSubRace("kenku", "multiverse", MotM_Kenku); }
+{ AddSubRace("kenku", "multiverse", MotM_Kenku, true); }
 
 // Kobold
 var MotM_Kobold_Draconic_Cry = "##\u25C6 Draconic Cry##. As a Bonus Action, I can let out a cry. Until the start of my next turn, my allies and I have Advantage on attack rolls against enemies within 10 ft of me who could hear the cry. I can do this a number of times per Long Rest equal to my Proficiency Bonus.";
@@ -33835,7 +33836,7 @@ var MotM_Kobold_Legacies = [{
 				"grovel, cower, and beg": null, // replaced by Draconic Cry
 			}, MotM_Kobold.features),
 		}, oLegacy)
-		AddSubRace("kobold", "multiverse-" + type, oSubrace);
+		AddSubRace("kobold", "multiverse-" + type, oSubrace, true);
 	});
 }
 
@@ -33891,7 +33892,7 @@ var MotM_Lizardfolk = {
 		features: Object.assign({
 			"cunning artisan": null, // not part of the multiverse lizardfolk
 		}, MotM_Lizardfolk.features),
-	}));
+	}), true);
 }
 
 // Minotaur
@@ -33921,7 +33922,7 @@ var MotM_Minotaur = {
 {
 	AddSubRace("minotaur", "multiverse", Object.assign(MotM_Minotaur, {
 		skillstxt: null, // no Imposing Presence
-	}));
+	}), true);
 }
 
 // Satyr
@@ -33948,7 +33949,7 @@ var MotM_Satyr = {
 		"##\u25C6 Reveler##. I have proficiency in Performance, Persuasion, and one musical instrument.",
 	],
 };
-{ AddSubRace("satyr", "multiverse", MotM_Satyr); }
+{ AddSubRace("satyr", "multiverse", MotM_Satyr, true); }
 
 // Sea Elf
 AddSubRace("elf", "sea-multiverse", {
@@ -34139,7 +34140,7 @@ var MotM_Triton = {
 		},
 	},
 };
-{ AddSubRace("triton", "multiverse", MotM_Triton); }
+{ AddSubRace("triton", "multiverse", MotM_Triton, true); }
 
 // Yuan-Ti
 var MotM_YuanTi = {
@@ -34185,7 +34186,7 @@ var MotM_YuanTi = {
 	heightMetric: " are about 60-120 cm (small) or 150-210 cm (medium) tall (145 + 5d10 cm)",
 	weightMetric: " (medium) weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 };
-{ AddSubRace("yuan-ti pureblood", "multiverse", MotM_YuanTi); }
+{ AddSubRace("yuan-ti pureblood", "multiverse", MotM_YuanTi, true); }
 
 // Creatures
 

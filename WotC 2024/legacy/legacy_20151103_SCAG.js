@@ -120,6 +120,34 @@ if (!RaceSubList["gnome-deep"]) {
 } // dupl_end
 
 // Racial variants
+// [dupl_start] Make sure the Half-Elf exists
+if (!RaceList["half-elf"]) {
+	RaceList["half-elf"] = {
+		regExpSearch: /^(?=.*half)(?=.*(elf|elv|drow|silvanesti|qualinesti|grugach|kagonesti)).*$/i,
+		name: "Half-Elf",
+		source: [["SRD", 6], ["P", 39], ["SCAG", 0]],
+		plural: "Half-elves",
+		size: 3,
+		speed: { walk: { spd: 30, enc: 20 } },
+		languageProfs: ["Common", "Elvish", 1],
+		vision: [["Darkvision", 60]],
+		savetxt: {
+			text: ["Sleep magic"],
+			adv_vs: ["Charmed"],
+		},
+		skillstxt: "Choose any two skills",
+		age: " reach adulthood around age 20 and often live over 180 years",
+		height: " range from 5 to 6 feet tall (4'9\" + 2d8\")",
+		weight: " weigh around 155 lb (110 + 2d8 \xD7 2d4 lb)",
+		heightMetric: " range from 1,5 to 1,8 metres tall (145 + 5d8 cm)",
+		weightMetric: " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
+		trait: [
+			"**Half-Elf**",
+			"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
+			"##\u25C6 Skill Versatility##. I gain proficiency in two skills of my choice.",
+		],
+	};
+} // dupl_end
 AddSubRace("half-elf", "aquatic", {
 	regExpSearch: /aquatic/i,
 	name: "Half-Aquatic Elf",
@@ -135,7 +163,7 @@ AddSubRace("half-elf", "aquatic", {
 		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
 		"##\u25C6 Swimming Speed##. My aquatic heritage gives me a 30 ft Swim Speed.",
 	],
-});
+}, true);
 AddSubRace("half-elf", "cantrip", {
 	regExpSearch: /cantrip/i,
 	name: "Half-High Elf",
@@ -155,7 +183,7 @@ AddSubRace("half-elf", "cantrip", {
 		level: [0, 0],
 		firstCol: "atwill",
 	}],
-});
+}, true);
 AddSubRace("half-elf", "drow magic", {
 	regExpSearch: /^(?=.*drow)(?=.*magic).*$/i,
 	name: "Half-Drow",
@@ -200,7 +228,7 @@ AddSubRace("half-elf", "drow magic", {
 			}],
 		},
 	},
-});
+}, true);
 AddSubRace("half-elf", "elf weapon training", {
 	sortname: "Half-Wood Elf (Elf Weapon Training)",
 	regExpSearch: /^(?=.*\b(elf|elven)\b)(?=.*weapon)(?=.*training).*$/i,
@@ -212,7 +240,7 @@ AddSubRace("half-elf", "elf weapon training", {
 		"##\u25C6 Elf Weapon Training##. I have proficiency with the Longsword, Shortsword, Longbow, and Shortbow.",
 	],
 	weaponProfs: [false, false, ["longsword", "shortsword", "longbow", "shortbow"]],
-});
+}, true);
 AddSubRace("half-elf", "fleet of foot", {
 	regExpSearch: /^(?=.*fleet)(?=.*\b(foot|feet)\b).*$/i,
 	name: "Half-Wood Elf",
@@ -228,7 +256,7 @@ AddSubRace("half-elf", "fleet of foot", {
 		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
 		"##\u25C6 Fleet of Foot##. My Speed is 35 ft.",
 	],
-});
+}, true);
 AddSubRace("half-elf", "mask of the wild", {
 	regExpSearch: /^(?=.*\bmasks?\b)(?=.*\bwilds?\b).*$/i,
 	name: "Half-Wood Elf",
@@ -241,7 +269,7 @@ AddSubRace("half-elf", "mask of the wild", {
 		"##\u25C6 Fey Ancestry##. I have Advantage on saving throws against being Charmed, and magic can't put me to sleep.",
 		"##\u25C6 Mask of the Wild##. I can attempt to Hide even when I am only Lightly Obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
 	],
-});
+}, true);
 AddSubRace("tiefling", "winged", {
 	regExpSearch: /wing/i,
 	name: "Winged Tiefling",
