@@ -76,7 +76,7 @@ BackgroundList["cormanthor refugee"] = {
 		"I am a moocher. I am so used to others providing for me that I have come to expect everyone to do it.",
 		"I believe the gods have cursed me, my family, and all of the Cormanthor refugees. We are all doomed, doomed I tell you!",
 	],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	languageProfs: ["Elvish"],
 	lifestyle: "poor",
 };
@@ -142,7 +142,7 @@ BackgroundList["gate urchin"] = {
 		"I am still very uncomfortable wearing nice clothes, sleeping in a warm bed, and eating fine food.",
 		"I do not trust anyone who has not had a hard life.",
 	],
-	toolProfs: [["Thieves' tools", "Dex"], ["Musical instrument", 1]],
+	toolProfs: [["Thieves' Tools", "Dex"], ["Musical Instrument", 1]],
 	lifestyle: "poor",
 };
 BackgroundList["hillsfar merchant"] = {
@@ -205,7 +205,7 @@ BackgroundList["hillsfar merchant"] = {
 		"I am lazy. I want others to take care of everything.",
 		"I am overconfident. I overestimate my abilities.",
 	],
-	toolProfs: ["Vehicles (land)", "Vehicles (water)"],
+	toolProfs: ["Vehicles (Land)", "Vehicles (Water)"],
 	lifestyle: "wealthy",
 };
 BackgroundList["hillsfar smuggler"] = {
@@ -268,7 +268,7 @@ BackgroundList["hillsfar smuggler"] = {
 		"I am greedy. There isn't much I won't do for money.",
 		"I'm an informant for the Red Plumes. They let me continue my activities, so long as I pass them information about illegal activity in Hillsfar.",
 	],
-	toolProfs: ["Forgery kit"],
+	toolProfs: ["Forgery Kit"],
 	languageProfs: [1],
 	lifestyle: "modest",
 };
@@ -333,7 +333,7 @@ BackgroundList["secret identity"] = {
 		"I am struggling with maintaining my secret identity. I subconsciously want to get caught and therefore sometimes let my secret identity slip.",
 		"Years of successfully deceiving others have made me cocky. I think no one can see through my lies.",
 	],
-	toolProfs: ["Disguise kit", "Forgery kit"],
+	toolProfs: ["Disguise Kit", "Forgery Kit"],
 	lifestyle: "modest",
 };
 BackgroundList["shade fanatic"] = {
@@ -398,7 +398,7 @@ BackgroundList["shade fanatic"] = {
 		"I always enjoy a good mug of ale … or five.",
 		"I know what I do is wrong, but am afraid to speak up about it.",
 	],
-	toolProfs: ["Forgery kit"],
+	toolProfs: ["Forgery Kit"],
 	languageProfs: ["Netherese"],
 	lifestyle: "moderate",
 };
@@ -463,7 +463,7 @@ BackgroundList["trade sheriff"] = {
 		"I always enjoy a good mug of ale … or five to cover up my past.",
 		"I speak for the First Lord of Hillsfar and make sure everyone knows it.",
 	],
-	toolProfs: [["Thieves' tools", "Dex"]],
+	toolProfs: [["Thieves' Tools", "Dex"]],
 	languageProfs: ["Elvish"],
 	lifestyle: "moderate",
 };

@@ -95,7 +95,7 @@ BackgroundList["marine"] = {
 		["Dagger", "", 1],
 		["Belt pouch (with coins)", "", 1],
 	],
-	toolProfs: ["Vehicles (water)", "Vehicles (land)"],
+	toolProfs: ["Vehicles (Water)", "Vehicles (Land)"],
 	feature: "Steady",
 	trait: [
 		"I speak rarely but mean every word I say.",
@@ -162,7 +162,7 @@ BackgroundList["shipwright"] = {
 		["Traveler's clothes", "", 4],
 		["Belt pouch (with coins)", "", 1],
 	],
-	toolProfs: ["Carpenter's tools", "Vehicles (water)"],
+	toolProfs: ["Carpenter's Tools", "Vehicles (Water)"],
 	feature: "I'll Patch It!",
 	trait: [
 		"I love talking and being heard more than I like to listen.",
@@ -224,7 +224,7 @@ BackgroundList["smuggler"] = {
 		["Leather boots or vest", "", 1],
 		["Belt pouch (with coins)", "", 1],
 	],
-	toolProfs: ["Vehicles (water)"],
+	toolProfs: ["Vehicles (Water)"],
 	feature: "Down Low",
 	trait: [
 		"I love being on the water but hate fishing.",

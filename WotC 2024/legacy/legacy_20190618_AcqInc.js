@@ -28,7 +28,7 @@ BackgroundList["celebrity adventurer's scion"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [2],
-	toolProfs: ["Disguise kit"],
+	toolProfs: ["Disguise Kit"],
 	feature: "Name Dropping",
 	trait: [
 		"I will never get out of my famous parent's shadow, and no one else will ever understand this burden.",
@@ -85,7 +85,7 @@ BackgroundList["failed merchant"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [1],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	feature: "Supply Chain",
 	trait: [
 		"I didn't have the cutthroat attitude necessary to succeed. I won't make that mistake again.",
@@ -142,7 +142,7 @@ BackgroundList["gambler"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [1],
-	toolProfs: [["Gaming set", 1]],
+	toolProfs: [["Gaming Set", 1]],
 	feature: "Never Tell Me the Odds",
 	trait: [
 		"I plan for every contingency. Leave nothing to chance!",
@@ -198,7 +198,7 @@ BackgroundList["plaintiff"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [1],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	feature: "Legalese",
 	trait: [
 		"I can't believe I have a chance to join Acquisitions Incorporated! The fun I'm going to have!",
@@ -255,7 +255,7 @@ BackgroundList["rival intern"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [1],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	feature: "Inside Informant",
 	trait: [
 		"My previous employer didn't respect me, and now I'll do whatever I can to gain respect.",

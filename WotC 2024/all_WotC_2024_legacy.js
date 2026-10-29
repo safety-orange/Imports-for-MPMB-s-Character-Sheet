@@ -2231,7 +2231,7 @@ BackgroundList["caravan specialist"] = {
 		"Once I decide on a course of action, I do not waver.",
 		"I like to explore, and my curiosity will sometimes get me into trouble.",
 	],
-	toolProfs: ["Vehicles (land)"],
+	toolProfs: ["Vehicles (Land)"],
 	languageProfs: [1],
 	lifestyle: "poor",
 };
@@ -2362,7 +2362,7 @@ BackgroundList["harborfolk"] = {
 		"I almost always cheat. I can't help myself.",
 		"I am a secret informant for the Hawks. I send them reports about everything I see and hear, even what my friends and allies are up to.",
 	],
-	toolProfs: [["Gaming set", 1], "Vehicles (water)"],
+	toolProfs: [["Gaming Set", 1], "Vehicles (Water)"],
 	lifestyle: "poor",
 };
 BackgroundList["mulmaster aristocrat"] = {
@@ -2425,7 +2425,7 @@ BackgroundList["mulmaster aristocrat"] = {
 		"My family has lost everything. I must keep up appearances, lest we become a laughingstock.",
 		"I have no artistic sense. I hide that fact behind extreme opinions and have become a trendsetter.",
 	],
-	toolProfs: [["Artisan's tools", 1], ["Musical instrument", 1]],
+	toolProfs: [["Artisan's Tools", 1], ["Musical Instrument", 1]],
 	lifestyle: "wealthy",
 };
 BackgroundList["phlan refugee"] = {
@@ -2489,7 +2489,7 @@ BackgroundList["phlan refugee"] = {
 		"I am unable to keep secrets. A secret is just an untold story.",
 		"When something goes wrong, it's never my fault.",
 	],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	languageProfs: [1],
 	lifestyle: "modest",
 };
@@ -3653,7 +3653,7 @@ BackgroundList["cormanthor refugee"] = {
 		"I am a moocher. I am so used to others providing for me that I have come to expect everyone to do it.",
 		"I believe the gods have cursed me, my family, and all of the Cormanthor refugees. We are all doomed, doomed I tell you!",
 	],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	languageProfs: ["Elvish"],
 	lifestyle: "poor",
 };
@@ -3719,7 +3719,7 @@ BackgroundList["gate urchin"] = {
 		"I am still very uncomfortable wearing nice clothes, sleeping in a warm bed, and eating fine food.",
 		"I do not trust anyone who has not had a hard life.",
 	],
-	toolProfs: [["Thieves' tools", "Dex"], ["Musical instrument", 1]],
+	toolProfs: [["Thieves' Tools", "Dex"], ["Musical Instrument", 1]],
 	lifestyle: "poor",
 };
 BackgroundList["hillsfar merchant"] = {
@@ -3782,7 +3782,7 @@ BackgroundList["hillsfar merchant"] = {
 		"I am lazy. I want others to take care of everything.",
 		"I am overconfident. I overestimate my abilities.",
 	],
-	toolProfs: ["Vehicles (land)", "Vehicles (water)"],
+	toolProfs: ["Vehicles (Land)", "Vehicles (Water)"],
 	lifestyle: "wealthy",
 };
 BackgroundList["hillsfar smuggler"] = {
@@ -3845,7 +3845,7 @@ BackgroundList["hillsfar smuggler"] = {
 		"I am greedy. There isn't much I won't do for money.",
 		"I'm an informant for the Red Plumes. They let me continue my activities, so long as I pass them information about illegal activity in Hillsfar.",
 	],
-	toolProfs: ["Forgery kit"],
+	toolProfs: ["Forgery Kit"],
 	languageProfs: [1],
 	lifestyle: "modest",
 };
@@ -3910,7 +3910,7 @@ BackgroundList["secret identity"] = {
 		"I am struggling with maintaining my secret identity. I subconsciously want to get caught and therefore sometimes let my secret identity slip.",
 		"Years of successfully deceiving others have made me cocky. I think no one can see through my lies.",
 	],
-	toolProfs: ["Disguise kit", "Forgery kit"],
+	toolProfs: ["Disguise Kit", "Forgery Kit"],
 	lifestyle: "modest",
 };
 BackgroundList["shade fanatic"] = {
@@ -3975,7 +3975,7 @@ BackgroundList["shade fanatic"] = {
 		"I always enjoy a good mug of ale … or five.",
 		"I know what I do is wrong, but am afraid to speak up about it.",
 	],
-	toolProfs: ["Forgery kit"],
+	toolProfs: ["Forgery Kit"],
 	languageProfs: ["Netherese"],
 	lifestyle: "moderate",
 };
@@ -4040,7 +4040,7 @@ BackgroundList["trade sheriff"] = {
 		"I always enjoy a good mug of ale … or five to cover up my past.",
 		"I speak for the First Lord of Hillsfar and make sure everyone knows it.",
 	],
-	toolProfs: [["Thieves' tools", "Dex"]],
+	toolProfs: [["Thieves' Tools", "Dex"]],
 	languageProfs: ["Elvish"],
 	lifestyle: "moderate",
 };
@@ -4655,7 +4655,7 @@ AddSubRace("dwarf", "gray", {
 	vision: [["Darkvision", 120], ["Sunlight Sensitivity", 0]],
 	savetxt: { adv_vs: ["Charmed", "Illusions", "Paralyzed", "Poisoned"] },
 	weaponProfs: [false, false, ["battleaxe", "handaxe", "warhammer", "light hammer"]],
-	toolProfs: [["Smith, brewer, or mason tools", 1]],
+	toolProfs: [["Smith, Brewer, or Mason Tools", 1]],
 	calcChanges: null, // no Dwarven Toughness
 	trait: [
 		"**Duergar**",
@@ -5109,7 +5109,7 @@ AddSubClass("rogue", "mastermind", {
 			minlevel: 3,
 			description: desc("I gain proficiency with disguise kits, forgery kits, one gaming set, and two languages. I can mimic speech patterns and accents if I've heard them for at least 1 minute."),
 			languageProfs: [2],
-			toolProfs: ["Disguise kit", "Forgery kit", ["Gaming set", 1]],
+			toolProfs: ["Disguise Kit", "Forgery Kit", ["Gaming Set", 1]],
 		},
 		"subclassfeature3.1": {
 			name: "Master of Tactics",
@@ -5332,7 +5332,7 @@ BackgroundList["clan crafter"] = {
 		["Belt pouch (with coins and 10 gp gem)", "", 1],
 	],
 	feature: "Respect of the Stout Folk",
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	languageProfs: ["Dwarvish"],
 	lifestyle: "comfortable",
 };
@@ -5469,7 +5469,7 @@ BackgroundList["far traveler"] = {
 		"Sightseer",
 		"Wanderer",
 	],
-	toolProfs: [["Gaming set or musical instrument", 1]],
+	toolProfs: [["Gaming Set or Musical Instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "modest",
 };
@@ -5499,7 +5499,7 @@ BackgroundList["inheritor"] = {
 		"Written story, song, poem, or secret",
 		"Tattoo or other body marking",
 	],
-	toolProfs: [["Gaming set or musical instrument", 1]],
+	toolProfs: [["Gaming Set or Musical Instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "wealthy",
 };
@@ -5517,7 +5517,7 @@ BackgroundList["knight of the order"] = {
 	],
 	feature: "Knightly Regard",
 	extra: ["Name your Knightly Order"],
-	toolProfs: [["Gaming set or musical instrument", 1]],
+	toolProfs: [["Gaming Set or Musical Instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "comfortable",
 };
@@ -5535,7 +5535,7 @@ BackgroundList["mercenary veteran"] = {
 	],
 	feature: "Mercenary Life",
 	extra: ["Name your Mercenary Company"],
-	toolProfs: [["Gaming set", 1], "Vehicles (land)"],
+	toolProfs: [["Gaming Set", 1], "Vehicles (Land)"],
 	lifestyle: "modest",
 };
 BackgroundList["urban bounty hunter"] = {
@@ -5550,7 +5550,7 @@ BackgroundList["urban bounty hunter"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Ear to the Ground",
-	toolProfs: [["Gaming set, instrument, or thieves' tools", 2]],
+	toolProfs: [["Gaming Set, Instrument, or Thieves' Tools", 2]],
 	lifestyle: "poor",
 };
 BackgroundList["uthgardt tribe member"] = {
@@ -5566,7 +5566,7 @@ BackgroundList["uthgardt tribe member"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Uthgardt Heritage",
-	toolProfs: [["Artisan's tools or musical instrument", 1]],
+	toolProfs: [["Artisan's Tools or Musical Instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "poor",
 };
@@ -5586,7 +5586,7 @@ BackgroundList["waterdhavian noble"] = {
 		["Purse (with coins)", "", 1],
 	],
 	feature: "Kept in Style",
-	toolProfs: [["Gaming set or musical instrument", 1]],
+	toolProfs: [["Gaming Set or Musical Instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "wealthy",
 };
@@ -5848,7 +5848,7 @@ BackgroundList["black fist double agent"] = {
 		"My desire for vengeance often gets me into trouble.",
 		"I am spendthrift, and share my wealth with the patrons of my favorite tavern.",
 	],
-	toolProfs: ["Disguise Kit", ["Artisan's tools or gaming set", 1]],
+	toolProfs: ["Disguise Kit", ["Artisan's Tools or Gaming Set", 1]],
 	lifestyle: "modest",
 };
 BackgroundList["dragon casualty"] = {
@@ -5856,7 +5856,7 @@ BackgroundList["dragon casualty"] = {
 	name: "Dragon Casualty",
 	source: [["AL:CoS", 3]],
 	skills: ["Intimidation", "Survival"],
-	toolProfs: ["Based on my origin"],
+	toolProfs: ["Based on My Origin"],
 	gold: 5,
 	equipleft: [
 		["Loaf of moldy bread", "", 1],
@@ -5935,7 +5935,7 @@ BackgroundList["iron route bandit"] = {
 	name: "Iron Route Bandit",
 	source: [["AL:CoS", 5]],
 	skills: ["Animal Handling", "Stealth"],
-	toolProfs: [["Gaming set", 1], "Vehicles (land)"],
+	toolProfs: [["Gaming Set", 1], "Vehicles (Land)"],
 	gold: 5,
 	equipleft: [
 		["Backpack, with:", "", 5],
@@ -6000,7 +6000,7 @@ BackgroundList["phlan insurgent"] = {
 	name: "Phlan Insurgent",
 	source: [["AL:CoS", 6]],
 	skills: ["Stealth", "Survival"],
-	toolProfs: [["Artisan's tools", 1], "Vehicles (land)"],
+	toolProfs: [["Artisan's Tools", 1], "Vehicles (Land)"],
 	gold: 5,
 	equipleft: [
 		["Caltrops", 20, 0.1],
@@ -6072,7 +6072,7 @@ BackgroundList["stojanow prisoner"] = {
 	name: "Stojanow Prisoner",
 	source: [["AL:CoS", 8]],
 	skills: ["Deception", "Perception"],
-	toolProfs: [["Gaming set", 1], ["Thieves' tools", "Dex"]],
+	toolProfs: [["Gaming Set", 1], ["Thieves' Tools", "Dex"]],
 	gold: 10,
 	equipleft: [
 		["Small knife", "", 0.25],
@@ -10128,7 +10128,7 @@ AddSubClass("cleric", "forge domain", {
 			spellcastingExtra: ["identify", "searing smite", "heat metal", "magic weapon", "elemental weapon", "protection from energy", "fabricate", "wall of fire", "animate objects", "creation"],
 			description: desc("I gain proficiency with Heavy armor and smith's tools."),
 			armorProfs: [false, false, true, false],
-			toolProfs: ["Smith's tools"],
+			toolProfs: ["Smith's Tools"],
 		},
 		"subclassfeature3.1": {
 			name: "Blessing of the Forge",
@@ -10489,7 +10489,7 @@ AddSubClass("monk", "way of the drunken master", {
 			minlevel: 3,
 			description: desc("I gain proficiency with the Performance skill and brewer's supplies."),
 			skills: ["Performance"],
-			toolProfs: ["Brewer's supplies"],
+			toolProfs: ["Brewer's Supplies"],
 		},
 		"subclassfeature3.1": {
 			name: "Drunken Technique",
@@ -10540,7 +10540,7 @@ RunFunctionAtEnd(function () {
 				]),
 				action: [["bonus action", " (with ranged)"]],
 				additional: levels.map( function (n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
-				toolProfs: ["calligrapher's or painter's supplies"],
+				toolProfs: ["Calligrapher's or Painter's Supplies"],
 				extraname: "Kensei Weapon",
 				extrachoices: [], // add these dynamically, see below
 				extraTimes: levels.map( function (n) { return n < 3 ? 0 : n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5; }),
@@ -11639,7 +11639,7 @@ FeatsList["prodigy"] = {
 	description: "I gain proficiency with one skill of my choice and Expertise with it, or Expertise with another skill of my choice that I'm already proficient with. I also gain proficiency with one tool of my choice and fluency in one language of my choice.",
 	skillstxt: "Proficiency with any one skill and Expertise with any one skill that you are already proficient with",
 	languageProfs: [1],
-	toolProfs: [["Any tool", 1]],
+	toolProfs: [["Any Tool", 1]],
 };
 FeatsList["second chance"] = {
 	name: "Second Chance",
@@ -13304,7 +13304,7 @@ AddSubRace("githyanki", "tool proficiency", {
 	regExpSearch: /tool proficiency/i,
 	source: [["MToF", 96]],
 	skillstxt: null,
-	toolProfs: [["Any tool", 1]],
+	toolProfs: [["Any Tool", 1]],
 	trait: RaceList["githyanki"].trait.map(function (s, i) {
 		return i !== 1 ? s : "##\u25C6 Decadent Mastery##. I am proficient with one tool of my choice.";
 	}),
@@ -14598,7 +14598,7 @@ RaceList["vedalken"] = {
 	savetxt: { text: ["Adv on Int/Wis/Cha saves"] },
 	skillstxt: "Choose one from Arcana, History, Investigation, Medicine, Performance, or Sleight of Hand. I add 1d4 to a check with the chosen skill",
 	languageProfs: ["Common", "Vedalken", 1],
-	toolProfs: [["Any tool", 1]],
+	toolProfs: [["Any Tool", 1]],
 	age: " reach maturity around age 40 and typically live 350 years, with some living up to 500 years",
 	height: " stand between 6 and 6 and a half feet tall (5'4\" + 2d10\")",
 	weight: " are slender, weighing around 200 pounds (110 + 2d10 \xD7 2d4 lb)",
@@ -14852,7 +14852,7 @@ BackgroundList["boros legionnaire"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [["Celestial, Draconic, Goblin, or Minotaur", 1]],
-	toolProfs: [["Gaming set", 1]],
+	toolProfs: [["Gaming Set", 1]],
 	feature: "Legion Station",
 	trait: [
 		"I approach every task with the same high degree of military precision.",
@@ -14923,7 +14923,7 @@ BackgroundList["dimir operative"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [1],
-	toolProfs: ["Disguise kit"],
+	toolProfs: ["Disguise Kit"],
 	feature: "False Guild Identity",
 	trait: [
 		"I'm good at hiding my true thoughts and feelings.",
@@ -15004,7 +15004,7 @@ BackgroundList["golgari agent"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [["Elvish, Giant, or Kraul", 1]],
-	toolProfs: ["Poisoner's kit"],
+	toolProfs: ["Poisoner's Kit"],
 	feature: "Undercity Paths",
 	trait: [
 		"Remember, I could kill you in your sleep. Or put centipedes in your bedroll.",
@@ -15076,7 +15076,7 @@ BackgroundList["gruul anarch"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [["Draconic, Giant, Goblin, or Sylvan", 1]],
-	toolProfs: ["Herbalism kit"],
+	toolProfs: ["Herbalism Kit"],
 	feature: "Rubblebelt Refuge",
 	trait: [
 		"Unlike people, the beasts of the wild are friends who won't stab me in the back.",
@@ -15159,7 +15159,7 @@ BackgroundList["izzet engineer"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [["Draconic, Goblin, or Vedalken", 1]],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	feature: "Urban Infrastructure",
 	trait: [
 		"I have a hard time staying focused on ... oh, and my brain tends to jump from one ... did I mention focus?",
@@ -15301,7 +15301,7 @@ BackgroundList["rakdos cultist"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [["Abyssal or Giant", 1]],
-	toolProfs: [["Musical instrument", 1]],
+	toolProfs: [["Musical Instrument", 1]],
 	feature: "Fearsome Reputation",
 	trait: [
 		"I revel in mayhem, the more destructive the better.",
@@ -15382,7 +15382,7 @@ BackgroundList["selesnya initiate"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [["Elvish, Loxodon, or Sylvan", 1]],
-	toolProfs: [["Artisan's tools or musical instrument", 1]],
+	toolProfs: [["Artisan's Tools or Musical Instrument", 1]],
 	feature: "Conclave's Shelter",
 	trait: [
 		"I never raise my voice or lose my temper.",
@@ -17173,7 +17173,7 @@ BackgroundList["marine"] = {
 		["Dagger", "", 1],
 		["Belt pouch (with coins)", "", 1],
 	],
-	toolProfs: ["Vehicles (water)", "Vehicles (land)"],
+	toolProfs: ["Vehicles (Water)", "Vehicles (Land)"],
 	feature: "Steady",
 	trait: [
 		"I speak rarely but mean every word I say.",
@@ -17240,7 +17240,7 @@ BackgroundList["shipwright"] = {
 		["Traveler's clothes", "", 4],
 		["Belt pouch (with coins)", "", 1],
 	],
-	toolProfs: ["Carpenter's tools", "Vehicles (water)"],
+	toolProfs: ["Carpenter's Tools", "Vehicles (Water)"],
 	feature: "I'll Patch It!",
 	trait: [
 		"I love talking and being heard more than I like to listen.",
@@ -17302,7 +17302,7 @@ BackgroundList["smuggler"] = {
 		["Leather boots or vest", "", 1],
 		["Belt pouch (with coins)", "", 1],
 	],
-	toolProfs: ["Vehicles (water)"],
+	toolProfs: ["Vehicles (Water)"],
 	feature: "Down Low",
 	trait: [
 		"I love being on the water but hate fishing.",
@@ -17583,7 +17583,7 @@ BackgroundList["celebrity adventurer's scion"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [2],
-	toolProfs: ["Disguise kit"],
+	toolProfs: ["Disguise Kit"],
 	feature: "Name Dropping",
 	trait: [
 		"I will never get out of my famous parent's shadow, and no one else will ever understand this burden.",
@@ -17640,7 +17640,7 @@ BackgroundList["failed merchant"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [1],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	feature: "Supply Chain",
 	trait: [
 		"I didn't have the cutthroat attitude necessary to succeed. I won't make that mistake again.",
@@ -17697,7 +17697,7 @@ BackgroundList["gambler"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [1],
-	toolProfs: [["Gaming set", 1]],
+	toolProfs: [["Gaming Set", 1]],
 	feature: "Never Tell Me the Odds",
 	trait: [
 		"I plan for every contingency. Leave nothing to chance!",
@@ -17753,7 +17753,7 @@ BackgroundList["plaintiff"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [1],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	feature: "Legalese",
 	trait: [
 		"I can't believe I have a chance to join Acquisitions Incorporated! The fun I'm going to have!",
@@ -17810,7 +17810,7 @@ BackgroundList["rival intern"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [1],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	feature: "Inside Informant",
 	trait: [
 		"My previous employer didn't respect me, and now I'll do whatever I can to gain respect.",
@@ -18064,7 +18064,7 @@ BackgroundList["faceless"] = {
 	skills: ["Deception", "Intimidation"],
 	gold: 10,
 	languageProfs: [1],
-	toolProfs: ["Disguise kit"],
+	toolProfs: ["Disguise Kit"],
 	equipleft: [
 		["Disguise kit", "", 3],
 	],
@@ -19404,7 +19404,7 @@ AddSubRace("human", "mark of making", {
 	source: [["E:RLW", 45]],
 	size: 3,
 	languageProfs: ["Common", 1],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	skillstxt: null, // no Skillful
 	featsAdd: null, // no Versatile
 	trait: [
@@ -19690,7 +19690,7 @@ AddSubRace("dwarf", "mark of warding", {
 	languageProfs: ["Common", "Dwarvish"],
 	vision: [["Darkvision", 60]],
 	weaponProfs: [false, false, ["battleaxe", "handaxe", "warhammer", "light hammer"]],
-	toolProfs: [["Smith, brewer, or mason tools", 1]],
+	toolProfs: [["Smith, Brewer, or Mason Tools", 1]],
 	trait: [
 		"**Dwarf, Mark of Warding**",
 		"##\u25C6 Warder's Intuition##. I can add +1d4 to my Intelligence (Investigation) checks and ability checks with thieves' tools." + (typePF ? "\r##\u25C6 Stonecunning##. When I make an Int (History) check related to origin of stonework, I am considered having Expertise in the History skill." : " ##\u25C6 Stonecunning##. Expertise in History when concerning stonework."),
@@ -20346,7 +20346,7 @@ MagicItemsList["living gloves"] = {
 	"proficiency and expertise with thieves' tools": {
 		name: "Living Gloves [Thieves' Tools]",
 		description: "These symbiotic gloves made of thin chitin and sinew bond with my skin once I attune to them. Removing them requires ending a curse, I can't do so or end the attunement voluntarily. They give me proficiency and Expertise with thieves' tools.",
-		toolProfs: [["Thieves' tools", "Dex"]],
+		toolProfs: [["Thieves' Tools", "Dex"]],
 		eval: function () {
 			if (/thieve.?s.*tools/i.test(What("Too Text"))) {
 				Checkbox("Too Exp", true);
@@ -20361,12 +20361,12 @@ MagicItemsList["living gloves"] = {
 	"proficiency and expertise with chosen artisan's tools": {
 		name: "Living Gloves [Artisan's Tools]",
 		description: "These symbiotic gloves made of thin chitin and sinew bond with my skin once I attune to them. Removing them requires ending a curse, I can't do so or end the attunement voluntarily. They give me proficiency and Expertise with a set of artisan's tools of my choice (chosen when I attune to them).",
-		toolProfs: [["Artisan's tools", 1]],
+		toolProfs: [["Artisan's Tools", 1]],
 	},
 	"proficiency and expertise with chosen musical instrument": {
 		name: "Living Gloves [Musical Instrument]",
 		description: "These symbiotic gloves made of thin chitin and sinew bond with my skin once I attune to them. Removing them requires ending a curse, I can't do so or end the attunement voluntarily. They give me proficiency and Expertise with a musical instrument of my choice (chosen when I attune to them).",
-		toolProfs: [["Musical instrument", 1]],
+		toolProfs: [["Musical Instrument", 1]],
 	},
 }
 MagicItemsList["orb of shielding"] = {
@@ -21552,7 +21552,7 @@ BackgroundList["grinner"] = {
 	name: "Grinner",
 	source: [["W", 200]],
 	skills: ["Deception", "Performance"],
-	toolProfs: [["Thieves' tools", "Dex"], ["Musical instrument", 1]],
+	toolProfs: [["Thieves' Tools", "Dex"], ["Musical Instrument", 1]],
 	gold: 15,
 	equipleft: [
 		["Disguise kit", "", 3],
@@ -21629,7 +21629,7 @@ BackgroundList["volstrucker agent"] = {
 	name: "Volstrucker Agent",
 	source: [["W", 202]],
 	skills: ["Deception", "Stealth"],
-	toolProfs: ["Poisoner's kit"],
+	toolProfs: ["Poisoner's Kit"],
 	languageProfs: [1],
 	gold: 10,
 	equipleft: [
@@ -23172,7 +23172,7 @@ MagicItemsList["infiltrator's key"] = {
 			return str.replace("giving I", "giving me");
 		},
 	}],
-	toolProfs: [["Thieves' tools", "Dex"]],
+	toolProfs: [["Thieves' Tools", "Dex"]],
 	choices: ["Dormant", "Awakened", "Exalted"],
 	choicesNotInMenu: true,
 	"dormant": {
@@ -23605,14 +23605,14 @@ RaceList["satyr"] = { // includes contributions by BraabHimself
 		damage: [1, 4, "bludgeoning"],
 		selectNow: true,
 	}],
-	toolProfs: [["Musical instrument", 1]],
+	toolProfs: [["Musical Instrument", 1]],
 	age: " mature and age at about the same rate as humans",
 	height: " range from just under 5 feet to about 6 feet in height, with generally slender builds (4'8\" + 2d8\")",
 	weight: " weigh around 145 lbs (100 + 2d8 \xD7 2d4 lb)",
 	heightMetric: " range from just under 1,5 metres to about 1,8 metres in height, with generally slender builds (145 + 5d8 cm)",
 	weightMetric: " weigh around 66 kg (45 + 5d8 \xD7 4d4 / 10 kg)",
 	skills: ["Performance", "Persuasion"],
-	toolProfs: [["Musical instrument", 1]],
+	toolProfs: [["Musical Instrument", 1]],
 	trait: [
 		"**Satyr**",
 		"##\u25C6 Fey##. My creature type is Fey, rather than Humanoid.",
@@ -23680,7 +23680,7 @@ BackgroundList["athlete"] = { // includes contributions by Smashman
 	source: [["MOT", 31]],
 	skills: ["Acrobatics", "Athletics"],
 	languageProfs: [1],
-	toolProfs: ["Vehicles (land)"],
+	toolProfs: ["Vehicles (Land)"],
 	gold: 10,
 	equipleft: [
 		["A bronze discus or leather ball", "", ""],
@@ -25302,7 +25302,7 @@ ClassList["sidekick-expert-tcoe"] = {
 				name: "Bonus Proficiencies: Humanoid",
 				description: desc("I gain proficiency with Light armor and in five skills of my choice. Additionally, I gain proficiency with two tools of my choice and with all Simple weapons."),
 				weaponProfs: [true, false],
-				toolProfs: [["Tool of my choice", 2]],
+				toolProfs: [["Tool of My Choice", 2]],
 			},
 			"other base creatures": {
 				name: "Bonus Proficiencies: Non-humanoid",
@@ -26392,7 +26392,7 @@ AddSubClass("fighter", "rune knight", {
 			source: [["T", 44]],
 			minlevel: 3,
 			description: desc("I gain proficiency with Smith's Tools and I learn to speak, read, and write Giant."),
-			toolProfs: ["Smith's tools"],
+			toolProfs: ["Smith's Tools"],
 			languageProfs: ["Giant"],
 		},
 		"subclassfeature3.1": {
@@ -27454,7 +27454,7 @@ FeatsList["artificer initiate"] = {
 		level: [1, 1],
 		firstCol: "oncelr+markedbox",
 	}],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 };
 FeatsList["eldritch adept"] = {
 	name: "Eldritch Adept",
@@ -29587,7 +29587,7 @@ BackgroundList["feylost"] = {
 	name: "Feylost",
 	source: [["WBtW", 9]],
 	skills: ["Deception", "Survival"],
-	toolProfs: [["Musical instrument", 1]],
+	toolProfs: [["Musical Instrument", 1]],
 	languageProfs: [["Elvish, Gnomish, Goblin, or Sylvan", 1]],
 	gold: 8,
 	equipleft: [
@@ -29679,7 +29679,7 @@ BackgroundList["witchlight hand"] = {
 	name: "Witchlight Hand",
 	source: [["WBtW", 11]],
 	skills: ["Performance", "Sleight of Hand"],
-	toolProfs: [["Disguise kit or Musical instrument", 1]],
+	toolProfs: [["Disguise Kit or Musical Instrument", 1]],
 	languageProfs: [1],
 	gold: 8,
 	equipleft: [
@@ -32064,7 +32064,7 @@ BackgroundList["prismari student"] = {
 	source: [["SCC", 32]],
 	skills: ["Acrobatics", "Performance"],
 	languageProfs: [1],
-	toolProfs: [["Artisan's tools or Musical instrument", 1]],
+	toolProfs: [["Artisan's Tools or Musical Instrument", 1]],
 	gold: 10,
 	equipleft: [
 		["Black ink, 1 ounce bottle of", 1, ""],
@@ -32108,7 +32108,7 @@ BackgroundList["quandrix student"] = {
 	source: [["SCC", 33]],
 	skills: ["Arcana", "Nature"],
 	languageProfs: [1],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	gold: 15,
 	equipleft: [
 		["Black ink, 1 ounce bottle of", 1, ""],
@@ -32196,7 +32196,7 @@ BackgroundList["witherbloom student"] = {
 	source: [["SCC", 36]],
 	skills: ["Nature", "Survival"],
 	languageProfs: [1],
-	toolProfs: ["Herbalism kit"],
+	toolProfs: ["Herbalism Kit"],
 	gold: 15,
 	equipleft: [
 		["Black ink, 1 ounce bottle of", 1, ""],
@@ -33205,7 +33205,7 @@ AddSubRace("elf", "fey-multiverse", {
 	plural: "Eladrin",
 	skills: ["Perception"],
 	skillstxt: null,
-	toolProfs: [["Trance: tool or weapon", 2]],
+	toolProfs: [["Trance: Tool or Weapon", 2]],
 	abilitySave: [4, 5, 6],
 	trait: [
 		"**Eladrin** (multiverse) ##\u25C6 Creature Type##. Humanoid (elf).",
@@ -33537,7 +33537,7 @@ var MotM_Githyanki = {
 	dmgres: ["Psychic"],
 	languageProfs: ["Common", 2], // not the languages of the MToF githyanki
 	skillstxt: "Choose any one skill that lasts until the end of my next Long Rest",
-	toolProfs: [["Astral Knowledge: tool/weapon", 1]],
+	toolProfs: [["Astral Knowledge: Tool/Weapon", 1]],
 	age: " typically live to be around 100 years old. Githyanki who reside in the Astral Plane can live indefinitely.",
 	trait: [
 		"**Githyanki** (multiverse)",
@@ -33966,7 +33966,7 @@ AddSubRace("elf", "sea-multiverse", {
 	dmgres: ["Cold"],
 	skills: ["Perception"],
 	skillstxt: null,
-	toolProfs: [["Trance: tool or weapon", 2]],
+	toolProfs: [["Trance: Tool or Weapon", 2]],
 	age: " can live to be 750 years old",
 	trait: [
 		"**Sea Elf** (multiverse) ##\u25C6 Creature Type##. Humanoid (elf).",
@@ -33984,7 +33984,7 @@ AddSubRace("elf", "shadow-multiverse", {
 	dmgres: ["Necrotic"],
 	skills: ["Perception"],
 	skillstxt: null,
-	toolProfs: [["Trance: tool or weapon", 2]],
+	toolProfs: [["Trance: Tool or Weapon", 2]],
 	trait: [
 		"**Shadar-Kai** (multiverse)" + (typePF ? "\r" : " ") + "##\u25C6 Creature Type##. Humanoid (elf).",
 		"##\u25C6 Trance##. I don't need to sleep, and magic can't put me to sleep. I can finish a Long Rest in 4 hours while meditating consciously. At the end of the trance, I gain 2 weapon/tool proficiencies until the end of my next Long Rest.",
@@ -34604,7 +34604,7 @@ BackgroundList["wildspacer"] = {
 	name: "Wildspacer",
 	source: [["S:AiS", 8]],
 	skills: ["Athletics", "Survival"],
-	toolProfs: ["Navigator's tools", "Vehicles (space)"],
+	toolProfs: ["Navigator's Tools", "Vehicles (Space)"],
 	gold: 10,
 	equipleft: [
 		["Hempen rope, feet of", 50, 0.2],
@@ -34648,7 +34648,7 @@ AddSubRace("elf", "astral", {
 	},
 	skills: ["Perception"],
 	skillstxt: "Perception and choose any one skill which lasts until the end of my next Astral Trance",
-	toolProfs: [["Astral Trance: tool or weapon", 1]],
+	toolProfs: [["Astral Trance: Tool or Weapon", 1]],
 	spellcastingAbility: [4, 5, 6],
 	spellcastingBonus: [{
 		name: "Astral Fire",
@@ -34698,7 +34698,7 @@ RaceList["autognome"] = {
 		adv_vs: ["Paralyzed", "Poisoned"],
 		immune: ["disease"],
 	},
-	toolProfs: [["Tool of my choice", 2]],
+	toolProfs: [["Tool of My Choice", 2]],
 	trait: typePF ? [
 		"**Autognome** ##\u25C6 Construct##. My creature type is Construct.",
 		"##\u25C6 Armored Casing##. My base AC is 13 + my Dexterity modifier.",
@@ -36268,7 +36268,7 @@ BackgroundList["rune carver"] = {
 	source: [["GotG", 14]],
 	skills: ["History", "Perception"],
 	gold: 10,
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	languageProfs: ["Giant"],
 	equipleft: [
 		["Set of artisan's tools", "", ""],
@@ -39194,7 +39194,7 @@ BackgroundList["rewarded"] = {
 	skills: ["Insight", "Persuasion"],
 	gold: 18,
 	languageProfs: [1],
-	toolProfs: [["Gaming set", 1]],
+	toolProfs: [["Gaming Set", 1]],
 	equipleft: [
 		["Paper, sheets of", "", 5],
 		["Ink, 1 ounce bottle of", 1, ""],
@@ -39244,7 +39244,7 @@ BackgroundList["ruined"] = {
 	skills: ["Stealth", "Survival"],
 	gold: 13,
 	languageProfs: [1],
-	toolProfs: [["Gaming set", 1]],
+	toolProfs: [["Gaming Set", 1]],
 	equipleft: [
 		["Cracked hourglass", "", 1],
 		["Rusty manacles", "", 6],

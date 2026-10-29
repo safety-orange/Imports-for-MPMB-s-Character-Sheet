@@ -87,7 +87,7 @@ BackgroundList["prismari student"] = {
 	source: [["SCC", 32]],
 	skills: ["Acrobatics", "Performance"],
 	languageProfs: [1],
-	toolProfs: [["Artisan's tools or Musical instrument", 1]],
+	toolProfs: [["Artisan's Tools or Musical Instrument", 1]],
 	gold: 10,
 	equipleft: [
 		["Black ink, 1 ounce bottle of", 1, ""],
@@ -131,7 +131,7 @@ BackgroundList["quandrix student"] = {
 	source: [["SCC", 33]],
 	skills: ["Arcana", "Nature"],
 	languageProfs: [1],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	gold: 15,
 	equipleft: [
 		["Black ink, 1 ounce bottle of", 1, ""],
@@ -219,7 +219,7 @@ BackgroundList["witherbloom student"] = {
 	source: [["SCC", 36]],
 	skills: ["Nature", "Survival"],
 	languageProfs: [1],
-	toolProfs: ["Herbalism kit"],
+	toolProfs: ["Herbalism Kit"],
 	gold: 15,
 	equipleft: [
 		["Black ink, 1 ounce bottle of", 1, ""],

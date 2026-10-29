@@ -73,7 +73,7 @@ BackgroundList["black fist double agent"] = {
 		"My desire for vengeance often gets me into trouble.",
 		"I am spendthrift, and share my wealth with the patrons of my favorite tavern.",
 	],
-	toolProfs: ["Disguise Kit", ["Artisan's tools or gaming set", 1]],
+	toolProfs: ["Disguise Kit", ["Artisan's Tools or Gaming Set", 1]],
 	lifestyle: "modest",
 };
 BackgroundList["dragon casualty"] = {
@@ -81,7 +81,7 @@ BackgroundList["dragon casualty"] = {
 	name: "Dragon Casualty",
 	source: [["AL:CoS", 3]],
 	skills: ["Intimidation", "Survival"],
-	toolProfs: ["Based on my origin"],
+	toolProfs: ["Based on My Origin"],
 	gold: 5,
 	equipleft: [
 		["Loaf of moldy bread", "", 1],
@@ -160,7 +160,7 @@ BackgroundList["iron route bandit"] = {
 	name: "Iron Route Bandit",
 	source: [["AL:CoS", 5]],
 	skills: ["Animal Handling", "Stealth"],
-	toolProfs: [["Gaming set", 1], "Vehicles (land)"],
+	toolProfs: [["Gaming Set", 1], "Vehicles (Land)"],
 	gold: 5,
 	equipleft: [
 		["Backpack, with:", "", 5],
@@ -225,7 +225,7 @@ BackgroundList["phlan insurgent"] = {
 	name: "Phlan Insurgent",
 	source: [["AL:CoS", 6]],
 	skills: ["Stealth", "Survival"],
-	toolProfs: [["Artisan's tools", 1], "Vehicles (land)"],
+	toolProfs: [["Artisan's Tools", 1], "Vehicles (Land)"],
 	gold: 5,
 	equipleft: [
 		["Caltrops", 20, 0.1],
@@ -297,7 +297,7 @@ BackgroundList["stojanow prisoner"] = {
 	name: "Stojanow Prisoner",
 	source: [["AL:CoS", 8]],
 	skills: ["Deception", "Perception"],
-	toolProfs: [["Gaming set", 1], ["Thieves' tools", "Dex"]],
+	toolProfs: [["Gaming Set", 1], ["Thieves' Tools", "Dex"]],
 	gold: 10,
 	equipleft: [
 		["Small knife", "", 0.25],

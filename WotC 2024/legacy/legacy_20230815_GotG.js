@@ -150,7 +150,7 @@ BackgroundList["rune carver"] = {
 	source: [["GotG", 14]],
 	skills: ["History", "Perception"],
 	gold: 10,
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	languageProfs: ["Giant"],
 	equipleft: [
 		["Set of artisan's tools", "", ""],

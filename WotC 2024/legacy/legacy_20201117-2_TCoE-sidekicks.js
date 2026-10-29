@@ -251,7 +251,7 @@ ClassList["sidekick-expert-tcoe"] = {
 				name: "Bonus Proficiencies: Humanoid",
 				description: desc("I gain proficiency with Light armor and in five skills of my choice. Additionally, I gain proficiency with two tools of my choice and with all Simple weapons."),
 				weaponProfs: [true, false],
-				toolProfs: [["Tool of my choice", 2]],
+				toolProfs: [["Tool of My Choice", 2]],
 			},
 			"other base creatures": {
 				name: "Bonus Proficiencies: Non-humanoid",

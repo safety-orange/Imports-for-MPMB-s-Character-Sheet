@@ -20,7 +20,7 @@ BackgroundList["rewarded"] = {
 	skills: ["Insight", "Persuasion"],
 	gold: 18,
 	languageProfs: [1],
-	toolProfs: [["Gaming set", 1]],
+	toolProfs: [["Gaming Set", 1]],
 	equipleft: [
 		["Paper, sheets of", "", 5],
 		["Ink, 1 ounce bottle of", 1, ""],
@@ -70,7 +70,7 @@ BackgroundList["ruined"] = {
 	skills: ["Stealth", "Survival"],
 	gold: 13,
 	languageProfs: [1],
-	toolProfs: [["Gaming set", 1]],
+	toolProfs: [["Gaming Set", 1]],
 	equipleft: [
 		["Cracked hourglass", "", 1],
 		["Rusty manacles", "", 6],

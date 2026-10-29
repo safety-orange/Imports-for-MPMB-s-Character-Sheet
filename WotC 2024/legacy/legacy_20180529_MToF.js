@@ -613,7 +613,7 @@ AddSubRace("githyanki", "tool proficiency", {
 	regExpSearch: /tool proficiency/i,
 	source: [["MToF", 96]],
 	skillstxt: null,
-	toolProfs: [["Any tool", 1]],
+	toolProfs: [["Any Tool", 1]],
 	trait: RaceList["githyanki"].trait.map(function (s, i) {
 		return i !== 1 ? s : "##\u25C6 Decadent Mastery##. I am proficient with one tool of my choice.";
 	}),
@@ -714,7 +714,7 @@ if (!RaceSubList["dwarf-gray"]) {
 		vision: [["Darkvision", 120], ["Sunlight Sensitivity", 0]],
 		savetxt: { adv_vs: ["Charmed", "Illusions", "Paralyzed", "Poisoned"] },
 		weaponProfs: [false, false, ["battleaxe", "handaxe", "warhammer", "light hammer"]],
-		toolProfs: [["Smith, brewer, or mason tools", 1]],
+		toolProfs: [["Smith, Brewer, or Mason Tools", 1]],
 		calcChanges: null, // no Dwarven Toughness
 		trait: [
 			"**Duergar**",

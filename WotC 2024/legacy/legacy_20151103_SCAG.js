@@ -39,7 +39,7 @@ AddSubRace("dwarf", "gray", {
 	vision: [["Darkvision", 120], ["Sunlight Sensitivity", 0]],
 	savetxt: { adv_vs: ["Charmed", "Illusions", "Paralyzed", "Poisoned"] },
 	weaponProfs: [false, false, ["battleaxe", "handaxe", "warhammer", "light hammer"]],
-	toolProfs: [["Smith, brewer, or mason tools", 1]],
+	toolProfs: [["Smith, Brewer, or Mason Tools", 1]],
 	calcChanges: null, // no Dwarven Toughness
 	trait: [
 		"**Duergar**",
@@ -546,7 +546,7 @@ AddSubClass("rogue", "mastermind", {
 			minlevel: 3,
 			description: desc("I gain proficiency with disguise kits, forgery kits, one gaming set, and two languages. I can mimic speech patterns and accents if I've heard them for at least 1 minute."),
 			languageProfs: [2],
-			toolProfs: ["Disguise kit", "Forgery kit", ["Gaming set", 1]],
+			toolProfs: ["Disguise Kit", "Forgery Kit", ["Gaming Set", 1]],
 		},
 		"subclassfeature3.1": {
 			name: "Master of Tactics",
@@ -769,7 +769,7 @@ BackgroundList["clan crafter"] = {
 		["Belt pouch (with coins and 10 gp gem)", "", 1],
 	],
 	feature: "Respect of the Stout Folk",
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	languageProfs: ["Dwarvish"],
 	lifestyle: "comfortable",
 };
@@ -906,7 +906,7 @@ BackgroundList["far traveler"] = {
 		"Sightseer",
 		"Wanderer",
 	],
-	toolProfs: [["Gaming set or musical instrument", 1]],
+	toolProfs: [["Gaming Set or Musical Instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "modest",
 };
@@ -936,7 +936,7 @@ BackgroundList["inheritor"] = {
 		"Written story, song, poem, or secret",
 		"Tattoo or other body marking",
 	],
-	toolProfs: [["Gaming set or musical instrument", 1]],
+	toolProfs: [["Gaming Set or Musical Instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "wealthy",
 };
@@ -954,7 +954,7 @@ BackgroundList["knight of the order"] = {
 	],
 	feature: "Knightly Regard",
 	extra: ["Name your Knightly Order"],
-	toolProfs: [["Gaming set or musical instrument", 1]],
+	toolProfs: [["Gaming Set or Musical Instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "comfortable",
 };
@@ -972,7 +972,7 @@ BackgroundList["mercenary veteran"] = {
 	],
 	feature: "Mercenary Life",
 	extra: ["Name your Mercenary Company"],
-	toolProfs: [["Gaming set", 1], "Vehicles (land)"],
+	toolProfs: [["Gaming Set", 1], "Vehicles (Land)"],
 	lifestyle: "modest",
 };
 BackgroundList["urban bounty hunter"] = {
@@ -987,7 +987,7 @@ BackgroundList["urban bounty hunter"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Ear to the Ground",
-	toolProfs: [["Gaming set, instrument, or thieves' tools", 2]],
+	toolProfs: [["Gaming Set, Instrument, or Thieves' Tools", 2]],
 	lifestyle: "poor",
 };
 BackgroundList["uthgardt tribe member"] = {
@@ -1003,7 +1003,7 @@ BackgroundList["uthgardt tribe member"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	feature: "Uthgardt Heritage",
-	toolProfs: [["Artisan's tools or musical instrument", 1]],
+	toolProfs: [["Artisan's Tools or Musical Instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "poor",
 };
@@ -1023,7 +1023,7 @@ BackgroundList["waterdhavian noble"] = {
 		["Purse (with coins)", "", 1],
 	],
 	feature: "Kept in Style",
-	toolProfs: [["Gaming set or musical instrument", 1]],
+	toolProfs: [["Gaming Set or Musical Instrument", 1]],
 	languageProfs: [1],
 	lifestyle: "wealthy",
 };

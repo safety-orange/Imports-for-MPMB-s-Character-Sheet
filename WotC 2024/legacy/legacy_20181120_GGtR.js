@@ -345,7 +345,7 @@ RaceList["vedalken"] = {
 	savetxt: { text: ["Adv on Int/Wis/Cha saves"] },
 	skillstxt: "Choose one from Arcana, History, Investigation, Medicine, Performance, or Sleight of Hand. I add 1d4 to a check with the chosen skill",
 	languageProfs: ["Common", "Vedalken", 1],
-	toolProfs: [["Any tool", 1]],
+	toolProfs: [["Any Tool", 1]],
 	age: " reach maturity around age 40 and typically live 350 years, with some living up to 500 years",
 	height: " stand between 6 and 6 and a half feet tall (5'4\" + 2d10\")",
 	weight: " are slender, weighing around 200 pounds (110 + 2d10 \xD7 2d4 lb)",
@@ -599,7 +599,7 @@ BackgroundList["boros legionnaire"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [["Celestial, Draconic, Goblin, or Minotaur", 1]],
-	toolProfs: [["Gaming set", 1]],
+	toolProfs: [["Gaming Set", 1]],
 	feature: "Legion Station",
 	trait: [
 		"I approach every task with the same high degree of military precision.",
@@ -670,7 +670,7 @@ BackgroundList["dimir operative"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [1],
-	toolProfs: ["Disguise kit"],
+	toolProfs: ["Disguise Kit"],
 	feature: "False Guild Identity",
 	trait: [
 		"I'm good at hiding my true thoughts and feelings.",
@@ -751,7 +751,7 @@ BackgroundList["golgari agent"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [["Elvish, Giant, or Kraul", 1]],
-	toolProfs: ["Poisoner's kit"],
+	toolProfs: ["Poisoner's Kit"],
 	feature: "Undercity Paths",
 	trait: [
 		"Remember, I could kill you in your sleep. Or put centipedes in your bedroll.",
@@ -823,7 +823,7 @@ BackgroundList["gruul anarch"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [["Draconic, Giant, Goblin, or Sylvan", 1]],
-	toolProfs: ["Herbalism kit"],
+	toolProfs: ["Herbalism Kit"],
 	feature: "Rubblebelt Refuge",
 	trait: [
 		"Unlike people, the beasts of the wild are friends who won't stab me in the back.",
@@ -906,7 +906,7 @@ BackgroundList["izzet engineer"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [["Draconic, Goblin, or Vedalken", 1]],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	feature: "Urban Infrastructure",
 	trait: [
 		"I have a hard time staying focused on ... oh, and my brain tends to jump from one ... did I mention focus?",
@@ -1048,7 +1048,7 @@ BackgroundList["rakdos cultist"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [["Abyssal or Giant", 1]],
-	toolProfs: [["Musical instrument", 1]],
+	toolProfs: [["Musical Instrument", 1]],
 	feature: "Fearsome Reputation",
 	trait: [
 		"I revel in mayhem, the more destructive the better.",
@@ -1129,7 +1129,7 @@ BackgroundList["selesnya initiate"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	languageProfs: [["Elvish, Loxodon, or Sylvan", 1]],
-	toolProfs: [["Artisan's tools or musical instrument", 1]],
+	toolProfs: [["Artisan's Tools or Musical Instrument", 1]],
 	feature: "Conclave's Shelter",
 	trait: [
 		"I never raise my voice or lose my temper.",

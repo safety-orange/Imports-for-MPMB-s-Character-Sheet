@@ -68,7 +68,7 @@ BackgroundList["wildspacer"] = {
 	name: "Wildspacer",
 	source: [["S:AiS", 8]],
 	skills: ["Athletics", "Survival"],
-	toolProfs: ["Navigator's tools", "Vehicles (space)"],
+	toolProfs: ["Navigator's Tools", "Vehicles (Space)"],
 	gold: 10,
 	equipleft: [
 		["Hempen rope, feet of", 50, 0.2],
@@ -112,7 +112,7 @@ AddSubRace("elf", "astral", {
 	},
 	skills: ["Perception"],
 	skillstxt: "Perception and choose any one skill which lasts until the end of my next Astral Trance",
-	toolProfs: [["Astral Trance: tool or weapon", 1]],
+	toolProfs: [["Astral Trance: Tool or Weapon", 1]],
 	spellcastingAbility: [4, 5, 6],
 	spellcastingBonus: [{
 		name: "Astral Fire",
@@ -162,7 +162,7 @@ RaceList["autognome"] = {
 		adv_vs: ["Paralyzed", "Poisoned"],
 		immune: ["disease"],
 	},
-	toolProfs: [["Tool of my choice", 2]],
+	toolProfs: [["Tool of My Choice", 2]],
 	trait: typePF ? [
 		"**Autognome** ##\u25C6 Construct##. My creature type is Construct.",
 		"##\u25C6 Armored Casing##. My base AC is 13 + my Dexterity modifier.",

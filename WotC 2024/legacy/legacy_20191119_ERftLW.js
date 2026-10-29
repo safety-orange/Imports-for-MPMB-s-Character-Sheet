@@ -485,7 +485,7 @@ AddSubRace("human", "mark of making", {
 	source: [["E:RLW", 45]],
 	size: 3,
 	languageProfs: ["Common", 1],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	skillstxt: null, // no Skillful
 	featsAdd: null, // no Versatile
 	trait: [
@@ -771,7 +771,7 @@ AddSubRace("dwarf", "mark of warding", {
 	languageProfs: ["Common", "Dwarvish"],
 	vision: [["Darkvision", 60]],
 	weaponProfs: [false, false, ["battleaxe", "handaxe", "warhammer", "light hammer"]],
-	toolProfs: [["Smith, brewer, or mason tools", 1]],
+	toolProfs: [["Smith, Brewer, or Mason Tools", 1]],
 	trait: [
 		"**Dwarf, Mark of Warding**",
 		"##\u25C6 Warder's Intuition##. I can add +1d4 to my Intelligence (Investigation) checks and ability checks with thieves' tools." + (typePF ? "\r##\u25C6 Stonecunning##. When I make an Int (History) check related to origin of stonework, I am considered having Expertise in the History skill." : " ##\u25C6 Stonecunning##. Expertise in History when concerning stonework."),
@@ -1451,7 +1451,7 @@ MagicItemsList["living gloves"] = {
 	"proficiency and expertise with thieves' tools": {
 		name: "Living Gloves [Thieves' Tools]",
 		description: "These symbiotic gloves made of thin chitin and sinew bond with my skin once I attune to them. Removing them requires ending a curse, I can't do so or end the attunement voluntarily. They give me proficiency and Expertise with thieves' tools.",
-		toolProfs: [["Thieves' tools", "Dex"]],
+		toolProfs: [["Thieves' Tools", "Dex"]],
 		eval: function () {
 			if (/thieve.?s.*tools/i.test(What("Too Text"))) {
 				Checkbox("Too Exp", true);
@@ -1466,12 +1466,12 @@ MagicItemsList["living gloves"] = {
 	"proficiency and expertise with chosen artisan's tools": {
 		name: "Living Gloves [Artisan's Tools]",
 		description: "These symbiotic gloves made of thin chitin and sinew bond with my skin once I attune to them. Removing them requires ending a curse, I can't do so or end the attunement voluntarily. They give me proficiency and Expertise with a set of artisan's tools of my choice (chosen when I attune to them).",
-		toolProfs: [["Artisan's tools", 1]],
+		toolProfs: [["Artisan's Tools", 1]],
 	},
 	"proficiency and expertise with chosen musical instrument": {
 		name: "Living Gloves [Musical Instrument]",
 		description: "These symbiotic gloves made of thin chitin and sinew bond with my skin once I attune to them. Removing them requires ending a curse, I can't do so or end the attunement voluntarily. They give me proficiency and Expertise with a musical instrument of my choice (chosen when I attune to them).",
-		toolProfs: [["Musical instrument", 1]],
+		toolProfs: [["Musical Instrument", 1]],
 	},
 }
 MagicItemsList["orb of shielding"] = {

@@ -20,7 +20,7 @@ BackgroundList["faceless"] = {
 	skills: ["Deception", "Intimidation"],
 	gold: 10,
 	languageProfs: [1],
-	toolProfs: ["Disguise kit"],
+	toolProfs: ["Disguise Kit"],
 	equipleft: [
 		["Disguise kit", "", 3],
 	],

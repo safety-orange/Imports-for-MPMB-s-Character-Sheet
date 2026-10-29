@@ -276,7 +276,7 @@ AddSubRace("elf", "fey-multiverse", {
 	plural: "Eladrin",
 	skills: ["Perception"],
 	skillstxt: null,
-	toolProfs: [["Trance: tool or weapon", 2]],
+	toolProfs: [["Trance: Tool or Weapon", 2]],
 	abilitySave: [4, 5, 6],
 	trait: [
 		"**Eladrin** (multiverse) ##\u25C6 Creature Type##. Humanoid (elf).",
@@ -714,7 +714,7 @@ var MotM_Githyanki = {
 	dmgres: ["Psychic"],
 	languageProfs: ["Common", 2], // not the languages of the MToF githyanki
 	skillstxt: "Choose any one skill that lasts until the end of my next Long Rest",
-	toolProfs: [["Astral Knowledge: tool/weapon", 1]],
+	toolProfs: [["Astral Knowledge: Tool/Weapon", 1]],
 	age: " typically live to be around 100 years old. Githyanki who reside in the Astral Plane can live indefinitely.",
 	trait: [
 		"**Githyanki** (multiverse)",
@@ -1254,7 +1254,7 @@ if (!RaceList["satyr"]) {
 		speed: {
 			walk: { spd: 35, enc: 25 },
 		},
-		toolProfs: [["Musical instrument", 1]],
+		toolProfs: [["Musical Instrument", 1]],
 		skills: ["Performance", "Persuasion"],
 	});
 } else // But otherwise make it a subrace
@@ -1276,7 +1276,7 @@ AddSubRace("elf", "sea-multiverse", {
 	dmgres: ["Cold"],
 	skills: ["Perception"],
 	skillstxt: null,
-	toolProfs: [["Trance: tool or weapon", 2]],
+	toolProfs: [["Trance: Tool or Weapon", 2]],
 	age: " can live to be 750 years old",
 	trait: [
 		"**Sea Elf** (multiverse) ##\u25C6 Creature Type##. Humanoid (elf).",
@@ -1294,7 +1294,7 @@ AddSubRace("elf", "shadow-multiverse", {
 	dmgres: ["Necrotic"],
 	skills: ["Perception"],
 	skillstxt: null,
-	toolProfs: [["Trance: tool or weapon", 2]],
+	toolProfs: [["Trance: Tool or Weapon", 2]],
 	trait: [
 		"**Shadar-Kai** (multiverse)" + (typePF ? "\r" : " ") + "##\u25C6 Creature Type##. Humanoid (elf).",
 		"##\u25C6 Trance##. I don't need to sleep, and magic can't put me to sleep. I can finish a Long Rest in 4 hours while meditating consciously. At the end of the trance, I gain 2 weapon/tool proficiencies until the end of my next Long Rest.",

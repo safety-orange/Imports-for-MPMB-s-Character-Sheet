@@ -74,7 +74,7 @@ BackgroundList["caravan specialist"] = {
 		"Once I decide on a course of action, I do not waver.",
 		"I like to explore, and my curiosity will sometimes get me into trouble.",
 	],
-	toolProfs: ["Vehicles (land)"],
+	toolProfs: ["Vehicles (Land)"],
 	languageProfs: [1],
 	lifestyle: "poor",
 };
@@ -205,7 +205,7 @@ BackgroundList["harborfolk"] = {
 		"I almost always cheat. I can't help myself.",
 		"I am a secret informant for the Hawks. I send them reports about everything I see and hear, even what my friends and allies are up to.",
 	],
-	toolProfs: [["Gaming set", 1], "Vehicles (water)"],
+	toolProfs: [["Gaming Set", 1], "Vehicles (Water)"],
 	lifestyle: "poor",
 };
 BackgroundList["mulmaster aristocrat"] = {
@@ -268,7 +268,7 @@ BackgroundList["mulmaster aristocrat"] = {
 		"My family has lost everything. I must keep up appearances, lest we become a laughingstock.",
 		"I have no artistic sense. I hide that fact behind extreme opinions and have become a trendsetter.",
 	],
-	toolProfs: [["Artisan's tools", 1], ["Musical instrument", 1]],
+	toolProfs: [["Artisan's Tools", 1], ["Musical Instrument", 1]],
 	lifestyle: "wealthy",
 };
 BackgroundList["phlan refugee"] = {
@@ -332,7 +332,7 @@ BackgroundList["phlan refugee"] = {
 		"I am unable to keep secrets. A secret is just an untold story.",
 		"When something goes wrong, it's never my fault.",
 	],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	languageProfs: [1],
 	lifestyle: "modest",
 };

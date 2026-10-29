@@ -1164,7 +1164,7 @@ AddSubClass("fighter", "battle master", {
 				source: [["PHB24", 94]],
 				minlevel: 3,
 				description: ' #[Select option with "Choose Feature"]#' + desc("I gain proficiency with one type of Artisan's Tools and in one skill from the Fighter list. Use the \"Choose Feature\" button to select a skill."),
-				toolProfs: [["Artisan's tools", 1]],
+				toolProfs: [["Artisan's Tools", 1]],
 				choices: ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Persuasion", "Perception", "Survival"],
 			};
 			for (var i = 0; i < a.choices.length; i++) {
@@ -1499,7 +1499,7 @@ AddSubClass("monk", "mercy", {
 			minlevel: 3,
 			description: " [Insight, Medicine, and Herbalism Kit prof]",
 			skills: ["Insight", "Medicine"],
-			toolProfs: ["Herbalism kit"],
+			toolProfs: ["Herbalism Kit"],
 		},
 		"subclassfeature6": {
 			name: "Physician's Touch",
@@ -3633,7 +3633,7 @@ BackgroundList["artisan"] = {
 	source: [["PHB24", 178]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Strength, Dexterity, and Intelligence",
 	skills: ["Investigation", "Persuasion"],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 	gold: 32,
 	equipleft: [
 		["Artisan's tools (same as proficiency)", "", 5],
@@ -4463,7 +4463,7 @@ FeatsList["crafter"] = {
 			["Woodcarver's Tools", "Club, Greatclub, Quarterstaff"],
 		],
 	],
-	toolProfs: [["Artisan's tools", 3]],
+	toolProfs: [["Artisan's Tools", 3]],
 	toNotesPage: [
 		{
 			name: "Fast Crafting",

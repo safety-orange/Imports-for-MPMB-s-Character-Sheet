@@ -17,7 +17,7 @@ BackgroundList["feylost"] = {
 	name: "Feylost",
 	source: [["WBtW", 9]],
 	skills: ["Deception", "Survival"],
-	toolProfs: [["Musical instrument", 1]],
+	toolProfs: [["Musical Instrument", 1]],
 	languageProfs: [["Elvish, Gnomish, Goblin, or Sylvan", 1]],
 	gold: 8,
 	equipleft: [
@@ -109,7 +109,7 @@ BackgroundList["witchlight hand"] = {
 	name: "Witchlight Hand",
 	source: [["WBtW", 11]],
 	skills: ["Performance", "Sleight of Hand"],
-	toolProfs: [["Disguise kit or Musical instrument", 1]],
+	toolProfs: [["Disguise Kit or Musical Instrument", 1]],
 	languageProfs: [1],
 	gold: 8,
 	equipleft: [

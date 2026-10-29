@@ -750,7 +750,7 @@ AddSubClass("fighter", "rune knight", {
 			source: [["T", 44]],
 			minlevel: 3,
 			description: desc("I gain proficiency with Smith's Tools and I learn to speak, read, and write Giant."),
-			toolProfs: ["Smith's tools"],
+			toolProfs: ["Smith's Tools"],
 			languageProfs: ["Giant"],
 		},
 		"subclassfeature3.1": {
@@ -1812,7 +1812,7 @@ FeatsList["artificer initiate"] = {
 		level: [1, 1],
 		firstCol: "oncelr+markedbox",
 	}],
-	toolProfs: [["Artisan's tools", 1]],
+	toolProfs: [["Artisan's Tools", 1]],
 };
 FeatsList["eldritch adept"] = {
 	name: "Eldritch Adept",

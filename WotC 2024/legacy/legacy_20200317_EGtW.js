@@ -1257,7 +1257,7 @@ BackgroundList["grinner"] = {
 	name: "Grinner",
 	source: [["W", 200]],
 	skills: ["Deception", "Performance"],
-	toolProfs: [["Thieves' tools", "Dex"], ["Musical instrument", 1]],
+	toolProfs: [["Thieves' Tools", "Dex"], ["Musical Instrument", 1]],
 	gold: 15,
 	equipleft: [
 		["Disguise kit", "", 3],
@@ -1334,7 +1334,7 @@ BackgroundList["volstrucker agent"] = {
 	name: "Volstrucker Agent",
 	source: [["W", 202]],
 	skills: ["Deception", "Stealth"],
-	toolProfs: ["Poisoner's kit"],
+	toolProfs: ["Poisoner's Kit"],
 	languageProfs: [1],
 	gold: 10,
 	equipleft: [
@@ -2877,7 +2877,7 @@ MagicItemsList["infiltrator's key"] = {
 			return str.replace("giving I", "giving me");
 		},
 	}],
-	toolProfs: [["Thieves' tools", "Dex"]],
+	toolProfs: [["Thieves' Tools", "Dex"]],
 	choices: ["Dormant", "Awakened", "Exalted"],
 	choicesNotInMenu: true,
 	"dormant": {

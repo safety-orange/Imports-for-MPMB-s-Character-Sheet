@@ -301,7 +301,7 @@ AddSubClass("cleric", "forge domain", {
 			spellcastingExtra: ["identify", "searing smite", "heat metal", "magic weapon", "elemental weapon", "protection from energy", "fabricate", "wall of fire", "animate objects", "creation"],
 			description: desc("I gain proficiency with Heavy armor and smith's tools."),
 			armorProfs: [false, false, true, false],
-			toolProfs: ["Smith's tools"],
+			toolProfs: ["Smith's Tools"],
 		},
 		"subclassfeature3.1": {
 			name: "Blessing of the Forge",
@@ -662,7 +662,7 @@ AddSubClass("monk", "way of the drunken master", {
 			minlevel: 3,
 			description: desc("I gain proficiency with the Performance skill and brewer's supplies."),
 			skills: ["Performance"],
-			toolProfs: ["Brewer's supplies"],
+			toolProfs: ["Brewer's Supplies"],
 		},
 		"subclassfeature3.1": {
 			name: "Drunken Technique",
@@ -713,7 +713,7 @@ RunFunctionAtEnd(function () {
 				]),
 				action: [["bonus action", " (with ranged)"]],
 				additional: levels.map( function (n) { return n < 3 ? "" : (n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5) + " kensei weapons"; }),
-				toolProfs: ["calligrapher's or painter's supplies"],
+				toolProfs: ["Calligrapher's or Painter's Supplies"],
 				extraname: "Kensei Weapon",
 				extrachoices: [], // add these dynamically, see below
 				extraTimes: levels.map( function (n) { return n < 3 ? 0 : n < 6 ? 2 : n < 11 ? 3 : n < 17 ? 4 : 5; }),
@@ -1174,7 +1174,7 @@ if (!ClassSubList["rogue-mastermind"] && (!SourceList["S"] || SourceList["S"].ab
 				minlevel: 3,
 				description: desc("I gain proficiency with disguise kits, forgery kits, one gaming set, and two languages. I can mimic speech patterns and accents if I've heard them for at least 1 minute."),
 				languageProfs: [2],
-				toolProfs: ["Disguise kit", "Forgery kit", ["Gaming set", 1]],
+				toolProfs: ["Disguise Kit", "Forgery Kit", ["Gaming Set", 1]],
 			},
 			"subclassfeature3.1": {
 				name: "Master of Tactics",
@@ -2072,7 +2072,7 @@ FeatsList["prodigy"] = {
 	description: "I gain proficiency with one skill of my choice and Expertise with it, or Expertise with another skill of my choice that I'm already proficient with. I also gain proficiency with one tool of my choice and fluency in one language of my choice.",
 	skillstxt: "Proficiency with any one skill and Expertise with any one skill that you are already proficient with",
 	languageProfs: [1],
-	toolProfs: [["Any tool", 1]],
+	toolProfs: [["Any Tool", 1]],
 };
 FeatsList["second chance"] = {
 	name: "Second Chance",
